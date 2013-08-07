@@ -27,7 +27,7 @@ import org.json.JSONException;
 public class t extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f951a;
+    private Context f949a;
     private com.baidu.tieba.util.a g;
     private boolean b = false;
     private boolean c = false;
@@ -62,11 +62,11 @@ public class t extends BaseAdapter {
     }
 
     public t(Context context) {
-        this.f951a = null;
+        this.f949a = null;
         this.g = null;
-        this.f951a = context;
-        this.g = new com.baidu.tieba.util.a(this.f951a);
-        int a2 = am.a(this.f951a, 40.0f);
+        this.f949a = context;
+        this.g = new com.baidu.tieba.util.a(this.f949a);
+        int a2 = am.a(this.f949a, 40.0f);
         this.g.a(a2, a2);
         this.g.b("_small");
     }
@@ -133,9 +133,9 @@ public class t extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         u uVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f951a).inflate(R.layout.chat_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f949a).inflate(R.layout.chat_list_item, (ViewGroup) null);
             uVar = new u(this, null);
-            uVar.f952a = (FrameLayout) view.findViewById(R.id.chat_item);
+            uVar.f950a = (FrameLayout) view.findViewById(R.id.chat_item);
             uVar.b = (LinearLayout) view.findViewById(R.id.list_content);
             uVar.c = (HeadImageView) view.findViewById(R.id.chat_head);
             uVar.d = (TextView) view.findViewById(R.id.chat_name);
@@ -223,7 +223,7 @@ public class t extends BaseAdapter {
                     e.printStackTrace();
                 }
                 if (au == 1) {
-                    uVar.f952a.setBackgroundColor(-13618114);
+                    uVar.f950a.setBackgroundColor(-13618114);
                     uVar.d.setTextColor(-8682086);
                     uVar.e.setTextColor(-11446171);
                     uVar.f.setTextColor(-8682086);
@@ -231,7 +231,7 @@ public class t extends BaseAdapter {
                     uVar.g.setTextColor(-478825);
                     uVar.h.setBackgroundColor(-14210253);
                 } else {
-                    uVar.f952a.setBackgroundColor(-197380);
+                    uVar.f950a.setBackgroundColor(-197380);
                     uVar.d.setTextColor(-14277082);
                     uVar.e.setTextColor(-10066330);
                     uVar.f.setTextColor(-8682086);

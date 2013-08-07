@@ -9,14 +9,14 @@ import org.apache.http.message.BasicNameValuePair;
 public class n extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f1377a;
+    final /* synthetic */ m f1375a;
     private com.baidu.tieba.util.u b = null;
     private boolean c;
     private boolean d;
     private boolean e;
 
     public n(m mVar, Boolean bool, Boolean bool2, Boolean bool3) {
-        this.f1377a = mVar;
+        this.f1375a = mVar;
         this.c = false;
         this.d = false;
         this.e = true;
@@ -84,7 +84,7 @@ public class n extends BdAsyncTask {
         }
         if (this.d) {
             StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append(com.baidu.tieba.data.g.f1013a);
+            stringBuffer.append(com.baidu.tieba.data.g.f1011a);
             stringBuffer.append("c/f/forum/favocommend");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("ctime", String.valueOf(System.currentTimeMillis())));
@@ -124,9 +124,9 @@ public class n extends BdAsyncTask {
     /* renamed from: a */
     public void b(com.baidu.tieba.data.t... tVarArr) {
         com.baidu.adp.a.e eVar;
-        this.f1377a.f1376a = tVarArr[0];
-        this.f1377a.mLoadDataMode = 2;
-        eVar = this.f1377a.mLoadDataCallBack;
+        this.f1375a.f1374a = tVarArr[0];
+        this.f1375a.mLoadDataMode = 2;
+        eVar = this.f1375a.mLoadDataCallBack;
         eVar.a(true);
     }
 
@@ -136,17 +136,17 @@ public class n extends BdAsyncTask {
     public void a(com.baidu.tieba.data.t tVar) {
         com.baidu.adp.a.e eVar;
         boolean z = true;
-        this.f1377a.mLoadDataMode = 1;
+        this.f1375a.mLoadDataMode = 1;
         if (tVar == null) {
             z = false;
             if (this.b != null) {
-                this.f1377a.mErrorString = this.b.h();
+                this.f1375a.mErrorString = this.b.h();
             }
         } else {
-            this.f1377a.f1376a = tVar;
+            this.f1375a.f1374a = tVar;
         }
-        this.f1377a.b = null;
-        eVar = this.f1377a.mLoadDataCallBack;
+        this.f1375a.b = null;
+        eVar = this.f1375a.mLoadDataCallBack;
         eVar.a(Boolean.valueOf(z));
     }
 
@@ -157,9 +157,9 @@ public class n extends BdAsyncTask {
             this.b.i();
             this.b = null;
         }
-        this.f1377a.b = null;
+        this.f1375a.b = null;
         super.cancel(true);
-        eVar = this.f1377a.mLoadDataCallBack;
+        eVar = this.f1375a.mLoadDataCallBack;
         eVar.a(false);
     }
 }

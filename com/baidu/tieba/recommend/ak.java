@@ -10,11 +10,11 @@ import com.baidu.tieba.pb.NewPbActivity;
 public class ak implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FindInterestFragment f1641a;
+    final /* synthetic */ FindInterestFragment f1639a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(FindInterestFragment findInterestFragment) {
-        this.f1641a = findInterestFragment;
+        this.f1639a = findInterestFragment;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -22,13 +22,13 @@ public class ak implements AdapterView.OnItemClickListener {
         aq aqVar;
         Activity activity;
         Activity activity2;
-        aqVar = this.f1641a.b;
+        aqVar = this.f1639a.b;
         com.baidu.tieba.data.af b = aqVar.b(i);
         if (b != null && b.e() != null) {
             String e = b.e();
-            activity = this.f1641a.d;
+            activity = this.f1639a.d;
             NewPbActivity.a(activity, e, null, null);
-            activity2 = this.f1641a.d;
+            activity2 = this.f1639a.d;
             StatService.onEvent(activity2, "findinterest_to_pb", "enter_pb");
         }
     }

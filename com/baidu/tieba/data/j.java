@@ -7,19 +7,19 @@ import android.view.View;
 public class j extends com.baidu.tieba.util.s {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1016a;
+    final /* synthetic */ i f1014a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(i iVar, Context context) {
         super(context);
-        this.f1016a = iVar;
+        this.f1014a = iVar;
     }
 
     @Override // com.baidu.tieba.util.s, android.text.style.ClickableSpan
     public void onClick(View view) {
         String str;
-        str = this.f1016a.b;
+        str = this.f1014a.b;
         a(str);
     }
 }

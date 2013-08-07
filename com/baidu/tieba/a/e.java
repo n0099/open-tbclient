@@ -6,14 +6,14 @@ import com.baidu.tieba.util.u;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f833a = String.valueOf(com.baidu.tieba.data.g.f1013a) + "/c/s/uo/rand_share_template";
+    private static final String f831a = String.valueOf(com.baidu.tieba.data.g.f1011a) + "/c/s/uo/rand_share_template";
     private u b;
     private ao c;
 
     public String a(String str) {
         this.b = new u();
         this.b.a("share_type", str);
-        this.b.a(f833a);
+        this.b.a(f831a);
         String k = this.b.k();
         this.c = new ao();
         this.c.a(k);

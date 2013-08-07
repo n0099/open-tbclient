@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 public class ba implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ az f1077a;
+    final /* synthetic */ az f1075a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(az azVar) {
-        this.f1077a = azVar;
+        this.f1075a = azVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -26,23 +26,23 @@ public class ba implements View.OnTouchListener {
         ImageView imageView4;
         if (view.getId() == R.id.refresh_layout) {
             if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                i = this.f1077a.A;
+                i = this.f1075a.A;
                 if (i == 1) {
-                    imageView2 = this.f1077a.m;
+                    imageView2 = this.f1075a.m;
                     imageView2.setImageResource(R.drawable.pic_fresh_n_1);
                 } else {
-                    imageView = this.f1077a.m;
+                    imageView = this.f1075a.m;
                     imageView.setImageResource(R.drawable.pic_fresh_n);
                 }
             }
             if (motionEvent.getAction() == 0) {
-                i2 = this.f1077a.A;
+                i2 = this.f1075a.A;
                 if (i2 == 1) {
-                    imageView4 = this.f1077a.m;
+                    imageView4 = this.f1075a.m;
                     imageView4.setImageResource(R.drawable.pic_fresh_s_1);
                     return false;
                 }
-                imageView3 = this.f1077a.m;
+                imageView3 = this.f1075a.m;
                 imageView3.setImageResource(R.drawable.pic_fresh_s);
                 return false;
             }

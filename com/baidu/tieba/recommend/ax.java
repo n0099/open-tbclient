@@ -15,12 +15,12 @@ import java.net.URLDecoder;
 public class ax extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewHomeActivity f1652a;
+    final /* synthetic */ NewHomeActivity f1650a;
     private com.baidu.tieba.util.u b;
     private String c;
 
     private ax(NewHomeActivity newHomeActivity) {
-        this.f1652a = newHomeActivity;
+        this.f1650a = newHomeActivity;
         this.b = null;
     }
 
@@ -39,7 +39,7 @@ public class ax extends BdAsyncTask {
         String o;
         String e;
         long j;
-        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/tag/allthread");
+        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/tag/allthread");
         this.b.e(true);
         this.b.b(false);
         if (TiebaApplication.f().au() == 1) {
@@ -48,7 +48,7 @@ public class ax extends BdAsyncTask {
         this.b.a("_version_more", "1");
         this.b.a("platform", "android");
         com.baidu.tieba.util.u uVar = this.b;
-        str = this.f1652a.x;
+        str = this.f1650a.x;
         uVar.a("pn", str);
         z = NewHomeActivity.v;
         if (z) {
@@ -58,7 +58,7 @@ public class ax extends BdAsyncTask {
             j = NewHomeActivity.w;
             uVar2.a("message_id", String.valueOf(j));
         }
-        o = this.f1652a.o();
+        o = this.f1650a.o();
         if (o != null && o.length() > 0) {
             this.b.a("tid_list", o);
         }
@@ -86,7 +86,7 @@ public class ax extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1652a.u = false;
+        this.f1650a.u = false;
         super.cancel(true);
     }
 
@@ -103,29 +103,29 @@ public class ax extends BdAsyncTask {
         BaseWebView baseWebView2;
         TextView textView2;
         BaseWebView baseWebView3;
-        linearLayout = this.f1652a.n;
+        linearLayout = this.f1650a.n;
         linearLayout.setOnClickListener(null);
         if (this.b == null || !this.b.e() || str == null || str.length() <= 0) {
-            this.f1652a.r = false;
-            this.f1652a.n();
-            z = this.f1652a.p;
+            this.f1650a.r = false;
+            this.f1650a.n();
+            z = this.f1650a.p;
             if (!z) {
-                textView = this.f1652a.s;
+                textView = this.f1650a.s;
                 textView.setVisibility(0);
-                baseWebView = this.f1652a.l;
+                baseWebView = this.f1650a.l;
                 baseWebView.setVisibility(8);
-                linearLayout2 = this.f1652a.n;
-                onClickListener = this.f1652a.k;
+                linearLayout2 = this.f1650a.n;
+                onClickListener = this.f1650a.k;
                 linearLayout2.setOnClickListener(onClickListener);
             }
         } else {
             DatabaseService.a(str, 10);
-            baseWebView2 = this.f1652a.l;
-            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.g.f1013a, str, "text/html", BdUtil.UTF8, "");
-            this.f1652a.p = true;
-            textView2 = this.f1652a.s;
+            baseWebView2 = this.f1650a.l;
+            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.g.f1011a, str, "text/html", BdUtil.UTF8, "");
+            this.f1650a.p = true;
+            textView2 = this.f1650a.s;
             textView2.setVisibility(8);
-            baseWebView3 = this.f1652a.l;
+            baseWebView3 = this.f1650a.l;
             baseWebView3.setVisibility(0);
             int indexOf = str.indexOf("dataType=\"idSet\">");
             if (indexOf != -1) {
@@ -134,10 +134,10 @@ public class ax extends BdAsyncTask {
                 while (i < str.length() && str.charAt(i) != '<') {
                     i++;
                 }
-                this.f1652a.c(URLDecoder.decode(str.substring(length, i)));
+                this.f1650a.c(URLDecoder.decode(str.substring(length, i)));
             }
         }
-        this.f1652a.q = true;
-        this.f1652a.p();
+        this.f1650a.q = true;
+        this.f1650a.p();
     }
 }

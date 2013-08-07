@@ -6,14 +6,14 @@ import com.baidu.tieba.util.u;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f834a = String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/pb/page";
+    private static final String f832a = String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/pb/page";
     private u b = null;
 
     public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, at atVar) {
         if (str == null || str.length() == 0) {
             return null;
         }
-        this.b = new u(f834a);
+        this.b = new u(f832a);
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
         this.b.a("with_floor", "1");

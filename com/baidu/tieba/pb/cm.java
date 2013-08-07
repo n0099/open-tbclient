@@ -3,18 +3,18 @@ package com.baidu.tieba.pb;
 class cm implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ck f1507a;
+    final /* synthetic */ ck f1505a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cm(ck ckVar) {
-        this.f1507a = ckVar;
+        this.f1505a = ckVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         bn bnVar;
         cu cuVar;
-        bnVar = this.f1507a.f1505a;
+        bnVar = this.f1505a.f1503a;
         cuVar = bnVar.z;
         cuVar.h();
     }

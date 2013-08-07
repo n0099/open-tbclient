@@ -10,7 +10,7 @@ import com.baidu.tieba.util.aj;
 public class TiebaSyncService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1693a = null;
+    private static String f1691a = null;
     private s b = null;
     private int c = 0;
     private ca d = null;
@@ -18,7 +18,7 @@ public class TiebaSyncService extends Service {
     private Runnable f = new r(this);
 
     public static void a(String str) {
-        f1693a = str;
+        f1691a = str;
     }
 
     @Override // android.app.Service

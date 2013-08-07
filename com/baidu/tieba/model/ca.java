@@ -8,7 +8,7 @@ public class ca {
     private int f = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private VersionData f1367a = new VersionData();
+    private VersionData f1365a = new VersionData();
     private com.baidu.tieba.data.f b = new com.baidu.tieba.data.f();
     private com.baidu.tieba.data.h c = new com.baidu.tieba.data.h();
     private CombineDownload d = new CombineDownload();
@@ -25,7 +25,7 @@ public class ca {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1367a.parserJson(jSONObject.optJSONObject("version"));
+                this.f1365a.parserJson(jSONObject.optJSONObject("version"));
                 this.b.a(jSONObject.optJSONObject("client"));
                 this.c.a(jSONObject.optJSONObject("config"));
                 this.d.parserJson(jSONObject.optJSONObject("combine_download"));
@@ -46,7 +46,7 @@ public class ca {
     }
 
     public VersionData c() {
-        return this.f1367a;
+        return this.f1365a;
     }
 
     public com.baidu.tieba.data.f d() {

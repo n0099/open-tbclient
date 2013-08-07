@@ -5,12 +5,12 @@ import org.json.JSONObject;
 public class bq {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1007a = null;
+    private String f1005a = null;
     private String b = null;
     private String c = null;
 
     public String a() {
-        return this.f1007a;
+        return this.f1005a;
     }
 
     public String b() {
@@ -37,7 +37,7 @@ public class bq {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1007a = jSONObject.optString("vcode_md5");
+                this.f1005a = jSONObject.optString("vcode_md5");
                 this.b = jSONObject.optString("vcode_pic_url");
                 this.c = jSONObject.optString("vcode_type");
             } catch (Exception e) {

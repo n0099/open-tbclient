@@ -16,7 +16,7 @@ import java.util.Date;
 public class aa extends LinearLayout implements com.baidu.adp.widget.ScrollView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animation f1807a;
+    private Animation f1805a;
     private Animation b;
     private ProgressBar c;
     private ImageView d;
@@ -26,9 +26,9 @@ public class aa extends LinearLayout implements com.baidu.adp.widget.ScrollView.
 
     public aa(Context context) {
         this(context, null);
-        this.f1807a = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_down_to_up);
+        this.f1805a = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_down_to_up);
         this.b = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_up_to_down);
-        this.f1807a.setFillAfter(true);
+        this.f1805a.setFillAfter(true);
         this.b.setFillAfter(true);
         LayoutInflater.from(context).inflate(R.layout.image_frs_pullview, this);
         this.c = (ProgressBar) findViewById(R.id.head_layout_left_progressbar);
@@ -53,7 +53,7 @@ public class aa extends LinearLayout implements com.baidu.adp.widget.ScrollView.
 
     @Override // com.baidu.adp.widget.ScrollView.c
     public void b() {
-        this.d.startAnimation(this.f1807a);
+        this.d.startAnimation(this.f1805a);
         this.g = true;
         this.e.setText(getResources().getString(R.string.pulldown_loosen));
     }

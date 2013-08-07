@@ -8,26 +8,26 @@ import android.widget.EditText;
 public class y implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f897a;
+    final /* synthetic */ LoginActivity f895a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(LoginActivity loginActivity) {
-        this.f897a = loginActivity;
+        this.f895a = loginActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        this.f897a.v();
-        LoginActivity loginActivity = this.f897a;
-        InputMethodManager inputMethodManager = this.f897a.d;
-        editText = this.f897a.s;
+        this.f895a.v();
+        LoginActivity loginActivity = this.f895a;
+        InputMethodManager inputMethodManager = this.f895a.d;
+        editText = this.f895a.s;
         loginActivity.a(inputMethodManager, editText);
-        LoginActivity loginActivity2 = this.f897a;
-        InputMethodManager inputMethodManager2 = this.f897a.d;
-        editText2 = this.f897a.t;
+        LoginActivity loginActivity2 = this.f895a;
+        InputMethodManager inputMethodManager2 = this.f895a.d;
+        editText2 = this.f895a.t;
         loginActivity2.a(inputMethodManager2, editText2);
-        Register2Activity.a(this.f897a, 12007);
+        Register2Activity.a(this.f895a, 12007);
     }
 }

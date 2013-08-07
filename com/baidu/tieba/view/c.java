@@ -7,11 +7,11 @@ import android.webkit.WebView;
 public class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaseWebView f1839a;
+    final /* synthetic */ BaseWebView f1837a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BaseWebView baseWebView) {
-        this.f1839a = baseWebView;
+        this.f1837a = baseWebView;
     }
 
     @Override // com.baidu.tieba.view.d
@@ -19,7 +19,7 @@ public class c implements d {
         Context context;
         if (str != null) {
             try {
-                context = this.f1839a.c;
+                context = this.f1837a.c;
                 com.baidu.tieba.util.am.e(context, str);
             } catch (Exception e) {
                 com.baidu.tieba.util.aj.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());

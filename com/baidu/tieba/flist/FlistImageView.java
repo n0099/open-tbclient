@@ -10,7 +10,7 @@ import android.widget.ImageView;
 public class FlistImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1035a;
+    private String f1033a;
     private Paint b;
 
     public FlistImageView(Context context) {
@@ -27,14 +27,14 @@ public class FlistImageView extends ImageView {
     }
 
     public void setUrl(String str) {
-        this.f1035a = str;
+        this.f1033a = str;
         invalidate();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         com.baidu.adp.widget.a.b c;
-        if (this.f1035a != null && (c = com.baidu.tbadk.a.e.a().c(this.f1035a)) != null) {
+        if (this.f1033a != null && (c = com.baidu.tbadk.a.e.a().c(this.f1033a)) != null) {
             c.a(canvas, getMeasuredWidth(), getMeasuredHeight(), (Paint) null);
             Log.d("FlistImageView", "width = " + getWidth() + " height = " + getHeight());
         }

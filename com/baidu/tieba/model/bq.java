@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class bq {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.au f1358a = new com.baidu.tieba.data.au();
+    private com.baidu.tieba.data.au f1356a = new com.baidu.tieba.data.au();
     private boolean b = true;
     private String c = null;
 
@@ -24,6 +24,6 @@ public class bq {
     }
 
     public com.baidu.tieba.data.au c() {
-        return this.f1358a;
+        return this.f1356a;
     }
 }

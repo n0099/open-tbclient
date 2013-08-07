@@ -7,13 +7,13 @@ import com.baidu.tieba.data.SendAloneVoteData;
 public class bs extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ br f1360a;
+    final /* synthetic */ br f1358a;
     private String b;
     private int c;
     private com.baidu.tieba.a.j d;
 
     public bs(br brVar, String str, int i) {
-        this.f1360a = brVar;
+        this.f1358a = brVar;
         setPriority(3);
         this.b = str;
         this.c = i;
@@ -25,9 +25,9 @@ public class bs extends BdAsyncTask {
         bt btVar;
         bt btVar2;
         super.b();
-        btVar = this.f1360a.c;
+        btVar = this.f1358a.c;
         if (btVar != null) {
-            btVar2 = this.f1360a.c;
+            btVar2 = this.f1358a.c;
             btVar2.a();
         }
     }
@@ -55,10 +55,10 @@ public class bs extends BdAsyncTask {
         bt btVar;
         bt btVar2;
         super.a((Object) sendAloneVoteData);
-        this.f1360a.e = sendAloneVoteData;
-        btVar = this.f1360a.c;
+        this.f1358a.e = sendAloneVoteData;
+        btVar = this.f1358a.c;
         if (btVar != null) {
-            btVar2 = this.f1360a.c;
+            btVar2 = this.f1358a.c;
             btVar2.a(sendAloneVoteData);
         }
     }

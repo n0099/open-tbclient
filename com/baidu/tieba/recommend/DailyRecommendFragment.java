@@ -23,7 +23,7 @@ public class DailyRecommendFragment extends BaseFragment {
     private Runnable f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    l f1626a = new r(this);
+    l f1624a = new r(this);
     private com.baidu.adp.widget.ListView.r h = new s(this);
     private com.baidu.adp.widget.ListView.b i = new t(this);
 
@@ -52,7 +52,7 @@ public class DailyRecommendFragment extends BaseFragment {
     }
 
     private void E() {
-        this.c = new ab(this, this.h, this.f1626a);
+        this.c = new ab(this, this.h, this.f1624a);
         this.c.a(this.i);
         this.c.c();
     }

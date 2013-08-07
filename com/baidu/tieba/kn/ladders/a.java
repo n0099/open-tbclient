@@ -18,7 +18,7 @@ import java.util.Date;
 public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tieba.kn.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1182a;
+    private int f1180a;
     private KnLaddersModel.RankInfo[] b;
     private KnLaddersModel.PlayerInfo[] c;
     private KnLaddersModel.PlayerInfo[] d;
@@ -34,7 +34,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
 
     public a(KnLaddersFragment knLaddersFragment) {
         super(knLaddersFragment.g());
-        this.f1182a = 1;
+        this.f1180a = 1;
         this.b = new KnLaddersModel.RankInfo[0];
         this.c = new KnLaddersModel.PlayerInfo[0];
         this.d = new KnLaddersModel.PlayerInfo[0];
@@ -49,8 +49,8 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
     }
 
     public void a(int i) {
-        this.f1182a = i;
-        switch (this.f1182a) {
+        this.f1180a = i;
+        switch (this.f1180a) {
             case 1:
                 g();
                 this.h.b.setBackgroundResource(R.drawable.bg_subnav_list_s);
@@ -68,7 +68,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
                 break;
         }
         if (this.m != null) {
-            this.m.a(this.f1182a);
+            this.m.a(this.f1180a);
         }
         notifyDataSetChanged();
     }
@@ -128,12 +128,12 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         this.f = rankPageInfo.pics;
         this.g = rankPageInfo.names;
         this.i = new KnLaddersBannerAdapter(this.k, this.f);
-        this.h.f1192a.setAdapter(this.i);
+        this.h.f1190a.setAdapter(this.i);
     }
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
     public int getCount() {
-        switch (this.f1182a) {
+        switch (this.f1180a) {
             case 1:
                 return this.c.length + 2;
             case 2:
@@ -152,7 +152,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         if (i == 0 || i == getCount() - 1) {
             return null;
         }
-        switch (this.f1182a) {
+        switch (this.f1180a) {
             case 1:
                 return this.c[i - 1];
             case 2:
@@ -203,7 +203,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         if (view == null) {
             View inflate = LayoutInflater.from(this.k).inflate(R.layout.kn_ladders_banner, viewGroup, false);
             this.h = new l(this, inflate);
-            this.h.f1192a.setOnPageChangeListener(new b(this));
+            this.h.f1190a.setOnPageChangeListener(new b(this));
             return inflate;
         }
         return view;
@@ -226,7 +226,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         if (view == null) {
             h hVar2 = new h(this, null);
             view = LayoutInflater.from(this.k).inflate(R.layout.kn_ladders_item, viewGroup, false);
-            hVar2.f1188a = (LinearLayout) view.findViewById(R.id.item_root);
+            hVar2.f1186a = (LinearLayout) view.findViewById(R.id.item_root);
             hVar2.b = (TextView) view.findViewById(R.id.index);
             hVar2.c = (ImageViewDrawer) view.findViewById(R.id.portrait);
             hVar2.d = (TextView) view.findViewById(R.id.name);
@@ -240,7 +240,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         }
         KnLaddersModel.PlayerInfo item = getItem(i);
         if (item != null) {
-            hVar.f1188a.setOnClickListener(new d(this, item));
+            hVar.f1186a.setOnClickListener(new d(this, item));
             if (item.player_name != null) {
                 hVar.d.setText(item.player_name);
             }
@@ -261,8 +261,9 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
             }
             hVar.f.setOnClickListener(new e(this, a2, item));
             if (item.big_head_url != null && item.big_head_url.length() > 0) {
-                hVar.c.setTag(item.big_head_url);
                 this.j.a(item.big_head_url, new f(this, item, hVar));
+                hVar.c.setTag(item.big_head_url);
+                hVar.c.invalidate();
             }
             switch (i) {
                 case 1:
@@ -286,16 +287,16 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.next /* 2131099837 */:
-                int currentItem = this.h.f1192a.getCurrentItem() + 1;
+                int currentItem = this.h.f1190a.getCurrentItem() + 1;
                 if (currentItem <= this.i.getCount() - 1) {
-                    this.h.f1192a.setCurrentItem(currentItem);
+                    this.h.f1190a.setCurrentItem(currentItem);
                     return;
                 }
                 return;
             case R.id.pre /* 2131100242 */:
-                int currentItem2 = this.h.f1192a.getCurrentItem() - 1;
+                int currentItem2 = this.h.f1190a.getCurrentItem() - 1;
                 if (currentItem2 >= 0) {
-                    this.h.f1192a.setCurrentItem(currentItem2);
+                    this.h.f1190a.setCurrentItem(currentItem2);
                     return;
                 }
                 return;

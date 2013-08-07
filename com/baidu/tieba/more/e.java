@@ -7,11 +7,11 @@ import com.baidu.tieba.data.AccountData;
 public class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1411a;
+    final /* synthetic */ AccountActivity f1409a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.f1411a = accountActivity;
+        this.f1409a = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,10 +20,10 @@ public class e implements View.OnClickListener {
         i iVar2;
         AccountData accountData = (AccountData) view.getTag();
         if (accountData != null) {
-            this.f1411a.l = new i(this.f1411a, accountData);
-            iVar = this.f1411a.l;
+            this.f1409a.l = new i(this.f1409a, accountData);
+            iVar = this.f1409a.l;
             iVar.setPriority(3);
-            iVar2 = this.f1411a.l;
+            iVar2 = this.f1409a.l;
             iVar2.execute(new Object[0]);
         }
     }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class AccountActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1390a = null;
+    private ArrayList f1388a = null;
     private o b = null;
     private LinearLayout c = null;
     private TextView d = null;
@@ -67,7 +67,7 @@ public class AccountActivity extends com.baidu.tieba.g {
     }
 
     private void b() {
-        this.f1390a = DatabaseService.n();
+        this.f1388a = DatabaseService.n();
     }
 
     private void c() {
@@ -79,7 +79,7 @@ public class AccountActivity extends com.baidu.tieba.g {
         this.c = (LinearLayout) findViewById(R.id.title);
         this.d = (TextView) findViewById(R.id.title_text);
         this.b = new o(this, this.j);
-        this.b.a(this.f1390a);
+        this.b.a(this.f1388a);
         this.e = (ListView) findViewById(R.id.list);
         this.e.setAdapter((ListAdapter) this.b);
         this.e.setOnItemClickListener(new h(this));

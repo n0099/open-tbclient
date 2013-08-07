@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 public class k extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PKWaitingActivity f1218a;
+    final /* synthetic */ PKWaitingActivity f1216a;
     private com.baidu.tieba.util.u b = null;
 
     public k(PKWaitingActivity pKWaitingActivity) {
-        this.f1218a = pKWaitingActivity;
+        this.f1216a = pKWaitingActivity;
         pKWaitingActivity.f = true;
     }
 
@@ -25,16 +25,16 @@ public class k extends BdAsyncTask {
         String str;
         s sVar = new s();
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/uo/pkdetail");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/uo/pkdetail");
             com.baidu.tieba.util.u uVar = this.b;
-            str = this.f1218a.d;
+            str = this.f1216a.d;
             uVar.a("pk_id", str);
             this.b.a("rn", "1");
             String k = this.b.k();
             if (this.b.d()) {
                 sVar.b(k);
-                if (!sVar.a() && ai.c(sVar.f1226a)) {
-                    sVar.a(this.f1218a.getString(R.string.kn_data_corrupted));
+                if (!sVar.a() && ai.c(sVar.f1224a)) {
+                    sVar.a(this.f1216a.getString(R.string.kn_data_corrupted));
                 }
             } else {
                 sVar.a(this.b.h());
@@ -50,8 +50,8 @@ public class k extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(s sVar) {
-        this.f1218a.a(sVar);
-        this.f1218a.f = false;
+        this.f1216a.a(sVar);
+        this.f1216a.f = false;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -61,7 +61,7 @@ public class k extends BdAsyncTask {
             this.b.i();
             this.b = null;
         }
-        this.f1218a.l();
-        this.f1218a.f = false;
+        this.f1216a.l();
+        this.f1216a.f = false;
     }
 }

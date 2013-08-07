@@ -27,7 +27,7 @@ public class bm {
     private String m = null;
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1003a = new ArrayList();
+    ArrayList f1001a = new ArrayList();
     private int n = 0;
     private int o = 0;
     private String p = null;
@@ -104,7 +104,7 @@ public class bm {
     }
 
     public ArrayList m() {
-        return this.f1003a;
+        return this.f1001a;
     }
 
     public void a(JSONObject jSONObject) {
@@ -145,7 +145,7 @@ public class bm {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         am amVar = new am();
                         amVar.a(optJSONArray2.getJSONObject(i2));
-                        this.f1003a.add(amVar);
+                        this.f1001a.add(amVar);
                     }
                 }
             } catch (Exception e) {

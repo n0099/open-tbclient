@@ -10,13 +10,13 @@ import com.slidingmenu.lib.R;
 public class ac extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.u f851a;
+    com.baidu.tieba.util.u f849a;
     final /* synthetic */ LoginActivity b;
     private volatile boolean c;
 
     private ac(LoginActivity loginActivity) {
         this.b = loginActivity;
-        this.f851a = null;
+        this.f849a = null;
         this.c = false;
     }
 
@@ -28,9 +28,9 @@ public class ac extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.b.S = null;
-        if (this.f851a != null) {
-            this.f851a.i();
-            this.f851a = null;
+        if (this.f849a != null) {
+            this.f849a.i();
+            this.f849a = null;
         }
         this.c = true;
         super.cancel(true);
@@ -52,8 +52,8 @@ public class ac extends BdAsyncTask {
         if (str == null || str.length() <= 0 || this.c) {
             return null;
         }
-        this.f851a = new com.baidu.tieba.util.u(str);
-        return com.baidu.tieba.util.e.a(this.f851a.j());
+        this.f849a = new com.baidu.tieba.util.u(str);
+        return com.baidu.tieba.util.e.a(this.f849a.j());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

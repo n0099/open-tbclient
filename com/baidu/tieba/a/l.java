@@ -16,9 +16,9 @@ import org.json.JSONObject;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f838a = String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/thread/add";
-    private static final String b = String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/post/add";
-    private static final String c = String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/img/upload";
+    private static final String f836a = String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/thread/add";
+    private static final String b = String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/post/add";
+    private static final String c = String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/img/upload";
     private u d = null;
     private r e;
 
@@ -62,8 +62,8 @@ public class l {
                         } else {
                             dVar = q;
                         }
-                        if (new com.baidu.tieba.util.f("tieba_resized_image", dVar, String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/img/chunkupload").b().a()) {
-                            this.d = new u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/img/finupload");
+                        if (new com.baidu.tieba.util.f("tieba_resized_image", dVar, String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/img/chunkupload").b().a()) {
+                            this.d = new u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/img/finupload");
                             this.d.a("md5", dVar.a());
                             this.d.a("pic_type", String.valueOf(writeData.getPicType()));
                             String k = this.d.k();
@@ -108,7 +108,7 @@ public class l {
             Address aT = TiebaApplication.f().aT();
             switch (writeData.getType()) {
                 case 0:
-                    this.d.a(f838a);
+                    this.d.a(f836a);
                     this.d.a("kw", writeData.getForumName());
                     this.d.a("title", writeData.getTitle());
                     if (aT != null && TiebaApplication.f().u() && !com.baidu.tieba.data.g.g().equals(writeData.getForumId())) {

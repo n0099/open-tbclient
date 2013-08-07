@@ -10,13 +10,13 @@ import java.util.ArrayList;
 public class x extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1682a;
+    final /* synthetic */ w f1680a;
     private au b;
     private int c;
     private String d;
 
     public x(w wVar, int i, String str) {
-        this.f1682a = wVar;
+        this.f1680a = wVar;
         this.c = i;
         this.d = str;
         setPriority(3);
@@ -28,9 +28,9 @@ public class x extends BdAsyncTask {
         y yVar;
         y yVar2;
         super.b();
-        yVar = this.f1682a.f1681a;
+        yVar = this.f1680a.f1679a;
         if (yVar != null) {
-            yVar2 = this.f1682a.f1681a;
+            yVar2 = this.f1680a.f1679a;
             yVar2.a();
         }
     }
@@ -60,7 +60,7 @@ public class x extends BdAsyncTask {
             if (this.c != 1 && this.b != null && this.b.b()) {
                 if (this.b.c() == 0) {
                     if (this.c == 0) {
-                        this.f1682a.b(a2);
+                        this.f1680a.b(a2);
                     }
                     return a(a2);
                 }
@@ -97,50 +97,50 @@ public class x extends BdAsyncTask {
         com.baidu.tieba.data.n nVar5;
         super.a((Object) nVar);
         if (nVar == null) {
-            yVar = this.f1682a.f1681a;
+            yVar = this.f1680a.f1679a;
             if (yVar != null) {
                 if (this.c != 1) {
-                    yVar3 = this.f1682a.f1681a;
+                    yVar3 = this.f1680a.f1679a;
                     String sb = new StringBuilder(String.valueOf(this.b.c())).toString();
-                    nVar3 = this.f1682a.b;
+                    nVar3 = this.f1680a.b;
                     yVar3.a(false, sb, nVar3, this.c);
                     return;
                 }
-                yVar2 = this.f1682a.f1681a;
-                nVar2 = this.f1682a.b;
+                yVar2 = this.f1680a.f1679a;
+                nVar2 = this.f1680a.b;
                 yVar2.a(false, "db no data!", nVar2, this.c);
                 return;
             }
             return;
         }
         if (this.c == 1) {
-            this.f1682a.b = nVar;
-            this.f1682a.e = true;
+            this.f1680a.b = nVar;
+            this.f1680a.e = true;
         } else {
-            z = this.f1682a.e;
+            z = this.f1680a.e;
             if (z) {
-                this.f1682a.b = new com.baidu.tieba.data.n();
-                this.f1682a.e = false;
+                this.f1680a.b = new com.baidu.tieba.data.n();
+                this.f1680a.e = false;
             }
             if (this.c == 0) {
-                this.f1682a.b = nVar;
+                this.f1680a.b = nVar;
                 TiebaApplication f = TiebaApplication.f();
                 ArrayList b = nVar.b();
                 if (b.size() > 0) {
                     f.p(((com.baidu.tieba.data.p) b.get(0)).d());
                     f.w(false);
-                    context = this.f1682a.f;
+                    context = this.f1680a.f;
                     context.sendBroadcast(new Intent("com.baidu.tieba.broadcast.newrecommends"));
                 }
             } else {
-                nVar4 = this.f1682a.b;
+                nVar4 = this.f1680a.b;
                 nVar4.a(nVar);
             }
         }
-        yVar4 = this.f1682a.f1681a;
+        yVar4 = this.f1680a.f1679a;
         if (yVar4 != null) {
-            yVar5 = this.f1682a.f1681a;
-            nVar5 = this.f1682a.b;
+            yVar5 = this.f1680a.f1679a;
+            nVar5 = this.f1680a.b;
             yVar5.a(true, null, nVar5, this.c);
         }
     }

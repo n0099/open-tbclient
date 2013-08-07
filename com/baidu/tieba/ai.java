@@ -6,11 +6,11 @@ import com.baidu.tieba.util.DatabaseService;
 class ai extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f904a;
+    final /* synthetic */ LogoActivity f902a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(LogoActivity logoActivity) {
-        this.f904a = logoActivity;
+        this.f902a = logoActivity;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -19,7 +19,7 @@ class ai extends Thread {
         Handler handler2;
         super.run();
         try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.f904a.getApplication();
+            TiebaApplication tiebaApplication = (TiebaApplication) this.f902a.getApplication();
             tiebaApplication.b(tiebaApplication.J() + 1);
             if (tiebaApplication.O()) {
                 DatabaseService.z();
@@ -27,11 +27,11 @@ class ai extends Thread {
             }
             DatabaseService.v();
             DatabaseService.y();
-            this.f904a.a(this.f904a.getCacheDir());
+            this.f902a.a(this.f902a.getCacheDir());
         } catch (Exception e) {
         }
-        handler = this.f904a.k;
-        handler2 = this.f904a.k;
+        handler = this.f902a.k;
+        handler2 = this.f902a.k;
         handler.sendMessage(handler2.obtainMessage());
     }
 }

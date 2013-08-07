@@ -7,19 +7,19 @@ import android.view.View;
 public class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1665a;
+    final /* synthetic */ c f1663a;
     private final /* synthetic */ com.baidu.tieba.data.o b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, com.baidu.tieba.data.o oVar) {
-        this.f1665a = cVar;
+        this.f1663a = cVar;
         this.b = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        activity = this.f1665a.i;
+        activity = this.f1663a.i;
         com.baidu.tieba.util.am.a(activity, this.b.a(), (String) null);
     }
 }

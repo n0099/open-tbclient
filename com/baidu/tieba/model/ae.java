@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class ae extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1324a;
+    ArrayList f1322a;
     ad b;
     final /* synthetic */ aa c;
     private com.baidu.tieba.util.u d = null;
@@ -19,10 +19,10 @@ public class ae extends BdAsyncTask {
         this.c = aaVar;
         this.e = null;
         this.f = 3;
-        this.f1324a = null;
+        this.f1322a = null;
         this.b = new ad(aaVar);
         this.e = str;
-        this.f1324a = arrayList;
+        this.f1322a = arrayList;
         this.f = i;
         setSelfExecute(true);
     }
@@ -48,7 +48,7 @@ public class ae extends BdAsyncTask {
         Exception e;
         try {
             this.d = new com.baidu.tieba.util.u(this.e);
-            this.d.a(this.f1324a);
+            this.d.a(this.f1322a);
             String k = this.d.k();
             jSONObject = new JSONObject(k);
             try {
@@ -74,7 +74,7 @@ public class ae extends BdAsyncTask {
         com.baidu.tieba.frs.ac acVar;
         com.baidu.tieba.frs.ac acVar2;
         if (this.d != null) {
-            this.b.f1323a = true;
+            this.b.f1321a = true;
             this.b.b = this.d.e();
             this.b.c = this.d.f();
             this.b.d = this.d.h();

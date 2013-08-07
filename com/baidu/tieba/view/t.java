@@ -97,7 +97,7 @@ public class t implements com.baidu.tbadk.a.d {
     private com.baidu.tieba.data.bj C = null;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.bm f1849a = null;
+    com.baidu.tieba.data.bm f1847a = null;
     private float O = 0.0f;
     private float P = 0.0f;
     private boolean Q = false;
@@ -270,7 +270,7 @@ public class t implements com.baidu.tbadk.a.d {
     }
 
     public com.baidu.tieba.data.bm b() {
-        return this.f1849a;
+        return this.f1847a;
     }
 
     public void a(int i) {
@@ -412,17 +412,17 @@ public class t implements com.baidu.tbadk.a.d {
         this.x = vVar.d();
         this.y = vVar.c();
         this.B = xVar;
-        this.f1849a = new com.baidu.tieba.data.bm();
+        this.f1847a = new com.baidu.tieba.data.bm();
         if (this.B != null) {
             this.C = this.B.l();
             com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am();
             amVar.a(3);
             amVar.a(this.B.b());
-            this.f1849a.m().add(amVar);
+            this.f1847a.m().add(amVar);
             com.baidu.tieba.data.am amVar2 = new com.baidu.tieba.data.am();
             amVar2.a(3);
             amVar2.a(this.B.c());
-            this.f1849a.m().add(amVar2);
+            this.f1847a.m().add(amVar2);
         }
         this.s.setVisibility(0);
         if (vVar.f() == 0 || !TiebaApplication.f().at()) {

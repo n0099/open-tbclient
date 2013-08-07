@@ -7,18 +7,18 @@ import org.json.JSONObject;
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f969a = null;
+    private ArrayList f967a = null;
 
     public ae() {
         a(new ArrayList());
     }
 
     public ArrayList a() {
-        return this.f969a;
+        return this.f967a;
     }
 
     public void a(ArrayList arrayList) {
-        this.f969a = arrayList;
+        this.f967a = arrayList;
     }
 
     public void a(String str) {
@@ -30,14 +30,14 @@ public class ae {
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f969a = new ArrayList();
+            this.f967a = new ArrayList();
             b();
             JSONArray optJSONArray = jSONObject.optJSONObject("data").optJSONArray("user_tag");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     bl blVar = new bl();
                     blVar.a(optJSONArray.optJSONObject(i));
-                    this.f969a.add(blVar);
+                    this.f967a.add(blVar);
                 }
             }
         } catch (Exception e) {
@@ -48,6 +48,6 @@ public class ae {
         bl blVar = new bl();
         blVar.a("get_all_interest");
         blVar.b("全部兴趣");
-        this.f969a.add(blVar);
+        this.f967a.add(blVar);
     }
 }

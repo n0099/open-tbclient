@@ -6,23 +6,23 @@ import java.util.Hashtable;
 public class q extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1772a;
+    private int f1770a;
     private String b;
     private Hashtable c;
 
     public q(Hashtable hashtable) {
-        this.f1772a = 3;
+        this.f1770a = 3;
         this.b = null;
         this.c = null;
-        this.f1772a = 3;
+        this.f1770a = 3;
         this.c = hashtable;
     }
 
     public q(int i, String str) {
-        this.f1772a = 3;
+        this.f1770a = 3;
         this.b = null;
         this.c = null;
-        this.f1772a = i;
+        this.f1770a = i;
         this.b = str;
     }
 
@@ -31,16 +31,16 @@ public class q extends Thread {
         ArrayList A;
         super.run();
         try {
-            if (this.f1772a == 3) {
+            if (this.f1770a == 3) {
                 if (this.c != null && (A = DatabaseService.A()) != null) {
                     int size = A.size();
                     for (int i = 0; i < size; i++) {
                         this.c.put((String) A.get(i), 1);
                     }
                 }
-            } else if (this.f1772a == 2) {
+            } else if (this.f1770a == 2) {
                 DatabaseService.t(this.b);
-            } else if (this.f1772a == 1) {
+            } else if (this.f1770a == 1) {
                 DatabaseService.s(this.b);
             }
         } catch (Exception e) {

@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class r extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Matrix f1847a;
+    private Matrix f1845a;
     private int b;
     private int c;
     private Paint d;
@@ -46,7 +46,7 @@ public class r extends ImageView {
 
     public r(Context context, int i) {
         super(context);
-        this.f1847a = new Matrix();
+        this.f1845a = new Matrix();
         this.b = 0;
         this.c = 0;
         this.d = new Paint();
@@ -76,7 +76,7 @@ public class r extends ImageView {
         super.onDraw(canvas);
         com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c(String.valueOf((String) getTag()) + this.i);
         if (!this.g) {
-            this.f1847a.reset();
+            this.f1845a.reset();
         }
         if (c == null) {
             this.g = false;
@@ -87,7 +87,7 @@ public class r extends ImageView {
                     a2 = com.baidu.tieba.util.e.a((int) R.drawable.pic_video);
                 }
                 float min = Math.min(getWidth() / a2.getWidth(), getHeight() / a2.getHeight());
-                this.f1847a.setScale(min, min);
+                this.f1845a.setScale(min, min);
                 this.g = true;
             } else {
                 if (TiebaApplication.f().au() == 1) {
@@ -97,12 +97,12 @@ public class r extends ImageView {
                 }
                 this.b = (getWidth() - a2.getWidth()) >> 1;
                 this.c = (getHeight() - a2.getHeight()) >> 1;
-                this.f1847a.postTranslate(this.b, this.c);
+                this.f1845a.postTranslate(this.b, this.c);
                 if (TiebaApplication.f().au() == 1) {
                     canvas.drawColor(-13815750);
                 }
             }
-            canvas.drawBitmap(a2, this.f1847a, this.d);
+            canvas.drawBitmap(a2, this.f1845a, this.d);
         } else if (c != null) {
             if (!this.g) {
                 int a3 = c.a();
@@ -115,7 +115,7 @@ public class r extends ImageView {
                     } else {
                         f = ((float) a3) < ((float) (((double) (width * 3)) / 10.0d)) ? 1.0f : width / a3;
                     }
-                    this.f1847a.setScale(f, f);
+                    this.f1845a.setScale(f, f);
                     int i = ((int) (a3 * f)) - 1;
                     int i2 = ((int) (f * b)) - 1;
                     if (i2 <= 1.25d * height) {
@@ -128,7 +128,7 @@ public class r extends ImageView {
                             this.c = 0;
                         }
                     }
-                    this.f1847a.postTranslate(this.b, this.c);
+                    this.f1845a.postTranslate(this.b, this.c);
                     if (height - i2 > 3) {
                         this.j = getLayoutParams();
                         this.j.width = i;
@@ -140,7 +140,7 @@ public class r extends ImageView {
                     return;
                 }
             }
-            c.a(canvas, this.f1847a, this.d);
+            c.a(canvas, this.f1845a, this.d);
         }
     }
 }

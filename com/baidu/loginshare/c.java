@@ -3,7 +3,7 @@ package com.baidu.loginshare;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static final int f766a = 1;
+    static final int f764a = 1;
     static final int b = 2;
     private static final String e = "EffectUserCount";
     private static final String f = "ServiceAppCount";

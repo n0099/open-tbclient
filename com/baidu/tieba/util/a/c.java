@@ -19,7 +19,7 @@ public class c extends a {
         if (dVar.g) {
             int i = dVar.d;
             String a2 = aVar.a(str);
-            synchronized (com.baidu.tieba.util.e.f1764a) {
+            synchronized (com.baidu.tieba.util.e.f1762a) {
                 if (i == 1) {
                     dVar.e = DatabaseService.c(a2);
                 } else if (i == 2) {
@@ -54,7 +54,7 @@ public class c extends a {
         } else if (i == 1) {
             str2 = String.valueOf(g.k()) + str;
         }
-        dVar.f1763a = new u(aVar.f1744a, str2);
+        dVar.f1761a = new u(aVar.f1742a, str2);
         if (aVar.h != null) {
             int i2 = 0;
             while (true) {
@@ -62,16 +62,16 @@ public class c extends a {
                 if (i3 >= aVar.h.size()) {
                     break;
                 }
-                dVar.f1763a.a((BasicNameValuePair) aVar.h.get(i3));
+                dVar.f1761a.a((BasicNameValuePair) aVar.h.get(i3));
                 i2 = i3 + 1;
             }
         }
-        byte[] j = dVar.f1763a.j();
-        if (j == null || !dVar.f1763a.d() || dVar.j) {
+        byte[] j = dVar.f1761a.j();
+        if (j == null || !dVar.f1761a.d() || dVar.j) {
             return null;
         }
         String a2 = aVar.a(str);
-        synchronized (com.baidu.tieba.util.e.f1764a) {
+        synchronized (com.baidu.tieba.util.e.f1762a) {
             if (dVar.j) {
                 return null;
             }

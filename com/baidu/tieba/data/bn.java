@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class bn {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1004a = null;
+    private String f1002a = null;
     private String d = null;
     private String b = null;
     private int c = 0;
@@ -24,7 +24,7 @@ public class bn {
     }
 
     public String d() {
-        return this.f1004a;
+        return this.f1002a;
     }
 
     public int e() {
@@ -34,7 +34,7 @@ public class bn {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1004a = jSONObject.optString("tid");
+                this.f1002a = jSONObject.optString("tid");
                 this.b = jSONObject.optString("title");
                 this.c = jSONObject.optInt("reply_amount", 0);
                 JSONObject optJSONObject = jSONObject.optJSONObject("user");

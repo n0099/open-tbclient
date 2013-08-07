@@ -8,10 +8,10 @@ import java.util.ArrayList;
 class s extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1684a;
+    final /* synthetic */ GuideActivity f1682a;
 
     private s(GuideActivity guideActivity) {
-        this.f1684a = guideActivity;
+        this.f1682a = guideActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +22,7 @@ class s extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public int getCount() {
         int[] iArr;
-        iArr = this.f1684a.c;
+        iArr = this.f1682a.c;
         return iArr.length;
     }
 
@@ -33,19 +33,19 @@ class s extends android.support.v4.view.ae {
         ArrayList arrayList3;
         ArrayList arrayList4;
         ArrayList arrayList5;
-        arrayList = this.f1684a.d;
+        arrayList = this.f1682a.d;
         if (i < arrayList.size()) {
-            arrayList2 = this.f1684a.d;
+            arrayList2 = this.f1682a.d;
             ((ViewPager) view).addView((View) arrayList2.get(i), 0);
-            arrayList3 = this.f1684a.d;
+            arrayList3 = this.f1682a.d;
             if (i == arrayList3.size() - 1) {
-                arrayList5 = this.f1684a.d;
-                ((View) arrayList5.get(i)).setOnClickListener(this.f1684a.f820a);
+                arrayList5 = this.f1682a.d;
+                ((View) arrayList5.get(i)).setOnClickListener(this.f1682a.f818a);
             }
-            arrayList4 = this.f1684a.d;
+            arrayList4 = this.f1682a.d;
             return arrayList4.get(i);
         }
-        View view2 = new View(this.f1684a);
+        View view2 = new View(this.f1682a);
         view2.setBackgroundColor(-1);
         ((ViewPager) view).addView(view2, 0);
         return view2;

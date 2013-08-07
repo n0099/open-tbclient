@@ -10,12 +10,12 @@ import com.baidu.tieba.kn.ladders.KnLaddersModel;
 public class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1185a;
+    final /* synthetic */ a f1183a;
     private final /* synthetic */ KnLaddersModel.PlayerInfo b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, KnLaddersModel.PlayerInfo playerInfo) {
-        this.f1185a = aVar;
+        this.f1183a = aVar;
         this.b = playerInfo;
     }
 

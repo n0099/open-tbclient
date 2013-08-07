@@ -1,60 +1,36 @@
 package com.baidu.android.nebula.cmd;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.android.nebula.util.BDLocationManager;
 import java.util.Timer;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class d extends Handler {
+class d implements com.baidu.android.nebula.util.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GeoLocation f546a;
+    final /* synthetic */ c f545a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d(GeoLocation geoLocation, Looper looper) {
-        super(looper);
-        this.f546a = geoLocation;
+    public d(c cVar) {
+        this.f545a = cVar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        BDLocationManager bDLocationManager;
-        com.baidu.android.nebula.util.c cVar;
-        BDLocationManager bDLocationManager2;
-        boolean z;
-        BDLocationManager bDLocationManager3;
-        com.baidu.android.nebula.util.e eVar;
-        BDLocationManager bDLocationManager4;
+    @Override // com.baidu.android.nebula.util.d
+    public void a(com.baidu.android.nebula.util.c cVar) {
+        com.baidu.android.nebula.util.c cVar2;
         Timer timer;
         Timer timer2;
-        this.f546a.mLocMgr = BDLocationManager.b(this.f546a.mContext);
-        synchronized (this.f546a) {
-            GeoLocation geoLocation = this.f546a;
-            bDLocationManager = this.f546a.mLocMgr;
-            geoLocation.mLocInfo = bDLocationManager.b();
-            cVar = this.f546a.mLocInfo;
-            if (cVar != null) {
-                this.f546a.mErrcode = 0;
-                timer = this.f546a.mTimeoutTm;
-                if (timer != null) {
-                    timer2 = this.f546a.mTimeoutTm;
-                    timer2.cancel();
-                }
-                this.f546a.notifyAll();
-                return;
+        synchronized (this.f545a.f544a) {
+            this.f545a.f544a.mLocInfo = cVar;
+            cVar2 = this.f545a.f544a.mLocInfo;
+            if (cVar2 == null) {
+                this.f545a.f544a.mErrcode = 2;
+            } else {
+                this.f545a.f544a.mErrcode = 0;
             }
-            this.f546a.mLocListener = new j(this);
-            bDLocationManager2 = this.f546a.mLocMgr;
-            z = this.f546a.mGpsEnabled;
-            bDLocationManager2.a(z);
-            bDLocationManager3 = this.f546a.mLocMgr;
-            eVar = this.f546a.mLocListener;
-            bDLocationManager3.a(eVar);
-            bDLocationManager4 = this.f546a.mLocMgr;
-            bDLocationManager4.c();
+            timer = this.f545a.f544a.mTimeoutTm;
+            if (timer != null) {
+                timer2 = this.f545a.f544a.mTimeoutTm;
+                timer2.cancel();
+            }
+            this.f545a.f544a.notifyAll();
         }
     }
 }

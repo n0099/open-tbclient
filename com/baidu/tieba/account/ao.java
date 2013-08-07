@@ -7,11 +7,11 @@ import android.widget.ImageView;
 class ao implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginShareActivity f863a;
+    final /* synthetic */ ReLoginShareActivity f861a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(ReLoginShareActivity reLoginShareActivity) {
-        this.f863a = reLoginShareActivity;
+        this.f861a = reLoginShareActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,18 +19,18 @@ class ao implements View.OnClickListener {
         Button button;
         ImageView imageView;
         Button button2;
-        button = this.f863a.e;
+        button = this.f861a.e;
         if (view != button) {
-            imageView = this.f863a.f;
+            imageView = this.f861a.f;
             if (view != imageView) {
-                button2 = this.f863a.d;
+                button2 = this.f861a.d;
                 if (view != button2) {
                     return;
                 }
-                this.f863a.k();
+                this.f861a.k();
                 return;
             }
         }
-        this.f863a.d();
+        this.f861a.d();
     }
 }

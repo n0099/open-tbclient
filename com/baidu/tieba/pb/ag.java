@@ -8,10 +8,10 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class ag extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1448a;
+    final /* synthetic */ ImagePbActivity f1446a;
 
     private ag(ImagePbActivity imagePbActivity) {
-        this.f1448a = imagePbActivity;
+        this.f1446a = imagePbActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,11 +25,11 @@ public class ag extends BdAsyncTask {
     public String a(String... strArr) {
         String f;
         try {
-            if (this.f1448a.H == null || this.f1448a.H.h() == null || this.f1448a.H.h().get(this.f1448a.K) == null) {
+            if (this.f1446a.H == null || this.f1446a.H.h() == null || this.f1446a.H.h().get(this.f1446a.K) == null) {
                 return null;
             }
-            String str = String.valueOf(((com.baidu.tieba.data.z) this.f1448a.H.h().get(this.f1448a.K)).b()) + "_big";
-            if (str != null && str.length() > 0 && this.f1448a.H != null) {
+            String str = String.valueOf(((com.baidu.tieba.data.z) this.f1446a.H.h().get(this.f1446a.K)).b()) + "_big";
+            if (str != null && str.length() > 0 && this.f1446a.H != null) {
                 if (com.baidu.tieba.util.ai.f(str) != null) {
                     String str2 = String.valueOf(f) + Util.PHOTO_DEFAULT_EXT;
                     int i = 0;
@@ -42,17 +42,17 @@ public class ag extends BdAsyncTask {
                         str2 = com.baidu.tieba.util.p.a(null, str2, c.f(), 80);
                     }
                     if (str2 != null) {
-                        new com.baidu.tieba.util.t(this.f1448a).a(str2);
-                        return this.f1448a.getString(R.string.save_image_to_album);
+                        new com.baidu.tieba.util.t(this.f1446a).a(str2);
+                        return this.f1446a.getString(R.string.save_image_to_album);
                     }
                     return com.baidu.tieba.util.p.b();
                 }
-                return this.f1448a.getString(R.string.save_error);
+                return this.f1446a.getString(R.string.save_error);
             }
-            return this.f1448a.getString(R.string.save_error);
+            return this.f1446a.getString(R.string.save_error);
         } catch (Exception e) {
             com.baidu.tieba.util.aj.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
-            return this.f1448a.getString(R.string.save_error);
+            return this.f1446a.getString(R.string.save_error);
         }
     }
 
@@ -62,14 +62,14 @@ public class ag extends BdAsyncTask {
     public void a(String str) {
         super.a((Object) str);
         if (str != null) {
-            this.f1448a.a(str);
+            this.f1446a.a(str);
         }
-        this.f1448a.y = null;
+        this.f1446a.y = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f1448a.y = null;
+        this.f1446a.y = null;
         super.cancel(true);
     }
 }

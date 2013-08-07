@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1026a = new ArrayList();
+    private ArrayList f1024a = new ArrayList();
     private ArrayList b = new ArrayList();
     private ar c = new ar();
     private Date d = null;
@@ -24,7 +24,7 @@ public class t {
     }
 
     public ArrayList c() {
-        return this.f1026a;
+        return this.f1024a;
     }
 
     public void a(String str) {
@@ -43,7 +43,7 @@ public class t {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     s sVar = new s();
                     sVar.a(optJSONArray.getJSONObject(i));
-                    this.f1026a.add(sVar);
+                    this.f1024a.add(sVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("commend_forum_list");

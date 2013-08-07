@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class AllPostActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f1551a = null;
+    FrameLayout f1549a = null;
     TextView b = null;
     ListView c = null;
     ImageView d = null;
@@ -36,7 +36,7 @@ public class AllPostActivity extends com.baidu.tieba.g {
     }
 
     void b() {
-        this.f1551a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
+        this.f1549a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
         this.b = (TextView) findViewById(R.id.no_post_view);
         this.b.setVisibility(8);
         this.d = (ImageView) findViewById(R.id.time_line);
@@ -93,7 +93,7 @@ public class AllPostActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.a(this.f1551a, i);
+        com.baidu.tieba.util.ah.a(this.f1549a, i);
         if (i == 1) {
             this.b.setTextColor(com.baidu.tieba.util.ah.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);

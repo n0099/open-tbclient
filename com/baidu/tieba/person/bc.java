@@ -6,18 +6,18 @@ import android.widget.ImageView;
 public class bc implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bb f1588a;
+    final /* synthetic */ bb f1586a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(bb bbVar) {
-        this.f1588a = bbVar;
+        this.f1586a = bbVar;
     }
 
     @Override // com.baidu.tbadk.a.d
     public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         ImageView imageView;
         if (bVar != null) {
-            imageView = this.f1588a.d;
+            imageView = this.f1586a.d;
             bVar.b(imageView);
         }
     }

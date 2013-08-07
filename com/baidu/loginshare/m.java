@@ -7,11 +7,11 @@ import com.baidu.share.ShareModel;
 public class m implements IShareListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f773a;
+    final /* synthetic */ b f771a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(b bVar) {
-        this.f773a = bVar;
+        this.f771a = bVar;
     }
 
     @Override // com.baidu.share.IShareListener
@@ -19,13 +19,13 @@ public class m implements IShareListener {
         String str = shareModel.mAction;
         if (e.a(str)) {
             if (g.c().equals(str)) {
-                this.f773a.a(shareModel);
+                this.f771a.a(shareModel);
             } else if (g.d().equals(str)) {
-                this.f773a.b(shareModel);
+                this.f771a.b(shareModel);
             } else if (g.a().equals(str)) {
-                this.f773a.c(shareModel);
+                this.f771a.c(shareModel);
             } else if (g.b().equals(str)) {
-                this.f773a.d(shareModel);
+                this.f771a.d(shareModel);
             }
         }
     }

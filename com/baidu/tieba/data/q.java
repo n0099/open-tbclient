@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public az f1023a;
+    public az f1021a;
     public bo b;
     private aj c;
     private com.baidu.tieba.square.g d;
@@ -36,7 +36,7 @@ public class q {
             JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
             JSONObject optJSONObject = jSONObject.optJSONObject("recommend");
             JSONArray optJSONArray2 = jSONObject.optJSONArray("topic");
-            this.f1023a = new az(optJSONObject);
+            this.f1021a = new az(optJSONObject);
             this.b = new bo(optJSONArray2);
             this.c = new aj();
             this.c.a(optJSONArray);
@@ -58,7 +58,7 @@ public class q {
     }
 
     public az c() {
-        return this.f1023a;
+        return this.f1021a;
     }
 
     public bo d() {
@@ -76,7 +76,7 @@ public class q {
     public boolean g() {
         boolean z = false;
         if (this.e) {
-            if (this.f1023a == null || this.b == null || this.c == null || this.d == null) {
+            if (this.f1021a == null || this.b == null || this.c == null || this.d == null) {
                 z = true;
             }
             return z;

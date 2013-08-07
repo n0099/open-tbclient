@@ -6,11 +6,11 @@ import android.os.Message;
 class ah extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageViewDrawer f1814a;
+    final /* synthetic */ ImageViewDrawer f1812a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(ImageViewDrawer imageViewDrawer) {
-        this.f1814a = imageViewDrawer;
+        this.f1812a = imageViewDrawer;
     }
 
     @Override // android.os.Handler
@@ -20,15 +20,15 @@ class ah extends Handler {
         Handler handler;
         Handler handler2;
         super.handleMessage(message);
-        ImageViewDrawer imageViewDrawer = this.f1814a;
+        ImageViewDrawer imageViewDrawer = this.f1812a;
         i = imageViewDrawer.b;
         imageViewDrawer.b = i - 1;
-        i2 = this.f1814a.b;
+        i2 = this.f1812a.b;
         if (i2 >= 0) {
-            handler = this.f1814a.g;
-            handler2 = this.f1814a.g;
+            handler = this.f1812a.g;
+            handler2 = this.f1812a.g;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 15L);
-            this.f1814a.invalidate();
+            this.f1812a.invalidate();
         }
     }
 }

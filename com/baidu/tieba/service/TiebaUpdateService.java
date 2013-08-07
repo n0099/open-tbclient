@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class TiebaUpdateService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1694a = null;
+    protected String f1692a = null;
     private NotificationManager b = null;
     private Notification c = null;
     private Notification d = null;
@@ -96,15 +96,15 @@ public class TiebaUpdateService extends Service {
                 } else {
                     z = true;
                 }
-                this.f1694a = a(this.h);
-                if (this.f1694a == null || this.f1694a.length() < 4) {
+                this.f1692a = a(this.h);
+                if (this.f1692a == null || this.f1692a.length() < 4) {
                     this.i = true;
                     z = false;
                 }
                 if (z) {
                     this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
                     this.d.contentView.setTextViewText(R.id.schedule, "0/0");
-                    if (com.baidu.tieba.util.p.c(this.f1694a) != null) {
+                    if (com.baidu.tieba.util.p.c(this.f1692a) != null) {
                         this.k.sendMessageDelayed(this.k.obtainMessage(2, this.f), 100L);
                     } else if (this.g == null) {
                         this.g = new w(this, this.h);

@@ -92,7 +92,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     private BannerData x = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f826a = 0;
+    public long f824a = 0;
     private int y = 0;
     private boolean A = true;
     private LocationClient B = null;
@@ -1597,7 +1597,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public void aR() {
         try {
-            if (this.F == null || System.currentTimeMillis() - this.f826a > 300000) {
+            if (this.F == null || System.currentTimeMillis() - this.f824a > 300000) {
                 this.F = null;
                 if (this.c.hasMessages(5)) {
                     this.c.removeMessages(5);
@@ -1655,7 +1655,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
                 TiebaApplication.this.F = new Address(Locale.getDefault());
                 TiebaApplication.this.F.setLatitude(bDLocation.getLatitude());
                 TiebaApplication.this.F.setLongitude(bDLocation.getLongitude());
-                TiebaApplication.this.f826a = System.currentTimeMillis();
+                TiebaApplication.this.f824a = System.currentTimeMillis();
                 StringBuffer stringBuffer = new StringBuffer();
                 if ((bDLocation.getDistrict() == null || bDLocation.getStreet() == null) && bDLocation.getCity() != null) {
                     stringBuffer.append(bDLocation.getCity());
@@ -1699,7 +1699,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
 
     public Address a(av avVar) {
         boolean z;
-        if (this.F != null && System.currentTimeMillis() - this.f826a <= 300000) {
+        if (this.F != null && System.currentTimeMillis() - this.f824a <= 300000) {
             return this.F;
         }
         if (avVar != null) {

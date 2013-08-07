@@ -8,11 +8,11 @@ import android.widget.EditText;
 public class da implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cu f1521a;
+    final /* synthetic */ cu f1519a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public da(cu cuVar) {
-        this.f1521a = cuVar;
+        this.f1519a = cuVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,12 +20,12 @@ public class da implements AdapterView.OnItemClickListener {
         com.baidu.tieba.write.m mVar;
         EditText editText;
         EditText editText2;
-        mVar = this.f1521a.B;
+        mVar = this.f1519a.B;
         String a2 = mVar.a(i);
         if (a2 != null) {
-            editText = this.f1521a.F;
+            editText = this.f1519a.F;
             int selectionStart = editText.getSelectionStart();
-            editText2 = this.f1521a.F;
+            editText2 = this.f1519a.F;
             editText2.getText().insert(selectionStart, a2);
         }
     }

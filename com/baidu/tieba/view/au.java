@@ -8,20 +8,20 @@ import com.baidu.tieba.util.NetWorkCore;
 public class au implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f1824a;
+    final /* synthetic */ MultiImageView f1822a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(MultiImageView multiImageView) {
-        this.f1824a = multiImageView;
+        this.f1822a = multiImageView;
     }
 
     @Override // android.support.v4.view.bq
     public void b(int i) {
         bq bqVar;
         bq bqVar2;
-        bqVar = this.f1824a.g;
+        bqVar = this.f1822a.g;
         if (bqVar != null) {
-            bqVar2 = this.f1824a.g;
+            bqVar2 = this.f1822a.g;
             bqVar2.b(i);
         }
     }
@@ -30,9 +30,9 @@ public class au implements bq {
     public void a(int i, float f, int i2) {
         bq bqVar;
         bq bqVar2;
-        bqVar = this.f1824a.g;
+        bqVar = this.f1822a.g;
         if (bqVar != null) {
-            bqVar2 = this.f1824a.g;
+            bqVar2 = this.f1822a.g;
             bqVar2.a(i, f, i2);
         }
     }
@@ -49,36 +49,36 @@ public class au implements bq {
         j imageView;
         GalleryViewPager galleryViewPager5;
         com.baidu.tieba.util.aj.e(getClass().getName(), "onPageSelected", "postion = " + String.valueOf(i));
-        galleryViewPager = this.f1824a.e;
+        galleryViewPager = this.f1822a.e;
         View findViewWithTag = galleryViewPager.findViewWithTag(String.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof bg) && (imageView = ((bg) findViewWithTag).getImageView()) != null) {
-            galleryViewPager5 = this.f1824a.e;
+            galleryViewPager5 = this.f1822a.e;
             galleryViewPager5.setSelectedView(imageView);
             imageView.o();
         }
-        galleryViewPager2 = this.f1824a.e;
+        galleryViewPager2 = this.f1822a.e;
         int childCount = galleryViewPager2.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
-            galleryViewPager4 = this.f1824a.e;
+            galleryViewPager4 = this.f1822a.e;
             View childAt = galleryViewPager4.getChildAt(i2);
             if (childAt != null && (childAt instanceof bg)) {
                 ((bg) childAt).e();
             }
         }
-        NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.f1824a.getContext());
-        z = this.f1824a.l;
+        NetWorkCore.NetworkStateInfo c = NetWorkCore.c(this.f1822a.getContext());
+        z = this.f1822a.l;
         if (z && (c == NetWorkCore.NetworkStateInfo.WIFI || c == NetWorkCore.NetworkStateInfo.ThreeG)) {
             for (int i3 = 0; i3 < childCount; i3++) {
-                galleryViewPager3 = this.f1824a.e;
+                galleryViewPager3 = this.f1822a.e;
                 View childAt2 = galleryViewPager3.getChildAt(i3);
                 if (childAt2 != null && (childAt2 instanceof bg)) {
                     ((bg) childAt2).f();
                 }
             }
         }
-        bqVar = this.f1824a.g;
+        bqVar = this.f1822a.g;
         if (bqVar != null) {
-            bqVar2 = this.f1824a.g;
+            bqVar2 = this.f1822a.g;
             bqVar2.a_(i);
         }
     }

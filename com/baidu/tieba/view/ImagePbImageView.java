@@ -16,7 +16,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class ImagePbImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1799a;
+    private boolean f1797a;
     private int b;
     private Matrix c;
     private Paint d;
@@ -33,7 +33,7 @@ public class ImagePbImageView extends ImageView {
     }
 
     public void setIsScale(boolean z) {
-        this.f1799a = z;
+        this.f1797a = z;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -59,7 +59,7 @@ public class ImagePbImageView extends ImageView {
 
     public ImagePbImageView(Context context) {
         super(context);
-        this.f1799a = false;
+        this.f1797a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -75,7 +75,7 @@ public class ImagePbImageView extends ImageView {
 
     public ImagePbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1799a = false;
+        this.f1797a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -91,7 +91,7 @@ public class ImagePbImageView extends ImageView {
 
     public ImagePbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1799a = false;
+        this.f1797a = false;
         this.b = 0;
         this.c = new Matrix();
         this.d = new Paint();
@@ -136,7 +136,7 @@ public class ImagePbImageView extends ImageView {
             int width = getWidth() - a2;
             int height = getHeight();
             this.c.reset();
-            if (this.g && this.f1799a) {
+            if (this.g && this.f1797a) {
                 float min = Math.min(width / a3, height / b);
                 a3 = (int) (a3 * min);
                 b = (int) (b * min);

@@ -14,7 +14,7 @@ import java.util.Date;
 public class DatabaseService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Boolean f1739a = true;
+    private static Boolean f1737a = true;
     private static Boolean b = true;
     private static volatile SQLiteDatabase c = null;
     private static volatile SQLiteDatabase d = null;
@@ -1009,7 +1009,7 @@ public class DatabaseService {
     }
 
     public static void a(Boolean bool) {
-        f1739a = bool;
+        f1737a = bool;
     }
 
     public static void b(Boolean bool) {

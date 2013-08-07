@@ -8,17 +8,17 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1344a = new ArrayList();
+    private ArrayList f1342a = new ArrayList();
     private com.baidu.tieba.data.ar b = new com.baidu.tieba.data.ar();
     private Date c = null;
     private boolean d = true;
 
     public ArrayList a() {
-        return this.f1344a;
+        return this.f1342a;
     }
 
     public void a(ArrayList arrayList) {
-        this.f1344a = arrayList;
+        this.f1342a = arrayList;
     }
 
     public void a(String str) {
@@ -37,7 +37,7 @@ public class b {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     com.baidu.tieba.data.v vVar = new com.baidu.tieba.data.v();
                     vVar.a(optJSONArray.getJSONObject(i));
-                    this.f1344a.add(vVar);
+                    this.f1342a.add(vVar);
                 }
             }
             this.b.a(jSONObject.optJSONObject("page"));

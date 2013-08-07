@@ -3,7 +3,6 @@ package com.baidu.android.systemmonitor.localapp;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
-import com.baidu.android.systemmonitor.a.c;
 import com.baidu.android.systemmonitor.security.md5.MD5;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +10,7 @@ import java.io.IOException;
 public class a implements Comparable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f699a = a.class.getSimpleName();
+    public static final String f697a = a.class.getSimpleName();
     public String b;
     public String d;
     public long e;
@@ -53,7 +52,7 @@ public class a implements Comparable {
 
     public String a(Context context) {
         PackageInfo b;
-        if (TextUtils.isEmpty(this.j) && (b = c.b(context, this.o)) != null) {
+        if (TextUtils.isEmpty(this.j) && (b = com.baidu.android.systemmonitor.d.a.b(context, this.o)) != null) {
             c((String) b.applicationInfo.loadLabel(context.getPackageManager()));
         }
         return this.j;
@@ -73,9 +72,9 @@ public class a implements Comparable {
 
     public String b(Context context) {
         if (TextUtils.isEmpty(this.q)) {
-            PackageInfo b = c.b(context, this.o);
+            PackageInfo b = com.baidu.android.systemmonitor.d.a.b(context, this.o);
             if (b != null) {
-                this.q = c.a(c.b(b.signatures[0].toCharsString().getBytes()));
+                this.q = com.baidu.android.systemmonitor.d.a.a(com.baidu.android.systemmonitor.d.a.b(b.signatures[0].toCharsString().getBytes()));
             } else {
                 this.q = "";
             }
@@ -91,7 +90,7 @@ public class a implements Comparable {
         if (TextUtils.isEmpty(this.l)) {
             File file = new File(this.v);
             if (!file.exists()) {
-                c.c(context, this.o);
+                com.baidu.android.systemmonitor.d.a.c(context, this.o);
             }
             try {
                 this.l = MD5.a(MD5.a(file));

@@ -7,22 +7,22 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class GetServiceInfo implements NoProGuard, k {
+public class GetServiceInfo implements NoProGuard, e {
     private static final boolean DEBUG = false;
     private static final String TAG = "GetServiceInfo";
     private int mErrcode = -1;
     Context mContext = null;
 
-    @Override // com.baidu.android.nebula.cmd.k
-    public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
+    @Override // com.baidu.android.nebula.cmd.e
+    public void execute(com.baidu.android.nebula.b.a aVar, com.baidu.android.nebula.b.b bVar) {
         String str;
-        Map a2 = dVar.a();
+        Map a2 = aVar.a();
         if (a2 == null || a2.size() < 1 || (str = (String) a2.get("callback")) == null) {
             return;
         }
-        this.mContext = com.baidu.android.nebula.d.c.a().c();
+        this.mContext = com.baidu.android.nebula.c.c.a().c();
         if (this.mContext != null) {
-            if (!com.baidu.android.nebula.d.a.a(this.mContext).a(dVar.a(HttpUtils.HEADER_NAME_REFERER))) {
+            if (!com.baidu.android.nebula.c.a.a(this.mContext).a(aVar.a(HttpUtils.HEADER_NAME_REFERER))) {
                 this.mErrcode = 4;
             }
             long e = com.baidu.android.moplus.util.b.e(this.mContext);
@@ -30,7 +30,7 @@ public class GetServiceInfo implements NoProGuard, k {
             try {
                 if (this.mErrcode != 4) {
                     jSONObject.put("error", 0);
-                    jSONObject.put("version", String.valueOf(11));
+                    jSONObject.put("version", String.valueOf(12));
                     jSONObject.put("priority", String.valueOf(e));
                     jSONObject.put("packagename", this.mContext.getPackageName());
                 } else {
@@ -38,10 +38,10 @@ public class GetServiceInfo implements NoProGuard, k {
                 }
             } catch (JSONException e2) {
             }
-            aVar.a("text/javascript");
-            aVar.a().put("Cache-Control", "no-cache");
-            aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-            aVar.a(200);
+            bVar.a("text/javascript");
+            bVar.a().put("Cache-Control", "no-cache");
+            bVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
+            bVar.a(200);
         }
     }
 }

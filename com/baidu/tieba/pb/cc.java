@@ -7,14 +7,14 @@ import android.view.animation.Animation;
 public class cc implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1497a;
+    final /* synthetic */ bn f1495a;
     private final /* synthetic */ com.baidu.tieba.data.bh b;
     private final /* synthetic */ boolean c;
     private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cc(bn bnVar, com.baidu.tieba.data.bh bhVar, boolean z, String str) {
-        this.f1497a = bnVar;
+        this.f1495a = bnVar;
         this.b = bhVar;
         this.c = z;
         this.d = str;

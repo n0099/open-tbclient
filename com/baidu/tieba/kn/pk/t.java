@@ -19,7 +19,7 @@ import java.util.Random;
 public class t implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f1227a;
+    protected s f1225a;
     public com.baidu.tieba.kn.pk.widget.b b;
     ImageView c;
     public long d;
@@ -117,13 +117,13 @@ public class t implements View.OnClickListener {
         a(handler);
         if (sVar.a()) {
             this.e.setVisibility(0);
-            if (this.f1227a == null) {
+            if (this.f1225a == null) {
                 a(sVar.b());
             }
             this.f.a(sVar.b());
             return;
         }
-        this.f1227a = sVar;
+        this.f1225a = sVar;
         this.n.setData(sVar);
         this.o.setData(sVar);
         if (this.n != null) {
@@ -132,15 +132,15 @@ public class t implements View.OnClickListener {
         if (this.o != null) {
             this.o.a();
         }
-        this.i.setText(this.f1227a.c());
-        this.b.a(this.f1227a.b);
-        this.b.a("PK规则", this.f1227a.c);
+        this.i.setText(this.f1225a.c());
+        this.b.a(this.f1225a.b);
+        this.b.a("PK规则", this.f1225a.c);
         this.b.a(String.valueOf(sVar.j.e) + this.f.getString(R.string.forum), sVar.j.g, this.f);
         this.b.b(String.valueOf(sVar.k.e) + this.f.getString(R.string.forum), sVar.k.g, this.f);
         this.n.a();
         this.o.a();
-        this.p = this.f1227a.j.h;
-        this.q = this.f1227a.k.h;
+        this.p = this.f1225a.j.h;
+        this.q = this.f1225a.k.h;
         if (sVar.g().isEmpty() && sVar.h().isEmpty()) {
             this.m = false;
             a(this.f.getString(R.string.kn_data_no_vote));
@@ -179,9 +179,9 @@ public class t implements View.OnClickListener {
     }
 
     public void a(Handler handler) {
-        if (this.f1227a != null) {
-            this.f1227a.g().clear();
-            this.f1227a.h().clear();
+        if (this.f1225a != null) {
+            this.f1225a.g().clear();
+            this.f1225a.h().clear();
         }
         Iterator it = this.r.iterator();
         while (it.hasNext()) {
@@ -199,7 +199,7 @@ public class t implements View.OnClickListener {
                 this.m = true;
                 a((String) null);
             }
-            hVar.a(this.f1227a.d());
+            hVar.a(this.f1225a.d());
             this.p = hVar.b.h;
             this.q = hVar.c.h;
             if (hVar.c() != null) {
@@ -222,7 +222,7 @@ public class t implements View.OnClickListener {
 
     public void a(LinkedList linkedList, boolean z) {
         int size = linkedList.size() - 10;
-        long d = this.f1227a.d() / 1000;
+        long d = this.f1225a.d() / 1000;
         int i = 0;
         while (i < size && d - ((y) linkedList.get(i)).c <= 15) {
             i++;
@@ -259,9 +259,9 @@ public class t implements View.OnClickListener {
                 } else if (i > 15000) {
                     i = 15000;
                 }
-                if (yVar.f1244a != null) {
+                if (yVar.f1242a != null) {
                     this.d = Math.max(yVar.c, this.d);
-                    if (i2 == 0 && yVar.f1244a.equalsIgnoreCase(TiebaApplication.I())) {
+                    if (i2 == 0 && yVar.f1242a.equalsIgnoreCase(TiebaApplication.I())) {
                         i = 0;
                     }
                     if (com.baidu.adp.lib.e.d.a()) {

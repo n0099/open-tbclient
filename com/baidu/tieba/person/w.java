@@ -9,13 +9,13 @@ import java.io.File;
 public class w extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1619a;
+    final /* synthetic */ EditHeadActivity f1617a;
     private com.baidu.tieba.util.u b;
     private com.baidu.tieba.data.e c;
     private com.baidu.tieba.util.f d;
 
     private w(EditHeadActivity editHeadActivity) {
-        this.f1619a = editHeadActivity;
+        this.f1617a = editHeadActivity;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -29,7 +29,7 @@ public class w extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f1619a.b(this.f1619a.getString(R.string.upload_head));
+        this.f1617a.b(this.f1617a.getString(R.string.upload_head));
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0128 */
@@ -46,7 +46,7 @@ public class w extends BdAsyncTask {
         File c;
         com.baidu.tieba.data.d dVar;
         long j;
-        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/img/portrait");
+        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/img/portrait");
         try {
             c = com.baidu.tieba.util.p.c("tieba_head_image");
             str = (c.length() > 102400L ? 1 : (c.length() == 102400L ? 0 : -1));
@@ -76,10 +76,10 @@ public class w extends BdAsyncTask {
             } else {
                 dVar = q;
             }
-            this.d = new com.baidu.tieba.util.f("tieba_head_image", dVar, String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/img/chunkupload");
+            this.d = new com.baidu.tieba.util.f("tieba_head_image", dVar, String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/img/chunkupload");
             this.c = this.d.b();
             if (this.c.a()) {
-                this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/img/finupload");
+                this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/img/finupload");
                 this.b.a("md5", dVar.a());
                 String k = this.b.k();
                 if (k == null || !this.b.d()) {
@@ -106,8 +106,8 @@ public class w extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f1619a.h();
-        this.f1619a.u = null;
+        this.f1617a.h();
+        this.f1617a.u = null;
         if (this.b != null) {
             this.b.i();
         }
@@ -118,15 +118,15 @@ public class w extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        this.f1619a.h();
+        this.f1617a.h();
         if (this.b != null) {
             if (this.b.d()) {
-                this.f1619a.setResult(-1);
-                this.f1619a.finish();
-                this.f1619a.a(this.f1619a.getString(R.string.upload_head_ok));
+                this.f1617a.setResult(-1);
+                this.f1617a.finish();
+                this.f1617a.a(this.f1617a.getString(R.string.upload_head_ok));
                 return;
             }
-            this.f1619a.a(this.b.h());
+            this.f1617a.a(this.b.h());
         }
     }
 }

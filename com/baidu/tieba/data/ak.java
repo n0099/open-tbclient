@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f975a;
+    private int f973a;
     private int b;
     private int c;
     private int d;
@@ -58,11 +58,11 @@ public class ak {
     }
 
     public void b(int i) {
-        this.f975a = i;
+        this.f973a = i;
     }
 
     public int b() {
-        return this.f975a;
+        return this.f973a;
     }
 
     public void c(int i) {

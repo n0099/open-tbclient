@@ -6,13 +6,13 @@ import com.baidu.cyberplayer.sdk.BCyberPlayerFactory;
 public class CyberPlayerEngineVersion {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ICyberPlayerEngineVersionBridge f710a = null;
+    private static ICyberPlayerEngineVersionBridge f708a = null;
 
     private static ICyberPlayerEngineVersionBridge a() {
-        if (f710a == null) {
-            f710a = BCyberPlayerFactory.getProxyFactory().createCyberPlayerEngineVersionProxy();
+        if (f708a == null) {
+            f708a = BCyberPlayerFactory.getProxyFactory().createCyberPlayerEngineVersionProxy();
         }
-        return f710a;
+        return f708a;
     }
 
     public static String getVersion(Context context) {

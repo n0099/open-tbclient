@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class d extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1271a;
+    private Context f1269a;
     private ProgressBar b;
     private TextView c;
     private TextView d;
@@ -28,7 +28,7 @@ public class d extends Dialog {
 
     public d(Context context, int i) {
         super(context, i);
-        this.f1271a = null;
+        this.f1269a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -38,7 +38,7 @@ public class d extends Dialog {
         this.h = null;
         this.i = null;
         this.j = new StringBuilder();
-        this.f1271a = context;
+        this.f1269a = context;
     }
 
     @Override // android.app.Dialog
@@ -63,10 +63,10 @@ public class d extends Dialog {
             this.c.setTextColor(-9207399);
             this.d.setTextColor(-11446171);
             this.e.setTextColor(-11446171);
-            this.b.setProgressDrawable(this.f1271a.getResources().getDrawable(R.drawable.tieba_progress_bar_1));
-            this.f.setTextColor(this.f1271a.getResources().getColorStateList(R.color.color_black_white_1));
+            this.b.setProgressDrawable(this.f1269a.getResources().getDrawable(R.drawable.tieba_progress_bar_1));
+            this.f.setTextColor(this.f1269a.getResources().getColorStateList(R.color.color_black_white_1));
             this.f.setBackgroundResource(R.drawable.btn_white_blue_1);
-            this.g.setTextColor(this.f1271a.getResources().getColorStateList(R.color.color_black_white_1));
+            this.g.setTextColor(this.f1269a.getResources().getColorStateList(R.color.color_black_white_1));
             this.g.setBackgroundResource(R.drawable.btn_white_blue_1);
             ah.h(this.h, (int) R.drawable.floating_bg_up_1);
             ah.h(this.i, (int) R.drawable.floating_bg_down_1);
@@ -75,10 +75,10 @@ public class d extends Dialog {
         this.c.setTextColor(-14277082);
         this.d.setTextColor(-10197916);
         this.e.setTextColor(-10197916);
-        this.b.setProgressDrawable(this.f1271a.getResources().getDrawable(R.drawable.tieba_progress_bar));
-        this.f.setTextColor(this.f1271a.getResources().getColorStateList(R.color.color_black_white));
+        this.b.setProgressDrawable(this.f1269a.getResources().getDrawable(R.drawable.tieba_progress_bar));
+        this.f.setTextColor(this.f1269a.getResources().getColorStateList(R.color.color_black_white));
         this.f.setBackgroundResource(R.drawable.btn_white_blue);
-        this.g.setTextColor(this.f1271a.getResources().getColorStateList(R.color.color_black_white));
+        this.g.setTextColor(this.f1269a.getResources().getColorStateList(R.color.color_black_white));
         this.g.setBackgroundResource(R.drawable.btn_white_blue);
         ah.h(this.h, (int) R.drawable.floating_bg_up);
         ah.h(this.i, (int) R.drawable.floating_bg_down);

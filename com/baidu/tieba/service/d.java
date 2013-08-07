@@ -10,11 +10,11 @@ import java.io.FileWriter;
 class d extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FatalErrorService f1698a;
+    final /* synthetic */ FatalErrorService f1696a;
     private com.baidu.tieba.util.u b;
 
     private d(FatalErrorService fatalErrorService) {
-        this.f1698a = fatalErrorService;
+        this.f1696a = fatalErrorService;
         this.b = null;
     }
 
@@ -93,7 +93,7 @@ class d extends BdAsyncTask {
                                 }
                                 return;
                             }
-                            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + str2);
+                            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.m();
                             if (byteArrayOutputStream2 != null) {
@@ -272,9 +272,9 @@ class d extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1698a.f1687a = null;
+        this.f1696a.f1685a = null;
         super.cancel(true);
-        this.f1698a.stopSelf();
+        this.f1696a.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -282,7 +282,7 @@ class d extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.f1698a.f1687a = null;
-        this.f1698a.stopSelf();
+        this.f1696a.f1685a = null;
+        this.f1696a.stopSelf();
     }
 }

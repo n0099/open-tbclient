@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class ab extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f929a;
+    final /* synthetic */ aa f927a;
     private com.baidu.tieba.a.a b = null;
 
     public ab(aa aaVar) {
-        this.f929a = aaVar;
+        this.f927a = aaVar;
         setPriority(3);
     }
 
@@ -22,9 +22,9 @@ public class ab extends BdAsyncTask {
         ac acVar;
         ac acVar2;
         super.b();
-        acVar = this.f929a.c;
+        acVar = this.f927a.c;
         if (acVar != null) {
-            acVar2 = this.f929a.c;
+            acVar2 = this.f927a.c;
             acVar2.a();
         }
     }
@@ -42,19 +42,19 @@ public class ab extends BdAsyncTask {
         com.baidu.tieba.data.a.f fVar;
         this.b = new com.baidu.tieba.a.a();
         com.baidu.tieba.a.a aVar = this.b;
-        eVar = this.f929a.f928a;
+        eVar = this.f927a.f926a;
         String a2 = aVar.a(eVar);
         aj.a(getClass().getName(), "postData", a2);
         com.baidu.tieba.data.a.c cVar = new com.baidu.tieba.data.a.c();
-        eVar2 = this.f929a.f928a;
+        eVar2 = this.f927a.f926a;
         cVar.a(eVar2.b());
-        eVar3 = this.f929a.f928a;
+        eVar3 = this.f927a.f926a;
         cVar.b(eVar3.c());
         try {
             com.baidu.tieba.data.a.d a3 = com.baidu.tieba.data.a.d.a();
-            eVar4 = this.f929a.f928a;
+            eVar4 = this.f927a.f926a;
             a3.b(eVar4.b());
-            eVar5 = this.f929a.f928a;
+            eVar5 = this.f927a.f926a;
             a3.a(eVar5.c());
             JSONObject jSONObject = new JSONObject(a2);
             a3.a(jSONObject.optJSONObject("message"));
@@ -66,7 +66,7 @@ public class ab extends BdAsyncTask {
             } else {
                 cVar.a(a3);
             }
-            fVar = this.f929a.d;
+            fVar = this.f927a.d;
             fVar.a(cVar.d());
         } catch (Exception e) {
             aj.b(getClass().getName(), "doInBackground", e.toString());
@@ -80,7 +80,7 @@ public class ab extends BdAsyncTask {
         if (this.b != null) {
             this.b.a();
         }
-        this.f929a.b = null;
+        this.f927a.b = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -96,25 +96,25 @@ public class ab extends BdAsyncTask {
         super.a((Object) cVar);
         if (this.b != null) {
             if (!this.b.b()) {
-                acVar = this.f929a.c;
+                acVar = this.f927a.c;
                 if (acVar != null) {
-                    acVar2 = this.f929a.c;
+                    acVar2 = this.f927a.c;
                     acVar2.a(false, this.b.c(), null);
                 }
             } else if (this.b.d() == 0) {
-                acVar5 = this.f929a.c;
+                acVar5 = this.f927a.c;
                 if (acVar5 != null) {
-                    acVar6 = this.f929a.c;
+                    acVar6 = this.f927a.c;
                     acVar6.a(true, null, cVar);
                 }
             } else {
-                acVar3 = this.f929a.c;
+                acVar3 = this.f927a.c;
                 if (acVar3 != null) {
-                    acVar4 = this.f929a.c;
+                    acVar4 = this.f927a.c;
                     acVar4.a(false, this.b.e(), null);
                 }
             }
         }
-        this.f929a.b = null;
+        this.f927a.b = null;
     }
 }

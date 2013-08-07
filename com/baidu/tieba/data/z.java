@@ -13,7 +13,7 @@ public class z {
     private Context l;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1032a = null;
+    private String f1030a = null;
     private String b = null;
     private int e = 0;
     private int f = 0;
@@ -41,7 +41,7 @@ public class z {
     }
 
     public String c() {
-        return this.f1032a;
+        return this.f1030a;
     }
 
     public String d() {
@@ -78,7 +78,7 @@ public class z {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.k = jSONObject.optInt("index", -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.f1032a = optJSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1030a = optJSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = optJSONObject.optString("url");
                 this.e = optJSONObject.optInt("width", 0);
                 this.f = optJSONObject.optInt("height", 0);

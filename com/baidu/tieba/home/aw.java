@@ -7,17 +7,17 @@ import android.widget.EditText;
 public class aw implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1135a;
+    final /* synthetic */ SearchActivity f1133a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(SearchActivity searchActivity) {
-        this.f1135a = searchActivity;
+        this.f1133a = searchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        editText = this.f1135a.f1110a;
-        com.baidu.tieba.util.am.i(this.f1135a, editText.getText().toString().trim());
+        editText = this.f1133a.f1108a;
+        com.baidu.tieba.util.am.i(this.f1133a, editText.getText().toString().trim());
     }
 }

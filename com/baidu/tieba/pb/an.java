@@ -3,11 +3,11 @@ package com.baidu.tieba.pb;
 class an extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1455a;
+    final /* synthetic */ NewPbActivity f1453a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(NewPbActivity newPbActivity) {
-        this.f1455a = newPbActivity;
+        this.f1453a = newPbActivity;
     }
 
     @Override // com.baidu.adp.a.e
@@ -17,31 +17,31 @@ class an extends com.baidu.adp.a.e {
         com.baidu.tieba.model.t tVar2;
         com.baidu.tieba.model.t tVar3;
         if (obj != null) {
-            tVar2 = this.f1455a.o;
+            tVar2 = this.f1453a.o;
             switch (tVar2.getLoadDataMode()) {
                 case 0:
-                    this.f1455a.a((com.baidu.tieba.model.v) obj);
+                    this.f1453a.a((com.baidu.tieba.model.v) obj);
                     return;
                 case 1:
-                    this.f1455a.a((com.baidu.tieba.model.x) obj);
+                    this.f1453a.a((com.baidu.tieba.model.x) obj);
                     return;
                 case 2:
                 case 3:
                 case 4:
                 case 5:
-                    NewPbActivity newPbActivity = this.f1455a;
-                    tVar3 = this.f1455a.o;
+                    NewPbActivity newPbActivity = this.f1453a;
+                    tVar3 = this.f1453a.o;
                     newPbActivity.a(tVar3.getLoadDataMode(), (com.baidu.tieba.model.z) obj);
                     return;
                 case 6:
-                    this.f1455a.a((com.baidu.tieba.model.z) obj);
+                    this.f1453a.a((com.baidu.tieba.model.z) obj);
                     return;
                 default:
                     return;
             }
         }
-        bnVar = this.f1455a.p;
-        tVar = this.f1455a.o;
+        bnVar = this.f1453a.p;
+        tVar = this.f1453a.o;
         bnVar.a(tVar.getLoadDataMode(), false, (String) null, false);
     }
 }

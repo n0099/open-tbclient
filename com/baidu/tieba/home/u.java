@@ -7,7 +7,7 @@ import android.widget.TextView;
 class u {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1164a;
+    LinearLayout f1162a;
     LinearLayout b;
     TextView c;
     Button d;

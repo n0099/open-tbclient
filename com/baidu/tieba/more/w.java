@@ -7,11 +7,11 @@ import com.baidu.tieba.TiebaApplication;
 class w implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BrowseSettingActivity f1429a;
+    final /* synthetic */ BrowseSettingActivity f1427a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(BrowseSettingActivity browseSettingActivity) {
-        this.f1429a = browseSettingActivity;
+        this.f1427a = browseSettingActivity;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c

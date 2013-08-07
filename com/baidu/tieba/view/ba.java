@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class ba extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1829a;
+    private Context f1827a;
     private TextView b = null;
     private ProgressBar c = null;
     private ImageView d = null;
@@ -22,13 +22,13 @@ public class ba extends com.baidu.adp.widget.ListView.c {
     private String g = null;
 
     public ba(Context context) {
-        this.f1829a = null;
-        this.f1829a = context;
+        this.f1827a = null;
+        this.f1827a = context;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.f = LayoutInflater.from(this.f1829a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        this.f = LayoutInflater.from(this.f1827a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.b = (TextView) this.f.findViewById(R.id.pb_more_text);
         this.d = (ImageView) this.f.findViewById(R.id.image);
         if (TiebaApplication.f().au() == 1) {
@@ -43,7 +43,7 @@ public class ba extends com.baidu.adp.widget.ListView.c {
     public void c() {
         this.c.setVisibility(0);
         this.d.setVisibility(8);
-        this.b.setText(this.f1829a.getText(R.string.loading));
+        this.b.setText(this.f1827a.getText(R.string.loading));
     }
 
     public void d() {
@@ -52,7 +52,7 @@ public class ba extends com.baidu.adp.widget.ListView.c {
         if (this.g != null) {
             this.b.setText(this.g);
         } else {
-            this.b.setText(this.f1829a.getText(R.string.load_more));
+            this.b.setText(this.f1827a.getText(R.string.load_more));
         }
     }
 

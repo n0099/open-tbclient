@@ -6,11 +6,11 @@ import com.baidu.tieba.TiebaApplication;
 public class n implements m {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DatabaseService f1769a;
+    final /* synthetic */ DatabaseService f1767a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(DatabaseService databaseService) {
-        this.f1769a = databaseService;
+        this.f1767a = databaseService;
     }
 
     @Override // com.baidu.tieba.util.m

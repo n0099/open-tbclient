@@ -31,7 +31,7 @@ import java.util.Map;
 public class EditHeadActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1553a = "delete";
+    public static String f1551a = "delete";
     public static String b = "change";
     public static String c = "file_name";
     private static String[] d = null;

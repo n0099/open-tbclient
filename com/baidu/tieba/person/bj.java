@@ -7,11 +7,11 @@ import android.widget.AbsListView;
 public class bj implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f1595a;
+    final /* synthetic */ PersonListActivity f1593a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(PersonListActivity personListActivity) {
-        this.f1595a = personListActivity;
+        this.f1593a = personListActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -20,11 +20,11 @@ public class bj implements AbsListView.OnScrollListener {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        handler = this.f1595a.g;
-        runnable = this.f1595a.o;
+        handler = this.f1593a.g;
+        runnable = this.f1593a.o;
         handler.removeCallbacks(runnable);
-        handler2 = this.f1595a.g;
-        runnable2 = this.f1595a.o;
+        handler2 = this.f1593a.g;
+        runnable2 = this.f1593a.o;
         handler2.postDelayed(runnable2, 300L);
     }
 

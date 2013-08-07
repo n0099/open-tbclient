@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class bh {
 
     /* renamed from: a  reason: collision with root package name */
-    private v f998a;
+    private v f996a;
     private int e;
     private int g;
     private AntiData h;
@@ -89,11 +89,11 @@ public class bh {
     }
 
     public void a(v vVar) {
-        this.f998a = vVar;
+        this.f996a = vVar;
     }
 
     public v g() {
-        return this.f998a;
+        return this.f996a;
     }
 
     public void a(AntiData antiData) {

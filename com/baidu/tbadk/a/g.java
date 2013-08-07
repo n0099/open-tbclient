@@ -4,13 +4,13 @@ package com.baidu.tbadk.a;
 public class g extends com.baidu.adp.lib.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f802a;
+    final /* synthetic */ e f800a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(e eVar, int i) {
         super(i);
-        this.f802a = eVar;
+        this.f800a = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class g extends com.baidu.adp.lib.a.a {
         if (bVar != null) {
             if (com.baidu.adp.lib.e.d.a()) {
                 StringBuilder append = new StringBuilder("pic removed from cache:").append(bVar.i()).append(", size:").append(bVar.d()).append("/");
-                aVar = this.f802a.c;
+                aVar = this.f800a.c;
                 com.baidu.adp.lib.e.d.c(append.append(aVar.c()).toString());
             }
             bVar.e();

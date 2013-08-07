@@ -9,7 +9,7 @@ import java.util.Timer;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class GeoLocation implements NoProGuard, k {
+public class GeoLocation implements NoProGuard, e {
     private static final boolean DEBUG = false;
     public static final int ERROR_LOC_FAIL = 2;
     public static final int ERROR_PERMISSION_DENY = 1;
@@ -19,29 +19,29 @@ public class GeoLocation implements NoProGuard, k {
     private int mErrcode = -1;
     Context mContext = null;
     private BDLocationManager mLocMgr = null;
-    private com.baidu.android.nebula.util.e mLocListener = null;
+    private com.baidu.android.nebula.util.d mLocListener = null;
     private Timer mTimeoutTm = null;
     private boolean mGpsEnabled = false;
 
     private void startRequest() {
-        new d(this, this.mContext.getMainLooper()).sendEmptyMessage(0);
+        new c(this, this.mContext.getMainLooper()).sendEmptyMessage(0);
     }
 
     private void startTimeout(long j) {
         if (j <= 0) {
             return;
         }
-        e eVar = new e(this);
+        b bVar = new b(this);
         this.mTimeoutTm = new Timer();
-        this.mTimeoutTm.schedule(eVar, j);
+        this.mTimeoutTm.schedule(bVar, j);
     }
 
-    @Override // com.baidu.android.nebula.cmd.k
-    public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
+    @Override // com.baidu.android.nebula.cmd.e
+    public void execute(com.baidu.android.nebula.b.a aVar, com.baidu.android.nebula.b.b bVar) {
         String str;
         long j;
         long j2;
-        Map a2 = dVar.a();
+        Map a2 = aVar.a();
         if (a2 == null || a2.size() < 2) {
             return;
         }
@@ -70,10 +70,10 @@ public class GeoLocation implements NoProGuard, k {
         if (str != null || j2 == 0) {
             return;
         }
-        this.mContext = com.baidu.android.nebula.d.c.a().c();
+        this.mContext = com.baidu.android.nebula.c.c.a().c();
         if (this.mContext != null) {
             if (BDLocationManager.a(this.mContext)) {
-                if (!com.baidu.android.nebula.d.a.a(this.mContext).a(dVar.a(HttpUtils.HEADER_NAME_REFERER))) {
+                if (!com.baidu.android.nebula.c.a.a(this.mContext).a(aVar.a(HttpUtils.HEADER_NAME_REFERER))) {
                     this.mErrcode = 4;
                 }
             } else {
@@ -109,10 +109,10 @@ public class GeoLocation implements NoProGuard, k {
                 }
             } catch (JSONException e5) {
             }
-            aVar.a("text/javascript");
-            aVar.a().put("Cache-Control", "no-cache");
-            aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-            aVar.a(200);
+            bVar.a("text/javascript");
+            bVar.a().put("Cache-Control", "no-cache");
+            bVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
+            bVar.a(200);
         }
     }
 }

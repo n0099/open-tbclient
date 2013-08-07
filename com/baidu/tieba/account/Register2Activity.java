@@ -64,7 +64,7 @@ public class Register2Activity extends com.baidu.tieba.g {
     private String P = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f847a = null;
+    RelativeLayout f845a = null;
     LinearLayout b = null;
     TextView c = null;
     TextView d = null;
@@ -119,7 +119,7 @@ public class Register2Activity extends com.baidu.tieba.g {
     }
 
     private void o() {
-        this.f847a = (RelativeLayout) findViewById(R.id.container);
+        this.f845a = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.reg_text);
@@ -177,7 +177,7 @@ public class Register2Activity extends com.baidu.tieba.g {
         com.baidu.tieba.util.ah.f(this.c, i);
         com.baidu.tieba.util.ah.f((TextView) this.m, i);
         com.baidu.tieba.util.ah.a(this.d, i);
-        com.baidu.tieba.util.ah.c(this.f847a, i);
+        com.baidu.tieba.util.ah.c(this.f845a, i);
         com.baidu.tieba.util.ah.d(this.b, i);
         com.baidu.tieba.util.ah.g((TextView) this.m, i);
         com.baidu.tieba.util.ah.a(this.l, i);

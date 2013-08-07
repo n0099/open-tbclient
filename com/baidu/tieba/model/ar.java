@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class ar extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1336a = null;
+    private String f1334a = null;
     private String b = null;
     private as c = null;
 
@@ -26,7 +26,7 @@ public class ar extends com.baidu.adp.a.c {
 
     public void a(String str, String str2) {
         if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
-            this.f1336a = str;
+            this.f1334a = str;
             this.b = str2;
             this.c = new as(this, null);
             this.c.setPriority(2);

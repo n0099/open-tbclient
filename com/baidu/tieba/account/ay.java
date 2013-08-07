@@ -10,11 +10,11 @@ import com.baidu.tieba.data.RegistData;
 public class ay extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f873a;
+    final /* synthetic */ Register2Activity f871a;
     private com.baidu.tieba.util.u b;
 
     private ay(Register2Activity register2Activity) {
-        this.f873a = register2Activity;
+        this.f871a = register2Activity;
         this.b = null;
     }
 
@@ -29,10 +29,10 @@ public class ay extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f873a.R = null;
-        progressBar = this.f873a.H;
+        this.f871a.R = null;
+        progressBar = this.f871a.H;
         progressBar.setVisibility(8);
-        this.f873a.s();
+        this.f871a.s();
         super.cancel(true);
     }
 
@@ -43,8 +43,8 @@ public class ay extends BdAsyncTask {
         RegistData t;
         com.baidu.tieba.model.at atVar = new com.baidu.tieba.model.at();
         try {
-            t = this.f873a.t();
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/regreal");
+            t = this.f871a.t();
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/regreal");
             this.b.a("un", t.getName());
             this.b.a("phonenum", t.getPhone());
             this.b.a("passwd", t.getPsw());
@@ -77,37 +77,37 @@ public class ay extends BdAsyncTask {
         int i2;
         int i3;
         super.a((Object) atVar);
-        this.f873a.R = null;
-        progressBar = this.f873a.H;
+        this.f871a.R = null;
+        progressBar = this.f871a.H;
         progressBar.setVisibility(8);
-        this.f873a.s();
-        this.f873a.S = atVar;
+        this.f871a.s();
+        this.f871a.S = atVar;
         if (!this.b.e()) {
-            this.f873a.O = -1;
-            this.f873a.P = this.b.h();
-            this.f873a.r();
+            this.f871a.O = -1;
+            this.f871a.P = this.b.h();
+            this.f871a.r();
         } else if (this.b.f() == 36) {
-            this.f873a.a(atVar.c());
-            Register2Activity register2Activity = this.f873a;
+            this.f871a.a(atVar.c());
+            Register2Activity register2Activity = this.f871a;
             i3 = Register2Activity.f;
             register2Activity.O = i3;
-            this.f873a.P = this.b.h();
-            this.f873a.r();
+            this.f871a.P = this.b.h();
+            this.f871a.r();
         } else if (this.b.f() == 5) {
-            Register2Activity register2Activity2 = this.f873a;
+            Register2Activity register2Activity2 = this.f871a;
             i2 = Register2Activity.k;
             register2Activity2.O = i2;
-            this.f873a.a(true);
+            this.f871a.a(true);
         } else if (this.b.f() == 0) {
-            t = this.f873a.t();
-            Register2Activity register2Activity3 = this.f873a;
+            t = this.f871a.t();
+            Register2Activity register2Activity3 = this.f871a;
             i = Register2Activity.e;
             ActivationActivity.a(register2Activity3, t, i);
-            this.f873a.a(false);
+            this.f871a.a(false);
         } else {
-            this.f873a.O = this.b.f();
-            this.f873a.P = this.b.h();
-            this.f873a.r();
+            this.f871a.O = this.b.f();
+            this.f871a.P = this.b.h();
+            this.f871a.r();
         }
     }
 
@@ -118,17 +118,17 @@ public class ay extends BdAsyncTask {
         LinearLayout linearLayout;
         TextView textView;
         TextView textView2;
-        progressBar = this.f873a.H;
+        progressBar = this.f871a.H;
         progressBar.setVisibility(0);
-        this.f873a.p();
-        this.f873a.O = -1;
-        this.f873a.P = null;
-        this.f873a.r();
-        linearLayout = this.f873a.D;
+        this.f871a.p();
+        this.f871a.O = -1;
+        this.f871a.P = null;
+        this.f871a.r();
+        linearLayout = this.f871a.D;
         linearLayout.setVisibility(8);
-        textView = this.f873a.w;
+        textView = this.f871a.w;
         textView.setVisibility(4);
-        textView2 = this.f873a.w;
+        textView2 = this.f871a.w;
         textView2.setText((CharSequence) null);
         super.b();
     }

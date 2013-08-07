@@ -11,11 +11,11 @@ import android.webkit.WebViewClient;
 class k extends WebViewClient {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaViewActivity f614a;
+    final /* synthetic */ MediaViewActivity f612a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(MediaViewActivity mediaViewActivity) {
-        this.f614a = mediaViewActivity;
+        this.f612a = mediaViewActivity;
     }
 
     @Override // android.webkit.WebViewClient
@@ -35,7 +35,7 @@ class k extends WebViewClient {
             try {
                 Intent intent = new Intent("android.intent.action.DIAL");
                 intent.setData(Uri.parse(str));
-                this.f614a.startActivity(intent);
+                this.f612a.startActivity(intent);
             } catch (ActivityNotFoundException e) {
                 Log.e("MediaViewActivity", "Error dialing " + str + ": " + e.toString());
             }
@@ -43,7 +43,7 @@ class k extends WebViewClient {
             try {
                 Intent intent2 = new Intent("android.intent.action.VIEW");
                 intent2.setData(Uri.parse(str));
-                this.f614a.startActivity(intent2);
+                this.f612a.startActivity(intent2);
             } catch (ActivityNotFoundException e2) {
                 Log.e("MediaViewActivity", "Error showing map " + str + ": " + e2.toString());
             }
@@ -51,7 +51,7 @@ class k extends WebViewClient {
             try {
                 Intent intent3 = new Intent("android.intent.action.VIEW");
                 intent3.setData(Uri.parse(str));
-                this.f614a.startActivity(intent3);
+                this.f612a.startActivity(intent3);
             } catch (ActivityNotFoundException e3) {
                 Log.e("MediaViewActivity", "Error sending email " + str + ": " + e3.toString());
             }
@@ -71,7 +71,7 @@ class k extends WebViewClient {
                 intent4.setData(Uri.parse("sms:" + substring));
                 intent4.putExtra("address", substring);
                 intent4.setType("vnd.android-dir/mms-sms");
-                this.f614a.startActivity(intent4);
+                this.f612a.startActivity(intent4);
             } catch (ActivityNotFoundException e4) {
                 Log.e("MediaViewActivity", "Error sending sms " + str + ":" + e4.toString());
             }
@@ -79,7 +79,7 @@ class k extends WebViewClient {
         try {
             Intent intent5 = new Intent("android.intent.action.VIEW");
             intent5.setData(Uri.parse(str));
-            this.f614a.startActivity(intent5);
+            this.f612a.startActivity(intent5);
             return true;
         } catch (ActivityNotFoundException e5) {
             Log.e("MediaViewActivity", "Error loading url " + str, e5);

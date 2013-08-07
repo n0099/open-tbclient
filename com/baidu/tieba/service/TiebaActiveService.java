@@ -14,7 +14,7 @@ import java.io.FileWriter;
 public class TiebaActiveService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private m f1690a = null;
+    private m f1688a = null;
     private int b = 0;
     private Handler c = new Handler();
     private Runnable d = new l(this);
@@ -105,8 +105,8 @@ public class TiebaActiveService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.f1690a != null) {
-            this.f1690a.cancel();
+        if (this.f1688a != null) {
+            this.f1688a.cancel();
         }
         this.b = 11;
         this.c.removeCallbacks(this.d);
@@ -115,10 +115,10 @@ public class TiebaActiveService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.f1690a != null) {
-            this.f1690a.cancel();
+        if (this.f1688a != null) {
+            this.f1688a.cancel();
         }
-        this.f1690a = new m(this, null);
-        this.f1690a.execute(new String[0]);
+        this.f1688a = new m(this, null);
+        this.f1688a.execute(new String[0]);
     }
 }

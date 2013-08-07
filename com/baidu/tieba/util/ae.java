@@ -5,12 +5,12 @@ import com.baidu.tieba.data.be;
 class ae implements com.baidu.tieba.model.aj {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1750a;
+    final /* synthetic */ aa f1748a;
     private final /* synthetic */ af b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(aa aaVar, af afVar) {
-        this.f1750a = aaVar;
+        this.f1748a = aaVar;
         this.b = afVar;
     }
 

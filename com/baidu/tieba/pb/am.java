@@ -8,11 +8,11 @@ import java.util.Iterator;
 class am implements com.baidu.tieba.model.bj {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1454a;
+    final /* synthetic */ NewPbActivity f1452a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(NewPbActivity newPbActivity) {
-        this.f1454a = newPbActivity;
+        this.f1452a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.model.bj
@@ -29,34 +29,34 @@ class am implements com.baidu.tieba.model.bj {
         com.baidu.tieba.model.bf bfVar;
         com.baidu.tieba.model.bc bcVar2;
         bn bnVar6;
-        bnVar = this.f1454a.p;
+        bnVar = this.f1452a.p;
         bnVar.a(z);
         if (z) {
-            bnVar3 = this.f1454a.p;
+            bnVar3 = this.f1452a.p;
             bnVar3.O();
-            biVar = this.f1454a.l;
+            biVar = this.f1452a.l;
             WriteData a2 = biVar.a();
-            biVar2 = this.f1454a.l;
+            biVar2 = this.f1452a.l;
             biVar2.a((WriteData) null);
-            biVar3 = this.f1454a.l;
+            biVar3 = this.f1452a.l;
             biVar3.a(false);
-            bnVar4 = this.f1454a.p;
+            bnVar4 = this.f1452a.p;
             bnVar4.d(str);
             if (a2 != null) {
                 String floor = a2.getFloor();
                 if (a2 == null || a2.getType() != 2) {
-                    bcVar = this.f1454a.j;
+                    bcVar = this.f1452a.j;
                     if (bcVar.l()) {
-                        bnVar5 = this.f1454a.p;
+                        bnVar5 = this.f1452a.p;
                         bnVar5.m();
                         return;
                     }
                     return;
                 }
-                bfVar = this.f1454a.n;
+                bfVar = this.f1452a.n;
                 bfVar.f();
                 if (floor != null) {
-                    bcVar2 = this.f1454a.j;
+                    bcVar2 = this.f1452a.j;
                     com.baidu.tieba.data.as j = bcVar2.j();
                     Iterator it = j.c().iterator();
                     while (true) {
@@ -69,20 +69,20 @@ class am implements com.baidu.tieba.model.bj {
                             break;
                         }
                     }
-                    bnVar6 = this.f1454a.p;
+                    bnVar6 = this.f1452a.p;
                     bnVar6.a(j);
                 }
             }
         } else if (bqVar == null || writeData == null || bqVar.b() == null) {
-            bnVar2 = this.f1454a.p;
+            bnVar2 = this.f1452a.p;
             bnVar2.d(str);
         } else {
             writeData.setVcodeMD5(bqVar.a());
             writeData.setVcodeUrl(bqVar.b());
             if (bqVar.c().equals("4")) {
-                NewVcodeActivity.a(this.f1454a, writeData, 12006);
+                NewVcodeActivity.a(this.f1452a, writeData, 12006);
             } else {
-                VcodeActivity.a(this.f1454a, writeData, 12006);
+                VcodeActivity.a(this.f1452a, writeData, 12006);
             }
         }
     }

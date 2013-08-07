@@ -8,19 +8,19 @@ import android.view.View;
 public class aw extends com.baidu.tieba.util.s {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f871a;
+    final /* synthetic */ Register2Activity f869a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aw(Register2Activity register2Activity, Context context) {
         super(context);
-        this.f871a = register2Activity;
+        this.f869a = register2Activity;
     }
 
     @Override // com.baidu.tieba.util.s, android.text.style.ClickableSpan
     public void onClick(View view) {
         ay ayVar;
-        ayVar = this.f871a.R;
+        ayVar = this.f869a.R;
         if (ayVar == null) {
             a().startActivity(new Intent(a(), ProtocolActivity.class));
         }

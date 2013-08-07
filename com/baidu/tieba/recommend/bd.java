@@ -15,13 +15,13 @@ import org.json.JSONObject;
 public class bd extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TagContentActivity f1659a;
+    final /* synthetic */ TagContentActivity f1657a;
     private com.baidu.tieba.util.u b = null;
     private String c = null;
     private boolean d;
 
     public bd(TagContentActivity tagContentActivity, boolean z) {
-        this.f1659a = tagContentActivity;
+        this.f1657a = tagContentActivity;
         this.d = false;
         this.d = z;
     }
@@ -36,12 +36,12 @@ public class bd extends BdAsyncTask {
         String str3;
         new com.baidu.tieba.account.ag("tagthread").start();
         if (this.d) {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/tag/add_tag");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/tag/add_tag");
             this.b.e(true);
             this.b.a("_version_more", "1");
             this.b.a("platform", "android");
             com.baidu.tieba.util.u uVar = this.b;
-            str3 = this.f1659a.b;
+            str3 = this.f1657a.b;
             uVar.a("tag_info", str3);
             Address aT = TiebaApplication.f().aT();
             if (aT != null && TiebaApplication.f().u()) {
@@ -61,9 +61,9 @@ public class bd extends BdAsyncTask {
         com.baidu.tieba.model.aq aqVar = new com.baidu.tieba.model.aq();
         aqVar.a(b);
         bl blVar = new bl();
-        str = this.f1659a.b;
+        str = this.f1657a.b;
         blVar.a(str);
-        str2 = this.f1659a.f1630a;
+        str2 = this.f1657a.f1628a;
         blVar.b(str2);
         aqVar.a(blVar);
         DatabaseService.a(aqVar.g(), 12);
@@ -80,22 +80,22 @@ public class bd extends BdAsyncTask {
         String str2;
         String str3;
         Button button4;
-        this.f1659a.q = null;
+        this.f1657a.q = null;
         if (str == null) {
-            button4 = this.f1659a.e;
+            button4 = this.f1657a.e;
             button4.setVisibility(0);
         } else if (this.d) {
             try {
                 JSONObject optJSONObject = new JSONObject(str).optJSONObject("error");
                 if (optJSONObject.optInt("errno") == 0) {
-                    button3 = this.f1659a.e;
+                    button3 = this.f1657a.e;
                     button3.setVisibility(8);
-                    this.f1659a.a(this.f1659a.getString(R.string.attention_success));
-                    ArrayList arrayList = NewHomeActivity.f1628a;
-                    str2 = this.f1659a.b;
+                    this.f1657a.a(this.f1657a.getString(R.string.attention_success));
+                    ArrayList arrayList = NewHomeActivity.f1626a;
+                    str2 = this.f1657a.b;
                     if (!arrayList.contains(str2)) {
-                        ArrayList arrayList2 = NewHomeActivity.f1628a;
-                        str3 = this.f1659a.b;
+                        ArrayList arrayList2 = NewHomeActivity.f1626a;
+                        str3 = this.f1657a.b;
                         arrayList2.add(str3);
                         return;
                     }
@@ -104,21 +104,21 @@ public class bd extends BdAsyncTask {
                 if (optJSONObject.has("usermsg")) {
                     String optString = optJSONObject.optString("usermsg");
                     if (optString != null && optString.length() > 0) {
-                        this.f1659a.a(optString);
+                        this.f1657a.a(optString);
                     } else {
-                        this.f1659a.a(this.f1659a.getString(R.string.attention_fail));
+                        this.f1657a.a(this.f1657a.getString(R.string.attention_fail));
                     }
                 }
-                button2 = this.f1659a.e;
+                button2 = this.f1657a.e;
                 button2.setVisibility(0);
             } catch (JSONException e) {
                 e.printStackTrace();
-                button = this.f1659a.e;
+                button = this.f1657a.e;
                 button.setVisibility(0);
-                this.f1659a.a(this.f1659a.getString(R.string.attention_fail));
+                this.f1657a.a(this.f1657a.getString(R.string.attention_fail));
             }
         } else {
-            this.f1659a.a(this.f1659a.getString(R.string.attention_success));
+            this.f1657a.a(this.f1657a.getString(R.string.attention_success));
         }
     }
 

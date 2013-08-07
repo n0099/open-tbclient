@@ -6,28 +6,28 @@ import com.baidu.tieba.data.CombineDownload;
 public class ay implements ap {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f917a;
+    final /* synthetic */ UpdateDialog f915a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(UpdateDialog updateDialog) {
-        this.f917a = updateDialog;
+        this.f915a = updateDialog;
     }
 
     @Override // com.baidu.tieba.ap
     public void a(boolean z) {
         CombineDownload combineDownload;
         if (z) {
-            UpdateDialog updateDialog = this.f917a;
-            combineDownload = this.f917a.b;
+            UpdateDialog updateDialog = this.f915a;
+            combineDownload = this.f915a.b;
             updateDialog.c(combineDownload.getAppUrl());
         } else {
-            this.f917a.b();
+            this.f915a.b();
         }
-        this.f917a.finish();
+        this.f915a.finish();
     }
 
     @Override // com.baidu.tieba.ap
     public void a() {
-        this.f917a.finish();
+        this.f915a.finish();
     }
 }

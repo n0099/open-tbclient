@@ -3,18 +3,18 @@ package com.baidu.tieba.recommend;
 class ao implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ an f1645a;
+    final /* synthetic */ an f1643a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(an anVar) {
-        this.f1645a = anVar;
+        this.f1643a = anVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         FindInterestFragment findInterestFragment;
         aq aqVar;
-        findInterestFragment = this.f1645a.f1644a;
+        findInterestFragment = this.f1643a.f1642a;
         aqVar = findInterestFragment.b;
         aqVar.k();
     }

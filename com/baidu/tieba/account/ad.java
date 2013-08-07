@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ad extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f852a;
+    ArrayList f850a;
     final /* synthetic */ LoginActivity b;
     private String d;
     private com.baidu.tieba.util.u c = null;
@@ -22,9 +22,9 @@ public class ad extends BdAsyncTask {
     public ad(LoginActivity loginActivity, String str, ArrayList arrayList) {
         this.b = loginActivity;
         this.d = null;
-        this.f852a = null;
+        this.f850a = null;
         this.d = str;
-        this.f852a = arrayList;
+        this.f850a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,7 +60,7 @@ public class ad extends BdAsyncTask {
         Exception e;
         try {
             this.c = new com.baidu.tieba.util.u(this.d);
-            this.c.a(this.f852a);
+            this.c.a(this.f850a);
             this.e = this.c.k();
             if (this.e != null) {
                 com.baidu.tieba.util.aj.a("LoginAsyncTask", "doInBackground", "data: " + this.e);

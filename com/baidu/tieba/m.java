@@ -12,12 +12,12 @@ import com.baidu.tieba.view.BaseWebView;
 public class m extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CommonWebviewActivity f1263a;
+    final /* synthetic */ CommonWebviewActivity f1261a;
     private com.baidu.tieba.util.u b;
     private String c;
 
     private m(CommonWebviewActivity commonWebviewActivity) {
-        this.f1263a = commonWebviewActivity;
+        this.f1261a = commonWebviewActivity;
         this.b = null;
     }
 
@@ -41,14 +41,14 @@ public class m extends BdAsyncTask {
         String str3;
         String str4;
         long j;
-        str = this.f1263a.b;
+        str = this.f1261a.b;
         this.b = new com.baidu.tieba.util.u(str);
         this.b.b(false);
         if (TiebaApplication.f().au() == 1) {
             this.b.a("night_type", "1");
         }
         com.baidu.tieba.util.u uVar = this.b;
-        str2 = this.f1263a.w;
+        str2 = this.f1261a.w;
         uVar.a("pn", str2);
         this.b.a("_version_more", "1");
         this.b.a("platform", "android");
@@ -65,12 +65,12 @@ public class m extends BdAsyncTask {
             this.b.a("lbs", String.valueOf(String.valueOf(aT.getLatitude())) + "," + String.valueOf(aT.getLongitude()));
         }
         try {
-            str3 = this.f1263a.x;
+            str3 = this.f1261a.x;
         } catch (Exception e) {
             com.baidu.tieba.util.aj.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
         }
         if (str3 != null) {
-            str4 = this.f1263a.x;
+            str4 = this.f1261a.x;
             if (str4.equals("get")) {
                 this.c = this.b.l();
                 if (this.b.e()) {
@@ -90,7 +90,7 @@ public class m extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1263a.t = false;
+        this.f1261a.t = false;
         super.cancel(true);
     }
 
@@ -106,27 +106,27 @@ public class m extends BdAsyncTask {
         BaseWebView baseWebView2;
         TextView textView2;
         BaseWebView baseWebView3;
-        this.f1263a.o = null;
-        linearLayout = this.f1263a.n;
+        this.f1261a.o = null;
+        linearLayout = this.f1261a.n;
         linearLayout.setOnClickListener(null);
         if (this.b != null && this.b.e() && str != null && str.length() > 0) {
-            baseWebView2 = this.f1263a.l;
-            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.g.f1013a, str, "text/html", BdUtil.UTF8, "");
-            textView2 = this.f1263a.r;
+            baseWebView2 = this.f1261a.l;
+            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.g.f1011a, str, "text/html", BdUtil.UTF8, "");
+            textView2 = this.f1261a.r;
             textView2.setVisibility(8);
-            baseWebView3 = this.f1263a.l;
+            baseWebView3 = this.f1261a.l;
             baseWebView3.setVisibility(0);
         } else {
-            this.f1263a.q = false;
-            textView = this.f1263a.r;
+            this.f1261a.q = false;
+            textView = this.f1261a.r;
             textView.setVisibility(0);
-            baseWebView = this.f1263a.l;
+            baseWebView = this.f1261a.l;
             baseWebView.setVisibility(8);
-            linearLayout2 = this.f1263a.n;
-            onClickListener = this.f1263a.k;
+            linearLayout2 = this.f1261a.n;
+            onClickListener = this.f1261a.k;
             linearLayout2.setOnClickListener(onClickListener);
         }
-        this.f1263a.p = true;
-        this.f1263a.l();
+        this.f1261a.p = true;
+        this.f1261a.l();
     }
 }

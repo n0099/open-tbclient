@@ -11,11 +11,11 @@ import com.slidingmenu.lib.R;
 public class an extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FindInterestFragment f1644a;
+    final /* synthetic */ FindInterestFragment f1642a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(FindInterestFragment findInterestFragment) {
-        this.f1644a = findInterestFragment;
+        this.f1642a = findInterestFragment;
     }
 
     @Override // com.baidu.adp.a.e
@@ -35,44 +35,44 @@ public class an extends com.baidu.adp.a.e {
         Handler handler;
         aq aqVar4;
         Activity activity6;
-        aqVar = this.f1644a.b;
+        aqVar = this.f1642a.b;
         aqVar.c();
         if (obj == null) {
-            oVar = this.f1644a.f1627a;
+            oVar = this.f1642a.f1625a;
             if (oVar.getErrorString() != null) {
-                oVar2 = this.f1644a.f1627a;
+                oVar2 = this.f1642a.f1625a;
                 if (oVar2.getErrorString().length() != 0) {
-                    activity4 = this.f1644a.d;
+                    activity4 = this.f1642a.d;
                     if (activity4 != null) {
-                        activity5 = this.f1644a.d;
-                        oVar3 = this.f1644a.f1627a;
+                        activity5 = this.f1642a.d;
+                        oVar3 = this.f1642a.f1625a;
                         com.baidu.tieba.util.am.a((Context) activity5, oVar3.getErrorString());
                         return;
                     }
                     return;
                 }
             }
-            activity = this.f1644a.d;
+            activity = this.f1642a.d;
             if (activity != null) {
-                activity2 = this.f1644a.d;
-                activity3 = this.f1644a.d;
+                activity2 = this.f1642a.d;
+                activity3 = this.f1642a.d;
                 com.baidu.tieba.util.am.a((Context) activity2, activity3.getResources().getString(R.string.neterror));
             }
         } else if (obj instanceof com.baidu.tieba.data.ac) {
-            aqVar2 = this.f1644a.b;
+            aqVar2 = this.f1642a.b;
             aqVar2.f().a(TiebaApplication.f().bl());
-            aqVar3 = this.f1644a.b;
+            aqVar3 = this.f1642a.b;
             aqVar3.a((com.baidu.tieba.data.ac) obj);
             if (((com.baidu.tieba.data.ac) obj).e()) {
-                activity6 = this.f1644a.d;
-                com.baidu.tieba.util.am.a((Context) activity6, this.f1644a.h().getString(R.string.no_more_to_load));
+                activity6 = this.f1642a.d;
+                com.baidu.tieba.util.am.a((Context) activity6, this.f1642a.h().getString(R.string.no_more_to_load));
             }
-            blVar = this.f1644a.e;
+            blVar = this.f1642a.e;
             if (blVar == null) {
-                aqVar4 = this.f1644a.b;
+                aqVar4 = this.f1642a.b;
                 aqVar4.a("全部兴趣");
             }
-            handler = this.f1644a.c;
+            handler = this.f1642a.c;
             handler.post(new ao(this));
         }
     }

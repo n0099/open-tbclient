@@ -1,31 +1,40 @@
 package com.baidu.android.systemmonitor.security.md5;
+
+import java.io.FilterInputStream;
+import java.io.InputStream;
 /* loaded from: classes.dex */
-class a {
+public class a extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    int[] f702a;
-    long b;
-    byte[] c;
+    private MD5 f700a;
 
-    public a() {
-        this.c = new byte[64];
-        this.b = 0L;
-        this.f702a = new int[4];
-        this.f702a[0] = 1732584193;
-        this.f702a[1] = -271733879;
-        this.f702a[2] = -1732584194;
-        this.f702a[3] = 271733878;
+    public a(InputStream inputStream) {
+        super(inputStream);
+        this.f700a = new MD5();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(a aVar) {
-        this();
-        for (int i = 0; i < this.c.length; i++) {
-            this.c[i] = aVar.c[i];
+    public byte[] a() {
+        return this.f700a.b();
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public int read() {
+        int read = this.in.read();
+        if (read == -1) {
+            return -1;
         }
-        for (int i2 = 0; i2 < this.f702a.length; i2++) {
-            this.f702a[i2] = aVar.f702a[i2];
+        if ((read & (-256)) == 0) {
+            this.f700a.a(read);
         }
-        this.b = aVar.b;
+        return read;
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) {
+        int read = this.in.read(bArr, i, i2);
+        if (read != -1) {
+            this.f700a.a(bArr, i, read);
+        }
+        return read;
     }
 }

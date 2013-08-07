@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 public class TiebaPrepareImageService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f1692a = false;
+    public static volatile boolean f1690a = false;
     private int f;
     private int b = 0;
     private Uri c = null;
@@ -66,7 +66,7 @@ public class TiebaPrepareImageService extends Service {
         this.b = intent.getIntExtra("request_code", 0);
         this.f = intent.getIntExtra("max_size", 600);
         TiebaApplication.f().a((com.baidu.tieba.g) null);
-        if (!f1692a) {
+        if (!f1690a) {
             this.d = new q(this, this.b, this.c);
             this.d.execute(new Object[0]);
             return;

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1025a = null;
+    private String f1023a = null;
     private String b = null;
     private int c = 0;
     private int d = 0;
@@ -23,7 +23,7 @@ public class s {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1025a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1023a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = jSONObject.optString("name");
                 this.c = jSONObject.optInt("member_count", 0);
                 this.d = jSONObject.optInt("is_like", 0);

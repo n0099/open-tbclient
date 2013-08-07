@@ -9,10 +9,10 @@ import java.io.File;
 public class az extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoreModel f1343a;
+    final /* synthetic */ MoreModel f1341a;
 
     private az(MoreModel moreModel) {
-        this.f1343a = moreModel;
+        this.f1341a = moreModel;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,10 +27,10 @@ public class az extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) str);
-        this.f1343a.f1317a = null;
-        eVar = this.f1343a.mLoadDataCallBack;
+        this.f1341a.f1315a = null;
+        eVar = this.f1341a.mLoadDataCallBack;
         if (eVar != null) {
-            eVar2 = this.f1343a.mLoadDataCallBack;
+            eVar2 = this.f1341a.mLoadDataCallBack;
             eVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
     }
@@ -41,7 +41,7 @@ public class az extends BdAsyncTask {
     public String a(String... strArr) {
         DatabaseService.z();
         try {
-            File[] listFiles = new File(com.baidu.tieba.util.p.f1771a + "/tieba/image/").listFiles();
+            File[] listFiles = new File(com.baidu.tieba.util.p.f1769a + "/tieba/image/").listFiles();
             if (listFiles != null) {
                 for (File file : listFiles) {
                     if (!file.delete()) {
@@ -49,7 +49,7 @@ public class az extends BdAsyncTask {
                     }
                 }
             }
-            File[] listFiles2 = new File(com.baidu.tieba.util.p.f1771a + "/tieba/hotspot/").listFiles();
+            File[] listFiles2 = new File(com.baidu.tieba.util.p.f1769a + "/tieba/hotspot/").listFiles();
             if (listFiles2 != null) {
                 for (File file2 : listFiles2) {
                     if (!file2.delete()) {

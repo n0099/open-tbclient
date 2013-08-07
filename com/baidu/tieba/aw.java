@@ -12,10 +12,10 @@ import java.util.Locale;
 public class aw extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f916a;
+    final /* synthetic */ TiebaApplication f914a;
 
     private aw(TiebaApplication tiebaApplication) {
-        this.f916a = tiebaApplication;
+        this.f914a = tiebaApplication;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -59,7 +59,7 @@ public class aw extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         cancel(true);
-        this.f916a.G = null;
+        this.f914a.G = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,10 +68,10 @@ public class aw extends BdAsyncTask {
     public void a(Address address) {
         super.a((Object) address);
         if (address != null) {
-            this.f916a.aS();
-            this.f916a.a(0, "", address);
-            this.f916a.F = address;
+            this.f914a.aS();
+            this.f914a.a(0, "", address);
+            this.f914a.F = address;
         }
-        this.f916a.G = null;
+        this.f914a.G = null;
     }
 }

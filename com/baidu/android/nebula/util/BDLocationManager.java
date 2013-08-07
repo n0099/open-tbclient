@@ -20,7 +20,7 @@ public final class BDLocationManager {
     private static int h = 2000;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f558a;
+    private Context f556a;
     private c c;
     private String g;
     private Handler n;
@@ -75,7 +75,7 @@ public final class BDLocationManager {
                 if (cVar == null) {
                     cVar = new c();
                 }
-                cVar.f561a = System.currentTimeMillis();
+                cVar.f559a = System.currentTimeMillis();
                 cVar.b = bDLocation.getLongitude();
                 cVar.c = bDLocation.getLatitude();
                 cVar.d = 1000.0d;
@@ -123,7 +123,7 @@ public final class BDLocationManager {
             synchronized (BDLocationManager.this.f) {
                 Iterator it = BDLocationManager.this.f.iterator();
                 while (it.hasNext()) {
-                    ((e) it.next()).a(BDLocationManager.this.c);
+                    ((d) it.next()).a(BDLocationManager.this.c);
                 }
             }
             BDLocationManager.this.i = false;
@@ -140,9 +140,9 @@ public final class BDLocationManager {
     private BDLocationManager(Context context) {
         this.g = null;
         this.n = null;
-        this.f558a = context.getApplicationContext();
+        this.f556a = context.getApplicationContext();
         this.g = com.baidu.android.moplus.util.b.b(context, context.getPackageName(), "LocServiceName");
-        if (a(this.f558a)) {
+        if (a(this.f556a)) {
             e();
         }
         this.n = new Handler(context.getMainLooper());
@@ -161,7 +161,7 @@ public final class BDLocationManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(double d) {
         if (d > 0.0d) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f558a).edit();
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f556a).edit();
             edit.putString("rcd_key_lclong", String.valueOf(d));
             edit.commit();
         }
@@ -189,7 +189,7 @@ public final class BDLocationManager {
             str2 = com.baidu.android.systemmonitor.security.a.a(str);
         } catch (Exception e) {
         }
-        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f558a).edit();
+        SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f556a).edit();
         edit.putString("rcd_key_lcaddr", str2);
         edit.commit();
     }
@@ -231,7 +231,7 @@ public final class BDLocationManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(double d) {
         if (d > 0.0d) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f558a).edit();
+            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.f556a).edit();
             edit.putString("rcd_key_lclat", String.valueOf(d));
             edit.commit();
         }
@@ -263,7 +263,7 @@ public final class BDLocationManager {
     }
 
     private void e() {
-        this.d = new LocationClient(this.f558a);
+        this.d = new LocationClient(this.f556a);
         this.e = new BaiduLocationListener();
         this.d.registerLocationListener(this.e);
         this.d.setLocOption(f());
@@ -287,10 +287,10 @@ public final class BDLocationManager {
         this.n.postDelayed(this.l, 1800000L);
     }
 
-    public void a(e eVar) {
+    public void a(d dVar) {
         synchronized (this.f) {
-            if (!this.f.contains(eVar)) {
-                this.f.add(eVar);
+            if (!this.f.contains(dVar)) {
+                this.f.add(dVar);
             }
         }
     }
@@ -310,7 +310,7 @@ public final class BDLocationManager {
         c cVar = this.c;
         if (cVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            j = cVar.f561a;
+            j = cVar.f559a;
             if (currentTimeMillis - j > h) {
                 return null;
             }
@@ -319,9 +319,9 @@ public final class BDLocationManager {
         return cVar;
     }
 
-    public void b(e eVar) {
+    public void b(d dVar) {
         synchronized (this.f) {
-            this.f.remove(eVar);
+            this.f.remove(dVar);
         }
     }
 

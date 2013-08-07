@@ -6,12 +6,12 @@ import android.widget.AdapterView;
 class ad implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbPagerAdapter f1810a;
+    final /* synthetic */ ImagePbPagerAdapter f1808a;
     private final /* synthetic */ com.baidu.tieba.pb.ah b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar) {
-        this.f1810a = imagePbPagerAdapter;
+        this.f1808a = imagePbPagerAdapter;
         this.b = ahVar;
     }
 
@@ -20,6 +20,6 @@ class ad implements AdapterView.OnItemClickListener {
         if (this.b == null || !this.b.b() || j != this.b.getCount() - 1) {
             return;
         }
-        this.f1810a.a(this.b.d(), this.b.e().c(), 10, this.b);
+        this.f1808a.a(this.b.d(), this.b.e().c(), 10, this.b);
     }
 }

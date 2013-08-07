@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 class z implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ x f1316a;
+    final /* synthetic */ x f1314a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(x xVar) {
-        this.f1316a = xVar;
+        this.f1314a = xVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

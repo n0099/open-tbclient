@@ -3,16 +3,16 @@ package com.baidu.tieba.kn.pk.widget;
 class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PullAndPull f1242a;
+    final /* synthetic */ PullAndPull f1240a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PullAndPull pullAndPull) {
-        this.f1242a = pullAndPull;
+        this.f1240a = pullAndPull;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1242a.invalidate();
-        this.f1242a.postDelayed(this, 30000L);
+        this.f1240a.invalidate();
+        this.f1240a.postDelayed(this, 30000L);
     }
 }

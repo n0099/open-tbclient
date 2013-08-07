@@ -5,15 +5,15 @@ import com.baidu.tieba.BaseFragment;
 public class at implements as {
 
     /* renamed from: a  reason: collision with root package name */
-    private BaseFragment f1648a;
+    private BaseFragment f1646a;
     private BaseFragment b;
 
     @Override // com.baidu.tieba.recommend.as
     public BaseFragment a() {
-        if (this.f1648a == null) {
-            this.f1648a = new FindInterestFragment();
+        if (this.f1646a == null) {
+            this.f1646a = new FindInterestFragment();
         }
-        return this.f1648a;
+        return this.f1646a;
     }
 
     @Override // com.baidu.tieba.recommend.as
@@ -31,6 +31,6 @@ public class at implements as {
 
     @Override // com.baidu.tieba.recommend.as
     public BaseFragment d() {
-        return this.f1648a;
+        return this.f1646a;
     }
 }

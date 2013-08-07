@@ -5,7 +5,7 @@ import java.util.List;
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f803a;
+    public final boolean f801a;
     public final List b;
     public final List c;
 
@@ -18,7 +18,7 @@ class b {
     }
 
     private b(boolean z, List list, List list2) {
-        this.f803a = z;
+        this.f801a = z;
         this.b = list;
         this.c = list2;
     }

@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class af implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f901a;
+    final /* synthetic */ LogoActivity f899a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(LogoActivity logoActivity) {
-        this.f901a = logoActivity;
+        this.f899a = logoActivity;
     }
 
     @Override // java.lang.Runnable
@@ -21,12 +21,12 @@ class af implements Runnable {
         Bitmap bitmap;
         ImageView imageView2;
         AlphaAnimation alphaAnimation;
-        this.f901a.e = com.baidu.tieba.util.e.a(this.f901a, (int) R.drawable.logo);
-        imageView = this.f901a.d;
-        bitmap = this.f901a.e;
+        this.f899a.e = com.baidu.tieba.util.e.a(this.f899a, (int) R.drawable.logo);
+        imageView = this.f899a.d;
+        bitmap = this.f899a.e;
         imageView.setImageBitmap(bitmap);
-        imageView2 = this.f901a.d;
-        alphaAnimation = this.f901a.f;
+        imageView2 = this.f899a.d;
+        alphaAnimation = this.f899a.f;
         imageView2.startAnimation(alphaAnimation);
     }
 }

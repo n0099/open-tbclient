@@ -6,7 +6,7 @@ import com.baidu.tieba.util.u;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f836a = String.valueOf(com.baidu.tieba.data.g.f1013a) + "/c/s/uo/add_vote_client";
+    private static final String f834a = String.valueOf(com.baidu.tieba.data.g.f1011a) + "/c/s/uo/add_vote_client";
     private u b;
     private ao c;
 
@@ -15,7 +15,7 @@ public class j {
         this.b.a("player_id", String.valueOf(str));
         this.b.a("shake_number", String.valueOf(i));
         this.b.e(true);
-        this.b.a(f836a);
+        this.b.a(f834a);
         String k = this.b.k();
         this.c = new ao();
         this.c.a(k);

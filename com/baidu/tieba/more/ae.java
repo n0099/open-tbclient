@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class ae implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1400a;
+    final /* synthetic */ MsgRemindActivity f1398a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(MsgRemindActivity msgRemindActivity) {
-        this.f1400a = msgRemindActivity;
+        this.f1398a = msgRemindActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener

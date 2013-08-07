@@ -1,25 +1,44 @@
 package com.baidu.android.systemmonitor.c;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.systemmonitor.d.a.l;
 /* loaded from: classes.dex */
-public class c extends d {
-    public c(Context context) {
-        super(context, "mystatus.db", null, 1);
-    }
+/* synthetic */ class c {
 
-    @Override // com.baidu.android.systemmonitor.c.d
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL("CREATE TABLE astatus (_id INTEGER,pn TEXT primary key,lautimes INTEGER,totaltime LONG,lauper TEXT,laucur INTEGER,timeper TEXT,timecur LONG);");
-        sQLiteDatabase.execSQL("CREATE TABLE atrace (_id INTEGER,pn TEXT NOT NULL,startstamp LONG,stopstamp LONG,loc TEXT,startlevel INTEGER,stoplevel INTEGER,netype INTEGER,flow LONG);");
-        sQLiteDatabase.execSQL("CREATE TABLE achange (_id INTEGER,pn TEXT NOT NULL,an TEXT,time LONG,event INTEGER,vcode INTEGER,vcodeaft INTEGER,vn TEXT,vnaft TEXT);");
-    }
+    /* renamed from: a  reason: collision with root package name */
+    static final /* synthetic */ int[] f658a = new int[l.values().length];
 
-    @Override // com.baidu.android.systemmonitor.c.d
-    public void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS astatus");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS atrace");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE achange (_id INTEGER,pn TEXT NOT NULL,an TEXT,time LONG,event INTEGER,vcode INTEGER,vcodeaft INTEGER,vn TEXT,vnaft TEXT);");
-        a(sQLiteDatabase);
+    static {
+        try {
+            f658a[l.FREQ_STATISTIC.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            f658a[l.APPCHANGE_STATISTIC.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            f658a[l.ACTIVE_EVENT.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            f658a[l.POWER_EVENT.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        try {
+            f658a[l.CHARGE_EVENT.ordinal()] = 5;
+        } catch (NoSuchFieldError e5) {
+        }
+        try {
+            f658a[l.STORE_INFORMATION.ordinal()] = 6;
+        } catch (NoSuchFieldError e6) {
+        }
+        try {
+            f658a[l.NETWORK_EVENT.ordinal()] = 7;
+        } catch (NoSuchFieldError e7) {
+        }
+        try {
+            f658a[l.APKDOWNLOAD_EVENT.ordinal()] = 8;
+        } catch (NoSuchFieldError e8) {
+        }
     }
 }

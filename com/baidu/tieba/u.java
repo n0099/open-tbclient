@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 class u implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LabelActivity f1738a;
+    final /* synthetic */ LabelActivity f1736a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(LabelActivity labelActivity) {
-        this.f1738a = labelActivity;
+        this.f1736a = labelActivity;
     }
 
     @Override // android.support.v4.view.bq
@@ -22,11 +22,11 @@ class u implements bq {
         Animation animation;
         Animation animation2;
         LinearLayout linearLayout2;
-        linearLayout = this.f1738a.t;
+        linearLayout = this.f1736a.t;
         int childCount = linearLayout.getChildCount();
         if (i < childCount) {
             for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.f1738a.t;
+                linearLayout2 = this.f1736a.t;
                 ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
                 if (i2 != i) {
                     imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
@@ -35,9 +35,9 @@ class u implements bq {
                 }
             }
         }
-        animation = this.f1738a.w;
+        animation = this.f1736a.w;
         animation.reset();
-        animation2 = this.f1738a.w;
+        animation2 = this.f1736a.w;
         animation2.start();
     }
 

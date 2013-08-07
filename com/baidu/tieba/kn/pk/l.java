@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class l implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f1219a;
+    protected s f1217a;
     public com.baidu.tieba.kn.pk.widget.b b;
     ImageView c;
     private BdPullRefreshScrollView d;
@@ -81,10 +81,10 @@ public class l implements View.OnClickListener {
             this.e.a(sVar.b());
             return;
         }
-        this.f1219a = sVar;
-        this.h.setText(this.f1219a.c());
-        this.b.a(this.f1219a.b);
-        this.b.a("PK规则", this.f1219a.c);
+        this.f1217a = sVar;
+        this.h.setText(this.f1217a.c());
+        this.b.a(this.f1217a.b);
+        this.b.a("PK规则", this.f1217a.c);
         this.b.a(String.valueOf(sVar.j.e) + this.e.getString(R.string.forum), sVar.j.g, this.e);
         this.b.b(String.valueOf(sVar.k.e) + this.e.getString(R.string.forum), sVar.k.g, this.e);
         d();

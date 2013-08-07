@@ -33,7 +33,7 @@ import java.util.Map;
 public class WriteImageActivity extends com.baidu.tieba.g {
 
     /* renamed from: a */
-    private static String[] f1869a = null;
+    private static String[] f1867a = null;
     private int A;
     private HashMap B;
     private HashMap C;
@@ -118,7 +118,7 @@ public class WriteImageActivity extends com.baidu.tieba.g {
             k();
             d();
         }
-        f1869a = getResources().getStringArray(R.array.fiter_name);
+        f1867a = getResources().getStringArray(R.array.fiter_name);
         this.v = TiebaApplication.f().v();
     }
 

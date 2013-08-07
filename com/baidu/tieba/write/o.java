@@ -5,15 +5,15 @@ import android.view.View;
 class o implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VcodeActivity f1910a;
+    final /* synthetic */ VcodeActivity f1908a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(VcodeActivity vcodeActivity) {
-        this.f1910a = vcodeActivity;
+        this.f1908a = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1910a.finish();
+        this.f1908a.finish();
     }
 }

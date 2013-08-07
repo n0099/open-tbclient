@@ -16,11 +16,11 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f576a;
+    private Context f574a;
     private c b;
 
     public f(Context context) {
-        this.f576a = context;
+        this.f574a = context;
         this.b = c.a(context);
     }
 
@@ -28,7 +28,7 @@ public class f {
         String c = y.a().c();
         String d = y.a().d();
         if (TextUtils.isEmpty(c) || TextUtils.isEmpty(d)) {
-            if (com.baidu.android.pushservice.b.a(this.f576a)) {
+            if (com.baidu.android.pushservice.b.a(this.f574a)) {
                 Log.e("StatisticsInfoManager", "Fail Send Msg result info. Token invalid!");
                 return;
             }
@@ -39,7 +39,7 @@ public class f {
             return;
         }
         List a3 = com.baidu.android.pushservice.util.e.a(a2);
-        if (!ConnectManager.isNetworkConnected(this.f576a) || a3.size() <= 0) {
+        if (!ConnectManager.isNetworkConnected(this.f574a) || a3.size() <= 0) {
             return;
         }
         JSONArray jSONArray = new JSONArray();
@@ -65,9 +65,9 @@ public class f {
     }
 
     public void a() {
-        a(this.f576a);
+        a(this.f574a);
         if (this.b == null) {
-            this.b = c.a(this.f576a);
+            this.b = c.a(this.f574a);
         }
         this.b.e();
     }

@@ -3,7 +3,7 @@ package com.baidu.tieba;
 class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LabelActivity f899a;
+    final /* synthetic */ LabelActivity f897a;
     private float b;
     private float c;
     private float d;
@@ -17,7 +17,7 @@ class ad {
     private long l;
 
     public ad(LabelActivity labelActivity, int i, int i2, int i3, int i4, long j) {
-        this.f899a = labelActivity;
+        this.f897a = labelActivity;
         this.d = 0.0f;
         this.e = 0.0f;
         this.f = 0.0f;

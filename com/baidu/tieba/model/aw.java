@@ -8,13 +8,13 @@ import com.baidu.tieba.data.MarkData;
 public class aw extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ av f1341a;
+    final /* synthetic */ av f1339a;
     private com.baidu.tieba.util.u b = null;
     private boolean c;
     private com.baidu.tieba.data.bk d;
 
     public aw(av avVar, boolean z) {
-        this.f1341a = avVar;
+        this.f1339a = avVar;
         this.c = true;
         this.d = null;
         this.c = z;
@@ -34,18 +34,18 @@ public class aw extends BdAsyncTask {
         MarkData markData2;
         MarkData markData3;
         if (this.c) {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/post/addstore");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/post/addstore");
             f fVar = new f();
-            markData3 = this.f1341a.b;
+            markData3 = this.f1339a.b;
             fVar.a(markData3);
             this.b.a("data", fVar.a(0, 1));
         } else {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/post/rmstore");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/post/rmstore");
             com.baidu.tieba.util.u uVar = this.b;
-            markData = this.f1341a.b;
+            markData = this.f1339a.b;
             uVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
             com.baidu.tieba.util.u uVar2 = this.b;
-            markData2 = this.f1341a.b;
+            markData2 = this.f1339a.b;
             uVar2.a("tid", markData2.getId());
         }
         this.d.a(this.b.k());
@@ -62,7 +62,7 @@ public class aw extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1341a.c = null;
+        this.f1339a.c = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,23 +75,23 @@ public class aw extends BdAsyncTask {
         ax axVar4;
         ax axVar5;
         if (bool.booleanValue()) {
-            axVar4 = this.f1341a.d;
+            axVar4 = this.f1339a.d;
             if (axVar4 != null) {
-                axVar5 = this.f1341a.d;
+                axVar5 = this.f1339a.d;
                 axVar5.a(true, this.c, null);
             }
         } else {
-            axVar = this.f1341a.d;
+            axVar = this.f1339a.d;
             if (axVar != null) {
                 if (this.b == null || this.b.d()) {
-                    axVar2 = this.f1341a.d;
+                    axVar2 = this.f1339a.d;
                     axVar2.a(false, this.c, this.d.b());
                 } else {
-                    axVar3 = this.f1341a.d;
+                    axVar3 = this.f1339a.d;
                     axVar3.a(false, this.c, this.b.h());
                 }
             }
         }
-        this.f1341a.c = null;
+        this.f1339a.c = null;
     }
 }

@@ -1,36 +1,29 @@
 package com.baidu.android.defense.b;
-
-import android.content.Context;
-import android.content.pm.IPackageInstallObserver;
-import android.text.TextUtils;
-import java.io.File;
 /* loaded from: classes.dex */
-public class a extends IPackageInstallObserver.Stub {
+public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f499a;
+    private String f499a;
     private String b;
+    private int c;
 
-    public a(Context context, String str) {
-        this.f499a = context;
+    public String a() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.c = i;
+    }
+
+    public void a(String str) {
         this.b = str;
     }
 
-    public void a(String str, int i) {
-        if (i == 1) {
-        }
-        if (e.a(this.f499a).a()) {
-            e.a(this.f499a).b(this.f499a, this.b);
-        }
-        if (TextUtils.isEmpty(this.b)) {
-            return;
-        }
-        try {
-            File file = new File(this.b);
-            if (file.exists()) {
-                file.delete();
-            }
-        } catch (Exception e) {
-        }
+    public int b() {
+        return this.c;
+    }
+
+    public String toString() {
+        return "ManageItem: mPackageName =" + this.b + " mVersionCode =" + this.c + " mApkPath =" + this.f499a;
     }
 }

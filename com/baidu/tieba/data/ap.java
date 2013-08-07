@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f980a = 0;
+    private int f978a = 0;
     private String b = null;
     private int e = 0;
     private String c = null;
@@ -17,7 +17,7 @@ public class ap {
         if (jSONObject != null) {
             try {
                 this.b = jSONObject.optString(LocaleUtil.INDONESIAN);
-                this.f980a = jSONObject.optInt("is_login", 0);
+                this.f978a = jSONObject.optInt("is_login", 0);
                 this.e = jSONObject.optInt("no_un", 0);
                 this.c = jSONObject.optString("name");
                 this.d = jSONObject.optString("name_show");

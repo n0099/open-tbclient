@@ -22,7 +22,7 @@ public class g extends com.baidu.adp.a.a {
     protected ProgressDialog h = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private DialogInterface.OnCancelListener f1103a = null;
+    private DialogInterface.OnCancelListener f1101a = null;
     private AlertDialog b = null;
     protected int i = -1;
     private GuidPageView c = null;
@@ -96,13 +96,13 @@ public class g extends com.baidu.adp.a.a {
     }
 
     public void b(String str) {
-        if (this.f1103a == null) {
-            this.f1103a = new h(this);
+        if (this.f1101a == null) {
+            this.f1101a = new h(this);
         }
         if (str != null) {
-            this.h = ProgressDialog.show(this, "", str, true, false, this.f1103a);
+            this.h = ProgressDialog.show(this, "", str, true, false, this.f1101a);
         } else {
-            this.h = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.f1103a);
+            this.h = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.f1101a);
         }
     }
 

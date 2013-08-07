@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1029a = new ArrayList();
+    private ArrayList f1027a = new ArrayList();
     private HashMap b = null;
 
     public void a(JSONObject jSONObject, boolean z) {
@@ -29,7 +29,7 @@ public class w {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (metaData.getName_show() != null) {
-                        this.f1029a.add(metaData);
+                        this.f1027a.add(metaData);
                         if (z) {
                             this.b.put(metaData.getName_show(), metaData.getPortrait());
                         }
@@ -48,7 +48,7 @@ public class w {
     }
 
     public ArrayList a() {
-        return this.f1029a;
+        return this.f1027a;
     }
 
     public HashMap b() {

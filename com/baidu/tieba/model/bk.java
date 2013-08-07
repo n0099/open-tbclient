@@ -9,13 +9,13 @@ import com.slidingmenu.lib.R;
 public class bk extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bi f1352a;
+    final /* synthetic */ bi f1350a;
     private com.baidu.tieba.a.l b = null;
     private String c = null;
     private boolean d = false;
 
     public bk(bi biVar) {
-        this.f1352a = biVar;
+        this.f1350a = biVar;
         setPriority(3);
     }
 
@@ -30,8 +30,8 @@ public class bk extends BdAsyncTask {
         }
         this.b = new com.baidu.tieba.a.l();
         com.baidu.tieba.a.l lVar = this.b;
-        writeData = this.f1352a.b;
-        z = this.f1352a.d;
+        writeData = this.f1350a.b;
+        z = this.f1350a.d;
         this.c = lVar.a(writeData, z);
         return this.c;
     }
@@ -44,13 +44,13 @@ public class bk extends BdAsyncTask {
         if (this.b != null) {
             this.b.d();
         }
-        bjVar = this.f1352a.c;
+        bjVar = this.f1350a.c;
         if (bjVar != null) {
-            bjVar2 = this.f1352a.c;
+            bjVar2 = this.f1350a.c;
             bjVar2.a(false, null, null, null);
         }
         super.cancel(true);
-        this.f1352a.f1351a = null;
+        this.f1350a.f1349a = null;
     }
 
     private void a(int i, String str) {
@@ -65,9 +65,9 @@ public class bk extends BdAsyncTask {
         bj bjVar5;
         bj bjVar6;
         if (i != 5 && i != 6) {
-            bjVar5 = this.f1352a.c;
+            bjVar5 = this.f1350a.c;
             if (bjVar5 != null) {
-                bjVar6 = this.f1352a.c;
+                bjVar6 = this.f1350a.c;
                 bjVar6.a(false, str, null, null);
                 return;
             }
@@ -76,25 +76,25 @@ public class bk extends BdAsyncTask {
         com.baidu.tieba.data.bq bqVar = new com.baidu.tieba.data.bq();
         bqVar.a(this.c);
         if (bqVar.b() != null) {
-            writeData = this.f1352a.b;
+            writeData = this.f1350a.b;
             if (writeData != null) {
-                writeData2 = this.f1352a.b;
+                writeData2 = this.f1350a.b;
                 writeData2.setVcodeMD5(bqVar.a());
-                writeData3 = this.f1352a.b;
+                writeData3 = this.f1350a.b;
                 writeData3.setVcodeUrl(bqVar.b());
-                bjVar3 = this.f1352a.c;
+                bjVar3 = this.f1350a.c;
                 if (bjVar3 != null) {
-                    bjVar4 = this.f1352a.c;
-                    writeData4 = this.f1352a.b;
+                    bjVar4 = this.f1350a.c;
+                    writeData4 = this.f1350a.b;
                     bjVar4.a(false, str, bqVar, writeData4);
                     return;
                 }
                 return;
             }
         }
-        bjVar = this.f1352a.c;
+        bjVar = this.f1350a.c;
         if (bjVar != null) {
-            bjVar2 = this.f1352a.c;
+            bjVar2 = this.f1350a.c;
             bjVar2.a(false, str, null, null);
         }
     }
@@ -108,19 +108,19 @@ public class bk extends BdAsyncTask {
         bj bjVar3;
         super.a((Object) str);
         com.baidu.tieba.util.aj.e(getClass().getName(), "onPostExecute", "result:" + str);
-        this.f1352a.f1351a = null;
+        this.f1350a.f1349a = null;
         if (!this.d) {
             if (str == null) {
-                bjVar = this.f1352a.c;
+                bjVar = this.f1350a.c;
                 bjVar.a(false, TiebaApplication.f().getString(R.string.neterror), null, null);
             } else if (this.b.a()) {
                 com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
                 rVar.b(this.c);
                 if (rVar.b() == null || rVar.b().length() <= 0) {
                     rVar.a(TiebaApplication.f().getString(R.string.send_success));
-                    bjVar2 = this.f1352a.c;
+                    bjVar2 = this.f1350a.c;
                     if (bjVar2 != null) {
-                        bjVar3 = this.f1352a.c;
+                        bjVar3 = this.f1350a.c;
                         bjVar3.a(true, rVar.b(), null, null);
                         return;
                     }

@@ -18,7 +18,7 @@ import java.io.File;
 public class LogoActivity extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f823a = true;
+    private static boolean f821a = true;
     private boolean b = false;
     private boolean c = false;
     private ImageView d = null;
@@ -31,11 +31,11 @@ public class LogoActivity extends g {
     private Runnable m = new ag(this);
 
     public static void a(boolean z) {
-        f823a = z;
+        f821a = z;
     }
 
     public static void a(Context context, Intent intent) {
-        f823a = true;
+        f821a = true;
         Intent intent2 = new Intent(context, LogoActivity.class);
         if (!(context instanceof Activity)) {
             intent2.setFlags(268435456);
@@ -68,7 +68,7 @@ public class LogoActivity extends g {
         super.onNewIntent(intent);
         a(intent);
         a(getBaseContext());
-        f823a = true;
+        f821a = true;
     }
 
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
@@ -81,9 +81,9 @@ public class LogoActivity extends g {
         setContentView(R.layout.logo_activity);
         this.d = (ImageView) findViewById(R.id.logo);
         if (bundle != null) {
-            f823a = bundle.getBoolean("is_first", true);
+            f821a = bundle.getBoolean("is_first", true);
         } else {
-            f823a = true;
+            f821a = true;
         }
         this.f = new AlphaAnimation(1.0f, 1.0f);
         this.f.setDuration(500L);
@@ -117,7 +117,7 @@ public class LogoActivity extends g {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("is_first", f823a);
+        bundle.putBoolean("is_first", f821a);
     }
 
     private void c() {
@@ -130,7 +130,7 @@ public class LogoActivity extends g {
 
     @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && f823a) {
+        if (i == 4 && f821a) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -150,8 +150,8 @@ public class LogoActivity extends g {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (!f823a) {
-            f823a = true;
+        if (!f821a) {
+            f821a = true;
             finish();
             return;
         }
@@ -188,7 +188,7 @@ public class LogoActivity extends g {
     public void onDestroy() {
         super.onDestroy();
         d();
-        f823a = true;
+        f821a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -216,7 +216,7 @@ public class LogoActivity extends g {
     }
 
     private void c(String str) {
-        f823a = false;
+        f821a = false;
         String E = TiebaApplication.E();
         this.g = TiebaApplication.f().aL();
         this.j = true;

@@ -56,38 +56,38 @@ public class d extends c {
             if (!TextUtils.isEmpty(this.b.b)) {
             }
             com.baidu.android.pushservice.d dVar = new com.baidu.android.pushservice.d();
-            dVar.f579a = this.b.e;
+            dVar.f577a = this.b.e;
             dVar.b = this.b.f;
             dVar.c = this.b.g;
             Intent intent = new Intent("com.baidu.android.pushservice.action.BIND_SYNC");
-            intent.putExtra("r_sync_rdata", com.baidu.android.pushservice.a.a(this.f567a).a(dVar, this.e));
-            intent.putExtra("r_sync_rdata_v2", com.baidu.android.pushservice.a.a(this.f567a).b(dVar, this.e));
-            intent.putExtra("r_sync_from", this.f567a.getPackageName());
+            intent.putExtra("r_sync_rdata", com.baidu.android.pushservice.a.a(this.f565a).a(dVar, this.e));
+            intent.putExtra("r_sync_rdata_v2", com.baidu.android.pushservice.a.a(this.f565a).b(dVar, this.e));
+            intent.putExtra("r_sync_from", this.f565a.getPackageName());
             intent.setFlags(32);
-            this.f567a.sendBroadcast(intent);
-            it = com.baidu.android.pushservice.util.n.q(this.f567a).iterator();
+            this.f565a.sendBroadcast(intent);
+            it = com.baidu.android.pushservice.util.n.q(this.f565a).iterator();
             while (it.hasNext()) {
             }
             return str3;
         }
         if (!TextUtils.isEmpty(this.b.b) || !this.b.b.equals("internal")) {
             com.baidu.android.pushservice.d dVar2 = new com.baidu.android.pushservice.d();
-            dVar2.f579a = this.b.e;
+            dVar2.f577a = this.b.e;
             dVar2.b = this.b.f;
             dVar2.c = this.b.g;
             Intent intent2 = new Intent("com.baidu.android.pushservice.action.BIND_SYNC");
-            intent2.putExtra("r_sync_rdata", com.baidu.android.pushservice.a.a(this.f567a).a(dVar2, this.e));
-            intent2.putExtra("r_sync_rdata_v2", com.baidu.android.pushservice.a.a(this.f567a).b(dVar2, this.e));
-            intent2.putExtra("r_sync_from", this.f567a.getPackageName());
+            intent2.putExtra("r_sync_rdata", com.baidu.android.pushservice.a.a(this.f565a).a(dVar2, this.e));
+            intent2.putExtra("r_sync_rdata_v2", com.baidu.android.pushservice.a.a(this.f565a).b(dVar2, this.e));
+            intent2.putExtra("r_sync_from", this.f565a.getPackageName());
             intent2.setFlags(32);
-            this.f567a.sendBroadcast(intent2);
-            it = com.baidu.android.pushservice.util.n.q(this.f567a).iterator();
+            this.f565a.sendBroadcast(intent2);
+            it = com.baidu.android.pushservice.util.n.q(this.f565a).iterator();
             while (it.hasNext()) {
-                Intent createMethodIntent = PushConstants.createMethodIntent(this.f567a);
+                Intent createMethodIntent = PushConstants.createMethodIntent(this.f565a);
                 createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, "pushservice_restart");
                 createMethodIntent.setPackage((String) it.next());
-                this.f567a.sendBroadcast(createMethodIntent);
-                com.baidu.android.pushservice.b.a(this.f567a, false);
+                this.f565a.sendBroadcast(createMethodIntent);
+                com.baidu.android.pushservice.b.a(this.f565a, false);
             }
         }
         return str3;

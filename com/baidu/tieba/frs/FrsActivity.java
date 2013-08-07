@@ -44,7 +44,7 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
     private com.baidu.tieba.model.m D;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1049a = true;
+    private boolean f1047a = true;
     private int b = 3;
     private String c = null;
     private String d = null;
@@ -93,9 +93,9 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.ad adVar) {
-        if (this.f1049a) {
+        if (this.f1047a) {
             if (adVar != null) {
-                if (adVar.f1323a && adVar.b) {
+                if (adVar.f1321a && adVar.b) {
                     if (adVar.c == 3) {
                         this.g = false;
                         this.c = this.c.replace(" ", "");
@@ -504,7 +504,7 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
     }
 
     private void s() {
-        this.f1049a = true;
+        this.f1047a = true;
         this.c = "";
         this.d = "";
         this.e = 0;
@@ -667,7 +667,7 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
                 break;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.g.f1013a);
+        stringBuffer.append(com.baidu.tieba.data.g.f1011a);
         stringBuffer.append("c/f/frs/page");
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("kw", this.c));
@@ -720,7 +720,7 @@ public class FrsActivity extends com.baidu.tieba.g implements com.baidu.adp.widg
                 this.c = this.v.a().b();
                 this.l.c(this.c);
                 y();
-                this.f1049a = false;
+                this.f1047a = false;
                 ArrayList b = this.v.b();
                 if (b != null) {
                     this.l.a(b, this.f);

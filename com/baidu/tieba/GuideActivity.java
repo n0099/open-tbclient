@@ -33,7 +33,7 @@ public class GuideActivity extends Activity {
     private com.baidu.tieba.view.a j = new n(this);
 
     /* renamed from: a */
-    public View.OnClickListener f820a = new o(this);
+    public View.OnClickListener f818a = new o(this);
     public View.OnClickListener b = new p(this);
     private final bq k = new q(this);
 

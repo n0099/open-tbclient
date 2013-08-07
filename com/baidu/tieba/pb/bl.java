@@ -21,7 +21,7 @@ public class bl extends BaseAdapter {
     private View.OnClickListener e;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1480a = null;
+    private ArrayList f1478a = null;
     private View.OnClickListener d = null;
     private int f = 0;
     private boolean g = false;
@@ -41,7 +41,7 @@ public class bl extends BaseAdapter {
     }
 
     public void a(ArrayList arrayList) {
-        this.f1480a = arrayList;
+        this.f1478a = arrayList;
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -59,18 +59,18 @@ public class bl extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1480a == null) {
+        if (this.f1478a == null) {
             return 0;
         }
-        return this.f1480a.size();
+        return this.f1478a.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.f1480a == null || i < 0 || i >= this.f1480a.size()) {
+        if (this.f1478a == null || i < 0 || i >= this.f1478a.size()) {
             return null;
         }
-        return this.f1480a.get(i);
+        return this.f1478a.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -93,7 +93,7 @@ public class bl extends BaseAdapter {
     public View b() {
         bm bmVar = new bm(this);
         View inflate = LayoutInflater.from(this.b).inflate(R.layout.new_sub_pb_list_item, (ViewGroup) null);
-        bmVar.f1481a = inflate;
+        bmVar.f1479a = inflate;
         bmVar.b = (HeadImageView) inflate.findViewById(R.id.photo);
         bmVar.c = (TextView) inflate.findViewById(R.id.time);
         bmVar.d = (Button) inflate.findViewById(R.id.manage_btn);
@@ -129,10 +129,10 @@ public class bl extends BaseAdapter {
             if (awVar.g() != null) {
                 String name = awVar.g().getName();
                 String id = awVar.g().getId();
-                SparseArray sparseArray = (SparseArray) bmVar.f1481a.getTag();
+                SparseArray sparseArray = (SparseArray) bmVar.f1479a.getTag();
                 if (sparseArray == null) {
                     sparseArray = new SparseArray();
-                    bmVar.f1481a.setTag(sparseArray);
+                    bmVar.f1479a.setTag(sparseArray);
                 }
                 sparseArray.put(R.id.tag_photo_username, name);
                 sparseArray.put(R.id.tag_clip_board, awVar);

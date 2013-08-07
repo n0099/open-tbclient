@@ -7,7 +7,7 @@ import com.baidu.tieba.view.ImageViewDrawer;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageViewDrawer f1044a;
+    ImageViewDrawer f1042a;
     TextView b;
     TextView c;
     TextView d;

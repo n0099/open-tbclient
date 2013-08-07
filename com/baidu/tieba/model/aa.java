@@ -14,7 +14,7 @@ public class aa {
     private ab j = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.v f1320a = new com.baidu.tieba.data.v();
+    private com.baidu.tieba.data.v f1318a = new com.baidu.tieba.data.v();
     private ArrayList b = new ArrayList();
     private com.baidu.tieba.data.ar d = new com.baidu.tieba.data.ar();
     private com.baidu.tieba.data.x e = new com.baidu.tieba.data.x();
@@ -24,19 +24,19 @@ public class aa {
     }
 
     public void a(com.baidu.tieba.data.ak akVar) {
-        this.f1320a.d(akVar.d());
-        this.f1320a.e(akVar.e());
-        this.f1320a.a(akVar.b());
-        this.f1320a.b(akVar.a());
-        this.f1320a.a(akVar.c());
+        this.f1318a.d(akVar.d());
+        this.f1318a.e(akVar.e());
+        this.f1318a.a(akVar.b());
+        this.f1318a.b(akVar.a());
+        this.f1318a.a(akVar.c());
     }
 
     public void a(com.baidu.tieba.data.bg bgVar) {
-        this.f1320a.a(bgVar);
+        this.f1318a.a(bgVar);
     }
 
     public com.baidu.tieba.data.v a() {
-        return this.f1320a;
+        return this.f1318a;
     }
 
     public ArrayList b() {
@@ -77,7 +77,7 @@ public class aa {
     public void a(JSONObject jSONObject) {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
-            this.f1320a.a(optJSONObject);
+            this.f1318a.a(optJSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
@@ -113,7 +113,7 @@ public class aa {
         com.baidu.tieba.data.v a2 = a();
         this.j = new ab(this, a2.a(), a2.b(), str);
         this.j.setPriority(2);
-        this.j.execute(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/user/fansno");
+        this.j.execute(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/user/fansno");
     }
 
     public void g() {

@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class ae extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbPagerAdapter f1811a;
+    final /* synthetic */ ImagePbPagerAdapter f1809a;
     private com.baidu.tieba.util.u b = null;
     private int c;
     private int d;
@@ -21,7 +21,7 @@ public class ae extends BdAsyncTask {
     private String h;
 
     public ae(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar, int i, int i2, String str, String str2) {
-        this.f1811a = imagePbPagerAdapter;
+        this.f1809a = imagePbPagerAdapter;
         this.c = 0;
         this.d = 10;
         this.e = null;
@@ -50,9 +50,9 @@ public class ae extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         String str;
-        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/pb/piccomment");
+        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/pb/piccomment");
         com.baidu.tieba.util.u uVar = this.b;
-        str = this.f1811a.e;
+        str = this.f1809a.e;
         uVar.a("kw", str);
         this.b.a("pic_id", this.f);
         this.b.a("tid", this.e);
@@ -98,8 +98,8 @@ public class ae extends BdAsyncTask {
             }
             if (this.b != null) {
                 if (!this.b.d() || this.g == null) {
-                    context = this.f1811a.b;
-                    context2 = this.f1811a.b;
+                    context = this.f1809a.b;
+                    context2 = this.f1809a.b;
                     ((com.baidu.tieba.g) context).a(context2.getString(R.string.image_pb_comment_fail));
                     return;
                 }
@@ -107,9 +107,9 @@ public class ae extends BdAsyncTask {
                     this.g.a((com.baidu.tieba.data.ab) null);
                     this.g.notifyDataSetChanged();
                 }
-                hashMap = this.f1811a.h;
+                hashMap = this.f1809a.h;
                 if (hashMap.get(this.g.e().d()) != null) {
-                    hashMap2 = this.f1811a.h;
+                    hashMap2 = this.f1809a.h;
                     abVar = (com.baidu.tieba.data.ab) hashMap2.get(this.g.e().d());
                     abVar.a(str);
                 }
@@ -119,9 +119,9 @@ public class ae extends BdAsyncTask {
                     this.g = null;
                 }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    arrayList2 = this.f1811a.s;
+                    arrayList2 = this.f1809a.s;
                     if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ah) {
-                        arrayList3 = this.f1811a.s;
+                        arrayList3 = this.f1809a.s;
                         com.baidu.tieba.pb.ah ahVar = (com.baidu.tieba.pb.ah) ((View) arrayList3.get(i)).getTag();
                         if (ahVar.e() != null && this.h.equals(ahVar.e().d())) {
                             ahVar.notifyDataSetChanged();

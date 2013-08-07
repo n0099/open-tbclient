@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class bj {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1000a = false;
+    private boolean f998a = false;
     private String b = null;
     private String c = null;
     private long d = 0;
@@ -22,10 +22,10 @@ public class bj {
     public void a(JSONObject jSONObject) {
         try {
             if (jSONObject == null) {
-                this.f1000a = false;
+                this.f998a = false;
                 return;
             }
-            this.f1000a = true;
+            this.f998a = true;
             JSONObject optJSONObject = jSONObject.optJSONObject("player_rank_info");
             if (optJSONObject != null) {
                 this.b = optJSONObject.optString("player_id", null);
@@ -76,7 +76,7 @@ public class bj {
     }
 
     public boolean f() {
-        return this.f1000a;
+        return this.f998a;
     }
 
     public int g() {

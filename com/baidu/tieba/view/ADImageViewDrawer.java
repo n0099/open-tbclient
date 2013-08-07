@@ -12,14 +12,14 @@ import com.slidingmenu.lib.R;
 public class ADImageViewDrawer extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f1781a;
+    private Bitmap f1779a;
     private int b;
     private int c;
     private Paint d;
 
     public ADImageViewDrawer(Context context) {
         super(context);
-        this.f1781a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
+        this.f1779a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
         this.b = R.drawable.pic_image_h_not;
         this.c = R.drawable.pic_image_h_not_1;
         this.d = new Paint();
@@ -28,7 +28,7 @@ public class ADImageViewDrawer extends ImageView {
 
     public ADImageViewDrawer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1781a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
+        this.f1779a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
         this.b = R.drawable.pic_image_h_not;
         this.c = R.drawable.pic_image_h_not_1;
         this.d = new Paint();
@@ -37,7 +37,7 @@ public class ADImageViewDrawer extends ImageView {
 
     public ADImageViewDrawer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1781a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
+        this.f1779a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
         this.b = R.drawable.pic_image_h_not;
         this.c = R.drawable.pic_image_h_not_1;
         this.d = new Paint();
@@ -77,7 +77,7 @@ public class ADImageViewDrawer extends ImageView {
         } else {
             d.a(canvas, getWidth(), getHeight(), this.d);
             if (z2) {
-                canvas.drawBitmap(this.f1781a, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(this.f1779a, 0.0f, 0.0f, (Paint) null);
             }
         }
         if (TiebaApplication.f().au() == 1 && z) {

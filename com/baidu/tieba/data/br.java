@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class br {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1008a = null;
+    private String f1006a = null;
     private int b = 0;
     private int d = 0;
     private int e = 0;
@@ -21,7 +21,7 @@ public class br {
     }
 
     public String c() {
-        return this.f1008a;
+        return this.f1006a;
     }
 
     public int d() {
@@ -43,7 +43,7 @@ public class br {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1008a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1006a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.d = jSONObject.optInt("width", 0);
                 this.e = jSONObject.optInt("height", 0);
             } catch (Exception e) {

@@ -11,14 +11,14 @@ import com.baidu.tieba.view.EditHeadImageView;
 public class t extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1616a;
+    final /* synthetic */ EditHeadActivity f1614a;
     private String b;
     private Bitmap c;
     private Boolean d;
     private Boolean e;
 
     private t(EditHeadActivity editHeadActivity) {
-        this.f1616a = editHeadActivity;
+        this.f1614a = editHeadActivity;
         this.d = false;
         this.e = false;
     }
@@ -33,9 +33,9 @@ public class t extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.f1616a.n;
+        progressBar = this.f1614a.n;
         progressBar.setVisibility(0);
-        button = this.f1616a.j;
+        button = this.f1614a.j;
         button.setClickable(false);
     }
 
@@ -53,9 +53,9 @@ public class t extends BdAsyncTask {
         Bitmap bitmap8;
         Bitmap bitmap9;
         this.b = strArr[0];
-        bitmap = this.f1616a.f;
+        bitmap = this.f1614a.f;
         if (bitmap == null) {
-            bitmap9 = this.f1616a.v;
+            bitmap9 = this.f1614a.v;
             if (bitmap9 == null) {
                 return null;
             }
@@ -66,18 +66,18 @@ public class t extends BdAsyncTask {
             this.e = true;
         }
         if (!this.d.booleanValue() && !this.e.booleanValue()) {
-            bitmap7 = this.f1616a.f;
-            bitmap8 = this.f1616a.f;
+            bitmap7 = this.f1614a.f;
+            bitmap8 = this.f1614a.f;
             this.c = bitmap7.copy(bitmap8.getConfig(), true);
         } else {
-            bitmap2 = this.f1616a.v;
+            bitmap2 = this.f1614a.v;
             if (bitmap2 == null) {
-                bitmap3 = this.f1616a.f;
-                bitmap4 = this.f1616a.f;
+                bitmap3 = this.f1614a.f;
+                bitmap4 = this.f1614a.f;
                 this.c = bitmap3.copy(bitmap4.getConfig(), true);
             } else {
-                bitmap5 = this.f1616a.v;
-                bitmap6 = this.f1616a.v;
+                bitmap5 = this.f1614a.v;
+                bitmap6 = this.f1614a.v;
                 this.c = bitmap5.copy(bitmap6.getConfig(), true);
             }
         }
@@ -86,7 +86,7 @@ public class t extends BdAsyncTask {
         } else if (this.e.booleanValue()) {
             this.c = com.baidu.tieba.util.e.e(this.c, Integer.parseInt(this.b));
         } else {
-            this.c = FilterFactory.createOneKeyFilter(this.f1616a, this.b).apply(this.f1616a, this.c);
+            this.c = FilterFactory.createOneKeyFilter(this.f1614a, this.b).apply(this.f1614a, this.c);
         }
         return this.c;
     }
@@ -97,15 +97,15 @@ public class t extends BdAsyncTask {
         Button button;
         Bitmap bitmap;
         if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.f1616a.v;
+            bitmap = this.f1614a.v;
             if (bitmap != this.c) {
                 this.c.recycle();
             }
         }
         this.c = null;
-        progressBar = this.f1616a.n;
+        progressBar = this.f1614a.n;
         progressBar.setVisibility(8);
-        button = this.f1616a.j;
+        button = this.f1614a.j;
         button.setClickable(true);
         super.cancel(true);
     }
@@ -132,44 +132,44 @@ public class t extends BdAsyncTask {
         Bitmap bitmap8;
         Bitmap bitmap9;
         EditHeadImageView editHeadImageView2;
-        progressBar = this.f1616a.n;
+        progressBar = this.f1614a.n;
         progressBar.setVisibility(8);
-        button = this.f1616a.j;
+        button = this.f1614a.j;
         button.setClickable(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f1616a.C = true;
+            this.f1614a.C = true;
             if (this.d.booleanValue() || this.e.booleanValue()) {
-                editHeadImageView = this.f1616a.e;
+                editHeadImageView = this.f1614a.e;
                 editHeadImageView.setImageBitmap(bitmap);
-                bitmap2 = this.f1616a.f;
+                bitmap2 = this.f1614a.f;
                 if (bitmap2.getWidth() <= 600) {
-                    bitmap6 = this.f1616a.f;
+                    bitmap6 = this.f1614a.f;
                 }
-                EditHeadActivity editHeadActivity = this.f1616a;
-                bitmap3 = this.f1616a.f;
+                EditHeadActivity editHeadActivity = this.f1614a;
+                bitmap3 = this.f1614a.f;
                 editHeadActivity.f = com.baidu.tieba.util.e.a(bitmap3, 600);
                 if (this.d.booleanValue()) {
-                    EditHeadActivity editHeadActivity2 = this.f1616a;
-                    bitmap5 = this.f1616a.f;
+                    EditHeadActivity editHeadActivity2 = this.f1614a;
+                    bitmap5 = this.f1614a.f;
                     editHeadActivity2.f = com.baidu.tieba.util.e.d(bitmap5, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
-                    EditHeadActivity editHeadActivity3 = this.f1616a;
-                    bitmap4 = this.f1616a.f;
+                    EditHeadActivity editHeadActivity3 = this.f1614a;
+                    bitmap4 = this.f1614a.f;
                     editHeadActivity3.f = com.baidu.tieba.util.e.e(bitmap4, Integer.parseInt(this.b));
                 }
             } else {
-                editHeadImageView2 = this.f1616a.e;
+                editHeadImageView2 = this.f1614a.e;
                 editHeadImageView2.a(bitmap);
             }
-            bitmap7 = this.f1616a.v;
+            bitmap7 = this.f1614a.v;
             if (bitmap7 != null) {
-                bitmap8 = this.f1616a.v;
+                bitmap8 = this.f1614a.v;
                 if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.f1616a.v;
+                    bitmap9 = this.f1614a.v;
                     bitmap9.recycle();
                 }
             }
-            this.f1616a.v = bitmap;
+            this.f1614a.v = bitmap;
         }
     }
 }

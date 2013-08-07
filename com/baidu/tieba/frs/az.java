@@ -68,7 +68,7 @@ public class az {
     private String F = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1075a = null;
+    AlertDialog f1073a = null;
     Animation b = null;
     private View.OnTouchListener L = new ba(this);
 
@@ -174,8 +174,8 @@ public class az {
         } else {
             builder.setItems(new String[]{string, string2, string3}, this.H);
         }
-        this.f1075a = builder.create();
-        this.f1075a.setCanceledOnTouchOutside(true);
+        this.f1073a = builder.create();
+        this.f1073a.setCanceledOnTouchOutside(true);
     }
 
     public int c() {
@@ -225,8 +225,8 @@ public class az {
     }
 
     public void e() {
-        if (this.f1075a != null) {
-            this.f1075a.show();
+        if (this.f1073a != null) {
+            this.f1073a.show();
         }
     }
 

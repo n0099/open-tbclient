@@ -5,15 +5,15 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1031a = null;
+    private String f1029a = null;
     private int b = 0;
 
     public void a(String str) {
-        this.f1031a = str;
+        this.f1029a = str;
     }
 
     public String a() {
-        return this.f1031a;
+        return this.f1029a;
     }
 
     public void a(int i) {
@@ -28,7 +28,7 @@ public class y {
         if (jSONObject != null) {
             try {
                 this.b = jSONObject.optInt("class_id", 0);
-                this.f1031a = jSONObject.optString("class_name");
+                this.f1029a = jSONObject.optString("class_name");
             } catch (Exception e) {
                 com.baidu.tieba.util.aj.b("GoodData", "parserJson", "error = " + e.getMessage());
             }

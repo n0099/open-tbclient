@@ -13,11 +13,11 @@ import com.slidingmenu.lib.R;
 public class u implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1916a;
+    final /* synthetic */ WriteActivity f1914a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(WriteActivity writeActivity) {
-        this.f1916a = writeActivity;
+        this.f1914a = writeActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -28,24 +28,24 @@ public class u implements AdapterView.OnItemClickListener {
         EditText editText3;
         m mVar2;
         EditText editText4;
-        editText = this.f1916a.f;
+        editText = this.f1914a.f;
         Editable text = editText.getText();
-        editText2 = this.f1916a.f;
+        editText2 = this.f1914a.f;
         if (((ImageSpan[]) text.getSpans(0, editText2.getText().length(), ImageSpan.class)).length < 10) {
-            mVar = this.f1916a.t;
+            mVar = this.f1914a.t;
             String a2 = mVar.a(i);
             if (a2 != null) {
-                editText3 = this.f1916a.f;
+                editText3 = this.f1914a.f;
                 int selectionStart = editText3.getSelectionStart();
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a2);
-                mVar2 = this.f1916a.t;
+                mVar2 = this.f1914a.t;
                 Bitmap bitmap = (Bitmap) mVar2.getItem(i);
                 if (bitmap != null) {
                     com.baidu.tieba.view.ax axVar = new com.baidu.tieba.view.ax(bitmap);
                     axVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
                     axVar.setGravity(3);
                     spannableStringBuilder.setSpan(new ImageSpan(axVar, 0), 0, spannableStringBuilder.length(), 33);
-                    editText4 = this.f1916a.f;
+                    editText4 = this.f1914a.f;
                     editText4.getText().insert(selectionStart, spannableStringBuilder);
                     return;
                 }
@@ -53,6 +53,6 @@ public class u implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        this.f1916a.a(this.f1916a.getString(R.string.too_many_face));
+        this.f1914a.a(this.f1914a.getString(R.string.too_many_face));
     }
 }

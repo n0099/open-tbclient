@@ -9,7 +9,7 @@ import com.baidu.tieba.data.SendPKVoteData;
 public class br extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private bs f1359a;
+    private bs f1357a;
     private bu b;
     private bt c;
     private bv d;
@@ -85,8 +85,8 @@ public class br extends com.baidu.adp.a.c {
     public boolean cancelLoadData() {
         switch (this.g) {
             case 1:
-                if (this.f1359a != null) {
-                    this.f1359a.cancel();
+                if (this.f1357a != null) {
+                    this.f1357a.cancel();
                     return true;
                 }
                 return true;
@@ -104,8 +104,8 @@ public class br extends com.baidu.adp.a.c {
     public void g() {
         switch (this.g) {
             case 1:
-                this.f1359a = new bs(this, this.i, this.k);
-                this.f1359a.execute(new Void[0]);
+                this.f1357a = new bs(this, this.i, this.k);
+                this.f1357a.execute(new Void[0]);
                 return;
             case 2:
                 this.b = new bu(this, this.h, this.i, this.k);

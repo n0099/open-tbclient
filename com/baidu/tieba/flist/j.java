@@ -9,10 +9,10 @@ import com.slidingmenu.lib.R;
 class j extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1046a;
+    final /* synthetic */ ForumListActivity f1044a;
 
     private j(ForumListActivity forumListActivity) {
-        this.f1046a = forumListActivity;
+        this.f1044a = forumListActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,8 +23,8 @@ class j extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f1046a.f1036a.o.setEnabled(false);
-        this.f1046a.f1036a.p.setText(this.f1046a.getString(R.string.flist_loading));
+        this.f1044a.f1034a.o.setEnabled(false);
+        this.f1044a.f1034a.p.setText(this.f1044a.getString(R.string.flist_loading));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,14 +36,14 @@ class j extends BdAsyncTask {
         ForumListModel.RequestParams requestParams3;
         ForumListModel.RequestParams requestParams4;
         try {
-            requestParams = this.f1046a.o;
+            requestParams = this.f1044a.o;
             requestParams.recommend_type = 2;
-            requestParams2 = this.f1046a.o;
+            requestParams2 = this.f1044a.o;
             requestParams2.offset = 0;
-            requestParams3 = this.f1046a.o;
+            requestParams3 = this.f1044a.o;
             requestParams3.rn = 50;
-            ForumListActivity forumListActivity = this.f1046a;
-            requestParams4 = this.f1046a.o;
+            ForumListActivity forumListActivity = this.f1044a;
+            requestParams4 = this.f1044a.o;
             return ForumListModel.fetch(forumListActivity, requestParams4);
         } catch (JsonParseException e) {
             return null;
@@ -57,13 +57,13 @@ class j extends BdAsyncTask {
         e eVar;
         int i;
         if (forumListModel != null && forumListModel.recommend_list_right != null) {
-            eVar = this.f1046a.s;
+            eVar = this.f1044a.s;
             eVar.a(forumListModel.recommend_list_right.forum_list);
-            this.f1046a.q = true;
-            this.f1046a.f1036a.o.setEnabled(true);
-            this.f1046a.f1036a.p.setText(this.f1046a.getString(R.string.flist_collapse_list));
-            ImageView imageView = this.f1046a.f1036a.q;
-            i = this.f1046a.f;
+            this.f1044a.q = true;
+            this.f1044a.f1034a.o.setEnabled(true);
+            this.f1044a.f1034a.p.setText(this.f1044a.getString(R.string.flist_collapse_list));
+            ImageView imageView = this.f1044a.f1034a.q;
+            i = this.f1044a.f;
             imageView.setImageResource(i);
         }
     }

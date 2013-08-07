@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 public class r implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListActivity f949a;
+    final /* synthetic */ ChatListActivity f947a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ChatListActivity chatListActivity) {
-        this.f949a = chatListActivity;
+        this.f947a = chatListActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -19,9 +19,9 @@ public class r implements DialogInterface.OnClickListener {
         com.baidu.tieba.data.a.g gVar;
         switch (i) {
             case 0:
-                this.f949a.g = 4;
-                cVar = this.f949a.b;
-                gVar = this.f949a.f;
+                this.f947a.g = 4;
+                cVar = this.f947a.b;
+                gVar = this.f947a.f;
                 cVar.a(gVar.b());
                 return;
             default:

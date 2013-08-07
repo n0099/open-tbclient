@@ -5,15 +5,15 @@ import android.content.DialogInterface;
 class bd implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f923a;
+    final /* synthetic */ UpdateDialog f921a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(UpdateDialog updateDialog) {
-        this.f923a = updateDialog;
+        this.f921a = updateDialog;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.f923a.finish();
+        this.f921a.finish();
     }
 }

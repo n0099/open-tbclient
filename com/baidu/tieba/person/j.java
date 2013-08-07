@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class j extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1606a;
+    private Context f1604a;
     private com.baidu.tieba.model.b b;
     private boolean c = false;
     private View.OnClickListener d = null;
@@ -21,7 +21,7 @@ public class j extends BaseAdapter {
     private boolean f = true;
 
     public j(Context context, com.baidu.tieba.model.b bVar) {
-        this.f1606a = context;
+        this.f1604a = context;
         this.b = bVar;
     }
 
@@ -83,10 +83,10 @@ public class j extends BaseAdapter {
         com.baidu.tieba.data.v vVar;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.f1606a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.f1604a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
                 try {
                     kVar = new k(this, null);
-                    kVar.f1607a = (TextView) view3.findViewById(R.id.name);
+                    kVar.f1605a = (TextView) view3.findViewById(R.id.name);
                     kVar.b = new StringBuffer(10);
                     kVar.c = (TextView) view3.findViewById(R.id.degree);
                     kVar.d = new StringBuffer(10);
@@ -106,26 +106,26 @@ public class j extends BaseAdapter {
             if (this.e) {
                 kVar.c.setVisibility(8);
                 kVar.f.setVisibility(8);
-                kVar.f1607a.setVisibility(8);
+                kVar.f1605a.setVisibility(8);
                 if (this.f) {
-                    kVar.e.setText(this.f1606a.getString(R.string.not_have_like_bars));
+                    kVar.e.setText(this.f1604a.getString(R.string.not_have_like_bars));
                 } else {
-                    kVar.e.setText(this.f1606a.getString(R.string.no_like_forum_other));
+                    kVar.e.setText(this.f1604a.getString(R.string.no_like_forum_other));
                 }
                 kVar.e.setVisibility(0);
             } else {
                 kVar.c.setVisibility(0);
                 kVar.f.setVisibility(0);
-                kVar.f1607a.setVisibility(0);
+                kVar.f1605a.setVisibility(0);
                 kVar.e.setVisibility(8);
             }
             if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size() && (vVar = (com.baidu.tieba.data.v) this.b.a().get(i)) != null) {
                 kVar.b.delete(0, kVar.b.length());
                 kVar.b.append(vVar.b());
-                kVar.b.append(this.f1606a.getString(R.string.bar));
-                kVar.f1607a.setText(kVar.b);
+                kVar.b.append(this.f1604a.getString(R.string.bar));
+                kVar.f1605a.setText(kVar.b);
                 kVar.d.delete(0, kVar.d.length());
-                kVar.d.append(this.f1606a.getString(R.string.degree));
+                kVar.d.append(this.f1604a.getString(R.string.degree));
                 kVar.d.append(vVar.h());
                 kVar.c.setText(kVar.d);
                 kVar.c.setVisibility(0);
@@ -139,12 +139,12 @@ public class j extends BaseAdapter {
             }
             if (TiebaApplication.f().au() == 1) {
                 int a2 = com.baidu.tieba.util.ah.a(1);
-                kVar.f1607a.setTextColor(a2);
+                kVar.f1605a.setTextColor(a2);
                 kVar.c.setTextColor(a2);
                 kVar.e.setTextColor(a2);
                 return view3;
             }
-            kVar.f1607a.setTextColor(-12895429);
+            kVar.f1605a.setTextColor(-12895429);
             kVar.c.setTextColor(-12895429);
             kVar.e.setTextColor(-4276546);
             return view3;

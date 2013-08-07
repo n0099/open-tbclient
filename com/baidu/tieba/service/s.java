@@ -18,12 +18,12 @@ import java.util.Random;
 public class s extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.u f1713a;
+    com.baidu.tieba.util.u f1711a;
     final /* synthetic */ TiebaSyncService b;
 
     private s(TiebaSyncService tiebaSyncService) {
         this.b = tiebaSyncService;
-        this.f1713a = null;
+        this.f1711a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -40,37 +40,37 @@ public class s extends BdAsyncTask {
         String str;
         String str2;
         try {
-            this.f1713a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/sync");
-            this.f1713a.a("_os_version", Build.VERSION.RELEASE);
+            this.f1711a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/sync");
+            this.f1711a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(am.a(TiebaApplication.f())));
             stringBuffer.append(",");
             stringBuffer.append(String.valueOf(am.b(TiebaApplication.f())));
-            this.f1713a.a("_phone_screen", stringBuffer.toString());
+            this.f1711a.a("_phone_screen", stringBuffer.toString());
             if (TiebaApplication.f().S() > 0) {
-                this.f1713a.a("_msg_status", "0");
+                this.f1711a.a("_msg_status", "0");
             } else {
-                this.f1713a.a("_msg_status", "1");
+                this.f1711a.a("_msg_status", "1");
             }
             String aN = TiebaApplication.f().aN();
             if (aN != null) {
                 if (aN.length() < 1) {
                     aN = "0";
                 }
-                this.f1713a.a("_active", aN);
+                this.f1711a.a("_active", aN);
             }
-            this.f1713a.a("_pic_quality", String.valueOf(TiebaApplication.f().ap()));
-            str = TiebaSyncService.f1693a;
+            this.f1711a.a("_pic_quality", String.valueOf(TiebaApplication.f().ap()));
+            str = TiebaSyncService.f1691a;
             if (str != null) {
-                com.baidu.tieba.util.u uVar = this.f1713a;
-                str2 = TiebaSyncService.f1693a;
+                com.baidu.tieba.util.u uVar = this.f1711a;
+                str2 = TiebaSyncService.f1691a;
                 uVar.a("_msg_type", str2);
             }
-            String k = this.f1713a.k();
-            if (this.f1713a.e()) {
+            String k = this.f1711a.k();
+            if (this.f1711a.e()) {
                 TiebaApplication.f().aO();
             }
-            if (this.f1713a.d()) {
+            if (this.f1711a.d()) {
                 caVar = new ca();
                 try {
                     caVar.a(k);
@@ -78,7 +78,7 @@ public class s extends BdAsyncTask {
                         TiebaApplication.a(this.b, caVar.d().a());
                         TiebaApplication.k(caVar.d().a());
                     }
-                    TiebaSyncService.f1693a = null;
+                    TiebaSyncService.f1691a = null;
                     return caVar;
                 } catch (Exception e2) {
                     e = e2;
@@ -96,8 +96,8 @@ public class s extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.b.b = null;
-        if (this.f1713a != null) {
-            this.f1713a.i();
+        if (this.f1711a != null) {
+            this.f1711a.i();
         }
         super.cancel(true);
     }

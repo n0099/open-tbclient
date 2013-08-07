@@ -6,15 +6,15 @@ import org.json.JSONArray;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f974a = new ArrayList();
+    private ArrayList f972a = new ArrayList();
 
     public ArrayList a() {
-        return this.f974a;
+        return this.f972a;
     }
 
     public void a(ai aiVar) {
-        if (this.f974a != null) {
-            this.f974a.add(aiVar);
+        if (this.f972a != null) {
+            this.f972a.add(aiVar);
         }
     }
 
@@ -24,7 +24,7 @@ public class aj {
                 try {
                     ai aiVar = new ai();
                     aiVar.a(jSONArray.getJSONObject(i));
-                    this.f974a.add(aiVar);
+                    this.f972a.add(aiVar);
                 } catch (Exception e) {
                     com.baidu.tieba.util.aj.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
                     return;

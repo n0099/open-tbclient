@@ -9,11 +9,11 @@ import android.widget.RelativeLayout;
 public class a implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CreateBarActivity f1112a;
+    final /* synthetic */ CreateBarActivity f1110a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(CreateBarActivity createBarActivity) {
-        this.f1112a = createBarActivity;
+        this.f1110a = createBarActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,20 +21,20 @@ public class a implements View.OnClickListener {
         RelativeLayout relativeLayout;
         FrameLayout frameLayout;
         ImageView imageView;
-        relativeLayout = this.f1112a.k;
+        relativeLayout = this.f1110a.k;
         if (view != relativeLayout) {
-            frameLayout = this.f1112a.m;
+            frameLayout = this.f1110a.m;
             if (view != frameLayout) {
-                imageView = this.f1112a.l;
+                imageView = this.f1110a.l;
                 if (view == imageView) {
-                    this.f1112a.finish();
+                    this.f1110a.finish();
                     return;
                 }
                 return;
             }
-            this.f1112a.d();
+            this.f1110a.d();
             return;
         }
-        this.f1112a.k();
+        this.f1110a.k();
     }
 }

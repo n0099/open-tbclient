@@ -6,7 +6,7 @@ import android.widget.TextView;
 class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f1569a;
+    ImageView f1567a;
     TextView b;
     final /* synthetic */ ae c;
 

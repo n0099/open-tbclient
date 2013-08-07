@@ -6,21 +6,21 @@ import android.content.DialogInterface;
 public class r implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1542a;
+    final /* synthetic */ ImagePbActivity f1540a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ImagePbActivity imagePbActivity) {
-        this.f1542a = imagePbActivity;
+        this.f1540a = imagePbActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         af afVar;
         af afVar2;
-        this.f1542a.g();
-        afVar = this.f1542a.v;
+        this.f1540a.g();
+        afVar = this.f1540a.v;
         if (afVar != null) {
-            afVar2 = this.f1542a.v;
+            afVar2 = this.f1540a.v;
             afVar2.cancel();
         }
     }

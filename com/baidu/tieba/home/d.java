@@ -10,12 +10,12 @@ import com.baidu.tieba.data.bq;
 public class d extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CreateBarActivity f1149a;
+    final /* synthetic */ CreateBarActivity f1147a;
     private com.baidu.tieba.util.u b;
     private volatile boolean c;
 
     private d(CreateBarActivity createBarActivity) {
-        this.f1149a = createBarActivity;
+        this.f1147a = createBarActivity;
         this.b = null;
         this.c = false;
     }
@@ -33,9 +33,9 @@ public class d extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        progressBar = this.f1149a.p;
+        progressBar = this.f1147a.p;
         progressBar.setVisibility(8);
-        this.f1149a.r = null;
+        this.f1147a.r = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class d extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/anti/vcode");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/anti/vcode");
             this.b.a("fid", "0");
             this.b.a("pub_type", "0");
             this.b.a("fname", "");
@@ -55,7 +55,7 @@ public class d extends BdAsyncTask {
                 if (bqVar.b() == null || bqVar.b().length() <= 0) {
                     return null;
                 }
-                this.f1149a.u = bqVar.a();
+                this.f1147a.u = bqVar.a();
                 if (this.c) {
                     return null;
                 }
@@ -76,11 +76,11 @@ public class d extends BdAsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         super.a((Object) bitmap);
-        progressBar = this.f1149a.p;
+        progressBar = this.f1147a.p;
         progressBar.setVisibility(8);
-        this.f1149a.r = null;
+        this.f1147a.r = null;
         if (bitmap != null) {
-            imageView = this.f1149a.n;
+            imageView = this.f1147a.n;
             imageView.setImageBitmap(bitmap);
         }
     }
@@ -91,10 +91,10 @@ public class d extends BdAsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         super.b();
-        this.f1149a.u = null;
-        progressBar = this.f1149a.p;
+        this.f1147a.u = null;
+        progressBar = this.f1147a.p;
         progressBar.setVisibility(0);
-        imageView = this.f1149a.n;
+        imageView = this.f1147a.n;
         imageView.setImageBitmap(null);
     }
 }

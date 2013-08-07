@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class w extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1385a;
+    final /* synthetic */ t f1383a;
     private com.baidu.tieba.util.u b = null;
     private String c;
     private String d;
@@ -15,7 +15,7 @@ public class w extends BdAsyncTask {
     private String g;
 
     public w(t tVar, String str, String str2, String str3, String str4, String str5) {
-        this.f1385a = tVar;
+        this.f1383a = tVar;
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -48,9 +48,9 @@ public class w extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1385a.b = null;
+        this.f1383a.b = null;
         super.cancel(true);
-        eVar = this.f1385a.mLoadDataCallBack;
+        eVar = this.f1383a.mLoadDataCallBack;
         eVar.a(null);
     }
 
@@ -61,20 +61,20 @@ public class w extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) str);
-        this.f1385a.b = null;
+        this.f1383a.b = null;
         if (this.b == null) {
-            eVar2 = this.f1385a.mLoadDataCallBack;
+            eVar2 = this.f1383a.mLoadDataCallBack;
             eVar2.a(null);
             return;
         }
-        x xVar = new x(this.f1385a);
+        x xVar = new x(this.f1383a);
         if (str == null) {
-            xVar.f1386a = true;
+            xVar.f1384a = true;
         } else {
-            xVar.f1386a = false;
+            xVar.f1384a = false;
             xVar.b = str;
         }
-        eVar = this.f1385a.mLoadDataCallBack;
+        eVar = this.f1383a.mLoadDataCallBack;
         eVar.a(xVar);
     }
 }

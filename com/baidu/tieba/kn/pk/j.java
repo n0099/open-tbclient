@@ -5,26 +5,26 @@ import com.baidu.tieba.util.at;
 class j implements at {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PKWaitingActivity f1217a;
+    final /* synthetic */ PKWaitingActivity f1215a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PKWaitingActivity pKWaitingActivity) {
-        this.f1217a = pKWaitingActivity;
+        this.f1215a = pKWaitingActivity;
     }
 
     @Override // com.baidu.tieba.util.at
     public void a() {
         l lVar;
-        lVar = this.f1217a.b;
+        lVar = this.f1215a.b;
         lVar.a().setVisibility(0);
-        this.f1217a.f = true;
+        this.f1215a.f = true;
     }
 
     @Override // com.baidu.tieba.util.at
     public void b() {
         l lVar;
-        lVar = this.f1217a.b;
+        lVar = this.f1215a.b;
         lVar.a().setVisibility(8);
-        this.f1217a.f = false;
+        this.f1215a.f = false;
     }
 }

@@ -10,11 +10,11 @@ import java.util.ArrayList;
 public class i extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1605a;
+    final /* synthetic */ EditBarActivity f1603a;
     private com.baidu.tieba.util.u b;
 
     private i(EditBarActivity editBarActivity) {
-        this.f1605a = editBarActivity;
+        this.f1603a = editBarActivity;
         this.b = null;
     }
 
@@ -31,7 +31,7 @@ public class i extends BdAsyncTask {
         if (vVar != null) {
             try {
                 if (vVar.a() != null && vVar.b() != null) {
-                    this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/forum/unfavolike");
+                    this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/forum/unfavolike");
                     this.b.a("fid", vVar.a());
                     this.b.a("kw", vVar.b());
                     this.b.a("favo_type", String.valueOf(vVar.l()));
@@ -60,34 +60,34 @@ public class i extends BdAsyncTask {
         j jVar;
         j jVar2;
         super.a((Object) str);
-        this.f1605a.k = null;
-        progressBar = this.f1605a.f;
+        this.f1603a.k = null;
+        progressBar = this.f1603a.f;
         progressBar.setVisibility(8);
         if (this.b != null) {
             if (this.b.d()) {
-                bVar = this.f1605a.f1552a;
+                bVar = this.f1603a.f1550a;
                 ArrayList a2 = bVar.a();
                 if (a2 != null) {
-                    i = this.f1605a.j;
+                    i = this.f1603a.j;
                     if (i >= 0) {
-                        i2 = this.f1605a.j;
+                        i2 = this.f1603a.j;
                         if (i2 < a2.size()) {
-                            i3 = this.f1605a.j;
+                            i3 = this.f1603a.j;
                             a2.remove(i3);
-                            jVar = this.f1605a.e;
+                            jVar = this.f1603a.e;
                             if (jVar != null) {
-                                this.f1605a.k();
-                                jVar2 = this.f1605a.e;
+                                this.f1603a.k();
+                                jVar2 = this.f1603a.e;
                                 jVar2.notifyDataSetChanged();
                             }
                         }
                     }
                 }
                 TiebaApplication.f().j(true);
-                this.f1605a.a(this.f1605a.getString(R.string.success));
+                this.f1603a.a(this.f1603a.getString(R.string.success));
                 return;
             }
-            this.f1605a.a(this.b.h());
+            this.f1603a.a(this.b.h());
         }
     }
 
@@ -95,7 +95,7 @@ public class i extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1605a.f;
+        progressBar = this.f1603a.f;
         progressBar.setVisibility(0);
     }
 
@@ -106,9 +106,9 @@ public class i extends BdAsyncTask {
             this.b.i();
             this.b = null;
         }
-        progressBar = this.f1605a.f;
+        progressBar = this.f1603a.f;
         progressBar.setVisibility(8);
-        this.f1605a.k = null;
+        this.f1603a.k = null;
         super.cancel(true);
     }
 }

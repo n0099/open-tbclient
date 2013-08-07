@@ -7,13 +7,13 @@ import com.baidu.tieba.util.NetWorkCore;
 class au extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f915a;
+    final /* synthetic */ TiebaApplication f913a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public au(TiebaApplication tiebaApplication, Handler handler) {
         super(handler);
-        this.f915a = tiebaApplication;
+        this.f913a = tiebaApplication;
     }
 
     @Override // android.database.ContentObserver

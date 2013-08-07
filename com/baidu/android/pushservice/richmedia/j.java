@@ -7,11 +7,11 @@ import android.webkit.WebView;
 class j extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaViewActivity f613a;
+    final /* synthetic */ MediaViewActivity f611a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(MediaViewActivity mediaViewActivity) {
-        this.f613a = mediaViewActivity;
+        this.f611a = mediaViewActivity;
     }
 
     @Override // android.webkit.WebChromeClient

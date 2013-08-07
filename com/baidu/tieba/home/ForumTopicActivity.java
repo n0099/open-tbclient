@@ -27,7 +27,7 @@ import com.slidingmenu.lib.R;
 public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.tieba.view.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.recommend.bg f1108a;
+    private com.baidu.tieba.recommend.bg f1106a;
     private String o;
     private String p;
     private ImageView b = null;
@@ -153,12 +153,12 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
                 str = str3;
                 str2 = b.mPtoken;
                 com.baidu.tieba.recommend.bg bgVar = new com.baidu.tieba.recommend.bg(str, str2);
-                if (this.f1108a == null && (this.f1108a == null || !this.f1108a.equals(bgVar))) {
+                if (this.f1106a == null && (this.f1106a == null || !this.f1106a.equals(bgVar))) {
                     z = true;
                 } else {
                     z = false;
                 }
-                this.f1108a = bgVar;
+                this.f1106a = bgVar;
                 if (this.g == null && z) {
                     b();
                     this.q.postDelayed(this.r, 150L);
@@ -169,10 +169,10 @@ public class ForumTopicActivity extends com.baidu.tieba.g implements com.baidu.t
         str = str3;
         str2 = "";
         com.baidu.tieba.recommend.bg bgVar2 = new com.baidu.tieba.recommend.bg(str, str2);
-        if (this.f1108a == null) {
+        if (this.f1106a == null) {
         }
         z = false;
-        this.f1108a = bgVar2;
+        this.f1106a = bgVar2;
         if (this.g == null) {
         }
     }

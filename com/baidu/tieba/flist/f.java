@@ -5,13 +5,13 @@ import android.widget.ImageView;
 class f implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f1042a;
+    final /* synthetic */ e f1040a;
     private final /* synthetic */ String b;
     private final /* synthetic */ ImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, String str, ImageView imageView) {
-        this.f1042a = eVar;
+        this.f1040a = eVar;
         this.b = str;
         this.c = imageView;
     }

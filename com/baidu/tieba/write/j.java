@@ -9,11 +9,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class j extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f1905a;
+    final /* synthetic */ AtListActivity f1903a;
     private com.baidu.tieba.util.u b;
 
     private j(AtListActivity atListActivity) {
-        this.f1905a = atListActivity;
+        this.f1903a = atListActivity;
         this.b = null;
     }
 
@@ -26,7 +26,7 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1905a.m;
+        progressBar = this.f1903a.m;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -37,8 +37,8 @@ public class j extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1905a.g = null;
-        progressBar = this.f1905a.m;
+        this.f1903a.g = null;
+        progressBar = this.f1903a.m;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -48,7 +48,7 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public com.baidu.tieba.data.w a(String... strArr) {
         this.b = new com.baidu.tieba.util.u();
-        this.b.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/u/follow/list");
+        this.b.a(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/u/follow/list");
         String k = this.b.k();
         if (!this.b.d()) {
             return null;
@@ -72,29 +72,29 @@ public class j extends BdAsyncTask {
         k kVar3;
         k kVar4;
         ListView listView;
-        this.f1905a.g = null;
-        progressBar = this.f1905a.m;
+        this.f1903a.g = null;
+        progressBar = this.f1903a.m;
         progressBar.setVisibility(8);
         if (this.b.d()) {
-            aVar = this.f1905a.j;
+            aVar = this.f1903a.j;
             aVar.a(wVar);
-            kVar = this.f1905a.k;
+            kVar = this.f1903a.k;
             if (kVar != null) {
-                editText = this.f1905a.f1856a;
+                editText = this.f1903a.f1854a;
                 if (editText.getText().toString().length() != 0) {
-                    aVar2 = this.f1905a.j;
+                    aVar2 = this.f1903a.j;
                     if (aVar2.b() != null) {
-                        aVar3 = this.f1905a.j;
+                        aVar3 = this.f1903a.j;
                         aVar3.b().a(wVar.b());
-                        kVar2 = this.f1905a.k;
+                        kVar2 = this.f1903a.k;
                         kVar2.notifyDataSetInvalidated();
                     }
                 } else {
-                    kVar3 = this.f1905a.k;
+                    kVar3 = this.f1903a.k;
                     kVar3.a(wVar.a());
-                    kVar4 = this.f1905a.k;
+                    kVar4 = this.f1903a.k;
                     kVar4.notifyDataSetInvalidated();
-                    listView = this.f1905a.d;
+                    listView = this.f1903a.d;
                     listView.setSelection(0);
                 }
             } else {

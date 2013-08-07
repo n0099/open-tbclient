@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f966a;
+    private int f964a;
     private int b;
     private AntiData c;
     private Context d;
     private ArrayList e;
 
     public ab() {
-        this.f966a = 0;
+        this.f964a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -24,7 +24,7 @@ public class ab {
     }
 
     public ab(Context context) {
-        this.f966a = 0;
+        this.f964a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -38,7 +38,7 @@ public class ab {
     }
 
     public int b() {
-        return this.f966a;
+        return this.f964a;
     }
 
     public int c() {
@@ -81,7 +81,7 @@ public class ab {
                     }
                     size++;
                 }
-                this.f966a = this.e.size();
+                this.f964a = this.e.size();
             }
             this.b = jSONObject.optInt("comment_amount", 0);
             this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));

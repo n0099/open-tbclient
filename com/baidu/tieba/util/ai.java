@@ -16,7 +16,7 @@ import java.util.Date;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f1752a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static SimpleDateFormat f1750a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
     private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
     private static SimpleDateFormat d = new SimpleDateFormat("M月d日");
@@ -53,8 +53,8 @@ public class ai {
     public static String a(long j) {
         String format;
         Date date = new Date(j);
-        synchronized (f1752a) {
-            format = f1752a.format(date);
+        synchronized (f1750a) {
+            format = f1750a.format(date);
         }
         return format;
     }
@@ -62,8 +62,8 @@ public class ai {
     public static String a() {
         String format;
         Date date = new Date();
-        synchronized (f1752a) {
-            format = f1752a.format(date);
+        synchronized (f1750a) {
+            format = f1750a.format(date);
         }
         return format;
     }

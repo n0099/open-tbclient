@@ -7,12 +7,12 @@ import org.json.JSONObject;
 public class an extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ak f1332a;
+    final /* synthetic */ ak f1330a;
     private int b;
     private com.baidu.tieba.util.u c = null;
 
     public an(ak akVar, int i) {
-        this.f1332a = akVar;
+        this.f1330a = akVar;
         this.b = 0;
         this.b = i;
         if (this.b < 0) {
@@ -27,11 +27,11 @@ public class an extends BdAsyncTask {
     public JSONObject a(Object... objArr) {
         String str;
         try {
-            this.c = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/frs/photo");
+            this.c = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/frs/photo");
             StringBuilder sb = new StringBuilder();
-            int size = this.f1332a.c().size();
+            int size = this.f1330a.c().size();
             for (int i = this.b; i < size && i < this.b + 30; i++) {
-                sb.append((String) this.f1332a.c().get(i));
+                sb.append((String) this.f1330a.c().get(i));
                 sb.append(",");
             }
             int length = sb.length();
@@ -40,7 +40,7 @@ public class an extends BdAsyncTask {
             }
             this.c.a("alb_ids", sb.toString());
             com.baidu.tieba.util.u uVar = this.c;
-            str = this.f1332a.j;
+            str = this.f1330a.j;
             uVar.a("kw", str);
             return new JSONObject(this.c.k());
         } catch (Exception e) {
@@ -56,18 +56,18 @@ public class an extends BdAsyncTask {
         com.baidu.tieba.frs.aw awVar;
         com.baidu.tieba.frs.aw awVar2;
         super.a((Object) jSONObject);
-        this.f1332a.l = null;
-        awVar = this.f1332a.n;
+        this.f1330a.l = null;
+        awVar = this.f1330a.n;
         if (awVar != null) {
-            am amVar = new am(this.f1332a);
+            am amVar = new am(this.f1330a);
             if (this.c != null) {
-                amVar.f1331a = true;
+                amVar.f1329a = true;
                 amVar.b = this.c.e();
                 amVar.c = this.c.f();
                 amVar.d = this.c.h();
                 amVar.e = this.c.c();
             }
-            awVar2 = this.f1332a.n;
+            awVar2 = this.f1330a.n;
             awVar2.a(this.b, jSONObject, amVar);
         }
     }
@@ -78,9 +78,9 @@ public class an extends BdAsyncTask {
         com.baidu.tieba.frs.aw awVar;
         com.baidu.tieba.frs.aw awVar2;
         super.b();
-        awVar = this.f1332a.n;
+        awVar = this.f1330a.n;
         if (awVar != null) {
-            awVar2 = this.f1332a.n;
+            awVar2 = this.f1330a.n;
             awVar2.a(0);
         }
     }
@@ -92,6 +92,6 @@ public class an extends BdAsyncTask {
             this.c.i();
             this.c = null;
         }
-        this.f1332a.l = null;
+        this.f1330a.l = null;
     }
 }

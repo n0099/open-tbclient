@@ -7,11 +7,11 @@ import android.content.DialogInterface;
 public class ak implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MainTabActivity f906a;
+    final /* synthetic */ MainTabActivity f904a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(MainTabActivity mainTabActivity) {
-        this.f906a = mainTabActivity;
+        this.f904a = mainTabActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -20,15 +20,15 @@ public class ak implements DialogInterface.OnClickListener {
         AlertDialog alertDialog;
         boolean z2;
         if (i == -2) {
-            alertDialog = this.f906a.z;
+            alertDialog = this.f904a.z;
             alertDialog.dismiss();
             TiebaApplication f = TiebaApplication.f();
-            z2 = this.f906a.C;
+            z2 = this.f904a.C;
             f.a(false, z2);
             return;
         }
         TiebaApplication f2 = TiebaApplication.f();
-        z = this.f906a.C;
+        z = this.f904a.C;
         f2.a(true, z);
     }
 }

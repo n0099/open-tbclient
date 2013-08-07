@@ -13,10 +13,10 @@ import java.util.List;
 public class al extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ai f1818a;
+    final /* synthetic */ ai f1816a;
 
     private al(ai aiVar) {
-        this.f1818a = aiVar;
+        this.f1816a = aiVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,14 +27,14 @@ public class al extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         List list;
-        list = this.f1818a.k;
+        list = this.f1816a.k;
         return list.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         List list;
-        list = this.f1818a.k;
+        list = this.f1816a.k;
         return list.get(i);
     }
 
@@ -50,28 +50,28 @@ public class al extends BaseAdapter {
         Context context;
         Context context2;
         Context context3;
-        list = this.f1818a.k;
+        list = this.f1816a.k;
         com.baidu.tieba.data.bl blVar = (com.baidu.tieba.data.bl) list.get(i);
         if (view == null) {
-            context3 = this.f1818a.f1815a;
+            context3 = this.f1816a.f1813a;
             view = LayoutInflater.from(context3).inflate(R.layout.allinterest_list_item, viewGroup, false);
             an anVar = new an(this);
-            anVar.f1820a = (TextView) view.findViewById(R.id.list_item_title);
+            anVar.f1818a = (TextView) view.findViewById(R.id.list_item_title);
             view.setTag(anVar);
         }
         an anVar2 = (an) view.getTag();
-        anVar2.f1820a.setText(blVar.b());
-        i2 = this.f1818a.m;
+        anVar2.f1818a.setText(blVar.b());
+        i2 = this.f1816a.m;
         if (i2 == 1) {
-            TextView textView = anVar2.f1820a;
-            context2 = this.f1818a.f1815a;
+            TextView textView = anVar2.f1818a;
+            context2 = this.f1816a.f1813a;
             textView.setTextColor(context2.getResources().getColor(R.color.c_acc5e0));
         } else {
-            TextView textView2 = anVar2.f1820a;
-            context = this.f1818a.f1815a;
+            TextView textView2 = anVar2.f1818a;
+            context = this.f1816a.f1813a;
             textView2.setTextColor(context.getResources().getColor(R.color.c_ffffff));
         }
-        anVar2.f1820a.setOnClickListener(new am(this, blVar));
+        anVar2.f1818a.setOnClickListener(new am(this, blVar));
         return view;
     }
 }

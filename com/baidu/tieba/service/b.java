@@ -7,11 +7,11 @@ import java.io.File;
 class b extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClearTempService f1696a;
+    final /* synthetic */ ClearTempService f1694a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ClearTempService clearTempService) {
-        this.f1696a = clearTempService;
+        this.f1694a = clearTempService;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -20,15 +20,15 @@ class b extends Thread {
         Handler handler2;
         super.run();
         try {
-            File file = new File(com.baidu.tieba.util.p.f1771a + "/tieba/image");
-            File file2 = new File(com.baidu.tieba.util.p.f1771a + "/tieba/share");
-            this.f1696a.a(file);
-            this.f1696a.a(file2);
+            File file = new File(com.baidu.tieba.util.p.f1769a + "/tieba/image");
+            File file2 = new File(com.baidu.tieba.util.p.f1769a + "/tieba/share");
+            this.f1694a.a(file);
+            this.f1694a.a(file2);
         } catch (Exception e) {
             aj.b(getClass().getName(), "run", e.getMessage());
         }
-        handler = this.f1696a.c;
-        handler2 = this.f1696a.c;
+        handler = this.f1694a.c;
+        handler2 = this.f1694a.c;
         handler.sendMessage(handler2.obtainMessage());
     }
 }

@@ -11,12 +11,12 @@ import java.util.ArrayList;
 public class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1313a;
+    final /* synthetic */ PostActivity f1311a;
     private ArrayList b;
     private int c;
 
     public w(PostActivity postActivity, ArrayList arrayList, int i) {
-        this.f1313a = postActivity;
+        this.f1311a = postActivity;
         this.b = arrayList;
         this.c = i;
     }
@@ -40,9 +40,9 @@ public class w implements View.OnClickListener {
                     }
                     i = i2 + 1;
                 } else {
-                    PostActivity postActivity = this.f1313a;
+                    PostActivity postActivity = this.f1311a;
                     int i3 = this.c;
-                    blVar = this.f1313a.n;
+                    blVar = this.f1311a.n;
                     ImageActivity.a(postActivity, arrayList, i3, blVar);
                     return;
                 }

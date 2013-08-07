@@ -6,11 +6,11 @@ import com.baidu.tieba.TiebaApplication;
 public class z extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1683a;
+    private Context f1681a;
     private aa b = null;
 
     public z(Context context) {
-        this.f1683a = context;
+        this.f1681a = context;
     }
 
     public void a() {

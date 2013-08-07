@@ -7,12 +7,12 @@ import com.baidu.tieba.util.u;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f830a = String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/addmsg";
+    private static final String f828a = String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/addmsg";
     private u b = null;
     private ao c = null;
 
     public String a(com.baidu.tieba.data.a.e eVar) {
-        this.b = new u(f830a);
+        this.b = new u(f828a);
         this.b.a(PushConstants.EXTRA_USER_ID, eVar.c());
         this.b.a("com_id", eVar.b());
         this.b.a("content", eVar.a());

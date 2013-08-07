@@ -3,15 +3,15 @@ package com.baidu.android.pushservice;
 class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PushService f597a;
+    final /* synthetic */ PushService f595a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PushService pushService) {
-        this.f597a = pushService;
+        this.f595a = pushService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f597a.stopSelf();
+        this.f595a.stopSelf();
     }
 }

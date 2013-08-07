@@ -24,7 +24,7 @@ public class PublicMsg implements Parcelable {
     public static final Parcelable.Creator CREATOR = new i();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f590a;
+    public String f588a;
     public String b;
     public String c;
     public String d;
@@ -61,7 +61,7 @@ public class PublicMsg implements Parcelable {
         this.l = 0;
         this.m = 7;
         this.p = true;
-        this.f590a = parcel.readString();
+        this.f588a = parcel.readString();
         this.b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
@@ -116,8 +116,10 @@ public class PublicMsg implements Parcelable {
                 parseUri.putExtra(PushConstants.EXTRA_MSGID, str2);
                 context.startActivity(parseUri);
             }
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            if (com.baidu.android.pushservice.b.a()) {
+                Log.e("PublicMsg", "startApplicationLauncher fail. \r\n" + e.getMessage());
+            }
         }
     }
 
@@ -126,14 +128,14 @@ public class PublicMsg implements Parcelable {
             Log.d("PublicMsg", "=== Handle rich media notification: " + str + " title = " + this.c);
         }
         if ("com.baidu.android.pushservice.action.media.DELETE".equals(str)) {
-            a(context, this.f590a, this.b, 2);
+            a(context, this.f588a, this.b, 2);
             return;
         }
         Intent intent = new Intent("com.baidu.android.pushservice.action.media.CLICK");
         intent.setPackage(this.f);
         intent.putExtra("public_msg", this);
         context.sendBroadcast(intent);
-        a(context, this.f590a, this.b, 1);
+        a(context, this.f588a, this.b, 1);
     }
 
     void a(Context context, String str, int i) {
@@ -324,13 +326,9 @@ public class PublicMsg implements Parcelable {
             } else if (com.baidu.android.pushservice.b.a()) {
                 Log.d("PublicMsg", "Version code is too low! ===> app ver: " + i + ", request ver:" + this.g);
             }
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (Exception e) {
             if (com.baidu.android.pushservice.b.a()) {
-                Log.e("PublicMsg", "package not exist \r\n" + e.getMessage());
-            }
-        } catch (URISyntaxException e2) {
-            if (com.baidu.android.pushservice.b.a()) {
-                Log.e("PublicMsg", "uri to intent fail \r\n" + e2.getMessage());
+                Log.e("PublicMsg", "handlePrivateNotification fail. \r\n" + e.getMessage());
             }
         }
         a(context, str2, str3, 1);
@@ -342,12 +340,12 @@ public class PublicMsg implements Parcelable {
     }
 
     public String toString() {
-        return "\r\n mMsgId = " + this.f590a + "\r\n mAppId = " + this.b + "\r\n mTitle = " + this.c + "\r\n mDescription = " + this.d + "\r\n mUrl = " + this.e + "\r\n mNetType = " + this.i + "\r\n mSupportAppname = " + this.o + "\r\n mIsSupportApp = " + this.p + "\r\n mPkgName = " + this.f + "\r\n mPlgVercode = " + this.g + "\r\n mNotificationBuilder = " + this.j + "\r\n mNotificationBasicStyle = " + this.m + "\r\n mOpenType = " + this.k + "\r\n mUserConfirm = " + this.l + "\r\n mCustomContent = " + this.n + "\r\n mIntent = " + this.h;
+        return "\r\n mMsgId = " + this.f588a + "\r\n mAppId = " + this.b + "\r\n mTitle = " + this.c + "\r\n mDescription = " + this.d + "\r\n mUrl = " + this.e + "\r\n mNetType = " + this.i + "\r\n mSupportAppname = " + this.o + "\r\n mIsSupportApp = " + this.p + "\r\n mPkgName = " + this.f + "\r\n mPlgVercode = " + this.g + "\r\n mNotificationBuilder = " + this.j + "\r\n mNotificationBasicStyle = " + this.m + "\r\n mOpenType = " + this.k + "\r\n mUserConfirm = " + this.l + "\r\n mCustomContent = " + this.n + "\r\n mIntent = " + this.h;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f590a);
+        parcel.writeString(this.f588a);
         parcel.writeString(this.b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);

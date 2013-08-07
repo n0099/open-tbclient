@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    final View f1048a;
+    final View f1046a;
     final View b;
     ViewPager c;
     LinearLayout d;
@@ -46,7 +46,7 @@ public class l {
         this.k = (TextView) forumListActivity.findViewById(R.id.tab_hot);
         this.k.setOnClickListener(forumListActivity);
         this.l = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.f1048a = this.l.findViewById(R.id.footer_background);
+        this.f1046a = this.l.findViewById(R.id.footer_background);
         this.m = (TextView) this.l.findViewById(R.id.footer_text);
         this.n = (ImageView) this.l.findViewById(R.id.footer_icon);
         this.o = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);

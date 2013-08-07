@@ -23,7 +23,7 @@ public class k extends BaseAdapter {
     private boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1906a = false;
+    boolean f1904a = false;
     private ArrayList i = new ArrayList();
 
     public void a() {
@@ -67,7 +67,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1906a) {
+        if (this.f1904a) {
             return 1;
         }
         int i = 0;
@@ -106,7 +106,7 @@ public class k extends BaseAdapter {
                 l lVar2 = new l(this, null);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.at_list_item, (ViewGroup) null);
-                    lVar2.f1907a = (ImageView) inflate.findViewById(R.id.photo);
+                    lVar2.f1905a = (ImageView) inflate.findViewById(R.id.photo);
                     lVar2.b = (TextView) inflate.findViewById(R.id.name);
                     lVar2.d = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     view2 = inflate;
@@ -125,8 +125,8 @@ public class k extends BaseAdapter {
             }
             try {
                 if (getItemViewType(i) == 0) {
-                    if (this.f1906a) {
-                        lVar.f1907a.setVisibility(8);
+                    if (this.f1904a) {
+                        lVar.f1905a.setVisibility(8);
                         lVar.b.setVisibility(8);
                         lVar.d.setVisibility(0);
                         if (this.b) {
@@ -141,17 +141,17 @@ public class k extends BaseAdapter {
                             lVar.d.setText(R.string.no_fan_other);
                         }
                     } else {
-                        lVar.f1907a.setVisibility(0);
+                        lVar.f1905a.setVisibility(0);
                         lVar.b.setVisibility(0);
                         lVar.d.setVisibility(8);
                         String portrait = ((MetaData) this.d.get(i)).getPortrait();
                         com.baidu.adp.widget.a.b c = this.f.c(portrait);
                         if (c != null) {
-                            lVar.f1907a.setTag(null);
-                            c.b(lVar.f1907a);
+                            lVar.f1905a.setTag(null);
+                            c.b(lVar.f1905a);
                         } else {
-                            lVar.f1907a.setTag(portrait);
-                            lVar.f1907a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
+                            lVar.f1905a.setTag(portrait);
+                            lVar.f1905a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
                         }
                         lVar.b.setText(((MetaData) this.d.get(i)).getName_show());
                     }
@@ -183,7 +183,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f1906a) {
+        if (this.f1904a) {
             return 0;
         }
         return (this.d == null || i >= this.d.size()) ? 1 : 0;
@@ -196,7 +196,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.f1906a) {
+        if (this.f1904a) {
             return false;
         }
         return super.isEnabled(i);

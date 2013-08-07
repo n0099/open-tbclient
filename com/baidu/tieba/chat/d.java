@@ -3,17 +3,17 @@ package com.baidu.tieba.chat;
 class d implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f935a;
+    final /* synthetic */ ChatActivity f933a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ChatActivity chatActivity) {
-        this.f935a = chatActivity;
+        this.f933a = chatActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         w wVar;
-        wVar = this.f935a.b;
+        wVar = this.f933a.b;
         wVar.k();
     }
 }

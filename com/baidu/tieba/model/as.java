@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class as extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ar f1337a;
+    final /* synthetic */ ar f1335a;
     private volatile com.baidu.tieba.util.u b;
 
     private as(ar arVar) {
-        this.f1337a = arVar;
+        this.f1335a = arVar;
         this.b = null;
     }
 
@@ -27,12 +27,12 @@ public class as extends BdAsyncTask {
         String str;
         String str2;
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/forum/like");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/forum/like");
             com.baidu.tieba.util.u uVar = this.b;
-            str = this.f1337a.f1336a;
+            str = this.f1335a.f1334a;
             uVar.a("kw", str);
             com.baidu.tieba.util.u uVar2 = this.b;
-            str2 = this.f1337a.b;
+            str2 = this.f1335a.b;
             uVar2.a("fid", str2);
             this.b.e(true);
             String k = this.b.k();
@@ -53,14 +53,14 @@ public class as extends BdAsyncTask {
     public void a(com.baidu.tieba.data.ak akVar) {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
-        this.f1337a.c = null;
+        this.f1335a.c = null;
         if (akVar == null && this.b != null) {
-            this.f1337a.mErrorCode = this.b.f();
-            this.f1337a.mErrorString = this.b.h();
+            this.f1335a.mErrorCode = this.b.f();
+            this.f1335a.mErrorString = this.b.h();
         }
-        eVar = this.f1337a.mLoadDataCallBack;
+        eVar = this.f1335a.mLoadDataCallBack;
         if (eVar != null) {
-            eVar2 = this.f1337a.mLoadDataCallBack;
+            eVar2 = this.f1335a.mLoadDataCallBack;
             eVar2.a(akVar);
         }
     }
@@ -72,9 +72,9 @@ public class as extends BdAsyncTask {
             this.b.i();
             this.b = null;
         }
-        this.f1337a.c = null;
+        this.f1335a.c = null;
         super.cancel(true);
-        eVar = this.f1337a.mLoadDataCallBack;
+        eVar = this.f1335a.mLoadDataCallBack;
         eVar.a(null);
     }
 }

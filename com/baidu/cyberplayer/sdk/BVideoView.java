@@ -38,7 +38,7 @@ public class BVideoView extends RelativeLayout {
     public static final int MEDIA_INFO_VIDEO_TRACK_LAGGING = 700;
 
     /* renamed from: a  reason: collision with root package name */
-    private IVideoViewBridge f706a;
+    private IVideoViewBridge f704a;
 
     /* loaded from: classes.dex */
     public interface OnCompletionListener {
@@ -67,39 +67,39 @@ public class BVideoView extends RelativeLayout {
 
     public BVideoView(Context context) {
         super(context);
-        this.f706a = null;
-        this.f706a = BCyberPlayerFactory.a(context, this);
+        this.f704a = null;
+        this.f704a = BCyberPlayerFactory.a(context, this);
         a();
     }
 
     public BVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f706a = null;
-        this.f706a = BCyberPlayerFactory.a(context, attributeSet, this);
+        this.f704a = null;
+        this.f704a = BCyberPlayerFactory.a(context, attributeSet, this);
         a();
     }
 
     public BVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f706a = null;
-        this.f706a = BCyberPlayerFactory.a(context, attributeSet, i, this);
+        this.f704a = null;
+        this.f704a = BCyberPlayerFactory.a(context, attributeSet, i, this);
         a();
     }
 
     private void a() {
-        addView(this.f706a.getVideoView());
+        addView(this.f704a.getVideoView());
     }
 
     public void setOnPreparedListener(OnPreparedListener onPreparedListener) {
-        this.f706a.setOnPreparedListener(onPreparedListener);
+        this.f704a.setOnPreparedListener(onPreparedListener);
     }
 
     public void setOnCompletionListener(OnCompletionListener onCompletionListener) {
-        this.f706a.setOnCompletionListener(onCompletionListener);
+        this.f704a.setOnCompletionListener(onCompletionListener);
     }
 
     public void setOnErrorListener(OnErrorListener onErrorListener) {
-        this.f706a.setOnErrorListener(onErrorListener);
+        this.f704a.setOnErrorListener(onErrorListener);
     }
 
     public void setOnPlayingBufferCacheListener(OnPlayingBufferCacheListener onPlayingBufferCacheListener) {
@@ -107,27 +107,27 @@ public class BVideoView extends RelativeLayout {
         if (CommonUtils.versionStrToNum(version) < CommonUtils.versionStrToNum(GlobalConstants.INNER_VERSION)) {
             LogUtils.w("BVideoView", "setOnPlayingBufferCacheListener api added in mediacloud-1.1, but current engine is " + version + ", ignore", new Object[0]);
         } else {
-            this.f706a.setOnPlayingBufferCacheListener(onPlayingBufferCacheListener);
+            this.f704a.setOnPlayingBufferCacheListener(onPlayingBufferCacheListener);
         }
     }
 
     public void setOnInfoListener(OnInfoListener onInfoListener) {
-        this.f706a.setOnInfoListener(onInfoListener);
+        this.f704a.setOnInfoListener(onInfoListener);
     }
 
     public IVideoViewBridge getWebViewWrapper() {
-        return this.f706a;
+        return this.f704a;
     }
 
     public RelativeLayout getVideoView() {
-        if (this.f706a != null) {
-            return this.f706a.getVideoView();
+        if (this.f704a != null) {
+            return this.f704a.getVideoView();
         }
         return null;
     }
 
     public void setDecodeMode(int i) {
-        this.f706a.setDecodeMode(i);
+        this.f704a.setDecodeMode(i);
     }
 
     public void showCacheInfo(boolean z) {
@@ -135,55 +135,55 @@ public class BVideoView extends RelativeLayout {
         if (CommonUtils.versionStrToNum(version) < CommonUtils.versionStrToNum(GlobalConstants.INNER_VERSION)) {
             LogUtils.w("BVideoView", "showCacheInfo api added in mediacloud-1.1, but current engine is " + version + ", ignore", new Object[0]);
         } else {
-            this.f706a.showCacheInfo(z);
+            this.f704a.showCacheInfo(z);
         }
     }
 
     public void setVideoPath(String str) {
-        this.f706a.setVideoPath(str);
+        this.f704a.setVideoPath(str);
     }
 
     public void start() {
-        this.f706a.start();
+        this.f704a.start();
     }
 
     public int getCurrentPosition() {
-        return this.f706a.getCurrentPosition();
+        return this.f704a.getCurrentPosition();
     }
 
     public int getDuration() {
-        return this.f706a.getDuration();
+        return this.f704a.getDuration();
     }
 
     public boolean isPlaying() {
-        return this.f706a.isPlaying();
+        return this.f704a.isPlaying();
     }
 
     public void pause() {
-        this.f706a.pause();
+        this.f704a.pause();
     }
 
     public void resume() {
-        this.f706a.resume();
+        this.f704a.resume();
     }
 
     public void seekTo(int i) {
-        this.f706a.seekTo(i);
+        this.f704a.seekTo(i);
     }
 
     public void stopPlayback() {
-        this.f706a.stopPlayback();
+        this.f704a.stopPlayback();
     }
 
     public void setMediaController(BMediaController bMediaController) {
-        this.f706a.setMediaControllerBridge(bMediaController.getVideoViewControllerBridge());
+        this.f704a.setMediaControllerBridge(bMediaController.getVideoViewControllerBridge());
     }
 
     public int getVideoWidth() {
-        return this.f706a.getVideoWidth();
+        return this.f704a.getVideoWidth();
     }
 
     public int getVideoHeight() {
-        return this.f706a.getVideoHeight();
+        return this.f704a.getVideoHeight();
     }
 }

@@ -17,7 +17,7 @@ import org.apache.http.message.BasicNameValuePair;
 class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f595a;
+    final /* synthetic */ Context f593a;
     final /* synthetic */ String b;
     final /* synthetic */ String c;
     final /* synthetic */ String d;
@@ -26,7 +26,7 @@ class g implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PublicMsg publicMsg, Context context, String str, String str2, String str3) {
         this.e = publicMsg;
-        this.f595a = context;
+        this.f593a = context;
         this.b = str;
         this.c = str2;
         this.d = str3;
@@ -34,7 +34,7 @@ class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f595a);
+        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f593a);
         try {
             HttpPost httpPost = new HttpPost(w.f + this.b);
             httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");

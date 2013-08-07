@@ -20,7 +20,7 @@ import com.slidingmenu.lib.R;
 public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tieba.view.z {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.util.a f1161a;
+    private com.baidu.tieba.util.a f1159a;
     private com.baidu.tieba.g e;
     private View.OnClickListener j;
     private View.OnLongClickListener k;
@@ -34,12 +34,12 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
     private Boolean i = false;
 
     public r(com.baidu.tieba.g gVar) {
-        this.f1161a = null;
+        this.f1159a = null;
         this.e = null;
         this.e = gVar;
         int a2 = com.baidu.tieba.util.am.a((Context) this.e, 54.0f);
-        this.f1161a = new com.baidu.tieba.util.a(this.e);
-        this.f1161a.a(a2, a2);
+        this.f1159a = new com.baidu.tieba.util.a(this.e);
+        this.f1159a.a(a2, a2);
     }
 
     public void a(com.baidu.tieba.data.aj ajVar) {
@@ -112,7 +112,7 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
             if (view == null) {
                 view3 = LayoutInflater.from(this.e).inflate(R.layout.home_like_item, (ViewGroup) null);
                 t tVar2 = new t(this, null);
-                tVar2.f1163a = (LinearLayout) view3;
+                tVar2.f1161a = (LinearLayout) view3;
                 tVar2.c = (ImageView) view3.findViewById(R.id.forum_icon1);
                 tVar2.f = (ImageView) view3.findViewById(R.id.icon_sign1);
                 tVar2.b = (RelativeLayout) view3.findViewById(R.id.first);
@@ -160,7 +160,7 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
             if (view == null) {
                 view2 = LayoutInflater.from(this.e).inflate(R.layout.enter_forum_login, (ViewGroup) null);
                 u uVar = new u(this, null);
-                uVar.f1164a = (LinearLayout) view2;
+                uVar.f1162a = (LinearLayout) view2;
                 uVar.b = (LinearLayout) view2.findViewById(R.id.container);
                 uVar.c = (TextView) view2.findViewById(R.id.tip);
                 uVar.d = (Button) view2.findViewById(R.id.want_login);
@@ -172,7 +172,7 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
             u uVar2 = (u) view2.getTag();
             int a2 = com.baidu.tieba.util.am.a((Context) this.e, 7.0f);
             int a3 = com.baidu.tieba.util.am.a((Context) this.e, 5.0f);
-            uVar2.f1164a.setPadding(a2, a3, a2, a3);
+            uVar2.f1162a.setPadding(a2, a3, a2, a3);
             if (au == 1) {
                 uVar2.b.setBackgroundColor(resources.getColor(R.color.skin_1_common_bg));
                 uVar2.c.setTextColor(-8682095);
@@ -189,14 +189,14 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
             if (view == null) {
                 view = LayoutInflater.from(this.e).inflate(R.layout.home_like_nodata_item, (ViewGroup) null);
                 v vVar = new v(this, null);
-                vVar.f1165a = (TextView) view.findViewById(R.id.forum_lv_nodata);
+                vVar.f1163a = (TextView) view.findViewById(R.id.forum_lv_nodata);
                 view.setTag(vVar);
             }
             v vVar2 = (v) view.getTag();
             if (au == 1) {
-                vVar2.f1165a.setTextColor(-8682095);
+                vVar2.f1163a.setTextColor(-8682095);
             } else {
-                vVar2.f1165a.setTextColor(-13421773);
+                vVar2.f1163a.setTextColor(-13421773);
             }
             v vVar3 = (v) view.getTag();
             return view;
@@ -204,17 +204,17 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
             if (view == null) {
                 view = LayoutInflater.from(this.e).inflate(R.layout.enter_forum_goon_show_like, (ViewGroup) null);
                 s sVar = new s(this, null);
-                sVar.f1162a = (RelativeLayout) view.findViewById(R.id.show_more_layout);
+                sVar.f1160a = (RelativeLayout) view.findViewById(R.id.show_more_layout);
                 sVar.b = (TextView) view.findViewById(R.id.show_more_text);
                 sVar.c = (ImageView) view.findViewById(R.id.show_more_icon);
                 view.setTag(sVar);
             }
             s sVar2 = (s) view.getTag();
-            sVar2.f1162a.setOnClickListener(this.j);
+            sVar2.f1160a.setOnClickListener(this.j);
             sVar2.b.setText(d());
             if (au == 1) {
                 sVar2.b.setTextColor(-8682095);
-                sVar2.f1162a.setBackgroundResource(R.drawable.bg_unfold_1);
+                sVar2.f1160a.setBackgroundResource(R.drawable.bg_unfold_1);
                 if (this.i.booleanValue()) {
                     sVar2.c.setBackgroundResource(R.drawable.ico_upward_1);
                     return view;
@@ -223,7 +223,7 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
                 return view;
             }
             sVar2.b.setTextColor(-9405562);
-            sVar2.f1162a.setBackgroundResource(R.drawable.bg_unfold);
+            sVar2.f1160a.setBackgroundResource(R.drawable.bg_unfold);
             if (this.i.booleanValue()) {
                 sVar2.c.setBackgroundResource(R.drawable.ico_upward);
                 return view;
@@ -235,10 +235,10 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
         }
         if (itemViewType == 2 && tVar != null && this.g.a() != null) {
             int a4 = com.baidu.tieba.util.am.a((Context) this.e, 5.0f);
-            tVar.f1163a.setPadding(a4, a4, a4, 0);
+            tVar.f1161a.setPadding(a4, a4, a4, 0);
             b();
             if (i == getCount() - 1 && !this.h.booleanValue()) {
-                tVar.f1163a.setPadding(a4, a4, a4, a4);
+                tVar.f1161a.setPadding(a4, a4, a4, a4);
             }
             if (i >= 0) {
                 if (i * 2 < this.g.a().size()) {
@@ -313,7 +313,7 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
             }
             tVar.c.setTag(aiVar.e());
             if (aiVar.e() != null) {
-                com.baidu.adp.widget.a.b d2 = this.f1161a.d(aiVar.e());
+                com.baidu.adp.widget.a.b d2 = this.f1159a.d(aiVar.e());
                 if (d2 != null) {
                     d2.b(tVar.c);
                 } else if (au == 1) {
@@ -379,8 +379,8 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
 
     @Override // com.baidu.tieba.view.z
     public void c() {
-        if (this.f1161a != null) {
-            this.f1161a.b();
+        if (this.f1159a != null) {
+            this.f1159a.b();
         }
     }
 
@@ -397,7 +397,7 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
             if (this.d < 0) {
                 this.d = 0;
             }
-            this.f1161a.a();
+            this.f1159a.a();
             if (this.g != null && this.g.a() != null && this.g.a().size() > 0) {
                 if (this.d > this.g.a().size()) {
                     this.d = this.g.a().size();
@@ -407,7 +407,7 @@ public class r extends BaseAdapter implements com.baidu.tbadk.a.d, com.baidu.tie
                     int i4 = i3;
                     if (i4 < this.d) {
                         if ((this.g.a().get(i4) instanceof com.baidu.tieba.data.ai) && (e = ((com.baidu.tieba.data.ai) this.g.a().get(i4)).e()) != null && !e.equals("")) {
-                            this.f1161a.e(e, this);
+                            this.f1159a.e(e, this);
                         }
                         i3 = i4 + 1;
                     } else {

@@ -14,7 +14,7 @@ import com.baidu.tieba.view.be;
 public class ShakeActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private PowerManager.WakeLock f1245a = null;
+    private PowerManager.WakeLock f1243a = null;
     private PowerManager b = null;
     private Vibrator c = null;
     private g d = null;
@@ -75,8 +75,8 @@ public class ShakeActivity extends com.baidu.tieba.g {
     public void onPause() {
         super.onPause();
         b();
-        if (this.f1245a != null) {
-            this.f1245a.release();
+        if (this.f1243a != null) {
+            this.f1243a.release();
         }
     }
 
@@ -87,6 +87,7 @@ public class ShakeActivity extends com.baidu.tieba.g {
             k();
         } else if (!this.g.b()) {
             this.f.c();
+            this.g.a(0);
         } else {
             this.j.g();
             this.f.a((int) this.j.h());
@@ -98,8 +99,8 @@ public class ShakeActivity extends com.baidu.tieba.g {
     public void onResume() {
         super.onResume();
         c();
-        if (this.f1245a != null) {
-            this.f1245a.acquire();
+        if (this.f1243a != null) {
+            this.f1243a.acquire();
         }
     }
 
@@ -166,7 +167,7 @@ public class ShakeActivity extends com.baidu.tieba.g {
         }
         try {
             this.b = (PowerManager) getSystemService("power");
-            this.f1245a = this.b.newWakeLock(26, "My Lock");
+            this.f1243a = this.b.newWakeLock(26, "My Lock");
         } catch (Exception e) {
             aj.b(getClass().getName(), "initData", e.toString());
         }

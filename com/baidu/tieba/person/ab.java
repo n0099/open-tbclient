@@ -5,15 +5,15 @@ import android.view.View;
 class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyPostActivity f1561a;
+    final /* synthetic */ MyPostActivity f1559a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(MyPostActivity myPostActivity) {
-        this.f1561a = myPostActivity;
+        this.f1559a = myPostActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1561a.finish();
+        this.f1559a.finish();
     }
 }

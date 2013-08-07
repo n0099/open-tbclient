@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1030a = 0;
+    private int f1028a = 0;
     private int b = 0;
     private String c = null;
     private String d = null;
@@ -20,7 +20,7 @@ public class x {
     private bj m = new bj();
 
     public int a() {
-        return this.f1030a;
+        return this.f1028a;
     }
 
     public String b() {
@@ -78,8 +78,8 @@ public class x {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1030a = jSONObject.optInt("has_frs_star", 0);
-                if (this.f1030a == 1) {
+                this.f1028a = jSONObject.optInt("has_frs_star", 0);
+                if (this.f1028a == 1) {
                     this.c = jSONObject.optString("top", "");
                     this.d = jSONObject.optString("head", "");
                     JSONObject optJSONObject = jSONObject.optJSONObject("fans");

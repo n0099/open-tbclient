@@ -10,11 +10,11 @@ import com.slidingmenu.lib.R;
 class a extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1037a;
+    final /* synthetic */ ForumListActivity f1035a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ForumListActivity forumListActivity) {
-        this.f1037a = forumListActivity;
+        this.f1035a = forumListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,8 +23,8 @@ class a extends BdAsyncTask {
     public ForumListModel a(Void... voidArr) {
         ForumListModel.RequestParams requestParams;
         try {
-            ForumListActivity forumListActivity = this.f1037a;
-            requestParams = this.f1037a.o;
+            ForumListActivity forumListActivity = this.f1035a;
+            requestParams = this.f1035a.o;
             return ForumListModel.fetch(forumListActivity, requestParams);
         } catch (JsonParseException e) {
             return null;
@@ -40,34 +40,34 @@ class a extends BdAsyncTask {
         e eVar3;
         e eVar4;
         if (forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null) {
-            eVar = this.f1037a.r;
+            eVar = this.f1035a.r;
             eVar.a(forumListModel.recommend_list_left.forum_list);
-            this.f1037a.f1036a.h.addFooterView(this.f1037a.f1036a.l);
+            this.f1035a.f1034a.h.addFooterView(this.f1035a.f1034a.l);
             if (forumListModel.recommend_list_left.has_more == 1) {
-                this.f1037a.f1036a.f1048a.setVisibility(0);
+                this.f1035a.f1034a.f1046a.setVisibility(0);
             } else {
-                this.f1037a.f1036a.f1048a.setVisibility(8);
+                this.f1035a.f1034a.f1046a.setVisibility(8);
             }
-            ListView listView = this.f1037a.f1036a.h;
-            eVar2 = this.f1037a.r;
+            ListView listView = this.f1035a.f1034a.h;
+            eVar2 = this.f1035a.r;
             listView.setAdapter((ListAdapter) eVar2);
-            this.f1037a.f1036a.j.setText(forumListModel.forum_class[0]);
-            eVar3 = this.f1037a.s;
+            this.f1035a.f1034a.j.setText(forumListModel.forum_class[0]);
+            eVar3 = this.f1035a.s;
             eVar3.a(forumListModel.recommend_list_right.forum_list);
-            this.f1037a.f1036a.i.addFooterView(this.f1037a.f1036a.o);
+            this.f1035a.f1034a.i.addFooterView(this.f1035a.f1034a.o);
             if (forumListModel.recommend_list_right.has_more == 1) {
-                this.f1037a.f1036a.b.setVisibility(0);
+                this.f1035a.f1034a.b.setVisibility(0);
             } else {
-                this.f1037a.f1036a.b.setVisibility(8);
+                this.f1035a.f1034a.b.setVisibility(8);
             }
-            ListView listView2 = this.f1037a.f1036a.i;
-            eVar4 = this.f1037a.s;
+            ListView listView2 = this.f1035a.f1034a.i;
+            eVar4 = this.f1035a.s;
             listView2.setAdapter((ListAdapter) eVar4);
-            this.f1037a.f1036a.k.setText(forumListModel.forum_class[1]);
-            this.f1037a.findViewById(R.id.loading).setVisibility(8);
-            this.f1037a.findViewById(R.id.item_root).setVisibility(0);
+            this.f1035a.f1034a.k.setText(forumListModel.forum_class[1]);
+            this.f1035a.findViewById(R.id.loading).setVisibility(8);
+            this.f1035a.findViewById(R.id.item_root).setVisibility(0);
             return;
         }
-        this.f1037a.finish();
+        this.f1035a.finish();
     }
 }

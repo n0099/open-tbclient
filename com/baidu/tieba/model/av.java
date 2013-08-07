@@ -6,7 +6,7 @@ public class av extends com.baidu.adp.a.c {
     private MarkData b;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1340a = false;
+    private boolean f1338a = false;
     private aw c = null;
     private ax d = null;
 
@@ -16,7 +16,7 @@ public class av extends com.baidu.adp.a.c {
     }
 
     public boolean a() {
-        return this.f1340a;
+        return this.f1338a;
     }
 
     public void a(ax axVar) {
@@ -28,7 +28,7 @@ public class av extends com.baidu.adp.a.c {
     }
 
     public void a(boolean z) {
-        this.f1340a = z;
+        this.f1338a = z;
     }
 
     public String b() {

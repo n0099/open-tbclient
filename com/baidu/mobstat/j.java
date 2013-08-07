@@ -7,13 +7,13 @@ import java.util.TimerTask;
 public class j extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f787a;
+    final /* synthetic */ Context f785a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar, Context context) {
         this.b = gVar;
-        this.f787a = context;
+        this.f785a = context;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -23,7 +23,7 @@ public class j extends TimerTask {
             return;
         }
         b a2 = b.a();
-        Context context = this.f787a;
+        Context context = this.f785a;
         z = this.b.b;
         a2.a(context, z);
     }

@@ -3,12 +3,12 @@ package com.baidu.tbadk.a;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f800a = new e();
+    private static e f798a = new e();
     private com.baidu.adp.lib.a.a b;
     private com.baidu.adp.lib.a.a c;
 
     public static e a() {
-        return f800a;
+        return f798a;
     }
 
     private e() {

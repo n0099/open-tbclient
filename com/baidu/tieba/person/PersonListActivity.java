@@ -37,7 +37,7 @@ public class PersonListActivity extends com.baidu.tieba.g {
     private TextView n = null;
 
     /* renamed from: a  reason: collision with root package name */
-    int f1558a = 0;
+    int f1556a = 0;
     private Runnable o = new bd(this);
 
     public static void a(Activity activity, boolean z, String str) {
@@ -179,7 +179,7 @@ public class PersonListActivity extends com.baidu.tieba.g {
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
         UserData userData;
-        if (this.f != null && this.f.getItemViewType(this.f1558a) == 0 && (userData = (UserData) this.f.getItem(this.f1558a)) != null && userData.getId() != null && userData.getName() != null && !userData.getId().equals(TiebaApplication.E())) {
+        if (this.f != null && this.f.getItemViewType(this.f1556a) == 0 && (userData = (UserData) this.f.getItem(this.f1556a)) != null && userData.getId() != null && userData.getName() != null && !userData.getId().equals(TiebaApplication.E())) {
             if (TiebaApplication.f().t()) {
                 StatService.onEvent(this, "enter_chat", "personlistclick", 1);
             }

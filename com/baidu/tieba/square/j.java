@@ -6,12 +6,12 @@ import android.widget.ImageView;
 class j implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1728a;
+    final /* synthetic */ h f1726a;
     private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar, View view) {
-        this.f1728a = hVar;
+        this.f1726a = hVar;
         this.b = view;
     }
 

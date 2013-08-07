@@ -6,11 +6,11 @@ import android.view.View;
 public class aw implements n {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f1826a;
+    final /* synthetic */ MultiImageView f1824a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(MultiImageView multiImageView) {
-        this.f1826a = multiImageView;
+        this.f1824a = multiImageView;
     }
 
     @Override // com.baidu.tieba.view.n
@@ -19,14 +19,14 @@ public class aw implements n {
         boolean z;
         GalleryViewPager galleryViewPager2;
         GalleryViewPager galleryViewPager3;
-        galleryViewPager = this.f1826a.e;
+        galleryViewPager = this.f1824a.e;
         if (jVar == galleryViewPager.getCurrentView()) {
-            z = this.f1826a.l;
+            z = this.f1824a.l;
             if (z) {
-                galleryViewPager2 = this.f1826a.e;
+                galleryViewPager2 = this.f1824a.e;
                 int childCount = galleryViewPager2.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    galleryViewPager3 = this.f1826a.e;
+                    galleryViewPager3 = this.f1824a.e;
                     View childAt = galleryViewPager3.getChildAt(i);
                     if (childAt != null && (childAt instanceof bg) && ((bg) childAt).getImageView() != jVar) {
                         ((bg) childAt).d();

@@ -6,12 +6,12 @@ import android.view.View;
 public class i implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1668a;
+    final /* synthetic */ c f1666a;
     private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(c cVar, View view) {
-        this.f1668a = cVar;
+        this.f1666a = cVar;
         this.b = view;
     }
 

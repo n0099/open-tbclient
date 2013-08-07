@@ -21,7 +21,7 @@ public class d implements Runnable {
     private static final String l = "utf-8";
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f767a;
+    final /* synthetic */ c f765a;
     private String b;
     private String c;
     private String d;
@@ -30,7 +30,7 @@ public class d implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, String str2, String str3) {
-        this.f767a = cVar;
+        this.f765a = cVar;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -50,10 +50,10 @@ public class d implements Runnable {
         String str;
         String str2;
         ArrayList arrayList = new ArrayList();
-        str = this.f767a.d;
+        str = this.f765a.d;
         arrayList.add(new BasicNameValuePair(h, str));
         arrayList.add(new BasicNameValuePair(i, this.c));
-        str2 = this.f767a.c;
+        str2 = this.f765a.c;
         arrayList.add(new BasicNameValuePair(j, str2));
         arrayList.add(new BasicNameValuePair(k, this.d));
         try {

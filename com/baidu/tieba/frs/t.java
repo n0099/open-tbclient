@@ -5,11 +5,11 @@ import android.view.View;
 class t implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ s f1096a;
+    final /* synthetic */ s f1094a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.f1096a = sVar;
+        this.f1094a = sVar;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -17,7 +17,7 @@ class t implements com.baidu.tbadk.a.d {
         FrsActivity frsActivity;
         az azVar;
         if (bVar != null) {
-            frsActivity = this.f1096a.f1095a;
+            frsActivity = this.f1094a.f1093a;
             azVar = frsActivity.l;
             View d = azVar.d(str);
             if (d != null) {

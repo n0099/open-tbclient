@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class ab extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1321a;
+    final /* synthetic */ aa f1319a;
     private com.baidu.tieba.util.u b = null;
     private String c;
     private String d;
@@ -15,7 +15,7 @@ public class ab extends BdAsyncTask {
     private ac f;
 
     public ab(aa aaVar, String str, String str2, String str3) {
-        this.f1321a = aaVar;
+        this.f1319a = aaVar;
         this.f = new ac(aaVar);
         this.c = str;
         this.d = str2;
@@ -48,7 +48,7 @@ public class ab extends BdAsyncTask {
                             }
                             this.f.b = true;
                         }
-                        this.f1321a.a(this.f);
+                        this.f1319a.a(this.f);
                     } catch (Exception e) {
                         com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
                     }
@@ -57,7 +57,7 @@ public class ab extends BdAsyncTask {
                     try {
                         JSONObject jSONObject2 = new JSONObject(k);
                         this.f.c = jSONObject2.optInt("num");
-                        this.f.f1322a = true;
+                        this.f.f1320a = true;
                     } catch (Exception e2) {
                         com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e2.getMessage());
                     }
@@ -76,8 +76,8 @@ public class ab extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1321a.j = null;
-        this.f1321a.a(false);
+        this.f1319a.j = null;
+        this.f1319a.a(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,15 +86,15 @@ public class ab extends BdAsyncTask {
     public void a(Boolean bool) {
         com.baidu.tieba.frs.ab abVar;
         com.baidu.tieba.frs.ab abVar2;
-        this.f1321a.j = null;
-        this.f1321a.a(false);
+        this.f1319a.j = null;
+        this.f1319a.a(false);
         if (this.b != null) {
-            ad adVar = new ad(this.f1321a);
+            ad adVar = new ad(this.f1319a);
             adVar.d = this.b.h();
             adVar.c = this.b.f();
-            abVar = this.f1321a.g;
+            abVar = this.f1319a.g;
             if (abVar != null) {
-                abVar2 = this.f1321a.g;
+                abVar2 = this.f1319a.g;
                 abVar2.a(this.f, adVar);
             }
         }

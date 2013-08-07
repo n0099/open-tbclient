@@ -1,49 +1,33 @@
 package com.baidu.android.defense.push;
 
 import android.content.Context;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a extends i {
+public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ArrayList f505a;
+    protected JSONObject f505a;
+    protected boolean b;
+    protected Context c;
 
+    /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Context context) {
-        super(str, context);
-        this.f505a = new ArrayList();
-        a();
-    }
-
-    public void a() {
-        if (this.b != null) {
-            try {
-                JSONArray jSONArray = this.b.getJSONArray("params");
-                if (jSONArray == null || jSONArray.length() == 0) {
-                    this.c = false;
-                    return;
-                }
-                int length = jSONArray.length();
-                new JSONObject();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
-                    if (jSONObject != null) {
-                        com.baidu.android.defense.b.c cVar = new com.baidu.android.defense.b.c();
-                        cVar.a(jSONObject.getString("packagename"));
-                        cVar.a(jSONObject.getInt("versioncode"));
-                        this.f505a.add(cVar);
-                    }
-                }
-            } catch (JSONException e) {
-                this.c = false;
-            }
+        this.f505a = null;
+        this.b = true;
+        this.c = null;
+        if (TextUtils.isEmpty(str)) {
+            this.b = false;
+            return;
+        }
+        this.c = context.getApplicationContext();
+        try {
+            this.f505a = new JSONObject(str);
+        } catch (JSONException e) {
+            this.b = false;
         }
     }
 
-    @Override // com.baidu.android.defense.push.i
-    public boolean b() {
-        return false;
-    }
+    public abstract boolean a();
 }

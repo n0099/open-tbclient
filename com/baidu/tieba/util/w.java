@@ -8,17 +8,17 @@ import com.slidingmenu.lib.R;
 public class w implements BaiduAccount.CallbackListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ u f1777a;
+    final /* synthetic */ u f1775a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(u uVar) {
-        this.f1777a = uVar;
+        this.f1775a = uVar;
     }
 
     @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
     public void callback() {
         NetWorkCore netWorkCore;
-        netWorkCore = this.f1777a.f1775a;
+        netWorkCore = this.f1775a.f1773a;
         netWorkCore.b(TiebaApplication.f().getString(R.string.error_unkown));
     }
 }

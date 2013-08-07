@@ -12,7 +12,7 @@ import java.util.Random;
 public class MessagePullService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private f f1688a = null;
+    private f f1686a = null;
     private ay b = null;
     private Runnable c = new e(this);
     private Handler d;
@@ -46,17 +46,17 @@ public class MessagePullService extends Service {
     public void onDestroy() {
         super.onDestroy();
         this.d.removeCallbacks(this.c);
-        if (this.f1688a != null) {
-            this.f1688a.cancel(true);
+        if (this.f1686a != null) {
+            this.f1686a.cancel(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.f1688a != null) {
-            this.f1688a.cancel();
+        if (this.f1686a != null) {
+            this.f1686a.cancel();
         }
-        this.f1688a = new f(this, null);
-        this.f1688a.execute(new String[0]);
+        this.f1686a = new f(this, null);
+        this.f1686a.execute(new String[0]);
     }
 }

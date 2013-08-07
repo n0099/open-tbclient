@@ -4,15 +4,15 @@ package com.baidu.tieba.recommend;
 public class r implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendFragment f1676a;
+    final /* synthetic */ DailyRecommendFragment f1674a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(DailyRecommendFragment dailyRecommendFragment) {
-        this.f1676a = dailyRecommendFragment;
+        this.f1674a = dailyRecommendFragment;
     }
 
     @Override // com.baidu.tieba.recommend.l
     public void a(String str) {
-        this.f1676a.g = str;
+        this.f1674a.g = str;
     }
 }

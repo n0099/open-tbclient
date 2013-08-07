@@ -24,7 +24,7 @@ import java.util.LinkedList;
 public class PullAndPull extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1232a;
+    private int f1230a;
     private int b;
     private int c;
     private float d;
@@ -44,7 +44,7 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context) {
         super(context);
-        this.f1232a = 10;
+        this.f1230a = 10;
         this.f = new LinkedList();
         this.l = new ArrayList();
         this.m = 600;
@@ -55,7 +55,7 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1232a = 10;
+        this.f1230a = 10;
         this.f = new LinkedList();
         this.l = new ArrayList();
         this.m = 600;
@@ -66,7 +66,7 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1232a = 10;
+        this.f1230a = 10;
         this.f = new LinkedList();
         this.l = new ArrayList();
         this.m = 600;
@@ -92,8 +92,8 @@ public class PullAndPull extends View {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int size = this.f.size();
-        if (size > this.f1232a) {
-            size = this.f1232a;
+        if (size > this.f1230a) {
+            size = this.f1230a;
         }
         this.b = ((size - 1) * this.h) + (this.c * size);
         if (this.b < 0) {
@@ -109,7 +109,7 @@ public class PullAndPull extends View {
             this.d = this.e.getCurrX();
             invalidate();
         } else {
-            while (this.f.size() > this.f1232a) {
+            while (this.f.size() > this.f1230a) {
                 y yVar = (y) this.f.removeFirst();
                 if (yVar != null) {
                     this.l.add(yVar.f);
@@ -128,11 +128,11 @@ public class PullAndPull extends View {
                 TextView textView2 = (TextView) yVar2.f.findViewById(R.id.time);
                 TextView textView3 = (TextView) yVar2.f.findViewById(R.id.score);
                 TextView textView4 = (TextView) yVar2.f.findViewById(R.id.highlight);
-                textView.setText(yVar2.f1244a);
+                textView.setText(yVar2.f1242a);
                 textView2.setText(ai.a(new Date(this.j.d()), new Date(yVar2.c * 1000)));
                 textView3.setText("+" + String.format(this.k.getString(R.string.pk_ticket_count), Integer.valueOf(yVar2.b)));
                 int parseColor = Color.parseColor("#FCFCFC");
-                if (!TextUtils.isEmpty(yVar2.f1244a) && yVar2.f1244a.equalsIgnoreCase(TiebaApplication.I())) {
+                if (!TextUtils.isEmpty(yVar2.f1242a) && yVar2.f1242a.equalsIgnoreCase(TiebaApplication.I())) {
                     if (this.i) {
                         int parseColor2 = Color.parseColor("#e3f1ff");
                         textView4.setBackgroundResource(R.drawable.icon_me_blue_line);
@@ -245,11 +245,11 @@ public class PullAndPull extends View {
     public void a(y yVar, boolean z, boolean z2) {
         this.i = z;
         this.f.add(yVar);
-        if (this.f.size() <= this.f1232a) {
+        if (this.f.size() <= this.f1230a) {
             requestLayout();
         }
         removeCallbacks(this.q);
-        while (this.f.size() > this.f1232a + 1) {
+        while (this.f.size() > this.f1230a + 1) {
             y yVar2 = (y) this.f.removeFirst();
             if (yVar2 != null) {
                 this.l.add(yVar2.f);

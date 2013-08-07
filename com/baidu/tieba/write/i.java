@@ -12,12 +12,12 @@ import java.util.HashMap;
 public class i extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f1904a;
+    final /* synthetic */ AtListActivity f1902a;
     private com.baidu.tieba.util.u b;
     private String c;
 
     private i(AtListActivity atListActivity) {
-        this.f1904a = atListActivity;
+        this.f1902a = atListActivity;
         this.b = null;
         this.c = null;
     }
@@ -31,7 +31,7 @@ public class i extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1904a.m;
+        progressBar = this.f1902a.m;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -39,9 +39,9 @@ public class i extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f1904a.f = null;
+        this.f1902a.f = null;
         this.c = null;
-        progressBar = this.f1904a.m;
+        progressBar = this.f1902a.m;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -54,13 +54,13 @@ public class i extends BdAsyncTask {
         this.c = strArr[0];
         this.b = new com.baidu.tieba.util.u();
         if (this.c != null && this.c.length() > 0) {
-            this.b.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/u/follow/sug");
+            this.b.a(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/u/follow/sug");
             this.b.a("uid", TiebaApplication.E());
             this.b.a("q", this.c);
             String k = this.b.k();
             if (this.b.d()) {
                 bi biVar = new bi();
-                aVar = this.f1904a.j;
+                aVar = this.f1902a.j;
                 com.baidu.tieba.data.w a2 = aVar.a();
                 if (a2 != null) {
                     biVar.a(k, a2.b());
@@ -83,18 +83,18 @@ public class i extends BdAsyncTask {
         k kVar;
         k kVar2;
         ListView listView;
-        progressBar = this.f1904a.m;
+        progressBar = this.f1902a.m;
         progressBar.setVisibility(8);
         if (this.b.d() && this.c != null) {
-            editText = this.f1904a.f1856a;
+            editText = this.f1902a.f1854a;
             if (editText.getText().toString().equals(this.c)) {
-                aVar = this.f1904a.j;
+                aVar = this.f1902a.j;
                 aVar.a(biVar);
-                kVar = this.f1904a.k;
+                kVar = this.f1902a.k;
                 kVar.a(biVar.a());
-                kVar2 = this.f1904a.k;
+                kVar2 = this.f1902a.k;
                 kVar2.notifyDataSetInvalidated();
-                listView = this.f1904a.d;
+                listView = this.f1902a.d;
                 listView.setSelection(0);
             }
         }

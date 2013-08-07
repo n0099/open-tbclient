@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f981a = null;
+    private String f979a = null;
     private av b = null;
     private av c = null;
     private String d = null;
@@ -18,7 +18,7 @@ public class aq {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f981a = jSONObject.optString("pk_id", null);
+                this.f979a = jSONObject.optString("pk_id", null);
                 this.b = new av();
                 this.b.a(jSONObject.optJSONObject("player1"));
                 this.c = new av();
@@ -35,7 +35,7 @@ public class aq {
     }
 
     public String a() {
-        return this.f981a;
+        return this.f979a;
     }
 
     public av b() {

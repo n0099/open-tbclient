@@ -5,11 +5,11 @@ import android.widget.GridView;
 class cl implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ck f1506a;
+    final /* synthetic */ ck f1504a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cl(ck ckVar) {
-        this.f1506a = ckVar;
+        this.f1504a = ckVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,10 +17,10 @@ class cl implements Runnable {
         bn bnVar;
         GridView gridView;
         bn bnVar2;
-        bnVar = this.f1506a.f1505a;
+        bnVar = this.f1504a.f1503a;
         gridView = bnVar.H;
         if (gridView.getVisibility() == 8) {
-            bnVar2 = this.f1506a.f1505a;
+            bnVar2 = this.f1504a.f1503a;
             bnVar2.U();
         }
     }

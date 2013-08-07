@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    int f1346a;
+    int f1344a;
     String b;
     String c;
     String d;
@@ -19,7 +19,7 @@ public class bb {
     }
 
     public int a() {
-        return this.f1346a;
+        return this.f1344a;
     }
 
     public String b() {

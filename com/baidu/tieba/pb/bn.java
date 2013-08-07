@@ -54,7 +54,7 @@ public class bn {
     private View.OnClickListener Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public EditText f1482a;
+    public EditText f1480a;
     private com.baidu.tieba.g b;
     private KeyboardEventLayout c;
     private ClickableLayout d;
@@ -137,7 +137,7 @@ public class bn {
         this.m = null;
         this.n = null;
         this.o = null;
-        this.f1482a = null;
+        this.f1480a = null;
         this.p = null;
         this.q = null;
         this.r = null;
@@ -178,7 +178,7 @@ public class bn {
         this.j = (Button) this.s.findViewById(R.id.pb_reply_post);
         this.k = (Button) this.s.findViewById(R.id.pb_button_face);
         this.l = (ImageButton) this.s.findViewById(R.id.pb_button_camera);
-        this.f1482a = (EditText) this.s.findViewById(R.id.reply_content);
+        this.f1480a = (EditText) this.s.findViewById(R.id.reply_content);
         this.m = (Button) this.t.findViewById(R.id.pb_button_face1);
         this.o = (ImageButton) this.t.findViewById(R.id.pb_button_camera1);
         this.n = (Button) this.t.findViewById(R.id.pb_button_at1);
@@ -211,10 +211,10 @@ public class bn {
         this.o.setOnClickListener(this.K);
         this.m.setOnClickListener(this.K);
         this.n.setOnClickListener(this.K);
-        this.f1482a.addTextChangedListener(this.aw);
-        this.f1482a.setOnTouchListener(this.as);
+        this.f1480a.addTextChangedListener(this.aw);
+        this.f1480a.setOnTouchListener(this.as);
         this.c.setOnKeyStateChangedListener(this.av);
-        this.f1482a.setFilters(new InputFilter[]{new InputFilter.LengthFilter(LocationClientOption.MIN_SCAN_SPAN)});
+        this.f1480a.setFilters(new InputFilter[]{new InputFilter.LengthFilter(LocationClientOption.MIN_SCAN_SPAN)});
     }
 
     public void a() {
@@ -461,7 +461,7 @@ public class bn {
 
     public void m() {
         this.v.setVisibility(0);
-        com.baidu.tieba.util.am.a(this.b, this.f1482a);
+        com.baidu.tieba.util.am.a(this.b, this.f1480a);
     }
 
     public void n() {
@@ -478,7 +478,7 @@ public class bn {
         }
         O();
         if (z) {
-            this.f1482a.setText("");
+            this.f1480a.setText("");
             this.j.setEnabled(false);
             w();
             if (this.z != null) {
@@ -509,8 +509,8 @@ public class bn {
         if (!z) {
             z();
             V();
-            this.f1482a.requestFocus();
-            this.b.a(this.f1482a, 200);
+            this.f1480a.requestFocus();
+            this.b.a(this.f1480a, 200);
         } else if (this.z != null) {
             this.z.b((String) null);
         }
@@ -665,7 +665,7 @@ public class bn {
     }
 
     public void b(String str) {
-        this.f1482a.getText().insert(this.f1482a.getSelectionStart(), "@" + str + " ");
+        this.f1480a.getText().insert(this.f1480a.getSelectionStart(), "@" + str + " ");
     }
 
     public void c(String str) {
@@ -707,19 +707,19 @@ public class bn {
 
     public void x() {
         V();
-        this.f1482a.requestFocus();
+        this.f1480a.requestFocus();
         if (this.H.getVisibility() == 8) {
             this.k.setBackgroundResource(R.drawable.new_pb_keyboard_btn);
             this.m.setBackgroundResource(R.drawable.new_pb_keyboard_btn);
-            com.baidu.tieba.util.am.a(this.b, this.f1482a);
+            com.baidu.tieba.util.am.a(this.b, this.f1480a);
             this.O.postDelayed(this.ar, 200L);
             return;
         }
-        this.f1482a.setSelection(this.f1482a.getText().length());
+        this.f1480a.setSelection(this.f1480a.getText().length());
         this.k.setBackgroundResource(R.drawable.new_pb_face_btn);
         this.m.setBackgroundResource(R.drawable.new_pb_face_btn);
         this.H.setVisibility(8);
-        this.b.a(this.f1482a, 200);
+        this.b.a(this.f1480a, 200);
     }
 
     public void a(DialogInterface.OnClickListener onClickListener, boolean z, boolean z2) {
@@ -782,7 +782,7 @@ public class bn {
     }
 
     public String D() {
-        return this.f1482a.getText().toString();
+        return this.f1480a.getText().toString();
     }
 
     public String E() {
@@ -1213,7 +1213,7 @@ public class bn {
         z();
         U();
         com.baidu.tieba.util.am.a(this.b, this.B);
-        com.baidu.tieba.util.am.a(this.b, this.f1482a);
+        com.baidu.tieba.util.am.a(this.b, this.f1480a);
         if (this.w != null) {
             this.w.dismiss();
         }

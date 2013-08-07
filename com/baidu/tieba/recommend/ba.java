@@ -7,12 +7,12 @@ import com.slidingmenu.lib.R;
 class ba extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecommendActivity f1656a;
+    final /* synthetic */ RecommendActivity f1654a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ba(RecommendActivity recommendActivity, android.support.v4.app.t tVar) {
         super(tVar);
-        this.f1656a = recommendActivity;
+        this.f1654a = recommendActivity;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
@@ -21,10 +21,10 @@ class ba extends FragmentPagerAdapter {
         as asVar2;
         switch (i) {
             case 0:
-                asVar2 = this.f1656a.f1629a;
+                asVar2 = this.f1654a.f1627a;
                 return asVar2.b();
             case 1:
-                asVar = this.f1656a.f1629a;
+                asVar = this.f1654a.f1627a;
                 return asVar.a();
             default:
                 return null;
@@ -40,9 +40,9 @@ class ba extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int i) {
         switch (i) {
             case 0:
-                return this.f1656a.getString(R.string.feature);
+                return this.f1654a.getString(R.string.feature);
             case 1:
-                return this.f1656a.getString(R.string.explore);
+                return this.f1654a.getString(R.string.explore);
             default:
                 return null;
         }

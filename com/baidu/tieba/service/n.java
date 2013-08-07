@@ -7,11 +7,11 @@ import com.baidu.tieba.TiebaApplication;
 class n extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaMessageService f1708a;
+    final /* synthetic */ TiebaMessageService f1706a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(TiebaMessageService tiebaMessageService) {
-        this.f1708a = tiebaMessageService;
+        this.f1706a = tiebaMessageService;
     }
 
     @Override // android.os.Handler
@@ -20,13 +20,13 @@ class n extends Handler {
         if (message.what != 1) {
             return;
         }
-        this.f1708a.a();
+        this.f1706a.a();
         long S = TiebaApplication.f().S();
         if (S > 0) {
-            handler = this.f1708a.c;
+            handler = this.f1706a.c;
             handler.sendEmptyMessageDelayed(1, S * 1000);
             return;
         }
-        this.f1708a.stopSelf();
+        this.f1706a.stopSelf();
     }
 }

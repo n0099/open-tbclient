@@ -15,7 +15,7 @@ import java.util.List;
 public class al implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f1754a = Thread.getDefaultUncaughtExceptionHandler();
+    private Thread.UncaughtExceptionHandler f1752a = Thread.getDefaultUncaughtExceptionHandler();
 
     /* JADX WARN: Removed duplicated region for block: B:122:0x01d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:80:0x01db A[Catch: Exception -> 0x0201, TryCatch #12 {Exception -> 0x0201, blocks: (B:78:0x01d6, B:80:0x01db, B:82:0x01e0), top: B:122:0x01d6 }] */
@@ -95,8 +95,8 @@ public class al implements Thread.UncaughtExceptionHandler {
                                             printStream2.close();
                                         } catch (Exception e2) {
                                             e2.printStackTrace();
-                                            if (!com.baidu.tieba.data.g.r() && this.f1754a != null) {
-                                                this.f1754a.uncaughtException(thread, th);
+                                            if (!com.baidu.tieba.data.g.r() && this.f1752a != null) {
+                                                this.f1752a.uncaughtException(thread, th);
                                                 return;
                                             } else {
                                                 Process.killProcess(Process.myPid());
@@ -136,8 +136,8 @@ public class al implements Thread.UncaughtExceptionHandler {
                                     if (fileWriter != null) {
                                         fileWriter.close();
                                     }
-                                    if (!com.baidu.tieba.data.g.r() && this.f1754a != null) {
-                                        this.f1754a.uncaughtException(thread, th);
+                                    if (!com.baidu.tieba.data.g.r() && this.f1752a != null) {
+                                        this.f1752a.uncaughtException(thread, th);
                                     } else {
                                         Process.killProcess(Process.myPid());
                                     }
@@ -201,8 +201,8 @@ public class al implements Thread.UncaughtExceptionHandler {
                         if (fileWriter2 != null) {
                             fileWriter2.close();
                         }
-                        if (com.baidu.tieba.data.g.r() && this.f1754a != null) {
-                            this.f1754a.uncaughtException(thread, th);
+                        if (com.baidu.tieba.data.g.r() && this.f1752a != null) {
+                            this.f1752a.uncaughtException(thread, th);
                         } else {
                             Process.killProcess(Process.myPid());
                         }

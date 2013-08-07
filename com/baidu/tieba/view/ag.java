@@ -6,17 +6,17 @@ import android.view.View;
 class ag implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ af f1813a;
+    final /* synthetic */ af f1811a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(af afVar) {
-        this.f1813a = afVar;
+        this.f1811a = afVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.f1813a.dismiss();
+            this.f1811a.dismiss();
             return false;
         }
         return false;

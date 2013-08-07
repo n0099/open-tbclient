@@ -11,7 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class ay extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    BasicNameValuePair f1137a;
+    BasicNameValuePair f1135a;
     final /* synthetic */ SearchActivity b;
     private com.baidu.tieba.util.u c = null;
     private String d;
@@ -19,9 +19,9 @@ public class ay extends BdAsyncTask {
     public ay(SearchActivity searchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
         this.b = searchActivity;
         this.d = null;
-        this.f1137a = null;
+        this.f1135a = null;
         this.d = str;
-        this.f1137a = basicNameValuePair;
+        this.f1135a = basicNameValuePair;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,7 +47,7 @@ public class ay extends BdAsyncTask {
         Exception e;
         try {
             this.c = new com.baidu.tieba.util.u(this.d);
-            this.c.a(this.f1137a);
+            this.c.a(this.f1135a);
             String k = this.c.k();
             if (!this.c.d() || k == null) {
                 return null;

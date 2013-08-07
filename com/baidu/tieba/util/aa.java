@@ -29,7 +29,7 @@ public class aa {
     private static aa f;
 
     /* renamed from: a  reason: collision with root package name */
-    private IWXAPI f1746a;
+    private IWXAPI f1744a;
     private File b;
     private int c;
     private String d;
@@ -49,19 +49,19 @@ public class aa {
     }
 
     public boolean a() {
-        if (this.f1746a == null) {
+        if (this.f1744a == null) {
             return false;
         }
-        return this.f1746a.isWXAppInstalled();
+        return this.f1744a.isWXAppInstalled();
     }
 
     public boolean b() {
-        return this.f1746a != null && 553779201 <= this.f1746a.getWXAppSupportAPI();
+        return this.f1744a != null && 553779201 <= this.f1744a.getWXAppSupportAPI();
     }
 
     private void d() {
-        this.f1746a = WXAPIFactory.createWXAPI(e, "wx289a8c58bca4c71e", true);
-        this.f1746a.registerApp("wx289a8c58bca4c71e");
+        this.f1744a = WXAPIFactory.createWXAPI(e, "wx289a8c58bca4c71e", true);
+        this.f1744a.registerApp("wx289a8c58bca4c71e");
     }
 
     public void a(int i, Bitmap bitmap) {
@@ -84,7 +84,7 @@ public class aa {
                 break;
         }
         new az(str).start();
-        this.f1746a.sendReq(req);
+        this.f1744a.sendReq(req);
     }
 
     public void a(Context context, String str, ag agVar) {
@@ -107,7 +107,7 @@ public class aa {
         try {
             try {
                 if (p.a()) {
-                    File file = new File(p.f1771a + "/tieba", "share");
+                    File file = new File(p.f1769a + "/tieba", "share");
                     if (file == null) {
                         fileOutputStream = null;
                     } else if (!file.isDirectory() && !file.mkdirs()) {
@@ -240,7 +240,7 @@ public class aa {
         }
         sb2.append("tiebaclient!!!");
         sb.append("sign=").append(ai.a(sb2.toString()));
-        return String.valueOf(com.baidu.tieba.data.g.f1013a) + "/c/s/uo/sharepic?" + sb.toString();
+        return String.valueOf(com.baidu.tieba.data.g.f1011a) + "/c/s/uo/sharepic?" + sb.toString();
     }
 
     private boolean c(int i) {

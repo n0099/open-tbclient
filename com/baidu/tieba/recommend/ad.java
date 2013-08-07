@@ -7,11 +7,11 @@ import android.widget.TextView;
 public class ad implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ab f1634a;
+    final /* synthetic */ ab f1632a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(ab abVar) {
-        this.f1634a = abVar;
+        this.f1632a = abVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -25,7 +25,7 @@ public class ad implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         TextView textView;
-        textView = this.f1634a.i;
+        textView = this.f1632a.i;
         textView.setVisibility(8);
     }
 }

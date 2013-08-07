@@ -12,13 +12,13 @@ import java.io.File;
 class v extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaUpdateService f1716a;
+    final /* synthetic */ TiebaUpdateService f1714a;
     private VersionData b;
     private com.baidu.tieba.util.u c = null;
     private volatile boolean d = false;
 
     public v(TiebaUpdateService tiebaUpdateService, VersionData versionData) {
-        this.f1716a = tiebaUpdateService;
+        this.f1714a = tiebaUpdateService;
         this.b = null;
         this.b = versionData;
     }
@@ -35,7 +35,7 @@ class v extends BdAsyncTask {
         while (!this.d) {
             try {
                 this.c = new com.baidu.tieba.util.u(this.b.getUrl());
-                handler = this.f1716a.j;
+                handler = this.f1714a.j;
                 bool2 = this.c.a(String.valueOf(this.b.getNew_file()) + ".tmp", handler, 900002);
                 if (bool2.booleanValue()) {
                     break;
@@ -73,7 +73,7 @@ class v extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.f1716a.e = null;
+        this.f1714a.e = null;
         this.d = true;
         if (this.c != null) {
             this.c.i();
@@ -93,29 +93,29 @@ class v extends BdAsyncTask {
         Handler handler;
         Handler handler2;
         super.a((Object) bool);
-        this.f1716a.e = null;
+        this.f1714a.e = null;
         try {
         } catch (Exception e) {
             aj.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
         if (bool.booleanValue()) {
-            notificationManager2 = this.f1716a.b;
+            notificationManager2 = this.f1714a.b;
             notificationManager2.cancel(10);
-            handler = this.f1716a.j;
-            handler2 = this.f1716a.j;
+            handler = this.f1714a.j;
+            handler2 = this.f1714a.j;
             handler.sendMessageDelayed(handler2.obtainMessage(1, this.b), 100L);
             return;
         }
-        notification = this.f1716a.c;
+        notification = this.f1714a.c;
         if (notification != null) {
-            notification2 = this.f1716a.c;
-            notification2.contentView.setTextViewText(R.id.info, this.f1716a.getString(R.string.error_sd_error));
-            notification3 = this.f1716a.c;
+            notification2 = this.f1714a.c;
+            notification2.contentView.setTextViewText(R.id.info, this.f1714a.getString(R.string.error_sd_error));
+            notification3 = this.f1714a.c;
             notification3.flags = 16;
-            notificationManager = this.f1716a.b;
-            notification4 = this.f1716a.c;
+            notificationManager = this.f1714a.b;
+            notification4 = this.f1714a.c;
             notificationManager.notify(10, notification4);
         }
-        this.f1716a.stopSelf();
+        this.f1714a.stopSelf();
     }
 }

@@ -5,21 +5,21 @@ import com.slidingmenu.lib.SlidingMenu;
 class au implements SlidingMenu.OnClosedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1071a;
+    final /* synthetic */ FrsImageActivity f1069a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(FrsImageActivity frsImageActivity) {
-        this.f1071a = frsImageActivity;
+        this.f1069a = frsImageActivity;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
     public void onClosed() {
         boolean z;
-        z = this.f1071a.r;
+        z = this.f1069a.r;
         if (z) {
-            this.f1071a.r = false;
-            this.f1071a.t = null;
-            this.f1071a.f(1);
+            this.f1069a.r = false;
+            this.f1069a.t = null;
+            this.f1069a.f(1);
         }
     }
 }

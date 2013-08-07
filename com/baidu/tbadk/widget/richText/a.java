@@ -8,7 +8,7 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f805a = null;
+    private ArrayList f803a = null;
     private int b = 0;
     private ArrayList c = null;
     private Context d = null;
@@ -37,18 +37,18 @@ public class a {
 
     private void a(JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.f805a = new ArrayList();
+            this.f803a = new ArrayList();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 g gVar = new g();
                 gVar.a(jSONArray.optJSONObject(i2));
                 if ((gVar.a() & i) != 0) {
-                    this.f805a.add(gVar);
+                    this.f803a.add(gVar);
                 }
             }
             this.c = new ArrayList();
             this.b = 0;
-            Iterator it = this.f805a.iterator();
+            Iterator it = this.f803a.iterator();
             c cVar = null;
             while (it.hasNext()) {
                 g gVar2 = (g) it.next();
@@ -86,8 +86,8 @@ public class a {
             if (cVar != null) {
                 this.c.add(cVar);
             }
-            this.f805a.clear();
-            this.f805a = null;
+            this.f803a.clear();
+            this.f803a = null;
         }
     }
 

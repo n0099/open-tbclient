@@ -9,11 +9,11 @@ import java.io.File;
 public class ab implements MediaScannerConnection.MediaScannerConnectionClient {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1747a;
+    final /* synthetic */ aa f1745a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.f1747a = aaVar;
+        this.f1745a = aaVar;
     }
 
     @Override // android.media.MediaScannerConnection.OnScanCompletedListener
@@ -23,14 +23,14 @@ public class ab implements MediaScannerConnection.MediaScannerConnectionClient {
         String str2;
         MediaScannerConnection mediaScannerConnection;
         aj.b(getClass().getName(), "MediaScannerConnectionClient", "onScanCompleted");
-        aa aaVar = this.f1747a;
+        aa aaVar = this.f1745a;
         context = aa.e;
-        i = this.f1747a.c;
-        str2 = this.f1747a.d;
+        i = this.f1745a.c;
+        str2 = this.f1745a.d;
         aaVar.a(context, i, str2, uri);
-        mediaScannerConnection = this.f1747a.h;
+        mediaScannerConnection = this.f1745a.h;
         mediaScannerConnection.disconnect();
-        this.f1747a.h = null;
+        this.f1745a.h = null;
     }
 
     @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
@@ -38,8 +38,8 @@ public class ab implements MediaScannerConnection.MediaScannerConnectionClient {
         MediaScannerConnection mediaScannerConnection;
         File file;
         aj.b(getClass().getName(), "MediaScannerConnectionClient", "onMediaScannerConnected");
-        mediaScannerConnection = this.f1747a.h;
-        file = this.f1747a.b;
+        mediaScannerConnection = this.f1745a.h;
+        file = this.f1745a.b;
         mediaScannerConnection.scanFile(file.getPath(), "image/*");
     }
 }

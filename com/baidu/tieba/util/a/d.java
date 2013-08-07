@@ -5,13 +5,13 @@ import com.baidu.adp.lib.c.g;
 public class d implements com.baidu.adp.lib.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f1745a = null;
+    private static d f1743a = null;
 
     public static d a() {
-        if (f1745a == null) {
-            f1745a = new d();
+        if (f1743a == null) {
+            f1743a = new d();
         }
-        return f1745a;
+        return f1743a;
     }
 
     private d() {

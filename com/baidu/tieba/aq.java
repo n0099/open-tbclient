@@ -21,7 +21,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class aq extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f911a;
+    private Context f909a;
     private com.baidu.tieba.model.aq b;
     private LayoutInflater c;
     private ColorMatrix f;
@@ -34,19 +34,19 @@ public class aq extends BaseAdapter {
     private float[] k = {1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f};
 
     public aq(Context context, com.baidu.tieba.model.aq aqVar) {
-        this.f911a = null;
+        this.f909a = null;
         this.b = null;
         this.f = null;
-        this.f911a = context;
+        this.f909a = context;
         this.b = aqVar;
-        this.c = LayoutInflater.from(this.f911a);
+        this.c = LayoutInflater.from(this.f909a);
         this.f = new ColorMatrix();
         b();
     }
 
     private void b() {
         this.j = new Bitmap[8];
-        Bitmap decodeResource = BitmapFactory.decodeResource(this.f911a.getResources(), R.drawable.tag_layer_tag);
+        Bitmap decodeResource = BitmapFactory.decodeResource(this.f909a.getResources(), R.drawable.tag_layer_tag);
         for (int i = 0; i < 8; i++) {
             int i2 = this.i[i];
             int i3 = (i2 >> 16) & Util.MASK_8BIT;
@@ -93,7 +93,7 @@ public class aq extends BaseAdapter {
         if (view == null) {
             view = this.c.inflate(R.layout.tag_setting_item, (ViewGroup) null);
             arVar = new ar();
-            arVar.f912a = (ImageView) view.findViewById(R.id.tag_setting_item_bg);
+            arVar.f910a = (ImageView) view.findViewById(R.id.tag_setting_item_bg);
             arVar.b = (TextView) view.findViewById(R.id.tag_setting_item_name);
             arVar.c = (ImageButton) view.findViewById(R.id.tag_setting_item_del);
             view.setTag(arVar);
@@ -107,7 +107,7 @@ public class aq extends BaseAdapter {
         } else {
             c = this.d.c();
         }
-        arVar.f912a.setImageBitmap(this.j[c]);
+        arVar.f910a.setImageBitmap(this.j[c]);
         arVar.b.setText(this.d.b());
         arVar.c.setOnClickListener(this.e);
         arVar.c.setTag(this.d);

@@ -17,7 +17,7 @@ public class v {
     private int y;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1028a = null;
+    private String f1026a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -44,7 +44,7 @@ public class v {
     }
 
     public String a() {
-        return this.f1028a;
+        return this.f1026a;
     }
 
     public String b() {
@@ -106,7 +106,7 @@ public class v {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1028a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1026a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = jSONObject.optString("name");
                 this.x = jSONObject.optInt("is_support_local", 0);
                 this.y = jSONObject.optInt("is_local_effect", 0);

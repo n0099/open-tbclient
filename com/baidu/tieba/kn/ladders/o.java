@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 public class o extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference f1195a;
+    private WeakReference f1193a;
     private Context b;
     private boolean c;
     private com.baidu.tieba.util.u d;
@@ -20,7 +20,7 @@ public class o extends BdAsyncTask {
     public o(Context context, q qVar, boolean z) {
         this.b = context;
         this.c = z;
-        this.f1195a = new WeakReference(qVar);
+        this.f1193a = new WeakReference(qVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class o extends BdAsyncTask {
                 TiebaApplication.f().c.post(new p(this));
                 return null;
             }
-            this.d = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/uo/ranklist");
+            this.d = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/uo/ranklist");
             this.d.a("join_type", String.valueOf(4));
             this.d.a("type", "banner");
             e = this.d.k();
@@ -65,8 +65,8 @@ public class o extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(KnLaddersModel knLaddersModel) {
-        KnLaddersModel.f1179a = null;
-        q qVar = (q) this.f1195a.get();
+        KnLaddersModel.f1177a = null;
+        q qVar = (q) this.f1193a.get();
         if (qVar != null) {
             qVar.a(knLaddersModel);
         }

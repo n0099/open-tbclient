@@ -20,7 +20,7 @@ public class CommonWebviewActivity extends g implements com.baidu.tieba.view.d {
     private static long v = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f819a = null;
+    private String f817a = null;
     private String b = null;
     private boolean c = true;
     private ImageView d = null;
@@ -61,7 +61,7 @@ public class CommonWebviewActivity extends g implements com.baidu.tieba.view.d {
 
     private void a(Bundle bundle) {
         Intent intent = getIntent();
-        this.f819a = intent.getStringExtra("tag_title");
+        this.f817a = intent.getStringExtra("tag_title");
         this.b = intent.getStringExtra("tag_url");
         this.c = intent.getBooleanExtra("tag_back", true);
         this.x = intent.getStringExtra("tag_http_method");
@@ -79,7 +79,7 @@ public class CommonWebviewActivity extends g implements com.baidu.tieba.view.d {
         } else {
             this.d.setVisibility(8);
         }
-        this.j.setText(this.f819a);
+        this.j.setText(this.f817a);
         this.r = (TextView) this.n.findViewById(R.id.webview_fail);
         this.s = (TextView) this.n.findViewById(R.id.webview_crash_tip);
         this.m = (ProgressBar) findViewById(R.id.common_progress);

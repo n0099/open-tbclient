@@ -6,11 +6,11 @@ import com.baidu.tieba.data.UserData;
 class bd implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f1589a;
+    final /* synthetic */ PersonListActivity f1587a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(PersonListActivity personListActivity) {
-        this.f1589a = personListActivity;
+        this.f1587a = personListActivity;
     }
 
     @Override // java.lang.Runnable
@@ -21,17 +21,17 @@ class bd implements Runnable {
         bl blVar2;
         bl blVar3;
         try {
-            bdListView = this.f1589a.c;
+            bdListView = this.f1587a.c;
             int firstVisiblePosition = bdListView.getFirstVisiblePosition();
-            bdListView2 = this.f1589a.c;
+            bdListView2 = this.f1587a.c;
             int lastVisiblePosition = bdListView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                blVar = this.f1589a.f;
+                blVar = this.f1587a.f;
                 if (i < blVar.getCount()) {
-                    blVar2 = this.f1589a.f;
+                    blVar2 = this.f1587a.f;
                     UserData userData = (UserData) blVar2.getItem(i);
                     if (userData != null && userData.getPortrait() != null) {
-                        blVar3 = this.f1589a.f;
+                        blVar3 = this.f1587a.f;
                         blVar3.c().b(userData.getPortrait(), new be(this));
                     }
                 } else {

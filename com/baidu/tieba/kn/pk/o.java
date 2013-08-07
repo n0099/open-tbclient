@@ -5,18 +5,18 @@ import android.os.Handler;
 class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PKingActivity f1222a;
+    final /* synthetic */ PKingActivity f1220a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PKingActivity pKingActivity) {
-        this.f1222a = pKingActivity;
+        this.f1220a = pKingActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Handler handler;
-        this.f1222a.b();
-        handler = this.f1222a.k;
+        this.f1220a.b();
+        handler = this.f1220a.k;
         handler.postDelayed(this, 1000L);
     }
 }

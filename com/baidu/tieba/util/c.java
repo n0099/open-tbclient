@@ -3,7 +3,7 @@ package com.baidu.tieba.util;
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1762a;
+    String f1760a;
     int b;
     com.baidu.tbadk.a.d c;
     boolean d;

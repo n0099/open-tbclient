@@ -13,7 +13,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList f958a = new LinkedList();
+    private LinkedList f956a = new LinkedList();
 
     public void a() {
         new b(this).start();
@@ -23,7 +23,7 @@ public class a {
         SQLiteDatabase a2 = DatabaseService.a();
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("msgId", Long.valueOf(dVar.f961a));
+            contentValues.put("msgId", Long.valueOf(dVar.f959a));
             contentValues.put("ownerId", dVar.b);
             contentValues.put("friendId", dVar.c);
             contentValues.put(RConversation.COL_MSGTYPE, Integer.valueOf(dVar.d));
@@ -67,8 +67,8 @@ public class a {
                 a(i3);
             } else {
                 d dVar = new d();
-                dVar.f961a = cursor.getLong(cursor.getColumnIndex("msgId"));
-                if (linkedList2.contains(Long.valueOf(dVar.f961a))) {
+                dVar.f959a = cursor.getLong(cursor.getColumnIndex("msgId"));
+                if (linkedList2.contains(Long.valueOf(dVar.f959a))) {
                     a(i3);
                 } else {
                     dVar.b = cursor.getString(cursor.getColumnIndex("ownerId"));
@@ -85,7 +85,7 @@ public class a {
                     } else {
                         if (!z) {
                             linkedList.addLast(dVar);
-                            linkedList2.add(Long.valueOf(dVar.f961a));
+                            linkedList2.add(Long.valueOf(dVar.f959a));
                         } else {
                             a(i3);
                         }
@@ -99,17 +99,17 @@ public class a {
     }
 
     protected void a(int i) {
-        if (!this.f958a.contains(Integer.valueOf(i))) {
-            this.f958a.add(Integer.valueOf(i));
+        if (!this.f956a.contains(Integer.valueOf(i))) {
+            this.f956a.add(Integer.valueOf(i));
         }
     }
 
     protected void a(SQLiteDatabase sQLiteDatabase) {
-        if (!this.f958a.isEmpty()) {
+        if (!this.f956a.isEmpty()) {
             sQLiteDatabase.beginTransaction();
-            while (!this.f958a.isEmpty()) {
+            while (!this.f956a.isEmpty()) {
                 try {
-                    sQLiteDatabase.delete("chat_msgs", "pk = ?", new String[]{String.valueOf(((Integer) this.f958a.removeFirst()).intValue())});
+                    sQLiteDatabase.delete("chat_msgs", "pk = ?", new String[]{String.valueOf(((Integer) this.f956a.removeFirst()).intValue())});
                 } finally {
                     sQLiteDatabase.endTransaction();
                 }
@@ -142,7 +142,7 @@ public class a {
                 g gVar = (g) it.next();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("pk", gVar.a());
-                contentValues.put("ownerId", gVar.f964a);
+                contentValues.put("ownerId", gVar.f962a);
                 contentValues.put("friendId", gVar.c);
                 contentValues.put("ownerName", gVar.b);
                 contentValues.put("friendName", gVar.d);
@@ -174,7 +174,7 @@ public class a {
                     a2.delete("chat_recent_friends", "pk = ?", new String[]{string});
                 } else {
                     g gVar = new g();
-                    gVar.f964a = cursor.getString(cursor.getColumnIndex("ownerId"));
+                    gVar.f962a = cursor.getString(cursor.getColumnIndex("ownerId"));
                     gVar.c = cursor.getString(cursor.getColumnIndex("friendId"));
                     gVar.b = cursor.getString(cursor.getColumnIndex("ownerName"));
                     gVar.d = cursor.getString(cursor.getColumnIndex("friendName"));

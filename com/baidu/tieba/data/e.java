@@ -3,13 +3,13 @@ package com.baidu.tieba.data;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f1011a;
+    private d f1009a;
     private boolean b;
     private int c;
     private String d;
 
     public void a(d dVar) {
-        this.f1011a = dVar;
+        this.f1009a = dVar;
     }
 
     public boolean a() {

@@ -12,11 +12,11 @@ import com.tencent.mm.sdk.platformtools.Util;
 class as implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f913a;
+    final /* synthetic */ TiebaApplication f911a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(TiebaApplication tiebaApplication) {
-        this.f913a = tiebaApplication;
+        this.f911a = tiebaApplication;
     }
 
     @Override // android.os.Handler.Callback
@@ -26,8 +26,8 @@ class as implements Handler.Callback {
             case 1:
                 com.baidu.tieba.util.aj.b("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(message.what));
                 if (TiebaApplication.n()) {
-                    TiebaApplication.a((AccountData) null, this.f913a.getBaseContext());
-                    MainTabActivity.b(this.f913a, null, true);
+                    TiebaApplication.a((AccountData) null, this.f911a.getBaseContext());
+                    MainTabActivity.b(this.f911a, null, true);
                     break;
                 } else {
                     Intent intent = new Intent(TiebaApplication.f(), LoginActivity.class);
@@ -42,38 +42,38 @@ class as implements Handler.Callback {
                     break;
                 }
             case 2:
-                this.f913a.ac();
+                this.f911a.ac();
                 break;
             case 3:
-                this.f913a.ad();
+                this.f911a.ad();
                 break;
             case 4:
                 long nanoTime = System.nanoTime();
-                j = this.f913a.r;
+                j = this.f911a.r;
                 long j2 = (((nanoTime - j) / 1000000) - Util.MILLSECONDS_OF_MINUTE) / 1000;
                 if (j2 > 0) {
                     new com.baidu.tieba.account.ag("use", String.valueOf(j2)).start();
                 }
-                this.f913a.r = 0L;
+                this.f911a.r = 0L;
                 break;
             case 5:
-                this.f913a.aS();
+                this.f911a.aS();
                 String str = "";
-                switch (this.f913a.D) {
+                switch (this.f911a.D) {
                     case 1:
-                        str = this.f913a.getString(R.string.loc_gps_off);
+                        str = this.f911a.getString(R.string.loc_gps_off);
                         break;
                     case 2:
-                        str = this.f913a.getString(R.string.loc_net_off);
+                        str = this.f911a.getString(R.string.loc_net_off);
                         break;
                     case 3:
-                        str = this.f913a.getString(R.string.loc_gps_net_off);
+                        str = this.f911a.getString(R.string.loc_gps_net_off);
                         break;
                     case 4:
-                        str = this.f913a.getString(R.string.loc_out_of_time);
+                        str = this.f911a.getString(R.string.loc_out_of_time);
                         break;
                 }
-                this.f913a.a(this.f913a.D, str, (Address) null);
+                this.f911a.a(this.f911a.D, str, (Address) null);
                 break;
         }
         return false;

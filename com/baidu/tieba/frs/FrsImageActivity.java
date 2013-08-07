@@ -37,7 +37,7 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
     private com.baidu.tieba.model.m q;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1050a = 0;
+    private int f1048a = 0;
     private String b = null;
     private com.baidu.tieba.util.a c = null;
     private int d = 0;
@@ -301,7 +301,7 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
     private void e(int i) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.water_fall_item, (ViewGroup) null);
         linearLayout.measure(View.MeasureSpec.makeMeasureSpec(i, 1073741824), 0);
-        this.f1050a = linearLayout.findViewById(R.id.image).getMeasuredWidth();
+        this.f1048a = linearLayout.findViewById(R.id.image).getMeasuredWidth();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -387,7 +387,7 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
 
     private void a(Bundle bundle) {
         this.c = new com.baidu.tieba.util.a(this);
-        this.c.a(this.f1050a, 600);
+        this.c.a(this.f1048a, 600);
         this.c.b("_water");
         this.c.c(true);
         Intent intent = getIntent();
@@ -507,9 +507,9 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
                         int a2 = bnVar.b().a();
                         int b = bnVar.b().b();
                         if (a2 >= 100 && b >= 50) {
-                            if (a2 > this.f1050a) {
-                                float f = this.f1050a / a2;
-                                a2 = this.f1050a;
+                            if (a2 > this.f1048a) {
+                                float f = this.f1048a / a2;
+                                a2 = this.f1048a;
                                 b = (int) (b * f);
                             }
                             if (b > 600) {

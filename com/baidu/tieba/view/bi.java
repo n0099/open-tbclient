@@ -9,14 +9,14 @@ import com.baidu.tieba.pb.ImageActivity;
 public class bi extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1835a;
+    final /* synthetic */ bg f1833a;
     private com.baidu.tieba.util.u b = null;
     private String c;
     private String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(bg bgVar, String str) {
-        this.f1835a = bgVar;
+        this.f1833a = bgVar;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -42,22 +42,22 @@ public class bi extends BdAsyncTask {
             str = String.valueOf(str2) + "&qulity=" + String.valueOf(45);
         }
         try {
-            imageData = this.f1835a.b.getImageData();
+            imageData = this.f1833a.b.getImageData();
             a2 = imageData != null ? com.baidu.tieba.util.e.a(imageData) : null;
             if (a2 == null && (imageData = com.baidu.tieba.util.p.d("image", this.d)) != null) {
                 a2 = com.baidu.tieba.util.e.a(imageData);
             }
             if (a2 == null) {
                 this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.k) + str);
-                if (this.f1835a.c != null && (this.f1835a.c instanceof ImageActivity)) {
-                    if (((ImageActivity) this.f1835a.c).b() != null) {
-                        this.b.a("fid", ((ImageActivity) this.f1835a.c).b());
+                if (this.f1833a.c != null && (this.f1833a.c instanceof ImageActivity)) {
+                    if (((ImageActivity) this.f1833a.c).b() != null) {
+                        this.b.a("fid", ((ImageActivity) this.f1833a.c).b());
                     }
-                    if (((ImageActivity) this.f1835a.c).c() != null) {
-                        this.b.a("tid", ((ImageActivity) this.f1835a.c).c());
+                    if (((ImageActivity) this.f1833a.c).c() != null) {
+                        this.b.a("tid", ((ImageActivity) this.f1833a.c).c());
                     }
-                    if (((ImageActivity) this.f1835a.c).d() != null) {
-                        this.b.a("fname", ((ImageActivity) this.f1835a.c).d());
+                    if (((ImageActivity) this.f1833a.c).d() != null) {
+                        this.b.a("fname", ((ImageActivity) this.f1833a.c).d());
                     }
                 }
                 this.b.d(true);
@@ -67,13 +67,13 @@ public class bi extends BdAsyncTask {
                 a2 = a3;
                 imageData = j;
             }
-            bjVar = new bj(this.f1835a, null);
+            bjVar = new bj(this.f1833a, null);
         } catch (Exception e2) {
             bjVar = null;
             e = e2;
         }
         try {
-            bjVar.f1836a = this.c;
+            bjVar.f1834a = this.c;
             bjVar.b = imageData;
             bjVar.c = a2;
             return bjVar;
@@ -90,22 +90,22 @@ public class bi extends BdAsyncTask {
     public void a(bj bjVar) {
         bh bhVar;
         bh bhVar2;
-        this.f1835a.f1834a.setVisibility(8);
-        this.f1835a.d = null;
+        this.f1833a.f1832a.setVisibility(8);
+        this.f1833a.d = null;
         if (bjVar != null) {
-            bhVar = this.f1835a.e;
+            bhVar = this.f1833a.e;
             if (bhVar != null) {
-                bhVar2 = this.f1835a.e;
-                bhVar2.a(bjVar.f1836a, bjVar.b);
+                bhVar2 = this.f1833a.e;
+                bhVar2.a(bjVar.f1834a, bjVar.b);
             }
             Bitmap bitmap = bjVar.c;
             if (bitmap == null) {
-                this.f1835a.b.l();
+                this.f1833a.b.l();
             } else if (com.baidu.tieba.util.am.a(bjVar.b)) {
-                this.f1835a.b.a(bjVar.b, bitmap);
+                this.f1833a.b.a(bjVar.b, bitmap);
             } else {
-                this.f1835a.b.setImageBitmap(bitmap);
-                this.f1835a.b.setImageData(bjVar.b);
+                this.f1833a.b.setImageBitmap(bitmap);
+                this.f1833a.b.setImageData(bjVar.b);
             }
         }
     }
@@ -113,8 +113,8 @@ public class bi extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f1835a.b.setImageBitmap(null);
-        this.f1835a.f1834a.setVisibility(0);
+        this.f1833a.b.setImageBitmap(null);
+        this.f1833a.f1832a.setVisibility(0);
         super.b();
     }
 
@@ -123,9 +123,9 @@ public class bi extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1835a.b.setVisibility(0);
-        this.f1835a.f1834a.setVisibility(8);
-        this.f1835a.d = null;
+        this.f1833a.b.setVisibility(0);
+        this.f1833a.f1832a.setVisibility(8);
+        this.f1833a.d = null;
         super.cancel(true);
     }
 }

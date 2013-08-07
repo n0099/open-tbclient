@@ -7,11 +7,11 @@ import android.widget.AbsListView;
 public class am implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FindInterestFragment f1643a;
+    final /* synthetic */ FindInterestFragment f1641a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(FindInterestFragment findInterestFragment) {
-        this.f1643a = findInterestFragment;
+        this.f1641a = findInterestFragment;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -25,11 +25,11 @@ public class am implements AbsListView.OnScrollListener {
         Handler handler2;
         Runnable runnable2;
         if (i == 0) {
-            handler = this.f1643a.c;
-            runnable = this.f1643a.i;
+            handler = this.f1641a.c;
+            runnable = this.f1641a.i;
             handler.removeCallbacks(runnable);
-            handler2 = this.f1643a.c;
-            runnable2 = this.f1643a.i;
+            handler2 = this.f1641a.c;
+            runnable2 = this.f1641a.i;
             handler2.postDelayed(runnable2, 300L);
         }
     }

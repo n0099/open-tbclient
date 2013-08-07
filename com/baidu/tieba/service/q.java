@@ -11,16 +11,16 @@ import com.slidingmenu.lib.R;
 public class q extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    int f1711a;
+    int f1709a;
     Uri b;
     String c = null;
     final /* synthetic */ TiebaPrepareImageService d;
 
     public q(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
         this.d = tiebaPrepareImageService;
-        this.f1711a = 0;
+        this.f1709a = 0;
         this.b = null;
-        this.f1711a = i;
+        this.f1709a = i;
         this.b = uri;
     }
 
@@ -31,9 +31,9 @@ public class q extends BdAsyncTask {
     public Boolean a(Object... objArr) {
         int i;
         boolean z = true;
-        TiebaPrepareImageService.f1692a = true;
+        TiebaPrepareImageService.f1690a = true;
         try {
-            int i2 = this.f1711a;
+            int i2 = this.f1709a;
             TiebaPrepareImageService tiebaPrepareImageService = this.d;
             Uri uri = this.b;
             i = this.d.f;
@@ -53,12 +53,12 @@ public class q extends BdAsyncTask {
                 this.c = this.d.getString(R.string.pic_parser_error);
                 z = false;
             }
-            TiebaPrepareImageService.f1692a = false;
+            TiebaPrepareImageService.f1690a = false;
         } catch (Exception e) {
-            TiebaPrepareImageService.f1692a = false;
+            TiebaPrepareImageService.f1690a = false;
             z = false;
         } catch (Throwable th) {
-            TiebaPrepareImageService.f1692a = false;
+            TiebaPrepareImageService.f1690a = false;
             throw th;
         }
         return Boolean.valueOf(z);

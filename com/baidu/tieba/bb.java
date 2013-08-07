@@ -7,11 +7,11 @@ import android.content.DialogInterface;
 public class bb implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f921a;
+    final /* synthetic */ UpdateDialog f919a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(UpdateDialog updateDialog) {
-        this.f921a = updateDialog;
+        this.f919a = updateDialog;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -19,14 +19,14 @@ public class bb implements DialogInterface.OnClickListener {
         Dialog dialog;
         Dialog dialog2;
         if (i == -1) {
-            dialog2 = this.f921a.d;
+            dialog2 = this.f919a.d;
             dialog2.dismiss();
-            this.f921a.b();
+            this.f919a.b();
         } else if (i == -2) {
-            dialog = this.f921a.d;
+            dialog = this.f919a.d;
             dialog.dismiss();
-            this.f921a.c();
+            this.f919a.c();
         }
-        MainTabActivity.a(this.f921a, "close");
+        MainTabActivity.a(this.f919a, "close");
     }
 }

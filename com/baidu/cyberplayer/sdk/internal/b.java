@@ -6,20 +6,20 @@ import com.baidu.cyberplayer.sdk.BEngineManager;
 class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f719a;
+    private String f717a;
     private String b;
 
     public b(Context context, String str, CyberPlayerEngineManager cyberPlayerEngineManager, BEngineManager.OnEngineListener onEngineListener, boolean z) {
         super(context, cyberPlayerEngineManager, onEngineListener, z);
-        this.f719a = null;
+        this.f717a = null;
         this.b = null;
-        this.f719a = str;
+        this.f717a = str;
     }
 
     @Override // com.baidu.cyberplayer.sdk.internal.a
     protected boolean a() {
-        if (this.f719a != null) {
-            this.b = this.f719a.substring("file://".length());
+        if (this.f717a != null) {
+            this.b = this.f717a.substring("file://".length());
             return true;
         }
         return false;

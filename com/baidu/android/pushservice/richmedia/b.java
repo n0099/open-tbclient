@@ -25,7 +25,7 @@ import org.apache.http.HttpResponse;
 public class b extends AsyncTask implements Comparable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f605a;
+    protected s f603a;
     public WeakReference b;
     public n d;
     private static HashSet h = new HashSet();
@@ -37,7 +37,7 @@ public class b extends AsyncTask implements Comparable {
     protected long c = System.currentTimeMillis();
 
     public b(Context context, s sVar) {
-        this.f605a = sVar;
+        this.f603a = sVar;
         this.b = new WeakReference(context);
     }
 
@@ -164,7 +164,7 @@ public class b extends AsyncTask implements Comparable {
         this.d = nVarArr[0];
         rVar.d = this.d;
         if (this.d != null) {
-            rVar.f620a = this.d.b();
+            rVar.f618a = this.d.b();
             if (this.d.b == null) {
                 if (com.baidu.android.pushservice.b.a()) {
                     Log.d("HttpTask", "download file Request error: " + this.d);
@@ -172,7 +172,7 @@ public class b extends AsyncTask implements Comparable {
                 rVar.c = 3;
             } else if (!a(this.d)) {
                 this.g.c("Request url: " + this.d.d() + " failed, already in queue");
-                this.f605a = null;
+                this.f603a = null;
                 this.d = null;
                 return null;
             } else {
@@ -180,7 +180,7 @@ public class b extends AsyncTask implements Comparable {
                 if (a2 == null) {
                     iVar = new com.baidu.android.pushservice.util.i();
                     iVar.b = this.d.d();
-                    iVar.f630a = this.d.f617a;
+                    iVar.f628a = this.d.f615a;
                     iVar.c = this.d.c;
                     iVar.d = this.d.d;
                     iVar.g = 0;
@@ -200,8 +200,8 @@ public class b extends AsyncTask implements Comparable {
                     return rVar;
                 }
                 this.g.b("Request url: " + this.d.d() + " success");
-                if (this.f605a != null) {
-                    this.f605a.a(this);
+                if (this.f603a != null) {
+                    this.f603a.a(this);
                 }
                 try {
                     HttpResponse a3 = new a().a(this.d.c(), this.d.d(), this.d.a(), this.d.f);
@@ -221,7 +221,7 @@ public class b extends AsyncTask implements Comparable {
                         int i = iVar.g;
                         m mVar = new m();
                         mVar.b = iVar.h;
-                        mVar.f616a = i;
+                        mVar.f614a = i;
                         publishProgress(mVar);
                         while (true) {
                             if (this.i) {
@@ -238,7 +238,7 @@ public class b extends AsyncTask implements Comparable {
                             int i2 = read + i;
                             m mVar2 = new m();
                             mVar2.b = iVar.h;
-                            mVar2.f616a = i2;
+                            mVar2.f614a = i2;
                             publishProgress(mVar2);
                             if (i2 == iVar.h) {
                                 i = i2;
@@ -283,27 +283,27 @@ public class b extends AsyncTask implements Comparable {
     /* renamed from: a */
     public void onPostExecute(r rVar) {
         try {
-            if (this.f605a == null || rVar == null) {
+            if (this.f603a == null || rVar == null) {
                 return;
             }
             if (rVar.c == 0) {
                 String str = rVar.e;
-                if (rVar.f620a == o.REQ_TYPE_GET_ZIP && str != null) {
+                if (rVar.f618a == o.REQ_TYPE_GET_ZIP && str != null) {
                     String substring = str.substring(0, str.lastIndexOf("."));
                     File file = new File(str);
                     a(file, substring);
                     file.delete();
                     rVar.e = substring;
                 }
-                this.f605a.a(this, rVar);
+                this.f603a.a(this, rVar);
             } else if (rVar.c == 1) {
-                this.f605a.a(this, new Throwable("error: response http error errorCode=" + rVar.b));
+                this.f603a.a(this, new Throwable("error: response http error errorCode=" + rVar.b));
             } else if (rVar.c == 3) {
-                this.f605a.a(this, new Throwable("error: request error,request is null or fileName is null."));
+                this.f603a.a(this, new Throwable("error: request error,request is null or fileName is null."));
             } else if (rVar.c == 2) {
-                this.f605a.b(this);
+                this.f603a.b(this);
             } else if (rVar.c == -1) {
-                this.f605a.a(this, new Throwable("IOException"));
+                this.f603a.a(this, new Throwable("IOException"));
             }
         } finally {
             b(this.d);
@@ -315,15 +315,15 @@ public class b extends AsyncTask implements Comparable {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public void onProgressUpdate(m... mVarArr) {
-        if (this.f605a != null) {
-            this.f605a.a(this, mVarArr[0]);
+        if (this.f603a != null) {
+            this.f603a.a(this, mVarArr[0]);
         }
     }
 
     @Override // android.os.AsyncTask
     protected void onCancelled() {
-        if (this.f605a != null) {
-            this.f605a.b(this);
+        if (this.f603a != null) {
+            this.f603a.b(this);
         }
         b(this.d);
         this.i = true;

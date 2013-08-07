@@ -8,18 +8,18 @@ import com.baidu.tieba.util.DatabaseService;
 public class ad implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1874a;
+    final /* synthetic */ WriteActivity f1872a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(WriteActivity writeActivity) {
-        this.f1874a = writeActivity;
+        this.f1872a = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         WriteData writeData;
-        writeData = this.f1874a.f1868a;
+        writeData = this.f1872a.f1866a;
         DatabaseService.a(writeData);
-        this.f1874a.finish();
+        this.f1872a.finish();
     }
 }

@@ -5,18 +5,18 @@ import android.view.View;
 class s implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ KnPkHomeFragment f1198a;
+    final /* synthetic */ KnPkHomeFragment f1196a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(KnPkHomeFragment knPkHomeFragment) {
-        this.f1198a = knPkHomeFragment;
+        this.f1196a = knPkHomeFragment;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         t tVar;
-        this.f1198a.c = new t(this.f1198a, null);
-        tVar = this.f1198a.c;
+        this.f1196a.c = new t(this.f1196a, null);
+        tVar = this.f1196a.c;
         tVar.execute(new Void[0]);
     }
 }

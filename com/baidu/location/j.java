@@ -72,7 +72,7 @@ public class j {
     public static int t = 3;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f759a = 10;
+    public static int f757a = 10;
     public static int u = 2;
 
     /* renamed from: if  reason: not valid java name */
@@ -110,7 +110,7 @@ public class j {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final boolean f760a = false;
+        private static final boolean f758a = false;
 
         /* renamed from: if  reason: not valid java name */
         private static final String f243if = a.class.getSimpleName();
@@ -134,7 +134,7 @@ public class j {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f761a = "a";
+        private static final String f759a = "a";
 
         /* renamed from: do  reason: not valid java name */
         private static final String f244do = "bids";
@@ -157,11 +157,11 @@ public class j {
                 edit.putString(f245for, string);
                 edit.commit();
             }
-            String string2 = sharedPreferences.getString(f761a, null);
+            String string2 = sharedPreferences.getString(f759a, null);
             if (string2 == null) {
                 string2 = m260if(context);
                 SharedPreferences.Editor edit2 = sharedPreferences.edit();
-                edit2.putString(f761a, string2);
+                edit2.putString(f759a, string2);
                 edit2.commit();
             }
             String a2 = j.a((AccountProxy.BAIDUACCOUNT_TYPE + string + string2).getBytes(), true);

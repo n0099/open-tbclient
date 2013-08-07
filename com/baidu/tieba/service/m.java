@@ -13,12 +13,12 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class m extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    NetWorkCore f1707a;
+    NetWorkCore f1705a;
     final /* synthetic */ TiebaActiveService b;
 
     private m(TiebaActiveService tiebaActiveService) {
         this.b = tiebaActiveService;
-        this.f1707a = null;
+        this.f1705a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,17 +32,17 @@ public class m extends BdAsyncTask {
     public String a(String... strArr) {
         aj.a(getClass().getName(), "doBackGround", "send active...");
         try {
-            this.f1707a = new NetWorkCore("http://114.113.149.3:8086/partnersService");
-            this.f1707a.a("http://114.113.149.3:8086/partnersService");
-            this.f1707a.b(this.b.getApplicationContext());
-            this.f1707a.a("apk", TiebaApplication.f().getPackageName());
-            this.f1707a.a("imei", TiebaApplication.f().p());
-            this.f1707a.a("model", Build.MODEL);
-            this.f1707a.a("edition", com.baidu.tieba.data.g.i());
-            this.f1707a.a("system", Build.VERSION.SDK);
-            this.f1707a.c(false);
-            String v = this.f1707a.v();
-            if (this.f1707a.o()) {
+            this.f1705a = new NetWorkCore("http://114.113.149.3:8086/partnersService");
+            this.f1705a.a("http://114.113.149.3:8086/partnersService");
+            this.f1705a.b(this.b.getApplicationContext());
+            this.f1705a.a("apk", TiebaApplication.f().getPackageName());
+            this.f1705a.a("imei", TiebaApplication.f().p());
+            this.f1705a.a("model", Build.MODEL);
+            this.f1705a.a("edition", com.baidu.tieba.data.g.i());
+            this.f1705a.a("system", Build.VERSION.SDK);
+            this.f1705a.c(false);
+            String v = this.f1705a.v();
+            if (this.f1705a.o()) {
                 aj.a(getClass().getName(), "task", "data=" + v);
                 return v;
             }
@@ -57,9 +57,9 @@ public class m extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f1690a = null;
-        if (this.f1707a != null) {
-            this.f1707a.s();
+        this.b.f1688a = null;
+        if (this.f1705a != null) {
+            this.f1705a.s();
         }
         super.cancel(true);
     }
@@ -75,7 +75,7 @@ public class m extends BdAsyncTask {
         Handler handler2;
         Runnable runnable2;
         super.a((Object) str);
-        this.b.f1690a = null;
+        this.b.f1688a = null;
         SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
         edit.putInt("active", 1);
         if (str == null) {

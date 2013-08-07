@@ -10,12 +10,12 @@ import com.baidu.tieba.frs.FrsActivity;
 public class ag implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecommendPagerAdapter f1119a;
+    final /* synthetic */ RecommendPagerAdapter f1117a;
     private final /* synthetic */ com.baidu.tieba.data.ba b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(RecommendPagerAdapter recommendPagerAdapter, com.baidu.tieba.data.ba baVar) {
-        this.f1119a = recommendPagerAdapter;
+        this.f1117a = recommendPagerAdapter;
         this.b = baVar;
     }
 
@@ -24,10 +24,10 @@ public class ag implements View.OnClickListener {
         Activity activity;
         Activity activity2;
         if (TiebaApplication.f().t()) {
-            activity2 = this.f1119a.g;
+            activity2 = this.f1117a.g;
             StatService.onEvent(activity2, "forum_by_day", "click", 1);
         }
-        activity = this.f1119a.g;
+        activity = this.f1117a.g;
         FrsActivity.a(activity, this.b.a(), (String) null);
     }
 }

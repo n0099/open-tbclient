@@ -9,12 +9,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class ax extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f872a;
+    final /* synthetic */ Register2Activity f870a;
     private com.baidu.tieba.util.u b = null;
     private String c;
 
     public ax(Register2Activity register2Activity, String str) {
-        this.f872a = register2Activity;
+        this.f870a = register2Activity;
         this.c = null;
         this.c = str;
     }
@@ -22,8 +22,8 @@ public class ax extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f872a.Q = null;
-        progressBar = this.f872a.I;
+        this.f870a.Q = null;
+        progressBar = this.f870a.I;
         progressBar.setVisibility(8);
         if (this.b != null) {
             this.b.i();
@@ -36,9 +36,9 @@ public class ax extends BdAsyncTask {
     public void b() {
         ImageView imageView;
         ProgressBar progressBar;
-        imageView = this.f872a.J;
+        imageView = this.f870a.J;
         imageView.setImageBitmap(null);
-        progressBar = this.f872a.I;
+        progressBar = this.f870a.I;
         progressBar.setVisibility(0);
     }
 
@@ -57,10 +57,10 @@ public class ax extends BdAsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         super.a((Object) bitmap);
-        this.f872a.Q = null;
-        progressBar = this.f872a.I;
+        this.f870a.Q = null;
+        progressBar = this.f870a.I;
         progressBar.setVisibility(8);
-        imageView = this.f872a.J;
+        imageView = this.f870a.J;
         imageView.setImageBitmap(bitmap);
     }
 }

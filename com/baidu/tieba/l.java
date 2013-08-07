@@ -7,25 +7,25 @@ import com.slidingmenu.lib.R;
 public class l implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CommonWebviewActivity f1262a;
+    final /* synthetic */ CommonWebviewActivity f1260a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(CommonWebviewActivity commonWebviewActivity) {
-        this.f1262a = commonWebviewActivity;
+        this.f1260a = commonWebviewActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back /* 2131099730 */:
-                this.f1262a.finish();
+                this.f1260a.finish();
                 return;
             case R.id.refresh /* 2131099800 */:
                 TiebaApplication.f().j(0);
-                this.f1262a.b();
+                this.f1260a.b();
                 return;
             case R.id.common_webview_item /* 2131099916 */:
-                this.f1262a.b();
+                this.f1260a.b();
                 return;
             default:
                 return;

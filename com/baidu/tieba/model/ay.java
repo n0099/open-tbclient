@@ -8,7 +8,7 @@ public class ay {
     private com.baidu.tieba.data.an c = new com.baidu.tieba.data.an();
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1342a = new ArrayList();
+    private ArrayList f1340a = new ArrayList();
     private com.baidu.tieba.data.ar b = new com.baidu.tieba.data.ar();
     private boolean d = true;
 
@@ -17,11 +17,11 @@ public class ay {
     }
 
     public void a(ArrayList arrayList) {
-        this.f1342a = arrayList;
+        this.f1340a = arrayList;
     }
 
     public ArrayList b() {
-        return this.f1342a;
+        return this.f1340a;
     }
 
     public com.baidu.tieba.data.ar c() {
@@ -45,7 +45,7 @@ public class ay {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     com.baidu.tieba.data.u uVar = new com.baidu.tieba.data.u();
                     uVar.a(optJSONArray2.optJSONObject(i));
-                    this.f1342a.add(uVar);
+                    this.f1340a.add(uVar);
                 }
             }
             this.c.a(jSONObject.optJSONObject("message"));

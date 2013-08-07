@@ -10,14 +10,14 @@ import android.hardware.SensorManager;
 public class f implements SensorEventListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShakeActivity f1252a;
+    final /* synthetic */ ShakeActivity f1250a;
     private Context c;
     private Sensor e;
     private SensorManager b = null;
     private int d = 1;
 
     public f(ShakeActivity shakeActivity, Context context) {
-        this.f1252a = shakeActivity;
+        this.f1250a = shakeActivity;
         this.c = null;
         this.c = context;
     }
@@ -47,7 +47,7 @@ public class f implements SensorEventListener {
     public void onSensorChanged(SensorEvent sensorEvent) {
         g gVar;
         if (sensorEvent.sensor.getType() == this.d) {
-            gVar = this.f1252a.d;
+            gVar = this.f1250a.d;
             gVar.a(sensorEvent);
         }
     }

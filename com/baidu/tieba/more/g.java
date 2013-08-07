@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class g implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1413a;
+    final /* synthetic */ AccountActivity f1411a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AccountActivity accountActivity) {
-        this.f1413a = accountActivity;
+        this.f1411a = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,21 +24,21 @@ public class g implements View.OnClickListener {
         o oVar4;
         Button button2;
         o oVar5;
-        oVar = this.f1413a.b;
+        oVar = this.f1411a.b;
         if (!oVar.a()) {
-            oVar4 = this.f1413a.b;
+            oVar4 = this.f1411a.b;
             oVar4.a(true);
-            button2 = this.f1413a.g;
+            button2 = this.f1411a.g;
             button2.setText(R.string.done);
-            oVar5 = this.f1413a.b;
+            oVar5 = this.f1411a.b;
             oVar5.notifyDataSetChanged();
             return;
         }
-        oVar2 = this.f1413a.b;
+        oVar2 = this.f1411a.b;
         oVar2.a(false);
-        button = this.f1413a.g;
+        button = this.f1411a.g;
         button.setText(R.string.edit);
-        oVar3 = this.f1413a.b;
+        oVar3 = this.f1411a.b;
         oVar3.notifyDataSetChanged();
     }
 }

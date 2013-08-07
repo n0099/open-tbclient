@@ -34,7 +34,7 @@ public class h {
     private String p = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1299a = null;
+    AlertDialog f1297a = null;
     private o q = null;
     private Handler r = new Handler();
     private Runnable s = new i(this);
@@ -108,9 +108,9 @@ public class h {
             AlertDialog.Builder builder = new AlertDialog.Builder(g);
             builder.setTitle(this.b.getString(R.string.operation));
             builder.setItems(charSequenceArr, this.q);
-            this.f1299a = builder.create();
-            this.f1299a.setCanceledOnTouchOutside(true);
-            this.f1299a.show();
+            this.f1297a = builder.create();
+            this.f1297a.setCanceledOnTouchOutside(true);
+            this.f1297a.show();
         }
     }
 
@@ -157,7 +157,7 @@ public class h {
             this.g = 1;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.g.f1013a);
+        stringBuffer.append(com.baidu.tieba.data.g.f1011a);
         stringBuffer.append(this.p);
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("uid", TiebaApplication.E()));
@@ -262,7 +262,7 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, String str3, int i) {
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.g.f1013a);
+        stringBuffer.append(com.baidu.tieba.data.g.f1011a);
         ArrayList arrayList = new ArrayList();
         if (i == 1) {
             stringBuffer.append("c/f/pb/page");

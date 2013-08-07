@@ -7,14 +7,14 @@ import com.baidu.tieba.data.SendPKVoteData;
 public class bu extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ br f1361a;
+    final /* synthetic */ br f1359a;
     private String b;
     private String c;
     private int d;
     private com.baidu.tieba.a.k e;
 
     public bu(br brVar, String str, String str2, int i) {
-        this.f1361a = brVar;
+        this.f1359a = brVar;
         setPriority(3);
         this.b = str;
         this.c = str2;
@@ -27,9 +27,9 @@ public class bu extends BdAsyncTask {
         bv bvVar;
         bv bvVar2;
         super.b();
-        bvVar = this.f1361a.d;
+        bvVar = this.f1359a.d;
         if (bvVar != null) {
-            bvVar2 = this.f1361a.d;
+            bvVar2 = this.f1359a.d;
             bvVar2.a();
         }
     }
@@ -57,10 +57,10 @@ public class bu extends BdAsyncTask {
         bv bvVar;
         bv bvVar2;
         super.a((Object) sendPKVoteData);
-        this.f1361a.f = sendPKVoteData;
-        bvVar = this.f1361a.d;
+        this.f1359a.f = sendPKVoteData;
+        bvVar = this.f1359a.d;
         if (bvVar != null) {
-            bvVar2 = this.f1361a.d;
+            bvVar2 = this.f1359a.d;
             bvVar2.a(sendPKVoteData);
         }
     }

@@ -59,7 +59,7 @@ public class FrsHeaderView {
     private boolean F = false;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.bm f1791a = null;
+    com.baidu.tieba.data.bm f1789a = null;
     private float N = 0.0f;
     private float O = 0.0f;
     private boolean P = false;
@@ -154,7 +154,7 @@ public class FrsHeaderView {
     }
 
     public com.baidu.tieba.data.bm b() {
-        return this.f1791a;
+        return this.f1789a;
     }
 
     public void a(int i) {
@@ -231,11 +231,11 @@ public class FrsHeaderView {
             }
         }
         this.u.setVisibility(0);
-        this.f1791a = new com.baidu.tieba.data.bm();
+        this.f1789a = new com.baidu.tieba.data.bm();
         com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am();
         amVar.a(3);
         amVar.a(this.D);
-        this.f1791a.m().add(amVar);
+        this.f1789a.m().add(amVar);
         i();
     }
 

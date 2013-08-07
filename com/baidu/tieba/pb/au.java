@@ -6,11 +6,11 @@ import java.util.ArrayList;
 class au implements com.baidu.tbadk.widget.richText.m {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1462a;
+    final /* synthetic */ NewPbActivity f1460a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(NewPbActivity newPbActivity) {
-        this.f1462a = newPbActivity;
+        this.f1460a = newPbActivity;
     }
 
     @Override // com.baidu.tbadk.widget.richText.m
@@ -24,13 +24,13 @@ class au implements com.baidu.tbadk.widget.richText.m {
         String a3;
         String a4;
         try {
-            bnVar = this.f1462a.p;
+            bnVar = this.f1460a.p;
             if (bnVar.e(str) != null) {
-                bcVar = this.f1462a.j;
+                bcVar = this.f1460a.j;
                 com.baidu.tieba.data.as j = bcVar.j();
-                a2 = this.f1462a.a(str, i);
+                a2 = this.f1460a.a(str, i);
                 ArrayList a5 = a2.a();
-                i2 = this.f1462a.J;
+                i2 = this.f1460a.J;
                 com.baidu.tbadk.widget.richText.c cVar = (com.baidu.tbadk.widget.richText.c) a5.get(i2);
                 if (cVar != null) {
                     ArrayList arrayList = new ArrayList();
@@ -57,7 +57,7 @@ class au implements com.baidu.tbadk.widget.richText.m {
                                                 i3 = i7;
                                             }
                                         } else {
-                                            a3 = this.f1462a.a((com.baidu.tbadk.widget.richText.c) h.a().get(i8));
+                                            a3 = this.f1460a.a((com.baidu.tbadk.widget.richText.c) h.a().get(i8));
                                             arrayList.add(a3);
                                             if (!z2) {
                                                 i4 = i6 + 1;
@@ -78,12 +78,12 @@ class au implements com.baidu.tbadk.widget.richText.m {
                             i5++;
                             z = z2;
                         }
-                        ImageActivity.a(this.f1462a, arrayList, i6, j);
+                        ImageActivity.a(this.f1460a, arrayList, i6, j);
                         return;
                     }
-                    a4 = this.f1462a.a(cVar);
+                    a4 = this.f1460a.a(cVar);
                     arrayList.add(a4);
-                    ImageActivity.a(this.f1462a, arrayList, 0, j);
+                    ImageActivity.a(this.f1460a, arrayList, 0, j);
                 }
             }
         } catch (Exception e) {

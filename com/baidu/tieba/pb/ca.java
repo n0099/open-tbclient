@@ -6,12 +6,12 @@ import com.baidu.tieba.view.KeyboardEventLayout;
 class ca implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bz f1495a;
+    final /* synthetic */ bz f1493a;
     private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ca(bz bzVar, ImageView imageView) {
-        this.f1495a = bzVar;
+        this.f1493a = bzVar;
         this.b = imageView;
     }
 
@@ -19,7 +19,7 @@ class ca implements Runnable {
     public void run() {
         bn bnVar;
         KeyboardEventLayout keyboardEventLayout;
-        bnVar = this.f1495a.f1494a;
+        bnVar = this.f1493a.f1492a;
         keyboardEventLayout = bnVar.c;
         keyboardEventLayout.removeView(this.b);
     }

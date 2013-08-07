@@ -11,7 +11,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ScanDownloadFile implements NoProGuard, k {
+public class ScanDownloadFile implements NoProGuard, e {
     private static final String BROWSER_DOWNLOAD_INFO = "http://wap.baidu.com/static/freeapp/broswer_down_path.cfg?v=1";
     private static final boolean DEBUG = false;
     public static final int ERROR_NOT_EXIST = 2;
@@ -35,10 +35,10 @@ public class ScanDownloadFile implements NoProGuard, k {
         return j2;
     }
 
-    @Override // com.baidu.android.nebula.cmd.k
-    public void execute(com.baidu.android.nebula.a.d dVar, com.baidu.android.nebula.a.a aVar) {
+    @Override // com.baidu.android.nebula.cmd.e
+    public void execute(com.baidu.android.nebula.b.a aVar, com.baidu.android.nebula.b.b bVar) {
         String str;
-        Map a2 = dVar.a();
+        Map a2 = aVar.a();
         if (a2 == null || a2.size() < 1 || (str = (String) a2.get("callback")) == null) {
             return;
         }
@@ -63,13 +63,13 @@ public class ScanDownloadFile implements NoProGuard, k {
             this.mFileName = URLDecoder.decode(this.mFileName, BdUtil.UTF8);
         } catch (UnsupportedEncodingException e) {
         }
-        this.mContext = com.baidu.android.nebula.d.c.a().c();
+        this.mContext = com.baidu.android.nebula.c.c.a().c();
         if (this.mContext != null) {
-            if (!com.baidu.android.nebula.d.a.a(this.mContext).a(dVar.a(HttpUtils.HEADER_NAME_REFERER))) {
+            if (!com.baidu.android.nebula.c.a.a(this.mContext).a(aVar.a(HttpUtils.HEADER_NAME_REFERER))) {
                 this.mErrcode = 4;
             }
             if (this.mErrcode != 4) {
-                new h(this).a();
+                new f(this).a();
                 this.mErrcode = 0;
             }
             JSONObject jSONObject = new JSONObject();
@@ -77,10 +77,10 @@ public class ScanDownloadFile implements NoProGuard, k {
                 jSONObject.put("error", this.mErrcode);
             } catch (JSONException e2) {
             }
-            aVar.a("text/javascript");
-            aVar.a().put("Cache-Control", "no-cache");
-            aVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
-            aVar.a(200);
+            bVar.a("text/javascript");
+            bVar.a().put("Cache-Control", "no-cache");
+            bVar.b(str + " && " + str + "(" + jSONObject.toString() + ");");
+            bVar.a(200);
         }
     }
 }

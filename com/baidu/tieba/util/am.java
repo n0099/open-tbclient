@@ -55,7 +55,7 @@ import java.util.List;
 public class am {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1755a = false;
+    private static boolean f1753a = false;
     private static float b;
     private static int c;
     private static int d;
@@ -64,25 +64,25 @@ public class am {
         b = context.getResources().getDisplayMetrics().density;
         c = context.getResources().getDisplayMetrics().widthPixels;
         d = context.getResources().getDisplayMetrics().heightPixels;
-        f1755a = true;
+        f1753a = true;
     }
 
     public static int a(Context context, float f) {
-        if (!f1755a) {
+        if (!f1753a) {
             i(context);
         }
         return (int) ((b * f) + 0.5f);
     }
 
     public static int a(Context context) {
-        if (!f1755a) {
+        if (!f1753a) {
             i(context);
         }
         return c;
     }
 
     public static int b(Context context) {
-        if (!f1755a) {
+        if (!f1753a) {
             i(context);
         }
         return d;

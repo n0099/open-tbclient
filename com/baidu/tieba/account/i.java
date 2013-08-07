@@ -11,11 +11,11 @@ import com.baidu.tieba.data.RegistData;
 public class i extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f882a;
+    final /* synthetic */ ActivationActivity f880a;
     private com.baidu.tieba.util.u b;
 
     private i(ActivationActivity activationActivity) {
-        this.f882a = activationActivity;
+        this.f880a = activationActivity;
         this.b = null;
     }
 
@@ -29,12 +29,12 @@ public class i extends BdAsyncTask {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.f882a.n = null;
-        progressBar = this.f882a.e;
+        this.f880a.n = null;
+        progressBar = this.f880a.e;
         progressBar.setVisibility(8);
-        editText = this.f882a.k;
+        editText = this.f880a.k;
         if (editText.length() == 6) {
-            relativeLayout = this.f882a.l;
+            relativeLayout = this.f880a.l;
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
@@ -50,9 +50,9 @@ public class i extends BdAsyncTask {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/getsmscode");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/getsmscode");
             com.baidu.tieba.util.u uVar = this.b;
-            registData = this.f882a.r;
+            registData = this.f880a.r;
             uVar.a("phonenum", registData.getPhone());
             this.b.k();
             if (this.b.d()) {
@@ -74,23 +74,23 @@ public class i extends BdAsyncTask {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.a((Object) bool);
-        this.f882a.n = null;
-        progressBar = this.f882a.e;
+        this.f880a.n = null;
+        progressBar = this.f880a.e;
         progressBar.setVisibility(8);
-        editText = this.f882a.k;
+        editText = this.f880a.k;
         if (editText.length() == 6) {
-            relativeLayout = this.f882a.l;
+            relativeLayout = this.f880a.l;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.f882a.b();
+            this.f880a.b();
             return;
         }
         String h = this.b.h();
         if (h != null && h.length() > 0) {
-            textView = this.f882a.j;
+            textView = this.f880a.j;
             textView.setVisibility(0);
-            textView2 = this.f882a.j;
+            textView2 = this.f880a.j;
             textView2.setText(h);
         }
     }
@@ -102,13 +102,13 @@ public class i extends BdAsyncTask {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.f882a.e;
+        progressBar = this.f880a.e;
         progressBar.setVisibility(0);
-        textView = this.f882a.j;
+        textView = this.f880a.j;
         textView.setVisibility(4);
-        textView2 = this.f882a.j;
+        textView2 = this.f880a.j;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.f882a.l;
+        relativeLayout = this.f880a.l;
         relativeLayout.setEnabled(false);
         super.b();
     }

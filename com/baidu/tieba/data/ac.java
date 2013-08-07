@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f967a;
+    private int f965a;
     private boolean b;
     private String c;
     private String d;
@@ -60,11 +60,11 @@ public class ac {
     }
 
     public void a(int i) {
-        this.f967a = i;
+        this.f965a = i;
     }
 
     public int b() {
-        return this.f967a;
+        return this.f965a;
     }
 
     public void b(String str) {

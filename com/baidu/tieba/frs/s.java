@@ -8,11 +8,11 @@ import java.util.ArrayList;
 class s implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1095a;
+    final /* synthetic */ FrsActivity f1093a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FrsActivity frsActivity) {
-        this.f1095a = frsActivity;
+        this.f1093a = frsActivity;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:18:0x0083 */
@@ -34,41 +34,41 @@ class s implements Runnable {
         int i;
         az azVar8;
         try {
-            azVar = this.f1095a.l;
+            azVar = this.f1093a.l;
             int c = azVar.c();
-            azVar2 = this.f1095a.l;
+            azVar2 = this.f1093a.l;
             int i2 = c - 2;
             int d = azVar2.d() - 2;
             if (i2 < 0) {
                 i2 = 0;
             }
             int i3 = d < 0 ? 0 : d;
-            NetWorkCore.NetworkStateInfo c2 = NetWorkCore.c(this.f1095a);
-            azVar3 = this.f1095a.l;
+            NetWorkCore.NetworkStateInfo c2 = NetWorkCore.c(this.f1093a);
+            azVar3 = this.f1093a.l;
             azVar3.g().a().a();
-            azVar4 = this.f1095a.l;
+            azVar4 = this.f1093a.l;
             azVar4.i().a().a();
-            azVar5 = this.f1095a.l;
+            azVar5 = this.f1093a.l;
             azVar5.h().a().a();
             boolean z = c2 == NetWorkCore.NetworkStateInfo.WIFI || c2 == NetWorkCore.NetworkStateInfo.ThreeG;
-            str = this.f1095a.A;
+            str = this.f1093a.A;
             if (str != "frs_page") {
-                str2 = this.f1095a.A;
+                str2 = this.f1093a.A;
                 if (str2 == "normal_page") {
-                    aaVar = this.f1095a.v;
+                    aaVar = this.f1093a.v;
                     String n = aaVar.a().n();
                     if (n != null && n.length() > 0) {
-                        this.f1095a.b();
+                        this.f1093a.b();
                     }
                 }
             } else {
-                this.f1095a.c();
+                this.f1093a.c();
             }
             int i4 = i2;
             int i5 = 0;
             while (i4 < azVar6.g().getCount()) {
                 if (z || i4 <= i3) {
-                    azVar7 = this.f1095a.l;
+                    azVar7 = this.f1093a.l;
                     bm bmVar = (bm) azVar7.g().getItem(i4);
                     if (bmVar != null) {
                         ArrayList m = bmVar.m();
@@ -82,7 +82,7 @@ class s implements Runnable {
                                         break;
                                     }
                                     i5++;
-                                    azVar8 = this.f1095a.l;
+                                    azVar8 = this.f1093a.l;
                                     azVar8.g().a().a(((com.baidu.tieba.data.am) m.get(i6)).b(), new t(this));
                                 }
                                 i6++;

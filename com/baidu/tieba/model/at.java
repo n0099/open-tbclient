@@ -11,7 +11,7 @@ public class at {
     private int d = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private UserData f1338a = new UserData();
+    private UserData f1336a = new UserData();
     private AntiData b = new AntiData();
 
     public at() {
@@ -21,7 +21,7 @@ public class at {
     }
 
     public UserData a() {
-        return this.f1338a;
+        return this.f1336a;
     }
 
     public AntiData b() {
@@ -38,7 +38,7 @@ public class at {
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f1338a.parserJson(jSONObject.optJSONObject("user"));
+            this.f1336a.parserJson(jSONObject.optJSONObject("user"));
             this.b.parserJson(jSONObject.optJSONObject("anti"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {

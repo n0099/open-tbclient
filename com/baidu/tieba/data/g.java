@@ -10,17 +10,17 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1013a = "http://c.tieba.baidu.com/";
+    public static String f1011a = "http://c.tieba.baidu.com/";
     public static String b = "http://tieba.baidu.com/";
     public static final Long c = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
     public static final Long d = 36000000L;
     public static final Long e = 36000000L;
     public static final Long f = Long.valueOf((long) Util.MILLSECONDS_OF_DAY);
-    public static final String g = String.valueOf(f1013a) + "c/s/apprecommend";
-    public static final String h = String.valueOf(f1013a) + "c/s/recommend/";
-    public static final String i = String.valueOf(f1013a) + "c/s/classic";
+    public static final String g = String.valueOf(f1011a) + "c/s/apprecommend";
+    public static final String h = String.valueOf(f1011a) + "c/s/recommend/";
+    public static final String i = String.valueOf(f1011a) + "c/s/classic";
     public static String j = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String k = String.valueOf(f1013a) + "c/p/img?";
+    public static final String k = String.valueOf(f1011a) + "c/p/img?";
     public static int l = 80;
     public static final Bitmap.Config m = Bitmap.Config.RGB_565;
     private static String o = null;

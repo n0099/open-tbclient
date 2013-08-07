@@ -7,7 +7,7 @@ public class bc {
     private String d;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f993a = null;
+    private String f991a = null;
     private String b = null;
     private String c = null;
     private boolean h = false;
@@ -25,7 +25,7 @@ public class bc {
     }
 
     public String c() {
-        return this.f993a;
+        return this.f991a;
     }
 
     public String d() {
@@ -47,7 +47,7 @@ public class bc {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f993a = jSONObject.optString("tid");
+                this.f991a = jSONObject.optString("tid");
                 this.c = jSONObject.optString("title");
                 this.b = jSONObject.optString("pid");
                 this.h = jSONObject.optInt("is_floor", 0) != 0;

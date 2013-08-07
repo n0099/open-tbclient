@@ -12,13 +12,13 @@ import java.io.File;
 class w extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaUpdateService f1717a;
+    final /* synthetic */ TiebaUpdateService f1715a;
     private String b;
     private com.baidu.tieba.util.u c = null;
     private volatile boolean d = false;
 
     public w(TiebaUpdateService tiebaUpdateService, String str) {
-        this.f1717a = tiebaUpdateService;
+        this.f1715a = tiebaUpdateService;
         this.b = null;
         this.b = str;
     }
@@ -35,8 +35,8 @@ class w extends BdAsyncTask {
         while (!this.d) {
             try {
                 this.c = new com.baidu.tieba.util.u(this.b);
-                handler = this.f1717a.k;
-                bool2 = this.c.a(String.valueOf(this.f1717a.f1694a) + ".tmp", handler, 900003);
+                handler = this.f1715a.k;
+                bool2 = this.c.a(String.valueOf(this.f1715a.f1692a) + ".tmp", handler, 900003);
                 if (bool2.booleanValue()) {
                     break;
                 } else if (this.c.f() == -2) {
@@ -56,9 +56,9 @@ class w extends BdAsyncTask {
         bool = bool2;
         try {
             if (bool.booleanValue()) {
-                com.baidu.tieba.util.p.h(this.f1717a.f1694a);
-                File c = com.baidu.tieba.util.p.c(String.valueOf(this.f1717a.f1694a) + ".tmp");
-                if (c != null && (d = com.baidu.tieba.util.p.d(this.f1717a.f1694a)) != null && !c.renameTo(d)) {
+                com.baidu.tieba.util.p.h(this.f1715a.f1692a);
+                File c = com.baidu.tieba.util.p.c(String.valueOf(this.f1715a.f1692a) + ".tmp");
+                if (c != null && (d = com.baidu.tieba.util.p.d(this.f1715a.f1692a)) != null && !c.renameTo(d)) {
                     aj.b(getClass().getName(), "doInBackground", "renameTo error");
                 }
             }
@@ -73,7 +73,7 @@ class w extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.f1717a.g = null;
+        this.f1715a.g = null;
         this.d = true;
         if (this.c != null) {
             this.c.i();
@@ -95,34 +95,34 @@ class w extends BdAsyncTask {
         Notification notification4;
         NotificationManager notificationManager2;
         super.a((Object) bool);
-        this.f1717a.g = null;
+        this.f1715a.g = null;
         try {
             if (bool.booleanValue()) {
-                notificationManager2 = this.f1717a.b;
+                notificationManager2 = this.f1715a.b;
                 notificationManager2.cancel(14);
             } else {
-                notification = this.f1717a.d;
+                notification = this.f1715a.d;
                 if (notification != null) {
-                    notification2 = this.f1717a.d;
-                    notification2.contentView.setTextViewText(R.id.info, this.f1717a.getString(R.string.error_sd_error));
-                    notification3 = this.f1717a.d;
+                    notification2 = this.f1715a.d;
+                    notification2.contentView.setTextViewText(R.id.info, this.f1715a.getString(R.string.error_sd_error));
+                    notification3 = this.f1715a.d;
                     notification3.flags = 16;
-                    notificationManager = this.f1717a.b;
-                    notification4 = this.f1717a.d;
+                    notificationManager = this.f1715a.b;
+                    notification4 = this.f1715a.d;
                     notificationManager.notify(14, notification4);
                 }
             }
         } catch (Exception e) {
             aj.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
-        z = this.f1717a.i;
+        z = this.f1715a.i;
         if (!z) {
-            this.f1717a.i = true;
+            this.f1715a.i = true;
             return;
         }
-        handler = this.f1717a.j;
-        handler2 = this.f1717a.j;
-        versionData = this.f1717a.f;
+        handler = this.f1715a.j;
+        handler2 = this.f1715a.j;
+        versionData = this.f1715a.f;
         handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
     }
 }

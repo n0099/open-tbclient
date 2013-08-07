@@ -12,17 +12,17 @@ import com.slidingmenu.lib.R;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1845a;
+    private View f1843a;
     private GoodGridView b;
     private Activity c;
 
     public p(Activity activity) {
-        this.f1845a = null;
+        this.f1843a = null;
         this.b = null;
         this.c = null;
         this.c = activity;
-        this.f1845a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.f1845a.findViewById(R.id.good_gridview);
+        this.f1843a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.f1843a.findViewById(R.id.good_gridview);
     }
 
     public void a(com.baidu.tieba.frs.ag agVar) {
@@ -34,7 +34,7 @@ public class p {
     }
 
     public View a() {
-        return this.f1845a;
+        return this.f1843a;
     }
 
     public void a(int i) {

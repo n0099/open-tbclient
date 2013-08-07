@@ -5,27 +5,27 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f806a;
+    private String f804a;
     private String b;
 
     public b(JSONObject jSONObject) {
-        this.f806a = null;
+        this.f804a = null;
         this.b = null;
         if (jSONObject != null) {
-            this.f806a = jSONObject.optString("text");
+            this.f804a = jSONObject.optString("text");
             this.b = jSONObject.optString("link");
         }
     }
 
     public b(String str, String str2) {
-        this.f806a = null;
+        this.f804a = null;
         this.b = null;
-        this.f806a = str;
+        this.f804a = str;
         this.b = str2;
     }
 
     public void a(String str) {
-        this.f806a = str;
+        this.f804a = str;
     }
 
     public void b(String str) {
@@ -33,7 +33,7 @@ public class b {
     }
 
     public String a() {
-        return this.f806a;
+        return this.f804a;
     }
 
     public String b() {
@@ -41,8 +41,8 @@ public class b {
     }
 
     public void c() {
-        if (this.f806a != null) {
-            this.f806a = this.f806a.replaceAll("\n", "");
+        if (this.f804a != null) {
+            this.f804a = this.f804a.replaceAll("\n", "");
         }
         if (this.b != null) {
             this.b = this.b.replaceAll("\n", "");

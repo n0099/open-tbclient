@@ -8,20 +8,20 @@ import android.widget.LinearLayout;
 public class n implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1610a;
+    final /* synthetic */ EditHeadActivity f1608a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(EditHeadActivity editHeadActivity) {
-        this.f1610a = editHeadActivity;
+        this.f1608a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LinearLayout linearLayout;
         Button button;
-        linearLayout = this.f1610a.t;
+        linearLayout = this.f1608a.t;
         linearLayout.setVisibility(8);
-        button = this.f1610a.l;
+        button = this.f1608a.l;
         button.setVisibility(0);
     }
 }

@@ -11,12 +11,12 @@ import com.baidu.android.common.util.Util;
 public class PushService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f563a = false;
+    private boolean f561a = false;
     private Handler b = new Handler();
     private Runnable c = new n(this);
 
     private void a(boolean z, boolean z2) {
-        this.f563a = z;
+        this.f561a = z;
         if (b.a()) {
             Log.d("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2);
         }
@@ -53,7 +53,7 @@ public class PushService extends Service {
             Log.i("PushService", "onDestroy");
         }
         PushSDK.destory();
-        if (!this.f563a || Util.hasOtherServiceRuninMyPid(this, getClass().getName())) {
+        if (!this.f561a || Util.hasOtherServiceRuninMyPid(this, getClass().getName())) {
             return;
         }
         Process.killProcess(Process.myPid());

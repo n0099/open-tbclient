@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 public class q extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PKingActivity f1224a;
+    final /* synthetic */ PKingActivity f1222a;
     private com.baidu.tieba.util.u b = null;
 
     public q(PKingActivity pKingActivity) {
-        this.f1224a = pKingActivity;
+        this.f1222a = pKingActivity;
         pKingActivity.j = true;
     }
 
@@ -25,16 +25,16 @@ public class q extends BdAsyncTask {
         String str;
         s sVar = new s();
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/uo/pkdetail");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/uo/pkdetail");
             com.baidu.tieba.util.u uVar = this.b;
-            str = this.f1224a.e;
+            str = this.f1222a.e;
             uVar.a("pk_id", str);
             this.b.a("rn", "25");
             String k = this.b.k();
             if (this.b.d()) {
                 sVar.b(k);
-                if (!sVar.a() && ai.c(sVar.f1226a)) {
-                    sVar.a(this.f1224a.getString(R.string.kn_data_corrupted));
+                if (!sVar.a() && ai.c(sVar.f1224a)) {
+                    sVar.a(this.f1222a.getString(R.string.kn_data_corrupted));
                 }
             } else {
                 sVar.a(this.b.h());
@@ -50,8 +50,8 @@ public class q extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(s sVar) {
-        this.f1224a.a(sVar);
-        this.f1224a.j = false;
+        this.f1222a.a(sVar);
+        this.f1222a.j = false;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -61,7 +61,7 @@ public class q extends BdAsyncTask {
             this.b.i();
             this.b = null;
         }
-        this.f1224a.l();
-        this.f1224a.j = false;
+        this.f1222a.l();
+        this.f1222a.j = false;
     }
 }

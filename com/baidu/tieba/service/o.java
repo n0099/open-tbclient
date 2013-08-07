@@ -9,7 +9,7 @@ import com.baidu.tieba.util.aj;
 public class o extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.u f1709a = null;
+    com.baidu.tieba.util.u f1707a = null;
     final /* synthetic */ TiebaMessageService b;
 
     public o(TiebaMessageService tiebaMessageService) {
@@ -34,9 +34,9 @@ public class o extends BdAsyncTask {
             e = e2;
         }
         if (TiebaApplication.f().ab()) {
-            this.f1709a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/msg");
-            String k = this.f1709a.k();
-            if (this.f1709a.d()) {
+            this.f1707a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/msg");
+            String k = this.f1707a.k();
+            if (this.f1707a.d()) {
                 anVar = new an();
                 try {
                     anVar.a(k);
@@ -55,9 +55,9 @@ public class o extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f1691a = null;
-        if (this.f1709a != null) {
-            this.f1709a.i();
+        this.b.f1689a = null;
+        if (this.f1707a != null) {
+            this.f1707a.i();
         }
         super.cancel(true);
     }
@@ -68,7 +68,7 @@ public class o extends BdAsyncTask {
     public void a(an anVar) {
         try {
             super.a((Object) anVar);
-            this.b.f1691a = null;
+            this.b.f1689a = null;
             if (anVar != null) {
                 this.b.b = anVar;
                 this.b.b();

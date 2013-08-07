@@ -8,17 +8,17 @@ import com.baidu.tieba.frs.FrsActivity;
 public class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1850a;
+    final /* synthetic */ t f1848a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.f1850a = tVar;
+        this.f1848a = tVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        activity = this.f1850a.u;
+        activity = this.f1848a.u;
         ((FrsActivity) activity).k();
     }
 }

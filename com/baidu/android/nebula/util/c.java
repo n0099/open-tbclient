@@ -3,7 +3,7 @@ package com.baidu.android.nebula.util;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f561a;
+    private long f559a;
     private double b;
     private double c;
     private double d;
@@ -22,6 +22,6 @@ public class c {
     }
 
     public String toString() {
-        return "LocationInfo [time=" + this.f561a + ", longitude=" + this.b + ", latitude=" + this.c + ", radius=" + this.d + ", addressStr=" + this.e + "]";
+        return "LocationInfo [time=" + this.f559a + ", longitude=" + this.b + ", latitude=" + this.c + ", radius=" + this.d + ", addressStr=" + this.e + "]";
     }
 }

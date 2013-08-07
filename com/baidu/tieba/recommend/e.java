@@ -8,11 +8,11 @@ import com.baidu.tieba.view.ChildViewPager;
 public class e extends ViewPager.SimpleOnPageChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1664a;
+    final /* synthetic */ c f1662a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.f1664a = cVar;
+        this.f1662a = cVar;
     }
 
     @Override // android.support.v4.view.ViewPager.SimpleOnPageChangeListener, android.support.v4.view.bq
@@ -27,27 +27,27 @@ public class e extends ViewPager.SimpleOnPageChangeListener {
         DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
         ChildViewPager childViewPager7;
         if (i == 0) {
-            childViewPager2 = this.f1664a.f;
+            childViewPager2 = this.f1662a.f;
             int currentItem = childViewPager2.getCurrentItem();
             if (currentItem < 1) {
-                childViewPager6 = this.f1664a.f;
-                dailyRecommendBannerPagerAdapter2 = this.f1664a.g;
+                childViewPager6 = this.f1662a.f;
+                dailyRecommendBannerPagerAdapter2 = this.f1662a.g;
                 childViewPager6.a(dailyRecommendBannerPagerAdapter2.getCount() - 2, false);
-                childViewPager7 = this.f1664a.f;
+                childViewPager7 = this.f1662a.f;
                 childViewPager7.invalidate();
             } else {
-                dailyRecommendBannerPagerAdapter = this.f1664a.g;
+                dailyRecommendBannerPagerAdapter = this.f1662a.g;
                 if (currentItem > dailyRecommendBannerPagerAdapter.getCount() - 2) {
-                    childViewPager3 = this.f1664a.f;
+                    childViewPager3 = this.f1662a.f;
                     childViewPager3.a(1, false);
-                    childViewPager4 = this.f1664a.f;
+                    childViewPager4 = this.f1662a.f;
                     childViewPager4.invalidate();
                 }
             }
-            childViewPager5 = this.f1664a.f;
+            childViewPager5 = this.f1662a.f;
             childViewPager5.requestDisallowInterceptTouchEvent(false);
         } else if (i == 1) {
-            childViewPager = this.f1664a.f;
+            childViewPager = this.f1662a.f;
             childViewPager.requestDisallowInterceptTouchEvent(true);
         }
     }
@@ -58,14 +58,14 @@ public class e extends ViewPager.SimpleOnPageChangeListener {
         DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter2;
         ChildViewPager childViewPager;
         DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter3;
-        dailyRecommendBannerPagerAdapter = this.f1664a.g;
+        dailyRecommendBannerPagerAdapter = this.f1662a.g;
         if (dailyRecommendBannerPagerAdapter != null) {
-            dailyRecommendBannerPagerAdapter2 = this.f1664a.g;
-            int size = dailyRecommendBannerPagerAdapter2.f1625a.size();
-            childViewPager = this.f1664a.f;
+            dailyRecommendBannerPagerAdapter2 = this.f1662a.g;
+            int size = dailyRecommendBannerPagerAdapter2.f1623a.size();
+            childViewPager = this.f1662a.f;
             if (size > childViewPager.getCurrentItem()) {
-                dailyRecommendBannerPagerAdapter3 = this.f1664a.g;
-                ((View) dailyRecommendBannerPagerAdapter3.f1625a.get(i)).invalidate();
+                dailyRecommendBannerPagerAdapter3 = this.f1662a.g;
+                ((View) dailyRecommendBannerPagerAdapter3.f1623a.get(i)).invalidate();
             }
         }
     }

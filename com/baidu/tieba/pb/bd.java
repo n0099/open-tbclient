@@ -3,11 +3,11 @@ package com.baidu.tieba.pb;
 class bd implements com.baidu.tieba.model.bd {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1472a;
+    final /* synthetic */ NewPbActivity f1470a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(NewPbActivity newPbActivity) {
-        this.f1472a = newPbActivity;
+        this.f1470a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.model.bd
@@ -22,25 +22,25 @@ class bd implements com.baidu.tieba.model.bd {
         bn bnVar6;
         com.baidu.tieba.model.bc bcVar2;
         if (z && asVar != null) {
-            avVar = this.f1472a.k;
+            avVar = this.f1470a.k;
             avVar.a(asVar.f());
-            bnVar3 = this.f1472a.p;
-            bcVar = this.f1472a.j;
+            bnVar3 = this.f1470a.p;
+            bcVar = this.f1470a.j;
             bnVar3.a(asVar, i2, i3, bcVar.c());
-            bnVar4 = this.f1472a.p;
+            bnVar4 = this.f1470a.p;
             bnVar4.a(asVar, false);
-            bnVar5 = this.f1472a.p;
+            bnVar5 = this.f1470a.p;
             bnVar5.R();
-            bnVar6 = this.f1472a.p;
-            bcVar2 = this.f1472a.j;
+            bnVar6 = this.f1470a.p;
+            bcVar2 = this.f1470a.j;
             bnVar6.c(bcVar2.b());
         } else if (str != null) {
-            bnVar = this.f1472a.p;
+            bnVar = this.f1470a.p;
             bnVar.p();
-            bnVar2 = this.f1472a.p;
+            bnVar2 = this.f1470a.p;
             bnVar2.d(str);
             if (i == 4 || i == 28) {
-                this.f1472a.finish();
+                this.f1470a.finish();
             }
         }
     }
@@ -48,7 +48,7 @@ class bd implements com.baidu.tieba.model.bd {
     @Override // com.baidu.tieba.model.bd
     public void a(com.baidu.tieba.data.as asVar) {
         bn bnVar;
-        bnVar = this.f1472a.p;
+        bnVar = this.f1470a.p;
         bnVar.a(asVar);
     }
 }

@@ -5,12 +5,12 @@ import android.view.View;
 class q implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendBannerPagerAdapter f1675a;
+    final /* synthetic */ DailyRecommendBannerPagerAdapter f1673a;
     private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter, View view) {
-        this.f1675a = dailyRecommendBannerPagerAdapter;
+        this.f1673a = dailyRecommendBannerPagerAdapter;
         this.b = view;
     }
 

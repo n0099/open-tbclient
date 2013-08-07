@@ -19,7 +19,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class AppsActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1391a = null;
+    private String f1389a = null;
     private BaseWebView b = null;
     private ImageView c = null;
     private t d = null;
@@ -54,9 +54,9 @@ public class AppsActivity extends com.baidu.tieba.g {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f1391a = bundle.getString("url");
+            this.f1389a = bundle.getString("url");
         } else {
-            this.f1391a = getIntent().getStringExtra("url");
+            this.f1389a = getIntent().getStringExtra("url");
         }
         if (System.currentTimeMillis() - getSharedPreferences("settings", 0).getLong("app_inverval", 0L) > Util.MILLSECONDS_OF_DAY) {
             c();
@@ -70,7 +70,7 @@ public class AppsActivity extends com.baidu.tieba.g {
         if (this.d != null) {
             this.d.cancel();
         }
-        this.d = new t(this, this.f1391a);
+        this.d = new t(this, this.f1389a);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
     }
@@ -109,7 +109,7 @@ public class AppsActivity extends com.baidu.tieba.g {
             return false;
         }
         this.f.setVisibility(8);
-        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.f1013a, b, "text/html", BdUtil.UTF8, "");
+        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.f1011a, b, "text/html", BdUtil.UTF8, "");
         return true;
     }
 }

@@ -1,29 +1,27 @@
 package com.baidu.android.systemmonitor.c;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.systemmonitor.d.a.l;
+import java.util.ArrayList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends d {
-    public b(Context context) {
-        super(context, "devinfo.db", null, 1);
+public class b implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f657a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.f657a = aVar;
     }
 
-    @Override // com.baidu.android.systemmonitor.c.d
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL("CREATE TABLE power (_id INTEGER,startstamp LONG,stopstamp LONG);");
-        sQLiteDatabase.execSQL("CREATE TABLE charge (_id INTEGER,startstamp LONG,stopstamp LONG,chargetype INTEGER,startlevel INTEGER,stoplevel INTEGER,netype INTEGER,loc TEXT);");
-        sQLiteDatabase.execSQL("CREATE TABLE network (_id INTEGER,startstamp LONG,stopstamp LONG,netype INTEGER,flow LONG);");
-        sQLiteDatabase.execSQL("CREATE TABLE stinfo (_id INTEGER,startstamp LONG,pconum INTEGER,sconum INTEGER,msnum INTEGER,msinfo TEXT,calognum INTEGER,caloginfo TEXT,sdfall TEXT,pfall TEXT,pphnum INTEGER,sphnum INTEGER,pmpnum INTEGER,smpnum INTEGER,stvnum INTEGER);");
-        sQLiteDatabase.execSQL("CREATE TABLE apkdn (_id INTEGER,startstamp LONG,dnpath TEXT,downame TEXT);");
-    }
-
-    @Override // com.baidu.android.systemmonitor.c.d
-    public void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS power");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE charge (_id INTEGER,startstamp LONG,stopstamp LONG,chargetype INTEGER,startlevel INTEGER,stoplevel INTEGER,netype INTEGER,loc TEXT);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE network (_id INTEGER,startstamp LONG,stopstamp LONG,netype INTEGER,flow LONG);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE stinfo (_id INTEGER,startstamp LONG,pconum INTEGER,sconum INTEGER,msnum INTEGER,msinfo TEXT,calognum INTEGER,caloginfo TEXT,sdfall TEXT,pfall TEXT,pphnum INTEGER,sphnum INTEGER,pmpnum INTEGER,smpnum INTEGER,stvnum INTEGER);");
-        sQLiteDatabase.execSQL("DROP TABLE IF EXISTS CREATE TABLE apkdn (_id INTEGER,startstamp LONG,dnpath TEXT,downame TEXT);");
-        a(sQLiteDatabase);
+    @Override // java.lang.Runnable
+    public void run() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(l.CHARGE_EVENT);
+        arrayList.add(l.NETWORK_EVENT);
+        arrayList.add(l.POWER_EVENT);
+        arrayList.add(l.STORE_INFORMATION);
+        arrayList.add(l.APKDOWNLOAD_EVENT);
+        this.f657a.a(arrayList);
     }
 }

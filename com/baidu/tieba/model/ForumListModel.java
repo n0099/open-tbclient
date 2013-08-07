@@ -58,7 +58,7 @@ public class ForumListModel extends com.baidu.adp.a.c implements Serializable {
     }
 
     public static ForumListModel fetch(Context context, RequestParams requestParams) {
-        com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(context, String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/forum/detailforumdir");
+        com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(context, String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/forum/detailforumdir");
         uVar.a("rn", String.valueOf(requestParams.rn));
         uVar.a("offset", String.valueOf(requestParams.offset));
         uVar.a("recommend_type", String.valueOf(requestParams.recommend_type));

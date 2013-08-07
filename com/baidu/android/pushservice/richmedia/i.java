@@ -14,12 +14,12 @@ import java.util.HashMap;
 public class i extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaListActivity f612a;
+    final /* synthetic */ MediaListActivity f610a;
     private Context b;
     private ArrayList c;
 
     public i(MediaListActivity mediaListActivity, Context context, ArrayList arrayList) {
-        this.f612a = mediaListActivity;
+        this.f610a = mediaListActivity;
         this.b = context;
         this.c = arrayList;
     }
@@ -47,13 +47,13 @@ public class i extends BaseAdapter {
         int i5;
         int i6;
         LayoutInflater from = LayoutInflater.from(this.b.getApplicationContext());
-        i2 = this.f612a.e;
+        i2 = this.f610a.e;
         View inflate = from.inflate(i2, (ViewGroup) null);
         inflate.setBackgroundColor(-7829368);
-        i3 = this.f612a.g;
-        i4 = this.f612a.h;
-        i5 = this.f612a.i;
-        i6 = this.f612a.j;
+        i3 = this.f610a.g;
+        i4 = this.f610a.h;
+        i5 = this.f610a.i;
+        i6 = this.f610a.j;
         ((TextView) inflate.findViewById(i4)).setText(((HashMap) this.c.get(i)).get("title").toString());
         ((TextView) inflate.findViewById(i5)).setText(((HashMap) this.c.get(i)).get("fromtext").toString());
         ((TextView) inflate.findViewById(i6)).setText(((HashMap) this.c.get(i)).get("timetext").toString());

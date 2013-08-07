@@ -8,11 +8,11 @@ import com.baidu.tieba.util.u;
 public class b extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderFirstDirActivity f1720a;
+    final /* synthetic */ BarFolderFirstDirActivity f1718a;
     private u b;
 
     private b(BarFolderFirstDirActivity barFolderFirstDirActivity) {
-        this.f1720a = barFolderFirstDirActivity;
+        this.f1718a = barFolderFirstDirActivity;
         this.b = null;
     }
 
@@ -27,10 +27,10 @@ public class b extends BdAsyncTask {
     /* renamed from: d */
     public g a(Object... objArr) {
         c cVar;
-        cVar = this.f1720a.k;
+        cVar = this.f1718a.k;
         g a2 = cVar.a();
         try {
-            this.b = new u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/forum/forumdir");
+            this.b = new u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/forum/forumdir");
             String k = this.b.k();
             if (this.b.d()) {
                 a2.b(k);
@@ -48,7 +48,7 @@ public class b extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(g gVar) {
-        this.f1720a.a(gVar, false);
+        this.f1718a.a(gVar, false);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -58,6 +58,6 @@ public class b extends BdAsyncTask {
             this.b.i();
             this.b = null;
         }
-        this.f1720a.a((g) null, true);
+        this.f1718a.a((g) null, true);
     }
 }

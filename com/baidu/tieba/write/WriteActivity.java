@@ -36,7 +36,7 @@ import com.slidingmenu.lib.R;
 public class WriteActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private WriteData f1868a = null;
+    private WriteData f1866a = null;
     private boolean b = false;
     private boolean c = false;
     private InputMethodManager d = null;
@@ -184,7 +184,7 @@ public class WriteActivity extends com.baidu.tieba.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        if (this.f1868a != null && this.f1868a.getType() == 2 && this.B) {
+        if (this.f1866a != null && this.f1866a.getType() == 2 && this.B) {
             finish();
         } else if (this.x != null && (this.e.getText().toString().length() > 0 || this.f.getText().toString().length() > 0)) {
             if (this.c) {
@@ -213,8 +213,8 @@ public class WriteActivity extends com.baidu.tieba.g {
             }
             finish();
         } else {
-            if (this.f1868a.getHaveDraft()) {
-                DatabaseService.a(this.f1868a);
+            if (this.f1866a.getHaveDraft()) {
+                DatabaseService.a(this.f1866a);
             }
             finish();
         }
@@ -300,15 +300,15 @@ public class WriteActivity extends com.baidu.tieba.g {
         this.e = (EditText) findViewById(R.id.post_title);
         this.e.setOnClickListener(this.N);
         this.e.setOnFocusChangeListener(this.O);
-        if (this.f1868a.getType() == 0) {
-            if (this.f1868a.getTitle() != null) {
-                this.e.setText(this.f1868a.getTitle());
+        if (this.f1866a.getType() == 0) {
+            if (this.f1866a.getTitle() != null) {
+                this.e.setText(this.f1866a.getTitle());
             } else if (this.b) {
                 this.e.setText(getResources().getString(R.string.android_feedback));
                 this.e.setSelection(getResources().getString(R.string.android_feedback).length());
             }
-        } else if (this.f1868a.getType() != 1) {
-            this.f1868a.getType();
+        } else if (this.f1866a.getType() != 1) {
+            this.f1866a.getType();
         }
         this.e.addTextChangedListener(new am(this));
         this.z.postDelayed(this.K, 200L);
@@ -320,21 +320,21 @@ public class WriteActivity extends com.baidu.tieba.g {
         this.f.setOnClickListener(this.N);
         this.m = (ImageView) findViewById(R.id.select_image);
         this.m.setOnClickListener(new v(this));
-        if (this.f1868a.getContent() != null && this.f1868a.getContent().length() > 0) {
-            this.f.setText(com.baidu.tbadk.a.a.a().a(this, this.f1868a.getContent()));
-        } else if (this.f1868a.getType() == 2) {
+        if (this.f1866a.getContent() != null && this.f1866a.getContent().length() > 0) {
+            this.f.setText(com.baidu.tbadk.a.a.a().a(this, this.f1866a.getContent()));
+        } else if (this.f1866a.getType() == 2) {
             if (this.B) {
                 this.m.setVisibility(8);
                 if (this.C != null && this.C.length() > 0) {
                     this.f.setText(getString(R.string.reply_sub_floor, new Object[]{this.C}));
                     this.f.setSelection(this.f.getText().length());
                 }
-            } else if (this.f1868a.getFloorNum() > 0) {
-                String format = String.format(getString(R.string.reply_x_floor), Integer.valueOf(this.f1868a.getFloorNum()));
+            } else if (this.f1866a.getFloorNum() > 0) {
+                String format = String.format(getString(R.string.reply_x_floor), Integer.valueOf(this.f1866a.getFloorNum()));
                 this.f.setText(format);
                 this.f.setSelection(format.length());
             }
-        } else if (this.f1868a.getType() == 0 && this.b) {
+        } else if (this.f1866a.getType() == 0 && this.b) {
             StringBuffer stringBuffer = new StringBuffer(30);
             stringBuffer.append(getResources().getString(R.string.tieba_client));
             stringBuffer.append(com.baidu.tieba.data.g.i());
@@ -357,7 +357,7 @@ public class WriteActivity extends com.baidu.tieba.g {
         this.j.setOnClickListener(new aa(this));
         this.k = (ImageView) findViewById(R.id.select_face);
         this.k.setOnClickListener(new ab(this));
-        if (this.f1868a.getType() == 0) {
+        if (this.f1866a.getType() == 0) {
             if (this.b) {
                 this.q.setText(R.string.feedback);
             } else {
@@ -395,7 +395,7 @@ public class WriteActivity extends com.baidu.tieba.g {
     /* JADX INFO: Access modifiers changed from: private */
     public void n() {
         String trim;
-        if (this.f1868a.getType() == 0) {
+        if (this.f1866a.getType() == 0) {
             trim = this.e.getText().toString().trim();
         } else if (this.y != null) {
             trim = "1";
@@ -423,36 +423,36 @@ public class WriteActivity extends com.baidu.tieba.g {
     private void a(Bundle bundle) {
         int intExtra;
         this.w = new af(this);
-        this.f1868a = new WriteData();
+        this.f1866a = new WriteData();
         if (bundle != null) {
-            this.f1868a.setType(bundle.getInt("type", 0));
-            this.f1868a.setForumId(bundle.getString("forum_id"));
-            this.f1868a.setForumName(bundle.getString("forum_name"));
-            this.f1868a.setThreadId(bundle.getString("thread_id"));
-            this.f1868a.setFloor(bundle.getString("floor_id"));
+            this.f1866a.setType(bundle.getInt("type", 0));
+            this.f1866a.setForumId(bundle.getString("forum_id"));
+            this.f1866a.setForumName(bundle.getString("forum_name"));
+            this.f1866a.setThreadId(bundle.getString("thread_id"));
+            this.f1866a.setFloor(bundle.getString("floor_id"));
             intExtra = bundle.getInt("floor_num", 0);
-            this.f1868a.setFloorNum(intExtra);
+            this.f1866a.setFloorNum(intExtra);
             this.b = bundle.getBoolean("feed_back", false);
             this.B = bundle.getBoolean("reply_sub_pb", false);
             this.C = bundle.getString("sub_user_name");
         } else {
             Intent intent = getIntent();
-            this.f1868a.setType(intent.getIntExtra("type", 0));
-            this.f1868a.setForumId(intent.getStringExtra("forum_id"));
-            this.f1868a.setForumName(intent.getStringExtra("forum_name"));
-            this.f1868a.setThreadId(intent.getStringExtra("thread_id"));
-            this.f1868a.setFloor(intent.getStringExtra("floor_id"));
+            this.f1866a.setType(intent.getIntExtra("type", 0));
+            this.f1866a.setForumId(intent.getStringExtra("forum_id"));
+            this.f1866a.setForumName(intent.getStringExtra("forum_name"));
+            this.f1866a.setThreadId(intent.getStringExtra("thread_id"));
+            this.f1866a.setFloor(intent.getStringExtra("floor_id"));
             intExtra = intent.getIntExtra("floor_num", 0);
-            this.f1868a.setFloorNum(intExtra);
+            this.f1866a.setFloorNum(intExtra);
             this.b = intent.getBooleanExtra("feed_back", false);
             this.B = intent.getBooleanExtra("reply_sub_pb", false);
             this.C = intent.getStringExtra("sub_user_name");
         }
-        WriteData a2 = DatabaseService.a(this.f1868a.getType(), this.f1868a.getForumId(), this.f1868a.getThreadId(), this.f1868a.getFloor());
+        WriteData a2 = DatabaseService.a(this.f1866a.getType(), this.f1866a.getForumId(), this.f1866a.getThreadId(), this.f1866a.getFloor());
         if (a2 != null) {
-            this.f1868a = a2;
-            this.f1868a.setFloorNum(intExtra);
-            this.f1868a.setHaveDraft(true);
+            this.f1866a = a2;
+            this.f1866a.setFloorNum(intExtra);
+            this.f1866a.setHaveDraft(true);
         }
     }
 
@@ -477,12 +477,12 @@ public class WriteActivity extends com.baidu.tieba.g {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putInt("type", this.f1868a.getType());
-        bundle.putString("forum_id", this.f1868a.getForumId());
-        bundle.putString("forum_name", this.f1868a.getForumName());
-        bundle.putString("thread_id", this.f1868a.getThreadId());
-        bundle.putString("floor_id", this.f1868a.getFloor());
-        bundle.putInt("floor_num", this.f1868a.getFloorNum());
+        bundle.putInt("type", this.f1866a.getType());
+        bundle.putString("forum_id", this.f1866a.getForumId());
+        bundle.putString("forum_name", this.f1866a.getForumName());
+        bundle.putString("thread_id", this.f1866a.getThreadId());
+        bundle.putString("floor_id", this.f1866a.getFloor());
+        bundle.putInt("floor_num", this.f1866a.getFloorNum());
         bundle.putBoolean("reply_sub_pb", this.B);
         if (this.b) {
             bundle.putBoolean("feed_back", true);
@@ -500,14 +500,14 @@ public class WriteActivity extends com.baidu.tieba.g {
     }
 
     public void b() {
-        this.f1868a.setTitle(this.e.getText().toString());
-        this.f1868a.setContent(this.f.getText().toString());
+        this.f1866a.setTitle(this.e.getText().toString());
+        this.f1866a.setContent(this.f.getText().toString());
         a(getString(R.string.sending), this.w);
         if (this.v != null) {
             this.v.cancel();
         }
-        this.f1868a.setVcode(null);
-        this.v = new ao(this, this.f1868a);
+        this.f1866a.setVcode(null);
+        this.v = new ao(this, this.f1866a);
         this.v.setPriority(3);
         this.v.execute(0);
     }
@@ -565,7 +565,7 @@ public class WriteActivity extends com.baidu.tieba.g {
                     this.f.getText().insert(this.f.getSelectionStart(), "@" + a2 + " ");
                 }
             } else if (i == 12006) {
-                DatabaseService.a(this.f1868a);
+                DatabaseService.a(this.f1866a);
                 setResult(-1);
                 finish();
             } else {
@@ -610,7 +610,7 @@ public class WriteActivity extends com.baidu.tieba.g {
             this.y.recycle();
         }
         this.y = null;
-        this.f1868a.setBitmapId(null);
+        this.f1866a.setBitmapId(null);
         this.n.setVisibility(0);
         n();
     }
@@ -622,7 +622,7 @@ public class WriteActivity extends com.baidu.tieba.g {
         this.n.setVisibility(8);
         if (bitmap != null) {
             this.y = bitmap;
-            this.f1868a.setBitmapId(null);
+            this.f1866a.setBitmapId(null);
             this.p.setImageBitmap(this.y);
             this.p.setVisibility(0);
             this.o.setVisibility(0);

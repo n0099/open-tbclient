@@ -21,7 +21,7 @@ import com.slidingmenu.lib.R;
 public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private aa f1393a = null;
+    private aa f1391a = null;
     private MoreModel b = null;
     private z c = null;
 
@@ -41,8 +41,8 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
     }
 
     public void b() {
-        this.f1393a = new aa(this);
-        this.f1393a.q();
+        this.f1391a = new aa(this);
+        this.f1391a.q();
     }
 
     public void a(Bundle bundle) {
@@ -60,7 +60,7 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.f1393a.E();
+        this.f1391a.E();
         k();
     }
 
@@ -68,15 +68,15 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1393a.x();
-        this.f1393a.y();
+        this.f1391a.x();
+        this.f1391a.y();
         if (TiebaApplication.n()) {
             if (TiebaApplication.E() == null || TiebaApplication.I() == null || TiebaApplication.I().equals("BaiduUser")) {
-                this.f1393a.u();
+                this.f1391a.u();
             } else {
-                this.f1393a.t();
+                this.f1391a.t();
             }
-            this.f1393a.v();
+            this.f1391a.v();
         }
     }
 
@@ -84,14 +84,14 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        this.f1393a.a(i);
+        this.f1391a.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g
     public void i() {
         d(-1);
-        this.f1393a.D();
+        this.f1391a.D();
     }
 
     @Override // android.app.Activity
@@ -103,7 +103,7 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        if (view == this.f1393a.c()) {
+        if (view == this.f1391a.c()) {
             if (TiebaApplication.n()) {
                 com.baidu.tieba.c.a(this, 0, "goto_person", false);
                 return;
@@ -114,25 +114,25 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
             } else {
                 AccountActivity.a(this);
             }
-        } else if (view == this.f1393a.e()) {
+        } else if (view == this.f1391a.e()) {
             String E2 = TiebaApplication.E();
             if (E2 == null || E2.length() <= 0) {
                 LoginActivity.a(this, "goto_person", getString(R.string.login_to_use), 11003);
             } else {
                 MsgRemindActivity.a(this);
             }
-        } else if (view == this.f1393a.f()) {
+        } else if (view == this.f1391a.f()) {
             SignRemindActivity.a(this);
-        } else if (view == this.f1393a.g()) {
+        } else if (view == this.f1391a.g()) {
             BrowseSettingActivity.a(this);
-        } else if (view == this.f1393a.h()) {
-            this.f1393a.r();
+        } else if (view == this.f1391a.h()) {
+            this.f1391a.r();
             this.b.b();
-        } else if (view == this.f1393a.i()) {
+        } else if (view == this.f1391a.i()) {
             AboutActivity.a(this);
-        } else if (view == this.f1393a.j()) {
+        } else if (view == this.f1391a.j()) {
             c();
-        } else if (view == this.f1393a.k()) {
+        } else if (view == this.f1391a.k()) {
             String str2 = com.baidu.tieba.data.g.g;
             if (str2.indexOf("?") < 0) {
                 str2 = String.valueOf(str2) + "?";
@@ -145,12 +145,12 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
                 str = String.valueOf(str2) + "night_type=0";
             }
             AppsActivity.a(this, str);
-        } else if (view == this.f1393a.d()) {
+        } else if (view == this.f1391a.d()) {
             String E3 = TiebaApplication.E();
             if (E3 != null && E3.length() > 0) {
                 PersonChangeActivity.a(this, WebChromeClient.STRING_DLG_TITLE_DATETIME, this.b.c());
             }
-        } else if (view == this.f1393a.b()) {
+        } else if (view == this.f1391a.b()) {
             if (this.b.a()) {
                 Intent intent = new Intent();
                 intent.putExtra("person_change_data", this.b.c());
@@ -206,13 +206,13 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.f1393a.l()) {
+        if (view == this.f1391a.l()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.f().s(true);
             } else {
                 TiebaApplication.f().s(false);
             }
-        } else if (view == this.f1393a.m()) {
+        } else if (view == this.f1391a.m()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 if (TiebaApplication.f().au() != 1) {
                     TiebaApplication.f().h(1);
@@ -230,19 +230,19 @@ public class MoreActivity extends com.baidu.tieba.g implements com.baidu.adp.wid
                 return;
             }
             com.baidu.tieba.util.e.a();
-        } else if (view == this.f1393a.n()) {
+        } else if (view == this.f1391a.n()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.f().d(true);
             } else {
                 TiebaApplication.f().d(false);
             }
-        } else if (view == this.f1393a.o()) {
+        } else if (view == this.f1391a.o()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.f().k(true);
             } else {
                 TiebaApplication.f().k(false);
             }
-        } else if (view == this.f1393a.p()) {
+        } else if (view == this.f1391a.p()) {
             boolean z = NetWorkCore.a(this) == NetWorkCore.NetworkState.WIFI;
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.f().a(true, z);

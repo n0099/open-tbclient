@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.moplus.MoPlusService;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.systemmonitor.a.a.o;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -20,7 +19,7 @@ public class PushMsgReceiver extends BroadcastReceiver {
         b = context;
         String action = intent.getAction();
         if (PushConstants.ACTION_MESSAGE.equals(action) || "com.baidu.pushservice.action.supper.MESSAGE".equals(action)) {
-            if (o.a(context).c()) {
+            if (com.baidu.android.systemmonitor.d.a.k.a(context).c()) {
                 Intent intent2 = new Intent(intent);
                 intent2.setClass(context, MoPlusService.class);
                 context.startService(intent2);
@@ -36,12 +35,12 @@ public class PushMsgReceiver extends BroadcastReceiver {
                         String string = jSONObject.getString("channel_id");
                         String string2 = jSONObject.getString(PushConstants.EXTRA_USER_ID);
                         if ("543540".equals(jSONObject.getString("appid"))) {
-                            b.b(b, string);
-                            b.c(b, string2);
+                            l.b(b, string);
+                            l.c(b, string2);
                             if (PushConstants.ACTION_RECEIVE.equals(action)) {
-                                b.a(b, 1);
+                                l.a(b, 1);
                             } else {
-                                b.a(b, 2);
+                                l.a(b, 2);
                             }
                             Intent intent3 = new Intent(intent);
                             intent3.setClass(context, MoPlusService.class);

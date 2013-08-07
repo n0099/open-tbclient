@@ -9,12 +9,12 @@ import com.baidu.tieba.pb.NewPbActivity;
 public class r implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1094a;
+    final /* synthetic */ FrsActivity f1092a;
     private final /* synthetic */ bm b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FrsActivity frsActivity, bm bmVar) {
-        this.f1094a = frsActivity;
+        this.f1092a = frsActivity;
         this.b = bmVar;
     }
 
@@ -25,27 +25,27 @@ public class r implements DialogInterface.OnClickListener {
         az azVar;
         switch (i) {
             case 0:
-                str = this.f1094a.j;
+                str = this.f1092a.j;
                 if (str != null) {
-                    FrsActivity frsActivity = this.f1094a;
+                    FrsActivity frsActivity = this.f1092a;
                     bm bmVar = this.b;
-                    z = this.f1094a.k;
+                    z = this.f1092a.k;
                     NewPbActivity.a(frsActivity, bmVar, null, 18003, true, false, z);
                     break;
                 }
                 break;
             case 1:
-                this.f1094a.c(this.b);
+                this.f1092a.c(this.b);
                 break;
             case 2:
-                this.f1094a.d(this.b);
+                this.f1092a.d(this.b);
                 break;
         }
         com.baidu.tieba.util.z aE = TiebaApplication.f().aE();
         if (aE != null && !aE.b(this.b.a())) {
             aE.a(this.b.a());
         }
-        azVar = this.f1094a.l;
+        azVar = this.f1092a.l;
         azVar.k();
     }
 }

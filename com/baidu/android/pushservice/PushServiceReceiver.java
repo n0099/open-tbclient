@@ -18,7 +18,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
         Intent intent = new Intent("com.baidu.android.pushservice.action.media.CLICK");
         intent.setClassName(str, str2);
-        intent.setData(Uri.parse("content://" + publicMsg.f590a));
+        intent.setData(Uri.parse("content://" + publicMsg.f588a));
         intent.putExtra("public_msg", publicMsg);
         PendingIntent service = PendingIntent.getService(context, 0, intent, 0);
         if (b.a()) {
@@ -27,13 +27,13 @@ public class PushServiceReceiver extends BroadcastReceiver {
         Intent intent2 = new Intent();
         intent2.setClassName(str, str2);
         intent2.setAction("com.baidu.android.pushservice.action.media.DELETE");
-        intent2.setData(Uri.parse("content://" + publicMsg.f590a));
+        intent2.setData(Uri.parse("content://" + publicMsg.f588a));
         intent2.putExtra("public_msg", publicMsg);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
         Notification a2 = c.a(context, 8888, publicMsg.c, "富媒体消息：点击后下载与查看");
         a2.contentIntent = service;
         a2.deleteIntent = service2;
-        notificationManager.notify(publicMsg.f590a, 0, a2);
+        notificationManager.notify(publicMsg.f588a, 0, a2);
     }
 
     private void a(Context context, String str, String str2, PublicMsg publicMsg, String str3, String str4) {
@@ -74,7 +74,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
             Log.d("PushServiceReceiver", "<<< download url " + parse.toString());
         }
         com.baidu.android.pushservice.richmedia.n a2 = com.baidu.android.pushservice.richmedia.p.a(com.baidu.android.pushservice.richmedia.o.REQ_TYPE_GET_ZIP, parse.toString());
-        a2.f617a = publicMsg.f;
+        a2.f615a = publicMsg.f;
         a2.b = file.getAbsolutePath();
         a2.c = publicMsg.c;
         a2.d = publicMsg.d;

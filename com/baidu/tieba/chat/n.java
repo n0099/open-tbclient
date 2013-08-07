@@ -6,11 +6,11 @@ import android.widget.AdapterView;
 class n implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListActivity f945a;
+    final /* synthetic */ ChatListActivity f943a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ChatListActivity chatListActivity) {
-        this.f945a = chatListActivity;
+        this.f943a = chatListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -20,16 +20,16 @@ class n implements AdapterView.OnItemLongClickListener {
         com.baidu.tieba.data.a.g gVar;
         v vVar3;
         if (i >= 0) {
-            vVar = this.f945a.f926a;
+            vVar = this.f943a.f924a;
             long itemId = vVar.d().getItemId(i);
             if (itemId != -1 && itemId != -2) {
-                ChatListActivity chatListActivity = this.f945a;
-                vVar2 = this.f945a.f926a;
+                ChatListActivity chatListActivity = this.f943a;
+                vVar2 = this.f943a.f924a;
                 chatListActivity.f = (com.baidu.tieba.data.a.g) vVar2.d().getItem(i);
-                ChatListActivity chatListActivity2 = this.f945a;
-                gVar = this.f945a.f;
+                ChatListActivity chatListActivity2 = this.f943a;
+                gVar = this.f943a.f;
                 chatListActivity2.a(gVar);
-                vVar3 = this.f945a.f926a;
+                vVar3 = this.f943a.f924a;
                 vVar3.h();
             }
         }

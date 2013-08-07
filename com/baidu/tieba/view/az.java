@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class az extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f1827a;
+    private Bitmap f1825a;
     private Bitmap b;
     private Matrix c;
     private Matrix d;
@@ -26,7 +26,7 @@ public class az extends ImageView {
 
     public az(Context context) {
         super(context);
-        this.f1827a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
+        this.f1825a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
         this.b = null;
         this.c = new Matrix();
         this.d = new Matrix();
@@ -88,8 +88,8 @@ public class az extends ImageView {
                     bVar.a(canvas, this.c, null);
                 }
                 this.c.reset();
-                if (c && bVar.b() > this.f1827a.getHeight() && bVar.a() > this.f1827a.getWidth()) {
-                    canvas.drawBitmap(this.f1827a, this.c, null);
+                if (c && bVar.b() > this.f1825a.getHeight() && bVar.a() > this.f1825a.getWidth()) {
+                    canvas.drawBitmap(this.f1825a, this.c, null);
                 }
                 if (TiebaApplication.f().au() == 1) {
                     this.f.set(0.0f, 0.0f, bVar.a() * min, min * bVar.b());

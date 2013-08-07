@@ -34,7 +34,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     private k o = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f846a = null;
+    LinearLayout f844a = null;
     LinearLayout b = null;
     private View.OnClickListener p = new ao(this);
 
@@ -89,7 +89,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
         this.f.setOnClickListener(this.p);
         this.j = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.g = (TextView) findViewById(R.id.relogin_textview);
-        this.f846a = (LinearLayout) findViewById(R.id.container);
+        this.f844a = (LinearLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
     }
 
@@ -100,7 +100,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
         a(0, this.k);
         com.baidu.tieba.util.ah.a((TextView) this.e, i);
         com.baidu.tieba.util.ah.a(this.f, i);
-        com.baidu.tieba.util.ah.a(this.f846a, i);
+        com.baidu.tieba.util.ah.a(this.f844a, i);
         com.baidu.tieba.util.ah.d(this.b, i);
         com.baidu.tieba.util.ah.b(this.g, i);
     }

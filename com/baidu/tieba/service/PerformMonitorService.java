@@ -16,7 +16,7 @@ public class PerformMonitorService extends Service {
     private Handler h = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public Runnable f1689a = new h(this);
+    public Runnable f1687a = new h(this);
 
     @Override // android.app.Service
     public void onCreate() {
@@ -77,7 +77,7 @@ public class PerformMonitorService extends Service {
             aj.b(getClass().getName(), "monitorOn", e4.toString());
         }
         this.f = true;
-        new Thread(this.f1689a).start();
+        new Thread(this.f1687a).start();
         new Handler().postDelayed(new j(this), 10000L);
     }
 

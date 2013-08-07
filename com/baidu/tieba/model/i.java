@@ -7,12 +7,12 @@ import java.util.ArrayList;
 public class i extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1373a;
+    final /* synthetic */ f f1371a;
     private com.baidu.tieba.util.u b;
     private com.baidu.tieba.data.bk c;
 
     private i(f fVar) {
-        this.f1373a = fVar;
+        this.f1371a = fVar;
         this.b = null;
         this.c = null;
     }
@@ -36,8 +36,8 @@ public class i extends BdAsyncTask {
         try {
             fVar.e();
             this.b = new com.baidu.tieba.util.u();
-            this.b.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/post/addstore");
-            int h = this.f1373a.h();
+            this.b.a(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/post/addstore");
+            int h = this.f1371a.h();
             if (fVar.c() - 1 <= h) {
                 h = fVar.c() - 1;
             }
@@ -51,7 +51,7 @@ public class i extends BdAsyncTask {
                 }
                 h -= 20;
             }
-            this.f1373a.b(h);
+            this.f1371a.b(h);
             if (h >= 0) {
                 return false;
             }
@@ -68,9 +68,9 @@ public class i extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1373a.c = null;
-        if (this.f1373a.f1370a != null) {
-            this.f1373a.f1370a.a(1, false, null, false);
+        this.f1371a.c = null;
+        if (this.f1371a.f1368a != null) {
+            this.f1371a.f1368a.a(1, false, null, false);
         }
     }
 
@@ -81,9 +81,9 @@ public class i extends BdAsyncTask {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.f1373a.c = null;
+        this.f1371a.c = null;
         if (bool.booleanValue()) {
-            arrayList = this.f1373a.e;
+            arrayList = this.f1371a.e;
             arrayList.clear();
             str = null;
             z = false;
@@ -94,8 +94,8 @@ public class i extends BdAsyncTask {
             str = null;
             z = true;
         }
-        if (this.f1373a.f1370a != null) {
-            this.f1373a.f1370a.a(1, bool, str, Boolean.valueOf(z));
+        if (this.f1371a.f1368a != null) {
+            this.f1371a.f1368a.a(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

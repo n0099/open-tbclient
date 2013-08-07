@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1021a;
+    private String f1019a;
     private String b;
     private String c;
     private String d;
@@ -16,7 +16,7 @@ public class o {
     private String i;
 
     public String a() {
-        return this.f1021a;
+        return this.f1019a;
     }
 
     public String b() {
@@ -48,7 +48,7 @@ public class o {
     }
 
     public void a(JSONObject jSONObject) {
-        this.f1021a = jSONObject.optString("link");
+        this.f1019a = jSONObject.optString("link");
         this.b = jSONObject.optString("title");
         this.c = jSONObject.optString("abstract");
         this.d = jSONObject.optString("forum_name");

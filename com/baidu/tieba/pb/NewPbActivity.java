@@ -67,7 +67,7 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
     private com.baidu.tbadk.widget.richText.m K = new au(this);
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.aw f1439a = null;
+    com.baidu.tieba.data.aw f1437a = null;
     private DialogInterface.OnClickListener L = new av(this);
     private View.OnLongClickListener M = new ax(this);
 
@@ -262,8 +262,8 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
     public void a(com.baidu.tieba.model.v vVar) {
         boolean z;
         int i = 0;
-        this.p.a(0, vVar.f1384a, vVar.b, true);
-        if (vVar.f1384a) {
+        this.p.a(0, vVar.f1382a, vVar.b, true);
+        if (vVar.f1382a) {
             if (vVar.c == 1) {
                 ArrayList c2 = this.j.j().c();
                 int size = c2.size();
@@ -340,19 +340,19 @@ public class NewPbActivity extends com.baidu.tieba.g implements com.baidu.tbadk.
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.x xVar) {
-        this.p.a(1, xVar.f1386a, xVar.b, true);
+        this.p.a(1, xVar.f1384a, xVar.b, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.model.z zVar) {
-        this.p.a(this.o.getLoadDataMode(), zVar.f1388a, zVar.b, false);
+        this.p.a(this.o.getLoadDataMode(), zVar.f1386a, zVar.b, false);
         this.p.a(zVar.c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, com.baidu.tieba.model.z zVar) {
-        this.p.a(this.o.getLoadDataMode(), zVar.f1388a, zVar.b, true);
-        if (zVar.f1388a) {
+        this.p.a(this.o.getLoadDataMode(), zVar.f1386a, zVar.b, true);
+        if (zVar.f1386a) {
             this.r = true;
             if (i == 2) {
                 this.j.j().b().b(1);

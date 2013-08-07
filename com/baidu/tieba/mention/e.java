@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class e extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1296a;
+    private Context f1294a;
     private ArrayList b;
     private com.baidu.tieba.util.a c;
     private String d;
@@ -31,10 +31,10 @@ public class e extends BaseAdapter {
     private int i = 3;
 
     public e(Context context, ArrayList arrayList) {
-        this.f1296a = context;
+        this.f1294a = context;
         this.b = arrayList;
-        this.d = this.f1296a.getText(R.string.forum).toString();
-        this.c = new com.baidu.tieba.util.a(this.f1296a);
+        this.d = this.f1294a.getText(R.string.forum).toString();
+        this.c = new com.baidu.tieba.util.a(this.f1294a);
     }
 
     public void a() {
@@ -156,7 +156,7 @@ public class e extends BaseAdapter {
         int au = TiebaApplication.f().au();
         try {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.f1296a);
+                LayoutInflater from = LayoutInflater.from(this.f1294a);
                 if (getItemViewType(i) == 0) {
                     if (this.h == 0) {
                         view4 = from.inflate(R.layout.mention_replyme_item, (ViewGroup) null);
@@ -181,7 +181,7 @@ public class e extends BaseAdapter {
                 } else {
                     view4 = from.inflate(R.layout.page_item, (ViewGroup) null);
                     g gVar4 = new g(this, null);
-                    gVar4.f1298a = (TextView) view4.findViewById(R.id.page_text);
+                    gVar4.f1296a = (TextView) view4.findViewById(R.id.page_text);
                     gVar4.b = (ProgressBar) view4.findViewById(R.id.progress);
                     this.j.add(gVar4.b);
                     gVar2 = gVar4;
@@ -203,28 +203,28 @@ public class e extends BaseAdapter {
             if (itemId == -1) {
                 if (this.f) {
                     gVar.b.setVisibility(0);
-                    gVar.f1298a.setText(R.string.loading);
+                    gVar.f1296a.setText(R.string.loading);
                 } else {
                     gVar.b.setVisibility(8);
-                    gVar.f1298a.setText(R.string.refresh);
+                    gVar.f1296a.setText(R.string.refresh);
                 }
             } else if (itemId == -2) {
                 if (this.g) {
                     gVar.b.setVisibility(0);
-                    gVar.f1298a.setText(R.string.loading);
+                    gVar.f1296a.setText(R.string.loading);
                 } else {
                     gVar.b.setVisibility(8);
-                    gVar.f1298a.setText(R.string.more);
+                    gVar.f1296a.setText(R.string.more);
                 }
             }
             if (au == 1) {
-                if (gVar.f1298a != null) {
-                    gVar.f1298a.setTextColor(this.f1296a.getResources().getColor(R.color.skin_1_common_color));
+                if (gVar.f1296a != null) {
+                    gVar.f1296a.setTextColor(this.f1294a.getResources().getColor(R.color.skin_1_common_color));
                     return view4;
                 }
                 return view4;
             }
-            gVar.f1298a.setTextColor(this.f1296a.getResources().getColor(R.color.black));
+            gVar.f1296a.setTextColor(this.f1294a.getResources().getColor(R.color.black));
             return view4;
         }
         com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) getItem(i);
@@ -236,10 +236,10 @@ public class e extends BaseAdapter {
             gVar.h.setTextSize(com.baidu.tieba.data.g.n());
             if (this.h == 0) {
                 if (uVar.a() == 1) {
-                    gVar.k.setText(this.f1296a.getString(R.string.mention_replyme_post));
+                    gVar.k.setText(this.f1294a.getString(R.string.mention_replyme_post));
                     gVar.i.setText(uVar.f());
                 } else {
-                    gVar.k.setText(this.f1296a.getString(R.string.mention_replyme_thread));
+                    gVar.k.setText(this.f1294a.getString(R.string.mention_replyme_thread));
                     gVar.i.setText(uVar.c());
                 }
                 if (uVar.d() != null && uVar.d().length() > 0) {
@@ -275,9 +275,9 @@ public class e extends BaseAdapter {
                     ah.h(gVar.d, (int) R.drawable.message_replyme_1);
                 }
                 if (gVar.i != null) {
-                    gVar.i.setTextColor(this.f1296a.getResources().getColor(R.color.skin_1_third_common_color));
+                    gVar.i.setTextColor(this.f1294a.getResources().getColor(R.color.skin_1_third_common_color));
                 }
-                gVar.h.setTextColor(this.f1296a.getResources().getColor(R.color.skin_1_second_common_color));
+                gVar.h.setTextColor(this.f1294a.getResources().getColor(R.color.skin_1_second_common_color));
                 view2 = view4;
             } else {
                 if (gVar.d != null) {

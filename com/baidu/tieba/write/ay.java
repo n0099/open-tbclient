@@ -13,10 +13,10 @@ import java.util.HashMap;
 public class ay extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f1895a;
+    final /* synthetic */ WriteImageActivity f1893a;
 
     private ay(WriteImageActivity writeImageActivity) {
-        this.f1895a = writeImageActivity;
+        this.f1893a = writeImageActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,21 +45,21 @@ public class ay extends BdAsyncTask {
                 c.recycle();
                 return null;
             }
-            int a2 = com.baidu.tieba.util.am.a((Context) this.f1895a, 63.5f);
+            int a2 = com.baidu.tieba.util.am.a((Context) this.f1893a, 63.5f);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.f1895a.v;
+                z = this.f1893a.v;
                 if (z) {
-                    Bitmap a3 = com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(c, a2), com.baidu.tieba.util.am.a((Context) this.f1895a, 5.0f));
-                    this.f1895a.B = new HashMap();
-                    this.f1895a.C = new HashMap();
-                    hashMap = this.f1895a.B;
+                    Bitmap a3 = com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(c, a2), com.baidu.tieba.util.am.a((Context) this.f1893a, 5.0f));
+                    this.f1893a.B = new HashMap();
+                    this.f1893a.C = new HashMap();
+                    hashMap = this.f1893a.B;
                     hashMap.put("normal", a3);
-                    strArr = WriteImageActivity.f1869a;
+                    strArr = WriteImageActivity.f1867a;
                     for (String str : strArr) {
                         String substring = str.substring(0, str.indexOf("|"));
                         if (!substring.equals("normal")) {
-                            Bitmap apply = FilterFactory.createOneKeyFilter(this.f1895a, substring).apply(this.f1895a, a3.copy(a3.getConfig(), true));
-                            hashMap2 = this.f1895a.B;
+                            Bitmap apply = FilterFactory.createOneKeyFilter(this.f1893a, substring).apply(this.f1893a, a3.copy(a3.getConfig(), true));
+                            hashMap2 = this.f1893a.B;
                             hashMap2.put(substring, apply);
                         }
                     }
@@ -79,7 +79,7 @@ public class ay extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1895a.j;
+        progressBar = this.f1893a.j;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -87,8 +87,8 @@ public class ay extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f1895a.k = null;
-        progressBar = this.f1895a.j;
+        this.f1893a.k = null;
+        progressBar = this.f1893a.j;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -102,18 +102,18 @@ public class ay extends BdAsyncTask {
         boolean z;
         String[] strArr;
         super.a((Object) bitmap);
-        this.f1895a.k = null;
-        this.f1895a.c = bitmap;
-        progressBar = this.f1895a.j;
+        this.f1893a.k = null;
+        this.f1893a.c = bitmap;
+        progressBar = this.f1893a.j;
         progressBar.setVisibility(8);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.f1895a.b;
+            imageView = this.f1893a.b;
             imageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.f1895a.v;
+                z = this.f1893a.v;
                 if (z) {
-                    WriteImageActivity writeImageActivity = this.f1895a;
-                    strArr = WriteImageActivity.f1869a;
+                    WriteImageActivity writeImageActivity = this.f1893a;
+                    strArr = WriteImageActivity.f1867a;
                     writeImageActivity.a(strArr);
                 }
             }

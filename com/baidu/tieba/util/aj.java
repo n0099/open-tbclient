@@ -8,7 +8,7 @@ import java.util.Date;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1753a = 0;
+    private static int f1751a = 0;
     private static int b = 0;
     private static int c = 0;
     private static int d = 0;
@@ -119,8 +119,8 @@ public class aj {
         FileWriter fileWriter2 = null;
         switch (i) {
             case 1:
-                if (f1753a < 10) {
-                    f1753a++;
+                if (f1751a < 10) {
+                    f1751a++;
                     break;
                 }
                 z = false;

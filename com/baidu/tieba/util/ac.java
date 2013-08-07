@@ -6,12 +6,12 @@ import android.graphics.Bitmap;
 public class ac implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1748a;
+    final /* synthetic */ aa f1746a;
     private final /* synthetic */ ag b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(aa aaVar, ag agVar) {
-        this.f1748a = aaVar;
+        this.f1746a = aaVar;
         this.b = agVar;
     }
 

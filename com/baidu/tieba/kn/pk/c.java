@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class c implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f1210a;
+    protected s f1208a;
     public com.baidu.tieba.kn.pk.widget.b b;
     ImageView c;
     private BdPullRefreshScrollView d;
@@ -117,14 +117,14 @@ public class c implements View.OnClickListener {
             this.e.a(sVar.b());
             return;
         }
-        this.f1210a = sVar;
-        this.h.setText(this.f1210a.c());
-        this.b.a(this.f1210a.b);
-        this.b.a("PK规则", this.f1210a.c);
+        this.f1208a = sVar;
+        this.h.setText(this.f1208a.c());
+        this.b.a(this.f1208a.b);
+        this.b.a("PK规则", this.f1208a.c);
         this.b.a(String.valueOf(sVar.j.e) + this.e.getString(R.string.forum), sVar.j.g, this.e);
         this.b.b(String.valueOf(sVar.k.e) + this.e.getString(R.string.forum), sVar.k.g, this.e);
-        this.i = this.f1210a.j.h;
-        this.j = this.f1210a.k.h;
+        this.i = this.f1208a.j.h;
+        this.j = this.f1208a.k.h;
         d();
         String str = sVar.j.c;
         if (str != null && (a3 = aVar.a(str, new d(this, str))) != null) {
@@ -150,12 +150,12 @@ public class c implements View.OnClickListener {
         } else {
             this.s.setVisibility(8);
         }
-        if (sVar.i.equals(sVar.j.f1243a)) {
+        if (sVar.i.equals(sVar.j.f1241a)) {
             this.l.setTextColor(-13135118);
             this.q.setTextColor(-691656);
             this.o.setImageResource(R.drawable.icon_crown_s);
             this.t.setImageResource(R.drawable.icon_crown_d);
-        } else if (sVar.i.equals(sVar.k.f1243a)) {
+        } else if (sVar.i.equals(sVar.k.f1241a)) {
             this.l.setTextColor(-691656);
             this.q.setTextColor(-13135118);
             this.o.setImageResource(R.drawable.icon_crown_d);

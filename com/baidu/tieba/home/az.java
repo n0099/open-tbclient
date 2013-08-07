@@ -13,15 +13,15 @@ import java.util.ArrayList;
 public class az extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1138a;
+    private Context f1136a;
     private ArrayList b;
     private String c;
     private boolean d = true;
 
     public az(Context context, ArrayList arrayList) {
-        this.f1138a = context;
+        this.f1136a = context;
         this.b = arrayList;
-        this.c = this.f1138a.getText(R.string.forum).toString();
+        this.c = this.f1136a.getText(R.string.forum).toString();
     }
 
     public void a(ArrayList arrayList) {
@@ -67,10 +67,10 @@ public class az extends BaseAdapter {
         View view3;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.f1138a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.f1136a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
                 try {
                     baVar = new ba(this, null);
-                    baVar.f1140a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
+                    baVar.f1138a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
                     view3.setTag(baVar);
                 } catch (Exception e) {
                     view2 = view3;
@@ -86,13 +86,13 @@ public class az extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            com.baidu.tieba.util.ah.b(baVar.f1140a, TiebaApplication.f().au());
+            com.baidu.tieba.util.ah.b(baVar.f1138a, TiebaApplication.f().au());
             String str = (String) item;
             if (this.d) {
-                baVar.f1140a.setText(str.concat(this.c));
+                baVar.f1138a.setText(str.concat(this.c));
                 return view3;
             }
-            baVar.f1140a.setText(str);
+            baVar.f1138a.setText(str);
             return view3;
         } catch (Exception e2) {
             exc = e2;

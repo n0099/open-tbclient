@@ -6,21 +6,21 @@ import com.baidu.mobstat.StatService;
 class an implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f909a;
+    final /* synthetic */ am f907a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(am amVar) {
-        this.f909a = amVar;
+        this.f907a = amVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ap apVar;
-        boolean isChecked = this.f909a.e.isChecked();
+        boolean isChecked = this.f907a.e.isChecked();
         if (TiebaApplication.f().t()) {
-            StatService.onEvent(this.f909a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1);
+            StatService.onEvent(this.f907a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1);
         }
-        apVar = this.f909a.h;
+        apVar = this.f907a.h;
         apVar.a(isChecked);
     }
 }

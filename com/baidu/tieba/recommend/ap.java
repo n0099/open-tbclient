@@ -6,11 +6,11 @@ import com.baidu.tieba.data.bl;
 public class ap implements com.baidu.tieba.model.r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FindInterestFragment f1646a;
+    final /* synthetic */ FindInterestFragment f1644a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(FindInterestFragment findInterestFragment) {
-        this.f1646a = findInterestFragment;
+        this.f1644a = findInterestFragment;
     }
 
     @Override // com.baidu.tieba.model.r
@@ -20,16 +20,16 @@ public class ap implements com.baidu.tieba.model.r {
         aq aqVar2;
         bl blVar2;
         if (i == 0) {
-            aqVar = this.f1646a.b;
+            aqVar = this.f1644a.b;
             aqVar.a(aeVar);
-            blVar = this.f1646a.e;
+            blVar = this.f1644a.e;
             if (blVar != null) {
-                aqVar2 = this.f1646a.b;
-                blVar2 = this.f1646a.e;
+                aqVar2 = this.f1644a.b;
+                blVar2 = this.f1644a.e;
                 aqVar2.a(blVar2.b());
                 return;
             }
-            this.f1646a.a(aeVar);
+            this.f1644a.a(aeVar);
         }
     }
 }

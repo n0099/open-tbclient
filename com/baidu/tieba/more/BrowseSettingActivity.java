@@ -20,7 +20,7 @@ import com.slidingmenu.lib.R;
 public class BrowseSettingActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private RadioGroup f1392a = null;
+    private RadioGroup f1390a = null;
     private RadioGroup b = null;
     private LinearLayout c = null;
     private BdSwitchView d = null;
@@ -103,8 +103,8 @@ public class BrowseSettingActivity extends com.baidu.tieba.g {
         this.p = (RadioButton) findViewById(R.id.font_size_mid);
         this.q = (RadioButton) findViewById(R.id.font_size_small);
         this.r = (TextView) findViewById(R.id.show_photo_text);
-        this.f1392a = (RadioGroup) findViewById(R.id.image_quality_radio);
-        this.f1392a.setOnCheckedChangeListener(new u(this));
+        this.f1390a = (RadioGroup) findViewById(R.id.image_quality_radio);
+        this.f1390a.setOnCheckedChangeListener(new u(this));
         SpannableString spannableString = new SpannableString(getString(R.string.view_image_quality_high_menu));
         spannableString.setSpan(new AbsoluteSizeSpan(am.a((Context) this, 12.0f)), 1, spannableString.length(), 18);
         SpannableString spannableString2 = new SpannableString(getString(R.string.view_image_quality_low_menu));
@@ -130,11 +130,11 @@ public class BrowseSettingActivity extends com.baidu.tieba.g {
 
     private void c() {
         if (!TiebaApplication.f().aq()) {
-            this.f1392a.check(R.id.image_quality_close);
+            this.f1390a.check(R.id.image_quality_close);
         } else if (TiebaApplication.f().ap() == 1) {
-            this.f1392a.check(R.id.image_quality_high);
+            this.f1390a.check(R.id.image_quality_high);
         } else {
-            this.f1392a.check(R.id.image_quality_low);
+            this.f1390a.check(R.id.image_quality_low);
         }
     }
 

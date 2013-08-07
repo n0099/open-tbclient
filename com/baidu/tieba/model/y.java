@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class y extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1387a;
+    ArrayList f1385a;
     String b;
     final /* synthetic */ t c;
     private com.baidu.tieba.util.u d = null;
@@ -20,14 +20,14 @@ public class y extends BdAsyncTask {
 
     public y(t tVar, String str, String str2, String str3, int i, String str4) {
         this.c = tVar;
-        this.f1387a = null;
+        this.f1385a = null;
         this.b = null;
         this.e = str;
         this.f = str2;
         this.g = str3;
         this.h = i;
         this.b = str4;
-        this.f1387a = new ArrayList();
+        this.f1385a = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,7 +59,7 @@ public class y extends BdAsyncTask {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         com.baidu.tieba.data.y yVar = new com.baidu.tieba.data.y();
                         yVar.a(optJSONArray.optJSONObject(i));
-                        this.f1387a.add(yVar);
+                        this.f1385a.add(yVar);
                     }
                 } catch (Exception e) {
                     com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
@@ -85,10 +85,10 @@ public class y extends BdAsyncTask {
             return;
         }
         z zVar = new z(this.c);
-        zVar.f1388a = bool.booleanValue();
+        zVar.f1386a = bool.booleanValue();
         if (bool.booleanValue()) {
             if (this.h == 6) {
-                zVar.c = this.f1387a;
+                zVar.c = this.f1385a;
             }
         } else {
             zVar.b = this.d.h();

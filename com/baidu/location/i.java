@@ -41,7 +41,7 @@ public class i {
     private long b = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f756a = 0;
+    private int f754a = 0;
 
     /* renamed from: char  reason: not valid java name */
     private long f220char = 0;
@@ -119,15 +119,15 @@ public class i {
         } else {
             i = i2;
         }
-        if (this.f756a != 0) {
-            if (i > (this.f220char + this.f756a) - System.currentTimeMillis()) {
+        if (this.f754a != 0) {
+            if (i > (this.f220char + this.f754a) - System.currentTimeMillis()) {
                 z = false;
                 if (z) {
                     return;
                 }
-                this.f756a = i;
+                this.f754a = i;
                 this.f220char = System.currentTimeMillis();
-                a(this.f756a);
+                a(this.f754a);
                 return;
             }
         }
@@ -183,7 +183,7 @@ public class i {
             if (f < this.f224goto) {
                 this.f224goto = f;
             }
-            this.f756a = 0;
+            this.f754a = 0;
             a();
         }
     }

@@ -20,12 +20,12 @@ import java.util.Date;
 public class f extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.u f1700a;
+    com.baidu.tieba.util.u f1698a;
     final /* synthetic */ MessagePullService b;
 
     private f(MessagePullService messagePullService) {
         this.b = messagePullService;
-        this.f1700a = null;
+        this.f1698a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,11 +39,11 @@ public class f extends BdAsyncTask {
     public String a(String... strArr) {
         aj.a(getClass().getName(), "doBackGround", "pull message...");
         try {
-            this.f1700a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/m/getmsg");
-            this.f1700a.a("message_id", String.valueOf(TiebaApplication.f().aW()));
-            this.f1700a.a("pk_before_id", TiebaApplication.f().ay());
-            this.f1700a.a("pk_after_id", TiebaApplication.f().az());
-            return this.f1700a.k();
+            this.f1698a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/m/getmsg");
+            this.f1698a.a("message_id", String.valueOf(TiebaApplication.f().aW()));
+            this.f1698a.a("pk_before_id", TiebaApplication.f().ay());
+            this.f1698a.a("pk_after_id", TiebaApplication.f().az());
+            return this.f1698a.k();
         } catch (Exception e) {
             aj.b(getClass().getName(), "doBackground", e.toString());
             return null;
@@ -52,9 +52,9 @@ public class f extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f1688a = null;
-        if (this.f1700a != null) {
-            this.f1700a.i();
+        this.b.f1686a = null;
+        if (this.f1698a != null) {
+            this.f1698a.i();
         }
         super.cancel(true);
     }
@@ -75,9 +75,9 @@ public class f extends BdAsyncTask {
         ay ayVar4;
         ay ayVar5;
         ay ayVar6;
-        if (this.f1700a.e()) {
+        if (this.f1698a.e()) {
             aj.a(getClass().getName(), "onPostExecute", "result=" + str);
-            if (this.f1700a.d()) {
+            if (this.f1698a.d()) {
                 an anVar = new an();
                 anVar.a(str);
                 if (!a(this.b, anVar)) {
@@ -99,7 +99,7 @@ public class f extends BdAsyncTask {
                 }
             }
         }
-        this.b.f1688a = null;
+        this.b.f1686a = null;
     }
 
     boolean a(Context context, an anVar) {

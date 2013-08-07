@@ -8,12 +8,12 @@ import android.widget.ImageView;
 public class bz implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1494a;
+    final /* synthetic */ bn f1492a;
     private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bz(bn bnVar, ImageView imageView) {
-        this.f1494a = bnVar;
+        this.f1492a = bnVar;
         this.b = imageView;
     }
 

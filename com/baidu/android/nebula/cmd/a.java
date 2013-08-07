@@ -1,128 +1,49 @@
 package com.baidu.android.nebula.cmd;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Environment;
-import android.os.Process;
-import java.io.File;
-import java.util.Timer;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-class a extends Thread {
+public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScanDownloadFile f543a;
-    private File b = null;
-    private Timer c;
-    private JSONArray d;
-    private String e;
-    private File f;
+    private static final Map f542a = new HashMap();
+    private static final String b = GeoLocation.class.getPackage().getName() + ".";
 
-    public a(ScanDownloadFile scanDownloadFile, JSONArray jSONArray) {
-        String str;
-        String str2;
-        String str3;
-        this.f543a = scanDownloadFile;
-        str = this.f543a.mFileName;
-        this.e = str;
-        this.f = null;
-        StringBuilder sb = new StringBuilder();
-        str2 = scanDownloadFile.mFileName;
-        setName(sb.append(str2).append("_moplus_findapkfromsdcard_thread").toString());
-        this.d = jSONArray;
-        StringBuilder append = new StringBuilder().append("^");
-        str3 = scanDownloadFile.mFileName;
-        this.e = append.append(str3).append("(.*)?\\.apk$").toString();
+    static {
+        f542a.put("geolocation", b + "GeoLocation");
+        f542a.put("getsearchboxinfo", b + "GetSearchboxInfo");
+        f542a.put("getapn", b + "GetApn");
+        f542a.put("getserviceinfo", b + "GetServiceInfo");
+        f542a.put("getpackageinfo", b + "GetPackageInfo");
+        f542a.put("sendintent", b + "SendIntent");
+        f542a.put("getcuid", b + "GetCuid");
+        f542a.put("getlocstring", b + "GetLocString");
+        f542a.put("scandownloadfile", b + "ScanDownloadFile");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, File file) {
-        Intent intent = new Intent("android.intent.action.VIEW");
+    public String a(String str) {
+        return (String) f542a.get(str);
+    }
+
+    public void a(String str, com.baidu.android.nebula.b.a aVar, com.baidu.android.nebula.b.b bVar) {
+        e eVar;
+        String a2 = a(str);
+        if (a2 == null) {
+            return;
+        }
         try {
-            intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-            intent.setFlags(268435456);
-            intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
-            intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-            context.startActivity(intent);
-        } catch (Exception e) {
-            intent.setComponent(null);
-            try {
-                context.startActivity(intent);
-            } catch (Exception e2) {
-            }
+            eVar = (e) Class.forName(a2).newInstance();
+        } catch (ClassCastException e) {
+            eVar = null;
+        } catch (ClassNotFoundException e2) {
+            eVar = null;
+        } catch (IllegalAccessException e3) {
+            eVar = null;
+        } catch (InstantiationException e4) {
+            eVar = null;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str) {
-        long j;
-        long j2;
-        long j3;
-        String str2;
-        String str3;
-        long j4;
-        Context context;
-        j = this.f543a.mTotalRetryTime;
-        j2 = this.f543a.mTotalExpiredTime;
-        if (j > j2) {
-            if (this.c != null) {
-                this.c.cancel();
-                return;
-            }
-            return;
+        if (eVar != null) {
+            eVar.execute(aVar, bVar);
         }
-        File file = new File(str);
-        ScanDownloadFile scanDownloadFile = this.f543a;
-        j3 = this.f543a.mScanedOneTime;
-        ScanDownloadFile.access$914(scanDownloadFile, j3);
-        if (file.exists()) {
-            long length = file.length();
-            str2 = this.f543a.mFileLength;
-            if (length <= Long.parseLong(str2)) {
-                if (this.c == null) {
-                    this.c = new Timer();
-                }
-                long length2 = file.length();
-                str3 = this.f543a.mFileLength;
-                if (length2 >= Integer.parseInt(str3)) {
-                    this.c.cancel();
-                    context = this.f543a.mContext;
-                    a(context, file);
-                    return;
-                }
-                Timer timer = this.c;
-                c cVar = new c(this, file, str);
-                j4 = this.f543a.mScanedOneTime;
-                timer.schedule(cVar, j4);
-                return;
-            }
-        }
-        this.c.cancel();
-    }
-
-    protected void a(File file) {
-        long j;
-        if (file == null || !file.exists() || System.currentTimeMillis() - file.lastModified() < 0) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis() - file.lastModified();
-        j = this.f543a.mExpiredTime;
-        if (currentTimeMillis <= j) {
-            a(file.getAbsolutePath());
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Process.setThreadPriority(19);
-        for (int i = 0; i < this.d.length(); i++) {
-            try {
-                new File(Environment.getExternalStorageDirectory(), this.d.get(i).toString()).listFiles(new b(this));
-            } catch (Exception e) {
-            }
-        }
-        a(this.f);
     }
 }

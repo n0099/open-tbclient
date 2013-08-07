@@ -2,122 +2,39 @@ package com.baidu.android.defense.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.android.pushservice.PushConstants;
-import java.io.IOException;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.android.systemmonitor.localapp.AppManager;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class e implements Runnable {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f508a;
-    private String b;
-    private UrlEncodedFormEntity c;
-    private int d;
-
-    public e(d dVar, String str, UrlEncodedFormEntity urlEncodedFormEntity, int i) {
-        Context context;
-        this.f508a = dVar;
-        this.b = str;
-        this.c = urlEncodedFormEntity;
-        this.d = i;
-        if (this.d == 1) {
-            context = dVar.d;
-            this.b = com.baidu.android.nebula.util.d.a(context).a(this.b, false);
-        }
+public class e extends f {
+    public e(String str, Context context) {
+        super(str, context);
     }
 
-    public String a() {
-        ProxyHttpClient proxyHttpClient;
-        Throwable th;
-        Context context;
-        try {
-            HttpPost httpPost = new HttpPost(this.b);
-            httpPost.setEntity(this.c);
-            context = this.f508a.d;
-            proxyHttpClient = new ProxyHttpClient(context);
-            try {
-                HttpResponse execute = proxyHttpClient.execute(httpPost);
-                r0 = execute.getStatusLine().getStatusCode() == 200 ? EntityUtils.toString(execute.getEntity()) : null;
-                if (proxyHttpClient != null) {
-                    proxyHttpClient.close();
-                }
-            } catch (Exception e) {
-                if (proxyHttpClient != null) {
-                    proxyHttpClient.close();
-                }
-                return r0;
-            } catch (ClientProtocolException e2) {
-                if (proxyHttpClient != null) {
-                    proxyHttpClient.close();
-                }
-                return r0;
-            } catch (IOException e3) {
-                if (proxyHttpClient != null) {
-                    proxyHttpClient.close();
-                }
-                return r0;
-            } catch (Throwable th2) {
-                th = th2;
-                if (proxyHttpClient != null) {
-                    proxyHttpClient.close();
-                }
-                throw th;
-            }
-        } catch (ClientProtocolException e4) {
-            proxyHttpClient = null;
-        } catch (IOException e5) {
-            proxyHttpClient = null;
-        } catch (Exception e6) {
-            proxyHttpClient = null;
-        } catch (Throwable th3) {
-            proxyHttpClient = null;
-            th = th3;
+    private boolean a(com.baidu.android.defense.b.a aVar) {
+        if (aVar == null || TextUtils.isEmpty(aVar.a())) {
+            return false;
         }
-        return r0;
+        com.baidu.android.systemmonitor.localapp.a aVar2 = (com.baidu.android.systemmonitor.localapp.a) AppManager.a(this.c).a().get(aVar.a());
+        if (aVar2 == null || (aVar.b() != 0 && aVar2.f != aVar.b())) {
+            return false;
+        }
+        return true;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Context context;
-        Context context2;
-        Context context3;
-        String str = null;
-        for (int i = 0; i < 3 && (str = a()) == null; i++) {
-        }
-        if (str != null) {
-            switch (this.d) {
-                case 0:
-                    try {
-                        String string = new JSONObject(str).getString(PushConstants.EXTRA_ACCESS_TOKEN);
-                        if (!TextUtils.isEmpty(string)) {
-                            context3 = this.f508a.d;
-                            b.a(context3, string);
-                            this.f508a.f();
-                            break;
-                        }
-                    } catch (JSONException e) {
-                        break;
+    @Override // com.baidu.android.defense.push.f, com.baidu.android.defense.push.a
+    public boolean a() {
+        if (this.b) {
+            if (this.d != null) {
+                Iterator it = this.d.iterator();
+                while (it.hasNext()) {
+                    com.baidu.android.defense.b.a aVar = (com.baidu.android.defense.b.a) it.next();
+                    if (a(aVar)) {
+                        com.baidu.android.defense.b.b.a(this.c).a(this.c, aVar.a());
                     }
-                    break;
-                case 1:
-                    this.f508a.a(str);
-                    break;
+                }
             }
+            return true;
         }
-        if (this.d == 0) {
-            context = this.f508a.d;
-            synchronized (d.a(context)) {
-                context2 = this.f508a.d;
-                d.a(context2).notifyAll();
-            }
-        }
+        return false;
     }
 }

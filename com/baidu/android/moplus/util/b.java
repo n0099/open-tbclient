@@ -16,7 +16,6 @@ import android.text.TextUtils;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.moplus.MoPlusReceiver;
 import com.baidu.android.moplus.MoPlusService;
-import com.baidu.android.moplus.c;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.systemmonitor.StatisticManager;
 import com.baidu.zeus.bouncycastle.DERTags;
@@ -28,12 +27,9 @@ import java.util.List;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f517a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.BROADCAST_STICKY", "android.permission.WRITE_SETTINGS", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.SET_ACTIVITY_WATCHER", "android.permission.GET_TASKS"};
+    private static final String[] f515a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.BROADCAST_STICKY", "android.permission.WRITE_SETTINGS", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.SET_ACTIVITY_WATCHER", "android.permission.GET_TASKS"};
     private static final String[] b = {MoPlusService.class.getName(), MoPlusReceiver.class.getName()};
     private static final String[] c = {"com.baidu.android.moplus.action.START", "android.net.conn.CONNECTIVITY_CHANGE", "com.baidu.android.pushservice.action.BIND_SYNC", "android.intent.action.BOOT_COMPLETED"};
-
-    private b() {
-    }
 
     public static PackageInfo a(Context context, String str) {
         try {
@@ -103,7 +99,7 @@ public final class b {
     }
 
     public static boolean a(Context context) {
-        String b2 = c.b(context);
+        String b2 = com.baidu.android.moplus.a.b(context);
         if ("enabled".equals(b2)) {
             return false;
         }
@@ -207,7 +203,7 @@ public final class b {
     }
 
     public static void b(Context context) {
-        if (c.a(context)) {
+        if (com.baidu.android.moplus.a.a(context)) {
             h(context, null);
             return;
         }
@@ -303,7 +299,7 @@ public final class b {
         if (a(context) == (!z)) {
             return;
         }
-        c.b(context, z);
+        com.baidu.android.moplus.a.b(context, z);
         e(context, true);
         h(context, null);
     }
@@ -339,7 +335,7 @@ public final class b {
         if (b(context, context.getPackageName())) {
             j4++;
         }
-        return j4 | 3096224743817216L;
+        return j4 | 3377699720527872L;
     }
 
     public static void e(Context context, boolean z) {
@@ -352,7 +348,7 @@ public final class b {
             } else {
                 edit.putLong("priority", e(context));
             }
-            edit.putInt("version", 11);
+            edit.putInt("version", 12);
             if (h(context)) {
                 edit.putLong(StatisticManager.class.getSimpleName() + "priority", 0L);
             } else {
@@ -436,7 +432,7 @@ public final class b {
         c4.putExtra("type", "service_sing_restart");
         c4.setPackage(str);
         context.sendBroadcast(c4);
-        c.a(context, false);
+        com.baidu.android.moplus.a.a(context, false);
     }
 
     public static boolean h(Context context) {
@@ -451,7 +447,7 @@ public final class b {
     }
 
     public static boolean i(Context context) {
-        if (!a(context, f517a)) {
+        if (!a(context, f515a)) {
             Log.e("Utility", "*** Short of PERMISSIONS!");
             return false;
         } else if (!b(context, b)) {

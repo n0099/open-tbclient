@@ -27,7 +27,7 @@ public class MentionActivity extends ActivityGroup {
     private CompoundButton.OnCheckedChangeListener j = null;
 
     /* renamed from: a */
-    RelativeLayout f1288a = null;
+    RelativeLayout f1286a = null;
     RelativeLayout b = null;
     TextView c = null;
     protected int d = -1;
@@ -90,7 +90,7 @@ public class MentionActivity extends ActivityGroup {
         this.h.setOnClickListener(this.i);
         this.g.setOnClickListener(this.i);
         this.k = (FrameLayout) findViewById(R.id.content);
-        this.f1288a = (RelativeLayout) findViewById(R.id.container);
+        this.f1286a = (RelativeLayout) findViewById(R.id.container);
         this.b = (RelativeLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.f = (RadioButton) findViewById(R.id.replyme_tab);
@@ -113,7 +113,7 @@ public class MentionActivity extends ActivityGroup {
     private void a(int i) {
         ah.a(this.h, i);
         ah.b(this.g, i);
-        ah.a(this.f1288a, i);
+        ah.a(this.f1286a, i);
         ah.d(this.b, i);
         ah.f(this.c, i);
         ah.g((View) this.f, i);

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class h extends BaseAdapter implements z {
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1726a = new i(this);
+    View.OnClickListener f1724a = new i(this);
     private final Activity b;
     private g c;
     private com.baidu.tieba.util.a d;
@@ -89,17 +89,17 @@ public class h extends BaseAdapter implements z {
         if (i == 3) {
             View inflate = from.inflate(R.layout.bar_home_all_dir_item, (ViewGroup) null);
             r rVar = new r();
-            rVar.f1736a = null;
+            rVar.f1734a = null;
             k kVar = new k();
             kVar.d = rVar;
             inflate.setTag(kVar);
-            inflate.setOnClickListener(this.f1726a);
+            inflate.setOnClickListener(this.f1724a);
             return inflate;
         }
         View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
-        inflate2.setOnClickListener(this.f1726a);
+        inflate2.setOnClickListener(this.f1724a);
         k kVar2 = new k();
-        kVar2.f1729a = (ImageView) inflate2.findViewById(R.id.portrait);
+        kVar2.f1727a = (ImageView) inflate2.findViewById(R.id.portrait);
         kVar2.b = (TextView) inflate2.findViewById(R.id.name);
         kVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
         inflate2.setTag(kVar2);
@@ -121,16 +121,16 @@ public class h extends BaseAdapter implements z {
             kVar.c.setVisibility(8);
         }
         if (rVar.d != null) {
-            kVar.f1729a.setTag(rVar.d);
+            kVar.f1727a.setTag(rVar.d);
             if (this.d.d(rVar.d) != null) {
-                kVar.f1729a.invalidate();
+                kVar.f1727a.invalidate();
                 return;
             } else {
-                kVar.f1729a.setImageResource(R.drawable.icon_all_categories);
+                kVar.f1727a.setImageResource(R.drawable.icon_all_categories);
                 return;
             }
         }
-        kVar.f1729a.setImageResource(R.drawable.icon_all_categories);
+        kVar.f1727a.setImageResource(R.drawable.icon_all_categories);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

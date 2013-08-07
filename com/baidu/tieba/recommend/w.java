@@ -6,7 +6,7 @@ import com.baidu.tieba.TiebaApplication;
 public class w extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private y f1681a;
+    private y f1679a;
     private com.baidu.tieba.data.n b = new com.baidu.tieba.data.n();
     private x c;
     private x d;
@@ -71,6 +71,6 @@ public class w extends com.baidu.adp.a.c {
     }
 
     public void a(y yVar) {
-        this.f1681a = yVar;
+        this.f1679a = yVar;
     }
 }

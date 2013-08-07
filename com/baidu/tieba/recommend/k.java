@@ -9,7 +9,7 @@ import com.baidu.tieba.view.ADImageViewDrawer;
 class k {
 
     /* renamed from: a  reason: collision with root package name */
-    View f1670a;
+    View f1668a;
     LinearLayout b;
     RelativeLayout c;
     TextView d;

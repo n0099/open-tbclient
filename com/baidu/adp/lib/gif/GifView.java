@@ -11,7 +11,7 @@ import java.io.InputStream;
 public class GifView extends ImageView implements a {
     private static /* synthetic */ int[] i;
 
-    /* renamed from: a */
+    /* renamed from: a  reason: collision with root package name */
     private b f419a;
     private Bitmap b;
     private boolean c;
@@ -171,6 +171,7 @@ public class GifView extends ImageView implements a {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         if (this.h != null) {
             this.h.sendMessage(this.h.obtainMessage());

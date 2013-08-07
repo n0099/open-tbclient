@@ -7,21 +7,21 @@ import android.os.Bundle;
 class at implements LocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f914a;
+    final /* synthetic */ TiebaApplication f912a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(TiebaApplication tiebaApplication) {
-        this.f914a = tiebaApplication;
+        this.f912a = tiebaApplication;
     }
 
     @Override // android.location.LocationListener
     public void onLocationChanged(Location location) {
         aw awVar;
         if (location != null) {
-            this.f914a.D = 0;
-            this.f914a.f826a = System.currentTimeMillis();
-            this.f914a.G = new aw(this.f914a, null);
-            awVar = this.f914a.G;
+            this.f912a.D = 0;
+            this.f912a.f824a = System.currentTimeMillis();
+            this.f912a.G = new aw(this.f912a, null);
+            awVar = this.f912a.G;
             awVar.execute(location);
         }
     }

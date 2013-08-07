@@ -22,7 +22,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.g implements com.bai
     private static long r = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1624a = null;
+    private ImageView f1622a = null;
     private RelativeLayout b = null;
     private RelativeLayout c = null;
     private TextView d = null;
@@ -56,12 +56,12 @@ public class DailyClassicalActivity extends com.baidu.tieba.g implements com.bai
         this.c = (RelativeLayout) findViewById(R.id.title);
         this.d = (TextView) findViewById(R.id.title_text);
         this.j = (LinearLayout) findViewById(R.id.tag_webview_item);
-        this.f1624a = (ImageView) findViewById(R.id.back);
+        this.f1622a = (ImageView) findViewById(R.id.back);
         this.n = (TextView) this.j.findViewById(R.id.webview_fail);
         this.o = (TextView) this.j.findViewById(R.id.webview_crash_tip);
         this.g = (ProgressBar) findViewById(R.id.tag_progress);
         this.e = new a(this);
-        this.f1624a.setOnClickListener(this.e);
+        this.f1622a.setOnClickListener(this.e);
         if (m()) {
             this.o.setVisibility(8);
             b();
@@ -81,7 +81,7 @@ public class DailyClassicalActivity extends com.baidu.tieba.g implements com.bai
         com.baidu.tieba.util.ah.a(this.b, i);
         com.baidu.tieba.util.ah.d(this.c, i);
         com.baidu.tieba.util.ah.f(this.d, i);
-        com.baidu.tieba.util.ah.a(this.f1624a, i);
+        com.baidu.tieba.util.ah.a(this.f1622a, i);
         if (this.f != null) {
             com.baidu.tieba.util.ah.a(this.f, i);
             b();

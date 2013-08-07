@@ -6,7 +6,7 @@ import android.widget.TextView;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f1729a;
+    public ImageView f1727a;
     public TextView b;
     public BestStringsFitTextView c;
     public r d;

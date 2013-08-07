@@ -9,11 +9,11 @@ import com.baidu.tieba.util.DatabaseService;
 public class ac implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1873a;
+    final /* synthetic */ WriteActivity f1871a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(WriteActivity writeActivity) {
-        this.f1873a = writeActivity;
+        this.f1871a = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -23,14 +23,14 @@ public class ac implements DialogInterface.OnClickListener {
         WriteData writeData2;
         EditText editText2;
         WriteData writeData3;
-        writeData = this.f1873a.f1868a;
-        editText = this.f1873a.e;
+        writeData = this.f1871a.f1866a;
+        editText = this.f1871a.e;
         writeData.setTitle(editText.getText().toString());
-        writeData2 = this.f1873a.f1868a;
-        editText2 = this.f1873a.f;
+        writeData2 = this.f1871a.f1866a;
+        editText2 = this.f1871a.f;
         writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.f1873a.f1868a;
+        writeData3 = this.f1871a.f1866a;
         DatabaseService.b(writeData3);
-        this.f1873a.finish();
+        this.f1871a.finish();
     }
 }

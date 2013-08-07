@@ -8,7 +8,7 @@ import android.widget.TextView;
 class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1636a;
+    public int f1634a;
     public TextView b;
     public LinearLayout c;
     public RelativeLayout d;
@@ -25,7 +25,7 @@ class af {
 
     private af(ae aeVar) {
         this.n = aeVar;
-        this.f1636a = -1;
+        this.f1634a = -1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

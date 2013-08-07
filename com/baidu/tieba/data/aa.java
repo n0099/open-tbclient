@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f965a;
+    private String f963a;
     private String b;
     private int c;
     private AntiData d;
@@ -21,7 +21,7 @@ public class aa {
     private String j;
 
     public aa(Context context) {
-        this.f965a = null;
+        this.f963a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
@@ -73,7 +73,7 @@ public class aa {
     }
 
     public aa() {
-        this.f965a = null;
+        this.f963a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
@@ -100,11 +100,11 @@ public class aa {
     }
 
     public void c(String str) {
-        this.f965a = str;
+        this.f963a = str;
     }
 
     public String i() {
-        return this.f965a;
+        return this.f963a;
     }
 
     public String j() {
@@ -124,7 +124,7 @@ public class aa {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.f965a = optJSONObject.getString("name");
+                    this.f963a = optJSONObject.getString("name");
                     this.b = optJSONObject.optString(LocaleUtil.INDONESIAN);
                 }
                 this.c = jSONObject.optInt("pic_amount", 0);

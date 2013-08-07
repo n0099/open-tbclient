@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1020a = new ArrayList();
+    private ArrayList f1018a = new ArrayList();
     private ArrayList b = new ArrayList();
 
     public ArrayList a() {
-        return this.f1020a;
+        return this.f1018a;
     }
 
     public ArrayList b() {
@@ -35,7 +35,7 @@ public class n {
                 for (int i = 0; i < length; i++) {
                     m mVar = new m();
                     mVar.a(optJSONArray.getJSONObject(i));
-                    this.f1020a.add(mVar);
+                    this.f1018a.add(mVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("threadRecommend");

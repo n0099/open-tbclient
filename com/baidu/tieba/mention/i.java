@@ -7,11 +7,11 @@ import com.baidu.tieba.util.aj;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1300a;
+    final /* synthetic */ h f1298a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f1300a = hVar;
+        this.f1298a = hVar;
     }
 
     @Override // java.lang.Runnable
@@ -23,17 +23,17 @@ public class i implements Runnable {
         String portrait;
         e eVar3;
         try {
-            listView = this.f1300a.d;
+            listView = this.f1298a.d;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.f1300a.d;
+            listView2 = this.f1298a.d;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                eVar = this.f1300a.e;
+                eVar = this.f1298a.e;
                 if (i < eVar.getCount()) {
-                    eVar2 = this.f1300a.e;
+                    eVar2 = this.f1298a.e;
                     com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) eVar2.getItem(i);
                     if (uVar != null && (portrait = uVar.i().getPortrait()) != null && portrait.length() > 0) {
-                        eVar3 = this.f1300a.e;
+                        eVar3 = this.f1298a.e;
                         eVar3.e().d(portrait, new j(this));
                     }
                 } else {

@@ -21,7 +21,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     private Handler g = new Handler();
 
     /* renamed from: a  reason: collision with root package name */
-    Runnable f1206a = new i(this);
+    Runnable f1204a = new i(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
@@ -31,11 +31,11 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     }
 
     protected void c() {
-        if (this.b.f1219a != null && !this.b.f1219a.f()) {
-            if (this.b.f1219a.e()) {
-                PKEndActivity.a(this, this.d, this.b.f1219a.c());
+        if (this.b.f1217a != null && !this.b.f1217a.f()) {
+            if (this.b.f1217a.e()) {
+                PKEndActivity.a(this, this.d, this.b.f1217a.c());
             } else {
-                PKingActivity.a(this, this.d, this.b.f1219a.c());
+                PKingActivity.a(this, this.d, this.b.f1217a.c());
             }
             finish();
         }
@@ -66,9 +66,9 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
         setContentView(R.layout.kn_pkwaiting_activity);
         this.b = new l(this, stringExtra);
         this.b.b.a(this);
-        if (PKJumpActivity.f1205a != null) {
-            a(PKJumpActivity.f1205a);
-            PKJumpActivity.f1205a = null;
+        if (PKJumpActivity.f1203a != null) {
+            a(PKJumpActivity.f1203a);
+            PKJumpActivity.f1203a = null;
             return;
         }
         k();
@@ -93,11 +93,11 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
             d();
         } else if (this.e) {
             if (view.getId() == R.id.pk_left_bar_container) {
-                FrsActivity.a(this, this.b.f1219a.j.e, (String) null);
+                FrsActivity.a(this, this.b.f1217a.j.e, (String) null);
             } else if (view.getId() == R.id.pk_right_bar_container) {
-                FrsActivity.a(this, this.b.f1219a.k.e, (String) null);
+                FrsActivity.a(this, this.b.f1217a.k.e, (String) null);
             } else {
-                ap.a(this, view.getId(), this.b.f1219a.f1226a, new j(this));
+                ap.a(this, view.getId(), this.b.f1217a.f1224a, new j(this));
             }
         }
     }
@@ -142,7 +142,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.g.removeCallbacks(this.f1206a);
+        this.g.removeCallbacks(this.f1204a);
         l();
     }
 
@@ -150,6 +150,6 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.g.postDelayed(this.f1206a, 1000L);
+        this.g.postDelayed(this.f1204a, 1000L);
     }
 }

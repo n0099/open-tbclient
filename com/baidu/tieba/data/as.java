@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class as {
 
     /* renamed from: a  reason: collision with root package name */
-    private v f983a = new v();
+    private v f981a = new v();
     private bm b = new bm();
     private ArrayList c = new ArrayList();
     private ar d = new ar();
@@ -19,7 +19,7 @@ public class as {
     private boolean g = false;
 
     public v a() {
-        return this.f983a;
+        return this.f981a;
     }
 
     public bm b() {
@@ -102,7 +102,7 @@ public class as {
     public void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
-                this.f983a.a(jSONObject.optJSONObject("forum"));
+                this.f981a.a(jSONObject.optJSONObject("forum"));
                 this.b.a(jSONObject.optJSONObject("thread"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null) {

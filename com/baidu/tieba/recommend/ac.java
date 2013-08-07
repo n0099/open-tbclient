@@ -6,17 +6,17 @@ import android.view.View;
 public class ac implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ab f1633a;
+    final /* synthetic */ ab f1631a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ab abVar) {
-        this.f1633a = abVar;
+        this.f1631a = abVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         DailyRecommendFragment dailyRecommendFragment;
-        dailyRecommendFragment = this.f1633a.b;
+        dailyRecommendFragment = this.f1631a.b;
         dailyRecommendFragment.B();
     }
 }

@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class z extends BaseAdapter implements com.baidu.tieba.view.z {
 
     /* renamed from: a  reason: collision with root package name */
-    LayoutInflater f1169a;
+    LayoutInflater f1167a;
     private Activity b;
     private int c;
     private com.baidu.tieba.data.az d;
@@ -59,8 +59,8 @@ public class z extends BaseAdapter implements com.baidu.tieba.view.z {
 
     private void a() {
         this.c = TiebaApplication.f().au();
-        this.f1169a = LayoutInflater.from(this.b);
-        this.j = (LinearLayout) this.f1169a.inflate(R.layout.frs_activity_card, (ViewGroup) null);
+        this.f1167a = LayoutInflater.from(this.b);
+        this.j = (LinearLayout) this.f1167a.inflate(R.layout.frs_activity_card, (ViewGroup) null);
         this.e = (ViewPager) this.j.findViewById(R.id.frs_card);
         this.e.setOnPageChangeListener(new aa(this));
         int a2 = (int) ((((com.baidu.tieba.util.am.a(TiebaApplication.f().getApplicationContext()) - com.baidu.tieba.util.am.a((Context) this.b, 28.0f)) / 2) * this.b.getResources().getDimension(R.dimen.ad_image_height)) / this.b.getResources().getDimension(R.dimen.ad_image_width));
@@ -82,7 +82,7 @@ public class z extends BaseAdapter implements com.baidu.tieba.view.z {
         } else {
             this.e.setVisibility(8);
         }
-        if (boVar != null && boVar.f1005a != null && boVar.f1005a.size() > 0) {
+        if (boVar != null && boVar.f1003a != null && boVar.f1003a.size() > 0) {
             this.g = boVar;
             this.i = new TopicPagerAdapter(this.b);
             this.i.a(boVar.a());

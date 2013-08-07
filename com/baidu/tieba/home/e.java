@@ -5,15 +5,15 @@ import android.view.View;
 class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CreateBarSuccessActivity f1150a;
+    final /* synthetic */ CreateBarSuccessActivity f1148a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(CreateBarSuccessActivity createBarSuccessActivity) {
-        this.f1150a = createBarSuccessActivity;
+        this.f1148a = createBarSuccessActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1150a.finish();
+        this.f1148a.finish();
     }
 }

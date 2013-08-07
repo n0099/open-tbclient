@@ -7,11 +7,11 @@ import com.baidu.tieba.util.aj;
 public class b extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f959a;
+    final /* synthetic */ a f957a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f959a = aVar;
+        this.f957a = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable

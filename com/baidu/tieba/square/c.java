@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class c extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1721a = new d(this);
+    View.OnClickListener f1719a = new d(this);
     private Activity b;
     private final g c;
     private com.baidu.tieba.util.a d;
@@ -78,9 +78,9 @@ public class c extends BaseAdapter {
             return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f1721a);
+        inflate.setOnClickListener(this.f1719a);
         k kVar = new k();
-        kVar.f1729a = (ImageView) inflate.findViewById(R.id.portrait);
+        kVar.f1727a = (ImageView) inflate.findViewById(R.id.portrait);
         kVar.b = (TextView) inflate.findViewById(R.id.name);
         kVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(kVar);
@@ -102,16 +102,16 @@ public class c extends BaseAdapter {
             kVar.c.setVisibility(8);
         }
         if (rVar.d != null) {
-            kVar.f1729a.setTag(rVar.d);
+            kVar.f1727a.setTag(rVar.d);
             if (this.d.a(rVar.d, new e(this, viewGroup)) != null) {
-                kVar.f1729a.invalidate();
+                kVar.f1727a.invalidate();
                 return;
             } else {
-                kVar.f1729a.setImageResource(R.drawable.icon_all_categories);
+                kVar.f1727a.setImageResource(R.drawable.icon_all_categories);
                 return;
             }
         }
-        kVar.f1729a.setImageResource(R.drawable.icon_all_categories);
+        kVar.f1727a.setImageResource(R.drawable.icon_all_categories);
     }
 
     @Override // android.widget.Adapter

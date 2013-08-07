@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1244a;
+    public String f1242a;
     public int b;
     public long c;
     public long d;
@@ -16,7 +16,7 @@ public class y {
     public View f;
 
     public y a(JSONObject jSONObject) {
-        this.f1244a = jSONObject.optString("user_name");
+        this.f1242a = jSONObject.optString("user_name");
         this.b = jSONObject.optInt("vote_number");
         this.c = jSONObject.optLong("time");
         return this;

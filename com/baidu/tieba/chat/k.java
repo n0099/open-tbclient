@@ -7,7 +7,7 @@ import com.baidu.tieba.view.HeadImageView;
 class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f942a;
+    public HeadImageView f940a;
     public TbRichTextView b;
     public TextView c;
     final /* synthetic */ j d;

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f973a = null;
+    private String f971a = null;
     private String b = null;
     private int c = 0;
     private int d = 0;
@@ -13,11 +13,11 @@ public class ai {
     private String e = null;
 
     public void a(String str) {
-        this.f973a = str;
+        this.f971a = str;
     }
 
     public String a() {
-        return this.f973a;
+        return this.f971a;
     }
 
     public void b(String str) {
@@ -55,7 +55,7 @@ public class ai {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f973a = jSONObject.optString("forum_id");
+                this.f971a = jSONObject.optString("forum_id");
                 this.b = jSONObject.optString("forum_name");
                 c(jSONObject.optInt("is_like", 0));
                 this.d = jSONObject.optInt("is_sign", 0);

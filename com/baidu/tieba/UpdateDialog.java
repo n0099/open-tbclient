@@ -15,7 +15,7 @@ public class UpdateDialog extends g {
     private am c;
 
     /* renamed from: a  reason: collision with root package name */
-    private VersionData f828a = null;
+    private VersionData f826a = null;
     private CombineDownload b = null;
     private Dialog d = null;
     private DialogInterface.OnClickListener e = null;
@@ -41,35 +41,35 @@ public class UpdateDialog extends g {
     private void a(Bundle bundle) {
         String format;
         if (bundle != null) {
-            this.f828a = (VersionData) bundle.getSerializable("data");
+            this.f826a = (VersionData) bundle.getSerializable("data");
             this.b = (CombineDownload) bundle.getSerializable("combineDownload");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.f828a = (VersionData) intent.getSerializableExtra("data");
+                this.f826a = (VersionData) intent.getSerializableExtra("data");
                 this.b = (CombineDownload) intent.getSerializableExtra("combineDownload");
             }
         }
-        if (this.f828a == null || this.f828a.getHas_new_ver() == 0) {
+        if (this.f826a == null || this.f826a.getHas_new_ver() == 0) {
             finish();
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        if (this.f828a.getNew_version_desc() != null && this.f828a.getNew_version_desc().length() > 0) {
-            format = this.f828a.getNew_version_desc();
+        if (this.f826a.getNew_version_desc() != null && this.f826a.getNew_version_desc().length() > 0) {
+            format = this.f826a.getNew_version_desc();
         } else {
-            format = String.format(getString(R.string.update_client), this.f828a.getNew_version());
+            format = String.format(getString(R.string.update_client), this.f826a.getNew_version());
         }
-        if (this.f828a.getHas_new_ver() == 1) {
-            if (this.f828a.getForce_update() == 0 && this.b.getIsShow() == 1) {
+        if (this.f826a.getHas_new_ver() == 1) {
+            if (this.f826a.getForce_update() == 0 && this.b.getIsShow() == 1) {
                 this.c = new am(this, R.style.common_alert_dialog);
-                this.c.a(this.f828a, this.b, new ay(this));
+                this.c.a(this.f826a, this.b, new ay(this));
                 this.c.setCanceledOnTouchOutside(true);
                 this.c.setOnCancelListener(new az(this));
                 this.c.setOnDismissListener(new ba(this));
                 this.c.show();
                 return;
             }
-            if (this.f828a.getForce_update() == 1) {
+            if (this.f826a.getForce_update() == 1) {
                 builder.setTitle(R.string.notify);
                 this.f = new bb(this);
                 builder.setMessage(format);
@@ -92,8 +92,8 @@ public class UpdateDialog extends g {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.f828a != null) {
-            bundle.putSerializable("data", this.f828a);
+        if (this.f826a != null) {
+            bundle.putSerializable("data", this.f826a);
         }
     }
 
@@ -117,7 +117,7 @@ public class UpdateDialog extends g {
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);
         intent.putExtra("update", true);
-        intent.putExtra("version", this.f828a);
+        intent.putExtra("version", this.f826a);
         startService(intent);
     }
 
@@ -129,7 +129,7 @@ public class UpdateDialog extends g {
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);
         intent.putExtra("update", true);
-        intent.putExtra("version", this.f828a);
+        intent.putExtra("version", this.f826a);
         intent.putExtra("other_url", str);
         startService(intent);
     }

@@ -8,7 +8,7 @@ import com.baidu.tieba.view.ImageViewDrawer;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1188a;
+    LinearLayout f1186a;
     TextView b;
     ImageViewDrawer c;
     TextView d;

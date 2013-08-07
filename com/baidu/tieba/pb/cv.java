@@ -8,11 +8,11 @@ import android.widget.LinearLayout;
 public class cv implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cu f1515a;
+    final /* synthetic */ cu f1513a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cv(cu cuVar) {
-        this.f1515a = cuVar;
+        this.f1513a = cuVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,13 +21,13 @@ public class cv implements Runnable {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         EditText editText;
-        gridView = this.f1515a.A;
+        gridView = this.f1513a.A;
         gridView.setVisibility(0);
-        linearLayout = this.f1515a.s;
+        linearLayout = this.f1513a.s;
         linearLayout.setVisibility(0);
-        linearLayout2 = this.f1515a.p;
+        linearLayout2 = this.f1513a.p;
         linearLayout2.setEnabled(false);
-        editText = this.f1515a.F;
+        editText = this.f1513a.F;
         editText.requestFocus();
     }
 }

@@ -6,24 +6,24 @@ import com.slidingmenu.lib.R;
 class bc implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TagContentActivity f1658a;
+    final /* synthetic */ TagContentActivity f1656a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(TagContentActivity tagContentActivity) {
-        this.f1658a = tagContentActivity;
+        this.f1656a = tagContentActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back /* 2131099730 */:
-                this.f1658a.finish();
+                this.f1656a.finish();
                 return;
             case R.id.tag_webview_item /* 2131099947 */:
-                this.f1658a.c();
+                this.f1656a.c();
                 return;
             case R.id.attention /* 2131100492 */:
-                this.f1658a.b();
+                this.f1656a.b();
                 return;
             default:
                 return;

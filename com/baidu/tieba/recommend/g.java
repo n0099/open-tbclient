@@ -6,12 +6,12 @@ import com.baidu.tieba.view.ADImageViewDrawer;
 public class g implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1666a;
+    final /* synthetic */ c f1664a;
     private final /* synthetic */ ADImageViewDrawer b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar, ADImageViewDrawer aDImageViewDrawer) {
-        this.f1666a = cVar;
+        this.f1664a = cVar;
         this.b = aDImageViewDrawer;
     }
 

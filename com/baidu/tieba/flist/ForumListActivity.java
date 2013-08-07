@@ -21,7 +21,7 @@ import com.slidingmenu.lib.R;
 public class ForumListActivity extends com.baidu.tieba.g implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    public l f1036a;
+    public l f1034a;
     private int b;
     private int c;
     private int d;
@@ -53,14 +53,14 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.forum_list_activity);
-        this.f1036a = new l(this);
-        this.f1036a.r.setOnClickListener(this);
-        this.f1036a.h = (ListView) b();
-        this.f1036a.i = (ListView) c();
+        this.f1034a = new l(this);
+        this.f1034a.r.setOnClickListener(this);
+        this.f1034a.h = (ListView) b();
+        this.f1034a.i = (ListView) c();
         this.n = new com.baidu.tieba.util.a(this);
         this.n.a(BdWebErrorView.ERROR_CODE_400, BdWebErrorView.ERROR_CODE_400);
-        this.f1036a.c.setAdapter(new i(this));
-        this.f1036a.g.setText(getIntent().getStringExtra("menu_name"));
+        this.f1034a.c.setAdapter(new i(this));
+        this.f1034a.g.setText(getIntent().getStringExtra("menu_name"));
         this.r = new e(this, 0);
         this.s = new e(this, 1);
         this.o = new ForumListModel.RequestParams();
@@ -96,32 +96,32 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     public void onDestroy() {
         super.onDestroy();
         this.m.a();
-        this.f1036a.c.setAdapter(null);
-        this.f1036a.i.setAdapter((ListAdapter) null);
-        this.f1036a.h.setAdapter((ListAdapter) null);
+        this.f1034a.c.setAdapter(null);
+        this.f1034a.i.setAdapter((ListAdapter) null);
+        this.f1034a.h.setAdapter((ListAdapter) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g
     public void a(int i) {
-        ah.d(this.f1036a.e, i);
-        ah.a(this.f1036a.f, i);
-        ah.f(this.f1036a.g, i);
+        ah.d(this.f1034a.e, i);
+        ah.a(this.f1034a.f, i);
+        ah.f(this.f1034a.g, i);
         ah.b(findViewById(R.id.container), i);
-        ah.d(this.f1036a.r, i);
+        ah.d(this.f1034a.r, i);
         if (TiebaApplication.f().au() == 1) {
-            this.f1036a.h.setDivider(new ColorDrawable(-13881543));
-            this.f1036a.i.setDivider(new ColorDrawable(-13881543));
+            this.f1034a.h.setDivider(new ColorDrawable(-13881543));
+            this.f1034a.i.setDivider(new ColorDrawable(-13881543));
         } else {
-            this.f1036a.h.setDivider(new ColorDrawable(-1775893));
-            this.f1036a.i.setDivider(new ColorDrawable(-1775893));
+            this.f1034a.h.setDivider(new ColorDrawable(-1775893));
+            this.f1034a.i.setDivider(new ColorDrawable(-1775893));
         }
-        this.f1036a.h.setDividerHeight(2);
-        this.f1036a.i.setDividerHeight(2);
+        this.f1034a.h.setDividerHeight(2);
+        this.f1034a.i.setDividerHeight(2);
         this.r.notifyDataSetChanged();
         this.s.notifyDataSetChanged();
         if (i == 1) {
-            this.f1036a.d.setBackgroundResource(R.drawable.bg_up_bar_1);
+            this.f1034a.d.setBackgroundResource(R.drawable.bg_up_bar_1);
             this.b = getResources().getColor(R.color.flist_text_color_night);
             this.c = getResources().getColor(R.color.flist_selected_text_color_night);
             this.d = R.drawable.btn_gray_fillet_s_1;
@@ -129,24 +129,24 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
             this.f = R.drawable.ico_upward_1;
             this.g = R.drawable.icon_like_s_1;
             this.j = R.drawable.icon_like_n_1;
-            this.f1036a.j.setTextColor(this.b);
-            this.f1036a.k.setTextColor(this.b);
-            this.f1036a.b.setBackgroundResource(R.drawable.bg_black_banner_down_1);
-            this.f1036a.p.setTextColor(getResources().getColor(R.color.flist_text_color_night));
-            this.f1036a.f1048a.setBackgroundResource(R.drawable.bg_black_banner_down_1);
-            this.f1036a.m.setTextColor(getResources().getColor(R.color.flist_text_color_night));
+            this.f1034a.j.setTextColor(this.b);
+            this.f1034a.k.setTextColor(this.b);
+            this.f1034a.b.setBackgroundResource(R.drawable.bg_black_banner_down_1);
+            this.f1034a.p.setTextColor(getResources().getColor(R.color.flist_text_color_night));
+            this.f1034a.f1046a.setBackgroundResource(R.drawable.bg_black_banner_down_1);
+            this.f1034a.m.setTextColor(getResources().getColor(R.color.flist_text_color_night));
             if (this.p) {
-                this.f1036a.n.setImageResource(R.drawable.ico_upward_1);
+                this.f1034a.n.setImageResource(R.drawable.ico_upward_1);
             } else {
-                this.f1036a.n.setImageResource(R.drawable.ico_downward_1);
+                this.f1034a.n.setImageResource(R.drawable.ico_downward_1);
             }
             if (this.q) {
-                this.f1036a.q.setImageResource(R.drawable.ico_upward_1);
+                this.f1034a.q.setImageResource(R.drawable.ico_upward_1);
             } else {
-                this.f1036a.q.setImageResource(R.drawable.ico_downward_1);
+                this.f1034a.q.setImageResource(R.drawable.ico_downward_1);
             }
         } else {
-            this.f1036a.d.setBackgroundResource(R.drawable.bg_black_banner_up);
+            this.f1034a.d.setBackgroundResource(R.drawable.bg_black_banner_up);
             this.b = getResources().getColor(R.color.flist_text_color_day);
             this.c = getResources().getColor(R.color.flist_selected_text_color_day);
             this.d = R.drawable.btn_gray_fillet_s;
@@ -154,30 +154,30 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
             this.f = R.drawable.ico_upward;
             this.g = R.drawable.icon_like_s;
             this.j = R.drawable.icon_like_n;
-            this.f1036a.b.setBackgroundResource(R.drawable.bg_black_banner_down);
-            this.f1036a.p.setTextColor(getResources().getColor(R.color.flist_text_color_day));
-            this.f1036a.f1048a.setBackgroundResource(R.drawable.bg_black_banner_down);
-            this.f1036a.m.setTextColor(getResources().getColor(R.color.flist_text_color_day));
+            this.f1034a.b.setBackgroundResource(R.drawable.bg_black_banner_down);
+            this.f1034a.p.setTextColor(getResources().getColor(R.color.flist_text_color_day));
+            this.f1034a.f1046a.setBackgroundResource(R.drawable.bg_black_banner_down);
+            this.f1034a.m.setTextColor(getResources().getColor(R.color.flist_text_color_day));
             if (this.p) {
-                this.f1036a.n.setImageResource(R.drawable.ico_upward);
+                this.f1034a.n.setImageResource(R.drawable.ico_upward);
             } else {
-                this.f1036a.n.setImageResource(R.drawable.ico_downward);
+                this.f1034a.n.setImageResource(R.drawable.ico_downward);
             }
             if (this.q) {
-                this.f1036a.q.setImageResource(R.drawable.ico_upward);
+                this.f1034a.q.setImageResource(R.drawable.ico_upward);
             } else {
-                this.f1036a.q.setImageResource(R.drawable.ico_downward);
+                this.f1034a.q.setImageResource(R.drawable.ico_downward);
             }
         }
-        if (this.f1036a.c.getCurrentItem() == 0) {
-            this.f1036a.j.setTextColor(this.c);
-            this.f1036a.j.setBackgroundResource(this.d);
-            this.f1036a.k.setTextColor(this.b);
+        if (this.f1034a.c.getCurrentItem() == 0) {
+            this.f1034a.j.setTextColor(this.c);
+            this.f1034a.j.setBackgroundResource(this.d);
+            this.f1034a.k.setTextColor(this.b);
             return;
         }
-        this.f1036a.k.setTextColor(this.c);
-        this.f1036a.k.setBackgroundResource(this.d);
-        this.f1036a.j.setTextColor(this.b);
+        this.f1034a.k.setTextColor(this.c);
+        this.f1034a.k.setBackgroundResource(this.d);
+        this.f1034a.j.setTextColor(this.b);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -190,10 +190,10 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
                 MainTabActivity.a(this);
                 return;
             case R.id.tab_recommends /* 2131100002 */:
-                this.f1036a.c.setCurrentItem(0);
+                this.f1034a.c.setCurrentItem(0);
                 return;
             case R.id.tab_hot /* 2131100003 */:
-                this.f1036a.c.setCurrentItem(1);
+                this.f1034a.c.setCurrentItem(1);
                 return;
             default:
                 return;
@@ -201,17 +201,17 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     }
 
     private View b() {
-        this.f1036a.h = d();
-        this.f1036a.h.setAdapter((ListAdapter) this.r);
-        this.f1036a.l.setOnClickListener(new b(this));
-        return this.f1036a.h;
+        this.f1034a.h = d();
+        this.f1034a.h.setAdapter((ListAdapter) this.r);
+        this.f1034a.l.setOnClickListener(new b(this));
+        return this.f1034a.h;
     }
 
     private View c() {
-        this.f1036a.i = d();
-        this.f1036a.i.setAdapter((ListAdapter) this.s);
-        this.f1036a.o.setOnClickListener(new c(this));
-        return this.f1036a.i;
+        this.f1034a.i = d();
+        this.f1034a.i.setAdapter((ListAdapter) this.s);
+        this.f1034a.o.setOnClickListener(new c(this));
+        return this.f1034a.i;
     }
 
     private ListView d() {
@@ -238,15 +238,15 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     @Override // android.support.v4.view.bq
     public void a_(int i) {
         if (i == 0) {
-            this.f1036a.j.setBackgroundResource(this.d);
-            this.f1036a.j.setTextColor(this.c);
-            this.f1036a.k.setBackgroundResource(0);
-            this.f1036a.k.setTextColor(this.b);
+            this.f1034a.j.setBackgroundResource(this.d);
+            this.f1034a.j.setTextColor(this.c);
+            this.f1034a.k.setBackgroundResource(0);
+            this.f1034a.k.setTextColor(this.b);
         } else if (i == 1) {
-            this.f1036a.k.setBackgroundResource(this.d);
-            this.f1036a.k.setTextColor(this.c);
-            this.f1036a.j.setBackgroundResource(0);
-            this.f1036a.j.setTextColor(this.b);
+            this.f1034a.k.setBackgroundResource(this.d);
+            this.f1034a.k.setTextColor(this.c);
+            this.f1034a.j.setBackgroundResource(0);
+            this.f1034a.j.setTextColor(this.b);
         }
     }
 

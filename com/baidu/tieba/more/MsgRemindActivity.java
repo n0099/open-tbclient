@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class MsgRemindActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private RadioGroup f1394a = null;
+    private RadioGroup f1392a = null;
     private TextView b = null;
     private CheckBox c = null;
     private CheckBox d = null;
@@ -105,7 +105,7 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
 
     void b() {
         this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.f1394a = (RadioGroup) findViewById(R.id.frequency_radio);
+        this.f1392a = (RadioGroup) findViewById(R.id.frequency_radio);
         this.m = (RelativeLayout) findViewById(R.id.title);
         this.n = (TextView) findViewById(R.id.title_text);
         this.o = (TextView) findViewById(R.id.frequency_text);
@@ -118,7 +118,7 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
         this.v = (CheckBox) findViewById(R.id.check_newfans);
         this.w = (TextView) findViewById(R.id.tone_text);
         this.x = (TextView) findViewById(R.id.vibrate_text);
-        this.f1394a.setOnCheckedChangeListener(new ad(this));
+        this.f1392a.setOnCheckedChangeListener(new ad(this));
         ae aeVar = new ae(this);
         this.b = (TextView) findViewById(R.id.content_text);
         this.c = (CheckBox) findViewById(R.id.check_replyme);
@@ -146,13 +146,13 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
     private void c() {
         int S = TiebaApplication.f().S();
         if (S == 30) {
-            this.f1394a.check(R.id.radio_30sec);
+            this.f1392a.check(R.id.radio_30sec);
         } else if (S == 120) {
-            this.f1394a.check(R.id.radio_2min);
+            this.f1392a.check(R.id.radio_2min);
         } else if (S == 300) {
-            this.f1394a.check(R.id.radio_5min);
+            this.f1392a.check(R.id.radio_5min);
         } else {
-            this.f1394a.check(R.id.radio_no);
+            this.f1392a.check(R.id.radio_no);
         }
     }
 

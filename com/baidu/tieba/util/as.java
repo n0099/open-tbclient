@@ -8,7 +8,7 @@ import com.slidingmenu.lib.R;
 class as implements af {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ar f1760a;
+    final /* synthetic */ ar f1758a;
     private final /* synthetic */ at b;
     private final /* synthetic */ Activity c;
     private final /* synthetic */ aa d;
@@ -17,7 +17,7 @@ class as implements af {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(ar arVar, at atVar, Activity activity, aa aaVar, int i, Bitmap bitmap) {
-        this.f1760a = arVar;
+        this.f1758a = arVar;
         this.b = atVar;
         this.c = activity;
         this.d = aaVar;

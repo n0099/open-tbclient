@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class ag extends ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private List f971a = new ArrayList();
+    private List f969a = new ArrayList();
     private boolean b;
 
     public boolean a() {
@@ -16,7 +16,7 @@ public class ag extends ah {
     }
 
     public List b() {
-        return this.f971a;
+        return this.f969a;
     }
 
     @Override // com.baidu.tieba.data.ah
@@ -30,7 +30,7 @@ public class ag extends ah {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         ah ahVar = new ah();
                         ahVar.a(optJSONArray.getJSONObject(i));
-                        this.f971a.add(ahVar);
+                        this.f969a.add(ahVar);
                     }
                 }
             } catch (Exception e) {

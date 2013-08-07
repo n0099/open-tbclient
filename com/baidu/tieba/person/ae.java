@@ -19,14 +19,14 @@ import java.util.ArrayList;
 public class ae extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f1564a;
+    Context f1562a;
     com.baidu.tieba.model.ba b;
     private ArrayList c = new ArrayList();
 
     public ae(Context context, com.baidu.tieba.model.ba baVar) {
-        this.f1564a = null;
+        this.f1562a = null;
         this.b = null;
-        this.f1564a = context;
+        this.f1562a = context;
         this.b = baVar;
     }
 
@@ -89,14 +89,14 @@ public class ae extends BaseAdapter {
         }
         try {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.f1564a);
+                LayoutInflater from = LayoutInflater.from(this.f1562a);
                 if (itemViewType == 0) {
                     view4 = from.inflate(R.layout.time_node, (ViewGroup) null);
                     ajVar = new aj(this);
                     ajVar.b = (TextView) view4.findViewById(R.id.time_text);
-                    ajVar.f1569a = (ImageView) view4.findViewById(R.id.time_icon);
+                    ajVar.f1567a = (ImageView) view4.findViewById(R.id.time_icon);
                     if (au == 1) {
-                        ajVar.f1569a.setBackgroundResource(R.drawable.icon_time_node_1);
+                        ajVar.f1567a.setBackgroundResource(R.drawable.icon_time_node_1);
                         ajVar.b.setTextColor(-11446171);
                     }
                     view4.setTag(ajVar);
@@ -104,13 +104,13 @@ public class ae extends BaseAdapter {
                 } else if (itemViewType == 1) {
                     view4 = from.inflate(R.layout.my_post_node, (ViewGroup) null);
                     ai aiVar2 = new ai(this);
-                    aiVar2.f1568a = (LinearLayout) view4.findViewById(R.id.post_info);
+                    aiVar2.f1566a = (LinearLayout) view4.findViewById(R.id.post_info);
                     aiVar2.c = (TextView) view4.findViewById(R.id.title);
                     aiVar2.d = (TextView) view4.findViewById(R.id.post_time);
                     aiVar2.e = (TextView) view4.findViewById(R.id.forum);
                     aiVar2.b = (ImageView) view4.findViewById(R.id.post_icon);
                     if (au == 1) {
-                        aiVar2.f1568a.setBackgroundResource(R.drawable.time_line_node_content_bg_skin_1);
+                        aiVar2.f1566a.setBackgroundResource(R.drawable.time_line_node_content_bg_skin_1);
                     }
                     view4.setTag(aiVar2);
                     aiVar = aiVar2;
@@ -119,10 +119,10 @@ public class ae extends BaseAdapter {
                     if (itemViewType == 2) {
                         view4 = from.inflate(R.layout.page_item, (ViewGroup) null);
                         ah ahVar2 = new ah(this);
-                        ahVar2.f1567a = (TextView) view4.findViewById(R.id.page_text);
+                        ahVar2.f1565a = (TextView) view4.findViewById(R.id.page_text);
                         ahVar2.b = (ProgressBar) view4.findViewById(R.id.progress);
                         if (au == 1) {
-                            ahVar2.f1567a.setTextColor(-3618616);
+                            ahVar2.f1565a.setTextColor(-3618616);
                         }
                         view4.setTag(ahVar2);
                         this.c.add(ahVar2.b);
@@ -155,11 +155,11 @@ public class ae extends BaseAdapter {
             }
             com.baidu.tieba.model.bb bbVar = (com.baidu.tieba.model.bb) getItem(i);
             if (itemViewType == 0) {
-                ajVar.b.setText(String.valueOf(bbVar.b()) + this.f1564a.getString(R.string.month));
+                ajVar.b.setText(String.valueOf(bbVar.b()) + this.f1562a.getString(R.string.month));
                 return view4;
             } else if (itemViewType == 1) {
                 aiVar.d.setText(bbVar.e());
-                aiVar.e.setText(String.valueOf(bbVar.f()) + this.f1564a.getString(R.string.forum));
+                aiVar.e.setText(String.valueOf(bbVar.f()) + this.f1562a.getString(R.string.forum));
                 aiVar.e.setOnClickListener(new af(this, bbVar));
                 if (bbVar.a() == 2) {
                     if (au == 1) {
@@ -167,14 +167,14 @@ public class ae extends BaseAdapter {
                     } else {
                         aiVar.b.setBackgroundResource(R.drawable.icon_thread_node);
                     }
-                    string = this.f1564a.getString(R.string.add_thread);
+                    string = this.f1562a.getString(R.string.add_thread);
                 } else {
                     if (au == 1) {
                         aiVar.b.setBackgroundResource(R.drawable.icon_reply_node_1);
                     } else {
                         aiVar.b.setBackgroundResource(R.drawable.icon_reply_node);
                     }
-                    string = this.f1564a.getString(R.string.add_reply);
+                    string = this.f1562a.getString(R.string.add_reply);
                 }
                 int parseInt = Integer.parseInt(bbVar.d());
                 if (parseInt <= 0) {
@@ -195,13 +195,13 @@ public class ae extends BaseAdapter {
                     sb.append(bbVar.c());
                     int length = sb.toString().length();
                     sb.append("  ");
-                    sb.append(this.f1564a.getString(R.string.reply_prefix));
+                    sb.append(this.f1562a.getString(R.string.reply_prefix));
                     sb.append(d);
-                    sb.append(this.f1564a.getString(R.string.reply_suffix));
+                    sb.append(this.f1562a.getString(R.string.reply_suffix));
                     int length2 = sb.toString().length();
                     SpannableString spannableString = new SpannableString(sb.toString());
-                    spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.util.am.a(this.f1564a, 15.0f)), 0, length, 18);
-                    spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.util.am.a(this.f1564a, 12.0f)), length + 1, length2, 18);
+                    spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.util.am.a(this.f1562a, 15.0f)), 0, length, 18);
+                    spannableString.setSpan(new AbsoluteSizeSpan(com.baidu.tieba.util.am.a(this.f1562a, 12.0f)), length + 1, length2, 18);
                     if (au == 1) {
                         spannableString.setSpan(new ForegroundColorSpan(-8682095), 0, length, 18);
                         spannableString.setSpan(new ForegroundColorSpan(-11446171), length + 1, length2, 18);
@@ -211,15 +211,15 @@ public class ae extends BaseAdapter {
                     }
                     aiVar.c.setText(spannableString);
                 }
-                aiVar.f1568a.setOnClickListener(new ag(this, bbVar));
+                aiVar.f1566a.setOnClickListener(new ag(this, bbVar));
                 return view4;
             } else if (itemViewType == 2) {
                 if (this.b.f()) {
-                    ahVar.f1567a.setText(R.string.load_more);
+                    ahVar.f1565a.setText(R.string.load_more);
                 } else {
-                    ahVar.f1567a.setText(R.string.no_more_to_load);
+                    ahVar.f1565a.setText(R.string.no_more_to_load);
                 }
-                if (((AllPostActivity) this.f1564a).c()) {
+                if (((AllPostActivity) this.f1562a).c()) {
                     ahVar.b.setVisibility(0);
                     return view4;
                 }

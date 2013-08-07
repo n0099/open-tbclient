@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f999a = new ArrayList();
+    private ArrayList f997a = new ArrayList();
 
     public void a(JSONObject jSONObject, HashMap hashMap) {
         String str;
@@ -23,7 +23,7 @@ public class bi {
                     if (hashMap != null && (str = (String) hashMap.get(metaData.getName_show())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.f999a.add(metaData);
+                    this.f997a.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -47,8 +47,8 @@ public class bi {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f999a.size()) {
-                    MetaData metaData = (MetaData) this.f999a.get(i2);
+                if (i2 < this.f997a.size()) {
+                    MetaData metaData = (MetaData) this.f997a.get(i2);
                     metaData.setPortrait((String) hashMap.get(metaData.getName_show()));
                     i = i2 + 1;
                 } else {
@@ -59,6 +59,6 @@ public class bi {
     }
 
     public ArrayList a() {
-        return this.f999a;
+        return this.f997a;
     }
 }

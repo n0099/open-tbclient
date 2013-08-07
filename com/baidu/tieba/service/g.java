@@ -12,7 +12,7 @@ import com.baidu.tieba.util.aj;
 public class g extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1701a = -1;
+    public int f1699a = -1;
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -20,20 +20,20 @@ public class g extends BroadcastReceiver {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
-                    if (this.f1701a != 1) {
-                        if (this.f1701a != -1 && TiebaApplication.f().bb()) {
+                    if (this.f1699a != 1) {
+                        if (this.f1699a != -1 && TiebaApplication.f().bb()) {
                             TiebaApplication.f().y(true);
                         }
-                        this.f1701a = 1;
+                        this.f1699a = 1;
                     }
-                } else if (this.f1701a != 2) {
-                    if (this.f1701a != -1 && TiebaApplication.f().bb()) {
+                } else if (this.f1699a != 2) {
+                    if (this.f1699a != -1 && TiebaApplication.f().bb()) {
                         TiebaApplication.f().y(false);
                     }
-                    this.f1701a = 2;
+                    this.f1699a = 2;
                 }
-            } else if (this.f1701a != 0) {
-                this.f1701a = 0;
+            } else if (this.f1699a != 0) {
+                this.f1699a = 0;
             }
             WebView.disablePlatformNotifications();
             WebView.enablePlatformNotifications();

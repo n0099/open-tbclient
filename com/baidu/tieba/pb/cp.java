@@ -9,11 +9,11 @@ import android.widget.ImageButton;
 public class cp implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1510a;
+    final /* synthetic */ bn f1508a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cp(bn bnVar) {
-        this.f1510a = bnVar;
+        this.f1508a = bnVar;
     }
 
     @Override // android.text.TextWatcher
@@ -30,14 +30,14 @@ public class cp implements TextWatcher {
         Button button;
         Button button2;
         if (editable == null || editable.length() <= 0) {
-            imageButton = this.f1510a.o;
+            imageButton = this.f1508a.o;
             if (imageButton.getTag() == null) {
-                button = this.f1510a.j;
+                button = this.f1508a.j;
                 button.setEnabled(false);
                 return;
             }
         }
-        button2 = this.f1510a.j;
+        button2 = this.f1508a.j;
         button2.setEnabled(true);
     }
 }

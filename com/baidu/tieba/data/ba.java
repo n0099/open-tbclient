@@ -3,7 +3,7 @@ package com.baidu.tieba.data;
 public class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ az f991a;
+    final /* synthetic */ az f989a;
     private String b;
     private String c;
     private int d;
@@ -13,7 +13,7 @@ public class ba {
     private String h;
 
     public ba(az azVar) {
-        this.f991a = azVar;
+        this.f989a = azVar;
     }
 
     public String a() {

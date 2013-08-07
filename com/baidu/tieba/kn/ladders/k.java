@@ -10,12 +10,12 @@ import com.baidu.tieba.util.am;
 class k implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ KnLaddersBannerAdapter f1191a;
+    final /* synthetic */ KnLaddersBannerAdapter f1189a;
     private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(KnLaddersBannerAdapter knLaddersBannerAdapter, int i) {
-        this.f1191a = knLaddersBannerAdapter;
+        this.f1189a = knLaddersBannerAdapter;
         this.b = i;
     }
 
@@ -26,7 +26,7 @@ class k implements View.OnClickListener {
             StatService.onEvent(view.getContext(), "kn_ladders_banner", "click", 1);
         }
         Context context = view.getContext();
-        picArr = this.f1191a.f1177a;
+        picArr = this.f1189a.f1175a;
         am.a(context, picArr[this.b].link_url, "");
     }
 }

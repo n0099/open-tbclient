@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1751a = "skinType not support";
+    private static String f1749a = "skinType not support";
 
     public static void a(TextView textView, int i) {
         if (textView != null) {
@@ -233,21 +233,21 @@ public class ah {
         if (i == 1) {
             return TiebaApplication.f().getResources().getColor(R.color.skin_1_common_color);
         }
-        throw new IllegalArgumentException(f1751a);
+        throw new IllegalArgumentException(f1749a);
     }
 
     public static int b(int i) {
         if (i == 1) {
             return TiebaApplication.f().getResources().getColor(R.color.skin_1_second_common_color);
         }
-        throw new IllegalArgumentException(f1751a);
+        throw new IllegalArgumentException(f1749a);
     }
 
     public static int c(int i) {
         if (i == 1) {
             return TiebaApplication.f().getResources().getColor(R.color.skin_1_third_common_color);
         }
-        throw new IllegalArgumentException(f1751a);
+        throw new IllegalArgumentException(f1749a);
     }
 
     public static int d(int i) {

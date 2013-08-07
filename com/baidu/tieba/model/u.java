@@ -6,7 +6,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class u extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1383a;
+    final /* synthetic */ t f1381a;
     private com.baidu.tieba.util.u b = null;
     private String c;
     private String d;
@@ -17,7 +17,7 @@ public class u extends BdAsyncTask {
     private boolean i;
 
     public u(t tVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.f1383a = tVar;
+        this.f1381a = tVar;
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -32,7 +32,7 @@ public class u extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         String str;
-        String str2 = com.baidu.tieba.data.g.f1013a;
+        String str2 = com.baidu.tieba.data.g.f1011a;
         if (this.g == 0) {
             str = String.valueOf(str2) + "c/c/bawu/delthread";
         } else {
@@ -80,9 +80,9 @@ public class u extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1383a.f1382a = null;
+        this.f1381a.f1380a = null;
         super.cancel(true);
-        eVar = this.f1383a.mLoadDataCallBack;
+        eVar = this.f1381a.mLoadDataCallBack;
         eVar.a(null);
     }
 
@@ -93,22 +93,22 @@ public class u extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) str);
-        this.f1383a.f1382a = null;
+        this.f1381a.f1380a = null;
         if (this.b == null) {
-            eVar2 = this.f1383a.mLoadDataCallBack;
+            eVar2 = this.f1381a.mLoadDataCallBack;
             eVar2.a(null);
             return;
         }
-        v vVar = new v(this.f1383a);
+        v vVar = new v(this.f1381a);
         vVar.c = this.g;
         vVar.d = this.f;
         vVar.b = str;
         if (str == null) {
-            vVar.f1384a = true;
+            vVar.f1382a = true;
         } else {
-            vVar.f1384a = false;
+            vVar.f1382a = false;
         }
-        eVar = this.f1383a.mLoadDataCallBack;
+        eVar = this.f1381a.mLoadDataCallBack;
         eVar.a(vVar);
     }
 }

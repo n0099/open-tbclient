@@ -10,26 +10,26 @@ public class bf extends com.baidu.adp.a.c {
     private com.baidu.tieba.data.bh e;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1349a = null;
+    private String f1347a = null;
     private String b = null;
     private String c = null;
     private bg f = null;
     private bh g = null;
 
     public void a(Intent intent) {
-        this.f1349a = intent.getStringExtra("thread_id");
+        this.f1347a = intent.getStringExtra("thread_id");
         this.b = intent.getStringExtra("post_id");
         this.c = intent.getStringExtra("st_type");
     }
 
     public void a(Bundle bundle) {
-        this.f1349a = bundle.getString("thread_id");
+        this.f1347a = bundle.getString("thread_id");
         this.b = bundle.getString("post_id");
         this.c = bundle.getString("st_type");
     }
 
     public void b(Bundle bundle) {
-        bundle.putString("thread_id", this.f1349a);
+        bundle.putString("thread_id", this.f1347a);
         bundle.putString("post_id", this.b);
         bundle.putString("st_type", this.c);
     }
@@ -42,7 +42,7 @@ public class bf extends com.baidu.adp.a.c {
     }
 
     public void a(String str) {
-        this.f1349a = str;
+        this.f1347a = str;
     }
 
     public void b(String str) {
@@ -95,7 +95,7 @@ public class bf extends com.baidu.adp.a.c {
 
     public boolean e() {
         cancelLoadData();
-        if (this.f1349a == null || this.b == null || this.f != null) {
+        if (this.f1347a == null || this.b == null || this.f != null) {
             return false;
         }
         this.f = new bg(this, 0);
@@ -106,7 +106,7 @@ public class bf extends com.baidu.adp.a.c {
 
     public boolean f() {
         cancelLoadData();
-        if (this.f1349a == null || this.b == null || this.e.k() || this.f != null) {
+        if (this.f1347a == null || this.b == null || this.e.k() || this.f != null) {
             return false;
         }
         this.f = new bg(this, 2);

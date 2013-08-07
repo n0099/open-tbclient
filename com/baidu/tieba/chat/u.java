@@ -11,7 +11,7 @@ import com.baidu.tieba.view.HeadImageView;
 class u {
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f952a;
+    FrameLayout f950a;
     LinearLayout b;
     HeadImageView c;
     TextView d;
@@ -26,7 +26,7 @@ class u {
 
     private u(t tVar) {
         this.l = tVar;
-        this.f952a = null;
+        this.f950a = null;
         this.b = null;
         this.c = null;
         this.d = null;

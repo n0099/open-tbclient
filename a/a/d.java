@@ -6,7 +6,7 @@ import android.os.Parcel;
 /* loaded from: classes.dex */
 public abstract class d extends Binder implements c {
     public d() {
-        attachInterface(this, "android.app.IActivityWatcher");
+        attachInterface(this, "android.app.IProcessObserver");
     }
 
     @Override // android.os.IInterface
@@ -18,15 +18,19 @@ public abstract class d extends Binder implements c {
     public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
         switch (i) {
             case 1:
-                parcel.enforceInterface("android.app.IActivityWatcher");
-                a(parcel.readInt());
+                parcel.enforceInterface("android.app.IProcessObserver");
+                a(parcel.readInt(), parcel.readInt(), parcel.readInt() != 0);
                 return true;
             case 2:
-                parcel.enforceInterface("android.app.IActivityWatcher");
-                a(parcel.readString());
+                parcel.enforceInterface("android.app.IProcessObserver");
+                a(parcel.readInt(), parcel.readInt(), parcel.readInt());
+                return true;
+            case 3:
+                parcel.enforceInterface("android.app.IProcessObserver");
+                a(parcel.readInt(), parcel.readInt());
                 return true;
             case 1598968902:
-                parcel2.writeString("android.app.IActivityWatcher");
+                parcel2.writeString("android.app.IProcessObserver");
                 return true;
             default:
                 return super.onTransact(i, parcel, parcel2, i2);

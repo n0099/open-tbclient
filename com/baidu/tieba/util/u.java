@@ -17,7 +17,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private NetWorkCore f1775a = null;
+    private NetWorkCore f1773a = null;
     private NetWorkCore b = null;
     private boolean c = false;
     private boolean d = true;
@@ -26,7 +26,7 @@ public class u {
     private int g = 0;
 
     private void o() {
-        this.f1775a = new NetWorkCore();
+        this.f1773a = new NetWorkCore();
         this.b = null;
         this.c = false;
         this.e = true;
@@ -42,7 +42,7 @@ public class u {
     }
 
     public void b(boolean z) {
-        this.f1775a.a(z);
+        this.f1773a.a(z);
     }
 
     public void c(boolean z) {
@@ -51,55 +51,55 @@ public class u {
 
     public u(String str) {
         o();
-        this.f1775a.a(str);
+        this.f1773a.a(str);
     }
 
     public u(Context context, String str) {
         o();
-        this.f1775a.b(context);
-        this.f1775a.a(str);
+        this.f1773a.b(context);
+        this.f1773a.a(str);
     }
 
     public void a(String str) {
-        this.f1775a.a(str);
+        this.f1773a.a(str);
     }
 
     public String a() {
-        return this.f1775a.m();
+        return this.f1773a.m();
     }
 
     public void a(Context context) {
-        this.f1775a.b(context);
+        this.f1773a.b(context);
     }
 
     public Context b() {
-        return this.f1775a.z();
+        return this.f1773a.z();
     }
 
     public void a(ArrayList arrayList) {
-        this.f1775a.a(arrayList);
+        this.f1773a.a(arrayList);
     }
 
     public void a(String str, String str2) {
-        this.f1775a.a(str, str2);
+        this.f1773a.a(str, str2);
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.f1775a.a(basicNameValuePair);
+        this.f1773a.a(basicNameValuePair);
     }
 
     public void a(String str, byte[] bArr) {
-        this.f1775a.a(str, bArr);
+        this.f1773a.a(str, bArr);
     }
 
     public void d(boolean z) {
-        this.f1775a.b(z);
+        this.f1773a.b(z);
     }
 
     private void p() {
         String G = TiebaApplication.G();
         if (G != null && this.d) {
-            this.f1775a.a("BDUSS", G);
+            this.f1773a.a("BDUSS", G);
         }
     }
 
@@ -110,7 +110,7 @@ public class u {
         aj.a("NetWork", "modSessionData", "== BDUSS:" + G);
         aj.a("NetWork", "modSessionData", "== TBS:" + TiebaApplication.f().P());
         if (G != null) {
-            ArrayList A = this.f1775a.A();
+            ArrayList A = this.f1773a.A();
             int size = A.size();
             for (int i = 0; i < size; i++) {
                 BasicNameValuePair basicNameValuePair3 = (BasicNameValuePair) A.get(i);
@@ -124,36 +124,36 @@ public class u {
     }
 
     public int c() {
-        return this.f1775a.w();
+        return this.f1773a.w();
     }
 
     private void r() {
-        this.f1775a.a("_client_type", "2");
-        this.f1775a.a("_client_version", com.baidu.tieba.data.g.i());
+        this.f1773a.a("_client_type", "2");
+        this.f1773a.a("_client_version", com.baidu.tieba.data.g.i());
         if (TiebaApplication.f().p() != null) {
-            this.f1775a.a("_phone_imei", TiebaApplication.f().p());
+            this.f1773a.a("_phone_imei", TiebaApplication.f().p());
         }
         String Q = TiebaApplication.Q();
         if (Q != null) {
-            this.f1775a.a("_client_id", Q);
+            this.f1773a.a("_client_id", Q);
         }
         String A = TiebaApplication.A();
         if (A != null && A.length() > 0) {
-            this.f1775a.a("from", A);
+            this.f1773a.a("from", A);
         }
-        String i = this.f1775a.i();
+        String i = this.f1773a.i();
         if (i != null) {
-            this.f1775a.a("net_type", i);
+            this.f1773a.a("net_type", i);
         }
         if (this.c) {
-            this.f1775a.a("tbs", TiebaApplication.f().P());
+            this.f1773a.a("tbs", TiebaApplication.f().P());
         }
         String o = TiebaApplication.f().o();
         if (o != null) {
-            this.f1775a.a("cuid", o);
+            this.f1773a.a("cuid", o);
         }
-        this.f1775a.a("timestamp", Long.toString(System.currentTimeMillis()));
-        this.f1775a.a("model", Build.MODEL);
+        this.f1773a.a("timestamp", Long.toString(System.currentTimeMillis()));
+        this.f1773a.a("model", Build.MODEL);
     }
 
     private void s() {
@@ -161,39 +161,39 @@ public class u {
             this.f = NetWorkCore.h();
         }
         if (this.f != null) {
-            this.f1775a.a("stTime", String.valueOf(this.f.b));
-            this.f1775a.a("stSize", String.valueOf(this.f.c));
-            this.f1775a.a("stTimesNum", String.valueOf(this.f.d));
-            this.f1775a.a("stMode", String.valueOf(this.f.e));
-            this.f1775a.a("stMethod", String.valueOf(this.f.f1778a));
+            this.f1773a.a("stTime", String.valueOf(this.f.b));
+            this.f1773a.a("stSize", String.valueOf(this.f.c));
+            this.f1773a.a("stTimesNum", String.valueOf(this.f.d));
+            this.f1773a.a("stMode", String.valueOf(this.f.e));
+            this.f1773a.a("stMethod", String.valueOf(this.f.f1776a));
         }
         this.g = NetWorkCore.a(0);
-        this.f1775a.a("stErrorNums", String.valueOf(this.g));
+        this.f1773a.a("stErrorNums", String.valueOf(this.g));
     }
 
     public boolean d() {
-        return this.f1775a.n();
+        return this.f1773a.n();
     }
 
     public boolean e() {
-        return this.f1775a.o();
+        return this.f1773a.o();
     }
 
     public int f() {
-        return this.f1775a.p();
+        return this.f1773a.p();
     }
 
     public String g() {
-        return this.f1775a.i();
+        return this.f1773a.i();
     }
 
     public String h() {
-        return this.f1775a.q();
+        return this.f1773a.q();
     }
 
     public void i() {
-        if (this.f1775a != null) {
-            this.f1775a.s();
+        if (this.f1773a != null) {
+            this.f1773a.s();
         }
         if (this.b != null) {
             this.b.s();
@@ -205,7 +205,7 @@ public class u {
         try {
             aj.a(getClass().toString(), "login", "=== need auto login");
             StringBuilder sb = new StringBuilder(32);
-            sb.append(com.baidu.tieba.data.g.f1013a);
+            sb.append(com.baidu.tieba.data.g.f1011a);
             sb.append("c/s/login");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("un", str));
@@ -220,7 +220,7 @@ public class u {
             this.b.a(sb.toString());
             this.b.a(arrayList);
             this.b.a((Boolean) true);
-            this.b.b(this.f1775a.z());
+            this.b.b(this.f1773a.z());
             v = this.b.v();
         } catch (Exception e) {
             aj.b(getClass().toString(), "login", e.getMessage());
@@ -273,7 +273,7 @@ public class u {
 
     public byte[] j() {
         r();
-        return this.f1775a.t();
+        return this.f1773a.t();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -288,31 +288,31 @@ public class u {
             case 1:
                 r();
                 s();
-                x = this.f1775a.u();
+                x = this.f1773a.u();
                 break;
             case 2:
                 p();
                 r();
                 s();
-                x = this.f1775a.v();
+                x = this.f1773a.v();
                 break;
             case 3:
                 p();
                 r();
-                x = this.f1775a.x();
+                x = this.f1773a.x();
                 break;
             default:
                 return null;
         }
-        if (!this.f1775a.o()) {
+        if (!this.f1773a.o()) {
             NetWorkCore.a(this.f);
             NetWorkCore.b(this.g);
             return x;
-        } else if (this.f1775a.n()) {
+        } else if (this.f1773a.n()) {
             return x;
         } else {
-            if (this.f1775a.p() == 1 && this.e) {
-                this.f1775a.r();
+            if (this.f1773a.p() == 1 && this.e) {
+                this.f1773a.r();
                 if (TiebaApplication.n()) {
                     String backgroundReLogin = BaiduAccount.get(TiebaApplication.f()).backgroundReLogin(TiebaApplication.I(), TiebaApplication.G(), new v(this), new w(this));
                     if (backgroundReLogin != null) {
@@ -332,7 +332,7 @@ public class u {
                         return null;
                     } else if (a(H.getAccount(), H.getPassword(), true) == null) {
                         if (this.b != null) {
-                            this.f1775a.b(this.b.q());
+                            this.f1773a.b(this.b.q());
                             return null;
                         }
                         return null;
@@ -349,11 +349,11 @@ public class u {
         q();
         switch (i) {
             case 1:
-                return this.f1775a.u();
+                return this.f1773a.u();
             case 2:
-                return this.f1775a.v();
+                return this.f1773a.v();
             case 3:
-                return this.f1775a.x();
+                return this.f1773a.x();
             default:
                 return null;
         }
@@ -397,12 +397,12 @@ public class u {
     }
 
     public boolean n() {
-        return this.f1775a.y();
+        return this.f1773a.y();
     }
 
     public Boolean a(String str, Handler handler, int i) {
         p();
-        return this.f1775a.a(str, handler, i);
+        return this.f1773a.a(str, handler, i);
     }
 
     public void e(boolean z) {

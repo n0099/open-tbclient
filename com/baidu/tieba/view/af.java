@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class af extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private Window f1812a;
+    private Window f1810a;
     private ImageView b;
     private View c;
     private ProgressBar d;
@@ -31,7 +31,7 @@ public class af extends Dialog {
 
     public af(Context context, int i, int i2) {
         super(context, R.style.big_image_dialog);
-        this.f1812a = null;
+        this.f1810a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -128,14 +128,14 @@ public class af extends Dialog {
     }
 
     public void b() {
-        this.f1812a = getWindow();
-        this.f1812a.setWindowAnimations(R.style.big_image_dialog_anim);
-        WindowManager.LayoutParams attributes = this.f1812a.getAttributes();
+        this.f1810a = getWindow();
+        this.f1810a.setWindowAnimations(R.style.big_image_dialog_anim);
+        WindowManager.LayoutParams attributes = this.f1810a.getAttributes();
         attributes.x = this.j;
         attributes.y = this.k;
         attributes.horizontalMargin = 0.0f;
         attributes.verticalMargin = 0.0f;
         attributes.gravity = 51;
-        this.f1812a.setAttributes(attributes);
+        this.f1810a.setAttributes(attributes);
     }
 }

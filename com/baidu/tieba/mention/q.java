@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class q extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1307a;
+    ArrayList f1305a;
     final /* synthetic */ h b;
     private com.baidu.tieba.util.u c = null;
     private String d;
@@ -26,9 +26,9 @@ public class q extends BdAsyncTask {
         this.b = hVar;
         this.d = null;
         this.e = null;
-        this.f1307a = null;
+        this.f1305a = null;
         this.d = str;
-        this.f1307a = arrayList;
+        this.f1305a = arrayList;
         this.f = i;
         this.e = str2;
     }
@@ -49,7 +49,7 @@ public class q extends BdAsyncTask {
     public String a(Object... objArr) {
         try {
             this.c = new com.baidu.tieba.util.u(this.d);
-            this.c.a(this.f1307a);
+            this.c.a(this.f1305a);
             return this.c.k();
         } catch (Exception e) {
             aj.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());

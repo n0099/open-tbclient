@@ -5,7 +5,7 @@ import com.baidu.tieba.data.WriteData;
 public class bi extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private bk f1351a = null;
+    private bk f1349a = null;
     private WriteData b = null;
     private bj c = null;
     private boolean d = false;
@@ -30,9 +30,9 @@ public class bi extends com.baidu.adp.a.c {
         if (this.b == null) {
             return false;
         }
-        if (this.f1351a == null) {
-            this.f1351a = new bk(this);
-            this.f1351a.execute(new Integer[0]);
+        if (this.f1349a == null) {
+            this.f1349a = new bk(this);
+            this.f1349a.execute(new Integer[0]);
         }
         return true;
     }

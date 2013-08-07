@@ -8,13 +8,13 @@ import com.baidu.tieba.util.aj;
 public class t extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ KnPkHomeFragment f1199a;
+    final /* synthetic */ KnPkHomeFragment f1197a;
     private com.baidu.tieba.util.u b;
     private String c;
     private String d;
 
     private t(KnPkHomeFragment knPkHomeFragment) {
-        this.f1199a = knPkHomeFragment;
+        this.f1197a = knPkHomeFragment;
         this.b = null;
         this.d = String.valueOf(com.baidu.tieba.data.g.b) + "mo/q/player_home?_client_version=" + com.baidu.tieba.data.g.i();
     }
@@ -27,8 +27,8 @@ public class t extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        KnPkHomeFragment.a(this.f1199a).d.setVisibility(0);
-        KnPkHomeFragment.a(this.f1199a).f1200a.clearView();
+        KnPkHomeFragment.a(this.f1197a).d.setVisibility(0);
+        KnPkHomeFragment.a(this.f1197a).f1198a.clearView();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,16 +60,16 @@ public class t extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        KnPkHomeFragment.a(this.f1199a).d.setVisibility(8);
+        KnPkHomeFragment.a(this.f1197a).d.setVisibility(8);
         if (str != null && str.length() > 0) {
-            KnPkHomeFragment.a(this.f1199a).f1200a.loadDataWithBaseURL(this.d, str, "text/html", BdUtil.UTF8, "");
-            KnPkHomeFragment.a(this.f1199a).e.setVisibility(8);
-            KnPkHomeFragment.a(this.f1199a).b.setVisibility(8);
-            KnPkHomeFragment.a(this.f1199a).f1200a.setVisibility(0);
+            KnPkHomeFragment.a(this.f1197a).f1198a.loadDataWithBaseURL(this.d, str, "text/html", BdUtil.UTF8, "");
+            KnPkHomeFragment.a(this.f1197a).e.setVisibility(8);
+            KnPkHomeFragment.a(this.f1197a).b.setVisibility(8);
+            KnPkHomeFragment.a(this.f1197a).f1198a.setVisibility(0);
             return;
         }
-        KnPkHomeFragment.a(this.f1199a).f1200a.setVisibility(8);
-        KnPkHomeFragment.a(this.f1199a).e.setVisibility(0);
-        KnPkHomeFragment.a(this.f1199a).b.setVisibility(0);
+        KnPkHomeFragment.a(this.f1197a).f1198a.setVisibility(8);
+        KnPkHomeFragment.a(this.f1197a).e.setVisibility(0);
+        KnPkHomeFragment.a(this.f1197a).b.setVisibility(0);
     }
 }

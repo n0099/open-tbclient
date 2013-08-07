@@ -7,11 +7,11 @@ import android.view.View;
 public class cf implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1500a;
+    final /* synthetic */ bn f1498a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cf(bn bnVar) {
-        this.f1500a = bnVar;
+        this.f1498a = bnVar;
     }
 
     @Override // android.view.View.OnTouchListener

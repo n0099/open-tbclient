@@ -1,60 +1,26 @@
 package com.baidu.android.nebula.cmd;
 
 import android.content.Context;
-import android.os.Process;
-import com.baidu.android.common.logging.Log;
-import com.baidu.android.common.net.ProxyHttpClient;
-import com.baidu.browser.core.util.BdUtil;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
+import android.content.IntentFilter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends Thread {
+public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    a f548a;
-    final /* synthetic */ ScanDownloadFile b;
-    private CharSequence c;
+    final /* synthetic */ ScanDownloadFile f546a;
 
-    public f(ScanDownloadFile scanDownloadFile, CharSequence charSequence) {
-        String str;
-        this.b = scanDownloadFile;
-        StringBuilder sb = new StringBuilder();
-        str = scanDownloadFile.mFileName;
-        setName(sb.append(str).append("_moplus_getdownloadinfo_thread").toString());
-        this.c = charSequence;
+    public f(ScanDownloadFile scanDownloadFile) {
+        Context context;
+        this.f546a = scanDownloadFile;
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
+        intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
+        intentFilter.addDataScheme("package");
+        context = scanDownloadFile.mContext;
+        context.registerReceiver(new g(this, scanDownloadFile), intentFilter);
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Context context;
-        long j;
-        Process.setThreadPriority(19);
-        try {
-            j = this.b.mScanedOneTime;
-            sleep(j);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        context = this.b.mContext;
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context);
-        try {
-            HttpResponse execute = proxyHttpClient.execute(new HttpGet(this.c.toString()));
-            if (execute.getStatusLine().getStatusCode() == 200) {
-                String entityUtils = EntityUtils.toString(execute.getEntity(), BdUtil.UTF8);
-                if (!isInterrupted()) {
-                    this.f548a = new a(this.b, new JSONArray(entityUtils));
-                    this.f548a.start();
-                }
-            } else {
-                Log.d("ScanDownloadFile", "request failed  " + execute.getStatusLine());
-            }
-        } catch (Exception e2) {
-            Log.w("ScanDownloadFile", "error", e2);
-        } finally {
-            proxyHttpClient.close();
-        }
+    public void a() {
+        new k(this.f546a, "http://wap.baidu.com/static/freeapp/broswer_down_path.cfg?v=1").start();
     }
 }

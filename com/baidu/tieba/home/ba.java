@@ -5,7 +5,7 @@ import android.widget.TextView;
 class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1140a;
+    TextView f1138a;
     final /* synthetic */ az b;
 
     private ba(az azVar) {

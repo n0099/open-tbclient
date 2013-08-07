@@ -15,7 +15,7 @@ public class aq {
     private boolean c = true;
 
     /* renamed from: a  reason: collision with root package name */
-    private List f1335a = new ArrayList();
+    private List f1333a = new ArrayList();
     private List b = new ArrayList();
     private int[] d = {R.drawable.ball_blue, R.drawable.ball_green, R.drawable.ball_lightblue, R.drawable.ball_orange, R.drawable.ball_violet, R.drawable.ball_yellow, R.drawable.ball_yolk};
     private int[][] e = {new int[]{28, 52}, new int[]{90, 40}, new int[]{25, 97}, new int[]{110, 121}};
@@ -26,7 +26,7 @@ public class aq {
     private List j = new ArrayList();
 
     public List a() {
-        return this.f1335a;
+        return this.f1333a;
     }
 
     public List b() {
@@ -45,14 +45,14 @@ public class aq {
             int nextInt = random.nextInt(length);
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            if (this.f1335a != null && this.f1335a.size() > 0) {
+            if (this.f1333a != null && this.f1333a.size() > 0) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.f1335a.size()) {
+                    if (i2 >= this.f1333a.size()) {
                         break;
                     }
-                    com.baidu.tieba.data.ag agVar = (com.baidu.tieba.data.ag) this.f1335a.get(i2);
+                    com.baidu.tieba.data.ag agVar = (com.baidu.tieba.data.ag) this.f1333a.get(i2);
                     if (agVar.b().size() == 2 && arrayList.size() < 3) {
                         arrayList.add(agVar);
                     } else if (arrayList2.size() < 12) {
@@ -182,11 +182,11 @@ public class aq {
             JSONArray optJSONArray2 = optJSONObject.optJSONArray("level2");
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("user_tag");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.f1335a.clear();
+                this.f1333a.clear();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     com.baidu.tieba.data.ag agVar = new com.baidu.tieba.data.ag();
                     agVar.a(optJSONArray.getJSONObject(i));
-                    this.f1335a.add(agVar);
+                    this.f1333a.add(agVar);
                 }
             }
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {

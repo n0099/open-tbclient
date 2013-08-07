@@ -6,15 +6,15 @@ import android.content.Intent;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PushSDK f587a;
+    final /* synthetic */ PushSDK f585a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PushSDK pushSDK) {
-        this.f587a = pushSDK;
+        this.f585a = pushSDK;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f587a.handleOnStart(new Intent());
+        this.f585a.handleOnStart(new Intent());
     }
 }

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f982a = 0;
+    private int f980a = 0;
     private int b = 0;
     private int d = 0;
     private int e = 0;
@@ -14,11 +14,11 @@ public class ar {
     private int c = 0;
 
     public int a() {
-        return this.f982a;
+        return this.f980a;
     }
 
     public void a(int i) {
-        this.f982a = i;
+        this.f980a = i;
     }
 
     public int b() {
@@ -68,7 +68,7 @@ public class ar {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f982a = jSONObject.optInt("total_page", 0);
+                this.f980a = jSONObject.optInt("total_page", 0);
                 this.b = jSONObject.optInt("total_num", 0);
                 this.c = jSONObject.optInt("total_count", 0);
                 this.d = jSONObject.optInt("current_page", 0);

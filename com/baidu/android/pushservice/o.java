@@ -16,7 +16,7 @@ import java.io.File;
 class o implements com.baidu.android.pushservice.richmedia.s {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f598a;
+    public Context f596a;
     public RemoteViews b = null;
     public int c = 0;
     public int d = 0;
@@ -28,42 +28,42 @@ class o implements com.baidu.android.pushservice.richmedia.s {
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PushServiceReceiver pushServiceReceiver, Context context) {
         this.h = pushServiceReceiver;
-        this.f598a = null;
-        this.f598a = context;
+        this.f596a = null;
+        this.f596a = context;
         this.g = (NotificationManager) context.getSystemService("notification");
     }
 
     @Override // com.baidu.android.pushservice.richmedia.s
     public void a(com.baidu.android.pushservice.richmedia.b bVar) {
-        Resources resources = this.f598a.getResources();
-        String packageName = this.f598a.getPackageName();
+        Resources resources = this.f596a.getResources();
+        String packageName = this.f596a.getPackageName();
         if (resources == null) {
             return;
         }
         int identifier = resources.getIdentifier("bpush_download_progress", "layout", packageName);
-        this.b = new RemoteViews(this.f598a.getPackageName(), identifier);
+        this.b = new RemoteViews(this.f596a.getPackageName(), identifier);
         if (identifier != 0) {
             this.c = resources.getIdentifier("bpush_download_progress", LocaleUtil.INDONESIAN, packageName);
             this.d = resources.getIdentifier("bpush_progress_percent", LocaleUtil.INDONESIAN, packageName);
             this.e = resources.getIdentifier("bpush_progress_text", LocaleUtil.INDONESIAN, packageName);
             this.f = resources.getIdentifier("bpush_download_icon", LocaleUtil.INDONESIAN, packageName);
-            this.b.setImageViewResource(this.f, this.f598a.getApplicationInfo().icon);
+            this.b.setImageViewResource(this.f, this.f596a.getApplicationInfo().icon);
         }
     }
 
     @Override // com.baidu.android.pushservice.richmedia.s
     public void a(com.baidu.android.pushservice.richmedia.b bVar, com.baidu.android.pushservice.richmedia.m mVar) {
         String d = bVar.d.d();
-        if (mVar.f616a == mVar.b || this.b == null) {
+        if (mVar.f614a == mVar.b || this.b == null) {
             return;
         }
-        int i = (int) ((mVar.f616a * 100.0d) / mVar.b);
+        int i = (int) ((mVar.f614a * 100.0d) / mVar.b);
         this.b.setTextViewText(this.d, i + "%");
         this.b.setTextViewText(this.e, "正在下载富媒体:" + d);
         this.b.setProgressBar(this.c, 100, i, false);
         Notification notification = new Notification(17301633, null, System.currentTimeMillis());
         notification.contentView = this.b;
-        notification.contentIntent = PendingIntent.getActivity(this.f598a, 0, new Intent(), 0);
+        notification.contentIntent = PendingIntent.getActivity(this.f596a, 0, new Intent(), 0);
         notification.flags |= 32;
         notification.flags |= 2;
         this.g.notify(d, 0, notification);
@@ -73,7 +73,7 @@ class o implements com.baidu.android.pushservice.richmedia.s {
     public void a(com.baidu.android.pushservice.richmedia.b bVar, com.baidu.android.pushservice.richmedia.r rVar) {
         String d = bVar.d.d();
         this.g.cancel(d, 0);
-        com.baidu.android.pushservice.util.i a2 = com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a(this.f598a), d);
+        com.baidu.android.pushservice.util.i a2 = com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a(this.f596a), d);
         if (a2 == null || a2.i != com.baidu.android.pushservice.richmedia.b.f) {
             return;
         }
@@ -81,17 +81,17 @@ class o implements com.baidu.android.pushservice.richmedia.s {
         String str2 = a2.f;
         String str3 = str + "/" + str2.substring(0, str2.lastIndexOf(".")) + "/index.html";
         Intent intent = new Intent();
-        intent.setClass(this.f598a, MediaViewActivity.class);
+        intent.setClass(this.f596a, MediaViewActivity.class);
         intent.setData(Uri.fromFile(new File(str3)));
         intent.addFlags(268435456);
-        this.f598a.startActivity(intent);
+        this.f596a.startActivity(intent);
     }
 
     @Override // com.baidu.android.pushservice.richmedia.s
     public void a(com.baidu.android.pushservice.richmedia.b bVar, Throwable th) {
         String d = bVar.d.d();
         this.g.cancel(d, 0);
-        Toast makeText = Toast.makeText(this.f598a, "下载富媒体" + Uri.parse(d).getAuthority() + "失败", 1);
+        Toast makeText = Toast.makeText(this.f596a, "下载富媒体" + Uri.parse(d).getAuthority() + "失败", 1);
         makeText.setGravity(17, 0, 0);
         makeText.show();
     }

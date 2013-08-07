@@ -19,26 +19,26 @@ class d extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (GifView.a(this.f423a) != null) {
-            while (GifView.b(this.f423a)) {
-                if (GifView.a(this.f423a).b() == 1) {
-                    GifView.a(this.f423a, GifView.a(this.f423a).d().f422a);
-                    GifView.a(this.f423a).a();
-                    GifView.c(this.f423a);
+        if (this.f423a.f419a != null) {
+            while (this.f423a.c) {
+                if (this.f423a.f419a.b() == 1) {
+                    this.f423a.b = this.f423a.f419a.d().f422a;
+                    this.f423a.f419a.a();
+                    this.f423a.b();
                     return;
-                } else if (!GifView.d(this.f423a)) {
-                    c d = GifView.a(this.f423a).d();
+                } else if (!this.f423a.d) {
+                    c d = this.f423a.f419a.d();
                     if (d == null) {
                         SystemClock.sleep(50L);
                     } else {
                         if (d.f422a != null) {
-                            GifView.a(this.f423a, d.f422a);
+                            this.f423a.b = d.f422a;
                         } else if (d.c != null) {
-                            GifView.a(this.f423a, BitmapFactory.decodeFile(d.c));
+                            this.f423a.b = BitmapFactory.decodeFile(d.c);
                         }
                         long j = d.b;
-                        if (GifView.e(this.f423a) != null) {
-                            GifView.c(this.f423a);
+                        if (this.f423a.h != null) {
+                            this.f423a.b();
                             SystemClock.sleep(j);
                         } else {
                             return;

@@ -6,18 +6,18 @@ import android.widget.GridView;
 public class bo implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1483a;
+    final /* synthetic */ bn f1481a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(bn bnVar) {
-        this.f1483a = bnVar;
+        this.f1481a = bnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         GridView gridView;
-        this.f1483a.V();
-        gridView = this.f1483a.H;
+        this.f1481a.V();
+        gridView = this.f1481a.H;
         gridView.setVisibility(0);
     }
 }

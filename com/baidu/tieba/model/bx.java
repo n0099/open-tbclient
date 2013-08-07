@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class bx extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bw f1363a;
+    final /* synthetic */ bw f1361a;
     private volatile com.baidu.tieba.util.u b;
 
     private bx(bw bwVar) {
-        this.f1363a = bwVar;
+        this.f1361a = bwVar;
         this.b = null;
     }
 
@@ -34,12 +34,12 @@ public class bx extends BdAsyncTask {
         String str;
         String str2;
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/forum/sign");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/forum/sign");
             com.baidu.tieba.util.u uVar = this.b;
-            str = this.f1363a.f1362a;
+            str = this.f1361a.f1360a;
             uVar.a("kw", str);
             com.baidu.tieba.util.u uVar2 = this.b;
-            str2 = this.f1363a.b;
+            str2 = this.f1361a.b;
             uVar2.a("fid", str2);
             this.b.e(true);
             String k = this.b.k();
@@ -67,9 +67,9 @@ public class bx extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1363a.c = null;
+        this.f1361a.c = null;
         super.cancel(true);
-        eVar = this.f1363a.mLoadDataCallBack;
+        eVar = this.f1361a.mLoadDataCallBack;
         eVar.a(null);
     }
 
@@ -78,12 +78,12 @@ public class bx extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(com.baidu.tieba.data.bg bgVar) {
         com.baidu.adp.a.e eVar;
-        this.f1363a.c = null;
+        this.f1361a.c = null;
         if (bgVar == null && this.b != null) {
-            this.f1363a.mErrorCode = this.b.f();
-            this.f1363a.mErrorString = this.b.h();
+            this.f1361a.mErrorCode = this.b.f();
+            this.f1361a.mErrorString = this.b.h();
         }
-        eVar = this.f1363a.mLoadDataCallBack;
+        eVar = this.f1361a.mLoadDataCallBack;
         eVar.a(bgVar);
     }
 }

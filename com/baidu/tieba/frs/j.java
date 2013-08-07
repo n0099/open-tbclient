@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 public class j extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1086a;
+    final /* synthetic */ FrsActivity f1084a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.f1086a = frsActivity;
+        this.f1084a = frsActivity;
     }
 
     @Override // android.os.Handler
@@ -29,14 +29,14 @@ public class j extends Handler {
         switch (message.what) {
             case 1:
                 removeMessages(1);
-                aaVar = this.f1086a.v;
+                aaVar = this.f1084a.v;
                 if (aaVar != null) {
-                    aaVar2 = this.f1086a.v;
+                    aaVar2 = this.f1084a.v;
                     long i = aaVar2.e().i();
-                    j = this.f1086a.z;
+                    j = this.f1084a.z;
                     long nanoTime = i - ((System.nanoTime() / 1000000000) - j);
                     if (nanoTime > 0) {
-                        azVar2 = this.f1086a.l;
+                        azVar2 = this.f1084a.l;
                         CustomTimerView customTimerView = (CustomTimerView) azVar2.a(R.id.open_timer);
                         if (customTimerView != null) {
                             customTimerView.setTime(nanoTime);
@@ -44,13 +44,13 @@ public class j extends Handler {
                         sendMessageDelayed(obtainMessage(1), 1000L);
                         return;
                     }
-                    aaVar3 = this.f1086a.v;
+                    aaVar3 = this.f1084a.v;
                     aaVar3.e().a(1);
-                    azVar = this.f1086a.l;
+                    azVar = this.f1084a.l;
                     com.baidu.tieba.view.t i2 = azVar.i();
-                    aaVar4 = this.f1086a.v;
+                    aaVar4 = this.f1084a.v;
                     com.baidu.tieba.data.v a2 = aaVar4.a();
-                    aaVar5 = this.f1086a.v;
+                    aaVar5 = this.f1084a.v;
                     i2.a(a2, aaVar5.e());
                     return;
                 }

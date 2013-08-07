@@ -16,7 +16,7 @@ import java.io.InputStream;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f1771a = Environment.getExternalStorageDirectory();
+    public static final File f1769a = Environment.getExternalStorageDirectory();
 
     public static boolean a() {
         return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
@@ -52,13 +52,13 @@ public class p {
     }
 
     public static boolean c() {
-        return a(f1771a + "/tieba/");
+        return a(f1769a + "/tieba/");
     }
 
     public static boolean b(String str) {
         if (a()) {
             try {
-                return new File(new StringBuilder().append(f1771a).append("/").append("tieba").append("/").append(str).toString()).exists();
+                return new File(new StringBuilder().append(f1769a).append("/").append("tieba").append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 aj.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 return false;
@@ -70,7 +70,7 @@ public class p {
     public static long a(String str, String str2) {
         if (a()) {
             try {
-                if (new File(f1771a + "/tieba/" + str + "/" + str2).exists()) {
+                if (new File(f1769a + "/tieba/" + str + "/" + str2).exists()) {
                     return com.baidu.tieba.data.g.e();
                 }
                 return -1L;
@@ -84,7 +84,7 @@ public class p {
 
     public static File c(String str) {
         if (c()) {
-            File file = new File(f1771a + "/tieba/" + str);
+            File file = new File(f1769a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file;
@@ -102,12 +102,12 @@ public class p {
         if (!c()) {
             return null;
         }
-        return new File(f1771a + "/tieba/" + str);
+        return new File(f1769a + "/tieba/" + str);
     }
 
     public static File e(String str) {
         if (c()) {
-            File file = new File(f1771a + "/tieba/" + str);
+            File file = new File(f1769a + "/tieba/" + str);
             try {
                 if (!file.exists() || file.delete()) {
                     if (file.createNewFile()) {
@@ -126,7 +126,7 @@ public class p {
 
     public static File f(String str) {
         if (c()) {
-            File file = new File(f1771a + "/tieba/" + str);
+            File file = new File(f1769a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file;
@@ -159,7 +159,7 @@ public class p {
         boolean z;
         FileNotFoundException e2;
         FileInputStream fileInputStream2 = null;
-        ?? sb = new StringBuilder(String.valueOf(str != null ? f1771a + "/tieba/" + str + "/" : f1771a + "/tieba/"));
+        ?? sb = new StringBuilder(String.valueOf(str != null ? f1769a + "/tieba/" + str + "/" : f1769a + "/tieba/"));
         try {
             try {
                 fileInputStream = new FileInputStream(new File(sb.append(str2).toString()));
@@ -244,9 +244,9 @@ public class p {
             return null;
         }
         if (str != null) {
-            str3 = f1771a + "/tieba/" + str + "/";
+            str3 = f1769a + "/tieba/" + str + "/";
         } else {
-            str3 = f1771a + "/tieba/";
+            str3 = f1769a + "/tieba/";
         }
         if (!a(str3) || bitmap == null) {
             return null;
@@ -270,9 +270,9 @@ public class p {
     public static Bitmap c(String str, String str2) {
         String str3;
         if (str != null) {
-            str3 = f1771a + "/tieba/" + str + "/";
+            str3 = f1769a + "/tieba/" + str + "/";
         } else {
-            str3 = f1771a + "/tieba/";
+            str3 = f1769a + "/tieba/";
         }
         try {
             return BitmapFactory.decodeFile(String.valueOf(str3) + str2);
@@ -298,7 +298,7 @@ public class p {
     public static String a(String str, String str2, byte[] bArr) {
         String str3;
         FileOutputStream fileOutputStream;
-        if (!a(str != null ? f1771a + "/tieba/" + str + "/" : f1771a + "/tieba/") || bArr == null || str2 == null) {
+        if (!a(str != null ? f1769a + "/tieba/" + str + "/" : f1769a + "/tieba/") || bArr == null || str2 == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -373,9 +373,9 @@ public class p {
             return null;
         }
         if (str != null) {
-            str3 = f1771a + "/tieba/" + str + "/";
+            str3 = f1769a + "/tieba/" + str + "/";
         } else {
-            str3 = f1771a + "/tieba/";
+            str3 = f1769a + "/tieba/";
         }
         File file = new File(String.valueOf(str3) + str2);
         try {
@@ -419,7 +419,7 @@ public class p {
             r1 = 0
             java.lang.StringBuilder r3 = new java.lang.StringBuilder
             r3.<init>()
-            java.io.File r4 = com.baidu.tieba.util.p.f1771a
+            java.io.File r4 = com.baidu.tieba.util.p.f1769a
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r4 = "/"
             java.lang.StringBuilder r3 = r3.append(r4)
@@ -431,7 +431,7 @@ public class p {
             java.lang.String r3 = r3.toString()
             java.lang.StringBuilder r4 = new java.lang.StringBuilder
             r4.<init>()
-            java.io.File r5 = com.baidu.tieba.util.p.f1771a
+            java.io.File r5 = com.baidu.tieba.util.p.f1769a
             java.lang.StringBuilder r4 = r4.append(r5)
             java.lang.String r5 = "/"
             java.lang.StringBuilder r4 = r4.append(r5)
@@ -605,7 +605,7 @@ public class p {
 
     public static boolean h(String str) {
         if (c()) {
-            File file = new File(f1771a + "/tieba/" + str);
+            File file = new File(f1769a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file.delete();

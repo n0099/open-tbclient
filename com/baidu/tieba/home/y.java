@@ -8,7 +8,7 @@ import android.widget.TextView;
 class y {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f1168a;
+    ImageView f1166a;
     TextView b;
     LinearLayout c;
     TextView d;

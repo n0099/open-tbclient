@@ -26,7 +26,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class PostActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1289a = null;
+    private LinearLayout f1287a = null;
     private LinearLayout b = null;
     private TextView c = null;
     private Button d = null;
@@ -116,7 +116,7 @@ public class PostActivity extends com.baidu.tieba.g {
         this.g = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
-        this.f1289a = (LinearLayout) findViewById(R.id.post);
+        this.f1287a = (LinearLayout) findViewById(R.id.post);
         this.e = (ImageView) findViewById(R.id.back);
         this.e.setOnClickListener(new r(this));
         this.d = (Button) findViewById(R.id.reply);
@@ -175,7 +175,7 @@ public class PostActivity extends com.baidu.tieba.g {
     public void d() {
         try {
             StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append(com.baidu.tieba.data.g.f1013a);
+            stringBuffer.append(com.baidu.tieba.data.g.f1011a);
             stringBuffer.append("c/f/pb/page");
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("kz", this.j));

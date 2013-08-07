@@ -16,7 +16,7 @@ import java.util.Date;
 public class ae extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1635a;
+    private Context f1633a;
     private com.baidu.tieba.data.ac b;
     private com.baidu.tieba.util.a c;
     private int d;
@@ -29,8 +29,8 @@ public class ae extends BaseAdapter {
         this.d = 200;
         this.f = false;
         this.h = null;
-        this.f1635a = context;
-        this.c = new com.baidu.tieba.util.a(this.f1635a);
+        this.f1633a = context;
+        this.c = new com.baidu.tieba.util.a(this.f1633a);
         this.h = onClickListener;
         this.d = com.baidu.tieba.util.am.a(context);
         boolean bl = TiebaApplication.f().bl();
@@ -51,8 +51,8 @@ public class ae extends BaseAdapter {
             if (this.e > 480) {
                 this.e = 480;
             }
-            if (this.e > com.baidu.tieba.util.am.a(this.f1635a, 320.0f)) {
-                this.e = com.baidu.tieba.util.am.a(this.f1635a, 320.0f);
+            if (this.e > com.baidu.tieba.util.am.a(this.f1633a, 320.0f)) {
+                this.e = com.baidu.tieba.util.am.a(this.f1633a, 320.0f);
             }
             this.c.a(1);
             this.c.b("_small");
@@ -60,8 +60,8 @@ public class ae extends BaseAdapter {
             if (this.e > this.g * 480.0f) {
                 this.e = (int) (this.g * 480.0f);
             }
-            if (this.e > com.baidu.tieba.util.am.a(this.f1635a, 320.0f) * this.g) {
-                this.e = (int) (com.baidu.tieba.util.am.a(this.f1635a, 320.0f) * this.g);
+            if (this.e > com.baidu.tieba.util.am.a(this.f1633a, 320.0f) * this.g) {
+                this.e = (int) (com.baidu.tieba.util.am.a(this.f1633a, 320.0f) * this.g);
             }
             this.c.a(2);
             this.c.b("_mobile");
@@ -76,11 +76,11 @@ public class ae extends BaseAdapter {
     private LinearLayout a(com.baidu.tieba.data.ad adVar, int i, int i2) {
         int i3;
         int i4;
-        com.baidu.tieba.view.ap apVar = new com.baidu.tieba.view.ap(this.f1635a, adVar.a());
-        LinearLayout linearLayout = new LinearLayout(this.f1635a);
+        com.baidu.tieba.view.ap apVar = new com.baidu.tieba.view.ap(this.f1633a, adVar.a());
+        LinearLayout linearLayout = new LinearLayout(this.f1633a);
         apVar.setPicNum(i);
-        int a2 = this.d - com.baidu.tieba.util.am.a(this.f1635a, 16.0f);
-        int a3 = com.baidu.tieba.util.am.a(this.f1635a, 2.0f);
+        int a2 = this.d - com.baidu.tieba.util.am.a(this.f1633a, 16.0f);
+        int a3 = com.baidu.tieba.util.am.a(this.f1633a, 2.0f);
         int i5 = 100;
         if (i == 1) {
             if (this.f) {
@@ -90,8 +90,8 @@ public class ae extends BaseAdapter {
             } else {
                 int i6 = (int) (a2 * this.g);
                 i5 = (int) (i6 * 0.5d);
-                i4 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
-                i3 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
+                i4 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
+                i3 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
                 a2 = (i6 - i4) - i3;
             }
         } else if (i == 2) {
@@ -99,14 +99,14 @@ public class ae extends BaseAdapter {
             i5 = (a2 * 2) / 3;
             if (i2 != 0) {
                 if (i2 == 1) {
-                    i4 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
-                    i3 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
+                    i4 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
+                    i3 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
                     a2 = (a2 - i4) - i3;
                 }
                 i3 = 0;
                 i4 = a3;
             } else {
-                int a4 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
+                int a4 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
                 a2 -= a4;
                 i4 = a4;
                 i3 = 0;
@@ -119,20 +119,20 @@ public class ae extends BaseAdapter {
             a2 /= 3;
             i5 = (a2 * 3) / 4;
             if (i2 == 0) {
-                int a5 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
+                int a5 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
                 a2 -= a5;
                 i4 = a5;
                 i3 = 0;
             } else if (i2 != 1) {
                 if (i2 == 2) {
-                    i4 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
-                    i3 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
+                    i4 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
+                    i3 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
                     a2 = (a2 - i4) - i3;
                 }
                 i3 = 0;
                 i4 = a3;
             } else {
-                int a6 = com.baidu.tieba.util.am.a(this.f1635a, 10.0f);
+                int a6 = com.baidu.tieba.util.am.a(this.f1633a, 10.0f);
                 a2 -= a6;
                 i4 = a6;
                 i3 = 0;
@@ -186,7 +186,7 @@ public class ae extends BaseAdapter {
 
     private View a(int i) {
         af afVar = new af(this, null);
-        View inflate = LayoutInflater.from(this.f1635a).inflate(R.layout.discovery_list_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f1633a).inflate(R.layout.discovery_list_item, (ViewGroup) null);
         afVar.b = (TextView) inflate.findViewById(R.id.discovery_tag);
         afVar.e = (TextView) inflate.findViewById(R.id.discovery_bar);
         afVar.f = (TextView) inflate.findViewById(R.id.discovery_title);
@@ -208,7 +208,7 @@ public class ae extends BaseAdapter {
         int i;
         if (afVar2 != null) {
             afVar.b.setText(afVar2.b());
-            afVar.e.setText(String.valueOf(afVar2.d()) + this.f1635a.getResources().getString(R.string.bar));
+            afVar.e.setText(String.valueOf(afVar2.d()) + this.f1633a.getResources().getString(R.string.bar));
             afVar.i.setText(String.valueOf(afVar2.g()));
             afVar.j.setText(afVar2.i());
             afVar.h.setText(afVar2.j());
@@ -240,8 +240,8 @@ public class ae extends BaseAdapter {
             } catch (Exception e) {
             }
             afVar.b.setBackgroundResource(i);
-            if (au != afVar.f1636a) {
-                afVar.f1636a = au;
+            if (au != afVar.f1634a) {
+                afVar.f1634a = au;
                 com.baidu.tieba.util.ah.c(afVar.e, au);
                 com.baidu.tieba.util.ah.c(afVar.f, au);
                 com.baidu.tieba.util.ah.e(afVar.h, au);

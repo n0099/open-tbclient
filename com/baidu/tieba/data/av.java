@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f986a = null;
+    private String f984a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -13,7 +13,7 @@ public class av {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f986a = jSONObject.optString("player_id");
+                this.f984a = jSONObject.optString("player_id");
                 this.b = jSONObject.optString("player_name");
                 this.c = jSONObject.optString("small_head_url");
                 a(jSONObject.optString("big_head_url"));

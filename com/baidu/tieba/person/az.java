@@ -9,11 +9,11 @@ import com.baidu.tieba.model.bn;
 public class az extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f1585a;
+    final /* synthetic */ PersonInfoActivity f1583a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(PersonInfoActivity personInfoActivity) {
-        this.f1585a = personInfoActivity;
+        this.f1583a = personInfoActivity;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -28,20 +28,20 @@ public class az extends BroadcastReceiver {
         long longExtra2 = intent.getLongExtra("relay", 0L);
         long longExtra3 = intent.getLongExtra("at_me", 0L);
         long longExtra4 = intent.getLongExtra("pletter", 0L);
-        bnVar = this.f1585a.b;
+        bnVar = this.f1583a.b;
         if (bnVar != null) {
-            bnVar3 = this.f1585a.b;
+            bnVar3 = this.f1583a.b;
             bnVar3.a(longExtra);
-            bnVar4 = this.f1585a.b;
+            bnVar4 = this.f1583a.b;
             bnVar4.d(longExtra2);
-            bnVar5 = this.f1585a.b;
+            bnVar5 = this.f1583a.b;
             bnVar5.c(longExtra3);
-            bnVar6 = this.f1585a.b;
+            bnVar6 = this.f1583a.b;
             bnVar6.b(longExtra4);
         }
-        if (this.f1585a.f1557a != null) {
-            bb bbVar = this.f1585a.f1557a;
-            bnVar2 = this.f1585a.b;
+        if (this.f1583a.f1555a != null) {
+            bb bbVar = this.f1583a.f1555a;
+            bnVar2 = this.f1583a.b;
             bbVar.a(bnVar2);
         }
     }

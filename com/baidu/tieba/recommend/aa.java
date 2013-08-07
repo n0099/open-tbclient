@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class aa extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ z f1632a;
+    final /* synthetic */ z f1630a;
 
     private aa(z zVar) {
-        this.f1632a = zVar;
+        this.f1630a = zVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +26,7 @@ public class aa extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
         try {
-            com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/forum/recommendupdate");
+            com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/forum/recommendupdate");
             uVar.c(false);
             String optString = new JSONObject(uVar.k()).optString("date");
             String bc = TiebaApplication.f().bc();
@@ -48,7 +48,7 @@ public class aa extends BdAsyncTask {
         super.a((Object) bool);
         if (bool.booleanValue()) {
             TiebaApplication.f().w(true);
-            context = this.f1632a.f1683a;
+            context = this.f1630a.f1681a;
             context.sendBroadcast(new Intent("com.baidu.tieba.broadcast.newrecommends"));
             return;
         }

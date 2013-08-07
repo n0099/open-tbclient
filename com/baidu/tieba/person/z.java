@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f1621a;
+    Context f1619a;
     private ListView c;
     private com.baidu.tieba.home.w d;
     private ImageView e;
@@ -32,7 +32,7 @@ public class z {
     DialogInterface.OnClickListener b = null;
 
     public z(EditMarkActivity editMarkActivity) {
-        this.f1621a = null;
+        this.f1619a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -41,7 +41,7 @@ public class z {
         this.h = null;
         this.i = null;
         this.j = null;
-        this.f1621a = editMarkActivity;
+        this.f1619a = editMarkActivity;
         editMarkActivity.setContentView(R.layout.edit_mark_activity);
         this.j = (ProgressBar) editMarkActivity.findViewById(R.id.progress);
         this.g = (RelativeLayout) editMarkActivity.findViewById(R.id.parent);
@@ -101,10 +101,10 @@ public class z {
 
     public void a(String str, com.baidu.tieba.model.f fVar) {
         if (str != null) {
-            ((com.baidu.tieba.g) this.f1621a).a(str);
+            ((com.baidu.tieba.g) this.f1619a).a(str);
         }
         if (fVar.d() == 0) {
-            ((com.baidu.tieba.g) this.f1621a).a(this.f1621a.getString(R.string.no_more_mark));
+            ((com.baidu.tieba.g) this.f1619a).a(this.f1619a.getString(R.string.no_more_mark));
         }
         if (fVar.c() < 20) {
             this.d.a(false);
@@ -123,17 +123,17 @@ public class z {
     }
 
     public void e() {
-        ((com.baidu.tieba.g) this.f1621a).b(this.f1621a.getString(R.string.syncing));
+        ((com.baidu.tieba.g) this.f1619a).b(this.f1619a.getString(R.string.syncing));
     }
 
     public void a(boolean z, String str, boolean z2) {
-        ((com.baidu.tieba.g) this.f1621a).h();
+        ((com.baidu.tieba.g) this.f1619a).h();
         if (z) {
             this.d.b();
             this.d.notifyDataSetChanged();
         }
         if (str != null) {
-            ((com.baidu.tieba.g) this.f1621a).a(str);
+            ((com.baidu.tieba.g) this.f1619a).a(str);
         }
         if (z2) {
             i();
@@ -146,7 +146,7 @@ public class z {
 
     public void a(boolean z, String str, ArrayList arrayList) {
         if (z) {
-            ((com.baidu.tieba.g) this.f1621a).a(this.f1621a.getString(R.string.del_mark_success));
+            ((com.baidu.tieba.g) this.f1619a).a(this.f1619a.getString(R.string.del_mark_success));
             this.d.a(arrayList);
             this.d.c(true);
             this.d.b();
@@ -157,7 +157,7 @@ public class z {
             }
             this.d.notifyDataSetChanged();
         } else {
-            ((com.baidu.tieba.g) this.f1621a).a(str);
+            ((com.baidu.tieba.g) this.f1619a).a(str);
         }
         this.j.setVisibility(8);
     }
@@ -173,13 +173,13 @@ public class z {
 
     private void i() {
         if (this.k == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1621a);
-            builder.setTitle(this.f1621a.getString(R.string.sync_mark_fail));
-            builder.setMessage(this.f1621a.getString(R.string.sync_mark_fail_con));
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1619a);
+            builder.setTitle(this.f1619a.getString(R.string.sync_mark_fail));
+            builder.setMessage(this.f1619a.getString(R.string.sync_mark_fail_con));
             if (this.b != null) {
-                builder.setPositiveButton(this.f1621a.getString(R.string.retry_rightnow), this.b);
+                builder.setPositiveButton(this.f1619a.getString(R.string.retry_rightnow), this.b);
             }
-            builder.setNegativeButton(this.f1621a.getString(R.string.confirm), new aa(this));
+            builder.setNegativeButton(this.f1619a.getString(R.string.confirm), new aa(this));
             this.k = builder.create();
             this.k.setCanceledOnTouchOutside(true);
         }
@@ -198,11 +198,11 @@ public class z {
         }
         this.d.notifyDataSetChanged();
         if (i == 1) {
-            this.c.setDivider(this.f1621a.getResources().getDrawable(R.drawable.list_divider_1));
+            this.c.setDivider(this.f1619a.getResources().getDrawable(R.drawable.list_divider_1));
             this.c.setSelector(R.drawable.list_selector_1);
             return;
         }
-        this.c.setDivider(this.f1621a.getResources().getDrawable(R.drawable.list_divider));
+        this.c.setDivider(this.f1619a.getResources().getDrawable(R.drawable.list_divider));
         this.c.setSelector(R.drawable.list_selector);
     }
 

@@ -6,13 +6,13 @@ import com.baidu.tieba.kn.ladders.KnLaddersModel;
 public class f implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1187a;
+    final /* synthetic */ a f1185a;
     private final /* synthetic */ KnLaddersModel.PlayerInfo b;
     private final /* synthetic */ h c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar, KnLaddersModel.PlayerInfo playerInfo, h hVar) {
-        this.f1187a = aVar;
+        this.f1185a = aVar;
         this.b = playerInfo;
         this.c = hVar;
     }

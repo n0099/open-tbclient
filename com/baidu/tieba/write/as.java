@@ -10,11 +10,11 @@ import java.util.Date;
 public class as implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f1889a;
+    final /* synthetic */ WriteImageActivity f1887a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(WriteImageActivity writeImageActivity) {
-        this.f1889a = writeImageActivity;
+        this.f1887a = writeImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,23 +29,23 @@ public class as implements View.OnClickListener {
         Bitmap bitmap3;
         Bitmap bitmap4;
         boolean d2;
-        z = this.f1889a.z;
+        z = this.f1887a.z;
         if (!z) {
-            i = this.f1889a.A;
+            i = this.f1887a.A;
             if (i == 12003) {
                 Intent intent = new Intent();
                 intent.putExtra("delete", true);
-                this.f1889a.setResult(-1, intent);
+                this.f1887a.setResult(-1, intent);
             } else {
                 Intent intent2 = new Intent();
-                z2 = this.f1889a.y;
+                z2 = this.f1887a.y;
                 if (z2) {
-                    bitmap = this.f1889a.r;
+                    bitmap = this.f1887a.r;
                     if (bitmap != null) {
-                        bitmap2 = this.f1889a.r;
+                        bitmap2 = this.f1887a.r;
                         if (!bitmap2.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
-                            d = this.f1889a.d(str);
+                            d = this.f1887a.d(str);
                             if (d) {
                                 intent2.putExtra("change", true);
                                 intent2.putExtra("file_name", str);
@@ -56,30 +56,30 @@ public class as implements View.OnClickListener {
                     }
                     intent2.putExtra("change", false);
                 } else {
-                    intent2.setData(this.f1889a.getIntent().getData());
-                    this.f1889a.setResult(-1, intent2);
+                    intent2.setData(this.f1887a.getIntent().getData());
+                    this.f1887a.setResult(-1, intent2);
                 }
-                this.f1889a.setResult(-1, intent2);
+                this.f1887a.setResult(-1, intent2);
             }
-            this.f1889a.finish();
+            this.f1887a.finish();
             return;
         }
         Intent intent3 = new Intent();
-        z3 = this.f1889a.y;
+        z3 = this.f1887a.y;
         if (z3) {
-            bitmap3 = this.f1889a.r;
+            bitmap3 = this.f1887a.r;
             if (bitmap3 != null) {
-                bitmap4 = this.f1889a.r;
+                bitmap4 = this.f1887a.r;
                 if (!bitmap4.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
-                    d2 = this.f1889a.d(str2);
+                    d2 = this.f1887a.d(str2);
                     if (d2) {
                         intent3.putExtra("filename", str2);
                     }
                 }
             }
         }
-        this.f1889a.setResult(-1, intent3);
-        this.f1889a.finish();
+        this.f1887a.setResult(-1, intent3);
+        this.f1887a.finish();
     }
 }

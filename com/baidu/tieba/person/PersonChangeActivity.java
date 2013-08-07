@@ -26,7 +26,7 @@ import com.slidingmenu.lib.R;
 public class PersonChangeActivity extends com.baidu.tieba.g {
 
     /* renamed from: a */
-    private AlertDialog f1556a = null;
+    private AlertDialog f1554a = null;
     private ImageView b = null;
     private ImageView c = null;
     private Button d = null;
@@ -187,8 +187,8 @@ public class PersonChangeActivity extends com.baidu.tieba.g {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.operation));
         builder.setItems(strArr, new ap(this));
-        if (this.f1556a == null) {
-            this.f1556a = builder.create();
+        if (this.f1554a == null) {
+            this.f1554a = builder.create();
         }
         this.q = (RelativeLayout) findViewById(R.id.info);
         this.q.setOnClickListener(new aq(this));

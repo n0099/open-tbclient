@@ -9,14 +9,14 @@ import com.baidu.tieba.util.DatabaseService;
 public class h extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1372a;
+    final /* synthetic */ f f1370a;
     private com.baidu.tieba.util.u b = null;
     private String c = null;
     private int d;
     private com.baidu.tieba.data.bk e;
 
     public h(f fVar, int i) {
-        this.f1372a = fVar;
+        this.f1370a = fVar;
         this.d = 0;
         this.e = null;
         this.d = i;
@@ -32,7 +32,7 @@ public class h extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public f a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/post/threadstore");
+        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/post/threadstore");
         this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.E());
         this.b.a("offset", String.valueOf(this.d));
         this.b.a("rn", String.valueOf(20));
@@ -57,9 +57,9 @@ public class h extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f1372a.b = null;
-        if (this.f1372a.f1370a != null) {
-            this.f1372a.f1370a.a(0, null);
+        this.f1370a.b = null;
+        if (this.f1370a.f1368a != null) {
+            this.f1370a.f1368a.a(0, null);
         }
     }
 
@@ -68,16 +68,16 @@ public class h extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(f fVar) {
         String h;
-        this.f1372a.b = null;
-        this.f1372a.f = fVar.c();
-        this.f1372a.b(fVar.b());
-        if (this.f1372a.f1370a != null) {
+        this.f1370a.b = null;
+        this.f1370a.f = fVar.c();
+        this.f1370a.b(fVar.b());
+        if (this.f1370a.f1368a != null) {
             if (this.b.d()) {
                 h = this.e.b();
             } else {
                 h = this.b.h();
             }
-            this.f1372a.f1370a.a(0, h);
+            this.f1370a.f1368a.a(0, h);
         }
     }
 }

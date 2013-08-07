@@ -16,13 +16,13 @@ import java.util.ArrayList;
 public class o extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1421a;
+    private Context f1419a;
     private View.OnClickListener d;
     private ArrayList c = null;
     private boolean b = false;
 
     public o(Context context, View.OnClickListener onClickListener) {
-        this.f1421a = context;
+        this.f1419a = context;
         this.d = onClickListener;
     }
 
@@ -66,11 +66,11 @@ public class o extends BaseAdapter {
         try {
             try {
                 if (view == null) {
-                    LayoutInflater from = LayoutInflater.from(this.f1421a);
+                    LayoutInflater from = LayoutInflater.from(this.f1419a);
                     if (getItemViewType(i) == 0) {
                         view4 = from.inflate(R.layout.account_item, (ViewGroup) null);
                         pVar = new p(this, null);
-                        pVar.f1422a = (TextView) view4.findViewById(R.id.account);
+                        pVar.f1420a = (TextView) view4.findViewById(R.id.account);
                         pVar.c = (ImageView) view4.findViewById(R.id.active);
                         pVar.d = (Button) view4.findViewById(R.id.delete);
                         pVar.d.setOnClickListener(this.d);
@@ -87,16 +87,16 @@ public class o extends BaseAdapter {
                 }
                 if (getItemViewType(i) == 0) {
                     if (TiebaApplication.f().au() == 1) {
-                        pVar.f1422a.setTextColor(com.baidu.tieba.util.ah.a(1));
+                        pVar.f1420a.setTextColor(com.baidu.tieba.util.ah.a(1));
                     } else {
-                        pVar.f1422a.setTextColor(-12895429);
+                        pVar.f1420a.setTextColor(-12895429);
                     }
                     AccountData accountData = (AccountData) getItem(i);
                     pVar.c.setVisibility(8);
                     pVar.d.setVisibility(8);
                     pVar.d.setTag(accountData);
                     if (accountData != null) {
-                        pVar.f1422a.setText(accountData.getAccount());
+                        pVar.f1420a.setText(accountData.getAccount());
                         if (accountData.getIsActive() == 1) {
                             pVar.c.setVisibility(0);
                         }

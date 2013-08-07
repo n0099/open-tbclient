@@ -5,12 +5,12 @@ import com.baidu.tieba.view.ADImageViewDrawer;
 class bg implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TopicPagerAdapter f1146a;
+    final /* synthetic */ TopicPagerAdapter f1144a;
     private final /* synthetic */ ADImageViewDrawer b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(TopicPagerAdapter topicPagerAdapter, ADImageViewDrawer aDImageViewDrawer) {
-        this.f1146a = topicPagerAdapter;
+        this.f1144a = topicPagerAdapter;
         this.b = aDImageViewDrawer;
     }
 

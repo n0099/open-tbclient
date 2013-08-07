@@ -12,12 +12,12 @@ import com.slidingmenu.lib.R;
 public class aq implements au {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ int f1758a;
+    private final /* synthetic */ int f1756a;
     private final /* synthetic */ boolean b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(int i, boolean z) {
-        this.f1758a = i;
+        this.f1756a = i;
         this.b = z;
     }
 
@@ -30,16 +30,16 @@ public class aq implements au {
         Object tag = view.getTag();
         if (tag != null) {
             if ("skin_text_group".equals(tag)) {
-                ap.b((TextView) view, this.f1758a);
+                ap.b((TextView) view, this.f1756a);
                 return false;
             } else if ("skin_text_content".equals(tag)) {
-                ap.b((TextView) view, this.f1758a);
+                ap.b((TextView) view, this.f1756a);
                 return false;
             } else if ("skin_text_num".equals(tag)) {
-                ap.a((TextView) view, this.f1758a);
+                ap.a((TextView) view, this.f1756a);
                 return false;
             } else if ("skin_check_box".equals(tag)) {
-                ap.a((CheckBox) view, this.f1758a);
+                ap.a((CheckBox) view, this.f1756a);
                 return false;
             } else if ("skin_sidebar_content".equals(tag)) {
                 ((TextView) view).setTextAppearance(TiebaApplication.f(), this.b ? R.style.sidebar_content_1 : R.style.sidebar_content);
@@ -48,7 +48,7 @@ public class aq implements au {
                 if (view instanceof RadioButton) {
                     RadioButton radioButton = (RadioButton) view;
                     if (this.b) {
-                        i4 = ap.f1757a;
+                        i4 = ap.f1755a;
                     } else {
                         i4 = ap.b;
                     }
@@ -60,7 +60,7 @@ public class aq implements au {
                 if (view instanceof RadioButton) {
                     RadioButton radioButton2 = (RadioButton) view;
                     if (this.b) {
-                        i3 = ap.f1757a;
+                        i3 = ap.f1755a;
                     } else {
                         i3 = ap.b;
                     }
@@ -72,7 +72,7 @@ public class aq implements au {
                 if (view instanceof RadioButton) {
                     RadioButton radioButton3 = (RadioButton) view;
                     if (this.b) {
-                        i2 = ap.f1757a;
+                        i2 = ap.f1755a;
                     } else {
                         i2 = ap.b;
                     }
@@ -84,7 +84,7 @@ public class aq implements au {
                 if (view instanceof RadioButton) {
                     RadioButton radioButton4 = (RadioButton) view;
                     if (this.b) {
-                        i = ap.f1757a;
+                        i = ap.f1755a;
                     } else {
                         i = ap.b;
                     }
@@ -96,7 +96,7 @@ public class aq implements au {
                 ((ImageView) view).setImageResource(this.b ? R.drawable.icon_arrow_right_1 : R.drawable.icon_arrow_right);
                 return false;
             } else if ("skin_list_line".equals(tag)) {
-                ap.a(view, this.f1758a);
+                ap.a(view, this.f1756a);
                 return false;
             } else {
                 return false;

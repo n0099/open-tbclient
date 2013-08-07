@@ -27,7 +27,7 @@ import java.util.Observer;
 public class WebBdActivity extends com.baidu.tieba.g implements Browser.BrowserListener, BdExploreViewListener, Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1441a = null;
+    private String f1439a = null;
     private String b = null;
     private String c = null;
     private BdUploadHandler d;
@@ -50,7 +50,7 @@ public class WebBdActivity extends com.baidu.tieba.g implements Browser.BrowserL
 
     private void a(Bundle bundle) {
         Intent intent = getIntent();
-        this.f1441a = intent.getStringExtra("url");
+        this.f1439a = intent.getStringExtra("url");
         this.b = intent.getStringExtra("bduss");
         this.c = intent.getStringExtra("ptoken");
     }
@@ -71,11 +71,11 @@ public class WebBdActivity extends com.baidu.tieba.g implements Browser.BrowserL
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
-        if (this.f1441a == null) {
+        if (this.f1439a == null) {
             finish();
             return;
         }
-        String guessUrl = URLUtil.guessUrl(this.f1441a);
+        String guessUrl = URLUtil.guessUrl(this.f1439a);
         if (!URLUtil.isNetworkUrl(guessUrl)) {
             finish();
             return;

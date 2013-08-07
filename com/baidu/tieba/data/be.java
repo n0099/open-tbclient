@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f995a;
+    private String f993a;
     private String b;
     private String c;
     private int d;
@@ -16,7 +16,7 @@ public class be {
     private bf h;
 
     public void a(String str) {
-        this.f995a = str;
+        this.f993a = str;
     }
 
     public String a() {

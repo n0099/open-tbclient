@@ -6,18 +6,18 @@ import com.baidu.tieba.view.az;
 class a implements com.baidu.adp.lib.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f927a;
+    final /* synthetic */ ChatActivity f925a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChatActivity chatActivity) {
-        this.f927a = chatActivity;
+        this.f925a = chatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.a.c
     /* renamed from: b */
     public ImageView a() {
-        return new az(this.f927a);
+        return new az(this.f925a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

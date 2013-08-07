@@ -10,11 +10,11 @@ import com.baidu.tieba.pb.NewPbActivity;
 public class an implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1126a;
+    final /* synthetic */ SearchActivity f1124a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(SearchActivity searchActivity) {
-        this.f1126a = searchActivity;
+        this.f1124a = searchActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -34,50 +34,50 @@ public class an implements AdapterView.OnItemClickListener {
         String str2;
         bb bbVar6;
         bb bbVar7;
-        i2 = this.f1126a.B;
+        i2 = this.f1124a.B;
         if (i2 != 0) {
-            bbVar = this.f1126a.r;
+            bbVar = this.f1124a.r;
             if (bbVar.getItemId(i) != -1) {
-                bbVar2 = this.f1126a.r;
+                bbVar2 = this.f1124a.r;
                 if (bbVar2.getItemId(i) != -2) {
-                    bbVar3 = this.f1126a.r;
+                    bbVar3 = this.f1124a.r;
                     com.baidu.tieba.data.bc bcVar = (com.baidu.tieba.data.bc) bbVar3.getItem(i);
                     if (bcVar != null) {
                         if (bcVar.a()) {
-                            NewPbActivity.a(this.f1126a, bcVar.c(), null, "search_post");
+                            NewPbActivity.a(this.f1124a, bcVar.c(), null, "search_post");
                             return;
                         } else {
-                            NewPbActivity.a(this.f1126a, bcVar.c(), bcVar.b(), "search_post");
+                            NewPbActivity.a(this.f1124a, bcVar.c(), bcVar.b(), "search_post");
                             return;
                         }
                     }
                     return;
                 }
-                bdVar = this.f1126a.x;
+                bdVar = this.f1124a.x;
                 if (bdVar != null) {
-                    SearchActivity searchActivity = this.f1126a;
-                    bdVar2 = this.f1126a.x;
-                    str = this.f1126a.A;
+                    SearchActivity searchActivity = this.f1124a;
+                    bdVar2 = this.f1124a.x;
+                    str = this.f1124a.A;
                     searchActivity.a(bdVar2.d() + 1, str);
-                    bbVar4 = this.f1126a.r;
+                    bbVar4 = this.f1124a.r;
                     bbVar4.a(2);
-                    bbVar5 = this.f1126a.r;
+                    bbVar5 = this.f1124a.r;
                     bbVar5.notifyDataSetChanged();
                     return;
                 }
                 return;
             }
-            bdVar3 = this.f1126a.x;
+            bdVar3 = this.f1124a.x;
             if (bdVar3 != null) {
-                bdVar4 = this.f1126a.x;
+                bdVar4 = this.f1124a.x;
                 if (bdVar4.d() > 1) {
-                    SearchActivity searchActivity2 = this.f1126a;
-                    bdVar5 = this.f1126a.x;
-                    str2 = this.f1126a.A;
+                    SearchActivity searchActivity2 = this.f1124a;
+                    bdVar5 = this.f1124a.x;
+                    str2 = this.f1124a.A;
                     searchActivity2.a(bdVar5.d() - 1, str2);
-                    bbVar6 = this.f1126a.r;
+                    bbVar6 = this.f1124a.r;
                     bbVar6.a(1);
-                    bbVar7 = this.f1126a.r;
+                    bbVar7 = this.f1124a.r;
                     bbVar7.notifyDataSetChanged();
                     return;
                 }
@@ -85,7 +85,7 @@ public class an implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        FrsActivity.a(this.f1126a, (String) ((ListView) adapterView).getAdapter().getItem(i), "tb_searchlist", 1);
-        this.f1126a.finish();
+        FrsActivity.a(this.f1124a, (String) ((ListView) adapterView).getAdapter().getItem(i), "tb_searchlist", 1);
+        this.f1124a.finish();
     }
 }

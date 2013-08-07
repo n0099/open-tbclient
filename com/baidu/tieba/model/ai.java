@@ -6,12 +6,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class ai extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ah f1328a;
+    final /* synthetic */ ah f1326a;
     private String b;
     private com.baidu.tieba.a.e c;
 
     public ai(ah ahVar, String str) {
-        this.f1328a = ahVar;
+        this.f1326a = ahVar;
         setPriority(3);
         this.b = str;
     }
@@ -22,9 +22,9 @@ public class ai extends BdAsyncTask {
         aj ajVar;
         aj ajVar2;
         super.b();
-        ajVar = this.f1328a.b;
+        ajVar = this.f1326a.b;
         if (ajVar != null) {
-            ajVar2 = this.f1328a.b;
+            ajVar2 = this.f1326a.b;
             ajVar2.a();
         }
     }
@@ -52,9 +52,9 @@ public class ai extends BdAsyncTask {
         aj ajVar;
         aj ajVar2;
         super.a((Object) beVar);
-        ajVar = this.f1328a.b;
+        ajVar = this.f1326a.b;
         if (ajVar != null) {
-            ajVar2 = this.f1328a.b;
+            ajVar2 = this.f1326a.b;
             ajVar2.a(beVar);
         }
     }

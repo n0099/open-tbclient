@@ -13,14 +13,14 @@ import com.slidingmenu.lib.R;
 public class HeartButton extends ImageButton {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f1797a;
+    private Bitmap f1795a;
     private float b;
     private Rect c;
     private Rect d;
 
     public HeartButton(Context context) {
         super(context);
-        this.f1797a = null;
+        this.f1795a = null;
         this.b = 0.0f;
         this.c = null;
         this.d = null;
@@ -29,7 +29,7 @@ public class HeartButton extends ImageButton {
 
     public HeartButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1797a = null;
+        this.f1795a = null;
         this.b = 0.0f;
         this.c = null;
         this.d = null;
@@ -38,7 +38,7 @@ public class HeartButton extends ImageButton {
 
     public HeartButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1797a = null;
+        this.f1795a = null;
         this.b = 0.0f;
         this.c = null;
         this.d = null;
@@ -48,7 +48,7 @@ public class HeartButton extends ImageButton {
     private void a() {
         this.c = new Rect();
         this.d = new Rect();
-        this.f1797a = BitmapFactory.decodeResource(getResources(), R.drawable.tag_heart_normal);
+        this.f1795a = BitmapFactory.decodeResource(getResources(), R.drawable.tag_heart_normal);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -57,19 +57,19 @@ public class HeartButton extends ImageButton {
         super.onDraw(canvas);
         if (this.b != 0.0f) {
             if (this.b == 1.0f) {
-                height = this.f1797a.getHeight();
+                height = this.f1795a.getHeight();
             } else {
-                height = (int) (this.f1797a.getHeight() * this.b);
+                height = (int) (this.f1795a.getHeight() * this.b);
             }
             this.c.left = 0;
-            this.c.right = this.f1797a.getWidth();
-            this.c.top = this.f1797a.getHeight() - height;
-            this.c.bottom = this.f1797a.getHeight();
+            this.c.right = this.f1795a.getWidth();
+            this.c.top = this.f1795a.getHeight() - height;
+            this.c.bottom = this.f1795a.getHeight();
             this.d.left = 0;
-            this.d.right = this.f1797a.getWidth();
-            this.d.top = this.f1797a.getHeight() - height;
-            this.d.bottom = this.f1797a.getHeight();
-            canvas.drawBitmap(this.f1797a, this.c, this.d, (Paint) null);
+            this.d.right = this.f1795a.getWidth();
+            this.d.top = this.f1795a.getHeight() - height;
+            this.d.bottom = this.f1795a.getHeight();
+            canvas.drawBitmap(this.f1795a, this.c, this.d, (Paint) null);
         }
     }
 

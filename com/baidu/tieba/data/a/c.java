@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f960a = null;
+    private String f958a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -22,7 +22,7 @@ public class c {
     }
 
     public void a(String str) {
-        this.f960a = str;
+        this.f958a = str;
     }
 
     public void b(String str) {
@@ -161,7 +161,7 @@ public class c {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     d dVar = new d();
                     dVar.a(optJSONArray.getJSONObject(i));
-                    dVar.b(this.f960a);
+                    dVar.b(this.f958a);
                     dVar.a(this.c);
                     this.g.add(dVar);
                 }

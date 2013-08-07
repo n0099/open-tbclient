@@ -7,12 +7,12 @@ import com.baidu.tieba.util.au;
 class f implements au {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f1724a;
+    final /* synthetic */ e f1722a;
     private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, String str) {
-        this.f1724a = eVar;
+        this.f1722a = eVar;
         this.b = str;
     }
 

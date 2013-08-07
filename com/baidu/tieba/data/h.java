@@ -15,7 +15,7 @@ public class h {
     private int q = 10;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1014a = 0;
+    private int f1012a = 0;
     private int b = 0;
     private int c = 1;
     private String d = null;
@@ -32,7 +32,7 @@ public class h {
         if (jSONObject != null) {
             try {
                 this.l.parserJson(jSONObject.optJSONObject("banner"));
-                this.f1014a = jSONObject.optInt("pb_max_floor_total_num", 0);
+                this.f1012a = jSONObject.optInt("pb_max_floor_total_num", 0);
                 this.b = jSONObject.optInt("pb_big_image_width", 0);
                 this.d = jSONObject.optString("big_head_image_host");
                 this.e = jSONObject.optString("small_head_image_host");
@@ -82,7 +82,7 @@ public class h {
                 TiebaApplication.f().a(this.k);
                 TiebaApplication.f().c(optInt3 == 1);
                 TiebaApplication.f().t(jSONObject.optInt("open_local_popularize", 0) == 1);
-                g.a(this.f1014a);
+                g.a(this.f1012a);
                 g.d(this.d);
                 g.c(this.e);
                 g.a(this.f, this.g);

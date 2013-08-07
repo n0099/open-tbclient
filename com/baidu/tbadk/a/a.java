@@ -12,15 +12,15 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f798a = null;
+    private static a f796a = null;
     private Context b = null;
     private b c = null;
 
     public static a a() {
-        if (f798a == null) {
-            f798a = new a();
+        if (f796a == null) {
+            f796a = new a();
         }
-        return f798a;
+        return f796a;
     }
 
     private a() {

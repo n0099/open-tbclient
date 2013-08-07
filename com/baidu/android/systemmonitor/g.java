@@ -9,10 +9,10 @@ import com.baidu.android.systemmonitor.localapp.AppManager;
 class g extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ StatisticManager f696a;
+    final /* synthetic */ StatisticManager f694a;
 
     private g(StatisticManager statisticManager) {
-        this.f696a = statisticManager;
+        this.f694a = statisticManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,9 +27,9 @@ class g extends Thread {
         Looper.prepare();
         setName("SystemMonitor_AsyncInitThread");
         Process.setThreadPriority(10);
-        context = this.f696a.mContext;
+        context = this.f694a.mContext;
         AppManager.a(context).b();
-        context2 = this.f696a.mContext;
+        context2 = this.f694a.mContext;
         BDLocationManager.b(context2);
     }
 }

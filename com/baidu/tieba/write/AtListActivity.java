@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class AtListActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private EditText f1856a = null;
+    private EditText f1854a = null;
     private Button b = null;
     private ImageView c = null;
     private ListView d = null;
@@ -106,8 +106,8 @@ public class AtListActivity extends com.baidu.tieba.g {
         this.o = (RelativeLayout) findViewById(R.id.title);
         this.p = (TextView) findViewById(R.id.title_text);
         this.m = (ProgressBar) findViewById(R.id.progress);
-        this.f1856a = (EditText) findViewById(R.id.at_search_edit);
-        this.f1856a.addTextChangedListener(new d(this));
+        this.f1854a = (EditText) findViewById(R.id.at_search_edit);
+        this.f1854a.addTextChangedListener(new d(this));
         this.c = (ImageView) findViewById(R.id.back);
         this.c.setOnClickListener(new e(this));
         this.b = (Button) findViewById(R.id.at_search_del);
@@ -117,9 +117,9 @@ public class AtListActivity extends com.baidu.tieba.g {
         this.d.setAdapter((ListAdapter) this.k);
         this.d.setOnItemClickListener(new g(this));
         this.d.setOnScrollListener(new h(this));
-        if (!getIntent().getBooleanExtra("keyboard", true) && this.f1856a.getParent() != null) {
-            ((View) this.f1856a.getParent()).setFocusable(true);
-            ((View) this.f1856a.getParent()).setFocusableInTouchMode(true);
+        if (!getIntent().getBooleanExtra("keyboard", true) && this.f1854a.getParent() != null) {
+            ((View) this.f1854a.getParent()).setFocusable(true);
+            ((View) this.f1854a.getParent()).setFocusableInTouchMode(true);
         }
     }
 

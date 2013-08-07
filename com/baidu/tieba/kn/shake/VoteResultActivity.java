@@ -13,13 +13,14 @@ import com.baidu.tieba.model.bt;
 import com.baidu.tieba.model.bv;
 import com.baidu.tieba.util.aa;
 import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.am;
 import com.baidu.tieba.view.ImageViewDrawer;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class VoteResultActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private q f1246a;
+    private q f1244a;
     private br b;
     private boolean c;
     private boolean d;
@@ -67,14 +68,14 @@ public class VoteResultActivity extends com.baidu.tieba.g {
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.f1246a.b.setBackgroundResource(R.drawable.bg_share);
+        this.f1244a.b.setBackgroundResource(R.drawable.bg_share);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.f1246a.b.setBackgroundResource(0);
+        this.f1244a.b.setBackgroundResource(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,23 +86,23 @@ public class VoteResultActivity extends com.baidu.tieba.g {
     }
 
     private void b() {
-        this.f1246a = new q(this);
-        this.f1246a.e();
+        this.f1244a = new q(this);
+        this.f1244a.e();
         int a2 = this.b.a(this.b.f());
-        this.f1246a.i().setText(new StringBuilder(String.valueOf(this.b.f())).toString());
-        this.f1246a.j().setText(this.b.e());
-        this.f1246a.k().setText(new StringBuilder(String.valueOf(a2)).toString());
-        this.f1246a.h().setDefaultId(R.drawable.vote_share_default);
+        this.f1244a.i().setText(new StringBuilder(String.valueOf(this.b.f())).toString());
+        this.f1244a.j().setText(this.b.e());
+        this.f1244a.k().setText(new StringBuilder(String.valueOf(a2)).toString());
+        this.f1244a.h().setDefaultId(R.drawable.vote_share_default);
     }
 
     private void c() {
         SendAloneVoteData a2;
         int a3 = this.b.a(this.b.f());
-        this.f1246a.i().setText(new StringBuilder(String.valueOf(this.b.f())).toString());
-        this.f1246a.j().setText(this.b.e());
-        this.f1246a.k().setText(new StringBuilder(String.valueOf(a3)).toString());
-        this.f1246a.d();
-        this.f1246a.f();
+        this.f1244a.i().setText(new StringBuilder(String.valueOf(this.b.f())).toString());
+        this.f1244a.j().setText(this.b.e());
+        this.f1244a.k().setText(new StringBuilder(String.valueOf(a3)).toString());
+        this.f1244a.d();
+        this.f1244a.f();
         int d = this.b.d();
         if (d == 2) {
             SendPKVoteData b = this.b.b();
@@ -134,8 +135,8 @@ public class VoteResultActivity extends com.baidu.tieba.g {
     public void c(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.util.a aVar = new com.baidu.tieba.util.a(this);
-            ImageViewDrawer h = this.f1246a.h();
-            aVar.a(h.getWidth(), h.getHeight());
+            ImageViewDrawer h = this.f1244a.h();
+            aVar.a(am.a((Context) this, 290.0f), am.a((Context) this, 230.0f));
             if (aVar.a(str, new o(this, str, h)) != null) {
                 h.setTag(str);
                 h.invalidate();
@@ -252,8 +253,8 @@ public class VoteResultActivity extends com.baidu.tieba.g {
                     break;
             }
             if (aa.a(this).a(i)) {
-                this.f1246a.b();
-                this.f1246a.g();
+                this.f1244a.b();
+                this.f1244a.g();
                 aa.a(this).a(this, str, new p(this, i, str2));
             }
         } catch (Exception e) {

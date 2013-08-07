@@ -12,12 +12,12 @@ import com.slidingmenu.lib.R;
 class am implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ al f1819a;
+    final /* synthetic */ al f1817a;
     private final /* synthetic */ com.baidu.tieba.data.bl b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(al alVar, com.baidu.tieba.data.bl blVar) {
-        this.f1819a = alVar;
+        this.f1817a = alVar;
         this.b = blVar;
     }
 
@@ -39,33 +39,33 @@ class am implements View.OnClickListener {
         TextView textView;
         ai aiVar8;
         Context context;
-        aiVar = this.f1819a.f1818a;
+        aiVar = this.f1817a.f1816a;
         aoVar = aiVar.l;
         if (aoVar != null) {
-            aiVar6 = this.f1819a.f1818a;
+            aiVar6 = this.f1817a.f1816a;
             aoVar2 = aiVar6.l;
             aoVar2.a(this.b);
-            aiVar7 = this.f1819a.f1818a;
+            aiVar7 = this.f1817a.f1816a;
             textView = aiVar7.g;
             textView.setText(this.b.b());
             if (TiebaApplication.f().t()) {
-                aiVar8 = this.f1819a.f1818a;
-                context = aiVar8.f1815a;
+                aiVar8 = this.f1817a.f1816a;
+                context = aiVar8.f1813a;
                 StatService.onEvent(context, "recommend_menu", "click", 1);
             }
         }
-        aiVar2 = this.f1819a.f1818a;
+        aiVar2 = this.f1817a.f1816a;
         i = aiVar2.m;
         if (i == 1) {
-            aiVar5 = this.f1819a.f1818a;
+            aiVar5 = this.f1817a.f1816a;
             imageView2 = aiVar5.d;
             imageView2.setBackgroundResource(R.drawable.icon_arrow_down_list_down_1);
         } else {
-            aiVar3 = this.f1819a.f1818a;
+            aiVar3 = this.f1817a.f1816a;
             imageView = aiVar3.d;
             imageView.setBackgroundResource(R.drawable.icon_arrow_down_list_down);
         }
-        aiVar4 = this.f1819a.f1818a;
+        aiVar4 = this.f1817a.f1816a;
         popupWindow = aiVar4.f;
         popupWindow.dismiss();
     }

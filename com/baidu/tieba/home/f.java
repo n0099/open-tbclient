@@ -5,11 +5,11 @@ import android.os.Handler;
 class f implements com.baidu.tieba.model.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1151a;
+    final /* synthetic */ EnterForumActivity f1149a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EnterForumActivity enterForumActivity) {
-        this.f1151a = enterForumActivity;
+        this.f1149a = enterForumActivity;
     }
 
     @Override // com.baidu.tieba.model.l
@@ -22,22 +22,22 @@ class f implements com.baidu.tieba.model.l {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        nVar = this.f1151a.f1107a;
+        nVar = this.f1149a.f1105a;
         nVar.a(true, "");
         if (z) {
-            nVar2 = this.f1151a.f1107a;
-            jVar = this.f1151a.c;
+            nVar2 = this.f1149a.f1105a;
+            jVar = this.f1149a.c;
             com.baidu.tieba.data.q a2 = jVar.a();
-            bool = this.f1151a.d;
+            bool = this.f1149a.d;
             nVar2.a(a2, bool.booleanValue());
-            handler = this.f1151a.f;
-            runnable = this.f1151a.g;
+            handler = this.f1149a.f;
+            runnable = this.f1149a.g;
             handler.removeCallbacks(runnable);
-            handler2 = this.f1151a.f;
-            runnable2 = this.f1151a.g;
+            handler2 = this.f1149a.f;
+            runnable2 = this.f1149a.g;
             handler2.postDelayed(runnable2, 0L);
             return;
         }
-        this.f1151a.a(str);
+        this.f1149a.a(str);
     }
 }

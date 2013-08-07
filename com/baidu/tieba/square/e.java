@@ -8,12 +8,12 @@ import com.baidu.tieba.util.au;
 public class e implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1723a;
+    final /* synthetic */ c f1721a;
     private final /* synthetic */ ViewGroup b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar, ViewGroup viewGroup) {
-        this.f1723a = cVar;
+        this.f1721a = cVar;
         this.b = viewGroup;
     }
 

@@ -22,7 +22,7 @@ import com.slidingmenu.lib.R;
 public class ActivationActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f842a = 60;
+    private static int f840a = 60;
     private ImageView b = null;
     private LinearLayout c = null;
     private ImageView d = null;
@@ -36,7 +36,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     private i n = null;
     private h o = null;
     private boolean p = false;
-    private int q = f842a;
+    private int q = f840a;
     private RegistData r = null;
     private Handler s = new Handler();
     private RelativeLayout t = null;
@@ -78,7 +78,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
             setResult(0);
             finish();
         } else if (this.r.getSmsCodeTime() > 0) {
-            f842a = this.r.getSmsCodeTime();
+            f840a = this.r.getSmsCodeTime();
         }
     }
 
@@ -111,7 +111,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     public void b() {
         this.p = false;
         this.m.setEnabled(false);
-        this.q = f842a;
+        this.q = f840a;
         this.g.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.q)));
         this.s.postDelayed(this.B, 1000L);
     }

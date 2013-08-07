@@ -6,12 +6,12 @@ import com.slidingmenu.lib.R;
 class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1669a;
+    final /* synthetic */ c f1667a;
     private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(c cVar, View view) {
-        this.f1669a = cVar;
+        this.f1667a = cVar;
         this.b = view;
     }
 

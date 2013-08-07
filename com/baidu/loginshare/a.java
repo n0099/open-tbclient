@@ -3,7 +3,7 @@ package com.baidu.loginshare;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f764a = true;
+    private volatile boolean f762a = true;
     private long b = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +13,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(boolean z) {
-        this.f764a = z;
+        this.f762a = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a() {
-        return this.f764a;
+        return this.f762a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -8,10 +8,10 @@ import android.content.Intent;
 public class ae extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1446a;
+    final /* synthetic */ ImagePbActivity f1444a;
 
     private ae(ImagePbActivity imagePbActivity) {
-        this.f1446a = imagePbActivity;
+        this.f1444a = imagePbActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,16 +24,16 @@ public class ae extends BroadcastReceiver {
         ac acVar;
         int intExtra = intent.getIntExtra("index", -1);
         if (intExtra >= 0) {
-            this.f1446a.K = intExtra;
-            if (this.f1446a.H != null && intExtra + 5 >= this.f1446a.H.h().size() && this.f1446a.H.h().size() != this.f1446a.H.k()) {
-                acVar = this.f1446a.f1437a;
+            this.f1444a.K = intExtra;
+            if (this.f1444a.H != null && intExtra + 5 >= this.f1444a.H.h().size() && this.f1444a.H.h().size() != this.f1444a.H.k()) {
+                acVar = this.f1444a.f1435a;
                 if (acVar == null) {
-                    this.f1446a.a(this.f1446a.H.l(), 0, 10, false);
+                    this.f1444a.a(this.f1444a.H.l(), 0, 10, false);
                 }
             }
-        } else if (this.f1446a.K == 0 || (this.f1446a.K >= this.f1446a.H.k() - 1 && this.f1446a.H.h().size() == this.f1446a.H.k())) {
+        } else if (this.f1444a.K == 0 || (this.f1444a.K >= this.f1444a.H.k() - 1 && this.f1444a.H.h().size() == this.f1444a.H.k())) {
             int intExtra2 = intent.getIntExtra("state", -1);
-            this.f1446a.b_(intExtra2);
+            this.f1444a.b_(intExtra2);
             com.baidu.tieba.util.aj.a(getClass().getName(), "find_bug_onReceive", "state=" + String.valueOf(intExtra2));
         }
     }

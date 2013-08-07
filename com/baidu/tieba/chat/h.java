@@ -6,18 +6,18 @@ import com.baidu.tieba.view.aq;
 class h implements aq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f939a;
+    final /* synthetic */ ChatActivity f937a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ChatActivity chatActivity) {
-        this.f939a = chatActivity;
+        this.f937a = chatActivity;
     }
 
     @Override // com.baidu.tieba.view.aq
     public void a(int i) {
         ad adVar;
         if (i != 0) {
-            adVar = this.f939a.f925a;
+            adVar = this.f937a.f923a;
             adVar.i();
             return;
         }

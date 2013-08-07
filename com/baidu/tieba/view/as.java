@@ -12,7 +12,7 @@ import com.tencent.mm.sdk.contact.RContact;
 public class as extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1822a;
+    private int f1820a;
     private int b;
     private String c;
     private float d;
@@ -33,7 +33,7 @@ public class as extends View {
 
     public as(Context context) {
         super(context);
-        this.f1822a = 0;
+        this.f1820a = 0;
         this.b = 0;
         this.c = null;
         this.d = 0.0f;
@@ -152,11 +152,11 @@ public class as extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         this.b = getHeight();
-        this.f1822a = getWidth();
+        this.f1820a = getWidth();
         canvas.setDrawFilter(this.r);
         this.b = (int) (this.p * this.b);
-        this.f1822a = (int) (this.p * this.f1822a);
-        this.n.set(0, 0, this.f1822a, this.b);
+        this.f1820a = (int) (this.p * this.f1820a);
+        this.n.set(0, 0, this.f1820a, this.b);
         if (this.j != null && !this.j.isRecycled()) {
             canvas.drawBitmap(this.j, this.m, this.n, this.g);
         }
@@ -169,8 +169,8 @@ public class as extends View {
             if (this.d < 0.0f) {
                 this.d = 0.0f;
             }
-            canvas.drawText(this.c, this.f1822a / 2.0f, this.d + 1.0f, this.i);
-            canvas.drawText(this.c, this.f1822a / 2.0f, this.d, this.h);
+            canvas.drawText(this.c, this.f1820a / 2.0f, this.d + 1.0f, this.i);
+            canvas.drawText(this.c, this.f1820a / 2.0f, this.d, this.h);
         }
     }
 }

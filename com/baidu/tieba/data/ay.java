@@ -8,21 +8,21 @@ import org.json.JSONObject;
 public class ay {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f989a;
+    private long f987a;
     private String b;
     private String c;
 
     public ay() {
-        this.f989a = -1L;
+        this.f987a = -1L;
         this.b = null;
         this.c = null;
     }
 
     public ay(long j, String str, String str2) {
-        this.f989a = -1L;
+        this.f987a = -1L;
         this.b = null;
         this.c = null;
-        this.f989a = j;
+        this.f987a = j;
         this.b = str;
         this.c = str2;
     }
@@ -43,8 +43,8 @@ public class ay {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         if (optJSONArray.optJSONObject(i) != null) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                            if (this.f989a < optJSONObject.optLong("message_id")) {
-                                this.f989a = optJSONObject.optLong("message_id");
+                            if (this.f987a < optJSONObject.optLong("message_id")) {
+                                this.f987a = optJSONObject.optLong("message_id");
                                 this.b = optJSONObject.optString("link");
                                 this.c = optJSONObject.optString("content");
                             }
@@ -53,7 +53,7 @@ public class ay {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("pk");
                 if (optJSONObject2 != null && !TextUtils.isEmpty(TiebaApplication.G())) {
-                    this.f989a = -1L;
+                    this.f987a = -1L;
                     this.b = optJSONObject2.optString("link");
                     this.c = optJSONObject2.optString("content");
                     String optString = optJSONObject2.optString("pk_before_id");
@@ -72,7 +72,7 @@ public class ay {
     }
 
     public long a() {
-        return this.f989a;
+        return this.f987a;
     }
 
     public String b() {

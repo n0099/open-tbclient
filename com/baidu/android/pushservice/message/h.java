@@ -18,7 +18,7 @@ import org.apache.http.message.BasicNameValuePair;
 class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f596a;
+    final /* synthetic */ Context f594a;
     final /* synthetic */ String b;
     final /* synthetic */ String c;
     final /* synthetic */ String d;
@@ -30,7 +30,7 @@ class h implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PublicMsg publicMsg, Context context, String str, String str2, String str3, String str4, String str5, int i) {
         this.h = publicMsg;
-        this.f596a = context;
+        this.f594a = context;
         this.b = str;
         this.c = str2;
         this.d = str3;
@@ -41,7 +41,7 @@ class h implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f596a);
+        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f594a);
         try {
             HttpPost httpPost = new HttpPost(w.f + this.b);
             httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -62,7 +62,7 @@ class h implements Runnable {
                 if (com.baidu.android.pushservice.b.a()) {
                     Log.e("PublicMsg", "networkRegister request failed  " + execute.getStatusLine());
                 }
-                SQLiteDatabase a2 = com.baidu.android.pushservice.util.e.a(this.f596a);
+                SQLiteDatabase a2 = com.baidu.android.pushservice.util.e.a(this.f594a);
                 if (a2 != null) {
                     com.baidu.android.pushservice.util.j jVar = new com.baidu.android.pushservice.util.j();
                     jVar.c = this.e;
@@ -78,7 +78,7 @@ class h implements Runnable {
                 Log.e("PublicMsg", e.getMessage());
                 Log.e("PublicMsg", "io exception do something ? ");
             }
-            SQLiteDatabase a3 = com.baidu.android.pushservice.util.e.a(this.f596a);
+            SQLiteDatabase a3 = com.baidu.android.pushservice.util.e.a(this.f594a);
             if (a3 != null) {
                 com.baidu.android.pushservice.util.j jVar2 = new com.baidu.android.pushservice.util.j();
                 jVar2.c = this.e;
@@ -90,7 +90,7 @@ class h implements Runnable {
             if (com.baidu.android.pushservice.b.a()) {
                 Log.e("PublicMsg", e2.getMessage());
             }
-            SQLiteDatabase a4 = com.baidu.android.pushservice.util.e.a(this.f596a);
+            SQLiteDatabase a4 = com.baidu.android.pushservice.util.e.a(this.f594a);
             if (a4 != null) {
                 com.baidu.android.pushservice.util.j jVar3 = new com.baidu.android.pushservice.util.j();
                 jVar3.c = this.e;

@@ -9,12 +9,12 @@ import org.json.JSONObject;
 class a implements ac {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1052a;
+    final /* synthetic */ FrsActivity f1050a;
     private long b = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FrsActivity frsActivity) {
-        this.f1052a = frsActivity;
+        this.f1050a = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.ac
@@ -27,19 +27,19 @@ class a implements ac {
         this.b = System.nanoTime();
         switch (i) {
             case 1:
-                azVar3 = this.f1052a.l;
+                azVar3 = this.f1050a.l;
                 azVar3.d(true);
-                azVar4 = this.f1052a.l;
+                azVar4 = this.f1050a.l;
                 azVar4.k();
                 return;
             case 2:
-                azVar = this.f1052a.l;
+                azVar = this.f1050a.l;
                 azVar.e(true);
-                azVar2 = this.f1052a.l;
+                azVar2 = this.f1050a.l;
                 azVar2.k();
                 return;
             case 3:
-                azVar5 = this.f1052a.l;
+                azVar5 = this.f1050a.l;
                 azVar5.b(true);
                 return;
             default:
@@ -76,7 +76,7 @@ class a implements ac {
         boolean z2;
         az azVar10;
         if (adVar != null && adVar.b) {
-            azVar10 = this.f1052a.l;
+            azVar10 = this.f1050a.l;
             azVar10.g().b(TiebaApplication.f().bl());
             FrsActivity.p = 0L;
             FrsActivity.q = 0L;
@@ -84,61 +84,61 @@ class a implements ac {
         } else {
             FrsActivity.r = 1;
         }
-        azVar = this.f1052a.l;
+        azVar = this.f1050a.l;
         azVar.b(false);
         switch (i) {
             case 1:
-                azVar4 = this.f1052a.l;
+                azVar4 = this.f1050a.l;
                 azVar4.d(false);
-                azVar5 = this.f1052a.l;
+                azVar5 = this.f1050a.l;
                 azVar5.k();
                 break;
             case 2:
-                azVar2 = this.f1052a.l;
+                azVar2 = this.f1050a.l;
                 azVar2.e(false);
-                azVar3 = this.f1052a.l;
+                azVar3 = this.f1050a.l;
                 azVar3.k();
                 break;
         }
         if (jSONObject != null && (adVar == null || adVar.c == 0)) {
-            aaVar = this.f1052a.v;
+            aaVar = this.f1050a.v;
             if (aaVar != null) {
-                aaVar6 = this.f1052a.v;
+                aaVar6 = this.f1050a.v;
                 if (aaVar6.e().a() == 1) {
-                    this.f1052a.A = "frs_page";
+                    this.f1050a.A = "frs_page";
                 } else {
-                    this.f1052a.A = "normal_page";
+                    this.f1050a.A = "normal_page";
                 }
-                FrsActivity frsActivity = this.f1052a;
-                aaVar7 = this.f1052a.v;
+                FrsActivity frsActivity = this.f1050a;
+                aaVar7 = this.f1050a.v;
                 frsActivity.c = aaVar7.a().b();
-                z2 = this.f1052a.t;
+                z2 = this.f1050a.t;
                 if (z2) {
-                    this.f1052a.A = "good_page";
+                    this.f1050a.A = "good_page";
                 }
             }
-            z = this.f1052a.u;
+            z = this.f1050a.u;
             if (z) {
-                azVar9 = this.f1052a.l;
+                azVar9 = this.f1050a.l;
                 azVar9.q();
-                this.f1052a.u = false;
+                this.f1050a.u = false;
             }
-            str = this.f1052a.A;
+            str = this.f1050a.A;
             if (str == "frs_page") {
-                azVar8 = this.f1052a.l;
+                azVar8 = this.f1050a.l;
                 azVar8.m();
             } else {
-                str2 = this.f1052a.A;
+                str2 = this.f1050a.A;
                 if (str2 == "normal_page") {
-                    azVar7 = this.f1052a.l;
+                    azVar7 = this.f1050a.l;
                     azVar7.l();
                 } else {
-                    str3 = this.f1052a.A;
+                    str3 = this.f1050a.A;
                     if (str3 == "good_page") {
-                        azVar6 = this.f1052a.l;
-                        aaVar2 = this.f1052a.v;
+                        azVar6 = this.f1050a.l;
+                        aaVar2 = this.f1050a.v;
                         ArrayList j = aaVar2.a().j();
-                        onItemClickListener = this.f1052a.V;
+                        onItemClickListener = this.f1050a.V;
                         azVar6.a(j, onItemClickListener);
                     }
                 }
@@ -147,18 +147,18 @@ class a implements ac {
             if (adVar != null) {
                 FrsActivity.q = adVar.e;
             }
-            aaVar3 = this.f1052a.v;
+            aaVar3 = this.f1050a.v;
             if (aaVar3 != null) {
-                aaVar4 = this.f1052a.v;
+                aaVar4 = this.f1050a.v;
                 if (aaVar4.b() != null) {
-                    aaVar5 = this.f1052a.v;
+                    aaVar5 = this.f1050a.v;
                     if (aaVar5.b().size() == 0) {
-                        i2 = this.f1052a.b;
+                        i2 = this.f1050a.b;
                         if (i2 == 1) {
-                            this.f1052a.a(this.f1052a.getString(R.string.no_more_to_load));
-                            i3 = this.f1052a.f;
+                            this.f1050a.a(this.f1050a.getString(R.string.no_more_to_load));
+                            i3 = this.f1050a.f;
                             if (i3 > 1) {
-                                FrsActivity frsActivity2 = this.f1052a;
+                                FrsActivity frsActivity2 = this.f1050a;
                                 i4 = frsActivity2.f;
                                 frsActivity2.f = i4 - 1;
                                 return;
@@ -168,11 +168,11 @@ class a implements ac {
                     }
                 }
             }
-            this.f1052a.z();
+            this.f1050a.z();
         } else {
-            this.f1052a.a(adVar);
+            this.f1050a.a(adVar);
         }
-        this.f1052a.m = null;
+        this.f1050a.m = null;
         System.gc();
     }
 }

@@ -52,7 +52,7 @@ public class NetWorkCore {
     private volatile boolean u;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1741a = "\r\n";
+    private static String f1739a = "\r\n";
     private static String b = "--";
     private static String c = "--------7da3d81520810*";
     private static int d = 2097152;
@@ -155,7 +155,7 @@ public class NetWorkCore {
         if (this.j == null) {
             return null;
         }
-        String str = com.baidu.tieba.data.g.f1013a;
+        String str = com.baidu.tieba.data.g.f1011a;
         if (this.j.startsWith(str)) {
             int indexOf = this.j.indexOf(63);
             if (indexOf < 0) {
@@ -590,7 +590,7 @@ public class NetWorkCore {
                             yVar.c = this.x;
                             yVar.b = time2;
                             yVar.d = i2 + 1;
-                            yVar.f1778a = 2;
+                            yVar.f1776a = 2;
                             a(yVar);
                             ak.a(this);
                             if (inputStream != null) {
@@ -974,7 +974,7 @@ public class NetWorkCore {
                                 yVar.c = this.x;
                                 yVar.b = time2;
                                 yVar.d = i3 + 1;
-                                yVar.f1778a = 1;
+                                yVar.f1776a = 1;
                                 a(yVar);
                                 ak.a(this);
                                 if (inputStream5 != null) {
@@ -1241,12 +1241,12 @@ public class NetWorkCore {
                         if (basicNameValuePair != null) {
                             String name = basicNameValuePair.getName();
                             String value = basicNameValuePair.getValue();
-                            dataOutputStream2.writeBytes(String.valueOf(b) + c + f1741a);
+                            dataOutputStream2.writeBytes(String.valueOf(b) + c + f1739a);
                             byte[] bytes = value.getBytes("UTF-8");
-                            dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + f1741a);
-                            dataOutputStream2.writeBytes(f1741a);
+                            dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + f1739a);
+                            dataOutputStream2.writeBytes(f1739a);
                             dataOutputStream2.write(bytes);
-                            dataOutputStream2.writeBytes(f1741a);
+                            dataOutputStream2.writeBytes(f1739a);
                         }
                     } catch (Throwable th3) {
                         th = th3;
@@ -1272,15 +1272,15 @@ public class NetWorkCore {
                     if (this.u) {
                         break;
                     } else if (bArr2 != null) {
-                        dataOutputStream2.writeBytes(String.valueOf(b) + c + f1741a);
-                        dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + str3 + "\"; filename=\"file\"" + f1741a);
-                        dataOutputStream2.writeBytes(f1741a);
+                        dataOutputStream2.writeBytes(String.valueOf(b) + c + f1739a);
+                        dataOutputStream2.writeBytes("Content-Disposition: form-data; name=\"" + str3 + "\"; filename=\"file\"" + f1739a);
+                        dataOutputStream2.writeBytes(f1739a);
                         dataOutputStream2.write(bArr2);
-                        dataOutputStream2.writeBytes(f1741a);
+                        dataOutputStream2.writeBytes(f1739a);
                     }
                 }
             }
-            dataOutputStream2.writeBytes(String.valueOf(b) + c + b + f1741a);
+            dataOutputStream2.writeBytes(String.valueOf(b) + c + b + f1739a);
             dataOutputStream2.flush();
             aj.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream2.size()));
             dataOutputStream2.close();

@@ -6,18 +6,18 @@ import android.view.View;
 public class i implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1085a;
+    final /* synthetic */ FrsActivity f1083a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsActivity frsActivity) {
-        this.f1085a = frsActivity;
+        this.f1083a = frsActivity;
     }
 
     @Override // com.baidu.tbadk.a.d
     public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         az azVar;
         if (bVar != null) {
-            azVar = this.f1085a.l;
+            azVar = this.f1083a.l;
             View d = azVar.d(str);
             if (d != null) {
                 d.invalidate();

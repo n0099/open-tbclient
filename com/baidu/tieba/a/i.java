@@ -5,14 +5,14 @@ import com.baidu.tieba.util.u;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f835a = String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/pb/floor";
+    private static final String f833a = String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/pb/floor";
     private u b = null;
 
     public String a(String str, String str2, int i, String str3, int i2) {
         if (str == null || str3 == null) {
             return null;
         }
-        this.b = new u(f835a);
+        this.b = new u(f833a);
         this.b.e(true);
         this.b.a("kz", str);
         if (str2 != null) {

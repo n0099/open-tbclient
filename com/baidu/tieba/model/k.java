@@ -7,12 +7,12 @@ import com.baidu.tieba.util.DatabaseService;
 public class k extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1375a;
+    final /* synthetic */ j f1373a;
     private com.baidu.tieba.a.d b = null;
     private int c;
 
     public k(j jVar, int i) {
-        this.f1375a = jVar;
+        this.f1373a = jVar;
         this.c = 1;
         this.c = i;
         setPriority(3);
@@ -30,7 +30,7 @@ public class k extends BdAsyncTask {
         com.baidu.tieba.data.q qVar = null;
         this.b = new com.baidu.tieba.a.d();
         if (this.c == 0) {
-            z2 = this.f1375a.c;
+            z2 = this.f1373a.c;
             if (z2) {
                 i = DatabaseService.e();
             } else {
@@ -54,7 +54,7 @@ public class k extends BdAsyncTask {
         if (this.b.c()) {
             qVar = new com.baidu.tieba.data.q();
             qVar.a(str);
-            z = this.f1375a.c;
+            z = this.f1373a.c;
             if (z) {
                 DatabaseService.e(str);
             } else {
@@ -67,7 +67,7 @@ public class k extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.f1375a.f1374a = null;
+        this.f1373a.f1372a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -77,17 +77,17 @@ public class k extends BdAsyncTask {
         l lVar;
         l lVar2;
         l lVar3;
-        this.f1375a.f1374a = null;
-        this.f1375a.b = qVar;
-        lVar = this.f1375a.d;
+        this.f1373a.f1372a = null;
+        this.f1373a.b = qVar;
+        lVar = this.f1373a.d;
         if (lVar != null) {
             if (this.c == 0 || this.b.c()) {
-                lVar2 = this.f1375a.d;
+                lVar2 = this.f1373a.d;
                 lVar2.a(true, null, qVar);
                 return;
             }
             String d = this.b.d();
-            lVar3 = this.f1375a.d;
+            lVar3 = this.f1373a.d;
             lVar3.a(false, d, qVar);
         }
     }

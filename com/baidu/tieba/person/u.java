@@ -13,10 +13,10 @@ import java.util.HashMap;
 public class u extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1617a;
+    final /* synthetic */ EditHeadActivity f1615a;
 
     private u(EditHeadActivity editHeadActivity) {
-        this.f1617a = editHeadActivity;
+        this.f1615a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,21 +53,21 @@ public class u extends BdAsyncTask {
                     c.recycle();
                     return null;
                 }
-                int a3 = com.baidu.tieba.util.am.a((Context) this.f1617a, 63.5f);
+                int a3 = com.baidu.tieba.util.am.a((Context) this.f1615a, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.f1617a.z;
+                    z = this.f1615a.z;
                     if (z) {
-                        Bitmap a4 = com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(c, a3), com.baidu.tieba.util.am.a((Context) this.f1617a, 5.0f));
-                        this.f1617a.E = new HashMap();
-                        this.f1617a.F = new HashMap();
-                        hashMap = this.f1617a.E;
+                        Bitmap a4 = com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(c, a3), com.baidu.tieba.util.am.a((Context) this.f1615a, 5.0f));
+                        this.f1615a.E = new HashMap();
+                        this.f1615a.F = new HashMap();
+                        hashMap = this.f1615a.E;
                         hashMap.put("normal", a4);
                         strArr = EditHeadActivity.d;
                         for (String str : strArr) {
                             String substring = str.substring(0, str.indexOf("|"));
                             if (!substring.equals("normal")) {
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f1617a, substring).apply(this.f1617a, a4.copy(a4.getConfig(), true));
-                                hashMap2 = this.f1617a.E;
+                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f1615a, substring).apply(this.f1615a, a4.copy(a4.getConfig(), true));
+                                hashMap2 = this.f1615a.E;
                                 hashMap2.put(substring, apply);
                             }
                         }
@@ -88,7 +88,7 @@ public class u extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1617a.n;
+        progressBar = this.f1615a.n;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -96,8 +96,8 @@ public class u extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f1617a.o = null;
-        progressBar = this.f1617a.n;
+        this.f1615a.o = null;
+        progressBar = this.f1615a.n;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -111,17 +111,17 @@ public class u extends BdAsyncTask {
         boolean z;
         String[] strArr;
         super.a((Object) bitmap);
-        this.f1617a.o = null;
-        this.f1617a.f = bitmap;
-        progressBar = this.f1617a.n;
+        this.f1615a.o = null;
+        this.f1615a.f = bitmap;
+        progressBar = this.f1615a.n;
         progressBar.setVisibility(8);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            editHeadImageView = this.f1617a.e;
+            editHeadImageView = this.f1615a.e;
             editHeadImageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.f1617a.z;
+                z = this.f1615a.z;
                 if (z) {
-                    EditHeadActivity editHeadActivity = this.f1617a;
+                    EditHeadActivity editHeadActivity = this.f1615a;
                     strArr = EditHeadActivity.d;
                     editHeadActivity.a(strArr);
                 }

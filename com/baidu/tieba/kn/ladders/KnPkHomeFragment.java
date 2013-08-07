@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class KnPkHomeFragment extends BaseFragment {
 
     /* renamed from: a */
-    private u f1180a;
+    private u f1178a;
     private boolean b;
     private t c;
     private boolean d;
@@ -20,9 +20,9 @@ public class KnPkHomeFragment extends BaseFragment {
     @Override // android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.kn_pk_list_web_fragment, viewGroup, false);
-        this.f1180a = new u(inflate);
-        this.f1180a.f1200a.setOnLoadUrlListener(new r(this));
-        this.f1180a.e.setOnClickListener(new s(this));
+        this.f1178a = new u(inflate);
+        this.f1178a.f1198a.setOnLoadUrlListener(new r(this));
+        this.f1178a.e.setOnClickListener(new s(this));
         this.b = true;
         return inflate;
     }

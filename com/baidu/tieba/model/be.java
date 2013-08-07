@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class be extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.a.h f1348a = null;
+    com.baidu.tieba.a.h f1346a = null;
     int b;
     final /* synthetic */ bc c;
 
@@ -103,8 +103,8 @@ public class be extends BdAsyncTask {
                     this.c.d = ((com.baidu.tieba.data.aw) c.get(0)).d();
                     break;
             }
-            this.f1348a = new com.baidu.tieba.a.h();
-            com.baidu.tieba.a.h hVar = this.f1348a;
+            this.f1346a = new com.baidu.tieba.a.h();
+            com.baidu.tieba.a.h hVar = this.f1346a;
             str = this.c.c;
             str2 = this.c.b;
             str3 = this.c.d;
@@ -120,7 +120,7 @@ public class be extends BdAsyncTask {
             z4 = this.c.q;
             atVar = bc.v;
             String a2 = hVar.a(str, str2, str3, i, i2, z, z2, i7, i3, i4, z3, j, z4, atVar);
-            if (this.f1348a.b()) {
+            if (this.f1346a.b()) {
                 com.baidu.tieba.data.as asVar3 = new com.baidu.tieba.data.as();
                 context = this.c.w;
                 asVar3.a(a2, context);
@@ -140,11 +140,11 @@ public class be extends BdAsyncTask {
                 }
                 asVar2 = asVar3;
             } else {
-                this.c.setErrorString(this.f1348a.e());
-                this.c.setErrorCode(this.f1348a.f());
+                this.c.setErrorString(this.f1346a.e());
+                this.c.setErrorCode(this.f1346a.f());
                 asVar2 = null;
             }
-            if (this.f1348a.c()) {
+            if (this.f1346a.c()) {
                 atVar3 = bc.v;
                 atVar3.a();
                 long nanoTime = System.nanoTime();
@@ -152,7 +152,7 @@ public class be extends BdAsyncTask {
                 atVar4 = bc.v;
                 atVar4.a((int) ((nanoTime - j2) / 1000000));
                 atVar5 = bc.v;
-                atVar5.b(this.f1348a.d());
+                atVar5.b(this.f1346a.d());
                 return asVar2;
             }
             atVar2 = bc.v;
@@ -261,8 +261,8 @@ public class be extends BdAsyncTask {
         bd bdVar2;
         super.cancel(true);
         this.c.setErrorString(null);
-        if (this.f1348a != null) {
-            this.f1348a.a();
+        if (this.f1346a != null) {
+            this.f1346a.a();
         }
         bdVar = this.c.x;
         if (bdVar != null) {

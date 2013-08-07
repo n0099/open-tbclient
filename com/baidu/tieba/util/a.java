@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f1744a;
+    public Context f1742a;
     public boolean d;
     public boolean e;
     public String f;
@@ -26,7 +26,7 @@ public class a {
         this.f = null;
         this.g = false;
         this.i = 0;
-        this.f1744a = context;
+        this.f1742a = context;
         this.d = true;
         this.f = null;
         this.e = false;
@@ -119,7 +119,7 @@ public class a {
                 if (this.d && this.k != null) {
                     int size2 = this.k.size();
                     for (int i2 = 0; i2 < size2; i2++) {
-                        if (((c) this.k.get(i2)).f1762a != null && ((c) this.k.get(i2)).f1762a.equals(str)) {
+                        if (((c) this.k.get(i2)).f1760a != null && ((c) this.k.get(i2)).f1760a.equals(str)) {
                             return null;
                         }
                     }
@@ -128,7 +128,7 @@ public class a {
                     if (this.d) {
                         c cVar = new c(this, null);
                         cVar.c = dVar;
-                        cVar.f1762a = str;
+                        cVar.f1760a = str;
                         cVar.b = num.intValue();
                         cVar.d = z;
                         this.k.add(cVar);

@@ -15,7 +15,7 @@ public class f {
     private int f = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.j f1370a = null;
+    protected com.baidu.tieba.j f1368a = null;
     private ArrayList e = new ArrayList();
 
     public int a() {
@@ -179,6 +179,6 @@ public class f {
     }
 
     public void a(com.baidu.tieba.j jVar) {
-        this.f1370a = jVar;
+        this.f1368a = jVar;
     }
 }

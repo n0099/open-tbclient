@@ -16,7 +16,7 @@ import org.json.JSONArray;
 public class TbRichTextView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.adp.lib.a.b f804a;
+    private com.baidu.adp.lib.a.b f802a;
     private com.baidu.adp.lib.a.b b;
     private a c;
     private float d;
@@ -51,7 +51,7 @@ public class TbRichTextView extends LinearLayout {
 
     public TbRichTextView(Context context) {
         super(context);
-        this.f804a = null;
+        this.f802a = null;
         this.b = null;
         this.c = null;
         this.d = 0.0f;
@@ -76,7 +76,7 @@ public class TbRichTextView extends LinearLayout {
 
     public TbRichTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f804a = null;
+        this.f802a = null;
         this.b = null;
         this.c = null;
         this.d = 0.0f;
@@ -115,7 +115,7 @@ public class TbRichTextView extends LinearLayout {
     private void b() {
         if (getContext() instanceof h) {
             h hVar = (h) getContext();
-            this.f804a = hVar.c();
+            this.f802a = hVar.c();
             this.b = hVar.d();
             if (hVar.a() != null && this.q == null) {
                 this.q = new n(hVar.b());
@@ -214,8 +214,8 @@ public class TbRichTextView extends LinearLayout {
 
     private ImageView a(Context context) {
         ImageView imageView = null;
-        if (this.f804a != null) {
-            imageView = (ImageView) this.f804a.a();
+        if (this.f802a != null) {
+            imageView = (ImageView) this.f802a.a();
         }
         if (imageView == null || imageView.getParent() != null) {
             return new com.baidu.adp.widget.a.a(context);
@@ -391,8 +391,8 @@ public class TbRichTextView extends LinearLayout {
         if (this.s != z) {
             this.s = z;
             setText(this.c);
-            if (!this.s && this.f804a != null) {
-                this.f804a.b();
+            if (!this.s && this.f802a != null) {
+                this.f802a.b();
             }
         }
     }

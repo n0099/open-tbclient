@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class bf extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1833a;
+    private Context f1831a;
     private TextView b = null;
     private ProgressBar c = null;
     private ImageView d = null;
@@ -22,13 +22,13 @@ public class bf extends com.baidu.adp.widget.ListView.c {
     private int g = 0;
 
     public bf(Context context) {
-        this.f1833a = null;
-        this.f1833a = context;
+        this.f1831a = null;
+        this.f1831a = context;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.f = LayoutInflater.from(this.f1833a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
+        this.f = LayoutInflater.from(this.f1831a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
         this.b = (TextView) this.f.findViewById(R.id.sub_pb_more_text);
         this.d = (ImageView) this.f.findViewById(R.id.image);
         if (TiebaApplication.f().au() == 1) {
@@ -43,7 +43,7 @@ public class bf extends com.baidu.adp.widget.ListView.c {
     public void c() {
         this.c.setVisibility(0);
         this.d.setVisibility(8);
-        this.b.setText(this.f1833a.getText(R.string.loading));
+        this.b.setText(this.f1831a.getText(R.string.loading));
     }
 
     public void a(int i) {
@@ -53,7 +53,7 @@ public class bf extends com.baidu.adp.widget.ListView.c {
         if (i > 0) {
             com.baidu.tieba.pb.bj.a(this.b, i);
         } else {
-            this.b.setText(this.f1833a.getText(R.string.load_more));
+            this.b.setText(this.f1831a.getText(R.string.load_more));
         }
     }
 
@@ -63,7 +63,7 @@ public class bf extends com.baidu.adp.widget.ListView.c {
         if (this.g > 0) {
             com.baidu.tieba.pb.bj.a(this.b, this.g);
         } else {
-            this.b.setText(this.f1833a.getText(R.string.load_more));
+            this.b.setText(this.f1831a.getText(R.string.load_more));
         }
     }
 

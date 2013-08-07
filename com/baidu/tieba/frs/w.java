@@ -11,11 +11,11 @@ import com.baidu.tieba.pb.NewPbActivity;
 public class w implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1099a;
+    final /* synthetic */ FrsActivity f1097a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(FrsActivity frsActivity) {
-        this.f1099a = frsActivity;
+        this.f1097a = frsActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -27,19 +27,19 @@ public class w implements AdapterView.OnItemClickListener {
         int i3;
         int i4;
         if (i >= 0) {
-            azVar = this.f1099a.l;
+            azVar = this.f1097a.l;
             long itemId = azVar.g().getItemId(i);
             if (itemId == -1) {
-                i3 = this.f1099a.f;
+                i3 = this.f1097a.f;
                 if (i3 > 1) {
-                    FrsActivity frsActivity = this.f1099a;
+                    FrsActivity frsActivity = this.f1097a;
                     i4 = frsActivity.f;
                     frsActivity.f = i4 - 1;
-                    this.f1099a.b = 2;
-                    this.f1099a.x();
+                    this.f1097a.b = 2;
+                    this.f1097a.x();
                 }
             } else if (itemId != -2) {
-                azVar2 = this.f1099a.l;
+                azVar2 = this.f1097a.l;
                 bm bmVar = (bm) azVar2.g().getItem(i);
                 if (bmVar != null) {
                     com.baidu.tieba.util.z aE = TiebaApplication.f().aE();
@@ -53,17 +53,17 @@ public class w implements AdapterView.OnItemClickListener {
                         new Thread(new x(this, i5)).start();
                         z = true;
                     }
-                    NewPbActivity.a(this.f1099a, bmVar, null, 18003, true, false, z);
+                    NewPbActivity.a(this.f1097a, bmVar, null, 18003, true, false, z);
                 }
             } else {
                 if (TiebaApplication.f().t()) {
-                    StatService.onEvent(this.f1099a, "frs_nextpage", "frsclick", 1);
+                    StatService.onEvent(this.f1097a, "frs_nextpage", "frsclick", 1);
                 }
-                FrsActivity frsActivity2 = this.f1099a;
+                FrsActivity frsActivity2 = this.f1097a;
                 i2 = frsActivity2.f;
                 frsActivity2.f = i2 + 1;
-                this.f1099a.b = 1;
-                this.f1099a.x();
+                this.f1097a.b = 1;
+                this.f1097a.x();
             }
         }
     }

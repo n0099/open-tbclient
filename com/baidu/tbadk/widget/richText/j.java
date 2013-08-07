@@ -6,11 +6,11 @@ import android.widget.TextView;
 class j implements com.baidu.adp.lib.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ Context f813a;
+    private final /* synthetic */ Context f811a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(Context context) {
-        this.f813a = context;
+        this.f811a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,7 +18,7 @@ class j implements com.baidu.adp.lib.a.c {
     /* renamed from: b */
     public TextView a() {
         com.baidu.adp.lib.e.d.c("pool make TextView");
-        return new com.baidu.tbadk.widget.a(this.f813a);
+        return new com.baidu.tbadk.widget.a(this.f811a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

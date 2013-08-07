@@ -3,16 +3,16 @@ package com.baidu.tieba;
 class ag implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f902a;
+    final /* synthetic */ LogoActivity f900a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(LogoActivity logoActivity) {
-        this.f902a = logoActivity;
+        this.f900a = logoActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f902a.a_();
-        this.f902a.a(this.f902a.getBaseContext());
+        this.f900a.a_();
+        this.f900a.a(this.f900a.getBaseContext());
     }
 }

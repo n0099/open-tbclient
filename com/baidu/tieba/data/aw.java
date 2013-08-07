@@ -17,7 +17,7 @@ public class aw {
     private com.baidu.tbadk.widget.richText.a k = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f987a = null;
+    private String f985a = null;
     private String b = null;
     private int c = 0;
     private long d = 0;
@@ -44,7 +44,7 @@ public class aw {
     }
 
     public String d() {
-        return this.f987a;
+        return this.f985a;
     }
 
     public int e() {
@@ -240,7 +240,7 @@ public class aw {
     public void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
-                this.f987a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f985a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = jSONObject.optString("title");
                 this.c = jSONObject.optInt("floor", 0);
                 this.d = jSONObject.optLong("time", 0L) * 1000;

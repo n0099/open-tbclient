@@ -9,12 +9,12 @@ public class c {
     private static Handler b;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f780a = new HandlerThread("EventHandleThread");
+    private static HandlerThread f778a = new HandlerThread("EventHandleThread");
     private static c c = new c();
 
     private c() {
-        f780a.start();
-        b = new Handler(f780a.getLooper());
+        f778a.start();
+        b = new Handler(f778a.getLooper());
     }
 
     public static c a() {

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae implements com.baidu.tieba.view.z {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1625a = new ArrayList();
+    ArrayList f1623a = new ArrayList();
     public int b;
     public int c;
     Activity d;
@@ -34,17 +34,17 @@ public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae
 
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView((View) this.f1625a.get(i));
+        viewGroup.removeView((View) this.f1623a.get(i));
     }
 
     private void a(ArrayList arrayList) {
         this.f = arrayList;
         if (arrayList != null && arrayList.size() > 0) {
-            this.f1625a.add(a((com.baidu.tieba.data.m) arrayList.get(arrayList.size() - 1)));
+            this.f1623a.add(a((com.baidu.tieba.data.m) arrayList.get(arrayList.size() - 1)));
             for (int i = 0; i < arrayList.size(); i++) {
-                this.f1625a.add(a((com.baidu.tieba.data.m) arrayList.get(i)));
+                this.f1623a.add(a((com.baidu.tieba.data.m) arrayList.get(i)));
             }
-            this.f1625a.add(a((com.baidu.tieba.data.m) arrayList.get(0)));
+            this.f1623a.add(a((com.baidu.tieba.data.m) arrayList.get(0)));
             notifyDataSetChanged();
         }
     }
@@ -64,13 +64,13 @@ public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView((View) this.f1625a.get(i));
-        return this.f1625a.get(i);
+        viewGroup.addView((View) this.f1623a.get(i));
+        return this.f1623a.get(i);
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        return this.f1625a.size();
+        return this.f1623a.size();
     }
 
     @Override // android.support.v4.view.ae

@@ -17,7 +17,7 @@ public class i {
     private int d;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1015a = 0;
+    private int f1013a = 0;
     private String b = null;
     private String f = null;
     private SpannableStringBuilder g = null;
@@ -32,11 +32,11 @@ public class i {
     }
 
     public void a(int i2) {
-        this.f1015a = i2;
+        this.f1013a = i2;
     }
 
     public int a() {
-        return this.f1015a;
+        return this.f1013a;
     }
 
     public String b() {
@@ -61,7 +61,7 @@ public class i {
 
     public SpannableString a(Context context) {
         String str;
-        switch (this.f1015a) {
+        switch (this.f1013a) {
             case 0:
                 return new SpannableString(this.b);
             case 1:
@@ -104,7 +104,7 @@ public class i {
 
     public SpannableString a(Context context, int i2, int i3) {
         int b;
-        if (this.f1015a != 2) {
+        if (this.f1013a != 2) {
             return null;
         }
         SpannableString spannableString = new SpannableString(String.valueOf(this.b) + " ");
@@ -129,8 +129,8 @@ public class i {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1015a = jSONObject.optInt("type", 0);
-                if (this.f1015a == 3) {
+                this.f1013a = jSONObject.optInt("type", 0);
+                if (this.f1013a == 3) {
                     this.f = jSONObject.optString("src");
                     this.b = jSONObject.optString("bsize");
                     try {
@@ -149,18 +149,18 @@ public class i {
                     if (this.f != null && this.f.indexOf(".baidu.com") != -1) {
                         this.e = true;
                     }
-                } else if (this.f1015a == 4) {
+                } else if (this.f1013a == 4) {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("uid");
                 } else {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("link");
-                    if (this.f1015a == 2 && com.baidu.tbadk.a.a.a().b(this.b) == 0) {
-                        this.f1015a = 0;
+                    if (this.f1013a == 2 && com.baidu.tbadk.a.a.a().b(this.b) == 0) {
+                        this.f1013a = 0;
                         this.b = "[" + jSONObject.optString("c") + "]";
                     }
                 }
-                if (this.f1015a != 0) {
+                if (this.f1013a != 0) {
                     this.b = this.b.replaceAll("\n", "");
                     this.f = this.f.replaceAll("\n", "");
                 }

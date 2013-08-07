@@ -5,12 +5,12 @@ import com.baidu.tieba.view.ADImageViewDrawer;
 class p implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendBannerPagerAdapter f1674a;
+    final /* synthetic */ DailyRecommendBannerPagerAdapter f1672a;
     private final /* synthetic */ ADImageViewDrawer b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter, ADImageViewDrawer aDImageViewDrawer) {
-        this.f1674a = dailyRecommendBannerPagerAdapter;
+        this.f1672a = dailyRecommendBannerPagerAdapter;
         this.b = aDImageViewDrawer;
     }
 

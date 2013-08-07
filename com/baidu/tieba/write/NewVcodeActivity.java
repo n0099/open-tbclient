@@ -26,7 +26,7 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
     private TextView e;
 
     /* renamed from: a  reason: collision with root package name */
-    private WriteData f1857a = null;
+    private WriteData f1855a = null;
     private LinearLayout b = null;
     private ImageView c = null;
     private Button d = null;
@@ -76,9 +76,9 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f1857a = (WriteData) bundle.getSerializable("model");
+            this.f1855a = (WriteData) bundle.getSerializable("model");
         } else {
-            this.f1857a = (WriteData) getIntent().getSerializableExtra("model");
+            this.f1855a = (WriteData) getIntent().getSerializableExtra("model");
         }
         this.r = new Handler() { // from class: com.baidu.tieba.write.NewVcodeActivity.1
             @Override // android.os.Handler
@@ -151,7 +151,7 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.m != null) {
-            this.m.loadUrl(com.baidu.tieba.util.am.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/anti/gridcaptcha?version=" + com.baidu.tieba.data.g.i()));
+            this.m.loadUrl(com.baidu.tieba.util.am.a(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/anti/gridcaptcha?version=" + com.baidu.tieba.data.g.i()));
         }
     }
 
@@ -194,7 +194,7 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.f1857a);
+        bundle.putSerializable("model", this.f1855a);
         super.onSaveInstanceState(bundle);
     }
 
@@ -269,7 +269,7 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
             if (this.k != null) {
                 this.k.cancel();
             }
-            this.k = new PostThreadTask(this.f1857a);
+            this.k = new PostThreadTask(this.f1855a);
             this.k.setPriority(3);
             this.k.execute(0);
         }
@@ -306,7 +306,7 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
             this.c.a("vcode_tag", "11");
             this.c.e(true);
             if (this.b.getType() == 0) {
-                this.c.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/thread/add");
+                this.c.a(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/thread/add");
                 if (this.b.getType() == 0) {
                     this.c.a("title", this.b.getTitle());
                 } else {
@@ -317,7 +317,7 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
                     this.c.a("lbs", String.valueOf(String.valueOf(aT.getLatitude())) + "," + String.valueOf(aT.getLongitude()));
                 }
             } else {
-                this.c.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/post/add");
+                this.c.a(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/post/add");
                 this.c.a("tid", this.b.getThreadId());
                 this.c.a("is_ad", NewVcodeActivity.this.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
                 if (this.b.getType() == 2) {
@@ -361,8 +361,8 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
                         bq bqVar2 = new bq();
                         bqVar2.a(this.d);
                         if (bqVar2.b() != null) {
-                            NewVcodeActivity.this.f1857a.setVcodeMD5(bqVar2.a());
-                            NewVcodeActivity.this.f1857a.setVcodeUrl(bqVar2.b());
+                            NewVcodeActivity.this.f1855a.setVcodeMD5(bqVar2.a());
+                            NewVcodeActivity.this.f1855a.setVcodeUrl(bqVar2.b());
                             if (bqVar2.c().equals("4")) {
                                 NewVcodeActivity.this.k();
                             } else {
@@ -383,11 +383,11 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
     public class ChangeVcodeTask extends BdAsyncTask {
 
         /* renamed from: a  reason: collision with root package name */
-        volatile com.baidu.tieba.util.u f1864a;
+        volatile com.baidu.tieba.util.u f1862a;
         bq b;
 
         private ChangeVcodeTask() {
-            this.f1864a = null;
+            this.f1862a = null;
             this.b = null;
         }
 
@@ -399,18 +399,18 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public bq a(String... strArr) {
-            this.f1864a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/anti/vcode");
-            this.f1864a.a("fid", NewVcodeActivity.this.f1857a.getForumId());
-            this.f1864a.a("kw", NewVcodeActivity.this.f1857a.getForumName());
-            if (NewVcodeActivity.this.f1857a.getType() == 0) {
-                this.f1864a.a("pub_type", "1");
+            this.f1862a = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/anti/vcode");
+            this.f1862a.a("fid", NewVcodeActivity.this.f1855a.getForumId());
+            this.f1862a.a("kw", NewVcodeActivity.this.f1855a.getForumName());
+            if (NewVcodeActivity.this.f1855a.getType() == 0) {
+                this.f1862a.a("pub_type", "1");
             } else {
-                this.f1864a.a("pub_type", "2");
-                this.f1864a.a("tid", NewVcodeActivity.this.f1857a.getThreadId());
+                this.f1862a.a("pub_type", "2");
+                this.f1862a.a("tid", NewVcodeActivity.this.f1855a.getThreadId());
             }
-            this.f1864a.a("vcode_tag", "11");
-            String k = this.f1864a.k();
-            if (this.f1864a.d()) {
+            this.f1862a.a("vcode_tag", "11");
+            String k = this.f1862a.k();
+            if (this.f1862a.d()) {
                 this.b = new bq();
                 this.b.a(k);
                 return this.b;
@@ -424,8 +424,8 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
         public void a(bq bqVar) {
             NewVcodeActivity.this.l = null;
             if (bqVar != null) {
-                NewVcodeActivity.this.f1857a.setVcodeMD5(bqVar.a());
-                NewVcodeActivity.this.f1857a.setVcodeUrl(bqVar.b());
+                NewVcodeActivity.this.f1855a.setVcodeMD5(bqVar.a());
+                NewVcodeActivity.this.f1855a.setVcodeUrl(bqVar.b());
                 if (bqVar.c().equals("4")) {
                     NewVcodeActivity.this.k();
                 } else {
@@ -433,7 +433,7 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
                     NewVcodeActivity.this.finish();
                 }
             } else {
-                NewVcodeActivity.this.a(this.f1864a.h());
+                NewVcodeActivity.this.a(this.f1862a.h());
             }
             NewVcodeActivity.this.g.setVisibility(8);
             super.a((Object) bqVar);
@@ -442,8 +442,8 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             NewVcodeActivity.this.l = null;
-            if (this.f1864a != null) {
-                this.f1864a.i();
+            if (this.f1862a != null) {
+                this.f1862a.i();
             }
             NewVcodeActivity.this.g.setVisibility(8);
             super.cancel(true);
@@ -457,7 +457,7 @@ public class NewVcodeActivity extends com.baidu.tieba.g {
         }
 
         public String jsGetVcodeImageUrl() {
-            return NewVcodeActivity.this.f1857a.getVcodeUrl();
+            return NewVcodeActivity.this.f1855a.getVcodeUrl();
         }
 
         public void jsSetLoadVcodeFinished(boolean z, String str) {

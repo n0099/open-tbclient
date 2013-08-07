@@ -6,13 +6,13 @@ import org.json.JSONObject;
 public class bf {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ be f996a;
+    final /* synthetic */ be f994a;
     private int b;
     private String c;
     private String d;
 
     public bf(be beVar) {
-        this.f996a = beVar;
+        this.f994a = beVar;
     }
 
     public void a(int i) {
@@ -30,7 +30,7 @@ public class bf {
     /* JADX INFO: Access modifiers changed from: private */
     public bf a(JSONObject jSONObject) {
         try {
-            bf bfVar = new bf(this.f996a);
+            bf bfVar = new bf(this.f994a);
             bfVar.a(jSONObject.getInt("errno"));
             bfVar.a(jSONObject.getString("errmsg"));
             bfVar.b(jSONObject.getString("usermsg"));

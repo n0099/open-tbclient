@@ -9,13 +9,13 @@ import com.slidingmenu.lib.R;
 public class an extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f862a;
+    final /* synthetic */ ReLoginActivity f860a;
     private volatile com.baidu.tieba.util.u b = null;
     private String c;
     private String d;
 
     public an(ReLoginActivity reLoginActivity, String str, String str2) {
-        this.f862a = reLoginActivity;
+        this.f860a = reLoginActivity;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -25,10 +25,10 @@ public class an extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f862a.m = null;
-        this.f862a.p = null;
-        this.f862a.o = System.currentTimeMillis();
-        this.f862a.a(0, this.f862a.getIntent().getStringExtra("uname"));
+        this.f860a.m = null;
+        this.f860a.p = null;
+        this.f860a.o = System.currentTimeMillis();
+        this.f860a.a(0, this.f860a.getIntent().getStringExtra("uname"));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class an extends BdAsyncTask {
             com.baidu.tieba.util.u uVar = this.b;
             String str = this.c;
             StringBuilder append = new StringBuilder(String.valueOf(this.d)).append('|');
-            m = this.f862a.m();
+            m = this.f860a.m();
             return com.baidu.tieba.c.a(uVar, str, append.append(m).toString());
         }
         return null;
@@ -58,27 +58,27 @@ public class an extends BdAsyncTask {
         Handler handler2;
         Runnable runnable2;
         super.a((Object) accountData);
-        this.f862a.m = accountData;
+        this.f860a.m = accountData;
         if (this.b != null) {
-            this.f862a.p = this.b.h();
+            this.f860a.p = this.b.h();
         }
-        str = this.f862a.p;
+        str = this.f860a.p;
         if (str == null) {
-            this.f862a.p = this.f862a.getString(R.string.data_load_error);
+            this.f860a.p = this.f860a.getString(R.string.data_load_error);
         }
         this.b = null;
-        this.f862a.c = null;
+        this.f860a.c = null;
         long currentTimeMillis = 1000 - System.currentTimeMillis();
-        j = this.f862a.o;
+        j = this.f860a.o;
         long j2 = currentTimeMillis + j;
         if (j2 <= 0) {
             j2 = 0;
         }
-        handler = this.f862a.q;
-        runnable = this.f862a.r;
+        handler = this.f860a.q;
+        runnable = this.f860a.r;
         handler.removeCallbacks(runnable);
-        handler2 = this.f862a.q;
-        runnable2 = this.f862a.r;
+        handler2 = this.f860a.q;
+        runnable2 = this.f860a.r;
         handler2.postDelayed(runnable2, j2);
     }
 
@@ -88,6 +88,6 @@ public class an extends BdAsyncTask {
         if (this.b != null) {
             this.b.i();
         }
-        this.f862a.c = null;
+        this.f860a.c = null;
     }
 }

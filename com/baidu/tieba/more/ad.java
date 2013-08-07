@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 public class ad implements RadioGroup.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1399a;
+    final /* synthetic */ MsgRemindActivity f1397a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(MsgRemindActivity msgRemindActivity) {
-        this.f1399a = msgRemindActivity;
+        this.f1397a = msgRemindActivity;
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
@@ -33,6 +33,6 @@ public class ad implements RadioGroup.OnCheckedChangeListener {
                 break;
         }
         DatabaseService.w();
-        this.f1399a.d();
+        this.f1397a.d();
     }
 }

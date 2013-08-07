@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.NewPbActivity;
 public class s extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1773a;
+    private Context f1771a;
 
     public s(Context context) {
-        this.f1773a = null;
-        this.f1773a = context;
+        this.f1771a = null;
+        this.f1771a = context;
     }
 
     @Override // android.text.style.ClickableSpan
@@ -20,14 +20,14 @@ public class s extends ClickableSpan {
     }
 
     public Context a() {
-        return this.f1773a;
+        return this.f1771a;
     }
 
     public void a(String str) {
-        am.c(this.f1773a, str);
+        am.c(this.f1771a, str);
     }
 
     public void b(String str) {
-        NewPbActivity.a(this.f1773a, str, null, null);
+        NewPbActivity.a(this.f1771a, str, null, null);
     }
 }

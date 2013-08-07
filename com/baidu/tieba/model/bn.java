@@ -15,7 +15,7 @@ public class bn extends com.baidu.adp.a.c {
     private bo m = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1355a = true;
+    private boolean f1353a = true;
     private String b = null;
     private UserData j = null;
     private boolean h = false;
@@ -38,11 +38,11 @@ public class bn extends com.baidu.adp.a.c {
     }
 
     public void a(boolean z) {
-        this.f1355a = z;
+        this.f1353a = z;
     }
 
     public boolean b() {
-        return this.f1355a;
+        return this.f1353a;
     }
 
     public void a(UserData userData) {

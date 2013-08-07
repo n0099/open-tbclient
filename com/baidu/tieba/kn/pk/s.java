@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class s extends com.baidu.tieba.data.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1226a;
+    public String f1224a;
     public String b;
     public String c;
     public String d;
@@ -48,7 +48,7 @@ public class s extends com.baidu.tieba.data.a {
     protected void a(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("pk_info");
         if (optJSONObject != null) {
-            this.f1226a = optJSONObject.optString("pk_id");
+            this.f1224a = optJSONObject.optString("pk_id");
             this.b = optJSONObject.optString("title");
             this.c = optJSONObject.optString("abstract");
             this.d = optJSONObject.optString("pk_url");

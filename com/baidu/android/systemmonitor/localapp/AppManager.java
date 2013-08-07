@@ -5,9 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
-import com.baidu.android.systemmonitor.a.c;
-import com.baidu.android.systemmonitor.d.d;
-import com.baidu.android.systemmonitor.d.e;
+import com.baidu.android.systemmonitor.b.d;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
@@ -15,7 +13,7 @@ public final class AppManager {
     private static AppManager b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f697a;
+    private Context f695a;
     private ConcurrentHashMap c;
     private PackageReceiver d;
 
@@ -29,55 +27,55 @@ public final class AppManager {
             a aVar;
             a a2;
             String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
-            d dVar = new d(schemeSpecificPart);
-            if (dVar == null) {
+            com.baidu.android.systemmonitor.b.a aVar2 = new com.baidu.android.systemmonitor.b.a(schemeSpecificPart);
+            if (aVar2 == null) {
                 return;
             }
-            dVar.b = System.currentTimeMillis();
+            aVar2.b = System.currentTimeMillis();
             String action = intent.getAction();
             if (action.equals("android.intent.action.PACKAGE_ADDED")) {
-                if (intent.getBooleanExtra("android.intent.extra.REPLACING", false) || (a2 = c.a(AppManager.this.f697a, schemeSpecificPart)) == null) {
+                if (intent.getBooleanExtra("android.intent.extra.REPLACING", false) || (a2 = com.baidu.android.systemmonitor.d.a.a(AppManager.this.f695a, schemeSpecificPart)) == null) {
                     return;
                 }
                 AppManager.this.c.put(a2.a(), a2);
-                dVar.c = 0;
-                dVar.e = a2.f;
-                dVar.d = a2.b;
-                dVar.h = a2.a(AppManager.this.f697a);
+                aVar2.c = 0;
+                aVar2.e = a2.f;
+                aVar2.d = a2.b;
+                aVar2.h = a2.a(AppManager.this.f695a);
             } else if (action.equals("android.intent.action.PACKAGE_REPLACED")) {
-                a aVar2 = (a) AppManager.this.c.remove(schemeSpecificPart);
-                if (aVar2 == null) {
+                a aVar3 = (a) AppManager.this.c.remove(schemeSpecificPart);
+                if (aVar3 == null) {
                     return;
                 }
-                dVar.c = 1;
-                dVar.e = aVar2.f;
-                dVar.d = aVar2.b;
-                dVar.h = aVar2.a(AppManager.this.f697a);
-                a a3 = c.a(AppManager.this.f697a, schemeSpecificPart);
+                aVar2.c = 1;
+                aVar2.e = aVar3.f;
+                aVar2.d = aVar3.b;
+                aVar2.h = aVar3.a(AppManager.this.f695a);
+                a a3 = com.baidu.android.systemmonitor.d.a.a(AppManager.this.f695a, schemeSpecificPart);
                 if (a3 == null) {
                     return;
                 }
                 AppManager.this.c.put(a3.a(), a3);
-                dVar.g = a3.f;
-                dVar.f = a3.b;
+                aVar2.g = a3.f;
+                aVar2.f = a3.b;
             } else if (action.equals("android.intent.action.PACKAGE_REMOVED")) {
                 if (intent.getBooleanExtra("android.intent.extra.REPLACING", false) || (aVar = (a) AppManager.this.c.remove(schemeSpecificPart)) == null) {
                     return;
                 }
-                dVar.c = 2;
-                dVar.e = aVar.f;
-                dVar.d = aVar.b;
-                dVar.h = aVar.a(AppManager.this.f697a);
+                aVar2.c = 2;
+                aVar2.e = aVar.f;
+                aVar2.d = aVar.b;
+                aVar2.h = aVar.a(AppManager.this.f695a);
             }
-            e.a(AppManager.this.f697a).a(AppManager.this.f697a.getContentResolver(), dVar);
+            d.a(AppManager.this.f695a).a(AppManager.this.f695a.getContentResolver(), aVar2);
         }
     }
 
     private AppManager(Context context) {
-        this.f697a = null;
+        this.f695a = null;
         this.c = null;
         this.d = null;
-        this.f697a = context.getApplicationContext();
+        this.f695a = context.getApplicationContext();
         this.c = new ConcurrentHashMap();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
@@ -85,7 +83,7 @@ public final class AppManager {
         intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
         intentFilter.addDataScheme("package");
         this.d = new PackageReceiver();
-        this.f697a.registerReceiver(this.d, intentFilter);
+        this.f695a.registerReceiver(this.d, intentFilter);
         d();
     }
 
@@ -109,14 +107,14 @@ public final class AppManager {
 
     private void d() {
         System.currentTimeMillis();
-        for (PackageInfo packageInfo : c.a(this.f697a)) {
+        for (PackageInfo packageInfo : com.baidu.android.systemmonitor.d.a.a(this.f695a)) {
             a aVar = new a();
-            aVar.c((String) packageInfo.applicationInfo.loadLabel(this.f697a.getPackageManager()));
+            aVar.c((String) packageInfo.applicationInfo.loadLabel(this.f695a.getPackageManager()));
             aVar.b = packageInfo.versionName;
             aVar.f = packageInfo.versionCode;
             aVar.h = (packageInfo.applicationInfo == null || (packageInfo.applicationInfo.flags & 262144) == 0) ? false : true;
             aVar.e(packageInfo.packageName);
-            c.a(this.f697a, packageInfo, aVar);
+            com.baidu.android.systemmonitor.d.a.a(this.f695a, packageInfo, aVar);
             try {
                 int intValue = ((Integer) packageInfo.getClass().getField("installLocation").get(packageInfo)).intValue();
                 if (intValue != 0 && intValue != 2) {
@@ -145,7 +143,7 @@ public final class AppManager {
     }
 
     private void e() {
-        this.f697a.unregisterReceiver(this.d);
+        this.f695a.unregisterReceiver(this.d);
     }
 
     public ConcurrentHashMap a() {
@@ -157,8 +155,8 @@ public final class AppManager {
             return;
         }
         for (a aVar : this.c.values()) {
-            aVar.b(this.f697a);
-            aVar.c(this.f697a);
+            aVar.b(this.f695a);
+            aVar.c(this.f695a);
         }
     }
 }

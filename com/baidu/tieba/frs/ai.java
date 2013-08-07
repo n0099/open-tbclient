@@ -8,24 +8,24 @@ import org.json.JSONObject;
 class ai implements aw {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1059a;
+    final /* synthetic */ FrsImageActivity f1057a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(FrsImageActivity frsImageActivity) {
-        this.f1059a = frsImageActivity;
+        this.f1057a = frsImageActivity;
     }
 
     @Override // com.baidu.tieba.frs.aw
     public void a(int i) {
         boolean z;
         ax axVar;
-        z = this.f1059a.s;
+        z = this.f1057a.s;
         if (!z) {
-            axVar = this.f1059a.n;
+            axVar = this.f1057a.n;
             axVar.a(true);
             return;
         }
-        this.f1059a.s = false;
+        this.f1057a.s = false;
     }
 
     @Override // com.baidu.tieba.frs.aw
@@ -41,15 +41,15 @@ class ai implements aw {
         int i4;
         com.baidu.tieba.model.ak akVar4;
         String str;
-        axVar = this.f1059a.n;
+        axVar = this.f1057a.n;
         axVar.a(false);
-        this.f1059a.c("done");
+        this.f1057a.c("done");
         if (jSONObject == null) {
-            if (amVar.f1331a) {
-                this.f1059a.a(amVar.d);
+            if (amVar.f1329a) {
+                this.f1057a.a(amVar.d);
                 if (amVar.b && amVar.c == 2000) {
                     TiebaApplication f = TiebaApplication.f();
-                    str = this.f1059a.b;
+                    str = this.f1057a.b;
                     f.f(str);
                     return;
                 }
@@ -58,43 +58,43 @@ class ai implements aw {
             return;
         }
         if (amVar != null && amVar.b) {
-            i4 = this.f1059a.l;
+            i4 = this.f1057a.l;
             if (i4 == 1) {
-                akVar4 = this.f1059a.t;
+                akVar4 = this.f1057a.t;
                 DatabaseService.n(akVar4.a().b());
             }
         }
-        axVar2 = this.f1059a.n;
+        axVar2 = this.f1057a.n;
         axVar2.a().i();
-        FrsImageActivity frsImageActivity = this.f1059a;
-        akVar = this.f1059a.t;
+        FrsImageActivity frsImageActivity = this.f1057a;
+        akVar = this.f1057a.t;
         frsImageActivity.a(akVar.b());
-        this.f1059a.g = 30;
-        akVar2 = this.f1059a.t;
+        this.f1057a.g = 30;
+        akVar2 = this.f1057a.t;
         if (akVar2.c().size() <= 30) {
             if (i == 1) {
-                akVar3 = this.f1059a.t;
+                akVar3 = this.f1057a.t;
                 if (akVar3.c().size() == 0) {
-                    this.f1059a.a(FrsImageActivity.FooterType.NO_ITEM);
+                    this.f1057a.a(FrsImageActivity.FooterType.NO_ITEM);
                 }
             }
-            this.f1059a.a(FrsImageActivity.FooterType.LAST);
+            this.f1057a.a(FrsImageActivity.FooterType.LAST);
         } else {
-            this.f1059a.a(FrsImageActivity.FooterType.NORMAL);
+            this.f1057a.a(FrsImageActivity.FooterType.NORMAL);
         }
-        axVar3 = this.f1059a.n;
+        axVar3 = this.f1057a.n;
         axVar3.a().scrollTo(0, 0);
-        this.f1059a.j = i;
-        i2 = this.f1059a.j;
+        this.f1057a.j = i;
+        i2 = this.f1057a.j;
         if (i2 > 1) {
-            this.f1059a.l();
+            this.f1057a.l();
         } else {
-            this.f1059a.m();
+            this.f1057a.m();
         }
-        i3 = this.f1059a.l;
+        i3 = this.f1057a.l;
         if (i3 == 1) {
-            this.f1059a.l = 0;
-            this.f1059a.getIntent().putExtra("add_search", 0);
+            this.f1057a.l = 0;
+            this.f1057a.getIntent().putExtra("add_search", 0);
         }
     }
 }

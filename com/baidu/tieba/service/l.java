@@ -3,15 +3,15 @@ package com.baidu.tieba.service;
 class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaActiveService f1706a;
+    final /* synthetic */ TiebaActiveService f1704a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(TiebaActiveService tiebaActiveService) {
-        this.f1706a = tiebaActiveService;
+        this.f1704a = tiebaActiveService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1706a.d();
+        this.f1704a.d();
     }
 }

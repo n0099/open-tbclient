@@ -5,15 +5,15 @@ import android.view.View;
 class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1600a;
+    final /* synthetic */ EditBarActivity f1598a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(EditBarActivity editBarActivity) {
-        this.f1600a = editBarActivity;
+        this.f1598a = editBarActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1600a.finish();
+        this.f1598a.finish();
     }
 }

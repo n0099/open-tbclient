@@ -24,7 +24,7 @@ public class b extends a {
                 f = String.valueOf(f) + aVar.f;
             }
             String a2 = aVar.a(str);
-            synchronized (com.baidu.tieba.util.e.f1764a) {
+            synchronized (com.baidu.tieba.util.e.f1762a) {
                 if (f != null) {
                     int a3 = (int) p.a("image", f);
                     if (a3 > 0) {
@@ -68,14 +68,14 @@ public class b extends a {
         sb.append(ai.d(str));
         sb.append("&width=");
         if (aVar.b == 0) {
-            i = am.a(aVar.f1744a, 105.0f);
+            i = am.a(aVar.f1742a, 105.0f);
         } else {
             i = aVar.b;
         }
         sb.append(String.valueOf(i));
         sb.append("&height=");
         if (aVar.c == 0) {
-            i2 = am.a(aVar.f1744a, 105.0f);
+            i2 = am.a(aVar.f1742a, 105.0f);
         } else {
             i2 = aVar.c;
         }
@@ -99,8 +99,8 @@ public class b extends a {
         if (aVar.g) {
             sb.append("&no_prefix=1");
         }
-        dVar.f1763a = new u(aVar.f1744a, sb.toString());
-        dVar.f1763a.d(true);
+        dVar.f1761a = new u(aVar.f1742a, sb.toString());
+        dVar.f1761a.d(true);
         if (aVar.h != null) {
             int i4 = 0;
             while (true) {
@@ -108,16 +108,16 @@ public class b extends a {
                 if (i5 >= aVar.h.size()) {
                     break;
                 }
-                dVar.f1763a.a((BasicNameValuePair) aVar.h.get(i5));
+                dVar.f1761a.a((BasicNameValuePair) aVar.h.get(i5));
                 i4 = i5 + 1;
             }
         }
-        byte[] j = dVar.f1763a.j();
-        if (j == null || !dVar.f1763a.d() || dVar.j) {
+        byte[] j = dVar.f1761a.j();
+        if (j == null || !dVar.f1761a.d() || dVar.j) {
             return null;
         }
         String a2 = aVar.a(str);
-        synchronized (com.baidu.tieba.util.e.f1764a) {
+        synchronized (com.baidu.tieba.util.e.f1762a) {
             if (dVar.j) {
                 return null;
             }

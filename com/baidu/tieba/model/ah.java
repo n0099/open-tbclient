@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class ah extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ai f1327a;
+    private ai f1325a;
     private aj b;
 
     public void a(aj ajVar) {
@@ -21,7 +21,7 @@ public class ah extends com.baidu.adp.a.c {
     }
 
     public void a(String str) {
-        this.f1327a = new ai(this, str);
-        this.f1327a.execute(new Void[0]);
+        this.f1325a = new ai(this, str);
+        this.f1325a.execute(new Void[0]);
     }
 }

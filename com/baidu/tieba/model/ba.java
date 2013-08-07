@@ -11,7 +11,7 @@ public class ba {
     private boolean e = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1345a = new ArrayList();
+    private ArrayList f1343a = new ArrayList();
 
     public void a(String str) {
         this.d = str;
@@ -26,11 +26,11 @@ public class ba {
     }
 
     public ArrayList c() {
-        return this.f1345a;
+        return this.f1343a;
     }
 
     public void d() {
-        this.f1345a.clear();
+        this.f1343a.clear();
         this.b = 0;
         this.c = false;
     }
@@ -57,9 +57,9 @@ public class ba {
                 this.e = jSONObject.optInt("hide_post", 0) == 0;
             }
             bb bbVar = null;
-            int size = this.f1345a.size();
+            int size = this.f1343a.size();
             if (size > 0) {
-                bbVar = (bb) this.f1345a.get(size - 1);
+                bbVar = (bb) this.f1343a.get(size - 1);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -69,7 +69,7 @@ public class ba {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     bb bbVar3 = new bb(this);
                     bbVar3.b = optJSONObject.optString("time_shaft");
-                    bbVar3.f1346a = optJSONObject.optInt("type", 0);
+                    bbVar3.f1344a = optJSONObject.optInt("type", 0);
                     bbVar3.c = optJSONObject.optString("title");
                     bbVar3.d = optJSONObject.optString("reply_num");
                     bbVar3.e = optJSONObject.optString("reply_time");
@@ -78,13 +78,13 @@ public class ba {
                     bbVar3.h = optJSONObject.optString("pid");
                     bbVar3.i = optJSONObject.optInt("is_floor", 0) == 1;
                     if (bbVar2 != null && bbVar3.b.equals(bbVar2.b)) {
-                        this.f1345a.add(bbVar3);
+                        this.f1343a.add(bbVar3);
                     } else {
                         bb bbVar4 = new bb(this);
                         bbVar4.b = bbVar3.b;
-                        bbVar4.f1346a = 0;
-                        this.f1345a.add(bbVar4);
-                        this.f1345a.add(bbVar3);
+                        bbVar4.f1344a = 0;
+                        this.f1343a.add(bbVar4);
+                        this.f1343a.add(bbVar3);
                     }
                     i++;
                     bbVar2 = bbVar3;

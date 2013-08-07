@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class bo extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1356a;
+    final /* synthetic */ bn f1354a;
     private com.baidu.tieba.util.u b;
 
     private bo(bn bnVar) {
-        this.f1356a = bnVar;
+        this.f1354a = bnVar;
         this.b = null;
     }
 
@@ -25,14 +25,14 @@ public class bo extends BdAsyncTask {
     public String a(Integer... numArr) {
         try {
             int intValue = numArr[0].intValue();
-            if (this.f1356a.c() != null) {
+            if (this.f1354a.c() != null) {
                 this.b = new com.baidu.tieba.util.u();
                 if (intValue == 0) {
-                    this.b.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/user/follow");
+                    this.b.a(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/user/follow");
                 } else {
-                    this.b.a(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/user/unfollow");
+                    this.b.a(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/user/unfollow");
                 }
-                this.b.a("portrait", this.f1356a.c().getPortrait());
+                this.b.a("portrait", this.f1354a.c().getPortrait());
                 this.b.e(true);
                 this.b.k();
                 return null;
@@ -51,24 +51,24 @@ public class bo extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) str);
-        this.f1356a.m = null;
+        this.f1354a.m = null;
         if (this.b != null) {
             if (!this.b.d()) {
-                this.f1356a.mLoadDataMode = 3;
-                this.f1356a.setErrorString(this.b.h());
-                eVar = this.f1356a.mLoadDataCallBack;
+                this.f1354a.mLoadDataMode = 3;
+                this.f1354a.setErrorString(this.b.h());
+                eVar = this.f1354a.mLoadDataCallBack;
                 eVar.a(false);
                 return;
             }
-            if (this.f1356a.c() != null) {
-                if (this.f1356a.c().getHave_attention() == 1) {
-                    this.f1356a.c().setHave_attention(0);
+            if (this.f1354a.c() != null) {
+                if (this.f1354a.c().getHave_attention() == 1) {
+                    this.f1354a.c().setHave_attention(0);
                 } else {
-                    this.f1356a.c().setHave_attention(1);
+                    this.f1354a.c().setHave_attention(1);
                 }
             }
-            this.f1356a.mLoadDataMode = 3;
-            eVar2 = this.f1356a.mLoadDataCallBack;
+            this.f1354a.mLoadDataMode = 3;
+            eVar2 = this.f1354a.mLoadDataCallBack;
             eVar2.a(true);
         }
     }
@@ -81,8 +81,8 @@ public class bo extends BdAsyncTask {
             this.b.i();
             this.b = null;
         }
-        this.f1356a.m = null;
-        eVar = this.f1356a.mLoadDataCallBack;
+        this.f1354a.m = null;
+        eVar = this.f1354a.mLoadDataCallBack;
         eVar.a(false);
     }
 }

@@ -1,13 +1,46 @@
 package com.baidu.android.defense.a;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public final class c {
+    private static c b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f497a;
-    public String b;
-    public int c;
+    private ExecutorService f496a = Executors.newFixedThreadPool(3, new com.baidu.android.moplus.util.a("Defense_DownloadThreadPool"));
 
-    public String toString() {
-        return "DownloadItem: mDownloadUrl =" + this.f497a + " mSavePath = " + this.b + " mFileSize =" + this.c;
+    private c() {
+    }
+
+    public static synchronized c a() {
+        c cVar;
+        synchronized (c.class) {
+            if (b == null) {
+                b = new c();
+            }
+            cVar = b;
+        }
+        return cVar;
+    }
+
+    public static synchronized void b() {
+        synchronized (c.class) {
+            if (b != null) {
+                b.c();
+                b = null;
+            }
+        }
+    }
+
+    private void c() {
+        try {
+            this.f496a.shutdown();
+        } catch (SecurityException e) {
+        }
+        this.f496a = null;
+    }
+
+    public void a(d dVar) {
+        this.f496a.submit(dVar);
     }
 }

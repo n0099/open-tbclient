@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class ap extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Matrix f1821a;
+    private Matrix f1819a;
     private int b;
     private int c;
     private Paint d;
@@ -42,7 +42,7 @@ public class ap extends ImageView {
 
     public ap(Context context, int i) {
         super(context);
-        this.f1821a = new Matrix();
+        this.f1819a = new Matrix();
         this.b = 0;
         this.c = 0;
         this.d = new Paint();
@@ -72,7 +72,7 @@ public class ap extends ImageView {
         super.onDraw(canvas);
         com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c(String.valueOf((String) getTag()) + this.i);
         if (!this.g) {
-            this.f1821a.reset();
+            this.f1819a.reset();
         }
         if (c == null) {
             this.g = false;
@@ -83,7 +83,7 @@ public class ap extends ImageView {
                     a2 = com.baidu.tieba.util.e.a((int) R.drawable.pic_video);
                 }
                 float min = Math.min(getWidth() / a2.getWidth(), getHeight() / a2.getHeight());
-                this.f1821a.setScale(min, min);
+                this.f1819a.setScale(min, min);
                 this.g = true;
             } else {
                 if (TiebaApplication.f().au() == 1) {
@@ -93,13 +93,13 @@ public class ap extends ImageView {
                 }
                 this.b = (getWidth() - a2.getWidth()) >> 1;
                 this.c = (getHeight() - a2.getHeight()) >> 1;
-                this.f1821a.postTranslate(this.b, this.c);
+                this.f1819a.postTranslate(this.b, this.c);
                 if (TiebaApplication.f().au() == 1) {
                     canvas.drawColor(-13815750);
                 }
             }
             if (a2 != null) {
-                canvas.drawBitmap(a2, this.f1821a, this.d);
+                canvas.drawBitmap(a2, this.f1819a, this.d);
             }
         } else if (c != null) {
             if (!this.g) {
@@ -113,7 +113,7 @@ public class ap extends ImageView {
                     } else {
                         f = ((float) a3) < ((float) (((double) (width * 3)) / 10.0d)) ? 1.0f : width / a3;
                     }
-                    this.f1821a.setScale(f, f);
+                    this.f1819a.setScale(f, f);
                     int i = ((int) (a3 * f)) - 1;
                     int i2 = ((int) (f * b)) - 1;
                     if (i2 <= 1.25d * height) {
@@ -126,7 +126,7 @@ public class ap extends ImageView {
                             this.c = 0;
                         }
                     }
-                    this.f1821a.postTranslate(this.b, this.c);
+                    this.f1819a.postTranslate(this.b, this.c);
                     if (height - i2 > 3) {
                         this.j = getLayoutParams();
                         this.j.width = i;
@@ -138,7 +138,7 @@ public class ap extends ImageView {
                     return;
                 }
             }
-            c.a(canvas, this.f1821a, this.d);
+            c.a(canvas, this.f1819a, this.d);
         }
     }
 }

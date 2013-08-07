@@ -22,7 +22,7 @@ public class TagContentActivity extends com.baidu.tieba.g implements com.baidu.t
     private static long x = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1630a = null;
+    private String f1628a = null;
     private String b = null;
     private String c = null;
     private Boolean d = false;
@@ -59,9 +59,9 @@ public class TagContentActivity extends com.baidu.tieba.g implements com.baidu.t
     }
 
     private void l() {
-        this.f1630a = getIntent().getStringExtra("tag_name");
+        this.f1628a = getIntent().getStringExtra("tag_name");
         this.b = getIntent().getStringExtra("tag_id");
-        if (NewHomeActivity.f1628a.contains(this.b)) {
+        if (NewHomeActivity.f1626a.contains(this.b)) {
             this.c = "1";
             this.d = true;
             return;
@@ -88,7 +88,7 @@ public class TagContentActivity extends com.baidu.tieba.g implements com.baidu.t
         if (this.d.booleanValue()) {
             this.e.setVisibility(8);
         }
-        this.k.setText(this.f1630a);
+        this.k.setText(this.f1628a);
         if (o()) {
             this.u.setVisibility(8);
             c();

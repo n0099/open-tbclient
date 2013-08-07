@@ -13,7 +13,7 @@ import java.util.Date;
 public class bc extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1347a = com.baidu.tieba.data.g.b() / 30;
+    private static final int f1345a = com.baidu.tieba.data.g.b() / 30;
     private static com.baidu.tieba.data.at v = new com.baidu.tieba.data.at();
     private com.baidu.tieba.data.as t;
     private Context w;
@@ -174,14 +174,14 @@ public class bc extends com.baidu.adp.a.c {
     public void e(int i) {
         if (this.k < i) {
             this.k = i;
-            if (this.k - this.l >= f1347a) {
-                this.l = (this.k - f1347a) + 1;
+            if (this.k - this.l >= f1345a) {
+                this.l = (this.k - f1345a) + 1;
             }
         }
         if (this.l > i) {
             this.l = i;
-            if (this.k - this.l >= f1347a) {
-                this.k = (this.l + f1347a) - 1;
+            if (this.k - this.l >= f1345a) {
+                this.k = (this.l + f1345a) - 1;
             }
         }
     }

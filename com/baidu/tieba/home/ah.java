@@ -5,12 +5,12 @@ import com.baidu.tieba.view.ImageViewDrawer;
 class ah implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecommendPagerAdapter f1120a;
+    final /* synthetic */ RecommendPagerAdapter f1118a;
     private final /* synthetic */ ImageViewDrawer b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(RecommendPagerAdapter recommendPagerAdapter, ImageViewDrawer imageViewDrawer) {
-        this.f1120a = recommendPagerAdapter;
+        this.f1118a = recommendPagerAdapter;
         this.b = imageViewDrawer;
     }
 

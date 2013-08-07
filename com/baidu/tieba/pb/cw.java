@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class cw implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cu f1516a;
+    final /* synthetic */ cu f1514a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cw(cu cuVar) {
-        this.f1516a = cuVar;
+        this.f1514a = cuVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,7 +20,7 @@ class cw implements AdapterView.OnItemClickListener {
         String str;
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {
-            this.f1516a.b(str);
+            this.f1514a.b(str);
         }
     }
 }

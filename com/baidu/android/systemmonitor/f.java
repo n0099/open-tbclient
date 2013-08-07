@@ -1,18 +1,18 @@
 package com.baidu.android.systemmonitor;
 
 import android.content.Context;
-import com.baidu.android.systemmonitor.a.a.h;
+import com.baidu.android.systemmonitor.d.a.l;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class f implements Runnable {
+public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ StatisticManager f695a;
+    final /* synthetic */ StatisticManager f693a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(StatisticManager statisticManager) {
-        this.f695a = statisticManager;
+        this.f693a = statisticManager;
     }
 
     @Override // java.lang.Runnable
@@ -20,14 +20,14 @@ public final class f implements Runnable {
         Context context;
         Context context2;
         Context context3;
-        context = this.f695a.mContext;
-        if (!com.baidu.android.systemmonitor.a.b.b(context)) {
+        context = this.f693a.mContext;
+        if (!com.baidu.android.systemmonitor.d.b.b(context)) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(h.ACTIVE_EVENT);
-            context3 = this.f695a.mContext;
-            com.baidu.android.systemmonitor.b.a.a(context3).a(arrayList);
+            arrayList.add(l.ACTIVE_EVENT);
+            context3 = this.f693a.mContext;
+            com.baidu.android.systemmonitor.c.a.a(context3).a(arrayList);
         }
-        context2 = this.f695a.mContext;
-        new com.baidu.android.systemmonitor.a.a.e(context2).a();
+        context2 = this.f693a.mContext;
+        new com.baidu.android.systemmonitor.d.a.d(context2).a();
     }
 }

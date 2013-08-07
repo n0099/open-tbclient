@@ -6,11 +6,11 @@ import com.baidu.android.common.logging.Log;
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f583a;
+    final /* synthetic */ e f581a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.f583a = eVar;
+        this.f581a = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,11 +19,11 @@ public class h implements Runnable {
         if (b.a()) {
             Log.i("PushConnection", " -- Send Timeout --");
         }
-        z = this.f583a.r;
+        z = this.f581a.r;
         if (z) {
-            this.f583a.r = false;
-            this.f583a.b(false);
+            this.f581a.r = false;
+            this.f581a.b(false);
         }
-        this.f583a.g();
+        this.f581a.g();
     }
 }

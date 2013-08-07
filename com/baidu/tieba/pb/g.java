@@ -9,11 +9,11 @@ import java.util.HashMap;
 public class g implements android.support.v4.view.bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageActivity f1531a;
+    final /* synthetic */ ImageActivity f1529a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ImageActivity imageActivity) {
-        this.f1531a = imageActivity;
+        this.f1529a = imageActivity;
     }
 
     @Override // android.support.v4.view.bq
@@ -23,26 +23,26 @@ public class g implements android.support.v4.view.bq {
         MultiImageView multiImageView;
         a aVar2;
         int i2;
-        z = this.f1531a.D;
+        z = this.f1529a.D;
         if (!z) {
-            aVar = this.f1531a.w;
+            aVar = this.f1529a.w;
             if (aVar != null) {
-                multiImageView = this.f1531a.o;
+                multiImageView = this.f1529a.o;
                 if (i > multiImageView.getItemNum() - 5) {
-                    aVar2 = this.f1531a.w;
+                    aVar2 = this.f1529a.w;
                     aVar2.a();
                 }
             }
         } else {
             Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pagechanged");
             intent.putExtra("index", i);
-            this.f1531a.sendBroadcast(intent);
+            this.f1529a.sendBroadcast(intent);
         }
-        ImageActivity imageActivity = this.f1531a;
-        i2 = this.f1531a.d;
+        ImageActivity imageActivity = this.f1529a;
+        i2 = this.f1529a.d;
         imageActivity.a(i2, i);
-        this.f1531a.d = i;
-        this.f1531a.m();
+        this.f1529a.d = i;
+        this.f1529a.m();
     }
 
     @Override // android.support.v4.view.bq
@@ -60,16 +60,16 @@ public class g implements android.support.v4.view.bq {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.f1531a.x;
+            j = this.f1529a.x;
             if (nanoTime - j > 300000000) {
-                arrayList = this.f1531a.c;
+                arrayList = this.f1529a.c;
                 if (arrayList != null) {
-                    i2 = this.f1531a.d;
-                    arrayList2 = this.f1531a.c;
+                    i2 = this.f1529a.d;
+                    arrayList2 = this.f1529a.c;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.f1531a.y;
-                        arrayList3 = this.f1531a.c;
-                        i3 = this.f1531a.d;
+                        hashMap = this.f1529a.y;
+                        arrayList3 = this.f1529a.c;
+                        i3 = this.f1529a.d;
                         hashMap.put((String) arrayList3.get(i3), true);
                     }
                 }

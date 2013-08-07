@@ -41,7 +41,7 @@ public class cu {
     private ProgressBar I;
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1514a;
+    private View f1512a;
     private View b;
     private BdListView c;
     private bl d;
@@ -75,7 +75,7 @@ public class cu {
     private AdapterView.OnItemLongClickListener N = new cy(this);
 
     public cu(com.baidu.tieba.g gVar, View.OnClickListener onClickListener, View.OnClickListener onClickListener2, View.OnClickListener onClickListener3) {
-        this.f1514a = null;
+        this.f1512a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -111,13 +111,13 @@ public class cu {
         this.v = onClickListener2;
         this.u = onClickListener3;
         LayoutInflater from = LayoutInflater.from(this.e);
-        this.f1514a = from.inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
+        this.f1512a = from.inflate(R.layout.new_sub_pb_layout, (ViewGroup) null);
         this.b = from.inflate(R.layout.new_sub_pb_head, (ViewGroup) null);
-        this.f = (ClickableLayout4Frame) this.f1514a.findViewById(R.id.sub_pb_body_layout);
+        this.f = (ClickableLayout4Frame) this.f1512a.findViewById(R.id.sub_pb_body_layout);
         this.f.setOnClickListener(new cz(this));
-        this.c = (BdListView) this.f1514a.findViewById(R.id.new_sub_pb_list);
-        this.p = (LinearLayout) this.f1514a.findViewById(R.id.sub_pb_buttom_layout);
-        this.q = (TextView) this.f1514a.findViewById(R.id.sub_pb_bottom_text);
+        this.c = (BdListView) this.f1512a.findViewById(R.id.new_sub_pb_list);
+        this.p = (LinearLayout) this.f1512a.findViewById(R.id.sub_pb_buttom_layout);
+        this.q = (TextView) this.f1512a.findViewById(R.id.sub_pb_bottom_text);
         this.g = (HeadImageView) this.b.findViewById(R.id.photo);
         this.h = (TextView) this.b.findViewById(R.id.user_name);
         this.i = (TextView) this.b.findViewById(R.id.user_rank);
@@ -138,14 +138,14 @@ public class cu {
         this.c.setOnItemClickListener(this.L);
         this.c.setOnItemLongClickListener(this.N);
         this.p.setOnClickListener(this.t);
-        this.s = (LinearLayout) this.f1514a.findViewById(R.id.sub_pb_reply);
-        this.I = (ProgressBar) this.f1514a.findViewById(R.id.progress);
-        this.F = (EditText) this.f1514a.findViewById(R.id.reply_content);
+        this.s = (LinearLayout) this.f1512a.findViewById(R.id.sub_pb_reply);
+        this.I = (ProgressBar) this.f1512a.findViewById(R.id.progress);
+        this.F = (EditText) this.f1512a.findViewById(R.id.reply_content);
         this.F.setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
-        this.C = (Button) this.f1514a.findViewById(R.id.pb_reply_post);
-        this.D = (Button) this.f1514a.findViewById(R.id.pb_button_face);
-        this.E = (Button) this.f1514a.findViewById(R.id.pb_button_at);
-        this.A = (GridView) this.f1514a.findViewById(R.id.face_view);
+        this.C = (Button) this.f1512a.findViewById(R.id.pb_reply_post);
+        this.D = (Button) this.f1512a.findViewById(R.id.pb_button_face);
+        this.E = (Button) this.f1512a.findViewById(R.id.pb_button_at);
+        this.A = (GridView) this.f1512a.findViewById(R.id.face_view);
         this.B = new com.baidu.tieba.write.m(this.e);
         this.A.setAdapter((ListAdapter) this.B);
         this.C.setOnClickListener(this.t);
@@ -225,7 +225,7 @@ public class cu {
     }
 
     public View d() {
-        return this.f1514a;
+        return this.f1512a;
     }
 
     public View e() {
@@ -459,7 +459,7 @@ public class cu {
             this.E.setBackgroundResource(R.drawable.new_pb_at_btn_1);
             com.baidu.tieba.util.ah.h((View) this.C, (int) R.drawable.btn_post_dl_selector_1);
             this.C.setTextColor(this.e.getResources().getColorStateList(R.color.post_image_btn_color_1));
-            this.f1514a.setBackgroundResource(R.drawable.common_bg_1);
+            this.f1512a.setBackgroundResource(R.drawable.common_bg_1);
             com.baidu.tieba.util.ah.h((View) this.m, (int) R.drawable.common_image_btn_selector_1);
             this.m.setTextColor(this.e.getResources().getColorStateList(R.color.common_image_btn_color_1));
             this.m.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_discuss_dl_selector_1, 0, 0, 0);
@@ -474,7 +474,7 @@ public class cu {
         this.E.setBackgroundResource(R.drawable.new_pb_at_btn);
         com.baidu.tieba.util.ah.h((View) this.C, (int) R.drawable.btn_post_dl_selector);
         this.C.setTextColor(this.e.getResources().getColorStateList(R.color.post_image_btn_color));
-        this.f1514a.setBackgroundResource(R.drawable.common_bg);
+        this.f1512a.setBackgroundResource(R.drawable.common_bg);
         com.baidu.tieba.util.ah.h((View) this.m, (int) R.drawable.common_image_btn_selector);
         this.m.setTextColor(this.e.getResources().getColorStateList(R.color.common_image_btn_color));
         this.m.setCompoundDrawablesWithIntrinsicBounds(R.drawable.btn_discuss_dl_selector, 0, 0, 0);

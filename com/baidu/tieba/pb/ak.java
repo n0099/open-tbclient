@@ -8,7 +8,7 @@ import com.baidu.tieba.view.ImagePbImageView;
 class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1452a;
+    TextView f1450a;
     TextView b;
     TextView c;
     LinearLayout d;

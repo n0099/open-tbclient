@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    ViewPager f1192a;
+    ViewPager f1190a;
     TextView b;
     TextView c;
     TextView d;
@@ -23,7 +23,7 @@ public class l {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(View.OnClickListener onClickListener, View view) {
-        this.f1192a = (ViewPager) view.findViewById(R.id.banner);
+        this.f1190a = (ViewPager) view.findViewById(R.id.banner);
         this.h = (FrameLayout) view.findViewById(R.id.banner_parent);
         this.i = (LinearLayout) view.findViewById(R.id.banner_default);
         this.e = (TextView) view.findViewById(R.id.banner_text);

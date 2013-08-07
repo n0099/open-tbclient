@@ -9,11 +9,11 @@ import android.widget.TextView;
 public class k implements ViewGroup.OnHierarchyChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TbRichTextView f814a;
+    final /* synthetic */ TbRichTextView f812a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(TbRichTextView tbRichTextView) {
-        this.f814a = tbRichTextView;
+        this.f812a = tbRichTextView;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -24,16 +24,16 @@ public class k implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.a.b bVar4;
         com.baidu.adp.lib.e.d.c("pool return child");
         if (view2 instanceof ImageView) {
-            bVar3 = this.f814a.f804a;
+            bVar3 = this.f812a.f802a;
             if (bVar3 != null) {
-                bVar4 = this.f814a.f804a;
+                bVar4 = this.f812a.f802a;
                 bVar4.a((ImageView) view2);
             }
         }
         if (view2 instanceof TextView) {
-            bVar = this.f814a.b;
+            bVar = this.f812a.b;
             if (bVar != null) {
-                bVar2 = this.f814a.b;
+                bVar2 = this.f812a.b;
                 bVar2.a((TextView) view2);
             }
         }

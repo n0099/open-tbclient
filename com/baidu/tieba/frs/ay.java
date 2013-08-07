@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 public class ay implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f1074a;
+    final /* synthetic */ ax f1072a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(ax axVar) {
-        this.f1074a = axVar;
+        this.f1072a = axVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -18,10 +18,10 @@ public class ay implements DialogInterface.OnClickListener {
         com.baidu.tieba.g gVar;
         com.baidu.tieba.g gVar2;
         if (i == 0) {
-            gVar2 = this.f1074a.f1073a;
+            gVar2 = this.f1072a.f1071a;
             com.baidu.tieba.write.ba.a(gVar2);
         } else if (i == 1) {
-            gVar = this.f1074a.f1073a;
+            gVar = this.f1072a.f1071a;
             com.baidu.tieba.write.ba.b(gVar);
         }
     }

@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    ViewPager f1657a;
+    ViewPager f1655a;
     FrameLayout b;
     IndicatorView c;
     TextView d;
@@ -19,7 +19,7 @@ public class bb {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(Activity activity) {
-        this.f1657a = (ViewPager) activity.findViewById(R.id.view_pager);
+        this.f1655a = (ViewPager) activity.findViewById(R.id.view_pager);
         this.c = (IndicatorView) activity.findViewById(R.id.indicator);
         this.d = (TextView) activity.findViewById(R.id.feature);
         this.e = (TextView) activity.findViewById(R.id.explore);

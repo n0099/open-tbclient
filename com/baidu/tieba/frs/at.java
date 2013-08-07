@@ -7,11 +7,11 @@ import com.baidu.tieba.view.ImageViewDrawer;
 class at implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1070a;
+    final /* synthetic */ FrsImageActivity f1068a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(FrsImageActivity frsImageActivity) {
-        this.f1070a = frsImageActivity;
+        this.f1068a = frsImageActivity;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -22,16 +22,16 @@ class at implements com.baidu.tbadk.a.d {
         Rect rect3;
         Rect rect4;
         try {
-            axVar = this.f1070a.n;
+            axVar = this.f1068a.n;
             View findViewWithTag = axVar.a().a(2).findViewWithTag(str);
             if (findViewWithTag != null && (findViewWithTag instanceof ImageViewDrawer)) {
-                rect = this.f1070a.m;
+                rect = this.f1068a.m;
                 if (findViewWithTag.getLocalVisibleRect(rect)) {
-                    rect2 = this.f1070a.m;
+                    rect2 = this.f1068a.m;
                     int i = rect2.bottom;
-                    rect3 = this.f1070a.m;
+                    rect3 = this.f1068a.m;
                     if (i - rect3.top >= findViewWithTag.getHeight()) {
-                        rect4 = this.f1070a.m;
+                        rect4 = this.f1068a.m;
                         if (rect4.top != 0) {
                             findViewWithTag.invalidate();
                         }

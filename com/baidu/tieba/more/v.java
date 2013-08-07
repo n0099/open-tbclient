@@ -7,11 +7,11 @@ import com.slidingmenu.lib.R;
 class v implements RadioGroup.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BrowseSettingActivity f1428a;
+    final /* synthetic */ BrowseSettingActivity f1426a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(BrowseSettingActivity browseSettingActivity) {
-        this.f1428a = browseSettingActivity;
+        this.f1426a = browseSettingActivity;
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener

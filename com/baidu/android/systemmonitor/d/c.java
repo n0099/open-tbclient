@@ -1,394 +1,742 @@
 package com.baidu.android.systemmonitor.d;
 
-import android.app.ActivityManager;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Handler;
-import android.os.SystemClock;
+import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.os.StatFs;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import com.baidu.android.nebula.util.BDLocationManager;
-import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.List;
+import com.tencent.mm.sdk.platformtools.LVBuffer;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static c f667a = null;
-    private static boolean h = false;
-    private static boolean i = false;
-    private static int n = -1;
-    private Context b;
-    private long d;
-    private long e;
-    private long f;
-    private volatile long g;
-    private Runnable k;
-    private Runnable l;
-    private Runnable m;
-    private String c = null;
-    private BroadcastReceiver j = null;
-    private a.a.d o = null;
-    private a.a.a p = null;
-    private int q = 0;
-    private int r = 0;
-    private long s = 0;
-    private Handler t = null;
+    private static final HashMap f675a = new HashMap();
 
-    private c(Context context) {
-        this.b = context;
-        a();
+    static {
+        f675a.put("&lt;", "<");
+        f675a.put("&gt;", ">");
+        f675a.put("&amp;", "&");
+        f675a.put("&quot;", "\"");
+        f675a.put("&#039;", "'");
     }
 
-    public static synchronized c a(Context context) {
-        c cVar;
-        synchronized (c.class) {
-            if (f667a == null) {
-                f667a = new c(context);
+    public static int a(Context context, String str) {
+        return context.getPackageManager().checkPermission(str, context.getPackageName()) == 0 ? 1 : 0;
+    }
+
+    public static String a(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            for (String str2 : f675a.keySet()) {
+                str = str.replaceAll(str2, (String) f675a.get(str2));
             }
-            cVar = f667a;
         }
-        return cVar;
+        return str;
     }
 
-    private void a(String str, int i2, long j) {
-        if (str == null) {
-            return;
+    public static boolean a() {
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+    }
+
+    public static boolean a(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+        if (connectivityManager == null) {
+            return false;
         }
-        String str2 = null;
+        NetworkInfo[] allNetworkInfo = connectivityManager.getAllNetworkInfo();
+        for (NetworkInfo networkInfo : allNetworkInfo) {
+            if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean a(File file, File file2) {
         try {
-            str2 = com.baidu.android.systemmonitor.security.a.a(str);
-        } catch (Exception e) {
-        }
-        if (e.a(j)) {
-            return;
-        }
-        m a2 = e.a(this.b.getApplicationContext()).a(str2);
-        if (a2 != null) {
-            a2.i += i2;
-            a2.m += j;
-            e.a(this.b.getApplicationContext()).a(a2);
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        m mVar = new m(str2, true);
-        mVar.i = i2;
-        mVar.m = j;
-        e.a(this.b.getApplicationContext()).a(this.b.getContentResolver(), mVar);
-        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, long j, long j2) {
-        if (str == null || e.a(j2 - j)) {
-            return;
-        }
-        String str2 = null;
-        try {
-            str2 = com.baidu.android.systemmonitor.security.a.a(str);
-        } catch (Exception e) {
-        }
-        n nVar = new n(str2);
-        if (nVar != null) {
-            nVar.b = j;
-            nVar.c = j2;
-            String d = BDLocationManager.d(this.b.getApplicationContext());
-            if (TextUtils.isEmpty(d)) {
-                d = "";
-            }
-            nVar.d = d;
-            nVar.g = this.r;
-            nVar.e = this.q;
-            nVar.f = com.baidu.android.systemmonitor.devicestatistic.f.a(this.b.getApplicationContext()).d();
-            nVar.h = com.baidu.android.systemmonitor.devicestatistic.i.a(this.b.getApplicationContext()).a() - this.s;
-            if (nVar.h < 0) {
-                nVar.h = 0L;
-            }
-            e.a(this.b.getApplicationContext()).a(str2, nVar);
-        }
-    }
-
-    public static synchronized void d() {
-        synchronized (c.class) {
-            if (f667a != null) {
-                f667a.b();
-                f667a = null;
-            }
-        }
-    }
-
-    private void h() {
-        this.j = new a(this);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.TIME_SET");
-        intentFilter.addAction("android.intent.action.TIMEZONE_CHANGED");
-        intentFilter.addAction("android.intent.action.LOCALE_CHANGED");
-        this.b.registerReceiver(this.j, intentFilter);
-        IntentFilter intentFilter2 = new IntentFilter();
-        intentFilter2.addAction("android.intent.action.SCREEN_OFF");
-        intentFilter2.addAction("android.intent.action.SCREEN_ON");
-        intentFilter2.addAction("android.intent.action.USER_PRESENT");
-        this.b.registerReceiver(this.j, intentFilter2);
-        IntentFilter intentFilter3 = new IntentFilter();
-        intentFilter3.addAction("com.baidu.freqstatistic.summaryresults");
-        this.b.registerReceiver(this.j, intentFilter3);
-    }
-
-    private boolean i() {
-        Class b = e.b("android.app.ActivityManagerNative");
-        try {
-            Object invoke = b.getDeclaredMethod("getDefault", new Class[0]).invoke(b, new Object[0]);
-            if (invoke == null) {
-                return false;
-            }
-            try {
-                Method declaredMethod = invoke.getClass().getDeclaredMethod("registerActivityWatcher", a.a.c.class);
-                declaredMethod.setAccessible(true);
-                try {
-                    if (this.o != null) {
-                        declaredMethod.invoke(invoke, this.o);
-                    }
-                    return true;
-                } catch (Exception e) {
-                    return false;
-                }
-            } catch (Exception e2) {
-                return false;
-            }
-        } catch (Exception e3) {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            boolean a2 = a(fileInputStream, file2);
+            fileInputStream.close();
+            return a2;
+        } catch (IOException e) {
             return false;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j() {
-        if (n == 0) {
-            this.o = new f(this);
-            if (i()) {
-                return;
-            }
-            this.t.obtainMessage(1).sendToTarget();
-        } else if (n == 1) {
-            this.p = new l(this);
-            if (k()) {
-                return;
-            }
-            this.t.obtainMessage(1).sendToTarget();
-        } else if (n == 2) {
-            this.m = new k(this);
-            this.t.postDelayed(this.m, 30000L);
-        }
-    }
-
-    private boolean k() {
-        Class b = e.b("android.app.ActivityManagerNative");
+    public static boolean a(InputStream inputStream, File file) {
+        boolean z = false;
         try {
-            Object invoke = b.getDeclaredMethod("getDefault", new Class[0]).invoke(b, new Object[0]);
-            if (invoke == null) {
-                return false;
-            }
-            try {
-                Method declaredMethod = invoke.getClass().getDeclaredMethod("registerProcessObserver", a.a.b.class);
-                declaredMethod.setAccessible(true);
-                try {
-                    if (this.p != null) {
-                        declaredMethod.invoke(invoke, this.p);
-                    }
-                    return true;
-                } catch (Exception e) {
-                    return false;
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            byte[] bArr = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read < 0) {
+                    break;
                 }
-            } catch (Exception e2) {
-                return false;
+                fileOutputStream.write(bArr, 0, read);
             }
-        } catch (Exception e3) {
-            return false;
-        }
-    }
-
-    private void l() {
-        Method method;
-        Object obj = null;
-        Class b = e.b("android.app.ActivityManagerNative");
-        try {
-            method = b.getDeclaredMethod("getDefault", new Class[0]);
+            fileOutputStream.flush();
             try {
-                obj = method.invoke(b, new Object[0]);
-            } catch (Exception e) {
+                fileOutputStream.getFD().sync();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (Exception e2) {
-            method = null;
-        }
-        if (obj == null) {
-            return;
-        }
-        try {
-            method = obj.getClass().getDeclaredMethod("unregisterProcessObserver", a.a.b.class);
-            method.setAccessible(true);
-        } catch (Exception e3) {
-        }
-        try {
-            if (this.p != null) {
-                method.invoke(obj, this.p);
-            }
-        } catch (Exception e4) {
+            fileOutputStream.close();
+            z = true;
+            return true;
+        } catch (IOException e2) {
+            return z;
         }
     }
 
-    private void m() {
-        Method method;
-        Object obj = null;
-        Class b = e.b("android.app.ActivityManagerNative");
+    public static int b(Context context) {
+        String str;
+        NetworkInfo activeNetworkInfo;
+        if (context != null && (activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isConnectedOrConnecting()) {
+            if (!activeNetworkInfo.getTypeName().toLowerCase().equals("wifi")) {
+                str = "2G";
+                switch (activeNetworkInfo.getSubtype()) {
+                    case 3:
+                        str = "3G";
+                        break;
+                    case 5:
+                        str = "3G";
+                        break;
+                    case 6:
+                        str = "3G";
+                        break;
+                    case 7:
+                        str = "3G";
+                        break;
+                    case 8:
+                        str = "3G";
+                        break;
+                    case 9:
+                        str = "3G";
+                        break;
+                    case 10:
+                        str = "3G";
+                        break;
+                    case 12:
+                        str = "3G";
+                        break;
+                    case 13:
+                        str = "4G";
+                        break;
+                    case 14:
+                        str = "3G";
+                        break;
+                    case 15:
+                        str = "3G";
+                        break;
+                }
+            } else {
+                str = "WF";
+            }
+        } else {
+            str = "";
+        }
+        if (str.equals("WF")) {
+            return 1;
+        }
+        if (str.equals("2G")) {
+            return 2;
+        }
+        if (str.equals("3G")) {
+            return 3;
+        }
+        return str.equals("4G") ? 4 : 0;
+    }
+
+    public static long b() {
+        if (a()) {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            return statFs.getBlockCount() * statFs.getBlockSize();
+        }
+        return -1L;
+    }
+
+    private static String b(String str) {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(str), 256);
         try {
-            method = b.getDeclaredMethod("getDefault", new Class[0]);
+            return bufferedReader.readLine();
+        } finally {
+            bufferedReader.close();
+        }
+    }
+
+    public static long c() {
+        if (a()) {
+            StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+            return statFs.getAvailableBlocks() * statFs.getBlockSize();
+        }
+        return -1L;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0023  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x004b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c(Context context) {
+        String str;
+        String stringBuffer;
+        TelephonyManager telephonyManager;
+        String d = b.d(context);
+        if (d == null || d.length() <= 0) {
             try {
-                obj = method.invoke(b, new Object[0]);
+                telephonyManager = (TelephonyManager) context.getSystemService("phone");
             } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e2) {
-            method = null;
+            if (telephonyManager != null) {
+                str = telephonyManager.getDeviceId();
+                if (TextUtils.isEmpty(str)) {
+                    stringBuffer = new StringBuffer(str).reverse().toString();
+                } else {
+                    Random random = new Random();
+                    StringBuffer stringBuffer2 = new StringBuffer(15);
+                    for (int i = 0; i < 15; i++) {
+                        stringBuffer2.append(random.nextInt(10));
+                    }
+                    stringBuffer = stringBuffer2.toString();
+                }
+                b.b(context, stringBuffer);
+                return stringBuffer;
+            }
+            str = d;
+            if (TextUtils.isEmpty(str)) {
+            }
+            b.b(context, stringBuffer);
+            return stringBuffer;
         }
-        if (obj == null) {
-            return;
-        }
+        return d;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0027, code lost:
+        r0 = r0.getHostAddress().toString();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String d() {
+        String str;
         try {
-            method = obj.getClass().getDeclaredMethod("unregisterActivityWatcher", a.a.c.class);
-            method.setAccessible(true);
-        } catch (Exception e3) {
-        }
-        try {
-            if (this.o != null) {
-                method.invoke(obj, this.o);
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            loop0: while (true) {
+                if (!networkInterfaces.hasMoreElements()) {
+                    str = null;
+                    break;
+                }
+                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                while (inetAddresses.hasMoreElements()) {
+                    InetAddress nextElement = inetAddresses.nextElement();
+                    if (!nextElement.isLoopbackAddress()) {
+                        break loop0;
+                    }
+                }
             }
-        } catch (Exception e4) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
-        String packageName;
-        ActivityManager.RunningTaskInfo c = c();
-        if (c == null) {
-            return;
-        }
-        ComponentName componentName = c.baseActivity;
-        ComponentName componentName2 = c.topActivity;
-        if (componentName == null || componentName2 == null || (packageName = componentName.getPackageName()) == null || packageName.length() == 0 || packageName.equals(this.c)) {
-            return;
-        }
-        long elapsedRealtime = SystemClock.elapsedRealtime();
-        long currentTimeMillis = System.currentTimeMillis();
-        if (this.c != null && this.c.length() > 0) {
-            a(this.c, 0, elapsedRealtime - this.g);
-            a(this.c, (this.g - elapsedRealtime) + currentTimeMillis, currentTimeMillis);
-        }
-        a(packageName, 1, 0L);
-        this.c = packageName;
-        this.g = elapsedRealtime;
-        this.q = com.baidu.android.systemmonitor.devicestatistic.f.a(this.b.getApplicationContext()).d();
-        this.r = com.baidu.android.systemmonitor.a.d.b(this.b.getApplicationContext());
-        this.s = com.baidu.android.systemmonitor.devicestatistic.i.a(this.b.getApplicationContext()).a();
-        if (e.a(this.b.getApplicationContext()).b(this.f)) {
-            if (com.baidu.android.systemmonitor.a.d.a(this.b.getApplicationContext())) {
-                com.baidu.android.systemmonitor.b.a.a(this.b.getApplicationContext()).e();
-                this.f = System.currentTimeMillis();
-                com.baidu.android.systemmonitor.a.b.a(this.b.getApplicationContext(), this.f);
-            }
-            this.b.sendBroadcast(new Intent("com.baidu.freqstatistic.summaryresults"));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
-        new Thread(new j(this), "SystemMonitor_SummaryFreqStatisticThread").start();
-    }
-
-    public void a() {
-        this.t = new i(this);
-        n = e.c(this.b.getApplicationContext());
-        this.d = System.currentTimeMillis();
-        this.e = SystemClock.elapsedRealtime();
-        if (!com.baidu.android.systemmonitor.a.b.f(this.b.getApplicationContext()).booleanValue()) {
-            com.baidu.android.systemmonitor.a.b.e(this.b.getApplicationContext());
-            com.baidu.android.systemmonitor.a.b.g(this.b.getApplicationContext());
-        }
-        this.f = com.baidu.android.systemmonitor.a.b.h(this.b.getApplicationContext());
-        h();
-        this.k = new h(this);
-        this.l = new g(this);
-        j();
-    }
-
-    public void b() {
-        if (this.j != null) {
-            try {
-                this.b.unregisterReceiver(this.j);
-            } catch (Exception e) {
-            }
-        }
-        if (n == 0) {
-            if (this.o != null) {
-                m();
-            }
-        } else if (n == 1) {
-            if (this.p != null) {
-                l();
-            }
-        } else if (n == 2 && this.m != null && this.t != null) {
-            this.t.removeCallbacks(this.m);
-        }
-        this.t = null;
-        e.a();
-    }
-
-    public ActivityManager.RunningTaskInfo c() {
-        List<ActivityManager.RecentTaskInfo> list;
-        List<ActivityManager.RecentTaskInfo> list2;
-        List<ActivityManager.RunningTaskInfo> list3;
-        ActivityManager activityManager = (ActivityManager) this.b.getSystemService("activity");
-        try {
-            list2 = activityManager.getRecentTasks(1, 1);
         } catch (Exception e) {
-            list = null;
+            str = null;
         }
+        return TextUtils.isEmpty(str) ? "" : str;
+    }
+
+    public static String d(Context context) {
+        String subscriberId = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId();
+        return subscriberId == null ? "" : subscriberId;
+    }
+
+    public static long e() {
+        StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+        return statFs.getAvailableBlocks() * statFs.getBlockSize();
+    }
+
+    public static String e(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        String valueOf = String.valueOf(displayMetrics.widthPixels);
+        return valueOf + "*" + String.valueOf(displayMetrics.heightPixels);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int f(Context context) {
+        Cursor cursor;
+        int count;
+        Cursor cursor2 = null;
         try {
-            list3 = activityManager.getRunningTasks(3);
-        } catch (Exception e2) {
-            list = list2;
-            list2 = list;
-            list3 = null;
-            return list2 == null ? null : null;
-        }
-        if (list2 == null && list3 != null) {
-            Iterator<ActivityManager.RecentTaskInfo> it = list2.iterator();
-            Iterator<ActivityManager.RunningTaskInfo> it2 = list3.iterator();
-            ActivityManager.RecentTaskInfo next = it.hasNext() ? it.next() : null;
-            if (next != null) {
-                ActivityManager.RunningTaskInfo next2 = it2.hasNext() ? it2.next() : null;
-                if (next2 != null) {
-                    if (next.id == -1 || next2.id != next.id) {
-                        String packageName = next.baseIntent.getComponent().getPackageName();
-                        if (next2.baseActivity.getPackageName().equals(packageName)) {
-                            while (true) {
-                                if (!it2.hasNext()) {
-                                    next2 = null;
-                                    break;
-                                }
-                                next2 = it2.next();
-                                if (!next2.baseActivity.getPackageName().equals(packageName)) {
-                                    break;
-                                }
+            Cursor query = context.getContentResolver().query(MediaStore.Images.Media.INTERNAL_CONTENT_URI, null, null, null, null);
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        count = query.getCount();
+                        if (query == null) {
+                            try {
+                                query.close();
+                                return count;
+                            } catch (Exception e) {
+                                return count;
                             }
                         }
+                        return count;
                     }
-                    return next2;
+                } catch (Exception e2) {
+                    cursor = query;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                        }
+                        return 0;
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = query;
+                    if (cursor2 != null) {
+                        try {
+                            cursor2.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    throw th;
                 }
-                return null;
             }
+            count = 0;
+            if (query == null) {
+            }
+        } catch (Exception e5) {
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static long f() {
+        StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
+        return statFs.getBlockCount() * statFs.getBlockSize();
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int g(Context context) {
+        Cursor cursor;
+        int count;
+        Cursor cursor2 = null;
+        try {
+            Cursor query = context.getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, null);
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        count = query.getCount();
+                        if (query == null) {
+                            try {
+                                query.close();
+                                return count;
+                            } catch (Exception e) {
+                                return count;
+                            }
+                        }
+                        return count;
+                    }
+                } catch (Exception e2) {
+                    cursor = query;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                        }
+                        return 0;
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = query;
+                    if (cursor2 != null) {
+                        try {
+                            cursor2.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            count = 0;
+            if (query == null) {
+            }
+        } catch (Exception e5) {
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static String g() {
+        try {
+            Matcher matcher = Pattern.compile("\\w+\\s+\\w+\\s+([^\\s]+)\\s+\\(([^\\s@]+(?:@[^\\s.]+)?)[^)]*\\)\\s+\\((?:[^(]*\\([^)]*\\))?[^)]*\\)\\s+([^\\s]+)\\s+(?:PREEMPT\\s+)?(.+)").matcher(b("/proc/version"));
+            if (matcher.matches() && matcher.groupCount() >= 4) {
+                return matcher.group(1) + "\n" + matcher.group(2) + " " + matcher.group(3) + "\n" + matcher.group(4);
+            }
+            return "Unavailable";
+        } catch (IOException e) {
+            return "Unavailable";
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int h(Context context) {
+        Cursor cursor;
+        int count;
+        Cursor cursor2 = null;
+        try {
+            Cursor query = context.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null, null);
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        count = query.getCount();
+                        if (query == null) {
+                            try {
+                                query.close();
+                                return count;
+                            } catch (Exception e) {
+                                return count;
+                            }
+                        }
+                        return count;
+                    }
+                } catch (Exception e2) {
+                    cursor = query;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                        }
+                        return 0;
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = query;
+                    if (cursor2 != null) {
+                        try {
+                            cursor2.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            count = 0;
+            if (query == null) {
+            }
+        } catch (Exception e5) {
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static String h() {
+        try {
+            Class<?> cls = Class.forName("android.os.SystemProperties");
+            return (String) cls.getMethod("get", String.class, String.class).invoke(cls.newInstance(), "gsm.version.baseband", "no message");
+        } catch (Exception e) {
             return null;
         }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int i(Context context) {
+        Cursor cursor;
+        int count;
+        Cursor cursor2 = null;
+        try {
+            Cursor query = context.getContentResolver().query(MediaStore.Audio.Media.INTERNAL_CONTENT_URI, null, null, null, null);
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        count = query.getCount();
+                        if (query == null) {
+                            try {
+                                query.close();
+                                return count;
+                            } catch (Exception e) {
+                                return count;
+                            }
+                        }
+                        return count;
+                    }
+                } catch (Exception e2) {
+                    cursor = query;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                        }
+                        return 0;
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = query;
+                    if (cursor2 != null) {
+                        try {
+                            cursor2.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            count = 0;
+            if (query == null) {
+            }
+        } catch (Exception e5) {
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int j(Context context) {
+        Cursor cursor;
+        int count;
+        Cursor cursor2 = null;
+        try {
+            Cursor query = context.getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, null);
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        count = query.getCount();
+                        if (query == null) {
+                            try {
+                                query.close();
+                                return count;
+                            } catch (Exception e) {
+                                return count;
+                            }
+                        }
+                        return count;
+                    }
+                } catch (Exception e2) {
+                    cursor = query;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                        }
+                        return 0;
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = query;
+                    if (cursor2 != null) {
+                        try {
+                            cursor2.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            count = 0;
+            if (query == null) {
+            }
+        } catch (Exception e5) {
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0028 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int k(Context context) {
+        Cursor cursor;
+        int count;
+        Cursor cursor2 = null;
+        try {
+            Cursor query = context.getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, new String[]{"_id"}, null, null, null);
+            if (query == null) {
+            }
+            if (query != null) {
+                try {
+                    if (query.moveToFirst()) {
+                        count = query.getCount();
+                        if (query == null) {
+                            try {
+                                query.close();
+                                return count;
+                            } catch (Exception e) {
+                                return count;
+                            }
+                        }
+                        return count;
+                    }
+                } catch (Exception e2) {
+                    cursor = query;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                        }
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = query;
+                    if (cursor2 != null) {
+                        try {
+                            cursor2.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            count = 0;
+            if (query == null) {
+            }
+        } catch (Exception e5) {
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0023 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int l(Context context) {
+        Cursor cursor;
+        Cursor cursor2;
+        int count;
+        try {
+            cursor = context.getContentResolver().query(Uri.parse("content://icc/adn"), null, null, null, null);
+            if (cursor != null) {
+                try {
+                    if (cursor.moveToFirst()) {
+                        count = cursor.getCount();
+                        if (cursor == null) {
+                            try {
+                                cursor.close();
+                                return count;
+                            } catch (Exception e) {
+                                return count;
+                            }
+                        }
+                        return count;
+                    }
+                } catch (Exception e2) {
+                    cursor2 = cursor;
+                    if (cursor2 != null) {
+                        try {
+                            cursor2.close();
+                        } catch (Exception e3) {
+                        }
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    if (cursor != null) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            count = 0;
+            if (cursor == null) {
+            }
+        } catch (Exception e5) {
+            cursor2 = null;
+        } catch (Throwable th2) {
+            th = th2;
+            cursor = null;
+        }
+    }
+
+    public static int m(Context context) {
+        return a(context, "android.permission.INSTALL_PACKAGES");
+    }
+
+    public static int n(Context context) {
+        return BDLocationManager.a(context) ? 1 : 0;
+    }
+
+    public static int o(Context context) {
+        return a(context, "android.permission.ACCESS_FINE_LOCATION");
+    }
+
+    public static int p(Context context) {
+        return a(context, "android.permission.GET_TASKS");
+    }
+
+    public static int q(Context context) {
+        return a(context, "android.permission.READ_CONTACTS");
+    }
+
+    public static int r(Context context) {
+        if (Build.VERSION.SDK_INT > 15) {
+            return a(context, "android.permission.READ_CALL_LOG");
+        }
+        return 1;
+    }
+
+    public static int s(Context context) {
+        return a(context, "android.permission.READ_SMS");
+    }
+
+    public static int t(Context context) {
+        return a(context, "android.permission.RECEIVE_BOOT_COMPLETED");
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.tieba.TiebaApplication;
 public class o extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1378a = 1;
+    private int f1376a = 1;
     private p b = null;
     private q c = null;
     private s d = null;
@@ -48,7 +48,7 @@ public class o extends com.baidu.adp.a.c {
             this.b.cancel();
             this.b = null;
         }
-        this.f1378a = i;
+        this.f1376a = i;
         if (i == 1) {
             this.h = 1;
         } else if (i == 2) {

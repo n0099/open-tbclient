@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 class i extends ae {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1045a;
+    final /* synthetic */ ForumListActivity f1043a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ForumListActivity forumListActivity) {
-        this.f1045a = forumListActivity;
+        this.f1043a = forumListActivity;
     }
 
     @Override // android.support.v4.view.ae
@@ -28,11 +28,11 @@ class i extends ae {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         switch (i) {
             case 0:
-                viewGroup.addView(this.f1045a.f1036a.h);
-                return this.f1045a.f1036a.h;
+                viewGroup.addView(this.f1043a.f1034a.h);
+                return this.f1043a.f1034a.h;
             case 1:
-                viewGroup.addView(this.f1045a.f1036a.i);
-                return this.f1045a.f1036a.i;
+                viewGroup.addView(this.f1043a.f1034a.i);
+                return this.f1043a.f1034a.i;
             default:
                 return null;
         }

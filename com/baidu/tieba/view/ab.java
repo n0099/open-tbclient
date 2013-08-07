@@ -6,11 +6,11 @@ import android.os.Message;
 class ab extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbImageView f1808a;
+    final /* synthetic */ ImagePbImageView f1806a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(ImagePbImageView imagePbImageView) {
-        this.f1808a = imagePbImageView;
+        this.f1806a = imagePbImageView;
     }
 
     @Override // android.os.Handler
@@ -20,15 +20,15 @@ class ab extends Handler {
         Handler handler;
         Handler handler2;
         super.handleMessage(message);
-        ImagePbImageView imagePbImageView = this.f1808a;
+        ImagePbImageView imagePbImageView = this.f1806a;
         i = imagePbImageView.j;
         imagePbImageView.j = i - 1;
-        i2 = this.f1808a.j;
+        i2 = this.f1806a.j;
         if (i2 >= 0) {
-            handler = this.f1808a.k;
-            handler2 = this.f1808a.k;
+            handler = this.f1806a.k;
+            handler2 = this.f1806a.k;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
-            this.f1808a.invalidate();
+            this.f1806a.invalidate();
         }
     }
 }

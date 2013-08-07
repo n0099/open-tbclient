@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class FindInterestFragment extends BaseFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.model.o f1627a = null;
+    private com.baidu.tieba.model.o f1625a = null;
     private aq b = null;
     private Handler c = null;
     private Activity d = null;
@@ -56,7 +56,7 @@ public class FindInterestFragment extends BaseFragment {
     private void a() {
         String e = com.baidu.tieba.model.aq.e();
         if (e != null && e.length() > 0) {
-            this.f1627a.a(e);
+            this.f1625a.a(e);
         }
     }
 
@@ -112,7 +112,7 @@ public class FindInterestFragment extends BaseFragment {
         String E = TiebaApplication.E();
         if (E != null && E.length() > 0) {
             this.f = true;
-            this.f1627a.c();
+            this.f1625a.c();
         } else {
             this.f = false;
             com.baidu.tieba.data.ae aeVar = new com.baidu.tieba.data.ae();
@@ -125,9 +125,9 @@ public class FindInterestFragment extends BaseFragment {
             this.b.a(aeVar);
         }
         if (this.e == null) {
-            this.f1627a.a("get_all_interest", "", 1);
+            this.f1625a.a("get_all_interest", "", 1);
         } else {
-            this.f1627a.a(this.e.a(), this.e.b(), 1);
+            this.f1625a.a(this.e.a(), this.e.b(), 1);
             this.b.a(this.e.b());
         }
         this.b.b();
@@ -135,21 +135,21 @@ public class FindInterestFragment extends BaseFragment {
     }
 
     private void C() {
-        this.f1627a = new com.baidu.tieba.model.o();
-        this.f1627a.setLoadDataCallBack(new an(this));
-        this.f1627a.a(new ap(this));
+        this.f1625a = new com.baidu.tieba.model.o();
+        this.f1625a.setLoadDataCallBack(new an(this));
+        this.f1625a.a(new ap(this));
         String E = TiebaApplication.E();
         if (E != null && E.length() > 0) {
             this.f = true;
         } else {
             this.f = false;
         }
-        com.baidu.tieba.data.ae a2 = this.f1627a.a();
+        com.baidu.tieba.data.ae a2 = this.f1625a.a();
         if (a2 != null) {
             a(a2);
             this.b.a(a2);
         }
-        com.baidu.tieba.data.ac b = this.f1627a.b();
+        com.baidu.tieba.data.ac b = this.f1625a.b();
         if (b != null) {
             this.b.a(b);
         }

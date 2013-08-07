@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class bg extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ProgressBar f1834a;
+    protected ProgressBar f1832a;
     protected j b;
     protected Context c;
     private bi d;
@@ -22,7 +22,7 @@ public class bg extends RelativeLayout {
 
     public bg(Context context) {
         super(context);
-        this.f1834a = null;
+        this.f1832a = null;
         this.b = null;
         this.d = null;
         this.c = null;
@@ -51,13 +51,13 @@ public class bg extends RelativeLayout {
         this.b = new j(this.c);
         this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         addView(this.b);
-        this.f1834a = new ProgressBar(this.c, null, 16843399);
-        this.f1834a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
+        this.f1832a = new ProgressBar(this.c, null, 16843399);
+        this.f1832a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        this.f1834a.setLayoutParams(layoutParams);
-        this.f1834a.setIndeterminate(true);
-        addView(this.f1834a);
+        this.f1832a.setLayoutParams(layoutParams);
+        this.f1832a.setIndeterminate(true);
+        addView(this.f1832a);
     }
 
     public void setUrl(String str) {
@@ -90,7 +90,7 @@ public class bg extends RelativeLayout {
         if (this.b != null) {
             this.b.j();
         }
-        this.f1834a.setVisibility(8);
+        this.f1832a.setVisibility(8);
     }
 
     public void d() {
@@ -98,7 +98,7 @@ public class bg extends RelativeLayout {
         if (this.b != null) {
             this.b.k();
         }
-        this.f1834a.setVisibility(8);
+        this.f1832a.setVisibility(8);
     }
 
     public void e() {

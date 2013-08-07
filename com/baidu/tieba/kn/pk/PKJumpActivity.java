@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class PKJumpActivity extends com.baidu.tieba.g implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
 
     /* renamed from: a  reason: collision with root package name */
-    static s f1205a;
+    static s f1203a;
     private g b;
     private String c;
     private BdPullRefreshScrollView d;
@@ -43,7 +43,7 @@ public class PKJumpActivity extends com.baidu.tieba.g implements View.OnClickLis
             a(sVar.b());
             return;
         }
-        f1205a = sVar;
+        f1203a = sVar;
         new Handler().postDelayed(new f(this, sVar), 300L);
     }
 

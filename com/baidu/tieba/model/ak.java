@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.v f1329a;
+    private com.baidu.tieba.data.v f1327a;
     private ArrayList b;
     private ArrayList c;
     private int d;
@@ -28,7 +28,7 @@ public class ak {
     }
 
     private void g() {
-        this.f1329a = new com.baidu.tieba.data.v();
+        this.f1327a = new com.baidu.tieba.data.v();
         this.b = new ArrayList();
         this.c = new ArrayList();
         this.d = 0;
@@ -39,7 +39,7 @@ public class ak {
     }
 
     public com.baidu.tieba.data.v a() {
-        return this.f1329a;
+        return this.f1327a;
     }
 
     public ArrayList b() {
@@ -62,7 +62,7 @@ public class ak {
         if (jSONObject != null) {
             try {
                 g();
-                this.f1329a.a(jSONObject.optJSONObject("forum"));
+                this.f1327a.a(jSONObject.optJSONObject("forum"));
                 this.h.a(jSONObject.optJSONObject("user"));
                 this.g.parserJson(jSONObject.optJSONObject("anti"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");

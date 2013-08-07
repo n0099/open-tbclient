@@ -5,12 +5,12 @@ import com.baidu.tieba.util.NetWorkCore;
 class x implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1100a;
+    final /* synthetic */ w f1098a;
     private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar, String str) {
-        this.f1100a = wVar;
+        this.f1098a = wVar;
         this.b = str;
     }
 

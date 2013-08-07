@@ -1,36 +1,41 @@
 package com.baidu.android.nebula.cmd;
 
+import android.content.Context;
+import java.io.File;
 import java.util.Timer;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class j implements com.baidu.android.nebula.util.e {
+public class j extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f552a;
+    final /* synthetic */ File f550a;
+    final /* synthetic */ String b;
+    final /* synthetic */ h c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(d dVar) {
-        this.f552a = dVar;
+    public j(h hVar, File file, String str) {
+        this.c = hVar;
+        this.f550a = file;
+        this.b = str;
     }
 
-    @Override // com.baidu.android.nebula.util.e
-    public void a(com.baidu.android.nebula.util.c cVar) {
-        com.baidu.android.nebula.util.c cVar2;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        String str;
         Timer timer;
-        Timer timer2;
-        synchronized (this.f552a.f546a) {
-            this.f552a.f546a.mLocInfo = cVar;
-            cVar2 = this.f552a.f546a.mLocInfo;
-            if (cVar2 == null) {
-                this.f552a.f546a.mErrcode = 2;
-            } else {
-                this.f552a.f546a.mErrcode = 0;
-            }
-            timer = this.f552a.f546a.mTimeoutTm;
-            if (timer != null) {
-                timer2 = this.f552a.f546a.mTimeoutTm;
-                timer2.cancel();
-            }
-            this.f552a.f546a.notifyAll();
+        Context context;
+        cancel();
+        long length = this.f550a.length();
+        str = this.c.f548a.mFileLength;
+        if (length < Integer.parseInt(str)) {
+            this.c.a(this.b);
+            return;
         }
+        timer = this.c.c;
+        timer.cancel();
+        h hVar = this.c;
+        context = this.c.f548a.mContext;
+        hVar.a(context, this.f550a);
     }
 }

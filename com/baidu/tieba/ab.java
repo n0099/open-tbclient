@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ab extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f840a;
+    ArrayList f838a;
     final /* synthetic */ LabelActivity b;
     private String d;
     private boolean f;
@@ -18,9 +18,9 @@ public class ab extends BdAsyncTask {
     public ab(LabelActivity labelActivity, String str, boolean z, ArrayList arrayList) {
         this.b = labelActivity;
         this.d = null;
-        this.f840a = null;
+        this.f838a = null;
         this.d = str;
-        this.f840a = arrayList;
+        this.f838a = arrayList;
         this.f = z;
     }
 
@@ -43,7 +43,7 @@ public class ab extends BdAsyncTask {
         com.baidu.tieba.model.aq aqVar6;
         try {
             this.c = new com.baidu.tieba.util.u(this.d);
-            this.c.a(this.f840a);
+            this.c.a(this.f838a);
             aqVar = this.b.q;
             if (aqVar != null) {
                 aqVar5 = this.b.q;

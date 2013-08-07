@@ -8,12 +8,12 @@ import com.slidingmenu.lib.R;
 public class j extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1155a;
+    final /* synthetic */ EnterForumActivity f1153a;
     private com.baidu.tieba.util.u b = null;
     private com.baidu.tieba.data.ai c;
 
     public j(EnterForumActivity enterForumActivity, com.baidu.tieba.data.ai aiVar) {
-        this.f1155a = enterForumActivity;
+        this.f1153a = enterForumActivity;
         this.c = null;
         this.c = aiVar;
     }
@@ -26,7 +26,7 @@ public class j extends BdAsyncTask {
         if (aiVar != null) {
             try {
                 if (aiVar.a() != null && aiVar.b() != null) {
-                    this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/c/forum/unfavo");
+                    this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/forum/unfavo");
                     this.b.a("fid", aiVar.a());
                     this.b.a("kw", aiVar.b());
                     this.b.e(true);
@@ -47,15 +47,15 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.f1155a.b = null;
+        this.f1153a.b = null;
         if (this.b != null) {
             if (this.b.d()) {
-                this.f1155a.a(this.f1155a.getString(R.string.success));
+                this.f1153a.a(this.f1153a.getString(R.string.success));
                 TiebaApplication.f().j(true);
-                this.f1155a.a(false);
+                this.f1153a.a(false);
                 return;
             }
-            this.f1155a.a(this.b.h());
+            this.f1153a.a(this.b.h());
         }
     }
 
@@ -70,7 +70,7 @@ public class j extends BdAsyncTask {
             this.b.i();
             this.b = null;
         }
-        this.f1155a.b = null;
+        this.f1153a.b = null;
         super.cancel(true);
     }
 }

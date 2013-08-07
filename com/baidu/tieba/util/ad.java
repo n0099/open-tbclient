@@ -6,12 +6,12 @@ import java.io.FilenameFilter;
 class ad implements FilenameFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1749a;
+    final /* synthetic */ aa f1747a;
     private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(aa aaVar, String str) {
-        this.f1749a = aaVar;
+        this.f1747a = aaVar;
         this.b = str;
     }
 

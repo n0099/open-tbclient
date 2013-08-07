@@ -29,7 +29,7 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
     private ArrayList j;
 
     /* renamed from: a  reason: collision with root package name */
-    int f1109a = 0;
+    int f1107a = 0;
     ArrayList d = new ArrayList();
     private View k = null;
 
@@ -50,20 +50,20 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
         this.j = arrayList;
         if (baVar != null) {
             this.b = true;
-            this.f1109a++;
+            this.f1107a++;
         }
         if (arrayList != null && arrayList.size() > 0) {
             this.c = true;
-            this.f1109a += arrayList.size();
+            this.f1107a += arrayList.size();
         }
-        if (this.f1109a > 0) {
+        if (this.f1107a > 0) {
             if (this.c) {
                 View inflate = this.f.inflate(R.layout.viewpager_recommend, (ViewGroup) null);
-                a(inflate, (com.baidu.tieba.data.bb) arrayList.get(arrayList.size() - 1), this.f1109a, this.f1109a);
+                a(inflate, (com.baidu.tieba.data.bb) arrayList.get(arrayList.size() - 1), this.f1107a, this.f1107a);
                 view = inflate;
             } else if (this.b) {
                 view = this.f.inflate(R.layout.viewpager_forum, (ViewGroup) null);
-                a(view, baVar, this.f1109a, this.f1109a);
+                a(view, baVar, this.f1107a, this.f1107a);
             } else {
                 view = null;
             }
@@ -71,7 +71,7 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
             if (this.b) {
                 View inflate2 = this.f.inflate(R.layout.viewpager_forum, (ViewGroup) null);
                 i = 2;
-                a(inflate2, baVar, 1, this.f1109a);
+                a(inflate2, baVar, 1, this.f1107a);
                 this.d.add(inflate2);
             } else {
                 i = 1;
@@ -80,17 +80,17 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
             int i3 = i;
             while (this.c && i2 < arrayList.size()) {
                 View inflate3 = this.f.inflate(R.layout.viewpager_recommend, (ViewGroup) null);
-                a(inflate3, (com.baidu.tieba.data.bb) arrayList.get(i2), i3, this.f1109a);
+                a(inflate3, (com.baidu.tieba.data.bb) arrayList.get(i2), i3, this.f1107a);
                 this.d.add(inflate3);
                 i2++;
                 i3++;
             }
             if (this.b) {
                 view2 = this.f.inflate(R.layout.viewpager_forum, (ViewGroup) null);
-                a(view2, baVar, 1, this.f1109a);
+                a(view2, baVar, 1, this.f1107a);
             } else if (this.c) {
                 view2 = this.f.inflate(R.layout.viewpager_recommend, (ViewGroup) null);
-                a(view2, (com.baidu.tieba.data.bb) arrayList.get(0), 1, this.f1109a);
+                a(view2, (com.baidu.tieba.data.bb) arrayList.get(0), 1, this.f1107a);
             }
             this.d.add(view2);
             notifyDataSetChanged();
@@ -208,7 +208,7 @@ public class RecommendPagerAdapter extends android.support.v4.view.ae implements
 
     private void a() {
         this.d.clear();
-        this.f1109a = 0;
+        this.f1107a = 0;
         this.b = false;
         this.c = false;
         this.i = null;

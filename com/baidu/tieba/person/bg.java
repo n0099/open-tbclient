@@ -7,11 +7,11 @@ import com.baidu.tieba.data.UserData;
 public class bg implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f1592a;
+    final /* synthetic */ PersonListActivity f1590a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(PersonListActivity personListActivity) {
-        this.f1592a = personListActivity;
+        this.f1590a = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,14 +20,14 @@ public class bg implements View.OnClickListener {
         bl blVar2;
         bl blVar3;
         int intValue = ((Integer) view.getTag()).intValue();
-        blVar = this.f1592a.f;
+        blVar = this.f1590a.f;
         if (blVar != null) {
-            blVar2 = this.f1592a.f;
+            blVar2 = this.f1590a.f;
             if (blVar2.getItemViewType(intValue) == 0) {
-                blVar3 = this.f1592a.f;
+                blVar3 = this.f1590a.f;
                 UserData userData = (UserData) blVar3.getItem(intValue);
                 if (userData != null && userData.getId() != null) {
-                    PersonInfoActivity.a(this.f1592a, userData.getId(), userData.getName_show());
+                    PersonInfoActivity.a(this.f1590a, userData.getId(), userData.getName_show());
                 }
             }
         }

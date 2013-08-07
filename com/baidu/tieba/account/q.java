@@ -9,13 +9,13 @@ import com.slidingmenu.lib.R;
 public class q extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f889a;
+    final /* synthetic */ k f887a;
     private com.baidu.tieba.util.u b = null;
     private String c;
     private String d;
 
     public q(k kVar, String str, String str2) {
-        this.f889a = kVar;
+        this.f887a = kVar;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -27,11 +27,11 @@ public class q extends BdAsyncTask {
         ProgressBar progressBar;
         Button button;
         super.cancel(true);
-        progressBar = this.f889a.p;
+        progressBar = this.f887a.p;
         progressBar.setVisibility(8);
-        button = this.f889a.k;
+        button = this.f887a.k;
         button.setEnabled(true);
-        this.f889a.m = null;
+        this.f887a.m = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,24 +57,24 @@ public class q extends BdAsyncTask {
         Button button;
         com.baidu.tieba.g gVar;
         super.a((Object) cVar);
-        this.f889a.m = null;
-        progressBar = this.f889a.p;
+        this.f887a.m = null;
+        progressBar = this.f887a.p;
         progressBar.setVisibility(8);
-        button = this.f889a.k;
+        button = this.f887a.k;
         button.setEnabled(true);
         if (!this.b.e()) {
-            this.f889a.b(this.b.h());
+            this.f887a.b(this.b.h());
         } else if (this.b.f() == 0) {
-            k kVar = this.f889a;
-            gVar = this.f889a.j;
+            k kVar = this.f887a;
+            gVar = this.f887a.j;
             kVar.b(gVar.getString(R.string.name_not_use));
         } else if (this.b.f() == 36) {
-            this.f889a.b(this.b.h());
+            this.f887a.b(this.b.h());
             if (cVar != null) {
-                this.f889a.a(cVar.b());
+                this.f887a.a(cVar.b());
             }
         } else {
-            this.f889a.b(this.b.h());
+            this.f887a.b(this.b.h());
         }
     }
 
@@ -83,12 +83,12 @@ public class q extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.f889a.p;
+        progressBar = this.f887a.p;
         progressBar.setVisibility(0);
-        button = this.f889a.k;
+        button = this.f887a.k;
         button.setEnabled(false);
-        this.f889a.b((String) null);
-        this.f889a.d();
+        this.f887a.b((String) null);
+        this.f887a.d();
         super.b();
     }
 }

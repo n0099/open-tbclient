@@ -20,11 +20,11 @@ import java.util.Random;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f1256a = {0, R.drawable.vote_bear_face};
+    private static final int[] f1254a = {0, R.drawable.vote_bear_face};
     private static final int[] b = {0, R.drawable.vote_clothes_shirt};
     private static final int[] c = {R.drawable.vote_bear_mosaic, R.drawable.vote_clothes_trousers};
     private static final int[] d = {0, R.drawable.vote_clothes_shoes};
-    private static int[][] e = {f1256a, b, c, d};
+    private static int[][] e = {f1254a, b, c, d};
     private static int f = 0;
     private com.baidu.tieba.g g;
     private TextView h;
@@ -115,7 +115,7 @@ public class k {
     public void a() {
         if (f == 0) {
             this.x++;
-            this.k.setBackgroundResource(f1256a[this.x % f1256a.length]);
+            this.k.setBackgroundResource(f1254a[this.x % f1254a.length]);
             if (this.x == 10) {
                 this.l.setBackgroundResource(0);
             }

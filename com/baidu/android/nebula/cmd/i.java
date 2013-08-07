@@ -1,76 +1,79 @@
 package com.baidu.android.nebula.cmd;
 
-import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.browser.core.util.BdUtil;
-import java.io.UnsupportedEncodingException;
-import java.net.URISyntaxException;
-import java.net.URLDecoder;
-import java.util.List;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-final class i extends BroadcastReceiver {
+class i implements FilenameFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScanDownloadFile f551a;
-    final /* synthetic */ h b;
+    final /* synthetic */ h f549a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar, ScanDownloadFile scanDownloadFile) {
-        this.b = hVar;
-        this.f551a = scanDownloadFile;
+    public i(h hVar) {
+        this.f549a = hVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String str;
-        Context context2;
+    @Override // java.io.FilenameFilter
+    public boolean accept(File file, String str) {
+        File file2;
         String str2;
+        File file3;
+        File file4;
+        File file5;
+        File file6;
+        File file7;
         String str3;
-        Context context3;
-        Context context4;
-        Context context5;
-        String str4;
-        str = this.b.f550a.mFilePackageName;
-        if (TextUtils.equals(str, intent.getData().getSchemeSpecificPart())) {
-            try {
-                ScanDownloadFile scanDownloadFile = this.b.f550a;
-                str4 = this.b.f550a.mIntentStr;
-                scanDownloadFile.mIntentStr = URLDecoder.decode(str4, BdUtil.UTF8);
-            } catch (UnsupportedEncodingException e) {
-            }
-            context2 = this.b.f550a.mContext;
-            PackageManager packageManager = context2.getPackageManager();
-            try {
-                str2 = this.b.f550a.mIntentStr;
-                Intent parseUri = Intent.parseUri(str2, 0);
-                List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(parseUri, 0);
-                List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(parseUri, 0);
-                if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
-                    context5 = this.b.f550a.mContext;
-                    context5.sendBroadcast(parseUri);
-                } else if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                    Intent intent2 = new Intent("android.intent.action.VIEW");
-                    str3 = this.b.f550a.mIntentStr;
-                    intent2.setData(Uri.parse(str3));
-                    intent2.addFlags(268435456);
-                    try {
-                        context3 = this.b.f550a.mContext;
-                        context3.startActivity(intent2);
-                    } catch (ActivityNotFoundException e2) {
+        File file8;
+        File file9;
+        File file10;
+        File file11;
+        String lowerCase = str.toLowerCase();
+        if (file.getName().startsWith(".") || lowerCase.startsWith(".") || file.getName().startsWith("image") || lowerCase.startsWith("image") || file.getName().startsWith("cache") || lowerCase.startsWith("cache") || file.getName().startsWith("thumb") || lowerCase.startsWith("thumb") || file.getName().startsWith("ting") || lowerCase.startsWith("ting")) {
+            return false;
+        }
+        this.f549a.b = new File(file, lowerCase);
+        file2 = this.f549a.f;
+        if (file2 == null) {
+            h hVar = this.f549a;
+            file11 = this.f549a.b;
+            hVar.f = file11;
+        }
+        if (file.isDirectory()) {
+            file6 = this.f549a.b;
+            if (file6.isFile()) {
+                str3 = this.f549a.e;
+                if (Pattern.compile(str3).matcher(lowerCase).find()) {
+                    file8 = this.f549a.b;
+                    long lastModified = file8.lastModified();
+                    file9 = this.f549a.f;
+                    if (lastModified >= file9.lastModified()) {
+                        h hVar2 = this.f549a;
+                        file10 = this.f549a.b;
+                        hVar2.f = file10;
+                        return true;
                     }
-                } else {
-                    parseUri.addFlags(268435456);
-                    context4 = this.b.f550a.mContext;
-                    context4.startActivity(parseUri);
+                    return true;
                 }
-            } catch (URISyntaxException e3) {
+            } else {
+                file7 = this.f549a.b;
+                file7.listFiles(this);
+            }
+        } else {
+            str2 = this.f549a.e;
+            if (Pattern.compile(str2).matcher(lowerCase).find()) {
+                file3 = this.f549a.b;
+                long lastModified2 = file3.lastModified();
+                file4 = this.f549a.f;
+                if (lastModified2 >= file4.lastModified()) {
+                    h hVar3 = this.f549a;
+                    file5 = this.f549a.b;
+                    hVar3.f = file5;
+                    return true;
+                }
+                return true;
             }
         }
+        return false;
     }
 }

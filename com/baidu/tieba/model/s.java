@@ -7,12 +7,12 @@ import com.baidu.tieba.util.DatabaseService;
 public class s extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1381a;
+    final /* synthetic */ o f1379a;
     private com.baidu.tieba.util.u b = null;
     private String c;
 
     public s(o oVar, String str) {
-        this.f1381a = oVar;
+        this.f1379a = oVar;
         this.c = str;
     }
 
@@ -22,7 +22,7 @@ public class s extends BdAsyncTask {
     public Boolean a(String... strArr) {
         boolean z = true;
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/s/tag/edit_tag");
+            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/tag/edit_tag");
             if (this.c == null || this.c.length() == 0) {
                 return false;
             }
@@ -43,7 +43,7 @@ public class s extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
-        this.f1381a.d = null;
+        this.f1379a.d = null;
         if (this.b != null && bool.booleanValue()) {
             DatabaseService.a("", 12);
         }

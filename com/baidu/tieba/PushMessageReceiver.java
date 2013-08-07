@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class PushMessageReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f825a = PushMessageReceiver.class.getSimpleName();
+    public static final String f823a = PushMessageReceiver.class.getSimpleName();
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -51,7 +51,7 @@ public class PushMessageReceiver extends BroadcastReceiver {
                 }
             }
         } else if (intent.getAction().equals(PushConstants.ACTION_RECEIVER_NOTIFICATION_CLICK)) {
-            com.baidu.tieba.util.aj.e(f825a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
+            com.baidu.tieba.util.aj.e(f823a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
         }
     }
 }

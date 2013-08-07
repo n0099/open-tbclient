@@ -5,10 +5,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
-    private static final String d = String.valueOf(com.baidu.tieba.data.g.f1013a) + "c/f/forum/threadrecommend";
+    private static final String d = String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/forum/threadrecommend";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1649a = -1;
+    private int f1647a = -1;
     private com.baidu.tieba.util.u b = null;
     private boolean c;
 
@@ -29,7 +29,7 @@ public class au {
         String k = this.b.k();
         if (k != null) {
             try {
-                this.f1649a = new JSONObject(k).optInt("error_code");
+                this.f1647a = new JSONObject(k).optInt("error_code");
             } catch (JSONException e) {
             }
         }
@@ -50,6 +50,6 @@ public class au {
     }
 
     public int c() {
-        return this.f1649a;
+        return this.f1647a;
     }
 }

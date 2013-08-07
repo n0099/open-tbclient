@@ -5,7 +5,7 @@ import java.util.ArrayList;
 class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    int f1838a = 0;
+    int f1836a = 0;
     ArrayList b = new ArrayList();
     final /* synthetic */ WaterFallView c;
 
@@ -14,17 +14,17 @@ class bl {
     }
 
     public void a(int i) {
-        this.f1838a += i;
-        this.b.add(new int[]{this.f1838a, this.f1838a});
+        this.f1836a += i;
+        this.b.add(new int[]{this.f1836a, this.f1836a});
     }
 
     public void a() {
-        this.f1838a = 0;
+        this.f1836a = 0;
         this.b.clear();
     }
 
     public int b() {
-        return this.f1838a;
+        return this.f1836a;
     }
 
     public int b(int i) {

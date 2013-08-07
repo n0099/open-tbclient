@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class d implements com.baidu.tieba.view.f {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1663a;
+    final /* synthetic */ c f1661a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f1663a = cVar;
+        this.f1661a = cVar;
     }
 
     @Override // com.baidu.tieba.view.f
@@ -28,21 +28,21 @@ public class d implements com.baidu.tieba.view.f {
         ChildViewPager childViewPager2;
         Activity activity;
         Activity activity2;
-        dailyRecommendBannerPagerAdapter = this.f1663a.g;
+        dailyRecommendBannerPagerAdapter = this.f1661a.g;
         if (dailyRecommendBannerPagerAdapter != null) {
-            dailyRecommendBannerPagerAdapter2 = this.f1663a.g;
-            int size = dailyRecommendBannerPagerAdapter2.f1625a.size();
-            childViewPager = this.f1663a.f;
+            dailyRecommendBannerPagerAdapter2 = this.f1661a.g;
+            int size = dailyRecommendBannerPagerAdapter2.f1623a.size();
+            childViewPager = this.f1661a.f;
             if (size > childViewPager.getCurrentItem()) {
-                dailyRecommendBannerPagerAdapter3 = this.f1663a.g;
-                ArrayList arrayList = dailyRecommendBannerPagerAdapter3.f1625a;
-                childViewPager2 = this.f1663a.f;
+                dailyRecommendBannerPagerAdapter3 = this.f1661a.g;
+                ArrayList arrayList = dailyRecommendBannerPagerAdapter3.f1623a;
+                childViewPager2 = this.f1661a.f;
                 String str = (String) ((View) arrayList.get(childViewPager2.getCurrentItem())).getTag();
                 if (!TextUtils.isEmpty(str)) {
-                    activity = this.f1663a.i;
+                    activity = this.f1661a.i;
                     com.baidu.tieba.util.am.a(activity, str, (String) null);
                     if (TiebaApplication.f().t()) {
-                        activity2 = this.f1663a.i;
+                        activity2 = this.f1661a.i;
                         StatService.onEvent(activity2, "recommend_banner", "click");
                     }
                 }

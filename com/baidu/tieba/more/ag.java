@@ -8,11 +8,11 @@ import com.baidu.tieba.util.DatabaseService;
 class ag implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1402a;
+    final /* synthetic */ MsgRemindActivity f1400a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(MsgRemindActivity msgRemindActivity) {
-        this.f1402a = msgRemindActivity;
+        this.f1400a = msgRemindActivity;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c

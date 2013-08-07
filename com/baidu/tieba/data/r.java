@@ -6,16 +6,16 @@ import org.json.JSONObject;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1024a = -1;
+    private int f1022a = -1;
     private String b = null;
     private String c = null;
 
     public int a() {
-        return this.f1024a;
+        return this.f1022a;
     }
 
     public void a(int i) {
-        this.f1024a = i;
+        this.f1022a = i;
     }
 
     public String b() {
@@ -37,7 +37,7 @@ public class r {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1024a = jSONObject.optInt("error_code", 0);
+                this.f1022a = jSONObject.optInt("error_code", 0);
                 this.b = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                 this.c = jSONObject.optString("error_data");
             } catch (Exception e) {

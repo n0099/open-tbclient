@@ -6,7 +6,7 @@ import com.baidu.mobstat.StatService;
 public abstract class BaseFragmentActivity extends android.support.v4.app.n {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f818a = -1;
+    private int f816a = -1;
 
     protected abstract void c(int i);
 
@@ -30,9 +30,9 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
     @Override // android.support.v4.app.n, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.f().au() != this.f818a) {
-            this.f818a = TiebaApplication.f().au();
-            c(this.f818a);
+        if (TiebaApplication.f().au() != this.f816a) {
+            this.f816a = TiebaApplication.f().au();
+            c(this.f816a);
         }
         if (TiebaApplication.f().t()) {
             try {

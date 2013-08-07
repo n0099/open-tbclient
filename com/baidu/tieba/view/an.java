@@ -5,7 +5,7 @@ import android.widget.TextView;
 class an {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1820a;
+    TextView f1818a;
     final /* synthetic */ al b;
 
     /* JADX INFO: Access modifiers changed from: package-private */

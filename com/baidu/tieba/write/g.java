@@ -10,17 +10,17 @@ import com.tencent.mm.sdk.platformtools.LocaleUtil;
 public class g implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f1902a;
+    final /* synthetic */ AtListActivity f1900a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AtListActivity atListActivity) {
-        this.f1902a = atListActivity;
+        this.f1900a = atListActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
         k kVar;
-        kVar = this.f1902a.k;
+        kVar = this.f1900a.k;
         MetaData metaData = (MetaData) kVar.getItem(i);
         if (metaData != null) {
             Intent intent = new Intent();
@@ -28,8 +28,8 @@ public class g implements AdapterView.OnItemClickListener {
             intent.putExtra("name", metaData.getName());
             intent.putExtra(LocaleUtil.INDONESIAN, metaData.getId());
             intent.putExtra("portrait", metaData.getPortrait());
-            this.f1902a.setResult(-1, intent);
-            this.f1902a.finish();
+            this.f1900a.setResult(-1, intent);
+            this.f1900a.finish();
         }
     }
 }

@@ -7,17 +7,17 @@ import android.text.Spanned;
 public class t implements InputFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1544a;
+    final /* synthetic */ ImagePbActivity f1542a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(ImagePbActivity imagePbActivity) {
-        this.f1544a = imagePbActivity;
+        this.f1542a = imagePbActivity;
     }
 
     @Override // android.text.InputFilter
     public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
         boolean n;
-        n = this.f1544a.n();
+        n = this.f1542a.n();
         if (n) {
             if (charSequence.length() <= 0 && spanned.length() > 0) {
                 return spanned.subSequence(i3, i4 - 1);

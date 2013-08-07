@@ -6,11 +6,11 @@ import com.baidu.tieba.data.MetaData;
 class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f1897a;
+    final /* synthetic */ AtListActivity f1895a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AtListActivity atListActivity) {
-        this.f1897a = atListActivity;
+        this.f1895a = atListActivity;
     }
 
     @Override // java.lang.Runnable
@@ -21,17 +21,17 @@ class b implements Runnable {
         k kVar2;
         k kVar3;
         try {
-            listView = this.f1897a.d;
+            listView = this.f1895a.d;
             int firstVisiblePosition = listView.getFirstVisiblePosition();
-            listView2 = this.f1897a.d;
+            listView2 = this.f1895a.d;
             int lastVisiblePosition = listView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                kVar = this.f1897a.k;
+                kVar = this.f1895a.k;
                 if (i < kVar.getCount()) {
-                    kVar2 = this.f1897a.k;
+                    kVar2 = this.f1895a.k;
                     MetaData metaData = (MetaData) kVar2.getItem(i);
                     if (metaData != null && metaData.getPortrait() != null) {
-                        kVar3 = this.f1897a.k;
+                        kVar3 = this.f1895a.k;
                         kVar3.b().b(metaData.getPortrait(), new c(this));
                     }
                 } else {

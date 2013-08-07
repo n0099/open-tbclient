@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class n extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1732a = new o(this);
+    View.OnClickListener f1730a = new o(this);
     private Activity b;
     private final q c;
     private final String d;
@@ -74,9 +74,9 @@ public class n extends BaseAdapter {
             return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_second_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f1732a);
+        inflate.setOnClickListener(this.f1730a);
         p pVar = new p();
-        pVar.f1734a = (TextView) inflate.findViewById(R.id.name);
+        pVar.f1732a = (TextView) inflate.findViewById(R.id.name);
         inflate.setTag(pVar);
         return inflate;
     }
@@ -84,7 +84,7 @@ public class n extends BaseAdapter {
     private void a(ViewGroup viewGroup, p pVar, int i) {
         r rVar = (r) this.c.c().e.get(i / 2);
         pVar.b = rVar;
-        pVar.f1734a.setText(rVar.b);
+        pVar.f1732a.setText(rVar.b);
     }
 
     @Override // android.widget.Adapter

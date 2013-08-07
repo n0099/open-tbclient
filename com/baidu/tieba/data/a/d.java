@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected long f961a;
+    protected long f959a;
     protected String b;
     protected String c;
     protected int d;
@@ -29,7 +29,7 @@ public class d {
     }
 
     public long b() {
-        return this.f961a;
+        return this.f959a;
     }
 
     public String c() {
@@ -77,7 +77,7 @@ public class d {
             this.h = jSONObject.optJSONArray("content").toString();
             this.g = jSONObject.getLong("time");
             try {
-                this.f961a = jSONObject.optLong("msg_id");
+                this.f959a = jSONObject.optLong("msg_id");
             } catch (Exception e) {
             }
         } catch (Exception e2) {

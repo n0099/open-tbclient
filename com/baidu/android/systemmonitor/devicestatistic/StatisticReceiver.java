@@ -11,8 +11,8 @@ public class StatisticReceiver extends BroadcastReceiver {
         String action = intent.getAction();
         if (!action.equals("android.intent.action.ACTION_SHUTDOWN")) {
             StatisticManager.getInstance(context).handleAction(action);
-        } else if (com.baidu.android.systemmonitor.a.d.t(context) == 1) {
-            com.baidu.android.systemmonitor.a.b.a(context, System.currentTimeMillis(), false);
+        } else if (com.baidu.android.systemmonitor.d.c.t(context) == 1) {
+            com.baidu.android.systemmonitor.d.b.a(context, System.currentTimeMillis(), false);
         }
     }
 }

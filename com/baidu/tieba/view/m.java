@@ -8,7 +8,7 @@ import android.view.animation.Transformation;
 public class m extends Animation {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1844a;
+    final /* synthetic */ j f1842a;
     private boolean b = false;
     private boolean c = false;
     private long d;
@@ -19,7 +19,7 @@ public class m extends Animation {
     private long i;
 
     public m(j jVar) {
-        this.f1844a = jVar;
+        this.f1842a = jVar;
     }
 
     public void a(float f, float f2) {
@@ -39,10 +39,10 @@ public class m extends Animation {
         this.h = Math.abs((f * 1000.0f) / 2500.0f);
         this.i = Math.abs((f2 * 1000.0f) / 2500.0f);
         setDuration(Math.max(this.h, this.i));
-        interpolator = this.f1844a.L;
+        interpolator = this.f1842a.L;
         setInterpolator(interpolator);
-        this.f = this.f1844a.getScrollX();
-        this.g = this.f1844a.getScrollY();
+        this.f = this.f1842a.getScrollX();
+        this.g = this.f1842a.getScrollY();
         this.b = true;
     }
 
@@ -90,36 +90,36 @@ public class m extends Animation {
         } else {
             i2 = this.g - ((int) (f9 * (((float) this.e) + ((2500.0f * f9) / 2.0f))));
         }
-        f2 = this.f1844a.f;
-        i3 = this.f1844a.H;
+        f2 = this.f1842a.f;
+        i3 = this.f1842a.H;
         float f10 = f2 + i3;
-        i4 = this.f1844a.I;
-        if (f10 + i4 > this.f1844a.getHeight()) {
-            i6 = this.f1844a.J;
+        i4 = this.f1842a.I;
+        if (f10 + i4 > this.f1842a.getHeight()) {
+            i6 = this.f1842a.J;
             if (i2 < (-i6)) {
-                i11 = this.f1844a.J;
+                i11 = this.f1842a.J;
                 i2 = -i11;
             }
-            f6 = this.f1844a.f;
-            i7 = this.f1844a.I;
+            f6 = this.f1842a.f;
+            i7 = this.f1842a.I;
             float f11 = f6 + i7;
-            i8 = this.f1844a.K;
-            if (this.f1844a.getHeight() + i2 > f11 + i8) {
-                f7 = this.f1844a.f;
-                i9 = this.f1844a.I;
-                float height = (f7 - this.f1844a.getHeight()) + i9;
-                i10 = this.f1844a.K;
+            i8 = this.f1842a.K;
+            if (this.f1842a.getHeight() + i2 > f11 + i8) {
+                f7 = this.f1842a.f;
+                i9 = this.f1842a.I;
+                float height = (f7 - this.f1842a.getHeight()) + i9;
+                i10 = this.f1842a.K;
                 i2 = (int) (height + i10);
             }
         } else {
             i2 = 0;
         }
-        f3 = this.f1844a.e;
-        if (f3 > this.f1844a.getWidth()) {
-            f4 = this.f1844a.e;
-            if (this.f1844a.getWidth() + i > f4) {
-                f5 = this.f1844a.e;
-                i5 = (int) (f5 - this.f1844a.getWidth());
+        f3 = this.f1842a.e;
+        if (f3 > this.f1842a.getWidth()) {
+            f4 = this.f1842a.e;
+            if (this.f1842a.getWidth() + i > f4) {
+                f5 = this.f1842a.e;
+                i5 = (int) (f5 - this.f1842a.getWidth());
             } else {
                 i5 = i;
             }
@@ -127,15 +127,15 @@ public class m extends Animation {
                 i12 = i5;
             }
         }
-        this.f1844a.scrollTo(i12, i2);
-        this.f1844a.invalidate();
+        this.f1842a.scrollTo(i12, i2);
+        this.f1842a.invalidate();
     }
 
     @Override // android.view.animation.Animation
     public boolean getTransformation(long j, Transformation transformation) {
         boolean z;
         if (!this.c) {
-            z = this.f1844a.l;
+            z = this.f1842a.l;
             if (z) {
                 this.b = false;
                 return false;

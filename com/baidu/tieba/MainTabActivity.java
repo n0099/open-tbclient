@@ -71,7 +71,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     private boolean D = true;
 
     /* renamed from: a */
-    protected int f824a = -1;
+    protected int f822a = -1;
     private al E = null;
     private Runnable G = new aj(this);
 
@@ -423,9 +423,9 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                 c = null;
             }
         }
-        if (TiebaApplication.f().au() != this.f824a) {
-            this.f824a = TiebaApplication.f().au();
-            a(this.f824a);
+        if (TiebaApplication.f().au() != this.f822a) {
+            this.f822a = TiebaApplication.f().au();
+            a(this.f822a);
         }
     }
 

@@ -12,14 +12,13 @@ import java.util.Timer;
 public class ShakeCutDownView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f1806a;
+    public Handler f1804a;
     private be b;
     private Animation c;
     private Timer d;
     private int e;
     private long f;
     private long g;
-    private boolean h;
 
     public ShakeCutDownView(Context context) {
         super(context);
@@ -29,8 +28,7 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.h = false;
-        this.f1806a = new Handler(new bc(this));
+        this.f1804a = new Handler(new bc(this));
         c();
     }
 
@@ -42,8 +40,7 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.h = false;
-        this.f1806a = new Handler(new bc(this));
+        this.f1804a = new Handler(new bc(this));
         c();
     }
 
@@ -55,8 +52,7 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.h = false;
-        this.f1806a = new Handler(new bc(this));
+        this.f1804a = new Handler(new bc(this));
         c();
     }
 
@@ -90,15 +86,14 @@ public class ShakeCutDownView extends TextView {
         this.d.schedule(new bd(this), j2, 1000L);
         a(this.e);
         this.f = j;
-        this.f1806a.removeMessages(1);
-        this.f1806a.sendEmptyMessageDelayed(1, j);
+        this.f1804a.removeMessages(1);
+        this.f1804a.sendEmptyMessageDelayed(1, j);
     }
 
     public void a() {
-        this.h = true;
         this.f -= System.currentTimeMillis() - this.g;
-        this.f1806a.removeMessages(1);
-        this.f1806a.removeMessages(0);
+        this.f1804a.removeMessages(1);
+        this.f1804a.removeMessages(0);
         if (this.d != null) {
             this.d.cancel();
         }
@@ -110,7 +105,6 @@ public class ShakeCutDownView extends TextView {
     }
 
     public void b() {
-        this.h = false;
         a(this.f);
     }
 }

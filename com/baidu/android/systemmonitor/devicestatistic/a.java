@@ -12,7 +12,7 @@ import java.util.Iterator;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f679a = null;
+    private static a f677a = null;
     private BroadcastReceiver b;
     private Context c;
     private HashMap d = null;
@@ -22,7 +22,7 @@ public final class a {
         this.c = null;
         this.c = context.getApplicationContext();
         d();
-        this.b = new g(this);
+        this.b = new b(this);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
@@ -38,28 +38,28 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f679a == null) {
-                f679a = new a(context);
+            if (f677a == null) {
+                f677a = new a(context);
             }
-            aVar = f679a;
+            aVar = f677a;
         }
         return aVar;
     }
 
     public static void a() {
-        if (f679a != null) {
-            f679a.f();
-            f679a = null;
+        if (f677a != null) {
+            f677a.f();
+            f677a = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        h hVar;
-        if (TextUtils.isEmpty(str) || this.d == null || (hVar = (h) this.d.remove(str)) == null) {
+        j jVar;
+        if (TextUtils.isEmpty(str) || this.d == null || (jVar = (j) this.d.remove(str)) == null) {
             return;
         }
-        hVar.stopWatching();
+        jVar.stopWatching();
     }
 
     private boolean b(String str) {
@@ -72,11 +72,11 @@ public final class a {
             if (this.d == null) {
                 this.d = new HashMap();
             }
-            Iterator it = com.baidu.android.systemmonitor.a.a.i.a(this.c).a().iterator();
+            Iterator it = com.baidu.android.systemmonitor.d.a.c.a(this.c).a().iterator();
             while (it.hasNext()) {
                 String str = (String) it.next();
                 if (b(str)) {
-                    this.d.put(str, new h(str, this.c));
+                    this.d.put(str, new j(str, this.c));
                 }
             }
         }
@@ -88,7 +88,7 @@ public final class a {
             if (this.d == null) {
                 this.d = new HashMap();
             }
-            Iterator it = com.baidu.android.systemmonitor.a.a.i.a(this.c).a().iterator();
+            Iterator it = com.baidu.android.systemmonitor.d.a.c.a(this.c).a().iterator();
             while (it.hasNext()) {
                 String str = (String) it.next();
                 if (this.d.containsKey(str)) {
@@ -96,7 +96,7 @@ public final class a {
                         a(str);
                     }
                 } else if (b(str)) {
-                    this.d.put(str, new h(str, this.c));
+                    this.d.put(str, new j(str, this.c));
                 }
             }
         }
@@ -114,15 +114,15 @@ public final class a {
         if (this.d == null || this.d.size() == 0) {
             return;
         }
-        for (h hVar : this.d.values()) {
-            hVar.startWatching();
+        for (j jVar : this.d.values()) {
+            jVar.startWatching();
         }
     }
 
     public void c() {
         if (this.d != null && this.d.size() != 0) {
-            for (h hVar : this.d.values()) {
-                hVar.startWatching();
+            for (j jVar : this.d.values()) {
+                jVar.startWatching();
             }
         }
         this.d = null;

@@ -26,7 +26,7 @@ import java.util.Iterator;
 public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView.OnScrollListener, com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private n f1107a = null;
+    private n f1105a = null;
     private j b = null;
     private com.baidu.tieba.model.j c = null;
     private Boolean d = false;
@@ -39,7 +39,7 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
 
     @Override // com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (dialogInterface == this.f1107a.p() || dialogInterface == this.f1107a.q()) {
+        if (dialogInterface == this.f1105a.p() || dialogInterface == this.f1105a.q()) {
             switch (i) {
                 case 0:
                     if (this.e != null) {
@@ -63,7 +63,7 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
     private void k() {
         if (this.e != null) {
             if (this.e.f() == 1) {
-                this.f1107a.o();
+                this.f1105a.o();
             } else if (this.b == null) {
                 this.b = new j(this, this.e);
                 this.b.execute(new com.baidu.tieba.data.ai[0]);
@@ -80,8 +80,8 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
     }
 
     private void l() {
-        this.f1107a = new n(this, this.k);
-        this.f1107a.a(this.l);
+        this.f1105a = new n(this, this.k);
+        this.f1105a.a(this.l);
     }
 
     private void m() {
@@ -97,7 +97,7 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onStop() {
-        this.f1107a.e();
+        this.f1105a.e();
         super.onStop();
     }
 
@@ -109,7 +109,7 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
             this.f.removeCallbacks(this.g);
             this.f.postDelayed(this.g, 300L);
         }
-        this.f1107a.f();
+        this.f1105a.f();
         a(false);
     }
 
@@ -180,13 +180,13 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
         if (this.f != null) {
             this.f.removeCallbacks(this.g);
         }
-        this.f1107a.g();
+        this.f1105a.g();
         d();
         super.onDestroy();
     }
 
     public void c() {
-        this.f1107a.h();
+        this.f1105a.h();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -196,7 +196,7 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
                 StatService.onEvent(this, "ef_tb_search", "click", 1);
             }
             SearchActivity.a(this, getString(R.string.home));
-        } else if (view.getId() == this.f1107a.i() || view.getId() == this.f1107a.j()) {
+        } else if (view.getId() == this.f1105a.i() || view.getId() == this.f1105a.j()) {
             com.baidu.tieba.data.ai aiVar = null;
             if (view.getTag() instanceof com.baidu.tieba.data.ai) {
                 aiVar = (com.baidu.tieba.data.ai) view.getTag();
@@ -210,13 +210,13 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
                     FrsActivity.a(this, b, "tb_forumlist");
                 }
             }
-        } else if (view.getId() == this.f1107a.l()) {
+        } else if (view.getId() == this.f1105a.l()) {
             LoginActivity.a(this, "goto_home", getString(R.string.login_home_tab), 11003);
-        } else if (view.getId() == this.f1107a.k()) {
-            this.f1107a.r();
+        } else if (view.getId() == this.f1105a.k()) {
+            this.f1105a.r();
             this.f.removeCallbacks(this.g);
             this.f.postDelayed(this.g, 0L);
-        } else if (view == this.f1107a.c()) {
+        } else if (view == this.f1105a.c()) {
             if (TiebaApplication.f().t()) {
                 StatService.onEvent(this, "ef_category", "click", 1);
             }
@@ -226,7 +226,7 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
 
     @Override // com.baidu.adp.a.a, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
-        if (view.getId() == this.f1107a.i() || view.getId() == this.f1107a.j()) {
+        if (view.getId() == this.f1105a.i() || view.getId() == this.f1105a.j()) {
             this.e = null;
             com.baidu.tieba.data.ai aiVar = view.getTag() instanceof com.baidu.tieba.data.ai ? (com.baidu.tieba.data.ai) view.getTag() : null;
             if (aiVar != null) {
@@ -235,9 +235,9 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
                 int f = aiVar.f();
                 if (com.baidu.tieba.util.ai.b(b)) {
                     if (f == 1) {
-                        this.f1107a.m();
+                        this.f1105a.m();
                     } else {
-                        this.f1107a.n();
+                        this.f1105a.n();
                     }
                 }
             }
@@ -254,7 +254,7 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        this.f1107a.a(i);
+        this.f1105a.a(i);
     }
 
     public void d() {
@@ -305,16 +305,16 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
                 } else {
                     DatabaseService.c();
                 }
-                this.f1107a.d();
+                this.f1105a.d();
             }
             if (z2 || z4) {
                 d();
                 if (z4) {
                     if (this.c.a(this.d.booleanValue()) && !z) {
-                        this.f1107a.b();
+                        this.f1105a.b();
                     }
                 } else if (this.c.b(this.d.booleanValue())) {
-                    this.f1107a.b();
+                    this.f1105a.b();
                 }
             }
         }
@@ -323,7 +323,7 @@ public class EnterForumActivity extends com.baidu.tieba.g implements AbsListView
     @Override // com.baidu.tbadk.a.d
     public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         if (bVar != null) {
-            this.f1107a.a(str);
+            this.f1105a.a(str);
         }
     }
 

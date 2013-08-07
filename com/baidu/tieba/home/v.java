@@ -5,7 +5,7 @@ import android.widget.TextView;
 class v {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1165a;
+    TextView f1163a;
     final /* synthetic */ r b;
 
     private v(r rVar) {

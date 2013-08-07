@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1442a;
+    private ArrayList f1440a;
     private String d;
     private String e;
     private String f;
@@ -20,14 +20,14 @@ public class a {
     private c l = null;
 
     public a(ArrayList arrayList, String str, String str2, String str3) {
-        this.f1442a = null;
+        this.f1440a = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.k = false;
-        this.f1442a = arrayList;
-        if (this.f1442a == null) {
-            this.f1442a = new ArrayList();
+        this.f1440a = arrayList;
+        if (this.f1440a == null) {
+            this.f1440a = new ArrayList();
         }
         this.d = str2;
         this.e = str;

@@ -7,11 +7,11 @@ import com.slidingmenu.lib.R;
 public class bt implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1488a;
+    final /* synthetic */ bn f1486a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bt(bn bnVar) {
-        this.f1488a = bnVar;
+        this.f1486a = bnVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -19,13 +19,13 @@ public class bt implements CompoundButton.OnCheckedChangeListener {
         if (z) {
             switch (compoundButton.getId()) {
                 case R.id.radio_button_1day /* 2131099997 */:
-                    this.f1488a.Y = 1;
+                    this.f1486a.Y = 1;
                     return;
                 case R.id.radio_button_3day /* 2131099998 */:
-                    this.f1488a.Y = 3;
+                    this.f1486a.Y = 3;
                     return;
                 case R.id.radio_button_10day /* 2131099999 */:
-                    this.f1488a.Y = 10;
+                    this.f1486a.Y = 10;
                     return;
                 default:
                     return;

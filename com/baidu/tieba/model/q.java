@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class q extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1380a;
+    final /* synthetic */ o f1378a;
     private com.baidu.tieba.a.f b = null;
 
     public q(o oVar) {
-        this.f1380a = oVar;
+        this.f1378a = oVar;
         setSelfExecute(true);
     }
 
@@ -46,13 +46,13 @@ public class q extends BdAsyncTask {
         com.baidu.tieba.data.ae aeVar2;
         int e = this.b.e();
         String f = this.b.f();
-        this.f1380a.e = aeVar;
+        this.f1378a.e = aeVar;
         if (aeVar != null) {
-            rVar2 = this.f1380a.g;
-            aeVar2 = this.f1380a.e;
+            rVar2 = this.f1378a.g;
+            aeVar2 = this.f1378a.e;
             rVar2.a(aeVar2, e, f);
         } else {
-            rVar = this.f1380a.g;
+            rVar = this.f1378a.g;
             rVar.a(null, e, f);
         }
         this.b.a();
