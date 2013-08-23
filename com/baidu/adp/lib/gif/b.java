@@ -21,7 +21,7 @@ public class b extends Thread {
     private a Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f421a;
+    public int f429a;
     public int b;
     private InputStream c;
     private int d;
@@ -140,10 +140,10 @@ public class b extends Thread {
         c cVar = this.O;
         if (!this.T) {
             while (cVar != null) {
-                if (cVar.f422a != null && !cVar.f422a.isRecycled()) {
-                    cVar.f422a.recycle();
+                if (cVar.f430a != null && !cVar.f430a.isRecycled()) {
+                    cVar.f430a.recycle();
                 }
-                cVar.f422a = null;
+                cVar.f430a = null;
                 this.O = this.O.d;
                 cVar = this.O;
             }
@@ -172,7 +172,7 @@ public class b extends Thread {
 
     private void f() {
         int i;
-        int[] iArr = new int[this.f421a * this.b];
+        int[] iArr = new int[this.f429a * this.b];
         if (this.G > 0) {
             if (this.G == 3) {
                 int i2 = this.P - 2;
@@ -183,11 +183,11 @@ public class b extends Thread {
                 }
             }
             if (this.A != null) {
-                this.A.getPixels(iArr, 0, this.f421a, 0, 0, this.f421a, this.b);
+                this.A.getPixels(iArr, 0, this.f429a, 0, 0, this.f429a, this.b);
                 if (this.G == 2) {
                     int i3 = !this.H ? this.m : 0;
                     for (int i4 = 0; i4 < this.y; i4++) {
-                        int i5 = ((this.w + i4) * this.f421a) + this.v;
+                        int i5 = ((this.w + i4) * this.f429a) + this.v;
                         int i6 = this.x + i5;
                         while (i5 < i6) {
                             iArr[i5] = i3;
@@ -226,11 +226,11 @@ public class b extends Thread {
             }
             int i12 = i + this.s;
             if (i12 < this.b) {
-                int i13 = this.f421a * i12;
+                int i13 = this.f429a * i12;
                 int i14 = i13 + this.r;
                 int i15 = this.t + i14;
-                if (this.f421a + i13 < i15) {
-                    i15 = this.f421a + i13;
+                if (this.f429a + i13 < i15) {
+                    i15 = this.f429a + i13;
                 }
                 int i16 = this.t * i10;
                 int i17 = i14;
@@ -245,7 +245,7 @@ public class b extends Thread {
                 }
             }
         }
-        this.z = Bitmap.createBitmap(iArr, this.f421a, this.b, Bitmap.Config.ARGB_4444);
+        this.z = Bitmap.createBitmap(iArr, this.f429a, this.b, Bitmap.Config.ARGB_4444);
     }
 
     public Bitmap a(int i) {
@@ -253,7 +253,7 @@ public class b extends Thread {
         if (b == null) {
             return null;
         }
-        return b.f422a;
+        return b.f430a;
     }
 
     public c b(int i) {
@@ -630,7 +630,7 @@ public class b extends Thread {
             v();
             if (!j()) {
                 this.P++;
-                this.z = Bitmap.createBitmap(this.f421a, this.b, Bitmap.Config.ARGB_4444);
+                this.z = Bitmap.createBitmap(this.f429a, this.b, Bitmap.Config.ARGB_4444);
                 f();
                 if (this.O == null) {
                     if (this.T) {
@@ -664,7 +664,7 @@ public class b extends Thread {
     }
 
     private void r() {
-        this.f421a = t();
+        this.f429a = t();
         this.b = t();
         int l = l();
         this.e = (l & DERTags.TAGGED) != 0;

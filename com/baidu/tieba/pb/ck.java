@@ -1,39 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ck implements com.baidu.tieba.view.aq {
+public class ck implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1503a;
+    final /* synthetic */ bo f1540a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(bn bnVar) {
-        this.f1503a = bnVar;
+    public ck(bo boVar) {
+        this.f1540a = boVar;
     }
 
-    @Override // com.baidu.tieba.view.aq
-    public void a(int i) {
-        switch (i) {
-            case 0:
-                if (!this.f1503a.t()) {
-                    new Handler().postDelayed(new cn(this), 0L);
-                } else {
-                    new Handler().postDelayed(new co(this), 0L);
-                }
-                this.f1503a.an = true;
-                return;
-            case 1:
-                if (!this.f1503a.t()) {
-                    new Handler().postDelayed(new cl(this), 0L);
-                } else {
-                    new Handler().postDelayed(new cm(this), 0L);
-                }
-                this.f1503a.an = false;
-                return;
-            default:
-                return;
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (bVar != null) {
+            bdListView = this.f1540a.f;
+            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(bVar.f());
+                bdListView2 = this.f1540a.f;
+                imageView = (ImageView) bdListView2.findViewWithTag(str);
+            }
         }
     }
 }

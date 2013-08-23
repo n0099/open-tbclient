@@ -13,7 +13,7 @@ public class k extends SQLiteOpenHelper {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            aj.a(3, getClass().getName(), "ExecSQL", str);
+            aq.a(3, getClass().getName(), "ExecSQL", str);
         }
     }
 
@@ -66,7 +66,7 @@ public class k extends SQLiteOpenHelper {
             try {
                 a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
             } catch (Exception e) {
-                aj.b(k.class.getName(), "onUpgrade", e.getMessage());
+                aq.b(k.class.getName(), "onUpgrade", e.getMessage());
                 b(sQLiteDatabase);
                 a(sQLiteDatabase);
                 return;
@@ -90,6 +90,12 @@ public class k extends SQLiteOpenHelper {
         if (i < 7) {
             c(sQLiteDatabase);
         }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        b(sQLiteDatabase);
+        a(sQLiteDatabase);
     }
 
     protected void c(SQLiteDatabase sQLiteDatabase) {

@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1018a = new ArrayList();
+    private ArrayList f1021a = new ArrayList();
     private ArrayList b = new ArrayList();
 
     public ArrayList a() {
-        return this.f1018a;
+        return this.f1021a;
     }
 
     public ArrayList b() {
@@ -23,7 +23,7 @@ public class n {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -35,7 +35,7 @@ public class n {
                 for (int i = 0; i < length; i++) {
                     m mVar = new m();
                     mVar.a(optJSONArray.getJSONObject(i));
-                    this.f1018a.add(mVar);
+                    this.f1021a.add(mVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("threadRecommend");
@@ -48,7 +48,7 @@ public class n {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 

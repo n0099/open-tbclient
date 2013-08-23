@@ -1,104 +1,74 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class az extends ImageView {
+public class az extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Bitmap f1825a;
-    private Bitmap b;
-    private Matrix c;
-    private Matrix d;
-    private Paint e;
-    private RectF f;
-    private Rect g;
-    private int h;
+    private Context f1857a;
+    private TextView b = null;
+    private ProgressBar c = null;
+    private ImageView d = null;
+    private View.OnClickListener e = null;
+    private View f = null;
+    private String g = null;
 
     public az(Context context) {
-        super(context);
-        this.f1825a = com.baidu.tieba.util.e.a((int) R.drawable.icon_gif);
-        this.b = null;
-        this.c = new Matrix();
-        this.d = new Matrix();
-        this.e = new Paint();
-        this.f = new RectF();
-        this.g = new Rect();
-        this.h = 600;
-        a();
+        this.f1857a = null;
+        this.f1857a = context;
     }
 
-    @Override // android.view.View
-    public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        this.d.reset();
-        this.d.postTranslate((layoutParams.width - this.b.getWidth()) / 2.0f, (layoutParams.height - this.b.getHeight()) / 2.0f);
-        if (com.baidu.tieba.util.am.a(getContext()) > layoutParams.width * 10 && layoutParams.height > this.h) {
-            layoutParams.height = this.h;
-        }
-        super.setLayoutParams(layoutParams);
-    }
-
-    private void a() {
-        this.e.setColor(1275068416);
-        if (TiebaApplication.f().au() == 1) {
-            this.b = com.baidu.tieba.util.e.a((int) R.drawable.pic_image_h_not_1);
+    @Override // com.baidu.adp.widget.ListView.c
+    public View a() {
+        this.f = LayoutInflater.from(this.f1857a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        this.b = (TextView) this.f.findViewById(R.id.pb_more_text);
+        this.d = (ImageView) this.f.findViewById(R.id.image);
+        if (TiebaApplication.g().an() == 1) {
+            this.d.setBackgroundResource(R.drawable.ico_downward_1);
         } else {
-            this.b = com.baidu.tieba.util.e.a((int) R.drawable.pic_image_h_not);
+            this.d.setBackgroundResource(R.drawable.ico_downward);
         }
-        this.h = com.baidu.tieba.util.am.a(getContext(), 600.0f);
+        this.c = (ProgressBar) this.f.findViewById(R.id.progress);
+        return this.f;
     }
 
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        com.baidu.adp.widget.a.b bVar;
-        boolean z;
-        super.onDraw(canvas);
-        com.baidu.adp.widget.a.b d = com.baidu.tbadk.a.e.a().d((String) getTag());
-        boolean c = (d == null || !d.g()) ? false : d.c();
-        if (d != null) {
-            bVar = d;
-            z = true;
-        } else if (TiebaApplication.f().au() == 1) {
-            bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.util.e.a((int) R.drawable.pic_image_h_not_1), false, null);
-            z = false;
+    public void c() {
+        this.c.setVisibility(0);
+        this.d.setVisibility(8);
+        this.b.setText(this.f1857a.getText(R.string.loading));
+    }
+
+    public void d() {
+        this.c.setVisibility(8);
+        this.d.setVisibility(0);
+        if (this.g != null) {
+            this.b.setText(this.g);
         } else {
-            bVar = new com.baidu.adp.widget.a.b(com.baidu.tieba.util.e.a((int) R.drawable.pic_image_h_not), false, null);
-            z = false;
+            this.b.setText(this.f1857a.getText(R.string.load_more));
         }
-        if (bVar != null) {
-            if (z) {
-                canvas.drawColor(-1);
-                float min = Math.min(getWidth() / bVar.a(), getHeight() / bVar.b());
-                this.c.reset();
-                if (bVar.a() < getWidth() / 10) {
-                    min = 1.0f;
-                    this.g.set(0, 0, bVar.a(), getHeight());
-                    bVar.a(canvas, this.g, this.g, (Paint) null);
-                } else {
-                    this.c.setScale(min, min);
-                    bVar.a(canvas, this.c, null);
-                }
-                this.c.reset();
-                if (c && bVar.b() > this.f1825a.getHeight() && bVar.a() > this.f1825a.getWidth()) {
-                    canvas.drawBitmap(this.f1825a, this.c, null);
-                }
-                if (TiebaApplication.f().au() == 1) {
-                    this.f.set(0.0f, 0.0f, bVar.a() * min, min * bVar.b());
-                    canvas.drawRect(this.f, this.e);
-                    return;
-                }
-                return;
-            }
-            bVar.a(canvas, this.d, null);
+    }
+
+    public void a(String str) {
+        this.g = str;
+        this.b.setText(str);
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.e = onClickListener;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void onClick() {
+        if (this.e != null) {
+            this.e.onClick(this.f);
         }
     }
 }

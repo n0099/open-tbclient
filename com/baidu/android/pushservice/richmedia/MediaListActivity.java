@@ -25,7 +25,7 @@ public class MediaListActivity extends Activity {
     private static String r = "downloadUrl";
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f600a;
+    ArrayList f623a;
     NotificationManager b;
     private ListView c;
     private int d;
@@ -104,7 +104,7 @@ public class MediaListActivity extends Activity {
             return;
         }
         String[] strArr = {"img", "title", "fromtext", "timetext"};
-        this.f600a = new ArrayList();
+        this.f623a = new ArrayList();
         List b = com.baidu.android.pushservice.util.e.b(com.baidu.android.pushservice.util.e.a(this));
         if (b.isEmpty()) {
             this.l.setVisibility(0);
@@ -118,20 +118,20 @@ public class MediaListActivity extends Activity {
         while (true) {
             int i2 = i;
             if (i2 >= b.size()) {
-                this.c.setAdapter((ListAdapter) new i(this, this, this.f600a));
+                this.c.setAdapter((ListAdapter) new i(this, this, this.f623a));
                 return;
             }
             HashMap hashMap = new HashMap();
             try {
-                ApplicationInfo applicationInfo = packageManager.getApplicationInfo(((com.baidu.android.pushservice.util.i) b.get(i2)).f628a, 0);
+                ApplicationInfo applicationInfo = packageManager.getApplicationInfo(((com.baidu.android.pushservice.util.i) b.get(i2)).f651a, 0);
                 hashMap.put(strArr[0], packageManager.getApplicationIcon(applicationInfo));
                 hashMap.put(strArr[1], ((com.baidu.android.pushservice.util.i) b.get(i2)).c);
                 hashMap.put(strArr[2], "来自：" + ((Object) packageManager.getApplicationLabel(applicationInfo)));
                 hashMap.put(strArr[3], com.baidu.android.pushservice.util.n.a(((com.baidu.android.pushservice.util.i) b.get(i2)).j));
                 hashMap.put(r, ((com.baidu.android.pushservice.util.i) b.get(i2)).b);
-                this.f600a.add(hashMap);
+                this.f623a.add(hashMap);
             } catch (PackageManager.NameNotFoundException e) {
-                Log.w("MediaListActivity", "Media item package NOT found: " + ((com.baidu.android.pushservice.util.i) b.get(i2)).f628a);
+                Log.w("MediaListActivity", "Media item package NOT found: " + ((com.baidu.android.pushservice.util.i) b.get(i2)).f651a);
             }
             i = i2 + 1;
         }

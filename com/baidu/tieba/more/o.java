@@ -10,19 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.aq;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1419a;
+    private Context f1456a;
     private View.OnClickListener d;
     private ArrayList c = null;
     private boolean b = false;
 
     public o(Context context, View.OnClickListener onClickListener) {
-        this.f1419a = context;
+        this.f1456a = context;
         this.d = onClickListener;
     }
 
@@ -66,11 +68,11 @@ public class o extends BaseAdapter {
         try {
             try {
                 if (view == null) {
-                    LayoutInflater from = LayoutInflater.from(this.f1419a);
+                    LayoutInflater from = LayoutInflater.from(this.f1456a);
                     if (getItemViewType(i) == 0) {
                         view4 = from.inflate(R.layout.account_item, (ViewGroup) null);
                         pVar = new p(this, null);
-                        pVar.f1420a = (TextView) view4.findViewById(R.id.account);
+                        pVar.f1457a = (TextView) view4.findViewById(R.id.account);
                         pVar.c = (ImageView) view4.findViewById(R.id.active);
                         pVar.d = (Button) view4.findViewById(R.id.delete);
                         pVar.d.setOnClickListener(this.d);
@@ -86,17 +88,17 @@ public class o extends BaseAdapter {
                     view4 = view;
                 }
                 if (getItemViewType(i) == 0) {
-                    if (TiebaApplication.f().au() == 1) {
-                        pVar.f1420a.setTextColor(com.baidu.tieba.util.ah.a(1));
+                    if (TiebaApplication.g().an() == 1) {
+                        pVar.f1457a.setTextColor(ao.a(1));
                     } else {
-                        pVar.f1420a.setTextColor(-12895429);
+                        pVar.f1457a.setTextColor(-12895429);
                     }
                     AccountData accountData = (AccountData) getItem(i);
                     pVar.c.setVisibility(8);
                     pVar.d.setVisibility(8);
                     pVar.d.setTag(accountData);
                     if (accountData != null) {
-                        pVar.f1420a.setText(accountData.getAccount());
+                        pVar.f1457a.setText(accountData.getAccount());
                         if (accountData.getIsActive() == 1) {
                             pVar.c.setVisibility(0);
                         }
@@ -106,8 +108,8 @@ public class o extends BaseAdapter {
                         }
                     }
                     return view4;
-                } else if (TiebaApplication.f().au() == 1) {
-                    pVar.b.setTextColor(com.baidu.tieba.util.ah.a(1));
+                } else if (TiebaApplication.g().an() == 1) {
+                    pVar.b.setTextColor(ao.a(1));
                     return view4;
                 } else {
                     pVar.b.setTextColor(-12895429);
@@ -116,13 +118,13 @@ public class o extends BaseAdapter {
             } catch (Exception e) {
                 view2 = view3;
                 exc = e;
-                com.baidu.tieba.util.aj.b(getClass().getName(), "getView", exc.getMessage());
+                aq.b(getClass().getName(), "getView", exc.getMessage());
                 return view2;
             }
         } catch (Exception e2) {
             exc = e2;
             view2 = view;
-            com.baidu.tieba.util.aj.b(getClass().getName(), "getView", exc.getMessage());
+            aq.b(getClass().getName(), "getView", exc.getMessage());
             return view2;
         }
     }

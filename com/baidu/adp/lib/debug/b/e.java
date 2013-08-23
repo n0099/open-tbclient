@@ -9,11 +9,11 @@ import android.widget.TextView;
 public class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f404a;
+    final /* synthetic */ c f412a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.f404a = cVar;
+        this.f412a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,16 +24,16 @@ public class e implements View.OnClickListener {
         Context context2;
         if (!com.baidu.adp.lib.debug.b.d) {
             com.baidu.adp.lib.debug.b.d = true;
-            textView2 = this.f404a.j;
-            context2 = this.f404a.k;
+            textView2 = this.f412a.j;
+            context2 = this.f412a.k;
             textView2.setText(((Activity) context2).getText(com.baidu.adp.g.item_open));
-            this.f404a.b();
+            this.f412a.b();
             return;
         }
         com.baidu.adp.lib.debug.b.d = false;
-        textView = this.f404a.j;
-        context = this.f404a.k;
+        textView = this.f412a.j;
+        context = this.f412a.k;
         textView.setText(((Activity) context).getText(com.baidu.adp.g.item_close));
-        this.f404a.c();
+        this.f412a.c();
     }
 }

@@ -1,46 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends BroadcastReceiver {
+public class an implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1062a;
+    final /* synthetic */ FrsImageActivity f1076a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(FrsImageActivity frsImageActivity) {
-        this.f1062a = frsImageActivity;
+        this.f1076a = frsImageActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        com.baidu.tieba.model.af afVar;
-        com.baidu.tieba.model.af afVar2;
-        com.baidu.tieba.model.af afVar3;
-        com.baidu.tieba.model.af afVar4;
-        com.baidu.tieba.model.af afVar5;
-        ax axVar;
-        com.baidu.tieba.model.af afVar6;
-        long longExtra = intent.getLongExtra("fans", 0L);
-        long longExtra2 = intent.getLongExtra("relay", 0L);
-        long longExtra3 = intent.getLongExtra("at_me", 0L);
-        long longExtra4 = intent.getLongExtra("pletter", 0L);
-        afVar = this.f1062a.p;
-        if (afVar != null) {
-            afVar2 = this.f1062a.p;
-            afVar2.a(longExtra);
-            afVar3 = this.f1062a.p;
-            afVar3.c(longExtra2);
-            afVar4 = this.f1062a.p;
-            afVar4.b(longExtra3);
-            afVar5 = this.f1062a.p;
-            afVar5.d(longExtra4);
-            axVar = this.f1062a.n;
-            afVar6 = this.f1062a.p;
-            axVar.a(afVar6);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        int i2;
+        i = this.f1076a.j;
+        if (i > 240) {
+            FrsImageActivity frsImageActivity = this.f1076a;
+            i2 = this.f1076a.j;
+            frsImageActivity.f(i2 - 240);
         }
     }
 }

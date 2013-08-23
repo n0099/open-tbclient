@@ -7,17 +7,17 @@ import android.view.View;
 public class aq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f1574a;
+    final /* synthetic */ PersonChangeActivity f1612a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PersonChangeActivity personChangeActivity) {
-        this.f1574a = personChangeActivity;
+        this.f1612a = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         AlertDialog alertDialog;
-        alertDialog = this.f1574a.f1554a;
+        alertDialog = this.f1612a.b;
         alertDialog.show();
     }
 }

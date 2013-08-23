@@ -1,173 +1,195 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
+import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bh {
+    private SpannableString q;
+    private String u = null;
+    private String b = null;
+    private String c = null;
+    private String d = null;
+    private int e = 0;
+    private int f = 0;
+    private int g = 0;
+    private String h = null;
+    private long i = 0;
+    private int j = 0;
+    private int k = 0;
+    private MetaData l = new MetaData();
+    private String m = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private v f996a;
-    private int e;
-    private int g;
-    private AntiData h;
-    private bm i;
-    private int f = 10;
-    private boolean j = false;
-    private aw b = null;
-    private ArrayList c = new ArrayList();
-    private int d = 1;
+    ArrayList f1006a = new ArrayList();
+    private int n = 0;
+    private int o = 0;
+    private String p = null;
+    private String r = null;
+    private String s = null;
+    private int t = 0;
 
-    public aw a() {
+    public String a() {
         return this.b;
     }
 
-    public void a(aw awVar) {
-        this.b = awVar;
-    }
-
-    public void a(bh bhVar, boolean z) {
-        if (bhVar != null) {
-            a(bhVar.h());
-            d(bhVar.f());
-            a(bhVar.g());
-            c(bhVar.e());
-            a(bhVar.l());
-            b(bhVar.d());
-            a(bhVar.c());
-            int size = this.c.size();
-            if (z && size % this.f != 0) {
-                for (int i = 0; i < size % this.f; i++) {
-                    this.c.remove(this.c.size() - 1);
-                }
-            }
-            this.c.addAll(bhVar.b());
-        }
-    }
-
-    public ArrayList b() {
-        return this.c;
-    }
-
-    public void a(ArrayList arrayList) {
-        this.c = arrayList;
-    }
-
-    public int c() {
+    public String b() {
         return this.d;
     }
 
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int d() {
+    public int c() {
         return this.e;
     }
 
-    public void b(int i) {
-        this.e = i;
-    }
-
-    public int e() {
-        return this.f;
-    }
-
-    public void c(int i) {
-        if (i != 0) {
-            this.f = i;
-        }
-    }
-
-    public int f() {
-        return this.g;
-    }
-
-    public void d(int i) {
-        this.g = i;
-    }
-
-    public void a(v vVar) {
-        this.f996a = vVar;
-    }
-
-    public v g() {
-        return this.f996a;
-    }
-
-    public void a(AntiData antiData) {
-        this.h = antiData;
-    }
-
-    public AntiData h() {
-        return this.h;
-    }
-
-    public void a(bm bmVar) {
-        this.i = bmVar;
-    }
-
-    public boolean i() {
-        return (this.i == null || this.b == null || this.i.g() == null || this.i.g().getId() == null || this.b.g() == null || this.b.g().getId() == null || !this.i.g().getId().equals(this.b.g().getId())) ? false : true;
-    }
-
-    public boolean j() {
-        return this.j;
-    }
-
-    public boolean k() {
-        return this.g < this.d && this.g * this.f < 200;
-    }
-
-    public bm l() {
+    public long d() {
         return this.i;
     }
 
-    public void a(String str, Context context) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("post");
-            JSONArray optJSONArray = jSONObject.optJSONArray("subpost_list");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("thread");
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("anti");
-            AntiData antiData = new AntiData();
-            antiData.parserJson(optJSONObject4);
-            a(antiData);
-            bm bmVar = new bm();
-            bmVar.a(optJSONObject3);
-            a(bmVar);
-            v vVar = new v();
-            vVar.a(optJSONObject2);
-            a(vVar);
-            aw awVar = new aw();
-            awVar.a(optJSONObject, context);
-            a(awVar);
-            int length = optJSONArray.length();
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                aw awVar2 = new aw();
-                awVar2.a(jSONObject2, context);
-                arrayList.add(awVar2);
+    public void a(long j) {
+        this.i = j;
+    }
+
+    public int e() {
+        return this.j;
+    }
+
+    public void a(int i) {
+        this.j = i;
+    }
+
+    public int f() {
+        return this.k;
+    }
+
+    public void b(int i) {
+        this.k = i;
+    }
+
+    public MetaData g() {
+        return this.l;
+    }
+
+    public int h() {
+        return this.o;
+    }
+
+    public String i() {
+        return this.p;
+    }
+
+    public String j() {
+        return this.r;
+    }
+
+    public int k() {
+        return this.t;
+    }
+
+    public void c(int i) {
+        this.t = i;
+    }
+
+    public String l() {
+        return this.u;
+    }
+
+    public void a(String str) {
+        this.u = str;
+    }
+
+    public ArrayList m() {
+        return this.f1006a;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.b = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.c = jSONObject.optString("tid");
+                this.d = jSONObject.optString("title");
+                this.e = jSONObject.optInt("reply_num", 0);
+                this.f = jSONObject.optInt("repost_num", 0);
+                this.g = jSONObject.optInt("view_num", 0);
+                this.h = jSONObject.optString("last_time");
+                this.i = jSONObject.optLong("last_time_int", 0L);
+                this.j = jSONObject.optInt("is_top", 0);
+                this.k = jSONObject.optInt("is_good", 0);
+                this.l.parserJson(jSONObject.optJSONObject("author"));
+                this.m = jSONObject.optString("fname");
+                this.n = jSONObject.optInt("has_commented", 0);
+                this.o = jSONObject.optInt("show_commented", 0);
+                this.p = jSONObject.optString("click_url");
+                this.s = jSONObject.optString("from");
+                this.t = jSONObject.optInt("collect_status");
+                this.u = jSONObject.optString("collect_mark_pid");
+                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        if (optJSONArray.getJSONObject(i) != null) {
+                            if (optJSONArray.getJSONObject(i).optInt("type") == 0) {
+                                this.r = optJSONArray.getJSONObject(i).optString("text");
+                            }
+                        } else {
+                            return;
+                        }
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("media");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        ai aiVar = new ai();
+                        aiVar.a(optJSONArray2.getJSONObject(i2));
+                        this.f1006a.add(aiVar);
+                    }
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.util.aq.b("ThreadData", "parserJson", "error = " + e.getMessage());
             }
-            a(arrayList);
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("page");
-            int optInt = optJSONObject5.optInt("total_page");
-            int optInt2 = optJSONObject5.optInt("page_size", 10);
-            int optInt3 = optJSONObject5.optInt("current_page");
-            int optInt4 = optJSONObject5.optInt("total_count");
-            d(optInt3);
-            c(optInt2);
-            b(optInt4);
-            a(optInt);
-        } catch (Exception e) {
-            com.baidu.tieba.util.aj.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(boolean z) {
-        this.j = z;
+    public SpannableString n() {
+        return this.q;
+    }
+
+    public void o() {
+        SpannableString spannableString;
+        if (this.d != null) {
+            ArrayList arrayList = new ArrayList();
+            if (f() == 1) {
+                arrayList.add(Integer.valueOf((int) R.drawable.icon_elite));
+            }
+            if (e() == 1) {
+                arrayList.add(Integer.valueOf((int) R.drawable.icon_top));
+            }
+            if (h() == 1) {
+                arrayList.add(Integer.valueOf((int) R.drawable.frs_post_ding));
+            }
+            if (arrayList.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    sb.append("1 ");
+                }
+                SpannableString spannableString2 = new SpannableString(String.valueOf(sb.toString()) + this.d);
+                int i2 = 0;
+                for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                    Bitmap a2 = com.baidu.tieba.util.e.a(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
+                    bitmapDrawable.setBounds(0, 0, a2.getWidth(), a2.getHeight());
+                    spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
+                    i2 += 2;
+                }
+                spannableString = spannableString2;
+            } else {
+                spannableString = new SpannableString(this.d);
+            }
+            this.q = spannableString;
+        }
     }
 }

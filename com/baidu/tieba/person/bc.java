@@ -1,24 +1,21 @@
 package com.baidu.tieba.person;
-
-import android.widget.ImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements com.baidu.tbadk.a.d {
+class bc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bb f1586a;
+    final /* synthetic */ bb f1625a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(bb bbVar) {
-        this.f1586a = bbVar;
+        this.f1625a = bbVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        ImageView imageView;
-        if (bVar != null) {
-            imageView = this.f1586a.d;
-            bVar.b(imageView);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        ba baVar;
+        PersonInfoActivity personInfoActivity;
+        baVar = this.f1625a.f1624a;
+        personInfoActivity = baVar.f1623a;
+        personInfoActivity.l();
     }
 }

@@ -4,14 +4,14 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.aq;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected long f959a;
+    protected long f969a;
     protected String b;
     protected String c;
     protected int d;
@@ -29,7 +29,7 @@ public class d {
     }
 
     public long b() {
-        return this.f959a;
+        return this.f969a;
     }
 
     public String c() {
@@ -77,11 +77,11 @@ public class d {
             this.h = jSONObject.optJSONArray("content").toString();
             this.g = jSONObject.getLong("time");
             try {
-                this.f959a = jSONObject.optLong("msg_id");
+                this.f969a = jSONObject.optLong("msg_id");
             } catch (Exception e) {
             }
         } catch (Exception e2) {
-            aj.b(getClass().getName(), "parserJson", e2.toString());
+            aq.b(getClass().getName(), "parserJson", e2.toString());
         }
     }
 
@@ -102,7 +102,7 @@ public class d {
         }
         clipboardManager.setText(sb);
         if (clipboardManager.getText() != null) {
-            aj.e("ChatMessageActivity", "clip_text", clipboardManager.getText().toString());
+            aq.e("ChatMessageActivity", "clip_text", clipboardManager.getText().toString());
         }
     }
 }

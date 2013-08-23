@@ -1,37 +1,57 @@
 package com.baidu.tieba.data;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1029a = null;
-    private int b = 0;
+    private ArrayList f1032a = new ArrayList();
+    private HashMap b = null;
 
-    public void a(String str) {
-        this.f1029a = str;
-    }
-
-    public String a() {
-        return this.f1029a;
-    }
-
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public int b() {
-        return this.b;
-    }
-
-    public void a(JSONObject jSONObject) {
+    public void a(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            try {
-                this.b = jSONObject.optInt("class_id", 0);
-                this.f1029a = jSONObject.optString("class_name");
-            } catch (Exception e) {
-                com.baidu.tieba.util.aj.b("GoodData", "parserJson", "error = " + e.getMessage());
+            if (z) {
+                try {
+                    if (this.b == null) {
+                        this.b = new HashMap();
+                    }
+                } catch (Exception e) {
+                    com.baidu.tieba.util.aq.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+                    return;
+                }
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserJson(optJSONArray.getJSONObject(i));
+                    if (metaData.getName_show() != null) {
+                        this.f1032a.add(metaData);
+                        if (z) {
+                            this.b.put(metaData.getName_show(), metaData.getPortrait());
+                        }
+                    }
+                }
             }
         }
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str), true);
+        } catch (Exception e) {
+            com.baidu.tieba.util.aq.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+        }
+    }
+
+    public ArrayList a() {
+        return this.f1032a;
+    }
+
+    public HashMap b() {
+        return this.b;
     }
 }

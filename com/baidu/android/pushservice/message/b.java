@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f590a;
+    public int f613a;
     public int b;
     public byte[] c;
     public boolean d;
@@ -20,7 +20,7 @@ public class b {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("id : ");
-        stringBuffer.append(this.f590a);
+        stringBuffer.append(this.f613a);
         stringBuffer.append(", version: ");
         stringBuffer.append(this.b);
         stringBuffer.append(", needReply: ");

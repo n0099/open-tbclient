@@ -1,23 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.SlidingMenu;
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class aj implements SlidingMenu.OnOpenedListener {
+class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1058a;
+    TextView f1072a;
+    ImageView b;
+    final /* synthetic */ ai c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(FrsImageActivity frsImageActivity) {
-        this.f1058a = frsImageActivity;
+    private aj(ai aiVar) {
+        this.c = aiVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        if (TiebaApplication.f().t()) {
-            StatService.onEvent(this.f1058a, "frs_total_more", "frsclick", 1);
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aj(ai aiVar, aj ajVar) {
+        this(aiVar);
     }
 }

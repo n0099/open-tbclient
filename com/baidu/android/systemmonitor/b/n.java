@@ -7,11 +7,11 @@ import android.os.Process;
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f654a;
+    final /* synthetic */ f f677a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(f fVar) {
-        this.f654a = fVar;
+        this.f677a = fVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,9 +19,9 @@ public class n implements Runnable {
         Context context;
         Context context2;
         Process.setThreadPriority(10);
-        context = this.f654a.b;
+        context = this.f677a.b;
         d a2 = d.a(context.getApplicationContext());
-        context2 = this.f654a.b;
+        context2 = this.f677a.b;
         a2.b(context2.getApplicationContext());
     }
 }

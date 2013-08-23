@@ -5,11 +5,11 @@ import org.json.JSONObject;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1017a;
+    private String f1020a;
     private String b;
 
     public String a() {
-        return this.f1017a;
+        return this.f1020a;
     }
 
     public String b() {
@@ -17,7 +17,7 @@ public class m {
     }
 
     public void a(JSONObject jSONObject) {
-        this.f1017a = jSONObject.optString("img");
+        this.f1020a = jSONObject.optString("img");
         this.b = jSONObject.optString("link");
     }
 }

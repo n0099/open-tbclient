@@ -22,7 +22,7 @@ import com.slidingmenu.lib.R;
 public class ActivationActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f840a = 60;
+    private static int f861a = 60;
     private ImageView b = null;
     private LinearLayout c = null;
     private ImageView d = null;
@@ -36,7 +36,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     private i n = null;
     private h o = null;
     private boolean p = false;
-    private int q = f840a;
+    private int q = f861a;
     private RegistData r = null;
     private Handler s = new Handler();
     private RelativeLayout t = null;
@@ -78,7 +78,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
             setResult(0);
             finish();
         } else if (this.r.getSmsCodeTime() > 0) {
-            f840a = this.r.getSmsCodeTime();
+            f861a = this.r.getSmsCodeTime();
         }
     }
 
@@ -111,7 +111,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     public void b() {
         this.p = false;
         this.m.setEnabled(false);
-        this.q = f840a;
+        this.q = f861a;
         this.g.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.q)));
         this.s.postDelayed(this.B, 1000L);
     }
@@ -150,13 +150,13 @@ public class ActivationActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.a(this.t, i);
-        com.baidu.tieba.util.ah.d(this.v, i);
-        com.baidu.tieba.util.ah.a(this.b, i);
-        com.baidu.tieba.util.ah.f(this.u, i);
-        com.baidu.tieba.util.ah.a(this.w, i);
-        com.baidu.tieba.util.ah.a(this.g, i);
-        com.baidu.tieba.util.ah.b(this.x, i);
+        com.baidu.tieba.util.ao.a(this.t, i);
+        com.baidu.tieba.util.ao.d(this.v, i);
+        com.baidu.tieba.util.ao.a(this.b, i);
+        com.baidu.tieba.util.ao.f(this.u, i);
+        com.baidu.tieba.util.ao.a(this.w, i);
+        com.baidu.tieba.util.ao.a(this.g, i);
+        com.baidu.tieba.util.ao.b(this.x, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -173,19 +173,19 @@ public class ActivationActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.model.at atVar) {
+    public void a(com.baidu.tieba.model.as asVar) {
         AccountData accountData = new AccountData();
-        accountData.setAccount(atVar.a().getName());
-        if (atVar.a().getPassword() != null) {
-            accountData.setPassword(atVar.a().getPassword());
+        accountData.setAccount(asVar.a().getName());
+        if (asVar.a().getPassword() != null) {
+            accountData.setPassword(asVar.a().getPassword());
         } else {
             accountData.setPassword(this.r.getPsw());
         }
-        accountData.setID(atVar.a().getId());
-        accountData.setBDUSS(atVar.a().getBDUSS());
+        accountData.setID(asVar.a().getId());
+        accountData.setBDUSS(asVar.a().getBDUSS());
         accountData.setIsActive(1);
-        if (atVar.b() != null) {
-            accountData.setTbs(atVar.b().getTbs());
+        if (asVar.b() != null) {
+            accountData.setTbs(asVar.b().getTbs());
         }
         DatabaseService.a(accountData);
         TiebaApplication.a(accountData, getBaseContext());

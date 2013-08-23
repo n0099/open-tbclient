@@ -3,13 +3,13 @@ package com.baidu.tieba.data.a;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f960a = null;
+    private String f970a = null;
     private String b = null;
     private String c = null;
     private long d = 0;
 
     public void a(String str) {
-        this.f960a = str;
+        this.f970a = str;
     }
 
     public void b(String str) {
@@ -25,7 +25,7 @@ public class e {
     }
 
     public String a() {
-        return this.f960a;
+        return this.f970a;
     }
 
     public String b() {

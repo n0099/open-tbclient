@@ -17,7 +17,7 @@ public class v {
     private int y;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1026a = null;
+    private String f1029a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -29,7 +29,7 @@ public class v {
     private int j = 0;
     private int k = 0;
     private int q = 0;
-    private bg n = new bg();
+    private bb n = new bb();
     private ArrayList o = new ArrayList();
     private ArrayList p = new ArrayList();
     private String r = null;
@@ -44,7 +44,7 @@ public class v {
     }
 
     public String a() {
-        return this.f1026a;
+        return this.f1029a;
     }
 
     public String b() {
@@ -83,12 +83,12 @@ public class v {
         return this.k;
     }
 
-    public bg i() {
+    public bb i() {
         return this.n;
     }
 
-    public void a(bg bgVar) {
-        this.n = bgVar;
+    public void a(bb bbVar) {
+        this.n = bbVar;
     }
 
     public ArrayList j() {
@@ -106,7 +106,7 @@ public class v {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1026a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1029a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = jSONObject.optString("name");
                 this.x = jSONObject.optInt("is_support_local", 0);
                 this.y = jSONObject.optInt("is_local_effect", 0);
@@ -140,9 +140,9 @@ public class v {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        y yVar = new y();
-                        yVar.a(optJSONArray2.optJSONObject(i2));
-                        this.p.add(yVar);
+                        aa aaVar = new aa();
+                        aaVar.a(optJSONArray2.optJSONObject(i2));
+                        this.p.add(aaVar);
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("sign_in_info");
@@ -166,7 +166,7 @@ public class v {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b("ForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aq.b("ForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

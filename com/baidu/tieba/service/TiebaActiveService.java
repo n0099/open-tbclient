@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.aq;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,7 +14,7 @@ import java.io.FileWriter;
 public class TiebaActiveService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private m f1688a = null;
+    private m f1705a = null;
     private int b = 0;
     private Handler c = new Handler();
     private Runnable d = new l(this);
@@ -43,7 +43,7 @@ public class TiebaActiveService extends Service {
                 }
             }
         } catch (Exception e) {
-            aj.b(getClass().getName(), "getFromByFile", e.getMessage());
+            aq.b(getClass().getName(), "getFromByFile", e.getMessage());
         }
         return str;
     }
@@ -59,7 +59,7 @@ public class TiebaActiveService extends Service {
                     fileWriter.close();
                 }
             } catch (Exception e2) {
-                aj.b(getClass().getName(), "saveFromToFile", e2.getMessage());
+                aq.b(getClass().getName(), "saveFromToFile", e2.getMessage());
             }
         }
     }
@@ -82,9 +82,9 @@ public class TiebaActiveService extends Service {
                 b(a2);
             }
         } catch (Exception e) {
-            aj.b(getClass().getName(), "getActiveState", e.getMessage());
+            aq.b(getClass().getName(), "getActiveState", e.getMessage());
         }
-        aj.a(getClass().getName(), "getActiveState", "channel = ");
+        aq.a(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -105,8 +105,8 @@ public class TiebaActiveService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.f1688a != null) {
-            this.f1688a.cancel();
+        if (this.f1705a != null) {
+            this.f1705a.cancel();
         }
         this.b = 11;
         this.c.removeCallbacks(this.d);
@@ -115,10 +115,10 @@ public class TiebaActiveService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.f1688a != null) {
-            this.f1688a.cancel();
+        if (this.f1705a != null) {
+            this.f1705a.cancel();
         }
-        this.f1688a = new m(this, null);
-        this.f1688a.execute(new String[0]);
+        this.f1705a = new m(this, null);
+        this.f1705a.execute(new String[0]);
     }
 }

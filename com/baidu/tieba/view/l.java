@@ -8,11 +8,11 @@ import android.view.View;
 public class l extends GestureDetector.SimpleOnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1841a;
+    final /* synthetic */ j f1872a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.f1841a = jVar;
+        this.f1872a = jVar;
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -20,10 +20,10 @@ public class l extends GestureDetector.SimpleOnGestureListener {
         m mVar;
         m mVar2;
         if (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f) {
-            mVar = this.f1841a.t;
+            mVar = this.f1872a.t;
             mVar.a(f, f2);
-            j jVar = this.f1841a;
-            mVar2 = this.f1841a.t;
+            j jVar = this.f1872a;
+            mVar2 = this.f1872a.t;
             jVar.startAnimation(mVar2);
         }
         return super.onFling(motionEvent, motionEvent2, f, f2);
@@ -34,12 +34,12 @@ public class l extends GestureDetector.SimpleOnGestureListener {
         View.OnClickListener onClickListener;
         boolean z;
         View.OnClickListener onClickListener2;
-        onClickListener = this.f1841a.r;
+        onClickListener = this.f1872a.r;
         if (onClickListener != null) {
-            z = this.f1841a.y;
+            z = this.f1872a.y;
             if (!z) {
-                onClickListener2 = this.f1841a.r;
-                onClickListener2.onClick(this.f1841a);
+                onClickListener2 = this.f1872a.r;
+                onClickListener2.onClick(this.f1872a);
             }
         }
         return super.onSingleTapUp(motionEvent);
@@ -72,73 +72,73 @@ public class l extends GestureDetector.SimpleOnGestureListener {
         float f8;
         float f9;
         boolean z;
-        this.f1841a.y = true;
-        i = this.f1841a.p;
+        this.f1872a.y = true;
+        i = this.f1872a.p;
         if (i == 0) {
-            z = this.f1841a.z;
+            z = this.f1872a.z;
             if (z) {
                 return false;
             }
         }
-        int scrollX = this.f1841a.getScrollX();
-        f3 = this.f1841a.e;
-        if (f3 >= this.f1841a.getWidth()) {
+        int scrollX = this.f1872a.getScrollX();
+        f3 = this.f1872a.e;
+        if (f3 >= this.f1872a.getWidth()) {
             scrollX = (int) (scrollX + f);
-            i12 = this.f1841a.p;
+            i12 = this.f1872a.p;
             if (i12 == 0) {
                 i2 = scrollX >= 0 ? scrollX : 0;
-                f8 = this.f1841a.e;
-                if (this.f1841a.getWidth() + i2 > f8) {
-                    f9 = this.f1841a.e;
-                    i2 = (int) (f9 - this.f1841a.getWidth());
+                f8 = this.f1872a.e;
+                if (this.f1872a.getWidth() + i2 > f8) {
+                    f9 = this.f1872a.e;
+                    i2 = (int) (f9 - this.f1872a.getWidth());
                 }
-                scrollY = this.f1841a.getScrollY();
-                f4 = this.f1841a.f;
-                i3 = this.f1841a.H;
+                scrollY = this.f1872a.getScrollY();
+                f4 = this.f1872a.f;
+                i3 = this.f1872a.H;
                 f5 = f4 + i3;
-                i4 = this.f1841a.I;
-                if (f5 + i4 >= this.f1841a.getHeight()) {
+                i4 = this.f1872a.I;
+                if (f5 + i4 >= this.f1872a.getHeight()) {
                     scrollY = (int) (scrollY + f2);
-                    i5 = this.f1841a.p;
+                    i5 = this.f1872a.p;
                     if (i5 == 0) {
-                        i6 = this.f1841a.J;
+                        i6 = this.f1872a.J;
                         if (scrollY < (-i6)) {
-                            i11 = this.f1841a.J;
+                            i11 = this.f1872a.J;
                             scrollY = -i11;
                         }
-                        f6 = this.f1841a.f;
-                        i7 = this.f1841a.I;
+                        f6 = this.f1872a.f;
+                        i7 = this.f1872a.I;
                         float f10 = f6 + i7;
-                        i8 = this.f1841a.K;
-                        if (this.f1841a.getHeight() + scrollY > f10 + i8) {
-                            f7 = this.f1841a.f;
-                            float height = f7 - this.f1841a.getHeight();
-                            i9 = this.f1841a.I;
+                        i8 = this.f1872a.K;
+                        if (this.f1872a.getHeight() + scrollY > f10 + i8) {
+                            f7 = this.f1872a.f;
+                            float height = f7 - this.f1872a.getHeight();
+                            i9 = this.f1872a.I;
                             float f11 = height + i9;
-                            i10 = this.f1841a.K;
+                            i10 = this.f1872a.K;
                             scrollY = (int) (f11 + i10);
                         }
                     }
                 }
-                if (i2 == this.f1841a.getScrollX() || scrollY != this.f1841a.getScrollY()) {
-                    this.f1841a.scrollTo(i2, scrollY);
-                    this.f1841a.invalidate();
+                if (i2 == this.f1872a.getScrollX() || scrollY != this.f1872a.getScrollY()) {
+                    this.f1872a.scrollTo(i2, scrollY);
+                    this.f1872a.invalidate();
                 }
                 return true;
             }
         }
         i2 = scrollX;
-        scrollY = this.f1841a.getScrollY();
-        f4 = this.f1841a.f;
-        i3 = this.f1841a.H;
+        scrollY = this.f1872a.getScrollY();
+        f4 = this.f1872a.f;
+        i3 = this.f1872a.H;
         f5 = f4 + i3;
-        i4 = this.f1841a.I;
-        if (f5 + i4 >= this.f1841a.getHeight()) {
+        i4 = this.f1872a.I;
+        if (f5 + i4 >= this.f1872a.getHeight()) {
         }
-        if (i2 == this.f1841a.getScrollX()) {
+        if (i2 == this.f1872a.getScrollX()) {
         }
-        this.f1841a.scrollTo(i2, scrollY);
-        this.f1841a.invalidate();
+        this.f1872a.scrollTo(i2, scrollY);
+        this.f1872a.invalidate();
         return true;
     }
 }

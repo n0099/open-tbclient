@@ -20,7 +20,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("is_notify", true);
                 intent2.putExtra("refresh_all", true);
                 intent2.putExtra("close_dialog", true);
-                intent2.putExtra("goto_type", "goto_home");
+                intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(R.string.sign_notification_content);
@@ -39,7 +39,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         com.baidu.adp.lib.e.d.a(th.getMessage());
                     }
                 } finally {
-                    TiebaApplication.f().am();
+                    TiebaApplication.g().af();
                 }
             }
         }

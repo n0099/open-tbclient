@@ -7,21 +7,21 @@ import org.json.JSONObject;
 public class h extends com.baidu.tieba.data.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1213a;
+    public String f1246a;
     public x b;
     public x c;
 
-    public LinkedList c() {
+    public LinkedList d() {
         return this.b.m;
     }
 
-    public LinkedList d() {
+    public LinkedList e() {
         return this.c.m;
     }
 
     @Override // com.baidu.tieba.data.a
     protected void a(JSONObject jSONObject) {
-        this.f1213a = jSONObject.optString("pk_id");
+        this.f1246a = jSONObject.optString("pk_id");
         this.b = new x().a(jSONObject.optJSONObject("vote1"));
         this.c = new x().a(jSONObject.optJSONObject("vote2"));
         a((String) null);

@@ -6,33 +6,33 @@ import android.os.Message;
 class aw implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1462a;
+    final /* synthetic */ NewPbActivity f1499a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(NewPbActivity newPbActivity) {
-        this.f1462a = newPbActivity;
+        this.f1499a = newPbActivity;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        com.baidu.tieba.model.bc bcVar;
-        bn bnVar;
-        bn bnVar2;
+        com.baidu.tieba.model.bb bbVar;
+        bo boVar;
+        bo boVar2;
         switch (message.what) {
             case 0:
-                bnVar2 = this.f1462a.p;
-                bnVar2.R();
+                boVar2 = this.f1499a.q;
+                boVar2.S();
                 return false;
             case 1:
-                bnVar = this.f1462a.p;
-                bnVar.Q();
+                boVar = this.f1499a.q;
+                boVar.R();
                 return false;
             case 2:
-                bcVar = this.f1462a.j;
-                if (!bcVar.r()) {
+                bbVar = this.f1499a.k;
+                if (!bbVar.s()) {
                     return false;
                 }
-                this.f1462a.o();
+                this.f1499a.p();
                 return false;
             default:
                 return false;

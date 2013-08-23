@@ -8,26 +8,26 @@ import android.os.Message;
 public class h extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f648a;
+    final /* synthetic */ f f671a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.f648a = fVar;
+        this.f671a = fVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Handler handler;
         Context context;
-        handler = this.f648a.t;
+        handler = this.f671a.t;
         if (handler == null) {
             return;
         }
         if (message.what == 1) {
             int unused = f.n = 2;
-            context = this.f648a.b;
+            context = this.f671a.b;
             com.baidu.android.systemmonitor.d.b.a(context.getApplicationContext(), 2);
-            this.f648a.j();
+            this.f671a.j();
         }
         super.handleMessage(message);
     }

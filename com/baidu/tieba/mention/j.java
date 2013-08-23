@@ -1,35 +1,57 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.ListView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.aq;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j implements com.baidu.tbadk.a.d {
+public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1299a;
+    final /* synthetic */ i f1333a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.f1299a = iVar;
+        this.f1333a = iVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        h hVar;
-        ListView listView;
-        h hVar2;
-        ListView listView2;
-        hVar = this.f1299a.f1298a;
-        listView = hVar.d;
-        ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && bVar != null) {
-                bVar.b(imageView);
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        BdListView bdListView2;
+        int i;
+        int i2;
+        f fVar;
+        f fVar2;
+        String portrait;
+        f fVar3;
+        try {
+            bdListView = this.f1333a.d;
+            int firstVisiblePosition = bdListView.getFirstVisiblePosition();
+            bdListView2 = this.f1333a.d;
+            int lastVisiblePosition = bdListView2.getLastVisiblePosition();
+            if (firstVisiblePosition > 0) {
+                int i3 = lastVisiblePosition - 1;
+                i = firstVisiblePosition - 1;
+                i2 = i3;
+            } else {
+                i = firstVisiblePosition;
+                i2 = lastVisiblePosition;
             }
-            hVar2 = this.f1299a.f1298a;
-            listView2 = hVar2.d;
-            imageView = (ImageView) listView2.findViewWithTag(str);
+            for (int i4 = i; i4 <= i2; i4++) {
+                fVar = this.f1333a.e;
+                if (i4 < fVar.getCount()) {
+                    fVar2 = this.f1333a.e;
+                    com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) fVar2.getItem(i4);
+                    if (uVar != null && (portrait = uVar.i().getPortrait()) != null && portrait.length() > 0) {
+                        fVar3 = this.f1333a.e;
+                        fVar3.e().d(portrait, new k(this));
+                    }
+                } else {
+                    return;
+                }
+            }
+        } catch (Exception e) {
+            aq.b("MentionView", "mGetImageRunnble.run", "error = " + e.getMessage());
         }
     }
 }

@@ -6,12 +6,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class ai extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ah f1326a;
+    final /* synthetic */ ah f1361a;
     private String b;
-    private com.baidu.tieba.a.e c;
+    private com.baidu.tieba.a.f c;
 
     public ai(ah ahVar, String str) {
-        this.f1326a = ahVar;
+        this.f1361a = ahVar;
         setPriority(3);
         this.b = str;
     }
@@ -22,9 +22,9 @@ public class ai extends BdAsyncTask {
         aj ajVar;
         aj ajVar2;
         super.b();
-        ajVar = this.f1326a.b;
+        ajVar = this.f1361a.b;
         if (ajVar != null) {
-            ajVar2 = this.f1326a.b;
+            ajVar2 = this.f1361a.b;
             ajVar2.a();
         }
     }
@@ -40,22 +40,22 @@ public class ai extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.be a(Void... voidArr) {
-        this.c = new com.baidu.tieba.a.e();
-        return new com.baidu.tieba.data.be().d(this.c.a(this.b));
+    public com.baidu.tieba.data.az a(Void... voidArr) {
+        this.c = new com.baidu.tieba.a.f();
+        return new com.baidu.tieba.data.az().d(this.c.a(this.b));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.be beVar) {
+    public void a(com.baidu.tieba.data.az azVar) {
         aj ajVar;
         aj ajVar2;
-        super.a((Object) beVar);
-        ajVar = this.f1326a.b;
+        super.a((Object) azVar);
+        ajVar = this.f1361a.b;
         if (ajVar != null) {
-            ajVar2 = this.f1326a.b;
-            ajVar2.a(beVar);
+            ajVar2 = this.f1361a.b;
+            ajVar2.a(azVar);
         }
     }
 }

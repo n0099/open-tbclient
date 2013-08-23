@@ -10,31 +10,31 @@ import com.baidu.tieba.data.AccountData;
 public class f implements AccountProxy.TokenCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ Activity f1032a;
-    private final /* synthetic */ String b;
+    private final /* synthetic */ Activity f1035a;
+    private final /* synthetic */ int b;
     private final /* synthetic */ int c;
     private final /* synthetic */ boolean d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(Activity activity, String str, int i, boolean z) {
-        this.f1032a = activity;
-        this.b = str;
-        this.c = i;
+    public f(Activity activity, int i, int i2, boolean z) {
+        this.f1035a = activity;
+        this.b = i;
+        this.c = i2;
         this.d = z;
     }
 
     @Override // com.baidu.account.AccountProxy.TokenCallback
     public void callBack(String str) {
-        com.baidu.tieba.util.aj.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        com.baidu.tieba.util.aq.e("BaiduAccountProxy", "getAccountData", "token = " + str);
         if (str != null) {
-            BaiduAccount baiduAccount = BaiduAccount.get(this.f1032a);
+            BaiduAccount baiduAccount = BaiduAccount.get(this.f1035a);
             AccountData accountData = new AccountData();
             accountData.setAccount(baiduAccount.getCurrentAccount());
             accountData.setBDUSS(str);
             accountData.setIsActive(1);
-            ReLoginActivity.a(this.f1032a, this.b, this.c, this.d, accountData);
-        } else if ((this.f1032a instanceof GuideActivity) || (this.f1032a instanceof LogoActivity)) {
-            this.f1032a.finish();
+            ReLoginActivity.a(this.f1035a, this.b, this.c, this.d, accountData);
+        } else if ((this.f1035a instanceof GuideActivity) || (this.f1035a instanceof LogoActivity)) {
+            this.f1035a.finish();
         }
     }
 }

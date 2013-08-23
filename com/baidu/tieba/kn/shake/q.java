@@ -9,15 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.view.ImageViewDrawer;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.a.d {
     public ScrollView b;
     private VoteResultActivity c;
     private ImageView d;
-    private ImageViewDrawer e;
+    private TbImageView e;
     private TextView f;
     private TextView g;
     private TextView h;
@@ -38,7 +38,7 @@ public class q extends com.baidu.adp.a.d {
             this.o = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.kn_voteresult_activity, (ViewGroup) null);
             this.c.addContentView(this.o, new FrameLayout.LayoutParams(-1, -1));
             this.d = (ImageView) this.o.findViewById(R.id.back);
-            this.e = (ImageViewDrawer) this.o.findViewById(R.id.result_image);
+            this.e = (TbImageView) this.o.findViewById(R.id.result_image);
             this.f = (TextView) this.o.findViewById(R.id.title);
             this.g = (TextView) this.o.findViewById(R.id.result_tip_shake_num);
             this.h = (TextView) this.o.findViewById(R.id.result_tip_name);
@@ -60,9 +60,9 @@ public class q extends com.baidu.adp.a.d {
             this.k.setEnabled(false);
             this.l.setEnabled(false);
             this.m.setEnabled(false);
-            ah.a(this.d, 0);
-            ah.d((ViewGroup) this.o.findViewById(R.id.top), 0);
-            ah.f(this.f, 0);
+            ao.a(this.d, 0);
+            ao.d((ViewGroup) this.o.findViewById(R.id.top), 0);
+            ao.f(this.f, 0);
         }
     }
 
@@ -98,7 +98,7 @@ public class q extends com.baidu.adp.a.d {
         this.m.setEnabled(false);
     }
 
-    public ImageViewDrawer h() {
+    public TbImageView h() {
         return this.e;
     }
 

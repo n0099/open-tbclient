@@ -8,7 +8,7 @@ public class f {
     private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f961a = new a();
+    private final a f971a = new a();
 
     private f() {
     }
@@ -34,23 +34,23 @@ public class f {
         while (it.hasNext()) {
             d dVar = (d) it.next();
             dVar.a(b());
-            this.f961a.a(dVar);
+            this.f971a.a(dVar);
         }
     }
 
     public List a(String str, String str2) {
-        return this.f961a.a(str, str2, 20);
+        return this.f971a.a(str, str2, 20);
     }
 
     public void b(String str, String str2) {
-        this.f961a.a(str, str2);
+        this.f971a.a(str, str2);
     }
 
     public void a(String str, List list) {
-        this.f961a.a(str, list);
+        this.f971a.a(str, list);
     }
 
     public List a(String str) {
-        return this.f961a.a(str, 20);
+        return this.f971a.a(str, 20);
     }
 }

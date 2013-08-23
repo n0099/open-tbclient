@@ -9,12 +9,12 @@ public class d {
     private j e;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f472a = 5;
+    private int f490a = 5;
     private boolean d = false;
 
     public d(int i, int i2, int i3) {
         this.b = 10;
-        float abs = Math.abs(i - i2) / this.f472a;
+        float abs = Math.abs(i - i2) / this.f490a;
         this.c = i2;
         this.b = (int) (i3 / abs);
     }

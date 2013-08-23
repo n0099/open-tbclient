@@ -8,11 +8,11 @@ import com.baidu.share.ShareModel;
 public class l extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f770a;
+    final /* synthetic */ b f793a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(b bVar) {
-        this.f770a = bVar;
+        this.f793a = bVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -22,13 +22,13 @@ public class l extends Thread {
         Context context2;
         try {
             sleep(100L);
-            token = this.f770a.e;
+            token = this.f793a.e;
             if (token == null) {
-                context = this.f770a.f763a;
+                context = this.f793a.f786a;
                 if (context != null) {
                     ShareModel shareModel = new ShareModel();
                     shareModel.mAction = g.a();
-                    context2 = this.f770a.f763a;
+                    context2 = this.f793a.f786a;
                     ShareAssistant.a(context2).share(shareModel);
                 }
             }

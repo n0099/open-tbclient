@@ -1,32 +1,28 @@
 package com.baidu.tieba.square;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class r {
+public class r extends com.baidu.tieba.data.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1734a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList e;
+    private s f1753a;
 
-    public void a(JSONObject jSONObject) {
-        this.f1734a = jSONObject.optString("menu_type");
-        this.b = jSONObject.optString("menu_name");
-        this.c = jSONObject.optString("menu_id");
-        this.d = jSONObject.optString("default_logo_url", null);
-        if (jSONObject.has("child_menu_list")) {
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                r rVar = new r();
-                rVar.a(optJSONArray.getJSONObject(i));
-                arrayList.add(rVar);
-            }
-            this.e = arrayList;
+    public s d() {
+        return this.f1753a;
+    }
+
+    public void a(s sVar) {
+        this.f1753a = sVar;
+        a((String) null);
+    }
+
+    @Override // com.baidu.tieba.data.a
+    protected void a(JSONObject jSONObject) {
+        JSONObject optJSONObject = jSONObject.optJSONObject("forum_dir");
+        if (optJSONObject != null) {
+            s sVar = new s();
+            sVar.a(optJSONObject);
+            a(sVar);
         }
     }
 }

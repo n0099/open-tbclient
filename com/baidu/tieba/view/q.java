@@ -1,50 +1,41 @@
 package com.baidu.tieba.view;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
 import android.view.View;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.pb.NewPbActivity;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsHeaderView f1844a;
+    final /* synthetic */ p f1875a;
+    private final /* synthetic */ Context b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(FrsHeaderView frsHeaderView) {
-        this.f1844a = frsHeaderView;
+    public q(p pVar, Context context) {
+        this.f1875a = pVar;
+        this.b = context;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Activity activity;
-        Activity activity2;
-        Activity activity3;
-        String str;
-        Activity activity4;
-        try {
-            activity = this.f1844a.v;
-            if (com.baidu.adp.lib.e.e.b(activity, "com.baidu.tieba.local")) {
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.baidu.tieba.local", "com.baidu.tieba.local.activity.logo.LogoActivity"));
-                str = this.f1844a.w;
-                intent.putExtra("fname", str);
-                activity4 = this.f1844a.v;
-                activity4.startActivityForResult(intent, -1);
-            } else {
-                Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse("http://static.tieba.baidu.com/client/android/youliao_kehuduan.apk"));
-                activity2 = this.f1844a.v;
-                activity2.startActivity(intent2);
-            }
-            if (TiebaApplication.f().t()) {
-                activity3 = this.f1844a.v;
-                StatService.onEvent(activity3, "frs_start_local", "frsclick", 1);
-            }
-        } catch (Exception e) {
+        Context context;
+        Context context2;
+        if (view.getId() == R.id.textHomeListFrsName) {
+            String obj = view.getTag().toString();
+            context2 = this.f1875a.f1874a;
+            FrsActivity.a(context2, obj, "");
+            StatService.onEvent(this.b, "forum_feed_frsclick", "frs_click", 1);
+            return;
+        }
+        v vVar = (v) view.getTag();
+        if (vVar != null) {
+            context = this.f1875a.f1874a;
+            NewPbActivity.a(context, vVar.k, null, null);
+            StatService.onEvent(this.b, "forum_feed_pbclick", "pb_click", 1);
         }
     }
 }

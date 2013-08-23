@@ -1,26 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.mobstat.StatService;
+import com.baidu.tieba.data.CombineDownload;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class an implements View.OnClickListener {
+public class an implements ah {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f907a;
+    final /* synthetic */ UpdateDialog f924a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.f907a = amVar;
+    public an(UpdateDialog updateDialog) {
+        this.f924a = updateDialog;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ap apVar;
-        boolean isChecked = this.f907a.e.isChecked();
-        if (TiebaApplication.f().t()) {
-            StatService.onEvent(this.f907a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1);
+    @Override // com.baidu.tieba.ah
+    public void a(boolean z) {
+        CombineDownload combineDownload;
+        if (z) {
+            UpdateDialog updateDialog = this.f924a;
+            combineDownload = this.f924a.b;
+            updateDialog.c(combineDownload.getAppUrl());
+        } else {
+            this.f924a.b();
         }
-        apVar = this.f907a.h;
-        apVar.a(isChecked);
+        this.f924a.finish();
+    }
+
+    @Override // com.baidu.tieba.ah
+    public void a() {
+        this.f924a.finish();
     }
 }

@@ -8,11 +8,11 @@ import java.util.Iterator;
 public class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f1237a;
+    final /* synthetic */ e f1270a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.f1237a = eVar;
+        this.f1270a = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,18 +21,18 @@ public class g implements Runnable {
         Scroller scroller2;
         ArrayList arrayList;
         int i;
-        scroller = this.f1237a.l;
+        scroller = this.f1270a.l;
         if (scroller.computeScrollOffset()) {
-            e eVar = this.f1237a;
-            scroller2 = this.f1237a.l;
+            e eVar = this.f1270a;
+            scroller2 = this.f1270a.l;
             eVar.j = scroller2.getCurrX();
-            arrayList = this.f1237a.n;
+            arrayList = this.f1270a.n;
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                i = this.f1237a.j;
+                i = this.f1270a.j;
                 ((a) it.next()).a(i);
             }
-            this.f1237a.post(this);
+            this.f1270a.post(this);
         }
     }
 }

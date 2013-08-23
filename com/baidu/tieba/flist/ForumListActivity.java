@@ -1,5 +1,6 @@
 package com.baidu.tieba.flist;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -7,37 +8,50 @@ import android.os.Bundle;
 import android.support.v4.view.bq;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
-import android.widget.ListView;
-import com.baidu.browser.explorer.BdWebErrorView;
-import com.baidu.tieba.MainTabActivity;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.model.ForumListModel;
-import com.baidu.tieba.model.ar;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.model.aq;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ForumListActivity extends com.baidu.tieba.g implements bq {
+    private p A;
+    private p B;
+    private c C;
+    private t D;
 
     /* renamed from: a  reason: collision with root package name */
-    public l f1034a;
-    private int b;
-    private int c;
+    public ForumListModel.List f1036a;
+    public ForumListModel.List b;
+    public w c;
     private int d;
     private int e;
     private int f;
     private int g;
     private int j;
-    private com.baidu.tieba.util.a n;
-    private ForumListModel.RequestParams o;
-    private e r;
-    private e s;
-    private int k = -1;
-    private int l = -1;
-    private ar m = new ar();
-    private boolean p = false;
-    private boolean q = false;
+    private int k;
+    private int l;
+    private int m;
+    private ForumListModel.RequestParams x;
+    private int n = 10;
+    private int o = 10;
+    private int p = -1;
+    private aq q = new aq();
+    private boolean r = false;
+    private int s = 0;
+    private boolean t = false;
+    private int u = 0;
+    private int v = 10;
+    private boolean w = true;
+    private boolean y = false;
+    private boolean z = false;
+    private u E = new f(this);
+    private e F = new g(this);
+    private AdapterView.OnItemClickListener G = new h(this);
+    private com.baidu.adp.widget.ListView.b H = new i(this);
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
         Intent intent = new Intent(context, ForumListActivity.class);
@@ -49,45 +63,84 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
         context.startActivity(intent);
     }
 
+    public static void a(Activity activity, String str, String str2, String str3) {
+        Intent intent = new Intent(activity, ForumListActivity.class);
+        intent.putExtra("parent_menu_name", str);
+        intent.putExtra("menu_type", str2);
+        intent.putExtra("parent_menu_id", str3);
+        activity.startActivity(intent);
+    }
+
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.forum_list_activity);
-        this.f1034a = new l(this);
-        this.f1034a.r.setOnClickListener(this);
-        this.f1034a.h = (ListView) b();
-        this.f1034a.i = (ListView) c();
-        this.n = new com.baidu.tieba.util.a(this);
-        this.n.a(BdWebErrorView.ERROR_CODE_400, BdWebErrorView.ERROR_CODE_400);
-        this.f1034a.c.setAdapter(new i(this));
-        this.f1034a.g.setText(getIntent().getStringExtra("menu_name"));
-        this.r = new e(this, 0);
-        this.s = new e(this, 1);
-        this.o = new ForumListModel.RequestParams();
+        this.c = new w(this);
+        this.c.h = (BdListView) b();
+        this.c.i = (BdListView) d();
+        this.c.c.setAdapter(new m(this));
+        this.c.g.setText(getIntent().getStringExtra("parent_menu_name"));
+        this.A = new p(this);
+        this.c.h.setAdapter((ListAdapter) this.A);
+        this.B = new p(this);
+        this.c.i.setAdapter((ListAdapter) this.B);
+        this.c.y.setOnClickListener(this);
+        this.x = new ForumListModel.RequestParams();
         try {
-            this.o.menu_id = Integer.valueOf(getIntent().getStringExtra("menu_id")).intValue();
-            this.o.menu_name = getIntent().getStringExtra("menu_name");
-            this.o.menu_type = Integer.valueOf(getIntent().getStringExtra("menu_type")).intValue();
-            this.o.parent_menu_id = Integer.valueOf(getIntent().getStringExtra("parent_menu_id")).intValue();
-            this.o.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
-            this.o.offset = 0;
-            this.o.rn = 10;
-            aj.e("ForumListActivity", "onCreate", this.o.toString());
+            this.x.menu_id = Integer.valueOf(getIntent().getStringExtra("parent_menu_id")).intValue();
+            this.x.menu_name = getIntent().getStringExtra("parent_menu_name");
+            this.x.menu_type = Integer.valueOf(getIntent().getStringExtra("menu_type")).intValue();
+            this.x.parent_menu_id = Integer.valueOf(getIntent().getStringExtra("parent_menu_id")).intValue();
+            this.x.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
+            this.x.offset = 0;
+            this.x.rn = 10;
+            com.baidu.tieba.util.aq.e("ForumListActivity", "onCreate", this.x.toString());
         } catch (NullPointerException e) {
             finish();
         }
-        new a(this).execute(new Void[0]);
+        if (this.x.menu_id != 0) {
+            this.c.b();
+            this.r = true;
+            this.c.c.getAdapter().notifyDataSetChanged();
+        } else {
+            this.c.a();
+        }
+        this.f1036a = new ForumListModel.List();
+        this.b = new ForumListModel.List();
+        this.f1036a.forum_list = new ForumListModel.Forum[50];
+        this.b.forum_list = new ForumListModel.Forum[50];
+        this.c.h.setPullRefresh(this.c.r);
+        this.c.i.setPullRefresh(this.c.s);
+        this.c.r.a(this.H);
+        this.c.s.a(this.H);
+        this.c.h.addFooterView(this.c.l);
+        this.c.i.addFooterView(this.c.o);
+        if (getIntent().getStringExtra("menu_type").equals("2")) {
+            com.baidu.tieba.util.aq.e("ForumListActivity", "OnCreate", "from frs");
+            this.c.z.setVisibility(8);
+            this.c.d();
+        } else {
+            this.C = new c(this, getIntent().getStringExtra("parent_menu_name"), getIntent().getStringExtra("menu_type"), getIntent().getStringExtra("parent_menu_id"));
+            this.C.a(this.F);
+            this.C.LoadData();
+            this.c.y.setOnClickListener(this);
+        }
+        this.D = new t(this, this.x);
+        this.D.a(this.E);
+        this.c.h.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.r != null) {
-            this.r.notifyDataSetChanged();
+        if (this.A != null) {
+            this.A.b();
+            this.A.notifyDataSetChanged();
         }
-        if (this.s != null) {
-            this.s.notifyDataSetChanged();
+        if (this.B != null) {
+            this.B.b();
+            this.B.notifyDataSetChanged();
         }
     }
 
@@ -95,89 +148,119 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.m.a();
-        this.f1034a.c.setAdapter(null);
-        this.f1034a.i.setAdapter((ListAdapter) null);
-        this.f1034a.h.setAdapter((ListAdapter) null);
+        if (this.q != null) {
+            this.q.a();
+        }
+        this.c.c.setAdapter(null);
+        this.c.i.setAdapter((ListAdapter) null);
+        this.c.h.setAdapter((ListAdapter) null);
+        if (this.c.w != null) {
+            this.c.w.setAdapter((ListAdapter) null);
+        }
+        if (this.C != null) {
+            this.C.cancelLoadData();
+        }
+        if (this.D != null) {
+            this.D.cancelLoadData();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g
     public void a(int i) {
-        ah.d(this.f1034a.e, i);
-        ah.a(this.f1034a.f, i);
-        ah.f(this.f1034a.g, i);
-        ah.b(findViewById(R.id.container), i);
-        ah.d(this.f1034a.r, i);
-        if (TiebaApplication.f().au() == 1) {
-            this.f1034a.h.setDivider(new ColorDrawable(-13881543));
-            this.f1034a.i.setDivider(new ColorDrawable(-13881543));
+        ao.d(this.c.e, i);
+        ao.a(this.c.f, i);
+        ao.f(this.c.g, i);
+        ao.b(findViewById(R.id.container), i);
+        if (TiebaApplication.g().an() == 1) {
+            this.c.h.setDivider(new ColorDrawable(-13881543));
+            this.c.i.setDivider(new ColorDrawable(-13881543));
         } else {
-            this.f1034a.h.setDivider(new ColorDrawable(-1775893));
-            this.f1034a.i.setDivider(new ColorDrawable(-1775893));
+            this.c.h.setDivider(new ColorDrawable(-1775893));
+            this.c.i.setDivider(new ColorDrawable(-1775893));
         }
-        this.f1034a.h.setDividerHeight(2);
-        this.f1034a.i.setDividerHeight(2);
-        this.r.notifyDataSetChanged();
-        this.s.notifyDataSetChanged();
+        this.c.h.setDividerHeight(2);
+        this.c.i.setDividerHeight(2);
+        this.A.notifyDataSetChanged();
+        this.B.notifyDataSetChanged();
         if (i == 1) {
-            this.f1034a.d.setBackgroundResource(R.drawable.bg_up_bar_1);
-            this.b = getResources().getColor(R.color.flist_text_color_night);
-            this.c = getResources().getColor(R.color.flist_selected_text_color_night);
-            this.d = R.drawable.btn_gray_fillet_s_1;
-            this.e = R.drawable.ico_downward_1;
-            this.f = R.drawable.ico_upward_1;
-            this.g = R.drawable.icon_like_s_1;
-            this.j = R.drawable.icon_like_n_1;
-            this.f1034a.j.setTextColor(this.b);
-            this.f1034a.k.setTextColor(this.b);
-            this.f1034a.b.setBackgroundResource(R.drawable.bg_black_banner_down_1);
-            this.f1034a.p.setTextColor(getResources().getColor(R.color.flist_text_color_night));
-            this.f1034a.f1046a.setBackgroundResource(R.drawable.bg_black_banner_down_1);
-            this.f1034a.m.setTextColor(getResources().getColor(R.color.flist_text_color_night));
-            if (this.p) {
-                this.f1034a.n.setImageResource(R.drawable.ico_upward_1);
-            } else {
-                this.f1034a.n.setImageResource(R.drawable.ico_downward_1);
+            if (this.c.t != null) {
+                this.c.t.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_allsproutpop_dropdown_1));
             }
-            if (this.q) {
-                this.f1034a.q.setImageResource(R.drawable.ico_upward_1);
+            this.c.z.setImageResource(R.drawable.btn_allsproutpop_down_1);
+            this.c.d.setBackgroundResource(R.drawable.bg_up_bar_1);
+            this.d = getResources().getColor(R.color.flist_text_color_night);
+            this.e = getResources().getColor(R.color.forum_list_tab_text_select);
+            this.f = R.drawable.btn_pop_most_left_n_1;
+            this.g = R.drawable.btn_pop_most_right_n_1;
+            this.j = R.drawable.btn_pop_most_left_s_1;
+            this.k = R.drawable.btn_pop_most_right_s_1;
+            this.l = R.drawable.ico_downward_1;
+            this.m = R.drawable.ico_upward_1;
+            this.A.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);
+            this.B.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);
+            this.c.j.setTextColor(this.d);
+            this.c.k.setTextColor(this.d);
+            this.c.b.setBackgroundResource(R.drawable.bg_black_banner_down_1);
+            this.c.p.setTextColor(getResources().getColor(R.color.flist_text_color_night));
+            this.c.f1057a.setBackgroundResource(R.drawable.bg_black_banner_down_1);
+            this.c.m.setTextColor(getResources().getColor(R.color.flist_text_color_night));
+            if (this.c.r != null && this.c.s != null) {
+                this.c.r.a(i);
+                this.c.s.a(i);
+            }
+            if (this.y) {
+                this.c.n.setImageResource(R.drawable.ico_upward_1);
             } else {
-                this.f1034a.q.setImageResource(R.drawable.ico_downward_1);
+                this.c.n.setImageResource(R.drawable.ico_downward_1);
+            }
+            if (this.z) {
+                this.c.q.setImageResource(R.drawable.ico_upward_1);
+            } else {
+                this.c.q.setImageResource(R.drawable.ico_downward_1);
             }
         } else {
-            this.f1034a.d.setBackgroundResource(R.drawable.bg_black_banner_up);
-            this.b = getResources().getColor(R.color.flist_text_color_day);
-            this.c = getResources().getColor(R.color.flist_selected_text_color_day);
-            this.d = R.drawable.btn_gray_fillet_s;
-            this.e = R.drawable.ico_downward;
-            this.f = R.drawable.ico_upward;
-            this.g = R.drawable.icon_like_s;
-            this.j = R.drawable.icon_like_n;
-            this.f1034a.b.setBackgroundResource(R.drawable.bg_black_banner_down);
-            this.f1034a.p.setTextColor(getResources().getColor(R.color.flist_text_color_day));
-            this.f1034a.f1046a.setBackgroundResource(R.drawable.bg_black_banner_down);
-            this.f1034a.m.setTextColor(getResources().getColor(R.color.flist_text_color_day));
-            if (this.p) {
-                this.f1034a.n.setImageResource(R.drawable.ico_upward);
-            } else {
-                this.f1034a.n.setImageResource(R.drawable.ico_downward);
+            if (this.c.t != null) {
+                this.c.t.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_allsproutpop_dropdown_1));
             }
-            if (this.q) {
-                this.f1034a.q.setImageResource(R.drawable.ico_upward);
+            this.c.z.setImageResource(R.drawable.btn_allsproutpop_down);
+            this.c.d.setBackgroundResource(R.drawable.bg_pop_most);
+            this.d = getResources().getColor(R.color.flist_text_color_day);
+            this.e = getResources().getColor(R.color.forum_list_tab_text_select);
+            this.f = R.drawable.btn_pop_most_left_n;
+            this.g = R.drawable.btn_pop_most_right_n;
+            this.j = R.drawable.btn_pop_most_left_s;
+            this.k = R.drawable.btn_pop_most_right_s;
+            this.l = R.drawable.ico_downward;
+            this.m = R.drawable.ico_upward;
+            this.A.a(R.drawable.btn_add_end, R.drawable.btn_add);
+            this.B.a(R.drawable.btn_add_end, R.drawable.btn_add);
+            this.c.b.setBackgroundResource(R.drawable.bg_black_banner_down);
+            this.c.p.setTextColor(getResources().getColor(R.color.flist_text_color_day));
+            this.c.f1057a.setBackgroundResource(R.drawable.bg_black_banner_down);
+            this.c.m.setTextColor(getResources().getColor(R.color.flist_text_color_day));
+            if (this.y) {
+                this.c.n.setImageResource(R.drawable.ico_upward);
             } else {
-                this.f1034a.q.setImageResource(R.drawable.ico_downward);
+                this.c.n.setImageResource(R.drawable.ico_downward);
+            }
+            if (this.z) {
+                this.c.q.setImageResource(R.drawable.ico_upward);
+            } else {
+                this.c.q.setImageResource(R.drawable.ico_downward);
             }
         }
-        if (this.f1034a.c.getCurrentItem() == 0) {
-            this.f1034a.j.setTextColor(this.c);
-            this.f1034a.j.setBackgroundResource(this.d);
-            this.f1034a.k.setTextColor(this.b);
+        if (this.c.c.getCurrentItem() == 0) {
+            this.c.j.setTextColor(this.e);
+            this.c.j.setBackgroundResource(this.j);
+            this.c.k.setBackgroundResource(this.g);
+            this.c.k.setTextColor(this.d);
             return;
         }
-        this.f1034a.k.setTextColor(this.c);
-        this.f1034a.k.setBackgroundResource(this.d);
-        this.f1034a.j.setTextColor(this.b);
+        this.c.k.setTextColor(this.e);
+        this.c.k.setBackgroundResource(this.k);
+        this.c.j.setBackgroundResource(this.f);
+        this.c.j.setTextColor(this.d);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -186,14 +269,16 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
             case R.id.title_back /* 2131099689 */:
                 finish();
                 return;
-            case R.id.home /* 2131099816 */:
-                MainTabActivity.a(this);
+            case R.id.title_menu /* 2131100036 */:
+                this.c.a(this.G);
                 return;
-            case R.id.tab_recommends /* 2131100002 */:
-                this.f1034a.c.setCurrentItem(0);
+            case R.id.tab_recommends /* 2131100040 */:
+                this.c.c.setCurrentItem(0);
+                this.p = 0;
                 return;
-            case R.id.tab_hot /* 2131100003 */:
-                this.f1034a.c.setCurrentItem(1);
+            case R.id.tab_hot /* 2131100041 */:
+                this.c.c.setCurrentItem(1);
+                this.p = 1;
                 return;
             default:
                 return;
@@ -201,34 +286,72 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     }
 
     private View b() {
-        this.f1034a.h = d();
-        this.f1034a.h.setAdapter((ListAdapter) this.r);
-        this.f1034a.l.setOnClickListener(new b(this));
-        return this.f1034a.h;
+        this.c.h = l();
+        this.c.l.setOnClickListener(new j(this));
+        return this.c.h;
     }
 
-    private View c() {
-        this.f1034a.i = d();
-        this.f1034a.i.setAdapter((ListAdapter) this.s);
-        this.f1034a.o.setOnClickListener(new c(this));
-        return this.f1034a.i;
-    }
-
-    private ListView d() {
-        ListView listView = new ListView(this);
-        listView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        listView.setCacheColorHint(0);
-        listView.setSelector(17170445);
-        if (TiebaApplication.f().au() == 1) {
-            listView.setDivider(new ColorDrawable(-13881543));
-        } else {
-            listView.setDivider(new ColorDrawable(-1775893));
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        if (this.y) {
+            int min = Math.min(this.A.getCount(), 10);
+            this.n = 10;
+            ForumListModel.Forum[] forumArr = new ForumListModel.Forum[min];
+            System.arraycopy(this.A.a(), 0, forumArr, 0, min);
+            this.A.a(min);
+            this.A.a(forumArr);
+            this.y = false;
+            this.c.m.setText(getString(R.string.flist_expand_list));
+            this.c.n.setImageResource(this.l);
+            return;
         }
-        listView.setDividerHeight(2);
-        listView.setFooterDividersEnabled(false);
-        listView.setHorizontalFadingEdgeEnabled(false);
-        listView.setVerticalFadingEdgeEnabled(false);
-        return listView;
+        this.n = 50;
+        o oVar = new o(this, null);
+        oVar.a(true);
+        oVar.execute(new Void[0]);
+    }
+
+    private View d() {
+        this.c.i = l();
+        this.c.o.setOnClickListener(new k(this));
+        return this.c.i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void k() {
+        if (this.z) {
+            int min = Math.min(this.B.getCount(), 10);
+            this.o = 10;
+            ForumListModel.Forum[] forumArr = new ForumListModel.Forum[min];
+            System.arraycopy(this.B.a(), 0, forumArr, 0, min);
+            this.B.a(min);
+            this.B.a(forumArr);
+            this.z = false;
+            this.c.p.setText(getString(R.string.flist_expand_list));
+            this.c.q.setImageResource(this.l);
+            return;
+        }
+        this.o = 50;
+        n nVar = new n(this, null);
+        nVar.a(true);
+        nVar.execute(new Void[0]);
+    }
+
+    private BdListView l() {
+        BdListView bdListView = new BdListView(this);
+        bdListView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        bdListView.setCacheColorHint(0);
+        bdListView.setSelector(17170445);
+        if (TiebaApplication.g().an() == 1) {
+            bdListView.setDivider(new ColorDrawable(-13881543));
+        } else {
+            bdListView.setDivider(new ColorDrawable(-1775893));
+        }
+        bdListView.setDividerHeight(2);
+        bdListView.setFooterDividersEnabled(false);
+        bdListView.setHorizontalFadingEdgeEnabled(false);
+        bdListView.setVerticalFadingEdgeEnabled(false);
+        return bdListView;
     }
 
     @Override // android.support.v4.view.bq
@@ -237,16 +360,18 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
 
     @Override // android.support.v4.view.bq
     public void a_(int i) {
-        if (i == 0) {
-            this.f1034a.j.setBackgroundResource(this.d);
-            this.f1034a.j.setTextColor(this.c);
-            this.f1034a.k.setBackgroundResource(0);
-            this.f1034a.k.setTextColor(this.b);
-        } else if (i == 1) {
-            this.f1034a.k.setBackgroundResource(this.d);
-            this.f1034a.k.setTextColor(this.c);
-            this.f1034a.j.setBackgroundResource(0);
-            this.f1034a.j.setTextColor(this.b);
+        if (!this.r) {
+            if (i == 0) {
+                this.c.j.setBackgroundResource(this.j);
+                this.c.j.setTextColor(this.e);
+                this.c.k.setBackgroundResource(this.g);
+                this.c.k.setTextColor(this.d);
+            } else if (i == 1) {
+                this.c.k.setBackgroundResource(this.k);
+                this.c.k.setTextColor(this.e);
+                this.c.j.setBackgroundResource(this.f);
+                this.c.j.setTextColor(this.d);
+            }
         }
     }
 
@@ -258,16 +383,15 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     protected void onActivityResult(int i, int i2, Intent intent) {
         ForumListModel.Forum[] a2;
         if (i == 11002 && i2 == -1) {
-            if (this.l == 0) {
-                a2 = this.r.a();
-            } else if (this.l == 1) {
-                a2 = this.s.a();
+            if (this.p == 0) {
+                a2 = this.A.a();
+            } else if (this.p == 1) {
+                a2 = this.B.a();
             } else {
                 return;
             }
-            findViewById(R.id.loading).setVisibility(0);
-            this.m.setLoadDataCallBack(new d(this, a2));
-            this.m.a(a2[this.k].forum_name, String.valueOf(a2[this.k].forum_id));
+            this.q.setLoadDataCallBack(new l(this, a2));
+            this.q.a(a2[this.A.f1051a].forum_name, String.valueOf(a2[this.A.f1051a].forum_id));
         }
     }
 }

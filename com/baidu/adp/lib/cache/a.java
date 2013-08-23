@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final com.baidu.adp.a.f f369a;
+    protected final com.baidu.adp.a.f f375a;
     protected String b;
     protected f c;
     protected e d;
@@ -29,7 +29,7 @@ public abstract class a {
     protected abstract k b(SQLiteDatabase sQLiteDatabase, String str);
 
     public a(com.baidu.adp.a.f fVar) {
-        this.f369a = fVar;
+        this.f375a = fVar;
     }
 
     public void a(d dVar, String str) {
@@ -44,32 +44,33 @@ public abstract class a {
 
     public k b(String str) {
         try {
-            return b(this.f369a.a(), str);
+            return b(this.f375a.a(), str);
         } catch (Throwable th) {
-            this.f369a.a(th);
+            this.f375a.a(th);
             com.baidu.adp.lib.e.d.a(getClass(), str, th);
             return null;
         }
     }
 
     public void b(k kVar) {
+        String a2;
         try {
             synchronized (this.g) {
-                this.f.remove(kVar.f374a);
+                this.f.remove(kVar.f380a);
             }
-            ContentValues a2 = a(kVar);
-            if (this.f369a.a().update(this.b, a2, "m_key = ?", new String[]{kVar.f374a}) == 0) {
-                this.f369a.a().insert(this.b, null, a2);
+            ContentValues a3 = a(kVar);
+            if (this.f375a.a().update(this.b, a3, "m_key = ?", new String[]{kVar.f380a}) == 0) {
+                this.f375a.a().insert(this.b, null, a3);
                 if (this.d != null) {
                     b();
                 }
             }
-            if (this.c != null) {
-                this.c.a(kVar);
+            if (this.c != null && (a2 = this.c.a(kVar)) != null) {
+                c(a2);
             }
         } catch (Throwable th) {
-            this.f369a.a(th);
-            com.baidu.adp.lib.e.d.a(getClass(), "failed to insert " + kVar.f374a + " to db.", th);
+            this.f375a.a(th);
+            com.baidu.adp.lib.e.d.a(getClass(), "failed to insert " + kVar.f380a + " to db.", th);
         }
     }
 
@@ -85,9 +86,9 @@ public abstract class a {
 
     public int c(String str) {
         try {
-            return this.f369a.a().delete(this.b, "m_key = ?", new String[]{str});
+            return this.f375a.a().delete(this.b, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.f369a.a(th);
+            this.f375a.a(th);
             com.baidu.adp.lib.e.d.a(getClass(), "failed to delete " + str + " from db.", th);
             return 0;
         }
@@ -109,10 +110,10 @@ public abstract class a {
             Cursor cursor = null;
             try {
                 this.d.c();
-                cursor = a(this.f369a.a(), str);
+                cursor = a(this.f375a.a(), str);
                 while (cursor.moveToNext()) {
                     k kVar = new k();
-                    kVar.f374a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    kVar.f380a = cursor.getString(cursor.getColumnIndex("m_key"));
                     kVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     kVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
                     kVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
@@ -124,7 +125,7 @@ public abstract class a {
                 c();
             } catch (Throwable th) {
                 try {
-                    this.f369a.a(th);
+                    this.f375a.a(th);
                     com.baidu.adp.lib.e.d.a(getClass(), "performEvict", th);
                 } finally {
                     com.baidu.adp.lib.e.b.a(cursor);
@@ -139,10 +140,10 @@ public abstract class a {
             Cursor cursor = null;
             try {
                 this.c.c();
-                cursor = a(this.f369a.a(), str);
+                cursor = a(this.f375a.a(), str);
                 while (cursor.moveToNext()) {
                     k kVar = new k();
-                    kVar.f374a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    kVar.f380a = cursor.getString(cursor.getColumnIndex("m_key"));
                     kVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     kVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
                     kVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
@@ -154,7 +155,7 @@ public abstract class a {
                 c();
             } catch (Throwable th) {
                 try {
-                    this.f369a.a(th);
+                    this.f375a.a(th);
                     com.baidu.adp.lib.e.d.a(getClass(), "performPump", th);
                 } finally {
                     com.baidu.adp.lib.e.b.a(cursor);
@@ -168,7 +169,7 @@ public abstract class a {
     public void c() {
         String str;
         if (!this.f.isEmpty()) {
-            SQLiteDatabase a2 = this.f369a.a();
+            SQLiteDatabase a2 = this.f375a.a();
             a2.beginTransaction();
             while (true) {
                 try {
@@ -184,7 +185,7 @@ public abstract class a {
                     a2.delete(this.b, "m_key = ?", new String[]{String.valueOf(str)});
                 } catch (Throwable th) {
                     try {
-                        this.f369a.a(th);
+                        this.f375a.a(th);
                         return;
                     } finally {
                         a2.endTransaction();

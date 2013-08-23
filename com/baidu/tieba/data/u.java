@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1025a = 0;
+    private int f1028a = 0;
     private long b = 0;
     private String c = null;
     private String d = null;
@@ -19,7 +19,7 @@ public class u {
     private String l;
 
     public int a() {
-        return this.f1025a;
+        return this.f1028a;
     }
 
     public long b() {
@@ -61,7 +61,7 @@ public class u {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1025a = jSONObject.optInt("type", 0);
+                this.f1028a = jSONObject.optInt("type", 0);
                 this.c = jSONObject.optString("title");
                 this.b = jSONObject.optLong("time", 0L) * 1000;
                 this.d = jSONObject.optString("fname");
@@ -74,7 +74,7 @@ public class u {
                 this.i.parserJson(jSONObject.optJSONObject("replyer"));
                 this.j.parserJson(jSONObject.optJSONObject("quote_user"));
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b("FeedData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aq.b("FeedData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

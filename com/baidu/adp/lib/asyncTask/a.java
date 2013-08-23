@@ -4,19 +4,19 @@ package com.baidu.adp.lib.asyncTask;
 public class a extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdAsyncTask f350a;
+    final /* synthetic */ BdAsyncTask f355a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BdAsyncTask bdAsyncTask) {
         super(null);
-        this.f350a = bdAsyncTask;
+        this.f355a = bdAsyncTask;
     }
 
     @Override // java.util.concurrent.Callable
     public Object call() {
         Object c;
-        c = this.f350a.c(this.f350a.a(this.b));
+        c = this.f355a.c(this.f355a.a(this.b));
         return c;
     }
 }

@@ -1,35 +1,33 @@
 package com.baidu.tieba.util;
 
 import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-public class t implements MediaScannerConnection.MediaScannerConnectionClient {
+public class t extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private MediaScannerConnection f1772a;
-    private Context b;
-    private String c;
-    private String d;
+    private Context f1808a;
 
     public t(Context context) {
-        this.b = context;
+        this.f1808a = null;
+        this.f1808a = context;
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+    }
+
+    public Context a() {
+        return this.f1808a;
     }
 
     public void a(String str) {
-        this.c = str;
-        this.d = "image/*";
-        this.f1772a = new MediaScannerConnection(this.b, this);
-        this.f1772a.connect();
+        UtilHelper.c(this.f1808a, str);
     }
 
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        this.f1772a.scanFile(this.c, this.d);
-    }
-
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        this.f1772a.disconnect();
+    public void b(String str) {
+        NewPbActivity.a(this.f1808a, str, null, null);
     }
 }

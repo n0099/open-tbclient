@@ -25,7 +25,7 @@ public class Jni {
     private static int f60if = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f722a = 14;
+    private static int f745a = 14;
 
     /* renamed from: do  reason: not valid java name */
     private static int f58do = 1024;

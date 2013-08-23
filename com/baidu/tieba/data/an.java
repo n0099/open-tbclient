@@ -5,56 +5,78 @@ import org.json.JSONObject;
 public class an {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f976a = 0;
-    private long b = 0;
-    private long c = 0;
-    private long d = 0;
+    private int f986a = 0;
+    private int b = 0;
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
+    private int g = 0;
+    private int c = 0;
 
-    public void a(long j) {
-        this.f976a = j;
+    public int a() {
+        return this.f986a;
     }
 
-    public long a() {
-        return this.f976a;
+    public void a(int i) {
+        this.f986a = i;
     }
 
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long b() {
+    public int b() {
         return this.b;
     }
 
-    public void c(long j) {
-        this.c = j;
+    public void b(int i) {
+        this.b = i;
     }
 
-    public long c() {
+    public int c() {
         return this.c;
     }
 
-    public long d() {
+    public int d() {
         return this.d;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str).optJSONObject("message"));
-        } catch (Exception e) {
-            com.baidu.tieba.util.aj.b("MessageData", "parserJson", "error = " + e.getMessage());
-        }
+    public void c(int i) {
+        this.d = i;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public void d(int i) {
+        this.e = i;
+    }
+
+    public void e(int i) {
+        this.f = i;
+    }
+
+    public int f() {
+        return this.f;
+    }
+
+    public void f(int i) {
+        this.g = i;
+    }
+
+    public int g() {
+        return this.g;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f976a = jSONObject.optLong("replyme", 0L);
-                this.b = jSONObject.optLong("atme", 0L);
-                this.c = jSONObject.optLong("fans", 0L);
-                this.d = jSONObject.optLong("pletter", 0L);
+                this.f986a = jSONObject.optInt("total_page", 0);
+                this.b = jSONObject.optInt("total_num", 0);
+                this.c = jSONObject.optInt("total_count", 0);
+                this.d = jSONObject.optInt("current_page", 0);
+                this.e = jSONObject.optInt("page_size", 0);
+                this.f = jSONObject.optInt("has_more", 0);
+                this.g = jSONObject.optInt("has_prev", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b("MessageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aq.b("PageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

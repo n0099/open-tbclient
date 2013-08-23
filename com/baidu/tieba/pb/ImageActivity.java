@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.MultiImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import java.util.Map;
 public class ImageActivity extends com.baidu.tieba.g {
 
     /* renamed from: a */
-    private ProgressBar f1434a = null;
+    private ProgressBar f1471a = null;
     private int b = 0;
     private ArrayList c = null;
     private int d = -1;
@@ -52,47 +53,47 @@ public class ImageActivity extends com.baidu.tieba.g {
     private String C = null;
     private boolean D = false;
 
-    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.model.bl blVar) {
+    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.model.bk bkVar) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putStringArrayListExtra("url", arrayList);
             intent.putExtra("index", i);
             intent.putExtra("is_pv", true);
             intent.putExtra("pv_type", "pb");
-            if (blVar != null) {
-                if (blVar.a() != null && blVar.a().a() != null) {
-                    intent.putExtra("fname", blVar.a().a().b());
-                    intent.putExtra("fid", blVar.a().a().a());
+            if (bkVar != null) {
+                if (bkVar.a() != null && bkVar.a().b() != null) {
+                    intent.putExtra("fname", bkVar.a().b().b());
+                    intent.putExtra("fid", bkVar.a().b().a());
                 }
-                if (blVar.a() != null && blVar.a().b() != null) {
-                    intent.putExtra("tid", blVar.a().b().a());
+                if (bkVar.a() != null && bkVar.a().c() != null) {
+                    intent.putExtra("tid", bkVar.a().c().a());
                 }
             }
             context.startActivity(intent);
         }
     }
 
-    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.data.as asVar) {
+    public static void a(Context context, ArrayList arrayList, int i, com.baidu.tieba.data.ao aoVar) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putStringArrayListExtra("url", arrayList);
             intent.putExtra("index", i);
             intent.putExtra("is_pv", true);
             intent.putExtra("pv_type", "pb");
-            if (asVar != null) {
-                if (asVar.a() != null) {
-                    intent.putExtra("fname", asVar.a().b());
-                    intent.putExtra("fid", asVar.a().a());
+            if (aoVar != null) {
+                if (aoVar.b() != null) {
+                    intent.putExtra("fname", aoVar.b().b());
+                    intent.putExtra("fid", aoVar.b().a());
                 }
-                if (asVar.b() != null) {
-                    intent.putExtra("tid", asVar.b().a());
+                if (aoVar.c() != null) {
+                    intent.putExtra("tid", aoVar.c().a());
                 }
             }
             context.startActivity(intent);
         }
     }
 
-    public static void a(Context context, ArrayList arrayList, int i, int i2, boolean z, com.baidu.tieba.data.aa aaVar) {
+    public static void a(Context context, ArrayList arrayList, int i, int i2, boolean z, com.baidu.tieba.data.ac acVar) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putStringArrayListExtra("url", arrayList);
@@ -101,11 +102,11 @@ public class ImageActivity extends com.baidu.tieba.g {
             intent.putExtra("count", i2);
             intent.putExtra("hasnext", z);
             intent.putExtra("pv_type", "photo");
-            if (aaVar != null) {
-                intent.putExtra("nexttitle", aaVar.g());
-                intent.putExtra("fname", aaVar.i());
-                intent.putExtra("fid", aaVar.j());
-                intent.putExtra("tid", aaVar.c());
+            if (acVar != null) {
+                intent.putExtra("nexttitle", acVar.g());
+                intent.putExtra("fname", acVar.i());
+                intent.putExtra("fid", acVar.j());
+                intent.putExtra("tid", acVar.c());
             }
             ((Activity) context).startActivityForResult(intent, 14001);
         }
@@ -114,7 +115,7 @@ public class ImageActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.f().a((com.baidu.tieba.g) this);
+        TiebaApplication.g().a((com.baidu.tieba.g) this);
         setContentView(R.layout.image_activity);
         a(bundle);
         l();
@@ -142,7 +143,7 @@ public class ImageActivity extends com.baidu.tieba.g {
     public void a(int i) {
         super.a(i);
         if (i == 1) {
-            this.o.setBackgroundColor(com.baidu.tieba.util.ah.d(i));
+            this.o.setBackgroundColor(com.baidu.tieba.util.ao.d(i));
         } else {
             this.o.setBackgroundColor(-16777216);
         }
@@ -180,7 +181,7 @@ public class ImageActivity extends com.baidu.tieba.g {
 
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onDestroy() {
-        TiebaApplication.f().b((com.baidu.tieba.g) this);
+        TiebaApplication.g().b((com.baidu.tieba.g) this);
         a(this.d, this.d);
         o();
         this.o.c();
@@ -188,8 +189,8 @@ public class ImageActivity extends com.baidu.tieba.g {
             this.j.cancel();
             this.j = null;
         }
-        if (this.f1434a != null) {
-            this.f1434a.setVisibility(8);
+        if (this.f1471a != null) {
+            this.f1471a.setVisibility(8);
         }
         if (this.D) {
             unregisterReceiver(this.v);
@@ -214,15 +215,15 @@ public class ImageActivity extends com.baidu.tieba.g {
         this.r = new g(this);
         this.q = new h(this);
         this.n = (LinearLayout) findViewById(R.id.title);
-        this.f1434a = (ProgressBar) findViewById(R.id.progress);
+        this.f1471a = (ProgressBar) findViewById(R.id.progress);
         this.k = (Button) findViewById(R.id.save);
         this.k.setOnClickListener(this.p);
         this.l = (Button) findViewById(R.id.back);
         this.l.setOnClickListener(this.p);
         this.m = (TextView) findViewById(R.id.titel_text);
         this.o = (MultiImageView) findViewById(R.id.viewpager);
-        this.o.setPageMargin(com.baidu.tieba.util.am.a((Context) this, 8.0f));
-        this.o.a(2, com.baidu.tieba.data.g.h() * com.baidu.tieba.data.g.h());
+        this.o.setPageMargin(UtilHelper.a((Context) this, 8.0f));
+        this.o.a(2, com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i());
         this.o.setOnPageChangeListener(this.r);
         this.o.setUrlData(this.c);
         this.o.setItemOnclickListener(this.p);
@@ -344,7 +345,7 @@ public class ImageActivity extends com.baidu.tieba.g {
                             i++;
                         }
                     }
-                    TiebaApplication.f().a(i, this.y.size(), this.C);
+                    TiebaApplication.g().a(i, this.y.size(), this.C);
                     this.y.clear();
                 }
             }
@@ -354,7 +355,7 @@ public class ImageActivity extends com.baidu.tieba.g {
     private String c(String str) {
         int lastIndexOf;
         int indexOf;
-        String e = com.baidu.tieba.util.ai.e(str);
+        String e = com.baidu.tieba.util.ap.e(str);
         if (e != null) {
             if (e.indexOf(".baidu.com") != -1 && (lastIndexOf = e.lastIndexOf("/")) != -1 && (indexOf = e.indexOf(".", lastIndexOf)) != -1) {
                 return e.substring(lastIndexOf + 1, indexOf);

@@ -9,15 +9,15 @@ public class CyberPlayerEngineConstants {
     public static final String CYBERPLAYER_CLASS_PKG_NAME = "com.baidu.cyberplayer.engine";
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f705a = CYBERPLAYER_CLASS_PKG_NAME;
+    private static String f728a = CYBERPLAYER_CLASS_PKG_NAME;
     private static String b = null;
 
     public static String getEnginePkgName() {
-        return f705a;
+        return f728a;
     }
 
     public static void setEnginePkgName(String str) {
-        f705a = str;
+        f728a = str;
     }
 
     public static String getLibPath() {

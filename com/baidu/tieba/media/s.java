@@ -1,16 +1,15 @@
 package com.baidu.tieba.media;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
+class s implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f1284a;
+    final /* synthetic */ q f1317a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(q qVar) {
-        this.f1284a = qVar;
+        this.f1317a = qVar;
     }
 
     @Override // android.view.View.OnClickListener

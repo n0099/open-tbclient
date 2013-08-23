@@ -1,29 +1,25 @@
 package com.baidu.tieba.recommend;
 
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n {
+public class n implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    View f1670a;
-    TextView b;
-    LinearLayout c;
-    RelativeLayout d;
-    TextView e;
-    TextView f;
-    TextView g;
-    TextView h;
-    final /* synthetic */ c i;
-
-    private n(c cVar) {
-        this.i = cVar;
-    }
+    final /* synthetic */ h f1689a;
+    private final /* synthetic */ View b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ n(c cVar, n nVar) {
-        this(cVar);
+    public n(h hVar, View view) {
+        this.f1689a = hVar;
+        this.b = view;
+    }
+
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        View findViewWithTag;
+        if (this.b != null && (findViewWithTag = this.b.findViewWithTag(str)) != null) {
+            findViewWithTag.invalidate();
+        }
     }
 }

@@ -6,11 +6,11 @@ import android.view.View;
 class k implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f410a;
+    final /* synthetic */ j f418a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f410a = jVar;
+        this.f418a = jVar;
     }
 
     @Override // android.view.View.OnTouchListener

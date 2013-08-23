@@ -8,13 +8,13 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.Vibrator;
 import android.view.View;
-import com.baidu.tieba.util.aj;
-import com.baidu.tieba.view.be;
+import com.baidu.tieba.util.aq;
+import com.baidu.tieba.view.bd;
 /* loaded from: classes.dex */
 public class ShakeActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private PowerManager.WakeLock f1243a = null;
+    private PowerManager.WakeLock f1276a = null;
     private PowerManager b = null;
     private Vibrator c = null;
     private g d = null;
@@ -23,7 +23,7 @@ public class ShakeActivity extends com.baidu.tieba.g {
     private i g = null;
     private k j = null;
     private h k = new a(this);
-    private be l = new b(this);
+    private bd l = new b(this);
     private DialogInterface.OnClickListener m = new c(this);
     private DialogInterface.OnDismissListener n = new d(this);
 
@@ -75,8 +75,8 @@ public class ShakeActivity extends com.baidu.tieba.g {
     public void onPause() {
         super.onPause();
         b();
-        if (this.f1243a != null) {
-            this.f1243a.release();
+        if (this.f1276a != null) {
+            this.f1276a.release();
         }
     }
 
@@ -99,8 +99,8 @@ public class ShakeActivity extends com.baidu.tieba.g {
     public void onResume() {
         super.onResume();
         c();
-        if (this.f1243a != null) {
-            this.f1243a.acquire();
+        if (this.f1276a != null) {
+            this.f1276a.acquire();
         }
     }
 
@@ -167,9 +167,9 @@ public class ShakeActivity extends com.baidu.tieba.g {
         }
         try {
             this.b = (PowerManager) getSystemService("power");
-            this.f1243a = this.b.newWakeLock(26, "My Lock");
+            this.f1276a = this.b.newWakeLock(26, "My Lock");
         } catch (Exception e) {
-            aj.b(getClass().getName(), "initData", e.toString());
+            aq.b(getClass().getName(), "initData", e.toString());
         }
         this.e = new f(this, this);
         this.d = new g();

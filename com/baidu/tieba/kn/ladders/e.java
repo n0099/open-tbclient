@@ -10,20 +10,20 @@ import com.baidu.tieba.kn.ladders.KnLaddersModel;
 import com.baidu.tieba.kn.shake.ShakeActivity;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1184a;
+    final /* synthetic */ a f1216a;
     private final /* synthetic */ long b;
     private final /* synthetic */ KnLaddersModel.PlayerInfo c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, long j, KnLaddersModel.PlayerInfo playerInfo) {
-        this.f1184a = aVar;
+        this.f1216a = aVar;
         this.b = j;
         this.c = playerInfo;
     }
@@ -36,24 +36,24 @@ public class e implements View.OnClickListener {
         Activity activity4;
         KnLaddersFragment knLaddersFragment;
         Activity activity5;
-        activity = this.f1184a.k;
-        if (NetWorkCore.a(activity) == NetWorkCore.NetworkState.UNAVAIL) {
-            activity5 = this.f1184a.k;
-            am.a((Context) activity5, (int) R.string.neterror);
+        activity = this.f1216a.k;
+        if (NetWorkCore.b(activity) == NetWorkCore.NetworkState.UNAVAIL) {
+            activity5 = this.f1216a.k;
+            UtilHelper.a((Context) activity5, (int) R.string.neterror);
         } else if (this.b <= 0) {
             String E = TiebaApplication.E();
-            if ((E == null || E.length() <= 0) && DatabaseService.o() <= 0) {
-                activity2 = this.f1184a.k;
-                activity3 = this.f1184a.k;
+            if ((E == null || E.length() <= 0) && DatabaseService.m() <= 0) {
+                activity2 = this.f1216a.k;
+                activity3 = this.f1216a.k;
                 LoginActivity.a(activity2, activity3.getString(R.string.login_to_shake), true, 11003);
                 return;
             }
-            if (TiebaApplication.f().t()) {
+            if (TiebaApplication.g().u()) {
                 StatService.onEvent(view.getContext(), "kn_ladders_support", "click", 1);
             }
-            activity4 = this.f1184a.k;
+            activity4 = this.f1216a.k;
             ShakeActivity.a(activity4, String.valueOf(this.c.player_id), this.c.player_name, "KnLadders");
-            knLaddersFragment = this.f1184a.l;
+            knLaddersFragment = this.f1216a.l;
             knLaddersFragment.a(true);
         }
     }

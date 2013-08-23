@@ -11,8 +11,8 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.kn.shake.ShakeActivity;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.av;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PKingActivity extends com.baidu.tieba.g implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
@@ -28,7 +28,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     private Handler k = new Handler();
 
     /* renamed from: a  reason: collision with root package name */
-    Runnable f1205a = new o(this);
+    Runnable f1238a = new o(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
@@ -51,15 +51,15 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     }
 
     protected void c() {
-        if (this.b.f1225a != null) {
-            int d = (int) (this.b.f1225a.f - (this.b.f1225a.d() / 1000));
-            if (d <= 0) {
-                PKEndActivity.a(this, this.e, this.b.f1225a.c());
+        if (this.b.f1258a != null) {
+            int e = (int) (this.b.f1258a.f - (this.b.f1258a.e() / 1000));
+            if (e <= 0) {
+                PKEndActivity.a(this, this.e, this.b.f1258a.d());
                 finish();
                 return;
             }
-            int i = d % 60;
-            int i2 = d - i;
+            int i = e % 60;
+            int i2 = e - i;
             int i3 = (i2 % 3600) / 60;
             this.b.b.a(Math.min(99, (i2 - (i3 * 60)) / 3600), i3, i);
         }
@@ -88,15 +88,15 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.l = new com.baidu.tieba.util.a(this);
-        this.l.a(am.a((Context) this, 50.0f), am.a((Context) this, 50.0f));
+        this.l.a(UtilHelper.a((Context) this, 50.0f), UtilHelper.a((Context) this, 50.0f));
         this.e = getIntent().getStringExtra("pk_id");
         String stringExtra = getIntent().getStringExtra("pk_title");
         setContentView(R.layout.kn_pking_activity);
         this.b = new t(this, stringExtra);
         this.b.b.a(this);
-        if (PKJumpActivity.f1203a != null) {
-            a(PKJumpActivity.f1203a);
-            PKJumpActivity.f1203a = null;
+        if (PKJumpActivity.f1236a != null) {
+            a(PKJumpActivity.f1236a);
+            PKJumpActivity.f1236a = null;
             return;
         }
         k();
@@ -122,26 +122,26 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
         } else if (this.g) {
             if (view.getId() == R.id.star1) {
                 StatService.onEvent(this, "pk_support_click", "all");
-                StatService.onEvent(this, "pk_support_click", this.b.f1225a.f1224a);
+                StatService.onEvent(this, "pk_support_click", this.b.f1258a.f1257a);
                 if (!TiebaApplication.F()) {
                     LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 20003);
                 } else {
-                    ShakeActivity.a(this, this.b.f1225a.f1224a, this.b.f1225a.j.f1241a, this.b.f1225a.j.b, null);
+                    ShakeActivity.a(this, this.b.f1258a.f1257a, this.b.f1258a.j.f1274a, this.b.f1258a.j.b, null);
                 }
             } else if (view.getId() == R.id.star2) {
                 StatService.onEvent(this, "pk_support_click", "all");
-                StatService.onEvent(this, "pk_support_click", this.b.f1225a.f1224a);
+                StatService.onEvent(this, "pk_support_click", this.b.f1258a.f1257a);
                 if (!TiebaApplication.F()) {
                     LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 20003);
                 } else {
-                    ShakeActivity.a(this, this.b.f1225a.f1224a, this.b.f1225a.k.f1241a, this.b.f1225a.k.b, null);
+                    ShakeActivity.a(this, this.b.f1258a.f1257a, this.b.f1258a.k.f1274a, this.b.f1258a.k.b, null);
                 }
             } else if (view.getId() == R.id.pk_left_bar_container) {
-                FrsActivity.a(this, this.b.f1225a.j.e, (String) null);
+                FrsActivity.a(this, this.b.f1258a.j.e, (String) null);
             } else if (view.getId() == R.id.pk_right_bar_container) {
-                FrsActivity.a(this, this.b.f1225a.k.e, (String) null);
+                FrsActivity.a(this, this.b.f1258a.k.e, (String) null);
             } else {
-                ap.a(this, view.getId(), this.b.f1225a.f1224a, new p(this));
+                av.a(this, view.getId(), this.b.f1258a.f1257a, new p(this));
             }
         }
     }
@@ -170,7 +170,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
         this.c = null;
         try {
             this.b.a(this.k, this.l, sVar);
-            if (sVar != null && !sVar.a()) {
+            if (sVar != null && !sVar.b()) {
                 this.f = 0;
                 this.g = true;
                 m();
@@ -194,7 +194,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.k.removeCallbacks(this.f1205a);
+        this.k.removeCallbacks(this.f1238a);
         l();
         m();
     }
@@ -207,8 +207,8 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
             this.b.a(this.k);
             a(true);
         }
-        this.k.removeCallbacks(this.f1205a);
-        this.k.postDelayed(this.f1205a, 1000L);
+        this.k.removeCallbacks(this.f1238a);
+        this.k.postDelayed(this.f1238a, 1000L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -217,10 +217,10 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
         this.f = 0;
         if (hVar == null) {
             this.b.a(this.k, (h) null);
-        } else if (!hVar.a()) {
+        } else if (!hVar.b()) {
             this.b.a(this.k, hVar);
         } else if (this.m) {
-            a(hVar.b());
+            a(hVar.c());
         }
     }
 

@@ -9,16 +9,16 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map f535a = new HashMap();
+    private static final Map f558a = new HashMap();
     private Map b = new HashMap();
     private StringBuilder c = new StringBuilder();
     private int d = BdWebErrorView.ERROR_CODE_404;
     private String e = "HTTP/1.1";
 
     static {
-        f535a.put(new Integer(200), "OK");
-        f535a.put(new Integer((int) BdWebErrorView.ERROR_CODE_404), "Page Not Found");
-        f535a.put(new Integer((int) BdWebErrorView.ERROR_CODE_500), "Intenal Error");
+        f558a.put(new Integer(200), "OK");
+        f558a.put(new Integer((int) BdWebErrorView.ERROR_CODE_404), "Page Not Found");
+        f558a.put(new Integer((int) BdWebErrorView.ERROR_CODE_500), "Intenal Error");
     }
 
     public b() {
@@ -44,7 +44,7 @@ public class b {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        String str = (String) f535a.get(Integer.valueOf(this.d));
+        String str = (String) f558a.get(Integer.valueOf(this.d));
         if (str == null) {
             str = "Unknown";
         }

@@ -1,39 +1,27 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class aw implements n {
+class aw implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f1824a;
+    final /* synthetic */ NoNetworkView f1856a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(MultiImageView multiImageView) {
-        this.f1824a = multiImageView;
+    public aw(NoNetworkView noNetworkView) {
+        this.f1856a = noNetworkView;
     }
 
-    @Override // com.baidu.tieba.view.n
-    public void a(j jVar) {
-        GalleryViewPager galleryViewPager;
-        boolean z;
-        GalleryViewPager galleryViewPager2;
-        GalleryViewPager galleryViewPager3;
-        galleryViewPager = this.f1824a.e;
-        if (jVar == galleryViewPager.getCurrentView()) {
-            z = this.f1824a.l;
-            if (z) {
-                galleryViewPager2 = this.f1824a.e;
-                int childCount = galleryViewPager2.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    galleryViewPager3 = this.f1824a.e;
-                    View childAt = galleryViewPager3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof bg) && ((bg) childAt).getImageView() != jVar) {
-                        ((bg) childAt).d();
-                    }
-                }
-            }
-            jVar.e();
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.f1856a.setVisibility(8);
     }
 }

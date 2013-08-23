@@ -3,16 +3,16 @@ package com.baidu.adp.lib.c;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f361a;
+    private boolean f367a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a() {
-        this.f361a = true;
+        this.f367a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean b() {
-        return this.f361a;
+        return this.f367a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

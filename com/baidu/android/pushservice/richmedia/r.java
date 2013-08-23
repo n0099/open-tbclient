@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.richmedia;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public o f618a;
+    public o f641a;
     public int b;
     public int c;
     public n d;

@@ -1,38 +1,26 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
+import android.view.View;
+import android.widget.AdapterView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class cx implements TextWatcher {
+class cx implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cu f1515a;
+    final /* synthetic */ cv f1552a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cu cuVar) {
-        this.f1515a = cuVar;
+    public cx(cv cvVar) {
+        this.f1552a = cvVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            button = this.f1515a.C;
-            button.setEnabled(false);
-            return;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        String str;
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {
+            this.f1552a.b(str);
         }
-        button2 = this.f1515a.C;
-        button2.setEnabled(true);
     }
 }

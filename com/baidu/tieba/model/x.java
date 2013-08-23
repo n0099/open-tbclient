@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1384a;
+    public boolean f1421a;
     public String b;
     final /* synthetic */ t c;
 

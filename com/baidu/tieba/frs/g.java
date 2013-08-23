@@ -7,24 +7,24 @@ import android.widget.GridView;
 class g implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1081a;
+    final /* synthetic */ FrsActivity f1100a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(FrsActivity frsActivity) {
-        this.f1081a = frsActivity;
+        this.f1100a = frsActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        az azVar;
+        bb bbVar;
         if (i >= 0) {
-            azVar = this.f1081a.l;
-            azVar.i(i);
-            this.f1081a.t = true;
-            this.f1081a.s = ((com.baidu.tieba.data.y) ((GridView) adapterView).getAdapter().getItem(i)).b();
-            this.f1081a.f = 1;
-            this.f1081a.b = 3;
-            this.f1081a.x();
+            bbVar = this.f1100a.l;
+            bbVar.i(i);
+            this.f1100a.t = true;
+            this.f1100a.s = ((com.baidu.tieba.data.aa) ((GridView) adapterView).getAdapter().getItem(i)).b();
+            this.f1100a.f = 1;
+            this.f1100a.b = 3;
+            this.f1100a.B();
         }
     }
 }

@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.av;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
@@ -21,7 +21,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     private Handler g = new Handler();
 
     /* renamed from: a  reason: collision with root package name */
-    Runnable f1204a = new i(this);
+    Runnable f1237a = new i(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
@@ -31,11 +31,11 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     }
 
     protected void c() {
-        if (this.b.f1217a != null && !this.b.f1217a.f()) {
-            if (this.b.f1217a.e()) {
-                PKEndActivity.a(this, this.d, this.b.f1217a.c());
+        if (this.b.f1250a != null && !this.b.f1250a.g()) {
+            if (this.b.f1250a.f()) {
+                PKEndActivity.a(this, this.d, this.b.f1250a.d());
             } else {
-                PKingActivity.a(this, this.d, this.b.f1217a.c());
+                PKingActivity.a(this, this.d, this.b.f1250a.d());
             }
             finish();
         }
@@ -60,15 +60,15 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.j = new com.baidu.tieba.util.a(this);
-        this.j.a(am.a((Context) this, 50.0f), am.a((Context) this, 50.0f));
+        this.j.a(UtilHelper.a((Context) this, 50.0f), UtilHelper.a((Context) this, 50.0f));
         this.d = getIntent().getStringExtra("pk_id");
         String stringExtra = getIntent().getStringExtra("pk_title");
         setContentView(R.layout.kn_pkwaiting_activity);
         this.b = new l(this, stringExtra);
         this.b.b.a(this);
-        if (PKJumpActivity.f1203a != null) {
-            a(PKJumpActivity.f1203a);
-            PKJumpActivity.f1203a = null;
+        if (PKJumpActivity.f1236a != null) {
+            a(PKJumpActivity.f1236a);
+            PKJumpActivity.f1236a = null;
             return;
         }
         k();
@@ -93,11 +93,11 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
             d();
         } else if (this.e) {
             if (view.getId() == R.id.pk_left_bar_container) {
-                FrsActivity.a(this, this.b.f1217a.j.e, (String) null);
+                FrsActivity.a(this, this.b.f1250a.j.e, (String) null);
             } else if (view.getId() == R.id.pk_right_bar_container) {
-                FrsActivity.a(this, this.b.f1217a.k.e, (String) null);
+                FrsActivity.a(this, this.b.f1250a.k.e, (String) null);
             } else {
-                ap.a(this, view.getId(), this.b.f1217a.f1224a, new j(this));
+                av.a(this, view.getId(), this.b.f1250a.f1257a, new j(this));
             }
         }
     }
@@ -121,7 +121,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
         this.c = null;
         try {
             this.b.a(this.j, sVar);
-            if (!sVar.a()) {
+            if (!sVar.b()) {
                 this.e = true;
             }
         } catch (Throwable th) {
@@ -142,7 +142,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.g.removeCallbacks(this.f1204a);
+        this.g.removeCallbacks(this.f1237a);
         l();
     }
 
@@ -150,6 +150,6 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.g.postDelayed(this.f1204a, 1000L);
+        this.g.postDelayed(this.f1237a, 1000L);
     }
 }

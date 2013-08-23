@@ -15,7 +15,7 @@ import java.io.StreamCorruptedException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f576a = "NotificationBuilderManager";
+    private static String f599a = "NotificationBuilderManager";
     private static String b = "notification_builder_storage";
     private static Object c = new Object();
     private static int d = 0;
@@ -71,7 +71,7 @@ public class c {
         IOException e2;
         StreamCorruptedException e3;
         if (b.a()) {
-            Log.e(f576a, "getBuilder id=" + i);
+            Log.e(f599a, "getBuilder id=" + i);
         }
         String string = context.getSharedPreferences(b, 0).getString("" + i, null);
         if (string == null) {
@@ -87,17 +87,17 @@ public class c {
                 return pushNotificationBuilder;
             } catch (StreamCorruptedException e4) {
                 e3 = e4;
-                Log.e(f576a, "getBuilder read object error");
+                Log.e(f599a, "getBuilder read object error");
                 e3.printStackTrace();
                 return pushNotificationBuilder;
             } catch (IOException e5) {
                 e2 = e5;
-                Log.e(f576a, "getBuilder read object error");
+                Log.e(f599a, "getBuilder read object error");
                 e2.printStackTrace();
                 return pushNotificationBuilder;
             } catch (ClassNotFoundException e6) {
                 e = e6;
-                Log.e(f576a, "getBuilder read object error: class not found");
+                Log.e(f599a, "getBuilder read object error: class not found");
                 e.printStackTrace();
                 return pushNotificationBuilder;
             }
@@ -127,11 +127,11 @@ public class c {
                     byteArrayOutputStream.close();
                     objectOutputStream.close();
                 } catch (IOException e) {
-                    Log.e(f576a, "setNotificationBuilder write object error");
+                    Log.e(f599a, "setNotificationBuilder write object error");
                     e.printStackTrace();
                 }
             } catch (StreamCorruptedException e2) {
-                Log.e(f576a, "setNotificationBuilder write object error");
+                Log.e(f599a, "setNotificationBuilder write object error");
                 e2.printStackTrace();
             }
         }
@@ -150,10 +150,10 @@ public class c {
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
             } catch (StreamCorruptedException e) {
-                Log.e(f576a, "setDefaultNotificationBuilder write object error");
+                Log.e(f599a, "setDefaultNotificationBuilder write object error");
                 e.printStackTrace();
             } catch (IOException e2) {
-                Log.e(f576a, "setDefaultNotificationBuilder write object error");
+                Log.e(f599a, "setDefaultNotificationBuilder write object error");
                 e2.printStackTrace();
             }
         }
@@ -178,17 +178,17 @@ public class c {
                 return pushNotificationBuilder;
             } catch (StreamCorruptedException e4) {
                 e3 = e4;
-                Log.e(f576a, "getDefaultBuilder read object error");
+                Log.e(f599a, "getDefaultBuilder read object error");
                 e3.printStackTrace();
                 return pushNotificationBuilder;
             } catch (IOException e5) {
                 e2 = e5;
-                Log.e(f576a, "getDefaultBuilder read object error");
+                Log.e(f599a, "getDefaultBuilder read object error");
                 e2.printStackTrace();
                 return pushNotificationBuilder;
             } catch (ClassNotFoundException e6) {
                 e = e6;
-                Log.e(f576a, "getDefaultBuilder read object error: class not found");
+                Log.e(f599a, "getDefaultBuilder read object error: class not found");
                 e.printStackTrace();
                 return pushNotificationBuilder;
             }

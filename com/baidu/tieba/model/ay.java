@@ -1,58 +1,67 @@
 package com.baidu.tieba.model;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.model.MoreModel;
+import com.baidu.tieba.util.DatabaseService;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay {
-    private com.baidu.tieba.data.an c = new com.baidu.tieba.data.an();
+public class ay extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1340a = new ArrayList();
-    private com.baidu.tieba.data.ar b = new com.baidu.tieba.data.ar();
-    private boolean d = true;
+    final /* synthetic */ MoreModel f1375a;
 
-    public boolean a() {
-        return this.d;
+    private ay(MoreModel moreModel) {
+        this.f1375a = moreModel;
     }
 
-    public void a(ArrayList arrayList) {
-        this.f1340a = arrayList;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ay(MoreModel moreModel, ay ayVar) {
+        this(moreModel);
     }
 
-    public ArrayList b() {
-        return this.f1340a;
-    }
-
-    public com.baidu.tieba.data.ar c() {
-        return this.b;
-    }
-
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.tieba.util.aj.b("MentionModel", "parserJson", "error = " + e.getMessage());
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        super.a((Object) str);
+        this.f1375a.f1350a = null;
+        eVar = this.f1375a.mLoadDataCallBack;
+        if (eVar != null) {
+            eVar2 = this.f1375a.mLoadDataCallBack;
+            eVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        DatabaseService.x();
         try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    com.baidu.tieba.data.u uVar = new com.baidu.tieba.data.u();
-                    uVar.a(optJSONArray2.optJSONObject(i));
-                    this.f1340a.add(uVar);
+            File[] listFiles = new File(com.baidu.tieba.util.p.f1806a + "/tieba/image/").listFiles();
+            if (listFiles != null) {
+                for (File file : listFiles) {
+                    if (!file.delete()) {
+                        com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                    }
                 }
             }
-            this.c.a(jSONObject.optJSONObject("message"));
-            this.b.a(jSONObject.optJSONObject("page"));
+            File[] listFiles2 = new File(com.baidu.tieba.util.p.f1806a + "/tieba/hotspot/").listFiles();
+            if (listFiles2 != null) {
+                for (File file2 : listFiles2) {
+                    if (!file2.delete()) {
+                        com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                    }
+                }
+                return null;
+            }
+            return null;
         } catch (Exception e) {
-            this.d = false;
-            com.baidu.tieba.util.aj.b("MentionModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
+            return null;
         }
     }
 }

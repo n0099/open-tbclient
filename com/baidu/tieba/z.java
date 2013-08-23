@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Intent;
+import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
+public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LabelActivity f1922a;
+    public String f1953a;
+    public Intent b;
+    public RadioButton c;
+    public String d;
+    public int e;
+    public int f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(LabelActivity labelActivity) {
-        this.f1922a = labelActivity;
+    private z() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1922a.o();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ z(z zVar) {
+        this();
     }
 }

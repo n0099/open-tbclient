@@ -8,7 +8,7 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ah;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
@@ -44,7 +44,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
         this.d.setText(getString(R.string.bar_first_dir_name));
         this.j = (ProgressBar) findViewById(R.id.progress);
         ImageView imageView = (ImageView) findViewById(R.id.home);
-        ah.d(imageView, TiebaApplication.f().au());
+        ao.c(imageView, TiebaApplication.g().an());
         imageView.setVisibility(4);
     }
 
@@ -79,10 +79,11 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
         this.e.setEnabled(true);
         this.l = null;
         if (!z) {
-            if (gVar.a()) {
-                a(gVar.b());
+            if (gVar.b()) {
+                a(gVar.c());
                 return;
             }
+            this.k.a(gVar.d());
             this.e.setVisibility(4);
             this.k.notifyDataSetChanged();
             this.e.setVisibility(0);

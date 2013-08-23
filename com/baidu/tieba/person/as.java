@@ -10,50 +10,50 @@ import com.slidingmenu.lib.R;
 public class as implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f1576a;
+    final /* synthetic */ PersonChangeActivity f1614a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(PersonChangeActivity personChangeActivity) {
-        this.f1576a = personChangeActivity;
+        this.f1614a = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tieba.model.bm bmVar;
+        com.baidu.tieba.model.bl blVar;
         EditText editText;
         RadioGroup radioGroup;
         RadioGroup radioGroup2;
-        com.baidu.tieba.model.bm bmVar2;
+        com.baidu.tieba.model.bl blVar2;
         ax axVar;
-        com.baidu.tieba.model.bm bmVar3;
+        com.baidu.tieba.model.bl blVar3;
         ax axVar2;
         ax axVar3;
-        com.baidu.tieba.model.bm bmVar4;
-        this.f1576a.b();
-        bmVar = this.f1576a.z;
-        PersonChangeData a2 = bmVar.a();
-        editText = this.f1576a.t;
+        com.baidu.tieba.model.bl blVar4;
+        this.f1614a.b();
+        blVar = this.f1614a.A;
+        PersonChangeData a2 = blVar.a();
+        editText = this.f1614a.u;
         a2.setIntro(editText.getText().toString());
-        radioGroup = this.f1576a.u;
+        radioGroup = this.f1614a.v;
         if (radioGroup.getCheckedRadioButtonId() != R.id.man) {
-            radioGroup2 = this.f1576a.u;
+            radioGroup2 = this.f1614a.v;
             if (radioGroup2.getCheckedRadioButtonId() == R.id.woman) {
-                bmVar2 = this.f1576a.z;
-                bmVar2.a().setSex(2);
+                blVar2 = this.f1614a.A;
+                blVar2.a().setSex(2);
             }
         } else {
-            bmVar4 = this.f1576a.z;
-            bmVar4.a().setSex(1);
+            blVar4 = this.f1614a.A;
+            blVar4.a().setSex(1);
         }
-        axVar = this.f1576a.C;
+        axVar = this.f1614a.D;
         if (axVar == null) {
-            PersonChangeActivity personChangeActivity = this.f1576a;
-            PersonChangeActivity personChangeActivity2 = this.f1576a;
-            bmVar3 = this.f1576a.z;
-            personChangeActivity.C = new ax(personChangeActivity2, bmVar3);
-            axVar2 = this.f1576a.C;
+            PersonChangeActivity personChangeActivity = this.f1614a;
+            PersonChangeActivity personChangeActivity2 = this.f1614a;
+            blVar3 = this.f1614a.A;
+            personChangeActivity.D = new ax(personChangeActivity2, blVar3);
+            axVar2 = this.f1614a.D;
             axVar2.setPriority(3);
-            axVar3 = this.f1576a.C;
+            axVar3 = this.f1614a.D;
             axVar3.execute(new String[0]);
         }
     }

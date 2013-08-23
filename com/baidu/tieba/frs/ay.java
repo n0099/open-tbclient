@@ -1,28 +1,9 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ay implements DialogInterface.OnClickListener {
+public interface ay {
+    void a(int i);
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f1072a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(ax axVar) {
-        this.f1072a = axVar;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.g gVar;
-        com.baidu.tieba.g gVar2;
-        if (i == 0) {
-            gVar2 = this.f1072a.f1071a;
-            com.baidu.tieba.write.ba.a(gVar2);
-        } else if (i == 1) {
-            gVar = this.f1072a.f1071a;
-            com.baidu.tieba.write.ba.b(gVar);
-        }
-    }
+    void a(int i, JSONObject jSONObject, com.baidu.tieba.model.am amVar);
 }

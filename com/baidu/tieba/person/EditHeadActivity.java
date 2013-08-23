@@ -23,6 +23,8 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.service.TiebaPrepareImageService;
+import com.baidu.tieba.switchs.SwitchKey;
+import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.EditHeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
@@ -31,7 +33,7 @@ import java.util.Map;
 public class EditHeadActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1551a = "delete";
+    public static String f1589a = "delete";
     public static String b = "change";
     public static String c = "file_name";
     private static String[] d = null;
@@ -74,16 +76,16 @@ public class EditHeadActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.f().a((com.baidu.tieba.g) this);
+        TiebaApplication.g().a((com.baidu.tieba.g) this);
         setContentView(R.layout.edit_head_activity);
         Intent intent = getIntent();
         this.D = intent.getIntExtra("request", 0);
         if (this.D == 12002 || this.D == 12001) {
             l();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.f().aF());
+                TiebaPrepareImageService.a(this.D, intent.getData(), TiebaApplication.g().aw());
             } else {
-                TiebaPrepareImageService.a(this.D, null, TiebaApplication.f().aF());
+                TiebaPrepareImageService.a(this.D, null, TiebaApplication.g().aw());
             }
             m();
         } else {
@@ -91,7 +93,11 @@ public class EditHeadActivity extends com.baidu.tieba.g {
             d();
         }
         d = getResources().getStringArray(R.array.fiter_name);
-        this.z = TiebaApplication.f().v();
+        if (com.baidu.adp.lib.a.d.a().b(SwitchKey.MOTU) == 1) {
+            this.z = false;
+        } else {
+            this.z = true;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -175,7 +181,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         if (this.D == 12002 || this.D == 12001) {
             unregisterReceiver(this.w);
         }
-        TiebaApplication.f().b((com.baidu.tieba.g) this);
+        TiebaApplication.g().b((com.baidu.tieba.g) this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -203,7 +209,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
         this.j = (Button) findViewById(R.id.delete);
         this.j.setOnClickListener(new o(this));
         this.B = (LinearLayout) findViewById(R.id.filters);
-        this.x = com.baidu.tieba.util.am.a((Context) this, 2.0f);
+        this.x = UtilHelper.a((Context) this, 2.0f);
         this.t = (LinearLayout) findViewById(R.id.beautify_rotate);
         this.s = (LinearLayout) findViewById(R.id.rotate);
         this.q = (RadioButton) findViewById(R.id.beautify_btn);
@@ -249,7 +255,7 @@ public class EditHeadActivity extends com.baidu.tieba.g {
             }
             return true;
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "saveFile", e.toString());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "saveFile", e.toString());
             return false;
         }
     }

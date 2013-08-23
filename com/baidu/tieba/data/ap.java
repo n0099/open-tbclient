@@ -1,29 +1,51 @@
 package com.baidu.tieba.data;
-
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f978a = 0;
-    private String b = null;
-    private int e = 0;
-    private String c = null;
-    private String d = null;
-    private String f = null;
+    private volatile long f988a = 0;
+    private volatile long b = 0;
+    private volatile int c = 0;
+    private volatile boolean d = false;
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.b = jSONObject.optString(LocaleUtil.INDONESIAN);
-                this.f978a = jSONObject.optInt("is_login", 0);
-                this.e = jSONObject.optInt("no_un", 0);
-                this.c = jSONObject.optString("name");
-                this.d = jSONObject.optString("name_show");
-                this.f = jSONObject.optString("portrait");
-            } catch (Exception e) {
-                com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+    public void a(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.f988a = i;
+        }
+    }
+
+    public void b(int i) {
+        if (i > 0) {
+            this.d = true;
+            this.b = i;
+        }
+    }
+
+    public void c(int i) {
+        if (i != 0) {
+            this.d = true;
+            this.c = i;
+        }
+    }
+
+    public void a() {
+        this.d = false;
+        this.f988a = 0L;
+        this.b = 0L;
+        this.c = 0;
+    }
+
+    public void a(com.baidu.tieba.util.v vVar) {
+        if (vVar != null) {
+            if (this.f988a != 0) {
+                vVar.a("ctime", String.valueOf(this.f988a));
+            }
+            if (this.b != 0) {
+                vVar.a("data_size", String.valueOf(this.b));
+            }
+            if (this.c != 0) {
+                vVar.a("net_error", String.valueOf(this.c));
             }
         }
     }

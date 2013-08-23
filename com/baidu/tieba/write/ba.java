@@ -24,7 +24,7 @@ public class ba {
                 }
             }
         } catch (Exception e2) {
-            com.baidu.tieba.util.aj.b("WriteUtil", "takePhoto", "error = " + e2.getMessage());
+            com.baidu.tieba.util.aq.b("WriteUtil", "takePhoto", "error = " + e2.getMessage());
         }
     }
 
@@ -35,7 +35,7 @@ public class ba {
             intent.setAction("android.intent.action.GET_CONTENT");
             gVar.startActivityForResult(intent, 12002);
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
+            com.baidu.tieba.util.aq.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
         }
     }
 
@@ -43,7 +43,7 @@ public class ba {
         try {
             return com.baidu.tieba.util.e.a("camera.jpg", i);
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b("WriteUtil", "photoResult", "error = " + e.getMessage());
+            com.baidu.tieba.util.aq.b("WriteUtil", "photoResult", "error = " + e.getMessage());
             return null;
         }
     }
@@ -52,7 +52,7 @@ public class ba {
         try {
             return com.baidu.tieba.util.e.a(context, uri, i);
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
+            com.baidu.tieba.util.aq.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
             return null;
         }
     }

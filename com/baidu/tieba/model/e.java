@@ -8,11 +8,11 @@ import java.util.List;
 public class e extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1367a;
-    private volatile com.baidu.tieba.util.u b;
+    final /* synthetic */ c f1403a;
+    private volatile com.baidu.tieba.util.v b;
 
     private e(c cVar) {
-        this.f1367a = cVar;
+        this.f1403a = cVar;
         this.b = null;
     }
 
@@ -34,28 +34,28 @@ public class e extends BdAsyncTask {
         String str5;
         List list2;
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/comlist");
+            this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/comlist");
             this.b.e(true);
-            com.baidu.tieba.util.u uVar = this.b;
-            str = this.f1367a.b;
-            uVar.a(PushConstants.EXTRA_USER_ID, str);
-            com.baidu.tieba.util.u uVar2 = this.b;
-            str2 = this.f1367a.d;
-            uVar2.a("pn", str2);
-            com.baidu.tieba.util.u uVar3 = this.b;
-            str3 = this.f1367a.e;
-            uVar3.a("rn", str3);
-            String k = this.b.k();
-            if (this.b.d() && k != null) {
-                this.f1367a.b(k);
-                if (this.f1367a.c() == 0) {
-                    str4 = this.f1367a.d;
+            com.baidu.tieba.util.v vVar = this.b;
+            str = this.f1403a.b;
+            vVar.a(PushConstants.EXTRA_USER_ID, str);
+            com.baidu.tieba.util.v vVar2 = this.b;
+            str2 = this.f1403a.d;
+            vVar2.a("pn", str2);
+            com.baidu.tieba.util.v vVar3 = this.b;
+            str3 = this.f1403a.e;
+            vVar3.a("rn", str3);
+            String j = this.b.j();
+            if (this.b.c() && j != null) {
+                this.f1403a.b(j);
+                if (this.f1403a.c() == 0) {
+                    str4 = this.f1403a.d;
                     if (str4.equals("1")) {
-                        list = this.f1367a.f1364a;
+                        list = this.f1403a.f1398a;
                         if (list != null) {
                             com.baidu.tieba.data.a.f a2 = com.baidu.tieba.data.a.f.a();
-                            str5 = this.f1367a.b;
-                            list2 = this.f1367a.f1364a;
+                            str5 = this.f1403a.b;
+                            list2 = this.f1403a.f1398a;
                             a2.a(str5, list2);
                         }
                     }
@@ -63,7 +63,7 @@ public class e extends BdAsyncTask {
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return false;
     }
@@ -74,15 +74,15 @@ public class e extends BdAsyncTask {
     public void a(Boolean bool) {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
-        this.f1367a.i = null;
+        this.f1403a.i = null;
         if (bool.booleanValue()) {
-            eVar = this.f1367a.mLoadDataCallBack;
+            eVar = this.f1403a.mLoadDataCallBack;
             eVar.a(true);
             return;
         }
-        this.f1367a.mErrorCode = this.b.f();
-        this.f1367a.mErrorString = this.b.h();
-        eVar2 = this.f1367a.mLoadDataCallBack;
+        this.f1403a.mErrorCode = this.b.e();
+        this.f1403a.mErrorString = this.b.g();
+        eVar2 = this.f1403a.mLoadDataCallBack;
         eVar2.a(false);
     }
 
@@ -91,11 +91,11 @@ public class e extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         super.cancel(true);
         if (this.b != null) {
-            this.b.i();
+            this.b.h();
             this.b = null;
         }
-        this.f1367a.f1364a = null;
-        eVar = this.f1367a.mLoadDataCallBack;
+        this.f1403a.f1398a = null;
+        eVar = this.f1403a.mLoadDataCallBack;
         eVar.a(false);
     }
 }

@@ -6,17 +6,17 @@ import com.baidu.tieba.data.AccountData;
 public class ar implements p {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ap f864a;
+    final /* synthetic */ ap f885a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(ap apVar) {
-        this.f864a = apVar;
+        this.f885a = apVar;
     }
 
     @Override // com.baidu.tieba.account.p
     public void a(AccountData accountData) {
         ReLoginShareActivity reLoginShareActivity;
-        reLoginShareActivity = this.f864a.f862a;
+        reLoginShareActivity = this.f885a.f883a;
         reLoginShareActivity.d();
     }
 }

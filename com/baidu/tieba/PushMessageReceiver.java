@@ -4,13 +4,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.data.au;
+import com.baidu.tieba.util.UtilHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PushMessageReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f823a = PushMessageReceiver.class.getSimpleName();
+    public static final String f845a = PushMessageReceiver.class.getSimpleName();
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -25,7 +27,7 @@ public class PushMessageReceiver extends BroadcastReceiver {
                     switch (optInt) {
                         case 14:
                             if (TiebaApplication.E() != null) {
-                                com.baidu.tieba.util.am.a(context, new com.baidu.tieba.data.ay(-1L, "vote", optString2), 15);
+                                UtilHelper.a(context, new au(-1L, "vote", optString2), 15);
                                 return;
                             }
                             return;
@@ -44,14 +46,14 @@ public class PushMessageReceiver extends BroadcastReceiver {
                 try {
                     JSONObject jSONObject2 = new JSONObject(str);
                     if (jSONObject2 != null && (optJSONObject = jSONObject2.optJSONObject("response_params")) != null && (optString = optJSONObject.optString("channel_id")) != null) {
-                        TiebaApplication.f().s(optString);
+                        TiebaApplication.g().v(optString);
                     }
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
             }
         } else if (intent.getAction().equals(PushConstants.ACTION_RECEIVER_NOTIFICATION_CLICK)) {
-            com.baidu.tieba.util.aj.e(f823a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
+            com.baidu.tieba.util.aq.e(f845a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
         }
     }
 }

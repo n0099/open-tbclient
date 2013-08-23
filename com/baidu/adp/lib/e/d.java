@@ -5,7 +5,7 @@ import android.util.Log;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f417a = null;
+    private static String f425a = null;
 
     public static boolean a() {
         return com.baidu.adp.a.b.a().b();
@@ -59,7 +59,7 @@ public class d {
 
     private static String f(String str, String str2, String str3) {
         if (com.baidu.adp.a.b.a().b()) {
-            if (f417a == null || str3.startsWith(f417a)) {
+            if (f425a == null || str3.startsWith(f425a)) {
                 StringBuffer stringBuffer = new StringBuffer(100);
                 stringBuffer.append(str);
                 stringBuffer.append(":");

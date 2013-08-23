@@ -4,9 +4,9 @@ public class j extends com.baidu.adp.a.c {
     private com.baidu.tieba.data.q b;
 
     /* renamed from: a  reason: collision with root package name */
-    private k f1372a = null;
+    private l f1408a = null;
     private boolean c = true;
-    private l d = null;
+    private m d = null;
 
     public j() {
         this.b = null;
@@ -17,8 +17,8 @@ public class j extends com.baidu.adp.a.c {
         return this.b;
     }
 
-    public void a(l lVar) {
-        this.d = lVar;
+    public void a(m mVar) {
+        this.d = mVar;
     }
 
     @Override // com.baidu.adp.a.c
@@ -28,8 +28,8 @@ public class j extends com.baidu.adp.a.c {
 
     @Override // com.baidu.adp.a.c
     public boolean cancelLoadData() {
-        if (this.f1372a != null) {
-            this.f1372a.cancel();
+        if (this.f1408a != null) {
+            this.f1408a.cancel();
             return false;
         }
         return false;
@@ -37,21 +37,21 @@ public class j extends com.baidu.adp.a.c {
 
     public boolean a(boolean z) {
         this.c = z;
-        if (this.f1372a != null) {
+        if (this.f1408a != null) {
             return false;
         }
-        this.f1372a = new k(this, 1);
-        this.f1372a.execute(new Object[0]);
+        this.f1408a = new l(this, 1);
+        this.f1408a.execute(new Object[0]);
         return true;
     }
 
     public boolean b(boolean z) {
         this.c = z;
-        if (this.f1372a != null) {
+        if (this.f1408a != null) {
             return false;
         }
-        this.f1372a = new k(this, 0);
-        this.f1372a.execute(new Object[0]);
+        this.f1408a = new l(this, 0);
+        this.f1408a.execute(new Object[0]);
         return true;
     }
 }

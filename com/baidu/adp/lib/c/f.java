@@ -6,13 +6,13 @@ import java.util.Map;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map f365a = new HashMap();
+    private Map f371a = new HashMap();
 
     public void a(String str, Object obj) {
-        this.f365a.put(str, obj);
+        this.f371a.put(str, obj);
     }
 
     public Object a(String str) {
-        return this.f365a.get(str);
+        return this.f371a.get(str);
     }
 }

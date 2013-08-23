@@ -1,20 +1,20 @@
 package com.baidu.tieba.kn.shake;
 
-import com.baidu.tieba.view.ImageViewDrawer;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoteResultActivity f1258a;
+    final /* synthetic */ VoteResultActivity f1291a;
     private final /* synthetic */ String b;
-    private final /* synthetic */ ImageViewDrawer c;
+    private final /* synthetic */ TbImageView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(VoteResultActivity voteResultActivity, String str, ImageViewDrawer imageViewDrawer) {
-        this.f1258a = voteResultActivity;
+    public o(VoteResultActivity voteResultActivity, String str, TbImageView tbImageView) {
+        this.f1291a = voteResultActivity;
         this.b = str;
-        this.c = imageViewDrawer;
+        this.c = tbImageView;
     }
 
     @Override // com.baidu.tbadk.a.d

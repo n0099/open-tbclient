@@ -1,48 +1,60 @@
 package com.baidu.tieba.pb;
 
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
-class be implements com.baidu.tieba.model.ax {
+class be implements com.baidu.tieba.model.bc {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1471a;
+    final /* synthetic */ NewPbActivity f1508a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(NewPbActivity newPbActivity) {
-        this.f1471a = newPbActivity;
+        this.f1508a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.model.ax
-    public void a(boolean z, boolean z2, String str) {
-        bn bnVar;
-        com.baidu.tieba.model.av avVar;
-        com.baidu.tieba.model.bc bcVar;
-        com.baidu.tieba.model.bc bcVar2;
-        bn bnVar2;
-        com.baidu.tieba.model.bc bcVar3;
-        bnVar = this.f1471a.p;
-        bnVar.p();
-        if (z) {
-            avVar = this.f1471a.k;
-            avVar.a(z2);
-            bcVar = this.f1471a.j;
-            bcVar.c(z2);
-            bcVar2 = this.f1471a.j;
-            if (!bcVar2.r()) {
-                bnVar2 = this.f1471a.p;
-                bcVar3 = this.f1471a.j;
-                bnVar2.a(bcVar3.j());
+    @Override // com.baidu.tieba.model.bc
+    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.data.ao aoVar, String str) {
+        bo boVar;
+        bo boVar2;
+        com.baidu.tieba.model.au auVar;
+        bo boVar3;
+        com.baidu.tieba.model.bb bbVar;
+        bo boVar4;
+        bo boVar5;
+        bo boVar6;
+        com.baidu.tieba.model.bb bbVar2;
+        boVar = this.f1508a.q;
+        boVar.q();
+        if (z && aoVar != null) {
+            auVar = this.f1508a.l;
+            auVar.a(aoVar.g());
+            boVar3 = this.f1508a.q;
+            bbVar = this.f1508a.k;
+            boVar3.a(aoVar, i2, i3, bbVar.c());
+            boVar4 = this.f1508a.q;
+            boVar4.a(aoVar, false);
+            boVar5 = this.f1508a.q;
+            boVar5.S();
+            boVar6 = this.f1508a.q;
+            bbVar2 = this.f1508a.k;
+            boVar6.c(bbVar2.b());
+        } else if (str != null) {
+            if (NetWorkCore.b(this.f1508a) != NetWorkCore.NetworkState.UNAVAIL) {
+                boVar2 = this.f1508a.q;
+                boVar2.d(str);
             } else {
-                this.f1471a.o();
+                this.f1508a.k();
             }
-            if (z2) {
-                this.f1471a.a(this.f1471a.getString(R.string.add_mark));
-                return;
-            } else {
-                this.f1471a.a(this.f1471a.getString(R.string.remove_mark));
-                return;
+            if (i == 4 || i == 28) {
+                this.f1508a.finish();
             }
         }
-        this.f1471a.a(str);
+    }
+
+    @Override // com.baidu.tieba.model.bc
+    public void a(com.baidu.tieba.data.ao aoVar) {
+        bo boVar;
+        boVar = this.f1508a.q;
+        boVar.a(aoVar);
     }
 }

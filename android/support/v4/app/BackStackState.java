@@ -5,9 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class BackStackState implements Parcelable {
+final class BackStackState implements Parcelable {
     public static final Parcelable.Creator CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */

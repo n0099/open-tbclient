@@ -6,22 +6,22 @@ import com.baidu.mobstat.StatService;
 public abstract class BaseFragmentActivity extends android.support.v4.app.n {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f816a = -1;
+    private int f839a = -1;
 
-    protected abstract void c(int i);
+    protected abstract void a(int i);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.n, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         com.baidu.tieba.account.a.a().c();
-        TiebaApplication.u(true);
-        TiebaApplication.f().a(getClass().getName());
-        if (TiebaApplication.f().t()) {
+        TiebaApplication.t(true);
+        TiebaApplication.g().a(getClass().getName());
+        if (TiebaApplication.g().u()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.g.a());
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b(getClass().getName(), "onCreate", e.getMessage());
+                com.baidu.tieba.util.aq.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
     }
@@ -30,18 +30,32 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
     @Override // android.support.v4.app.n, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.f().au() != this.f816a) {
-            this.f816a = TiebaApplication.f().au();
-            c(this.f816a);
+        if (TiebaApplication.g().an() != this.f839a) {
+            this.f839a = TiebaApplication.g().an();
+            a(this.f839a);
         }
-        if (TiebaApplication.f().t()) {
+        if (TiebaApplication.g().u()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b(getClass().getName(), "onResume", e.getMessage());
+                com.baidu.tieba.util.aq.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TiebaApplication.f().aJ();
-        TiebaApplication.f().a(getClass().getName());
+        TiebaApplication.g().aA();
+        TiebaApplication.g().a(getClass().getName());
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.n, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        TiebaApplication.g().aB();
+        if (TiebaApplication.g().u()) {
+            try {
+                StatService.onPause(this);
+            } catch (Exception e) {
+                com.baidu.tieba.util.aq.b(getClass().getName(), "onPause", e.getMessage());
+            }
+        }
     }
 }

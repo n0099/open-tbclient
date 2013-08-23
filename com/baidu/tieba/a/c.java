@@ -1,41 +1,41 @@
 package com.baidu.tieba.a;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.data.ao;
-import com.baidu.tieba.util.u;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.util.v;
 /* loaded from: classes.dex */
 public class c {
-    private static final String c = String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/clearmsg";
+    private static final String c = String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/clearmsg";
 
     /* renamed from: a  reason: collision with root package name */
-    private u f830a = null;
-    private ao b = null;
+    private v f852a = null;
+    private ak b = null;
 
     public void a(String str, String str2) {
-        this.f830a = new u(c);
-        this.f830a.a(PushConstants.EXTRA_USER_ID, str);
-        this.f830a.a("com_id", str2);
-        String k = this.f830a.k();
-        this.b = new ao();
-        this.b.a(k);
+        this.f852a = new v(c);
+        this.f852a.a(PushConstants.EXTRA_USER_ID, str);
+        this.f852a.a("com_id", str2);
+        String j = this.f852a.j();
+        this.b = new ak();
+        this.b.a(j);
     }
 
     public void a() {
-        if (this.f830a != null) {
-            this.f830a.i();
+        if (this.f852a != null) {
+            this.f852a.h();
         }
     }
 
     public boolean b() {
-        if (this.f830a != null) {
-            return this.f830a.d();
+        if (this.f852a != null) {
+            return this.f852a.c();
         }
         return false;
     }
 
     public String c() {
-        if (this.f830a != null) {
-            return this.f830a.h();
+        if (this.f852a != null) {
+            return this.f852a.g();
         }
         return null;
     }

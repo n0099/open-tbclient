@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 public class TiebaPrepareImageService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f1690a = false;
+    public static volatile boolean f1707a = false;
     private int f;
     private int b = 0;
     private Uri c = null;
@@ -19,15 +19,15 @@ public class TiebaPrepareImageService extends Service {
     private Runnable g = new p(this);
 
     public static void a(int i, Uri uri, int i2) {
-        Intent intent = new Intent(TiebaApplication.f(), TiebaPrepareImageService.class);
+        Intent intent = new Intent(TiebaApplication.g(), TiebaPrepareImageService.class);
         intent.putExtra("request_code", i);
         intent.putExtra("max_size", i2);
         intent.setData(uri);
-        TiebaApplication.f().startService(intent);
+        TiebaApplication.g().startService(intent);
     }
 
     public static void a() {
-        TiebaApplication.f().stopService(new Intent(TiebaApplication.f(), TiebaPrepareImageService.class));
+        TiebaApplication.g().stopService(new Intent(TiebaApplication.g(), TiebaPrepareImageService.class));
     }
 
     @Override // android.app.Service
@@ -65,8 +65,8 @@ public class TiebaPrepareImageService extends Service {
         this.c = intent.getData();
         this.b = intent.getIntExtra("request_code", 0);
         this.f = intent.getIntExtra("max_size", 600);
-        TiebaApplication.f().a((com.baidu.tieba.g) null);
-        if (!f1690a) {
+        TiebaApplication.g().a((com.baidu.tieba.g) null);
+        if (!f1707a) {
             this.d = new q(this, this.b, this.c);
             this.d.execute(new Object[0]);
             return;

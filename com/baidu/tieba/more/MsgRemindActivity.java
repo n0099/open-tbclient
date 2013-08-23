@@ -13,12 +13,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class MsgRemindActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private RadioGroup f1392a = null;
+    private RadioGroup f1429a = null;
     private TextView b = null;
     private CheckBox c = null;
     private CheckBox d = null;
@@ -59,32 +60,32 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
     public void a(int i) {
         int color;
         super.a(i);
-        com.baidu.tieba.util.ah.b(this.l, i);
-        com.baidu.tieba.util.ah.d(this.m, i);
-        com.baidu.tieba.util.ah.a(this.y, i);
-        com.baidu.tieba.util.ah.f(this.n, i);
+        ao.b(this.l, i);
+        ao.d(this.m, i);
+        ao.a(this.y, i);
+        ao.f(this.n, i);
         if (i == 1) {
-            color = com.baidu.tieba.util.ah.a(i);
-            com.baidu.tieba.util.ah.h((View) this.p, (int) R.drawable.more_up_1);
-            com.baidu.tieba.util.ah.h((View) this.q, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.util.ah.h((View) this.r, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.util.ah.h((View) this.s, (int) R.drawable.more_down_1);
-            com.baidu.tieba.util.ah.h((View) this.t, (int) R.drawable.more_up_1);
-            com.baidu.tieba.util.ah.h((View) this.u, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.util.ah.h((View) this.v, (int) R.drawable.more_down_1);
+            color = ao.a(i);
+            ao.g((View) this.p, (int) R.drawable.more_up_1);
+            ao.g((View) this.q, (int) R.drawable.more_middle_1);
+            ao.g((View) this.r, (int) R.drawable.more_middle_1);
+            ao.g((View) this.s, (int) R.drawable.more_down_1);
+            ao.g((View) this.t, (int) R.drawable.more_up_1);
+            ao.g((View) this.u, (int) R.drawable.more_middle_1);
+            ao.g((View) this.v, (int) R.drawable.more_down_1);
             this.f.setBackgroundResource(R.drawable.more_up_1);
             this.j.setBackgroundResource(R.drawable.more_down_1);
             this.g.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
             this.k.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
         } else {
             color = getResources().getColor(R.color.more_color);
-            com.baidu.tieba.util.ah.h((View) this.p, (int) R.drawable.more_up);
-            com.baidu.tieba.util.ah.h((View) this.q, (int) R.drawable.more_middle);
-            com.baidu.tieba.util.ah.h((View) this.r, (int) R.drawable.more_middle);
-            com.baidu.tieba.util.ah.h((View) this.s, (int) R.drawable.more_down);
-            com.baidu.tieba.util.ah.h((View) this.t, (int) R.drawable.more_up);
-            com.baidu.tieba.util.ah.h((View) this.u, (int) R.drawable.more_middle);
-            com.baidu.tieba.util.ah.h((View) this.v, (int) R.drawable.more_down);
+            ao.g((View) this.p, (int) R.drawable.more_up);
+            ao.g((View) this.q, (int) R.drawable.more_middle);
+            ao.g((View) this.r, (int) R.drawable.more_middle);
+            ao.g((View) this.s, (int) R.drawable.more_down);
+            ao.g((View) this.t, (int) R.drawable.more_up);
+            ao.g((View) this.u, (int) R.drawable.more_middle);
+            ao.g((View) this.v, (int) R.drawable.more_down);
             this.f.setBackgroundResource(R.drawable.more_up);
             this.j.setBackgroundResource(R.drawable.more_down);
             this.g.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
@@ -105,7 +106,7 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
 
     void b() {
         this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.f1392a = (RadioGroup) findViewById(R.id.frequency_radio);
+        this.f1429a = (RadioGroup) findViewById(R.id.frequency_radio);
         this.m = (RelativeLayout) findViewById(R.id.title);
         this.n = (TextView) findViewById(R.id.title_text);
         this.o = (TextView) findViewById(R.id.frequency_text);
@@ -118,7 +119,7 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
         this.v = (CheckBox) findViewById(R.id.check_newfans);
         this.w = (TextView) findViewById(R.id.tone_text);
         this.x = (TextView) findViewById(R.id.vibrate_text);
-        this.f1392a.setOnCheckedChangeListener(new ad(this));
+        this.f1429a.setOnCheckedChangeListener(new ad(this));
         ae aeVar = new ae(this);
         this.b = (TextView) findViewById(R.id.content_text);
         this.c = (CheckBox) findViewById(R.id.check_replyme);
@@ -144,21 +145,21 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
     }
 
     private void c() {
-        int S = TiebaApplication.f().S();
+        int S = TiebaApplication.g().S();
         if (S == 30) {
-            this.f1392a.check(R.id.radio_30sec);
+            this.f1429a.check(R.id.radio_30sec);
         } else if (S == 120) {
-            this.f1392a.check(R.id.radio_2min);
+            this.f1429a.check(R.id.radio_2min);
         } else if (S == 300) {
-            this.f1392a.check(R.id.radio_5min);
+            this.f1429a.check(R.id.radio_5min);
         } else {
-            this.f1392a.check(R.id.radio_no);
+            this.f1429a.check(R.id.radio_no);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (TiebaApplication.f().S() <= 0) {
+        if (TiebaApplication.g().S() <= 0) {
             this.b.setVisibility(8);
             this.d.setVisibility(8);
             this.c.setVisibility(8);
@@ -176,19 +177,19 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
     }
 
     private void k() {
-        if (TiebaApplication.f().aa()) {
+        if (TiebaApplication.g().aa()) {
             this.c.setChecked(true);
         }
-        if (TiebaApplication.f().Z()) {
+        if (TiebaApplication.g().Z()) {
             this.d.setChecked(true);
         }
-        if (TiebaApplication.f().Y()) {
+        if (TiebaApplication.g().Y()) {
             this.e.setChecked(true);
         }
     }
 
     private void l() {
-        if (TiebaApplication.f().V()) {
+        if (TiebaApplication.g().V()) {
             this.g.a();
         } else {
             this.g.b();
@@ -196,7 +197,7 @@ public class MsgRemindActivity extends com.baidu.tieba.g {
     }
 
     private void m() {
-        if (TiebaApplication.f().W()) {
+        if (TiebaApplication.g().W()) {
             this.k.a();
         } else {
             this.k.b();

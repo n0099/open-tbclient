@@ -10,7 +10,7 @@ public class c extends com.baidu.adp.a.c {
     private String g;
 
     /* renamed from: a  reason: collision with root package name */
-    private List f1364a = null;
+    private List f1398a = null;
     private String b = null;
     private String c = null;
     private String d = "1";
@@ -30,16 +30,18 @@ public class c extends com.baidu.adp.a.c {
         return false;
     }
 
-    public void a(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
-            this.b = str;
-            this.d = str2;
-            if (this.i == null) {
-                this.i = new e(this, null);
-                this.i.setPriority(2);
-                this.i.execute(new Object[0]);
-            }
+    public boolean a(String str, String str2) {
+        if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0) {
+            return false;
         }
+        this.b = str;
+        this.d = str2;
+        if (this.i == null) {
+            this.i = new e(this, null);
+            this.i.setPriority(2);
+            this.i.execute(new Object[0]);
+        }
+        return true;
     }
 
     public void a(String str) {
@@ -54,7 +56,7 @@ public class c extends com.baidu.adp.a.c {
     }
 
     public List a() {
-        return this.f1364a;
+        return this.f1398a;
     }
 
     public void b(String str) {
@@ -75,7 +77,7 @@ public class c extends com.baidu.adp.a.c {
                 this.h = jSONObject.optInt("has_more") != 0;
                 JSONArray optJSONArray = jSONObject.optJSONArray("record");
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f1364a = new ArrayList();
+                this.f1398a = new ArrayList();
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
@@ -92,7 +94,7 @@ public class c extends com.baidu.adp.a.c {
                         if (optString != null && optString.length() >= 1) {
                             gVar.d(optString);
                         }
-                        this.f1364a.add(gVar);
+                        this.f1398a.add(gVar);
                     }
                 }
             } catch (Exception e) {
@@ -101,11 +103,11 @@ public class c extends com.baidu.adp.a.c {
     }
 
     public List c(String str) {
-        this.f1364a = com.baidu.tieba.data.a.f.a().a(str);
-        for (com.baidu.tieba.data.a.g gVar : this.f1364a) {
+        this.f1398a = com.baidu.tieba.data.a.f.a().a(str);
+        for (com.baidu.tieba.data.a.g gVar : this.f1398a) {
             gVar.b(0);
         }
-        return this.f1364a;
+        return this.f1398a;
     }
 
     public boolean b() {

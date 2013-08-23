@@ -1,18 +1,17 @@
 package com.baidu.tieba.recommend;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements l {
+public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendFragment f1674a;
+    public int f1692a;
+    public Object b;
+    public String c;
+    final /* synthetic */ h d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(DailyRecommendFragment dailyRecommendFragment) {
-        this.f1674a = dailyRecommendFragment;
-    }
-
-    @Override // com.baidu.tieba.recommend.l
-    public void a(String str) {
-        this.f1674a.g = str;
+    public r(h hVar, int i, Object obj, String str) {
+        this.d = hVar;
+        this.f1692a = i;
+        this.b = obj;
+        this.c = str;
     }
 }

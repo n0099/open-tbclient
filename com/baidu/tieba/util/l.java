@@ -5,22 +5,22 @@ import android.database.sqlite.SQLiteDatabase;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1766a;
+    private int f1803a;
     private boolean b = false;
     private m e = null;
     private String c = "tieba_database.db";
-    private String d = p.f1769a + "/tieba/" + this.c;
+    private String d = p.f1806a + "/tieba/" + this.c;
 
     public l() {
-        this.f1766a = 1;
-        this.f1766a = 7;
+        this.f1803a = 1;
+        this.f1803a = 7;
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            aj.a(3, getClass().getName(), "ExecSQL", str);
+            aq.a(3, getClass().getName(), "ExecSQL", str);
         }
     }
 
@@ -32,12 +32,12 @@ public class l {
             if (sQLiteDatabase != null) {
                 if (!this.b) {
                     a(sQLiteDatabase);
-                    sQLiteDatabase.setVersion(this.f1766a);
+                    sQLiteDatabase.setVersion(this.f1803a);
                 } else {
                     int version = sQLiteDatabase.getVersion();
-                    if (version != this.f1766a) {
-                        a(sQLiteDatabase, version, this.f1766a);
-                        sQLiteDatabase.setVersion(this.f1766a);
+                    if (version != this.f1803a) {
+                        a(sQLiteDatabase, version, this.f1803a);
+                        sQLiteDatabase.setVersion(this.f1803a);
                     }
                 }
             }
@@ -64,7 +64,7 @@ public class l {
             try {
                 this.e.a();
             } catch (Exception e) {
-                aj.b(getClass().getName(), "onCreateDatabase", e.getMessage());
+                aq.b(getClass().getName(), "onCreateDatabase", e.getMessage());
             }
         }
     }

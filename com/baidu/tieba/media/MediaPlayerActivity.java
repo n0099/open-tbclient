@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.os.HandlerThread;
 import android.os.PowerManager;
 import com.baidu.cyberplayer.sdk.BVideoView;
-import com.baidu.tieba.util.NetWorkCore;
+import com.baidu.tieba.util.UtilHelper;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MediaPlayerActivity extends Activity implements BVideoView.OnCompletionListener, BVideoView.OnErrorListener, BVideoView.OnInfoListener, BVideoView.OnPlayingBufferCacheListener, BVideoView.OnPreparedListener {
@@ -18,7 +18,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     private HandlerThread k;
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1264a = null;
+    private a f1297a = null;
     private q b = null;
     private l c = null;
     private String d = null;
@@ -52,7 +52,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     public static void a(Activity activity, String str) {
         Intent intent = new Intent(activity, MediaPlayerActivity.class);
         intent.setData(Uri.parse(str));
-        intent.putExtra("init_network_info", NetWorkCore.c(activity));
+        intent.putExtra("init_network_info", UtilHelper.i(activity));
         activity.startActivity(intent);
     }
 
@@ -75,7 +75,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
 
     private void d() {
         this.b = new q(this);
-        this.f1264a = new a(this);
+        this.f1297a = new a(this);
         this.b.a();
     }
 
@@ -85,7 +85,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     }
 
     private void f() {
-        NetWorkCore.NetworkStateInfo networkStateInfo = (NetWorkCore.NetworkStateInfo) getIntent().getSerializableExtra("init_network_info");
+        UtilHelper.NetworkStateInfo networkStateInfo = (UtilHelper.NetworkStateInfo) getIntent().getSerializableExtra("init_network_info");
         if (networkStateInfo != null) {
             this.m.add(networkStateInfo);
         }

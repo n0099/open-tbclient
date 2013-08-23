@@ -23,7 +23,7 @@ public class k extends BaseAdapter {
     private boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1904a = false;
+    boolean f1935a = false;
     private ArrayList i = new ArrayList();
 
     public void a() {
@@ -35,7 +35,7 @@ public class k extends BaseAdapter {
                     try {
                         ((ProgressBar) this.i.get(i2)).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.util.aj.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.tieba.util.aq.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -67,7 +67,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1904a) {
+        if (this.f1935a) {
             return 1;
         }
         int i = 0;
@@ -106,15 +106,15 @@ public class k extends BaseAdapter {
                 l lVar2 = new l(this, null);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.at_list_item, (ViewGroup) null);
-                    lVar2.f1905a = (ImageView) inflate.findViewById(R.id.photo);
+                    lVar2.f1936a = (ImageView) inflate.findViewById(R.id.photo);
                     lVar2.b = (TextView) inflate.findViewById(R.id.name);
-                    lVar2.d = (TextView) inflate.findViewById(R.id.at_list_nodata);
+                    lVar2.e = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     view2 = inflate;
                 } else {
                     View inflate2 = from.inflate(R.layout.page_item, (ViewGroup) null);
                     lVar2.b = (TextView) inflate2.findViewById(R.id.page_text);
-                    lVar2.c = (ProgressBar) inflate2.findViewById(R.id.progress);
-                    this.i.add(lVar2.c);
+                    lVar2.d = (ProgressBar) inflate2.findViewById(R.id.progress);
+                    this.i.add(lVar2.d);
                     view2 = inflate2;
                 }
                 view2.setTag(lVar2);
@@ -125,53 +125,60 @@ public class k extends BaseAdapter {
             }
             try {
                 if (getItemViewType(i) == 0) {
-                    if (this.f1904a) {
-                        lVar.f1905a.setVisibility(8);
+                    if (this.f1935a) {
+                        lVar.f1936a.setVisibility(8);
                         lVar.b.setVisibility(8);
-                        lVar.d.setVisibility(0);
+                        lVar.e.setVisibility(0);
                         if (this.b) {
                             if (this.c) {
-                                lVar.d.setText(R.string.not_have_attention);
+                                lVar.e.setText(R.string.not_have_attention);
                             } else {
-                                lVar.d.setText(R.string.no_attention_other);
+                                lVar.e.setText(R.string.no_attention_other);
                             }
                         } else if (this.c) {
-                            lVar.d.setText(R.string.not_have_fans);
+                            lVar.e.setText(R.string.not_have_fans);
                         } else {
-                            lVar.d.setText(R.string.no_fan_other);
+                            lVar.e.setText(R.string.no_fan_other);
                         }
                     } else {
-                        lVar.f1905a.setVisibility(0);
+                        lVar.f1936a.setVisibility(0);
                         lVar.b.setVisibility(0);
-                        lVar.d.setVisibility(8);
+                        lVar.e.setVisibility(8);
                         String portrait = ((MetaData) this.d.get(i)).getPortrait();
                         com.baidu.adp.widget.a.b c = this.f.c(portrait);
                         if (c != null) {
-                            lVar.f1905a.setTag(null);
-                            c.b(lVar.f1905a);
+                            lVar.f1936a.setTag(null);
+                            c.a(lVar.f1936a);
                         } else {
-                            lVar.f1905a.setTag(portrait);
-                            lVar.f1905a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
+                            lVar.f1936a.setTag(portrait);
+                            lVar.f1936a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
                         }
                         lVar.b.setText(((MetaData) this.d.get(i)).getName_show());
                     }
                 } else if (this.h) {
                     lVar.b.setText(this.e.getString(R.string.loading));
-                    lVar.c.setVisibility(0);
+                    lVar.d.setVisibility(0);
                 } else {
                     lVar.b.setText(this.e.getString(R.string.load_more));
-                    lVar.c.setVisibility(8);
+                    lVar.d.setVisibility(8);
                 }
-                if (TiebaApplication.f().au() == 1) {
-                    int a2 = com.baidu.tieba.util.ah.a(1);
-                    lVar.b.setTextColor(a2);
-                    if (lVar.d != null) {
-                        lVar.d.setTextColor(a2);
+                int an = TiebaApplication.g().an();
+                if (an == 1) {
+                    com.baidu.tieba.util.ao.g(view, (int) R.drawable.list_selector_1);
+                } else {
+                    com.baidu.tieba.util.ao.g(view, (int) R.drawable.list_selector_divider1);
+                }
+                if (an == 1) {
+                    lVar.b.setTextColor(-8682086);
+                    lVar.c.setTextColor(-11446171);
+                    if (lVar.e != null) {
+                        lVar.e.setTextColor(-8682086);
                     }
                 } else {
-                    lVar.b.setTextColor(-16777216);
-                    if (lVar.d != null) {
-                        lVar.d.setTextColor(-4276546);
+                    lVar.b.setTextColor(-14277082);
+                    lVar.c.setTextColor(-10066330);
+                    if (lVar.e != null) {
+                        lVar.e.setTextColor(-8682086);
                     }
                 }
             } catch (Exception e) {
@@ -183,7 +190,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f1904a) {
+        if (this.f1935a) {
             return 0;
         }
         return (this.d == null || i >= this.d.size()) ? 1 : 0;
@@ -196,7 +203,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.f1904a) {
+        if (this.f1935a) {
             return false;
         }
         return super.isEnabled(i);

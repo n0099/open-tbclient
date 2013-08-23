@@ -18,7 +18,7 @@ public class GuidPageView extends ImageView {
     }
 
     private void b() {
-        setOnClickListener(new y(this));
+        setOnClickListener(new af(this));
     }
 
     public void a() {

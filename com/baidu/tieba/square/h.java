@@ -6,20 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.view.z;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.av;
+import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h extends BaseAdapter implements z {
+public class h extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1724a = new i(this);
+    View.OnClickListener f1743a = new i(this);
     private final Activity b;
     private g c;
     private com.baidu.tieba.util.a d;
@@ -27,7 +27,7 @@ public class h extends BaseAdapter implements z {
     public h(Activity activity) {
         this.b = activity;
         this.d = new com.baidu.tieba.util.a(activity);
-        int a2 = am.a((Context) activity, 54.0f);
+        int a2 = UtilHelper.a((Context) activity, 45.0f);
         this.d.a(a2, a2);
     }
 
@@ -40,11 +40,11 @@ public class h extends BaseAdapter implements z {
         if (this.c == null) {
             return 0;
         }
-        ArrayList c = this.c.c();
-        if (c == null || c.size() <= 0) {
+        ArrayList d = this.c.d();
+        if (d == null || d.size() <= 0) {
             return 2;
         }
-        return 2 + c.size() + c.size() + 1;
+        return 2 + (d.size() * 2);
     }
 
     @Override // android.widget.Adapter
@@ -52,28 +52,36 @@ public class h extends BaseAdapter implements z {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            ap.b(view);
+            av.b(view);
         }
-        int au = TiebaApplication.f().au();
+        int an = TiebaApplication.g().an();
         if (itemViewType == 0) {
             TextView textView = (TextView) view.findViewById(R.id.name);
             View findViewById = view.findViewById(R.id.container);
-            if (au == 1) {
-                textView.setTextColor(-8682095);
-                ah.h(findViewById, (int) R.drawable.bg_list_up_1);
+            if (an == 1) {
+                textView.setTextColor(view.getResources().getColor(R.color.bar_home_dir_header_night));
+                ao.g(findViewById, (int) R.drawable.bg_ba_catalogue_1);
             } else {
-                textView.setTextColor(-8023135);
-                ah.h(findViewById, (int) R.drawable.bg_list_up);
+                textView.setTextColor(view.getResources().getColor(R.color.bar_home_dir_header_normal));
+                ao.g(findViewById, (int) R.drawable.bg_ba_catalogue);
             }
         } else if (itemViewType == 1) {
-            ap.a(view);
+            av.a(view);
         } else if (itemViewType == 3) {
-            ap.a(view.findViewById(R.id.container), 2, au);
-            ap.a(view);
+            av.a(view.findViewById(R.id.container), 2, an);
+            av.a(view);
+            Button button = (Button) view.findViewById(R.id.bar_item_all);
+            if (an == 1) {
+                button.setBackgroundResource(R.drawable.btn_w_square_1);
+                button.setTextColor(-8682095);
+            } else {
+                button.setBackgroundResource(R.drawable.btn_w_square);
+                button.setTextColor(-14277082);
+            }
         } else {
-            ap.a(view.findViewById(R.id.container), 1, au);
-            ap.a(view);
-            a(viewGroup, (k) view.getTag(), i);
+            av.a(view.findViewById(R.id.container), 1, an);
+            av.a(view);
+            a(viewGroup, (l) view.getTag(), i);
         }
         return view;
     }
@@ -88,49 +96,49 @@ public class h extends BaseAdapter implements z {
         }
         if (i == 3) {
             View inflate = from.inflate(R.layout.bar_home_all_dir_item, (ViewGroup) null);
-            r rVar = new r();
-            rVar.f1734a = null;
-            k kVar = new k();
-            kVar.d = rVar;
-            inflate.setTag(kVar);
-            inflate.setOnClickListener(this.f1724a);
+            s sVar = new s();
+            sVar.f1754a = null;
+            l lVar = new l();
+            lVar.d = sVar;
+            Button button = (Button) inflate.findViewById(R.id.bar_item_all);
+            button.setOnClickListener(this.f1743a);
+            button.setTag(lVar);
             return inflate;
         }
         View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
-        inflate2.setOnClickListener(this.f1724a);
-        k kVar2 = new k();
-        kVar2.f1727a = (ImageView) inflate2.findViewById(R.id.portrait);
-        kVar2.b = (TextView) inflate2.findViewById(R.id.name);
-        kVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
-        inflate2.setTag(kVar2);
+        inflate2.setOnClickListener(this.f1743a);
+        l lVar2 = new l();
+        lVar2.f1747a = (HeadImageView) inflate2.findViewById(R.id.portrait);
+        lVar2.b = (TextView) inflate2.findViewById(R.id.name);
+        lVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
+        inflate2.setTag(lVar2);
         return inflate2;
     }
 
-    private void a(ViewGroup viewGroup, k kVar, int i) {
-        r rVar = (r) this.c.c().get((i - 1) / 2);
-        kVar.d = rVar;
-        kVar.b.setText(rVar.b);
-        if (rVar.e != null) {
-            String[] strArr = new String[rVar.e.size()];
-            for (int i2 = 0; i2 < rVar.e.size(); i2++) {
-                strArr[i2] = ((r) rVar.e.get(i2)).b;
+    private void a(ViewGroup viewGroup, l lVar, int i) {
+        s sVar = (s) this.c.d().get((i - 1) / 2);
+        lVar.d = sVar;
+        lVar.b.setText(sVar.b);
+        if (sVar.e != null) {
+            String[] strArr = new String[sVar.e.size()];
+            for (int i2 = 0; i2 < sVar.e.size(); i2++) {
+                strArr[i2] = ((s) sVar.e.get(i2)).b;
             }
-            kVar.c.setTextArray(strArr);
-            kVar.c.setVisibility(0);
+            lVar.c.setTextArray(strArr);
+            lVar.c.setVisibility(0);
         } else {
-            kVar.c.setVisibility(8);
+            lVar.c.setVisibility(8);
         }
-        if (rVar.d != null) {
-            kVar.f1727a.setTag(rVar.d);
-            if (this.d.d(rVar.d) != null) {
-                kVar.f1727a.invalidate();
-                return;
-            } else {
-                kVar.f1727a.setImageResource(R.drawable.icon_all_categories);
+        if (sVar.d != null) {
+            lVar.f1747a.setTag(sVar.d);
+            com.baidu.adp.widget.a.b d = this.d.d(sVar.d);
+            if (d != null) {
+                lVar.f1747a.setImageBitmap(d.f());
+                lVar.f1747a.invalidate();
                 return;
             }
+            this.d.a(sVar.d, new j(this, viewGroup));
         }
-        kVar.f1727a.setImageResource(R.drawable.icon_all_categories);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -146,10 +154,7 @@ public class h extends BaseAdapter implements z {
         if (i == getCount() - 1) {
             return 3;
         }
-        if (i % 2 == 0) {
-            return 2;
-        }
-        return 1;
+        return i % 2 == 1 ? 2 : 1;
     }
 
     @Override // android.widget.Adapter
@@ -164,23 +169,5 @@ public class h extends BaseAdapter implements z {
 
     public Activity a() {
         return this.b;
-    }
-
-    @Override // com.baidu.tieba.view.z
-    public void c() {
-        this.d.b();
-    }
-
-    @Override // com.baidu.tieba.view.z
-    public void a(View view, int i, int i2) {
-        while (i <= i2) {
-            if (getItemViewType(i) == 2) {
-                r rVar = (r) this.c.c().get((i - 1) / 2);
-                if (rVar.d != null && this.d.d(rVar.d) == null) {
-                    this.d.a(rVar.d, new j(this, view));
-                }
-            }
-            i++;
-        }
     }
 }

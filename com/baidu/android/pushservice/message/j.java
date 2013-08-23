@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public final class j {
     public static PublicMsg a(String str, String str2, byte[] bArr) {
         PublicMsg publicMsg = new PublicMsg();
-        publicMsg.f588a = str;
+        publicMsg.f611a = str;
         publicMsg.b = str2;
         try {
             JSONObject jSONObject = new JSONObject(new String(bArr));

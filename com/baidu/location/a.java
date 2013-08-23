@@ -27,7 +27,7 @@ public class a {
     private boolean f92for = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f728a = false;
+    private boolean f751a = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.a$a  reason: collision with other inner class name */
@@ -227,8 +227,8 @@ public class a {
             }
             z2 = ((C0000a) it.next()).f94do.f87new.equals("kuikedefancaiburudashahaochi") ? true : z;
         }
-        if (this.f728a != z) {
-            this.f728a = z;
+        if (this.f751a != z) {
+            this.f751a = z;
             this.f93int.obtainMessage(81).sendToTarget();
         }
     }
@@ -279,11 +279,11 @@ public class a {
         }
         C0000a a2 = a(message.replyTo);
         if (a2 != null) {
-            a2.f94do.f727a = message.getData().getInt("num", a2.f94do.f727a);
+            a2.f94do.f750a = message.getData().getInt("num", a2.f94do.f750a);
             a2.f94do.f80do = message.getData().getFloat("distance", a2.f94do.f80do);
             a2.f94do.f84if = message.getData().getBoolean("extraInfo", a2.f94do.f84if);
             a2.f94do.f81else = true;
-            String format = String.format("&poi=%.1f|%d", Float.valueOf(a2.f94do.f80do), Integer.valueOf(a2.f94do.f727a));
+            String format = String.format("&poi=%.1f|%d", Float.valueOf(a2.f94do.f80do), Integer.valueOf(a2.f94do.f750a));
             return a2.f94do.f84if ? format + "|1" : format;
         }
         return null;

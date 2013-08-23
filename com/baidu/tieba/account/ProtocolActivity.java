@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 public class ProtocolActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f842a = null;
+    private ImageView f863a = null;
     private TextView b = null;
     private RelativeLayout c = null;
     private View d = null;
@@ -35,8 +35,8 @@ public class ProtocolActivity extends com.baidu.tieba.g {
         this.c = (RelativeLayout) findViewById(R.id.container);
         this.d = findViewById(R.id.title);
         this.e = (TextView) findViewById(R.id.title_text);
-        this.f842a = (ImageView) findViewById(R.id.back);
-        this.f842a.setOnClickListener(new ae(this));
+        this.f863a = (ImageView) findViewById(R.id.back);
+        this.f863a.setOnClickListener(new ae(this));
         this.b = (TextView) findViewById(R.id.text);
         StringBuilder sb = new StringBuilder(1024);
         BufferedReader bufferedReader2 = null;
@@ -99,10 +99,10 @@ public class ProtocolActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.f(this.e, i);
-        com.baidu.tieba.util.ah.c(this.c, i);
-        com.baidu.tieba.util.ah.d(this.d, i);
-        com.baidu.tieba.util.ah.a(this.f842a, i);
-        com.baidu.tieba.util.ah.b(this.b, i);
+        com.baidu.tieba.util.ao.f(this.e, i);
+        com.baidu.tieba.util.ao.c(this.c, i);
+        com.baidu.tieba.util.ao.d(this.d, i);
+        com.baidu.tieba.util.ao.a(this.f863a, i);
+        com.baidu.tieba.util.ao.b(this.b, i);
     }
 }

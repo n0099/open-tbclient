@@ -1,26 +1,23 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements AdapterView.OnItemClickListener {
+public class bp implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1482a;
+    final /* synthetic */ bo f1519a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bp(bn bnVar) {
-        this.f1482a = bnVar;
+    public bp(bo boVar) {
+        this.f1519a = boVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        com.baidu.tieba.write.m mVar;
-        mVar = this.f1482a.I;
-        String a2 = mVar.a(i);
-        if (a2 != null) {
-            this.f1482a.f1480a.getText().insert(this.f1482a.f1480a.getSelectionStart(), a2);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        GridView gridView;
+        this.f1519a.W();
+        gridView = this.f1519a.I;
+        gridView.setVisibility(0);
     }
 }

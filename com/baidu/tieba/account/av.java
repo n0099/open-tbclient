@@ -7,20 +7,20 @@ import android.widget.RadioGroup;
 class av implements RadioGroup.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f868a;
+    final /* synthetic */ Register2Activity f889a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(Register2Activity register2Activity) {
-        this.f868a = register2Activity;
+        this.f889a = register2Activity;
     }
 
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         EditText editText;
         if (i > 0) {
-            RadioButton radioButton = (RadioButton) this.f868a.findViewById(i);
+            RadioButton radioButton = (RadioButton) this.f889a.findViewById(i);
             if (radioButton.isChecked()) {
-                editText = this.f868a.x;
+                editText = this.f889a.x;
                 editText.setText(radioButton.getText());
             }
         }

@@ -1,21 +1,30 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bj {
+public class bj extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1834a;
-    public byte[] b;
-    public Bitmap c;
-    final /* synthetic */ bg d;
-
-    private bj(bg bgVar) {
-        this.d = bgVar;
-    }
+    final /* synthetic */ WaterFallView f1866a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bj(bg bgVar, bj bjVar) {
-        this(bgVar);
+    public bj(WaterFallView waterFallView) {
+        this.f1866a = waterFallView;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        bl blVar;
+        bl blVar2;
+        super.handleMessage(message);
+        if (message.what == 101) {
+            blVar = this.f1866a.o;
+            if (blVar != null) {
+                blVar2 = this.f1866a.o;
+                blVar2.d();
+            }
+        }
     }
 }

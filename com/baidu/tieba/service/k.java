@@ -1,7 +1,7 @@
 package com.baidu.tieba.service;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.aq;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,11 +11,11 @@ import java.io.FileWriter;
 public class k extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f1703a;
-    private com.baidu.tieba.util.u b;
+    final /* synthetic */ PerformMonitorService f1720a;
+    private com.baidu.tieba.util.v b;
 
     private k(PerformMonitorService performMonitorService) {
-        this.f1703a = performMonitorService;
+        this.f1720a = performMonitorService;
         this.b = null;
     }
 
@@ -70,14 +70,14 @@ public class k extends BdAsyncTask {
                                     try {
                                         byteArrayOutputStream2.close();
                                     } catch (Exception e) {
-                                        aj.b(getClass().getName(), "sendPerformFile", e.getMessage());
+                                        aq.b(getClass().getName(), "sendPerformFile", e.getMessage());
                                     }
                                 }
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e2) {
-                                        aj.b(getClass().getName(), "sendPerformFile", e2.getMessage());
+                                        aq.b(getClass().getName(), "sendPerformFile", e2.getMessage());
                                     }
                                 }
                                 if (0 != 0) {
@@ -85,16 +85,16 @@ public class k extends BdAsyncTask {
                                         fileWriter2.close();
                                         return;
                                     } catch (Exception e3) {
-                                        aj.b(getClass().getName(), "sendPerformFile", e3.getMessage());
+                                        aq.b(getClass().getName(), "sendPerformFile", e3.getMessage());
                                         return;
                                     }
                                 }
                                 return;
                             }
-                            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + str2);
+                            this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + str2);
                             this.b.a("logfile", byteArray);
                             this.b.a("errortype", "3");
-                            this.b.m();
+                            this.b.l();
                             if (byteArrayOutputStream2 != null) {
                                 byteArrayOutputStream2.close();
                                 byteArrayOutputStream3 = null;
@@ -108,7 +108,7 @@ public class k extends BdAsyncTask {
                                 } catch (Exception e4) {
                                     e = e4;
                                     byteArrayOutputStream2 = byteArrayOutputStream3;
-                                    aj.b(getClass().getName(), "sendPerformFile", e.getMessage());
+                                    aq.b(getClass().getName(), "sendPerformFile", e.getMessage());
                                     if (byteArrayOutputStream2 != null) {
                                     }
                                     if (fileInputStream != null) {
@@ -130,7 +130,7 @@ public class k extends BdAsyncTask {
                                 fileInputStream2 = fileInputStream;
                             }
                             try {
-                                if (this.b.d()) {
+                                if (this.b.c()) {
                                     FileWriter fileWriter3 = new FileWriter(c, false);
                                     try {
                                         fileWriter3.append((CharSequence) "");
@@ -141,26 +141,26 @@ public class k extends BdAsyncTask {
                                             fileWriter = fileWriter3;
                                         }
                                         if (!c.delete()) {
-                                            aj.b(getClass().getName(), "sendPerformFile", "file.delete error");
+                                            aq.b(getClass().getName(), "sendPerformFile", "file.delete error");
                                         }
                                     } catch (Exception e5) {
                                         e = e5;
                                         fileWriter = fileWriter3;
                                         fileInputStream = fileInputStream2;
                                         byteArrayOutputStream2 = byteArrayOutputStream3;
-                                        aj.b(getClass().getName(), "sendPerformFile", e.getMessage());
+                                        aq.b(getClass().getName(), "sendPerformFile", e.getMessage());
                                         if (byteArrayOutputStream2 != null) {
                                             try {
                                                 byteArrayOutputStream2.close();
                                             } catch (Exception e6) {
-                                                aj.b(getClass().getName(), "sendPerformFile", e6.getMessage());
+                                                aq.b(getClass().getName(), "sendPerformFile", e6.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e7) {
-                                                aj.b(getClass().getName(), "sendPerformFile", e7.getMessage());
+                                                aq.b(getClass().getName(), "sendPerformFile", e7.getMessage());
                                             }
                                         }
                                         if (fileWriter == null) {
@@ -168,7 +168,7 @@ public class k extends BdAsyncTask {
                                                 fileWriter.close();
                                                 return;
                                             } catch (Exception e8) {
-                                                aj.b(getClass().getName(), "sendPerformFile", e8.getMessage());
+                                                aq.b(getClass().getName(), "sendPerformFile", e8.getMessage());
                                                 return;
                                             }
                                         }
@@ -182,21 +182,21 @@ public class k extends BdAsyncTask {
                                             try {
                                                 byteArrayOutputStream.close();
                                             } catch (Exception e9) {
-                                                aj.b(getClass().getName(), "sendPerformFile", e9.getMessage());
+                                                aq.b(getClass().getName(), "sendPerformFile", e9.getMessage());
                                             }
                                         }
                                         if (fileInputStream != null) {
                                             try {
                                                 fileInputStream.close();
                                             } catch (Exception e10) {
-                                                aj.b(getClass().getName(), "sendPerformFile", e10.getMessage());
+                                                aq.b(getClass().getName(), "sendPerformFile", e10.getMessage());
                                             }
                                         }
                                         if (fileWriter != null) {
                                             try {
                                                 fileWriter.close();
                                             } catch (Exception e11) {
-                                                aj.b(getClass().getName(), "sendPerformFile", e11.getMessage());
+                                                aq.b(getClass().getName(), "sendPerformFile", e11.getMessage());
                                             }
                                         }
                                         throw th;
@@ -229,21 +229,21 @@ public class k extends BdAsyncTask {
                     try {
                         byteArrayOutputStream3.close();
                     } catch (Exception e15) {
-                        aj.b(getClass().getName(), "sendPerformFile", e15.getMessage());
+                        aq.b(getClass().getName(), "sendPerformFile", e15.getMessage());
                     }
                 }
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
                     } catch (Exception e16) {
-                        aj.b(getClass().getName(), "sendPerformFile", e16.getMessage());
+                        aq.b(getClass().getName(), "sendPerformFile", e16.getMessage());
                     }
                 }
                 if (fileWriter != null) {
                     try {
                         fileWriter.close();
                     } catch (Exception e17) {
-                        aj.b(getClass().getName(), "sendPerformFile", e17.getMessage());
+                        aq.b(getClass().getName(), "sendPerformFile", e17.getMessage());
                     }
                 }
             } catch (Throwable th5) {
@@ -271,11 +271,11 @@ public class k extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.i();
+            this.b.h();
         }
-        this.f1703a.g = null;
+        this.f1720a.g = null;
         super.cancel(true);
-        this.f1703a.stopSelf();
+        this.f1720a.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -283,7 +283,7 @@ public class k extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((Object) str);
-        this.f1703a.g = null;
-        this.f1703a.stopSelf();
+        this.f1720a.g = null;
+        this.f1720a.stopSelf();
     }
 }

@@ -6,12 +6,12 @@ import android.widget.ProgressBar;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PKJumpActivity f1211a;
+    final /* synthetic */ PKJumpActivity f1244a;
     private final /* synthetic */ s b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PKJumpActivity pKJumpActivity, s sVar) {
-        this.f1211a = pKJumpActivity;
+        this.f1244a = pKJumpActivity;
         this.b = sVar;
     }
 
@@ -21,23 +21,23 @@ public class f implements Runnable {
         String str;
         String str2;
         String str3;
-        progressBar = this.f1211a.e;
+        progressBar = this.f1244a.e;
         progressBar.setVisibility(8);
-        this.f1211a.overridePendingTransition(0, 0);
-        if (this.b.f()) {
-            PKJumpActivity pKJumpActivity = this.f1211a;
-            str3 = this.f1211a.c;
-            PKWaitingActivity.a(pKJumpActivity, str3, this.b.c());
-        } else if (this.b.e()) {
-            PKJumpActivity pKJumpActivity2 = this.f1211a;
-            str2 = this.f1211a.c;
-            PKEndActivity.a(pKJumpActivity2, str2, this.b.c());
+        this.f1244a.overridePendingTransition(0, 0);
+        if (this.b.g()) {
+            PKJumpActivity pKJumpActivity = this.f1244a;
+            str3 = this.f1244a.c;
+            PKWaitingActivity.a(pKJumpActivity, str3, this.b.d());
+        } else if (this.b.f()) {
+            PKJumpActivity pKJumpActivity2 = this.f1244a;
+            str2 = this.f1244a.c;
+            PKEndActivity.a(pKJumpActivity2, str2, this.b.d());
         } else {
-            PKJumpActivity pKJumpActivity3 = this.f1211a;
-            str = this.f1211a.c;
-            PKingActivity.a(pKJumpActivity3, str, this.b.c());
+            PKJumpActivity pKJumpActivity3 = this.f1244a;
+            str = this.f1244a.c;
+            PKingActivity.a(pKJumpActivity3, str, this.b.d());
         }
-        this.f1211a.finish();
-        this.f1211a.overridePendingTransition(0, 0);
+        this.f1244a.finish();
+        this.f1244a.overridePendingTransition(0, 0);
     }
 }

@@ -5,33 +5,38 @@ import org.json.JSONObject;
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f984a = null;
-    private String b = null;
-    private String c = null;
-    private String d = null;
+    private aw f994a = null;
+    private aw b = null;
+    private aw c = null;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                this.f984a = jSONObject.optString("player_id");
-                this.b = jSONObject.optString("player_name");
-                this.c = jSONObject.optString("small_head_url");
-                a(jSONObject.optString("big_head_url"));
-            } catch (Exception e) {
-                com.baidu.tieba.util.aj.b("PlayerInfoData", "parserJson", "error = " + e.getMessage());
-            }
+            this.f994a = a(jSONObject, "banner_big");
+            this.b = a(jSONObject, "banner_small_left");
+            this.c = a(jSONObject, "banner_small_right");
         }
     }
 
-    public String a() {
+    private aw a(JSONObject jSONObject, String str) {
+        JSONObject optJSONObject = jSONObject.optJSONObject(str);
+        if (optJSONObject == null) {
+            return null;
+        }
+        aw awVar = new aw(this);
+        awVar.a(optJSONObject.optString("img_url"));
+        awVar.b(optJSONObject.optString("link"));
+        return awVar;
+    }
+
+    public aw a() {
+        return this.f994a;
+    }
+
+    public aw b() {
         return this.b;
     }
 
-    public String b() {
-        return this.d;
-    }
-
-    public void a(String str) {
-        this.d = str;
+    public aw c() {
+        return this.c;
     }
 }

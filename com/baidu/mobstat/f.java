@@ -6,7 +6,7 @@ import android.content.Context;
 public class f extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f781a = new f();
+    private static f f804a = new f();
     private Context b;
     private boolean c = false;
     private boolean d = false;
@@ -15,7 +15,7 @@ public class f extends Thread {
     }
 
     public static f a() {
-        return f781a;
+        return f804a;
     }
 
     private void d() {
@@ -49,7 +49,7 @@ public class f extends Thread {
         b.a().d(this.b);
         b.a().c(this.b);
         e();
-        synchronized (f781a) {
+        synchronized (f804a) {
             try {
                 notifyAll();
             } catch (IllegalMonitorStateException e) {

@@ -1,57 +1,110 @@
 package com.baidu.tieba.data;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
+    private String f;
+    private String g;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1027a = new ArrayList();
-    private HashMap b = null;
-
-    public void a(JSONObject jSONObject, boolean z) {
-        if (jSONObject != null) {
-            if (z) {
-                try {
-                    if (this.b == null) {
-                        this.b = new HashMap();
-                    }
-                } catch (Exception e) {
-                    com.baidu.tieba.util.aj.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
-                    return;
-                }
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserJson(optJSONArray.getJSONObject(i));
-                    if (metaData.getName_show() != null) {
-                        this.f1027a.add(metaData);
-                        if (z) {
-                            this.b.put(metaData.getName_show(), metaData.getPortrait());
-                        }
-                    }
-                }
-            }
-        }
-    }
+    private int f1030a = 0;
+    private String b = "";
+    private String c = "";
+    private int d = 0;
+    private boolean e = false;
+    private ArrayList h = new ArrayList();
 
     public void a(String str) {
         try {
-            a(new JSONObject(str), true);
+            a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aq.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public ArrayList a() {
-        return this.f1027a;
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                if (optJSONObject != null) {
+                    this.f1030a = optJSONObject.optInt("errno", 0);
+                    this.b = optJSONObject.optString("errmsg", "");
+                    this.c = optJSONObject.optString("usermsg", "");
+                }
+                b(jSONObject.optString("total"));
+                a(jSONObject.optInt("has_more"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("feed_thread_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        x xVar = new x();
+                        xVar.a(optJSONArray.optJSONObject(i));
+                        this.h.add(xVar);
+                    }
+                    a(optJSONArray.length() == 0);
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.util.aq.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+            }
+        }
     }
 
-    public HashMap b() {
-        return this.b;
+    public void a(w wVar, boolean z) {
+        if (wVar != null) {
+            a(wVar.b());
+            b(wVar.d());
+            c(wVar.e());
+            a(wVar.a() == null || wVar.a().size() == 0);
+            if (z) {
+                this.h.addAll(wVar.a());
+            } else {
+                this.h = wVar.a();
+            }
+        }
+    }
+
+    public void a(boolean z) {
+        this.e = z;
+    }
+
+    public ArrayList a() {
+        return this.h;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public int b() {
+        return this.d;
+    }
+
+    public boolean c() {
+        return this.d > 0;
+    }
+
+    public void b(String str) {
+        this.f = str;
+    }
+
+    public String d() {
+        return this.f;
+    }
+
+    public void c(String str) {
+        this.g = str;
+    }
+
+    public String e() {
+        return this.g;
+    }
+
+    public int f() {
+        return this.f1030a;
+    }
+
+    public String g() {
+        return this.c;
     }
 }

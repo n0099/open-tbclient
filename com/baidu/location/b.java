@@ -45,7 +45,7 @@ public class b {
     private Handler F;
 
     /* renamed from: a  reason: collision with root package name */
-    private GpsStatus f730a;
+    private GpsStatus f753a;
     private Context f;
 
     /* renamed from: for  reason: not valid java name */
@@ -120,13 +120,13 @@ public class b {
                     return;
                 case 4:
                     j.a("baidu_location_service", "gps status change");
-                    if (b.this.f730a == null) {
-                        b.this.f730a = b.this.f105do.getGpsStatus(null);
+                    if (b.this.f753a == null) {
+                        b.this.f753a = b.this.f105do.getGpsStatus(null);
                     } else {
-                        b.this.f105do.getGpsStatus(b.this.f730a);
+                        b.this.f105do.getGpsStatus(b.this.f753a);
                     }
                     int i2 = 0;
-                    for (GpsSatellite gpsSatellite : b.this.f730a.getSatellites()) {
+                    for (GpsSatellite gpsSatellite : b.this.f753a.getSatellites()) {
                         i2 = gpsSatellite.usedInFix() ? i2 + 1 : i2;
                     }
                     j.a("baidu_location_service", "gps nunmber in count:" + i2);
@@ -271,7 +271,7 @@ public class b {
         private double j = 0.0d;
 
         /* renamed from: a  reason: collision with root package name */
-        private double f733a = 500.0d;
+        private double f756a = 500.0d;
         private boolean i = false;
 
         /* renamed from: try  reason: not valid java name */
@@ -295,7 +295,7 @@ public class b {
         public class a {
 
             /* renamed from: a  reason: collision with root package name */
-            private int f734a;
+            private int f757a;
 
             /* renamed from: do  reason: not valid java name */
             private int f124do;
@@ -308,17 +308,17 @@ public class b {
 
             public a(int i, int i2, int i3, int i4) {
                 this.f127int = 0;
-                this.f734a = 0;
+                this.f757a = 0;
                 this.f126if = 0;
                 this.f124do = 0;
                 this.f127int = i;
-                this.f734a = i2;
+                this.f757a = i2;
                 this.f126if = i3;
                 this.f124do = i4;
             }
 
             public int a() {
-                return this.f734a;
+                return this.f757a;
             }
 
             /* renamed from: do  reason: not valid java name */
@@ -405,7 +405,7 @@ public class b {
             if (this.f) {
                 if (z && this.r) {
                     this.f117do = 1;
-                    if (this.m >= j.f757a) {
+                    if (this.m >= j.f780a) {
                         return 1;
                     }
                     if (this.m <= j.t) {
@@ -598,7 +598,7 @@ public class b {
         }
 
         public double j() {
-            return this.f733a;
+            return this.f756a;
         }
 
         public String k() {
@@ -667,7 +667,7 @@ public class b {
                 if (!split2[9].equals("") && !split2[2].equals("")) {
                     this.c = Character.valueOf(split2[2].charAt(0)).charValue();
                     this.j = split2[7].equals("") ? 0.0d : 1.852d * Double.valueOf(split2[7]).doubleValue();
-                    this.f733a = (split2[8].equals("") || split2[8].equalsIgnoreCase("nan")) ? 500.0d : Double.valueOf(split2[8]).doubleValue();
+                    this.f756a = (split2[8].equals("") || split2[8].equalsIgnoreCase("nan")) ? 500.0d : Double.valueOf(split2[8]).doubleValue();
                     this.f120long = true;
                 }
             }
@@ -733,16 +733,16 @@ public class b {
     public class d {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f735a;
+        private String f758a;
 
         public d(String str) {
-            this.f735a = null;
+            this.f758a = null;
             if (str == null) {
                 str = "";
             } else if (str.length() > 100) {
                 str = str.substring(0, 100);
             }
-            this.f735a = str;
+            this.f758a = str;
         }
 
         private boolean a(String str) {
@@ -905,7 +905,7 @@ public class b {
             if (b.f100char) {
                 int unused = b.f99case = 1;
                 StringBuffer unused2 = b.w = new StringBuffer("");
-                b.w.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.f735a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                b.w.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.f758a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
                 int unused3 = b.c = b.w.length();
                 long unused4 = b.f98byte = time;
                 long unused5 = b.H = (long) Math.floor((longitude * 100000.0d) + 0.5d);
@@ -921,7 +921,7 @@ public class b {
                     b.m61byte();
                     int unused8 = b.c = 0;
                     StringBuffer unused9 = b.w = new StringBuffer("");
-                    b.w.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.f735a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
+                    b.w.append(String.format("&nr=%s&traj=%d,%.5f,%.5f|", this.f758a, Long.valueOf(time), Double.valueOf(longitude), Double.valueOf(latitude)));
                     int unused10 = b.c = b.w.length();
                     long unused11 = b.f98byte = time;
                     long unused12 = b.H = (long) Math.floor((longitude * 100000.0d) + 0.5d);

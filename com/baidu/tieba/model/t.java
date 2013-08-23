@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class t extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private u f1380a = null;
+    private u f1417a = null;
     private w b = null;
     private y c = null;
 
@@ -19,9 +19,9 @@ public class t extends com.baidu.adp.a.c {
     }
 
     public void a() {
-        if (this.f1380a != null) {
-            this.f1380a.cancel();
-            this.f1380a = null;
+        if (this.f1417a != null) {
+            this.f1417a.cancel();
+            this.f1417a = null;
         }
         if (this.b != null) {
             this.b.cancel();
@@ -34,18 +34,18 @@ public class t extends com.baidu.adp.a.c {
     }
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.f1380a != null) {
-            this.f1380a.cancel();
-            this.f1380a = null;
+        if (this.f1417a != null) {
+            this.f1417a.cancel();
+            this.f1417a = null;
         }
         this.mLoadDataMode = 0;
-        this.f1380a = new u(this, str, str2, str3, str4, i, i2, z);
-        this.f1380a.setPriority(2);
-        this.f1380a.execute(new String[0]);
+        this.f1417a = new u(this, str, str2, str3, str4, i, i2, z);
+        this.f1417a.setPriority(2);
+        this.f1417a.execute(new String[0]);
     }
 
     public boolean b() {
-        return (this.f1380a == null && this.b == null && this.c == null) ? false : true;
+        return (this.f1417a == null && this.b == null && this.c == null) ? false : true;
     }
 
     public void a(String str, String str2, String str3, String str4, int i) {
@@ -56,7 +56,7 @@ public class t extends com.baidu.adp.a.c {
         this.mLoadDataMode = 1;
         this.b = new w(this, str, str2, str3, str4, String.valueOf(i));
         this.b.setPriority(2);
-        this.b.execute(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/bawu/commitprison");
+        this.b.execute(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/c/bawu/commitprison");
     }
 
     public void a(String str, String str2, String str3, int i, String str4) {
@@ -68,7 +68,7 @@ public class t extends com.baidu.adp.a.c {
         this.mLoadDataMode = i;
         this.c = new y(this, str, str2, str3, i, str4);
         this.c.setPriority(2);
-        String str6 = com.baidu.tieba.data.g.f1011a;
+        String str6 = com.baidu.tieba.data.g.f1014a;
         if (i == 6) {
             str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
         } else if (i == 2 || i == 3) {

@@ -1,17 +1,29 @@
 package com.baidu.tieba.recommend;
+
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class s implements com.baidu.adp.widget.ListView.r {
+class s {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendFragment f1675a;
+    View f1693a;
+    TextView b;
+    LinearLayout c;
+    RelativeLayout d;
+    TextView e;
+    TextView f;
+    TextView g;
+    TextView h;
+    final /* synthetic */ h i;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(DailyRecommendFragment dailyRecommendFragment) {
-        this.f1675a = dailyRecommendFragment;
+    private s(h hVar) {
+        this.i = hVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.r
-    public void a() {
-        this.f1675a.B();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ s(h hVar, s sVar) {
+        this(hVar);
     }
 }

@@ -7,12 +7,12 @@ import java.util.LinkedList;
 public class x extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f953a;
+    final /* synthetic */ w f963a;
     private com.baidu.tieba.a.b b = null;
     private int c;
 
     public x(w wVar, int i) {
-        this.f953a = wVar;
+        this.f963a = wVar;
         this.c = 0;
         this.c = i;
         setPriority(3);
@@ -24,9 +24,9 @@ public class x extends BdAsyncTask {
         y yVar;
         y yVar2;
         super.b();
-        yVar = this.f953a.k;
+        yVar = this.f963a.k;
         if (yVar != null) {
-            yVar2 = this.f953a.k;
+            yVar2 = this.f963a.k;
             yVar2.a();
         }
     }
@@ -37,7 +37,7 @@ public class x extends BdAsyncTask {
         if (this.b != null) {
             this.b.a();
         }
-        this.f953a.i = null;
+        this.f963a.i = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class x extends BdAsyncTask {
         long j = 0;
         switch (this.c) {
             case 0:
-                cVar = this.f953a.h;
+                cVar = this.f963a.h;
                 com.baidu.tieba.data.a.d f = cVar.f();
                 if (f != null) {
                     j = f.b();
@@ -66,7 +66,7 @@ public class x extends BdAsyncTask {
                 }
                 break;
             case 1:
-                cVar2 = this.f953a.h;
+                cVar2 = this.f963a.h;
                 com.baidu.tieba.data.a.d a2 = cVar2.a(0);
                 if (a2 != null) {
                     j = a2.b();
@@ -75,26 +75,26 @@ public class x extends BdAsyncTask {
                 break;
             case 2:
                 com.baidu.tieba.data.a.c cVar3 = new com.baidu.tieba.data.a.c();
-                fVar = this.f953a.l;
-                str = this.f953a.b;
-                str2 = this.f953a.d;
+                fVar = this.f963a.l;
+                str = this.f963a.b;
+                str2 = this.f963a.d;
                 cVar3.a((LinkedList) fVar.a(str, str2));
                 return cVar3;
         }
         this.b = new com.baidu.tieba.a.b();
         com.baidu.tieba.a.b bVar = this.b;
         int i = this.c;
-        str3 = this.f953a.b;
-        str4 = this.f953a.d;
+        str3 = this.f963a.b;
+        str4 = this.f963a.d;
         String a3 = bVar.a(i, str3, str4, j);
         com.baidu.tieba.data.a.c cVar4 = new com.baidu.tieba.data.a.c();
-        str5 = this.f953a.d;
+        str5 = this.f963a.d;
         cVar4.a(str5);
-        str6 = this.f953a.b;
+        str6 = this.f963a.b;
         cVar4.b(str6);
         cVar4.e(a3);
         if (this.b.b() && this.b.d() == 0 && this.c == 0) {
-            fVar2 = this.f953a.l;
+            fVar2 = this.f963a.l;
             fVar2.a(cVar4.d());
             return cVar4;
         }
@@ -123,55 +123,55 @@ public class x extends BdAsyncTask {
         y yVar8;
         com.baidu.tieba.data.a.c cVar10;
         super.a((Object) cVar);
-        this.f953a.i = null;
+        this.f963a.i = null;
         if (this.c == 2) {
             if (cVar == null) {
-                yVar6 = this.f953a.k;
+                yVar6 = this.f963a.k;
                 yVar6.a(false, null, false, 0, null, true);
                 return;
             }
             int size = cVar.d().size();
-            yVar7 = this.f953a.k;
+            yVar7 = this.f963a.k;
             yVar7.b();
-            cVar8 = this.f953a.h;
+            cVar8 = this.f963a.h;
             cVar8.a(cVar);
-            cVar9 = this.f953a.h;
+            cVar9 = this.f963a.h;
             cVar9.a(cVar.c());
-            yVar8 = this.f953a.k;
-            cVar10 = this.f953a.h;
+            yVar8 = this.f963a.k;
+            cVar10 = this.f963a.h;
             yVar8.a(true, null, false, size, cVar10, true);
         } else if (this.b != null && cVar != null) {
             if (!this.b.b()) {
-                yVar = this.f953a.k;
+                yVar = this.f963a.k;
                 yVar.a(false, this.b.c(), false, 0, null, false);
             } else if (this.b.d() != 0) {
-                yVar2 = this.f953a.k;
+                yVar2 = this.f963a.k;
                 yVar2.a(false, this.b.e(), false, 0, null, false);
             } else {
                 int size2 = cVar.d().size();
-                yVar3 = this.f953a.k;
+                yVar3 = this.f963a.k;
                 yVar3.b();
-                cVar2 = this.f953a.h;
+                cVar2 = this.f963a.h;
                 cVar2.a(cVar);
-                cVar3 = this.f953a.h;
+                cVar3 = this.f963a.h;
                 cVar3.a(cVar.c());
                 if (cVar.a() != null && cVar.a().length() > 0) {
-                    cVar7 = this.f953a.h;
+                    cVar7 = this.f963a.h;
                     cVar7.c(cVar.a());
                 }
                 if (cVar.b() != null && cVar.b().length() > 0) {
-                    cVar6 = this.f953a.h;
+                    cVar6 = this.f963a.h;
                     cVar6.d(cVar.b());
                 }
                 switch (this.c) {
                     case 0:
-                        yVar5 = this.f953a.k;
-                        cVar5 = this.f953a.h;
+                        yVar5 = this.f963a.k;
+                        cVar5 = this.f963a.h;
                         yVar5.a(true, null, true, size2, cVar5, false);
                         return;
                     case 1:
-                        yVar4 = this.f953a.k;
-                        cVar4 = this.f953a.h;
+                        yVar4 = this.f963a.k;
+                        cVar4 = this.f963a.h;
                         yVar4.a(true, null, false, size2, cVar4, false);
                         return;
                     default:

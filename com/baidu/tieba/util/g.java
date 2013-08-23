@@ -12,7 +12,7 @@ public class g {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                aj.b("CloseUtil", "error on close the inputstream.", e.getMessage());
+                aq.b("CloseUtil", "error on close the inputstream.", e.getMessage());
             }
         }
     }
@@ -22,7 +22,7 @@ public class g {
             try {
                 closeable.close();
             } catch (Throwable th) {
-                aj.b("CloseUtil", "error on close the Closeable.", th.getMessage());
+                aq.b("CloseUtil", "error on close the Closeable.", th.getMessage());
             }
         }
     }
@@ -32,7 +32,7 @@ public class g {
             try {
                 cursor.close();
             } catch (Exception e) {
-                aj.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
+                aq.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
             }
         }
     }
@@ -42,7 +42,7 @@ public class g {
             try {
                 sQLiteDatabase.close();
             } catch (Exception e) {
-                aj.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                aq.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
             }
         }
     }

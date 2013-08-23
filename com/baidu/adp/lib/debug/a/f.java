@@ -4,21 +4,21 @@ package com.baidu.adp.lib.debug.a;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f389a;
+    final /* synthetic */ e f397a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f389a = eVar;
+        this.f397a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         g gVar;
         g gVar2;
-        if (this.f389a.a()) {
-            gVar = this.f389a.f388a;
+        if (this.f397a.a()) {
+            gVar = this.f397a.f396a;
             gVar.invalidate();
-            gVar2 = this.f389a.f388a;
+            gVar2 = this.f397a.f396a;
             gVar2.post(this);
         }
     }

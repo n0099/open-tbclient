@@ -6,11 +6,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    private WebViewClient f1782a;
+    private WebViewClient f1817a;
     private d b;
     private Context c;
     private d d;
@@ -50,9 +51,9 @@ public class BaseWebView extends WebView {
     public void a() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        com.baidu.tieba.util.am.a(getSettings());
-        this.f1782a = new MyWebViewClient();
-        setWebViewClient(this.f1782a);
+        UtilHelper.a(getSettings());
+        this.f1817a = new MyWebViewClient();
+        setWebViewClient(this.f1817a);
         setOnLongClickListener(new b(this));
     }
 

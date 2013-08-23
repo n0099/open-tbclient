@@ -12,8 +12,8 @@ import java.util.Timer;
 public class ShakeCutDownView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f1804a;
-    private be b;
+    public Handler f1837a;
+    private bd b;
     private Animation c;
     private Timer d;
     private int e;
@@ -28,7 +28,7 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.f1804a = new Handler(new bc(this));
+        this.f1837a = new Handler(new bb(this));
         c();
     }
 
@@ -40,7 +40,7 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.f1804a = new Handler(new bc(this));
+        this.f1837a = new Handler(new bb(this));
         c();
     }
 
@@ -52,12 +52,12 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.f1804a = new Handler(new bc(this));
+        this.f1837a = new Handler(new bb(this));
         c();
     }
 
-    public void setOnTimeOutListener(be beVar) {
-        this.b = beVar;
+    public void setOnTimeOutListener(bd bdVar) {
+        this.b = bdVar;
     }
 
     private void c() {
@@ -83,17 +83,17 @@ public class ShakeCutDownView extends TextView {
             this.d.cancel();
         }
         this.d = new Timer();
-        this.d.schedule(new bd(this), j2, 1000L);
+        this.d.schedule(new bc(this), j2, 1000L);
         a(this.e);
         this.f = j;
-        this.f1804a.removeMessages(1);
-        this.f1804a.sendEmptyMessageDelayed(1, j);
+        this.f1837a.removeMessages(1);
+        this.f1837a.sendEmptyMessageDelayed(1, j);
     }
 
     public void a() {
         this.f -= System.currentTimeMillis() - this.g;
-        this.f1804a.removeMessages(1);
-        this.f1804a.removeMessages(0);
+        this.f1837a.removeMessages(1);
+        this.f1837a.removeMessages(0);
         if (this.d != null) {
             this.d.cancel();
         }

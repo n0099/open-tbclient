@@ -6,16 +6,16 @@ import java.util.Map;
 class i implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f373a;
+    private final int f379a;
     private HashMap b = new HashMap();
 
     public i(int i) {
-        this.f373a = i;
+        this.f379a = i;
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public int a() {
-        return this.f373a;
+        return this.f379a;
     }
 
     @Override // com.baidu.adp.lib.cache.d
@@ -25,7 +25,7 @@ class i implements f {
 
     public String a(String str) {
         String str2;
-        if (!this.b.containsKey(str) && this.b.size() >= this.f373a) {
+        if (!this.b.containsKey(str) && this.b.size() >= this.f379a) {
             synchronized (this) {
                 long j = -1;
                 str2 = null;
@@ -47,9 +47,9 @@ class i implements f {
 
     @Override // com.baidu.adp.lib.cache.f
     public String a(k kVar) {
-        String a2 = a(kVar.f374a);
+        String a2 = a(kVar.f380a);
         synchronized (this) {
-            this.b.put(kVar.f374a, Long.valueOf(kVar.e));
+            this.b.put(kVar.f380a, Long.valueOf(kVar.e));
         }
         return a2;
     }
@@ -60,7 +60,7 @@ class i implements f {
 
     @Override // com.baidu.adp.lib.cache.f
     public String b(k kVar) {
-        return kVar.f < System.currentTimeMillis() ? kVar.f374a : a(kVar);
+        return kVar.f < System.currentTimeMillis() ? kVar.f380a : a(kVar);
     }
 
     @Override // com.baidu.adp.lib.cache.f

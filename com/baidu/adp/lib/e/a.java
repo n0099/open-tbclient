@@ -9,7 +9,7 @@ import java.util.Hashtable;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f416a = null;
+    private static a f424a = null;
     private volatile Hashtable b = new Hashtable();
     private Context c = null;
     private Bitmap.Config d = Bitmap.Config.RGB_565;
@@ -17,10 +17,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f416a == null) {
-                f416a = new a();
+            if (f424a == null) {
+                f424a = new a();
             }
-            aVar = f416a;
+            aVar = f424a;
         }
         return aVar;
     }

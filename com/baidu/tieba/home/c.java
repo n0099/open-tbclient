@@ -7,25 +7,25 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class c extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CreateBarActivity f1146a;
+    final /* synthetic */ CreateBarActivity f1180a;
     private String b;
     private String c;
-    private com.baidu.tieba.util.u d = null;
+    private com.baidu.tieba.util.v d = null;
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         super.cancel(true);
         if (this.d != null) {
-            this.d.i();
+            this.d.h();
         }
-        progressBar = this.f1146a.o;
+        progressBar = this.f1180a.o;
         progressBar.setVisibility(8);
-        this.f1146a.q = null;
+        this.f1180a.q = null;
     }
 
     public c(CreateBarActivity createBarActivity, String str, String str2) {
-        this.f1146a = createBarActivity;
+        this.f1180a = createBarActivity;
         this.b = null;
         this.c = null;
         this.b = str;
@@ -38,17 +38,17 @@ public class c extends BdAsyncTask {
     public String a(String... strArr) {
         String str;
         try {
-            this.d = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/c/forum/create");
+            this.d = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/c/forum/create");
             this.d.e(true);
             this.d.a("kw", this.b);
             this.d.a("vcode", this.c);
-            com.baidu.tieba.util.u uVar = this.d;
-            str = this.f1146a.u;
-            uVar.a("vcode_md5", str);
-            this.d.k();
+            com.baidu.tieba.util.v vVar = this.d;
+            str = this.f1180a.u;
+            vVar.a("vcode_md5", str);
+            this.d.j();
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -59,17 +59,17 @@ public class c extends BdAsyncTask {
     public void a(String str) {
         ProgressBar progressBar;
         super.a((Object) str);
-        progressBar = this.f1146a.o;
+        progressBar = this.f1180a.o;
         progressBar.setVisibility(8);
-        this.f1146a.q = null;
-        if (this.d.d()) {
-            CreateBarSuccessActivity.a(this.f1146a, this.b);
-            this.f1146a.finish();
+        this.f1180a.q = null;
+        if (this.d.c()) {
+            CreateBarSuccessActivity.a(this.f1180a, this.b);
+            this.f1180a.finish();
             return;
         }
-        this.f1146a.a(this.d.h());
-        if (this.d.e()) {
-            this.f1146a.d();
+        this.f1180a.a(this.d.g());
+        if (this.d.d()) {
+            this.f1180a.d();
         }
     }
 
@@ -78,7 +78,7 @@ public class c extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         super.b();
-        progressBar = this.f1146a.o;
+        progressBar = this.f1180a.o;
         progressBar.setVisibility(0);
     }
 }

@@ -1,17 +1,17 @@
 package com.baidu.tieba.service;
 
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.aq;
 import java.io.File;
 import java.io.FileWriter;
 /* loaded from: classes.dex */
 class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f1700a;
+    final /* synthetic */ PerformMonitorService f1717a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PerformMonitorService performMonitorService) {
-        this.f1700a = performMonitorService;
+        this.f1717a = performMonitorService;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x0002 */
@@ -32,7 +32,7 @@ class h implements Runnable {
         try {
             File f = com.baidu.tieba.util.p.f("performance_sample.log");
             if (f == null || f.length() > 51200) {
-                this.f1700a.b();
+                this.f1717a.b();
             } else {
                 FileWriter fileWriter2 = new FileWriter(f, true);
                 try {
@@ -74,7 +74,7 @@ class h implements Runnable {
                     fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + "\n"));
                     fileWriter2.flush();
                     fileWriter2.close();
-                    r0 = this.f1700a.h;
+                    r0 = this.f1717a.h;
                     ?? iVar = new i(this);
                     r0.post(iVar);
                     fileWriter = iVar;
@@ -85,11 +85,11 @@ class h implements Runnable {
                         try {
                             fileWriter.close();
                         } catch (Exception e) {
-                            aj.b(getClass().getName(), "sampleRunnable", th.toString());
+                            aq.b(getClass().getName(), "sampleRunnable", th.toString());
                         }
                     }
-                    aj.b(getClass().getName(), "sampleRunnable", th.toString());
-                    this.f1700a.stopSelf();
+                    aq.b(getClass().getName(), "sampleRunnable", th.toString());
+                    this.f1717a.stopSelf();
                 }
             }
         } catch (Throwable th2) {

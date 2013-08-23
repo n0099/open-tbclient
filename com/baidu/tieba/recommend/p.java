@@ -1,23 +1,31 @@
 package com.baidu.tieba.recommend;
 
-import com.baidu.tieba.view.ADImageViewDrawer;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class p implements com.baidu.tbadk.a.d {
+class p {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendBannerPagerAdapter f1672a;
-    private final /* synthetic */ ADImageViewDrawer b;
+    View f1691a;
+    LinearLayout b;
+    RelativeLayout c;
+    TextView d;
+    TextView e;
+    TbImageView f;
+    TextView g;
+    TextView h;
+    TextView i;
+    final /* synthetic */ h j;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter, ADImageViewDrawer aDImageViewDrawer) {
-        this.f1672a = dailyRecommendBannerPagerAdapter;
-        this.b = aDImageViewDrawer;
+    private p(h hVar) {
+        this.j = hVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        if (this.b != null) {
-            this.b.invalidate();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(h hVar, p pVar) {
+        this(hVar);
     }
 }

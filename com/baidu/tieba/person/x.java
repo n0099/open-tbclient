@@ -20,15 +20,29 @@ class x extends com.baidu.tieba.j {
         com.baidu.tieba.model.f fVar2;
         com.baidu.tieba.model.f fVar3;
         z zVar4;
+        z zVar5;
+        z zVar6;
         com.baidu.tieba.model.f fVar4;
+        com.baidu.tieba.model.f fVar5;
         try {
             if (((Integer) objArr[0]).intValue() == 0) {
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r1 = (String) objArr[1];
                 }
+                zVar6 = this.b.b;
+                fVar4 = this.b.f1590a;
+                zVar6.a(r1, fVar4, (Boolean) objArr[2]);
+                EditMarkActivity editMarkActivity = this.b;
+                fVar5 = this.b.f1590a;
+                editMarkActivity.d = fVar5.c();
+            } else if (((Integer) objArr[0]).intValue() == 3) {
+                if (objArr[1] != null && (objArr[1] instanceof String)) {
+                    r1 = (String) objArr[1];
+                }
                 zVar4 = this.b.b;
-                fVar4 = this.b.f1552a;
-                zVar4.a(r1, fVar4);
+                zVar4.f();
+                zVar5 = this.b.b;
+                zVar5.a(r1);
             } else if (((Integer) objArr[0]).intValue() == 1) {
                 boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 r1 = objArr[2] != null ? (String) objArr[2] : null;
@@ -37,17 +51,17 @@ class x extends com.baidu.tieba.j {
                 zVar2.a(booleanValue2, r1, booleanValue);
                 if (booleanValue2) {
                     zVar3 = this.b.b;
-                    fVar2 = this.b.f1552a;
+                    fVar2 = this.b.f1590a;
                     zVar3.a(fVar2.a());
-                    fVar3 = this.b.f1552a;
-                    fVar3.f();
+                    fVar3 = this.b.f1590a;
+                    fVar3.a((Boolean) true);
                 }
             } else if (((Integer) objArr[0]).intValue() == 2) {
                 booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 String str = objArr[2] != null ? (String) objArr[2] : null;
                 zVar = this.b.b;
-                fVar = this.b.f1552a;
-                zVar.a(booleanValue, str, fVar.b());
+                fVar = this.b.f1590a;
+                zVar.a(booleanValue, str, fVar.c());
             }
         } catch (Exception e) {
         }

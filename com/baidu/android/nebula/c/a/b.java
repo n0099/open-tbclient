@@ -9,11 +9,11 @@ import android.content.pm.PackageManager;
 public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f539a;
+    final /* synthetic */ a f562a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f539a = aVar;
+        this.f562a = aVar;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -22,11 +22,11 @@ public class b extends BroadcastReceiver {
         String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
         if ("android.intent.action.PACKAGE_ADDED".equals(action)) {
             try {
-                this.f539a.a(context.getPackageManager().getPackageInfo(schemeSpecificPart, 0));
+                this.f562a.a(context.getPackageManager().getPackageInfo(schemeSpecificPart, 0));
             } catch (PackageManager.NameNotFoundException e) {
             }
         } else if ("android.intent.action.PACKAGE_REMOVED".equals(action)) {
-            this.f539a.a(schemeSpecificPart);
+            this.f562a.a(schemeSpecificPart);
         }
     }
 }

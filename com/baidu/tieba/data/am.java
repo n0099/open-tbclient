@@ -5,43 +5,52 @@ import org.json.JSONObject;
 public class am {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f975a = -1;
-    private String b = null;
-    private String c = null;
-
-    public int a() {
-        return this.f975a;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.f975a = i;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
+    private String f985a = null;
+    private ar b = null;
+    private ar c = null;
+    private String d = null;
+    private String e = null;
+    private long f = 0;
+    private long g = 0;
+    private long h = 0;
+    private int i = 0;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f975a = jSONObject.optInt("type");
-                if (this.f975a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                } else if (this.f975a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
-                }
+                this.f985a = jSONObject.optString("pk_id", null);
+                this.b = new ar();
+                this.b.a(jSONObject.optJSONObject("player1"));
+                this.c = new ar();
+                this.c.a(jSONObject.optJSONObject("player2"));
+                this.f = jSONObject.optLong("start_time");
+                this.g = jSONObject.optLong("end_time");
+                this.h = jSONObject.optLong("remain_time");
+                this.d = jSONObject.optString("title");
+                this.i = jSONObject.optInt("status", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                com.baidu.tieba.util.aq.b("PKInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
+    }
+
+    public String a() {
+        return this.f985a;
+    }
+
+    public ar b() {
+        return this.b;
+    }
+
+    public ar c() {
+        return this.c;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public int e() {
+        return this.i;
     }
 }

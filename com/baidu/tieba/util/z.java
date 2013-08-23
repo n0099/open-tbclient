@@ -1,64 +1,47 @@
 package com.baidu.tieba.util;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z {
-    private volatile int b;
-    private volatile HashMap c = new HashMap();
+public class z implements com.baidu.adp.lib.network.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f1777a = 0;
+    final /* synthetic */ NetWorkCoreByBdHttp f1813a;
 
-    public z(int i) {
-        this.b = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
+        this.f1813a = netWorkCoreByBdHttp;
     }
 
-    public void a(String str) {
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.c.size() >= this.b) {
-                    a();
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, HttpURLConnection httpURLConnection) {
+        ad adVar;
+        if (httpURLConnection != null) {
+            try {
+                adVar = this.f1813a.d;
+                if (adVar.h) {
+                    byte[] bArr = new byte[23];
+                    int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
+                    if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;") && httpURLConnection != null && httpURLConnection.getOutputStream() != null) {
+                        httpURLConnection.getOutputStream().write(bArr, 0, read);
+                    }
                 }
-                this.f1777a++;
-                this.c.put(valueOf, Integer.valueOf(this.f1777a));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            aj.b(getClass().getName(), "addThread", e.getMessage());
         }
     }
 
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a(com.baidu.adp.lib.network.e eVar) {
+    }
+
+    @Override // com.baidu.adp.lib.network.c
     public void a() {
-        synchronized (this) {
-            int i = 134217727;
-            Long l = null;
-            for (Map.Entry entry : this.c.entrySet()) {
-                if (((Integer) entry.getValue()).intValue() < i) {
-                    i = ((Integer) entry.getValue()).intValue();
-                    l = (Long) entry.getKey();
-                }
-            }
-            if (l != null) {
-                this.c.remove(l);
-            } else {
-                this.c.clear();
-            }
-        }
-    }
-
-    public boolean b(String str) {
-        boolean z = false;
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.c.get(valueOf) != null) {
-                    z = true;
-                }
-            }
-        } catch (Exception e) {
-            aj.b(getClass().getName(), "getThread", e.getMessage());
-        }
-        return z;
     }
 }

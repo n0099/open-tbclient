@@ -5,15 +5,15 @@ import android.graphics.Bitmap;
 class ae implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1873a;
+    final /* synthetic */ WriteActivity f1904a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(WriteActivity writeActivity) {
-        this.f1873a = writeActivity;
+        this.f1904a = writeActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1873a.a((Bitmap) null);
+        this.f1904a.a((Bitmap) null);
     }
 }

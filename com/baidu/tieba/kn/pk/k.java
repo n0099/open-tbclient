@@ -1,19 +1,19 @@
 package com.baidu.tieba.kn.pk;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.ai;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.aq;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PKWaitingActivity f1216a;
-    private com.baidu.tieba.util.u b = null;
+    final /* synthetic */ PKWaitingActivity f1249a;
+    private com.baidu.tieba.util.v b = null;
 
     public k(PKWaitingActivity pKWaitingActivity) {
-        this.f1216a = pKWaitingActivity;
+        this.f1249a = pKWaitingActivity;
         pKWaitingActivity.f = true;
     }
 
@@ -25,23 +25,23 @@ public class k extends BdAsyncTask {
         String str;
         s sVar = new s();
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/uo/pkdetail");
-            com.baidu.tieba.util.u uVar = this.b;
-            str = this.f1216a.d;
-            uVar.a("pk_id", str);
+            this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/uo/pkdetail");
+            com.baidu.tieba.util.v vVar = this.b;
+            str = this.f1249a.d;
+            vVar.a("pk_id", str);
             this.b.a("rn", "1");
-            String k = this.b.k();
-            if (this.b.d()) {
-                sVar.b(k);
-                if (!sVar.a() && ai.c(sVar.f1224a)) {
-                    sVar.a(this.f1216a.getString(R.string.kn_data_corrupted));
+            String j = this.b.j();
+            if (this.b.c()) {
+                sVar.b(j);
+                if (!sVar.b() && ap.c(sVar.f1257a)) {
+                    sVar.a(this.f1249a.getString(R.string.kn_data_corrupted));
                 }
             } else {
-                sVar.a(this.b.h());
+                sVar.a(this.b.g());
             }
         } catch (Exception e) {
             sVar.a(e.getMessage());
-            aj.b(getClass().getName(), "doInBackground", e.getMessage());
+            aq.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return sVar;
     }
@@ -50,18 +50,18 @@ public class k extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(s sVar) {
-        this.f1216a.a(sVar);
-        this.f1216a.f = false;
+        this.f1249a.a(sVar);
+        this.f1249a.f = false;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.i();
+            this.b.h();
             this.b = null;
         }
-        this.f1216a.l();
-        this.f1216a.f = false;
+        this.f1249a.l();
+        this.f1249a.f = false;
     }
 }

@@ -8,38 +8,38 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.v f1327a;
+    private com.baidu.tieba.data.v f1362a;
     private ArrayList b;
     private ArrayList c;
     private int d;
     private int e;
     private int f;
     private AntiData g;
-    private com.baidu.tieba.data.ap h;
+    private com.baidu.tieba.data.al h;
     private String i = null;
     private String j = null;
     private al k = null;
     private an l = null;
-    private com.baidu.tieba.frs.aw m = null;
-    private com.baidu.tieba.frs.aw n = null;
+    private com.baidu.tieba.frs.ay m = null;
+    private com.baidu.tieba.frs.ay n = null;
 
     public ak() {
         g();
     }
 
     private void g() {
-        this.f1327a = new com.baidu.tieba.data.v();
+        this.f1362a = new com.baidu.tieba.data.v();
         this.b = new ArrayList();
         this.c = new ArrayList();
         this.d = 0;
         this.e = 0;
         this.f = 0;
         this.g = new AntiData();
-        this.h = new com.baidu.tieba.data.ap();
+        this.h = new com.baidu.tieba.data.al();
     }
 
     public com.baidu.tieba.data.v a() {
-        return this.f1327a;
+        return this.f1362a;
     }
 
     public ArrayList b() {
@@ -62,7 +62,7 @@ public class ak {
         if (jSONObject != null) {
             try {
                 g();
-                this.f1327a.a(jSONObject.optJSONObject("forum"));
+                this.f1362a.a(jSONObject.optJSONObject("forum"));
                 this.h.a(jSONObject.optJSONObject("user"));
                 this.g.parserJson(jSONObject.optJSONObject("anti"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
@@ -70,9 +70,9 @@ public class ak {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.bn bnVar = new com.baidu.tieba.data.bn();
-                            bnVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(bnVar);
+                            com.baidu.tieba.data.bi biVar = new com.baidu.tieba.data.bi();
+                            biVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(biVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
@@ -130,11 +130,11 @@ public class ak {
         this.j = str2;
     }
 
-    public void a(com.baidu.tieba.frs.aw awVar) {
-        this.m = awVar;
+    public void a(com.baidu.tieba.frs.ay ayVar) {
+        this.m = ayVar;
     }
 
-    public void b(com.baidu.tieba.frs.aw awVar) {
-        this.n = awVar;
+    public void b(com.baidu.tieba.frs.ay ayVar) {
+        this.n = ayVar;
     }
 }

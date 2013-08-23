@@ -16,7 +16,7 @@ import java.util.Date;
 public class b extends LinearLayout implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animation f471a;
+    private Animation f489a;
     private Animation b;
     private View c;
     private ImageView d;
@@ -26,9 +26,9 @@ public class b extends LinearLayout implements c {
 
     public b(Context context) {
         this(context, null);
-        this.f471a = AnimationUtils.loadAnimation(getContext(), com.baidu.adp.b.adp_down_to_up);
+        this.f489a = AnimationUtils.loadAnimation(getContext(), com.baidu.adp.b.adp_down_to_up);
         this.b = AnimationUtils.loadAnimation(getContext(), com.baidu.adp.b.adp_up_to_down);
-        this.f471a.setFillAfter(true);
+        this.f489a.setFillAfter(true);
         this.b.setFillAfter(true);
         LayoutInflater.from(context).inflate(com.baidu.adp.f.adp_default_header_layout, this);
         this.c = (ProgressBar) findViewById(com.baidu.adp.e.head_layout_left_progressbar);
@@ -52,7 +52,7 @@ public class b extends LinearLayout implements c {
 
     @Override // com.baidu.adp.widget.ScrollView.c
     public void b() {
-        this.d.startAnimation(this.f471a);
+        this.d.startAnimation(this.f489a);
         this.g = true;
         this.e.setText(getResources().getString(com.baidu.adp.g.adp_release_to_refresh));
     }

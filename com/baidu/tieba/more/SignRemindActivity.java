@@ -12,12 +12,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SignRemindActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1393a;
+    private LinearLayout f1430a;
     private LinearLayout b;
     private TextView c;
     private TextView d;
@@ -47,23 +48,23 @@ public class SignRemindActivity extends com.baidu.tieba.g {
     public void a(int i) {
         int i2;
         super.a(i);
-        com.baidu.tieba.util.ah.b(this.g, i);
-        com.baidu.tieba.util.ah.d(this.j, i);
-        com.baidu.tieba.util.ah.a(this.k, i);
-        com.baidu.tieba.util.ah.f(this.l, i);
+        ao.b(this.g, i);
+        ao.d(this.j, i);
+        ao.a(this.k, i);
+        ao.f(this.l, i);
         ImageView imageView = (ImageView) findViewById(R.id.arrow);
         if (i == 1) {
-            int a2 = com.baidu.tieba.util.ah.a(i);
-            com.baidu.tieba.util.ah.h(this.f1393a, (int) R.drawable.more_all_1);
-            com.baidu.tieba.util.ah.h(this.b, (int) R.drawable.more_all_1);
+            int a2 = ao.a(i);
+            ao.g(this.f1430a, (int) R.drawable.more_all_1);
+            ao.g(this.b, (int) R.drawable.more_all_1);
             this.e.setTextColor(-11446171);
             this.f.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
             imageView.setImageResource(R.drawable.icon_arrow_right_1);
             i2 = a2;
         } else {
             int color = getResources().getColor(R.color.more_color);
-            com.baidu.tieba.util.ah.h(this.f1393a, (int) R.drawable.more_all);
-            com.baidu.tieba.util.ah.h(this.b, (int) R.drawable.more_all);
+            ao.g(this.f1430a, (int) R.drawable.more_all);
+            ao.g(this.b, (int) R.drawable.more_all);
             this.e.setTextColor(-5065030);
             this.f.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
             imageView.setImageResource(R.drawable.icon_arrow_right_1);
@@ -78,7 +79,7 @@ public class SignRemindActivity extends com.baidu.tieba.g {
         this.j = findViewById(R.id.title);
         this.k = (ImageView) findViewById(R.id.back);
         this.l = (TextView) findViewById(R.id.title_text);
-        this.f1393a = (LinearLayout) findViewById(R.id.sign_remind);
+        this.f1430a = (LinearLayout) findViewById(R.id.sign_remind);
         this.b = (LinearLayout) findViewById(R.id.sign_remind_on);
         this.c = (TextView) findViewById(R.id.sign_remind_text);
         this.d = (TextView) findViewById(R.id.sign_remind_on_text);
@@ -89,15 +90,15 @@ public class SignRemindActivity extends com.baidu.tieba.g {
     protected void c() {
         this.k.setOnClickListener(new ai(this));
         this.f.setOnSwitchStateChangeListener(new aj(this));
-        this.f1393a.setOnClickListener(new ak(this));
+        this.f1430a.setOnClickListener(new ak(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d() {
-        TiebaApplication f = TiebaApplication.f();
-        if (f.aj()) {
-            this.e.setText(getString(R.string.sign_remind_time, new Object[]{f.ak() > 9 ? String.valueOf(f.ak()) : "0" + f.ak(), f.al() > 9 ? String.valueOf(f.al()) : "0" + f.al()}));
-            this.f1393a.setVisibility(0);
+        TiebaApplication g = TiebaApplication.g();
+        if (g.ac()) {
+            this.e.setText(getString(R.string.sign_remind_time, new Object[]{g.ad() > 9 ? String.valueOf(g.ad()) : "0" + g.ad(), g.ae() > 9 ? String.valueOf(g.ae()) : "0" + g.ae()}));
+            this.f1430a.setVisibility(0);
             if (!this.f.c()) {
                 this.f.a();
                 return;
@@ -105,7 +106,7 @@ public class SignRemindActivity extends com.baidu.tieba.g {
             return;
         }
         this.e.setText(R.string.close);
-        this.f1393a.setVisibility(8);
+        this.f1430a.setVisibility(8);
         if (this.f.c()) {
             this.f.b();
         }
@@ -114,8 +115,8 @@ public class SignRemindActivity extends com.baidu.tieba.g {
     @Override // android.app.Activity
     protected void onPrepareDialog(int i, Dialog dialog) {
         if (dialog instanceof TimePickerDialog) {
-            TiebaApplication f = TiebaApplication.f();
-            ((TimePickerDialog) dialog).updateTime(f.ak(), f.al());
+            TiebaApplication g = TiebaApplication.g();
+            ((TimePickerDialog) dialog).updateTime(g.ad(), g.ae());
             return;
         }
         super.onPrepareDialog(i, dialog);
@@ -123,7 +124,7 @@ public class SignRemindActivity extends com.baidu.tieba.g {
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new al(this, TiebaApplication.f()), 0, 0, true);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new al(this, TiebaApplication.g()), 0, 0, true);
         timePickerDialog.setTitle(R.string.sign_remind);
         return timePickerDialog;
     }

@@ -15,7 +15,7 @@ import java.io.IOException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f500a;
+    private static b f523a;
     private Context b;
 
     private b(Context context) {
@@ -29,10 +29,10 @@ public final class b {
     public static synchronized b a(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (f500a == null) {
-                f500a = new b(context);
+            if (f523a == null) {
+                f523a = new b(context);
             }
-            bVar = f500a;
+            bVar = f523a;
         }
         return bVar;
     }
@@ -89,8 +89,8 @@ public final class b {
 
     public static synchronized void b() {
         synchronized (b.class) {
-            if (f500a != null) {
-                f500a = null;
+            if (f523a != null) {
+                f523a = null;
             }
         }
     }

@@ -3,5 +3,5 @@ package com.baidu.tieba.model;
 public interface aj {
     void a();
 
-    void a(com.baidu.tieba.data.be beVar);
+    void a(com.baidu.tieba.data.az azVar);
 }

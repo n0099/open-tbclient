@@ -7,11 +7,11 @@ import com.baidu.location.LocationClient;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BDLocationManager f558a;
+    final /* synthetic */ BDLocationManager f581a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BDLocationManager bDLocationManager) {
-        this.f558a = bDLocationManager;
+        this.f581a = bDLocationManager;
     }
 
     @Override // java.lang.Runnable
@@ -19,15 +19,15 @@ public class b implements Runnable {
         LocationClient locationClient;
         LocationClient locationClient2;
         LocationClient locationClient3;
-        locationClient = this.f558a.d;
+        locationClient = this.f581a.d;
         if (locationClient != null) {
-            locationClient2 = this.f558a.d;
+            locationClient2 = this.f581a.d;
             if (locationClient2.requestLocation() == 1) {
-                locationClient3 = this.f558a.d;
+                locationClient3 = this.f581a.d;
                 locationClient3.start();
             }
-            this.f558a.k = SystemClock.elapsedRealtime();
-            this.f558a.i = true;
+            this.f581a.k = SystemClock.elapsedRealtime();
+            this.f581a.i = true;
         }
     }
 }

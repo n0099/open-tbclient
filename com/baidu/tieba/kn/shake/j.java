@@ -3,7 +3,7 @@ package com.baidu.tieba.kn.shake;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.aq;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,7 +13,7 @@ public class j {
     private boolean i;
 
     /* renamed from: a  reason: collision with root package name */
-    private MediaPlayer f1253a = null;
+    private MediaPlayer f1286a = null;
     private SoundPool b = null;
     private int d = 0;
     private int e = 0;
@@ -37,10 +37,10 @@ public class j {
             for (int i = 0; i < 5; i++) {
                 this.f.add(Integer.valueOf(this.b.load(this.c, R.raw.shake, 1)));
             }
-            this.f1253a = MediaPlayer.create(this.c, (int) R.raw.background);
+            this.f1286a = MediaPlayer.create(this.c, (int) R.raw.background);
             return true;
         } catch (Exception e) {
-            aj.b(getClass().getName(), "init", e.toString());
+            aq.b(getClass().getName(), "init", e.toString());
             b();
             return false;
         }
@@ -57,10 +57,10 @@ public class j {
                 }
                 this.b.release();
                 this.b = null;
-                this.f1253a.stop();
-                this.f1253a.release();
+                this.f1286a.stop();
+                this.f1286a.release();
             } catch (Exception e) {
-                aj.b(getClass().getName(), "release", e.toString());
+                aq.b(getClass().getName(), "release", e.toString());
             }
         }
     }
@@ -81,9 +81,9 @@ public class j {
         if (this.i) {
             this.h = true;
             try {
-                this.f1253a.start();
+                this.f1286a.start();
             } catch (Exception e) {
-                aj.b(getClass().getName(), "playBackground", e.toString());
+                aq.b(getClass().getName(), "playBackground", e.toString());
             }
         }
     }
@@ -103,11 +103,11 @@ public class j {
     }
 
     public void h() {
-        if (this.i && this.f1253a.isPlaying()) {
+        if (this.i && this.f1286a.isPlaying()) {
             try {
-                this.f1253a.pause();
+                this.f1286a.pause();
             } catch (Exception e) {
-                aj.b(getClass().getName(), "pause", e.toString());
+                aq.b(getClass().getName(), "pause", e.toString());
             }
         }
     }
@@ -115,16 +115,16 @@ public class j {
     public void a(int i) {
         if (this.i) {
             try {
-                int duration = this.f1253a.getDuration() - i;
+                int duration = this.f1286a.getDuration() - i;
                 if (duration < 0) {
                     duration = 0;
                 }
-                this.f1253a.seekTo(duration);
-                if (this.h && !this.f1253a.isPlaying()) {
-                    this.f1253a.start();
+                this.f1286a.seekTo(duration);
+                if (this.h && !this.f1286a.isPlaying()) {
+                    this.f1286a.start();
                 }
             } catch (Exception e) {
-                aj.b(getClass().getName(), "resume", e.toString());
+                aq.b(getClass().getName(), "resume", e.toString());
             }
         }
     }

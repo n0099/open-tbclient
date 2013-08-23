@@ -1,34 +1,44 @@
 package com.baidu.tieba.home;
 
-import android.view.KeyEvent;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class aq implements TextView.OnEditorActionListener {
+class aq implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1127a;
+    final /* synthetic */ SearchActivity f1162a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(SearchActivity searchActivity) {
-        this.f1127a = searchActivity;
+        this.f1162a = searchActivity;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        int i2;
+    @Override // java.lang.Runnable
+    public void run() {
         String str;
-        if (i == 2) {
-            i2 = this.f1127a.B;
-            if (i2 == 0) {
-                this.f1127a.k();
-                return true;
+        String str2;
+        String str3;
+        az azVar;
+        az azVar2;
+        try {
+            str = this.f1162a.D;
+            if (str != null) {
+                str2 = this.f1162a.D;
+                if (str2.length() > 0) {
+                    StringBuffer stringBuffer = new StringBuffer(30);
+                    stringBuffer.append(com.baidu.tieba.data.g.f1014a);
+                    stringBuffer.append("c/f/forum/sug");
+                    str3 = this.f1162a.D;
+                    BasicNameValuePair basicNameValuePair = new BasicNameValuePair("q", str3.trim());
+                    this.f1162a.b();
+                    this.f1162a.B = new az(this.f1162a, stringBuffer.toString(), basicNameValuePair, true);
+                    azVar = this.f1162a.B;
+                    azVar.setPriority(3);
+                    azVar2 = this.f1162a.B;
+                    azVar2.execute(stringBuffer.toString(), basicNameValuePair);
+                }
             }
-            SearchActivity searchActivity = this.f1127a;
-            str = this.f1127a.A;
-            searchActivity.a(1, str);
-            return true;
+        } catch (Exception e) {
+            com.baidu.tieba.util.aq.b(getClass().getName(), "mSuggestRunnble.run", "error = " + e.getMessage());
         }
-        return false;
     }
 }

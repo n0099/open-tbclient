@@ -64,7 +64,7 @@ public class g {
     private static ArrayList e = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f751a = 12000;
+    private static int f774a = 12000;
 
     /* renamed from: if  reason: not valid java name */
     private static Uri f199if = null;
@@ -141,8 +141,8 @@ public class g {
                     arrayList.add(new BasicNameValuePair("req", g.f201long));
                     httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
                     DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                    defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f751a));
-                    defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f751a));
+                    defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f774a));
+                    defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f774a));
                     j.a(g.f202new, "req config...");
                     HttpResponse execute = defaultHttpClient.execute(httpPost);
                     if (execute.getStatusLine().getStatusCode() == 200) {
@@ -231,8 +231,8 @@ public class g {
                         }
                         httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
                         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f751a));
-                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f751a));
+                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f774a));
+                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f774a));
                         HttpProtocolParams.setUseExpectContinue(defaultHttpClient.getParams(), false);
                         j.a(g.f202new, "apn type : " + g.f203try);
                         if ((g.f203try == 1 || g.f203try == 4) && (g.f204void - i2) % 2 == 0) {
@@ -306,7 +306,7 @@ public class g {
 
     public static void c() {
         String str = f.aa + "/config.dat";
-        String format = String.format("{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\"}", Integer.valueOf(j.f236goto), Float.valueOf(j.f231case), Float.valueOf(j.A), Float.valueOf(j.f232char), Float.valueOf(j.C), Integer.valueOf(j.t), Integer.valueOf(j.f757a), Integer.valueOf(j.u), Integer.valueOf(j.f237if), Integer.valueOf(j.f238int), Integer.valueOf(j.k), Integer.valueOf(j.K), Float.valueOf(j.T), Float.valueOf(j.Q), Float.valueOf(j.d), Float.valueOf(j.H), Integer.valueOf(j.F), Float.valueOf(j.f240new), Integer.valueOf(j.h), Float.valueOf(j.D), Float.valueOf(j.S), Float.valueOf(j.P), Integer.valueOf(j.N), Integer.valueOf(j.L), Integer.valueOf(j.m ? 1 : 0), Integer.valueOf(j.G ? 1 : 0), Integer.valueOf(j.i), Integer.valueOf(j.l), Long.valueOf(j.B), Integer.valueOf(j.E));
+        String format = String.format("{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\"}", Integer.valueOf(j.f236goto), Float.valueOf(j.f231case), Float.valueOf(j.A), Float.valueOf(j.f232char), Float.valueOf(j.C), Integer.valueOf(j.t), Integer.valueOf(j.f780a), Integer.valueOf(j.u), Integer.valueOf(j.f237if), Integer.valueOf(j.f238int), Integer.valueOf(j.k), Integer.valueOf(j.K), Float.valueOf(j.T), Float.valueOf(j.Q), Float.valueOf(j.d), Float.valueOf(j.H), Integer.valueOf(j.F), Float.valueOf(j.f240new), Integer.valueOf(j.h), Float.valueOf(j.D), Float.valueOf(j.S), Float.valueOf(j.P), Integer.valueOf(j.N), Integer.valueOf(j.L), Integer.valueOf(j.m ? 1 : 0), Integer.valueOf(j.G ? 1 : 0), Integer.valueOf(j.i), Integer.valueOf(j.l), Long.valueOf(j.B), Integer.valueOf(j.E));
         j.a(f202new, "save2Config : " + format);
         byte[] bytes = format.getBytes();
         try {
@@ -397,8 +397,8 @@ public class g {
                         }
                         httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
                         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f751a));
-                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f751a));
+                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f774a));
+                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f774a));
                         if (defaultHttpClient.execute(httpPost).getStatusLine().getStatusCode() == 200) {
                             j.a(g.f202new, "Status ok1...");
                             g.e.clear();
@@ -556,7 +556,7 @@ public class g {
                                 j.t = Integer.parseInt(split[4]);
                             }
                             if (split[5] != null && !split[5].equals("")) {
-                                j.f757a = Integer.parseInt(split[5]);
+                                j.f780a = Integer.parseInt(split[5]);
                             }
                             if (split[6] != null && !split[6].equals("")) {
                                 j.u = Integer.parseInt(split[6]);
@@ -712,8 +712,8 @@ public class g {
                         }
                         httpPost.setEntity(new UrlEncodedFormEntity(arrayList, BdUtil.UTF8));
                         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
-                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f751a));
-                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f751a));
+                        defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf(g.f774a));
+                        defaultHttpClient.getParams().setParameter("http.socket.timeout", Integer.valueOf(g.f774a));
                         HttpProtocolParams.setUseExpectContinue(defaultHttpClient.getParams(), false);
                         if (g.f203try == 1) {
                             defaultHttpClient.getParams().setParameter("http.route.default-proxy", new HttpHost(g.j, g.f, "http"));

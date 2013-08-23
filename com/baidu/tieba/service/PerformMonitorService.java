@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.aq;
 /* loaded from: classes.dex */
 public class PerformMonitorService extends Service {
     private com.baidu.adp.lib.debug.a.o b = null;
@@ -16,7 +16,7 @@ public class PerformMonitorService extends Service {
     private Handler h = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public Runnable f1687a = new h(this);
+    public Runnable f1704a = new h(this);
 
     @Override // android.app.Service
     public void onCreate() {
@@ -53,31 +53,31 @@ public class PerformMonitorService extends Service {
                 new Thread(this.b).start();
             }
         } catch (Exception e) {
-            aj.b(getClass().getName(), "monitorOn", e.toString());
+            aq.b(getClass().getName(), "monitorOn", e.toString());
         }
         try {
             if (!this.c.a()) {
                 this.c.b();
             }
         } catch (Exception e2) {
-            aj.b(getClass().getName(), "monitorOn", e2.toString());
+            aq.b(getClass().getName(), "monitorOn", e2.toString());
         }
         try {
             if (!this.e.a()) {
                 new Thread(this.e).start();
             }
         } catch (Exception e3) {
-            aj.b(getClass().getName(), "monitorOn", e3.toString());
+            aq.b(getClass().getName(), "monitorOn", e3.toString());
         }
         try {
             if (!this.d.a()) {
                 this.d.b();
             }
         } catch (Exception e4) {
-            aj.b(getClass().getName(), "monitorOn", e4.toString());
+            aq.b(getClass().getName(), "monitorOn", e4.toString());
         }
         this.f = true;
-        new Thread(this.f1687a).start();
+        new Thread(this.f1704a).start();
         new Handler().postDelayed(new j(this), 10000L);
     }
 
@@ -87,28 +87,28 @@ public class PerformMonitorService extends Service {
                 this.b.c();
             }
         } catch (Exception e) {
-            aj.b(getClass().getName(), "monitorOff", e.toString());
+            aq.b(getClass().getName(), "monitorOff", e.toString());
         }
         try {
             if (this.c.a()) {
                 this.c.c();
             }
         } catch (Exception e2) {
-            aj.b(getClass().getName(), "monitorOff", e2.toString());
+            aq.b(getClass().getName(), "monitorOff", e2.toString());
         }
         try {
             if (this.e.a()) {
                 this.e.c();
             }
         } catch (Exception e3) {
-            aj.b(getClass().getName(), "monitorOff", e3.toString());
+            aq.b(getClass().getName(), "monitorOff", e3.toString());
         }
         try {
             if (this.d.a()) {
                 this.d.c();
             }
         } catch (Exception e4) {
-            aj.b(getClass().getName(), "monitorOff", e4.toString());
+            aq.b(getClass().getName(), "monitorOff", e4.toString());
         }
         this.f = false;
     }

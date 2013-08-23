@@ -8,14 +8,14 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f1208a;
+    protected s f1241a;
     public com.baidu.tieba.kn.pk.widget.b b;
     ImageView c;
     private BdPullRefreshScrollView d;
@@ -67,10 +67,10 @@ public class c implements View.OnClickListener {
         ((ImageView) this.e.findViewById(R.id.share_qqfriend)).setOnClickListener(this.e);
         ((ImageView) this.e.findViewById(R.id.share_qqzone)).setOnClickListener(this.e);
         ((ImageView) this.e.findViewById(R.id.share_sina)).setOnClickListener(this.e);
-        ah.a(this.g, 0);
-        ah.a((ImageView) this.e.findViewById(R.id.home), 0);
-        ah.d(findViewById, 0);
-        ah.f(this.h, 0);
+        ao.a(this.g, 0);
+        ao.a((ImageView) this.e.findViewById(R.id.home), 0);
+        ao.d(findViewById, 0);
+        ao.f(this.h, 0);
         this.c = (ImageView) this.e.findViewById(R.id.cmd_folder);
         this.c.setOnClickListener(this);
         this.k = (TextView) this.e.findViewById(R.id.pk_res_left_un);
@@ -85,7 +85,7 @@ public class c implements View.OnClickListener {
         this.t = (ImageView) this.e.findViewById(R.id.pk_res_right_icon);
         this.u = (LinearLayout) this.e.findViewById(R.id.pk_res_left_lay);
         this.v = (LinearLayout) this.e.findViewById(R.id.pk_res_right_lay);
-        int a2 = (am.a((Context) this.e) - am.a((Context) this.e, 40.0f)) / 2;
+        int a2 = (UtilHelper.a((Context) this.e) - UtilHelper.a((Context) this.e, 40.0f)) / 2;
         ViewGroup.LayoutParams layoutParams = this.u.getLayoutParams();
         layoutParams.width = a2;
         this.u.setLayoutParams(layoutParams);
@@ -112,19 +112,19 @@ public class c implements View.OnClickListener {
         com.baidu.adp.widget.a.b a3;
         this.f.setVisibility(8);
         this.d.c();
-        if (sVar.a()) {
+        if (sVar.b()) {
             this.d.setVisibility(0);
-            this.e.a(sVar.b());
+            this.e.a(sVar.c());
             return;
         }
-        this.f1208a = sVar;
-        this.h.setText(this.f1208a.c());
-        this.b.a(this.f1208a.b);
-        this.b.a("PK规则", this.f1208a.c);
+        this.f1241a = sVar;
+        this.h.setText(this.f1241a.d());
+        this.b.a(this.f1241a.b);
+        this.b.a("PK规则", this.f1241a.c);
         this.b.a(String.valueOf(sVar.j.e) + this.e.getString(R.string.forum), sVar.j.g, this.e);
         this.b.b(String.valueOf(sVar.k.e) + this.e.getString(R.string.forum), sVar.k.g, this.e);
-        this.i = this.f1208a.j.h;
-        this.j = this.f1208a.k.h;
+        this.i = this.f1241a.j.h;
+        this.j = this.f1241a.k.h;
         d();
         String str = sVar.j.c;
         if (str != null && (a3 = aVar.a(str, new d(this, str))) != null) {
@@ -150,12 +150,12 @@ public class c implements View.OnClickListener {
         } else {
             this.s.setVisibility(8);
         }
-        if (sVar.i.equals(sVar.j.f1241a)) {
+        if (sVar.i.equals(sVar.j.f1274a)) {
             this.l.setTextColor(-13135118);
             this.q.setTextColor(-691656);
             this.o.setImageResource(R.drawable.icon_crown_s);
             this.t.setImageResource(R.drawable.icon_crown_d);
-        } else if (sVar.i.equals(sVar.k.f1241a)) {
+        } else if (sVar.i.equals(sVar.k.f1274a)) {
             this.l.setTextColor(-691656);
             this.q.setTextColor(-13135118);
             this.o.setImageResource(R.drawable.icon_crown_d);

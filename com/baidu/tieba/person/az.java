@@ -3,46 +3,37 @@ package com.baidu.tieba.person;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tieba.model.bn;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f1583a;
+    final /* synthetic */ PersonInfoActivity f1621a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(PersonInfoActivity personInfoActivity) {
-        this.f1583a = personInfoActivity;
+        this.f1621a = personInfoActivity;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        bn bnVar;
-        bn bnVar2;
-        bn bnVar3;
-        bn bnVar4;
-        bn bnVar5;
-        bn bnVar6;
+        com.baidu.tieba.model.bm bmVar;
+        com.baidu.tieba.model.bm bmVar2;
+        com.baidu.tieba.model.bm bmVar3;
+        com.baidu.tieba.model.bm bmVar4;
         long longExtra = intent.getLongExtra("fans", 0L);
-        long longExtra2 = intent.getLongExtra("relay", 0L);
-        long longExtra3 = intent.getLongExtra("at_me", 0L);
-        long longExtra4 = intent.getLongExtra("pletter", 0L);
-        bnVar = this.f1583a.b;
-        if (bnVar != null) {
-            bnVar3 = this.f1583a.b;
-            bnVar3.a(longExtra);
-            bnVar4 = this.f1583a.b;
-            bnVar4.d(longExtra2);
-            bnVar5 = this.f1583a.b;
-            bnVar5.c(longExtra3);
-            bnVar6 = this.f1583a.b;
-            bnVar6.b(longExtra4);
+        long longExtra2 = intent.getLongExtra("new_bookmark", 0L);
+        bmVar = this.f1621a.d;
+        if (bmVar != null) {
+            bmVar3 = this.f1621a.d;
+            bmVar3.a(longExtra);
+            bmVar4 = this.f1621a.d;
+            bmVar4.c(longExtra2);
         }
-        if (this.f1583a.f1555a != null) {
-            bb bbVar = this.f1583a.f1555a;
-            bnVar2 = this.f1583a.b;
-            bbVar.a(bnVar2);
+        if (this.f1621a.f1593a != null) {
+            bi biVar = this.f1621a.f1593a;
+            bmVar2 = this.f1621a.d;
+            biVar.d(bmVar2);
         }
     }
 }

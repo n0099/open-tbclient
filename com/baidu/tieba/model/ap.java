@@ -7,11 +7,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class ap extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ao f1332a;
+    final /* synthetic */ ao f1367a;
     private String b;
 
     public ap(ao aoVar, String str) {
-        this.f1332a = aoVar;
+        this.f1367a = aoVar;
         this.b = null;
         this.b = str;
     }
@@ -31,10 +31,10 @@ public class ap extends BdAsyncTask {
     public void cancel() {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
-        this.f1332a.f1331a = null;
-        eVar = this.f1332a.mLoadDataCallBack;
+        this.f1367a.f1366a = null;
+        eVar = this.f1367a.mLoadDataCallBack;
         if (eVar != null) {
-            eVar2 = this.f1332a.mLoadDataCallBack;
+            eVar2 = this.f1367a.mLoadDataCallBack;
             eVar2.a(null);
         }
         super.cancel(true);
@@ -53,11 +53,11 @@ public class ap extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) bitmap);
-        this.f1332a.f1331a = null;
-        com.baidu.tieba.util.aj.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        eVar = this.f1332a.mLoadDataCallBack;
+        this.f1367a.f1366a = null;
+        com.baidu.tieba.util.aq.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        eVar = this.f1367a.mLoadDataCallBack;
         if (eVar != null) {
-            eVar2 = this.f1332a.mLoadDataCallBack;
+            eVar2 = this.f1367a.mLoadDataCallBack;
             eVar2.a(bitmap);
         }
     }

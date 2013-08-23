@@ -6,15 +6,15 @@ import android.content.DialogInterface;
 public class g implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaDownloadHelper f1272a;
+    final /* synthetic */ MediaDownloadHelper f1305a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(MediaDownloadHelper mediaDownloadHelper) {
-        this.f1272a = mediaDownloadHelper;
+        this.f1305a = mediaDownloadHelper;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        this.f1272a.g();
+        this.f1305a.g();
     }
 }

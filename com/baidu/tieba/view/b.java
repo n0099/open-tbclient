@@ -5,11 +5,11 @@ import android.view.View;
 class b implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaseWebView f1826a;
+    final /* synthetic */ BaseWebView f1858a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BaseWebView baseWebView) {
-        this.f1826a = baseWebView;
+        this.f1858a = baseWebView;
     }
 
     @Override // android.view.View.OnLongClickListener

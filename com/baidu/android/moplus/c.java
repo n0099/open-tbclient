@@ -5,15 +5,15 @@ import android.content.Intent;
 class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoPlusService f512a;
+    final /* synthetic */ MoPlusService f535a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(MoPlusService moPlusService) {
-        this.f512a = moPlusService;
+        this.f535a = moPlusService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f512a.a(new Intent());
+        this.f535a.a(new Intent());
     }
 }

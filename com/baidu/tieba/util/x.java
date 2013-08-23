@@ -1,20 +1,24 @@
 package com.baidu.tieba.util;
 
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends Handler {
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        try {
-            NetWorkCore netWorkCore = (NetWorkCore) message.obj;
-            if (netWorkCore != null) {
-                netWorkCore.s();
-            }
-        } catch (Exception e) {
-            aj.b(getClass().getName(), "initNetWorkCore", e.getMessage());
-        }
+public class x implements BaiduAccount.CallbackListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ v f1812a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(v vVar) {
+        this.f1812a = vVar;
+    }
+
+    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
+    public void callback() {
+        s sVar;
+        sVar = this.f1812a.f1810a;
+        sVar.b(TiebaApplication.g().getString(R.string.error_unkown));
     }
 }

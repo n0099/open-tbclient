@@ -1,33 +1,21 @@
 package com.baidu.tieba.home;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.frs.FrsActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
+class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecommendPagerAdapter f1117a;
-    private final /* synthetic */ com.baidu.tieba.data.ba b;
+    TextView f1152a;
+    ProgressBar b;
+    final /* synthetic */ af c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(RecommendPagerAdapter recommendPagerAdapter, com.baidu.tieba.data.ba baVar) {
-        this.f1117a = recommendPagerAdapter;
-        this.b = baVar;
+    private ag(af afVar) {
+        this.c = afVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        Activity activity2;
-        if (TiebaApplication.f().t()) {
-            activity2 = this.f1117a.g;
-            StatService.onEvent(activity2, "forum_by_day", "click", 1);
-        }
-        activity = this.f1117a.g;
-        FrsActivity.a(activity, this.b.a(), (String) null);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(af afVar, ag agVar) {
+        this(afVar);
     }
 }

@@ -7,18 +7,18 @@ import com.baidu.tieba.TiebaApplication;
 class al implements TimePickerDialog.OnTimeSetListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignRemindActivity f1405a;
+    final /* synthetic */ SignRemindActivity f1442a;
     private final /* synthetic */ TiebaApplication b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(SignRemindActivity signRemindActivity, TiebaApplication tiebaApplication) {
-        this.f1405a = signRemindActivity;
+        this.f1442a = signRemindActivity;
         this.b = tiebaApplication;
     }
 
     @Override // android.app.TimePickerDialog.OnTimeSetListener
     public void onTimeSet(TimePicker timePicker, int i, int i2) {
         this.b.a(i, i2);
-        this.f1405a.d();
+        this.f1442a.d();
     }
 }

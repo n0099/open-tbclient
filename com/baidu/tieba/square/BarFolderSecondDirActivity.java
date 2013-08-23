@@ -1,7 +1,5 @@
 package com.baidu.tieba.square;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -9,25 +7,17 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.util.ah;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     private ProgressBar j;
-    private n k;
-    private m l;
+    private o k;
+    private n l;
     private ImageView m = null;
     private String n;
     private String o;
     private String p;
-
-    public static void a(Activity activity, String str, String str2, String str3) {
-        Intent intent = new Intent(activity, BarFolderSecondDirActivity.class);
-        intent.putExtra("menuName", str);
-        intent.putExtra("menuType", str2);
-        intent.putExtra("menuId", str3);
-        activity.startActivity(intent);
-    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
@@ -44,7 +34,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     }
 
     protected void d() {
-        this.k = new n(this, new q(), this.n, this.p);
+        this.k = new o(this, new r(), this.n, this.p);
         this.e.setAdapter((ListAdapter) this.k);
         this.d.setText(this.n);
         this.j = (ProgressBar) findViewById(R.id.progress);
@@ -55,7 +45,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     @Override // com.baidu.tieba.a, com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        ah.d(this.m, i);
+        ao.c(this.m, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +54,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         if (this.l != null) {
             this.l.cancel();
         }
-        a((q) null, true);
+        a((r) null, true);
         super.c();
     }
 
@@ -76,7 +66,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     }
 
     protected void k() {
-        this.e.setOnItemClickListener(new l(this));
+        this.e.setOnItemClickListener(new m(this));
         this.m.setOnClickListener(this);
     }
 
@@ -86,19 +76,19 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         if (this.l != null) {
             this.l.cancel();
         }
-        this.l = new m(this, null);
+        this.l = new n(this, null);
         this.l.setPriority(3);
         this.l.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(q qVar, boolean z) {
+    public void a(r rVar, boolean z) {
         this.j.setVisibility(8);
         this.e.setEnabled(true);
         this.l = null;
         if (!z) {
-            if (qVar.a()) {
-                a(qVar.b());
+            if (rVar.b()) {
+                a(rVar.c());
                 return;
             }
             this.e.setVisibility(4);

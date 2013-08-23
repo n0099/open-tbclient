@@ -8,11 +8,11 @@ import android.widget.Scroller;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1234a;
+    final /* synthetic */ b f1267a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.f1234a = bVar;
+        this.f1267a = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -25,23 +25,23 @@ public class d implements Runnable {
         LinearLayout linearLayout4;
         LinearLayout linearLayout5;
         Handler handler;
-        scroller = this.f1234a.f;
+        scroller = this.f1267a.f;
         if (!scroller.computeScrollOffset()) {
-            linearLayout = this.f1234a.c;
+            linearLayout = this.f1267a.c;
             linearLayout.setVisibility(8);
-            this.f1234a.h = false;
+            this.f1267a.h = false;
             return;
         }
-        scroller2 = this.f1234a.f;
+        scroller2 = this.f1267a.f;
         int currY = scroller2.getCurrY();
-        linearLayout2 = this.f1234a.c;
-        linearLayout3 = this.f1234a.c;
+        linearLayout2 = this.f1267a.c;
+        linearLayout3 = this.f1267a.c;
         int paddingLeft = linearLayout3.getPaddingLeft();
-        linearLayout4 = this.f1234a.c;
+        linearLayout4 = this.f1267a.c;
         int paddingRight = linearLayout4.getPaddingRight();
-        linearLayout5 = this.f1234a.c;
+        linearLayout5 = this.f1267a.c;
         linearLayout2.setPadding(paddingLeft, currY, paddingRight, linearLayout5.getPaddingBottom());
-        handler = this.f1234a.g;
+        handler = this.f1267a.g;
         handler.post(this);
     }
 }

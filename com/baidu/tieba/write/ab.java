@@ -12,11 +12,11 @@ import com.slidingmenu.lib.R;
 public class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1870a;
+    final /* synthetic */ WriteActivity f1901a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(WriteActivity writeActivity) {
-        this.f1870a = writeActivity;
+        this.f1901a = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -34,32 +34,32 @@ public class ab implements View.OnClickListener {
         InputMethodManager inputMethodManager3;
         EditText editText4;
         ImageView imageView2;
-        gridView = this.f1870a.r;
+        gridView = this.f1901a.r;
         if (gridView.getVisibility() == 0) {
-            editText3 = this.f1870a.f;
+            editText3 = this.f1901a.f;
             editText3.requestFocus();
-            gridView2 = this.f1870a.r;
+            gridView2 = this.f1901a.r;
             gridView2.setVisibility(8);
-            WriteActivity writeActivity = this.f1870a;
-            inputMethodManager3 = this.f1870a.d;
-            editText4 = this.f1870a.f;
+            WriteActivity writeActivity = this.f1901a;
+            inputMethodManager3 = this.f1901a.d;
+            editText4 = this.f1901a.f;
             writeActivity.b(inputMethodManager3, editText4);
-            imageView2 = this.f1870a.k;
-            imageView2.setImageDrawable(this.f1870a.getResources().getDrawable(R.drawable.write_face));
+            imageView2 = this.f1901a.k;
+            imageView2.setImageDrawable(this.f1901a.getResources().getDrawable(R.drawable.write_face));
             return;
         }
-        WriteActivity writeActivity2 = this.f1870a;
-        inputMethodManager = this.f1870a.d;
-        editText = this.f1870a.e;
+        WriteActivity writeActivity2 = this.f1901a;
+        inputMethodManager = this.f1901a.d;
+        editText = this.f1901a.e;
         writeActivity2.a(inputMethodManager, editText);
-        WriteActivity writeActivity3 = this.f1870a;
-        inputMethodManager2 = this.f1870a.d;
-        editText2 = this.f1870a.f;
+        WriteActivity writeActivity3 = this.f1901a;
+        inputMethodManager2 = this.f1901a.d;
+        editText2 = this.f1901a.f;
         writeActivity3.a(inputMethodManager2, editText2);
-        handler = this.f1870a.z;
-        runnable = this.f1870a.M;
+        handler = this.f1901a.z;
+        runnable = this.f1901a.M;
         handler.postDelayed(runnable, 200L);
-        imageView = this.f1870a.k;
-        imageView.setImageDrawable(this.f1870a.getResources().getDrawable(R.drawable.write_keyboard));
+        imageView = this.f1901a.k;
+        imageView.setImageDrawable(this.f1901a.getResources().getDrawable(R.drawable.write_keyboard));
     }
 }

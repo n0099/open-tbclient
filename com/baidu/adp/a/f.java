@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SQLiteDatabase f344a;
+    private static SQLiteDatabase f348a;
     private static Object b = new Object();
 
     public f(Context context, String str) {
@@ -41,14 +41,14 @@ public class f extends SQLiteOpenHelper {
     }
 
     public SQLiteDatabase a() {
-        if (f344a == null || !f344a.isOpen()) {
+        if (f348a == null || !f348a.isOpen()) {
             synchronized (b) {
-                if (f344a == null) {
-                    f344a = getWritableDatabase();
+                if (f348a == null) {
+                    f348a = getWritableDatabase();
                 }
             }
         }
-        return f344a;
+        return f348a;
     }
 
     public void a(Throwable th) {
@@ -58,8 +58,8 @@ public class f extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
     public void close() {
         synchronized (b) {
-            com.baidu.adp.lib.e.b.a(f344a);
-            f344a = null;
+            com.baidu.adp.lib.e.b.a(f348a);
+            f348a = null;
         }
     }
 }

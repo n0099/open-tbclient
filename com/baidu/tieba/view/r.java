@@ -1,146 +1,147 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.widget.LinearLayout;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends ImageView {
+public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private Matrix f1845a;
-    private int b;
-    private int c;
-    private Paint d;
-    private int e;
-    private int f;
-    private boolean g;
-    private boolean h;
-    private String i;
-    private ViewGroup.LayoutParams j;
+    final /* synthetic */ p f1876a;
+    private s b;
+    private u c;
+    private t d;
 
-    public boolean a() {
-        return this.g;
+    private r(p pVar) {
+        this.f1876a = pVar;
     }
 
-    public void setIsThree(boolean z) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ r(p pVar, r rVar) {
+        this(pVar);
     }
 
-    public void setIsWifi(boolean z) {
-        this.h = z;
-        if (this.h) {
-            this.i = "_small";
+    public LinearLayout a(Context context, int i, boolean z, float f, com.baidu.tieba.data.ai aiVar, int i2, int i3) {
+        s a2;
+        if (!a(aiVar) && (a2 = a(context, i, z, i2, i3)) != null) {
+            LinearLayout a3 = a(context);
+            z zVar = (z) a3.getChildAt(0);
+            if (zVar == null) {
+                return null;
+            }
+            a(a3, zVar, a2);
+            a(zVar, aiVar, i2, z);
+            return a3;
+        }
+        return null;
+    }
+
+    public void a(Context context, LinearLayout linearLayout, int i, boolean z, boolean z2, float f, com.baidu.tieba.data.ai aiVar, int i2, int i3) {
+        z zVar;
+        if (!a(aiVar) && (zVar = (z) linearLayout.getChildAt(0)) != null) {
+            a(linearLayout, zVar, a(context, i, z, i2, i3));
+            a(zVar, aiVar, i2, z);
+        }
+    }
+
+    private void a(z zVar, com.baidu.tieba.data.ai aiVar, int i, boolean z) {
+        zVar.setPicNum(i);
+        zVar.setTag(aiVar.b());
+        zVar.setIsWifi(z);
+        zVar.setType(aiVar.a());
+    }
+
+    private void a(LinearLayout linearLayout, z zVar, s sVar) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(sVar.f1877a, sVar.b);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(sVar.f1877a, -2);
+        layoutParams2.leftMargin = sVar.c;
+        layoutParams2.rightMargin = sVar.d;
+        layoutParams2.topMargin = 0;
+        layoutParams2.bottomMargin = 0;
+        zVar.setLayoutParams(layoutParams);
+        linearLayout.setLayoutParams(layoutParams2);
+    }
+
+    private LinearLayout a(Context context) {
+        z zVar = new z(context);
+        LinearLayout linearLayout = new LinearLayout(context);
+        zVar.setClickable(false);
+        zVar.setFocusable(false);
+        linearLayout.addView(zVar);
+        return linearLayout;
+    }
+
+    private boolean a(com.baidu.tieba.data.ai aiVar) {
+        return aiVar.c() != null && (aiVar.c().length() < 1 || aiVar.c().endsWith("swf"));
+    }
+
+    private s a(Context context, int i, boolean z, int i2, int i3) {
+        int a2 = i - UtilHelper.a(context, 14.0f);
+        if (i2 == 1) {
+            if (this.b == null || this.b.e != z) {
+                a(context, a2, z);
+            }
+            return this.b;
+        } else if (i2 == 2) {
+            if (this.c == null || this.c.c != z) {
+                b(context, a2, z);
+            }
+            return i3 == 1 ? this.c.b : this.c.f1879a;
+        } else if (i2 == 3) {
+            if (this.d == null || this.d.d != z) {
+                c(context, a2, z);
+            }
+            return i3 == 2 ? this.d.c : i3 == 1 ? this.d.b : this.d.f1878a;
         } else {
-            this.i = "_mobile";
+            return null;
         }
     }
 
-    public void setPicNum(int i) {
-        this.f = i;
-    }
-
-    public r(Context context, int i) {
-        super(context);
-        this.f1845a = new Matrix();
-        this.b = 0;
-        this.c = 0;
-        this.d = new Paint();
-        this.e = 0;
-        this.f = 1;
-        this.g = false;
-        this.h = false;
-        this.i = null;
-        this.j = null;
-        this.e = i;
-        b();
-    }
-
-    private void b() {
-        this.d = new Paint();
-        this.d.setAntiAlias(true);
-    }
-
-    public void setType(int i) {
-        this.e = i;
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
+    private void a(Context context, int i, boolean z) {
         float f;
-        Bitmap a2;
-        super.onDraw(canvas);
-        com.baidu.adp.widget.a.b c = com.baidu.tbadk.a.e.a().c(String.valueOf((String) getTag()) + this.i);
-        if (!this.g) {
-            this.f1845a.reset();
+        int i2;
+        int a2;
+        int i3 = 0;
+        this.b = new s(this, null);
+        if (!z) {
+            f = this.f1876a.d;
+            int i4 = (int) (i * f);
+            i2 = (int) (i4 * 0.5d);
+            a2 = UtilHelper.a(context, 6.0f);
+            i3 = UtilHelper.a(context, 7.0f);
+            i = (i4 - a2) - i3;
+        } else {
+            i2 = (int) (i * 0.5d);
+            a2 = 0;
         }
-        if (c == null) {
-            this.g = false;
-            if (this.e == 5) {
-                if (TiebaApplication.f().au() == 1) {
-                    a2 = com.baidu.tieba.util.e.a((int) R.drawable.pic_video_1);
-                } else {
-                    a2 = com.baidu.tieba.util.e.a((int) R.drawable.pic_video);
-                }
-                float min = Math.min(getWidth() / a2.getWidth(), getHeight() / a2.getHeight());
-                this.f1845a.setScale(min, min);
-                this.g = true;
-            } else {
-                if (TiebaApplication.f().au() == 1) {
-                    a2 = com.baidu.tieba.util.e.a((int) R.drawable.pic_image_h_not_1);
-                } else {
-                    a2 = com.baidu.tieba.util.e.a((int) R.drawable.pic_image_h_not);
-                }
-                this.b = (getWidth() - a2.getWidth()) >> 1;
-                this.c = (getHeight() - a2.getHeight()) >> 1;
-                this.f1845a.postTranslate(this.b, this.c);
-                if (TiebaApplication.f().au() == 1) {
-                    canvas.drawColor(-13815750);
-                }
-            }
-            canvas.drawBitmap(a2, this.f1845a, this.d);
-        } else if (c != null) {
-            if (!this.g) {
-                int a3 = c.a();
-                int b = c.b();
-                int width = getWidth();
-                int height = getHeight();
-                if (a3 != 0 && b != 0 && width != 0 && height != 0) {
-                    if (this.f == 1) {
-                        f = (((double) a3) < ((double) (width * 3)) / 10.0d || !this.h) ? 1.0f : width / a3;
-                    } else {
-                        f = ((float) a3) < ((float) (((double) (width * 3)) / 10.0d)) ? 1.0f : width / a3;
-                    }
-                    this.f1845a.setScale(f, f);
-                    int i = ((int) (a3 * f)) - 1;
-                    int i2 = ((int) (f * b)) - 1;
-                    if (i2 <= 1.25d * height) {
-                        this.b = 0;
-                        this.c = 0;
-                    } else {
-                        this.b = 0;
-                        this.c = (int) ((0.5d * height) - (0.4d * i2));
-                        if (this.c > 0) {
-                            this.c = 0;
-                        }
-                    }
-                    this.f1845a.postTranslate(this.b, this.c);
-                    if (height - i2 > 3) {
-                        this.j = getLayoutParams();
-                        this.j.width = i;
-                        this.j.height = i2;
-                        setLayoutParams(this.j);
-                    }
-                    this.g = true;
-                } else {
-                    return;
-                }
-            }
-            c.a(canvas, this.f1845a, this.d);
-        }
+        this.b.a(i, i2, a2, i3);
+        this.b.e = z;
+    }
+
+    private void b(Context context, int i, boolean z) {
+        this.c = new u(this, null);
+        int i2 = i / 2;
+        int i3 = (i2 * 2) / 3;
+        int i4 = i2 - 0;
+        this.c.f1879a.a(i / 2, i3, 0, 0);
+        int a2 = UtilHelper.a(context, 6.0f);
+        int a3 = UtilHelper.a(context, 0.0f);
+        int i5 = ((i / 2) - a2) - a3;
+        this.c.b.a(i / 2, i3, a2, a3);
+        this.c.c = z;
+    }
+
+    private void c(Context context, int i, boolean z) {
+        int i2 = ((i / 3) * 3) / 4;
+        this.d = new t(this, null);
+        int a2 = UtilHelper.a(context, 0.0f);
+        this.d.f1878a.a((i / 3) - a2, i2, a2, 0);
+        int a3 = UtilHelper.a(context, 6.0f);
+        this.d.b.a((i / 3) - a3, i2, a3, 0);
+        int a4 = UtilHelper.a(context, 6.0f);
+        int a5 = UtilHelper.a(context, 0.0f);
+        this.d.c.a(((i / 3) - a4) - a5, i2, a4, a5);
+        this.d.d = z;
     }
 }

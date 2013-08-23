@@ -1,86 +1,56 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
+    private boolean b;
+    private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public az f1021a;
-    public bo b;
-    private aj c;
-    private com.baidu.tieba.square.g d;
-    private boolean e;
-    private long f = 0;
+    private af f1024a = new af();
 
     public q() {
-        this.e = true;
-        this.e = true;
+        this.b = true;
+        this.b = false;
     }
 
     public void a(String str) {
         if (str == null || str.length() < 1) {
-            this.e = false;
+            this.b = false;
             return;
         }
         try {
             a(new JSONObject(str));
+            this.b = true;
         } catch (Exception e) {
-            this.e = false;
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
+            this.b = false;
+            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
-            JSONObject optJSONObject = jSONObject.optJSONObject("recommend");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("topic");
-            this.f1021a = new az(optJSONObject);
-            this.b = new bo(optJSONArray2);
-            this.c = new aj();
-            this.c.a(optJSONArray);
-            this.d = new com.baidu.tieba.square.g();
-            this.d.b(jSONObject);
-            this.f = jSONObject.optLong("time");
+            this.f1024a.a(jSONObject.optJSONArray("like_forum"));
+            this.c = jSONObject.optLong("time");
         } catch (Exception e) {
-            this.e = false;
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
+            this.b = false;
+            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public aj a() {
-        return this.c;
+    public af a() {
+        return this.f1024a;
     }
 
-    public com.baidu.tieba.square.g b() {
-        return this.d;
+    public void a(boolean z) {
+        this.b = z;
     }
 
-    public az c() {
-        return this.f1021a;
-    }
-
-    public bo d() {
+    public boolean b() {
         return this.b;
     }
 
-    public boolean e() {
-        return this.e;
-    }
-
-    public boolean f() {
-        return System.currentTimeMillis() / g.f.longValue() == (this.f * 1000) / g.f.longValue();
-    }
-
-    public boolean g() {
-        boolean z = false;
-        if (this.e) {
-            if (this.f1021a == null || this.b == null || this.c == null || this.d == null) {
-                z = true;
-            }
-            return z;
-        }
-        return true;
+    public boolean c() {
+        return System.currentTimeMillis() / g.f.longValue() == (this.c * 1000) / g.f.longValue();
     }
 }

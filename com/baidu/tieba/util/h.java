@@ -16,7 +16,7 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1764a;
+    private Context f1801a;
     private int b;
     private int c;
     private a d;
@@ -25,10 +25,10 @@ public class h {
     private int g = -16777216;
 
     public h(Context context) {
-        this.f1764a = context;
-        TextView textView = new TextView(this.f1764a);
+        this.f1801a = context;
+        TextView textView = new TextView(this.f1801a);
         textView.setLineSpacing(0.0f, 1.2f);
-        textView.setTextSize(com.baidu.tieba.data.g.n());
+        textView.setTextSize(com.baidu.tieba.data.g.o());
         this.b = textView.getLineHeight();
         this.c = (int) textView.getTextSize();
     }
@@ -50,7 +50,7 @@ public class h {
                     textView2 = null;
                     i = 0;
                 } else {
-                    textView.setTextSize(com.baidu.tieba.data.g.n());
+                    textView.setTextSize(com.baidu.tieba.data.g.o());
                     textView.setVisibility(0);
                     a(textView, iVar);
                     i = 1;
@@ -78,7 +78,7 @@ public class h {
                                 }
                             } else if (textView3 != null) {
                                 if (iVar2.a() == 2) {
-                                    textView3.append(iVar2.a(this.f1764a, this.b, this.c));
+                                    textView3.append(iVar2.a(this.f1801a, this.b, this.c));
                                     i2 = i4;
                                     textView2 = textView3;
                                 } else {
@@ -154,7 +154,7 @@ public class h {
     private void a(TextView textView, com.baidu.tieba.data.i iVar) {
         if (textView != null && iVar != null) {
             if (iVar.a() == 2) {
-                textView.setText(iVar.a(this.f1764a, this.b, this.c));
+                textView.setText(iVar.a(this.f1801a, this.b, this.c));
             } else {
                 textView.setText(iVar.c());
             }
@@ -162,17 +162,17 @@ public class h {
     }
 
     private TextView a(com.baidu.tieba.data.i iVar) {
-        CustomTextView customTextView = new CustomTextView(this.f1764a);
+        CustomTextView customTextView = new CustomTextView(this.f1801a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        int a2 = am.a(this.f1764a, 15.0f);
+        int a2 = UtilHelper.a(this.f1801a, 15.0f);
         layoutParams.rightMargin = 0;
         layoutParams.leftMargin = 0;
         layoutParams.topMargin = a2;
         layoutParams.bottomMargin = 0;
         customTextView.setLineSpacing(0.0f, 1.2f);
-        customTextView.setTextSize(com.baidu.tieba.data.g.n());
-        if (TiebaApplication.f().au() == 1) {
-            customTextView.setTextColor(ah.a(1));
+        customTextView.setTextSize(com.baidu.tieba.data.g.o());
+        if (TiebaApplication.g().an() == 1) {
+            customTextView.setTextColor(ao.a(1));
         } else {
             customTextView.setTextColor(this.g);
         }
@@ -184,18 +184,18 @@ public class h {
     }
 
     private ImageView a(List list, com.baidu.tieba.data.i iVar, int i) {
-        ImageView imageView = new ImageView(this.f1764a);
-        int a2 = am.a(this.f1764a, 105.0f);
-        int a3 = am.a(this.f1764a, 105.0f);
+        ImageView imageView = new ImageView(this.f1801a);
+        int a2 = UtilHelper.a(this.f1801a, 105.0f);
+        int a3 = UtilHelper.a(this.f1801a, 105.0f);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a2);
-        layoutParams.topMargin = am.a(this.f1764a, 15.0f);
+        layoutParams.topMargin = UtilHelper.a(this.f1801a, 15.0f);
         layoutParams.bottomMargin = 0;
         com.baidu.adp.widget.a.b d = this.d.d(iVar.d());
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         imageView.setMaxWidth(a3);
         if (d != null) {
             imageView.setTag(null);
-            d.b(imageView);
+            d.a(imageView);
         } else {
             imageView.setTag(iVar.d());
             imageView.setImageBitmap(e.a((int) R.drawable.image_default));

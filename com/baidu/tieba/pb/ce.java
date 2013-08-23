@@ -1,30 +1,40 @@
 package com.baidu.tieba.pb;
-
-import android.view.View;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ce implements View.OnClickListener {
+class ce implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1497a;
+    final /* synthetic */ cd f1534a;
+    private final /* synthetic */ com.baidu.tieba.data.bd b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(bn bnVar) {
-        this.f1497a = bnVar;
+    public ce(cd cdVar, com.baidu.tieba.data.bd bdVar, boolean z, String str) {
+        this.f1534a = cdVar;
+        this.b = bdVar;
+        this.c = z;
+        this.d = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        view2 = this.f1497a.q;
-        View findViewById = view2.findViewById(R.id.manage_bottom_bar);
-        if (findViewById != null) {
-            if (findViewById.getVisibility() == 0) {
-                findViewById.setVisibility(8);
-            } else {
-                findViewById.setVisibility(0);
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        bo boVar;
+        cu cuVar;
+        bo boVar2;
+        cv cvVar;
+        bo boVar3;
+        cu cuVar2;
+        boVar = this.f1534a.f1533a;
+        cuVar = boVar.aq;
+        if (cuVar != null) {
+            boVar3 = this.f1534a.f1533a;
+            cuVar2 = boVar3.aq;
+            cuVar2.a(this.b);
+        }
+        if (this.c) {
+            boVar2 = this.f1534a.f1533a;
+            cvVar = boVar2.A;
+            cvVar.b(this.d);
         }
     }
 }

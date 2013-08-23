@@ -1,115 +1,66 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.tieba.TiebaApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class p extends BdAsyncTask {
+public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1377a;
-    private String b;
-    private String c;
-    private String d;
-    private com.baidu.tieba.a.g e = null;
+    private static p f1413a;
+    private aa b;
+    private com.baidu.adp.lib.cache.q c;
 
-    public p(o oVar, String str, String str2, String str3) {
-        this.f1377a = oVar;
+    private p() {
         this.b = null;
         this.c = null;
-        this.d = null;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-        setSelfExecute(true);
+        this.b = new aa();
+        this.c = BdCacheService.c().a("tb.frs", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public com.baidu.tieba.data.ac a(Object... objArr) {
-        String e;
-        com.baidu.adp.lib.cache.q bm;
-        try {
-            this.e = new com.baidu.tieba.a.g();
-            String E = TiebaApplication.E();
-            if ((E == null || E.length() == 0) && (e = aq.e()) != null && e.length() > 0) {
-                this.e.a("tag_info", e);
+    public static synchronized p a() {
+        p pVar;
+        synchronized (p.class) {
+            if (f1413a == null) {
+                f1413a = new p();
             }
-            String a2 = this.e.a(this.b, this.c, this.d);
-            if (this.e.c()) {
-                com.baidu.tieba.data.ac acVar = new com.baidu.tieba.data.ac();
-                acVar.a(a2);
-                if (this.d.equals("1") && (bm = TiebaApplication.f().bm()) != null && this.e.e() == 0) {
-                    bm.a("home_interest", a2, 100000000L);
-                    return acVar;
-                }
-                return acVar;
+            pVar = f1413a;
+        }
+        return pVar;
+    }
+
+    public boolean a(String str) {
+        if (this.c != null && str != null) {
+            String str2 = (String) this.c.a(String.valueOf(TiebaApplication.E()) + str);
+            if (str2 != null && str2.length() > 0) {
+                this.b.a(str2);
+                return true;
             }
-        } catch (Exception e2) {
         }
-        return null;
+        return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.ac acVar) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.tieba.data.ac acVar2;
-        int i;
-        int i2;
-        com.baidu.tieba.data.ac acVar3;
-        com.baidu.tieba.data.ac acVar4;
-        com.baidu.adp.a.e eVar2;
-        this.f1377a.setErrorCode(this.e.e());
-        this.f1377a.setErrorString(this.e.f());
-        if (acVar == null) {
-            eVar2 = this.f1377a.mLoadDataCallBack;
-            eVar2.a(null);
-        } else {
-            try {
-                i = this.f1377a.f1376a;
-                if (i != 1) {
-                    i2 = this.f1377a.f1376a;
-                    if (i2 == 2) {
-                        acVar3 = this.f1377a.f;
-                        if (acVar3 == null) {
-                            this.f1377a.f = acVar;
-                        } else {
-                            acVar4 = this.f1377a.f;
-                            acVar4.a(acVar, true);
-                        }
-                    }
-                } else {
-                    this.f1377a.f = acVar;
-                }
-            } catch (Exception e) {
-            }
-            eVar = this.f1377a.mLoadDataCallBack;
-            acVar2 = this.f1377a.f;
-            eVar.a(acVar2);
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0) {
+            this.c.a(String.valueOf(TiebaApplication.E()) + str, str2, 604800000L);
         }
-        this.e.a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
+    public void b(String str) {
+        if (str != null && str.length() > 0) {
+            this.c.c(String.valueOf(TiebaApplication.E()) + str);
+        }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.e != null) {
-            this.e.a();
+    public aa b() {
+        return this.b;
+    }
+
+    public boolean c(String str) {
+        com.baidu.adp.lib.cache.r b;
+        if (str == null || str.length() <= 0 || (b = this.c.b(str)) == null) {
+            return false;
         }
+        return UtilHelper.a(b.b, System.currentTimeMillis());
     }
 }

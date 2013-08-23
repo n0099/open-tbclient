@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1440a;
+    private ArrayList f1477a;
     private String d;
     private String e;
     private String f;
@@ -20,14 +20,14 @@ public class a {
     private c l = null;
 
     public a(ArrayList arrayList, String str, String str2, String str3) {
-        this.f1440a = null;
+        this.f1477a = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.k = false;
-        this.f1440a = arrayList;
-        if (this.f1440a == null) {
-            this.f1440a = new ArrayList();
+        this.f1477a = arrayList;
+        if (this.f1477a == null) {
+            this.f1477a = new ArrayList();
         }
         this.d = str2;
         this.e = str;
@@ -71,22 +71,22 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String a(com.baidu.tieba.data.z zVar) {
+    public String a(com.baidu.tieba.data.ab abVar) {
         StringBuilder sb = new StringBuilder((int) WebChromeClient.STRING_DLG_BTN_SET);
-        if (zVar.g() * zVar.f() > com.baidu.tieba.data.g.h() * com.baidu.tieba.data.g.h()) {
-            double sqrt = Math.sqrt((com.baidu.tieba.data.g.h() * com.baidu.tieba.data.g.h()) / (zVar.g() * zVar.f()));
+        if (abVar.g() * abVar.f() > com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i()) {
+            double sqrt = Math.sqrt((com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i()) / (abVar.g() * abVar.f()));
             sb.append("width=");
-            sb.append(String.valueOf((int) (zVar.f() * sqrt)));
+            sb.append(String.valueOf((int) (abVar.f() * sqrt)));
             sb.append("&height=");
-            sb.append(String.valueOf((int) (sqrt * zVar.g())));
+            sb.append(String.valueOf((int) (sqrt * abVar.g())));
         } else {
             sb.append("width=");
-            sb.append(String.valueOf(zVar.f()));
+            sb.append(String.valueOf(abVar.f()));
             sb.append("&height=");
-            sb.append(String.valueOf(zVar.g()));
+            sb.append(String.valueOf(abVar.g()));
         }
         sb.append("&src=");
-        sb.append(com.baidu.tieba.util.ai.d(zVar.b()));
+        sb.append(com.baidu.tieba.util.ap.d(abVar.b()));
         return sb.toString();
     }
 }

@@ -13,7 +13,7 @@ import org.json.JSONObject;
 class a implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f774a = new a();
+    private static a f797a = new a();
     private Thread.UncaughtExceptionHandler b = null;
     private Context c = null;
 
@@ -21,7 +21,7 @@ class a implements Thread.UncaughtExceptionHandler {
     }
 
     public static a a() {
-        return f774a;
+        return f797a;
     }
 
     private void a(long j, String str) {

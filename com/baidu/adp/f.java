@@ -7,6 +7,6 @@ public final class f {
     public static final int adp_default_header_layout = 2130903051;
     public static final int adp_detault_footer_layout = 2130903052;
     public static final int adp_pull_refresh_scroll_view = 2130903053;
-    public static final int bd_switch_view = 2130903068;
-    public static final int pull_view = 2130903202;
+    public static final int bd_switch_view = 2130903069;
+    public static final int pull_view = 2130903221;
 }

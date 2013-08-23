@@ -4,12 +4,12 @@ package com.baidu.adp.lib.asyncTask;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    final BdAsyncTask f352a;
+    final BdAsyncTask f357a;
     final Object[] b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BdAsyncTask bdAsyncTask, Object... objArr) {
-        this.f352a = bdAsyncTask;
+        this.f357a = bdAsyncTask;
         this.b = objArr;
     }
 }

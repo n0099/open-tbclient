@@ -7,11 +7,11 @@ import android.widget.LinearLayout;
 public class aq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f1885a;
+    final /* synthetic */ WriteImageActivity f1916a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(WriteImageActivity writeImageActivity) {
-        this.f1885a = writeImageActivity;
+        this.f1916a = writeImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,17 +21,17 @@ public class aq implements View.OnClickListener {
         LinearLayout linearLayout3;
         LinearLayout linearLayout4;
         LinearLayout linearLayout5;
-        linearLayout = this.f1885a.f;
+        linearLayout = this.f1916a.f;
         if (linearLayout.getVisibility() == 0) {
-            linearLayout4 = this.f1885a.f;
+            linearLayout4 = this.f1916a.f;
             linearLayout4.setVisibility(8);
-            linearLayout5 = this.f1885a.p;
+            linearLayout5 = this.f1916a.p;
             linearLayout5.setVisibility(8);
             return;
         }
-        linearLayout2 = this.f1885a.f;
+        linearLayout2 = this.f1916a.f;
         linearLayout2.setVisibility(0);
-        linearLayout3 = this.f1885a.p;
+        linearLayout3 = this.f1916a.p;
         linearLayout3.setVisibility(0);
     }
 }

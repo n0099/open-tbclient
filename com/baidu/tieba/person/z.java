@@ -19,9 +19,9 @@ import java.util.ArrayList;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f1619a;
+    Context f1665a;
     private ListView c;
-    private com.baidu.tieba.home.w d;
+    private com.baidu.tieba.home.af d;
     private ImageView e;
     private Button f;
     private RelativeLayout g;
@@ -32,7 +32,7 @@ public class z {
     DialogInterface.OnClickListener b = null;
 
     public z(EditMarkActivity editMarkActivity) {
-        this.f1619a = null;
+        this.f1665a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -41,13 +41,13 @@ public class z {
         this.h = null;
         this.i = null;
         this.j = null;
-        this.f1619a = editMarkActivity;
+        this.f1665a = editMarkActivity;
         editMarkActivity.setContentView(R.layout.edit_mark_activity);
         this.j = (ProgressBar) editMarkActivity.findViewById(R.id.progress);
         this.g = (RelativeLayout) editMarkActivity.findViewById(R.id.parent);
         this.h = (LinearLayout) editMarkActivity.findViewById(R.id.title);
         this.i = (TextView) editMarkActivity.findViewById(R.id.title_text);
-        this.d = new com.baidu.tieba.home.w(editMarkActivity);
+        this.d = new com.baidu.tieba.home.af(editMarkActivity);
         this.d.c(false);
         this.d.b();
         this.c = (ListView) editMarkActivity.findViewById(R.id.list);
@@ -77,13 +77,13 @@ public class z {
         if (!this.d.c()) {
             this.d.d(true);
             this.f.setText(R.string.done);
-            com.baidu.tieba.util.ah.h((TextView) this.f, TiebaApplication.f().au());
+            com.baidu.tieba.util.ao.h(this.f, TiebaApplication.g().an());
             this.d.notifyDataSetChanged();
             return;
         }
         this.d.d(false);
         this.f.setText(R.string.edit);
-        com.baidu.tieba.util.ah.g((TextView) this.f, TiebaApplication.f().au());
+        com.baidu.tieba.util.ao.g((TextView) this.f, TiebaApplication.g().an());
         this.d.notifyDataSetChanged();
     }
 
@@ -99,20 +99,29 @@ public class z {
         this.d.notifyDataSetChanged();
     }
 
-    public void a(String str, com.baidu.tieba.model.f fVar) {
+    public void e() {
+        this.j.setVisibility(0);
+    }
+
+    public void f() {
+        this.j.setVisibility(8);
+    }
+
+    public void a(String str, com.baidu.tieba.model.f fVar, Boolean bool) {
+        this.d.b(true);
         if (str != null) {
-            ((com.baidu.tieba.g) this.f1619a).a(str);
+            a(str);
         }
-        if (fVar.d() == 0) {
-            ((com.baidu.tieba.g) this.f1619a).a(this.f1619a.getString(R.string.no_more_mark));
+        if (fVar.e() == 0 && !bool.booleanValue() && fVar.d() > 0) {
+            a(this.f1665a.getString(R.string.no_more_mark));
         }
-        if (fVar.c() < 20) {
+        if (fVar.d() < 20) {
             this.d.a(false);
         }
-        this.d.a(fVar.b());
+        this.d.a(fVar.c());
         this.d.c(true);
         this.d.b();
-        if (fVar.c() > 0) {
+        if (fVar.d() > 0) {
             this.f.setVisibility(0);
         } else {
             this.f.setVisibility(4);
@@ -120,33 +129,40 @@ public class z {
         this.j.setVisibility(8);
         this.d.b(false);
         this.d.notifyDataSetChanged();
+        if (bool.booleanValue()) {
+            e();
+        }
     }
 
-    public void e() {
-        ((com.baidu.tieba.g) this.f1619a).b(this.f1619a.getString(R.string.syncing));
+    public void a(String str) {
+        ((com.baidu.tieba.g) this.f1665a).a(str);
+    }
+
+    public void g() {
+        ((com.baidu.tieba.g) this.f1665a).b(this.f1665a.getString(R.string.syncing));
     }
 
     public void a(boolean z, String str, boolean z2) {
-        ((com.baidu.tieba.g) this.f1619a).h();
+        ((com.baidu.tieba.g) this.f1665a).h();
         if (z) {
             this.d.b();
             this.d.notifyDataSetChanged();
         }
         if (str != null) {
-            ((com.baidu.tieba.g) this.f1619a).a(str);
+            ((com.baidu.tieba.g) this.f1665a).a(str);
         }
         if (z2) {
-            i();
+            k();
         }
     }
 
-    public void f() {
+    public void h() {
         this.j.setVisibility(0);
     }
 
     public void a(boolean z, String str, ArrayList arrayList) {
         if (z) {
-            ((com.baidu.tieba.g) this.f1619a).a(this.f1619a.getString(R.string.del_mark_success));
+            ((com.baidu.tieba.g) this.f1665a).a(this.f1665a.getString(R.string.del_mark_success));
             this.d.a(arrayList);
             this.d.c(true);
             this.d.b();
@@ -157,7 +173,7 @@ public class z {
             }
             this.d.notifyDataSetChanged();
         } else {
-            ((com.baidu.tieba.g) this.f1619a).a(str);
+            ((com.baidu.tieba.g) this.f1665a).a(str);
         }
         this.j.setVisibility(8);
     }
@@ -167,19 +183,18 @@ public class z {
             this.d.a(arrayList);
             this.d.b();
             this.d.notifyDataSetChanged();
-            this.f.setVisibility(4);
         }
     }
 
-    private void i() {
+    private void k() {
         if (this.k == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1619a);
-            builder.setTitle(this.f1619a.getString(R.string.sync_mark_fail));
-            builder.setMessage(this.f1619a.getString(R.string.sync_mark_fail_con));
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1665a);
+            builder.setTitle(this.f1665a.getString(R.string.sync_mark_fail));
+            builder.setMessage(this.f1665a.getString(R.string.sync_mark_fail_con));
             if (this.b != null) {
-                builder.setPositiveButton(this.f1619a.getString(R.string.retry_rightnow), this.b);
+                builder.setPositiveButton(this.f1665a.getString(R.string.retry_rightnow), this.b);
             }
-            builder.setNegativeButton(this.f1619a.getString(R.string.confirm), new aa(this));
+            builder.setNegativeButton(this.f1665a.getString(R.string.confirm), new aa(this));
             this.k = builder.create();
             this.k.setCanceledOnTouchOutside(true);
         }
@@ -187,31 +202,31 @@ public class z {
     }
 
     public void b(int i) {
-        com.baidu.tieba.util.ah.a(this.g, i);
-        com.baidu.tieba.util.ah.d(this.h, i);
-        com.baidu.tieba.util.ah.f(this.i, i);
-        com.baidu.tieba.util.ah.a(this.e, i);
+        com.baidu.tieba.util.ao.a(this.g, i);
+        com.baidu.tieba.util.ao.d(this.h, i);
+        com.baidu.tieba.util.ao.f(this.i, i);
+        com.baidu.tieba.util.ao.a(this.e, i);
         if (this.d.c()) {
-            com.baidu.tieba.util.ah.h((TextView) this.f, i);
+            com.baidu.tieba.util.ao.h(this.f, i);
         } else {
-            com.baidu.tieba.util.ah.g((TextView) this.f, i);
+            com.baidu.tieba.util.ao.g((TextView) this.f, i);
         }
         this.d.notifyDataSetChanged();
         if (i == 1) {
-            this.c.setDivider(this.f1619a.getResources().getDrawable(R.drawable.list_divider_1));
+            this.c.setDivider(this.f1665a.getResources().getDrawable(R.drawable.list_divider_1));
             this.c.setSelector(R.drawable.list_selector_1);
             return;
         }
-        this.c.setDivider(this.f1619a.getResources().getDrawable(R.drawable.list_divider));
+        this.c.setDivider(this.f1665a.getResources().getDrawable(R.drawable.list_divider));
         this.c.setSelector(R.drawable.list_selector);
     }
 
-    public void g() {
+    public void i() {
         this.d.b();
         this.d.notifyDataSetChanged();
     }
 
-    public void h() {
+    public void j() {
         if (this.k != null) {
             this.k.dismiss();
             this.k = null;

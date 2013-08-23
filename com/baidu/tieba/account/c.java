@@ -8,10 +8,10 @@ import com.baidu.loginshare.Token;
 public class c implements ILoginShareListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f874a;
+    final /* synthetic */ a f895a;
 
     private c(a aVar) {
-        this.f874a = aVar;
+        this.f895a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,19 +26,19 @@ public class c implements ILoginShareListener {
             String str = token.mUsername;
             String str2 = token.mBduss;
             String str3 = token.mPtoken;
-            com.baidu.tieba.util.aj.e(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
-            com.baidu.tieba.util.aj.e(getClass().getName(), "onLoginShareEvent", "username = " + str);
-            com.baidu.tieba.util.aj.e(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
+            com.baidu.tieba.util.aq.e(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
+            com.baidu.tieba.util.aq.e(getClass().getName(), "onLoginShareEvent", "username = " + str);
+            com.baidu.tieba.util.aq.e(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
             if (loginShareEvent == LoginShareEvent.VALID) {
                 if (str2 != null && str3 != null) {
-                    com.baidu.tieba.util.aj.e(getClass().getName(), "onLoginShareEvent", "login");
-                    this.f874a.a(true, str2, str3, str);
+                    com.baidu.tieba.util.aq.e(getClass().getName(), "onLoginShareEvent", "login");
+                    this.f895a.a(true, str2, str3, str);
                     return;
                 }
                 return;
             }
-            com.baidu.tieba.util.aj.e(getClass().getName(), "onLoginShareEvent", "logout");
-            this.f874a.a(false, null, null, null);
+            com.baidu.tieba.util.aq.e(getClass().getName(), "onLoginShareEvent", "logout");
+            this.f895a.a(false, null, null, null);
         }
     }
 }

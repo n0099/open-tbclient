@@ -10,13 +10,13 @@ import java.util.ArrayList;
 public class x extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1680a;
-    private au b;
+    final /* synthetic */ w f1698a;
+    private ad b;
     private int c;
     private String d;
 
     public x(w wVar, int i, String str) {
-        this.f1680a = wVar;
+        this.f1698a = wVar;
         this.c = i;
         this.d = str;
         setPriority(3);
@@ -28,9 +28,9 @@ public class x extends BdAsyncTask {
         y yVar;
         y yVar2;
         super.b();
-        yVar = this.f1680a.f1679a;
+        yVar = this.f1698a.f1697a;
         if (yVar != null) {
-            yVar2 = this.f1680a.f1679a;
+            yVar2 = this.f1698a.f1697a;
             yVar2.a();
         }
     }
@@ -43,13 +43,13 @@ public class x extends BdAsyncTask {
         switch (this.c) {
             case 0:
             case 2:
-                this.b = new au(this.c == 0);
+                this.b = new ad(this.c == 0);
                 a2 = this.b.a(this.d);
                 break;
             case 1:
-                com.baidu.adp.lib.cache.q bm = TiebaApplication.f().bm();
-                if (bm != null) {
-                    a2 = (String) bm.a("dailyrecommend");
+                com.baidu.adp.lib.cache.q ba = TiebaApplication.g().ba();
+                if (ba != null) {
+                    a2 = (String) ba.a("dailyrecommend");
                     break;
                 }
             default:
@@ -60,7 +60,7 @@ public class x extends BdAsyncTask {
             if (this.c != 1 && this.b != null && this.b.b()) {
                 if (this.b.c() == 0) {
                     if (this.c == 0) {
-                        this.f1680a.b(a2);
+                        this.f1698a.b(a2);
                     }
                     return a(a2);
                 }
@@ -97,50 +97,50 @@ public class x extends BdAsyncTask {
         com.baidu.tieba.data.n nVar5;
         super.a((Object) nVar);
         if (nVar == null) {
-            yVar = this.f1680a.f1679a;
+            yVar = this.f1698a.f1697a;
             if (yVar != null) {
                 if (this.c != 1) {
-                    yVar3 = this.f1680a.f1679a;
+                    yVar3 = this.f1698a.f1697a;
                     String sb = new StringBuilder(String.valueOf(this.b.c())).toString();
-                    nVar3 = this.f1680a.b;
+                    nVar3 = this.f1698a.b;
                     yVar3.a(false, sb, nVar3, this.c);
                     return;
                 }
-                yVar2 = this.f1680a.f1679a;
-                nVar2 = this.f1680a.b;
+                yVar2 = this.f1698a.f1697a;
+                nVar2 = this.f1698a.b;
                 yVar2.a(false, "db no data!", nVar2, this.c);
                 return;
             }
             return;
         }
         if (this.c == 1) {
-            this.f1680a.b = nVar;
-            this.f1680a.e = true;
+            this.f1698a.b = nVar;
+            this.f1698a.e = true;
         } else {
-            z = this.f1680a.e;
+            z = this.f1698a.e;
             if (z) {
-                this.f1680a.b = new com.baidu.tieba.data.n();
-                this.f1680a.e = false;
+                this.f1698a.b = new com.baidu.tieba.data.n();
+                this.f1698a.e = false;
             }
             if (this.c == 0) {
-                this.f1680a.b = nVar;
-                TiebaApplication f = TiebaApplication.f();
+                this.f1698a.b = nVar;
+                TiebaApplication g = TiebaApplication.g();
                 ArrayList b = nVar.b();
                 if (b.size() > 0) {
-                    f.p(((com.baidu.tieba.data.p) b.get(0)).d());
-                    f.w(false);
-                    context = this.f1680a.f;
+                    g.s(((com.baidu.tieba.data.p) b.get(0)).d());
+                    g.v(false);
+                    context = this.f1698a.f;
                     context.sendBroadcast(new Intent("com.baidu.tieba.broadcast.newrecommends"));
                 }
             } else {
-                nVar4 = this.f1680a.b;
+                nVar4 = this.f1698a.b;
                 nVar4.a(nVar);
             }
         }
-        yVar4 = this.f1680a.f1679a;
+        yVar4 = this.f1698a.f1697a;
         if (yVar4 != null) {
-            yVar5 = this.f1680a.f1679a;
-            nVar5 = this.f1680a.b;
+            yVar5 = this.f1698a.f1697a;
+            nVar5 = this.f1698a.b;
             yVar5.a(true, null, nVar5, this.c);
         }
     }

@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f422a;
+    public Bitmap f430a;
     public int b;
     public String c;
     public c d;
@@ -13,7 +13,7 @@ public class c {
     public c(Bitmap bitmap, int i) {
         this.c = null;
         this.d = null;
-        this.f422a = bitmap;
+        this.f430a = bitmap;
         this.b = i;
     }
 

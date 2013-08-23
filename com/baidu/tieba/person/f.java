@@ -8,11 +8,11 @@ import com.baidu.tieba.frs.FrsActivity;
 public class f implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1600a;
+    final /* synthetic */ EditBarActivity f1644a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EditBarActivity editBarActivity) {
-        this.f1600a = editBarActivity;
+        this.f1644a = editBarActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,15 +20,15 @@ public class f implements AdapterView.OnItemClickListener {
         j jVar;
         i iVar;
         j jVar2;
-        jVar = this.f1600a.e;
+        jVar = this.f1644a.e;
         if (jVar.getItem(i) != null) {
-            iVar = this.f1600a.k;
+            iVar = this.f1644a.l;
             if (iVar == null) {
-                this.f1600a.j = i;
-                jVar2 = this.f1600a.e;
+                this.f1644a.j = i;
+                jVar2 = this.f1644a.e;
                 com.baidu.tieba.data.v vVar = (com.baidu.tieba.data.v) jVar2.getItem(i);
                 if (vVar != null) {
-                    FrsActivity.a(this.f1600a, vVar.b(), "tb_mytieba");
+                    FrsActivity.a(this.f1644a, vVar.b(), "tb_mytieba");
                 }
             }
         }

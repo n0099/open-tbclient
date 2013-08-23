@@ -9,12 +9,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class ax extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f870a;
-    private com.baidu.tieba.util.u b = null;
+    final /* synthetic */ Register2Activity f891a;
+    private com.baidu.tieba.util.v b = null;
     private String c;
 
     public ax(Register2Activity register2Activity, String str) {
-        this.f870a = register2Activity;
+        this.f891a = register2Activity;
         this.c = null;
         this.c = str;
     }
@@ -22,11 +22,11 @@ public class ax extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f870a.Q = null;
-        progressBar = this.f870a.I;
+        this.f891a.Q = null;
+        progressBar = this.f891a.I;
         progressBar.setVisibility(8);
         if (this.b != null) {
-            this.b.i();
+            this.b.h();
         }
         super.cancel(true);
     }
@@ -36,9 +36,9 @@ public class ax extends BdAsyncTask {
     public void b() {
         ImageView imageView;
         ProgressBar progressBar;
-        imageView = this.f870a.J;
+        imageView = this.f891a.J;
         imageView.setImageBitmap(null);
-        progressBar = this.f870a.I;
+        progressBar = this.f891a.I;
         progressBar.setVisibility(0);
     }
 
@@ -46,8 +46,8 @@ public class ax extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
-        this.b = new com.baidu.tieba.util.u(this.c);
-        return com.baidu.tieba.util.e.a(this.b.j());
+        this.b = new com.baidu.tieba.util.v(this.c);
+        return com.baidu.tieba.util.e.a(this.b.i());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,10 +57,10 @@ public class ax extends BdAsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         super.a((Object) bitmap);
-        this.f870a.Q = null;
-        progressBar = this.f870a.I;
+        this.f891a.Q = null;
+        progressBar = this.f891a.I;
         progressBar.setVisibility(8);
-        imageView = this.f870a.J;
+        imageView = this.f891a.J;
         imageView.setImageBitmap(bitmap);
     }
 }

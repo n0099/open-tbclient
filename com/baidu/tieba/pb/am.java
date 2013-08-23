@@ -5,84 +5,87 @@ import com.baidu.tieba.write.NewVcodeActivity;
 import com.baidu.tieba.write.VcodeActivity;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-class am implements com.baidu.tieba.model.bj {
+class am implements com.baidu.tieba.model.bi {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1452a;
+    final /* synthetic */ NewPbActivity f1489a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(NewPbActivity newPbActivity) {
-        this.f1452a = newPbActivity;
+        this.f1489a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.model.bj
-    public void a(boolean z, String str, com.baidu.tieba.data.bq bqVar, WriteData writeData) {
-        bn bnVar;
-        bn bnVar2;
-        bn bnVar3;
-        com.baidu.tieba.model.bi biVar;
-        com.baidu.tieba.model.bi biVar2;
-        com.baidu.tieba.model.bi biVar3;
-        bn bnVar4;
-        com.baidu.tieba.model.bc bcVar;
-        bn bnVar5;
-        com.baidu.tieba.model.bf bfVar;
-        com.baidu.tieba.model.bc bcVar2;
-        bn bnVar6;
-        bnVar = this.f1452a.p;
-        bnVar.a(z);
+    @Override // com.baidu.tieba.model.bi
+    public void a(boolean z, String str, com.baidu.tieba.data.bj bjVar, WriteData writeData) {
+        bo boVar;
+        bo boVar2;
+        bo boVar3;
+        com.baidu.tieba.model.bh bhVar;
+        com.baidu.tieba.model.bh bhVar2;
+        com.baidu.tieba.model.bh bhVar3;
+        com.baidu.tieba.model.bb bbVar;
+        bo boVar4;
+        com.baidu.tieba.model.bb bbVar2;
+        bo boVar5;
+        com.baidu.tieba.model.be beVar;
+        com.baidu.tieba.model.bb bbVar3;
+        bo boVar6;
+        boVar = this.f1489a.q;
+        boVar.a(z);
         if (z) {
-            bnVar3 = this.f1452a.p;
-            bnVar3.O();
-            biVar = this.f1452a.l;
-            WriteData a2 = biVar.a();
-            biVar2 = this.f1452a.l;
-            biVar2.a((WriteData) null);
-            biVar3 = this.f1452a.l;
-            biVar3.a(false);
-            bnVar4 = this.f1452a.p;
-            bnVar4.d(str);
+            boVar3 = this.f1489a.q;
+            boVar3.P();
+            bhVar = this.f1489a.m;
+            WriteData a2 = bhVar.a();
+            bhVar2 = this.f1489a.m;
+            bhVar2.a((WriteData) null);
+            bhVar3 = this.f1489a.m;
+            bhVar3.a(false);
+            bbVar = this.f1489a.k;
+            bbVar.u();
+            boVar4 = this.f1489a.q;
+            boVar4.d(str);
             if (a2 != null) {
                 String floor = a2.getFloor();
                 if (a2 == null || a2.getType() != 2) {
-                    bcVar = this.f1452a.j;
-                    if (bcVar.l()) {
-                        bnVar5 = this.f1452a.p;
-                        bnVar5.m();
+                    bbVar2 = this.f1489a.k;
+                    if (bbVar2.m()) {
+                        boVar5 = this.f1489a.q;
+                        boVar5.n();
                         return;
                     }
                     return;
                 }
-                bfVar = this.f1452a.n;
-                bfVar.f();
+                beVar = this.f1489a.o;
+                beVar.f();
                 if (floor != null) {
-                    bcVar2 = this.f1452a.j;
-                    com.baidu.tieba.data.as j = bcVar2.j();
-                    Iterator it = j.c().iterator();
+                    bbVar3 = this.f1489a.k;
+                    com.baidu.tieba.data.ao k = bbVar3.k();
+                    Iterator it = k.d().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
-                        com.baidu.tieba.data.aw awVar = (com.baidu.tieba.data.aw) it.next();
-                        if (floor.equals(awVar.d())) {
-                            awVar.b();
+                        com.baidu.tieba.data.as asVar = (com.baidu.tieba.data.as) it.next();
+                        if (floor.equals(asVar.d())) {
+                            asVar.b();
                             break;
                         }
                     }
-                    bnVar6 = this.f1452a.p;
-                    bnVar6.a(j);
+                    boVar6 = this.f1489a.q;
+                    boVar6.a(k);
                 }
             }
-        } else if (bqVar == null || writeData == null || bqVar.b() == null) {
-            bnVar2 = this.f1452a.p;
-            bnVar2.d(str);
+        } else if (bjVar == null || writeData == null || bjVar.b() == null) {
+            boVar2 = this.f1489a.q;
+            boVar2.d(str);
         } else {
-            writeData.setVcodeMD5(bqVar.a());
-            writeData.setVcodeUrl(bqVar.b());
-            if (bqVar.c().equals("4")) {
-                NewVcodeActivity.a(this.f1452a, writeData, 12006);
+            writeData.setVcodeMD5(bjVar.a());
+            writeData.setVcodeUrl(bjVar.b());
+            if (bjVar.c().equals("4")) {
+                NewVcodeActivity.a(this.f1489a, writeData, 12006);
             } else {
-                VcodeActivity.a(this.f1452a, writeData, 12006);
+                VcodeActivity.a(this.f1489a, writeData, 12006);
             }
         }
     }

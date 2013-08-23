@@ -6,9 +6,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class CursorFieldHelper {
+class CursorFieldHelper {
     private static final Map bI = new HashMap();
     private static final Map bJ = new HashMap();
     private static final Map bK = new HashMap();

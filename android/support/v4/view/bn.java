@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 public class bn extends ViewGroup.LayoutParams {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f318a;
+    public boolean f322a;
     public int b;
     float c;
     boolean d;

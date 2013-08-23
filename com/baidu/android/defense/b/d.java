@@ -5,10 +5,10 @@ import android.content.pm.IPackageDeleteObserver;
 public class d extends IPackageDeleteObserver.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f502a;
+    private String f525a;
 
     public d(String str) {
-        this.f502a = null;
-        this.f502a = str;
+        this.f525a = null;
+        this.f525a = str;
     }
 }

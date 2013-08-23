@@ -4,21 +4,21 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.model.ca;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.model.cc;
+import com.baidu.tieba.util.aq;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1691a = null;
+    private static String f1708a = null;
     private s b = null;
     private int c = 0;
-    private ca d = null;
+    private cc d = null;
     private Handler e = new Handler();
     private Runnable f = new r(this);
 
     public static void a(String str) {
-        f1691a = str;
+        f1708a = str;
     }
 
     @Override // android.app.Service
@@ -61,7 +61,7 @@ public class TiebaSyncService extends Service {
     public void c() {
         if (this.d != null) {
             sendBroadcast(new Intent("com.baidu.tieba.broadcast.sync"));
-            aj.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.d.c().getNew_version()));
+            aq.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.d.c().getNew_version()));
         }
     }
 }

@@ -1,17 +1,30 @@
 package com.baidu.tieba.recommend;
+
+import android.app.Activity;
+import android.view.View;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m {
+public class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1669a;
-    public Object b;
-    public String c;
-    final /* synthetic */ c d;
+    final /* synthetic */ h f1688a;
+    private final /* synthetic */ com.baidu.tieba.data.o b;
 
-    public m(c cVar, int i, Object obj, String str) {
-        this.d = cVar;
-        this.f1669a = i;
-        this.b = obj;
-        this.c = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(h hVar, com.baidu.tieba.data.o oVar) {
+        this.f1688a = hVar;
+        this.b = oVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        Activity activity2;
+        activity = this.f1688a.i;
+        StatService.onEvent(activity, "recommend_to_pb", "click");
+        activity2 = this.f1688a.i;
+        UtilHelper.a(activity2, this.b.a(), (String) null);
     }
 }

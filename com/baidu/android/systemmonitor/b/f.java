@@ -17,7 +17,7 @@ import java.util.List;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f646a = null;
+    private static f f669a = null;
     private static boolean h = false;
     private static boolean i = false;
     private static int n = -1;
@@ -46,10 +46,10 @@ public final class f {
     public static synchronized f a(Context context) {
         f fVar;
         synchronized (f.class) {
-            if (f646a == null) {
-                f646a = new f(context);
+            if (f669a == null) {
+                f669a = new f(context);
             }
-            fVar = f646a;
+            fVar = f669a;
         }
         return fVar;
     }
@@ -113,9 +113,9 @@ public final class f {
 
     public static synchronized void d() {
         synchronized (f.class) {
-            if (f646a != null) {
-                f646a.b();
-                f646a = null;
+            if (f669a != null) {
+                f669a.b();
+                f669a = null;
             }
         }
     }

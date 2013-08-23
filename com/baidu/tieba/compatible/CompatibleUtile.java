@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.tencent.mm.sdk.platformtools.Util;
@@ -348,6 +349,13 @@ public class CompatibleUtile {
             listView.smoothScrollToPosition(i);
         } else {
             listView.setSelection(i);
+        }
+    }
+
+    public static void dealWebView() {
+        if (Build.VERSION.SDK_INT <= 11) {
+            WebView.disablePlatformNotifications();
+            WebView.enablePlatformNotifications();
         }
     }
 }

@@ -1,11 +1,18 @@
 package com.baidu.tieba.model;
 
 import android.content.Context;
+import android.util.Log;
+import com.baidu.tieba.TiebaApplication;
 import com.google.gson.GsonBuilder;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.io.Serializable;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public class ForumListModel extends com.baidu.adp.a.c implements Serializable {
+
+    /* renamed from: a  reason: collision with root package name */
+    private static boolean f1349a = false;
+    private static String b = null;
     private static final long serialVersionUID = -5006585496963439439L;
     public Forum[] editor_recommend;
     public int error_code;
@@ -24,6 +31,10 @@ public class ForumListModel extends com.baidu.adp.a.c implements Serializable {
     @Override // com.baidu.adp.a.c
     public boolean cancelLoadData() {
         return false;
+    }
+
+    public boolean isOk() {
+        return f1349a;
     }
 
     /* loaded from: classes.dex */
@@ -57,20 +68,32 @@ public class ForumListModel extends com.baidu.adp.a.c implements Serializable {
         return "DataProvider{error_code=" + this.error_code + ", editor_recommend=" + Arrays.toString(this.editor_recommend) + ", forum_class=" + Arrays.toString(this.forum_class) + ", recommend_list_left=" + this.recommend_list_left + ", recommend_list_right=" + this.recommend_list_right + ", time=" + this.time + ", ctime=" + this.ctime + ", logid=" + this.logid + '}';
     }
 
-    public static ForumListModel fetch(Context context, RequestParams requestParams) {
-        com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(context, String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/forum/detailforumdir");
-        uVar.a("rn", String.valueOf(requestParams.rn));
-        uVar.a("offset", String.valueOf(requestParams.offset));
-        uVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
-        uVar.a("menu_name", requestParams.menu_name);
-        uVar.a("menu_id", String.valueOf(requestParams.menu_id));
-        uVar.a("menu_type", String.valueOf(requestParams.menu_type));
-        uVar.a("parent_menu_name", requestParams.parent_menu_name);
-        uVar.a("parent_menu_id", String.valueOf(requestParams.parent_menu_id));
-        com.baidu.tieba.util.aj.e("DataProvider", "fetch", "url= " + uVar.a());
-        String k = uVar.k();
-        com.baidu.tieba.util.aj.e("DataProvider", "fetch", "fetched raw string\n" + k);
-        return (ForumListModel) new GsonBuilder().create().fromJson(k, ForumListModel.class);
+    public static ForumListModel new_fetch(Context context, RequestParams requestParams) {
+        int i;
+        if (requestParams.menu_id == 0) {
+            i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
+        } else {
+            i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
+        }
+        b = requestParams.menu_name;
+        com.baidu.tieba.util.v vVar = new com.baidu.tieba.util.v(context, String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/f/forum/square");
+        vVar.a("rn", String.valueOf(requestParams.rn));
+        vVar.a("offset", String.valueOf(requestParams.offset));
+        vVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
+        vVar.a("menu_name", requestParams.menu_name);
+        vVar.a("menu_type", String.valueOf(i));
+        String j = vVar.j();
+        f1349a = vVar.d();
+        com.baidu.tieba.util.aq.e("DataProvider", "fetch", "fetched raw string\n" + j);
+        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(j, ForumListModel.class);
+        if (requestParams.rn == 10 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
+            com.baidu.adp.lib.cache.q h = com.baidu.tieba.b.a.a().h();
+            if (h != null) {
+                h.a(String.valueOf(TiebaApplication.E()) + "_" + b + "_list", j, Util.MILLSECONDS_OF_DAY);
+            }
+            Log.d("DataProvider", "set cache data:" + j);
+        }
+        return forumListModel;
     }
 
     /* loaded from: classes.dex */

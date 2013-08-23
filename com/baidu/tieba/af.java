@@ -1,32 +1,26 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import android.view.View;
+import com.baidu.mobstat.StatService;
 /* loaded from: classes.dex */
-class af implements Runnable {
+class af implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f899a;
+    final /* synthetic */ ae f919a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(LogoActivity logoActivity) {
-        this.f899a = logoActivity;
+    public af(ae aeVar) {
+        this.f919a = aeVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ImageView imageView;
-        Bitmap bitmap;
-        ImageView imageView2;
-        AlphaAnimation alphaAnimation;
-        this.f899a.e = com.baidu.tieba.util.e.a(this.f899a, (int) R.drawable.logo);
-        imageView = this.f899a.d;
-        bitmap = this.f899a.e;
-        imageView.setImageBitmap(bitmap);
-        imageView2 = this.f899a.d;
-        alphaAnimation = this.f899a.f;
-        imageView2.startAnimation(alphaAnimation);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ah ahVar;
+        boolean isChecked = this.f919a.e.isChecked();
+        if (TiebaApplication.g().u()) {
+            StatService.onEvent(this.f919a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1);
+        }
+        ahVar = this.f919a.h;
+        ahVar.a(isChecked);
     }
 }

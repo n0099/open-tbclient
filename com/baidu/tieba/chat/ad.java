@@ -19,12 +19,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.ao;
 import com.baidu.tieba.view.ClickableLayout4Frame;
 import com.baidu.tieba.view.KeyboardEventLayout;
-import com.baidu.tieba.view.aq;
-import com.baidu.tieba.view.bb;
+import com.baidu.tieba.view.an;
+import com.baidu.tieba.view.ba;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ad extends com.baidu.adp.a.d {
@@ -40,7 +40,7 @@ public class ad extends com.baidu.adp.a.d {
     private Dialog k;
     private Dialog l;
     private j m;
-    private bb n;
+    private ba n;
     private KeyboardEventLayout o;
     private LinearLayout p;
     private Button q;
@@ -84,7 +84,7 @@ public class ad extends com.baidu.adp.a.d {
             this.e.setOnClickListener(this.b);
             this.d.setOnClickListener(this.b);
             this.j.addTextChangedListener(this.r);
-            this.n = new bb(this.b);
+            this.n = new ba(this.b);
             this.g.setPullRefresh(this.n);
             this.m = new j(this.b);
             this.g.setAdapter((ListAdapter) this.m);
@@ -182,7 +182,7 @@ public class ad extends com.baidu.adp.a.d {
             this.q = (Button) inflate.findViewById(R.id.delete_chat);
             this.q.setOnClickListener(this.b);
             WindowManager.LayoutParams attributes = this.l.getWindow().getAttributes();
-            attributes.width = (int) (am.a((Context) this.b) * 0.9d);
+            attributes.width = (int) (UtilHelper.a((Context) this.b) * 0.9d);
             this.l.getWindow().setAttributes(attributes);
         }
         this.l.show();
@@ -193,24 +193,24 @@ public class ad extends com.baidu.adp.a.d {
     }
 
     public void p() {
-        am.a(this.b, this.j);
+        UtilHelper.a(this.b, this.j);
     }
 
     public void a(int i) {
-        ah.a(this.c, i);
-        ah.g((TextView) this.e, i);
-        ah.d(this.p, i);
+        ao.a(this.c, i);
+        ao.g((TextView) this.e, i);
+        ao.d(this.p, i);
         this.m.a(i);
         this.m.notifyDataSetChanged();
         this.n.a(i);
         if (i == 1) {
             this.i.setBackgroundResource(R.drawable.chat_bg_1);
-            ah.h((View) this.d, (int) R.drawable.btn_post_dl_selector_1);
+            ao.g((View) this.d, (int) R.drawable.btn_post_dl_selector_1);
             this.d.setTextColor(this.b.getResources().getColorStateList(R.color.post_image_btn_color_1));
             return;
         }
         this.i.setBackgroundResource(R.drawable.chat_bg);
-        ah.h((View) this.d, (int) R.drawable.btn_post_dl_selector);
+        ao.g((View) this.d, (int) R.drawable.btn_post_dl_selector);
         this.d.setTextColor(this.b.getResources().getColorStateList(R.color.post_image_btn_color));
     }
 
@@ -228,8 +228,8 @@ public class ad extends com.baidu.adp.a.d {
         this.g.setSelection(i - ((com.baidu.adp.widget.ListView.e) this.g.getAdapter()).c());
     }
 
-    public void a(aq aqVar) {
-        this.o.setOnKeyStateChangedListener(aqVar);
+    public void a(an anVar) {
+        this.o.setOnKeyStateChangedListener(anVar);
     }
 
     public void a(String str, String str2) {

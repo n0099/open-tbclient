@@ -6,11 +6,11 @@ import android.widget.LinearLayout;
 class f implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f1528a;
+    final /* synthetic */ e f1566a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f1528a = eVar;
+        this.f1566a = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,14 +21,14 @@ class f implements Animation.AnimationListener {
         ImageActivity imageActivity3;
         ImageActivity imageActivity4;
         LinearLayout linearLayout;
-        imageActivity = this.f1528a.f1527a;
+        imageActivity = this.f1566a.f1565a;
         imageActivity.t = true;
-        imageActivity2 = this.f1528a.f1527a;
+        imageActivity2 = this.f1566a.f1565a;
         z = imageActivity2.u;
         if (z) {
-            imageActivity3 = this.f1528a.f1527a;
+            imageActivity3 = this.f1566a.f1565a;
             imageActivity3.u = false;
-            imageActivity4 = this.f1528a.f1527a;
+            imageActivity4 = this.f1566a.f1565a;
             linearLayout = imageActivity4.n;
             linearLayout.setVisibility(8);
         }

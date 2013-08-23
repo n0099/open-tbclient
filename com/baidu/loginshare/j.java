@@ -3,21 +3,21 @@ package com.baidu.loginshare;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private ILoginShareListener f768a = null;
+    private ILoginShareListener f791a = null;
 
     synchronized void a() {
-        this.f768a = null;
+        this.f791a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(ILoginShareListener iLoginShareListener) {
-        this.f768a = iLoginShareListener;
+        this.f791a = iLoginShareListener;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(Token token) {
-        if (this.f768a != null) {
-            this.f768a.onLoginShareEvent(token);
+        if (this.f791a != null) {
+            this.f791a.onLoginShareEvent(token);
         }
     }
 }

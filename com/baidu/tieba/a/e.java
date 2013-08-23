@@ -1,28 +1,54 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tieba.data.ao;
-import com.baidu.tieba.util.u;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ak;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class e {
+public class e extends com.baidu.tieba.k {
+    private static final String e = String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/u/feed/forum";
+    private int c = 0;
+    private String d;
 
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f831a = String.valueOf(com.baidu.tieba.data.g.f1011a) + "/c/s/uo/rand_share_template";
-    private u b;
-    private ao c;
-
-    public String a(String str) {
-        this.b = new u();
-        this.b.a("share_type", str);
-        this.b.a(f831a);
-        String k = this.b.k();
-        this.c = new ao();
-        this.c.a(k);
-        return k;
+    public String b(String str) {
+        a("pn", str);
+        a("rn", String.valueOf(20));
+        this.f1202a.e(true);
+        a(e);
+        String j = this.f1202a.j();
+        if (this.f1202a.c()) {
+            this.b = new ak();
+            this.b.a(j);
+            return j;
+        } else if (this.f1202a.d()) {
+            this.c = this.f1202a.e();
+            this.d = this.f1202a.g();
+            return null;
+        } else {
+            this.c = -1;
+            this.d = TiebaApplication.g().getResources().getString(R.string.neterror);
+            return null;
+        }
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.k
+    public int e() {
         if (this.b != null) {
-            this.b.i();
+            return this.b.a();
         }
+        if (this.c == 0) {
+            return this.c;
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.tieba.k
+    public String f() {
+        if (this.b != null) {
+            return this.b.b();
+        }
+        if (this.d != null) {
+            return this.d;
+        }
+        return "";
     }
 }

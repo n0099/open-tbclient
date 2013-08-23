@@ -1,26 +1,33 @@
 package com.baidu.tieba.pb;
 
-import android.util.SparseArray;
-import android.view.View;
-import android.widget.AdapterView;
-import com.slidingmenu.lib.R;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cw implements AdapterView.OnItemClickListener {
+public class cw implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cu f1514a;
+    final /* synthetic */ cv f1551a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cu cuVar) {
-        this.f1514a = cuVar;
+    public cw(cv cvVar) {
+        this.f1551a = cvVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        String str;
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {
-            this.f1514a.b(str);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        GridView gridView;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        EditText editText;
+        gridView = this.f1551a.A;
+        gridView.setVisibility(0);
+        linearLayout = this.f1551a.s;
+        linearLayout.setVisibility(0);
+        linearLayout2 = this.f1551a.p;
+        linearLayout2.setEnabled(false);
+        editText = this.f1551a.F;
+        editText.requestFocus();
     }
 }

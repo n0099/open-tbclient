@@ -6,55 +6,55 @@ import com.baidu.tieba.data.MarkData;
 class av implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1461a;
+    final /* synthetic */ NewPbActivity f1498a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(NewPbActivity newPbActivity) {
-        this.f1461a = newPbActivity;
+        this.f1498a = newPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x003b, code lost:
-        if (r2.equals(r3.i()) != false) goto L12;
+        if (r2.equals(r3.j()) != false) goto L12;
      */
     @Override // android.content.DialogInterface.OnClickListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.bc bcVar;
+        com.baidu.tieba.model.bb bbVar;
         boolean b;
-        com.baidu.tieba.model.av avVar;
-        bn bnVar;
-        com.baidu.tieba.model.av avVar2;
-        com.baidu.tieba.model.av avVar3;
-        com.baidu.tieba.model.bc bcVar2;
+        com.baidu.tieba.model.au auVar;
+        bo boVar;
+        com.baidu.tieba.model.au auVar2;
+        com.baidu.tieba.model.au auVar3;
+        com.baidu.tieba.model.bb bbVar2;
         boolean z = true;
-        if (this.f1461a.f1437a != null) {
+        if (this.f1498a.f1474a != null) {
             if (i == 0) {
-                this.f1461a.f1437a.d(this.f1461a);
-                this.f1461a.f1437a = null;
+                this.f1498a.f1474a.d(this.f1498a);
+                this.f1498a.f1474a = null;
             } else if (i == 1) {
-                if (this.f1461a.f1437a.d() != null) {
-                    String d = this.f1461a.f1437a.d();
-                    bcVar2 = this.f1461a.j;
+                if (this.f1498a.f1474a.d() != null) {
+                    String d = this.f1498a.f1474a.d();
+                    bbVar2 = this.f1498a.k;
                 }
                 z = false;
-                bcVar = this.f1461a.j;
-                MarkData b2 = bcVar.b(this.f1461a.f1437a);
+                bbVar = this.f1498a.k;
+                MarkData b2 = bbVar.b(this.f1498a.f1474a);
                 if (b2 != null) {
-                    b = this.f1461a.b(11009);
+                    b = this.f1498a.b(11009);
                     if (b) {
-                        avVar = this.f1461a.k;
-                        avVar.a(b2);
-                        bnVar = this.f1461a.p;
-                        bnVar.m();
+                        auVar = this.f1498a.l;
+                        auVar.a(b2);
+                        boVar = this.f1498a.q;
+                        boVar.n();
                         if (!z) {
-                            avVar3 = this.f1461a.k;
-                            avVar3.c();
+                            auVar3 = this.f1498a.l;
+                            auVar3.c();
                             return;
                         }
-                        avVar2 = this.f1461a.k;
-                        avVar2.d();
+                        auVar2 = this.f1498a.l;
+                        auVar2.d();
                     }
                 }
             }

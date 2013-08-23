@@ -3,7 +3,7 @@ package com.baidu.adp.lib.cache;
 public abstract class c implements p {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final boolean f371a;
+    protected final boolean f377a;
     protected final d b;
 
     public abstract k a(String str);
@@ -16,11 +16,11 @@ public abstract class c implements p {
 
     public c(d dVar, boolean z) {
         this.b = dVar;
-        this.f371a = z;
+        this.f377a = z;
     }
 
     protected String a(String str, String str2) {
-        if (this.f371a) {
+        if (this.f377a) {
             return String.valueOf(str) + "@" + str2;
         }
         return str2;
@@ -64,9 +64,22 @@ public abstract class c implements p {
     }
 
     @Override // com.baidu.adp.lib.cache.p
+    public r d(String str, String str2) {
+        k b = b(str, str2);
+        if (b == null) {
+            return null;
+        }
+        r rVar = new r();
+        rVar.f384a = b.b;
+        rVar.c = b.f;
+        rVar.b = b.d;
+        return rVar;
+    }
+
+    @Override // com.baidu.adp.lib.cache.p
     public void a(String str, String str2, Object obj, long j) {
         k kVar = new k();
-        kVar.f374a = a(str, str2);
+        kVar.f380a = a(str, str2);
         kVar.c = str;
         kVar.f = j;
         kVar.b = obj;
@@ -76,7 +89,7 @@ public abstract class c implements p {
     }
 
     @Override // com.baidu.adp.lib.cache.p
-    public void d(String str, String str2) {
+    public void e(String str, String str2) {
         b(a(str, str2));
     }
 }

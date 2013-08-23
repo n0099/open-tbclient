@@ -3,22 +3,22 @@ package com.baidu.tieba.model;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.w f1317a = null;
-    private com.baidu.tieba.data.bi b = null;
+    private com.baidu.tieba.data.y f1352a = null;
+    private com.baidu.tieba.data.be b = null;
 
-    public com.baidu.tieba.data.w a() {
-        return this.f1317a;
+    public com.baidu.tieba.data.y a() {
+        return this.f1352a;
     }
 
-    public void a(com.baidu.tieba.data.w wVar) {
-        this.f1317a = wVar;
+    public void a(com.baidu.tieba.data.y yVar) {
+        this.f1352a = yVar;
     }
 
-    public com.baidu.tieba.data.bi b() {
+    public com.baidu.tieba.data.be b() {
         return this.b;
     }
 
-    public void a(com.baidu.tieba.data.bi biVar) {
-        this.b = biVar;
+    public void a(com.baidu.tieba.data.be beVar) {
+        this.b = beVar;
     }
 }

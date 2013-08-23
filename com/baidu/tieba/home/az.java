@@ -1,102 +1,95 @@
 package com.baidu.tieba.home;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.model.cb;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az extends BaseAdapter {
+public class az extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1136a;
-    private ArrayList b;
-    private String c;
-    private boolean d = true;
+    BasicNameValuePair f1171a;
+    final /* synthetic */ SearchActivity b;
+    private com.baidu.tieba.util.v c = null;
+    private String d;
 
-    public az(Context context, ArrayList arrayList) {
-        this.f1136a = context;
-        this.b = arrayList;
-        this.c = this.f1136a.getText(R.string.forum).toString();
+    public az(SearchActivity searchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
+        this.b = searchActivity;
+        this.d = null;
+        this.f1171a = null;
+        this.d = str;
+        this.f1171a = basicNameValuePair;
     }
 
-    public void a(ArrayList arrayList) {
-        this.b = arrayList;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        ProgressBar progressBar;
+        TextView textView;
+        FrameLayout frameLayout;
+        progressBar = this.b.v;
+        progressBar.setVisibility(0);
+        textView = this.b.y;
+        textView.setVisibility(8);
+        frameLayout = this.b.p;
+        frameLayout.setVisibility(8);
     }
 
-    public void a(boolean z) {
-        this.d = z;
-    }
-
-    public void a(int i) {
-        this.b.remove(i);
-        this.b.add(0, (String) this.b.get(i));
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.b == null) {
-            return 0;
-        }
-        return this.b.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.b.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        Exception exc;
-        View view2;
-        ba baVar;
-        View view3;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public cb a(Object... objArr) {
+        cb cbVar;
+        Exception e;
         try {
-            if (view == null) {
-                view3 = LayoutInflater.from(this.f1136a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
-                try {
-                    baVar = new ba(this, null);
-                    baVar.f1138a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
-                    view3.setTag(baVar);
-                } catch (Exception e) {
-                    view2 = view3;
-                    exc = e;
-                    com.baidu.tieba.util.aj.b(getClass().getName(), "", "SearchAdapter.getView error = " + exc.getMessage());
-                    return view2;
-                }
-            } else {
-                baVar = (ba) view.getTag();
-                view3 = view;
+            this.c = new com.baidu.tieba.util.v(this.d);
+            this.c.a(this.f1171a);
+            String j = this.c.j();
+            if (!this.c.c() || j == null) {
+                return null;
             }
-            Object item = getItem(i);
-            if (item == null) {
-                return view3;
+            cbVar = new cb();
+            try {
+                cbVar.a(j);
+                return cbVar;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.util.aq.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return cbVar;
             }
-            com.baidu.tieba.util.ah.b(baVar.f1138a, TiebaApplication.f().au());
-            String str = (String) item;
-            if (this.d) {
-                baVar.f1138a.setText(str.concat(this.c));
-                return view3;
-            }
-            baVar.f1138a.setText(str);
-            return view3;
-        } catch (Exception e2) {
-            exc = e2;
-            view2 = view;
+        } catch (Exception e3) {
+            cbVar = null;
+            e = e3;
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(cb cbVar) {
+        ProgressBar progressBar;
+        progressBar = this.b.v;
+        progressBar.setVisibility(8);
+        if (cbVar != null) {
+            this.b.z = cbVar;
+            this.b.p();
+        }
+        this.b.B = null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.h();
+            this.c = null;
+        }
+        progressBar = this.b.v;
+        progressBar.setVisibility(8);
+        super.cancel(true);
     }
 }

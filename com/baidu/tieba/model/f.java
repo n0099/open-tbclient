@@ -13,9 +13,10 @@ public class f {
     private i c = null;
     private g d = null;
     private int f = 0;
+    private int g = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.j f1368a = null;
+    protected com.baidu.tieba.j f1404a = null;
     private ArrayList e = new ArrayList();
 
     public int a() {
@@ -25,7 +26,15 @@ public class f {
         return this.e.size();
     }
 
-    public ArrayList b() {
+    public int b() {
+        return this.g;
+    }
+
+    public void a(int i) {
+        this.g = i;
+    }
+
+    public ArrayList c() {
         return this.e;
     }
 
@@ -43,21 +52,21 @@ public class f {
         this.e.add(markData);
     }
 
-    public int c() {
+    public int d() {
         if (this.e == null) {
             return 0;
         }
         return this.e.size();
     }
 
-    public int d() {
+    public int e() {
         return this.f;
     }
 
-    public void e() {
-        ArrayList u = DatabaseService.u();
-        if (u != null) {
-            a(u);
+    public void f() {
+        ArrayList s = DatabaseService.s();
+        if (s != null) {
+            a(s);
         }
     }
 
@@ -93,7 +102,7 @@ public class f {
                     i5--;
                     i4 = i3;
                 } catch (Exception e) {
-                    com.baidu.tieba.util.aj.b(getClass().getName(), "toJson", e.toString());
+                    com.baidu.tieba.util.aq.b(getClass().getName(), "toJson", e.toString());
                     jSONArray = null;
                 }
             }
@@ -108,8 +117,30 @@ public class f {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public ArrayList b(String str) {
+        JSONObject jSONObject;
+        ArrayList arrayList = new ArrayList();
+        try {
+            jSONObject = new JSONObject(str);
+        } catch (Exception e) {
+            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+            arrayList = null;
+        }
+        if (jSONObject.optJSONObject("error").optString("errno").equals("0")) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("store_thread");
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                MarkData markData = new MarkData();
+                markData.paserJson(optJSONArray.getJSONObject(i));
+                arrayList.add(markData);
+            }
+            return arrayList;
+        }
+        return null;
     }
 
     public void a(JSONObject jSONObject) {
@@ -123,17 +154,17 @@ public class f {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
-    public void f() {
+    public void a(Boolean bool) {
         if (this.b != null) {
             this.b.cancel();
         }
         this.b = new h(this, a());
         this.b.setPriority(3);
-        this.b.execute(new Boolean[0]);
+        this.b.execute(bool);
     }
 
     public void g() {
@@ -145,11 +176,11 @@ public class f {
         this.c.execute(new f[0]);
     }
 
-    public void a(int i) {
+    public void b(int i) {
         if (this.d != null) {
             this.d.cancel();
         }
-        if (this.e.get(i) != null && ((MarkData) this.e.get(i)).getId() != null) {
+        if (i < this.e.size() && this.e.get(i) != null && ((MarkData) this.e.get(i)).getId() != null) {
             this.d = new g(this, ((MarkData) this.e.get(i)).getId(), i);
             this.d.setPriority(2);
             this.d.execute(new Boolean[0]);
@@ -157,11 +188,11 @@ public class f {
     }
 
     public int h() {
-        return TiebaApplication.f().getSharedPreferences("settings", 0).getInt("uploac_mark_offset", 399);
+        return TiebaApplication.g().getSharedPreferences("settings", 0).getInt("uploac_mark_offset", 399);
     }
 
-    public void b(int i) {
-        SharedPreferences.Editor edit = TiebaApplication.f().getSharedPreferences("settings", 0).edit();
+    public void c(int i) {
+        SharedPreferences.Editor edit = TiebaApplication.g().getSharedPreferences("settings", 0).edit();
         edit.putInt("uploac_mark_offset", i);
         edit.commit();
     }
@@ -179,6 +210,6 @@ public class f {
     }
 
     public void a(com.baidu.tieba.j jVar) {
-        this.f1368a = jVar;
+        this.f1404a = jVar;
     }
 }

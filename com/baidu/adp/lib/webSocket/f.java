@@ -5,7 +5,7 @@ import java.util.List;
 public class f extends k {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f438a;
+    public String f454a;
     public String b;
     public String c;
     public String d;

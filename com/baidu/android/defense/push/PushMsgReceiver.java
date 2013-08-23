@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class PushMsgReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f504a = PushMsgReceiver.class.getSimpleName();
+    public static final String f527a = PushMsgReceiver.class.getSimpleName();
     private static Context b = null;
 
     @Override // android.content.BroadcastReceiver

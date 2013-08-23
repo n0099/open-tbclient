@@ -7,17 +7,17 @@ import com.baidu.android.nebula.util.BDLocationManager;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ StatisticManager f640a;
+    final /* synthetic */ StatisticManager f663a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(StatisticManager statisticManager) {
-        this.f640a = statisticManager;
+        this.f663a = statisticManager;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        context = this.f640a.mContext;
+        context = this.f663a.mContext;
         BDLocationManager.b(context).c();
     }
 }

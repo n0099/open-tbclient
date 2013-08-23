@@ -6,16 +6,16 @@ import android.view.View;
 class m implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f412a;
+    final /* synthetic */ j f420a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.f412a = jVar;
+        this.f420a = jVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        i.a(motionEvent, this.f412a.f409a);
+        i.a(motionEvent, this.f420a.f417a);
         return true;
     }
 }

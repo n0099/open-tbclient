@@ -1,32 +1,40 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
 /* loaded from: classes.dex */
-class aj implements Runnable {
+class aj implements LocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MainTabActivity f903a;
+    final /* synthetic */ TiebaApplication f922a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(MainTabActivity mainTabActivity) {
-        this.f903a = mainTabActivity;
+    public aj(TiebaApplication tiebaApplication) {
+        this.f922a = tiebaApplication;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.recommend.z zVar;
-        com.baidu.tieba.recommend.z zVar2;
-        Handler handler;
-        Handler handler2;
-        zVar = this.f903a.F;
-        if (zVar == null) {
-            this.f903a.F = new com.baidu.tieba.recommend.z(this.f903a);
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        al alVar;
+        if (location != null) {
+            this.f922a.D = 0;
+            this.f922a.f846a = System.currentTimeMillis();
+            this.f922a.G = new al(this.f922a, null);
+            alVar = this.f922a.G;
+            alVar.execute(location);
         }
-        zVar2 = this.f903a.F;
-        zVar2.a();
-        handler = this.f903a.s;
-        handler.removeCallbacks(this);
-        handler2 = this.f903a.s;
-        handler2.postDelayed(this, com.baidu.tieba.data.g.n.longValue());
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i, Bundle bundle) {
     }
 }

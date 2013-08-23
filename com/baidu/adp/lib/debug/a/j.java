@@ -10,7 +10,7 @@ import java.util.Map;
 public class j extends a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f393a = "logcat ";
+    public static String f401a = "logcat ";
     private static Map f = new HashMap();
     private Process b;
     private InputStream c;
@@ -19,7 +19,7 @@ public class j extends a implements Runnable {
 
     public static void a(String str, com.baidu.adp.lib.debug.a aVar) {
         f.put(str, aVar);
-        f393a = String.valueOf(f393a) + " -s " + str;
+        f401a = String.valueOf(f401a) + " -s " + str;
     }
 
     public void a(String str) {
@@ -51,7 +51,7 @@ public class j extends a implements Runnable {
         super.b();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.b = Runtime.getRuntime().exec(f393a);
+            this.b = Runtime.getRuntime().exec(f401a);
             this.d = this.b.getOutputStream();
             this.c = this.b.getInputStream();
             d();
@@ -75,7 +75,9 @@ public class j extends a implements Runnable {
             if (this.b != null) {
                 this.b.destroy();
             }
-            this.e.a();
+            if (this.e != null) {
+                this.e.a();
+            }
             this.c.close();
             this.d.close();
         } catch (IOException e) {

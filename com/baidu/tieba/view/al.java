@@ -1,77 +1,142 @@
 package com.baidu.tieba.view;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al extends BaseAdapter {
+public class al extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ai f1816a;
+    private Window f1849a;
+    private ImageView b;
+    private View c;
+    private ProgressBar d;
+    private View.OnTouchListener e;
+    private int f;
+    private int g;
+    private int h;
+    private int i;
+    private int j;
+    private int k;
+    private int l;
+    private int m;
 
-    private al(ai aiVar) {
-        this.f1816a = aiVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ al(ai aiVar, al alVar) {
-        this(aiVar);
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        List list;
-        list = this.f1816a.k;
-        return list.size();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        List list;
-        list = this.f1816a.k;
-        return list.get(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        List list;
-        int i2;
-        Context context;
-        Context context2;
-        Context context3;
-        list = this.f1816a.k;
-        com.baidu.tieba.data.bl blVar = (com.baidu.tieba.data.bl) list.get(i);
-        if (view == null) {
-            context3 = this.f1816a.f1813a;
-            view = LayoutInflater.from(context3).inflate(R.layout.allinterest_list_item, viewGroup, false);
-            an anVar = new an(this);
-            anVar.f1818a = (TextView) view.findViewById(R.id.list_item_title);
-            view.setTag(anVar);
+    public al(Context context, int i, int i2) {
+        super(context, R.style.big_image_dialog);
+        this.f1849a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        this.j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = 0;
+        this.l = UtilHelper.a(context, 0.0f);
+        this.f = i;
+        this.g = i2;
+        if (this.f <= 0) {
+            this.f = 1;
         }
-        an anVar2 = (an) view.getTag();
-        anVar2.f1818a.setText(blVar.b());
-        i2 = this.f1816a.m;
-        if (i2 == 1) {
-            TextView textView = anVar2.f1818a;
-            context2 = this.f1816a.f1813a;
-            textView.setTextColor(context2.getResources().getColor(R.color.c_acc5e0));
+        if (this.g <= 0) {
+            this.g = 1;
+        }
+        this.c = LayoutInflater.from(context).inflate(R.layout.big_image_dialog, (ViewGroup) null);
+        this.b = (ImageView) this.c.findViewById(R.id.image);
+        this.b.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        this.b.setPadding(this.l, this.l, this.l, this.l);
+        this.h = (int) (this.f * 0.8d);
+        this.i = (int) (this.g * 0.8d);
+        this.d = (ProgressBar) this.c.findViewById(R.id.image_progress);
+        this.e = new am(this);
+    }
+
+    public void a() {
+        if (isShowing()) {
+            this.d.setVisibility(8);
+            UtilHelper.a(getContext(), getContext().getResources().getString(R.string.image_error));
+        }
+    }
+
+    public void a(com.baidu.adp.widget.a.b bVar) {
+        this.d.setVisibility(8);
+        if (bVar != null) {
+            this.b.setLayoutParams(this.b.getLayoutParams());
+            bVar.a(this.b);
+        }
+    }
+
+    public void a(com.baidu.adp.widget.a.b bVar, boolean z) {
+        b(bVar);
+        if (!z) {
+            this.d.setVisibility(8);
         } else {
-            TextView textView2 = anVar2.f1818a;
-            context = this.f1816a.f1813a;
-            textView2.setTextColor(context.getResources().getColor(R.color.c_ffffff));
+            this.d.setVisibility(0);
         }
-        anVar2.f1818a.setOnClickListener(new am(this, blVar));
-        return view;
+        b();
+        show();
+    }
+
+    private void b(com.baidu.adp.widget.a.b bVar) {
+        int i;
+        int b;
+        if (bVar != null) {
+            if (this.h / this.i > bVar.a() / bVar.b()) {
+                i = (bVar.a() * this.i) / bVar.b();
+                b = this.i;
+            } else {
+                i = this.h;
+                b = (bVar.b() * this.h) / bVar.a();
+            }
+            ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
+            int i2 = i + (this.l * 2);
+            int i3 = b + (this.l * 2);
+            layoutParams.width = i2;
+            layoutParams.height = i3;
+            this.b.setLayoutParams(layoutParams);
+            this.j = (this.f - (i2 + (this.m * 2))) / 2;
+            this.k = (this.g - (i3 + (this.m * 2))) / 2;
+            bVar.a(this.b);
+        }
+    }
+
+    @Override // android.app.Dialog
+    protected void onStop() {
+        super.onStop();
+        this.d.setVisibility(8);
+    }
+
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(this.c);
+        setCanceledOnTouchOutside(true);
+        setCancelable(true);
+        getWindow().getDecorView().setOnTouchListener(this.e);
+    }
+
+    public void b() {
+        this.f1849a = getWindow();
+        this.f1849a.setWindowAnimations(R.style.big_image_dialog_anim);
+        WindowManager.LayoutParams attributes = this.f1849a.getAttributes();
+        attributes.x = this.j;
+        attributes.y = this.k;
+        attributes.horizontalMargin = 0.0f;
+        attributes.verticalMargin = 0.0f;
+        attributes.gravity = 51;
+        this.f1849a.setAttributes(attributes);
     }
 }

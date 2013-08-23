@@ -7,28 +7,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.tieba.kn.ladders.KnLaddersModel;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class KnLaddersBannerAdapter extends ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private KnLaddersModel.Pic[] f1175a;
+    private KnLaddersModel.Pic[] f1207a;
     private com.baidu.tieba.util.a b;
     private ImageView[] c;
 
     public KnLaddersBannerAdapter(Context context, KnLaddersModel.Pic[] picArr) {
-        this.f1175a = picArr;
-        this.c = new ImageView[this.f1175a.length + 2];
+        this.f1207a = picArr;
+        this.c = new ImageView[this.f1207a.length + 2];
         this.b = new com.baidu.tieba.util.a(context);
-        this.b.a(this.b.f1742a.getResources().getDisplayMetrics().widthPixels, am.a(this.b.f1742a, 210.0f));
+        this.b.a(this.b.f1773a.getResources().getDisplayMetrics().widthPixels, UtilHelper.a(this.b.f1773a, 210.0f));
     }
 
     @Override // android.support.v4.view.ae
     public final int getCount() {
-        if (this.f1175a.length == 0) {
+        if (this.f1207a.length == 0) {
             return 0;
         }
-        return this.f1175a.length + 2;
+        return this.f1207a.length + 2;
     }
 
     @Override // android.support.v4.view.ae
@@ -52,11 +52,11 @@ public class KnLaddersBannerAdapter extends ae {
             ImageView imageView = this.c[i2];
             if (imageView != null) {
                 if (i2 == 0) {
-                    i = this.f1175a.length - 1;
+                    i = this.f1207a.length - 1;
                 } else {
                     i = i2 == getCount() + (-1) ? 0 : i2 - 1;
                 }
-                com.baidu.adp.widget.a.b a2 = this.b.a(this.f1175a[i].pic_url, new i(this, i, imageView));
+                com.baidu.adp.widget.a.b a2 = this.b.a(this.f1207a[i].pic_url, new i(this, i, imageView));
                 if (a2 != null) {
                     imageView.setImageBitmap(a2.f());
                     imageView.invalidate();
@@ -73,13 +73,13 @@ public class KnLaddersBannerAdapter extends ae {
         this.c[i].setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.c[i].setClickable(true);
         if (i == 0) {
-            i2 = this.f1175a.length - 1;
+            i2 = this.f1207a.length - 1;
         } else if (i == getCount() - 1) {
             i2 = 0;
         } else {
             i2 = i - 1;
         }
-        com.baidu.adp.widget.a.b a2 = this.b.a(this.f1175a[i2].pic_url, new j(this, i2, i));
+        com.baidu.adp.widget.a.b a2 = this.b.a(this.f1207a[i2].pic_url, new j(this, i2, i));
         if (a2 != null) {
             this.c[i].setImageBitmap(a2.f());
             this.c[i].invalidate();

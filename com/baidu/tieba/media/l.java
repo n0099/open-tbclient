@@ -7,17 +7,17 @@ import com.baidu.video.download.JNITaskCreateParam;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1277a = 0;
+    private static int f1310a = 0;
     private static boolean b = false;
     private long c = -1;
 
     public void a() {
-        f1277a++;
+        f1310a++;
         if (!b) {
             b = true;
             JNIP2P jnip2p = JNIP2P.getInstance();
-            TiebaApplication f = TiebaApplication.f();
-            jnip2p.init(f.getFilesDir().getAbsolutePath(), f);
+            TiebaApplication g = TiebaApplication.g();
+            jnip2p.init(g.getFilesDir().getAbsolutePath(), g);
         }
     }
 
@@ -44,8 +44,8 @@ public class l {
 
     public void c() {
         b();
-        f1277a--;
-        if (b && f1277a == 0) {
+        f1310a--;
+        if (b && f1310a == 0) {
             b = false;
             JNIP2P.getInstance().uninit();
         }

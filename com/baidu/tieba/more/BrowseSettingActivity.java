@@ -14,13 +14,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BrowseSettingActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private RadioGroup f1390a = null;
+    private RadioGroup f1427a = null;
     private RadioGroup b = null;
     private LinearLayout c = null;
     private BdSwitchView d = null;
@@ -54,28 +55,28 @@ public class BrowseSettingActivity extends com.baidu.tieba.g {
     public void a(int i) {
         int color;
         super.a(i);
-        com.baidu.tieba.util.ah.b(this.e, i);
-        com.baidu.tieba.util.ah.d(this.f, i);
-        com.baidu.tieba.util.ah.a(this.s, i);
-        com.baidu.tieba.util.ah.f(this.g, i);
+        ao.b(this.e, i);
+        ao.d(this.f, i);
+        ao.a(this.s, i);
+        ao.f(this.g, i);
         if (i == 1) {
-            color = com.baidu.tieba.util.ah.a(i);
-            com.baidu.tieba.util.ah.h((View) this.k, (int) R.drawable.more_up_1);
-            com.baidu.tieba.util.ah.h((View) this.l, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.util.ah.h((View) this.m, (int) R.drawable.more_down_1);
-            com.baidu.tieba.util.ah.h((View) this.o, (int) R.drawable.more_up_1);
-            com.baidu.tieba.util.ah.h((View) this.p, (int) R.drawable.more_middle_1);
-            com.baidu.tieba.util.ah.h((View) this.q, (int) R.drawable.more_down_1);
+            color = ao.a(i);
+            ao.g((View) this.k, (int) R.drawable.more_up_1);
+            ao.g((View) this.l, (int) R.drawable.more_middle_1);
+            ao.g((View) this.m, (int) R.drawable.more_down_1);
+            ao.g((View) this.o, (int) R.drawable.more_up_1);
+            ao.g((View) this.p, (int) R.drawable.more_middle_1);
+            ao.g((View) this.q, (int) R.drawable.more_down_1);
             this.c.setBackgroundResource(R.drawable.more_all_1);
             this.d.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
         } else {
             color = getResources().getColor(R.color.more_color);
-            com.baidu.tieba.util.ah.h((View) this.k, (int) R.drawable.more_up);
-            com.baidu.tieba.util.ah.h((View) this.l, (int) R.drawable.more_middle);
-            com.baidu.tieba.util.ah.h((View) this.m, (int) R.drawable.more_down);
-            com.baidu.tieba.util.ah.h((View) this.o, (int) R.drawable.more_up);
-            com.baidu.tieba.util.ah.h((View) this.p, (int) R.drawable.more_middle);
-            com.baidu.tieba.util.ah.h((View) this.q, (int) R.drawable.more_down);
+            ao.g((View) this.k, (int) R.drawable.more_up);
+            ao.g((View) this.l, (int) R.drawable.more_middle);
+            ao.g((View) this.m, (int) R.drawable.more_down);
+            ao.g((View) this.o, (int) R.drawable.more_up);
+            ao.g((View) this.p, (int) R.drawable.more_middle);
+            ao.g((View) this.q, (int) R.drawable.more_down);
             this.c.setBackgroundResource(R.drawable.more_all);
             this.d.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
         }
@@ -103,14 +104,14 @@ public class BrowseSettingActivity extends com.baidu.tieba.g {
         this.p = (RadioButton) findViewById(R.id.font_size_mid);
         this.q = (RadioButton) findViewById(R.id.font_size_small);
         this.r = (TextView) findViewById(R.id.show_photo_text);
-        this.f1390a = (RadioGroup) findViewById(R.id.image_quality_radio);
-        this.f1390a.setOnCheckedChangeListener(new u(this));
+        this.f1427a = (RadioGroup) findViewById(R.id.image_quality_radio);
+        this.f1427a.setOnCheckedChangeListener(new u(this));
         SpannableString spannableString = new SpannableString(getString(R.string.view_image_quality_high_menu));
-        spannableString.setSpan(new AbsoluteSizeSpan(am.a((Context) this, 12.0f)), 1, spannableString.length(), 18);
+        spannableString.setSpan(new AbsoluteSizeSpan(UtilHelper.a((Context) this, 12.0f)), 1, spannableString.length(), 18);
         SpannableString spannableString2 = new SpannableString(getString(R.string.view_image_quality_low_menu));
-        spannableString2.setSpan(new AbsoluteSizeSpan(am.a((Context) this, 12.0f)), 1, spannableString2.length(), 18);
+        spannableString2.setSpan(new AbsoluteSizeSpan(UtilHelper.a((Context) this, 12.0f)), 1, spannableString2.length(), 18);
         SpannableString spannableString3 = new SpannableString(getString(R.string.view_image_quality_close_menu));
-        spannableString3.setSpan(new AbsoluteSizeSpan(am.a((Context) this, 12.0f)), 2, spannableString3.length(), 18);
+        spannableString3.setSpan(new AbsoluteSizeSpan(UtilHelper.a((Context) this, 12.0f)), 2, spannableString3.length(), 18);
         ((RadioButton) findViewById(R.id.image_quality_high)).setText(spannableString);
         ((RadioButton) findViewById(R.id.image_quality_low)).setText(spannableString2);
         ((RadioButton) findViewById(R.id.image_quality_close)).setText(spannableString3);
@@ -129,19 +130,19 @@ public class BrowseSettingActivity extends com.baidu.tieba.g {
     }
 
     private void c() {
-        if (!TiebaApplication.f().aq()) {
-            this.f1390a.check(R.id.image_quality_close);
-        } else if (TiebaApplication.f().ap() == 1) {
-            this.f1390a.check(R.id.image_quality_high);
+        if (!TiebaApplication.g().aj()) {
+            this.f1427a.check(R.id.image_quality_close);
+        } else if (TiebaApplication.g().ai() == 1) {
+            this.f1427a.check(R.id.image_quality_high);
         } else {
-            this.f1390a.check(R.id.image_quality_low);
+            this.f1427a.check(R.id.image_quality_low);
         }
     }
 
     private void d() {
-        if (TiebaApplication.f().ar() == 1) {
+        if (TiebaApplication.g().ak() == 1) {
             this.b.check(R.id.font_size_big);
-        } else if (TiebaApplication.f().ar() == 2) {
+        } else if (TiebaApplication.g().ak() == 2) {
             this.b.check(R.id.font_size_mid);
         } else {
             this.b.check(R.id.font_size_small);
@@ -149,7 +150,7 @@ public class BrowseSettingActivity extends com.baidu.tieba.g {
     }
 
     private void k() {
-        if (TiebaApplication.f().C()) {
+        if (TiebaApplication.g().C()) {
             this.d.a();
         } else {
             this.d.b();

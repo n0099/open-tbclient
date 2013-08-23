@@ -10,11 +10,11 @@ import android.view.View;
 public class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f405a;
+    final /* synthetic */ c f413a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.f405a = cVar;
+        this.f413a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -28,26 +28,26 @@ public class f implements View.OnClickListener {
         Context context3;
         Context context4;
         Context context5;
-        dialog = this.f405a.l;
+        dialog = this.f413a.l;
         if (dialog == null) {
-            context = this.f405a.k;
+            context = this.f413a.k;
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            context2 = this.f405a.k;
+            context2 = this.f413a.k;
             builder.setTitle(((Activity) context2).getText(com.baidu.adp.g.prompt));
-            context3 = this.f405a.k;
+            context3 = this.f413a.k;
             builder.setMessage(((Activity) context3).getText(com.baidu.adp.g.prompt_close_debug));
             g gVar = new g(this);
-            context4 = this.f405a.k;
+            context4 = this.f413a.k;
             builder.setPositiveButton(((Activity) context4).getText(com.baidu.adp.g.dialog_ok), gVar);
-            context5 = this.f405a.k;
+            context5 = this.f413a.k;
             builder.setNegativeButton(((Activity) context5).getText(com.baidu.adp.g.dialog_cancel), gVar);
-            this.f405a.l = builder.create();
+            this.f413a.l = builder.create();
         }
-        dialog2 = this.f405a.l;
+        dialog2 = this.f413a.l;
         dialog2.setCancelable(false);
-        dialog3 = this.f405a.l;
+        dialog3 = this.f413a.l;
         dialog3.setCanceledOnTouchOutside(false);
-        dialog4 = this.f405a.l;
+        dialog4 = this.f413a.l;
         dialog4.show();
     }
 }

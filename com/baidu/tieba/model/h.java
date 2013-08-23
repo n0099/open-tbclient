@@ -3,24 +3,27 @@ package com.baidu.tieba.model;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.data.MarkData;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends BdAsyncTask {
+    final /* synthetic */ f b;
+    private int e;
+    private com.baidu.tieba.data.bg f;
+    private com.baidu.tieba.util.v c = null;
+    private String d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1370a;
-    private com.baidu.tieba.util.u b = null;
-    private String c = null;
-    private int d;
-    private com.baidu.tieba.data.bk e;
+    Boolean f1406a = false;
 
     public h(f fVar, int i) {
-        this.f1370a = fVar;
-        this.d = 0;
-        this.e = null;
-        this.d = i;
-        this.e = new com.baidu.tieba.data.bk();
+        this.b = fVar;
+        this.e = 0;
+        this.f = null;
+        this.e = i;
+        this.f = new com.baidu.tieba.data.bg();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -32,52 +35,105 @@ public class h extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public f a(Boolean... boolArr) {
-        this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/post/threadstore");
-        this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.E());
-        this.b.a("offset", String.valueOf(this.d));
-        this.b.a("rn", String.valueOf(20));
-        this.c = this.b.k();
-        this.e.a(this.c);
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        String str;
+        this.f1406a = boolArr[0];
         f fVar = new f();
-        if (this.b.d() || this.e.a() == 0) {
-            fVar.a(this.c);
-            if (this.d == 0) {
-                DatabaseService.k(this.c);
+        if (this.f1406a.booleanValue()) {
+            com.baidu.adp.lib.cache.q g = com.baidu.tieba.b.a.a().g();
+            if (g != null && (str = (String) g.a(TiebaApplication.E())) != null) {
+                c((Object[]) new String[]{str});
             }
-        } else {
-            this.c = DatabaseService.f();
-            fVar.a(this.c);
+            arrayList = this.b.e;
+            if (arrayList == null) {
+                this.b.e = new ArrayList();
+            } else {
+                arrayList2 = this.b.e;
+                arrayList2.clear();
+            }
+            this.b.f = 0;
+        }
+        this.c = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/f/post/threadstore");
+        this.c.a(PushConstants.EXTRA_USER_ID, TiebaApplication.E());
+        this.c.a("offset", String.valueOf(this.e));
+        this.c.a("rn", String.valueOf(20));
+        this.d = this.c.j();
+        this.f.a(this.d);
+        if (this.c.c()) {
+            fVar.a(this.d);
+            if (this.e == 0 && this.f1406a.booleanValue()) {
+                a(this.d);
+            }
         }
         return fVar;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.i();
-        }
-        this.f1370a.b = null;
-        if (this.f1370a.f1368a != null) {
-            this.f1370a.f1368a.a(0, null);
+    private void a(String str) {
+        com.baidu.adp.lib.cache.q g;
+        String E = TiebaApplication.E();
+        if (E != null && (g = com.baidu.tieba.b.a.a().g()) != null) {
+            g.a(E, str, 604800000L);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(f fVar) {
-        String h;
-        this.f1370a.b = null;
-        this.f1370a.f = fVar.c();
-        this.f1370a.b(fVar.b());
-        if (this.f1370a.f1368a != null) {
-            if (this.b.d()) {
-                h = this.e.b();
+    /* renamed from: a */
+    public void b(String... strArr) {
+        ArrayList b;
+        super.b((Object[]) strArr);
+        String str = strArr[0];
+        b = this.b.b(str);
+        if (str != null) {
+            if (this.f1406a.booleanValue()) {
+                this.b.a(b);
             } else {
-                h = this.b.h();
+                this.b.b(b);
             }
-            this.f1370a.f1368a.a(0, h);
+        }
+        this.b.f1404a.a(0, null, true);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.c != null) {
+            this.c.h();
+        }
+        this.b.b = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(f fVar) {
+        this.b.b = null;
+        this.b.f = fVar.d();
+        ArrayList c = fVar.c();
+        if (this.f1406a.booleanValue()) {
+            this.b.a(c);
+        } else {
+            this.b.b(c);
+        }
+        Iterator it = c.iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            if (((MarkData) it.next()).getNewCounts() > 0) {
+                int i2 = i + 1;
+                this.b.a(i2);
+                i = i2;
+            }
+        }
+        if (this.b.f1404a != null) {
+            if (this.c.c()) {
+                String b = this.f.b();
+                TiebaApplication.g().a((Boolean) true);
+                this.b.f1404a.a(0, b, false);
+                return;
+            }
+            this.b.f1404a.a(3, this.c.g());
         }
     }
 }

@@ -1,27 +1,28 @@
 package com.baidu.tieba.square;
 
 import android.view.View;
+import com.baidu.tieba.flist.ForumListActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1720a;
+    final /* synthetic */ c f1739a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f1720a = cVar;
+        this.f1739a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        r rVar;
+        s sVar;
         Object tag = view.getTag();
-        if ((tag instanceof k) && (rVar = ((k) tag).d) != null) {
-            if (rVar.f1734a == null) {
-                BarFolderFirstDirActivity.a(this.f1720a.b());
+        if ((tag instanceof l) && (sVar = ((l) tag).d) != null) {
+            if (sVar.f1754a == null) {
+                BarFolderFirstDirActivity.a(this.f1739a.b());
             } else {
-                BarFolderSecondDirActivity.a(this.f1720a.b(), rVar.b, rVar.f1734a, rVar.c);
+                ForumListActivity.a(this.f1739a.b(), sVar.b, sVar.f1754a, sVar.c);
             }
         }
     }

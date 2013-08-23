@@ -13,7 +13,7 @@ import org.json.JSONArray;
 class h extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScanDownloadFile f548a;
+    final /* synthetic */ ScanDownloadFile f571a;
     private File b = null;
     private Timer c;
     private JSONArray d;
@@ -24,8 +24,8 @@ class h extends Thread {
         String str;
         String str2;
         String str3;
-        this.f548a = scanDownloadFile;
-        str = this.f548a.mFileName;
+        this.f571a = scanDownloadFile;
+        str = this.f571a.mFileName;
         this.e = str;
         this.f = null;
         StringBuilder sb = new StringBuilder();
@@ -64,8 +64,8 @@ class h extends Thread {
         String str3;
         long j4;
         Context context;
-        j = this.f548a.mTotalRetryTime;
-        j2 = this.f548a.mTotalExpiredTime;
+        j = this.f571a.mTotalRetryTime;
+        j2 = this.f571a.mTotalExpiredTime;
         if (j > j2) {
             if (this.c != null) {
                 this.c.cancel();
@@ -74,27 +74,27 @@ class h extends Thread {
             return;
         }
         File file = new File(str);
-        ScanDownloadFile scanDownloadFile = this.f548a;
-        j3 = this.f548a.mScanedOneTime;
+        ScanDownloadFile scanDownloadFile = this.f571a;
+        j3 = this.f571a.mScanedOneTime;
         ScanDownloadFile.access$914(scanDownloadFile, j3);
         if (file.exists()) {
             long length = file.length();
-            str2 = this.f548a.mFileLength;
+            str2 = this.f571a.mFileLength;
             if (length <= Long.parseLong(str2)) {
                 if (this.c == null) {
                     this.c = new Timer();
                 }
                 long length2 = file.length();
-                str3 = this.f548a.mFileLength;
+                str3 = this.f571a.mFileLength;
                 if (length2 >= Integer.parseInt(str3)) {
                     this.c.cancel();
-                    context = this.f548a.mContext;
+                    context = this.f571a.mContext;
                     a(context, file);
                     return;
                 }
                 Timer timer = this.c;
                 j jVar = new j(this, file, str);
-                j4 = this.f548a.mScanedOneTime;
+                j4 = this.f571a.mScanedOneTime;
                 timer.schedule(jVar, j4);
                 return;
             }
@@ -108,7 +108,7 @@ class h extends Thread {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis() - file.lastModified();
-        j = this.f548a.mExpiredTime;
+        j = this.f571a.mExpiredTime;
         if (currentTimeMillis <= j) {
             a(file.getAbsolutePath());
         }

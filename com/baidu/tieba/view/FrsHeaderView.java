@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsHeaderView {
@@ -27,13 +28,13 @@ public class FrsHeaderView {
     private TextView K;
     private String L;
     private int M;
-    private boolean Q;
-    private int R;
+    private boolean R;
+    private int S;
     private RelativeLayout d;
     private RelativeLayout e;
     private TextView f;
-    private ImageView g;
-    private ImageView h;
+    private TextView g;
+    private TextView h;
     private TextView i;
     private TextView j;
     private Button k;
@@ -59,12 +60,13 @@ public class FrsHeaderView {
     private boolean F = false;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.bm f1789a = null;
+    com.baidu.tieba.data.bh f1824a = null;
     private float N = 0.0f;
     private float O = 0.0f;
     private boolean P = false;
-    private boolean S = false;
-    private AnimationDrawable T = null;
+    private boolean Q = true;
+    private boolean T = false;
+    private AnimationDrawable U = null;
 
     /* loaded from: classes.dex */
     public enum PAGE {
@@ -127,8 +129,8 @@ public class FrsHeaderView {
         this.o = (Button) this.u.findViewById(R.id.btn_sign);
         this.f = (TextView) this.u.findViewById(R.id.member_num_text);
         this.i = (TextView) this.u.findViewById(R.id.post_num_text);
-        this.h = (ImageView) this.u.findViewById(R.id.member_image);
-        this.g = (ImageView) this.u.findViewById(R.id.post_image);
+        this.h = (TextView) this.u.findViewById(R.id.member_image);
+        this.g = (TextView) this.u.findViewById(R.id.post_image);
         this.j = (TextView) this.u.findViewById(R.id.title_text);
         this.l = (RelativeLayout) this.u.findViewById(R.id.lay_start_local);
         this.k = (Button) this.u.findViewById(R.id.btn_start_local);
@@ -140,25 +142,26 @@ public class FrsHeaderView {
         this.H = (ImageView) this.u.findViewById(R.id.frs_image_bg);
         this.E = (ProgressBar) this.u.findViewById(R.id.frs_title_progress);
         this.I = new com.baidu.tieba.util.a(this.v);
-        this.I.a(com.baidu.tieba.util.am.a((Context) this.v), com.baidu.tieba.util.am.a((Context) this.v));
+        this.I.a(UtilHelper.a((Context) this.v), UtilHelper.a((Context) this.v));
     }
 
     public void a(View.OnClickListener onClickListener) {
         this.n.setOnClickListener(onClickListener);
         this.o.setOnClickListener(onClickListener);
-        this.k.setOnClickListener(new q(this));
+        this.J.setOnClickListener(new x(this));
+        this.k.setOnClickListener(new y(this));
     }
 
     public com.baidu.tieba.util.a a() {
         return this.I;
     }
 
-    public com.baidu.tieba.data.bm b() {
-        return this.f1789a;
+    public com.baidu.tieba.data.bh b() {
+        return this.f1824a;
     }
 
     public void a(int i) {
-        this.R = i;
+        this.S = i;
         if (this.F) {
             c(1);
         } else {
@@ -168,16 +171,16 @@ public class FrsHeaderView {
         if (i == 1) {
             this.e.setBackgroundResource(R.drawable.bg_topbar_1);
             this.j.setTextColor(-8682095);
-            this.f.setTextColor(-11446171);
-            this.i.setTextColor(-11446171);
+            this.f.setTextColor(-959965);
+            this.i.setTextColor(-959965);
             this.H.setBackgroundResource(R.drawable.pic_bj_touxiang_n_1);
             if (this.A >= 0 && this.A < b.length) {
                 this.J.setBackgroundResource(c[this.A]);
             }
             this.K.setTextColor(-2960686);
             this.n.setBackgroundResource(R.drawable.frs_btn_like_1);
-            this.h.setBackgroundResource(R.drawable.icon_little_people_1);
-            this.g.setBackgroundResource(R.drawable.icon_little_discuss_1);
+            this.h.setTextColor(-10523526);
+            this.g.setTextColor(-10523526);
             this.q.setTextColor(-8682095);
             this.r.setTextColor(-8682095);
             this.s.setBackgroundResource(R.drawable.progressbar_blue_1);
@@ -186,16 +189,16 @@ public class FrsHeaderView {
         }
         this.e.setBackgroundResource(R.drawable.bg_topbar);
         this.j.setTextColor(-12564913);
-        this.f.setTextColor(-5065030);
-        this.i.setTextColor(-5065030);
+        this.f.setTextColor(-959965);
+        this.i.setTextColor(-959965);
         this.H.setBackgroundResource(R.drawable.pic_bj_touxiang_n);
         if (this.A >= 0 && this.A < b.length) {
             this.J.setBackgroundResource(b[this.A]);
         }
         this.K.setTextColor(-1);
         this.n.setBackgroundResource(R.drawable.frs_btn_like);
-        this.h.setBackgroundResource(R.drawable.icon_little_people);
-        this.g.setBackgroundResource(R.drawable.icon_little_discuss);
+        this.h.setTextColor(-8552574);
+        this.g.setTextColor(-8552574);
         this.q.setTextColor(-14277082);
         this.r.setTextColor(-14277082);
         this.s.setBackgroundResource(R.drawable.progressbar_blue);
@@ -216,26 +219,26 @@ public class FrsHeaderView {
         this.D = vVar.n();
         this.L = vVar.k();
         this.M = vVar.h();
-        if (vVar.f() == 0 || !TiebaApplication.f().at()) {
+        if (vVar.f() == 0 || !TiebaApplication.g().am()) {
             this.l.setVisibility(8);
         } else {
             this.l.setVisibility(0);
-            this.j.setMaxWidth(com.baidu.tieba.util.am.a((Context) this.v, 100.0f));
+            this.j.setMaxWidth(UtilHelper.a((Context) this.v, 100.0f));
             if (vVar.g() == 1) {
-                if (this.T != null) {
-                    this.T.stop();
+                if (this.U != null) {
+                    this.U.stop();
                 }
                 this.m.setBackgroundResource(R.anim.voice_play);
-                this.T = (AnimationDrawable) this.m.getBackground();
-                this.T.start();
+                this.U = (AnimationDrawable) this.m.getBackground();
+                this.U.start();
             }
         }
         this.u.setVisibility(0);
-        this.f1789a = new com.baidu.tieba.data.bm();
-        com.baidu.tieba.data.am amVar = new com.baidu.tieba.data.am();
-        amVar.a(3);
-        amVar.a(this.D);
-        this.f1789a.m().add(amVar);
+        this.f1824a = new com.baidu.tieba.data.bh();
+        com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
+        aiVar.a(3);
+        aiVar.a(this.D);
+        this.f1824a.m().add(aiVar);
         i();
     }
 
@@ -271,12 +274,12 @@ public class FrsHeaderView {
         this.L = str;
         this.M = i2;
         if (i == 0) {
-            this.S = false;
+            this.T = false;
             this.n.setVisibility(0);
             this.p.setVisibility(8);
             return;
         }
-        this.S = true;
+        this.T = true;
         this.n.setVisibility(4);
         a(f);
         this.p.setVisibility(0);
@@ -284,12 +287,12 @@ public class FrsHeaderView {
 
     public void b(int i) {
         if (i == 0) {
-            this.S = false;
+            this.T = false;
             this.n.setVisibility(0);
             this.p.setVisibility(8);
             return;
         }
-        this.S = true;
+        this.T = true;
         this.n.setVisibility(4);
         this.p.setVisibility(0);
     }
@@ -329,7 +332,7 @@ public class FrsHeaderView {
     public void c(int i) {
         if (i == 0) {
             this.F = false;
-            if (this.R == 1) {
+            if (this.S == 1) {
                 this.o.setBackgroundResource(R.drawable.frs_btn_sign_1);
                 return;
             } else {
@@ -338,7 +341,7 @@ public class FrsHeaderView {
             }
         }
         this.F = true;
-        if (this.R == 1) {
+        if (this.S == 1) {
             this.o.setBackgroundResource(R.drawable.btn_sign_d_1);
         } else {
             this.o.setBackgroundResource(R.drawable.btn_sign_d);
@@ -350,8 +353,8 @@ public class FrsHeaderView {
     }
 
     public void a(boolean z) {
-        this.Q = z;
-        if (this.Q) {
+        this.R = z;
+        if (this.R) {
             this.o.setVisibility(0);
         } else {
             this.o.setVisibility(8);
@@ -367,25 +370,25 @@ public class FrsHeaderView {
     }
 
     public void e() {
-        if (this.T != null) {
-            this.T.stop();
+        if (this.U != null) {
+            this.U.stop();
         }
     }
 
     public void f() {
-        if (this.T != null) {
-            this.T.stop();
+        if (this.U != null) {
+            this.U.stop();
         }
     }
 
     public void g() {
-        if (this.T != null) {
-            this.T.start();
+        if (this.U != null) {
+            this.U.start();
         }
     }
 
     public boolean h() {
-        return this.S;
+        return this.T;
     }
 
     public void b(boolean z) {

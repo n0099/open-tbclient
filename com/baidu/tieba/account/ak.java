@@ -6,15 +6,15 @@ import android.view.View;
 public class ak implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f857a;
+    final /* synthetic */ ReLoginActivity f878a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ReLoginActivity reLoginActivity) {
-        this.f857a = reLoginActivity;
+        this.f878a = reLoginActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f857a.d();
+        this.f878a.d();
     }
 }

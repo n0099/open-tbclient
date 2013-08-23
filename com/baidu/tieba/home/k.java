@@ -1,208 +1,290 @@
 package com.baidu.tieba.home;
 
+import android.app.AlertDialog;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.view.NoNetworkView;
+import com.baidu.zeus.Headers;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class k extends BaseAdapter implements com.baidu.tieba.view.z {
+public class k extends com.baidu.adp.a.d {
+    boolean b;
+    private EnterForumActivity c;
+    private BdListView d;
+    private j e;
+    private AlertDialog f;
+    private AlertDialog g;
+    private AlertDialog h;
+    private RelativeLayout i;
+    private RelativeLayout j;
+    private LinearLayout k;
+    private ImageView l;
+    private LinearLayout m;
+    private TextView n;
+    private com.baidu.tieba.view.ba o;
+    private TextView p;
+    private EnterForumGuideCenterView q;
+    private EnterForumGuideBottomView r;
+    private NoNetworkView s;
 
-    /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.g f1154a;
-    private ArrayList b;
-    private com.baidu.tieba.util.a c;
-    private z d;
-    private r e;
-    private com.baidu.tieba.square.h f;
-    private Boolean g = false;
-    private View.OnClickListener h = null;
-    private View.OnLongClickListener i = null;
-    private View.OnClickListener j = null;
-    private m k;
-
-    public k(com.baidu.tieba.g gVar) {
-        this.f1154a = null;
-        this.b = null;
+    public k(EnterForumActivity enterForumActivity, View.OnKeyListener onKeyListener) {
+        super(enterForumActivity);
         this.c = null;
         this.d = null;
         this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
         this.k = null;
-        this.f1154a = gVar;
-        this.b = new ArrayList();
-        this.c = new com.baidu.tieba.util.a(gVar);
-        this.e = new r(this.f1154a);
-        this.k = new l(this);
-        this.d = new z(this.f1154a, this.k);
-        this.f = new com.baidu.tieba.square.h(this.f1154a);
-        this.b.add(this.e);
-        this.b.add(this.d);
-        this.b.add(this.f);
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.p = null;
+        this.q = null;
+        this.r = null;
+        this.s = null;
+        this.b = false;
+        this.c = enterForumActivity;
+        enterForumActivity.setContentView(R.layout.enter_forum_view);
+        this.s = (NoNetworkView) enterForumActivity.findViewById(R.id.view_no_network);
+        this.p = (TextView) enterForumActivity.findViewById(R.id.titel_text);
+        this.l = (ImageView) enterForumActivity.findViewById(R.id.search_bar_icon);
+        this.i = (RelativeLayout) enterForumActivity.findViewById(R.id.container);
+        this.j = (RelativeLayout) enterForumActivity.findViewById(R.id.title);
+        this.k = (LinearLayout) enterForumActivity.findViewById(R.id.search_bg_layout);
+        this.m = (LinearLayout) enterForumActivity.findViewById(R.id.search_tap_layout);
+        this.n = (TextView) enterForumActivity.findViewById(R.id.search_bar_text);
+        this.k.setOnClickListener(enterForumActivity);
+        this.d = (BdListView) enterForumActivity.findViewById(R.id.enter_forum_lv_forum);
+        this.e = new j(enterForumActivity);
+        this.e.a((View.OnClickListener) enterForumActivity);
+        this.e.a((View.OnLongClickListener) enterForumActivity);
+        this.d.setAdapter((ListAdapter) this.e);
+        this.d.setOnKeyListener(onKeyListener);
+        this.d.setOnItemClickListener(enterForumActivity);
+        this.d.setOnScrollListener(enterForumActivity);
+        this.o = new com.baidu.tieba.view.ba(enterForumActivity);
+        this.d.setPullRefresh(this.o);
+        CharSequence[] charSequenceArr = {enterForumActivity.getString(R.string.enter_forum), enterForumActivity.getString(R.string.delete)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(enterForumActivity);
+        builder.setTitle(enterForumActivity.getString(R.string.operation));
+        builder.setItems(charSequenceArr, enterForumActivity);
+        this.g = builder.create();
+        this.g.setCanceledOnTouchOutside(true);
+        CharSequence[] charSequenceArr2 = {enterForumActivity.getString(R.string.enter_forum), enterForumActivity.getString(R.string.delete)};
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(enterForumActivity);
+        builder2.setTitle(enterForumActivity.getString(R.string.operation));
+        builder2.setItems(charSequenceArr2, enterForumActivity);
+        this.h = builder2.create();
+        this.h.setCanceledOnTouchOutside(true);
     }
 
-    public void a(com.baidu.tieba.data.q qVar) {
-        if (this.e != null) {
-            this.e.a(this.g);
-            this.e.a(qVar.a());
+    public void b() {
+        if (this.b) {
+            this.b = false;
+            this.d.setPullRefresh(this.o);
+            this.e.a((com.baidu.tieba.data.af) null);
+            s();
+            a(0);
         }
-        if (this.d != null) {
-            this.d.a(qVar.c(), qVar.d());
-        }
-        if (this.f != null) {
-            this.f.a(qVar.b());
-        }
+        this.d.b();
     }
 
-    public void a(Boolean bool) {
-        this.g = bool;
-    }
-
-    public void a(View.OnClickListener onClickListener) {
-        this.h = onClickListener;
-        this.e.b(this.h);
-    }
-
-    public void a(View.OnLongClickListener onLongClickListener) {
-        this.i = onLongClickListener;
-        this.e.a(this.i);
-    }
-
-    public void b(View.OnClickListener onClickListener) {
-        this.j = onClickListener;
-        this.e.a(this.j);
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        int i = 0;
-        Iterator it = this.b.iterator();
-        while (true) {
-            int i2 = i;
-            if (it.hasNext()) {
-                i = ((BaseAdapter) it.next()).getCount() + i2;
-            } else {
-                return i2;
-            }
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.b.size()) {
-                BaseAdapter baseAdapter = (BaseAdapter) this.b.get(i3);
-                if (i < baseAdapter.getCount()) {
-                    return baseAdapter.getItem(i);
-                }
-                i -= baseAdapter.getCount();
-                i2 = i3 + 1;
-            } else {
-                return null;
-            }
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        int i;
-        int i2 = 0;
-        Iterator it = this.b.iterator();
-        while (true) {
-            i = i2;
-            if (!it.hasNext()) {
-                break;
-            }
-            i2 = ((BaseAdapter) it.next()).getViewTypeCount() + i;
-        }
-        if (i <= 0) {
-            return 1;
-        }
-        return i;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        int i2 = 0;
-        for (int i3 = 0; i3 < this.b.size(); i3++) {
-            BaseAdapter baseAdapter = (BaseAdapter) this.b.get(i3);
-            if (i < baseAdapter.getCount()) {
-                return baseAdapter.getItemViewType(i) + i2;
-            }
-            i2 += baseAdapter.getViewTypeCount();
-            i -= baseAdapter.getCount();
-        }
-        return 0;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.b.size()) {
-                BaseAdapter baseAdapter = (BaseAdapter) this.b.get(i3);
-                if (i < baseAdapter.getCount()) {
-                    return baseAdapter.getView(i, view, viewGroup);
-                }
-                i -= baseAdapter.getCount();
-                i2 = i3 + 1;
-            } else {
-                return null;
-            }
-        }
-    }
-
-    public void a() {
-        if (this.e != null) {
-            this.e.b(Boolean.valueOf(!this.e.a().booleanValue()));
-        }
-    }
-
-    public Boolean b() {
-        if (this.e != null) {
-            return this.e.a();
-        }
-        return false;
-    }
-
-    public void a(int i) {
-        if (this.d != null) {
-            this.d.a(i);
-        }
-        notifyDataSetChanged();
-    }
-
-    @Override // com.baidu.tieba.view.z
     public void c() {
-        Iterator it = this.b.iterator();
-        while (it.hasNext()) {
-            BaseAdapter baseAdapter = (BaseAdapter) it.next();
-            if (baseAdapter instanceof com.baidu.tieba.view.z) {
-                ((com.baidu.tieba.view.z) baseAdapter).c();
-            }
-        }
+        this.d.a();
     }
 
-    @Override // com.baidu.tieba.view.z
-    public void a(View view, int i, int i2) {
-        for (int i3 = 0; i3 < this.b.size(); i3++) {
-            BaseAdapter baseAdapter = (BaseAdapter) this.b.get(i3);
-            if (baseAdapter instanceof com.baidu.tieba.view.z) {
-                ((com.baidu.tieba.view.z) baseAdapter).a(view, i < 0 ? 0 : i, i2 > baseAdapter.getCount() + (-1) ? baseAdapter.getCount() - 1 : i2);
-            }
-            com.baidu.tieba.util.aj.a(getClass().getName(), "startLoadImage", "start:" + i + "en:" + i2);
-            i -= baseAdapter.getCount();
-            i2 -= baseAdapter.getCount();
-            if (i2 < 0) {
+    public void a(com.baidu.tieba.data.q qVar, boolean z) {
+        c();
+        if (qVar != null) {
+            try {
+                this.e.a(Boolean.valueOf(z));
+                this.e.a(qVar);
+            } catch (Exception e) {
+                com.baidu.tieba.util.aq.b(getClass().getName(), Headers.REFRESH, e.getMessage());
                 return;
             }
         }
+        d();
+    }
+
+    private void s() {
+        if (this.q == null) {
+            this.q = (EnterForumGuideCenterView) this.c.findViewById(R.id.lv_guid_center_root);
+            this.q.a();
+        }
+    }
+
+    private void t() {
+        if (this.r == null) {
+            this.r = (EnterForumGuideBottomView) this.c.findViewById(R.id.lv_guide_bottom);
+            this.r.a();
+        }
+    }
+
+    public void a(int i) {
+        if (this.q != null) {
+            this.q.b(i);
+        }
+    }
+
+    public void b(int i) {
+        if (this.r != null) {
+            this.r.b(i);
+        }
+    }
+
+    public void d() {
+        int b = this.e.b();
+        if (b == 3) {
+            t();
+            a(8);
+            b(0);
+        } else if (b == 2) {
+            s();
+            a(0);
+            b(8);
+        } else {
+            if (b == 0) {
+                this.d.setPullRefresh(null);
+                this.b = true;
+            }
+            a(8);
+            b(8);
+        }
+        if (this.b && b != 0) {
+            this.d.setPullRefresh(this.o);
+            this.b = false;
+        }
+    }
+
+    public void a(boolean z, String str) {
+        if (!z && str != null) {
+            this.c.a(str);
+        }
+    }
+
+    public void e() {
+        this.e.notifyDataSetChanged();
+    }
+
+    public void f() {
+        if (this.r != null) {
+            this.r.b();
+        }
+        if (this.q != null) {
+            this.q.b();
+        }
+    }
+
+    public void g() {
+        if (this.r != null) {
+            this.r.c();
+        }
+        if (this.q != null) {
+            this.q.c();
+        }
+    }
+
+    public void h() {
+        if (this.r != null && this.r.getVisibility() == 0) {
+            b(8);
+        }
+    }
+
+    public void i() {
+    }
+
+    public void j() {
+        if (this.g != null) {
+            this.g.dismiss();
+        }
+        if (this.h != null) {
+            this.h.dismiss();
+        }
+    }
+
+    public void k() {
+        if (this.s != null) {
+            this.s.setVisible(true);
+        }
+    }
+
+    public void c(int i) {
+        com.baidu.tieba.util.ao.d(this.j, i);
+        com.baidu.tieba.util.ao.f(this.p, i);
+        if (i == 1) {
+            this.l.setImageResource(R.drawable.icon_head_bar_search_1);
+            this.i.setBackgroundColor(-13618114);
+            com.baidu.tieba.util.ao.g(this.m, (int) R.drawable.inputbox_topbg_1);
+            com.baidu.tieba.util.ao.g(this.k, (int) R.drawable.inputbox_top_1);
+            this.n.setHintTextColor(-11446171);
+        } else {
+            this.i.setBackgroundColor(-197380);
+            this.l.setImageResource(R.drawable.icon_head_bar_search);
+            com.baidu.tieba.util.ao.g(this.m, (int) R.drawable.inputbox_topbg);
+            com.baidu.tieba.util.ao.g(this.k, (int) R.drawable.inputbox_top);
+            this.n.setHintTextColor(-5921112);
+        }
+        if (this.r != null) {
+            this.r.a(i);
+        }
+        if (this.q != null) {
+            this.q.a(i);
+        }
+        if (this.s != null) {
+            this.s.a(i);
+        }
+        this.e.a(i);
+        this.o.a(i);
+    }
+
+    public int l() {
+        return R.id.first;
+    }
+
+    public int m() {
+        return R.id.second;
+    }
+
+    public void n() {
+        this.g.show();
+    }
+
+    public void o() {
+        this.h.show();
+    }
+
+    public void p() {
+        if (this.f == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.c.getParent());
+            builder.setTitle(R.string.alerm_title);
+            builder.setIcon(R.drawable.dialogue_quit);
+            builder.setMessage(R.string.delete_like_info);
+            builder.setPositiveButton(this.c.getString(R.string.confirm), this.c);
+            builder.setNegativeButton(this.c.getString(R.string.cancel), this.c);
+            this.f = builder.create();
+        }
+        this.f.show();
+    }
+
+    public AlertDialog q() {
+        return this.g;
+    }
+
+    public AlertDialog r() {
+        return this.h;
+    }
+
+    public void a(com.baidu.adp.widget.ListView.b bVar) {
+        this.o.a(bVar);
     }
 }

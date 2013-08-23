@@ -8,11 +8,11 @@ import java.io.ByteArrayOutputStream;
 public class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f381a;
+    final /* synthetic */ a f389a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f381a = aVar;
+        this.f389a = aVar;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0042 -> B:21:0x0034). Please submit an issue!!! */
@@ -20,26 +20,26 @@ public class b implements Runnable {
     public void run() {
         byte[] f;
         try {
-            f = this.f381a.f();
+            f = this.f389a.f();
             if (f != null && f.length > 0) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 com.baidu.adp.lib.e.c.a(f, byteArrayOutputStream);
                 try {
                     e a2 = d.a().a("http://or.baidu.com/or/api/get", null, "monitor", byteArrayOutputStream.toByteArray(), 2, null, null);
-                    if (a2 == null || a2.f432a != 200) {
-                        this.f381a.c();
+                    if (a2 == null || a2.f446a != 200) {
+                        this.f389a.c();
                     } else {
-                        this.f381a.d();
+                        this.f389a.d();
                     }
                 } catch (Exception e) {
-                    this.f381a.c();
+                    this.f389a.c();
                     e.printStackTrace();
                 }
             }
         } catch (Exception e2) {
-            this.f381a.c();
+            this.f389a.c();
             e2.printStackTrace();
         }
-        this.f381a.n = false;
+        this.f389a.n = false;
     }
 }

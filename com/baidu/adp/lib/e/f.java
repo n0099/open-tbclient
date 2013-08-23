@@ -3,10 +3,10 @@ package com.baidu.adp.lib.e;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f418a = new f();
+    private static f f426a = new f();
 
     public static f a() {
-        return f418a;
+        return f426a;
     }
 
     public void a(Runnable runnable) {

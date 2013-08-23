@@ -4,15 +4,15 @@ package com.baidu.android.systemmonitor;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ StatisticManager f692a;
+    final /* synthetic */ StatisticManager f715a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(StatisticManager statisticManager) {
-        this.f692a = statisticManager;
+        this.f715a = statisticManager;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        new g(this.f692a, null).start();
+        new g(this.f715a, null).start();
     }
 }

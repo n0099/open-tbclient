@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class BdListView extends ListView {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f452a;
+    private e f470a;
     private AdapterView.OnItemClickListener b;
     private AdapterView.OnItemLongClickListener c;
     private AdapterView.OnItemSelectedListener d;
@@ -43,7 +43,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context) {
         super(context);
-        this.f452a = null;
+        this.f470a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -73,7 +73,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f452a = null;
+        this.f470a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -103,7 +103,7 @@ public class BdListView extends ListView {
 
     public BdListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f452a = null;
+        this.f470a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -145,7 +145,7 @@ public class BdListView extends ListView {
     }
 
     private void c() {
-        this.f452a = new e(getContext());
+        this.f470a = new e(getContext());
         super.setOnItemClickListener(new j(this));
         super.setOnScrollListener(new k(this));
     }
@@ -190,13 +190,21 @@ public class BdListView extends ListView {
 
     @Override // android.widget.ListView, android.widget.AdapterView
     public ListAdapter getAdapter() {
-        return this.f452a;
+        return this.f470a;
+    }
+
+    public ListAdapter getWrappedAdapter() {
+        if (this.f470a instanceof e) {
+            return this.f470a.b();
+        }
+        return null;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView
     public void setAdapter(ListAdapter listAdapter) {
-        this.f452a.a(listAdapter);
-        super.setAdapter((ListAdapter) this.f452a);
+        super.setAdapter((ListAdapter) null);
+        this.f470a.a(listAdapter);
+        super.setAdapter((ListAdapter) this.f470a);
     }
 
     public void setOnHeaderClickListener(o oVar) {
@@ -209,36 +217,36 @@ public class BdListView extends ListView {
 
     @Override // android.widget.ListView
     public void addHeaderView(View view, Object obj, boolean z) {
-        this.f452a.a(view, obj, z, getHeaderIndex());
+        this.f470a.a(view, obj, z, getHeaderIndex());
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view) {
-        this.f452a.a(view, getHeaderIndex());
+        this.f470a.a(view, getHeaderIndex());
     }
 
     public void a(View view) {
-        this.f452a.a(view, null, false, 0);
+        this.f470a.a(view, null, false, 0);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view, Object obj, boolean z) {
-        this.f452a.b(view, obj, z, -1);
+        this.f470a.b(view, obj, z, -1);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view) {
-        this.f452a.c(view);
+        this.f470a.c(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeHeaderView(View view) {
-        return this.f452a.a(view);
+        return this.f470a.a(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeFooterView(View view) {
-        return this.f452a.b(view);
+        return this.f470a.b(view);
     }
 
     public void setNoData(String str) {
@@ -281,14 +289,14 @@ public class BdListView extends ListView {
             this.n = null;
         }
         if (cVar != null) {
-            this.f452a.b(cVar.b(), null, true, 0);
+            this.f470a.b(cVar.b(), null, true, 0);
             this.n = cVar;
         }
     }
 
     private int getHeaderIndex() {
         if (this.m != null) {
-            return this.f452a.c() - 1;
+            return this.f470a.c() - 1;
         }
         return -1;
     }

@@ -2,16 +2,17 @@ package com.baidu.tieba.view;
 
 import android.content.Context;
 import android.webkit.WebView;
+import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaseWebView f1837a;
+    final /* synthetic */ BaseWebView f1868a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BaseWebView baseWebView) {
-        this.f1837a = baseWebView;
+        this.f1868a = baseWebView;
     }
 
     @Override // com.baidu.tieba.view.d
@@ -19,10 +20,10 @@ public class c implements d {
         Context context;
         if (str != null) {
             try {
-                context = this.f1837a.c;
-                com.baidu.tieba.util.am.e(context, str);
+                context = this.f1868a.c;
+                UtilHelper.e(context, str);
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                com.baidu.tieba.util.aq.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
             }
         }
         return true;

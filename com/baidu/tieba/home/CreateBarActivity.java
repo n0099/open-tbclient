@@ -35,7 +35,7 @@ public class CreateBarActivity extends com.baidu.tieba.g {
     private TextView v = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f1103a = null;
+    RelativeLayout f1136a = null;
     View b = null;
     TextView c = null;
     TextView d = null;
@@ -110,7 +110,7 @@ public class CreateBarActivity extends com.baidu.tieba.g {
     private void l() {
         this.s = new a(this);
         this.t = new b(this);
-        this.f1103a = (RelativeLayout) findViewById(R.id.container);
+        this.f1136a = (RelativeLayout) findViewById(R.id.container);
         this.b = findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.text);
@@ -146,12 +146,12 @@ public class CreateBarActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.f(this.c, i);
-        com.baidu.tieba.util.ah.a(this.l, i);
-        com.baidu.tieba.util.ah.a(this.f1103a, i);
-        com.baidu.tieba.util.ah.d(this.b, i);
-        com.baidu.tieba.util.ah.a(this.d, i);
-        com.baidu.tieba.util.ah.b(this.f, i);
+        com.baidu.tieba.util.ao.f(this.c, i);
+        com.baidu.tieba.util.ao.a(this.l, i);
+        com.baidu.tieba.util.ao.a(this.f1136a, i);
+        com.baidu.tieba.util.ao.d(this.b, i);
+        com.baidu.tieba.util.ao.a(this.d, i);
+        com.baidu.tieba.util.ao.b(this.f, i);
         String str = String.valueOf(this.w) + getString(R.string.bar_not_create);
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(Color.rgb(229, 4, 0)), 0, this.w.length(), 33);

@@ -5,17 +5,17 @@ import android.os.Build;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    static final o f324a;
+    static final o f328a;
 
     static {
         if (Build.VERSION.SDK_INT >= 17) {
-            f324a = new q();
+            f328a = new q();
         } else {
-            f324a = new p();
+            f328a = new p();
         }
     }
 
     public static int a(int i, int i2) {
-        return f324a.a(i, i2);
+        return f328a.a(i, i2);
     }
 }

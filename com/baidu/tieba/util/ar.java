@@ -1,38 +1,61 @@
 package com.baidu.tieba.util;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import com.baidu.tieba.data.WriteData;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class ar implements ag {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ at f1757a;
-    private final /* synthetic */ Activity b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ aa d;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(at atVar, Activity activity, int i, aa aaVar) {
-        this.f1757a = atVar;
-        this.b = activity;
-        this.c = i;
-        this.d = aaVar;
+public class ar {
+    public static void a(Context context) {
+        try {
+            com.baidu.adp.lib.d.a.a().a(context, com.baidu.tieba.data.g.j(), com.baidu.tieba.data.g.a(), TiebaApplication.Q(), "tieba", "tieba_android");
+        } catch (Exception e) {
+            aq.b("TiebaStatic", "init", e.toString());
+        }
     }
 
-    @Override // com.baidu.tieba.util.ag
-    public void a(Bitmap bitmap) {
-        if (bitmap == null) {
-            this.f1757a.b();
-            am.a((Context) this.b, this.b.getResources().getString(R.string.share_load_img_failed));
-        } else if (this.c == 4 || this.c == 3) {
-            this.f1757a.b();
-            this.d.a(this.c, bitmap);
-        } else {
-            this.d.a(WriteData.THREAD_TYPE_LBS, new as(this, this.f1757a, this.b, this.d, this.c, bitmap));
+    public static void a(String str, String str2) {
+        try {
+            com.baidu.adp.lib.d.a.a().a(str2, str);
+        } catch (Exception e) {
+            aq.b("TiebaStatic", "setUserInfo", e.toString());
+        }
+    }
+
+    public static void a(s sVar) {
+        if (sVar != null && sVar.a() <= 180000) {
+            try {
+                if (sVar.a() >= 0 && sVar.f() >= 0 && sVar.e() >= 0 && sVar.h() >= 0) {
+                    com.baidu.adp.lib.d.a.a().a(sVar.b(), sVar.d(), sVar.c(), sVar.a(), sVar.f(), sVar.e(), sVar.h(), sVar.g(), sVar.i());
+                }
+                aq.b("api=" + sVar.b() + " downsize=" + sVar.d() + " upsize=" + sVar.c() + " dns=" + sVar.f() + " cost=" + sVar.a() + " conTime=" + sVar.e() + " rspTime=" + sVar.h() + " retry=" + sVar.g() + " errorCode=" + sVar.i());
+            } catch (Exception e) {
+                aq.b("TiebaStatic", com.baidu.loginshare.e.e, e.toString());
+            }
+        }
+    }
+
+    public static void a(String str, long j, long j2) {
+        if (j <= 180000) {
+            try {
+                com.baidu.adp.lib.d.a.a().a(str, j, j2);
+            } catch (Exception e) {
+                aq.b("TiebaStatic", "op", e.toString());
+            }
+        }
+    }
+
+    public static void a(String str) {
+        try {
+            com.baidu.adp.lib.d.a.a().a(str);
+        } catch (Exception e) {
+            aq.b("TiebaStatic", "crash", e.toString());
+        }
+    }
+
+    public static void a() {
+        try {
+            com.baidu.adp.lib.d.a.a().b();
+        } catch (Exception e) {
+            aq.b("TiebaStatic", "upload", e.toString());
         }
     }
 }

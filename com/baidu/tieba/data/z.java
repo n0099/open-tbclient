@@ -1,102 +1,107 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import com.baidu.android.pushservice.PushConstants;
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
-    private aw c;
-    private ArrayList d;
-    private Context l;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1030a = null;
-    private String b = null;
+    private int f1033a = 0;
+    private int b = 0;
+    private String c = null;
+    private String d = null;
     private int e = 0;
     private int f = 0;
-    private String g = null;
-    private String h = null;
-    private String i = null;
-    private String j = null;
-    private int k = -1;
+    private int g = 0;
+    private int h = 0;
+    private int i = 0;
+    private int j = 0;
+    private long k = 0;
+    private long l = 0;
+    private bf m = new bf();
 
-    public z(Context context) {
-        this.c = null;
-        this.d = null;
-        this.l = null;
-        this.l = context;
-        this.c = new aw();
-        this.d = new ArrayList();
-    }
-
-    public aw a() {
-        return this.c;
+    public int a() {
+        return this.f1033a;
     }
 
     public String b() {
-        return this.b;
+        return this.c;
     }
 
     public String c() {
-        return this.f1030a;
+        return this.d;
     }
 
-    public String d() {
+    public int d() {
         return this.g;
     }
 
-    public String e() {
-        return this.i;
+    public int e() {
+        return this.h;
     }
 
     public int f() {
-        return this.e;
+        return this.i;
     }
 
     public int g() {
-        return this.f;
-    }
-
-    public int h() {
-        return this.k;
-    }
-
-    public String i() {
         return this.j;
     }
 
+    public int h() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public long i() {
+        return this.k;
+    }
+
+    public void b(int i) {
+        this.e = i;
+    }
+
+    public int j() {
+        return this.e;
+    }
+
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public int k() {
+        return this.f;
+    }
+
     public void a(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        try {
-            this.g = jSONObject.getString("post_id");
-            this.i = jSONObject.getString("user_name");
-            this.j = jSONObject.getString(PushConstants.EXTRA_USER_ID);
-            this.h = jSONObject.getString("comment_amount");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
-            this.k = jSONObject.optInt("index", -1);
-            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.f1030a = optJSONObject.optString(LocaleUtil.INDONESIAN);
-                this.b = optJSONObject.optString("url");
-                this.e = optJSONObject.optInt("width", 0);
-                this.f = optJSONObject.optInt("height", 0);
-            }
-            JSONArray jSONArray = jSONObject.getJSONArray("descr");
-            if (jSONArray != null) {
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    i iVar = new i();
-                    iVar.a(jSONArray.getJSONObject(i));
-                    this.d.add(iVar);
+        if (jSONObject != null) {
+            try {
+                this.f1033a = jSONObject.optInt("has_frs_star", 0);
+                if (this.f1033a == 1) {
+                    this.c = jSONObject.optString("top", "");
+                    this.d = jSONObject.optString("head", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("fans");
+                    this.e = optJSONObject.optInt("is_get", 0);
+                    this.f = optJSONObject.optInt("num", 0);
+                    this.b = optJSONObject.optInt("open", 0);
+                    this.k = optJSONObject.optLong("left_time", 0L);
+                    this.l = this.k;
+                    JSONObject optJSONObject2 = jSONObject.optJSONObject("top_size");
+                    this.g = optJSONObject2.optInt("width", 0);
+                    this.h = optJSONObject2.optInt("height", 0);
+                    JSONObject optJSONObject3 = jSONObject.optJSONObject("head_size");
+                    this.i = optJSONObject3.optInt("width", 0);
+                    this.j = optJSONObject3.optInt("height", 0);
                 }
+            } catch (Exception e) {
+                com.baidu.tieba.util.aq.b("FrsStarData", "parserJson", "error = " + e.getMessage());
             }
-            this.c.a(this.d);
-            if (this.l != null) {
-                this.c.c(this.l);
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "paserJson", e.toString());
         }
+    }
+
+    public bf l() {
+        return this.m;
     }
 }

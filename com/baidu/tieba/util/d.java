@@ -11,7 +11,7 @@ public class d {
     public volatile com.baidu.adp.widget.a.b i;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile u f1761a = null;
+    public volatile v f1798a = null;
     public boolean f = true;
     public volatile boolean h = false;
     public boolean j = false;
@@ -31,8 +31,8 @@ public class d {
 
     public void a() {
         this.j = true;
-        if (this.f1761a != null) {
-            this.f1761a.i();
+        if (this.f1798a != null) {
+            this.f1798a.h();
         }
     }
 

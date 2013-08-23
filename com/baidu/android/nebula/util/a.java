@@ -4,11 +4,11 @@ package com.baidu.android.nebula.util;
 public class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BDLocationManager f557a;
+    final /* synthetic */ BDLocationManager f580a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BDLocationManager bDLocationManager) {
-        this.f557a = bDLocationManager;
+        this.f580a = bDLocationManager;
     }
 
     @Override // java.lang.Runnable

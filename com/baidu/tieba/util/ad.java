@@ -1,22 +1,25 @@
 package com.baidu.tieba.util;
 
-import java.io.File;
-import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-class ad implements FilenameFilter {
+public class ad {
+    protected boolean j;
+    protected boolean i = true;
+    protected String k = "UTF-8";
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1747a;
-    private final /* synthetic */ String b;
+    protected String f1778a = null;
+    protected int b = 0;
+    protected int c = 0;
+    protected String d = null;
+    protected ArrayList e = null;
+    protected boolean g = true;
+    protected boolean h = false;
+    protected HashMap f = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(aa aaVar, String str) {
-        this.f1747a = aaVar;
-        this.b = str;
-    }
-
-    @Override // java.io.FilenameFilter
-    public boolean accept(File file, String str) {
-        return str.contains(new StringBuilder(String.valueOf(this.b)).append("_").toString());
+    public ad() {
+        this.j = true;
+        this.j = true;
     }
 }

@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class e extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1235a;
+    private long f1268a;
     private long b;
     private Bitmap[] c;
     private Bitmap[] d;
@@ -86,20 +86,20 @@ public class e extends View {
     }
 
     public long getLeftCount() {
-        return this.f1235a;
+        return this.f1268a;
     }
 
     public void setLeftCount(long j) {
-        this.f1235a = j;
+        this.f1268a = j;
         a();
     }
 
     private void g() {
         if (this.q) {
-            long j = this.b + this.f1235a;
+            long j = this.b + this.f1268a;
             int measuredWidth = getMeasuredWidth();
             int i = measuredWidth / 2;
-            int i2 = j != 0 ? (int) ((this.f1235a * measuredWidth) / j) : i;
+            int i2 = j != 0 ? (int) ((this.f1268a * measuredWidth) / j) : i;
             if (i2 < this.v / 2) {
                 i2 = this.v / 2;
             }
@@ -153,7 +153,7 @@ public class e extends View {
         if (this.q && this.r) {
             a aVar = this.o.size() > 0 ? (a) this.o.remove(0) : null;
             a aVar2 = aVar == null ? new a() : aVar;
-            aVar2.f1231a = 0;
+            aVar2.f1264a = 0;
             aVar2.b = getHeight() / 2;
             aVar2.f = true;
             aVar2.c = this.f;
@@ -174,7 +174,7 @@ public class e extends View {
         if (this.q && this.r) {
             a aVar = this.o.size() > 0 ? (a) this.o.remove(0) : null;
             a aVar2 = aVar == null ? new a() : aVar;
-            aVar2.f1231a = getWidth();
+            aVar2.f1264a = getWidth();
             aVar2.b = getHeight() / 2;
             aVar2.f = false;
             aVar2.c = this.f;
@@ -198,10 +198,10 @@ public class e extends View {
         int height = getHeight();
         int width = getWidth();
         if (this.w) {
-            long j = this.f1235a + this.b;
+            long j = this.f1268a + this.b;
             int i = width / 2;
             if (j != 0) {
-                i = (int) ((this.f1235a * width) / j);
+                i = (int) ((this.f1268a * width) / j);
             }
             if (i < this.v / 2) {
                 i = this.v / 2;
@@ -247,12 +247,12 @@ public class e extends View {
         Iterator it = this.n.iterator();
         while (it.hasNext()) {
             a aVar = (a) it.next();
-            if (aVar.f && aVar.f1231a >= this.j) {
+            if (aVar.f && aVar.f1264a >= this.j) {
                 it.remove();
                 this.o.add(aVar);
                 this.p.add(aVar.g);
                 z = true;
-            } else if (!aVar.f && aVar.f1231a <= this.j) {
+            } else if (!aVar.f && aVar.f1264a <= this.j) {
                 it.remove();
                 this.o.add(aVar);
                 this.p.add(aVar.g);

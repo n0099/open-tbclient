@@ -7,11 +7,11 @@ import android.os.SystemClock;
 public class k extends a.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f651a;
+    final /* synthetic */ f f674a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(f fVar) {
-        this.f651a = fVar;
+        this.f674a = fVar;
     }
 
     @Override // a.a.a
@@ -24,13 +24,13 @@ public class k extends a.a.b {
         z = f.h;
         if (!z) {
             boolean unused = f.h = true;
-            this.f651a.g = SystemClock.elapsedRealtime();
+            this.f674a.g = SystemClock.elapsedRealtime();
         }
-        handler = this.f651a.t;
-        runnable = this.f651a.k;
+        handler = this.f674a.t;
+        runnable = this.f674a.k;
         handler.removeCallbacks(runnable);
-        handler2 = this.f651a.t;
-        runnable2 = this.f651a.k;
+        handler2 = this.f674a.t;
+        runnable2 = this.f674a.k;
         handler2.postDelayed(runnable2, 500L);
     }
 

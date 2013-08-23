@@ -11,11 +11,11 @@ import com.baidu.tieba.data.RegistData;
 public class i extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f880a;
-    private com.baidu.tieba.util.u b;
+    final /* synthetic */ ActivationActivity f901a;
+    private com.baidu.tieba.util.v b;
 
     private i(ActivationActivity activationActivity) {
-        this.f880a = activationActivity;
+        this.f901a = activationActivity;
         this.b = null;
     }
 
@@ -29,16 +29,16 @@ public class i extends BdAsyncTask {
         ProgressBar progressBar;
         EditText editText;
         RelativeLayout relativeLayout;
-        this.f880a.n = null;
-        progressBar = this.f880a.e;
+        this.f901a.n = null;
+        progressBar = this.f901a.e;
         progressBar.setVisibility(8);
-        editText = this.f880a.k;
+        editText = this.f901a.k;
         if (editText.length() == 6) {
-            relativeLayout = this.f880a.l;
+            relativeLayout = this.f901a.l;
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.i();
+            this.b.h();
         }
         super.cancel(true);
     }
@@ -50,16 +50,16 @@ public class i extends BdAsyncTask {
         RegistData registData;
         boolean z = false;
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/getsmscode");
-            com.baidu.tieba.util.u uVar = this.b;
-            registData = this.f880a.r;
-            uVar.a("phonenum", registData.getPhone());
-            this.b.k();
-            if (this.b.d()) {
+            this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/getsmscode");
+            com.baidu.tieba.util.v vVar = this.b;
+            registData = this.f901a.r;
+            vVar.a("phonenum", registData.getPhone());
+            this.b.j();
+            if (this.b.c()) {
                 z = true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return Boolean.valueOf(z);
     }
@@ -74,24 +74,24 @@ public class i extends BdAsyncTask {
         TextView textView2;
         RelativeLayout relativeLayout;
         super.a((Object) bool);
-        this.f880a.n = null;
-        progressBar = this.f880a.e;
+        this.f901a.n = null;
+        progressBar = this.f901a.e;
         progressBar.setVisibility(8);
-        editText = this.f880a.k;
+        editText = this.f901a.k;
         if (editText.length() == 6) {
-            relativeLayout = this.f880a.l;
+            relativeLayout = this.f901a.l;
             relativeLayout.setEnabled(true);
         }
         if (bool.booleanValue()) {
-            this.f880a.b();
+            this.f901a.b();
             return;
         }
-        String h = this.b.h();
-        if (h != null && h.length() > 0) {
-            textView = this.f880a.j;
+        String g = this.b.g();
+        if (g != null && g.length() > 0) {
+            textView = this.f901a.j;
             textView.setVisibility(0);
-            textView2 = this.f880a.j;
-            textView2.setText(h);
+            textView2 = this.f901a.j;
+            textView2.setText(g);
         }
     }
 
@@ -102,13 +102,13 @@ public class i extends BdAsyncTask {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        progressBar = this.f880a.e;
+        progressBar = this.f901a.e;
         progressBar.setVisibility(0);
-        textView = this.f880a.j;
+        textView = this.f901a.j;
         textView.setVisibility(4);
-        textView2 = this.f880a.j;
+        textView2 = this.f901a.j;
         textView2.setText((CharSequence) null);
-        relativeLayout = this.f880a.l;
+        relativeLayout = this.f901a.l;
         relativeLayout.setEnabled(false);
         super.b();
     }

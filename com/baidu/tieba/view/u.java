@@ -1,24 +1,22 @@
 package com.baidu.tieba.view;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.frs.FrsActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
+class u {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1848a;
+    public s f1879a;
+    public s b;
+    public boolean c;
+    final /* synthetic */ r d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar) {
-        this.f1848a = tVar;
+    private u(r rVar) {
+        this.d = rVar;
+        this.f1879a = new s(rVar, null);
+        this.b = new s(rVar, null);
+        this.c = false;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        activity = this.f1848a.u;
-        ((FrsActivity) activity).k();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ u(r rVar, u uVar) {
+        this(rVar);
     }
 }

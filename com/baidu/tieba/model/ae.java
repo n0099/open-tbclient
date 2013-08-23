@@ -8,34 +8,37 @@ import org.json.JSONObject;
 public class ae extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1322a;
+    ArrayList f1357a;
     ad b;
     final /* synthetic */ aa c;
-    private com.baidu.tieba.util.u d = null;
+    private com.baidu.tieba.util.v d = null;
     private String e;
-    private int f;
+    private String f;
+    private int g;
 
-    public ae(aa aaVar, String str, ArrayList arrayList, int i) {
+    public ae(aa aaVar, String str, ArrayList arrayList, int i, String str2) {
         this.c = aaVar;
         this.e = null;
-        this.f = 3;
-        this.f1322a = null;
+        this.f = null;
+        this.g = 3;
+        this.f1357a = null;
         this.b = new ad(aaVar);
         this.e = str;
-        this.f1322a = arrayList;
-        this.f = i;
+        this.f = str2;
+        this.f1357a = arrayList;
+        this.g = i;
         setSelfExecute(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
-        acVar = this.c.f;
-        if (acVar != null) {
-            acVar2 = this.c.f;
-            acVar2.a(this.f);
+        com.baidu.tieba.frs.ae aeVar;
+        com.baidu.tieba.frs.ae aeVar2;
+        aeVar = this.c.f;
+        if (aeVar != null) {
+            aeVar2 = this.c.f;
+            aeVar2.a(this.g);
         }
     }
 
@@ -46,18 +49,33 @@ public class ae extends BdAsyncTask {
     public JSONObject a(Object... objArr) {
         JSONObject jSONObject;
         Exception e;
+        boolean z;
+        com.baidu.tieba.data.v vVar;
+        com.baidu.tieba.data.v vVar2;
         try {
-            this.d = new com.baidu.tieba.util.u(this.e);
-            this.d.a(this.f1322a);
-            String k = this.d.k();
-            jSONObject = new JSONObject(k);
+            if (p.a().a(this.f)) {
+                c((Object[]) new aa[]{p.a().b()});
+            }
+            this.d = new com.baidu.tieba.util.v(this.e);
+            this.d.a(this.f1357a);
+            String j = this.d.j();
+            jSONObject = new JSONObject(j);
             try {
-                if (this.d.d()) {
-                    this.c.a(k);
+                if (this.d.c()) {
+                    this.c.a(j);
+                    z = this.c.k;
+                    if (z) {
+                        vVar = this.c.f1353a;
+                        if (vVar != null) {
+                            p a2 = p.a();
+                            vVar2 = this.c.f1353a;
+                            a2.a(vVar2.b(), j);
+                        }
+                    }
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.aj.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
+                com.baidu.tieba.util.aq.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
                 return jSONObject;
             }
         } catch (Exception e3) {
@@ -70,20 +88,34 @@ public class ae extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
-        if (this.d != null) {
-            this.b.f1321a = true;
-            this.b.b = this.d.e();
-            this.b.c = this.d.f();
-            this.b.d = this.d.h();
-            this.b.e = this.d.c();
+    /* renamed from: a */
+    public void b(aa... aaVarArr) {
+        com.baidu.tieba.frs.ae aeVar;
+        com.baidu.tieba.frs.ae aeVar2;
+        aeVar = this.c.f;
+        if (aeVar != null) {
+            aeVar2 = this.c.f;
+            aeVar2.a(aaVarArr.length > 0 ? aaVarArr[0] : null);
         }
-        acVar = this.c.f;
-        if (acVar != null) {
-            acVar2 = this.c.f;
-            acVar2.a(this.f, jSONObject, this.b);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(JSONObject jSONObject) {
+        com.baidu.tieba.frs.ae aeVar;
+        com.baidu.tieba.frs.ae aeVar2;
+        if (this.d != null) {
+            this.b.f1356a = true;
+            this.b.b = this.d.d();
+            this.b.c = this.d.e();
+            this.b.d = this.d.g();
+            this.b.e = this.d.b();
+        }
+        aeVar = this.c.f;
+        if (aeVar != null) {
+            aeVar2 = this.c.f;
+            aeVar2.a(this.g, jSONObject, this.b);
         }
         this.c.i = null;
     }
@@ -96,16 +128,16 @@ public class ae extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
+        com.baidu.tieba.frs.ae aeVar;
+        com.baidu.tieba.frs.ae aeVar2;
         super.cancel(true);
         if (this.d != null) {
-            this.d.i();
+            this.d.h();
         }
-        acVar = this.c.f;
-        if (acVar != null) {
-            acVar2 = this.c.f;
-            acVar2.a(this.f, null, null);
+        aeVar = this.c.f;
+        if (aeVar != null) {
+            aeVar2 = this.c.f;
+            aeVar2.a(this.g, null, null);
         }
     }
 }

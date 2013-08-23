@@ -8,11 +8,11 @@ import android.widget.RelativeLayout;
 class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f876a;
+    final /* synthetic */ ActivationActivity f897a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ActivationActivity activationActivity) {
-        this.f876a = activationActivity;
+        this.f897a = activationActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,30 +31,30 @@ class e implements View.OnClickListener {
         i iVar4;
         h hVar3;
         h hVar4;
-        imageView = this.f876a.b;
+        imageView = this.f897a.b;
         if (view != imageView) {
-            relativeLayout = this.f876a.l;
+            relativeLayout = this.f897a.l;
             if (view != relativeLayout) {
-                relativeLayout2 = this.f876a.m;
+                relativeLayout2 = this.f897a.m;
                 if (view != relativeLayout2) {
-                    imageView2 = this.f876a.d;
+                    imageView2 = this.f897a.d;
                     if (view == imageView2) {
-                        editText = this.f876a.k;
+                        editText = this.f897a.k;
                         editText.setText((CharSequence) null);
                         return;
                     }
                     return;
                 }
-                z = this.f876a.p;
+                z = this.f897a.p;
                 if (z) {
-                    iVar = this.f876a.n;
+                    iVar = this.f897a.n;
                     if (iVar == null) {
-                        hVar = this.f876a.o;
+                        hVar = this.f897a.o;
                         if (hVar == null) {
-                            this.f876a.n = new i(this.f876a, null);
-                            iVar2 = this.f876a.n;
+                            this.f897a.n = new i(this.f897a, null);
+                            iVar2 = this.f897a.n;
                             iVar2.setPriority(3);
-                            iVar3 = this.f876a.n;
+                            iVar3 = this.f897a.n;
                             iVar3.execute(new String[0]);
                             return;
                         }
@@ -64,14 +64,14 @@ class e implements View.OnClickListener {
                 }
                 return;
             }
-            hVar2 = this.f876a.o;
+            hVar2 = this.f897a.o;
             if (hVar2 == null) {
-                iVar4 = this.f876a.n;
+                iVar4 = this.f897a.n;
                 if (iVar4 == null) {
-                    this.f876a.o = new h(this.f876a, null);
-                    hVar3 = this.f876a.o;
+                    this.f897a.o = new h(this.f897a, null);
+                    hVar3 = this.f897a.o;
                     hVar3.setPriority(3);
-                    hVar4 = this.f876a.o;
+                    hVar4 = this.f897a.o;
                     hVar4.execute(new String[0]);
                     return;
                 }
@@ -79,8 +79,8 @@ class e implements View.OnClickListener {
             }
             return;
         }
-        this.f876a.setResult(0);
-        this.f876a.finish();
-        com.baidu.tieba.util.aj.a("ActivationActivity", "mBack", "onClick");
+        this.f897a.setResult(0);
+        this.f897a.finish();
+        com.baidu.tieba.util.aq.a("ActivationActivity", "mBack", "onClick");
     }
 }

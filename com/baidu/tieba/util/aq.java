@@ -1,107 +1,322 @@
 package com.baidu.tieba.util;
 
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.Log;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class aq implements au {
+public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ int f1756a;
-    private final /* synthetic */ boolean b;
+    private static int f1789a = 0;
+    private static int b = 0;
+    private static int c = 0;
+    private static int d = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(int i, boolean z) {
-        this.f1756a = i;
-        this.b = z;
+    public static int a(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.i("TiebaLog", sb.toString());
+        }
+        return 0;
     }
 
-    @Override // com.baidu.tieba.util.au
-    public boolean a(View view) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Object tag = view.getTag();
-        if (tag != null) {
-            if ("skin_text_group".equals(tag)) {
-                ap.b((TextView) view, this.f1756a);
-                return false;
-            } else if ("skin_text_content".equals(tag)) {
-                ap.b((TextView) view, this.f1756a);
-                return false;
-            } else if ("skin_text_num".equals(tag)) {
-                ap.a((TextView) view, this.f1756a);
-                return false;
-            } else if ("skin_check_box".equals(tag)) {
-                ap.a((CheckBox) view, this.f1756a);
-                return false;
-            } else if ("skin_sidebar_content".equals(tag)) {
-                ((TextView) view).setTextAppearance(TiebaApplication.f(), this.b ? R.style.sidebar_content_1 : R.style.sidebar_content);
-                return false;
-            } else if ("skin_more_up".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    RadioButton radioButton = (RadioButton) view;
-                    if (this.b) {
-                        i4 = ap.f1755a;
-                    } else {
-                        i4 = ap.b;
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0088 A[Catch: Exception -> 0x008c, TRY_LEAVE, TryCatch #3 {Exception -> 0x008c, blocks: (B:25:0x0083, B:27:0x0088), top: B:44:0x0083 }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0083 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static void d(String str) {
+        BufferedWriter bufferedWriter;
+        FileWriter fileWriter;
+        FileWriter fileWriter2 = null;
+        long currentTimeMillis = System.currentTimeMillis();
+        File f = p.f("log_" + ap.c(new Date()));
+        if (f != null) {
+            try {
+                fileWriter = new FileWriter(f, true);
+                try {
+                    bufferedWriter = new BufferedWriter(fileWriter);
+                    try {
+                        bufferedWriter.write(String.valueOf(ap.a(currentTimeMillis)) + "\t\t" + str);
+                        bufferedWriter.newLine();
+                        bufferedWriter.flush();
+                    } catch (Exception e) {
+                        e = e;
+                        fileWriter2 = fileWriter;
+                        try {
+                            Log.d("tieba", e.getMessage());
+                            if (fileWriter2 != null) {
+                                try {
+                                    fileWriter2.close();
+                                } catch (Exception e2) {
+                                    Log.d("tieba", e2.getMessage());
+                                    return;
+                                }
+                            }
+                            if (bufferedWriter != null) {
+                                bufferedWriter.close();
+                                return;
+                            }
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileWriter = fileWriter2;
+                            if (fileWriter != null) {
+                                try {
+                                    fileWriter.close();
+                                } catch (Exception e3) {
+                                    Log.d("tieba", e3.getMessage());
+                                    throw th;
+                                }
+                            }
+                            if (bufferedWriter != null) {
+                                bufferedWriter.close();
+                            }
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (fileWriter != null) {
+                        }
+                        if (bufferedWriter != null) {
+                        }
+                        throw th;
                     }
-                    radioButton.setTextColor(i4);
+                } catch (Exception e4) {
+                    e = e4;
+                    bufferedWriter = null;
+                    fileWriter2 = fileWriter;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedWriter = null;
                 }
-                ah.h(view, this.b ? R.drawable.more_up_1 : R.drawable.more_up);
-                return false;
-            } else if ("skin_more_middle".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    RadioButton radioButton2 = (RadioButton) view;
-                    if (this.b) {
-                        i3 = ap.f1755a;
-                    } else {
-                        i3 = ap.b;
-                    }
-                    radioButton2.setTextColor(i3);
-                }
-                ah.h(view, this.b ? R.drawable.more_middle_1 : R.drawable.more_middle);
-                return false;
-            } else if ("skin_more_down".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    RadioButton radioButton3 = (RadioButton) view;
-                    if (this.b) {
-                        i2 = ap.f1755a;
-                    } else {
-                        i2 = ap.b;
-                    }
-                    radioButton3.setTextColor(i2);
-                }
-                ah.h(view, this.b ? R.drawable.more_down_1 : R.drawable.more_down);
-                return false;
-            } else if ("skin_more_all".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    RadioButton radioButton4 = (RadioButton) view;
-                    if (this.b) {
-                        i = ap.f1755a;
-                    } else {
-                        i = ap.b;
-                    }
-                    radioButton4.setTextColor(i);
-                }
-                ah.h(view, this.b ? R.drawable.more_all_1 : R.drawable.more_all);
-                return false;
-            } else if ("skin_arrow".equals(tag)) {
-                ((ImageView) view).setImageResource(this.b ? R.drawable.icon_arrow_right_1 : R.drawable.icon_arrow_right);
-                return false;
-            } else if ("skin_list_line".equals(tag)) {
-                ap.a(view, this.f1756a);
-                return false;
-            } else {
-                return false;
+            } catch (Exception e5) {
+                e = e5;
+                bufferedWriter = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedWriter = null;
+                fileWriter = null;
+            }
+        } else {
+            bufferedWriter = null;
+            fileWriter = null;
+        }
+        if (fileWriter != null) {
+            try {
+                fileWriter.close();
+            } catch (Exception e6) {
+                Log.d("tieba", e6.getMessage());
+                return;
             }
         }
-        return false;
+        if (bufferedWriter != null) {
+            bufferedWriter.close();
+        }
+    }
+
+    public static int b(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            d(sb.toString());
+            return Log.e("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int c(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.w("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int d(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.v("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int e(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.d("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int a(int i, String str) {
+        if (com.baidu.tieba.data.g.s()) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace.length < 5) {
+                return -1;
+            }
+            StackTraceElement stackTraceElement = stackTrace[4];
+            String methodName = stackTraceElement.getMethodName();
+            String className = stackTraceElement.getClassName();
+            if (i == 0) {
+                b(className, methodName, str);
+            } else if (i == 1) {
+                c(className, methodName, str);
+            } else if (i == 2) {
+                a(className, methodName, str);
+            } else if (i == 3) {
+                e(className, methodName, str);
+            } else {
+                d(className, methodName, str);
+            }
+            return 0;
+        }
+        return -1;
+    }
+
+    public static int a(String str) {
+        return a(0, str);
+    }
+
+    public static int b(String str) {
+        return a(2, str);
+    }
+
+    public static int c(String str) {
+        return a(3, str);
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static void a(int i, String str, String str2, String str3) {
+        FileWriter fileWriter;
+        Throwable th;
+        boolean z = true;
+        FileWriter fileWriter2 = null;
+        switch (i) {
+            case 1:
+                if (f1789a < 10) {
+                    f1789a++;
+                    break;
+                }
+                z = false;
+                break;
+            case 2:
+                if (b < 10) {
+                    b++;
+                    break;
+                }
+                z = false;
+                break;
+            case 3:
+                if (c < 10) {
+                    c++;
+                    break;
+                }
+                z = false;
+                break;
+            case 4:
+                if (d < 10) {
+                    d++;
+                    break;
+                }
+                z = false;
+                break;
+            default:
+                z = false;
+                break;
+        }
+        try {
+            if (com.baidu.tieba.data.g.s() || z) {
+                StringBuilder sb = new StringBuilder(100);
+                sb.append(new Date().getTime() / 1000);
+                sb.append("\t");
+                sb.append(i);
+                sb.append("\t");
+                sb.append(str2);
+                if (str3 != null) {
+                    sb.append(":");
+                    sb.append(str3.replace("\n", " ").replace("\t", " "));
+                }
+                sb.append("\t");
+                sb.append(str);
+                sb.append("\t");
+                sb.append(0);
+                sb.append("\n");
+                String sb2 = sb.toString();
+                if (com.baidu.tieba.data.g.s()) {
+                    Log.e("TiebaLog", sb2);
+                }
+                if (z) {
+                    File f = p.f("log_error.log");
+                    if (sb2 != null && f != null && f.length() < 204800) {
+                        fileWriter = new FileWriter(f, true);
+                        try {
+                            fileWriter.append((CharSequence) sb2);
+                            fileWriter.flush();
+                            fileWriter2 = fileWriter;
+                        } catch (Exception e) {
+                            fileWriter2 = fileWriter;
+                            if (fileWriter2 != null) {
+                                try {
+                                    fileWriter2.close();
+                                    return;
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
+                                    return;
+                                }
+                            }
+                            return;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (fileWriter != null) {
+                                try {
+                                    fileWriter.close();
+                                } catch (Exception e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+            }
+            if (fileWriter2 != null) {
+                try {
+                    fileWriter2.close();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            }
+        } catch (Exception e5) {
+        } catch (Throwable th3) {
+            fileWriter = null;
+            th = th3;
+        }
     }
 }

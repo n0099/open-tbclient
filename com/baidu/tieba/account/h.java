@@ -13,11 +13,11 @@ import com.slidingmenu.lib.R;
 public class h extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f879a;
-    private com.baidu.tieba.util.u b;
+    final /* synthetic */ ActivationActivity f900a;
+    private com.baidu.tieba.util.v b;
 
     private h(ActivationActivity activationActivity) {
-        this.f879a = activationActivity;
+        this.f900a = activationActivity;
         this.b = null;
     }
 
@@ -29,7 +29,7 @@ public class h extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.model.at a(String... strArr) {
+    public com.baidu.tieba.model.as a(String... strArr) {
         RegistData registData;
         RegistData registData2;
         RegistData registData3;
@@ -39,40 +39,40 @@ public class h extends BdAsyncTask {
         RegistData registData6;
         RegistData registData7;
         try {
-            this.b = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/regreal");
-            com.baidu.tieba.util.u uVar = this.b;
-            registData = this.f879a.r;
-            uVar.a("un", registData.getName());
-            com.baidu.tieba.util.u uVar2 = this.b;
-            registData2 = this.f879a.r;
-            uVar2.a("phonenum", registData2.getPhone());
-            com.baidu.tieba.util.u uVar3 = this.b;
-            registData3 = this.f879a.r;
-            uVar3.a("passwd", registData3.getPsw());
-            registData4 = this.f879a.r;
+            this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/regreal");
+            com.baidu.tieba.util.v vVar = this.b;
+            registData = this.f900a.r;
+            vVar.a("un", registData.getName());
+            com.baidu.tieba.util.v vVar2 = this.b;
+            registData2 = this.f900a.r;
+            vVar2.a("phonenum", registData2.getPhone());
+            com.baidu.tieba.util.v vVar3 = this.b;
+            registData3 = this.f900a.r;
+            vVar3.a("passwd", registData3.getPsw());
+            registData4 = this.f900a.r;
             if (registData4.getVcode() != null) {
-                com.baidu.tieba.util.u uVar4 = this.b;
-                registData7 = this.f879a.r;
-                uVar4.a("vcode", registData7.getVcode());
+                com.baidu.tieba.util.v vVar4 = this.b;
+                registData7 = this.f900a.r;
+                vVar4.a("vcode", registData7.getVcode());
             }
-            registData5 = this.f879a.r;
+            registData5 = this.f900a.r;
             if (registData5.getVcodeMd5() != null) {
-                com.baidu.tieba.util.u uVar5 = this.b;
-                registData6 = this.f879a.r;
-                uVar5.a("vcode_md5", registData6.getVcodeMd5());
+                com.baidu.tieba.util.v vVar5 = this.b;
+                registData6 = this.f900a.r;
+                vVar5.a("vcode_md5", registData6.getVcodeMd5());
             }
-            com.baidu.tieba.util.u uVar6 = this.b;
-            editText = this.f879a.k;
-            uVar6.a("smscode", editText.getText().toString());
-            String k = this.b.k();
-            if (this.b.d()) {
-                com.baidu.tieba.model.at atVar = new com.baidu.tieba.model.at();
-                atVar.a(k);
-                return atVar;
+            com.baidu.tieba.util.v vVar6 = this.b;
+            editText = this.f900a.k;
+            vVar6.a("smscode", editText.getText().toString());
+            String j = this.b.j();
+            if (this.b.c()) {
+                com.baidu.tieba.model.as asVar = new com.baidu.tieba.model.as();
+                asVar.a(j);
+                return asVar;
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -80,7 +80,7 @@ public class h extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.model.at atVar) {
+    public void a(com.baidu.tieba.model.as asVar) {
         ProgressBar progressBar;
         boolean z;
         LinearLayout linearLayout;
@@ -90,34 +90,34 @@ public class h extends BdAsyncTask {
         TextView textView;
         TextView textView2;
         RelativeLayout relativeLayout;
-        super.a((Object) atVar);
-        progressBar = this.f879a.f;
+        super.a((Object) asVar);
+        progressBar = this.f900a.f;
         progressBar.setVisibility(8);
-        this.f879a.o = null;
-        this.f879a.a(true);
-        z = this.f879a.p;
+        this.f900a.o = null;
+        this.f900a.a(true);
+        z = this.f900a.p;
         if (z) {
-            relativeLayout = this.f879a.m;
+            relativeLayout = this.f900a.m;
             relativeLayout.setEnabled(true);
         }
-        if (atVar != null) {
-            this.f879a.a(atVar);
+        if (asVar != null) {
+            this.f900a.a(asVar);
             return;
         }
-        String h = this.b.h();
-        if (h != null && h.length() > 0) {
-            textView = this.f879a.j;
+        String g = this.b.g();
+        if (g != null && g.length() > 0) {
+            textView = this.f900a.j;
             textView.setVisibility(0);
-            textView2 = this.f879a.j;
-            textView2.setText(h);
+            textView2 = this.f900a.j;
+            textView2.setText(g);
         }
-        if (this.b.f() == 26) {
-            this.f879a.A = 26;
-            linearLayout = this.f879a.c;
+        if (this.b.e() == 26) {
+            this.f900a.A = 26;
+            linearLayout = this.f900a.c;
             linearLayout.setBackgroundResource(R.drawable.pass_input_wrong);
-            linearLayout2 = this.f879a.c;
-            i = this.f879a.y;
-            i2 = this.f879a.z;
+            linearLayout2 = this.f900a.c;
+            i = this.f900a.y;
+            i2 = this.f900a.z;
             linearLayout2.setPadding(i, 0, i2, 0);
         }
     }
@@ -133,20 +133,20 @@ public class h extends BdAsyncTask {
         LinearLayout linearLayout2;
         int i;
         int i2;
-        progressBar = this.f879a.f;
+        progressBar = this.f900a.f;
         progressBar.setVisibility(0);
-        relativeLayout = this.f879a.m;
+        relativeLayout = this.f900a.m;
         relativeLayout.setEnabled(false);
-        this.f879a.a(false);
-        textView = this.f879a.j;
+        this.f900a.a(false);
+        textView = this.f900a.j;
         textView.setVisibility(4);
-        textView2 = this.f879a.j;
+        textView2 = this.f900a.j;
         textView2.setText((CharSequence) null);
-        linearLayout = this.f879a.c;
+        linearLayout = this.f900a.c;
         linearLayout.setBackgroundResource(R.drawable.pass_input);
-        linearLayout2 = this.f879a.c;
-        i = this.f879a.y;
-        i2 = this.f879a.z;
+        linearLayout2 = this.f900a.c;
+        i = this.f900a.y;
+        i2 = this.f900a.z;
         linearLayout2.setPadding(i, 0, i2, 0);
         super.b();
     }
@@ -156,18 +156,18 @@ public class h extends BdAsyncTask {
         ProgressBar progressBar;
         boolean z;
         RelativeLayout relativeLayout;
-        this.f879a.o = null;
-        progressBar = this.f879a.f;
+        this.f900a.o = null;
+        progressBar = this.f900a.f;
         progressBar.setVisibility(8);
-        z = this.f879a.p;
+        z = this.f900a.p;
         if (z) {
-            relativeLayout = this.f879a.m;
+            relativeLayout = this.f900a.m;
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.i();
+            this.b.h();
         }
-        this.f879a.a(true);
+        this.f900a.a(true);
         super.cancel(true);
     }
 }

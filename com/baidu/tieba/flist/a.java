@@ -1,73 +1,98 @@
 package com.baidu.tieba.flist;
 
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.model.ForumListModel;
-import com.google.gson.JsonParseException;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class a extends BdAsyncTask {
+public class a extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1035a;
+    b f1037a;
+    Activity b;
+    private com.baidu.tieba.square.s c;
+    private int d = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(ForumListActivity forumListActivity) {
-        this.f1035a = forumListActivity;
+    public a(Activity activity) {
+        this.b = activity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public ForumListModel a(Void... voidArr) {
-        ForumListModel.RequestParams requestParams;
-        try {
-            ForumListActivity forumListActivity = this.f1035a;
-            requestParams = this.f1035a.o;
-            return ForumListModel.fetch(forumListActivity, requestParams);
-        } catch (JsonParseException e) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.c == null || this.c.e == null) {
+            return 0;
+        }
+        return this.c.e.size();
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        if (this.c == null || this.c.e == null) {
             return null;
         }
+        return this.c.e.get(i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(ForumListModel forumListModel) {
-        e eVar;
-        e eVar2;
-        e eVar3;
-        e eVar4;
-        if (forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null) {
-            eVar = this.f1035a.r;
-            eVar.a(forumListModel.recommend_list_left.forum_list);
-            this.f1035a.f1034a.h.addFooterView(this.f1035a.f1034a.l);
-            if (forumListModel.recommend_list_left.has_more == 1) {
-                this.f1035a.f1034a.f1046a.setVisibility(0);
-            } else {
-                this.f1035a.f1034a.f1046a.setVisibility(8);
-            }
-            ListView listView = this.f1035a.f1034a.h;
-            eVar2 = this.f1035a.r;
-            listView.setAdapter((ListAdapter) eVar2);
-            this.f1035a.f1034a.j.setText(forumListModel.forum_class[0]);
-            eVar3 = this.f1035a.s;
-            eVar3.a(forumListModel.recommend_list_right.forum_list);
-            this.f1035a.f1034a.i.addFooterView(this.f1035a.f1034a.o);
-            if (forumListModel.recommend_list_right.has_more == 1) {
-                this.f1035a.f1034a.b.setVisibility(0);
-            } else {
-                this.f1035a.f1034a.b.setVisibility(8);
-            }
-            ListView listView2 = this.f1035a.f1034a.i;
-            eVar4 = this.f1035a.s;
-            listView2.setAdapter((ListAdapter) eVar4);
-            this.f1035a.f1034a.k.setText(forumListModel.forum_class[1]);
-            this.f1035a.findViewById(R.id.loading).setVisibility(8);
-            this.f1035a.findViewById(R.id.item_root).setVisibility(0);
-            return;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        if (view == null) {
+            view = b();
         }
-        this.f1035a.finish();
+        if (this.c != null) {
+            com.baidu.tieba.square.s sVar = (com.baidu.tieba.square.s) this.c.e.get(i);
+            this.f1037a = (b) view.getTag();
+            if (sVar != null) {
+                a(this.f1037a, sVar, view, i);
+            }
+        }
+        return view;
+    }
+
+    public void a(int i) {
+        this.d = i;
+        notifyDataSetChanged();
+    }
+
+    public void a(com.baidu.tieba.square.s sVar) {
+        this.c = sVar;
+    }
+
+    public com.baidu.tieba.square.s a() {
+        return this.c;
+    }
+
+    private View b() {
+        View inflate = this.b.getLayoutInflater().inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
+        this.f1037a = new b(this);
+        this.f1037a.f1038a = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.f1037a.b = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.f1037a);
+        return inflate;
+    }
+
+    private void a(b bVar, com.baidu.tieba.square.s sVar, View view, int i) {
+        if (bVar != null && sVar != null) {
+            bVar.b.setText("");
+            if (i == 0) {
+                bVar.b.setText(this.b.getString(R.string.forum_list_menu_all));
+            } else {
+                bVar.b.setText(sVar.b);
+            }
+            if (i != this.d) {
+                bVar.f1038a.setVisibility(4);
+                bVar.b.setTextColor(this.b.getResources().getColor(R.color.forum_list_menu_notselected));
+                return;
+            }
+            bVar.f1038a.setVisibility(0);
+            bVar.b.setTextColor(this.b.getResources().getColor(R.color.forum_list_menu_selected));
+        }
     }
 }

@@ -5,18 +5,18 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f807a;
+    private String f830a;
     private int b;
     private int c;
     private boolean d;
 
     public e(JSONObject jSONObject) {
-        this.f807a = null;
+        this.f830a = null;
         this.b = 1;
         this.c = 1;
         this.d = false;
         if (jSONObject != null) {
-            this.f807a = jSONObject.optString("src");
+            this.f830a = jSONObject.optString("src");
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.b = Integer.valueOf(split[0]).intValue();
@@ -30,7 +30,7 @@ public class e {
             if (this.c <= 0) {
                 this.c = 1;
             }
-            if (this.f807a != null && this.f807a.indexOf(".baidu.com") != -1) {
+            if (this.f830a != null && this.f830a.indexOf(".baidu.com") != -1) {
                 this.d = true;
             }
         }
@@ -49,6 +49,6 @@ public class e {
     }
 
     public String d() {
-        return this.f807a;
+        return this.f830a;
     }
 }

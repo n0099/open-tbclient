@@ -3,11 +3,12 @@ package com.baidu.tieba.chat;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k {
+public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f940a;
+    public HeadImageView f950a;
     public TbRichTextView b;
     public TextView c;
     final /* synthetic */ j d;

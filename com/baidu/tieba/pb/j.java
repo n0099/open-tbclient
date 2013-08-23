@@ -3,6 +3,7 @@ package com.baidu.tieba.pb;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,15 +11,15 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class j extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1532a;
+    String f1570a;
     byte[] b;
     final /* synthetic */ ImageActivity c;
 
     public j(ImageActivity imageActivity, String str, byte[] bArr) {
         this.c = imageActivity;
-        this.f1532a = null;
+        this.f1570a = null;
         this.b = null;
-        this.f1532a = str;
+        this.f1570a = str;
         this.b = bArr;
     }
 
@@ -29,13 +30,13 @@ public class j extends BdAsyncTask {
         String str;
         String f;
         try {
-            if (this.f1532a != null && this.f1532a.length() > 0 && this.b != null) {
-                if (!com.baidu.tieba.util.am.a(this.b)) {
+            if (this.f1570a != null && this.f1570a.length() > 0 && this.b != null) {
+                if (!UtilHelper.a(this.b)) {
                     str = Util.PHOTO_DEFAULT_EXT;
                 } else {
                     str = ".gif";
                 }
-                if (com.baidu.tieba.util.ai.f(this.f1532a) == null) {
+                if (com.baidu.tieba.util.ap.f(this.f1570a) == null) {
                     return this.c.getString(R.string.save_error);
                 }
                 String str2 = String.valueOf(f) + str;
@@ -44,14 +45,14 @@ public class j extends BdAsyncTask {
                 }
                 String a2 = com.baidu.tieba.util.p.a(str2, this.b);
                 if (a2 != null) {
-                    new com.baidu.tieba.util.t(this.c).a(a2);
+                    new com.baidu.tieba.util.u(this.c).a(a2);
                     return this.c.getString(R.string.save_image_to_album);
                 }
                 return com.baidu.tieba.util.p.b();
             }
             return this.c.getString(R.string.save_error);
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            com.baidu.tieba.util.aq.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
             return this.c.getString(R.string.save_error);
         }
     }
@@ -67,7 +68,7 @@ public class j extends BdAsyncTask {
         this.c.j = null;
         button = this.c.k;
         button.setVisibility(0);
-        progressBar = this.c.f1434a;
+        progressBar = this.c.f1471a;
         progressBar.setVisibility(8);
     }
 
@@ -84,7 +85,7 @@ public class j extends BdAsyncTask {
         this.c.j = null;
         button = this.c.k;
         button.setVisibility(0);
-        progressBar = this.c.f1434a;
+        progressBar = this.c.f1471a;
         progressBar.setVisibility(8);
         super.cancel(true);
     }

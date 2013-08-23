@@ -1,23 +1,30 @@
 package com.baidu.tieba.home;
 
-import com.baidu.tieba.view.ImageViewDrawer;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class ah implements com.baidu.tbadk.a.d {
+class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecommendPagerAdapter f1118a;
-    private final /* synthetic */ ImageViewDrawer b;
+    ImageView f1153a;
+    TextView b;
+    LinearLayout c;
+    TextView d;
+    ImageView e;
+    TextView f;
+    TextView g;
+    ImageView h;
+    ImageButton i;
+    final /* synthetic */ af j;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(RecommendPagerAdapter recommendPagerAdapter, ImageViewDrawer imageViewDrawer) {
-        this.f1118a = recommendPagerAdapter;
-        this.b = imageViewDrawer;
+    private ah(af afVar) {
+        this.j = afVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        if (bVar != null) {
-            this.b.invalidate();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ah(af afVar, ah ahVar) {
+        this(afVar);
     }
 }

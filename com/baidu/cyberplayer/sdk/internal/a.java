@@ -12,7 +12,7 @@ import java.io.IOException;
 abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f715a = 7;
+    private int f738a = 7;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f20a;
@@ -64,15 +64,15 @@ abstract class a {
             @Override // java.lang.Runnable
             public void run() {
                 if (a.this.f21a != null && !a.this.f21a.onPrepare()) {
-                    a.this.f715a = 3;
+                    a.this.f738a = 3;
                 } else if (a.this.m7a() && a.this.m8b() && a.this.c()) {
-                    a.this.f715a = 0;
+                    a.this.f738a = 0;
                 }
                 if (a.this.f21a != null) {
-                    if (a.this.f715a == 5 || a.this.f715a == 7 || a.this.f715a == 4 || a.this.f715a == 0 || a.this.f715a == 9) {
+                    if (a.this.f738a == 5 || a.this.f738a == 7 || a.this.f738a == 4 || a.this.f738a == 0 || a.this.f738a == 9) {
                         a.this.b();
                     }
-                    a.this.f21a.onInstalled(a.this.f715a);
+                    a.this.f21a.onInstalled(a.this.f738a);
                 }
                 a.this.f22a.onInstallCompleted();
                 handlerThread.quit();
@@ -82,7 +82,7 @@ abstract class a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(int i) {
-        this.f715a = i;
+        this.f738a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -90,10 +90,10 @@ abstract class a {
         if (this.f21a != null) {
             int onPreInstall = this.f21a.onPreInstall();
             if (onPreInstall == 1) {
-                this.f715a = 2;
+                this.f738a = 2;
                 return false;
             } else if (onPreInstall == 2) {
-                this.f715a = 3;
+                this.f738a = 3;
                 b();
                 return false;
             }

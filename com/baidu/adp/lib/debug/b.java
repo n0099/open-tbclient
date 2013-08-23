@@ -11,7 +11,7 @@ public class b {
     private static String j = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f399a = null;
+    public static Handler f407a = null;
     public static int b = 0;
     public static boolean c = false;
     public static boolean d = false;
@@ -19,8 +19,8 @@ public class b {
     public static void a(int i2) {
         e = i2;
         try {
-            if (f399a != null) {
-                f399a.sendEmptyMessage(0);
+            if (f407a != null) {
+                f407a.sendEmptyMessage(0);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -34,8 +34,8 @@ public class b {
     public static void a(String str) {
         f = str;
         try {
-            if (f399a != null) {
-                f399a.sendEmptyMessage(1);
+            if (f407a != null) {
+                f407a.sendEmptyMessage(1);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -49,8 +49,8 @@ public class b {
     public static void b(String str) {
         g = str;
         try {
-            if (f399a != null) {
-                f399a.sendEmptyMessage(2);
+            if (f407a != null) {
+                f407a.sendEmptyMessage(2);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -64,8 +64,8 @@ public class b {
     public static void b(int i2) {
         h = i2;
         try {
-            if (f399a != null) {
-                f399a.sendEmptyMessage(3);
+            if (f407a != null) {
+                f407a.sendEmptyMessage(3);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -79,8 +79,8 @@ public class b {
     public static void c(int i2) {
         i = i2;
         try {
-            if (f399a != null) {
-                f399a.sendEmptyMessage(4);
+            if (f407a != null) {
+                f407a.sendEmptyMessage(4);
             }
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -94,8 +94,8 @@ public class b {
     public static void c(String str) {
         j = str;
         try {
-            if (f399a != null) {
-                f399a.sendEmptyMessage(5);
+            if (f407a != null) {
+                f407a.sendEmptyMessage(5);
             }
         } catch (Exception e2) {
             e2.printStackTrace();

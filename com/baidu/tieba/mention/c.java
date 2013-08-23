@@ -1,34 +1,20 @@
 package com.baidu.tieba.mention;
 
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements CompoundButton.OnCheckedChangeListener {
+public class c implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MentionActivity f1292a;
+    final /* synthetic */ MentionActivity f1326a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(MentionActivity mentionActivity) {
-        this.f1292a = mentionActivity;
+        this.f1326a = mentionActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        if (z) {
-            radioButton = this.f1292a.f;
-            if (compoundButton != radioButton) {
-                radioButton2 = this.f1292a.e;
-                if (compoundButton == radioButton2) {
-                    this.f1292a.a("atme", AtMeActivity.class);
-                }
-            } else {
-                this.f1292a.a("replyme", ReplyMeActivity.class);
-            }
-        }
-        this.f1292a.b();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1326a.finish();
     }
 }

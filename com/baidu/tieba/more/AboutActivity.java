@@ -11,19 +11,20 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.ca;
+import com.baidu.tieba.model.cc;
+import com.baidu.tieba.util.ao;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class AboutActivity extends com.baidu.tieba.g {
     private ImageView o;
 
     /* renamed from: a */
-    private TextView f1387a = null;
+    private TextView f1424a = null;
     private TextView b = null;
     private ImageView c = null;
     private Button d = null;
     private c e = null;
-    private ca f = null;
+    private cc f = null;
     private LinearLayout g = null;
     private ProgressBar j = null;
     private View k = null;
@@ -48,8 +49,8 @@ public class AboutActivity extends com.baidu.tieba.g {
         this.b = (TextView) findViewById(R.id.author);
         this.m = (TextView) findViewById(R.id.info);
         this.n = (ImageView) findViewById(R.id.divider);
-        this.f1387a = (TextView) findViewById(R.id.version);
-        this.f1387a.setText(String.valueOf(getString(R.string.app_name)) + " Android " + com.baidu.tieba.data.g.i());
+        this.f1424a = (TextView) findViewById(R.id.version);
+        this.f1424a.setText(String.valueOf(getString(R.string.app_name)) + " Android " + com.baidu.tieba.data.g.j());
         this.c = (ImageView) findViewById(R.id.title_back);
         this.c.setOnClickListener(new a(this));
         this.d = (Button) findViewById(R.id.check_update_button);
@@ -76,18 +77,18 @@ public class AboutActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.a(this.g, i);
-        com.baidu.tieba.util.ah.d(this.k, i);
-        com.baidu.tieba.util.ah.a(this.c, i);
-        com.baidu.tieba.util.ah.f(this.l, i);
+        ao.a(this.g, i);
+        ao.d(this.k, i);
+        ao.a(this.c, i);
+        ao.f(this.l, i);
         if (i == 1) {
-            this.f1387a.setTextColor(com.baidu.tieba.util.ah.a(i));
-            this.b.setTextColor(com.baidu.tieba.util.ah.a(i));
-            this.m.setTextColor(com.baidu.tieba.util.ah.a(i));
+            this.f1424a.setTextColor(ao.a(i));
+            this.b.setTextColor(ao.a(i));
+            this.m.setTextColor(ao.a(i));
             this.n.setImageResource(R.drawable.list_divider_1);
             return;
         }
-        this.f1387a.setTextColor(getResources().getColor(17170444));
+        this.f1424a.setTextColor(getResources().getColor(17170444));
         this.b.setTextColor(getResources().getColor(17170444));
         this.m.setTextColor(getResources().getColor(17170444));
         this.n.setImageResource(R.drawable.list_divider);
@@ -103,7 +104,7 @@ public class AboutActivity extends com.baidu.tieba.g {
     }
 
     public void c() {
-        if (TiebaApplication.aY()) {
+        if (TiebaApplication.aP()) {
             this.o.setVisibility(0);
         } else {
             this.o.setVisibility(8);

@@ -14,10 +14,10 @@ import java.util.List;
 public class VerticalTranslateLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f481a;
-    private m A;
-    private j B;
-    private n C;
+    static final /* synthetic */ boolean f499a;
+    private w A;
+    private t B;
+    private x C;
     private int b;
     private int c;
     private float d;
@@ -37,11 +37,11 @@ public class VerticalTranslateLayout extends FrameLayout {
     private int r;
     private int s;
     private boolean t;
-    private final g u;
-    private final h v;
-    private final o w;
-    private l x;
-    private i y;
+    private final q u;
+    private final r v;
+    private final y w;
+    private v x;
+    private s y;
     private final List z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -64,7 +64,7 @@ public class VerticalTranslateLayout extends FrameLayout {
     }
 
     static {
-        f481a = !VerticalTranslateLayout.class.desiredAssertionStatus();
+        f499a = !VerticalTranslateLayout.class.desiredAssertionStatus();
     }
 
     @Override // android.view.View
@@ -113,24 +113,24 @@ public class VerticalTranslateLayout extends FrameLayout {
         return this.m;
     }
 
-    public void setTopAnimationListener(l lVar) {
-        this.x = lVar;
+    public void setTopAnimationListener(v vVar) {
+        this.x = vVar;
     }
 
-    public void setBottomAnimationListener(i iVar) {
-        this.y = iVar;
+    public void setBottomAnimationListener(s sVar) {
+        this.y = sVar;
     }
 
-    public void setTopTrackListener(m mVar) {
-        this.A = mVar;
+    public void setTopTrackListener(w wVar) {
+        this.A = wVar;
     }
 
-    public void setBottomTrackListener(j jVar) {
-        this.B = jVar;
+    public void setBottomTrackListener(t tVar) {
+        this.B = tVar;
     }
 
-    public void setVerticalTrackListener(n nVar) {
-        this.C = nVar;
+    public void setVerticalTrackListener(x xVar) {
+        this.C = xVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -197,7 +197,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     if (this.w.b) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
                         this.w.a();
-                        o.a(this.w);
+                        y.a(this.w);
                         return true;
                     }
                     return true;
@@ -214,7 +214,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                         }
                         this.w.b(this.s - y);
                         this.s = y;
-                        this.w.f492a.addMovement(motionEvent);
+                        this.w.f515a.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -237,7 +237,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             case 3:
                 if (this.w.b) {
                     this.w.a();
-                    o.a(this.w);
+                    y.a(this.w);
                     return true;
                 }
                 return true;
@@ -249,7 +249,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (this.w.b) {
             this.w.b(this.s - y);
             this.s = y;
-            this.w.f492a.addMovement(motionEvent);
+            this.w.f515a.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -281,10 +281,10 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (this.g != -1.0f) {
             this.f = i3 - this.e;
         }
-        if (!f481a && i3 < this.d) {
+        if (!f499a && i3 < this.d) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!f481a && i3 < this.f) {
+        if (!f499a && i3 < this.f) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
         this.b = getMeasuredWidth();

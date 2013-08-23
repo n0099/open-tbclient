@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f642a;
+    public int f665a;
     public String b;
     public String c;
     public String d;
@@ -40,7 +40,7 @@ public final class b {
         int columnIndex6 = cursor.getColumnIndex("lauper");
         int columnIndex7 = cursor.getColumnIndex("timeper");
         int columnIndex8 = cursor.getColumnIndex("timecur");
-        this.f642a = cursor.getInt(columnIndex);
+        this.f665a = cursor.getInt(columnIndex);
         this.d = cursor.getString(columnIndex2);
         if (!TextUtils.isEmpty(this.d)) {
             try {

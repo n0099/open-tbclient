@@ -8,20 +8,20 @@ import com.baidu.tieba.util.DatabaseService;
 class af implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1399a;
+    final /* synthetic */ MsgRemindActivity f1436a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(MsgRemindActivity msgRemindActivity) {
-        this.f1399a = msgRemindActivity;
+        this.f1436a = msgRemindActivity;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            TiebaApplication.f().l(true);
+            TiebaApplication.g().k(true);
         } else {
-            TiebaApplication.f().l(false);
+            TiebaApplication.g().k(false);
         }
-        DatabaseService.w();
+        DatabaseService.u();
     }
 }

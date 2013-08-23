@@ -1,26 +1,31 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tbadk.a.d {
+class h implements com.baidu.tieba.view.ax {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1082a;
+    final /* synthetic */ FrsActivity f1101a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(FrsActivity frsActivity) {
-        this.f1082a = frsActivity;
+        this.f1101a = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        az azVar;
-        if (bVar != null) {
-            azVar = this.f1082a.l;
-            View d = azVar.d(str);
-            if (d != null) {
-                d.invalidate();
+    @Override // com.baidu.tieba.view.ax
+    public void a(boolean z) {
+        bb bbVar;
+        com.baidu.tieba.model.aa aaVar;
+        com.baidu.tieba.model.aa aaVar2;
+        if (z) {
+            bbVar = this.f1101a.l;
+            if (!bbVar.h()) {
+                aaVar = this.f1101a.v;
+                if (aaVar != null) {
+                    aaVar2 = this.f1101a.v;
+                    if (aaVar2.b().size() != 0) {
+                        return;
+                    }
+                }
+                this.f1101a.A();
             }
         }
     }

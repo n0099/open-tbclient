@@ -1,31 +1,38 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.data.be;
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-class ae implements com.baidu.tieba.model.aj {
+public class ae {
+    private static ArrayList b = new ArrayList();
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1748a;
-    private final /* synthetic */ af b;
+    public static AtomicInteger f1779a = new AtomicInteger(0);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(aa aaVar, af afVar) {
-        this.f1748a = aaVar;
-        this.b = afVar;
+    public static int a(int i) {
+        return f1779a.getAndSet(i);
     }
 
-    @Override // com.baidu.tieba.model.aj
-    public void a() {
+    public static int b(int i) {
+        return f1779a.addAndGet(i);
     }
 
-    @Override // com.baidu.tieba.model.aj
-    public void a(be beVar) {
-        if (beVar != null && beVar.b() == 0) {
-            if (this.b != null) {
-                this.b.a(beVar.a());
+    public static synchronized void a(af afVar) {
+        synchronized (ae.class) {
+            if (afVar != null) {
+                if (b.size() <= 20) {
+                    b.add(afVar);
+                }
             }
-        } else if (this.b != null) {
-            this.b.a(null);
         }
+    }
+
+    public static synchronized af a() {
+        af afVar;
+        synchronized (ae.class) {
+            int size = b.size();
+            afVar = size > 0 ? (af) b.remove(size - 1) : null;
+        }
+        return afVar;
     }
 }

@@ -232,13 +232,6 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.T = !z;
     }
 
-    public void a(Intent intent, int i) {
-        if (this.C == null) {
-            throw new IllegalStateException("Fragment " + this + " not attached to Activity");
-        }
-        this.C.startActivityFromFragment(this, intent, i);
-    }
-
     public void a(int i, int i2, Intent intent) {
     }
 

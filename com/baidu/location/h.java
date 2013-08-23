@@ -11,7 +11,7 @@ class h {
     private static String f207if = f.v;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f752a = 100;
+    private static int f775a = 100;
 
     /* renamed from: try  reason: not valid java name */
     private static long f210try = 64;
@@ -33,7 +33,7 @@ class h {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f753a;
+        private int f776a;
 
         /* renamed from: do  reason: not valid java name */
         private int f211do;
@@ -57,21 +57,21 @@ class h {
             this.f211do = 0;
             this.f216try = 0;
             this.f213if = 0;
-            this.f753a = 0;
+            this.f776a = 0;
             this.f215new = 0.0d;
             this.f214int = 0.0d;
             this.f212for = 0.0f;
             this.f211do = i;
             this.f216try = i2;
             this.f213if = i3;
-            this.f753a = i4;
+            this.f776a = i4;
             this.f215new = d;
             this.f214int = d2;
             this.f212for = f;
         }
 
         public boolean a(int i, int i2, int i3) {
-            return this.f753a == i && this.f211do == i2 && this.f216try == i3;
+            return this.f776a == i && this.f211do == i2 && this.f216try == i3;
         }
     }
 
@@ -130,7 +130,7 @@ class h {
             f208int = new ArrayList();
         }
         f208int.add(new a(aVar.f143for, aVar.f147try, aVar.f142do, aVar.f144if, d, d2, f2));
-        if (f208int.size() > f752a) {
+        if (f208int.size() > f775a) {
             f208int.remove(0);
         }
         j.a(f207if, "locCache add new cell info into loc cache ...");
@@ -163,11 +163,11 @@ class h {
             while (size >= 0) {
                 a aVar = (a) f208int.get(size);
                 if (aVar != null) {
-                    randomAccessFile.seek(f210try + (f209new * (size % f752a)));
+                    randomAccessFile.seek(f210try + (f209new * (size % f775a)));
                     randomAccessFile.writeFloat(aVar.f212for);
                     randomAccessFile.writeInt(aVar.f213if);
                     randomAccessFile.writeDouble(aVar.f215new);
-                    randomAccessFile.writeInt(aVar.f753a);
+                    randomAccessFile.writeInt(aVar.f776a);
                     randomAccessFile.writeDouble(aVar.f214int);
                     randomAccessFile.writeInt(aVar.f211do);
                     randomAccessFile.writeInt(aVar.f216try);

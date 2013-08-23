@@ -7,15 +7,16 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1906a;
+    private Context f1937a;
 
     public m(Context context) {
-        this.f1906a = null;
-        this.f1906a = context;
+        this.f1937a = null;
+        this.f1937a = context;
     }
 
     @Override // android.widget.Adapter
@@ -37,9 +38,9 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ImageView imageView;
         if (view == null) {
-            ImageView imageView2 = new ImageView(this.f1906a);
+            ImageView imageView2 = new ImageView(this.f1937a);
             imageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            int a2 = com.baidu.tieba.util.am.a(this.f1906a, 50.0f);
+            int a2 = UtilHelper.a(this.f1937a, 50.0f);
             imageView2.setLayoutParams(new AbsListView.LayoutParams(a2, a2));
             imageView = imageView2;
             view = imageView2;

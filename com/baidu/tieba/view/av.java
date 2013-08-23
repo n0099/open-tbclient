@@ -1,22 +1,26 @@
 package com.baidu.tieba.view;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class av implements o {
+class av implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f1823a;
+    final /* synthetic */ NoNetworkView f1855a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(MultiImageView multiImageView) {
-        this.f1823a = multiImageView;
+    public av(NoNetworkView noNetworkView) {
+        this.f1855a = noNetworkView;
     }
 
-    @Override // com.baidu.tieba.view.o
-    public void a(j jVar, boolean z, boolean z2) {
-        GalleryViewPager galleryViewPager;
-        galleryViewPager = this.f1823a.e;
-        if (galleryViewPager.getSelectedView() == jVar) {
-            this.f1823a.setZoomButton(jVar);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
     }
 }

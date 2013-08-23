@@ -3,7 +3,7 @@ package com.baidu.adp.lib.cache;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f375a;
+    public String f381a;
     public String b;
     public int c;
     public String d;

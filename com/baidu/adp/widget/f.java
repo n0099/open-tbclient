@@ -1,53 +1,6 @@
 package com.baidu.adp.widget;
-
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class f implements ListAdapter {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final DataSetObservable f489a = new DataSetObservable();
-
-    public abstract void a(View view, AdapterView adapterView, int i);
-
-    public abstract int b();
-
-    public abstract View c_();
-
-    @Override // android.widget.Adapter
-    public boolean hasStableIds() {
-        return true;
-    }
-
-    @Override // android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        this.f489a.registerObserver(dataSetObserver);
-    }
-
-    @Override // android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        this.f489a.unregisterObserver(dataSetObserver);
-    }
-
-    public void a() {
-        this.f489a.notifyChanged();
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean areAllItemsEnabled() {
-        return true;
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        return true;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean isEmpty() {
-        return getCount() == 0;
-    }
+public interface f {
+    void a(int i);
 }

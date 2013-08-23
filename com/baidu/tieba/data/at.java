@@ -1,52 +1,41 @@
 package com.baidu.tieba.data;
+
+import android.content.Context;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at {
+public class at extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile long f982a = 0;
-    private volatile long b = 0;
-    private volatile int c = 0;
-    private volatile boolean d = false;
+    final /* synthetic */ as f992a;
+    private String b;
+    private String c;
+    private Context d;
 
-    public void a(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.f982a = i;
-        }
+    public at(as asVar, Context context, String str, String str2) {
+        this.f992a = asVar;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.b = str;
+        this.c = str2;
+        this.d = context;
     }
 
-    public void b(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.b = i;
-        }
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        textPaint.setColor(-9989158);
+        textPaint.setUnderlineText(false);
+        textPaint.setFakeBoldText(false);
     }
 
-    public void c(int i) {
-        if (i != 0) {
-            this.d = true;
-            this.c = i;
-        }
-    }
-
-    public void a() {
-        this.d = false;
-        this.f982a = 0L;
-        this.b = 0L;
-        this.c = 0;
-    }
-
-    public void a(com.baidu.tieba.util.u uVar) {
-        if (uVar != null) {
-            if (this.f982a != 0) {
-                uVar.a("ctime", String.valueOf(this.f982a));
-            }
-            if (this.b != 0) {
-                uVar.a("data_size", String.valueOf(this.b));
-            }
-            if (this.c != 0) {
-                uVar.a("net_error", String.valueOf(this.c));
-            }
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+        if (this.b != null && this.c != null && this.d != null) {
+            PersonInfoActivity.a(this.d, this.c, this.b);
         }
     }
 }

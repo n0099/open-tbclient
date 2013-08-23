@@ -17,7 +17,7 @@ public class BannerData extends b implements Serializable {
                 this.mUrl = jSONObject.optString("message_url", null);
                 this.mResultUrl = jSONObject.optString("dest_url", null);
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.a(e.getMessage());
+                com.baidu.tieba.util.aq.a(e.getMessage());
             }
         }
     }

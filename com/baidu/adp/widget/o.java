@@ -1,250 +1,53 @@
 package com.baidu.adp.widget;
 
-import android.util.Log;
-import android.view.VelocityTracker;
-import com.baidu.adp.widget.VerticalTranslateLayout;
+import android.database.DataSetObservable;
+import android.database.DataSetObserver;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-public class o {
-    private static /* synthetic */ int[] f;
+public abstract class o implements ListAdapter {
 
-    /* renamed from: a */
-    VelocityTracker f492a;
-    boolean b;
-    final int c;
-    final int d;
-    final /* synthetic */ VerticalTranslateLayout e;
+    /* renamed from: a  reason: collision with root package name */
+    private final DataSetObservable f510a = new DataSetObservable();
 
-    static /* synthetic */ int[] b() {
-        int[] iArr = f;
-        if (iArr == null) {
-            iArr = new int[VerticalTranslateLayout.TrackDirection.valuesCustom().length];
-            try {
-                iArr[VerticalTranslateLayout.TrackDirection.bottom.ordinal()] = 2;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[VerticalTranslateLayout.TrackDirection.none.ordinal()] = 4;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[VerticalTranslateLayout.TrackDirection.top.ordinal()] = 1;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[VerticalTranslateLayout.TrackDirection.vertical.ordinal()] = 3;
-            } catch (NoSuchFieldError e4) {
-            }
-            f = iArr;
-        }
-        return iArr;
-    }
+    public abstract void a(View view, AdapterView adapterView, int i);
 
-    public boolean a(int i) {
-        VerticalTranslateLayout.TrackDirection trackDirection;
-        n nVar;
-        n nVar2;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        int[] b = b();
-        trackDirection = this.e.l;
-        switch (b[trackDirection.ordinal()]) {
-            case 1:
-                i4 = this.e.m;
-                if (i4 != 10004) {
-                    i5 = this.e.m;
-                    if (i5 != 10000) {
-                        return false;
-                    }
-                }
-                break;
-            case 2:
-                i2 = this.e.m;
-                if (i2 != 10004) {
-                    i3 = this.e.m;
-                    if (i3 != 10001) {
-                        return false;
-                    }
-                }
-                break;
-            case 3:
-                nVar = this.e.C;
-                if (nVar != null) {
-                    nVar2 = this.e.C;
-                    nVar2.a(i);
-                    break;
-                }
-                break;
-        }
-        this.f492a = VelocityTracker.obtain();
-        this.b = true;
+    public abstract int b();
+
+    public abstract View c();
+
+    @Override // android.widget.Adapter
+    public boolean hasStableIds() {
         return true;
     }
 
+    @Override // android.widget.Adapter
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        this.f510a.registerObserver(dataSetObserver);
+    }
+
+    @Override // android.widget.Adapter
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
+        this.f510a.unregisterObserver(dataSetObserver);
+    }
+
     public void a() {
-        this.b = false;
+        this.f510a.notifyChanged();
     }
 
-    public void b(int i) {
-        int i2;
-        VerticalTranslateLayout.TrackDirection trackDirection;
-        float f2;
-        int i3;
-        int i4;
-        float f3;
-        int i5;
-        int i6;
-        float f4;
-        int i7;
-        float f5;
-        int i8;
-        int i9;
-        if (this.b) {
-            i2 = this.e.h;
-            int i10 = i2 - i;
-            int[] b = b();
-            trackDirection = this.e.l;
-            switch (b[trackDirection.ordinal()]) {
-                case 1:
-                    Log.d("VerticalTranslateLayout", "@move top");
-                    f5 = this.e.d;
-                    i8 = this.e.c;
-                    if (i10 > f5 - i8 && i10 < 0) {
-                        VerticalTranslateLayout verticalTranslateLayout = this.e;
-                        i9 = verticalTranslateLayout.h;
-                        verticalTranslateLayout.h = i9 - i;
-                        this.e.invalidate();
-                        return;
-                    }
-                    return;
-                case 2:
-                    Log.d("VerticalTranslateLayout", "@move bottom");
-                    i6 = this.e.c;
-                    f4 = this.e.f;
-                    if (i10 < i6 - f4 && i10 > 0) {
-                        VerticalTranslateLayout verticalTranslateLayout2 = this.e;
-                        i7 = verticalTranslateLayout2.h;
-                        verticalTranslateLayout2.h = i7 - i;
-                        this.e.invalidate();
-                        return;
-                    }
-                    return;
-                case 3:
-                    Log.d("VerticalTranslateLayout", "@move vertical");
-                    f2 = this.e.d;
-                    i3 = this.e.c;
-                    if (i10 >= f2 - i3) {
-                        i4 = this.e.c;
-                        f3 = this.e.f;
-                        if (i10 <= i4 - f3) {
-                            VerticalTranslateLayout verticalTranslateLayout3 = this.e;
-                            i5 = verticalTranslateLayout3.h;
-                            verticalTranslateLayout3.h = i5 - i;
-                            this.e.invalidate();
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                default:
-                    return;
-            }
-        }
+    @Override // android.widget.ListAdapter
+    public boolean areAllItemsEnabled() {
+        return true;
     }
 
-    public void c() {
-        float max;
-        VerticalTranslateLayout.TrackDirection trackDirection;
-        this.f492a.computeCurrentVelocity(this.c);
-        float yVelocity = this.f492a.getYVelocity();
-        Log.d("VerticalTranslateLayout", "@fling y " + yVelocity);
-        if (yVelocity < 0.0f) {
-            max = Math.min(yVelocity, -this.d);
-        } else {
-            max = Math.max(yVelocity, this.d);
-        }
-        int[] b = b();
-        trackDirection = this.e.l;
-        switch (b[trackDirection.ordinal()]) {
-            case 1:
-                b(max);
-                break;
-            case 2:
-                c(max);
-                break;
-            case 3:
-                a(max);
-                break;
-        }
-        this.f492a.recycle();
-        this.f492a = null;
+    @Override // android.widget.ListAdapter
+    public boolean isEnabled(int i) {
+        return true;
     }
 
-    private void a(float f2) {
-        int i;
-        int i2;
-        float f3;
-        h hVar;
-        h hVar2;
-        float f4;
-        int i3;
-        h hVar3;
-        h hVar4;
-        Log.d("VerticalTranslateLayout", "@verticalFling");
-        i = this.e.h;
-        if (i <= 0) {
-            f4 = this.e.d;
-            i3 = this.e.c;
-            if (i >= f4 - i3) {
-                if (f2 < 0.0f) {
-                    hVar4 = this.e.v;
-                    hVar4.c(f2);
-                    return;
-                }
-                hVar3 = this.e.v;
-                hVar3.a(f2);
-                return;
-            }
-        }
-        if (i >= 0) {
-            i2 = this.e.c;
-            f3 = this.e.f;
-            if (i <= i2 - f3) {
-                if (f2 < 0.0f) {
-                    hVar2 = this.e.v;
-                    hVar2.b(f2);
-                    return;
-                }
-                hVar = this.e.v;
-                hVar.d(f2);
-            }
-        }
-    }
-
-    private void b(float f2) {
-        h hVar;
-        h hVar2;
-        Log.d("VerticalTranslateLayout", "@topFling");
-        if (f2 < 0.0f) {
-            hVar2 = this.e.v;
-            hVar2.c(f2);
-            return;
-        }
-        hVar = this.e.v;
-        hVar.a(f2);
-    }
-
-    private void c(float f2) {
-        h hVar;
-        h hVar2;
-        Log.d("VerticalTranslateLayout", "@bottomFling");
-        if (f2 < 0.0f) {
-            hVar2 = this.e.v;
-            hVar2.b(f2);
-            return;
-        }
-        hVar = this.e.v;
-        hVar.d(f2);
+    @Override // android.widget.Adapter
+    public boolean isEmpty() {
+        return getCount() == 0;
     }
 }

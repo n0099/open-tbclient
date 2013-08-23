@@ -8,10 +8,10 @@ import java.lang.ref.WeakReference;
 public class d extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference f1174a;
+    private WeakReference f1206a;
 
     public d(TimerTextView timerTextView) {
-        this.f1174a = new WeakReference(timerTextView);
+        this.f1206a = new WeakReference(timerTextView);
     }
 
     @Override // android.os.Handler
@@ -19,7 +19,7 @@ public class d extends Handler {
         TimerTextView timerTextView;
         b bVar;
         b bVar2;
-        if (message.what != 65536 || (timerTextView = (TimerTextView) this.f1174a.get()) == null) {
+        if (message.what != 65536 || (timerTextView = (TimerTextView) this.f1206a.get()) == null) {
             return;
         }
         bVar = timerTextView.b;

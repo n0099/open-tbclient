@@ -8,7 +8,7 @@ import java.util.Iterator;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static c f663a = null;
+    private static c f686a = null;
     private ArrayList b = new ArrayList();
 
     private c(Context context) {
@@ -18,10 +18,10 @@ public final class c {
     public static synchronized c a(Context context) {
         c cVar;
         synchronized (c.class) {
-            if (f663a == null) {
-                f663a = new c(context);
+            if (f686a == null) {
+                f686a = new c(context);
             }
-            cVar = f663a;
+            cVar = f686a;
         }
         return cVar;
     }
@@ -40,10 +40,10 @@ public final class c {
     }
 
     public static void c() {
-        if (f663a != null) {
-            f663a.b();
+        if (f686a != null) {
+            f686a.b();
         }
-        f663a = null;
+        f686a = null;
     }
 
     public ArrayList a() {

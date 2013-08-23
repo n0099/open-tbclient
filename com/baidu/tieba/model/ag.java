@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.v f1324a = new com.baidu.tieba.data.v();
+    private com.baidu.tieba.data.v f1359a = new com.baidu.tieba.data.v();
     private ArrayList b = new ArrayList();
     private ArrayList c = new ArrayList();
     private int d = 0;
     private int e = 0;
     private int f = 0;
     private AntiData g = new AntiData();
-    private com.baidu.tieba.data.ap h = new com.baidu.tieba.data.ap();
+    private com.baidu.tieba.data.al h = new com.baidu.tieba.data.al();
 
     public ArrayList a() {
         return this.b;
@@ -24,7 +24,7 @@ public class ag {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1324a.a(jSONObject.optJSONObject("forum"));
+                this.f1359a.a(jSONObject.optJSONObject("forum"));
                 this.h.a(jSONObject.optJSONObject("user"));
                 this.g.parserJson(jSONObject.optJSONObject("anti"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
@@ -32,9 +32,9 @@ public class ag {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.bn bnVar = new com.baidu.tieba.data.bn();
-                            bnVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(bnVar);
+                            com.baidu.tieba.data.bi biVar = new com.baidu.tieba.data.bi();
+                            biVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(biVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");
@@ -48,7 +48,7 @@ public class ag {
                     this.f = optJSONObject.optInt("current_count", 0);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

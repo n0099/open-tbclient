@@ -17,7 +17,7 @@ public final class d {
     private static d b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f685a = false;
+    boolean f708a = false;
     private Context c;
     private com.baidu.android.systemmonitor.a.c d;
 
@@ -76,7 +76,7 @@ public final class d {
         switch (i) {
             case 1:
                 try {
-                    cursor = this.d.b().query("power", c.f684a, str, strArr, null, null, "startstamp ASC");
+                    cursor = this.d.b().query("power", c.f707a, str, strArr, null, null, "startstamp ASC");
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -264,10 +264,10 @@ public final class d {
     }
 
     public void a() {
-        if (this.d == null || this.f685a) {
+        if (this.d == null || this.f708a) {
             return;
         }
-        this.f685a = true;
+        this.f708a = true;
         this.d.c();
         this.d = null;
     }
@@ -403,7 +403,7 @@ public final class d {
             contentValues.put("startstamp", Long.valueOf(cVar.g));
             switch (cVar.h) {
                 case 1:
-                    contentValues.put("stopstamp", Long.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.e) cVar).f681a));
+                    contentValues.put("stopstamp", Long.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.e) cVar).f704a));
                     insert = this.d.a().insert("power", null, contentValues);
                     break;
                 case 2:
@@ -412,17 +412,17 @@ public final class d {
                     contentValues.put("startlevel", Integer.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).b));
                     contentValues.put("stoplevel", Integer.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).c));
                     contentValues.put("netype", Integer.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).d));
-                    contentValues.put("loc", ((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).f679a);
+                    contentValues.put("loc", ((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).f702a);
                     insert = this.d.a().insert("charge", null, contentValues);
                     break;
                 case 3:
-                    contentValues.put("stopstamp", Long.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) cVar).f680a));
+                    contentValues.put("stopstamp", Long.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) cVar).f703a));
                     contentValues.put("netype", Integer.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) cVar).b));
                     contentValues.put("flow", Long.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) cVar).c));
                     insert = this.d.a().insert("network", null, contentValues);
                     break;
                 case 4:
-                    contentValues.put("pconum", Integer.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.f) cVar).f682a));
+                    contentValues.put("pconum", Integer.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.f) cVar).f705a));
                     contentValues.put("sconum", Integer.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.f) cVar).b));
                     contentValues.put("msnum", Integer.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.f) cVar).c));
                     contentValues.put("msinfo", ((com.baidu.android.systemmonitor.devicestatistic.a.f) cVar).d);
@@ -438,7 +438,7 @@ public final class d {
                     insert = this.d.a().insert("stinfo", null, contentValues);
                     break;
                 case 5:
-                    contentValues.put("dnpath", ((com.baidu.android.systemmonitor.devicestatistic.a.a) cVar).f678a);
+                    contentValues.put("dnpath", ((com.baidu.android.systemmonitor.devicestatistic.a.a) cVar).f701a);
                     contentValues.put("downame", ((com.baidu.android.systemmonitor.devicestatistic.a.a) cVar).b);
                     insert = this.d.a().insert("apkdn", null, contentValues);
                     break;

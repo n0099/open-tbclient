@@ -1,21 +1,23 @@
 package com.baidu.tieba.pb;
+
+import android.widget.GridView;
 /* loaded from: classes.dex */
 class co implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ck f1507a;
+    final /* synthetic */ cl f1544a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public co(ck ckVar) {
-        this.f1507a = ckVar;
+    public co(cl clVar) {
+        this.f1544a = clVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        bn bnVar;
-        cu cuVar;
-        bnVar = this.f1507a.f1503a;
-        cuVar = bnVar.z;
-        cuVar.c();
+        bo boVar;
+        GridView gridView;
+        boVar = this.f1544a.f1541a;
+        gridView = boVar.I;
+        gridView.setVisibility(8);
     }
 }

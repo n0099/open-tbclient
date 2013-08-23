@@ -7,20 +7,20 @@ import com.baidu.tieba.TiebaApplication;
 class aj implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignRemindActivity f1403a;
+    final /* synthetic */ SignRemindActivity f1440a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(SignRemindActivity signRemindActivity) {
-        this.f1403a = signRemindActivity;
+        this.f1440a = signRemindActivity;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            TiebaApplication.f().q(true);
+            TiebaApplication.g().p(true);
         } else {
-            TiebaApplication.f().q(false);
+            TiebaApplication.g().p(false);
         }
-        this.f1403a.d();
+        this.f1440a.d();
     }
 }

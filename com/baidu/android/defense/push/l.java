@@ -10,7 +10,7 @@ import java.util.Iterator;
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f509a = l.class.getSimpleName();
+    private static final String f532a = l.class.getSimpleName();
 
     private l() {
     }

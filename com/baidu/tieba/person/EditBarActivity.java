@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class EditBarActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.model.b f1550a = null;
+    private com.baidu.tieba.model.b f1588a = null;
     private ListView b = null;
     private ImageView c = null;
     private Button d = null;
@@ -24,16 +24,19 @@ public class EditBarActivity extends com.baidu.tieba.g {
     private ProgressBar f = null;
     private h g = null;
     private int j = -1;
-    private i k = null;
-    private RelativeLayout l = null;
-    private LinearLayout m = null;
-    private TextView n = null;
-    private String o = null;
+    private String k = null;
+    private i l = null;
+    private RelativeLayout m = null;
+    private LinearLayout n = null;
+    private TextView o = null;
+    private String p = null;
+    private int q = 0;
 
-    public static void a(Activity activity, int i, String str) {
+    public static void a(Activity activity, int i, String str, int i2) {
         Intent intent = new Intent(activity, EditBarActivity.class);
         if (str != null) {
             intent.putExtra("view_user_id", str);
+            intent.putExtra("user_sex", i2);
         }
         activity.startActivityForResult(intent, i);
     }
@@ -54,8 +57,8 @@ public class EditBarActivity extends com.baidu.tieba.g {
         if (this.g != null) {
             this.g.cancel();
         }
-        if (this.k != null) {
-            this.k.cancel();
+        if (this.l != null) {
+            this.l.cancel();
         }
         if (this.f != null) {
             this.f.setVisibility(8);
@@ -73,19 +76,20 @@ public class EditBarActivity extends com.baidu.tieba.g {
     }
 
     private void c() {
-        this.f1550a = new com.baidu.tieba.model.b();
-        this.o = getIntent().getStringExtra("view_user_id");
+        this.f1588a = new com.baidu.tieba.model.b();
+        this.p = getIntent().getStringExtra("view_user_id");
+        this.q = getIntent().getIntExtra("user_sex", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.a(this.l, i);
-        com.baidu.tieba.util.ah.d(this.m, i);
-        com.baidu.tieba.util.ah.f(this.n, i);
-        com.baidu.tieba.util.ah.a(this.c, i);
-        com.baidu.tieba.util.ah.g((TextView) this.d, i);
+        com.baidu.tieba.util.ao.a(this.m, i);
+        com.baidu.tieba.util.ao.d(this.n, i);
+        com.baidu.tieba.util.ao.f(this.o, i);
+        com.baidu.tieba.util.ao.a(this.c, i);
+        com.baidu.tieba.util.ao.g((TextView) this.d, i);
         this.e.notifyDataSetChanged();
         if (i == 1) {
             this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -97,26 +101,32 @@ public class EditBarActivity extends com.baidu.tieba.g {
     }
 
     private void d() {
-        this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.m = (LinearLayout) findViewById(R.id.title);
-        this.n = (TextView) findViewById(R.id.title_text);
+        this.m = (RelativeLayout) findViewById(R.id.parent);
+        this.n = (LinearLayout) findViewById(R.id.title);
+        this.o = (TextView) findViewById(R.id.title_text);
         this.f = (ProgressBar) findViewById(R.id.progress);
         this.c = (ImageView) findViewById(R.id.back);
         this.c.setOnClickListener(new d(this));
-        this.e = new j(this, this.f1550a);
+        this.e = new j(this, this.f1588a, this.q);
         this.e.a(new e(this));
         this.b = (ListView) findViewById(R.id.list);
         this.b.setAdapter((ListAdapter) this.e);
         this.b.setOnItemClickListener(new f(this));
         this.d = (Button) findViewById(R.id.edit);
         this.d.setOnClickListener(new g(this));
-        if (this.o != null) {
+        if (this.p != null) {
             this.d.setVisibility(4);
-            this.n.setText(getString(R.string.its_bar));
+            if (this.q == 2) {
+                this.o.setText(getString(R.string.her_attention_forums));
+            } else if (this.q == 1) {
+                this.o.setText(getString(R.string.his_attention_forums));
+            } else {
+                this.o.setText(getString(R.string.ta_attention_forums));
+            }
             this.e.b(false);
             return;
         }
-        this.n.setText(getString(R.string.my_bar));
+        this.o.setText(getString(R.string.my_bar));
         this.e.b(true);
     }
 
@@ -127,7 +137,7 @@ public class EditBarActivity extends com.baidu.tieba.g {
             if (this.e.c()) {
                 this.d.setVisibility(4);
                 this.e.a(false);
-            } else if (this.o == null) {
+            } else if (this.p == null) {
                 this.d.setVisibility(0);
             }
         }

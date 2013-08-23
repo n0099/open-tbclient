@@ -1,28 +1,22 @@
 package com.baidu.tieba.home;
-
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t {
+public class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1161a;
-    RelativeLayout b;
-    ImageView c;
-    TextView d;
-    TextView e;
-    ImageView f;
-    t g;
-    final /* synthetic */ r h;
-
-    private t(r rVar) {
-        this.h = rVar;
-    }
+    final /* synthetic */ s f1194a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(r rVar, t tVar) {
-        this(rVar);
+    public t(s sVar) {
+        this.f1194a = sVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        z = this.f1194a.p;
+        if (z) {
+            this.f1194a.j();
+        }
     }
 }

@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class VcodeActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private WriteData f1865a = null;
+    private WriteData f1896a = null;
     private ImageView b = null;
     private Button c = null;
     private ImageView d = null;
@@ -56,15 +56,15 @@ public class VcodeActivity extends com.baidu.tieba.g {
         setContentView(R.layout.vcode_activity);
         b();
         a(bundle);
-        c(this.f1865a.getVcodeUrl());
+        c(this.f1896a.getVcodeUrl());
     }
 
     private void a(Bundle bundle) {
         this.l = new n(this);
         if (bundle != null) {
-            this.f1865a = (WriteData) bundle.getSerializable("model");
+            this.f1896a = (WriteData) bundle.getSerializable("model");
         } else {
-            this.f1865a = (WriteData) getIntent().getSerializableExtra("model");
+            this.f1896a = (WriteData) getIntent().getSerializableExtra("model");
         }
         this.k = (InputMethodManager) getSystemService("input_method");
     }
@@ -86,7 +86,7 @@ public class VcodeActivity extends com.baidu.tieba.g {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.f1865a);
+        bundle.putSerializable("model", this.f1896a);
         super.onSaveInstanceState(bundle);
     }
 
@@ -95,12 +95,12 @@ public class VcodeActivity extends com.baidu.tieba.g {
     public void a(int i) {
         int i2;
         super.a(i);
-        com.baidu.tieba.util.ah.a(this.m, i);
-        com.baidu.tieba.util.ah.d(this.n, i);
-        com.baidu.tieba.util.ah.a(this.b, i);
-        com.baidu.tieba.util.ah.g((TextView) this.c, i);
+        com.baidu.tieba.util.ao.a(this.m, i);
+        com.baidu.tieba.util.ao.d(this.n, i);
+        com.baidu.tieba.util.ao.a(this.b, i);
+        com.baidu.tieba.util.ao.g((TextView) this.c, i);
         if (i == 1) {
-            i2 = com.baidu.tieba.util.ah.a(i);
+            i2 = com.baidu.tieba.util.ao.a(i);
         } else {
             i2 = -12895429;
         }

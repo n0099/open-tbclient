@@ -1,29 +1,38 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import android.widget.AdapterView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cy implements AdapterView.OnItemLongClickListener {
+public class cy implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cu f1516a;
+    final /* synthetic */ cv f1553a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cu cuVar) {
-        this.f1516a = cuVar;
+    public cy(cv cvVar) {
+        this.f1553a = cvVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        View.OnLongClickListener onLongClickListener;
-        View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.f1516a.J;
-        if (onLongClickListener != null) {
-            onLongClickListener2 = this.f1516a.J;
-            onLongClickListener2.onLongClick(view);
-            return false;
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (editable == null || editable.length() <= 0) {
+            button = this.f1553a.C;
+            button.setEnabled(false);
+            return;
         }
-        return false;
+        button2 = this.f1553a.C;
+        button2.setEnabled(true);
     }
 }

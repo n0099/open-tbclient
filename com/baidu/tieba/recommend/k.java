@@ -1,31 +1,26 @@
 package com.baidu.tieba.recommend;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tieba.view.ADImageViewDrawer;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k {
+public class k implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    View f1668a;
-    LinearLayout b;
-    RelativeLayout c;
-    TextView d;
-    TextView e;
-    ADImageViewDrawer f;
-    TextView g;
-    TextView h;
-    TextView i;
-    final /* synthetic */ c j;
-
-    private k(c cVar) {
-        this.j = cVar;
-    }
+    final /* synthetic */ h f1686a;
+    private final /* synthetic */ com.baidu.tieba.data.o b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(c cVar, k kVar) {
-        this(cVar);
+    public k(h hVar, com.baidu.tieba.data.o oVar) {
+        this.f1686a = hVar;
+        this.b = oVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        activity = this.f1686a.i;
+        UtilHelper.a(activity, this.b.a(), (String) null);
     }
 }

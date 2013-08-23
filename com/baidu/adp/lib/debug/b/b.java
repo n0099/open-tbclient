@@ -24,11 +24,11 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
     private static boolean[] c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f401a;
+    private Context f409a;
 
     public b(Context context) {
-        this.f401a = null;
-        this.f401a = context;
+        this.f409a = null;
+        this.f409a = context;
         a();
         c = new boolean[b.size()];
         for (int i = 0; i < c.length; i++) {
@@ -38,7 +38,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     private static void a() {
         if (b == null) {
-            Properties properties = SwitchDebugService.f415a;
+            Properties properties = SwitchDebugService.f423a;
             synchronized (b.class) {
                 if (b == null) {
                     b = new Vector();
@@ -48,11 +48,14 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
                         for (String str : split) {
                             a aVar = new a();
                             aVar.a(properties.getProperty("edit_options_" + str + "_title"));
-                            String[] split2 = properties.getProperty("edit_options_" + str + "_access").split(":");
-                            aVar.b(split2[0]);
-                            aVar.c(split2[1]);
-                            aVar.a(properties.getProperty("edit_options_" + str + "_defaultValues").split(","));
-                            b.add(aVar);
+                            String property2 = properties.getProperty("edit_options_" + str + "_access");
+                            if (property2 != null) {
+                                String[] split2 = property2.split(":");
+                                aVar.b(split2[0]);
+                                aVar.c(split2[1]);
+                                aVar.a(properties.getProperty("edit_options_" + str + "_defaultValues").split(","));
+                                b.add(aVar);
+                            }
                         }
                     }
                 }
@@ -77,7 +80,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f401a).inflate(com.baidu.adp.d.adp_debug_custom_config_items, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f409a).inflate(com.baidu.adp.d.adp_debug_custom_config_items, (ViewGroup) null);
         TextView textView = (TextView) inflate.findViewById(com.baidu.adp.e.adp_debug_custom_config_title);
         TextView textView2 = (TextView) inflate.findViewById(com.baidu.adp.e.adp_debug_edit_custom_config);
         ListView listView = (ListView) inflate.findViewById(com.baidu.adp.e.adp_debug_custom_config_defaults_list);
@@ -98,7 +101,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
             hashMap.put("default_value", aVar.b()[i2]);
             arrayList.add(hashMap);
         }
-        listView.setAdapter((ListAdapter) new SimpleAdapter(this.f401a, arrayList, com.baidu.adp.d.adp_debug_custom_config_default_value_item, new String[]{"default_value"}, new int[]{com.baidu.adp.e.adp_debug_constom_config_default_value}));
+        listView.setAdapter((ListAdapter) new SimpleAdapter(this.f409a, arrayList, com.baidu.adp.d.adp_debug_custom_config_default_value_item, new String[]{"default_value"}, new int[]{com.baidu.adp.e.adp_debug_constom_config_default_value}));
         a(listView);
         if (!c[i]) {
             listView.setVisibility(8);
@@ -157,7 +160,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
                 } else {
                     str = "配置修改失败！！！";
                 }
-                Toast makeText = Toast.makeText(this.f401a.getApplicationContext(), str, 1);
+                Toast makeText = Toast.makeText(this.f409a.getApplicationContext(), str, 1);
                 makeText.setGravity(17, 0, 0);
                 makeText.show();
             }

@@ -2,15 +2,15 @@ package com.baidu.tieba.kn.ladders;
 
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.kn.TimerTextView;
-import com.baidu.tieba.view.ImageViewDrawer;
 /* loaded from: classes.dex */
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1186a;
+    LinearLayout f1218a;
     TextView b;
-    ImageViewDrawer c;
+    TbImageView c;
     TextView d;
     TextView e;
     TimerTextView f;

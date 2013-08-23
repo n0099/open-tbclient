@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class ao implements View.OnClickListener {
+class ao implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f908a;
+    final /* synthetic */ UpdateDialog f925a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(am amVar) {
-        this.f908a = amVar;
+    public ao(UpdateDialog updateDialog) {
+        this.f925a = updateDialog;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ap apVar;
-        apVar = this.f908a.h;
-        apVar.a();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.f925a.finish();
     }
 }

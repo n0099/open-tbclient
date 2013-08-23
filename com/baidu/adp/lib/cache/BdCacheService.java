@@ -6,8 +6,8 @@ import java.util.HashMap;
 public class BdCacheService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static BdCacheService f366a;
-    private u b;
+    private static BdCacheService f372a;
+    private x b;
     private Context c;
     private com.baidu.adp.a.f d;
     private final String e;
@@ -64,20 +64,20 @@ public class BdCacheService {
     }
 
     public static BdCacheService c() {
-        if (f366a == null) {
-            f366a = new BdCacheService("baidu_adp.db");
+        if (f372a == null) {
+            f372a = new BdCacheService("baidu_adp.db");
         }
-        return f366a;
+        return f372a;
     }
 
     public synchronized String a(a aVar, String str, String str2, int i) {
         l a2;
         int a3 = aVar.a();
-        u d = d();
+        x d = d();
         a2 = d.a(str);
         if (a2 == null) {
             a2 = new l();
-            a2.f375a = str;
+            a2.f381a = str;
             a2.e = a3;
             a2.d = str2;
             a2.c = i;
@@ -100,7 +100,7 @@ public class BdCacheService {
     public synchronized q a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
         q qVar;
         d a2;
-        w vVar;
+        z yVar;
         boolean z;
         qVar = (q) this.g.get(str);
         if (qVar == null) {
@@ -112,32 +112,32 @@ public class BdCacheService {
                 a2 = g.a();
             }
             if (cacheStorage == CacheStorage.SQLite_CACHE_PER_TABLE) {
-                vVar = new w(e());
+                yVar = new z(e());
                 z = false;
             } else {
-                vVar = new v(e(), "cache_kv_tshare");
+                yVar = new y(e(), "cache_kv_tshare");
                 z = true;
             }
-            vVar.a(a2, a(vVar, str, "text", i));
-            qVar = a(str, new m(vVar, a2, z));
+            yVar.a(a2, a(yVar, str, "text", i));
+            qVar = a(str, new m(yVar, a2, z));
         }
         return qVar;
     }
 
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.s] */
+    /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.t] */
     public synchronized q a(String str, p pVar) {
-        t tVar;
-        t tVar2;
+        v vVar;
+        v vVar2;
         q qVar = (q) this.g.get(str);
-        tVar2 = qVar;
+        vVar2 = qVar;
         if (qVar != null) {
             if (pVar != null) {
-                boolean z = qVar instanceof r;
-                tVar2 = qVar;
+                boolean z = qVar instanceof s;
+                vVar2 = qVar;
                 if (z) {
-                    p a2 = ((r) qVar).a();
-                    tVar2 = qVar;
+                    p a2 = ((s) qVar).a();
+                    vVar2 = qVar;
                     if (a2 != pVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + pVar + "]. Make sure to return the old cache before re-use the same namespace.");
                     }
@@ -145,20 +145,20 @@ public class BdCacheService {
             }
         } else {
             if (a()) {
-                tVar = new s(str, pVar);
+                vVar = new t(str, pVar);
             } else {
-                tVar = new t(str, pVar);
+                vVar = new v(str, pVar);
             }
-            this.g.put(str, tVar);
-            tVar.b();
-            tVar2 = tVar;
+            this.g.put(str, vVar);
+            vVar.b();
+            vVar2 = vVar;
         }
-        return tVar2;
+        return vVar2;
     }
 
-    public u d() {
+    public x d() {
         if (this.b == null) {
-            this.b = new u(b(), e());
+            this.b = new x(b(), e());
         }
         return this.b;
     }

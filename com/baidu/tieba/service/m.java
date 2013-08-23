@@ -6,19 +6,20 @@ import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.ad;
+import com.baidu.tieba.util.aq;
 import com.tencent.mm.sdk.platformtools.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    NetWorkCore f1705a;
+    NetWorkCore f1722a;
     final /* synthetic */ TiebaActiveService b;
 
     private m(TiebaActiveService tiebaActiveService) {
         this.b = tiebaActiveService;
-        this.f1705a = null;
+        this.f1722a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,36 +31,36 @@ public class m extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        aj.a(getClass().getName(), "doBackGround", "send active...");
+        aq.a(getClass().getName(), "doBackGround", "send active...");
         try {
-            this.f1705a = new NetWorkCore("http://114.113.149.3:8086/partnersService");
-            this.f1705a.a("http://114.113.149.3:8086/partnersService");
-            this.f1705a.b(this.b.getApplicationContext());
-            this.f1705a.a("apk", TiebaApplication.f().getPackageName());
-            this.f1705a.a("imei", TiebaApplication.f().p());
-            this.f1705a.a("model", Build.MODEL);
-            this.f1705a.a("edition", com.baidu.tieba.data.g.i());
-            this.f1705a.a("system", Build.VERSION.SDK);
-            this.f1705a.c(false);
-            String v = this.f1705a.v();
-            if (this.f1705a.o()) {
-                aj.a(getClass().getName(), "task", "data=" + v);
-                return v;
+            this.f1722a = new NetWorkCore(new ad());
+            this.f1722a.a("http://114.113.149.3:8086/partnersService");
+            this.f1722a.a(this.b.getApplicationContext());
+            this.f1722a.a("apk", TiebaApplication.g().getPackageName());
+            this.f1722a.a("imei", TiebaApplication.g().r());
+            this.f1722a.a("model", Build.MODEL);
+            this.f1722a.a("edition", com.baidu.tieba.data.g.j());
+            this.f1722a.a("system", Build.VERSION.SDK);
+            this.f1722a.c(false);
+            String r = this.f1722a.r();
+            if (this.f1722a.o()) {
+                aq.a(getClass().getName(), "task", "data=" + r);
+                return r;
             }
         } catch (Exception e) {
             SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
             edit.putInt("active", 1);
             edit.commit();
-            aj.b(getClass().getName(), "doInBackground", e.getMessage());
+            aq.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f1688a = null;
-        if (this.f1705a != null) {
-            this.f1705a.s();
+        this.b.f1705a = null;
+        if (this.f1722a != null) {
+            this.f1722a.q();
         }
         super.cancel(true);
     }
@@ -75,7 +76,7 @@ public class m extends BdAsyncTask {
         Handler handler2;
         Runnable runnable2;
         super.a((Object) str);
-        this.b.f1688a = null;
+        this.b.f1705a = null;
         SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
         edit.putInt("active", 1);
         if (str == null) {
@@ -95,7 +96,7 @@ public class m extends BdAsyncTask {
                 this.b.stopSelf();
             }
         }
-        aj.a(getClass().getName(), "onPostExecute", "send active ok");
+        aq.a(getClass().getName(), "onPostExecute", "send active ok");
         edit.putInt("active", 2);
         edit.commit();
         this.b.stopSelf();

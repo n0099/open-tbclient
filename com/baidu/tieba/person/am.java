@@ -7,24 +7,32 @@ import android.content.Intent;
 public class am implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f1570a;
+    final /* synthetic */ PersonChangeActivity f1608a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PersonChangeActivity personChangeActivity) {
-        this.f1570a = personChangeActivity;
+        this.f1608a = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.bm bmVar;
-        com.baidu.tieba.model.bm bmVar2;
-        bmVar = this.f1570a.z;
-        if (bmVar.a().getPhotoChanged()) {
+        com.baidu.tieba.model.bl blVar;
+        Boolean bool;
+        com.baidu.tieba.model.bl blVar2;
+        com.baidu.tieba.model.bl blVar3;
+        blVar = this.f1608a.A;
+        if (blVar.a().getPhotoChanged()) {
             Intent intent = new Intent();
-            bmVar2 = this.f1570a.z;
-            intent.putExtra("data", bmVar2.a());
-            this.f1570a.setResult(-1, intent);
+            bool = this.f1608a.f1592a;
+            if (bool.booleanValue()) {
+                blVar3 = this.f1608a.A;
+                intent.putExtra("person_change_data", blVar3.a());
+            } else {
+                blVar2 = this.f1608a.A;
+                intent.putExtra("data", blVar2.a());
+            }
+            this.f1608a.setResult(-1, intent);
         }
-        this.f1570a.finish();
+        this.f1608a.finish();
     }
 }

@@ -1,32 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class db implements com.baidu.tbadk.a.d {
+public class db implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cu f1520a;
+    final /* synthetic */ cv f1557a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public db(cu cuVar) {
-        this.f1520a = cuVar;
+    public db(cv cvVar) {
+        this.f1557a = cvVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (bVar != null) {
-            bdListView = this.f1520a.c;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                bVar.b(imageView);
-                bdListView2 = this.f1520a.c;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        com.baidu.tieba.write.m mVar;
+        EditText editText;
+        EditText editText2;
+        mVar = this.f1557a.B;
+        String a2 = mVar.a(i);
+        if (a2 != null) {
+            editText = this.f1557a.F;
+            int selectionStart = editText.getSelectionStart();
+            editText2 = this.f1557a.F;
+            editText2.getText().insert(selectionStart, a2);
         }
     }
 }

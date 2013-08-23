@@ -5,17 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ah;
-import com.baidu.tieba.util.ai;
-import com.baidu.tieba.util.aj;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.aq;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -27,7 +23,7 @@ import org.json.JSONException;
 public class t extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f949a;
+    private Context f959a;
     private com.baidu.tieba.util.a g;
     private boolean b = false;
     private boolean c = false;
@@ -62,11 +58,11 @@ public class t extends BaseAdapter {
     }
 
     public t(Context context) {
-        this.f949a = null;
+        this.f959a = null;
         this.g = null;
-        this.f949a = context;
-        this.g = new com.baidu.tieba.util.a(this.f949a);
-        int a2 = am.a(this.f949a, 40.0f);
+        this.f959a = context;
+        this.g = new com.baidu.tieba.util.a(this.f959a);
+        int a2 = UtilHelper.a(this.f959a, 40.0f);
         this.g.a(a2, a2);
         this.g.b("_small");
     }
@@ -80,7 +76,7 @@ public class t extends BaseAdapter {
                     try {
                         ((ProgressBar) this.f.get(i2)).setVisibility(8);
                     } catch (Exception e) {
-                        aj.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        aq.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -132,62 +128,74 @@ public class t extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         u uVar;
+        View view2;
         if (view == null) {
-            view = LayoutInflater.from(this.f949a).inflate(R.layout.chat_list_item, (ViewGroup) null);
-            uVar = new u(this, null);
-            uVar.f950a = (FrameLayout) view.findViewById(R.id.chat_item);
-            uVar.b = (LinearLayout) view.findViewById(R.id.list_content);
-            uVar.c = (HeadImageView) view.findViewById(R.id.chat_head);
-            uVar.d = (TextView) view.findViewById(R.id.chat_name);
-            uVar.e = (TextView) view.findViewById(R.id.last_chat_content);
-            uVar.f = (TextView) view.findViewById(R.id.chat_time);
-            uVar.g = (TextView) view.findViewById(R.id.new_message);
-            uVar.h = (ImageView) view.findViewById(R.id.splitter);
-            uVar.i = (RelativeLayout) view.findViewById(R.id.list_control);
-            uVar.j = (TextView) view.findViewById(R.id.list_control_tv);
-            uVar.k = (ProgressBar) view.findViewById(R.id.list_control_progress);
-            view.setTag(uVar);
-            this.f.add(uVar.k);
+            View inflate = LayoutInflater.from(this.f959a).inflate(R.layout.chat_list_item, viewGroup, false);
+            u uVar2 = new u(this, null);
+            uVar2.f960a = (ViewGroup) inflate.findViewById(R.id.chat_item);
+            uVar2.b = (ViewGroup) inflate.findViewById(R.id.list_content);
+            uVar2.c = (HeadImageView) inflate.findViewById(R.id.chat_head);
+            uVar2.d = (TextView) inflate.findViewById(R.id.chat_name);
+            uVar2.e = (TextView) inflate.findViewById(R.id.last_chat_content);
+            uVar2.f = (TextView) inflate.findViewById(R.id.chat_time);
+            uVar2.g = (TextView) inflate.findViewById(R.id.new_message);
+            uVar2.h = (ViewGroup) inflate.findViewById(R.id.list_control);
+            uVar2.i = (TextView) inflate.findViewById(R.id.list_control_tv);
+            uVar2.j = (ProgressBar) inflate.findViewById(R.id.list_control_progress);
+            inflate.setTag(uVar2);
+            this.f.add(uVar2.j);
+            uVar = uVar2;
+            view2 = inflate;
         } else {
             uVar = (u) view.getTag();
+            view2 = view;
         }
-        int au = TiebaApplication.f().au();
+        int an = TiebaApplication.g().an();
         long itemId = getItemId(i);
         if (itemId == -1) {
+            ((ViewGroup) view2).setBackgroundResource(0);
             uVar.b.setVisibility(8);
-            uVar.i.setVisibility(0);
+            uVar.h.setVisibility(0);
             if (this.e) {
-                uVar.j.setText(R.string.loading);
-                uVar.k.setVisibility(0);
+                uVar.i.setText(R.string.loading);
+                uVar.j.setVisibility(0);
             } else {
-                uVar.j.setText(R.string.frs_pre);
-                uVar.k.setVisibility(8);
+                uVar.i.setText(R.string.frs_pre);
+                uVar.j.setVisibility(8);
             }
-            if (au == 1) {
-                uVar.i.setBackgroundResource(R.drawable.bg_list_all_1);
+            if (an == 1) {
+                ao.g((View) uVar.i, (int) R.drawable.btn_w_square_1);
+                uVar.i.setTextColor(-8682095);
             } else {
-                uVar.i.setBackgroundResource(R.drawable.bg_list_all);
+                ao.g((View) uVar.i, (int) R.drawable.btn_w_square);
+                uVar.i.setTextColor(-14277082);
             }
-            ah.b(uVar.j, au);
         } else if (itemId == -2) {
+            ((ViewGroup) view2).setBackgroundResource(0);
             uVar.b.setVisibility(8);
-            uVar.i.setVisibility(0);
+            uVar.h.setVisibility(0);
             if (this.d) {
-                uVar.j.setText(R.string.loading);
-                uVar.k.setVisibility(0);
+                uVar.i.setText(R.string.loading);
+                uVar.j.setVisibility(0);
             } else {
-                uVar.j.setText(R.string.frs_next);
-                uVar.k.setVisibility(8);
+                uVar.i.setText(R.string.frs_next);
+                uVar.j.setVisibility(8);
             }
-            if (au == 1) {
-                uVar.i.setBackgroundResource(R.drawable.bg_list_all_1);
+            if (an == 1) {
+                ao.g((View) uVar.i, (int) R.drawable.btn_w_square_1);
+                uVar.i.setTextColor(-8682095);
             } else {
-                uVar.i.setBackgroundResource(R.drawable.bg_list_all);
+                ao.g((View) uVar.i, (int) R.drawable.btn_w_square);
+                uVar.i.setTextColor(-14277082);
             }
-            ah.b(uVar.j, au);
         } else {
+            if (an == 1) {
+                ao.g(view2, (int) R.drawable.list_selector_1);
+            } else {
+                ao.g(view2, (int) R.drawable.list_selector_divider1);
+            }
             uVar.b.setVisibility(0);
-            uVar.i.setVisibility(8);
+            uVar.h.setVisibility(8);
             com.baidu.tieba.data.a.g gVar = (com.baidu.tieba.data.a.g) getItem(i);
             if (gVar != null) {
                 try {
@@ -201,16 +209,16 @@ public class t extends BaseAdapter {
                     int f = gVar.f();
                     if (f > 0) {
                         uVar.g.setVisibility(0);
-                        uVar.g.setText(f > 99 ? "99+" : String.valueOf(f));
+                        uVar.g.setText(f > 99 ? "" : String.valueOf(f));
                     } else {
                         uVar.g.setVisibility(8);
                     }
                     Date date = new Date();
                     date.setTime(gVar.d());
-                    uVar.f.setText(ai.e(date));
+                    uVar.f.setText(ap.h(date));
                     com.baidu.adp.widget.a.b c = this.g.c(String.valueOf(gVar.c()) + "_small");
                     if (c != null) {
-                        c.b(uVar.c);
+                        c.a(uVar.c);
                     } else {
                         uVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.person_photo));
                     }
@@ -222,25 +230,36 @@ public class t extends BaseAdapter {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                if (au == 1) {
-                    uVar.f950a.setBackgroundColor(-13618114);
+                int f2 = gVar.f();
+                if (an == 1) {
                     uVar.d.setTextColor(-8682086);
                     uVar.e.setTextColor(-11446171);
                     uVar.f.setTextColor(-8682086);
-                    uVar.g.setBackgroundResource(R.drawable.but_icon_point);
+                    if (f2 < 10) {
+                        uVar.g.setBackgroundResource(R.drawable.icon_news_prompt_1);
+                    } else if (f2 < 100) {
+                        uVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_1);
+                    } else {
+                        uVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_more_1);
+                        uVar.g.setText("");
+                    }
                     uVar.g.setTextColor(-478825);
-                    uVar.h.setBackgroundColor(-14210253);
                 } else {
-                    uVar.f950a.setBackgroundColor(-197380);
                     uVar.d.setTextColor(-14277082);
                     uVar.e.setTextColor(-10066330);
                     uVar.f.setTextColor(-8682086);
-                    uVar.g.setBackgroundResource(R.drawable.but_icon_point);
+                    if (f2 < 10) {
+                        uVar.g.setBackgroundResource(R.drawable.icon_news_prompt);
+                    } else if (f2 < 100) {
+                        uVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt);
+                    } else {
+                        uVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_more);
+                        uVar.g.setText("");
+                    }
                     uVar.g.setTextColor(-1);
-                    uVar.h.setBackgroundColor(-1052430);
                 }
             }
         }
-        return view;
+        return view2;
     }
 }

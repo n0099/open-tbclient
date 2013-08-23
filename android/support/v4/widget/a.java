@@ -5,7 +5,7 @@ import android.database.ContentObserver;
 class a extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CursorAdapter f332a;
+    final /* synthetic */ CursorAdapter f336a;
 
     @Override // android.database.ContentObserver
     public boolean deliverSelfNotifications() {
@@ -14,6 +14,6 @@ class a extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        this.f332a.b();
+        this.f336a.b();
     }
 }

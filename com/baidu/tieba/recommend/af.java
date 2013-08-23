@@ -1,35 +1,37 @@
 package com.baidu.tieba.recommend;
-
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 /* loaded from: classes.dex */
-class af {
+public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1634a;
-    public TextView b;
-    public LinearLayout c;
-    public RelativeLayout d;
-    public TextView e;
-    public TextView f;
-    public LinearLayout g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public View l;
-    public View m;
-    final /* synthetic */ ae n;
+    public String f1676a;
+    public String b;
 
-    private af(ae aeVar) {
-        this.n = aeVar;
-        this.f1634a = -1;
+    public af(String str, String str2) {
+        this.f1676a = "";
+        this.b = "";
+        this.f1676a = str;
+        this.b = str2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(ae aeVar, af afVar) {
-        this(aeVar);
+    public int hashCode() {
+        return (((this.f1676a == null ? 0 : this.f1676a.hashCode()) + 31) * 31) + (this.b != null ? this.b.hashCode() : 0);
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj != null && getClass() == obj.getClass()) {
+            af afVar = (af) obj;
+            if (this.f1676a == null) {
+                if (afVar.f1676a != null) {
+                    return false;
+                }
+            } else if (!this.f1676a.equals(afVar.f1676a)) {
+                return false;
+            }
+            return this.b == null ? afVar.b == null : this.b.equals(afVar.b);
+        }
+        return false;
     }
 }

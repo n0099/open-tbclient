@@ -9,11 +9,11 @@ import android.widget.GridView;
 public class aa implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1869a;
+    final /* synthetic */ WriteActivity f1900a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(WriteActivity writeActivity) {
-        this.f1869a = writeActivity;
+        this.f1900a = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,19 +24,19 @@ public class aa implements View.OnClickListener {
         EditText editText2;
         GridView gridView;
         GridView gridView2;
-        WriteActivity writeActivity = this.f1869a;
-        inputMethodManager = this.f1869a.d;
-        editText = this.f1869a.e;
+        WriteActivity writeActivity = this.f1900a;
+        inputMethodManager = this.f1900a.d;
+        editText = this.f1900a.e;
         writeActivity.a(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.f1869a;
-        inputMethodManager2 = this.f1869a.d;
-        editText2 = this.f1869a.f;
+        WriteActivity writeActivity2 = this.f1900a;
+        inputMethodManager2 = this.f1900a.d;
+        editText2 = this.f1900a.f;
         writeActivity2.a(inputMethodManager2, editText2);
-        gridView = this.f1869a.r;
+        gridView = this.f1900a.r;
         if (gridView.getVisibility() == 0) {
-            gridView2 = this.f1869a.r;
+            gridView2 = this.f1900a.r;
             gridView2.setVisibility(8);
         }
-        this.f1869a.b();
+        this.f1900a.b();
     }
 }

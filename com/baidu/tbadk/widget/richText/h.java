@@ -14,11 +14,11 @@ public interface h {
 
     void b(Context context, String str);
 
-    com.baidu.adp.lib.a.b c();
+    com.baidu.adp.lib.b.b c();
 
     void c(Context context, String str);
 
-    com.baidu.adp.lib.a.b d();
+    com.baidu.adp.lib.b.b d();
 
     void d(Context context, String str);
 

@@ -55,7 +55,7 @@ public class c extends d {
     private SQLiteDatabase f() {
         try {
             if (this.c == null) {
-                this.c = com.baidu.android.pushservice.util.e.a(this.f572a);
+                this.c = com.baidu.android.pushservice.util.e.a(this.f595a);
             }
         } catch (Exception e2) {
         }
@@ -86,7 +86,7 @@ public class c extends d {
             lastKnownLocation = this.g;
         }
         this.g = lastKnownLocation;
-        if (com.baidu.android.pushservice.b.a(this.f572a)) {
+        if (com.baidu.android.pushservice.b.a(this.f595a)) {
             Log.d("AppStatisticsSender", ">>> Completed update client info: ");
             Log.d("AppStatisticsSender", "    imei=" + this.i);
             Log.d("AppStatisticsSender", "    channelid=" + this.k);
@@ -97,15 +97,15 @@ public class c extends d {
     }
 
     private void h() {
-        if (this.d == null || this.d.f570a.size() == 0) {
-            if (com.baidu.android.pushservice.b.a(this.f572a)) {
+        if (this.d == null || this.d.f593a.size() == 0) {
+            if (com.baidu.android.pushservice.b.a(this.f595a)) {
                 Log.d("AppStatisticsSender", "stat info has no record, cancel sync database mStatInfo=" + this.d);
                 return;
             }
             return;
         }
-        for (b bVar : this.d.f570a) {
-            com.baidu.android.pushservice.util.e.b(f(), bVar.f571a);
+        for (b bVar : this.d.f593a) {
+            com.baidu.android.pushservice.util.e.b(f(), bVar.f594a);
         }
         this.d = null;
     }
@@ -117,7 +117,7 @@ public class c extends d {
 
     @Override // com.baidu.android.pushservice.b.d
     protected String b() {
-        if (com.baidu.android.pushservice.b.a(this.f572a)) {
+        if (com.baidu.android.pushservice.b.a(this.f595a)) {
             Log.d("AppStatisticsSender", "start productSendData");
         }
         g();
@@ -128,25 +128,25 @@ public class c extends d {
         aVar.a(i, this.g, this.h, this.j);
         List<l> a2 = com.baidu.android.pushservice.util.e.a(f(), 10);
         if (a2 == null || a2.size() == 0) {
-            if (com.baidu.android.pushservice.b.a(this.f572a)) {
+            if (com.baidu.android.pushservice.b.a(this.f595a)) {
                 Log.d("AppStatisticsSender", "feedbackList is null, return null.");
             }
             return null;
         }
         for (l lVar : a2) {
             b bVar = new b();
-            com.baidu.android.pushservice.d a3 = com.baidu.android.pushservice.a.a(this.f572a).a(lVar.b);
+            com.baidu.android.pushservice.d a3 = com.baidu.android.pushservice.a.a(this.f595a).a(lVar.b);
             if (a3 != null) {
                 bVar.b = a3.b;
                 bVar.c = a3.c;
-                bVar.f571a = lVar.f631a;
+                bVar.f594a = lVar.f654a;
                 bVar.d = lVar.c;
                 bVar.e = lVar.d;
                 bVar.f = lVar.e;
                 bVar.g = lVar.f;
                 bVar.h = lVar.g;
                 bVar.i = lVar.h;
-                if (com.baidu.android.pushservice.b.a(this.f572a)) {
+                if (com.baidu.android.pushservice.b.a(this.f595a)) {
                     try {
                         Log.d("AppStatisticsSender", ">>> Get one App statistics record: " + bVar.a().toString());
                     } catch (Exception e2) {
@@ -156,8 +156,8 @@ public class c extends d {
                 this.d.a(bVar);
             }
         }
-        if (this.d.f570a.size() == 0) {
-            if (com.baidu.android.pushservice.b.a(this.f572a)) {
+        if (this.d.f593a.size() == 0) {
+            if (com.baidu.android.pushservice.b.a(this.f595a)) {
                 Log.d("AppStatisticsSender", "recordList num is 0.");
             }
             return null;
@@ -172,7 +172,7 @@ public class c extends d {
 
     @Override // com.baidu.android.pushservice.b.d
     protected void d() {
-        if (com.baidu.android.pushservice.b.a(this.f572a)) {
+        if (com.baidu.android.pushservice.b.a(this.f595a)) {
             Log.d("AppStatisticsSender", "The last send if fail, maybe has network problem now. Abort task, try later.");
         }
         this.d = null;

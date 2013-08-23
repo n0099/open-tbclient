@@ -1,21 +1,16 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
-class x implements Runnable {
+class x implements com.baidu.adp.widget.ListView.s {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1098a;
-    private final /* synthetic */ String b;
+    final /* synthetic */ FrsActivity f1117a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar, String str) {
-        this.f1098a = wVar;
-        this.b = str;
+    public x(FrsActivity frsActivity) {
+        this.f1117a = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        new NetWorkCore(this.b).t();
+    @Override // com.baidu.adp.widget.ListView.s
+    public void a() {
     }
 }

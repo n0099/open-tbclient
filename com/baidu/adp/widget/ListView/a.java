@@ -1,5 +1,6 @@
 package com.baidu.adp.widget.ListView;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +13,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a extends d {
+    @SuppressLint({"SimpleDateFormat"})
     private static SimpleDateFormat i = new SimpleDateFormat("MM-dd HH:mm");
 
     /* renamed from: a  reason: collision with root package name */
-    private View f453a;
+    private View f471a;
     private ImageView b;
     private ProgressBar c;
     private TextView d;
@@ -26,11 +28,11 @@ public class a extends d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public View a() {
-        this.f453a = LayoutInflater.from(e()).inflate(com.baidu.adp.f.pull_view, (ViewGroup) null);
-        this.b = (ImageView) this.f453a.findViewById(com.baidu.adp.e.pull_arrow);
-        this.c = (ProgressBar) this.f453a.findViewById(com.baidu.adp.e.pull_progress);
-        this.d = (TextView) this.f453a.findViewById(com.baidu.adp.e.pull_text);
-        this.e = (TextView) this.f453a.findViewById(com.baidu.adp.e.pull_time);
+        this.f471a = LayoutInflater.from(e()).inflate(com.baidu.adp.f.pull_view, (ViewGroup) null);
+        this.b = (ImageView) this.f471a.findViewById(com.baidu.adp.e.pull_arrow);
+        this.c = (ProgressBar) this.f471a.findViewById(com.baidu.adp.e.pull_progress);
+        this.d = (TextView) this.f471a.findViewById(com.baidu.adp.e.pull_text);
+        this.e = (TextView) this.f471a.findViewById(com.baidu.adp.e.pull_time);
         a(d());
         this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.f.setInterpolator(new LinearInterpolator());
@@ -40,7 +42,7 @@ public class a extends d {
         this.g.setInterpolator(new LinearInterpolator());
         this.g.setDuration(200L);
         this.g.setFillAfter(true);
-        return this.f453a;
+        return this.f471a;
     }
 
     @Override // com.baidu.adp.widget.ListView.d

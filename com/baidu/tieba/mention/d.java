@@ -1,25 +1,20 @@
 package com.baidu.tieba.mention;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d extends BroadcastReceiver {
+public class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MentionActivity f1293a;
-
-    private d(MentionActivity mentionActivity) {
-        this.f1293a = mentionActivity;
-    }
+    final /* synthetic */ MentionActivity f1327a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(MentionActivity mentionActivity, d dVar) {
-        this(mentionActivity);
+    public d(MentionActivity mentionActivity) {
+        this.f1327a = mentionActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        MentionActivity.a(this.f1293a, intent.getLongExtra("relay", 0L), intent.getLongExtra("at_me", 0L));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1327a.a(view);
     }
 }

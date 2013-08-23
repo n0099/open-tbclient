@@ -6,7 +6,7 @@ import com.baidu.tieba.TiebaApplication;
 public class w extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private y f1679a;
+    private y f1697a;
     private com.baidu.tieba.data.n b = new com.baidu.tieba.data.n();
     private x c;
     private x d;
@@ -55,9 +55,9 @@ public class w extends com.baidu.adp.a.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        com.baidu.adp.lib.cache.q bm = TiebaApplication.f().bm();
-        if (bm != null) {
-            bm.a("dailyrecommend", str, 2592000000L);
+        com.baidu.adp.lib.cache.q ba = TiebaApplication.g().ba();
+        if (ba != null) {
+            ba.a("dailyrecommend", str, 2592000000L);
         }
     }
 
@@ -71,6 +71,6 @@ public class w extends com.baidu.adp.a.c {
     }
 
     public void a(y yVar) {
-        this.f1679a = yVar;
+        this.f1697a = yVar;
     }
 }

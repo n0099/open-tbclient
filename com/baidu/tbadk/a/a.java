@@ -12,15 +12,15 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f796a = null;
+    private static a f819a = null;
     private Context b = null;
     private b c = null;
 
     public static a a() {
-        if (f796a == null) {
-            f796a = new a();
+        if (f819a == null) {
+            f819a = new a();
         }
-        return f796a;
+        return f819a;
     }
 
     private a() {
@@ -96,9 +96,9 @@ public class a {
             if (b > 0 && (a2 = a(b, String.valueOf(b))) != null) {
                 int length = group.length();
                 int start = matcher.start();
-                BitmapDrawable h = a2.h();
-                h.setBounds(0, 0, a2.a(), a2.b());
-                spannableString.setSpan(new ImageSpan(h, 0), start, length + start, 33);
+                BitmapDrawable g = a2.g();
+                g.setBounds(0, 0, a2.a(), a2.b());
+                spannableString.setSpan(new ImageSpan(g, 0), start, length + start, 33);
             }
         }
         return spannableString;

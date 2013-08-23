@@ -8,13 +8,13 @@ import android.view.WindowManager;
 public class e extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private g f388a;
+    private g f396a;
     private WindowManager b;
 
     public e(Context context) {
-        this.f388a = null;
+        this.f396a = null;
         this.b = null;
-        this.f388a = new g(this, context);
+        this.f396a = new g(this, context);
         this.b = (WindowManager) context.getSystemService("window");
     }
 
@@ -22,7 +22,7 @@ public class e extends a {
     public void c() {
         super.c();
         try {
-            this.b.removeView(this.f388a);
+            this.b.removeView(this.f396a);
         } catch (Exception e) {
         }
     }
@@ -35,10 +35,10 @@ public class e extends a {
         layoutParams.height = 1;
         layoutParams.width = 1;
         try {
-            this.b.removeView(this.f388a);
+            this.b.removeView(this.f396a);
         } catch (Exception e) {
         }
-        this.b.addView(this.f388a, layoutParams);
+        this.b.addView(this.f396a, layoutParams);
         new Handler(Looper.getMainLooper()).post(new f(this));
     }
 }

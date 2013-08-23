@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public final class b extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f679a;
+    public String f702a;
     public int b;
     public int c;
     public int d;
@@ -15,7 +15,7 @@ public final class b extends c {
 
     public b(long j) {
         super(j);
-        this.f679a = "";
+        this.f702a = "";
         this.b = 0;
         this.c = 0;
         this.d = 0;
@@ -26,7 +26,7 @@ public final class b extends c {
 
     public b(Cursor cursor) {
         super(cursor);
-        this.f679a = "";
+        this.f702a = "";
         this.b = 0;
         this.c = 0;
         this.d = 0;
@@ -46,11 +46,11 @@ public final class b extends c {
                 string = "";
             }
         }
-        this.f679a = string;
+        this.f702a = string;
     }
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.c
     public String toString() {
-        return "ChargeEvent : startStamp =" + this.g + " stopStamp =" + this.e + " chargeType =" + this.f + " startBtLevel =" + this.b + " stopBtLevel =" + this.c + " netType =" + this.d + " location =" + this.f679a;
+        return "ChargeEvent : startStamp =" + this.g + " stopStamp =" + this.e + " chargeType =" + this.f + " startBtLevel =" + this.b + " stopBtLevel =" + this.c + " netType =" + this.d + " location =" + this.f702a;
     }
 }

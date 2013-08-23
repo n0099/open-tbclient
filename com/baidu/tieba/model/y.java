@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class y extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1385a;
+    ArrayList f1422a;
     String b;
     final /* synthetic */ t c;
-    private com.baidu.tieba.util.u d = null;
+    private com.baidu.tieba.util.v d = null;
     private String e;
     private String f;
     private String g;
@@ -20,21 +20,21 @@ public class y extends BdAsyncTask {
 
     public y(t tVar, String str, String str2, String str3, int i, String str4) {
         this.c = tVar;
-        this.f1385a = null;
+        this.f1422a = null;
         this.b = null;
         this.e = str;
         this.f = str2;
         this.g = str3;
         this.h = i;
         this.b = str4;
-        this.f1385a = new ArrayList();
+        this.f1422a = new ArrayList();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
-        this.d = new com.baidu.tieba.util.u(strArr[0]);
+        this.d = new com.baidu.tieba.util.v(strArr[0]);
         this.d.a("word", this.f);
         if (this.h != 6) {
             this.d.a("fid", this.e);
@@ -51,18 +51,18 @@ public class y extends BdAsyncTask {
             }
         }
         this.d.e(true);
-        String k = this.d.k();
-        if (this.d.d()) {
+        String j = this.d.j();
+        if (this.d.c()) {
             if (this.h == 6) {
                 try {
-                    JSONArray optJSONArray = new JSONObject(k).optJSONArray("cates");
+                    JSONArray optJSONArray = new JSONObject(j).optJSONArray("cates");
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        com.baidu.tieba.data.y yVar = new com.baidu.tieba.data.y();
-                        yVar.a(optJSONArray.optJSONObject(i));
-                        this.f1385a.add(yVar);
+                        com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
+                        aaVar.a(optJSONArray.optJSONObject(i));
+                        this.f1422a.add(aaVar);
                     }
                 } catch (Exception e) {
-                    com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
                     return false;
                 }
             }
@@ -85,13 +85,13 @@ public class y extends BdAsyncTask {
             return;
         }
         z zVar = new z(this.c);
-        zVar.f1386a = bool.booleanValue();
+        zVar.f1423a = bool.booleanValue();
         if (bool.booleanValue()) {
             if (this.h == 6) {
-                zVar.c = this.f1385a;
+                zVar.c = this.f1422a;
             }
         } else {
-            zVar.b = this.d.h();
+            zVar.b = this.d.g();
         }
         eVar = this.c.mLoadDataCallBack;
         eVar.a(zVar);
@@ -101,7 +101,7 @@ public class y extends BdAsyncTask {
     public void cancel() {
         com.baidu.adp.a.e eVar;
         if (this.d != null) {
-            this.d.i();
+            this.d.h();
         }
         this.c.c = null;
         super.cancel(true);

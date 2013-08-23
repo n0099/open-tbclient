@@ -3,11 +3,11 @@ package com.baidu.tieba.util.a;
 import com.baidu.tbadk.a.e;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.g;
-import com.baidu.tieba.util.ai;
-import com.baidu.tieba.util.aj;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.aq;
 import com.baidu.tieba.util.p;
-import com.baidu.tieba.util.u;
+import com.baidu.tieba.util.v;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class b extends a {
@@ -19,12 +19,12 @@ public class b extends a {
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, com.baidu.adp.lib.c.e eVar, com.baidu.tieba.util.a aVar, com.baidu.tieba.util.d dVar) {
         if (dVar.g) {
-            String f = ai.f(str);
+            String f = ap.f(str);
             if (aVar.f != null) {
                 f = String.valueOf(f) + aVar.f;
             }
             String a2 = aVar.a(str);
-            synchronized (com.baidu.tieba.util.e.f1762a) {
+            synchronized (com.baidu.tieba.util.e.f1799a) {
                 if (f != null) {
                     int a3 = (int) p.a("image", f);
                     if (a3 > 0) {
@@ -60,22 +60,22 @@ public class b extends a {
         int i;
         int i2;
         int i3 = dVar.d;
-        String f = ai.f(str);
+        String f = ap.f(str);
         String str2 = aVar.f != null ? String.valueOf(f) + aVar.f : f;
         StringBuilder sb = new StringBuilder(100);
         sb.append(g.k);
         sb.append("src=");
-        sb.append(ai.d(str));
+        sb.append(ap.d(str));
         sb.append("&width=");
         if (aVar.b == 0) {
-            i = am.a(aVar.f1742a, 105.0f);
+            i = UtilHelper.a(aVar.f1773a, 105.0f);
         } else {
             i = aVar.b;
         }
         sb.append(String.valueOf(i));
         sb.append("&height=");
         if (aVar.c == 0) {
-            i2 = am.a(aVar.f1742a, 105.0f);
+            i2 = UtilHelper.a(aVar.f1773a, 105.0f);
         } else {
             i2 = aVar.c;
         }
@@ -87,7 +87,7 @@ public class b extends a {
             } else {
                 sb.append("&qulity=" + String.valueOf(45));
             }
-        } else if (TiebaApplication.f().ap() == 1) {
+        } else if (TiebaApplication.g().ai() == 1) {
             sb.append("&qulity=" + String.valueOf(80));
         } else {
             sb.append("&qulity=" + String.valueOf(45));
@@ -99,8 +99,8 @@ public class b extends a {
         if (aVar.g) {
             sb.append("&no_prefix=1");
         }
-        dVar.f1761a = new u(aVar.f1742a, sb.toString());
-        dVar.f1761a.d(true);
+        dVar.f1798a = new v(aVar.f1773a, sb.toString());
+        dVar.f1798a.d(true);
         if (aVar.h != null) {
             int i4 = 0;
             while (true) {
@@ -108,30 +108,30 @@ public class b extends a {
                 if (i5 >= aVar.h.size()) {
                     break;
                 }
-                dVar.f1761a.a((BasicNameValuePair) aVar.h.get(i5));
+                dVar.f1798a.a((BasicNameValuePair) aVar.h.get(i5));
                 i4 = i5 + 1;
             }
         }
-        byte[] j = dVar.f1761a.j();
-        if (j == null || !dVar.f1761a.d() || dVar.j) {
+        byte[] i6 = dVar.f1798a.i();
+        if (i6 == null || !dVar.f1798a.c() || dVar.j) {
             return null;
         }
         String a2 = aVar.a(str);
-        synchronized (com.baidu.tieba.util.e.f1762a) {
+        synchronized (com.baidu.tieba.util.e.f1799a) {
             if (dVar.j) {
                 return null;
             }
-            e.a().c(g.j() + j.length);
-            dVar.e = com.baidu.tieba.util.e.a(j);
+            e.a().c(g.k() + i6.length);
+            dVar.e = com.baidu.tieba.util.e.a(i6);
             if (dVar.e == null) {
                 return null;
             }
-            dVar.h = am.a(j);
+            dVar.h = UtilHelper.a(i6);
             if (dVar.j) {
                 return null;
             }
             if (dVar.e.getWidth() > i || dVar.e.getHeight() > i2) {
-                aj.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(dVar.e.getWidth()) + "*" + String.valueOf(dVar.e.getHeight())));
+                aq.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(dVar.e.getWidth()) + "*" + String.valueOf(dVar.e.getHeight())));
                 e.a().c(com.baidu.tieba.util.e.a(dVar.e) * 2);
                 dVar.e = com.baidu.tieba.util.e.a(dVar.e, i, i2);
             }
@@ -161,7 +161,7 @@ public class b extends a {
                 return dVar.i;
             }
             if (str2 != null) {
-                p.a("image", str2, j);
+                p.a("image", str2, i6);
             }
             return dVar.i;
             return dVar.i;

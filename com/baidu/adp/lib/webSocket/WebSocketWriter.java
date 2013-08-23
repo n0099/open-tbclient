@@ -11,7 +11,7 @@ import org.apache.http.NameValuePair;
 public class WebSocketWriter extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f433a = com.baidu.adp.a.b.a().b();
+    private static final boolean f449a = com.baidu.adp.a.b.a().b();
     private final Random b;
     private final Handler c;
     private final SocketChannel d;
@@ -45,7 +45,7 @@ public class WebSocketWriter extends Handler {
         }
         this.f.a("GET " + str + " HTTP/1.1");
         this.f.e();
-        this.f.a("Host: " + fVar.f438a);
+        this.f.a("Host: " + fVar.f454a);
         this.f.e();
         this.f.a("Upgrade: WebSocket");
         this.f.e();
@@ -78,7 +78,7 @@ public class WebSocketWriter extends Handler {
 
     private void a(g gVar) {
         byte[] bArr;
-        if (gVar.f439a > 0) {
+        if (gVar.f455a > 0) {
             if (gVar.b != null && !gVar.b.equals("")) {
                 byte[] bytes = gVar.b.getBytes("UTF-8");
                 byte[] bArr2 = new byte[bytes.length + 2];
@@ -92,8 +92,8 @@ public class WebSocketWriter extends Handler {
             if (bArr != null && bArr.length > 125) {
                 throw new WebSocketException("close payload exceeds 125 octets");
             }
-            bArr[0] = (byte) ((gVar.f439a >> 8) & Util.MASK_8BIT);
-            bArr[1] = (byte) (gVar.f439a & Util.MASK_8BIT);
+            bArr[0] = (byte) ((gVar.f455a >> 8) & Util.MASK_8BIT);
+            bArr[1] = (byte) (gVar.f455a & Util.MASK_8BIT);
             a(8, true, bArr);
             return;
         }
@@ -101,28 +101,28 @@ public class WebSocketWriter extends Handler {
     }
 
     private void a(l lVar) {
-        if (lVar.f441a != null && lVar.f441a.length > 125) {
+        if (lVar.f457a != null && lVar.f457a.length > 125) {
             throw new WebSocketException("ping payload exceeds 125 octets");
         }
-        a(9, true, lVar.f441a);
+        a(9, true, lVar.f457a);
     }
 
     private void a(m mVar) {
-        if (mVar.f442a != null && mVar.f442a.length > 125) {
+        if (mVar.f458a != null && mVar.f458a.length > 125) {
             throw new WebSocketException("pong payload exceeds 125 octets");
         }
-        a(10, true, mVar.f442a);
+        a(10, true, mVar.f458a);
     }
 
     private void a(e eVar) {
-        if (eVar.f437a.length > this.e.a()) {
+        if (eVar.f453a.length > this.e.a()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
-        a(2, true, eVar.f437a);
+        a(2, true, eVar.f453a);
     }
 
     private void a(p pVar) {
-        byte[] bytes = pVar.f444a.getBytes("UTF-8");
+        byte[] bytes = pVar.f460a.getBytes("UTF-8");
         if (bytes.length > this.e.a()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
@@ -130,10 +130,10 @@ public class WebSocketWriter extends Handler {
     }
 
     private void a(n nVar) {
-        if (nVar.f443a.length > this.e.a()) {
+        if (nVar.f459a.length > this.e.a()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
-        a(1, true, nVar.f443a);
+        a(1, true, nVar.f459a);
     }
 
     protected void a(int i, boolean z, byte[] bArr) {
@@ -206,12 +206,12 @@ public class WebSocketWriter extends Handler {
                 c(new j());
             }
         } catch (SocketException e) {
-            if (f433a) {
+            if (f449a) {
                 com.baidu.adp.lib.e.d.c("run() : SocketException (" + e.toString() + ")");
             }
             c(new h());
         } catch (Exception e2) {
-            if (f433a) {
+            if (f449a) {
                 e2.printStackTrace();
             }
             c(new i(e2));

@@ -1,40 +1,25 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
+import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ci implements com.baidu.tbadk.a.d {
+public class ci implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1501a;
+    final /* synthetic */ bo f1538a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(bn bnVar) {
-        this.f1501a = bnVar;
+    public ci(bo boVar) {
+        this.f1538a = boVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        cu cuVar;
-        cu cuVar2;
-        if (bVar != null) {
-            bdListView = this.f1501a.f;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            if (imageView != null) {
-                imageView.invalidate();
-            }
-            if (this.f1501a.t()) {
-                cuVar = this.f1501a.z;
-                if (cuVar != null) {
-                    cuVar2 = this.f1501a.z;
-                    ImageView imageView2 = (ImageView) cuVar2.d().findViewWithTag(str);
-                    if (imageView2 != null) {
-                        imageView2.invalidate();
-                    }
-                }
-            }
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        com.baidu.tieba.g gVar;
+        if (!z) {
+            gVar = this.f1538a.b;
+            UtilHelper.a(gVar, view);
         }
     }
 }

@@ -6,13 +6,13 @@ import java.util.LinkedList;
 public class w implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1228a;
+    final /* synthetic */ t f1261a;
     private final /* synthetic */ y b;
     private final /* synthetic */ boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(t tVar, y yVar, boolean z) {
-        this.f1228a = tVar;
+        this.f1261a = tVar;
         this.b = yVar;
         this.c = z;
     }
@@ -22,18 +22,18 @@ public class w implements Runnable {
         LinkedList linkedList;
         long j;
         long j2;
-        linkedList = this.f1228a.r;
+        linkedList = this.f1261a.r;
         linkedList.remove(this);
-        this.f1228a.a(this.b, this.c, true);
+        this.f1261a.a(this.b, this.c, true);
         if (this.c) {
-            t tVar = this.f1228a;
+            t tVar = this.f1261a;
             j2 = tVar.p;
             tVar.p = j2 + this.b.b;
         } else {
-            t tVar2 = this.f1228a;
+            t tVar2 = this.f1261a;
             j = tVar2.q;
             tVar2.q = j + this.b.b;
         }
-        this.f1228a.d();
+        this.f1261a.d();
     }
 }

@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class s implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f889a;
+    final /* synthetic */ LoginActivity f910a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(LoginActivity loginActivity) {
-        this.f889a = loginActivity;
+        this.f910a = loginActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -29,27 +29,27 @@ public class s implements View.OnFocusChangeListener {
         if (z) {
             switch (view.getId()) {
                 case R.id.login_edit_account /* 2131099714 */:
-                    button7 = this.f889a.I;
+                    button7 = this.f910a.I;
                     button7.setVisibility(8);
-                    button8 = this.f889a.H;
+                    button8 = this.f910a.H;
                     button8.setVisibility(0);
-                    button9 = this.f889a.J;
+                    button9 = this.f910a.J;
                     button9.setVisibility(8);
                     return;
                 case R.id.login_edit_password /* 2131099718 */:
-                    button = this.f889a.I;
+                    button = this.f910a.I;
                     button.setVisibility(0);
-                    button2 = this.f889a.H;
+                    button2 = this.f910a.H;
                     button2.setVisibility(8);
-                    button3 = this.f889a.J;
+                    button3 = this.f910a.J;
                     button3.setVisibility(8);
                     return;
                 case R.id.edit_vcode /* 2131099721 */:
-                    button4 = this.f889a.I;
+                    button4 = this.f910a.I;
                     button4.setVisibility(8);
-                    button5 = this.f889a.H;
+                    button5 = this.f910a.H;
                     button5.setVisibility(8);
-                    button6 = this.f889a.J;
+                    button6 = this.f910a.J;
                     button6.setVisibility(0);
                     return;
                 default:

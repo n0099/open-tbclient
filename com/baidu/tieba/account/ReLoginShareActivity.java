@@ -34,16 +34,16 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     private k o = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f844a = null;
+    LinearLayout f865a = null;
     LinearLayout b = null;
     private View.OnClickListener p = new ao(this);
 
-    public static void a(Activity activity, String str, String str2, String str3, String str4) {
+    public static void a(Activity activity, String str, String str2, String str3, int i) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
         intent.putExtra("user_name", str);
         intent.putExtra("bduss", str2);
         intent.putExtra("ptoken", str3);
-        intent.putExtra("goto_type", str4);
+        intent.putExtra("locate_type", i);
         activity.startActivity(intent);
     }
 
@@ -89,7 +89,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
         this.f.setOnClickListener(this.p);
         this.j = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.g = (TextView) findViewById(R.id.relogin_textview);
-        this.f844a = (LinearLayout) findViewById(R.id.container);
+        this.f865a = (LinearLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
     }
 
@@ -98,11 +98,11 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     public void a(int i) {
         super.a(i);
         a(0, this.k);
-        com.baidu.tieba.util.ah.a((TextView) this.e, i);
-        com.baidu.tieba.util.ah.a(this.f, i);
-        com.baidu.tieba.util.ah.a(this.f844a, i);
-        com.baidu.tieba.util.ah.d(this.b, i);
-        com.baidu.tieba.util.ah.b(this.g, i);
+        com.baidu.tieba.util.ao.a((TextView) this.e, i);
+        com.baidu.tieba.util.ao.a(this.f, i);
+        com.baidu.tieba.util.ao.a(this.f865a, i);
+        com.baidu.tieba.util.ao.d(this.b, i);
+        com.baidu.tieba.util.ao.b(this.g, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,12 +154,12 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     public void d() {
         String E = TiebaApplication.E();
         if (E == null || E.length() <= 0) {
-            MainTabActivity.a(this, "goto_recommend");
+            MainTabActivity.a(this, 0);
             return;
         }
-        DatabaseService.m();
+        DatabaseService.k();
         TiebaApplication.a((AccountData) null, getBaseContext());
-        MainTabActivity.b(this, "goto_recommend");
+        MainTabActivity.b(this, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -182,10 +182,10 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
-        String stringExtra = getIntent().getStringExtra("goto_type");
+        int intExtra = getIntent().getIntExtra("locate_type", -1);
         DatabaseService.a(this.n);
         TiebaApplication.a(this.n, getBaseContext());
-        MainTabActivity.b(this, stringExtra);
+        MainTabActivity.b(this, intExtra);
         a.a().d();
     }
 }

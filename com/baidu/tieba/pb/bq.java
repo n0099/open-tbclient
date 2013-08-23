@@ -1,33 +1,26 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
-import com.slidingmenu.lib.R;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements View.OnClickListener {
+public class bq implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1483a;
+    final /* synthetic */ bo f1520a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bq(bn bnVar) {
-        this.f1483a = bnVar;
+    public bq(bo boVar) {
+        this.f1520a = boVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.f1483a.P;
-        if (dialog != null) {
-            dialog2 = this.f1483a.P;
-            dialog2.dismiss();
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.f1483a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+        com.baidu.tieba.write.m mVar;
+        mVar = this.f1520a.J;
+        String a2 = mVar.a(i);
+        if (a2 != null) {
+            this.f1520a.f1518a.getText().insert(this.f1520a.f1518a.getSelectionStart(), a2);
         }
     }
 }

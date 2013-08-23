@@ -1,19 +1,22 @@
 package com.baidu.tieba.mention;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class z implements DialogInterface.OnClickListener {
+public class z implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ x f1314a;
+    final /* synthetic */ y f1348a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(x xVar) {
-        this.f1314a = xVar;
+    public z(y yVar) {
+        this.f1348a = yVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
+        PostActivity postActivity;
+        postActivity = this.f1348a.b;
+        postActivity.d();
     }
 }

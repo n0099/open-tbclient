@@ -1,25 +1,27 @@
 package com.baidu.tieba.home;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements m {
+public class l extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f1155a;
+    final /* synthetic */ ForumFeedActivity f1188a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.f1155a = kVar;
+    public l(ForumFeedActivity forumFeedActivity) {
+        this.f1188a = forumFeedActivity;
     }
 
-    @Override // com.baidu.tieba.home.m
-    public void a(com.baidu.tieba.data.ai aiVar) {
-        r rVar;
-        r rVar2;
-        rVar = this.f1155a.e;
-        if (rVar != null) {
-            rVar2 = this.f1155a.e;
-            rVar2.a(aiVar);
+    @Override // com.baidu.adp.a.e
+    public void a(Object obj) {
+        if (!(obj instanceof com.baidu.tieba.model.s)) {
+            if (obj != null) {
+                this.f1188a.b(obj);
+                return;
+            } else {
+                this.f1188a.m();
+                return;
+            }
         }
-        this.f1155a.notifyDataSetChanged();
+        this.f1188a.a(obj);
     }
 }

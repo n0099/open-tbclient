@@ -5,73 +5,43 @@ import org.json.JSONObject;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f971a = null;
+    private int f981a = -1;
     private String b = null;
-    private int c = 0;
-    private int d = 0;
-    private int f = 0;
-    private String e = null;
+    private String c = null;
 
-    public void a(String str) {
-        this.f971a = str;
-    }
-
-    public String a() {
-        return this.f971a;
-    }
-
-    public void b(String str) {
-        this.b = str;
+    public int a() {
+        return this.f981a;
     }
 
     public String b() {
         return this.b;
     }
 
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int c() {
-        return this.d;
-    }
-
-    public void b(int i) {
-        this.c = i;
-    }
-
-    public int d() {
+    public String c() {
         return this.c;
     }
 
-    public void c(String str) {
-        this.e = str;
+    public void a(int i) {
+        this.f981a = i;
     }
 
-    public String e() {
-        return this.e;
+    public void a(String str) {
+        this.b = str;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f971a = jSONObject.optString("forum_id");
-                this.b = jSONObject.optString("forum_name");
-                c(jSONObject.optInt("is_like", 0));
-                this.d = jSONObject.optInt("is_sign", 0);
-                this.c = jSONObject.optInt("level_id", 0);
-                this.e = jSONObject.optString("avatar", "");
+                this.f981a = jSONObject.optInt("type");
+                if (this.f981a == 3) {
+                    this.b = jSONObject.optString("big_pic");
+                } else if (this.f981a == 5) {
+                    this.b = jSONObject.optString("vpic");
+                    this.c = jSONObject.optString("vsrc");
+                }
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
-    }
-
-    public void c(int i) {
-        this.f = i;
-    }
-
-    public int f() {
-        return this.f;
     }
 }

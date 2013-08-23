@@ -7,14 +7,15 @@ import android.widget.TextView;
 class l {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f1905a;
+    ImageView f1936a;
     TextView b;
-    ProgressBar c;
-    TextView d;
-    final /* synthetic */ k e;
+    TextView c;
+    ProgressBar d;
+    TextView e;
+    final /* synthetic */ k f;
 
     private l(k kVar) {
-        this.e = kVar;
+        this.f = kVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

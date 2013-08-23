@@ -16,7 +16,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class DrawerLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f328a = {16842931};
+    private static final int[] f332a = {16842931};
     private int b;
     private int c;
     private float d;
@@ -164,7 +164,7 @@ public class DrawerLayout extends ViewGroup {
     }
 
     int e(View view) {
-        return android.support.v4.view.n.a(((e) view.getLayoutParams()).f336a, aq.e(view));
+        return android.support.v4.view.n.a(((e) view.getLayoutParams()).f340a, aq.e(view));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -266,7 +266,7 @@ public class DrawerLayout extends ViewGroup {
                     } else {
                         i5 = (i3 - i) - ((int) (measuredWidth * eVar.b));
                     }
-                    switch (eVar.f336a & 112) {
+                    switch (eVar.f340a & 112) {
                         case 16:
                             int i7 = i4 - i2;
                             int i8 = (i7 - measuredHeight) / 2;
@@ -382,12 +382,12 @@ public class DrawerLayout extends ViewGroup {
     }
 
     boolean f(View view) {
-        return ((e) view.getLayoutParams()).f336a == 0;
+        return ((e) view.getLayoutParams()).f340a == 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean g(View view) {
-        return (android.support.v4.view.n.a(((e) view.getLayoutParams()).f336a, aq.e(view)) & 7) != 0;
+        return (android.support.v4.view.n.a(((e) view.getLayoutParams()).f340a, aq.e(view)) & 7) != 0;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -620,7 +620,7 @@ public class DrawerLayout extends ViewGroup {
         View a2;
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
-        if (savedState.f329a != 0 && (a2 = a(savedState.f329a)) != null) {
+        if (savedState.f333a != 0 && (a2 = a(savedState.f333a)) != null) {
             h(a2);
         }
         a(savedState.b, 3);
@@ -640,7 +640,7 @@ public class DrawerLayout extends ViewGroup {
             if (g(childAt)) {
                 e eVar = (e) childAt.getLayoutParams();
                 if (eVar.d) {
-                    savedState.f329a = eVar.f336a;
+                    savedState.f333a = eVar.f340a;
                     break;
                 }
             }
@@ -656,21 +656,21 @@ public class DrawerLayout extends ViewGroup {
         public static final Parcelable.Creator CREATOR = new f();
 
         /* renamed from: a  reason: collision with root package name */
-        int f329a;
+        int f333a;
         int b;
         int c;
 
         public SavedState(Parcel parcel) {
             super(parcel);
-            this.f329a = 0;
+            this.f333a = 0;
             this.b = 0;
             this.c = 0;
-            this.f329a = parcel.readInt();
+            this.f333a = parcel.readInt();
         }
 
         public SavedState(Parcelable parcelable) {
             super(parcelable);
-            this.f329a = 0;
+            this.f333a = 0;
             this.b = 0;
             this.c = 0;
         }
@@ -678,7 +678,7 @@ public class DrawerLayout extends ViewGroup {
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.f329a);
+            parcel.writeInt(this.f333a);
         }
     }
 }

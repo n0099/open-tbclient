@@ -5,24 +5,24 @@ import android.graphics.Bitmap;
 class as extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1458a;
+    final /* synthetic */ NewPbActivity f1495a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(NewPbActivity newPbActivity) {
-        this.f1458a = newPbActivity;
+        this.f1495a = newPbActivity;
     }
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
-        bn bnVar;
-        com.baidu.tieba.model.bi biVar;
+        bo boVar;
+        com.baidu.tieba.model.bh bhVar;
         if (obj instanceof Bitmap) {
             Bitmap bitmap = (Bitmap) obj;
             if (obj != null) {
-                bnVar = this.f1458a.p;
-                bnVar.a(bitmap);
-                biVar = this.f1458a.l;
-                biVar.a(true);
+                boVar = this.f1495a.q;
+                boVar.a(bitmap);
+                bhVar = this.f1495a.m;
+                bhVar.a(true);
             }
         }
     }

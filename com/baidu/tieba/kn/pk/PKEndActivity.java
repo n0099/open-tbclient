@@ -6,14 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.util.am;
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.av;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PKEndActivity extends com.baidu.tieba.g implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f1202a;
+    private c f1235a;
     private b b;
     private String c;
     private boolean d = false;
@@ -38,15 +38,15 @@ public class PKEndActivity extends com.baidu.tieba.g implements View.OnClickList
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.e = new com.baidu.tieba.util.a(this);
-        this.e.a(am.a((Context) this, 50.0f), am.a((Context) this, 50.0f));
+        this.e.a(UtilHelper.a((Context) this, 50.0f), UtilHelper.a((Context) this, 50.0f));
         this.c = getIntent().getStringExtra("pk_id");
         String stringExtra = getIntent().getStringExtra("pk_title");
         setContentView(R.layout.kn_pkend_activity);
-        this.f1202a = new c(this, stringExtra);
-        this.f1202a.b.a(this);
-        if (PKJumpActivity.f1203a != null) {
-            a(PKJumpActivity.f1203a);
-            PKJumpActivity.f1203a = null;
+        this.f1235a = new c(this, stringExtra);
+        this.f1235a.b.a(this);
+        if (PKJumpActivity.f1236a != null) {
+            a(PKJumpActivity.f1236a);
+            PKJumpActivity.f1236a = null;
             return;
         }
         c();
@@ -55,27 +55,27 @@ public class PKEndActivity extends com.baidu.tieba.g implements View.OnClickList
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.f1202a.b.a(R.drawable.pk_bg);
+        this.f1235a.b.a(R.drawable.pk_bg);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.g, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.f1202a.b.a(0);
+        this.f1235a.b.a(0);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1202a.b()) {
+        if (view == this.f1235a.b()) {
             b();
         } else if (this.d) {
             if (view.getId() == R.id.pk_left_bar_container) {
-                FrsActivity.a(this, this.f1202a.f1208a.j.e, (String) null);
+                FrsActivity.a(this, this.f1235a.f1241a.j.e, (String) null);
             } else if (view.getId() == R.id.pk_right_bar_container) {
-                FrsActivity.a(this, this.f1202a.f1208a.k.e, (String) null);
+                FrsActivity.a(this, this.f1235a.f1241a.k.e, (String) null);
             } else {
-                ap.a(this, view.getId(), this.f1202a.f1208a.f1224a, new a(this));
+                av.a(this, view.getId(), this.f1235a.f1241a.f1257a, new a(this));
             }
         }
     }
@@ -85,7 +85,7 @@ public class PKEndActivity extends com.baidu.tieba.g implements View.OnClickList
     }
 
     protected void c() {
-        this.f1202a.a().setVisibility(0);
+        this.f1235a.a().setVisibility(0);
         if (this.b != null) {
             this.b.cancel(true);
         }
@@ -98,8 +98,8 @@ public class PKEndActivity extends com.baidu.tieba.g implements View.OnClickList
     public void a(s sVar) {
         this.b = null;
         try {
-            this.f1202a.a(this.e, sVar);
-            if (!sVar.a()) {
+            this.f1235a.a(this.e, sVar);
+            if (!sVar.b()) {
                 this.d = true;
             }
         } catch (Throwable th) {
@@ -113,7 +113,7 @@ public class PKEndActivity extends com.baidu.tieba.g implements View.OnClickList
             this.b.cancel(true);
             this.b = null;
         }
-        this.f1202a.e();
+        this.f1235a.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

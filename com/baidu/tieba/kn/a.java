@@ -8,8 +8,8 @@ import java.util.Date;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static a f1172a;
-    private final com.baidu.adp.lib.a.a c = new com.baidu.adp.lib.a.a(100);
+    static a f1204a;
+    private final com.baidu.adp.lib.b.a c = new com.baidu.adp.lib.b.a(100);
     private final q b = BdCacheService.c().a("tb.cooldown", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 100);
 
     private a() {
@@ -18,10 +18,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1172a == null) {
-                f1172a = new a();
+            if (f1204a == null) {
+                f1204a = new a();
             }
-            aVar = f1172a;
+            aVar = f1204a;
         }
         return aVar;
     }

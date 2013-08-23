@@ -1,116 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.DatabaseService;
-import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ab extends BdAsyncTask {
+public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f838a;
-    final /* synthetic */ LabelActivity b;
-    private String d;
-    private boolean f;
-    private com.baidu.tieba.util.u c = null;
-    private int e = 1;
+    private LinearLayout f860a;
+    private ImageView b;
+    private TextView c;
+    private int d;
+    private int e;
+    private int f = -1;
 
-    public ab(LabelActivity labelActivity, String str, boolean z, ArrayList arrayList) {
-        this.b = labelActivity;
-        this.d = null;
-        this.f838a = null;
-        this.d = str;
-        this.f838a = arrayList;
-        this.f = z;
+    public ab(Activity activity, int i, int i2) {
+        this.d = i;
+        this.e = i2;
+        this.f860a = (LinearLayout) activity.findViewById(R.id.no_data_container);
+        this.b = (ImageView) activity.findViewById(R.id.no_data_image);
+        this.c = (TextView) activity.findViewById(R.id.no_data_image_text);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(int i) {
+        if (i != this.f) {
+            this.f = i;
+            if (i == 1) {
+                this.b.setImageResource(this.e);
+                this.c.setTextColor(com.baidu.tieba.util.ao.a(i));
+                return;
+            }
+            this.b.setImageResource(this.d);
+            this.c.setTextColor(-5065030);
+        }
+    }
+
+    public void a() {
+        a(TiebaApplication.g().an());
+    }
+
     public void b() {
-        this.b.b(true);
+        this.b.setImageResource(0);
+        this.f = -1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Boolean a(Object... objArr) {
-        com.baidu.tieba.model.aq aqVar;
-        com.baidu.tieba.model.aq aqVar2;
-        com.baidu.tieba.model.aq aqVar3;
-        com.baidu.tieba.model.aq aqVar4;
-        com.baidu.tieba.model.aq aqVar5;
-        com.baidu.tieba.model.aq aqVar6;
-        try {
-            this.c = new com.baidu.tieba.util.u(this.d);
-            this.c.a(this.f838a);
-            aqVar = this.b.q;
-            if (aqVar != null) {
-                aqVar5 = this.b.q;
-                if (aqVar5.i().size() != 0) {
-                    aqVar6 = this.b.q;
-                    this.c.a("tag_info", aqVar6.h());
-                }
-            }
-            com.baidu.tieba.util.aj.b("begin to get label data...url is " + this.d);
-            String k = this.c.k();
-            com.baidu.tieba.util.aj.b("end to get label data...");
-            if (this.c.d()) {
-                aqVar2 = this.b.q;
-                if (aqVar2 == null) {
-                    this.b.q = new com.baidu.tieba.model.aq();
-                }
-                aqVar3 = this.b.q;
-                aqVar3.a(k);
-                if (this.f) {
-                    aqVar4 = this.b.q;
-                    aqVar4.b(DatabaseService.b(12));
-                }
-                com.baidu.tieba.util.aj.a(getClass().getName(), "doInBackground", k);
-                System.gc();
-            }
-            if (this.c.e()) {
-                this.e = 0;
-            } else {
-                this.e = 1;
-            }
-            return true;
-        } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "", "LabelAsyncTask.doInBackground error = " + e.getMessage());
-            return false;
+    public void b(int i) {
+        this.f860a.setVisibility(i);
+        if (i == 8) {
+            this.b.setImageResource(0);
+            this.f = -1;
+            return;
         }
+        a(TiebaApplication.g().an());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        this.b.b(false);
-        if (bool.booleanValue() && this.e != 1) {
-            this.b.m();
-            this.b.c(false);
-        } else {
-            e();
-        }
-        this.b.M = null;
-        System.gc();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        if (this.c != null) {
-            this.c.i();
-        }
-        super.cancel(true);
-    }
-
-    private void e() {
-        this.b.a(this.c.h());
+    public boolean c() {
+        return this.f860a.getVisibility() != 8;
     }
 }

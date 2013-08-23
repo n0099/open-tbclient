@@ -7,13 +7,13 @@ import java.util.Timer;
 class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f477a;
+    final /* synthetic */ h f495a;
     private final /* synthetic */ View b;
     private final /* synthetic */ Timer c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, View view, Timer timer) {
-        this.f477a = hVar;
+        this.f495a = hVar;
         this.b = view;
         this.c = timer;
     }
@@ -35,28 +35,28 @@ class i implements Runnable {
         g gVar7;
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
         int i4 = layoutParams.topMargin;
-        gVar = this.f477a.f476a;
-        i = gVar.f475a;
+        gVar = this.f495a.f494a;
+        i = gVar.f493a;
         layoutParams.topMargin = i4 - i;
         int i5 = layoutParams.topMargin;
-        gVar2 = this.f477a.f476a;
+        gVar2 = this.f495a.f494a;
         i2 = gVar2.c;
         if (i5 <= i2) {
-            gVar6 = this.f477a.f476a;
+            gVar6 = this.f495a.f494a;
             i3 = gVar6.c;
             layoutParams.topMargin = i3;
             this.c.cancel();
-            gVar7 = this.f477a.f476a;
+            gVar7 = this.f495a.f494a;
             gVar7.d = true;
         }
         this.b.setLayoutParams(layoutParams);
-        gVar3 = this.f477a.f476a;
+        gVar3 = this.f495a.f494a;
         z = gVar3.d;
         if (z) {
-            gVar4 = this.f477a.f476a;
+            gVar4 = this.f495a.f494a;
             jVar = gVar4.e;
             if (jVar != null) {
-                gVar5 = this.f477a.f476a;
+                gVar5 = this.f495a.f494a;
                 jVar2 = gVar5.e;
                 jVar2.a();
             }

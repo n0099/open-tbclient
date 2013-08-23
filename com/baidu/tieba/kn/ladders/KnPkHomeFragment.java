@@ -11,8 +11,8 @@ import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class KnPkHomeFragment extends BaseFragment {
 
-    /* renamed from: a */
-    private u f1178a;
+    /* renamed from: a  reason: collision with root package name */
+    private u f1210a;
     private boolean b;
     private t c;
     private boolean d;
@@ -20,9 +20,9 @@ public class KnPkHomeFragment extends BaseFragment {
     @Override // android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.kn_pk_list_web_fragment, viewGroup, false);
-        this.f1178a = new u(inflate);
-        this.f1178a.f1198a.setOnLoadUrlListener(new r(this));
-        this.f1178a.e.setOnClickListener(new s(this));
+        this.f1210a = new u(inflate);
+        this.f1210a.f1230a.setOnLoadUrlListener(new r(this));
+        this.f1210a.e.setOnClickListener(new s(this));
         this.b = true;
         return inflate;
     }

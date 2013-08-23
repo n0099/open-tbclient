@@ -6,11 +6,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 class g implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicInteger f354a = new AtomicInteger(1);
+    private final AtomicInteger f359a = new AtomicInteger(1);
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        String str = "BdAsyncTask #" + String.valueOf(this.f354a.getAndIncrement());
+        String str = "BdAsyncTask #" + String.valueOf(this.f359a.getAndIncrement());
         com.baidu.adp.lib.e.d.b(str);
         return new Thread(runnable, str);
     }

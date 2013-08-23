@@ -6,7 +6,7 @@ import android.widget.TextView;
 class k {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1605a;
+    TextView f1649a;
     StringBuffer b;
     TextView c;
     StringBuffer d;

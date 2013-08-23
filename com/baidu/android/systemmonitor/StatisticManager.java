@@ -77,7 +77,7 @@ public final class StatisticManager implements NoProGuard {
                 localServerSocket = sLock;
             } else {
                 try {
-                    sLock = new LocalServerSocket(Util.toMd5(("Statistic_" + ((int) com.baidu.android.systemmonitor.d.b.f674a)).getBytes(), false));
+                    sLock = new LocalServerSocket(Util.toMd5(("Statistic_" + ((int) com.baidu.android.systemmonitor.d.b.f697a)).getBytes(), false));
                 } catch (Exception e) {
                 }
                 localServerSocket = sLock;
@@ -87,12 +87,12 @@ public final class StatisticManager implements NoProGuard {
     }
 
     public static int getPriority(Context context) {
-        int m = ((((com.baidu.android.systemmonitor.d.b.f674a << 1) + com.baidu.android.systemmonitor.d.c.m(context)) << 1) + com.baidu.android.systemmonitor.d.c.t(context)) << 1;
+        int m = ((((com.baidu.android.systemmonitor.d.b.f697a << 1) + com.baidu.android.systemmonitor.d.c.m(context)) << 1) + com.baidu.android.systemmonitor.d.c.t(context)) << 1;
         return ((((((com.baidu.android.systemmonitor.d.c.n(context) == 1 ? (((m + 1) << 1) + com.baidu.android.systemmonitor.d.c.o(context)) << 1 : m << 2) + com.baidu.android.systemmonitor.d.c.q(context)) << 1) + com.baidu.android.systemmonitor.d.c.s(context)) << 1) + com.baidu.android.systemmonitor.d.c.r(context)) << 1;
     }
 
     public static short getVersion(Context context) {
-        return com.baidu.android.systemmonitor.d.b.f674a;
+        return com.baidu.android.systemmonitor.d.b.f697a;
     }
 
     private void handleBootCompletedAction() {
@@ -104,7 +104,7 @@ public final class StatisticManager implements NoProGuard {
                 com.baidu.android.systemmonitor.d.b.a(this.mContext, 0L, false);
                 if (this.mStartStamp != 0 && this.mStopStamp != 0 && this.mStartStamp < this.mStopStamp) {
                     com.baidu.android.systemmonitor.devicestatistic.a.e eVar = new com.baidu.android.systemmonitor.devicestatistic.a.e(this.mStartStamp);
-                    eVar.f681a = this.mStopStamp;
+                    eVar.f704a = this.mStopStamp;
                     com.baidu.android.systemmonitor.devicestatistic.d.a(this.mContext).a(eVar);
                 }
             }

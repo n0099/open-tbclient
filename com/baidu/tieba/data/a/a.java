@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.aq;
 import com.tencent.mm.sdk.conversation.RConversation;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -13,7 +13,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList f956a = new LinkedList();
+    private LinkedList f966a = new LinkedList();
 
     public void a() {
         new b(this).start();
@@ -23,7 +23,7 @@ public class a {
         SQLiteDatabase a2 = DatabaseService.a();
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("msgId", Long.valueOf(dVar.f959a));
+            contentValues.put("msgId", Long.valueOf(dVar.f969a));
             contentValues.put("ownerId", dVar.b);
             contentValues.put("friendId", dVar.c);
             contentValues.put(RConversation.COL_MSGTYPE, Integer.valueOf(dVar.d));
@@ -34,7 +34,7 @@ public class a {
             a2.insert("chat_msgs", null, contentValues);
             return true;
         } catch (Throwable th) {
-            aj.b("DatabaseService", "addChatMessage", th.getMessage());
+            aq.b("DatabaseService", "addChatMessage", th.getMessage());
             return false;
         }
     }
@@ -47,7 +47,7 @@ public class a {
             return a(a2, cursor, i);
         } catch (Throwable th) {
             try {
-                aj.b("DatabaseService", "listChatMessagesByFriendId", th.getMessage());
+                aq.b("DatabaseService", "listChatMessagesByFriendId", th.getMessage());
                 com.baidu.tieba.util.g.a(cursor);
                 return new LinkedList();
             } finally {
@@ -67,8 +67,8 @@ public class a {
                 a(i3);
             } else {
                 d dVar = new d();
-                dVar.f959a = cursor.getLong(cursor.getColumnIndex("msgId"));
-                if (linkedList2.contains(Long.valueOf(dVar.f959a))) {
+                dVar.f969a = cursor.getLong(cursor.getColumnIndex("msgId"));
+                if (linkedList2.contains(Long.valueOf(dVar.f969a))) {
                     a(i3);
                 } else {
                     dVar.b = cursor.getString(cursor.getColumnIndex("ownerId"));
@@ -85,7 +85,7 @@ public class a {
                     } else {
                         if (!z) {
                             linkedList.addLast(dVar);
-                            linkedList2.add(Long.valueOf(dVar.f959a));
+                            linkedList2.add(Long.valueOf(dVar.f969a));
                         } else {
                             a(i3);
                         }
@@ -99,17 +99,17 @@ public class a {
     }
 
     protected void a(int i) {
-        if (!this.f956a.contains(Integer.valueOf(i))) {
-            this.f956a.add(Integer.valueOf(i));
+        if (!this.f966a.contains(Integer.valueOf(i))) {
+            this.f966a.add(Integer.valueOf(i));
         }
     }
 
     protected void a(SQLiteDatabase sQLiteDatabase) {
-        if (!this.f956a.isEmpty()) {
+        if (!this.f966a.isEmpty()) {
             sQLiteDatabase.beginTransaction();
-            while (!this.f956a.isEmpty()) {
+            while (!this.f966a.isEmpty()) {
                 try {
-                    sQLiteDatabase.delete("chat_msgs", "pk = ?", new String[]{String.valueOf(((Integer) this.f956a.removeFirst()).intValue())});
+                    sQLiteDatabase.delete("chat_msgs", "pk = ?", new String[]{String.valueOf(((Integer) this.f966a.removeFirst()).intValue())});
                 } finally {
                     sQLiteDatabase.endTransaction();
                 }
@@ -127,7 +127,7 @@ public class a {
                 a2.delete("chat_msgs", "ownerId = ?", new String[]{str});
             }
         } catch (Throwable th) {
-            aj.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
+            aq.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
         }
     }
 
@@ -142,7 +142,7 @@ public class a {
                 g gVar = (g) it.next();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("pk", gVar.a());
-                contentValues.put("ownerId", gVar.f962a);
+                contentValues.put("ownerId", gVar.f972a);
                 contentValues.put("friendId", gVar.c);
                 contentValues.put("ownerName", gVar.b);
                 contentValues.put("friendName", gVar.d);
@@ -157,7 +157,7 @@ public class a {
             a2.setTransactionSuccessful();
             a2.endTransaction();
         } catch (Throwable th) {
-            aj.b("DatabaseService", "addAndOverrideRecentChatFriends", th.getMessage());
+            aq.b("DatabaseService", "addAndOverrideRecentChatFriends", th.getMessage());
         }
     }
 
@@ -174,7 +174,7 @@ public class a {
                     a2.delete("chat_recent_friends", "pk = ?", new String[]{string});
                 } else {
                     g gVar = new g();
-                    gVar.f962a = cursor.getString(cursor.getColumnIndex("ownerId"));
+                    gVar.f972a = cursor.getString(cursor.getColumnIndex("ownerId"));
                     gVar.c = cursor.getString(cursor.getColumnIndex("friendId"));
                     gVar.b = cursor.getString(cursor.getColumnIndex("ownerName"));
                     gVar.d = cursor.getString(cursor.getColumnIndex("friendName"));
@@ -191,7 +191,7 @@ public class a {
             return linkedList;
         } catch (Throwable th) {
             try {
-                aj.b("DatabaseService", "listRecentChatFriends", th.getMessage());
+                aq.b("DatabaseService", "listRecentChatFriends", th.getMessage());
                 com.baidu.tieba.util.g.a(cursor);
                 return new LinkedList();
             } finally {

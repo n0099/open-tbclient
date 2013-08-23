@@ -1,32 +1,19 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class da implements AdapterView.OnItemClickListener {
+class da implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cu f1519a;
+    final /* synthetic */ cv f1556a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public da(cu cuVar) {
-        this.f1519a = cuVar;
+    public da(cv cvVar) {
+        this.f1556a = cvVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        com.baidu.tieba.write.m mVar;
-        EditText editText;
-        EditText editText2;
-        mVar = this.f1519a.B;
-        String a2 = mVar.a(i);
-        if (a2 != null) {
-            editText = this.f1519a.F;
-            int selectionStart = editText.getSelectionStart();
-            editText2 = this.f1519a.F;
-            editText2.getText().insert(selectionStart, a2);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1556a.h();
     }
 }

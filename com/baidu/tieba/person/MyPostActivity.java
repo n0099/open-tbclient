@@ -23,12 +23,14 @@ public class MyPostActivity extends ActivityGroup {
     private RadioGroup g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1553a = -1;
+    protected int f1591a = -1;
     private String i = null;
+    private int j = 0;
 
-    public static void a(Activity activity, String str) {
+    public static void a(Activity activity, String str, int i) {
         Intent intent = new Intent(activity, MyPostActivity.class);
         intent.putExtra("user", str);
+        intent.putExtra("user_sex", i);
         activity.startActivity(intent);
     }
 
@@ -40,6 +42,7 @@ public class MyPostActivity extends ActivityGroup {
         }
         setContentView(R.layout.my_post_activity);
         this.i = getIntent().getStringExtra("user");
+        this.j = getIntent().getIntExtra("user_sex", 0);
         b();
     }
 
@@ -52,6 +55,17 @@ public class MyPostActivity extends ActivityGroup {
         this.c = (RelativeLayout) findViewById(R.id.title);
         this.f = (TextView) findViewById(R.id.title_text);
         this.h = (FrameLayout) findViewById(R.id.content);
+        if (this.i != null) {
+            if (this.j == 2) {
+                this.f.setText(R.string.her_posts);
+            } else if (this.j == 1) {
+                this.f.setText(R.string.his_posts);
+            } else {
+                this.f.setText(R.string.ta_posts);
+            }
+        } else {
+            this.f.setText(R.string.my_post);
+        }
         this.d = (ImageView) findViewById(R.id.back);
         this.d.setOnClickListener(new ab(this));
         this.e = (ImageView) findViewById(R.id.refresh);
@@ -65,18 +79,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.f().au() != this.f1553a) {
-            this.f1553a = TiebaApplication.f().au();
-            a(this.f1553a);
+        if (TiebaApplication.g().an() != this.f1591a) {
+            this.f1591a = TiebaApplication.g().an();
+            a(this.f1591a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.ah.a(this.b, i);
-        com.baidu.tieba.util.ah.d(this.c, i);
-        com.baidu.tieba.util.ah.f(this.f, i);
-        com.baidu.tieba.util.ah.a(this.d, i);
-        com.baidu.tieba.util.ah.b(this.e, i);
+        com.baidu.tieba.util.ao.a(this.b, i);
+        com.baidu.tieba.util.ao.d(this.c, i);
+        com.baidu.tieba.util.ao.f(this.f, i);
+        com.baidu.tieba.util.ao.a(this.d, i);
+        com.baidu.tieba.util.ao.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

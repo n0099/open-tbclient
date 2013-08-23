@@ -10,7 +10,7 @@ public class KnLaddersModel extends com.baidu.adp.a.c implements Serializable {
     public static final int LOCAL_CACHE_EXPIRED_TIME = 86400000;
 
     /* renamed from: a  reason: collision with root package name */
-    private static o f1177a = null;
+    private static o f1209a = null;
     static final long serialVersionUID = 323412341;
     @SerializedName("mainbar")
     public MainBar mainbar;
@@ -129,18 +129,18 @@ public class KnLaddersModel extends com.baidu.adp.a.c implements Serializable {
 
     public static synchronized void fetch(Context context, q qVar, boolean z) {
         synchronized (KnLaddersModel.class) {
-            if (f1177a == null || f1177a.getStatus() != BdAsyncTask.BdAsyncTaskStatus.RUNNING) {
-                f1177a = new o(context, qVar, z);
-                f1177a.execute(new Void[0]);
+            if (f1209a == null || f1209a.getStatus() != BdAsyncTask.BdAsyncTaskStatus.RUNNING) {
+                f1209a = new o(context, qVar, z);
+                f1209a.execute(new Void[0]);
             }
         }
     }
 
     public static synchronized void cancel() {
         synchronized (KnLaddersModel.class) {
-            if (f1177a != null) {
-                f1177a.cancel();
-                f1177a = null;
+            if (f1209a != null) {
+                f1209a.cancel();
+                f1209a = null;
             }
         }
     }

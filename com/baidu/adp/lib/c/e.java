@@ -7,7 +7,7 @@ import java.util.Map;
 public class e extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f364a;
+    final /* synthetic */ c f370a;
     private String b;
     private int c;
     private Map d = new HashMap();
@@ -24,7 +24,7 @@ public class e extends BdAsyncTask {
     }
 
     public e(c cVar, String str, int i, b bVar, f fVar) {
-        this.f364a = cVar;
+        this.f370a = cVar;
         this.b = str;
         this.c = i;
         this.d.put(bVar, fVar);
@@ -52,7 +52,7 @@ public class e extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Object a(String... strArr) {
         g a2;
-        if (c.a(this.f364a) == null || (a2 = c.a(this.f364a, this.c)) == null) {
+        if (c.a(this.f370a) == null || (a2 = c.a(this.f370a, this.c)) == null) {
             return null;
         }
         Object a3 = a2.a(this.b, this);

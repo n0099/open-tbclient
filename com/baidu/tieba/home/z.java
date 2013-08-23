@@ -2,125 +2,88 @@ package com.baidu.tieba.home;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.bo;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class z extends BaseAdapter implements com.baidu.tieba.view.z {
-
-    /* renamed from: a  reason: collision with root package name */
-    LayoutInflater f1167a;
+public class z extends com.baidu.adp.a.d {
     private Activity b;
-    private int c;
-    private com.baidu.tieba.data.az d;
-    private ViewPager e;
-    private RecommendPagerAdapter f;
-    private bo g;
-    private ViewPager h;
-    private TopicPagerAdapter i;
-    private LinearLayout j;
-    private m k;
-
-    public z(Activity activity, m mVar) {
-        this.k = mVar;
-        this.b = activity;
-        a();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        int count = this.f != null ? this.f.getCount() + 0 : 0;
-        if (this.i != null) {
-            count += this.i.getCount();
-        }
-        return count > 0 ? 1 : 0;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return Integer.valueOf(i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.j;
-    }
-
-    private void a() {
-        this.c = TiebaApplication.f().au();
-        this.f1167a = LayoutInflater.from(this.b);
-        this.j = (LinearLayout) this.f1167a.inflate(R.layout.frs_activity_card, (ViewGroup) null);
-        this.e = (ViewPager) this.j.findViewById(R.id.frs_card);
-        this.e.setOnPageChangeListener(new aa(this));
-        int a2 = (int) ((((com.baidu.tieba.util.am.a(TiebaApplication.f().getApplicationContext()) - com.baidu.tieba.util.am.a((Context) this.b, 28.0f)) / 2) * this.b.getResources().getDimension(R.dimen.ad_image_height)) / this.b.getResources().getDimension(R.dimen.ad_image_width));
-        this.h = (ViewPager) this.j.findViewById(R.id.frs_ad_button);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.h.getLayoutParams();
-        layoutParams.height = a2;
-        this.h.setLayoutParams(layoutParams);
-        this.h.setOnPageChangeListener(new ab(this));
-    }
-
-    public void a(com.baidu.tieba.data.az azVar, bo boVar) {
-        if (azVar != null) {
-            this.d = azVar;
-            this.f = new RecommendPagerAdapter(this.b, this.k);
-            this.f.a(azVar.a(), azVar.b());
-            this.e.setVisibility(0);
-            this.e.setAdapter(this.f);
-            this.e.a(1, false);
-        } else {
-            this.e.setVisibility(8);
-        }
-        if (boVar != null && boVar.f1003a != null && boVar.f1003a.size() > 0) {
-            this.g = boVar;
-            this.i = new TopicPagerAdapter(this.b);
-            this.i.a(boVar.a());
-            this.h.setVisibility(0);
-            this.h.setAdapter(this.i);
-            this.h.a(1, false);
-        } else {
-            this.h.setVisibility(8);
-        }
-        notifyDataSetChanged();
-    }
+    private View c;
+    private LinearLayout d;
+    private TextView e;
+    private ImageView f;
+    private Button g;
+    private Button h;
+    private int i;
 
     public void a(int i) {
-        int au = TiebaApplication.f().au();
-        if (this.c != au) {
-            a(this.d, this.g);
-        }
-        this.c = au;
-        notifyDataSetChanged();
+        this.i = i;
     }
 
-    @Override // com.baidu.tieba.view.z
-    public void c() {
-        if (this.f != null) {
-            this.f.c();
-        }
-        if (this.i != null) {
-            this.i.c();
-        }
+    public int b() {
+        return this.i;
     }
 
-    @Override // com.baidu.tieba.view.z
-    public void a(View view, int i, int i2) {
-        if (this.f != null) {
-            this.f.a(this.e, 0, 0);
+    public z(Activity activity, String str, String str2, int i) {
+        super(activity);
+        this.i = -1;
+        this.b = activity;
+        this.c = LayoutInflater.from(activity).inflate(R.layout.enter_forum_login, (ViewGroup) null);
+        this.d = (LinearLayout) this.c;
+        this.e = (TextView) this.c.findViewById(R.id.tip);
+        this.f = (ImageView) this.c.findViewById(R.id.img_bg);
+        this.g = (Button) this.c.findViewById(R.id.login_btn);
+        if (str != null) {
+            this.e.setText(str);
         }
-        if (this.i != null) {
-            this.i.a(this.e, 0, 0);
+        this.g.setOnClickListener(new aa(this, activity, i, str2));
+        this.h = (Button) this.c.findViewById(R.id.reg_btn);
+        this.h.setOnClickListener(new ab(this, activity));
+        int a2 = UtilHelper.a((Context) activity, 7.0f);
+        int a3 = UtilHelper.a((Context) activity, 5.0f);
+        this.d.setPadding(a2, a3, a2, a3);
+    }
+
+    public View c() {
+        if (TiebaApplication.g().u()) {
+            StatService.onEvent(this.b, "home_login_show", "loginshow", 1);
+        }
+        return this.c;
+    }
+
+    private boolean c(int i) {
+        if (i == b()) {
+            return false;
+        }
+        a(i);
+        return true;
+    }
+
+    public void b(int i) {
+        if (c(i)) {
+            if (i == 1) {
+                this.e.setTextColor(-8815226);
+                this.f.setBackgroundResource(R.drawable.pic_inset_login_1);
+                this.g.setBackgroundResource(R.drawable.btn_blue_square_1);
+                this.h.setBackgroundResource(R.drawable.btn_w_square_1);
+                this.g.setTextColor(-5454368);
+                this.h.setTextColor(-9207399);
+                return;
+            }
+            this.e.setTextColor(-5065030);
+            this.f.setBackgroundResource(R.drawable.pic_inset_login);
+            this.g.setBackgroundResource(R.drawable.btn_blue_square);
+            this.h.setBackgroundResource(R.drawable.btn_w_square);
+            this.g.setTextColor(-1);
+            this.h.setTextColor(-14277082);
         }
     }
 }

@@ -11,13 +11,13 @@ import com.baidu.tieba.util.DatabaseService;
 public class r extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f888a;
-    private com.baidu.tieba.util.u b = null;
+    final /* synthetic */ k f909a;
+    private com.baidu.tieba.util.v b = null;
     private String c;
     private String d;
 
     public r(k kVar, String str, String str2) {
-        this.f888a = kVar;
+        this.f909a = kVar;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -28,10 +28,10 @@ public class r extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         Button button;
-        this.f888a.l = null;
-        progressBar = this.f888a.q;
+        this.f909a.l = null;
+        progressBar = this.f909a.q;
         progressBar.setVisibility(8);
-        button = this.f888a.o;
+        button = this.f909a.o;
         button.setEnabled(true);
     }
 
@@ -47,26 +47,26 @@ public class r extends BdAsyncTask {
         p pVar2;
         AccountData accountData2;
         super.a((Object) cVar);
-        this.f888a.l = null;
-        progressBar = this.f888a.q;
+        this.f909a.l = null;
+        progressBar = this.f909a.q;
         progressBar.setVisibility(8);
-        button = this.f888a.o;
+        button = this.f909a.o;
         button.setEnabled(true);
         if (cVar == null) {
-            this.f888a.b(this.b.h());
+            this.f909a.b(this.b.g());
         } else if (cVar.a().getName() == null) {
-            this.f888a.b(this.b.h());
-            this.f888a.a(cVar.b());
+            this.f909a.b(this.b.g());
+            this.f909a.a(cVar.b());
         } else {
-            this.f888a.e();
-            accountData = this.f888a.t;
-            gVar = this.f888a.j;
+            this.f909a.e();
+            accountData = this.f909a.t;
+            gVar = this.f909a.j;
             TiebaApplication.a(accountData, gVar);
             a.a().b();
-            pVar = this.f888a.u;
+            pVar = this.f909a.u;
             if (pVar != null) {
-                pVar2 = this.f888a.u;
-                accountData2 = this.f888a.t;
+                pVar2 = this.f909a.u;
+                accountData2 = this.f909a.t;
                 pVar2.a(accountData2);
             }
         }
@@ -77,12 +77,12 @@ public class r extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.f888a.q;
+        progressBar = this.f909a.q;
         progressBar.setVisibility(0);
-        button = this.f888a.o;
+        button = this.f909a.o;
         button.setEnabled(false);
-        this.f888a.b((String) null);
-        this.f888a.d();
+        this.f909a.b((String) null);
+        this.f909a.d();
         super.b();
     }
 
@@ -111,7 +111,7 @@ public class r extends BdAsyncTask {
         String str;
         Exception e;
         AccountData accountData;
-        String k;
+        String j;
         AccountData accountData2;
         AccountData accountData3;
         AccountData accountData4;
@@ -121,23 +121,23 @@ public class r extends BdAsyncTask {
         str2 = null;
         str2 = null;
         try {
-            this.b = new com.baidu.tieba.util.u(this.c);
+            this.b = new com.baidu.tieba.util.v(this.c);
             this.b.a("un", this.d);
-            com.baidu.tieba.util.u uVar = this.b;
-            accountData = this.f888a.t;
-            uVar.a("BDUSS", accountData.getBDUSS());
+            com.baidu.tieba.util.v vVar = this.b;
+            accountData = this.f909a.t;
+            vVar.a("BDUSS", accountData.getBDUSS());
             this.b.c(false);
-            k = this.b.k();
+            j = this.b.j();
         } catch (Exception e2) {
             str = str2;
             e = e2;
         }
-        if (this.b.e()) {
-            str = this.b.f();
+        if (this.b.d()) {
+            str = this.b.e();
             try {
                 if (str == 0) {
                     com.baidu.tieba.data.c cVar = new com.baidu.tieba.data.c();
-                    cVar.a(k);
+                    cVar.a(j);
                     String name = cVar.a().getName();
                     String bduss = cVar.a().getBDUSS();
                     str = cVar;
@@ -145,31 +145,31 @@ public class r extends BdAsyncTask {
                     str2 = name;
                     str2 = name;
                     if (name != null && bduss != null) {
-                        accountData2 = this.f888a.t;
+                        accountData2 = this.f909a.t;
                         str = cVar;
                         str2 = name;
                         if (accountData2 != null) {
-                            accountData3 = this.f888a.t;
+                            accountData3 = this.f909a.t;
                             accountData3.setAccount(name);
-                            accountData4 = this.f888a.t;
+                            accountData4 = this.f909a.t;
                             accountData4.setBDUSS(bduss);
-                            r1 = this.f888a.t;
+                            r1 = this.f909a.t;
                             DatabaseService.a((AccountData) r1);
                             str = cVar;
                             str2 = r1;
                         }
                     }
-                } else if (this.b.f() == 36) {
+                } else if (this.b.e() == 36) {
                     com.baidu.tieba.data.c cVar2 = new com.baidu.tieba.data.c();
-                    cVar2.a(k);
+                    cVar2.a(j);
                     str = cVar2;
-                } else if (this.b.f() == 1) {
-                    this.f888a.e();
+                } else if (this.b.e() == 1) {
+                    this.f909a.e();
                     str = 0;
                 }
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
                 return str;
             }
             return str;

@@ -4,9 +4,8 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class FragmentState implements Parcelable {
+final class FragmentState implements Parcelable {
     public static final Parcelable.Creator CREATOR = new aa();
 
     /* renamed from: a  reason: collision with root package name */

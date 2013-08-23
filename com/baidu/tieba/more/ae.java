@@ -8,41 +8,41 @@ import com.slidingmenu.lib.R;
 class ae implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1398a;
+    final /* synthetic */ MsgRemindActivity f1435a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(MsgRemindActivity msgRemindActivity) {
-        this.f1398a = msgRemindActivity;
+        this.f1435a = msgRemindActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         switch (compoundButton.getId()) {
-            case R.id.check_replyme /* 2131100397 */:
+            case R.id.check_replyme /* 2131100439 */:
                 if (z) {
-                    TiebaApplication.f().p(true);
+                    TiebaApplication.g().o(true);
                     break;
                 } else {
-                    TiebaApplication.f().p(false);
+                    TiebaApplication.g().o(false);
                     break;
                 }
-            case R.id.check_atme /* 2131100398 */:
+            case R.id.check_atme /* 2131100440 */:
                 if (z) {
-                    TiebaApplication.f().o(true);
+                    TiebaApplication.g().n(true);
                     break;
                 } else {
-                    TiebaApplication.f().o(false);
+                    TiebaApplication.g().n(false);
                     break;
                 }
-            case R.id.check_newfans /* 2131100399 */:
+            case R.id.check_newfans /* 2131100441 */:
                 if (z) {
-                    TiebaApplication.f().n(true);
+                    TiebaApplication.g().m(true);
                     break;
                 } else {
-                    TiebaApplication.f().n(false);
+                    TiebaApplication.g().m(false);
                     break;
                 }
         }
-        DatabaseService.w();
+        DatabaseService.u();
     }
 }

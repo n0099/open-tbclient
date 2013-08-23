@@ -7,13 +7,13 @@ import android.widget.ProgressBar;
 public class s implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1613a;
+    final /* synthetic */ EditHeadActivity f1659a;
     private final /* synthetic */ String b;
     private final /* synthetic */ int c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(EditHeadActivity editHeadActivity, String str, int i) {
-        this.f1613a = editHeadActivity;
+        this.f1659a = editHeadActivity;
         this.b = str;
         this.c = i;
     }
@@ -22,14 +22,14 @@ public class s implements View.OnClickListener {
     public void onClick(View view) {
         ProgressBar progressBar;
         String str;
-        progressBar = this.f1613a.n;
+        progressBar = this.f1659a.n;
         if (progressBar.getVisibility() != 0) {
             String str2 = this.b;
-            str = this.f1613a.A;
+            str = this.f1659a.A;
             if (!str2.equals(str)) {
-                this.f1613a.c(this.b);
-                this.f1613a.d(this.b);
-                this.f1613a.y = this.c;
+                this.f1659a.c(this.b);
+                this.f1659a.d(this.b);
+                this.f1659a.y = this.c;
             }
         }
     }

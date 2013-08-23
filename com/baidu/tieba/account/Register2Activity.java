@@ -64,13 +64,13 @@ public class Register2Activity extends com.baidu.tieba.g {
     private String P = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f845a = null;
+    RelativeLayout f866a = null;
     LinearLayout b = null;
     TextView c = null;
     TextView d = null;
     private ax Q = null;
     private ay R = null;
-    private com.baidu.tieba.model.at S = null;
+    private com.baidu.tieba.model.as S = null;
     private View.OnClickListener T = new as(this);
     private TextWatcher U = new at(this);
     private View.OnFocusChangeListener V = new au(this);
@@ -115,11 +115,11 @@ public class Register2Activity extends com.baidu.tieba.g {
         if (this.Q != null) {
             this.Q.cancel();
         }
-        com.baidu.tieba.util.aj.a("Register2Activity", "onDestroy", "onDestroy");
+        com.baidu.tieba.util.aq.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
     private void o() {
-        this.f845a = (RelativeLayout) findViewById(R.id.container);
+        this.f866a = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.reg_text);
@@ -174,13 +174,13 @@ public class Register2Activity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.f(this.c, i);
-        com.baidu.tieba.util.ah.f((TextView) this.m, i);
-        com.baidu.tieba.util.ah.a(this.d, i);
-        com.baidu.tieba.util.ah.c(this.f845a, i);
-        com.baidu.tieba.util.ah.d(this.b, i);
-        com.baidu.tieba.util.ah.g((TextView) this.m, i);
-        com.baidu.tieba.util.ah.a(this.l, i);
+        com.baidu.tieba.util.ao.f(this.c, i);
+        com.baidu.tieba.util.ao.f((TextView) this.m, i);
+        com.baidu.tieba.util.ao.a(this.d, i);
+        com.baidu.tieba.util.ao.c(this.f866a, i);
+        com.baidu.tieba.util.ao.d(this.b, i);
+        com.baidu.tieba.util.ao.g((TextView) this.m, i);
+        com.baidu.tieba.util.ao.a(this.l, i);
         u();
         r();
     }
@@ -362,7 +362,7 @@ public class Register2Activity extends com.baidu.tieba.g {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == e && i2 == -1) {
-            com.baidu.tieba.util.aj.a("Register2Activity", "onActivityResult", "onActivityResult");
+            com.baidu.tieba.util.aq.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }

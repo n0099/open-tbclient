@@ -1,53 +1,57 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f967a = null;
+    private String f977a = null;
+    private String b = null;
+    private int c = 0;
+    private int d = 0;
+    private int f = 0;
+    private String e = null;
 
-    public ae() {
-        a(new ArrayList());
+    public String a() {
+        return this.f977a;
     }
 
-    public ArrayList a() {
-        return this.f967a;
+    public String b() {
+        return this.b;
     }
 
-    public void a(ArrayList arrayList) {
-        this.f967a = arrayList;
+    public void a(int i) {
+        this.d = i;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-        }
+    public int c() {
+        return this.d;
+    }
+
+    public int d() {
+        return this.c;
     }
 
     public void a(JSONObject jSONObject) {
-        try {
-            this.f967a = new ArrayList();
-            b();
-            JSONArray optJSONArray = jSONObject.optJSONObject("data").optJSONArray("user_tag");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    bl blVar = new bl();
-                    blVar.a(optJSONArray.optJSONObject(i));
-                    this.f967a.add(blVar);
-                }
+        if (jSONObject != null) {
+            try {
+                this.f977a = jSONObject.optString("forum_id");
+                this.b = jSONObject.optString("forum_name");
+                b(jSONObject.optInt("is_like", 0));
+                this.d = jSONObject.optInt("is_sign", 0);
+                this.c = jSONObject.optInt("level_id", 0);
+                this.e = jSONObject.optString("avatar", "");
+            } catch (Exception e) {
+                com.baidu.tieba.util.aq.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
             }
-        } catch (Exception e) {
         }
     }
 
-    public void b() {
-        bl blVar = new bl();
-        blVar.a("get_all_interest");
-        blVar.b("全部兴趣");
-        this.f967a.add(blVar);
+    public void b(int i) {
+        this.f = i;
+    }
+
+    public int e() {
+        return this.f;
     }
 }

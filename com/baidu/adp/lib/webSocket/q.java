@@ -3,11 +3,11 @@ package com.baidu.adp.lib.webSocket;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f445a;
+    private int f461a;
     private boolean b;
 
     public int a() {
-        return this.f445a;
+        return this.f461a;
     }
 
     public boolean b() {

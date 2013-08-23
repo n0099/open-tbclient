@@ -1,35 +1,54 @@
 package com.baidu.tieba.data;
 
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bk {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f999a = 0;
-    private String b = null;
+    private String f1009a = null;
+    private int b = 0;
+    private int d = 0;
+    private int e = 0;
+    private int c = 0;
 
     public int a() {
-        return this.f999a;
+        return this.d;
     }
 
-    public String b() {
+    public int b() {
+        return this.e;
+    }
+
+    public String c() {
+        return this.f1009a;
+    }
+
+    public int d() {
         return this.b;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str).optJSONObject("error"));
-        } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
-        }
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int e() {
+        return this.c;
+    }
+
+    public void b(int i) {
+        this.c = i;
     }
 
     public void a(JSONObject jSONObject) {
-        try {
-            this.f999a = jSONObject.optInt("errno");
-            this.b = jSONObject.optString("usermsg");
-        } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.toString());
+        if (jSONObject != null) {
+            try {
+                this.f1009a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.d = jSONObject.optInt("width", 0);
+                this.e = jSONObject.optInt("height", 0);
+            } catch (Exception e) {
+                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+            }
         }
     }
 }

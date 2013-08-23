@@ -10,19 +10,19 @@ import org.apache.http.message.BasicNameValuePair;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList f382a;
+    public ArrayList f390a;
 
     public void a(Object obj, Object obj2) {
-        if (this.f382a == null) {
-            this.f382a = new ArrayList();
+        if (this.f390a == null) {
+            this.f390a = new ArrayList();
         }
-        this.f382a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+        this.f390a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (this.f382a != null) {
-            Iterator it = this.f382a.iterator();
+        if (this.f390a != null) {
+            Iterator it = this.f390a.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair basicNameValuePair = (BasicNameValuePair) it.next();
                 if (sb.length() > 0) {

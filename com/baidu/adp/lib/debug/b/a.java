@@ -3,17 +3,17 @@ package com.baidu.adp.lib.debug.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f400a;
+    private String f408a;
     private String[] b;
     private String c;
     private String d;
 
     public String a() {
-        return this.f400a;
+        return this.f408a;
     }
 
     public void a(String str) {
-        this.f400a = str;
+        this.f408a = str;
     }
 
     public String[] b() {

@@ -10,11 +10,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class an extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1882a;
+    final /* synthetic */ WriteActivity f1913a;
     private String b;
 
     public an(WriteActivity writeActivity, String str) {
-        this.f1882a = writeActivity;
+        this.f1913a = writeActivity;
         this.b = null;
         this.b = str;
     }
@@ -35,14 +35,14 @@ public class an extends BdAsyncTask {
         ProgressBar progressBar;
         ImageView imageView;
         FrameLayout frameLayout;
-        this.f1882a.u = null;
-        progressBar = this.f1882a.n;
+        this.f1913a.u = null;
+        progressBar = this.f1913a.n;
         progressBar.setVisibility(8);
-        imageView = this.f1882a.p;
+        imageView = this.f1913a.p;
         imageView.setVisibility(8);
-        frameLayout = this.f1882a.o;
+        frameLayout = this.f1913a.o;
         frameLayout.setVisibility(8);
-        this.f1882a.n();
+        this.f1913a.n();
         super.cancel(true);
     }
 
@@ -57,8 +57,8 @@ public class an extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Bitmap bitmap) {
         super.a((Object) bitmap);
-        this.f1882a.u = null;
-        com.baidu.tieba.util.aj.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        this.f1882a.a(bitmap);
+        this.f1913a.u = null;
+        com.baidu.tieba.util.aq.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        this.f1913a.a(bitmap);
     }
 }

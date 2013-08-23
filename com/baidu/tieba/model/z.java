@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1386a;
+    public boolean f1423a;
     public String b;
     public ArrayList c;
     final /* synthetic */ t d;

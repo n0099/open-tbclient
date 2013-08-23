@@ -1,26 +1,23 @@
 package com.baidu.tieba.recommend;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class u implements Runnable {
+class u implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendFragment f1677a;
+    final /* synthetic */ DailyRecommendBannerPagerAdapter f1695a;
+    private final /* synthetic */ TbImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(DailyRecommendFragment dailyRecommendFragment) {
-        this.f1677a = dailyRecommendFragment;
+    public u(DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter, TbImageView tbImageView) {
+        this.f1695a = dailyRecommendBannerPagerAdapter;
+        this.b = tbImageView;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String str;
-        ab abVar;
-        try {
-            abVar = this.f1677a.c;
-            abVar.f();
-        } catch (Exception e) {
-            str = this.f1677a.b;
-            com.baidu.tieba.util.aj.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+        if (this.b != null) {
+            this.b.invalidate();
         }
     }
 }

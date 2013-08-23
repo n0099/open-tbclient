@@ -5,11 +5,11 @@ import com.baidu.tieba.TiebaApplication;
 class k extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1415a;
+    final /* synthetic */ AccountActivity f1452a;
     private String b;
 
     public k(AccountActivity accountActivity, String str) {
-        this.f1415a = accountActivity;
+        this.f1452a = accountActivity;
         this.b = null;
         this.b = str;
     }
@@ -17,11 +17,11 @@ class k extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.u uVar = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/s/logout");
-        uVar.c(false);
-        uVar.a(false);
-        uVar.a("BDUSS", this.b);
-        uVar.a("channel_id", TiebaApplication.f().bj());
-        uVar.k();
+        com.baidu.tieba.util.v vVar = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/logout");
+        vVar.c(false);
+        vVar.a(false);
+        vVar.a("BDUSS", this.b);
+        vVar.a("channel_id", TiebaApplication.g().aY());
+        vVar.j();
     }
 }

@@ -7,20 +7,20 @@ import com.baidu.tieba.BaiduAccount.BaiduAccount;
 public class aj implements AccountProxy.TokenCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f856a;
+    final /* synthetic */ ReLoginActivity f877a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ReLoginActivity reLoginActivity) {
-        this.f856a = reLoginActivity;
+        this.f877a = reLoginActivity;
     }
 
     @Override // com.baidu.account.AccountProxy.TokenCallback
     public void callBack(String str) {
-        com.baidu.tieba.util.aj.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        com.baidu.tieba.util.aq.e("BaiduAccountProxy", "getAccountData", "token = " + str);
         if (str != null) {
-            this.f856a.a(BaiduAccount.get(this.f856a).getCurrentAccount(), str);
+            this.f877a.a(BaiduAccount.get(this.f877a).getCurrentAccount(), str);
             return;
         }
-        this.f856a.finish();
+        this.f877a.finish();
     }
 }

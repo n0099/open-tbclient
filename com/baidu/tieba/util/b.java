@@ -6,12 +6,12 @@ import java.util.LinkedList;
 public class b extends com.baidu.adp.lib.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1759a;
+    final /* synthetic */ a f1796a;
     private final /* synthetic */ d b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, d dVar) {
-        this.f1759a = aVar;
+        this.f1796a = aVar;
         this.b = dVar;
     }
 
@@ -29,15 +29,15 @@ public class b extends com.baidu.adp.lib.c.b {
         LinkedList linkedList2;
         LinkedList linkedList3;
         super.c(str, fVar);
-        linkedList = this.f1759a.j;
+        linkedList = this.f1796a.j;
         linkedList.remove(this.b);
-        if (this.f1759a.d) {
-            linkedList2 = this.f1759a.k;
+        if (this.f1796a.d) {
+            linkedList2 = this.f1796a.k;
             if (linkedList2.size() > 0) {
-                linkedList3 = this.f1759a.k;
+                linkedList3 = this.f1796a.k;
                 c cVar = (c) linkedList3.remove(0);
                 if (cVar != null) {
-                    this.f1759a.a(cVar.f1760a, cVar.c, Integer.valueOf(cVar.b), cVar.d);
+                    this.f1796a.a(cVar.f1797a, cVar.c, Integer.valueOf(cVar.b), cVar.d);
                 }
             }
         }
@@ -51,14 +51,14 @@ public class b extends com.baidu.adp.lib.c.b {
         LinkedList linkedList2;
         LinkedList linkedList3;
         super.a((Object) bVar, str, fVar);
-        linkedList = this.f1759a.j;
+        linkedList = this.f1796a.j;
         linkedList.remove(this.b);
-        if (this.f1759a.d) {
-            linkedList2 = this.f1759a.k;
+        if (this.f1796a.d) {
+            linkedList2 = this.f1796a.k;
             if (linkedList2.size() > 0) {
-                linkedList3 = this.f1759a.k;
+                linkedList3 = this.f1796a.k;
                 c cVar = (c) linkedList3.remove(0);
-                this.f1759a.a(cVar.f1760a, cVar.c, Integer.valueOf(cVar.b), cVar.d);
+                this.f1796a.a(cVar.f1797a, cVar.c, Integer.valueOf(cVar.b), cVar.d);
             }
         }
     }

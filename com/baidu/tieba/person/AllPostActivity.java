@@ -1,5 +1,6 @@
 package com.baidu.tieba.person;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.FrameLayout;
@@ -13,12 +14,12 @@ import com.slidingmenu.lib.R;
 public class AllPostActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f1549a = null;
+    FrameLayout f1587a = null;
     TextView b = null;
     ListView c = null;
     ImageView d = null;
     ae e = null;
-    com.baidu.tieba.model.ba f = null;
+    com.baidu.tieba.model.az f = null;
     c g = null;
     private ProgressBar j = null;
     private boolean k = false;
@@ -36,8 +37,18 @@ public class AllPostActivity extends com.baidu.tieba.g {
     }
 
     void b() {
-        this.f1549a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
+        this.f1587a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
         this.b = (TextView) findViewById(R.id.no_post_view);
+        int b = this.f.b();
+        if (this.f.a() == null) {
+            this.b.setText(R.string.no_post_info);
+        } else if (b == 2) {
+            this.b.setText(R.string.she_no_post_info);
+        } else if (b == 1) {
+            this.b.setText(R.string.he_no_post_info);
+        } else {
+            this.b.setText(R.string.ta_no_post_info);
+        }
         this.b.setVisibility(8);
         this.d = (ImageView) findViewById(R.id.time_line);
         this.d.setVisibility(8);
@@ -49,23 +60,26 @@ public class AllPostActivity extends com.baidu.tieba.g {
     }
 
     void a(Bundle bundle) {
-        this.f = new com.baidu.tieba.model.ba();
+        this.f = new com.baidu.tieba.model.az();
         if (bundle != null) {
             this.f.a(bundle.getString("user"));
+            this.f.a(bundle.getInt("user_sex"));
             return;
         }
-        this.f.a(getIntent().getStringExtra("user"));
+        Intent intent = getIntent();
+        this.f.a(intent.getStringExtra("user"));
+        this.f.a(intent.getIntExtra("user_sex", 0));
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("user", this.f.a());
+        bundle.putInt("user_sex", this.f.b());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(int i) {
-        int i2 = 1;
         if (!this.k) {
             this.k = true;
             this.l = i;
@@ -74,14 +88,9 @@ public class AllPostActivity extends com.baidu.tieba.g {
                 this.g.cancel();
                 this.g = null;
             }
-            if (i == 0) {
-                this.j.setVisibility(0);
-            } else {
-                i2 = this.f.e() + 1;
-            }
-            this.g = new c(this, 0, i2, i, this.f.a());
+            this.g = new c(this, 0, i == 0 ? 1 : this.f.f() + 1, i, this.f.a());
             this.g.setPriority(3);
-            this.g.execute(new String[0]);
+            this.g.execute(Integer.valueOf(i));
         }
     }
 
@@ -93,9 +102,9 @@ public class AllPostActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.a(this.f1549a, i);
+        com.baidu.tieba.util.ao.a(this.f1587a, i);
         if (i == 1) {
-            this.b.setTextColor(com.baidu.tieba.util.ah.a(i));
+            this.b.setTextColor(com.baidu.tieba.util.ao.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }

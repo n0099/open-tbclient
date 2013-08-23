@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.ao;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
@@ -19,7 +20,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class AppsActivity extends com.baidu.tieba.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1389a = null;
+    private String f1426a = null;
     private BaseWebView b = null;
     private ImageView c = null;
     private t d = null;
@@ -38,7 +39,7 @@ public class AppsActivity extends com.baidu.tieba.g {
 
     public static void b() {
         DatabaseService.a("", 7);
-        SharedPreferences.Editor edit = TiebaApplication.f().getSharedPreferences("settings", 0).edit();
+        SharedPreferences.Editor edit = TiebaApplication.g().getSharedPreferences("settings", 0).edit();
         edit.putLong("app_inverval", System.currentTimeMillis());
         edit.commit();
     }
@@ -54,9 +55,9 @@ public class AppsActivity extends com.baidu.tieba.g {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f1389a = bundle.getString("url");
+            this.f1426a = bundle.getString("url");
         } else {
-            this.f1389a = getIntent().getStringExtra("url");
+            this.f1426a = getIntent().getStringExtra("url");
         }
         if (System.currentTimeMillis() - getSharedPreferences("settings", 0).getLong("app_inverval", 0L) > Util.MILLSECONDS_OF_DAY) {
             c();
@@ -70,7 +71,7 @@ public class AppsActivity extends com.baidu.tieba.g {
         if (this.d != null) {
             this.d.cancel();
         }
-        this.d = new t(this, this.f1389a);
+        this.d = new t(this, this.f1426a);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
     }
@@ -79,12 +80,12 @@ public class AppsActivity extends com.baidu.tieba.g {
     @Override // com.baidu.tieba.g
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ah.a(this.j, i);
-        com.baidu.tieba.util.ah.a(this.b, i);
-        com.baidu.tieba.util.ah.d(this.k, i);
-        com.baidu.tieba.util.ah.a(this.c, i);
-        com.baidu.tieba.util.ah.f(this.l, i);
-        com.baidu.tieba.util.ah.b(this.g, i);
+        ao.a(this.j, i);
+        ao.a(this.b, i);
+        ao.d(this.k, i);
+        ao.a(this.c, i);
+        ao.f(this.l, i);
+        ao.b(this.g, i);
     }
 
     private void d() {
@@ -109,7 +110,7 @@ public class AppsActivity extends com.baidu.tieba.g {
             return false;
         }
         this.f.setVisibility(8);
-        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.f1011a, b, "text/html", BdUtil.UTF8, "");
+        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.f1014a, b, "text/html", BdUtil.UTF8, "");
         return true;
     }
 }

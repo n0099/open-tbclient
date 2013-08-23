@@ -8,19 +8,19 @@ import java.io.File;
 public class e extends IPackageInstallObserver.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f503a;
+    private Context f526a;
     private String b;
 
     public e(Context context, String str) {
-        this.f503a = context;
+        this.f526a = context;
         this.b = str;
     }
 
     public void a(String str, int i) {
         if (i == 1) {
         }
-        if (b.a(this.f503a).a()) {
-            b.a(this.f503a).b(this.f503a, this.b);
+        if (b.a(this.f526a).a()) {
+            b.a(this.f526a).b(this.f526a, this.b);
         }
         if (TextUtils.isEmpty(this.b)) {
             return;

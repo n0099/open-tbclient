@@ -4,16 +4,16 @@ package android.support.v4.view;
 public class bk implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ViewPager f316a;
+    final /* synthetic */ ViewPager f320a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(ViewPager viewPager) {
-        this.f316a = viewPager;
+        this.f320a = viewPager;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f316a.setScrollState(0);
-        this.f316a.c();
+        this.f320a.setScrollState(0);
+        this.f320a.c();
     }
 }

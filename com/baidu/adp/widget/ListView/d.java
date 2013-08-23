@@ -8,7 +8,7 @@ import java.security.InvalidParameterException;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f455a;
+    private Context f473a;
     private View b = null;
     private boolean c = true;
     private int d = 0;
@@ -27,15 +27,15 @@ public abstract class d {
     public abstract void c(boolean z);
 
     public d(Context context) {
-        this.f455a = null;
+        this.f473a = null;
         if (context == null) {
             throw new InvalidParameterException("BdIListPullView context is null");
         }
-        this.f455a = context;
+        this.f473a = context;
     }
 
     public Context e() {
-        return this.f455a;
+        return this.f473a;
     }
 
     public final View f() {

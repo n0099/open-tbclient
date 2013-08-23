@@ -1,86 +1,66 @@
 package com.baidu.tieba.data;
 
-import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f993a;
-    private String b;
-    private String c;
-    private int d;
-    private long e;
-    private long f;
-    private int g;
-    private bf h;
+    private ArrayList f1003a = new ArrayList();
 
-    public void a(String str) {
-        this.f993a = str;
-    }
-
-    public String a() {
-        return this.b;
-    }
-
-    public void b(String str) {
-        this.b = str;
-    }
-
-    public void c(String str) {
-        this.c = str;
-    }
-
-    public int b() {
-        return this.d;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public void a(long j) {
-        this.e = j;
-    }
-
-    public void b(long j) {
-        this.f = j;
-    }
-
-    public void b(int i) {
-        this.g = i;
-    }
-
-    public void a(bf bfVar) {
-        this.h = bfVar;
-    }
-
-    public be d(String str) {
+    public void a(JSONObject jSONObject, HashMap hashMap) {
+        String str;
         try {
-            return a(new JSONObject(str));
+            JSONArray optJSONArray = jSONObject.optJSONArray("uname");
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < optJSONArray.length()) {
+                    MetaData metaData = new MetaData();
+                    String optString = optJSONArray.optString(i2);
+                    metaData.setName(optString);
+                    metaData.setName_show(optString);
+                    if (hashMap != null && (str = (String) hashMap.get(metaData.getName())) != null) {
+                        metaData.setPortrait(str);
+                    }
+                    this.f1003a.add(metaData);
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            com.baidu.tieba.util.aq.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
-    private be a(JSONObject jSONObject) {
-        bf a2;
+    public void a(String str, HashMap hashMap) {
         try {
-            be beVar = new be();
-            beVar.a(jSONObject.getString("share_id"));
-            beVar.b(jSONObject.getString("share_text"));
-            beVar.c(jSONObject.getString("result_pic"));
-            beVar.a(jSONObject.getInt("error_code"));
-            beVar.a(jSONObject.getLong("time"));
-            beVar.b(jSONObject.getLong("ctime"));
-            beVar.b(jSONObject.getInt("logid"));
-            a2 = new bf(this).a(jSONObject.getJSONObject("error"));
-            beVar.a(a2);
-            return beVar;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
+            a(new JSONObject(str), hashMap);
+        } catch (Exception e) {
+            com.baidu.tieba.util.aq.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
+    }
+
+    public void a(HashMap hashMap) {
+        if (hashMap != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.f1003a.size()) {
+                    MetaData metaData = (MetaData) this.f1003a.get(i2);
+                    metaData.setPortrait((String) hashMap.get(metaData.getName()));
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public ArrayList a() {
+        return this.f1003a;
     }
 }

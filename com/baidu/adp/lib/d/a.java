@@ -5,7 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import com.baidu.adp.lib.network.f;
+import com.baidu.adp.lib.network.g;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.loginshare.e;
 import java.io.UnsupportedEncodingException;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f380a;
+    private static a f388a;
     private static int b = 20;
     private Context c;
     private String d;
@@ -33,10 +33,10 @@ public class a {
     private ArrayList p = new ArrayList();
 
     public static a a() {
-        if (f380a == null) {
-            f380a = new a();
+        if (f388a == null) {
+            f388a = new a();
         }
-        return f380a;
+        return f388a;
     }
 
     public void a(Context context, String str, String str2, String str3, String str4, String str5) {
@@ -192,7 +192,7 @@ public class a {
                 return "WIFI";
             }
             if (type == 0) {
-                int c = f.c();
+                int c = g.c();
                 StringBuilder sb = new StringBuilder();
                 switch (c) {
                     case 1:

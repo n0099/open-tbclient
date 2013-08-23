@@ -5,25 +5,25 @@ import com.baidu.tieba.util.DatabaseService;
 class a implements n {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtMeActivity f1289a;
+    final /* synthetic */ AtMeActivity f1322a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AtMeActivity atMeActivity) {
-        this.f1289a = atMeActivity;
+        this.f1322a = atMeActivity;
     }
 
     @Override // com.baidu.tieba.mention.n
     public void a(String str) {
-        DatabaseService.m(str);
+        DatabaseService.k(str);
     }
 
     @Override // com.baidu.tieba.mention.n
     public String a() {
-        return DatabaseService.l();
+        return DatabaseService.j();
     }
 
     @Override // com.baidu.tieba.mention.n
     public void b() {
-        DatabaseService.k();
+        DatabaseService.i();
     }
 }

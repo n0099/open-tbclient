@@ -16,7 +16,7 @@ import java.io.InputStream;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f1769a = Environment.getExternalStorageDirectory();
+    public static final File f1806a = Environment.getExternalStorageDirectory();
 
     public static boolean a() {
         return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
@@ -25,15 +25,15 @@ public class p {
     public static String b() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals(Environment.MEDIA_REMOVED)) {
-            return TiebaApplication.f().getString(R.string.error_no_sdcard);
+            return TiebaApplication.g().getString(R.string.error_no_sdcard);
         }
         if (externalStorageState.equals(Environment.MEDIA_UNMOUNTED) || externalStorageState.equals(Environment.MEDIA_UNMOUNTABLE)) {
-            return TiebaApplication.f().getString(R.string.error_sd_unmount);
+            return TiebaApplication.g().getString(R.string.error_sd_unmount);
         }
         if (externalStorageState.equals(Environment.MEDIA_SHARED)) {
-            return TiebaApplication.f().getString(R.string.error_sd_shared);
+            return TiebaApplication.g().getString(R.string.error_sd_shared);
         }
-        return TiebaApplication.f().getString(R.string.error_sd_error);
+        return TiebaApplication.g().getString(R.string.error_sd_error);
     }
 
     public static boolean a(String str) {
@@ -52,15 +52,15 @@ public class p {
     }
 
     public static boolean c() {
-        return a(f1769a + "/tieba/");
+        return a(f1806a + "/tieba/");
     }
 
     public static boolean b(String str) {
         if (a()) {
             try {
-                return new File(new StringBuilder().append(f1769a).append("/").append("tieba").append("/").append(str).toString()).exists();
+                return new File(new StringBuilder().append(f1806a).append("/").append("tieba").append("/").append(str).toString()).exists();
             } catch (Exception e) {
-                aj.b("FileHelper", "CheckFile", "error = " + e.getMessage());
+                aq.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 return false;
             }
         }
@@ -70,12 +70,12 @@ public class p {
     public static long a(String str, String str2) {
         if (a()) {
             try {
-                if (new File(f1769a + "/tieba/" + str + "/" + str2).exists()) {
-                    return com.baidu.tieba.data.g.e();
+                if (new File(f1806a + "/tieba/" + str + "/" + str2).exists()) {
+                    return com.baidu.tieba.data.g.f();
                 }
                 return -1L;
             } catch (Exception e) {
-                aj.b("FileHelper", "CheckFile", "error = " + e.getMessage());
+                aq.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 return -1L;
             }
         }
@@ -84,14 +84,14 @@ public class p {
 
     public static File c(String str) {
         if (c()) {
-            File file = new File(f1769a + "/tieba/" + str);
+            File file = new File(f1806a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file;
                 }
                 return null;
             } catch (SecurityException e) {
-                aj.b("FileHelper", "GetFile", "error = " + e.getMessage());
+                aq.b("FileHelper", "GetFile", "error = " + e.getMessage());
                 return null;
             }
         }
@@ -102,12 +102,12 @@ public class p {
         if (!c()) {
             return null;
         }
-        return new File(f1769a + "/tieba/" + str);
+        return new File(f1806a + "/tieba/" + str);
     }
 
     public static File e(String str) {
         if (c()) {
-            File file = new File(f1769a + "/tieba/" + str);
+            File file = new File(f1806a + "/tieba/" + str);
             try {
                 if (!file.exists() || file.delete()) {
                     if (file.createNewFile()) {
@@ -117,7 +117,7 @@ public class p {
                 }
                 return null;
             } catch (Exception e) {
-                aj.b("FileHelper", "CreateFile", "error = " + e.getMessage());
+                aq.b("FileHelper", "CreateFile", "error = " + e.getMessage());
                 return null;
             }
         }
@@ -126,7 +126,7 @@ public class p {
 
     public static File f(String str) {
         if (c()) {
-            File file = new File(f1769a + "/tieba/" + str);
+            File file = new File(f1806a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file;
@@ -136,7 +136,7 @@ public class p {
                 }
                 return null;
             } catch (Exception e) {
-                aj.b("FileHelper", "CreateFile", "error = " + e.getMessage());
+                aq.b("FileHelper", "CreateFile", "error = " + e.getMessage());
                 return null;
             }
         }
@@ -159,13 +159,13 @@ public class p {
         boolean z;
         FileNotFoundException e2;
         FileInputStream fileInputStream2 = null;
-        ?? sb = new StringBuilder(String.valueOf(str != null ? f1769a + "/tieba/" + str + "/" : f1769a + "/tieba/"));
+        ?? sb = new StringBuilder(String.valueOf(str != null ? f1806a + "/tieba/" + str + "/" : f1806a + "/tieba/"));
         try {
             try {
                 fileInputStream = new FileInputStream(new File(sb.append(str2).toString()));
                 try {
                     byte[] bArr = new byte[7];
-                    z = fileInputStream.read(bArr, 0, 6) == 6 ? am.a(bArr) : false;
+                    z = fileInputStream.read(bArr, 0, 6) == 6 ? UtilHelper.a(bArr) : false;
                     if (fileInputStream != null) {
                         try {
                             fileInputStream.close();
@@ -244,9 +244,9 @@ public class p {
             return null;
         }
         if (str != null) {
-            str3 = f1769a + "/tieba/" + str + "/";
+            str3 = f1806a + "/tieba/" + str + "/";
         } else {
-            str3 = f1769a + "/tieba/";
+            str3 = f1806a + "/tieba/";
         }
         if (!a(str3) || bitmap == null) {
             return null;
@@ -262,7 +262,7 @@ public class p {
             }
             return null;
         } catch (Exception e) {
-            aj.b("FileHelper", "SaveFile", e.getMessage());
+            aq.b("FileHelper", "SaveFile", e.getMessage());
             return null;
         }
     }
@@ -270,9 +270,9 @@ public class p {
     public static Bitmap c(String str, String str2) {
         String str3;
         if (str != null) {
-            str3 = f1769a + "/tieba/" + str + "/";
+            str3 = f1806a + "/tieba/" + str + "/";
         } else {
-            str3 = f1769a + "/tieba/";
+            str3 = f1806a + "/tieba/";
         }
         try {
             return BitmapFactory.decodeFile(String.valueOf(str3) + str2);
@@ -298,7 +298,7 @@ public class p {
     public static String a(String str, String str2, byte[] bArr) {
         String str3;
         FileOutputStream fileOutputStream;
-        if (!a(str != null ? f1769a + "/tieba/" + str + "/" : f1769a + "/tieba/") || bArr == null || str2 == null) {
+        if (!a(str != null ? f1806a + "/tieba/" + str + "/" : f1806a + "/tieba/") || bArr == null || str2 == null) {
             return null;
         }
         File file = new File(String.valueOf(str3) + str2);
@@ -309,7 +309,7 @@ public class p {
                     try {
                         fileOutputStream2.close();
                     } catch (Throwable th) {
-                        aj.b("FileHelper", "SaveFile", "error = " + th.getMessage());
+                        aq.b("FileHelper", "SaveFile", "error = " + th.getMessage());
                     }
                 }
                 return null;
@@ -327,19 +327,19 @@ public class p {
                             fileOutputStream3.close();
                             return path;
                         } catch (Throwable th2) {
-                            aj.b("FileHelper", "SaveFile", "error = " + th2.getMessage());
+                            aq.b("FileHelper", "SaveFile", "error = " + th2.getMessage());
                             return path;
                         }
                     }
                     return path;
                 } catch (IOException e) {
                     e = e;
-                    aj.b("FileHelper", "SaveFile", "error = " + e.getMessage());
+                    aq.b("FileHelper", "SaveFile", "error = " + e.getMessage());
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
                         } catch (Throwable th3) {
-                            aj.b("FileHelper", "SaveFile", "error = " + th3.getMessage());
+                            aq.b("FileHelper", "SaveFile", "error = " + th3.getMessage());
                         }
                     }
                     return null;
@@ -350,7 +350,7 @@ public class p {
                     try {
                         fileOutputStream.close();
                     } catch (Throwable th5) {
-                        aj.b("FileHelper", "SaveFile", "error = " + th5.getMessage());
+                        aq.b("FileHelper", "SaveFile", "error = " + th5.getMessage());
                     }
                 }
                 throw th;
@@ -373,9 +373,9 @@ public class p {
             return null;
         }
         if (str != null) {
-            str3 = f1769a + "/tieba/" + str + "/";
+            str3 = f1806a + "/tieba/" + str + "/";
         } else {
-            str3 = f1769a + "/tieba/";
+            str3 = f1806a + "/tieba/";
         }
         File file = new File(String.valueOf(str3) + str2);
         try {
@@ -397,7 +397,7 @@ public class p {
             }
             return null;
         } catch (IOException e) {
-            aj.b("FileHelper", "GetFileData", "error = " + e.getMessage());
+            aq.b("FileHelper", "GetFileData", "error = " + e.getMessage());
             return null;
         }
     }
@@ -419,7 +419,7 @@ public class p {
             r1 = 0
             java.lang.StringBuilder r3 = new java.lang.StringBuilder
             r3.<init>()
-            java.io.File r4 = com.baidu.tieba.util.p.f1769a
+            java.io.File r4 = com.baidu.tieba.util.p.f1806a
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r4 = "/"
             java.lang.StringBuilder r3 = r3.append(r4)
@@ -431,7 +431,7 @@ public class p {
             java.lang.String r3 = r3.toString()
             java.lang.StringBuilder r4 = new java.lang.StringBuilder
             r4.<init>()
-            java.io.File r5 = com.baidu.tieba.util.p.f1769a
+            java.io.File r5 = com.baidu.tieba.util.p.f1806a
             java.lang.StringBuilder r4 = r4.append(r5)
             java.lang.String r5 = "/"
             java.lang.StringBuilder r4 = r4.append(r5)
@@ -459,14 +459,14 @@ public class p {
             java.lang.String r3 = "FileHelper"
             java.lang.String r4 = "CopyFile"
             java.lang.String r0 = r0.toString()
-            com.baidu.tieba.util.aj.b(r3, r4, r0)
+            com.baidu.tieba.util.aq.b(r3, r4, r0)
             goto L63
         L76:
             r0 = move-exception
             java.lang.String r1 = "FileHelper"
             java.lang.String r2 = "CopyFile"
             java.lang.String r0 = r0.toString()
-            com.baidu.tieba.util.aj.b(r1, r2, r0)
+            com.baidu.tieba.util.aq.b(r1, r2, r0)
             goto L68
         L83:
             java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> L12b
@@ -493,7 +493,7 @@ public class p {
             java.lang.String r1 = "FileHelper"
             java.lang.String r2 = "CopyFile"
             java.lang.String r0 = r0.toString()
-            com.baidu.tieba.util.aj.b(r1, r2, r0)
+            com.baidu.tieba.util.aq.b(r1, r2, r0)
             goto L68
         Lb7:
             r5 = 0
@@ -506,7 +506,7 @@ public class p {
             java.lang.String r3 = "FileHelper"
             java.lang.String r4 = "CopyFile"
             java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L129
-            com.baidu.tieba.util.aj.b(r3, r4, r0)     // Catch: java.lang.Throwable -> L129
+            com.baidu.tieba.util.aq.b(r3, r4, r0)     // Catch: java.lang.Throwable -> L129
             if (r2 == 0) goto Lce
             r2.close()     // Catch: java.lang.Throwable -> Le1
         Lce:
@@ -518,14 +518,14 @@ public class p {
             java.lang.String r1 = "FileHelper"
             java.lang.String r2 = "CopyFile"
             java.lang.String r0 = r0.toString()
-            com.baidu.tieba.util.aj.b(r1, r2, r0)
+            com.baidu.tieba.util.aq.b(r1, r2, r0)
             goto L68
         Le1:
             r0 = move-exception
             java.lang.String r2 = "FileHelper"
             java.lang.String r3 = "CopyFile"
             java.lang.String r0 = r0.toString()
-            com.baidu.tieba.util.aj.b(r2, r3, r0)
+            com.baidu.tieba.util.aq.b(r2, r3, r0)
             goto Lce
         Lee:
             r0 = move-exception
@@ -543,21 +543,21 @@ public class p {
             java.lang.String r3 = "FileHelper"
             java.lang.String r4 = "CopyFile"
             java.lang.String r2 = r2.toString()
-            com.baidu.tieba.util.aj.b(r3, r4, r2)
+            com.baidu.tieba.util.aq.b(r3, r4, r2)
             goto Lf5
         L108:
             r1 = move-exception
             java.lang.String r2 = "FileHelper"
             java.lang.String r3 = "CopyFile"
             java.lang.String r1 = r1.toString()
-            com.baidu.tieba.util.aj.b(r2, r3, r1)
+            com.baidu.tieba.util.aq.b(r2, r3, r1)
             goto Lfa
         L115:
             r0 = move-exception
             java.lang.String r3 = "FileHelper"
             java.lang.String r4 = "CopyFile"
             java.lang.String r0 = r0.toString()
-            com.baidu.tieba.util.aj.b(r3, r4, r0)
+            com.baidu.tieba.util.aq.b(r3, r4, r0)
             goto La4
         L122:
             r0 = move-exception
@@ -596,7 +596,7 @@ public class p {
             try {
                 return new FileInputStream(file);
             } catch (Throwable th) {
-                aj.b("FileHelper", "GetStreamFromFile", "error = " + th.getMessage());
+                aq.b("FileHelper", "GetStreamFromFile", "error = " + th.getMessage());
                 return null;
             }
         }
@@ -605,14 +605,14 @@ public class p {
 
     public static boolean h(String str) {
         if (c()) {
-            File file = new File(f1769a + "/tieba/" + str);
+            File file = new File(f1806a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file.delete();
                 }
                 return false;
             } catch (Throwable th) {
-                aj.b("FileHelper", "DelFile", "error = " + th.getMessage());
+                aq.b("FileHelper", "DelFile", "error = " + th.getMessage());
                 return false;
             }
         }

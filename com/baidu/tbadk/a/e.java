@@ -3,12 +3,12 @@ package com.baidu.tbadk.a;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f798a = new e();
-    private com.baidu.adp.lib.a.a b;
-    private com.baidu.adp.lib.a.a c;
+    private static e f821a = new e();
+    private com.baidu.adp.lib.b.a b;
+    private com.baidu.adp.lib.b.a c;
 
     public static e a() {
-        return f798a;
+        return f821a;
     }
 
     private e() {
@@ -48,7 +48,7 @@ public class e {
     public void a(String str, com.baidu.adp.widget.a.b bVar, boolean z) {
         if (bVar != null && this.c != null) {
             if (com.baidu.adp.lib.e.d.a()) {
-                com.baidu.adp.lib.e.d.c("image joined cache:" + bVar.i() + ", size:" + bVar.d());
+                com.baidu.adp.lib.e.d.c("image joined cache:" + bVar.h() + ", size:" + bVar.d());
             }
             this.c.a(str, bVar);
         }

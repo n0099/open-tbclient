@@ -1,73 +1,33 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.tieba.data.ak;
-import com.baidu.tieba.model.ForumListModel;
-import com.baidu.tieba.model.ar;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.util.aq;
 /* loaded from: classes.dex */
-class g extends com.baidu.adp.a.e {
+class g implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f1041a;
-    private final /* synthetic */ int b;
+    final /* synthetic */ ForumListActivity f1042a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(e eVar, int i) {
-        this.f1041a = eVar;
-        this.b = i;
+    public g(ForumListActivity forumListActivity) {
+        this.f1042a = forumListActivity;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        ForumListModel.Forum[] forumArr;
-        ForumListActivity forumListActivity;
-        ForumListModel.Forum[] forumArr2;
-        ForumListActivity forumListActivity2;
-        ar arVar;
-        ForumListActivity forumListActivity3;
-        ar arVar2;
-        ForumListModel.Forum[] forumArr3;
-        ForumListActivity forumListActivity4;
-        ForumListActivity forumListActivity5;
-        ForumListActivity forumListActivity6;
-        ForumListActivity forumListActivity7;
-        ar arVar3;
-        ForumListModel.Forum[] forumArr4;
-        ForumListActivity forumListActivity8;
-        ForumListActivity forumListActivity9;
-        forumArr = this.f1041a.c;
-        if (forumArr != null) {
-            forumArr2 = this.f1041a.c;
-            if (forumArr2[this.b] != null) {
-                forumListActivity2 = this.f1041a.f1039a;
-                arVar = forumListActivity2.m;
-                if (arVar.getErrorCode() != 22) {
-                    forumListActivity3 = this.f1041a.f1039a;
-                    arVar2 = forumListActivity3.m;
-                    if (arVar2.getErrorCode() != 0) {
-                        forumListActivity6 = this.f1041a.f1039a;
-                        forumListActivity7 = this.f1041a.f1039a;
-                        arVar3 = forumListActivity7.m;
-                        forumListActivity6.a(arVar3.getErrorString());
-                    } else if (((ak) obj).b() == 1) {
-                        forumArr3 = this.f1041a.c;
-                        forumArr3[this.b].is_like = 1;
-                        forumListActivity4 = this.f1041a.f1039a;
-                        forumListActivity5 = this.f1041a.f1039a;
-                        forumListActivity4.a(forumListActivity5.getString(R.string.like_success));
-                        this.f1041a.notifyDataSetChanged();
-                    }
-                } else {
-                    forumArr4 = this.f1041a.c;
-                    forumArr4[this.b].is_like = 1;
-                    forumListActivity8 = this.f1041a.f1039a;
-                    forumListActivity9 = this.f1041a.f1039a;
-                    forumListActivity8.a(forumListActivity9.getString(R.string.like_success));
-                    this.f1041a.notifyDataSetChanged();
-                }
+    @Override // com.baidu.tieba.flist.e
+    public void a(boolean z, int i, com.baidu.tieba.square.s sVar, String str, boolean z2) {
+        aq.e("ForumListActivity", "callback", "start");
+        if (!z || i != 0) {
+            aq.e("ForumListActivity", "callback", "dir menu not ok");
+            if (!z2) {
+                this.f1042a.c.d();
+                return;
             }
+            return;
         }
-        forumListActivity = this.f1041a.f1039a;
-        forumListActivity.findViewById(R.id.loading).setVisibility(4);
+        aq.e("ForumListActivity", "callback", "dir menu ok");
+        sVar.e.add(0, sVar);
+        if (this.f1042a.c.x != null) {
+            this.f1042a.c.x.a(sVar);
+            this.f1042a.c.x.notifyDataSetChanged();
+        }
     }
 }

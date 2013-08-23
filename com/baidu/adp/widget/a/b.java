@@ -1,29 +1,36 @@
 package com.baidu.adp.widget.a;
 
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
+import com.baidu.adp.widget.p;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f485a;
+    private String f503a;
     private Bitmap b;
     private boolean c;
+    private p e;
+    private int f;
+    private Paint g;
+    private RectF h;
+    private int i;
     private boolean d = true;
-    private AtomicBoolean e = new AtomicBoolean(false);
+    private AtomicBoolean j = new AtomicBoolean(false);
 
     public b(Bitmap bitmap, boolean z, String str) {
         this.b = null;
         this.c = false;
         this.b = bitmap;
         this.c = z;
-        this.f485a = str;
+        this.f503a = str;
     }
 
     public int a() {
@@ -40,50 +47,46 @@ public class b {
         return this.b.getHeight();
     }
 
-    public void a(ImageView imageView) {
-        if (this.b != null) {
-            this.d = true;
-            imageView.setBackgroundDrawable(new BitmapDrawable(this.b));
-        }
-    }
-
     public void a(Canvas canvas, Matrix matrix, Paint paint) {
         if (this.b != null) {
-            this.e.set(true);
+            this.j.set(true);
             canvas.drawBitmap(this.b, matrix, paint);
-            this.e.set(false);
+            this.j.set(false);
         }
     }
 
     public void a(Canvas canvas, float f, float f2, Paint paint) {
         if (this.b != null) {
-            this.e.set(true);
+            this.j.set(true);
             canvas.drawBitmap(this.b, f, f2, paint);
-            this.e.set(false);
+            this.j.set(false);
         }
     }
 
-    public void a(Canvas canvas, int i, int i2, Paint paint) {
+    public void a(Canvas canvas, Matrix matrix, Resources resources, ImageView imageView, int i) {
         if (this.b != null) {
-            this.e.set(true);
-            float max = Math.max(i / this.b.getWidth(), i2 / this.b.getHeight());
-            canvas.save();
-            canvas.scale(max, max, i >> 1, i2 >> 1);
-            canvas.drawBitmap(this.b, (i - this.b.getWidth()) >> 1, (i2 - this.b.getHeight()) >> 1, paint);
-            canvas.restore();
-            this.e.set(false);
+            this.j.set(true);
+            if (this.e == null || this.f != i) {
+                this.f = i;
+                this.e = new p(resources, matrix, imageView, this.b, this.f);
+                this.e.setBounds(0, 0, imageView.getMeasuredWidth(), imageView.getMeasuredHeight());
+                this.h = new RectF();
+                this.i = (int) ((resources.getDisplayMetrics().density * 1.0f) + 0.5d);
+                int i2 = this.i >> 1;
+                this.h.set(i2, i2, imageView.getMeasuredWidth() - i2, imageView.getMeasuredHeight() - i2);
+                this.g = new Paint();
+                this.g.setStyle(Paint.Style.STROKE);
+                this.g.setAntiAlias(true);
+                this.g.setColor(637534208);
+                this.g.setStrokeWidth(this.i);
+            }
+            this.e.draw(canvas);
+            canvas.drawRoundRect(this.h, this.f, this.f, this.g);
+            this.j.set(false);
         }
     }
 
-    public void a(Canvas canvas, Rect rect, Rect rect2, Paint paint) {
-        if (this.b != null) {
-            this.e.set(true);
-            canvas.drawBitmap(this.b, rect, rect2, paint);
-            this.e.set(false);
-        }
-    }
-
-    public void b(ImageView imageView) {
+    public void a(ImageView imageView) {
         if (imageView != null && this.b != null) {
             this.d = true;
             imageView.setImageBitmap(this.b);
@@ -102,7 +105,7 @@ public class b {
     }
 
     public boolean e() {
-        if (this.d || this.e.get()) {
+        if (this.d || this.j.get()) {
             return false;
         }
         if (this.b != null) {
@@ -118,11 +121,7 @@ public class b {
         return this.b;
     }
 
-    public boolean g() {
-        return this.b != null;
-    }
-
-    public BitmapDrawable h() {
+    public BitmapDrawable g() {
         if (this.b == null) {
             return null;
         }
@@ -130,7 +129,7 @@ public class b {
         return new c(this, this.b);
     }
 
-    public String i() {
-        return this.f485a;
+    public String h() {
+        return this.f503a;
     }
 }

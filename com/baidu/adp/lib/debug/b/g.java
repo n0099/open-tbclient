@@ -9,11 +9,11 @@ import android.widget.Toast;
 class g implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f406a;
+    final /* synthetic */ f f414a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f406a = fVar;
+        this.f414a = fVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -28,20 +28,20 @@ class g implements DialogInterface.OnClickListener {
         c cVar5;
         Dialog dialog;
         if (i == -2) {
-            cVar5 = this.f406a.f405a;
+            cVar5 = this.f414a.f413a;
             dialog = cVar5.l;
             dialog.dismiss();
             return;
         }
-        cVar = this.f406a.f405a;
+        cVar = this.f414a.f413a;
         cVar.d();
-        cVar2 = this.f406a.f405a;
+        cVar2 = this.f414a.f413a;
         context = cVar2.k;
         ((Activity) context).finish();
-        cVar3 = this.f406a.f405a;
+        cVar3 = this.f414a.f413a;
         context2 = cVar3.k;
         Context baseContext = ((Activity) context2).getBaseContext();
-        cVar4 = this.f406a.f405a;
+        cVar4 = this.f414a.f413a;
         context3 = cVar4.k;
         Toast.makeText(baseContext, ((Activity) context3).getText(com.baidu.adp.g.debug_close), 1).show();
     }

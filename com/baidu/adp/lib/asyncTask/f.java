@@ -22,7 +22,7 @@ public class f implements Executor {
     private static final BlockingQueue e = new SynchronousQueue();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Executor f353a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, e, d, new ThreadPoolExecutor.DiscardPolicy());
+    public static final Executor f358a = new ThreadPoolExecutor(5, 256, 30, TimeUnit.SECONDS, e, d, new ThreadPoolExecutor.DiscardPolicy());
 
     private f() {
     }
@@ -103,7 +103,7 @@ public class f implements Executor {
                     } else {
                         this.g.add(jVar3);
                         this.f.remove(jVar3);
-                        f353a.execute(jVar3);
+                        f358a.execute(jVar3);
                         this.i.sendMessageDelayed(this.i.obtainMessage(1, jVar3), 120000L);
                         break;
                     }

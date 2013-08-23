@@ -3,17 +3,17 @@ package com.baidu.adp.lib.debug.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f384a = false;
+    private boolean f392a = false;
 
     public boolean a() {
-        return this.f384a;
+        return this.f392a;
     }
 
     public void b() {
-        this.f384a = true;
+        this.f392a = true;
     }
 
     public void c() {
-        this.f384a = false;
+        this.f392a = false;
     }
 }

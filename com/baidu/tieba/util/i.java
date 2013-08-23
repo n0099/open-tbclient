@@ -7,18 +7,18 @@ import android.widget.Toast;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Toast f1765a;
+    private static Toast f1802a;
     private static Handler b = new Handler();
     private static Runnable c = new j();
 
     public static void a(Context context, String str, int i) {
         b.removeCallbacks(c);
-        if (f1765a != null) {
-            f1765a.setText(str);
+        if (f1802a != null) {
+            f1802a.setText(str);
         } else {
-            f1765a = Toast.makeText(context, str, 0);
+            f1802a = Toast.makeText(context, str, 0);
         }
         b.postDelayed(c, i);
-        f1765a.show();
+        f1802a.show();
     }
 }

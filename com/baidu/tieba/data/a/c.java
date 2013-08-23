@@ -1,6 +1,6 @@
 package com.baidu.tieba.data.a;
 
-import com.baidu.tieba.util.aj;
+import com.baidu.tieba.util.aq;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f958a = null;
+    private String f968a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -22,7 +22,7 @@ public class c {
     }
 
     public void a(String str) {
-        this.f958a = str;
+        this.f968a = str;
     }
 
     public void b(String str) {
@@ -143,7 +143,7 @@ public class c {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            aj.b(getClass().getName(), "parserJson", e.toString());
+            aq.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -161,13 +161,13 @@ public class c {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     d dVar = new d();
                     dVar.a(optJSONArray.getJSONObject(i));
-                    dVar.b(this.f958a);
+                    dVar.b(this.f968a);
                     dVar.a(this.c);
                     this.g.add(dVar);
                 }
             }
         } catch (Exception e) {
-            aj.b(getClass().getName(), "parserJson", e.toString());
+            aq.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 

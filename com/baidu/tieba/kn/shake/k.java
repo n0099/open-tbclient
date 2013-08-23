@@ -11,20 +11,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.ShakeCutDownView;
-import com.baidu.tieba.view.be;
+import com.baidu.tieba.view.bd;
 import com.slidingmenu.lib.R;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f1254a = {0, R.drawable.vote_bear_face};
+    private static final int[] f1287a = {0, R.drawable.vote_bear_face};
     private static final int[] b = {0, R.drawable.vote_clothes_shirt};
     private static final int[] c = {R.drawable.vote_bear_mosaic, R.drawable.vote_clothes_trousers};
     private static final int[] d = {0, R.drawable.vote_clothes_shoes};
-    private static int[][] e = {f1254a, b, c, d};
+    private static int[][] e = {f1287a, b, c, d};
     private static int f = 0;
     private com.baidu.tieba.g g;
     private TextView h;
@@ -90,8 +90,8 @@ public class k {
     }
 
     private void j() {
-        int a2 = am.a((Context) this.g);
-        int b2 = am.b((Context) this.g);
+        int a2 = UtilHelper.a((Context) this.g);
+        int b2 = UtilHelper.b((Context) this.g);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) this.j.getBackground();
         if (bitmapDrawable != null) {
             int height = ((b2 * 7) / 10) - bitmapDrawable.getBitmap().getHeight();
@@ -108,14 +108,14 @@ public class k {
         this.s.startAnimation(this.y);
     }
 
-    public void a(be beVar) {
-        this.i.setOnTimeOutListener(beVar);
+    public void a(bd bdVar) {
+        this.i.setOnTimeOutListener(bdVar);
     }
 
     public void a() {
         if (f == 0) {
             this.x++;
-            this.k.setBackgroundResource(f1254a[this.x % f1254a.length]);
+            this.k.setBackgroundResource(f1287a[this.x % f1287a.length]);
             if (this.x == 10) {
                 this.l.setBackgroundResource(0);
             }

@@ -6,10 +6,10 @@ import android.os.SystemClock;
 class d extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GifView f423a;
+    final /* synthetic */ GifView f431a;
 
     private d(GifView gifView) {
-        this.f423a = gifView;
+        this.f431a = gifView;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,26 +19,26 @@ class d extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        if (this.f423a.f419a != null) {
-            while (this.f423a.c) {
-                if (this.f423a.f419a.b() == 1) {
-                    this.f423a.b = this.f423a.f419a.d().f422a;
-                    this.f423a.f419a.a();
-                    this.f423a.b();
+        if (GifView.a(this.f431a) != null) {
+            while (GifView.b(this.f431a)) {
+                if (GifView.a(this.f431a).b() == 1) {
+                    GifView.a(this.f431a, GifView.a(this.f431a).d().f430a);
+                    GifView.a(this.f431a).a();
+                    GifView.c(this.f431a);
                     return;
-                } else if (!this.f423a.d) {
-                    c d = this.f423a.f419a.d();
+                } else if (!GifView.d(this.f431a)) {
+                    c d = GifView.a(this.f431a).d();
                     if (d == null) {
                         SystemClock.sleep(50L);
                     } else {
-                        if (d.f422a != null) {
-                            this.f423a.b = d.f422a;
+                        if (d.f430a != null) {
+                            GifView.a(this.f431a, d.f430a);
                         } else if (d.c != null) {
-                            this.f423a.b = BitmapFactory.decodeFile(d.c);
+                            GifView.a(this.f431a, BitmapFactory.decodeFile(d.c));
                         }
                         long j = d.b;
-                        if (this.f423a.h != null) {
-                            this.f423a.b();
+                        if (GifView.e(this.f431a) != null) {
+                            GifView.c(this.f431a);
                             SystemClock.sleep(j);
                         } else {
                             return;

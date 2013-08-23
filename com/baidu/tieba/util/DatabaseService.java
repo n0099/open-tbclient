@@ -14,7 +14,7 @@ import java.util.Date;
 public class DatabaseService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Boolean f1737a = true;
+    private static Boolean f1764a = true;
     private static Boolean b = true;
     private static volatile SQLiteDatabase c = null;
     private static volatile SQLiteDatabase d = null;
@@ -41,9 +41,9 @@ public class DatabaseService {
             this.e = DatabaseLocation.INNER;
             if (c == null || !c.isOpen()) {
                 try {
-                    c = new k(TiebaApplication.f()).getWritableDatabase();
+                    c = new k(TiebaApplication.g()).getWritableDatabase();
                 } catch (Exception e) {
-                    aj.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
+                    aq.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
                 }
             }
         }
@@ -60,10 +60,10 @@ public class DatabaseService {
                             lVar.a(new n(this));
                             d = lVar.a();
                         } else {
-                            c = new k(TiebaApplication.f()).getWritableDatabase();
+                            c = new k(TiebaApplication.g()).getWritableDatabase();
                         }
                     } catch (Exception e) {
-                        aj.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
+                        aq.b("DatabaseService", "DatabaseService", "error = " + e.getMessage());
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class DatabaseService {
                 c.execSQL(str);
             }
         } catch (Exception e) {
-            aj.a(3, "DatabaseService", "ExecSQL", String.valueOf(str) + "   error = " + e.getMessage());
+            aq.a(3, "DatabaseService", "ExecSQL", String.valueOf(str) + "   error = " + e.getMessage());
         }
     }
 
@@ -96,8 +96,8 @@ public class DatabaseService {
             }
             return true;
         } catch (Exception e) {
-            aj.b("DatabaseService", "ExecSQL", "error = " + e.getMessage());
-            aj.b("DatabaseService", "ExecSQL", str);
+            aq.b("DatabaseService", "ExecSQL", "error = " + e.getMessage());
+            aq.b("DatabaseService", "ExecSQL", str);
             return false;
         }
     }
@@ -106,7 +106,7 @@ public class DatabaseService {
     public Cursor a(String str, String[] strArr) {
         try {
         } catch (Exception e) {
-            aj.b("DatabaseService", "rawQuery", "error = " + e.getMessage() + " sql = " + str);
+            aq.b("DatabaseService", "rawQuery", "error = " + e.getMessage() + " sql = " + str);
         }
         if (this.e == DatabaseLocation.SDCARD && d != null) {
             return d.rawQuery(str, strArr);
@@ -118,11 +118,11 @@ public class DatabaseService {
     }
 
     public static Bitmap b(String str) {
-        return d("pb_photo", str);
+        return c("pb_photo", str);
     }
 
     public static Bitmap c(String str) {
-        return d("friend_photo", str);
+        return c("friend_photo", str);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0074 */
@@ -130,7 +130,7 @@ public class DatabaseService {
     /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tieba.util.DatabaseService$DatabaseLocation] */
     /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v2 */
-    private static Bitmap d(String str, String str2) {
+    private static Bitmap c(String str, String str2) {
         Cursor cursor;
         Bitmap bitmap = null;
         if (str2 != null) {
@@ -147,7 +147,7 @@ public class DatabaseService {
                                 }
                             } catch (Exception e) {
                                 e = e;
-                                aj.b("DatabaseService", "getPhoto", "error = " + e.getMessage());
+                                aq.b("DatabaseService", "getPhoto", "error = " + e.getMessage());
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
@@ -214,7 +214,7 @@ public class DatabaseService {
                                 a3.close();
                             } catch (Exception e) {
                                 e = e;
-                                aj.b("DatabaseService", "cashPhoto", "error = " + e.getMessage());
+                                aq.b("DatabaseService", "cashPhoto", "error = " + e.getMessage());
                                 if (0 != 0) {
                                     try {
                                         cursor2.close();
@@ -280,24 +280,16 @@ public class DatabaseService {
         c(0);
     }
 
-    public static void c() {
-        c(13);
-    }
-
-    public static String d() {
+    public static String c() {
         return d(0);
     }
 
-    public static String e() {
+    public static String d() {
         return d(13);
     }
 
     public static void a(String str, String str2) {
         a(0, str, str2);
-    }
-
-    public static void b(String str, String str2) {
-        a(13, str, str2);
     }
 
     public static void f(String str) {
@@ -312,51 +304,39 @@ public class DatabaseService {
         return c(0, str);
     }
 
-    public static String i(String str) {
-        return c(13, str);
-    }
-
-    public static void j(String str) {
+    public static void i(String str) {
         a(2, str);
     }
 
-    public static void k(String str) {
-        a(5, str);
-    }
-
-    public static String f() {
-        return d(5);
-    }
-
-    public static String g() {
+    public static String e() {
         return d(2);
     }
 
-    public static void h() {
+    public static void f() {
         c(2);
     }
 
-    public static void l(String str) {
+    public static void j(String str) {
         a(3, str);
     }
 
-    public static void i() {
+    public static void g() {
         c(3);
     }
 
-    public static String j() {
+    public static String h() {
         return d(3);
     }
 
-    public static void m(String str) {
+    public static void k(String str) {
         a(4, str);
     }
 
-    public static void k() {
+    public static void i() {
         c(4);
     }
 
-    public static String l() {
+    public static String j() {
         return d(4);
     }
 
@@ -367,7 +347,7 @@ public class DatabaseService {
                 databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.E()});
                 databaseService.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{TiebaApplication.E(), Integer.valueOf(i), str});
             } catch (Exception e) {
-                aj.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                aq.b("DatabaseService", "cachData", "error = " + e.getMessage());
             }
         }
     }
@@ -378,7 +358,7 @@ public class DatabaseService {
             try {
                 databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), TiebaApplication.E()});
             } catch (Exception e) {
-                aj.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                aq.b("DatabaseService", "cachData", "error = " + e.getMessage());
             }
         }
     }
@@ -404,7 +384,7 @@ public class DatabaseService {
                                 cursor.close();
                             } catch (Exception e2) {
                                 e = e2;
-                                aj.b("DatabaseService", "getCachData", "error = " + e.getMessage());
+                                aq.b("DatabaseService", "getCachData", "error = " + e.getMessage());
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
@@ -459,7 +439,7 @@ public class DatabaseService {
                 databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), str2});
                 databaseService.a("Insert into cash_data(account,type,data) values(?,?,?)", new Object[]{str2, Integer.valueOf(i), str});
             } catch (Exception e) {
-                aj.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                aq.b("DatabaseService", "cachData", "error = " + e.getMessage());
             }
         }
     }
@@ -471,7 +451,7 @@ public class DatabaseService {
             try {
                 databaseService.a("delete from cash_data where type=? and account=?", (Object[]) new String[]{String.valueOf(i), str});
             } catch (Exception e) {
-                aj.b("DatabaseService", "cachData", "error = " + e.getMessage());
+                aq.b("DatabaseService", "cachData", "error = " + e.getMessage());
             }
         }
     }
@@ -498,7 +478,7 @@ public class DatabaseService {
                                 cursor.close();
                             } catch (Exception e2) {
                                 e = e2;
-                                aj.b("DatabaseService", "getCachData", "error = " + e.getMessage());
+                                aq.b("DatabaseService", "getCachData", "error = " + e.getMessage());
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
@@ -552,7 +532,7 @@ public class DatabaseService {
     public static void a(AccountData accountData) {
         if (accountData != null && accountData.getAccount() != null) {
             if (accountData.getIsActive() == 1) {
-                m();
+                k();
             }
             DatabaseService databaseService = new DatabaseService();
             try {
@@ -562,34 +542,34 @@ public class DatabaseService {
                     databaseService.a("Insert into account_data(id,account,password,bduss,isactive,tbs,time) values(?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(date.getTime())});
                 }
             } catch (Exception e) {
-                aj.b("DatabaseService", "saveAccountData", "error = " + e.getMessage());
+                aq.b("DatabaseService", "saveAccountData", "error = " + e.getMessage());
             }
         }
     }
 
-    public static void m() {
+    public static void k() {
         DatabaseService databaseService = new DatabaseService();
         if (databaseService != null) {
             try {
                 databaseService.a("update account_data set isactive=0 where isactive=1");
             } catch (Exception e) {
-                aj.b("DatabaseService", "clearActiveAccount", "error = " + e.getMessage());
+                aq.b("DatabaseService", "clearActiveAccount", "error = " + e.getMessage());
             }
         }
     }
 
-    public static void c(String str, String str2) {
+    public static void b(String str, String str2) {
         DatabaseService databaseService;
         if (str != null && str2 != null && (databaseService = new DatabaseService()) != null) {
             try {
                 databaseService.a("update account_data set bduss=? where account=?", (Object[]) new String[]{str2, str});
             } catch (Exception e) {
-                aj.b("DatabaseService", "updateAccountToken", "error = " + e.getMessage());
+                aq.b("DatabaseService", "updateAccountToken", "error = " + e.getMessage());
             }
         }
     }
 
-    public static ArrayList n() {
+    public static ArrayList l() {
         Cursor cursor;
         Cursor cursor2;
         Cursor cursor3 = null;
@@ -613,7 +593,7 @@ public class DatabaseService {
                                 arrayList.add(accountData);
                             } catch (Exception e) {
                                 e = e;
-                                aj.b("DatabaseService", "getAllAccountData", "error = " + e.getMessage());
+                                aq.b("DatabaseService", "getAllAccountData", "error = " + e.getMessage());
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
@@ -655,7 +635,7 @@ public class DatabaseService {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    public static int o() {
+    public static int m() {
         Cursor cursor = null;
         int i = 0;
         DatabaseService databaseService = new DatabaseService();
@@ -667,7 +647,7 @@ public class DatabaseService {
                         i = cursor.getInt(0);
                     }
                 } catch (Exception e) {
-                    aj.b("DatabaseService", "getAccountNum", e.getMessage());
+                    aq.b("DatabaseService", "getAccountNum", e.getMessage());
                     if (cursor != null) {
                         try {
                             cursor.close();
@@ -699,7 +679,7 @@ public class DatabaseService {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static AccountData p() {
+    public static AccountData n() {
         Cursor cursor;
         AccountData accountData;
         Exception e;
@@ -725,7 +705,7 @@ public class DatabaseService {
                                 } catch (Exception e2) {
                                     e = e2;
                                     accountData = accountData2;
-                                    aj.b("DatabaseService", "getActiveAccountData", "error = " + e.getMessage());
+                                    aq.b("DatabaseService", "getActiveAccountData", "error = " + e.getMessage());
                                     if (cursor != null) {
                                     }
                                     return accountData;
@@ -741,7 +721,7 @@ public class DatabaseService {
                             cursor.close();
                         } catch (Exception e4) {
                             e = e4;
-                            aj.b("DatabaseService", "getActiveAccountData", "error = " + e.getMessage());
+                            aq.b("DatabaseService", "getActiveAccountData", "error = " + e.getMessage());
                             if (cursor != null) {
                                 try {
                                     cursor.close();
@@ -788,11 +768,11 @@ public class DatabaseService {
         return accountData;
     }
 
-    public static ArrayList q() {
+    public static ArrayList o() {
         return e(0);
     }
 
-    public static ArrayList r() {
+    public static ArrayList p() {
         return e(1);
     }
 
@@ -826,7 +806,7 @@ public class DatabaseService {
                             } catch (Exception e) {
                                 e = e;
                                 cursor2 = a2;
-                                aj.b("DatabaseService", "getAllSearchData", "error = " + e.getMessage());
+                                aq.b("DatabaseService", "getAllSearchData", "error = " + e.getMessage());
                                 if (cursor2 != null) {
                                     try {
                                         cursor2.close();
@@ -867,11 +847,11 @@ public class DatabaseService {
         return arrayList;
     }
 
-    public static void n(String str) {
+    public static void l(String str) {
         d(0, str);
     }
 
-    public static void o(String str) {
+    public static void m(String str) {
         d(1, str);
     }
 
@@ -891,16 +871,16 @@ public class DatabaseService {
                         break;
                 }
             } catch (Exception e) {
-                aj.b("DatabaseService", "saveSearchData", "error = " + e.getMessage());
+                aq.b("DatabaseService", "saveSearchData", "error = " + e.getMessage());
             }
         }
     }
 
-    public static void s() {
+    public static void q() {
         a(0);
     }
 
-    public static void t() {
+    public static void r() {
         a(1);
     }
 
@@ -919,7 +899,7 @@ public class DatabaseService {
                         return;
                 }
             } catch (Exception e) {
-                aj.b("DatabaseService", "delAllSearchData", "error = " + e.getMessage());
+                aq.b("DatabaseService", "delAllSearchData", "error = " + e.getMessage());
             }
         }
     }
@@ -929,7 +909,7 @@ public class DatabaseService {
     /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.tieba.util.DatabaseService] */
     /* JADX WARN: Type inference failed for: r2v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v2 */
-    public static ArrayList u() {
+    public static ArrayList s() {
         Cursor cursor;
         Exception e;
         Cursor cursor2;
@@ -963,14 +943,14 @@ public class DatabaseService {
                                 arrayList.add(markData);
                             } catch (Exception e2) {
                                 e = e2;
-                                aj.b("DatabaseService", "getAllMarkData", "error = " + e.getMessage());
+                                aq.b("DatabaseService", "getAllMarkData", "error = " + e.getMessage());
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
                                     } catch (Exception e3) {
                                     }
                                 }
-                                aj.a("DatabaseService", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
+                                aq.a("DatabaseService", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
                                 return arrayList;
                             }
                         }
@@ -1001,7 +981,7 @@ public class DatabaseService {
                 } catch (Exception e6) {
                 }
             }
-            aj.a("DatabaseService", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
+            aq.a("DatabaseService", "getAllMarkData", "success = " + String.valueOf(arrayList.size()));
             return arrayList;
         } catch (Throwable th2) {
             th = th2;
@@ -1009,7 +989,7 @@ public class DatabaseService {
     }
 
     public static void a(Boolean bool) {
-        f1737a = bool;
+        f1764a = bool;
     }
 
     public static void b(Boolean bool) {
@@ -1028,17 +1008,17 @@ public class DatabaseService {
                     databaseService.a("delete from draft_box where account=? and type=? and thread_id=? and floor_id=?", new Object[]{TiebaApplication.E(), 2, writeData.getThreadId(), writeData.getFloor()});
                 }
             } catch (Exception e) {
-                aj.b("DatabaseService", "deleteDraftBox", "error = " + e.getMessage());
+                aq.b("DatabaseService", "deleteDraftBox", "error = " + e.getMessage());
             }
         }
     }
 
-    public static void v() {
+    public static void t() {
         long time = new Date().getTime() - 604800000;
         try {
             new DatabaseService().a("delete from draft_box where time<?", new Object[]{Long.valueOf(time)});
         } catch (Exception e) {
-            aj.b("DatabaseService", "delMouthAgoDraft", "error = " + e.getMessage());
+            aq.b("DatabaseService", "delMouthAgoDraft", "error = " + e.getMessage());
         }
     }
 
@@ -1048,7 +1028,7 @@ public class DatabaseService {
             try {
                 new DatabaseService().a("Insert into draft_box(account,type,forum_id,forum_name,thread_id,floor_id,title,content,time) values(?,?,?,?,?,?,?,?,?)", new Object[]{TiebaApplication.E(), Integer.valueOf(writeData.getType()), writeData.getForumId(), writeData.getForumName(), writeData.getThreadId(), writeData.getFloor(), writeData.getTitle(), writeData.getContent(), Long.valueOf(new Date().getTime())});
             } catch (Exception e) {
-                aj.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
+                aq.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
             }
         }
     }
@@ -1094,7 +1074,7 @@ public class DatabaseService {
                                 } catch (Exception e) {
                                     writeData = writeData2;
                                     e = e;
-                                    aj.b("DatabaseService", "getDraftBox", "error = " + e.getMessage());
+                                    aq.b("DatabaseService", "getDraftBox", "error = " + e.getMessage());
                                     if (cursor != null) {
                                         try {
                                             cursor.close();
@@ -1138,29 +1118,29 @@ public class DatabaseService {
         return writeData;
     }
 
-    public static void w() {
+    public static void u() {
         if (TiebaApplication.E() != null) {
             DatabaseService databaseService = new DatabaseService();
             try {
                 databaseService.a("delete from setting where account=?", new Object[]{TiebaApplication.E()});
                 Object[] objArr = new Object[6];
                 objArr[0] = TiebaApplication.E();
-                objArr[1] = Integer.valueOf(TiebaApplication.f().S());
-                objArr[2] = Integer.valueOf(TiebaApplication.f().Y() ? 1 : 0);
-                objArr[3] = Integer.valueOf(TiebaApplication.f().aa() ? 1 : 0);
-                objArr[4] = Integer.valueOf(TiebaApplication.f().Z() ? 1 : 0);
-                objArr[5] = Integer.valueOf(TiebaApplication.f().X());
+                objArr[1] = Integer.valueOf(TiebaApplication.g().S());
+                objArr[2] = Integer.valueOf(TiebaApplication.g().Y() ? 1 : 0);
+                objArr[3] = Integer.valueOf(TiebaApplication.g().aa() ? 1 : 0);
+                objArr[4] = Integer.valueOf(TiebaApplication.g().Z() ? 1 : 0);
+                objArr[5] = Integer.valueOf(TiebaApplication.g().X());
                 databaseService.a("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone) values(?,?,?,?,?,?)", objArr);
             } catch (Exception e) {
-                aj.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
+                aq.b("DatabaseService", "saveDraftBox", "error = " + e.getMessage());
             }
         }
     }
 
-    public static void x() {
-        aj.a("databaseService", "getSetting", TiebaApplication.I());
+    public static void v() {
+        aq.a("databaseService", "getSetting", TiebaApplication.I());
         if (TiebaApplication.E() == null || TiebaApplication.E().length() <= 0 || TiebaApplication.I() == null) {
-            TiebaApplication.f().d(0);
+            TiebaApplication.g().c(0);
             return;
         }
         Cursor cursor = null;
@@ -1168,30 +1148,30 @@ public class DatabaseService {
             try {
                 Cursor a2 = new DatabaseService().a("select * from setting where account=?", new String[]{TiebaApplication.E()});
                 if (a2 != null && a2.moveToFirst()) {
-                    TiebaApplication.f().d(a2.getInt(1));
+                    TiebaApplication.g().c(a2.getInt(1));
                     if (a2.getInt(2) == 0) {
-                        TiebaApplication.f().n(false);
+                        TiebaApplication.g().m(false);
                     } else {
-                        TiebaApplication.f().n(true);
+                        TiebaApplication.g().m(true);
                     }
                     if (a2.getInt(3) == 0) {
-                        TiebaApplication.f().p(false);
+                        TiebaApplication.g().o(false);
                     } else {
-                        TiebaApplication.f().p(true);
+                        TiebaApplication.g().o(true);
                     }
                     if (a2.getInt(4) == 0) {
-                        TiebaApplication.f().o(false);
+                        TiebaApplication.g().n(false);
                     } else {
-                        TiebaApplication.f().o(true);
+                        TiebaApplication.g().n(true);
                     }
-                    TiebaApplication.f().c(a2.getInt(5));
+                    TiebaApplication.g().b(a2.getInt(5));
                 } else {
-                    TiebaApplication.f().d(300);
-                    TiebaApplication.f().n(true);
-                    TiebaApplication.f().p(true);
-                    TiebaApplication.f().o(true);
-                    TiebaApplication.f().l(true);
-                    TiebaApplication.f().m(false);
+                    TiebaApplication.g().c(300);
+                    TiebaApplication.g().m(true);
+                    TiebaApplication.g().o(true);
+                    TiebaApplication.g().n(true);
+                    TiebaApplication.g().k(true);
+                    TiebaApplication.g().l(false);
                 }
                 if (a2 != null) {
                     try {
@@ -1200,7 +1180,7 @@ public class DatabaseService {
                     }
                 }
             } catch (Exception e2) {
-                aj.b("DatabaseService", "getDraftBox", "error = " + e2.getMessage());
+                aq.b("DatabaseService", "getDraftBox", "error = " + e2.getMessage());
                 if (0 != 0) {
                     try {
                         cursor.close();
@@ -1219,25 +1199,25 @@ public class DatabaseService {
         }
     }
 
-    public static void y() {
+    public static void w() {
         DatabaseService databaseService;
         if (TiebaApplication.E() != null && (databaseService = new DatabaseService()) != null) {
             try {
                 databaseService.a("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", (Object[]) new String[]{TiebaApplication.E()});
             } catch (Exception e) {
-                aj.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
+                aq.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
             }
         }
     }
 
-    public static void p(String str) {
+    public static void n(String str) {
         if (TiebaApplication.E() != null) {
             DatabaseService databaseService = new DatabaseService();
             if (str != null && databaseService != null) {
                 try {
                     databaseService.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{str, TiebaApplication.E()});
                 } catch (Exception e) {
-                    aj.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
+                    aq.b("DatabaseService", "delChunkUploadData", "error = " + e.getMessage());
                 }
             }
         }
@@ -1256,7 +1236,7 @@ public class DatabaseService {
             databaseService.a("delete from chunk_upload_data where md5=? and account=?", (Object[]) new String[]{dVar.a(), TiebaApplication.E()});
             return databaseService.a("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{dVar.a(), Long.valueOf(dVar.b()), Integer.valueOf(dVar.c()), TiebaApplication.E(), Long.valueOf(date.getTime() / 1000)}).booleanValue();
         } catch (Exception e) {
-            aj.b("DatabaseService", "saveChunkUploadData", "error = " + e.getMessage());
+            aq.b("DatabaseService", "saveChunkUploadData", "error = " + e.getMessage());
             return false;
         }
     }
@@ -1266,7 +1246,7 @@ public class DatabaseService {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static com.baidu.tieba.data.d q(String str) {
+    public static com.baidu.tieba.data.d o(String str) {
         Cursor cursor;
         Cursor cursor2;
         Exception e;
@@ -1294,7 +1274,7 @@ public class DatabaseService {
                                     dVar = dVar2;
                                     cursor2 = cursor;
                                     try {
-                                        aj.b("DatabaseService", "getChunkUploadDataByMd5", "error = " + e.getMessage());
+                                        aq.b("DatabaseService", "getChunkUploadDataByMd5", "error = " + e.getMessage());
                                         if (cursor2 != null) {
                                             try {
                                                 cursor2.close();
@@ -1333,7 +1313,7 @@ public class DatabaseService {
                     } catch (Exception e6) {
                         e = e6;
                         cursor2 = cursor;
-                        aj.b("DatabaseService", "getChunkUploadDataByMd5", "error = " + e.getMessage());
+                        aq.b("DatabaseService", "getChunkUploadDataByMd5", "error = " + e.getMessage());
                         if (cursor2 != null) {
                         }
                         return dVar;
@@ -1363,7 +1343,7 @@ public class DatabaseService {
         return dVar;
     }
 
-    public static void z() {
+    public static void x() {
         synchronized (DatabaseService.class) {
             try {
                 d.close();
@@ -1377,7 +1357,7 @@ public class DatabaseService {
         }
     }
 
-    public static void r(String str) {
+    public static void p(String str) {
         DatabaseService databaseService;
         if (str != null && (databaseService = new DatabaseService()) != null) {
             try {
@@ -1387,7 +1367,7 @@ public class DatabaseService {
                 databaseService.a("delete from account_data where id=?", new Object[]{str});
                 databaseService.a("delete from setting where account=?", new Object[]{str});
             } catch (Exception e) {
-                aj.b("DatabaseService", "deleteAccountAllInfo", e.getMessage());
+                aq.b("DatabaseService", "deleteAccountAllInfo", e.getMessage());
             }
         }
     }
@@ -1399,7 +1379,7 @@ public class DatabaseService {
                 databaseService.a("delete from cash_data where type=?", (Object[]) new String[]{String.valueOf(i)});
                 return databaseService.a("Insert into cash_data(type ,account ,data ) values(?,?,?)", (Object[]) new String[]{String.valueOf(i), "", str}).booleanValue();
             } catch (Exception e) {
-                aj.b("DatabaseService", "cashHostspot", "error = " + e.getMessage());
+                aq.b("DatabaseService", "cashHostspot", "error = " + e.getMessage());
                 return false;
             }
         }
@@ -1424,7 +1404,7 @@ public class DatabaseService {
                                 cursor.close();
                             } catch (Exception e2) {
                                 e = e2;
-                                aj.b("DatabaseService", "getHotspot", "error = " + e.getMessage());
+                                aq.b("DatabaseService", "getHotspot", "error = " + e.getMessage());
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
@@ -1471,25 +1451,25 @@ public class DatabaseService {
         }
     }
 
-    public static void s(String str) {
+    public static void q(String str) {
         DatabaseService databaseService = new DatabaseService();
         if (databaseService != null && str != null) {
             try {
                 databaseService.a("delete from frs_image_forums where forum_name=?", (Object[]) new String[]{str});
                 databaseService.a("Insert into frs_image_forums(forum_name) values(?)", new Object[]{str});
             } catch (Exception e) {
-                aj.b("DatabaseService", "insertFrsImageForum", e.getMessage());
+                aq.b("DatabaseService", "insertFrsImageForum", e.getMessage());
             }
         }
     }
 
-    public static void t(String str) {
+    public static void r(String str) {
         DatabaseService databaseService = new DatabaseService();
         if (databaseService != null && str != null) {
             try {
                 databaseService.a("delete from frs_image_forums where forum_name=?", (Object[]) new String[]{str});
             } catch (Exception e) {
-                aj.b("DatabaseService", "delFrsImageForum", e.getMessage());
+                aq.b("DatabaseService", "delFrsImageForum", e.getMessage());
             }
         }
     }
@@ -1498,7 +1478,7 @@ public class DatabaseService {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ArrayList A() {
+    public static ArrayList y() {
         Cursor cursor;
         Exception e;
         ArrayList arrayList;
@@ -1516,7 +1496,7 @@ public class DatabaseService {
                                     arrayList.add(cursor.getString(0));
                                 } catch (Exception e2) {
                                     e = e2;
-                                    aj.b("DatabaseService", "getAllFrsImageForums", e.getMessage());
+                                    aq.b("DatabaseService", "getAllFrsImageForums", e.getMessage());
                                     if (cursor != null) {
                                         try {
                                             cursor.close();

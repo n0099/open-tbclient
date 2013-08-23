@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class s extends com.baidu.tieba.data.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1224a;
+    public String f1257a;
     public String b;
     public String c;
     public String d;
@@ -20,27 +20,27 @@ public class s extends com.baidu.tieba.data.a {
     public x k;
     private long l;
 
-    public String c() {
+    public String d() {
         return (this.j == null || this.k == null) ? "" : String.valueOf(this.j.b) + " VS " + this.k.b;
     }
 
-    public long d() {
+    public long e() {
         return System.currentTimeMillis() + this.l;
     }
 
-    public boolean e() {
-        return d() / 1000 >= this.f;
-    }
-
     public boolean f() {
-        return this.e > d() / 1000;
+        return e() / 1000 >= this.f;
     }
 
-    public LinkedList g() {
-        return this.j.m;
+    public boolean g() {
+        return this.e > e() / 1000;
     }
 
     public LinkedList h() {
+        return this.j.m;
+    }
+
+    public LinkedList i() {
         return this.k.m;
     }
 
@@ -48,7 +48,7 @@ public class s extends com.baidu.tieba.data.a {
     protected void a(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("pk_info");
         if (optJSONObject != null) {
-            this.f1224a = optJSONObject.optString("pk_id");
+            this.f1257a = optJSONObject.optString("pk_id");
             this.b = optJSONObject.optString("title");
             this.c = optJSONObject.optString("abstract");
             this.d = optJSONObject.optString("pk_url");

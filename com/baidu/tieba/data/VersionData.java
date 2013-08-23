@@ -60,7 +60,7 @@ public class VersionData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -72,21 +72,21 @@ public class VersionData implements Serializable {
                 this.url = jSONObject.optString("new_version_url");
                 this.new_version_remind = jSONObject.optInt("new_version_remind", 0);
                 this.new_version_desc = jSONObject.optString("new_version_desc", null);
-                if (this.new_version_remind == 1 && this.url != null && URLUtil.isHttpUrl(this.url) && this.new_ver != null && !g.i().equalsIgnoreCase(this.new_ver)) {
+                if (this.new_version_remind == 1 && this.url != null && URLUtil.isHttpUrl(this.url) && this.new_ver != null && !g.j().equalsIgnoreCase(this.new_ver)) {
                     this.has_new_ver = 1;
                     this.new_file = "tieba_" + this.new_ver + ".apk";
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.aj.d("VersionData", "logPrint", "force_update = " + String.valueOf(this.force_update));
-        com.baidu.tieba.util.aj.d("VersionData", "logPrint", "new_ver = " + this.new_ver);
-        com.baidu.tieba.util.aj.d("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.has_new_ver));
-        com.baidu.tieba.util.aj.d("VersionData", "logPrint", "url = " + this.url);
+        com.baidu.tieba.util.aq.d("VersionData", "logPrint", "force_update = " + String.valueOf(this.force_update));
+        com.baidu.tieba.util.aq.d("VersionData", "logPrint", "new_ver = " + this.new_ver);
+        com.baidu.tieba.util.aq.d("VersionData", "logPrint", "has_new_ver = " + String.valueOf(this.has_new_ver));
+        com.baidu.tieba.util.aq.d("VersionData", "logPrint", "url = " + this.url);
     }
 
     public void setClient_id(String str) {

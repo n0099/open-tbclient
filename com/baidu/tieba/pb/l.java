@@ -6,11 +6,11 @@ import com.baidu.tieba.view.ImagePbImageView;
 class l implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f1534a;
+    final /* synthetic */ k f1572a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.f1534a = kVar;
+        this.f1572a = kVar;
     }
 
     @Override // com.baidu.tbadk.a.d
@@ -18,7 +18,7 @@ class l implements com.baidu.tbadk.a.d {
         ImagePbActivity imagePbActivity;
         BaseViewPager baseViewPager;
         if (bVar != null) {
-            imagePbActivity = this.f1534a.f1533a;
+            imagePbActivity = this.f1572a.f1571a;
             baseViewPager = imagePbActivity.z;
             ImagePbImageView imagePbImageView = (ImagePbImageView) baseViewPager.findViewWithTag(str);
             if (imagePbImageView != null) {

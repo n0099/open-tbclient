@@ -11,11 +11,11 @@ import java.net.Socket;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f579a;
+    final /* synthetic */ e f602a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f579a = eVar;
+        this.f602a = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -32,68 +32,68 @@ public class f implements Runnable {
         j jVar3;
         i iVar3;
         Context context2;
-        if (PushSocket.f584a) {
-            e.f578a = PushSocket.createSocket(w.b, w.c);
-            if (e.f578a == -1) {
+        if (PushSocket.f607a) {
+            e.f601a = PushSocket.createSocket(w.b, w.c);
+            if (e.f601a == -1) {
                 Log.e("PushConnection", "Create socket err, errno:" + PushSocket.getLastSocketError());
                 Boolean unused = e.e = false;
-                this.f579a.f();
+                this.f602a.f();
                 return;
             }
         } else {
             try {
-                this.f579a.g = new Socket(w.b, w.c);
-                e eVar = this.f579a;
-                socket = this.f579a.g;
+                this.f602a.g = new Socket(w.b, w.c);
+                e eVar = this.f602a;
+                socket = this.f602a.g;
                 eVar.h = socket.getInputStream();
-                e eVar2 = this.f579a;
-                socket2 = this.f579a.g;
+                e eVar2 = this.f602a;
+                socket2 = this.f602a.g;
                 eVar2.i = socket2.getOutputStream();
             } catch (Throwable th) {
                 Log.e("PushConnection", "Connecting exception: " + th);
-                this.f579a.f();
+                this.f602a.f();
             }
         }
         if (b.a()) {
             Log.i("PushConnection", "create Socket ok");
-            com.baidu.android.pushservice.util.n.a("create Socket ok socketfd" + e.f578a);
+            com.baidu.android.pushservice.util.n.a("create Socket ok socketfd" + e.f601a);
         }
-        if (PushSocket.f584a) {
-            e eVar3 = this.f579a;
-            context2 = this.f579a.o;
-            eVar3.c = new com.baidu.android.pushservice.message.c(context2.getApplicationContext(), this.f579a);
+        if (PushSocket.f607a) {
+            e eVar3 = this.f602a;
+            context2 = this.f602a.o;
+            eVar3.c = new com.baidu.android.pushservice.message.c(context2.getApplicationContext(), this.f602a);
         } else {
-            e eVar4 = this.f579a;
-            context = this.f579a.o;
+            e eVar4 = this.f602a;
+            context = this.f602a.o;
             Context applicationContext = context.getApplicationContext();
-            e eVar5 = this.f579a;
-            inputStream = this.f579a.h;
-            outputStream = this.f579a.i;
+            e eVar5 = this.f602a;
+            inputStream = this.f602a.h;
+            outputStream = this.f602a.i;
             eVar4.c = new com.baidu.android.pushservice.message.c(applicationContext, eVar5, inputStream, outputStream);
         }
-        this.f579a.d = true;
-        this.f579a.a(true);
-        iVar = this.f579a.l;
+        this.f602a.d = true;
+        this.f602a.a(true);
+        iVar = this.f602a.l;
         if (iVar != null) {
-            iVar3 = this.f579a.l;
+            iVar3 = this.f602a.l;
             iVar3.interrupt();
         }
-        jVar = this.f579a.k;
+        jVar = this.f602a.k;
         if (jVar != null) {
-            jVar3 = this.f579a.k;
+            jVar3 = this.f602a.k;
             jVar3.interrupt();
         }
-        this.f579a.f = false;
-        this.f579a.l = new i(this.f579a);
-        iVar2 = this.f579a.l;
+        this.f602a.f = false;
+        this.f602a.l = new i(this.f602a);
+        iVar2 = this.f602a.l;
         iVar2.start();
-        this.f579a.k = new j(this.f579a);
-        jVar2 = this.f579a.k;
+        this.f602a.k = new j(this.f602a);
+        jVar2 = this.f602a.k;
         jVar2.start();
-        if (PushSocket.f584a) {
-            this.f579a.c.a(e.f578a);
+        if (PushSocket.f607a) {
+            this.f602a.c.a(e.f601a);
         } else {
-            this.f579a.c.a();
+            this.f602a.c.a();
         }
         Boolean unused2 = e.e = false;
     }

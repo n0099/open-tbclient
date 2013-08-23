@@ -8,16 +8,16 @@ import android.content.Intent;
 public class c extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f386a;
+    final /* synthetic */ b f394a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f386a = bVar;
+        this.f394a = bVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.f386a.b.unregisterReceiver(this);
+        this.f394a.b.unregisterReceiver(this);
         com.baidu.adp.lib.debug.b.c(String.valueOf(intent.getIntExtra("level", 0)) + "%");
     }
 }

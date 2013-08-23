@@ -8,13 +8,13 @@ import android.os.Message;
 public class h extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f355a;
+    final /* synthetic */ f f360a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(f fVar, Looper looper) {
         super(looper);
-        this.f355a = fVar;
+        this.f360a = fVar;
     }
 
     @Override // android.os.Handler
@@ -24,9 +24,9 @@ public class h extends Handler {
             if (message.obj == null || !(message.obj instanceof j)) {
                 return;
             }
-            this.f355a.b((j) message.obj);
+            this.f360a.b((j) message.obj);
         } else if (message.what == 2 && message.obj != null && (message.obj instanceof j)) {
-            this.f355a.a((j) message.obj);
+            this.f360a.a((j) message.obj);
         }
     }
 }

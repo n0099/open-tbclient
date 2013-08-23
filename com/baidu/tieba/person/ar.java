@@ -6,17 +6,17 @@ import android.widget.ImageView;
 public class ar implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f1575a;
+    final /* synthetic */ PersonChangeActivity f1613a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(PersonChangeActivity personChangeActivity) {
-        this.f1575a = personChangeActivity;
+        this.f1613a = personChangeActivity;
     }
 
     @Override // com.baidu.tbadk.a.d
     public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
         ImageView imageView;
-        imageView = this.f1575a.b;
-        bVar.b(imageView);
+        imageView = this.f1613a.c;
+        bVar.a(imageView);
     }
 }

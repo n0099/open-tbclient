@@ -6,18 +6,18 @@ import java.util.concurrent.FutureTask;
 public abstract class l extends FutureTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private BdAsyncTask f359a;
+    private BdAsyncTask f364a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void a();
 
     public BdAsyncTask b() {
-        return this.f359a;
+        return this.f364a;
     }
 
     public l(Callable callable, BdAsyncTask bdAsyncTask) {
         super(callable);
-        this.f359a = null;
-        this.f359a = bdAsyncTask;
+        this.f364a = null;
+        this.f364a = bdAsyncTask;
     }
 }

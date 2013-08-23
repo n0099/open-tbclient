@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 public class c extends OutputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f436a;
+    private final int f452a;
     private ByteBuffer b;
 
     public ByteBuffer a() {
@@ -30,7 +30,7 @@ public class c extends OutputStream {
         if (i > this.b.capacity()) {
             ByteBuffer byteBuffer = this.b;
             int position = this.b.position();
-            this.b = ByteBuffer.allocateDirect(((i / this.f436a) + 1) * this.f436a);
+            this.b = ByteBuffer.allocateDirect(((i / this.f452a) + 1) * this.f452a);
             byteBuffer.clear();
             this.b.clear();
             this.b.put(byteBuffer);

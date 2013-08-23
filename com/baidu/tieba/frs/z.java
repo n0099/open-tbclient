@@ -1,23 +1,23 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
-class z implements com.baidu.adp.widget.ListView.b {
+class z implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1100a;
+    final /* synthetic */ y f1119a;
+    private final /* synthetic */ String b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(FrsActivity frsActivity) {
-        this.f1100a = frsActivity;
+    public z(y yVar, String str) {
+        this.f1119a = yVar;
+        this.b = str;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
-        if (TiebaApplication.f().t()) {
-            StatService.onEvent(this.f1100a, "frs_pulldown", "frsclick", 1);
-        }
-        this.f1100a.w();
+    @Override // java.lang.Runnable
+    public void run() {
+        NetWorkCore netWorkCore = new NetWorkCore(new com.baidu.tieba.util.ad());
+        netWorkCore.a(this.b);
+        netWorkCore.t();
     }
 }

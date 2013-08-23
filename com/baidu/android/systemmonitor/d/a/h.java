@@ -8,11 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class h extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f668a;
+    private Context f691a;
 
     public h(Context context) {
         super(context, "moplus_server_config.db", (SQLiteDatabase.CursorFactory) null, 1);
-        this.f668a = context;
+        this.f691a = context;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

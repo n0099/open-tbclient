@@ -7,12 +7,12 @@ import org.json.JSONObject;
 public class al extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ak f1328a;
+    final /* synthetic */ ak f1363a;
     private int b;
-    private com.baidu.tieba.util.u c = null;
+    private com.baidu.tieba.util.v c = null;
 
     public al(ak akVar, int i) {
-        this.f1328a = akVar;
+        this.f1363a = akVar;
         this.b = 0;
         this.b = i;
         if (this.b < 1) {
@@ -32,28 +32,28 @@ public class al extends BdAsyncTask {
         String str2;
         String str3;
         try {
-            this.c = new com.baidu.tieba.util.u(String.valueOf(com.baidu.tieba.data.g.f1011a) + "c/f/frs/photolist");
-            str = this.f1328a.i;
+            this.c = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/f/frs/photolist");
+            str = this.f1363a.i;
             if (str != null) {
-                com.baidu.tieba.util.u uVar = this.c;
-                str3 = this.f1328a.i;
-                uVar.a("st_type", str3);
+                com.baidu.tieba.util.v vVar = this.c;
+                str3 = this.f1363a.i;
+                vVar.a("st_type", str3);
             }
-            com.baidu.tieba.util.u uVar2 = this.c;
-            str2 = this.f1328a.j;
-            uVar2.a("kw", str2);
+            com.baidu.tieba.util.v vVar2 = this.c;
+            str2 = this.f1363a.j;
+            vVar2.a("kw", str2);
             this.c.a("bs", String.valueOf(this.b));
             this.c.a("be", String.valueOf((this.b + 240) - 1));
             this.c.a("an", String.valueOf(30));
-            String k = this.c.k();
-            jSONObject = new JSONObject(k);
+            String j = this.c.j();
+            jSONObject = new JSONObject(j);
             try {
-                if (this.c.d()) {
-                    this.f1328a.a(k);
+                if (this.c.c()) {
+                    this.f1363a.a(j);
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.aj.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
                 return jSONObject;
             }
         } catch (Exception e3) {
@@ -67,35 +67,35 @@ public class al extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.aw awVar;
-        com.baidu.tieba.frs.aw awVar2;
+        com.baidu.tieba.frs.ay ayVar;
+        com.baidu.tieba.frs.ay ayVar2;
         super.a((Object) jSONObject);
-        this.f1328a.k = null;
-        awVar = this.f1328a.m;
-        if (awVar != null) {
-            am amVar = new am(this.f1328a);
+        this.f1363a.k = null;
+        ayVar = this.f1363a.m;
+        if (ayVar != null) {
+            am amVar = new am(this.f1363a);
             if (this.c != null) {
-                amVar.f1329a = true;
-                amVar.b = this.c.e();
-                amVar.c = this.c.f();
-                amVar.d = this.c.h();
-                amVar.e = this.c.c();
+                amVar.f1364a = true;
+                amVar.b = this.c.d();
+                amVar.c = this.c.e();
+                amVar.d = this.c.g();
+                amVar.e = this.c.b();
             }
-            awVar2 = this.f1328a.m;
-            awVar2.a(this.b, jSONObject, amVar);
+            ayVar2 = this.f1363a.m;
+            ayVar2.a(this.b, jSONObject, amVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        com.baidu.tieba.frs.aw awVar;
-        com.baidu.tieba.frs.aw awVar2;
+        com.baidu.tieba.frs.ay ayVar;
+        com.baidu.tieba.frs.ay ayVar2;
         super.b();
-        awVar = this.f1328a.m;
-        if (awVar != null) {
-            awVar2 = this.f1328a.m;
-            awVar2.a(0);
+        ayVar = this.f1363a.m;
+        if (ayVar != null) {
+            ayVar2 = this.f1363a.m;
+            ayVar2.a(0);
         }
     }
 
@@ -103,9 +103,9 @@ public class al extends BdAsyncTask {
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.i();
+            this.c.h();
             this.c = null;
         }
-        this.f1328a.k = null;
+        this.f1363a.k = null;
     }
 }

@@ -1,121 +1,54 @@
 package com.baidu.tieba.mention;
 
-import android.app.AlertDialog;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.as;
-import com.baidu.tieba.data.aw;
-import com.baidu.tieba.model.bl;
-import com.baidu.tieba.util.aj;
-import com.slidingmenu.lib.R;
+import android.view.View;
+import com.baidu.tieba.model.bk;
+import com.baidu.tieba.pb.ImageActivity;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.aq;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends BdAsyncTask {
+public class x implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1312a;
-    final /* synthetic */ PostActivity b;
-    private com.baidu.tieba.util.u c = null;
-    private String d;
+    final /* synthetic */ PostActivity f1346a;
+    private ArrayList b;
+    private int c;
 
-    public x(PostActivity postActivity, String str, ArrayList arrayList) {
-        this.b = postActivity;
-        this.d = null;
-        this.f1312a = null;
-        this.d = str;
-        this.f1312a = arrayList;
+    public x(PostActivity postActivity, ArrayList arrayList, int i) {
+        this.f1346a = postActivity;
+        this.b = arrayList;
+        this.c = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ProgressBar progressBar;
-        progressBar = this.b.f;
-        progressBar.setVisibility(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public as a(Object... objArr) {
-        as asVar = null;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bk bkVar;
         try {
-            this.c = new com.baidu.tieba.util.u(this.d);
-            this.c.a(this.f1312a);
-            String k = this.c.k();
-            if (this.c.d()) {
-                as asVar2 = new as();
-                try {
-                    asVar2.b(k);
-                    int size = asVar2.c().size();
-                    for (int i = 0; i < size; i++) {
-                        ((aw) asVar2.c().get(i)).c(this.b);
-                        ((aw) asVar2.c().get(i)).a((ArrayList) null);
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.b.size()) {
+                    if (((com.baidu.tieba.data.i) this.b.get(i2)).a() == 3) {
+                        StringBuffer stringBuffer = new StringBuffer(100);
+                        stringBuffer.append("size=");
+                        stringBuffer.append(com.baidu.tieba.data.g.i());
+                        stringBuffer.append("&src=");
+                        stringBuffer.append(ap.d(((com.baidu.tieba.data.i) this.b.get(i2)).d()));
+                        arrayList.add(stringBuffer.toString());
                     }
-                    return asVar2;
-                } catch (Exception e) {
-                    asVar = asVar2;
-                    e = e;
-                    aj.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
-                    return asVar;
-                }
-            }
-            return null;
-        } catch (Exception e2) {
-            e = e2;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(as asVar) {
-        ProgressBar progressBar;
-        bl blVar;
-        try {
-            progressBar = this.b.f;
-            progressBar.setVisibility(8);
-            if (asVar != null) {
-                blVar = this.b.n;
-                blVar.a(asVar);
-            } else if (this.c != null) {
-                if (this.c.e()) {
-                    this.b.a(this.c.h());
-                    if (this.c.f() == 4 || this.c.f() == 28 || this.c.f() == 29) {
-                        this.b.finish();
-                        return;
-                    }
+                    i = i2 + 1;
                 } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this.b);
-                    builder.setTitle(this.b.getString(R.string.error));
-                    builder.setMessage(this.c.h());
-                    builder.setPositiveButton(this.b.getString(R.string.retry), new y(this));
-                    builder.setNegativeButton(this.b.getString(R.string.cancel), new z(this));
-                    builder.create().show();
+                    PostActivity postActivity = this.f1346a;
+                    int i3 = this.c;
+                    bkVar = this.f1346a.n;
+                    ImageActivity.a(postActivity, arrayList, i3, bkVar);
+                    return;
                 }
             }
-            this.b.k();
         } catch (Exception e) {
+            aq.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
-        this.b.m = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        if (this.c != null) {
-            this.c.i();
-        }
-        progressBar = this.b.f;
-        progressBar.setVisibility(8);
-        super.cancel(true);
     }
 }

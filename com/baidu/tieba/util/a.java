@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f1742a;
+    public Context f1773a;
     public boolean d;
     public boolean e;
     public String f;
@@ -26,7 +26,7 @@ public class a {
         this.f = null;
         this.g = false;
         this.i = 0;
-        this.f1742a = context;
+        this.f1773a = context;
         this.d = true;
         this.f = null;
         this.e = false;
@@ -119,7 +119,7 @@ public class a {
                 if (this.d && this.k != null) {
                     int size2 = this.k.size();
                     for (int i2 = 0; i2 < size2; i2++) {
-                        if (((c) this.k.get(i2)).f1760a != null && ((c) this.k.get(i2)).f1760a.equals(str)) {
+                        if (((c) this.k.get(i2)).f1797a != null && ((c) this.k.get(i2)).f1797a.equals(str)) {
                             return null;
                         }
                     }
@@ -128,25 +128,25 @@ public class a {
                     if (this.d) {
                         c cVar = new c(this, null);
                         cVar.c = dVar;
-                        cVar.f1760a = str;
+                        cVar.f1797a = str;
                         cVar.b = num.intValue();
                         cVar.d = z;
                         this.k.add(cVar);
                         return null;
                     }
-                    com.baidu.adp.lib.c.c.a().a(((d) this.j.get(0)).c, TiebaApplication.f());
+                    com.baidu.adp.lib.c.c.a().a(((d) this.j.get(0)).c, TiebaApplication.g());
                 }
                 d dVar2 = new d(str, num.intValue(), dVar, z);
                 this.j.add(dVar2);
                 com.baidu.adp.lib.c.f fVar = new com.baidu.adp.lib.c.f();
                 fVar.a("ImageAsyncTaskInfo", dVar2);
                 fVar.a("AsyncImageLoader", this);
-                Object a2 = com.baidu.adp.lib.c.c.a().a(str, (num.intValue() == 0 || num.intValue() == 4) ? 2 : 1, new b(this, dVar2), TiebaApplication.f(), fVar, num.intValue() != 0 ? 2 : 1);
+                Object a2 = com.baidu.adp.lib.c.c.a().a(str, (num.intValue() == 0 || num.intValue() == 4) ? 2 : 1, new b(this, dVar2), TiebaApplication.g(), fVar, num.intValue() != 0 ? 2 : 1);
                 if (a2 != null && (a2 instanceof com.baidu.adp.widget.a.b)) {
                     return (com.baidu.adp.widget.a.b) a2;
                 }
             } catch (Exception e) {
-                aj.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
+                aq.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
             }
             return null;
         }
@@ -161,7 +161,7 @@ public class a {
             if (i2 < this.j.size()) {
                 d dVar = (d) this.j.get(i2);
                 if (dVar != null) {
-                    com.baidu.adp.lib.c.c.a().a(dVar.c, TiebaApplication.f());
+                    com.baidu.adp.lib.c.c.a().a(dVar.c, TiebaApplication.g());
                 }
                 i = i2 + 1;
             } else {

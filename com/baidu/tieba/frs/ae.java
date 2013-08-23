@@ -1,29 +1,11 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.mobstat.StatService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
+public interface ae {
+    void a(int i);
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ad f1053a;
-    private final /* synthetic */ com.baidu.tieba.data.am b;
+    void a(int i, JSONObject jSONObject, com.baidu.tieba.model.ad adVar);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar, com.baidu.tieba.data.am amVar) {
-        this.f1053a = adVar;
-        this.b = amVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        context = this.f1053a.f1052a;
-        StatService.onEvent(context, "frs_video", "frsclick", 1);
-        context2 = this.f1053a.f1052a;
-        com.baidu.tieba.util.am.c(context2, this.b.c());
-    }
+    void a(com.baidu.tieba.model.aa aaVar);
 }

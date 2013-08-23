@@ -1,34 +1,67 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f972a = new ArrayList();
+    private long f982a = 0;
+    private long b = 0;
+    private long c = 0;
+    private long d = 0;
+    private long e = 0;
 
-    public ArrayList a() {
-        return this.f972a;
+    public void a(long j) {
+        this.f982a = j;
     }
 
-    public void a(ai aiVar) {
-        if (this.f972a != null) {
-            this.f972a.add(aiVar);
+    public long a() {
+        return this.f982a;
+    }
+
+    public void b(long j) {
+        this.b = j;
+    }
+
+    public long b() {
+        return this.b;
+    }
+
+    public void c(long j) {
+        this.c = j;
+    }
+
+    public long c() {
+        return this.c;
+    }
+
+    public long d() {
+        return this.d;
+    }
+
+    public long e() {
+        return this.e;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str).optJSONObject("message"));
+        } catch (Exception e) {
+            com.baidu.tieba.util.aq.b("MessageData", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(JSONArray jSONArray) {
-        if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    ai aiVar = new ai();
-                    aiVar.a(jSONArray.getJSONObject(i));
-                    this.f972a.add(aiVar);
-                } catch (Exception e) {
-                    com.baidu.tieba.util.aj.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
-                    return;
-                }
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.f982a = jSONObject.optLong("replyme", 0L);
+                this.b = jSONObject.optLong("atme", 0L);
+                this.c = jSONObject.optLong("fans", 0L);
+                this.d = jSONObject.optLong("pletter", 0L);
+                this.e = jSONObject.optLong("bookmark", 0L);
+                this.d = jSONObject.optLong("pletter", 0L);
+            } catch (Exception e) {
+                com.baidu.tieba.util.aq.b("MessageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

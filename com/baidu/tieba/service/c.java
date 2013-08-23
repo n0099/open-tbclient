@@ -7,16 +7,16 @@ import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.am;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 class c extends BdAsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DealIntentService f1695a;
+    final /* synthetic */ DealIntentService f1712a;
     private Intent b;
 
     public c(DealIntentService dealIntentService, Intent intent) {
-        this.f1695a = dealIntentService;
+        this.f1712a = dealIntentService;
         this.b = null;
         this.b = intent;
     }
@@ -31,10 +31,10 @@ class c extends BdAsyncTask {
                 b(i);
             }
             if (i != 5) {
-                for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.f().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
-                    if (runningTaskInfo.baseActivity.getClassName().startsWith(this.f1695a.getPackageName())) {
+                for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.g().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
+                    if (runningTaskInfo.baseActivity.getClassName().startsWith(this.f1712a.getPackageName())) {
                         this.b.addFlags(268435456);
-                        am.a(this.f1695a.getBaseContext(), this.b);
+                        UtilHelper.a(this.f1712a.getBaseContext(), this.b);
                         break;
                     }
                 }
@@ -42,7 +42,7 @@ class c extends BdAsyncTask {
             if (this.b.getExtras().getBoolean("is_notify", false)) {
                 a(i);
             }
-            LogoActivity.a(this.f1695a, this.b);
+            LogoActivity.a(this.f1712a, this.b);
         }
         return null;
     }
@@ -75,13 +75,13 @@ class c extends BdAsyncTask {
     private void b(int i) {
         switch (i) {
             case 6:
-                StatService.onEvent(this.f1695a.getBaseContext(), "notify_to_pk_before", "click");
+                StatService.onEvent(this.f1712a.getBaseContext(), "notify_to_pk_before", "click");
                 return;
             case 7:
-                StatService.onEvent(this.f1695a.getBaseContext(), "notify_to_pk_end", "click");
+                StatService.onEvent(this.f1712a.getBaseContext(), "notify_to_pk_end", "click");
                 return;
             case 8:
-                StatService.onEvent(this.f1695a.getBaseContext(), "notify_to_vote_list", "click");
+                StatService.onEvent(this.f1712a.getBaseContext(), "notify_to_vote_list", "click");
                 return;
             default:
                 return;
@@ -97,6 +97,6 @@ class c extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        this.f1695a.stopSelf();
+        this.f1712a.stopSelf();
     }
 }

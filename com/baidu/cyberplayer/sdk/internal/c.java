@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class c extends com.baidu.cyberplayer.sdk.internal.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f718a;
+    private int f741a;
 
     /* renamed from: a  reason: collision with other field name */
     private long f25a;
@@ -73,8 +73,8 @@ public class c extends com.baidu.cyberplayer.sdk.internal.a {
     }
 
     static /* synthetic */ int c(c cVar, int i) {
-        int i2 = cVar.f718a + i;
-        cVar.f718a = i2;
+        int i2 = cVar.f741a + i;
+        cVar.f741a = i2;
         return i2;
     }
 
@@ -130,7 +130,7 @@ public class c extends com.baidu.cyberplayer.sdk.internal.a {
                 if (str != null && HttpUtils.isHeaderEqueal(str, HttpUtils.HEADER_NAME_CONTENT_LENGTH)) {
                     for (String str2 : (List) map.get(str)) {
                         if (str2 != null) {
-                            c.this.f718a = Integer.parseInt(str2);
+                            c.this.f741a = Integer.parseInt(str2);
                         }
                     }
                 } else if (str != null && HttpUtils.isHeaderEqueal(str, HttpUtils.HEADER_NAME_CONTENT_MD5)) {
@@ -141,7 +141,7 @@ public class c extends com.baidu.cyberplayer.sdk.internal.a {
                     }
                 }
             }
-            if (c.this.f718a > 0) {
+            if (c.this.f741a > 0) {
                 if (c.this.f32b) {
                     c.c(c.this, c.this.c);
                 }
@@ -161,7 +161,7 @@ public class c extends com.baidu.cyberplayer.sdk.internal.a {
                 c.this.a(4);
             }
             if (c.this.f27a != null) {
-                int onDownload = c.this.f27a.onDownload(c.this.f718a, c.this.b);
+                int onDownload = c.this.f27a.onDownload(c.this.f741a, c.this.b);
                 if (2 == onDownload) {
                     c.this.b();
                     c.this.a(3);
@@ -202,7 +202,7 @@ public class c extends com.baidu.cyberplayer.sdk.internal.a {
         this.e = null;
         this.f29a = null;
         this.f = null;
-        this.f718a = 0;
+        this.f741a = 0;
         this.b = 0;
         this.c = 0;
         this.f32b = false;
@@ -222,7 +222,7 @@ public class c extends com.baidu.cyberplayer.sdk.internal.a {
 
     @Override // com.baidu.cyberplayer.sdk.internal.a
     protected boolean a() {
-        this.f718a = 0;
+        this.f741a = 0;
         this.b = 0;
         this.c = 0;
         this.f32b = false;
@@ -305,7 +305,7 @@ public class c extends com.baidu.cyberplayer.sdk.internal.a {
                 sb.append("=");
                 sb.append(this.f33c);
                 sb.append("\n");
-                if (this.b >= this.f718a) {
+                if (this.b >= this.f741a) {
                     z = m14d();
                     try {
                         this.f34c = z;

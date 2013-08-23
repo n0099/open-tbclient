@@ -1,287 +1,329 @@
 package com.baidu.tieba.util;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import com.baidu.location.LocationClientOption;
+import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.openapi.IWXAPI;
+import com.tencent.mm.sdk.openapi.SendMessageToWX;
+import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.tencent.mm.sdk.openapi.WXImageObject;
+import com.tencent.mm.sdk.openapi.WXMediaMessage;
+import com.tencent.mm.sdk.platformtools.Util;
+import com.tencent.mm.sdk.plugin.MMPluginProviderConstants;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes.dex */
 public class ah {
+    private static Context e;
+    private static ah f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1749a = "skinType not support";
+    private IWXAPI f1782a;
+    private File b;
+    private int c;
+    private String d;
+    private MediaScannerConnection.MediaScannerConnectionClient g = new ai(this);
+    private MediaScannerConnection h = new MediaScannerConnection(e, this.g);
 
-    public static void a(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                textView.setTextColor(f.getResources().getColor(R.color.skin_1_common_button_color));
-            } else {
-                textView.setTextColor(f.getResources().getColor(R.color.white));
-            }
+    private ah() {
+        d();
+    }
+
+    public static ah a(Context context) {
+        e = context;
+        if (f == null) {
+            f = new ah();
+        }
+        return f;
+    }
+
+    public boolean a() {
+        if (this.f1782a == null) {
+            return false;
+        }
+        return this.f1782a.isWXAppInstalled();
+    }
+
+    public boolean b() {
+        return this.f1782a != null && 553779201 <= this.f1782a.getWXAppSupportAPI();
+    }
+
+    private void d() {
+        this.f1782a = WXAPIFactory.createWXAPI(e, "wx289a8c58bca4c71e", true);
+        this.f1782a.registerApp("wx289a8c58bca4c71e");
+    }
+
+    public void a(int i, Bitmap bitmap) {
+        String str = "";
+        WXImageObject wXImageObject = new WXImageObject(bitmap);
+        WXMediaMessage wXMediaMessage = new WXMediaMessage();
+        wXMediaMessage.mediaObject = wXImageObject;
+        wXMediaMessage.thumbData = a(e.c(bitmap, WebChromeClient.STRING_DLG_BTN_SET, WebChromeClient.STRING_DLG_BTN_SET), true);
+        SendMessageToWX.Req req = new SendMessageToWX.Req();
+        req.transaction = b("img");
+        req.message = wXMediaMessage;
+        switch (i) {
+            case 3:
+                req.scene = 0;
+                str = "weixin";
+                break;
+            case 4:
+                req.scene = 1;
+                str = "weixin_friend";
+                break;
+        }
+        new com.baidu.tieba.account.az(str).start();
+        this.f1782a.sendReq(req);
+    }
+
+    public void a(Context context, String str, an anVar) {
+        Bitmap f2;
+        a aVar = new a(context);
+        aVar.a(LocationClientOption.MIN_SCAN_SPAN, LocationClientOption.MIN_SCAN_SPAN);
+        com.baidu.adp.widget.a.b a2 = aVar.a(str, new aj(this, anVar));
+        if (a2 != null && (f2 = a2.f()) != null && anVar != null) {
+            anVar.a(f2);
         }
     }
 
-    public static void b(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                textView.setTextColor(f.getResources().getColor(R.color.skin_1_common_color));
-            } else {
-                textView.setTextColor(f.getResources().getColor(R.color.black));
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [284=4, 285=4, 287=4, 288=4] */
+    public void a(int i, String str, Bitmap bitmap, String str2) {
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2 = null;
+        this.c = i;
+        this.d = str;
+        FileOutputStream fileOutputStream3 = null;
+        try {
+            try {
+                if (p.a()) {
+                    File file = new File(p.f1806a + "/tieba", "share");
+                    if (file == null) {
+                        fileOutputStream = null;
+                    } else if (!file.isDirectory() && !file.mkdirs()) {
+                        a(e, i, str, (Uri) null);
+                        if (0 != 0) {
+                            try {
+                                fileOutputStream3.close();
+                                return;
+                            } catch (IOException e2) {
+                                aq.b(getClass().getName(), "readyShare", e2.toString());
+                                return;
+                            }
+                        }
+                        return;
+                    } else {
+                        this.b = a(file, str2);
+                        fileOutputStream = new FileOutputStream(this.b);
+                        try {
+                            boolean compress = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+                            fileOutputStream.flush();
+                            if (compress) {
+                                this.h = new MediaScannerConnection(e, this.g);
+                                this.h.connect();
+                                aq.b(getClass().getName(), "mediaScannerConnection", "connect");
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            fileOutputStream2 = fileOutputStream;
+                            aq.b(getClass().getName(), "readyShare", e.toString());
+                            if (fileOutputStream2 != null) {
+                                try {
+                                    fileOutputStream2.close();
+                                    return;
+                                } catch (IOException e4) {
+                                    aq.b(getClass().getName(), "readyShare", e4.toString());
+                                    return;
+                                }
+                            }
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream2 = fileOutputStream;
+                            if (fileOutputStream2 != null) {
+                                try {
+                                    fileOutputStream2.close();
+                                } catch (IOException e5) {
+                                    aq.b(getClass().getName(), "readyShare", e5.toString());
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                } else {
+                    a(e, i, str, (Uri) null);
+                    fileOutputStream = null;
+                }
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e6) {
+                        aq.b(getClass().getName(), "readyShare", e6.toString());
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } catch (Exception e7) {
+            e = e7;
         }
     }
 
-    public static void c(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                textView.setTextColor(f.getResources().getColor(R.color.gray_night_1));
-            } else {
-                textView.setTextColor(f.getResources().getColor(R.color.search_text_content));
-            }
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Context context, int i, String str, Uri uri) {
+        String str2 = str == null ? "" : str;
+        try {
+            String substring = str2.length() > 140 ? str2.substring(0, 140) : str2;
+            b(i);
+            String str3 = uri == null ? "text/plain" : "image/*";
+            Intent intent = new Intent("android.intent.action.SEND", (Uri) null);
+            intent.putExtra("android.intent.extra.TEXT", substring);
+            intent.putExtra("android.intent.extra.STREAM", uri);
+            intent.setFlags(268435456);
+            intent.setPackage(d(i));
+            intent.setType(str3);
+            context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share_to)));
+        } catch (Exception e2) {
+            aq.b(getClass().getName(), "share", e2.toString());
         }
     }
 
-    public static void d(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                textView.setTextColor(f.getResources().getColor(R.color.gray_night_2));
-            } else {
-                textView.setTextColor(f.getResources().getColor(R.color.gray_day_2));
-            }
-        }
-    }
-
-    public static void e(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                textView.setTextColor(f.getResources().getColor(R.color.gray_night_3));
-            } else {
-                textView.setTextColor(f.getResources().getColor(R.color.gray_day_3));
-            }
-        }
-    }
-
-    public static void a(View view, int i) {
-        if (view != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                view.setBackgroundColor(f.getResources().getColor(R.color.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(f.getResources().getColor(R.color.backgroundcolor));
-            }
-        }
-    }
-
-    public static void b(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundResource(R.drawable.common_bg_1);
-            } else {
-                view.setBackgroundResource(R.drawable.common_bg);
-            }
-        }
-    }
-
-    public static void c(View view, int i) {
-        if (view != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                view.setBackgroundColor(f.getResources().getColor(R.color.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(f.getResources().getColor(R.color.login_bg_color));
-            }
-        }
-    }
-
-    public static void f(TextView textView, int i) {
-        if (textView != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                textView.setTextColor(f.getResources().getColor(R.color.skin_1_common_color));
-            } else {
-                textView.setTextColor(f.getResources().getColor(R.color.white));
-            }
-        }
-    }
-
-    public static void d(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            if (i == 1) {
-                view.setBackgroundResource(R.drawable.titlebar_bg_1);
-            } else {
-                view.setBackgroundResource(R.drawable.titlebar_bg);
-            }
-            view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-        }
-    }
-
-    public static void e(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundResource(R.drawable.bg_list_top_1);
-            } else {
-                view.setBackgroundResource(R.drawable.bg_list_top);
-            }
-        }
-    }
-
-    public static void f(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundResource(R.drawable.bg_list_bottom_1);
-            } else {
-                view.setBackgroundResource(R.drawable.bg_list_bottom);
-            }
-        }
-    }
-
-    public static void g(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                h((View) textView, (int) R.drawable.title_comm_1);
-            } else {
-                h((View) textView, (int) R.drawable.title_comm);
-            }
-        }
-        f(textView, i);
-    }
-
-    public static void h(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                h((View) textView, (int) R.drawable.title_comm_hilite_1);
-            } else {
-                h((View) textView, (int) R.drawable.title_comm_hilite);
-            }
-        }
-        f(textView, i);
-    }
-
-    public static void a(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
-                imageView.setImageResource(R.drawable.icon_return_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(R.drawable.title_icon_bg);
-            imageView.setImageResource(R.drawable.icon_return_n);
-        }
-    }
-
-    public static void g(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundResource(R.drawable.home_radio_button_1);
-            } else {
-                view.setBackgroundResource(R.drawable.home_radio_button);
-            }
-        }
-    }
-
-    public static void b(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
-                imageView.setImageResource(R.drawable.icon_refresh_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(R.drawable.title_icon_bg);
-            imageView.setImageResource(R.drawable.icon_refresh_n);
-        }
-    }
-
-    public static void c(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
-                imageView.setImageResource(R.drawable.icon_search_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(R.drawable.title_icon_bg);
-            imageView.setImageResource(R.drawable.icon_search_n);
-        }
-    }
-
-    public static void d(ImageView imageView, int i) {
-        if (imageView != null) {
-            imageView.setScaleType(ImageView.ScaleType.CENTER);
-            if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
-                imageView.setImageResource(R.drawable.icon_home_n_1);
-                return;
-            }
-            imageView.setBackgroundResource(R.drawable.title_icon_bg);
-            imageView.setImageResource(R.drawable.icon_home_n);
-        }
-    }
-
-    public static int a(int i) {
+    private void b(int i) {
+        String str = "";
         if (i == 1) {
-            return TiebaApplication.f().getResources().getColor(R.color.skin_1_common_color);
+            str = "weibo";
+        } else if (i == 2) {
+            str = "qzone";
+        } else if (i == 3) {
+            str = "weixin";
+        } else if (i == 4) {
+            str = "weixin_friend";
         }
-        throw new IllegalArgumentException(f1749a);
+        new com.baidu.tieba.account.az(str).start();
     }
 
-    public static int b(int i) {
-        if (i == 1) {
-            return TiebaApplication.f().getResources().getColor(R.color.skin_1_second_common_color);
+    public static String a(String str) {
+        return a("", str, "", "", "", "", "", "", "");
+    }
+
+    public static String a(String str, String str2, String str3) {
+        return a(str2, "", str3, "", "", "", str, "", "");
+    }
+
+    public static String a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        TreeMap treeMap = new TreeMap();
+        treeMap.put("pk_id", str2);
+        treeMap.put("shake_num", str);
+        treeMap.put("share_id", str3);
+        treeMap.put("vote1_num", str4);
+        treeMap.put("vote2_num", str5);
+        treeMap.put("vote_diff", str6);
+        treeMap.put("player1_id", str7);
+        treeMap.put("player2_id", str8);
+        treeMap.put("rank", str9);
+        treeMap.put("rand_tm", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
+        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder(1024);
+        for (Map.Entry entry : treeMap.entrySet()) {
+            sb.append((String) entry.getKey()).append("=").append((String) entry.getValue()).append("&");
+            sb2.append((String) entry.getKey()).append("=").append((String) entry.getValue());
         }
-        throw new IllegalArgumentException(f1749a);
+        sb2.append("tiebaclient!!!");
+        sb.append("sign=").append(ap.a(sb2.toString()));
+        return String.valueOf(com.baidu.tieba.data.g.f1014a) + "/c/s/uo/sharepic?" + sb.toString();
     }
 
-    public static int c(int i) {
-        if (i == 1) {
-            return TiebaApplication.f().getResources().getColor(R.color.skin_1_third_common_color);
+    private boolean c(int i) {
+        String d = d(i);
+        for (ApplicationInfo applicationInfo : e.getPackageManager().getInstalledApplications(0)) {
+            if (applicationInfo.packageName.equals(d)) {
+                return true;
+            }
         }
-        throw new IllegalArgumentException(f1749a);
+        return false;
     }
 
-    public static int d(int i) {
-        TiebaApplication f = TiebaApplication.f();
-        return i == 1 ? f.getResources().getColor(R.color.skin_1_common_bg) : f.getResources().getColor(R.color.backgroundcolor);
+    private File a(File file, String str) {
+        File[] listFiles = file.listFiles(new ak(this, str));
+        return new File(file, String.valueOf(listFiles.length == 0 ? String.valueOf(str) + "_1" : String.valueOf(str) + "_" + (listFiles.length + 1)) + Util.PHOTO_DEFAULT_EXT);
     }
 
-    public static void h(View view, int i) {
-        if (view != null) {
-            int paddingLeft = view.getPaddingLeft();
-            int paddingRight = view.getPaddingRight();
-            int paddingTop = view.getPaddingTop();
-            int paddingBottom = view.getPaddingBottom();
-            view.setBackgroundResource(i);
-            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
-                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+    private String d(int i) {
+        switch (i) {
+            case 1:
+                return "com.sina.weibo";
+            case 2:
+                return "com.qzone";
+            case 3:
+                return MMPluginProviderConstants.PluginIntent.APP_PACKAGE_PATTERN;
+            case 4:
+                return MMPluginProviderConstants.PluginIntent.APP_PACKAGE_PATTERN;
+            default:
+                return null;
+        }
+    }
+
+    public boolean a(int i) {
+        boolean c = c(i);
+        if (i == 3 && !a()) {
+            c = false;
+        }
+        if (i == 4 && c && !b()) {
+            UtilHelper.a(e, (int) R.string.share_weixin_friend_no);
+            return false;
+        } else if (c) {
+            return true;
+        } else {
+            switch (i) {
+                case 1:
+                    UtilHelper.a(e, (int) R.string.share_sina_no);
+                    return false;
+                case 2:
+                    UtilHelper.a(e, (int) R.string.share_qzone_no);
+                    return false;
+                case 3:
+                    UtilHelper.a(e, (int) R.string.share_weixin_no);
+                    return false;
+                case 4:
+                    UtilHelper.a(e, (int) R.string.share_weixin_no);
+                    return false;
+                default:
+                    return false;
             }
         }
     }
 
-    public static void a(ListView listView, int i) {
-        if (listView != null) {
-            TiebaApplication f = TiebaApplication.f();
-            if (i == 1) {
-                listView.setBackgroundColor(f.getResources().getColor(R.color.skin_1_common_bg));
-                listView.setCacheColorHint(f.getResources().getColor(17170445));
-                listView.setDivider(f.getResources().getDrawable(R.drawable.list_divider_1));
-                listView.setSelector(R.drawable.list_selector_1);
-                return;
-            }
-            listView.setBackgroundColor(f.getResources().getColor(R.color.backgroundcolor));
-            listView.setCacheColorHint(f.getResources().getColor(17170445));
-            listView.setDivider(f.getResources().getDrawable(R.drawable.list_divider));
-            listView.setSelector(R.drawable.list_selector);
+    public void a(String str, am amVar) {
+        com.baidu.tieba.model.ah ahVar = new com.baidu.tieba.model.ah();
+        ahVar.a(str);
+        ahVar.a(new al(this, amVar));
+    }
+
+    public static byte[] a(Bitmap bitmap, boolean z) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 80, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
+        if (z) {
+            bitmap.recycle();
         }
+        try {
+            byteArrayOutputStream.close();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+        return byteArray;
+    }
+
+    private String b(String str) {
+        return str == null ? String.valueOf(System.currentTimeMillis()) : String.valueOf(str) + System.currentTimeMillis();
     }
 }

@@ -1,23 +1,24 @@
 package com.baidu.tieba.home;
 
-import com.baidu.tieba.view.ADImageViewDrawer;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class be implements com.baidu.tbadk.a.d {
+class be {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TopicPagerAdapter f1142a;
-    private final /* synthetic */ ADImageViewDrawer b;
+    TextView f1177a;
+    TextView b;
+    TextView c;
+    TextView d;
+    LinearLayout e;
+    final /* synthetic */ bc f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public be(TopicPagerAdapter topicPagerAdapter, ADImageViewDrawer aDImageViewDrawer) {
-        this.f1142a = topicPagerAdapter;
-        this.b = aDImageViewDrawer;
+    private be(bc bcVar) {
+        this.f = bcVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        if (bVar != null && this.b != null) {
-            this.b.invalidate();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ be(bc bcVar, be beVar) {
+        this(bcVar);
     }
 }

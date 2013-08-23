@@ -1,35 +1,23 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
-import com.slidingmenu.lib.R;
+import android.app.Dialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt implements CompoundButton.OnCheckedChangeListener {
+public class bt implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1486a;
+    final /* synthetic */ bo f1523a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(bn bnVar) {
-        this.f1486a = bnVar;
+    public bt(bo boVar) {
+        this.f1523a = boVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131099997 */:
-                    this.f1486a.Y = 1;
-                    return;
-                case R.id.radio_button_3day /* 2131099998 */:
-                    this.f1486a.Y = 3;
-                    return;
-                case R.id.radio_button_10day /* 2131099999 */:
-                    this.f1486a.Y = 10;
-                    return;
-                default:
-                    return;
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        dialog = this.f1523a.T;
+        dialog.dismiss();
     }
 }

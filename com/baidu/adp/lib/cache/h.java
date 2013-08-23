@@ -5,16 +5,16 @@ import java.util.LinkedList;
 class h implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f372a;
+    private final int f378a;
     private LinkedList b;
 
     public h(int i) {
-        this.f372a = i;
+        this.f378a = i;
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public int a() {
-        return this.f372a;
+        return this.f378a;
     }
 
     @Override // com.baidu.adp.lib.cache.e
@@ -29,7 +29,7 @@ class h implements e {
         int i;
         String str2 = null;
         if (kVar.f < System.currentTimeMillis()) {
-            return kVar.f374a;
+            return kVar.f380a;
         }
         this.b.add(kVar);
         if (this.b.size() > a()) {
@@ -39,7 +39,7 @@ class h implements e {
             while (i2 < this.b.size()) {
                 k kVar2 = (k) this.b.get(i2);
                 if (i3 == -1 || kVar2.e < j2) {
-                    String str3 = kVar2.f374a;
+                    String str3 = kVar2.f380a;
                     long j3 = kVar2.e;
                     str = str3;
                     j = j3;

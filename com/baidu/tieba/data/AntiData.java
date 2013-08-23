@@ -75,7 +75,7 @@ public class AntiData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aj.b("AntiData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.aq.b("AntiData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -86,26 +86,26 @@ public class AntiData implements Serializable {
                 this.ifposta = jSONObject.optInt("ifposta", 0);
                 this.forbid_flag = jSONObject.optInt("forbid_flag", 0);
                 this.tbs = jSONObject.optString("tbs");
-                if (TiebaApplication.f() != null && this.tbs != null && this.tbs.length() > 0) {
-                    TiebaApplication.f().j(this.tbs);
+                if (TiebaApplication.g() != null && this.tbs != null && this.tbs.length() > 0) {
+                    TiebaApplication.g().m(this.tbs);
                 }
                 this.need_vcode = jSONObject.optInt("need_vcode", 0);
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
                 this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
                 this.forbid_info = jSONObject.optString("forbid_info");
             } catch (Exception e) {
-                com.baidu.tieba.util.aj.b("AntiData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.aq.b("AntiData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
-        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
-        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
-        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "tbs = " + this.tbs);
-        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
-        com.baidu.tieba.util.aj.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
+        com.baidu.tieba.util.aq.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
+        com.baidu.tieba.util.aq.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
+        com.baidu.tieba.util.aq.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
+        com.baidu.tieba.util.aq.d("AntiData", "logPrint", "tbs = " + this.tbs);
+        com.baidu.tieba.util.aq.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
+        com.baidu.tieba.util.aq.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
     }
 
     public void setForbid_info(String str) {
