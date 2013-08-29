@@ -14,7 +14,7 @@ class u implements Runnable {
         this.f1114a = frsActivity;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:18:0x0083 */
+    /* JADX WARN: Incorrect condition in loop: B:18:0x0084 */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -72,19 +72,20 @@ class u implements Runnable {
                     if (bhVar != null) {
                         ArrayList m = bhVar.m();
                         int size = m.size();
+                        int i7 = size > 3 ? 3 : size;
                         if (i6 < 13 && TiebaApplication.g().al()) {
-                            int i7 = 0;
-                            while (i7 < size) {
-                                if (((com.baidu.tieba.data.ai) m.get(i7)).a() == 3) {
+                            int i8 = 0;
+                            while (i8 < i7) {
+                                if (((com.baidu.tieba.data.ai) m.get(i8)).a() == 3) {
                                     if (i6 >= 13) {
                                         i = i6;
                                         break;
                                     }
                                     i6++;
                                     bbVar8 = this.f1114a.l;
-                                    bbVar8.i().a().a(((com.baidu.tieba.data.ai) m.get(i7)).b(), new v(this));
+                                    bbVar8.i().a().a(((com.baidu.tieba.data.ai) m.get(i8)).b(), new v(this));
                                 }
-                                i7++;
+                                i8++;
                                 i6 = i6;
                             }
                         }

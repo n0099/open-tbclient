@@ -51,7 +51,7 @@ public class bn extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) str);
-        this.f1388a.n = null;
+        this.f1388a.o = null;
         if (this.b != null) {
             if (!this.b.c()) {
                 this.f1388a.mLoadDataMode = 3;
@@ -81,7 +81,7 @@ public class bn extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f1388a.n = null;
+        this.f1388a.o = null;
         eVar = this.f1388a.mLoadDataCallBack;
         eVar.a(false);
     }

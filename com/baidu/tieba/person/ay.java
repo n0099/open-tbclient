@@ -19,6 +19,6 @@ public class ay implements com.baidu.adp.widget.ScrollView.n {
         if (TiebaApplication.g().u()) {
             StatService.onEvent(this.f1620a, "person_info_pull", "infopull", 1);
         }
-        this.f1620a.b();
+        this.f1620a.c();
     }
 }

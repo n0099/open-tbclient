@@ -25,7 +25,7 @@ public class b extends l {
         } catch (CancellationException e2) {
             this.f356a.c((Object) null);
         } catch (ExecutionException e3) {
-            throw new RuntimeException("An error occured while executing doInBackground()", e3.getCause());
+            this.f356a.c((Object) null);
         } catch (Throwable th) {
             throw new RuntimeException("An error occured while executing doInBackground()", th);
         }

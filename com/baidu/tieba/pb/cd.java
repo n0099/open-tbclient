@@ -2,9 +2,8 @@ package com.baidu.tieba.pb;
 
 import android.os.Handler;
 import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cd implements Animation.AnimationListener {
+class cd implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ bo f1533a;

@@ -2,8 +2,9 @@ package com.baidu.tieba.home;
 
 import android.view.View;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements View.OnClickListener {
+public class ad implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ ForumTopicActivity f1149a;

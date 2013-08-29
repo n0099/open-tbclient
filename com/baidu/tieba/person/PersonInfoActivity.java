@@ -58,17 +58,17 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
         super.onCreate(bundle);
         a(bundle);
         this.e = Boolean.valueOf(this.d.b());
-        c();
+        d();
         if (this.d.a() != null && this.d.a().length() > 0 && this.e.booleanValue()) {
-            d();
+            k();
         }
         DatabaseService.b((Boolean) true);
         if (this.d.a() != null && this.d.a().length() > 0) {
-            b();
+            c();
         }
     }
 
-    private void c() {
+    private void d() {
         if (this.e.booleanValue()) {
             this.b = null;
             this.f1593a = new bi(this, this.d);
@@ -79,7 +79,7 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
         this.b = new bh(this, this.d);
     }
 
-    private void d() {
+    private void k() {
         if (this.c == null) {
             this.c = new az(this);
             IntentFilter intentFilter = new IntentFilter();
@@ -94,22 +94,31 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
             this.d.a(bundle.getBoolean("self", true));
             this.d.a(bundle.getString("un"));
             this.d.b(bundle.getString("name"));
-            this.d.b(bundle.getBoolean("tab_page", false));
-            this.d.c(bundle.getBoolean("tab_msg", false));
+            this.d.c(bundle.getBoolean("tab_page", false));
+            this.d.d(bundle.getBoolean("tab_msg", false));
+            this.d.b(bundle.getBoolean("showBack", false));
         } else {
             Intent intent = getIntent();
             if (intent != null) {
                 this.d.a(intent.getBooleanExtra("self", true));
                 this.d.a(intent.getStringExtra("un"));
                 this.d.b(intent.getStringExtra("name"));
-                this.d.b(intent.getBooleanExtra("tab_page", false));
-                this.d.c(intent.getBooleanExtra("tab_msg", false));
+                this.d.c(intent.getBooleanExtra("tab_page", false));
+                this.d.d(intent.getBooleanExtra("tab_msg", false));
+                this.d.b(intent.getBooleanExtra("showBack", false));
             }
         }
         this.d.setLoadDataCallBack(new ba(this));
     }
 
-    public void b() {
+    public boolean b() {
+        if (this.d != null) {
+            return this.d.d();
+        }
+        return false;
+    }
+
+    public void c() {
         if (this.e.booleanValue()) {
             if (this.f1593a != null) {
                 this.f1593a.f(this.d);
@@ -128,9 +137,10 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
         super.onSaveInstanceState(bundle);
         bundle.putBoolean("self", this.d.b());
         bundle.putString("un", this.d.a());
-        bundle.putString("name", this.d.f());
-        bundle.putBoolean("tab_page", this.d.i());
-        bundle.putBoolean("tab_msg", this.d.j());
+        bundle.putString("name", this.d.g());
+        bundle.putBoolean("tab_page", this.d.j());
+        bundle.putBoolean("tab_msg", this.d.k());
+        bundle.putBoolean("showBack", this.d.d());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -147,8 +157,8 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                 this.d.a(true);
                 this.d.a(TiebaApplication.E());
                 this.d.b(TiebaApplication.I());
-                d();
-                b();
+                k();
+                c();
                 if (this.f1593a != null) {
                     this.f1593a.a(true);
                 } else if (this.b != null) {
@@ -160,11 +170,11 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                 this.b.a(false);
             }
         } else if (this.e.booleanValue()) {
-            if (com.baidu.tieba.mention.r.a().i() != this.d.g()) {
+            if (com.baidu.tieba.mention.r.a().i() != this.d.h()) {
                 this.d.a(com.baidu.tieba.mention.r.a().i());
                 z = true;
             }
-            if (com.baidu.tieba.mention.r.a().k() != this.d.h()) {
+            if (com.baidu.tieba.mention.r.a().k() != this.d.i()) {
                 this.d.c(com.baidu.tieba.mention.r.a().k());
                 z = true;
             }
@@ -286,18 +296,18 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                 }
             } else if (view == this.b.d()) {
                 this.b.c(this.d);
-                this.d.d();
+                this.d.e();
             } else if (view == this.b.e() && c != null) {
                 if (this.d.a() == null || this.d.a().length() <= 0) {
                     LoginActivity.a((Activity) this, getString(R.string.login_to_chat), true, 11028);
                 } else {
-                    k();
+                    l();
                 }
             }
         }
     }
 
-    private void k() {
+    private void l() {
         if (TiebaApplication.g().u()) {
             StatService.onEvent(this, "enter_chat", "personclick", 1);
         }
@@ -310,7 +320,7 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
         if (this.d.a() != null && this.d.a().length() > 0 && this.d.b() && this.c != null) {
             unregisterReceiver(this.c);
         }
-        this.d.k();
+        this.d.l();
         if (this.e.booleanValue()) {
             if (this.f1593a != null) {
                 this.f1593a.c();
@@ -333,11 +343,11 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                     this.d.a(true);
                     this.d.a(TiebaApplication.E());
                     this.d.b(TiebaApplication.I());
-                    d();
-                    b();
+                    k();
+                    c();
                 }
             } else if (i == 11028) {
-                k();
+                l();
             }
         }
     }
@@ -362,7 +372,7 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                     this.b.j();
                 }
                 if (this.d.c() != null) {
-                    this.d.e().e(this.d.c().getPortrait());
+                    this.d.f().e(this.d.c().getPortrait());
                 }
                 this.d.a(false, false);
             }
@@ -370,7 +380,7 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
+    public void m() {
         SharedPreferences sharedPreferences = TiebaApplication.g().getSharedPreferences("settings", 0);
         if (!sharedPreferences.getBoolean("key_show_tip_send_message", false)) {
             com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();

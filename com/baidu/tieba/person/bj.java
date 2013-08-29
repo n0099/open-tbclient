@@ -117,7 +117,7 @@ public class bj extends com.baidu.adp.a.d {
             this.h.setText(R.string.person_info);
             this.e.setVisibility(0);
             this.d.setVisibility(8);
-            this.c.setVisibility(4);
+            this.c.setVisibility(this.b.b() ? 0 : 4);
             int a2 = UtilHelper.a((Context) this.b, 7.0f);
             this.u.setPadding(a2, 0, a2, 0);
         } else {
@@ -137,7 +137,7 @@ public class bj extends com.baidu.adp.a.d {
         if (this.z != null && this.z.length() > 0) {
             this.A = bmVar.c();
             if (this.A == null) {
-                this.o.setText(bmVar.f());
+                this.o.setText(bmVar.g());
                 return;
             }
             this.o.setText(this.A.getName_show());
@@ -250,9 +250,9 @@ public class bj extends com.baidu.adp.a.d {
     public void g(com.baidu.tieba.model.bm bmVar) {
         String portrait;
         if (bmVar != null && bmVar.c() != null && (portrait = bmVar.c().getPortrait()) != null && portrait.length() > 0) {
-            com.baidu.adp.widget.a.b c = bmVar.e().c(portrait);
+            com.baidu.adp.widget.a.b c = bmVar.f().c(portrait);
             if (c == null) {
-                bmVar.e().c(portrait, new bk(this));
+                bmVar.f().c(portrait, new bk(this));
             } else {
                 c.a(this.m);
             }

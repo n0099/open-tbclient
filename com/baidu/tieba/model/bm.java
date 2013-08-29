@@ -10,28 +10,29 @@ public class bm extends com.baidu.adp.a.c {
     private long e;
     private long f;
     private long g;
-    private String h;
-    private com.baidu.tieba.util.a l;
-    private Context o;
-    private bo m = null;
-    private bn n = null;
+    private boolean h;
+    private String i;
+    private com.baidu.tieba.util.a m;
+    private Context p;
+    private bo n = null;
+    private bn o = null;
 
     /* renamed from: a  reason: collision with root package name */
     private boolean f1387a = true;
     private String b = null;
-    private UserData k = null;
-    private boolean i = false;
+    private UserData l = null;
     private boolean j = false;
+    private boolean k = false;
 
     public bm(Context context) {
-        this.o = null;
-        this.o = context;
+        this.p = null;
+        this.p = context;
         a(0L);
         d(0L);
         e(0L);
         b(0L);
         c(0L);
-        this.l = new com.baidu.tieba.util.a(context);
+        this.m = new com.baidu.tieba.util.a(context);
     }
 
     public String a() {
@@ -51,11 +52,19 @@ public class bm extends com.baidu.adp.a.c {
     }
 
     public void a(UserData userData) {
-        this.k = userData;
+        this.l = userData;
     }
 
     public UserData c() {
-        return this.k;
+        return this.l;
+    }
+
+    public boolean d() {
+        return this.h;
+    }
+
+    public void b(boolean z) {
+        this.h = z;
     }
 
     public void a(PersonChangeData personChangeData) {
@@ -65,42 +74,42 @@ public class bm extends com.baidu.adp.a.c {
     }
 
     public void a(boolean z, boolean z2) {
-        if (this.m == null) {
-            this.m = new bo(this, null);
-            this.m.setPriority(3);
-            this.m.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
+        if (this.n == null) {
+            this.n = new bo(this, null);
+            this.n.setPriority(3);
+            this.n.execute(Boolean.valueOf(z), Boolean.valueOf(z2));
         }
     }
 
-    public void d() {
-        if (c() != null && this.n == null) {
-            this.n = new bn(this, null);
-            this.n.setPriority(2);
+    public void e() {
+        if (c() != null && this.o == null) {
+            this.o = new bn(this, null);
+            this.o.setPriority(2);
             if (c().getHave_attention() == 1) {
-                this.n.execute(1);
+                this.o.execute(1);
             } else {
-                this.n.execute(0);
+                this.o.execute(0);
             }
         }
     }
 
-    public com.baidu.tieba.util.a e() {
-        return this.l;
+    public com.baidu.tieba.util.a f() {
+        return this.m;
     }
 
     public void b(String str) {
-        this.h = str;
+        this.i = str;
     }
 
-    public String f() {
-        return this.h;
+    public String g() {
+        return this.i;
     }
 
     public void a(long j) {
         this.c = j;
     }
 
-    public long g() {
+    public long h() {
         return this.c;
     }
 
@@ -112,7 +121,7 @@ public class bm extends com.baidu.adp.a.c {
         this.g = j;
     }
 
-    public long h() {
+    public long i() {
         return this.g;
     }
 
@@ -124,20 +133,20 @@ public class bm extends com.baidu.adp.a.c {
         this.e = j;
     }
 
-    public void b(boolean z) {
-        this.i = z;
-    }
-
-    public boolean i() {
-        return this.i;
-    }
-
     public void c(boolean z) {
         this.j = z;
     }
 
     public boolean j() {
         return this.j;
+    }
+
+    public void d(boolean z) {
+        this.k = z;
+    }
+
+    public boolean k() {
+        return this.k;
     }
 
     @Override // com.baidu.adp.a.c
@@ -150,15 +159,15 @@ public class bm extends com.baidu.adp.a.c {
         return false;
     }
 
-    public void k() {
-        if (this.m != null) {
-            this.m.cancel();
-        }
+    public void l() {
         if (this.n != null) {
             this.n.cancel();
         }
-        if (this.l != null) {
-            this.l.b();
+        if (this.o != null) {
+            this.o.cancel();
+        }
+        if (this.m != null) {
+            this.m.b();
         }
     }
 }

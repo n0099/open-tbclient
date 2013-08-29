@@ -147,7 +147,9 @@ public class PersonListActivity extends com.baidu.tieba.g {
         this.m = (RelativeLayout) findViewById(R.id.title);
         this.n = (TextView) findViewById(R.id.title_text);
         this.e = (ProgressBar) findViewById(R.id.progress);
-        if (TiebaApplication.E().equals(this.k.a())) {
+        String E = TiebaApplication.E();
+        String a2 = this.k.a();
+        if (E != null && E.equals(a2)) {
             if (this.k.c()) {
                 this.n.setText(R.string.my_attention);
             } else {

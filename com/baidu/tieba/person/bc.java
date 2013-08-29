@@ -16,6 +16,6 @@ class bc implements Runnable {
         PersonInfoActivity personInfoActivity;
         baVar = this.f1625a.f1624a;
         personInfoActivity = baVar.f1623a;
-        personInfoActivity.l();
+        personInfoActivity.m();
     }
 }

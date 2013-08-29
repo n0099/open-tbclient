@@ -8012,6 +8012,8 @@ public final class R {
         public static final int like_success_three_times = 0x7f080389;
         /* JADX INFO: Added by JADX */
         public static final int deal_link_error = 0x7f08038a;
+        /* JADX INFO: Added by JADX */
+        public static final int error_play = 0x7f08038b;
     }
 
     /* JADX INFO: Added by JADX */

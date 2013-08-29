@@ -121,7 +121,7 @@ public class bh extends bj {
         super.a(bmVar);
         this.A = bmVar.c();
         if (this.A == null) {
-            this.h.setText(bmVar.f());
+            this.h.setText(bmVar.g());
         } else {
             this.h.setText(this.A.getName_show());
         }

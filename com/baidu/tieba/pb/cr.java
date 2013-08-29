@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cr implements com.baidu.tieba.view.g {
+class cr implements com.baidu.tieba.view.g {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ bo f1547a;

@@ -16,6 +16,6 @@ class be implements Runnable {
         PersonInfoActivity personInfoActivity;
         baVar = this.f1627a.f1626a;
         personInfoActivity = baVar.f1623a;
-        personInfoActivity.l();
+        personInfoActivity.m();
     }
 }

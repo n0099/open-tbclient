@@ -234,7 +234,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         if (trim == null) {
             return true;
         }
-        String[] strArr = {"M040", "M032", "M031", "M030", "HUAWEI C8813", "ZTE U970", "MediaPad 10 FHD", "GT-I9000", "DOEASY E930", "H8205", "GT-N7108", "GT-N7102", "GT-N719", "GT-N7100", "galaxy nexus", " ZTE U808", "UMI_X1", "nexus s"};
+        String[] strArr = {"M040", "M032", "M031", "M030", "HUAWEI C8813", "ZTE U970", "MediaPad 10 FHD", "GT-I9000", "DOEASY E930", "H8205", "GT-N7108", "GT-N7102", "GT-N719", "GT-N7100", "galaxy nexus", " ZTE U808", "UMI_X1", "nexus s", "AMOI N820", "JY-G", "XT885", "U701T", "Lenovo A750", "ZTE U807", "vivo S11t", "Droid Bionic", "MORAL_N01", "XT910", "GT-S7562", "Lenovo A798t", "vivo E5", "U705T", "HUAWEI T8951", "ME865", "HUAWEI P1XL", "KPT A9PLUS", "vivo Y11", "T9200", "XT928", "HUAWEI Y500-T00", "BBK Y3t", "Lenovo K860", "vivo X1", "HUAWEI T8833", "Lenovo A789", "ZTE U960E"};
         int length = strArr.length;
         int i = 0;
         while (true) {
@@ -1377,7 +1377,7 @@ public class TiebaApplication extends com.baidu.adp.a.b {
     }
 
     public boolean aC() {
-        String string = getSharedPreferences("settings", 0).getString("lase_version", "");
+        String string = getSharedPreferences("main_settings", 0).getString("lase_version", "");
         if (string.equals(com.baidu.tieba.data.g.j())) {
             return false;
         }
@@ -1389,6 +1389,9 @@ public class TiebaApplication extends com.baidu.adp.a.b {
         SharedPreferences.Editor edit = getSharedPreferences("settings", 0).edit();
         edit.putString("lase_version", com.baidu.tieba.data.g.j());
         edit.commit();
+        SharedPreferences.Editor edit2 = getSharedPreferences("main_settings", 0).edit();
+        edit2.putString("lase_version", com.baidu.tieba.data.g.j());
+        edit2.commit();
     }
 
     public void q(String str) {

@@ -3,9 +3,8 @@ package com.baidu.tieba.pb;
 import android.util.SparseArray;
 import android.view.View;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ct implements View.OnClickListener {
+class ct implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ bo f1549a;

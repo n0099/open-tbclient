@@ -89,7 +89,7 @@ public class FrsImageActivity extends com.baidu.tieba.g implements com.baidu.adp
 
     @Override // com.baidu.tieba.g
     public boolean e() {
-        return TiebaApplication.g().w();
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -100,10 +100,10 @@ public class bo extends BdAsyncTask {
         com.baidu.adp.a.e eVar;
         com.baidu.adp.a.e eVar2;
         super.a((Object) userData);
-        this.f1389a.m = null;
+        this.f1389a.n = null;
         if (userData != null) {
             this.f1389a.a(userData);
-            this.f1389a.e().e(userData.getPortrait());
+            this.f1389a.f().e(userData.getPortrait());
             this.f1389a.mLoadDataMode = 1;
             eVar2 = this.f1389a.mLoadDataCallBack;
             eVar2.a(true);
@@ -113,7 +113,7 @@ public class bo extends BdAsyncTask {
             this.f1389a.setErrorString(this.b.g());
         } else {
             bm bmVar = this.f1389a;
-            context = this.f1389a.o;
+            context = this.f1389a.p;
             bmVar.setErrorString(context.getString(R.string.neterror));
         }
         this.f1389a.mLoadDataMode = 1;
@@ -130,7 +130,7 @@ public class bo extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f1389a.m = null;
+        this.f1389a.n = null;
         eVar = this.f1389a.mLoadDataCallBack;
         eVar.a(false);
     }

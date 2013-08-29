@@ -1,8 +1,9 @@
 package com.baidu.tieba.media;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class r implements View.OnClickListener {
+public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ q f1316a;

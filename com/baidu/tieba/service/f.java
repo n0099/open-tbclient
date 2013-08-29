@@ -139,6 +139,9 @@ public class f extends BdAsyncTask {
         if (a2 > 0 || b > 0 || d > 0) {
             stringBuffer.append(String.valueOf(b + a2 + d));
             stringBuffer.append(this.b.getString(R.string.notify_msg));
+        } else if (c > 0) {
+            stringBuffer.append(String.valueOf(c));
+            stringBuffer.append(this.b.getString(R.string.notify_fans));
         }
         stringBuffer.append(this.b.getString(R.string.notify_click));
         notification.setLatestEventInfo(context, context.getString(R.string.app_name), stringBuffer, service);

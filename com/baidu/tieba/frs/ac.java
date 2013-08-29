@@ -38,6 +38,7 @@ class ac implements View.OnClickListener {
         com.baidu.tieba.data.am amVar2;
         com.baidu.tieba.model.aa aaVar6;
         com.baidu.tieba.model.aa aaVar7;
+        int i;
         long a2;
         com.baidu.tieba.model.aa aaVar8;
         com.baidu.tieba.model.aa aaVar9;
@@ -60,7 +61,7 @@ class ac implements View.OnClickListener {
         bb bbVar12;
         bb bbVar13;
         bb bbVar14;
-        UtilHelper.NetworkStateInfo i = UtilHelper.i(this.f1067a);
+        UtilHelper.NetworkStateInfo i2 = UtilHelper.i(this.f1067a);
         switch (view.getId()) {
             case R.id.frs_bt_back /* 2131100065 */:
                 this.f1067a.f();
@@ -93,14 +94,14 @@ class ac implements View.OnClickListener {
                 return;
             case R.id.btn_love /* 2131100096 */:
                 bbVar12 = this.f1067a.l;
-                if (!bbVar12.h() && i != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                if (!bbVar12.h() && i2 != UtilHelper.NetworkStateInfo.UNAVAIL) {
                     this.f1067a.l();
                     return;
                 }
                 return;
             case R.id.btn_sign /* 2131100102 */:
                 bbVar10 = this.f1067a.l;
-                if (!bbVar10.h() && i != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                if (!bbVar10.h() && i2 != UtilHelper.NetworkStateInfo.UNAVAIL) {
                     bbVar11 = this.f1067a.l;
                     if (!bbVar11.q()) {
                         this.f1067a.m();
@@ -192,7 +193,7 @@ class ac implements View.OnClickListener {
                 return;
             case R.id.add_fan /* 2131100160 */:
                 bbVar9 = this.f1067a.l;
-                if (!bbVar9.h() && i != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                if (!bbVar9.h() && i2 != UtilHelper.NetworkStateInfo.UNAVAIL) {
                     com.baidu.tieba.model.p a3 = com.baidu.tieba.model.p.a();
                     str3 = this.f1067a.c;
                     a3.b(str3);
@@ -210,8 +211,13 @@ class ac implements View.OnClickListener {
                     String a4 = aaVar6.e().l().a();
                     aaVar7 = this.f1067a.v;
                     String b2 = aaVar7.e().l().b();
-                    if (System.currentTimeMillis() - com.baidu.tieba.kn.a.a().a(Integer.parseInt(a4)) > 0) {
-                        if (i == UtilHelper.NetworkStateInfo.UNAVAIL) {
+                    try {
+                        i = Integer.parseInt(a4);
+                    } catch (NumberFormatException e) {
+                        i = 0;
+                    }
+                    if (System.currentTimeMillis() - com.baidu.tieba.kn.a.a().a(i) > 0) {
+                        if (i2 == UtilHelper.NetworkStateInfo.UNAVAIL) {
                             this.f1067a.a(this.f1067a.getString(R.string.neterror));
                             return;
                         } else {
@@ -229,8 +235,8 @@ class ac implements View.OnClickListener {
                     StatService.onEvent(this.f1067a, "frs_enter_pk", "frsclick", 1);
                 }
                 aaVar5 = this.f1067a.v;
-                ArrayList e = aaVar5.e().l().e();
-                if (e != null && e.size() != 0 && (amVar2 = (com.baidu.tieba.data.am) e.get(0)) != null) {
+                ArrayList e2 = aaVar5.e().l().e();
+                if (e2 != null && e2.size() != 0 && (amVar2 = (com.baidu.tieba.data.am) e2.get(0)) != null) {
                     if (amVar2.e() == 0) {
                         PKWaitingActivity.a(this.f1067a, amVar2.a(), amVar2.d());
                         return;
@@ -250,8 +256,8 @@ class ac implements View.OnClickListener {
                     StatService.onEvent(this.f1067a, "frs_enter_pk", "frsclick", 1);
                 }
                 aaVar4 = this.f1067a.v;
-                ArrayList e2 = aaVar4.e().l().e();
-                if (e2 != null && e2.size() >= 2 && (amVar = (com.baidu.tieba.data.am) e2.get(1)) != null) {
+                ArrayList e3 = aaVar4.e().l().e();
+                if (e3 != null && e3.size() >= 2 && (amVar = (com.baidu.tieba.data.am) e3.get(1)) != null) {
                     if (amVar.e() == 0) {
                         PKWaitingActivity.a(this.f1067a, amVar.a(), amVar.d());
                         return;

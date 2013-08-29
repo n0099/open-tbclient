@@ -134,11 +134,11 @@ public class bi extends bj {
         this.z = bmVar.a();
         if (this.z != null && this.z.length() > 0) {
             this.h.setText(R.string.person_info);
-            if (bmVar.i()) {
+            if (bmVar.j()) {
                 this.c.setVisibility(4);
                 this.d.setVisibility(8);
                 this.e.setVisibility(0);
-            } else if (bmVar.j()) {
+            } else if (bmVar.k()) {
                 this.c.setVisibility(0);
                 this.d.setVisibility(8);
                 this.e.setVisibility(0);
@@ -208,24 +208,24 @@ public class bi extends bj {
     }
 
     private void b(int i, com.baidu.tieba.model.bm bmVar) {
-        long g = bmVar.g();
         long h = bmVar.h();
-        if (g > 0) {
+        long i2 = bmVar.i();
+        if (h > 0) {
             this.ac.setVisibility(0);
-            if (g <= 9) {
+            if (h <= 9) {
                 a(this.ac, i, R.drawable.icon_news_prompt_1, R.drawable.icon_news_prompt);
                 a(this.ac, UtilHelper.a(this.E, 9.0f), (this.F / 6) - UtilHelper.a(this.E, 28.0f));
-                this.ac.setText(String.valueOf(g));
-            } else if (g > 9 && g <= 99) {
+                this.ac.setText(String.valueOf(h));
+            } else if (h > 9 && h <= 99) {
                 a(this.ac, i, R.drawable.icon_news_head_prompt_1, R.drawable.icon_news_head_prompt);
-                this.ac.setText(String.valueOf(g));
-            } else if (g > 99) {
+                this.ac.setText(String.valueOf(h));
+            } else if (h > 99) {
                 a(this.ac, i, R.drawable.icon_news_head_prompt_more_1, R.drawable.icon_news_head_prompt_more);
             }
         } else {
             this.ac.setVisibility(8);
         }
-        if (h > 0) {
+        if (i2 > 0) {
             a(this.P, i, R.drawable.icon_news_content_prompt_1, R.drawable.icon_news_content_prompt);
             this.P.setVisibility(0);
             return;

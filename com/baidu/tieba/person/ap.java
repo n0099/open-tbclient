@@ -1,9 +1,8 @@
 package com.baidu.tieba.person;
 
 import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements DialogInterface.OnClickListener {
+class ap implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ PersonChangeActivity f1611a;

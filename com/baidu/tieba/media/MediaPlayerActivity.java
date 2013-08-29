@@ -9,8 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.HandlerThread;
 import android.os.PowerManager;
+import android.widget.Toast;
 import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.tieba.util.UtilHelper;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MediaPlayerActivity extends Activity implements BVideoView.OnCompletionListener, BVideoView.OnErrorListener, BVideoView.OnInfoListener, BVideoView.OnPlayingBufferCacheListener, BVideoView.OnPreparedListener {
@@ -59,12 +61,17 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        f();
-        g();
-        c();
-        d();
-        e();
-        j();
+        try {
+            f();
+            g();
+            c();
+            d();
+            e();
+            j();
+        } catch (NullPointerException e) {
+            Toast.makeText(this, (int) R.string.error_play, 0).show();
+            finish();
+        }
     }
 
     private void c() {

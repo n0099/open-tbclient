@@ -5,10 +5,11 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.tieba.LogoActivity;
-import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.service.TiebaMessageService;
 import com.baidu.tieba.util.aq;
 import com.slidingmenu.lib.R;
@@ -129,11 +130,15 @@ public class r {
             intent2.setAction("android.intent.action.MAIN");
             return intent2;
         }
-        Intent intent3 = new Intent(this.b, MainTabActivity.class);
-        intent3.setFlags(603979776);
-        intent3.addFlags(268435456);
-        intent3.putExtra("locate_type", 4);
-        intent3.putExtra("close_dialog", true);
+        Intent intent3 = new Intent(this.b, PersonInfoActivity.class);
+        intent3.putExtra("showBack", true);
+        String E = TiebaApplication.E();
+        String I = TiebaApplication.I();
+        if (!TextUtils.isEmpty(E) && !TextUtils.isEmpty(I)) {
+            intent3.putExtra("un", E);
+            intent3.putExtra("name", I);
+            return intent3;
+        }
         return intent3;
     }
 
@@ -152,11 +157,8 @@ public class r {
             intent2.setAction("android.intent.action.MAIN");
             return intent2;
         }
-        Intent intent3 = new Intent(this.b, MainTabActivity.class);
-        intent3.setFlags(603979776);
-        intent3.addFlags(268435456);
-        intent3.putExtra("locate_type", 3);
-        intent3.putExtra("close_dialog", true);
+        Intent intent3 = new Intent(this.b, MentionActivity.class);
+        intent3.putExtra("showBack", true);
         return intent3;
     }
 

@@ -166,7 +166,7 @@ public class s extends com.baidu.adp.a.d {
             this.j = this.b.b();
             int firstVisiblePosition = this.c.getFirstVisiblePosition();
             int lastVisiblePosition = this.c.getLastVisiblePosition();
-            int i = firstVisiblePosition < 2 ? firstVisiblePosition : 2;
+            int i = firstVisiblePosition >= 2 ? 2 : firstVisiblePosition;
             int i2 = lastVisiblePosition - i;
             this.j.a();
             UtilHelper.NetworkStateInfo i3 = UtilHelper.i(this.d);
@@ -181,6 +181,9 @@ public class s extends com.baidu.adp.a.d {
                             for (int i6 = 0; i6 < size && i4 < 13; i6++) {
                                 i4++;
                                 this.j.a(((com.baidu.tieba.data.ai) j.get(i6)).b(), l());
+                                if (i6 >= 2) {
+                                    break;
+                                }
                             }
                         }
                         if (z && i4 >= 13) {
