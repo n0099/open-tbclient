@@ -7,7 +7,7 @@ import android.util.Log;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 final class BackStackState implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new k();
+    public static final Parcelable.Creator<BackStackState> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
     final int[] f263a;
@@ -51,7 +51,7 @@ final class BackStackState implements Parcelable {
                 this.f263a[i8] = size;
                 int i10 = 0;
                 while (i10 < size) {
-                    this.f263a[i9] = ((Fragment) jVar2.i.get(i10)).o;
+                    this.f263a[i9] = jVar2.i.get(i10).o;
                     i10++;
                     i9++;
                 }
@@ -97,7 +97,7 @@ final class BackStackState implements Parcelable {
             int i4 = i3 + 1;
             int i5 = this.f263a[i3];
             if (i5 >= 0) {
-                jVar.d = (Fragment) vVar.f.get(i5);
+                jVar.d = vVar.f.get(i5);
             } else {
                 jVar.d = null;
             }
@@ -112,13 +112,13 @@ final class BackStackState implements Parcelable {
             int i10 = i9 + 1;
             int i11 = this.f263a[i9];
             if (i11 > 0) {
-                jVar.i = new ArrayList(i11);
+                jVar.i = new ArrayList<>(i11);
                 int i12 = 0;
                 while (i12 < i11) {
                     if (v.f290a) {
                         Log.v("FragmentManager", "Instantiate " + iVar + " set remove fragment #" + this.f263a[i10]);
                     }
-                    jVar.i.add((Fragment) vVar.f.get(this.f263a[i10]));
+                    jVar.i.add(vVar.f.get(this.f263a[i10]));
                     i12++;
                     i10++;
                 }

@@ -3,90 +3,112 @@ package com.baidu.tieba.square;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.ba;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class BarFolderFirstDirActivity extends com.baidu.tieba.a {
-    private ProgressBar j;
-    private c k;
-    private b l;
+public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
+
+    /* renamed from: a  reason: collision with root package name */
+    protected ListView f1807a = null;
+    protected ViewGroup b;
+    private ProgressBar c;
+    private c d;
+    private b e;
+    private NavigationBar f;
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, BarFolderFirstDirActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.bar_folder_dir_activity);
+        b();
         d();
-        l();
-        k();
+        c();
         StatService.onEvent(this, "category_1", "enter");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.k.notifyDataSetChanged();
+        this.d.notifyDataSetChanged();
     }
 
-    protected void d() {
-        this.k = new c(this, new g(), true);
-        this.e.setAdapter((ListAdapter) this.k);
-        this.d.setText(getString(R.string.bar_first_dir_name));
-        this.j = (ProgressBar) findViewById(R.id.progress);
-        ImageView imageView = (ImageView) findViewById(R.id.home);
-        ao.c(imageView, TiebaApplication.g().an());
-        imageView.setVisibility(4);
+    protected void b() {
+        this.f = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.f.a(getResources().getString(R.string.bar_first_dir_name));
+        this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f1807a = (ListView) findViewById(R.id.list);
+        this.d = new c(this, new g(), true);
+        this.f1807a.setAdapter((ListAdapter) this.d);
+        this.c = (ProgressBar) findViewById(R.id.progress);
+        this.b = (ViewGroup) findViewById(R.id.body_container);
+        ba.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.a
-    public void c() {
-        if (this.l != null) {
-            this.l.cancel();
+    @Override // com.baidu.tieba.j, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        if (this.e != null) {
+            this.e.cancel();
         }
         a((g) null, true);
-        super.c();
     }
 
-    protected void k() {
-        this.e.setOnItemClickListener(new a(this));
+    protected void c() {
+        this.f1807a.setOnItemClickListener(new a(this));
     }
 
-    protected void l() {
-        this.j.setVisibility(0);
-        this.e.setEnabled(false);
-        if (this.l != null) {
-            this.l.cancel();
+    protected void d() {
+        this.c.setVisibility(0);
+        this.f1807a.setEnabled(false);
+        if (this.e != null) {
+            this.e.cancel();
         }
-        this.l = new b(this, null);
-        this.l.setPriority(3);
-        this.l.execute("");
+        this.e = new b(this, null);
+        this.e.setPriority(3);
+        this.e.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(g gVar, boolean z) {
-        this.j.setVisibility(8);
-        this.e.setEnabled(true);
-        this.l = null;
+        this.c.setVisibility(8);
+        this.f1807a.setEnabled(true);
+        this.e = null;
         if (!z) {
             if (gVar.b()) {
                 a(gVar.c());
                 return;
             }
-            this.k.a(gVar.d());
-            this.e.setVisibility(4);
-            this.k.notifyDataSetChanged();
-            this.e.setVisibility(0);
+            this.d.a(gVar.d());
+            this.f1807a.setVisibility(4);
+            this.d.notifyDataSetChanged();
+            this.f1807a.setVisibility(0);
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.j
+    public void a(int i) {
+        super.a(i);
+        this.f.b(i);
+        if (this.f1807a != null) {
+            this.f1807a.invalidateViews();
+        }
+        if (this.b != null) {
+            ba.a(this.b, i);
+        }
+        com.baidu.tieba.util.as.b(findViewById(R.id.root_view), i);
     }
 }

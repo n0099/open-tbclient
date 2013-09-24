@@ -18,7 +18,7 @@ public class BdUploadHandler {
     private String mCameraFilePath;
     private boolean mCaughtActivityNotFoundException;
     private boolean mHandled;
-    private BdValueCallback mUploadMessage;
+    private BdValueCallback<Uri> mUploadMessage;
 
     public BdUploadHandler(Activity activity) {
         this.mActivity = activity;
@@ -50,7 +50,7 @@ public class BdUploadHandler {
         this.mCaughtActivityNotFoundException = false;
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback, String str) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str) {
         String str2 = "";
         if (this.mUploadMessage == null) {
             this.mUploadMessage = bdValueCallback;

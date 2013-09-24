@@ -8,12 +8,12 @@ import com.baidu.tieba.pb.NewPbActivity;
 public class s implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1112a;
+    final /* synthetic */ FrsActivity f1160a;
     private final /* synthetic */ com.baidu.tieba.data.bh b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FrsActivity frsActivity, com.baidu.tieba.data.bh bhVar) {
-        this.f1112a = frsActivity;
+        this.f1160a = frsActivity;
         this.b = bhVar;
     }
 
@@ -21,30 +21,30 @@ public class s implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         String str;
         boolean z;
-        bb bbVar;
+        ba baVar;
         switch (i) {
             case 0:
-                str = this.f1112a.j;
+                str = this.f1160a.m;
                 if (str != null) {
-                    FrsActivity frsActivity = this.f1112a;
+                    FrsActivity frsActivity = this.f1160a;
                     com.baidu.tieba.data.bh bhVar = this.b;
-                    z = this.f1112a.k;
+                    z = this.f1160a.n;
                     NewPbActivity.a(frsActivity, bhVar, null, 18003, true, false, z);
                     break;
                 }
                 break;
             case 1:
-                this.f1112a.c(this.b);
+                this.f1160a.c(this.b);
                 break;
             case 2:
-                this.f1112a.d(this.b);
+                this.f1160a.d(this.b);
                 break;
         }
-        com.baidu.tieba.util.ag av = TiebaApplication.g().av();
-        if (av != null && !av.b(this.b.a())) {
-            av.a(this.b.a());
+        com.baidu.tieba.util.ak aw = TiebaApplication.g().aw();
+        if (aw != null && !aw.b(this.b.a())) {
+            aw.a(this.b.a());
         }
-        bbVar = this.f1112a.l;
-        bbVar.m();
+        baVar = this.f1160a.o;
+        baVar.k();
     }
 }

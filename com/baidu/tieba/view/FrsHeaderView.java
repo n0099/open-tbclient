@@ -3,7 +3,6 @@ package com.baidu.tieba.view;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.AnimationDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +12,26 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsHeaderView {
     public static int[] b = {R.drawable.label_green, R.drawable.label_blue, R.drawable.label_orange, R.drawable.label_red, R.drawable.label_purple};
     public static int[] c = {R.drawable.label_green_1, R.drawable.label_blue_1, R.drawable.label_orange_1, R.drawable.label_red_1, R.drawable.label_purple_1};
-    private ProgressBar E;
-    private FrsStarImageView G;
-    private ImageView H;
-    private com.baidu.tieba.util.a I;
-    private ImageView J;
-    private TextView K;
-    private String L;
-    private int M;
-    private boolean R;
-    private int S;
+    private ProgressBar B;
+    private FrsStarImageView D;
+    private ImageView E;
+    private com.baidu.tieba.util.a F;
+    private ImageView G;
+    private TextView H;
+    private String I;
+    private int J;
+    private boolean O;
+    private int P;
+    private ViewGroup R;
+    private ImageView S;
     private RelativeLayout d;
     private RelativeLayout e;
     private TextView f;
@@ -38,35 +40,31 @@ public class FrsHeaderView {
     private TextView i;
     private TextView j;
     private Button k;
-    private RelativeLayout l;
-    private ImageView m;
-    private Button n;
-    private Button o;
-    private RelativeLayout p;
-    private TextView q;
-    private TextView r;
-    private ImageView s;
-    private ImageView t;
-    private View u;
-    private Activity v;
-    private String w;
-    private String x;
-    private int y = 0;
-    private int z = 0;
-    private int A = -1;
-    private String B = null;
-    private String C = null;
-    private String D = null;
-    private boolean F = false;
+    private Button l;
+    private RelativeLayout m;
+    private TextView n;
+    private TextView o;
+    private ImageView p;
+    private ImageView q;
+    private View r;
+    private Activity s;
+    private String t;
+    private String u;
+    private int v = 0;
+    private int w = 0;
+    private int x = -1;
+    private String y = null;
+    private String z = null;
+    private String A = null;
+    private boolean C = false;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.bh f1824a = null;
-    private float N = 0.0f;
-    private float O = 0.0f;
-    private boolean P = false;
-    private boolean Q = true;
-    private boolean T = false;
-    private AnimationDrawable U = null;
+    com.baidu.tieba.data.bh f1945a = null;
+    private float K = 0.0f;
+    private float L = 0.0f;
+    private boolean M = false;
+    private boolean N = true;
+    private boolean Q = false;
 
     /* loaded from: classes.dex */
     public enum PAGE {
@@ -103,198 +101,160 @@ public class FrsHeaderView {
         this.s = null;
         this.t = null;
         this.u = null;
-        this.v = null;
-        this.w = null;
-        this.x = null;
+        this.B = null;
+        this.D = null;
         this.E = null;
+        this.F = null;
         this.G = null;
         this.H = null;
-        this.I = null;
-        this.J = null;
-        this.K = null;
-        this.v = activity;
-        this.w = str;
-        this.x = str2;
-        this.u = LayoutInflater.from(activity).inflate(R.layout.frs_header, (ViewGroup) null);
-        if (this.w == null || this.x == null) {
-            this.u.setVisibility(8);
+        this.S = null;
+        this.s = activity;
+        this.t = str;
+        this.u = str2;
+        this.r = LayoutInflater.from(activity).inflate(R.layout.frs_header, (ViewGroup) null);
+        if (this.t == null || this.u == null) {
+            this.r.setVisibility(8);
         }
-        this.e = (RelativeLayout) this.u.findViewById(R.id.container);
-        this.p = (RelativeLayout) this.u.findViewById(R.id.btn_love_content);
-        this.q = (TextView) this.u.findViewById(R.id.level_name);
-        this.r = (TextView) this.u.findViewById(R.id.level);
-        this.s = (ImageView) this.u.findViewById(R.id.love_level_top);
-        this.t = (ImageView) this.u.findViewById(R.id.love_level_bg);
-        this.n = (Button) this.u.findViewById(R.id.btn_love);
-        this.o = (Button) this.u.findViewById(R.id.btn_sign);
-        this.f = (TextView) this.u.findViewById(R.id.member_num_text);
-        this.i = (TextView) this.u.findViewById(R.id.post_num_text);
-        this.h = (TextView) this.u.findViewById(R.id.member_image);
-        this.g = (TextView) this.u.findViewById(R.id.post_image);
-        this.j = (TextView) this.u.findViewById(R.id.title_text);
-        this.l = (RelativeLayout) this.u.findViewById(R.id.lay_start_local);
-        this.k = (Button) this.u.findViewById(R.id.btn_start_local);
-        this.m = (ImageView) this.u.findViewById(R.id.img_voice_anim);
-        this.d = (RelativeLayout) this.u.findViewById(R.id.frs_tag_layout);
-        this.J = (ImageView) this.u.findViewById(R.id.frs_tag_bg);
-        this.K = (TextView) this.u.findViewById(R.id.frs_tag_text);
-        this.G = (FrsStarImageView) this.u.findViewById(R.id.frs_image);
-        this.H = (ImageView) this.u.findViewById(R.id.frs_image_bg);
-        this.E = (ProgressBar) this.u.findViewById(R.id.frs_title_progress);
-        this.I = new com.baidu.tieba.util.a(this.v);
-        this.I.a(UtilHelper.a((Context) this.v), UtilHelper.a((Context) this.v));
+        this.e = (RelativeLayout) this.r.findViewById(R.id.container);
+        this.m = (RelativeLayout) this.r.findViewById(R.id.btn_love_content);
+        this.R = (ViewGroup) this.r.findViewById(R.id.frs_forum_entry);
+        this.S = (ImageView) this.r.findViewById(R.id.frs_enter_detail);
+        if (com.baidu.adp.lib.a.d.a().b(SwitchKey.BAR_DETAIL_FRS) == 0) {
+            this.R.setVisibility(0);
+        } else {
+            this.R.setVisibility(8);
+        }
+        this.n = (TextView) this.r.findViewById(R.id.level_name);
+        this.o = (TextView) this.r.findViewById(R.id.level);
+        this.p = (ImageView) this.r.findViewById(R.id.love_level_top);
+        this.q = (ImageView) this.r.findViewById(R.id.love_level_bg);
+        this.k = (Button) this.r.findViewById(R.id.btn_love);
+        this.l = (Button) this.r.findViewById(R.id.btn_sign);
+        this.f = (TextView) this.r.findViewById(R.id.member_num_text);
+        this.i = (TextView) this.r.findViewById(R.id.post_num_text);
+        this.h = (TextView) this.r.findViewById(R.id.member_image);
+        this.g = (TextView) this.r.findViewById(R.id.post_image);
+        this.j = (TextView) this.r.findViewById(R.id.title_text);
+        this.d = (RelativeLayout) this.r.findViewById(R.id.frs_tag_layout);
+        this.G = (ImageView) this.r.findViewById(R.id.frs_tag_bg);
+        this.H = (TextView) this.r.findViewById(R.id.frs_tag_text);
+        this.D = (FrsStarImageView) this.r.findViewById(R.id.frs_image);
+        this.E = (ImageView) this.r.findViewById(R.id.frs_image_bg);
+        this.B = (ProgressBar) this.r.findViewById(R.id.frs_title_progress);
+        this.F = new com.baidu.tieba.util.a(this.s);
+        this.F.a(UtilHelper.a((Context) this.s), UtilHelper.a((Context) this.s));
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.n.setOnClickListener(onClickListener);
-        this.o.setOnClickListener(onClickListener);
-        this.J.setOnClickListener(new x(this));
-        this.k.setOnClickListener(new y(this));
+        this.k.setOnClickListener(onClickListener);
+        this.l.setOnClickListener(onClickListener);
+        if (com.baidu.adp.lib.a.d.a().b(SwitchKey.BAR_DETAIL_FRS) == 0) {
+            this.r.setOnClickListener(new y(this));
+        }
+        this.G.setOnClickListener(new z(this));
     }
 
     public com.baidu.tieba.util.a a() {
-        return this.I;
+        return this.F;
     }
 
     public com.baidu.tieba.data.bh b() {
-        return this.f1824a;
+        return this.f1945a;
     }
 
     public void a(int i) {
-        this.S = i;
-        if (this.F) {
-            c(1);
+        this.P = i;
+        if (this.C) {
+            b(1);
         } else {
-            c(0);
+            b(0);
         }
-        this.G.invalidate();
+        this.D.invalidate();
         if (i == 1) {
-            this.e.setBackgroundResource(R.drawable.bg_topbar_1);
-            this.j.setTextColor(-8682095);
-            this.f.setTextColor(-959965);
-            this.i.setTextColor(-959965);
-            this.H.setBackgroundResource(R.drawable.pic_bj_touxiang_n_1);
-            if (this.A >= 0 && this.A < b.length) {
-                this.J.setBackgroundResource(c[this.A]);
+            if (this.x >= 0 && this.x < b.length) {
+                this.G.setBackgroundResource(c[this.x]);
             }
-            this.K.setTextColor(-2960686);
-            this.n.setBackgroundResource(R.drawable.frs_btn_like_1);
-            this.h.setTextColor(-10523526);
-            this.g.setTextColor(-10523526);
-            this.q.setTextColor(-8682095);
-            this.r.setTextColor(-8682095);
-            this.s.setBackgroundResource(R.drawable.progressbar_blue_1);
-            this.t.setBackgroundResource(R.drawable.progressbar_black_1);
-            return;
+            this.p.setBackgroundResource(R.drawable.progressbar_blue_1);
+            this.q.setBackgroundResource(R.drawable.progressbar_black_1);
+            this.k.setBackgroundResource(R.drawable.frs_btn_like_1);
+            com.baidu.tieba.util.as.e(this.S, (int) R.drawable.icon_arrow_right_1);
+        } else {
+            if (this.x >= 0 && this.x < b.length) {
+                this.G.setBackgroundResource(b[this.x]);
+            }
+            this.p.setBackgroundResource(R.drawable.progressbar_blue);
+            this.q.setBackgroundResource(R.drawable.progressbar_black);
+            this.k.setBackgroundResource(R.drawable.frs_btn_like);
+            com.baidu.tieba.util.as.e(this.S, (int) R.drawable.icon_arrow_right);
         }
-        this.e.setBackgroundResource(R.drawable.bg_topbar);
-        this.j.setTextColor(-12564913);
-        this.f.setTextColor(-959965);
-        this.i.setTextColor(-959965);
-        this.H.setBackgroundResource(R.drawable.pic_bj_touxiang_n);
-        if (this.A >= 0 && this.A < b.length) {
-            this.J.setBackgroundResource(b[this.A]);
-        }
-        this.K.setTextColor(-1);
-        this.n.setBackgroundResource(R.drawable.frs_btn_like);
-        this.h.setTextColor(-8552574);
-        this.g.setTextColor(-8552574);
-        this.q.setTextColor(-14277082);
-        this.r.setTextColor(-14277082);
-        this.s.setBackgroundResource(R.drawable.progressbar_blue);
-        this.t.setBackgroundResource(R.drawable.progressbar_black);
+        ((FrsActivity) this.s).l().a(i == 1);
+        ((FrsActivity) this.s).l().a(this.r);
     }
 
     public View c() {
-        return this.u;
+        return this.r;
     }
 
     public void a(com.baidu.tieba.data.v vVar) {
-        this.w = vVar.b();
-        this.x = vVar.a();
-        this.y = vVar.d();
-        this.z = vVar.c();
-        this.B = vVar.m();
-        this.C = vVar.o();
-        this.D = vVar.n();
-        this.L = vVar.k();
-        this.M = vVar.h();
-        if (vVar.f() == 0 || !TiebaApplication.g().am()) {
-            this.l.setVisibility(8);
-        } else {
-            this.l.setVisibility(0);
-            this.j.setMaxWidth(UtilHelper.a((Context) this.v, 100.0f));
-            if (vVar.g() == 1) {
-                if (this.U != null) {
-                    this.U.stop();
-                }
-                this.m.setBackgroundResource(R.anim.voice_play);
-                this.U = (AnimationDrawable) this.m.getBackground();
-                this.U.start();
-            }
-        }
-        this.u.setVisibility(0);
-        this.f1824a = new com.baidu.tieba.data.bh();
+        this.t = vVar.b();
+        this.u = vVar.a();
+        this.v = vVar.d();
+        this.w = vVar.c();
+        this.y = vVar.k();
+        this.z = vVar.m();
+        this.A = vVar.l();
+        this.I = vVar.i();
+        this.J = vVar.f();
+        this.r.setVisibility(0);
+        this.f1945a = new com.baidu.tieba.data.bh();
         com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
         aiVar.a(3);
-        aiVar.a(this.D);
-        this.f1824a.m().add(aiVar);
-        i();
+        aiVar.a(this.A);
+        this.f1945a.o().add(aiVar);
+        f();
     }
 
-    private void i() {
+    private void f() {
         if (this.f != null) {
-            this.f.setText(String.valueOf(this.y));
+            this.f.setText(String.valueOf(this.v));
         }
         if (this.i != null) {
-            this.i.setText(String.valueOf(this.z));
+            this.i.setText(String.valueOf(this.w));
         }
         if (this.j != null) {
-            this.j.setText(this.w);
+            this.j.setText(this.t);
         }
-        if (this.B != null && this.B.length() > 0) {
-            if (this.K != null) {
-                this.K.setText(this.B);
+        if (this.y != null && this.y.length() > 0) {
+            if (this.H != null) {
+                this.H.setText(this.y);
             }
-            if (this.J != null && this.C != null && this.C.length() > 0) {
-                this.A = Integer.parseInt(this.C);
-                if (this.A >= 0 && this.A < b.length) {
-                    this.J.setBackgroundResource(b[this.A]);
+            if (this.G != null && this.z != null && this.z.length() > 0) {
+                this.x = Integer.parseInt(this.z);
+                if (this.x >= 0 && this.x < b.length) {
+                    this.G.setBackgroundResource(b[this.x]);
                 }
             }
             this.d.setVisibility(0);
         } else {
             this.d.setVisibility(8);
         }
-        this.G.setTag(this.D);
-        this.G.setImageType(1);
+        this.D.setTag(this.A);
+        this.D.setImageType(1);
     }
 
     public void a(int i, String str, int i2, float f) {
-        this.L = str;
-        this.M = i2;
+        this.I = str;
+        this.J = i2;
         if (i == 0) {
-            this.T = false;
-            this.n.setVisibility(0);
-            this.p.setVisibility(8);
+            this.Q = false;
+            this.k.setVisibility(0);
+            this.m.setVisibility(8);
             return;
         }
-        this.T = true;
-        this.n.setVisibility(4);
+        this.Q = true;
+        this.k.setVisibility(4);
         a(f);
-        this.p.setVisibility(0);
-    }
-
-    public void b(int i) {
-        if (i == 0) {
-            this.T = false;
-            this.n.setVisibility(0);
-            this.p.setVisibility(8);
-            return;
-        }
-        this.T = true;
-        this.n.setVisibility(4);
-        this.p.setVisibility(0);
+        this.m.setVisibility(0);
     }
 
     private void c(boolean z) {
@@ -302,100 +262,82 @@ public class FrsHeaderView {
         Bitmap a2 = com.baidu.tieba.util.e.a((int) R.drawable.btn_like_n);
         if (a2 != null) {
             if (z) {
-                this.q.setText(R.string.level_up);
-                this.r.setText("");
+                this.n.setText(R.string.level_up);
+                this.o.setText("");
             } else {
-                this.q.setText(this.L);
-                this.r.setText(String.valueOf(this.M) + "级");
+                this.n.setText(this.I);
+                this.o.setText(String.valueOf(this.J) + "级");
             }
-            float width = a2.getWidth() * this.N;
-            float f2 = width > 0.001f ? this.O / width : 0.0f;
-            this.O = width;
-            if (this.P) {
-                this.P = false;
+            float width = a2.getWidth() * this.K;
+            float f2 = width > 0.001f ? this.L / width : 0.0f;
+            this.L = width;
+            if (this.M) {
+                this.M = false;
             } else {
                 f = f2;
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.t.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.q.getLayoutParams();
             layoutParams.width = a2.getWidth();
-            this.t.setLayoutParams(layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.s.getLayoutParams();
-            layoutParams2.width = (int) this.O;
-            this.s.setLayoutParams(layoutParams2);
+            this.q.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.p.getLayoutParams();
+            layoutParams2.width = (int) this.L;
+            this.p.setLayoutParams(layoutParams2);
             ScaleAnimation scaleAnimation = new ScaleAnimation(f, 1.0f, 1.0f, 1.0f);
             scaleAnimation.setFillAfter(true);
             scaleAnimation.setDuration(1000L);
-            this.s.startAnimation(scaleAnimation);
+            this.p.startAnimation(scaleAnimation);
         }
     }
 
-    public void c(int i) {
+    public void b(int i) {
         if (i == 0) {
-            this.F = false;
-            if (this.S == 1) {
-                this.o.setBackgroundResource(R.drawable.frs_btn_sign_1);
+            this.C = false;
+            if (this.P == 1) {
+                this.l.setBackgroundResource(R.drawable.frs_btn_sign_1);
                 return;
             } else {
-                this.o.setBackgroundResource(R.drawable.frs_btn_sign);
+                this.l.setBackgroundResource(R.drawable.frs_btn_sign);
                 return;
             }
         }
-        this.F = true;
-        if (this.S == 1) {
-            this.o.setBackgroundResource(R.drawable.btn_sign_d_1);
+        this.C = true;
+        if (this.P == 1) {
+            this.l.setBackgroundResource(R.drawable.btn_sign_d_1);
         } else {
-            this.o.setBackgroundResource(R.drawable.btn_sign_d);
+            this.l.setBackgroundResource(R.drawable.btn_sign_d);
         }
     }
 
     public boolean d() {
-        return this.F;
+        return this.C;
     }
 
     public void a(boolean z) {
-        this.R = z;
-        if (this.R) {
-            this.o.setVisibility(0);
+        this.O = z;
+        if (this.O) {
+            this.l.setVisibility(0);
         } else {
-            this.o.setVisibility(8);
+            this.l.setVisibility(8);
         }
     }
 
     public void a(float f) {
-        if (this.N >= 0.999f) {
-            this.P = true;
+        if (this.K >= 0.999f) {
+            this.M = true;
         }
-        this.N = f >= 1.0f ? 1.0f : f;
+        this.K = f >= 1.0f ? 1.0f : f;
         c(f >= 1.0f);
     }
 
-    public void e() {
-        if (this.U != null) {
-            this.U.stop();
-        }
-    }
-
-    public void f() {
-        if (this.U != null) {
-            this.U.stop();
-        }
-    }
-
-    public void g() {
-        if (this.U != null) {
-            this.U.start();
-        }
-    }
-
-    public boolean h() {
-        return this.T;
+    public boolean e() {
+        return this.Q;
     }
 
     public void b(boolean z) {
         if (z) {
-            this.E.setVisibility(0);
+            this.B.setVisibility(0);
         } else {
-            this.E.setVisibility(8);
+            this.B.setVisibility(8);
         }
     }
 }

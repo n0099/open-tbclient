@@ -27,8 +27,8 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.data.AntiData;
+import com.baidu.tieba.forumfeed.ForumFeedActivity;
 import com.baidu.tieba.home.EnterForumActivity;
-import com.baidu.tieba.home.ForumFeedActivity;
 import com.baidu.tieba.mention.MentionActivity;
 import com.baidu.tieba.more.AboutActivity;
 import com.baidu.tieba.more.AccountActivity;
@@ -38,7 +38,6 @@ import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.square.SquareActivity;
-import com.baidu.tieba.util.NetWorkCore;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.GuidPageView;
 import com.baidu.tieba.write.WriteActivity;
@@ -48,7 +47,7 @@ import java.lang.reflect.Field;
 public class MainTabActivity extends TabActivity implements CompoundButton.OnCheckedChangeListener {
     private static boolean b = false;
     private static int c = -1;
-    private z[] f;
+    private ab[] f;
     private TabHost g;
     private final int d = 5;
     private int e = 1;
@@ -66,69 +65,69 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     private ProgressDialog s = null;
     private FrameLayout t = null;
     private AlertDialog u = null;
-    private com.baidu.tieba.view.al v = null;
+    private com.baidu.tieba.view.am v = null;
     private GuidPageView w = null;
     private boolean x = false;
 
     /* renamed from: a */
-    protected int f843a = -1;
-    private aa y = null;
+    protected int f856a = -1;
+    private ac y = null;
 
     protected void a() {
-        this.f = new z[5];
-        z zVar = new z(null);
-        zVar.b = new Intent(this, ForumFeedActivity.class);
-        zVar.e = R.drawable.tabs_recommend;
-        zVar.f = R.drawable.tabs_recommend_1;
-        zVar.d = "maintab_home";
-        zVar.f1953a = "view_1";
-        zVar.c = (RadioButton) findViewById(R.id.radio_recommend);
-        this.f[0] = zVar;
-        z zVar2 = new z(null);
-        zVar2.b = new Intent(this, EnterForumActivity.class);
-        zVar2.e = R.drawable.tabs_home;
-        zVar2.f = R.drawable.tabs_home_1;
-        zVar2.d = "maintab_enterforum";
-        zVar2.f1953a = "view_2";
-        zVar2.c = (RadioButton) findViewById(R.id.radio_home);
-        this.f[1] = zVar2;
-        z zVar3 = new z(null);
-        zVar3.b = new Intent(this, SquareActivity.class);
-        zVar3.e = R.drawable.tabs_square;
-        zVar3.f = R.drawable.tabs_square_1;
-        zVar3.d = "maintab_square";
-        zVar3.f1953a = "view_3";
-        zVar3.c = (RadioButton) findViewById(R.id.radio_square);
-        this.f[2] = zVar3;
-        z zVar4 = new z(null);
-        zVar4.b = new Intent(this, MentionActivity.class);
-        zVar4.e = R.drawable.tabs_message;
-        zVar4.f = R.drawable.tabs_message_1;
-        zVar4.d = "maintab_message";
-        zVar4.f1953a = "view_4";
-        zVar4.c = (RadioButton) findViewById(R.id.radio_message);
-        this.f[3] = zVar4;
-        z zVar5 = new z(null);
-        zVar5.b = new Intent(this, PersonInfoActivity.class);
-        zVar5.b.putExtra("self", true);
-        zVar5.b.putExtra("tab_page", true);
-        zVar5.b.putExtra("un", TiebaApplication.E());
-        zVar5.e = R.drawable.tabs_search;
-        zVar5.f = R.drawable.tabs_search_1;
-        zVar5.d = "maintab_personal";
-        zVar5.f1953a = "view_5";
-        zVar5.c = (RadioButton) findViewById(R.id.radio_person_info);
-        this.f[4] = zVar5;
+        this.f = new ab[5];
+        ab abVar = new ab(null);
+        abVar.b = new Intent(this, ForumFeedActivity.class);
+        abVar.e = R.drawable.tabs_recommend;
+        abVar.f = R.drawable.tabs_recommend_1;
+        abVar.d = "maintab_home";
+        abVar.f875a = "view_1";
+        abVar.c = (RadioButton) findViewById(R.id.radio_recommend);
+        this.f[0] = abVar;
+        ab abVar2 = new ab(null);
+        abVar2.b = new Intent(this, EnterForumActivity.class);
+        abVar2.e = R.drawable.tabs_home;
+        abVar2.f = R.drawable.tabs_home_1;
+        abVar2.d = "maintab_enterforum";
+        abVar2.f875a = "view_2";
+        abVar2.c = (RadioButton) findViewById(R.id.radio_home);
+        this.f[1] = abVar2;
+        ab abVar3 = new ab(null);
+        abVar3.b = new Intent(this, SquareActivity.class);
+        abVar3.e = R.drawable.tabs_square;
+        abVar3.f = R.drawable.tabs_square_1;
+        abVar3.d = "maintab_square";
+        abVar3.f875a = "view_3";
+        abVar3.c = (RadioButton) findViewById(R.id.radio_square);
+        this.f[2] = abVar3;
+        ab abVar4 = new ab(null);
+        abVar4.b = new Intent(this, MentionActivity.class);
+        abVar4.e = R.drawable.tabs_message;
+        abVar4.f = R.drawable.tabs_message_1;
+        abVar4.d = "maintab_message";
+        abVar4.f875a = "view_4";
+        abVar4.c = (RadioButton) findViewById(R.id.radio_message);
+        this.f[3] = abVar4;
+        ab abVar5 = new ab(null);
+        abVar5.b = new Intent(this, PersonInfoActivity.class);
+        abVar5.b.putExtra("self", true);
+        abVar5.b.putExtra("tab_page", true);
+        abVar5.b.putExtra("un", TiebaApplication.C());
+        abVar5.e = R.drawable.tabs_search;
+        abVar5.f = R.drawable.tabs_search_1;
+        abVar5.d = "maintab_personal";
+        abVar5.f875a = "view_5";
+        abVar5.c = (RadioButton) findViewById(R.id.radio_person_info);
+        this.f[4] = abVar5;
     }
 
-    protected void a(z zVar, int i) {
+    protected void a(ab abVar, int i) {
         if (i == 4) {
-            zVar.b.putExtra("un", TiebaApplication.E());
+            abVar.b.putExtra("un", TiebaApplication.C());
         } else if (i == 3) {
             MentionActivity.e = true;
             l();
         }
-        this.g.setCurrentTabByTag(zVar.f1953a);
+        this.g.setCurrentTabByTag(abVar.f875a);
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
@@ -137,7 +136,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (b()) {
             CompatibleUtile.getInstance().openGpu(this);
         }
-        com.baidu.tieba.util.aq.a(getClass().toString(), "onCreate", "debug");
+        com.baidu.tieba.util.av.a(getClass().toString(), "onCreate", "debug");
         setContentView(R.layout.maintabs_activity);
         this.g = getTabHost();
         a();
@@ -157,19 +156,16 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         }
         a(intent);
         f();
-        if (TiebaApplication.A() != null && TiebaApplication.A().equals("aishide")) {
+        if (TiebaApplication.y() != null && TiebaApplication.y().equals("aishide")) {
             h();
         }
         j();
         e();
-        com.baidu.tieba.mention.r.a().e();
-        if (bundle == null) {
-            p();
-        }
+        com.baidu.tieba.mention.s.a().f();
         a(this, TiebaApplication.e());
-        String M = TiebaApplication.g().M();
-        if (M != null && M.length() > 0) {
-            UtilHelper.b(TiebaApplication.g(), M);
+        String K = TiebaApplication.g().K();
+        if (K != null && K.length() > 0) {
+            UtilHelper.b(TiebaApplication.g(), K);
             TiebaApplication.g().l((String) null);
         }
     }
@@ -192,8 +188,8 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     public static void a(Context context) {
-        String E = TiebaApplication.E();
-        if (E != null && E.length() > 0) {
+        String C = TiebaApplication.C();
+        if (C != null && C.length() > 0) {
             a(context, 1);
         } else {
             a(context, 2);
@@ -215,17 +211,17 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     public static void b(Context context, int i) {
-        TiebaApplication.g().B();
+        TiebaApplication.g().z();
         a(context, i, false);
     }
 
     public static void b(Context context, int i, boolean z) {
-        TiebaApplication.g().B();
+        TiebaApplication.g().z();
         a(context, i, z);
     }
 
     public boolean b() {
-        return TiebaApplication.g().w();
+        return TiebaApplication.g().u();
     }
 
     private void e() {
@@ -238,13 +234,13 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onDestroy() {
-        com.baidu.tieba.util.aq.a(getClass().getName(), "onDestroy", "");
+        com.baidu.tieba.util.av.a(getClass().getName(), "onDestroy", "");
         g();
         i();
         k();
-        com.baidu.tieba.mention.r.a().d();
-        com.baidu.tieba.mention.r.a().f();
-        com.baidu.tieba.mention.r.a().a(false);
+        com.baidu.tieba.mention.s.a().e();
+        com.baidu.tieba.mention.s.a().h();
+        com.baidu.tieba.mention.s.a().a(false);
         com.baidu.tbadk.a.e.a().c();
         if (this.s != null) {
             this.s.dismiss();
@@ -260,7 +256,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (this.w != null) {
             this.w.a();
         }
-        com.baidu.tieba.util.ar.a();
+        com.baidu.tieba.util.aw.a();
         super.onDestroy();
         System.gc();
     }
@@ -270,7 +266,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         try {
             super.onRestoreInstanceState(bundle);
         } catch (Throwable th) {
-            com.baidu.adp.lib.e.d.a(getClass(), "onRestoreInstanceState", th);
+            com.baidu.adp.lib.f.d.a(getClass(), "onRestoreInstanceState", th);
         }
     }
 
@@ -291,29 +287,12 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     private void a(Context context, Intent intent) {
-        if (!UtilHelper.a(context, intent) && intent != null) {
-            switch (TiebaApplication.e().getExtras().getInt("class", -1)) {
-                case 5:
-                    long longExtra = TiebaApplication.e().getLongExtra("at_me", 0L);
-                    long longExtra2 = TiebaApplication.e().getLongExtra("reply_me", 0L);
-                    long longExtra3 = TiebaApplication.e().getLongExtra("fans", 0L);
-                    long longExtra4 = TiebaApplication.e().getLongExtra("chat", 0L);
-                    com.baidu.tieba.mention.r.a().a(longExtra2, longExtra, longExtra3, longExtra4);
-                    if (longExtra2 > 0 || longExtra > 0 || longExtra4 > 0) {
-                        this.e = 3;
-                        this.f[this.e].c.setChecked(true);
-                        MentionActivity.e = true;
-                        this.g.setCurrentTab(this.e);
-                        break;
-                    }
-                    break;
-            }
-        }
+        UtilHelper.a(context, intent);
         TiebaApplication.a((Intent) null);
     }
 
     private void j() {
-        this.y = new aa(this, null);
+        this.y = new ac(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.notify");
         intentFilter.addAction("com.baidu.tieba.broadcast.newrecommends");
@@ -359,7 +338,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     private void a(TextView textView, long j) {
-        boolean z = this.f843a == 1;
+        boolean z = this.f856a == 1;
         textView.setTextColor(getResources().getColor(z ? R.color.top_msg_num_night : R.color.top_msg_num_day));
         if (j < 10) {
             textView.setText(String.valueOf(j));
@@ -374,7 +353,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     public void m() {
-        if (TiebaApplication.aP()) {
+        if (TiebaApplication.aM()) {
             this.o.setVisibility(0);
         } else {
             this.o.setVisibility(8);
@@ -382,8 +361,8 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     }
 
     private void n() {
-        for (z zVar : this.f) {
-            zVar.c.setOnCheckedChangeListener(this);
+        for (ab abVar : this.f) {
+            abVar.c.setOnCheckedChangeListener(this);
         }
     }
 
@@ -396,24 +375,26 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         if (i == 1) {
             this.t.setBackgroundResource(R.drawable.maintab_toolbar_bg_1);
             this.q.setImageResource(R.drawable.icon_maintab_prompt_1);
-            z[] zVarArr = this.f;
-            int length = zVarArr.length;
+            ab[] abVarArr = this.f;
+            int length = abVarArr.length;
             while (i2 < length) {
-                z zVar = zVarArr[i2];
-                com.baidu.tieba.util.ao.g((View) zVar.c, (int) R.drawable.tabs_btn_bg_1);
-                zVar.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(zVar.f), (Drawable) null, (Drawable) null);
+                ab abVar = abVarArr[i2];
+                com.baidu.tieba.util.as.e((View) abVar.c, (int) R.drawable.tabs_btn_bg_1);
+                abVar.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(abVar.f), (Drawable) null, (Drawable) null);
+                abVar.c.setTextColor(getResources().getColor(R.color.main_tab_text_1));
                 i2++;
             }
             return;
         }
         this.t.setBackgroundResource(R.drawable.maintab_toolbar_bg);
         this.q.setImageResource(R.drawable.icon_maintab_prompt);
-        z[] zVarArr2 = this.f;
-        int length2 = zVarArr2.length;
+        ab[] abVarArr2 = this.f;
+        int length2 = abVarArr2.length;
         while (i2 < length2) {
-            z zVar2 = zVarArr2[i2];
-            com.baidu.tieba.util.ao.g((View) zVar2.c, (int) R.drawable.tabs_btn_bg);
-            zVar2.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(zVar2.e), (Drawable) null, (Drawable) null);
+            ab abVar2 = abVarArr2[i2];
+            com.baidu.tieba.util.as.e((View) abVar2.c, (int) R.drawable.tabs_btn_bg);
+            abVar2.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(abVar2.e), (Drawable) null, (Drawable) null);
+            abVar2.c.setTextColor(getResources().getColor(R.color.white));
             i2++;
         }
     }
@@ -422,12 +403,12 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
             for (int i = 0; i < this.f.length; i++) {
-                z zVar = this.f[i];
-                if (zVar.c.getId() == compoundButton.getId()) {
-                    if (TiebaApplication.g().u()) {
-                        StatService.onEvent(this, zVar.d, "maintabclick", 1);
+                ab abVar = this.f[i];
+                if (abVar.c.getId() == compoundButton.getId()) {
+                    if (TiebaApplication.g().s()) {
+                        StatService.onEvent(this, abVar.d, "maintabclick", 1);
                     }
-                    a(zVar, i);
+                    a(abVar, i);
                     return;
                 }
             }
@@ -437,9 +418,11 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
+        com.baidu.tieba.util.av.e("MainTabActivity", "onResume", "onResume");
         TiebaApplication.g().az();
         TiebaApplication.g().aA();
-        if (!TiebaApplication.p()) {
+        com.baidu.tbadk.a.e.a().c();
+        if (!TiebaApplication.n()) {
             if (c == -1) {
                 com.baidu.tieba.account.a.a().a(this, 1);
             } else {
@@ -447,14 +430,22 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                 c = -1;
             }
         }
-        if (TiebaApplication.g().an() != this.f843a) {
-            this.f843a = TiebaApplication.g().an();
-            b(this.f843a);
+        if (TiebaApplication.g().ap() != this.f856a) {
+            this.f856a = TiebaApplication.g().ap();
+            b(this.f856a);
         }
-        if (TiebaApplication.E() == null) {
-            com.baidu.tieba.mention.r.a().a(0L, 0L, 0L, 0L, 0L);
+        if (TiebaApplication.C() == null || TiebaApplication.C().length() <= 0) {
+            o();
         }
         l();
+    }
+
+    private void o() {
+        this.h = 0L;
+        this.i = 0L;
+        this.j = 0L;
+        this.k = 0L;
+        this.l = 0L;
     }
 
     @Override // android.app.ActivityGroup, android.app.Activity
@@ -482,13 +473,13 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
-        com.baidu.tieba.util.aq.a(getClass().getName(), "onNewIntent", "");
+        com.baidu.tieba.util.av.a(getClass().getName(), "onNewIntent", "");
         super.onNewIntent(intent);
         if (intent.getBooleanExtra("close_dialog", false)) {
-            o();
+            p();
         }
         if (intent.getBooleanExtra("refresh_all", false)) {
-            this.f[4].b.putExtra("un", TiebaApplication.E());
+            this.f[4].b.putExtra("un", TiebaApplication.C());
             this.g.clearAllTabs();
             getLocalActivityManager().removeAllActivities();
             a(intent);
@@ -503,10 +494,10 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         a(this, TiebaApplication.e());
     }
 
-    private void o() {
+    private void p() {
         EnterForumActivity enterForumActivity;
         LocalActivityManager localActivityManager = getLocalActivityManager();
-        if (!localActivityManager.getCurrentId().equals(this.f[1].f1953a) && (enterForumActivity = (EnterForumActivity) localActivityManager.getActivity(this.f[1].f1953a)) != null) {
+        if (!localActivityManager.getCurrentId().equals(this.f[1].f875a) && (enterForumActivity = (EnterForumActivity) localActivityManager.getActivity(this.f[1].f875a)) != null) {
             enterForumActivity.b();
         }
     }
@@ -514,7 +505,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4) {
-            com.baidu.tieba.util.aq.e(getClass().getName(), "dispatchKeyEvent", "KEYCODE_BACK");
+            com.baidu.tieba.util.av.e(getClass().getName(), "dispatchKeyEvent", "KEYCODE_BACK");
             UtilHelper.a((Activity) this);
             return false;
         } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
@@ -570,7 +561,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                         intent2 = c(i);
                     }
                     this.f[i].b = intent2;
-                    tabHost.addTab(a(this.f[i].f1953a, this.f[i].b));
+                    tabHost.addTab(a(this.f[i].f875a, this.f[i].b));
                 }
                 if (field != null) {
                     if (this.e == 0) {
@@ -617,37 +608,6 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
         return newTabSpec;
     }
 
-    private void p() {
-        NetWorkCore.NetworkState b2 = NetWorkCore.b(this);
-        this.x = false;
-        if (b2 != NetWorkCore.NetworkState.UNAVAIL) {
-            if (b2 == NetWorkCore.NetworkState.WIFI) {
-                this.x = true;
-            }
-            int aM = TiebaApplication.g().aM();
-            if (aM == 0) {
-                TiebaApplication.g().x(this.x);
-            } else if (aM == 1) {
-                TiebaApplication.g().x(true);
-            } else if (aM == 2) {
-                TiebaApplication.g().x(false);
-            } else if (aM == -1) {
-                if (this.u == null) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setTitle(R.string.network_title);
-                    builder.setMessage(R.string.flow_mode_set_tip);
-                    y yVar = new y(this);
-                    builder.setPositiveButton(getString(R.string.network_accept), yVar);
-                    builder.setNegativeButton(getString(R.string.cancel), yVar);
-                    this.u = builder.create();
-                }
-                this.u.setCancelable(false);
-                this.u.setCanceledOnTouchOutside(false);
-                this.u.show();
-            }
-        }
-    }
-
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         try {
@@ -676,14 +636,14 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     public boolean onPrepareOptionsMenu(Menu menu) {
         try {
             menu.findItem(1).setVisible(true);
-            if (!TiebaApplication.p()) {
+            if (!TiebaApplication.n()) {
                 menu.findItem(2).setVisible(true);
             }
             menu.findItem(3).setVisible(true);
             menu.findItem(4).setVisible(true);
             menu.findItem(5).setVisible(true);
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
+            com.baidu.tieba.util.av.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
         }
         return super.onPrepareOptionsMenu(menu);
     }
@@ -691,11 +651,11 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
     @Override // android.app.Activity
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, 1, 1, getString(R.string.setup)).setIcon(R.drawable.menu_setup);
-        if (!TiebaApplication.p()) {
+        if (!TiebaApplication.n()) {
             menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
         }
         menu.add(0, 3, 3, getString(R.string.feedback)).setIcon(R.drawable.menu_feedback);
-        menu.add(0, 4, 4, getString(R.string.about)).setIcon(R.drawable.menu_about);
+        menu.add(0, 4, 4, getString(R.string.version_info)).setIcon(R.drawable.menu_about);
         menu.add(0, 5, 5, getString(R.string.quit)).setIcon(R.drawable.menu_quit);
         return true;
     }
@@ -710,7 +670,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                 AccountActivity.a(this);
                 break;
             case 3:
-                if (!TiebaApplication.F()) {
+                if (!TiebaApplication.D()) {
                     LoginActivity.a((Activity) this, getString(R.string.login_feedback), true, 11001);
                     break;
                 } else {
@@ -718,7 +678,7 @@ public class MainTabActivity extends TabActivity implements CompoundButton.OnChe
                     break;
                 }
             case 4:
-                AboutActivity.a(this);
+                AboutActivity.a((Context) this);
                 break;
             case 5:
                 UtilHelper.a((Activity) this);

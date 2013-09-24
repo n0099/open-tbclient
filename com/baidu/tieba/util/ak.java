@@ -1,22 +1,64 @@
 package com.baidu.tieba.util;
 
-import java.io.File;
-import java.io.FilenameFilter;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-class ak implements FilenameFilter {
+public class ak {
+    private volatile int b;
+    private volatile HashMap<Long, Integer> c = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ah f1785a;
-    private final /* synthetic */ String b;
+    private volatile int f1900a = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(ah ahVar, String str) {
-        this.f1785a = ahVar;
-        this.b = str;
+    public ak(int i) {
+        this.b = i;
     }
 
-    @Override // java.io.FilenameFilter
-    public boolean accept(File file, String str) {
-        return str.contains(new StringBuilder(String.valueOf(this.b)).append("_").toString());
+    public void a(String str) {
+        try {
+            Long valueOf = Long.valueOf(Long.parseLong(str));
+            synchronized (this) {
+                if (this.c.size() >= this.b) {
+                    a();
+                }
+                this.f1900a++;
+                this.c.put(valueOf, Integer.valueOf(this.f1900a));
+            }
+        } catch (Exception e) {
+            av.b(getClass().getName(), "addThread", e.getMessage());
+        }
+    }
+
+    public void a() {
+        synchronized (this) {
+            int i = 134217727;
+            Long l = null;
+            for (Map.Entry<Long, Integer> entry : this.c.entrySet()) {
+                if (entry.getValue().intValue() < i) {
+                    i = entry.getValue().intValue();
+                    l = entry.getKey();
+                }
+            }
+            if (l != null) {
+                this.c.remove(l);
+            } else {
+                this.c.clear();
+            }
+        }
+    }
+
+    public boolean b(String str) {
+        boolean z = false;
+        try {
+            Long valueOf = Long.valueOf(Long.parseLong(str));
+            synchronized (this) {
+                if (this.c.get(valueOf) != null) {
+                    z = true;
+                }
+            }
+        } catch (Exception e) {
+            av.b(getClass().getName(), "getThread", e.getMessage());
+        }
+        return z;
     }
 }

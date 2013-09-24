@@ -5,17 +5,17 @@ import java.io.RandomAccessFile;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1800a;
+    private String f1920a;
     private String b;
     private com.baidu.tieba.data.d c;
-    private v d;
+    private z d;
     private boolean e = false;
 
     public f(String str, com.baidu.tieba.data.d dVar, String str2) {
-        this.f1800a = null;
+        this.f1920a = null;
         this.b = null;
         this.c = null;
-        this.f1800a = str;
+        this.f1920a = str;
         this.c = dVar;
         this.b = str2;
     }
@@ -33,8 +33,8 @@ public class f {
         long j = b % 102400 == 0 ? b / 102400 : (b / 102400) + 1;
         int c = this.c.c();
         if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(p.c(this.f1800a), "r");
-            aq.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
+            RandomAccessFile randomAccessFile = new RandomAccessFile(p.c(this.f1920a), "r");
+            av.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
             if (randomAccessFile.skipBytes(102400 * c) < 102400 * c) {
                 eVar.a(false);
                 randomAccessFile.close();
@@ -50,11 +50,11 @@ public class f {
                     byte[] bArr = new byte[i2];
                     int read = randomAccessFile.read(bArr, 0, i2);
                     if (read != -1) {
-                        this.d = new v(this.b);
+                        this.d = new z(this.b);
                         this.d.a("md5", this.c.a());
                         this.d.a("total_length", String.valueOf(b));
                         this.d.a("total_num", String.valueOf(j));
-                        aq.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
+                        av.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
                         this.d.a("pic_chunk", bArr);
                         this.d.a("offset", String.valueOf(102400 * i));
                         this.d.a("chunk_no", String.valueOf(i + 1));
@@ -64,7 +64,7 @@ public class f {
                             z = true;
                         } else {
                             String l = this.d.l();
-                            aq.e("ChunkUploadHelper", "uploadChunkFile", "ret " + l);
+                            av.e("ChunkUploadHelper", "uploadChunkFile", "ret " + l);
                             if (l == null || !this.d.c()) {
                                 this.c.a(i);
                                 DatabaseService.a(this.c);

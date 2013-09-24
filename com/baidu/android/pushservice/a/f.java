@@ -62,9 +62,9 @@ public class f extends d {
             e.printStackTrace();
         }
         if (!TextUtils.isEmpty(this.b.e)) {
-            com.baidu.android.pushservice.a.a(this.f588a).e(this.b.e);
+            com.baidu.android.pushservice.a.a(this.f600a).e(this.b.e);
             if (!TextUtils.isEmpty(this.b.i)) {
-                com.baidu.android.pushservice.a.a(this.f588a).a(this.b.e, new g(this.b.i, b));
+                com.baidu.android.pushservice.a.a(this.f600a).a(this.b.e, new g(this.b.i, b));
                 if (!TextUtils.isEmpty(str2)) {
                     PushSettings.a(str2, 0, this.b.i);
                 }

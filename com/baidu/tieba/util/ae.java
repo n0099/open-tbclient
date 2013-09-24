@@ -1,38 +1,50 @@
 package com.baidu.tieba.util;
 
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+import android.os.Handler;
+import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-public class ae {
-    private static ArrayList b = new ArrayList();
+class ae implements com.baidu.adp.lib.network.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicInteger f1779a = new AtomicInteger(0);
+    int f1894a = 0;
+    int b = 0;
+    int c = 0;
+    final /* synthetic */ NetWorkCoreByBdHttp d;
+    private final /* synthetic */ Handler e;
+    private final /* synthetic */ int f;
 
-    public static int a(int i) {
-        return f1779a.getAndSet(i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ae(NetWorkCoreByBdHttp netWorkCoreByBdHttp, Handler handler, int i) {
+        this.d = netWorkCoreByBdHttp;
+        this.e = handler;
+        this.f = i;
     }
 
-    public static int b(int i) {
-        return f1779a.addAndGet(i);
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, HttpURLConnection httpURLConnection) {
+        if (httpURLConnection != null && i > 0) {
+            this.f1894a = i / 50;
+        }
     }
 
-    public static synchronized void a(af afVar) {
-        synchronized (ae.class) {
-            if (afVar != null) {
-                if (b.size() <= 20) {
-                    b.add(afVar);
-                }
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+        this.b += i - this.c;
+        this.c = i;
+        if (this.e != null) {
+            if (this.b > this.f1894a || i == i2) {
+                this.b = 0;
+                this.e.sendMessage(this.e.obtainMessage(this.f, i, i2));
             }
         }
     }
 
-    public static synchronized af a() {
-        af afVar;
-        synchronized (ae.class) {
-            int size = b.size();
-            afVar = size > 0 ? (af) b.remove(size - 1) : null;
-        }
-        return afVar;
+    @Override // com.baidu.adp.lib.network.c
+    public void a(com.baidu.adp.lib.network.e eVar) {
+        av.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(eVar.b));
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a() {
     }
 }

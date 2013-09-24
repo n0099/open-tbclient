@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f1128a;
+    public Bitmap f1175a;
     public int b;
     public int c;
     public int d;

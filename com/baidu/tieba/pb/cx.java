@@ -1,26 +1,17 @@
 package com.baidu.tieba.pb;
-
-import android.util.SparseArray;
-import android.view.View;
-import android.widget.AdapterView;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class cx implements AdapterView.OnItemClickListener {
+class cx implements com.baidu.tieba.view.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cv f1552a;
+    final /* synthetic */ br f1595a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cv cvVar) {
-        this.f1552a = cvVar;
+    public cx(br brVar) {
+        this.f1595a = brVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        String str;
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {
-            this.f1552a.b(str);
-        }
+    @Override // com.baidu.tieba.view.g
+    public void a() {
+        this.f1595a.l();
     }
 }

@@ -18,7 +18,7 @@ import java.util.Date;
 public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickListener, AdapterView.OnItemClickListener, com.baidu.tieba.kn.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1212a;
+    private int f1246a;
     private KnLaddersModel.RankInfo[] b;
     private KnLaddersModel.PlayerInfo[] c;
     private KnLaddersModel.PlayerInfo[] d;
@@ -33,15 +33,15 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
     private g m;
 
     public a(KnLaddersFragment knLaddersFragment) {
-        super(knLaddersFragment.g());
-        this.f1212a = 1;
+        super(knLaddersFragment.h());
+        this.f1246a = 1;
         this.b = new KnLaddersModel.RankInfo[0];
         this.c = new KnLaddersModel.PlayerInfo[0];
         this.d = new KnLaddersModel.PlayerInfo[0];
         this.e = new KnLaddersModel.PlayerInfo[0];
         this.f = new KnLaddersModel.Pic[0];
         this.g = new KnLaddersModel.Name[0];
-        this.k = knLaddersFragment.g();
+        this.k = knLaddersFragment.h();
         this.l = knLaddersFragment;
         this.j = new com.baidu.tieba.util.a(this.k);
         int i = (int) ((this.k.getResources().getDisplayMetrics().density * 50.0f) + 0.5d);
@@ -49,8 +49,8 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
     }
 
     public void a(int i) {
-        this.f1212a = i;
-        switch (this.f1212a) {
+        this.f1246a = i;
+        switch (this.f1246a) {
             case 1:
                 g();
                 this.h.b.setBackgroundResource(R.drawable.bg_subnav_list_s);
@@ -68,13 +68,13 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
                 break;
         }
         if (this.m != null) {
-            this.m.a(this.f1212a);
+            this.m.a(this.f1246a);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         FrsActivity.a(adapterView.getContext(), getItem(i).forum_name, "KnLadders");
     }
 
@@ -128,12 +128,12 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         this.f = rankPageInfo.pics;
         this.g = rankPageInfo.names;
         this.i = new KnLaddersBannerAdapter(this.k, this.f);
-        this.h.f1222a.setAdapter(this.i);
+        this.h.f1256a.setAdapter(this.i);
     }
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
     public int getCount() {
-        switch (this.f1212a) {
+        switch (this.f1246a) {
             case 1:
                 return this.c.length + 2;
             case 2:
@@ -152,7 +152,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         if (i == 0 || i == getCount() - 1) {
             return null;
         }
-        switch (this.f1212a) {
+        switch (this.f1246a) {
             case 1:
                 return this.c[i - 1];
             case 2:
@@ -203,7 +203,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         if (view == null) {
             View inflate = LayoutInflater.from(this.k).inflate(R.layout.kn_ladders_banner, viewGroup, false);
             this.h = new l(this, inflate);
-            this.h.f1222a.setOnPageChangeListener(new b(this));
+            this.h.f1256a.setOnPageChangeListener(new b(this));
             return inflate;
         }
         return view;
@@ -226,7 +226,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         if (view == null) {
             h hVar2 = new h(this, null);
             view = LayoutInflater.from(this.k).inflate(R.layout.kn_ladders_item, viewGroup, false);
-            hVar2.f1218a = (LinearLayout) view.findViewById(R.id.item_root);
+            hVar2.f1252a = (LinearLayout) view.findViewById(R.id.item_root);
             hVar2.b = (TextView) view.findViewById(R.id.index);
             hVar2.c = (TbImageView) view.findViewById(R.id.portrait);
             hVar2.d = (TextView) view.findViewById(R.id.name);
@@ -240,7 +240,7 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
         }
         KnLaddersModel.PlayerInfo item = getItem(i);
         if (item != null) {
-            hVar.f1218a.setOnClickListener(new d(this, item));
+            hVar.f1252a.setOnClickListener(new d(this, item));
             if (item.player_name != null) {
                 hVar.d.setText(item.player_name);
             }
@@ -287,31 +287,31 @@ public class a extends com.baidu.adp.widget.ListView.e implements View.OnClickLi
     public void onClick(View view) {
         int currentItem;
         switch (view.getId()) {
-            case R.id.next /* 2131099846 */:
-                if (this.h != null && this.h.f1222a != null) {
-                    int currentItem2 = this.h.f1222a.getCurrentItem() + 1;
+            case R.id.next /* 2131099853 */:
+                if (this.h != null && this.h.f1256a != null) {
+                    int currentItem2 = this.h.f1256a.getCurrentItem() + 1;
                     if (this.i != null && currentItem2 <= this.i.getCount() - 1) {
-                        this.h.f1222a.setCurrentItem(currentItem2);
+                        this.h.f1256a.setCurrentItem(currentItem2);
                         return;
                     }
                     return;
                 }
                 return;
-            case R.id.pre /* 2131100281 */:
-                if (this.h != null && this.h.f1222a != null && this.h.f1222a.getCurrentItem() - 1 >= 0) {
-                    this.h.f1222a.setCurrentItem(currentItem);
+            case R.id.pre /* 2131100326 */:
+                if (this.h != null && this.h.f1256a != null && this.h.f1256a.getCurrentItem() - 1 >= 0) {
+                    this.h.f1256a.setCurrentItem(currentItem);
                     return;
                 }
                 return;
-            case R.id.tab_1 /* 2131100285 */:
+            case R.id.tab_1 /* 2131100330 */:
                 a(1);
                 notifyDataSetChanged();
                 return;
-            case R.id.tab_2 /* 2131100286 */:
+            case R.id.tab_2 /* 2131100331 */:
                 a(2);
                 notifyDataSetChanged();
                 return;
-            case R.id.tab_3 /* 2131100287 */:
+            case R.id.tab_3 /* 2131100332 */:
                 a(3);
                 notifyDataSetChanged();
                 return;

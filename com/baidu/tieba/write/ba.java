@@ -1,66 +1,38 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import com.slidingmenu.lib.R;
-import java.io.File;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba {
-    public static void a(com.baidu.tieba.g gVar) {
-        try {
-            if (!com.baidu.tieba.util.p.a()) {
-                gVar.a(com.baidu.tieba.util.p.b());
-            } else {
-                File e = com.baidu.tieba.util.p.e("camera.jpg");
-                if (e != null) {
-                    Uri fromFile = Uri.fromFile(e);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    gVar.startActivityForResult(intent, 12001);
-                } else {
-                    gVar.a(gVar.getString(R.string.error_sd_error));
-                }
-            }
-        } catch (Exception e2) {
-            com.baidu.tieba.util.aq.b("WriteUtil", "takePhoto", "error = " + e2.getMessage());
-        }
+public class ba implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WriteImageActivity f2105a;
+    private final /* synthetic */ String b;
+    private final /* synthetic */ int c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ba(WriteImageActivity writeImageActivity, String str, int i) {
+        this.f2105a = writeImageActivity;
+        this.b = str;
+        this.c = i;
     }
 
-    public static void b(com.baidu.tieba.g gVar) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            gVar.startActivityForResult(intent, 12002);
-        } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ProgressBar progressBar;
+        ImageView imageView;
+        Bitmap bitmap;
+        progressBar = this.f2105a.j;
+        if (progressBar.getVisibility() != 0) {
+            imageView = this.f2105a.b;
+            bitmap = this.f2105a.c;
+            imageView.setImageBitmap(bitmap);
+            this.f2105a.y = false;
+            this.f2105a.e(this.b);
+            this.f2105a.u = this.c;
         }
-    }
-
-    private static Bitmap a(int i) {
-        try {
-            return com.baidu.tieba.util.e.a("camera.jpg", i);
-        } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("WriteUtil", "photoResult", "error = " + e.getMessage());
-            return null;
-        }
-    }
-
-    private static Bitmap a(Context context, Uri uri, int i) {
-        try {
-            return com.baidu.tieba.util.e.a(context, uri, i);
-        } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
-            return null;
-        }
-    }
-
-    public static Bitmap a(int i, Context context, Uri uri, int i2) {
-        if (i == 12001) {
-            return a(i2);
-        }
-        return a(context, uri, i2);
     }
 }

@@ -38,17 +38,17 @@ public final class v extends t {
     static boolean f290a = false;
     static final boolean b;
     static final Interpolator z;
-    ArrayList c;
+    ArrayList<Runnable> c;
     Runnable[] d;
     boolean e;
-    ArrayList f;
-    ArrayList g;
-    ArrayList h;
-    ArrayList i;
-    ArrayList j;
-    ArrayList k;
-    ArrayList l;
-    ArrayList m;
+    ArrayList<Fragment> f;
+    ArrayList<Fragment> g;
+    ArrayList<Integer> h;
+    ArrayList<i> i;
+    ArrayList<Fragment> j;
+    ArrayList<i> k;
+    ArrayList<Integer> l;
+    ArrayList<u> m;
     n o;
     s p;
     Fragment q;
@@ -59,7 +59,7 @@ public final class v extends t {
     boolean v;
     int n = 0;
     Bundle w = null;
-    SparseArray x = null;
+    SparseArray<Parcelable> x = null;
     Runnable y = new w(this);
 
     static {
@@ -129,7 +129,7 @@ public final class v extends t {
         if (i >= this.f.size()) {
             a(new IllegalStateException("Fragement no longer exists for key " + str + ": index " + i));
         }
-        Fragment fragment = (Fragment) this.f.get(i);
+        Fragment fragment = this.f.get(i);
         if (fragment == null) {
             a(new IllegalStateException("Fragement no longer exists for key " + str + ": index " + i));
             return fragment;
@@ -165,7 +165,7 @@ public final class v extends t {
             printWriter.print(Integer.toHexString(System.identityHashCode(this)));
             printWriter.println(":");
             for (int i = 0; i < size6; i++) {
-                Fragment fragment = (Fragment) this.f.get(i);
+                Fragment fragment = this.f.get(i);
                 printWriter.print(str);
                 printWriter.print("  #");
                 printWriter.print(i);
@@ -184,7 +184,7 @@ public final class v extends t {
                 printWriter.print("  #");
                 printWriter.print(i2);
                 printWriter.print(": ");
-                printWriter.println(((Fragment) this.g.get(i2)).toString());
+                printWriter.println(this.g.get(i2).toString());
             }
         }
         if (this.j != null && (size4 = this.j.size()) > 0) {
@@ -195,14 +195,14 @@ public final class v extends t {
                 printWriter.print("  #");
                 printWriter.print(i3);
                 printWriter.print(": ");
-                printWriter.println(((Fragment) this.j.get(i3)).toString());
+                printWriter.println(this.j.get(i3).toString());
             }
         }
         if (this.i != null && (size3 = this.i.size()) > 0) {
             printWriter.print(str);
             printWriter.println("Back Stack:");
             for (int i4 = 0; i4 < size3; i4++) {
-                i iVar = (i) this.i.get(i4);
+                i iVar = this.i.get(i4);
                 printWriter.print(str);
                 printWriter.print("  #");
                 printWriter.print(i4);
@@ -398,7 +398,7 @@ public final class v extends t {
                             this.o.onAttachFragment(fragment);
                         }
                         if (!fragment.L) {
-                            fragment.h(fragment.m);
+                            fragment.i(fragment.m);
                         }
                         fragment.L = false;
                         if (fragment.x) {
@@ -423,7 +423,7 @@ public final class v extends t {
                                 if (fragment.G != 0) {
                                     viewGroup = (ViewGroup) this.p.a(fragment.G);
                                     if (viewGroup == null && !fragment.z) {
-                                        a(new IllegalArgumentException("No view found for id 0x" + Integer.toHexString(fragment.G) + " (" + fragment.h().getResourceName(fragment.G) + ") for fragment " + fragment));
+                                        a(new IllegalArgumentException("No view found for id 0x" + Integer.toHexString(fragment.G) + " (" + fragment.i().getResourceName(fragment.G) + ") for fragment " + fragment));
                                     }
                                 } else {
                                     viewGroup = null;
@@ -448,7 +448,7 @@ public final class v extends t {
                                     fragment.S = null;
                                 }
                             }
-                            fragment.i(fragment.m);
+                            fragment.j(fragment.m);
                             if (fragment.R != null) {
                                 fragment.f(fragment.m);
                             }
@@ -461,7 +461,7 @@ public final class v extends t {
                             if (f290a) {
                                 Log.v("FragmentManager", "moveto STARTED: " + fragment);
                             }
-                            fragment.t();
+                            fragment.u();
                         }
                     case 4:
                         if (i > 4) {
@@ -469,7 +469,7 @@ public final class v extends t {
                                 Log.v("FragmentManager", "moveto RESUMED: " + fragment);
                             }
                             fragment.w = true;
-                            fragment.u();
+                            fragment.v();
                             fragment.m = null;
                             fragment.n = null;
                             break;
@@ -497,7 +497,7 @@ public final class v extends t {
                                 Log.v("FragmentManager", "movefrom CREATED: " + fragment);
                             }
                             if (!fragment.L) {
-                                fragment.A();
+                                fragment.B();
                             }
                             fragment.O = false;
                             fragment.b();
@@ -525,7 +525,7 @@ public final class v extends t {
                         if (fragment.R != null && !this.o.isFinishing() && fragment.n == null) {
                             e(fragment);
                         }
-                        fragment.z();
+                        fragment.A();
                         if (fragment.R != null && fragment.Q != null) {
                             Animation a3 = (this.n <= 0 || this.t) ? null : a(fragment, i2, false, i3);
                             if (a3 != null) {
@@ -548,7 +548,7 @@ public final class v extends t {
                         if (f290a) {
                             Log.v("FragmentManager", "movefrom STOPPED: " + fragment);
                         }
-                        fragment.y();
+                        fragment.z();
                     }
                     if (i < 2) {
                     }
@@ -560,7 +560,7 @@ public final class v extends t {
                         if (f290a) {
                             Log.v("FragmentManager", "movefrom STARTED: " + fragment);
                         }
-                        fragment.x();
+                        fragment.y();
                     }
                     if (i < 3) {
                     }
@@ -574,7 +574,7 @@ public final class v extends t {
                         if (f290a) {
                             Log.v("FragmentManager", "movefrom RESUMED: " + fragment);
                         }
-                        fragment.w();
+                        fragment.x();
                         fragment.w = false;
                     }
                     if (i < 4) {
@@ -611,7 +611,7 @@ public final class v extends t {
                 int i4 = 0;
                 boolean z3 = false;
                 while (i4 < this.f.size()) {
-                    Fragment fragment = (Fragment) this.f.get(i4);
+                    Fragment fragment = this.f.get(i4);
                     if (fragment != null) {
                         a(fragment, i, i2, i3, false);
                         if (fragment.V != null) {
@@ -639,7 +639,7 @@ public final class v extends t {
             while (true) {
                 int i2 = i;
                 if (i2 < this.f.size()) {
-                    Fragment fragment = (Fragment) this.f.get(i2);
+                    Fragment fragment = this.f.get(i2);
                     if (fragment != null) {
                         a(fragment);
                     }
@@ -655,12 +655,12 @@ public final class v extends t {
         if (fragment.o < 0) {
             if (this.h == null || this.h.size() <= 0) {
                 if (this.f == null) {
-                    this.f = new ArrayList();
+                    this.f = new ArrayList<>();
                 }
                 fragment.a(this.f.size(), this.q);
                 this.f.add(fragment);
             } else {
-                fragment.a(((Integer) this.h.remove(this.h.size() - 1)).intValue(), this.q);
+                fragment.a(this.h.remove(this.h.size() - 1).intValue(), this.q);
                 this.f.set(fragment.o, fragment);
             }
             if (f290a) {
@@ -676,17 +676,17 @@ public final class v extends t {
             }
             this.f.set(fragment.o, null);
             if (this.h == null) {
-                this.h = new ArrayList();
+                this.h = new ArrayList<>();
             }
             this.h.add(Integer.valueOf(fragment.o));
             this.o.invalidateSupportFragment(fragment.p);
-            fragment.q();
+            fragment.r();
         }
     }
 
     public void a(Fragment fragment, boolean z2) {
         if (this.g == null) {
-            this.g = new ArrayList();
+            this.g = new ArrayList<>();
         }
         if (f290a) {
             Log.v("FragmentManager", "add: " + fragment);
@@ -796,7 +796,7 @@ public final class v extends t {
             fragment.J = false;
             if (!fragment.u) {
                 if (this.g == null) {
-                    this.g = new ArrayList();
+                    this.g = new ArrayList<>();
                 }
                 if (this.g.contains(fragment)) {
                     throw new IllegalStateException("Fragment already added: " + fragment);
@@ -817,7 +817,7 @@ public final class v extends t {
     public Fragment a(int i) {
         if (this.g != null) {
             for (int size = this.g.size() - 1; size >= 0; size--) {
-                Fragment fragment = (Fragment) this.g.get(size);
+                Fragment fragment = this.g.get(size);
                 if (fragment != null && fragment.F == i) {
                     return fragment;
                 }
@@ -825,7 +825,7 @@ public final class v extends t {
         }
         if (this.f != null) {
             for (int size2 = this.f.size() - 1; size2 >= 0; size2--) {
-                Fragment fragment2 = (Fragment) this.f.get(size2);
+                Fragment fragment2 = this.f.get(size2);
                 if (fragment2 != null && fragment2.F == i) {
                     return fragment2;
                 }
@@ -838,7 +838,7 @@ public final class v extends t {
     public Fragment a(String str) {
         if (this.g != null && str != null) {
             for (int size = this.g.size() - 1; size >= 0; size--) {
-                Fragment fragment = (Fragment) this.g.get(size);
+                Fragment fragment = this.g.get(size);
                 if (fragment != null && str.equals(fragment.H)) {
                     return fragment;
                 }
@@ -846,7 +846,7 @@ public final class v extends t {
         }
         if (this.f != null && str != null) {
             for (int size2 = this.f.size() - 1; size2 >= 0; size2--) {
-                Fragment fragment2 = (Fragment) this.f.get(size2);
+                Fragment fragment2 = this.f.get(size2);
                 if (fragment2 != null && str.equals(fragment2.H)) {
                     return fragment2;
                 }
@@ -873,7 +873,7 @@ public final class v extends t {
                 throw new IllegalStateException("Activity has been destroyed");
             }
             if (this.c == null) {
-                this.c = new ArrayList();
+                this.c = new ArrayList<>();
             }
             this.c.add(runnable);
             if (this.c.size() == 1) {
@@ -888,7 +888,7 @@ public final class v extends t {
         synchronized (this) {
             if (this.l == null || this.l.size() <= 0) {
                 if (this.k == null) {
-                    this.k = new ArrayList();
+                    this.k = new ArrayList<>();
                 }
                 size = this.k.size();
                 if (f290a) {
@@ -896,7 +896,7 @@ public final class v extends t {
                 }
                 this.k.add(iVar);
             } else {
-                size = ((Integer) this.l.remove(this.l.size() - 1)).intValue();
+                size = this.l.remove(this.l.size() - 1).intValue();
                 if (f290a) {
                     Log.v("FragmentManager", "Adding back stack index " + size + " with " + iVar);
                 }
@@ -909,7 +909,7 @@ public final class v extends t {
     public void a(int i, i iVar) {
         synchronized (this) {
             if (this.k == null) {
-                this.k = new ArrayList();
+                this.k = new ArrayList<>();
             }
             int size = this.k.size();
             if (i < size) {
@@ -921,7 +921,7 @@ public final class v extends t {
                 while (size < i) {
                     this.k.add(null);
                     if (this.l == null) {
-                        this.l = new ArrayList();
+                        this.l = new ArrayList<>();
                     }
                     if (f290a) {
                         Log.v("FragmentManager", "Adding available back stack index " + size);
@@ -941,7 +941,7 @@ public final class v extends t {
         synchronized (this) {
             this.k.set(i, null);
             if (this.l == null) {
-                this.l = new ArrayList();
+                this.l = new ArrayList<>();
             }
             if (f290a) {
                 Log.v("FragmentManager", "Freeing back stack index " + i);
@@ -992,7 +992,7 @@ public final class v extends t {
         if (this.v) {
             boolean z3 = false;
             for (int i = 0; i < this.f.size(); i++) {
-                Fragment fragment = (Fragment) this.f.get(i);
+                Fragment fragment = this.f.get(i);
                 if (fragment != null && fragment.V != null) {
                     z3 |= fragment.V.a();
                 }
@@ -1011,7 +1011,7 @@ public final class v extends t {
             while (true) {
                 int i2 = i;
                 if (i2 < this.m.size()) {
-                    ((u) this.m.get(i2)).a();
+                    this.m.get(i2).a();
                     i = i2 + 1;
                 } else {
                     return;
@@ -1023,7 +1023,7 @@ public final class v extends t {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(i iVar) {
         if (this.i == null) {
-            this.i = new ArrayList();
+            this.i = new ArrayList<>();
         }
         this.i.add(iVar);
         f();
@@ -1039,14 +1039,14 @@ public final class v extends t {
             if (size < 0) {
                 return false;
             }
-            ((i) this.i.remove(size)).b(true);
+            this.i.remove(size).b(true);
             f();
         } else {
             int i3 = -1;
             if (str != null || i >= 0) {
                 int size2 = this.i.size() - 1;
                 while (size2 >= 0) {
-                    i iVar = (i) this.i.get(size2);
+                    i iVar = this.i.get(size2);
                     if ((str != null && str.equals(iVar.c())) || (i >= 0 && i == iVar.o)) {
                         break;
                     }
@@ -1058,7 +1058,7 @@ public final class v extends t {
                 if ((i2 & 1) != 0) {
                     size2--;
                     while (size2 >= 0) {
-                        i iVar2 = (i) this.i.get(size2);
+                        i iVar2 = this.i.get(size2);
                         if ((str == null || !str.equals(iVar2.c())) && (i < 0 || i != iVar2.o)) {
                             break;
                         }
@@ -1089,8 +1089,8 @@ public final class v extends t {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList g() {
-        ArrayList arrayList = null;
+    public ArrayList<Fragment> g() {
+        ArrayList<Fragment> arrayList = null;
         if (this.f != null) {
             int i = 0;
             while (true) {
@@ -1098,10 +1098,10 @@ public final class v extends t {
                 if (i2 >= this.f.size()) {
                     break;
                 }
-                Fragment fragment = (Fragment) this.f.get(i2);
+                Fragment fragment = this.f.get(i2);
                 if (fragment != null && fragment.K) {
                     if (arrayList == null) {
-                        arrayList = new ArrayList();
+                        arrayList = new ArrayList<>();
                     }
                     arrayList.add(fragment);
                     fragment.L = true;
@@ -1119,7 +1119,7 @@ public final class v extends t {
     void e(Fragment fragment) {
         if (fragment.S != null) {
             if (this.x == null) {
-                this.x = new SparseArray();
+                this.x = new SparseArray<>();
             } else {
                 this.x.clear();
             }
@@ -1136,7 +1136,7 @@ public final class v extends t {
         if (this.w == null) {
             this.w = new Bundle();
         }
-        fragment.j(this.w);
+        fragment.k(this.w);
         if (this.w.isEmpty()) {
             bundle = null;
         } else {
@@ -1180,7 +1180,7 @@ public final class v extends t {
         int i = 0;
         boolean z3 = false;
         while (i < size3) {
-            Fragment fragment = (Fragment) this.f.get(i);
+            Fragment fragment = this.f.get(i);
             if (fragment != null) {
                 if (fragment.o < 0) {
                     a(new IllegalStateException("Failure saving state: active " + fragment + " has cleared index: " + fragment.o));
@@ -1226,7 +1226,7 @@ public final class v extends t {
         } else {
             iArr = new int[size2];
             for (int i2 = 0; i2 < size2; i2++) {
-                iArr[i2] = ((Fragment) this.g.get(i2)).o;
+                iArr[i2] = this.g.get(i2).o;
                 if (iArr[i2] < 0) {
                     a(new IllegalStateException("Failure saving state: active " + this.g.get(i2) + " has cleared index: " + iArr[i2]));
                 }
@@ -1238,7 +1238,7 @@ public final class v extends t {
         if (this.i != null && (size = this.i.size()) > 0) {
             backStackStateArr = new BackStackState[size];
             for (int i3 = 0; i3 < size; i3++) {
-                backStackStateArr[i3] = new BackStackState(this, (i) this.i.get(i3));
+                backStackStateArr[i3] = new BackStackState(this, this.i.get(i3));
                 if (f290a) {
                     Log.v("FragmentManager", "saveAllState: adding back stack #" + i3 + ": " + this.i.get(i3));
                 }
@@ -1252,13 +1252,13 @@ public final class v extends t {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(Parcelable parcelable, ArrayList arrayList) {
+    public void a(Parcelable parcelable, ArrayList<Fragment> arrayList) {
         if (parcelable != null) {
             FragmentManagerState fragmentManagerState = (FragmentManagerState) parcelable;
             if (fragmentManagerState.f267a != null) {
                 if (arrayList != null) {
                     for (int i = 0; i < arrayList.size(); i++) {
-                        Fragment fragment = (Fragment) arrayList.get(i);
+                        Fragment fragment = arrayList.get(i);
                         if (f290a) {
                             Log.v("FragmentManager", "restoreAllState: re-attaching retained " + fragment);
                         }
@@ -1275,7 +1275,7 @@ public final class v extends t {
                         }
                     }
                 }
-                this.f = new ArrayList(fragmentManagerState.f267a.length);
+                this.f = new ArrayList<>(fragmentManagerState.f267a.length);
                 if (this.h != null) {
                     this.h.clear();
                 }
@@ -1291,7 +1291,7 @@ public final class v extends t {
                     } else {
                         this.f.add(null);
                         if (this.h == null) {
-                            this.h = new ArrayList();
+                            this.h = new ArrayList<>();
                         }
                         if (f290a) {
                             Log.v("FragmentManager", "restoreAllState: avail #" + i2);
@@ -1301,10 +1301,10 @@ public final class v extends t {
                 }
                 if (arrayList != null) {
                     for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                        Fragment fragment2 = (Fragment) arrayList.get(i3);
+                        Fragment fragment2 = arrayList.get(i3);
                         if (fragment2.s >= 0) {
                             if (fragment2.s < this.f.size()) {
-                                fragment2.r = (Fragment) this.f.get(fragment2.s);
+                                fragment2.r = this.f.get(fragment2.s);
                             } else {
                                 Log.w("FragmentManager", "Re-attaching retained fragment " + fragment2 + " target no longer exists: " + fragment2.s);
                                 fragment2.r = null;
@@ -1313,9 +1313,9 @@ public final class v extends t {
                     }
                 }
                 if (fragmentManagerState.b != null) {
-                    this.g = new ArrayList(fragmentManagerState.b.length);
+                    this.g = new ArrayList<>(fragmentManagerState.b.length);
                     for (int i4 = 0; i4 < fragmentManagerState.b.length; i4++) {
-                        Fragment fragment3 = (Fragment) this.f.get(fragmentManagerState.b[i4]);
+                        Fragment fragment3 = this.f.get(fragmentManagerState.b[i4]);
                         if (fragment3 == null) {
                             a(new IllegalStateException("No instantiated fragment for index #" + fragmentManagerState.b[i4]));
                         }
@@ -1332,7 +1332,7 @@ public final class v extends t {
                     this.g = null;
                 }
                 if (fragmentManagerState.c != null) {
-                    this.i = new ArrayList(fragmentManagerState.c.length);
+                    this.i = new ArrayList<>(fragmentManagerState.c.length);
                     for (int i5 = 0; i5 < fragmentManagerState.c.length; i5++) {
                         i a3 = fragmentManagerState.c[i5].a(this);
                         if (f290a) {
@@ -1416,7 +1416,7 @@ public final class v extends t {
             while (true) {
                 int i2 = i;
                 if (i2 < this.g.size()) {
-                    Fragment fragment = (Fragment) this.g.get(i2);
+                    Fragment fragment = this.g.get(i2);
                     if (fragment != null) {
                         fragment.a(configuration);
                     }
@@ -1434,9 +1434,9 @@ public final class v extends t {
             while (true) {
                 int i2 = i;
                 if (i2 < this.g.size()) {
-                    Fragment fragment = (Fragment) this.g.get(i2);
+                    Fragment fragment = this.g.get(i2);
                     if (fragment != null) {
-                        fragment.v();
+                        fragment.w();
                     }
                     i = i2 + 1;
                 } else {
@@ -1448,16 +1448,16 @@ public final class v extends t {
 
     public boolean a(Menu menu, MenuInflater menuInflater) {
         boolean z2;
-        ArrayList arrayList = null;
+        ArrayList<Fragment> arrayList = null;
         if (this.g != null) {
             int i = 0;
             z2 = false;
             while (i < this.g.size()) {
-                Fragment fragment = (Fragment) this.g.get(i);
+                Fragment fragment = this.g.get(i);
                 if (fragment != null && fragment.b(menu, menuInflater)) {
                     z2 = true;
                     if (arrayList == null) {
-                        arrayList = new ArrayList();
+                        arrayList = new ArrayList<>();
                     }
                     arrayList.add(fragment);
                 }
@@ -1469,9 +1469,9 @@ public final class v extends t {
         }
         if (this.j != null) {
             for (int i2 = 0; i2 < this.j.size(); i2++) {
-                Fragment fragment2 = (Fragment) this.j.get(i2);
+                Fragment fragment2 = this.j.get(i2);
                 if (arrayList == null || !arrayList.contains(fragment2)) {
-                    fragment2.r();
+                    fragment2.s();
                 }
             }
         }
@@ -1483,7 +1483,7 @@ public final class v extends t {
         if (this.g != null) {
             boolean z2 = false;
             for (int i = 0; i < this.g.size(); i++) {
-                Fragment fragment = (Fragment) this.g.get(i);
+                Fragment fragment = this.g.get(i);
                 if (fragment != null && fragment.c(menu)) {
                     z2 = true;
                 }
@@ -1496,7 +1496,7 @@ public final class v extends t {
     public boolean a(MenuItem menuItem) {
         if (this.g != null) {
             for (int i = 0; i < this.g.size(); i++) {
-                Fragment fragment = (Fragment) this.g.get(i);
+                Fragment fragment = this.g.get(i);
                 if (fragment != null && fragment.c(menuItem)) {
                     return true;
                 }
@@ -1509,7 +1509,7 @@ public final class v extends t {
     public boolean b(MenuItem menuItem) {
         if (this.g != null) {
             for (int i = 0; i < this.g.size(); i++) {
-                Fragment fragment = (Fragment) this.g.get(i);
+                Fragment fragment = this.g.get(i);
                 if (fragment != null && fragment.d(menuItem)) {
                     return true;
                 }
@@ -1525,7 +1525,7 @@ public final class v extends t {
             while (true) {
                 int i2 = i;
                 if (i2 < this.g.size()) {
-                    Fragment fragment = (Fragment) this.g.get(i2);
+                    Fragment fragment = this.g.get(i2);
                     if (fragment != null) {
                         fragment.d(menu);
                     }

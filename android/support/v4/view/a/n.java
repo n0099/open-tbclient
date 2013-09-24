@@ -6,7 +6,7 @@ import java.util.List;
 interface n {
     Object a(int i);
 
-    List a(String str, int i);
+    List<Object> a(String str, int i);
 
     boolean a(int i, int i2, Bundle bundle);
 }

@@ -15,14 +15,14 @@ import java.util.Set;
 public class MMSharedPreferences implements SharedPreferences {
     private final ContentResolver i;
     private final String[] columns = {"_id", "key", "type", "value"};
-    private final HashMap j = new HashMap();
+    private final HashMap<String, Object> j = new HashMap<>();
     private REditor k = null;
 
     /* loaded from: classes.dex */
     class REditor implements SharedPreferences.Editor {
         private ContentResolver i;
-        private Map l = new HashMap();
-        private Set m = new HashSet();
+        private Map<String, Object> l = new HashMap();
+        private Set<String> m = new HashSet();
         private boolean n = false;
 
         public REditor(ContentResolver contentResolver) {
@@ -46,13 +46,13 @@ public class MMSharedPreferences implements SharedPreferences {
                 this.i.delete(MMPluginProviderConstants.SharedPref.CONTENT_URI, null, null);
                 this.n = false;
             }
-            Iterator it = this.m.iterator();
+            Iterator<String> it = this.m.iterator();
             while (it.hasNext()) {
-                this.i.delete(MMPluginProviderConstants.SharedPref.CONTENT_URI, "key = ?", new String[]{(String) it.next()});
+                this.i.delete(MMPluginProviderConstants.SharedPref.CONTENT_URI, "key = ?", new String[]{it.next()});
             }
-            for (Map.Entry entry : this.l.entrySet()) {
+            for (Map.Entry<String, Object> entry : this.l.entrySet()) {
                 if (MMPluginProviderConstants.Resolver.unresolveObj(contentValues, entry.getValue())) {
-                    this.i.update(MMPluginProviderConstants.SharedPref.CONTENT_URI, contentValues, "key = ?", new String[]{(String) entry.getKey()});
+                    this.i.update(MMPluginProviderConstants.SharedPref.CONTENT_URI, contentValues, "key = ?", new String[]{entry.getKey()});
                 }
             }
             return true;
@@ -94,7 +94,7 @@ public class MMSharedPreferences implements SharedPreferences {
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putStringSet(String str, Set set) {
+        public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
             return null;
         }
 
@@ -138,7 +138,7 @@ public class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Map getAll() {
+    public Map<String, ?> getAll() {
         try {
             Cursor query = this.i.query(MMPluginProviderConstants.SharedPref.CONTENT_URI, this.columns, null, null, null);
             if (query == null) {
@@ -189,7 +189,7 @@ public class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public Set getStringSet(String str, Set set) {
+    public Set<String> getStringSet(String str, Set<String> set) {
         return null;
     }
 

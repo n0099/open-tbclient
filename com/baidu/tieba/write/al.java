@@ -1,24 +1,25 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.GridView;
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
+class al implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1911a;
+    final /* synthetic */ WriteActivity f2089a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.f1911a = writeActivity;
+        this.f2089a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Bitmap bitmap;
-        WriteActivity writeActivity = this.f1911a;
-        bitmap = this.f1911a.y;
-        WriteImageActivity.a(writeActivity, bitmap, 12003);
+    @Override // java.lang.Runnable
+    public void run() {
+        GridView gridView;
+        GridView gridView2;
+        gridView = this.f2089a.u;
+        if (gridView.getVisibility() != 0) {
+            gridView2 = this.f2089a.u;
+            gridView2.setVisibility(0);
+        }
     }
 }

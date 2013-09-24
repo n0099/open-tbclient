@@ -46,17 +46,17 @@ public final class ChannelUtil {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002b: SGET  (r2v9 int A[REMOVE]) =  android.os.Build.VERSION.SDK_INT int)] */
     public static void loadProfile(Context context) {
         try {
-            Map parseIni = KVConfig.parseIni(Util.convertStreamToString(context.getAssets().open("profile.ini")));
-            String nullAsNil = Util.nullAsNil((String) parseIni.get("PROFILE_DEVICE_TYPE"));
+            Map<String, String> parseIni = KVConfig.parseIni(Util.convertStreamToString(context.getAssets().open("profile.ini")));
+            String nullAsNil = Util.nullAsNil(parseIni.get("PROFILE_DEVICE_TYPE"));
             profileDeviceType = nullAsNil;
             if (nullAsNil.length() <= 0) {
                 profileDeviceType = new StringBuilder().append(Build.VERSION.SDK_INT).toString();
             }
-            updateMode = Integer.parseInt((String) parseIni.get("UPDATE_MODE"));
-            buildRev = Integer.parseInt((String) parseIni.get("BUILD_REVISION"));
+            updateMode = Integer.parseInt(parseIni.get("UPDATE_MODE"));
+            buildRev = Integer.parseInt(parseIni.get("BUILD_REVISION"));
             android.util.Log.w("MicroMsg.SDK.ChannelUtil", "profileDeviceType=" + profileDeviceType);
             android.util.Log.w("MicroMsg.SDK.ChannelUtil", "updateMode=" + updateMode);
-            String str = (String) parseIni.get("MARKET_URL");
+            String str = parseIni.get("MARKET_URL");
             if (str != null && str.trim().length() != 0 && Uri.parse(str) != null) {
                 marketURL = str;
             }
@@ -69,7 +69,7 @@ public final class ChannelUtil {
 
     public static void setupChannelId(Context context) {
         try {
-            channelId = Integer.parseInt((String) KVConfig.parseIni(Util.convertStreamToString(context.getAssets().open("channel.ini"))).get("CHANNEL"));
+            channelId = Integer.parseInt(KVConfig.parseIni(Util.convertStreamToString(context.getAssets().open("channel.ini"))).get("CHANNEL"));
         } catch (Exception e) {
             Log.e("MicroMsg.SDK.ChannelUtil", "setup channel id from channel.ini failed");
             e.printStackTrace();

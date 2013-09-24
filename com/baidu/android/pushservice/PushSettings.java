@@ -18,31 +18,31 @@ import java.util.HashMap;
 public class PushSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f585a;
+    private static Context f597a;
 
     public static String a() {
-        if (f585a == null) {
+        if (f597a == null) {
             Log.e("PushSettings", "mContext == null");
             return "";
         }
-        return Settings.System.getString(f585a.getContentResolver(), "com.baidu.pushservice.channel_id");
+        return Settings.System.getString(f597a.getContentResolver(), "com.baidu.pushservice.channel_id");
     }
 
     public static void a(Context context) {
-        f585a = context;
+        f597a = context;
     }
 
     public static void a(String str) {
-        if (f585a == null) {
+        if (f597a == null) {
             Log.e("PushSettings", "setChannelId mContext == null");
         } else {
-            Settings.System.putString(f585a.getContentResolver(), "com.baidu.pushservice.channel_id", str);
+            Settings.System.putString(f597a.getContentResolver(), "com.baidu.pushservice.channel_id", str);
         }
     }
 
     public static void a(String str, int i, String str2) {
         String str3;
-        if (f585a == null) {
+        if (f597a == null) {
             Log.e("PushSettings", "setApiInfo mContext == null");
         } else if (i == 9) {
             try {
@@ -52,7 +52,7 @@ public class PushSettings {
                 }
                 d.remove("com.baidu.pushservice" + str);
                 a(d);
-                Settings.System.putString(f585a.getContentResolver(), "com.baidu.pushservice" + str, "");
+                Settings.System.putString(f597a.getContentResolver(), "com.baidu.pushservice" + str, "");
             } catch (Exception e) {
                 Log.d("PushSettings", "set appInfo exception");
             }
@@ -79,7 +79,7 @@ public class PushSettings {
                 hashMap.put("com.baidu.pushservice" + str, str3);
                 a(hashMap);
             }
-            Settings.System.putString(f585a.getContentResolver(), "com.baidu.pushservice" + str, str3);
+            Settings.System.putString(f597a.getContentResolver(), "com.baidu.pushservice" + str, str3);
         }
     }
 
@@ -101,19 +101,19 @@ public class PushSettings {
     }
 
     public static String b() {
-        if (f585a == null) {
+        if (f597a == null) {
             Log.e("PushSettings", "getChannelToken mContext == null");
             return "";
         }
-        return Settings.System.getString(f585a.getContentResolver(), "com.baidu.pushservice.channel_token_rsa");
+        return Settings.System.getString(f597a.getContentResolver(), "com.baidu.pushservice.channel_token_rsa");
     }
 
     public static String b(String str) {
-        if (f585a == null) {
+        if (f597a == null) {
             Log.e("PushSettings", "setApiInfo mContext == null");
             return "";
         }
-        String string = Settings.System.getString(f585a.getContentResolver(), "com.baidu.pushservice" + str);
+        String string = Settings.System.getString(f597a.getContentResolver(), "com.baidu.pushservice" + str);
         if (TextUtils.isEmpty(string)) {
             try {
                 string = (String) d().get("com.baidu.pushservice" + str);
@@ -145,19 +145,19 @@ public class PushSettings {
     }
 
     public static void c(String str) {
-        if (f585a == null) {
+        if (f597a == null) {
             Log.e("PushSettings", "setChannelToken mContext == null");
         } else {
-            Settings.System.putString(f585a.getContentResolver(), "com.baidu.pushservice.channel_token_rsa", str);
+            Settings.System.putString(f597a.getContentResolver(), "com.baidu.pushservice.channel_token_rsa", str);
         }
     }
 
     public static boolean c() {
-        if (f585a == null) {
+        if (f597a == null) {
             return false;
         }
         try {
-            return Settings.System.getInt(f585a.getContentResolver(), "com.baidu.android.pushservice.PushSettings.debug_mode") == 1;
+            return Settings.System.getInt(f597a.getContentResolver(), "com.baidu.android.pushservice.PushSettings.debug_mode") == 1;
         } catch (Settings.SettingNotFoundException e) {
             return false;
         }

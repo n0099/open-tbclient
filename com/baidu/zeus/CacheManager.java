@@ -249,12 +249,12 @@ public final class CacheManager {
         return false;
     }
 
-    public static CacheResult getCacheFile(String str, Map map) {
+    public static CacheResult getCacheFile(String str, Map<String, String> map) {
         return getCacheFile(str, 0L, map, WebView.PageType.NormalType);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static CacheResult getCacheFile(String str, long j, Map map, WebView.PageType pageType) {
+    public static CacheResult getCacheFile(String str, long j, Map<String, String> map, WebView.PageType pageType) {
         if (mDisabled || mBaseDir == null) {
             return null;
         }
@@ -444,10 +444,10 @@ public final class CacheManager {
                 @Override // java.lang.Runnable
                 public void run() {
                     File file;
-                    ArrayList allImageCachePaths = CacheManager.mDataBase.allImageCachePaths();
+                    ArrayList<String> allImageCachePaths = CacheManager.mDataBase.allImageCachePaths();
                     int size = allImageCachePaths.size();
                     for (int i = 0; i < size; i++) {
-                        if (!new File(CacheManager.mBaseDir, (String) allImageCachePaths.get(i)).delete()) {
+                        if (!new File(CacheManager.mBaseDir, allImageCachePaths.get(i)).delete()) {
                             Log.v(CacheManager.LOGTAG, file.getPath() + " delete failed.");
                         }
                     }
@@ -470,14 +470,14 @@ public final class CacheManager {
             throw new AssertionError();
         }
         if (mDataBase.getCacheTotalSize() > CACHE_THRESHOLD) {
-            List trimCache = mDataBase.trimCache(CACHE_TRIM_AMOUNT);
+            List<String> trimCache = mDataBase.trimCache(CACHE_TRIM_AMOUNT);
             int size = trimCache.size();
             for (int i = 0; i < size; i++) {
-                if (!new File(mBaseDir, (String) trimCache.get(i)).delete()) {
+                if (!new File(mBaseDir, trimCache.get(i)).delete()) {
                     Log.e(LOGTAG, file2.getPath() + " delete failed.");
                 }
             }
-            final List allCacheFileNames = mDataBase.getAllCacheFileNames();
+            final List<String> allCacheFileNames = mDataBase.getAllCacheFileNames();
             if (allCacheFileNames != null && (list = mBaseDir.list(new FilenameFilter() { // from class: com.baidu.zeus.CacheManager.3
                 @Override // java.io.FilenameFilter
                 public boolean accept(File file3, String str) {

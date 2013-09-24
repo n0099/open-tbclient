@@ -7,16 +7,16 @@ import android.widget.AbsListView;
 public class n implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f837a;
+    private int f849a;
 
     public n(int i) {
-        this.f837a = 0;
-        this.f837a = i;
+        this.f849a = 0;
+        this.f849a = i;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
     public void onMovedToScrapHeap(View view) {
-        View findViewById = view.findViewById(this.f837a);
+        View findViewById = view.findViewById(this.f849a);
         if (findViewById != null && (findViewById instanceof TbRichTextView)) {
             ((TbRichTextView) findViewById).setText(null);
         }

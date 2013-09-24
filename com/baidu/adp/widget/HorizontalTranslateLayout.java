@@ -14,7 +14,7 @@ import java.util.List;
 public class HorizontalTranslateLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f467a;
+    static final /* synthetic */ boolean f478a;
     private f A;
     private int b;
     private int c;
@@ -38,7 +38,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private final l u;
     private g v;
     private j w;
-    private final List x;
+    private final List<i> x;
     private h y;
     private k z;
 
@@ -62,7 +62,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
     }
 
     static {
-        f467a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
+        f478a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
     }
 
     @Override // android.view.View
@@ -212,7 +212,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                         }
                         this.u.b(this.q - x);
                         this.q = x;
-                        this.u.f507a.addMovement(motionEvent);
+                        this.u.f519a.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -250,7 +250,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         if (this.u.b) {
             this.u.b(this.q - x);
             this.q = x;
-            this.u.f507a.addMovement(motionEvent);
+            this.u.f519a.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -276,10 +276,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i;
-        if (!f467a && i3 < this.d) {
+        if (!f478a && i3 < this.d) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!f467a && i3 < this.e) {
+        if (!f478a && i3 < this.e) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
         this.b = getMeasuredWidth();

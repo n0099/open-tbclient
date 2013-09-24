@@ -9,7 +9,7 @@ public class X509NameElementList {
     private DERObjectIdentifier key1;
     private DERObjectIdentifier key2;
     private DERObjectIdentifier key3;
-    private ArrayList rest;
+    private ArrayList<Object> rest;
     private int size;
     private String value0;
     private String value1;
@@ -46,7 +46,7 @@ public class X509NameElementList {
                 this.value3 = str;
                 break;
             case 4:
-                this.rest = new ArrayList();
+                this.rest = new ArrayList<>();
             default:
                 this.rest.add(dERObjectIdentifier);
                 this.rest.add(str);

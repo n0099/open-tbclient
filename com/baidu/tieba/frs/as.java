@@ -1,36 +1,28 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.view.bl;
+import android.view.View;
+import com.baidu.tieba.data.bi;
+import com.baidu.tieba.pb.ImagePbActivity;
 /* loaded from: classes.dex */
-class as implements bl {
+class as implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1081a;
+    final /* synthetic */ FrsImageActivity f1129a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(FrsImageActivity frsImageActivity) {
-        this.f1081a = frsImageActivity;
+        this.f1129a = frsImageActivity;
     }
 
-    @Override // com.baidu.tieba.view.bl
-    public void a() {
-        int i;
-        FrsImageActivity frsImageActivity = this.f1081a;
-        i = this.f1081a.g;
-        frsImageActivity.g(i);
-    }
-
-    @Override // com.baidu.tieba.view.bl
-    public void b() {
-        this.f1081a.k();
-    }
-
-    @Override // com.baidu.tieba.view.bl
-    public void c() {
-    }
-
-    @Override // com.baidu.tieba.view.bl
-    public void d() {
-        this.f1081a.k();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        if (view.getTag() != null && (view.getTag() instanceof bi)) {
+            bi biVar = (bi) view.getTag();
+            FrsImageActivity frsImageActivity = this.f1129a;
+            String d = biVar.d();
+            str = this.f1129a.b;
+            ImagePbActivity.a(frsImageActivity, d, str, biVar.c());
+        }
     }
 }

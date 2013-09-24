@@ -8,11 +8,11 @@ import com.baidu.tieba.util.UtilHelper;
 public class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaseWebView f1868a;
+    final /* synthetic */ BaseWebView f1996a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BaseWebView baseWebView) {
-        this.f1868a = baseWebView;
+        this.f1996a = baseWebView;
     }
 
     @Override // com.baidu.tieba.view.d
@@ -20,10 +20,10 @@ public class c implements d {
         Context context;
         if (str != null) {
             try {
-                context = this.f1868a.c;
+                context = this.f1996a.c;
                 UtilHelper.e(context, str);
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
+                com.baidu.tieba.util.av.a(getClass().getName(), "shouldOverrideUrlLoading", e.toString());
             }
         }
         return true;

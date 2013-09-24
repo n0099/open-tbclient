@@ -11,14 +11,14 @@ public final class a {
     private static a d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f561a;
+    private Context f573a;
     private HashMap b = new HashMap();
     private BroadcastReceiver c;
 
     private a(Context context) {
         this.c = null;
-        this.f561a = context;
-        for (PackageInfo packageInfo : this.f561a.getPackageManager().getInstalledPackages(0)) {
+        this.f573a = context;
+        for (PackageInfo packageInfo : this.f573a.getPackageManager().getInstalledPackages(0)) {
             this.b.put(packageInfo.packageName, packageInfo);
         }
         this.c = new b(this);
@@ -26,7 +26,7 @@ public final class a {
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
         intentFilter.addAction("android.intent.action.PACKAGE_REMOVED");
         intentFilter.addDataScheme("package");
-        this.f561a.registerReceiver(this.c, intentFilter);
+        this.f573a.registerReceiver(this.c, intentFilter);
     }
 
     public static synchronized a a(Context context) {
@@ -35,7 +35,7 @@ public final class a {
             if (d == null) {
                 d = new a(context);
             }
-            d.f561a = context.getApplicationContext();
+            d.f573a = context.getApplicationContext();
             aVar = d;
         }
         return aVar;

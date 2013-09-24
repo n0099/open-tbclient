@@ -3,14 +3,14 @@ package com.baidu.tieba.account;
 public class af extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f873a;
+    private int f889a;
     private int b;
     private String c = null;
 
     public af(int i, int i2) {
-        this.f873a = 0;
+        this.f889a = 0;
         this.b = 0;
-        this.f873a = i;
+        this.f889a = i;
         this.b = i2;
     }
 
@@ -21,12 +21,12 @@ public class af extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.v vVar = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/pv");
-        vVar.a("img_num", String.valueOf(this.f873a));
-        vVar.a("img_total", String.valueOf(this.b));
+        com.baidu.tieba.util.z zVar = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/s/pv");
+        zVar.a("img_num", String.valueOf(this.f889a));
+        zVar.a("img_total", String.valueOf(this.b));
         if (this.c != null) {
-            vVar.a("img_type", this.c);
+            zVar.a("img_type", this.c);
         }
-        vVar.j();
+        zVar.j();
     }
 }

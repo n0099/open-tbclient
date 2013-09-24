@@ -13,7 +13,7 @@ public final class e {
     private static e f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f542a;
+    private Context f554a;
     private Handler g;
     private s b = new s();
     private s c = new s();
@@ -23,9 +23,9 @@ public final class e {
     private Runnable i = new f(this);
 
     private e(Context context) {
-        this.f542a = null;
+        this.f554a = null;
         this.g = null;
-        this.f542a = context.getApplicationContext();
+        this.f554a = context.getApplicationContext();
         this.g = new Handler(context.getMainLooper());
         j();
         f();
@@ -68,8 +68,8 @@ public final class e {
     }
 
     private void f() {
-        this.c = l.a(this.f542a).a();
-        this.b = k.a(this.f542a);
+        this.c = l.a(this.f554a).a();
+        this.b = k.a(this.f554a);
         g();
     }
 
@@ -99,7 +99,7 @@ public final class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:7:0x0021, code lost:
-        if ((r2 - com.baidu.android.nebula.a.c.a(r8.f542a, r2)) > (com.baidu.android.nebula.a.c.a(r8.f542a) * 1000)) goto L7;
+        if ((r2 - com.baidu.android.nebula.a.c.a(r8.f554a, r2)) > (com.baidu.android.nebula.a.c.a(r8.f554a) * 1000)) goto L7;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -112,7 +112,7 @@ public final class e {
         }
         z = z2;
         if (z) {
-            new u(this.f542a).a();
+            new u(this.f554a).a();
         }
     }
 
@@ -129,14 +129,14 @@ public final class e {
         intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
         intentFilter.addDataScheme("package");
         this.h = new h(this, null);
-        this.f542a.registerReceiver(this.h, intentFilter);
+        this.f554a.registerReceiver(this.h, intentFilter);
     }
 
     private void k() {
         if (this.h == null) {
             return;
         }
-        this.f542a.unregisterReceiver(this.h);
+        this.f554a.unregisterReceiver(this.h);
     }
 
     public s a(int i) {
@@ -166,7 +166,7 @@ public final class e {
                 }
             }
         }
-        l.a(this.f542a).a(this.c.b());
+        l.a(this.f554a).a(this.c.b());
         return true;
     }
 
@@ -183,7 +183,7 @@ public final class e {
     }
 
     public void b() {
-        l.a(this.f542a).b();
+        l.a(this.f554a).b();
     }
 
     public void b(ArrayList arrayList) {

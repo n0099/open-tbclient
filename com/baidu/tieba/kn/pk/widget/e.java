@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class e extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1268a;
+    private long f1302a;
     private long b;
     private Bitmap[] c;
     private Bitmap[] d;
@@ -32,9 +32,9 @@ public class e extends View {
     private boolean k;
     private Scroller l;
     private int m;
-    private ArrayList n;
-    private ArrayList o;
-    private ArrayList p;
+    private ArrayList<a> n;
+    private ArrayList<a> o;
+    private ArrayList<Scroller> p;
     private boolean q;
     private boolean r;
     private Rect s;
@@ -48,9 +48,9 @@ public class e extends View {
     public e(Context context) {
         super(context);
         this.m = BdWebErrorView.ERROR_CODE_500;
-        this.n = new ArrayList();
-        this.o = new ArrayList();
-        this.p = new ArrayList();
+        this.n = new ArrayList<>();
+        this.o = new ArrayList<>();
+        this.p = new ArrayList<>();
         this.w = true;
         this.x = new f(this);
         this.y = new g(this);
@@ -86,20 +86,20 @@ public class e extends View {
     }
 
     public long getLeftCount() {
-        return this.f1268a;
+        return this.f1302a;
     }
 
     public void setLeftCount(long j) {
-        this.f1268a = j;
+        this.f1302a = j;
         a();
     }
 
     private void g() {
         if (this.q) {
-            long j = this.b + this.f1268a;
+            long j = this.b + this.f1302a;
             int measuredWidth = getMeasuredWidth();
             int i = measuredWidth / 2;
-            int i2 = j != 0 ? (int) ((this.f1268a * measuredWidth) / j) : i;
+            int i2 = j != 0 ? (int) ((this.f1302a * measuredWidth) / j) : i;
             if (i2 < this.v / 2) {
                 i2 = this.v / 2;
             }
@@ -151,43 +151,43 @@ public class e extends View {
 
     public void a() {
         if (this.q && this.r) {
-            a aVar = this.o.size() > 0 ? (a) this.o.remove(0) : null;
-            a aVar2 = aVar == null ? new a() : aVar;
-            aVar2.f1264a = 0;
-            aVar2.b = getHeight() / 2;
-            aVar2.f = true;
-            aVar2.c = this.f;
-            aVar2.d = this.f.getWidth();
-            aVar2.e = this.f.getHeight();
-            aVar2.h = getWidth() / 2;
-            Scroller scroller = this.p.size() > 0 ? (Scroller) this.p.remove(0) : null;
-            if (scroller == null) {
-                scroller = new Scroller(getContext());
+            a remove = this.o.size() > 0 ? this.o.remove(0) : null;
+            a aVar = remove == null ? new a() : remove;
+            aVar.f1298a = 0;
+            aVar.b = getHeight() / 2;
+            aVar.f = true;
+            aVar.c = this.f;
+            aVar.d = this.f.getWidth();
+            aVar.e = this.f.getHeight();
+            aVar.h = getWidth() / 2;
+            Scroller remove2 = this.p.size() > 0 ? this.p.remove(0) : null;
+            if (remove2 == null) {
+                remove2 = new Scroller(getContext());
             }
-            aVar2.g = scroller;
-            aVar2.a(this.j);
-            this.n.add(aVar2);
+            aVar.g = remove2;
+            aVar.a(this.j);
+            this.n.add(aVar);
         }
     }
 
     public void b() {
         if (this.q && this.r) {
-            a aVar = this.o.size() > 0 ? (a) this.o.remove(0) : null;
-            a aVar2 = aVar == null ? new a() : aVar;
-            aVar2.f1264a = getWidth();
-            aVar2.b = getHeight() / 2;
-            aVar2.f = false;
-            aVar2.c = this.f;
-            aVar2.d = this.f.getWidth();
-            aVar2.e = this.f.getHeight();
-            aVar2.h = getWidth() / 2;
-            Scroller scroller = this.p.size() > 0 ? (Scroller) this.p.remove(0) : null;
-            if (scroller == null) {
-                scroller = new Scroller(getContext());
+            a remove = this.o.size() > 0 ? this.o.remove(0) : null;
+            a aVar = remove == null ? new a() : remove;
+            aVar.f1298a = getWidth();
+            aVar.b = getHeight() / 2;
+            aVar.f = false;
+            aVar.c = this.f;
+            aVar.d = this.f.getWidth();
+            aVar.e = this.f.getHeight();
+            aVar.h = getWidth() / 2;
+            Scroller remove2 = this.p.size() > 0 ? this.p.remove(0) : null;
+            if (remove2 == null) {
+                remove2 = new Scroller(getContext());
             }
-            aVar2.g = scroller;
-            aVar2.a(this.j);
-            this.n.add(aVar2);
+            aVar.g = remove2;
+            aVar.a(this.j);
+            this.n.add(aVar);
         }
     }
 
@@ -198,10 +198,10 @@ public class e extends View {
         int height = getHeight();
         int width = getWidth();
         if (this.w) {
-            long j = this.f1268a + this.b;
+            long j = this.f1302a + this.b;
             int i = width / 2;
             if (j != 0) {
-                i = (int) ((this.f1268a * width) / j);
+                i = (int) ((this.f1302a * width) / j);
             }
             if (i < this.v / 2) {
                 i = this.v / 2;
@@ -244,21 +244,21 @@ public class e extends View {
         this.t.set(this.j, 0, width, height);
         canvas.drawBitmap(bitmap2, this.s, this.t, (Paint) null);
         canvas.restore();
-        Iterator it = this.n.iterator();
+        Iterator<a> it = this.n.iterator();
         while (it.hasNext()) {
-            a aVar = (a) it.next();
-            if (aVar.f && aVar.f1264a >= this.j) {
+            a next = it.next();
+            if (next.f && next.f1298a >= this.j) {
                 it.remove();
-                this.o.add(aVar);
-                this.p.add(aVar.g);
+                this.o.add(next);
+                this.p.add(next.g);
                 z = true;
-            } else if (!aVar.f && aVar.f1264a <= this.j) {
+            } else if (!next.f && next.f1298a <= this.j) {
                 it.remove();
-                this.o.add(aVar);
-                this.p.add(aVar.g);
+                this.o.add(next);
+                this.p.add(next.g);
                 z = true;
             } else {
-                aVar.a(canvas);
+                next.a(canvas);
             }
         }
         if (z) {

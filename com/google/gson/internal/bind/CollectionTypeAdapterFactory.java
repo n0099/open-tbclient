@@ -21,9 +21,9 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     @Override // com.google.gson.TypeAdapterFactory
-    public TypeAdapter create(Gson gson, TypeToken typeToken) {
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
         Type type = typeToken.getType();
-        Class rawType = typeToken.getRawType();
+        Class<? super T> rawType = typeToken.getRawType();
         if (!Collection.class.isAssignableFrom(rawType)) {
             return null;
         }
@@ -32,41 +32,44 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     /* loaded from: classes.dex */
-    final class Adapter extends TypeAdapter {
-        private final ObjectConstructor constructor;
-        private final TypeAdapter elementTypeAdapter;
+    final class Adapter<E> extends TypeAdapter<Collection<E>> {
+        private final ObjectConstructor<? extends Collection<E>> constructor;
+        private final TypeAdapter<E> elementTypeAdapter;
 
-        public Adapter(Gson gson, Type type, TypeAdapter typeAdapter, ObjectConstructor objectConstructor) {
+        @Override // com.google.gson.TypeAdapter
+        public /* bridge */ /* synthetic */ void write(JsonWriter jsonWriter, Object obj) {
+            write(jsonWriter, (Collection) ((Collection) obj));
+        }
+
+        public Adapter(Gson gson, Type type, TypeAdapter<E> typeAdapter, ObjectConstructor<? extends Collection<E>> objectConstructor) {
             this.elementTypeAdapter = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
             this.constructor = objectConstructor;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
-        public Collection read(JsonReader jsonReader) {
+        public Collection<E> read(JsonReader jsonReader) {
             if (jsonReader.peek() == JsonToken.NULL) {
                 jsonReader.nextNull();
                 return null;
             }
-            Collection collection = (Collection) this.constructor.construct();
+            Collection<E> construct = this.constructor.construct();
             jsonReader.beginArray();
             while (jsonReader.hasNext()) {
-                collection.add(this.elementTypeAdapter.read(jsonReader));
+                construct.add(this.elementTypeAdapter.read(jsonReader));
             }
             jsonReader.endArray();
-            return collection;
+            return construct;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.google.gson.TypeAdapter
-        public void write(JsonWriter jsonWriter, Collection collection) {
+        public void write(JsonWriter jsonWriter, Collection<E> collection) {
             if (collection == null) {
                 jsonWriter.nullValue();
                 return;
             }
             jsonWriter.beginArray();
-            for (Object obj : collection) {
-                this.elementTypeAdapter.write(jsonWriter, obj);
+            for (E e : collection) {
+                this.elementTypeAdapter.write(jsonWriter, e);
             }
             jsonWriter.endArray();
         }

@@ -1,0 +1,17 @@
+package com.baidu.tieba.person.post;
+
+import android.view.View;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
+/* loaded from: classes.dex */
+class n extends a {
+    public ReplyLinearLayout g;
+    public TextView h;
+
+    public n(View view) {
+        super(view);
+        this.g = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+        this.h = (TextView) view.findViewById(R.id.original_post_title);
+        this.h.setOnClickListener(this);
+    }
+}

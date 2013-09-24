@@ -56,18 +56,6 @@ public class BdPvStatistic implements BdNetListener {
     }
 
     private void submitPv() {
-        if (this.mLauchCount > 0) {
-            BdLog.i("");
-            String ccCnt = ccCnt(BdUpdateUtil.ccSeid(BdUpdateUtil.processUrl(this.mContext, this.mSubmitUrl)));
-            BdLog.v("url=" + ccCnt);
-            if (this.mNet == null) {
-                this.mNet = new BdNet();
-                this.mNet.setEventListener(this);
-            }
-            this.mNet.obtainTask(ccCnt).start();
-            BdLog.i(ccCnt);
-            resetPv();
-        }
     }
 
     private void resetPv() {

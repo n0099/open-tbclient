@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class BdNetWorkCore {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f439a = "\r\n";
+    private static String f448a = "\r\n";
     private static String b = "--";
     private static String c = "--------7da3d81520810*";
     private static int d = 2097152;
@@ -18,7 +18,7 @@ public class BdNetWorkCore {
     private static volatile String g = null;
     private static volatile boolean h = false;
     private static Pattern i = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.172$", 8);
-    private static ArrayList j = new ArrayList();
+    private static ArrayList<StatisticsData> j = new ArrayList<>();
     private static AtomicInteger k = new AtomicInteger(0);
 
     /* loaded from: classes.dex */

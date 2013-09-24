@@ -14,6 +14,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class HttpUtils {
@@ -30,7 +31,7 @@ public class HttpUtils {
     public static final String IP_CTWAP = "10.0.0.200";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Uri f732a = Uri.parse("content://telephony/carriers/preferapn");
+    private static final Uri f744a = Uri.parse("content://telephony/carriers/preferapn");
 
     /* renamed from: a  reason: collision with other field name */
     private OnNetListener f9a;
@@ -58,10 +59,10 @@ public class HttpUtils {
     private int b = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map f11a = new HashMap();
+    private Map<String, String> f11a = new HashMap();
 
     /* renamed from: b  reason: collision with other field name */
-    private Map f14b = new HashMap();
+    private Map<String, String> f14b = new HashMap();
     private int c = 5;
     private int d = 0;
 
@@ -85,7 +86,7 @@ public class HttpUtils {
 
         boolean onReceivedData(byte[] bArr, int i, int i2);
 
-        boolean onReceivedHeaders(Map map);
+        boolean onReceivedHeaders(Map<String, List<String>> map);
 
         boolean onResponseCode(int i);
     }
@@ -505,16 +506,16 @@ public class HttpUtils {
 
     public void addHeaders(HttpURLConnection httpURLConnection) {
         if (this.f11a != null && this.f11a.size() > 0) {
-            for (Map.Entry entry : this.f11a.entrySet()) {
-                httpURLConnection.addRequestProperty((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : this.f11a.entrySet()) {
+                httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
         if (this.f14b != null && this.f14b.size() > 0) {
             StringBuilder sb = new StringBuilder();
-            for (Map.Entry entry2 : this.f14b.entrySet()) {
-                sb.append(((String) entry2.getKey()).trim());
+            for (Map.Entry<String, String> entry2 : this.f14b.entrySet()) {
+                sb.append(entry2.getKey().trim());
                 sb.append("=");
-                sb.append(((String) entry2.getValue()).trim());
+                sb.append(entry2.getValue().trim());
                 sb.append(";");
             }
             if (sb.length() > 0) {
@@ -565,7 +566,7 @@ public class HttpUtils {
                     return;
                 }
             }
-            if (VersionUtils.getCurrentVersion() <= 16 && (query = context.getContentResolver().query(f732a, new String[]{"_id", "apn", "proxy", "user"}, null, null, null)) != null) {
+            if (VersionUtils.getCurrentVersion() <= 16 && (query = context.getContentResolver().query(f744a, new String[]{"_id", "apn", "proxy", "user"}, null, null, null)) != null) {
                 query.moveToFirst();
                 query.getCount();
                 if (!query.isAfterLast()) {
@@ -618,7 +619,7 @@ public class HttpUtils {
         this.b = i;
     }
 
-    public void setHeaders(Map map) {
+    public void setHeaders(Map<String, String> map) {
         this.f11a = map;
     }
 

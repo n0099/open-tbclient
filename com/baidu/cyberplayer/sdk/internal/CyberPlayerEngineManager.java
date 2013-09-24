@@ -8,7 +8,7 @@ import java.util.Map;
 public class CyberPlayerEngineManager extends BEngineManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static CyberPlayerEngineManager f730a = null;
+    private static CyberPlayerEngineManager f742a = null;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f4a;
@@ -23,10 +23,10 @@ public class CyberPlayerEngineManager extends BEngineManager {
     public static synchronized CyberPlayerEngineManager getInstance(Context context) {
         CyberPlayerEngineManager cyberPlayerEngineManager;
         synchronized (CyberPlayerEngineManager.class) {
-            if (f730a == null && context != null) {
-                f730a = new CyberPlayerEngineManager(context);
+            if (f742a == null && context != null) {
+                f742a = new CyberPlayerEngineManager(context);
             }
-            cyberPlayerEngineManager = f730a;
+            cyberPlayerEngineManager = f742a;
         }
         return cyberPlayerEngineManager;
     }
@@ -72,7 +72,7 @@ public class CyberPlayerEngineManager extends BEngineManager {
         return d.m16a(this.f4a);
     }
 
-    private synchronized void a(BEngineManager.OnEngineListener onEngineListener, boolean z, Map map) {
+    private synchronized void a(BEngineManager.OnEngineListener onEngineListener, boolean z, Map<String, String> map) {
         if (onEngineListener != null) {
             if (EngineInstalled()) {
                 onEngineListener.onInstalled(8);
@@ -90,7 +90,7 @@ public class CyberPlayerEngineManager extends BEngineManager {
         }
     }
 
-    private a a(String str, BEngineManager.OnEngineListener onEngineListener, boolean z, Map map) {
+    private a a(String str, BEngineManager.OnEngineListener onEngineListener, boolean z, Map<String, String> map) {
         if (str.startsWith(e.f)) {
             return new c(this.f4a, str, this, onEngineListener, z, map);
         }

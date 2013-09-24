@@ -1,35 +1,26 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.EditText;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.tieba.view.KeyboardEventLayout;
 /* loaded from: classes.dex */
-public class ch implements DialogInterface.OnKeyListener {
+class ch implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1537a;
+    final /* synthetic */ cg f1579a;
+    private final /* synthetic */ ImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(bo boVar) {
-        this.f1537a = boVar;
+    public ch(cg cgVar, ImageView imageView) {
+        this.f1579a = cgVar;
+        this.b = imageView;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        com.baidu.tieba.g gVar;
-        EditText editText;
-        Dialog dialog;
-        if (i == 4) {
-            gVar = this.f1537a.b;
-            editText = this.f1537a.C;
-            UtilHelper.a(gVar, editText);
-            dialog = this.f1537a.y;
-            dialog.dismiss();
-            return true;
-        }
-        return false;
+    @Override // java.lang.Runnable
+    public void run() {
+        br brVar;
+        KeyboardEventLayout keyboardEventLayout;
+        brVar = this.f1579a.f1578a;
+        keyboardEventLayout = brVar.d;
+        keyboardEventLayout.removeView(this.b);
     }
 }

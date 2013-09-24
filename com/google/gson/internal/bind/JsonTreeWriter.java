@@ -14,7 +14,7 @@ import java.util.List;
 public final class JsonTreeWriter extends JsonWriter {
     private String pendingName;
     private JsonElement product;
-    private final List stack;
+    private final List<JsonElement> stack;
     private static final Writer UNWRITABLE_WRITER = new Writer() { // from class: com.google.gson.internal.bind.JsonTreeWriter.1
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) {
@@ -47,7 +47,7 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     private JsonElement peek() {
-        return (JsonElement) this.stack.get(this.stack.size() - 1);
+        return this.stack.get(this.stack.size() - 1);
     }
 
     private void put(JsonElement jsonElement) {

@@ -5,13 +5,13 @@ import org.json.JSONObject;
 public class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ az f999a;
+    final /* synthetic */ az f1017a;
     private int b;
     private String c;
     private String d;
 
     public ba(az azVar) {
-        this.f999a = azVar;
+        this.f1017a = azVar;
     }
 
     public void a(int i) {
@@ -28,7 +28,7 @@ public class ba {
 
     /* JADX INFO: Access modifiers changed from: private */
     public ba a(JSONObject jSONObject) {
-        ba baVar = new ba(this.f999a);
+        ba baVar = new ba(this.f1017a);
         baVar.a(jSONObject.optInt("errno"));
         baVar.a(jSONObject.optString("errmsg"));
         baVar.b(jSONObject.optString("usermsg"));

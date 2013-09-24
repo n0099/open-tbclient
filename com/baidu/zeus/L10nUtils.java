@@ -9,7 +9,7 @@ import java.util.Map;
 public class L10nUtils {
     private static Context mApplicationContext;
     private static int[] mIdsArray = new int[0];
-    private static Map mStrings;
+    private static Map<Integer, SoftReference<String>> mStrings;
 
     public static void setApplicationContext(Context context) {
         mApplicationContext = context.getApplicationContext();
@@ -20,7 +20,7 @@ public class L10nUtils {
             mStrings = new HashMap(mIdsArray.length);
         }
         String string = mApplicationContext.getResources().getString(mIdsArray[i]);
-        mStrings.put(Integer.valueOf(i), new SoftReference(string));
+        mStrings.put(Integer.valueOf(i), new SoftReference<>(string));
         return string;
     }
 

@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 class CursorFieldHelper {
-    private static final Map bI = new HashMap();
-    private static final Map bJ = new HashMap();
-    private static final Map bK = new HashMap();
+    private static final Map<Class<?>, Method> bI = new HashMap();
+    private static final Map<Class<?>, Method> bJ = new HashMap();
+    private static final Map<Class<?>, String> bK = new HashMap();
 
     static {
         try {
@@ -64,8 +64,8 @@ class CursorFieldHelper {
     CursorFieldHelper() {
     }
 
-    public static Method get(Class cls, boolean z) {
-        return z ? (Method) bJ.get(cls) : (Method) bI.get(cls);
+    public static Method get(Class<?> cls, boolean z) {
+        return z ? bJ.get(cls) : bI.get(cls);
     }
 
     public static void keep_getBlob(Field field, Object obj, ContentValues contentValues) {
@@ -236,7 +236,7 @@ class CursorFieldHelper {
         }
     }
 
-    public static String type(Class cls) {
-        return (String) bK.get(cls);
+    public static String type(Class<?> cls) {
+        return bK.get(cls);
     }
 }

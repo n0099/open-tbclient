@@ -1,38 +1,61 @@
 package com.baidu.tieba.more;
 
-import android.widget.RadioGroup;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.DatabaseService;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public class ad implements RadioGroup.OnCheckedChangeListener {
+class ad extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1434a;
+    final /* synthetic */ MoreActivity f1476a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MsgRemindActivity msgRemindActivity) {
-        this.f1434a = msgRemindActivity;
+    private ad(MoreActivity moreActivity) {
+        this.f1476a = moreActivity;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        switch (i) {
-            case R.id.radio_30sec /* 2131100434 */:
-                TiebaApplication.g().c(30);
-                break;
-            case R.id.radio_2min /* 2131100435 */:
-                TiebaApplication.g().c(120);
-                break;
-            case R.id.radio_5min /* 2131100436 */:
-                TiebaApplication.g().c(300);
-                break;
-            case R.id.radio_no /* 2131100437 */:
-                TiebaApplication.g().c(0);
-                break;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ad(MoreActivity moreActivity, ad adVar) {
+        this(moreActivity);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        super.b();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        return com.baidu.tieba.util.p.c(null, "tieba_head_image");
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Bitmap bitmap) {
+        af afVar;
+        af afVar2;
+        super.a((ad) bitmap);
+        if (bitmap != null) {
+            com.baidu.adp.widget.a.c cVar = new com.baidu.adp.widget.a.c(bitmap, false, null);
+            afVar = this.f1476a.f1467a;
+            if (afVar != null) {
+                afVar2 = this.f1476a.f1467a;
+                afVar2.a(cVar);
+            }
         }
-        DatabaseService.u();
-        this.f1434a.d();
     }
 }

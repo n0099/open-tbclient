@@ -17,7 +17,7 @@ public class v {
     private int y;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1029a = null;
+    private String f1047a = null;
     private String b = null;
     private String c = null;
     private String d = null;
@@ -30,8 +30,8 @@ public class v {
     private int k = 0;
     private int q = 0;
     private bb n = new bb();
-    private ArrayList o = new ArrayList();
-    private ArrayList p = new ArrayList();
+    private ArrayList<String> o = new ArrayList<>();
+    private ArrayList<aa> p = new ArrayList<>();
     private String r = null;
 
     public v() {
@@ -44,7 +44,7 @@ public class v {
     }
 
     public String a() {
-        return this.f1029a;
+        return this.f1047a;
     }
 
     public String b() {
@@ -67,23 +67,15 @@ public class v {
         return this.j;
     }
 
-    public int f() {
-        return this.x;
-    }
-
-    public int g() {
-        return this.y;
-    }
-
     public void b(int i) {
         this.k = i;
     }
 
-    public int h() {
+    public int f() {
         return this.k;
     }
 
-    public bb i() {
+    public bb g() {
         return this.n;
     }
 
@@ -91,11 +83,11 @@ public class v {
         this.n = bbVar;
     }
 
-    public ArrayList j() {
+    public ArrayList<aa> h() {
         return this.p;
     }
 
-    public String k() {
+    public String i() {
         return this.l;
     }
 
@@ -106,7 +98,7 @@ public class v {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1029a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1047a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = jSONObject.optString("name");
                 this.x = jSONObject.optInt("is_support_local", 0);
                 this.y = jSONObject.optInt("is_local_effect", 0);
@@ -166,7 +158,7 @@ public class v {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b("ForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.av.b("ForumData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -175,15 +167,15 @@ public class v {
         this.m = i;
     }
 
-    public int l() {
+    public int j() {
         return this.m;
     }
 
-    public String m() {
+    public String k() {
         return this.r;
     }
 
-    public String n() {
+    public String l() {
         return this.u;
     }
 
@@ -191,7 +183,7 @@ public class v {
         this.s = str;
     }
 
-    public String o() {
+    public String m() {
         return this.s;
     }
 
@@ -203,7 +195,7 @@ public class v {
         this.v = i;
     }
 
-    public int p() {
+    public int n() {
         return this.v;
     }
 
@@ -211,7 +203,7 @@ public class v {
         this.w = i;
     }
 
-    public int q() {
+    public int o() {
         return this.w;
     }
 }

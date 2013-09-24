@@ -7,11 +7,11 @@ import android.os.SystemClock;
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f673a;
+    final /* synthetic */ f f685a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar) {
-        this.f673a = fVar;
+        this.f685a = fVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,20 +24,20 @@ public class j implements Runnable {
         Runnable runnable;
         i = f.n;
         if (i == 2) {
-            handler = this.f673a.t;
-            runnable = this.f673a.m;
+            handler = this.f685a.t;
+            runnable = this.f685a.m;
             handler.removeCallbacks(runnable);
         }
         long currentTimeMillis = System.currentTimeMillis();
         long elapsedRealtime = SystemClock.elapsedRealtime();
         z = f.i;
         if (!z) {
-            f fVar = this.f673a;
-            str = this.f673a.c;
-            j = this.f673a.g;
+            f fVar = this.f685a;
+            str = this.f685a.c;
+            j = this.f685a.g;
             fVar.a(str, (j - elapsedRealtime) + currentTimeMillis, currentTimeMillis);
         }
-        this.f673a.g = SystemClock.elapsedRealtime();
-        this.f673a.c = null;
+        this.f685a.g = SystemClock.elapsedRealtime();
+        this.f685a.c = null;
     }
 }

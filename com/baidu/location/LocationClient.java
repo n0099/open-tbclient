@@ -69,7 +69,7 @@ public final class LocationClient {
     private b f69byte = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f746a = false;
+    private boolean f758a = false;
 
     /* renamed from: int  reason: not valid java name */
     private boolean f74int = false;
@@ -175,13 +175,13 @@ public final class LocationClient {
                     return;
                 case 54:
                     if (LocationClient.this.l.f89void) {
-                        LocationClient.this.f746a = true;
+                        LocationClient.this.f758a = true;
                         return;
                     }
                     return;
                 case 55:
                     if (LocationClient.this.l.f89void) {
-                        LocationClient.this.f746a = false;
+                        LocationClient.this.f758a = false;
                         return;
                     }
                     return;
@@ -237,7 +237,7 @@ public final class LocationClient {
             return null;
         }
         Bundle bundle = new Bundle();
-        bundle.putInt("num", this.l.f750a);
+        bundle.putInt("num", this.l.f762a);
         bundle.putFloat("distance", this.l.f80do);
         bundle.putBoolean("extraInfo", this.l.f84if);
         return bundle;
@@ -296,7 +296,7 @@ public final class LocationClient {
             j.a(f64for, "server not connected");
             return;
         }
-        if (!this.f746a || !this.l.f89void) {
+        if (!this.f758a || !this.l.f89void) {
             Message obtain = Message.obtain((Handler) null, 22);
             try {
                 obtain.replyTo = this.i;
@@ -612,7 +612,7 @@ public final class LocationClient {
         if (System.currentTimeMillis() - this.f71char < 6000) {
             return 6;
         }
-        if (this.l.f750a >= 1) {
+        if (this.l.f762a >= 1) {
             j.a(f64for, "request location ...");
             this.f72do.obtainMessage(7).sendToTarget();
             return 0;

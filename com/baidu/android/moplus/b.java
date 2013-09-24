@@ -9,15 +9,15 @@ import java.util.Properties;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f534a;
+    public static final String f546a;
     public static final String b;
     private static String c;
 
     static {
         a();
         c = "http://m.baidu.com";
-        f534a = c;
-        b = f534a + "/searchbox?action=publicsrv&type=issuedcode";
+        f546a = c;
+        b = f546a + "/searchbox?action=publicsrv&type=issuedcode";
     }
 
     private static void a() {

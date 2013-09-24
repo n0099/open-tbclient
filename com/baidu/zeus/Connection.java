@@ -84,7 +84,7 @@ public abstract class Connection {
         Request request3;
         int i4 = 0;
         HttpException e = null;
-        LinkedList linkedList = new LinkedList();
+        LinkedList<Request> linkedList = new LinkedList<>();
         int i5 = 2;
         int i6 = 3;
         char c2 = 0;
@@ -211,9 +211,9 @@ public abstract class Connection {
                         httpException2 = e;
                         i = i14;
                     } else {
-                        Request request5 = (Request) linkedList.removeFirst();
+                        Request removeFirst = linkedList.removeFirst();
                         try {
-                            request5.readResponse(this.mHttpClientConnection);
+                            removeFirst.readResponse(this.mHttpClientConnection);
                         } catch (IOException e6) {
                             e = e6;
                             i4 = -7;
@@ -225,9 +225,9 @@ public abstract class Connection {
                             i4 = -7;
                         }
                         if (e != null) {
-                            if (httpFailure(request5, i4, e) && !request5.mCancelled) {
-                                request5.reset();
-                                linkedList.addFirst(request5);
+                            if (httpFailure(removeFirst, i4, e) && !removeFirst.mCancelled) {
+                                removeFirst.reset();
+                                linkedList.addFirst(removeFirst);
                             }
                             httpException = null;
                             this.mCanPersist = false;
@@ -279,12 +279,12 @@ public abstract class Connection {
         }
     }
 
-    private boolean clearPipe(LinkedList linkedList) {
+    private boolean clearPipe(LinkedList<Request> linkedList) {
         boolean z;
         synchronized (this.mRequestFeeder) {
             z = true;
             while (!linkedList.isEmpty()) {
-                this.mRequestFeeder.requeueRequest((Request) linkedList.removeLast());
+                this.mRequestFeeder.requeueRequest(linkedList.removeLast());
                 z = false;
             }
             if (z) {

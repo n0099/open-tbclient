@@ -1,187 +1,177 @@
 package com.baidu.tieba.chat;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.RelativeLayout;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-import java.util.List;
+import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-public class v {
-    private View.OnClickListener b;
-    private Activity c;
-    private DialogInterface.OnClickListener h;
-    private FrameLayout i;
-    private LinearLayout j;
-    private com.baidu.tieba.ab k;
-    private com.baidu.tieba.home.z l;
-    private RelativeLayout d = null;
-    private BdListView e = null;
-    private t f = null;
-    private com.baidu.tieba.view.aa g = null;
+public class v extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f961a = null;
+    private String f978a;
+    private String b;
+    private com.baidu.tieba.data.a.c h;
+    private com.baidu.tieba.data.a.f l;
+    private String c = null;
+    private String d = null;
+    private String e = null;
+    private String f = null;
+    private String g = null;
+    private w i = null;
+    private y j = null;
+    private x k = null;
 
-    public v(Activity activity, View.OnClickListener onClickListener) {
+    public void a(Intent intent) {
+        this.e = intent.getStringExtra("chat_com_name");
+        this.d = intent.getStringExtra("chat_com_id");
+        this.g = intent.getStringExtra("chat_st_type");
+        this.c = intent.getStringExtra("chat_my_portrait");
+        this.f = intent.getStringExtra("chat_com_portrait");
+        l();
+    }
+
+    public void a(Bundle bundle) {
+        this.e = bundle.getString("chat_com_name");
+        this.d = bundle.getString("chat_com_id");
+        this.g = bundle.getString("chat_st_type");
+        this.c = bundle.getString("chat_my_portrait");
+        this.f = bundle.getString("chat_com_portrait");
+        l();
+    }
+
+    public void b(Bundle bundle) {
+        bundle.putString("chat_com_name", this.e);
+        bundle.putString("chat_com_id", this.d);
+        bundle.putString("chat_st_type", this.g);
+        bundle.putString("chat_my_portrait", this.c);
+        bundle.putString("chat_com_portrait", this.f);
+    }
+
+    public v() {
+        this.f978a = null;
         this.b = null;
-        this.c = activity;
-        this.b = onClickListener;
-        m();
-    }
-
-    public void a() {
-        this.i.setVisibility(0);
-        this.j.setVisibility(8);
-    }
-
-    public void b() {
-        if (this.l == null) {
-            this.l = new com.baidu.tieba.home.z(this.c, this.c.getString(R.string.login_msg_tab), this.c.getString(R.string.login_msg_form), 3);
-            this.j.addView(this.l.c());
-            this.l.b(TiebaApplication.g().an());
+        this.h = null;
+        this.l = null;
+        AccountData F = TiebaApplication.F();
+        if (F != null) {
+            this.b = F.getID();
+            this.f978a = F.getAccount();
         }
-        this.i.setVisibility(8);
-        this.j.setVisibility(0);
+        this.h = new com.baidu.tieba.data.a.c();
+        this.l = com.baidu.tieba.data.a.f.a();
     }
 
-    private void m() {
-        this.c.setContentView(R.layout.chat_list_activity);
-        this.d = (RelativeLayout) this.c.findViewById(R.id.chat_list);
-        this.k = new com.baidu.tieba.ab(this.c, R.drawable.individual_center_news, R.drawable.individual_center_news_1);
-        this.i = (FrameLayout) this.c.findViewById(R.id.bodyLogin);
-        this.j = (LinearLayout) this.c.findViewById(R.id.bodyNotLogin);
-        this.e = (BdListView) this.c.findViewById(R.id.chat_list_content);
-        this.e.setDivider(null);
-        this.g = new com.baidu.tieba.view.aa(this.c);
-        this.e.setPullRefresh(this.g);
-        this.f = new t(this.c);
-        this.e.setAdapter((ListAdapter) this.f);
-        this.f.a(this.b);
+    private void l() {
+        this.h.a(this.d);
+        this.h.b(this.b);
+        this.h.f(this.e);
+        this.h.c(this.f);
+        this.h.d(this.c);
     }
 
-    public void a(int i) {
-        if (this.k != null) {
-            this.k.a(i);
+    public void a(x xVar) {
+        this.k = xVar;
+    }
+
+    public com.baidu.tieba.data.a.c a() {
+        return this.h;
+    }
+
+    public String b() {
+        return this.d;
+    }
+
+    public String c() {
+        return this.b;
+    }
+
+    public long d() {
+        if (this.h.f() == null) {
+            return 0L;
         }
-        if (this.g != null) {
-            this.g.a(i);
+        return this.h.f().b();
+    }
+
+    public String e() {
+        if (this.h != null) {
+            return this.h.b();
         }
-        if (this.l != null) {
-            this.l.b(i);
+        return null;
+    }
+
+    public String f() {
+        if (this.h != null) {
+            return this.h.a();
         }
-        if (i == 1) {
-            this.d.setBackgroundColor(-13618114);
-            if (this.k.c()) {
-                this.e.setDivider(this.c.getResources().getDrawable(17170445));
-                return;
-            } else {
-                this.e.setDivider(this.c.getResources().getDrawable(R.drawable.list_divider_1));
-                return;
-            }
+        return null;
+    }
+
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
+        return true;
+    }
+
+    public boolean g() {
+        if (this.b == null || this.d == null) {
+            return false;
         }
-        this.d.setBackgroundColor(-197380);
-        if (this.k.c()) {
-            this.e.setDivider(this.c.getResources().getDrawable(17170445));
-        } else {
-            this.e.setDivider(this.c.getResources().getDrawable(R.drawable.list_divider));
+        if (this.j != null) {
+            this.j.cancel();
         }
-    }
-
-    public void c() {
-        this.k.a();
-    }
-
-    public void d() {
-        this.k.b();
-    }
-
-    public void a(List list) {
-        this.f.a(list);
-    }
-
-    public void a(AbsListView.OnScrollListener onScrollListener) {
-        this.e.setOnScrollListener(onScrollListener);
-    }
-
-    public void e() {
-        AlertDialog.Builder builder;
-        String string = this.c.getString(R.string.delete_user_chat);
-        if (this.c.getParent() == null) {
-            builder = new AlertDialog.Builder(this.c);
-        } else {
-            builder = new AlertDialog.Builder(this.c.getParent());
+        if (this.i != null) {
+            this.i.cancel();
         }
-        builder.setTitle(R.string.operation);
-        builder.setItems(new String[]{string}, this.h);
-        this.f961a = builder.create();
-        this.f961a.setCanceledOnTouchOutside(true);
+        this.j = new y(this);
+        this.j.execute(new Object[0]);
+        return true;
     }
 
-    public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.e.setOnItemClickListener(onItemClickListener);
+    public void h() {
+        this.l.b(this.b, this.d);
     }
 
-    public void a(AdapterView.OnItemLongClickListener onItemLongClickListener) {
-        this.e.setOnItemLongClickListener(onItemLongClickListener);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.g.a(bVar);
-    }
-
-    public int f() {
-        return this.e.getFirstVisiblePosition();
-    }
-
-    public int g() {
-        return this.e.getLastVisiblePosition();
-    }
-
-    public t h() {
-        return this.f;
-    }
-
-    public com.baidu.tieba.util.a i() {
-        return this.f.a();
-    }
-
-    public BdListView j() {
-        return this.e;
-    }
-
-    public void b(int i) {
-        this.e.setSelection(i);
-    }
-
-    public void k() {
-        this.e.a();
-    }
-
-    public void a(DialogInterface.OnClickListener onClickListener) {
-        this.h = onClickListener;
-    }
-
-    public void l() {
-        if (this.f961a != null) {
-            this.f961a.show();
+    public boolean i() {
+        if (this.b == null || this.d == null || this.j != null) {
+            return false;
         }
+        this.i = new w(this, 2);
+        this.i.execute(new Object[0]);
+        return true;
     }
 
-    public void a(boolean z) {
-        if (z) {
-            this.k.b(0);
-        } else {
-            this.k.b(8);
+    public boolean j() {
+        if (this.b == null || this.d == null || this.j != null) {
+            return false;
         }
-        a(TiebaApplication.g().an());
+        if (this.i != null) {
+            this.i.cancel();
+        }
+        this.i = new w(this, 0);
+        this.i.execute(new Object[0]);
+        return true;
+    }
+
+    public boolean k() {
+        if (this.b == null || this.d == null || this.j != null) {
+            return false;
+        }
+        if (this.i != null) {
+            this.i.cancel();
+        }
+        this.i = new w(this, 1);
+        this.i.execute(new Object[0]);
+        return true;
+    }
+
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        if (this.j != null) {
+            this.j.cancel();
+        }
+        if (this.i != null) {
+            this.i.cancel();
+            return false;
+        }
+        return false;
     }
 }

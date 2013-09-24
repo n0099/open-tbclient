@@ -1,330 +1,251 @@
 package com.baidu.tieba.person;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tieba.TiebaApplication;
+import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
+import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bi extends bj {
-    private int D;
-    private Context E;
-    private int F;
-    private ViewGroup G;
-    private LinearLayout H;
-    private ImageView I;
-    private TextView J;
-    private LinearLayout K;
-    private LinearLayout L;
-    private LinearLayout M;
-    private ImageView N;
-    private TextView O;
-    private ImageView P;
-    private LinearLayout Q;
-    private ImageView R;
-    private TextView S;
-    private TextView T;
-    private LinearLayout U;
-    private ImageView V;
-    private TextView W;
-    private TextView X;
-    private LinearLayout Y;
-    private ImageView Z;
-    private TextView aa;
-    private TextView ab;
-    private TextView ac;
-    private LinearLayout ad;
-    private ImageView ae;
-    private TextView af;
-    private TextView ag;
+public class bi extends com.baidu.adp.a.d {
+    protected UserData A;
+    protected LinearLayout B;
+    protected LinearLayout C;
+    PersonInfoActivity b;
+    protected NavigationBar c;
+    protected ImageView d;
+    protected ImageView e;
+    protected Button f;
+    protected LinearLayout g;
+    protected TextView h;
+    protected BdPullRefreshScrollView i;
+    protected com.baidu.tieba.view.ah j;
+    protected FrameLayout k;
+    protected LinearLayout l;
+    protected HeadImageView m;
+    protected FrameLayout n;
+    protected TextView o;
+    protected ImageView p;
+    protected TextView q;
+    protected ImageView r;
+    protected ImageView s;
+    protected ProgressBar t;
+    protected LinearLayout u;
+    protected Button v;
+    protected Button w;
+    protected ImageView x;
+    protected TextView y;
+    protected String z;
 
-    public bi(PersonInfoActivity personInfoActivity, com.baidu.tieba.model.bm bmVar) {
-        super(personInfoActivity, bmVar);
-        this.D = -1;
-        this.E = null;
-        this.F = 0;
-        this.G = null;
-        this.H = null;
-        this.I = null;
-        this.J = null;
-        this.K = null;
-        this.L = null;
-        this.M = null;
-        this.N = null;
-        this.O = null;
-        this.P = null;
-        this.Q = null;
-        this.R = null;
-        this.S = null;
-        this.T = null;
-        this.U = null;
-        this.V = null;
-        this.W = null;
-        this.X = null;
-        this.Y = null;
-        this.Z = null;
-        this.aa = null;
-        this.ab = null;
-        this.ac = null;
-        this.ad = null;
-        this.ae = null;
-        this.af = null;
-        this.ag = null;
-        this.E = personInfoActivity;
-        this.G = (ViewGroup) LayoutInflater.from(personInfoActivity).inflate(R.layout.person_info_activity_host, (ViewGroup) null);
-        this.H = (LinearLayout) this.G.findViewById(R.id.btn_edit_profile);
-        this.K = (LinearLayout) this.G.findViewById(R.id.sudoku_buttons_host);
-        this.G.removeView(this.H);
-        this.G.removeView(this.K);
-        this.B.addView(this.H);
-        this.C.addView(this.K);
-        this.I = (ImageView) personInfoActivity.findViewById(R.id.edit_icon);
-        this.J = (TextView) personInfoActivity.findViewById(R.id.edit_text);
-        this.D = TiebaApplication.g().an();
-        this.L = (LinearLayout) personInfoActivity.findViewById(R.id.place_holder1);
-        this.M = (LinearLayout) personInfoActivity.findViewById(R.id.my_bookmark);
-        this.N = (ImageView) personInfoActivity.findViewById(R.id.my_bookmark_image);
-        this.O = (TextView) personInfoActivity.findViewById(R.id.my_bookmark_text);
-        this.P = (ImageView) personInfoActivity.findViewById(R.id.new_bookmark_mention);
-        this.F = UtilHelper.a((Context) personInfoActivity);
-        a(this.P, UtilHelper.a((Context) personInfoActivity, 14.0f), (this.F / 6) - UtilHelper.a((Context) personInfoActivity, 23.0f));
-        this.Q = (LinearLayout) personInfoActivity.findViewById(R.id.my_forums);
-        this.R = (ImageView) personInfoActivity.findViewById(R.id.my_forums_image);
-        this.S = (TextView) personInfoActivity.findViewById(R.id.my_forums_text);
-        this.T = (TextView) personInfoActivity.findViewById(R.id.my_forums_num);
-        this.U = (LinearLayout) personInfoActivity.findViewById(R.id.my_attention);
-        this.V = (ImageView) personInfoActivity.findViewById(R.id.my_attention_image);
-        this.W = (TextView) personInfoActivity.findViewById(R.id.my_attention_text);
-        this.X = (TextView) personInfoActivity.findViewById(R.id.my_attention_num);
-        this.Y = (LinearLayout) personInfoActivity.findViewById(R.id.my_fans);
-        this.Z = (ImageView) personInfoActivity.findViewById(R.id.my_fans_image);
-        this.aa = (TextView) personInfoActivity.findViewById(R.id.my_fans_text);
-        this.ab = (TextView) personInfoActivity.findViewById(R.id.my_fans_num);
-        this.ac = (TextView) personInfoActivity.findViewById(R.id.new_fans_mention);
-        a(this.ac, UtilHelper.a((Context) personInfoActivity, 8.0f), (this.F / 6) - UtilHelper.a((Context) personInfoActivity, 30.0f));
-        this.ad = (LinearLayout) personInfoActivity.findViewById(R.id.my_post);
-        this.ae = (ImageView) personInfoActivity.findViewById(R.id.my_post_image);
-        this.af = (TextView) personInfoActivity.findViewById(R.id.my_post_text);
-        this.ag = (TextView) personInfoActivity.findViewById(R.id.my_post_num);
-        this.M.setOnClickListener(personInfoActivity);
-        this.Q.setOnClickListener(personInfoActivity);
-        this.U.setOnClickListener(personInfoActivity);
-        this.Y.setOnClickListener(personInfoActivity);
-        this.ad.setOnClickListener(personInfoActivity);
-        this.H.setOnClickListener(personInfoActivity);
-        d(bmVar);
+    public bi(PersonInfoActivity personInfoActivity, com.baidu.tieba.model.bo boVar) {
+        super(personInfoActivity);
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.p = null;
+        this.q = null;
+        this.r = null;
+        this.s = null;
+        this.t = null;
+        this.u = null;
+        this.v = null;
+        this.w = null;
+        this.x = null;
+        this.y = null;
+        this.z = null;
+        this.A = null;
+        this.B = null;
+        this.C = null;
+        this.b = personInfoActivity;
+        personInfoActivity.setContentView(R.layout.person_info_main);
+        this.z = boVar.a();
+        this.A = boVar.c();
+        this.c = (NavigationBar) personInfoActivity.findViewById(R.id.view_navigation_bar);
+        this.h = this.c.a(personInfoActivity.getResources().getString(R.id.title_text));
+        this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, personInfoActivity);
+        this.e = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.HOME_BUTTON, personInfoActivity);
+        this.f = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, personInfoActivity.getResources().getString(R.string.setup), personInfoActivity);
+        this.t = (ProgressBar) personInfoActivity.findViewById(R.id.progress);
+        this.g = (LinearLayout) personInfoActivity.findViewById(R.id.parent);
+        this.i = (BdPullRefreshScrollView) personInfoActivity.findViewById(R.id.scrollview);
+        this.j = new com.baidu.tieba.view.ah(personInfoActivity);
+        this.i.setCustomHeaderView(this.j);
+        this.B = (LinearLayout) personInfoActivity.findViewById(R.id.operation_buttons);
+        this.C = (LinearLayout) personInfoActivity.findViewById(R.id.sudoku_buttons_container);
+        this.k = (FrameLayout) personInfoActivity.findViewById(R.id.info);
+        this.m = (HeadImageView) personInfoActivity.findViewById(R.id.photo);
+        this.n = (FrameLayout) personInfoActivity.findViewById(R.id.photo_frame);
+        this.l = (LinearLayout) personInfoActivity.findViewById(R.id.person_info_view);
+        this.o = (TextView) personInfoActivity.findViewById(R.id.name);
+        this.p = (ImageView) personInfoActivity.findViewById(R.id.sex);
+        this.q = (TextView) personInfoActivity.findViewById(R.id.intro);
+        this.r = (ImageView) personInfoActivity.findViewById(R.id.background_bottom);
+        this.s = (ImageView) personInfoActivity.findViewById(R.id.background_image);
+        this.u = (LinearLayout) personInfoActivity.findViewById(R.id.not_login_view);
+        this.x = (ImageView) personInfoActivity.findViewById(R.id.not_login_img);
+        this.y = (TextView) personInfoActivity.findViewById(R.id.not_login_text);
+        this.v = (Button) personInfoActivity.findViewById(R.id.login_btn);
+        this.v.setOnClickListener(personInfoActivity);
+        this.w = (Button) personInfoActivity.findViewById(R.id.reg_btn);
+        this.w.setOnClickListener(personInfoActivity);
     }
 
-    private void a(View view, int i, int i2) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-        layoutParams.topMargin = i;
-        layoutParams.rightMargin = i2;
-        view.setLayoutParams(layoutParams);
-    }
-
-    @Override // com.baidu.tieba.person.bj
-    public void a(com.baidu.tieba.model.bm bmVar) {
-        super.a(bmVar);
-        this.z = bmVar.a();
-        if (this.z != null && this.z.length() > 0) {
+    public void d(com.baidu.tieba.model.bo boVar) {
+        this.z = boVar.a();
+        if (this.z == null || this.z.length() < 0) {
+            this.l.setVisibility(8);
+            this.u.setVisibility(0);
             this.h.setText(R.string.person_info);
-            if (bmVar.j()) {
-                this.c.setVisibility(4);
-                this.d.setVisibility(8);
-                this.e.setVisibility(0);
-            } else if (bmVar.k()) {
-                this.c.setVisibility(0);
-                this.d.setVisibility(8);
-                this.e.setVisibility(0);
-            } else {
-                this.c.setVisibility(0);
-                this.d.setVisibility(0);
-                this.e.setVisibility(8);
-            }
+            this.f.setVisibility(0);
+            this.e.setVisibility(8);
+            this.d.setVisibility(4);
+            int a2 = UtilHelper.a((Context) this.b, 7.0f);
+            this.u.setPadding(a2, 0, a2, 0);
+        } else {
+            this.l.setVisibility(0);
+            this.u.setVisibility(8);
         }
+        a(boVar);
+        e(boVar);
+        b(boVar);
     }
 
-    public void a(boolean z, com.baidu.tieba.model.bm bmVar, int i) {
-        this.t.setVisibility(8);
-        if (z) {
-            d(bmVar);
-            g(bmVar);
-        }
-        if (i == 1) {
-            this.i.c();
-            if (bmVar.getErrorString() != null) {
-                this.b.a(bmVar.getErrorString());
-            }
-        }
+    public void a(com.baidu.tieba.model.bo boVar) {
     }
 
-    @Override // com.baidu.tieba.person.bj
-    public void b(com.baidu.tieba.model.bm bmVar) {
-        super.b(bmVar);
-        this.L.setVisibility(4);
-        this.z = bmVar.a();
+    public void e(com.baidu.tieba.model.bo boVar) {
+        this.z = boVar.a();
         if (this.z != null && this.z.length() > 0) {
-            this.A = bmVar.c();
-            b(this.D, bmVar);
-            if (this.A != null && this.A.getLike_bars() > 0) {
-                this.T.setVisibility(0);
-                this.T.setText(String.valueOf(this.A.getLike_bars()));
-            } else {
-                this.T.setVisibility(4);
-            }
-            if (this.A != null && this.A.getConcern_num() > 0) {
-                this.X.setVisibility(0);
-                this.X.setText(String.valueOf(this.A.getConcern_num()));
-            } else {
-                this.X.setVisibility(4);
-            }
-            if (this.A != null && this.A.getPosts_num() > 0) {
-                this.ag.setVisibility(0);
-                this.ag.setText(String.valueOf(this.A.getPosts_num()));
-            } else {
-                this.ag.setVisibility(4);
-            }
-            if (this.A != null && this.A.getFans_num() > 0) {
-                this.ab.setVisibility(0);
-                this.ab.setText(String.valueOf(this.A.getFans_num()));
+            this.A = boVar.c();
+            if (this.A == null) {
+                this.o.setText(boVar.f());
                 return;
             }
-            this.ab.setVisibility(4);
-        }
-    }
-
-    private void a(View view, int i, int i2, int i3) {
-        if (i == 1) {
-            view.setBackgroundResource(i2);
-        } else {
-            view.setBackgroundResource(i3);
-        }
-    }
-
-    private void b(int i, com.baidu.tieba.model.bm bmVar) {
-        long h = bmVar.h();
-        long i2 = bmVar.i();
-        if (h > 0) {
-            this.ac.setVisibility(0);
-            if (h <= 9) {
-                a(this.ac, i, R.drawable.icon_news_prompt_1, R.drawable.icon_news_prompt);
-                a(this.ac, UtilHelper.a(this.E, 9.0f), (this.F / 6) - UtilHelper.a(this.E, 28.0f));
-                this.ac.setText(String.valueOf(h));
-            } else if (h > 9 && h <= 99) {
-                a(this.ac, i, R.drawable.icon_news_head_prompt_1, R.drawable.icon_news_head_prompt);
-                this.ac.setText(String.valueOf(h));
-            } else if (h > 99) {
-                a(this.ac, i, R.drawable.icon_news_head_prompt_more_1, R.drawable.icon_news_head_prompt_more);
+            this.o.setText(this.A.getName_show());
+            if (this.A.getSex() == 1) {
+                this.p.setImageResource(R.drawable.cent_icon_boy_n);
+            } else if (this.A.getSex() == 2) {
+                this.p.setImageResource(R.drawable.cent_icon_girl_n);
             }
+            this.q.setText(this.A.getIntro());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(com.baidu.tieba.model.bo boVar) {
+    }
+
+    public void a(boolean z) {
+        if (!z) {
+            this.i.setMode(BdPullRefreshScrollView.Mode.DISABLED);
         } else {
-            this.ac.setVisibility(8);
+            this.i.setMode(BdPullRefreshScrollView.Mode.PULL_FROM_START);
         }
-        if (i2 > 0) {
-            a(this.P, i, R.drawable.icon_news_content_prompt_1, R.drawable.icon_news_content_prompt);
-            this.P.setVisibility(0);
-            return;
-        }
-        this.P.setVisibility(8);
     }
 
-    @Override // com.baidu.tieba.person.bj
-    public void a(int i, com.baidu.tieba.model.bm bmVar) {
-        super.a(i, bmVar);
-        a(i, this.O, (TextView) null);
-        a(i, this.af, (TextView) null);
-        a(this.ac, i, R.drawable.icon_news_prompt_1, R.drawable.icon_news_prompt);
-        a(this.P, i, R.drawable.icon_news_content_prompt_1, R.drawable.icon_news_content_prompt);
+    public void a(com.baidu.adp.widget.ScrollView.n nVar) {
+        this.i.setOnPullDownListener(nVar);
+    }
+
+    public void a(int i, com.baidu.tieba.model.bo boVar) {
+        this.z = boVar.a();
+        this.b.l().a(i == 1);
+        this.b.l().a(this.g);
+        com.baidu.tieba.util.as.a(this.g, i);
+        this.c.b(i);
+        this.m.c();
+        this.j.a(i);
         if (i == 1) {
-            this.H.setBackgroundResource(R.drawable.btn_white_bg_night_selector);
-            this.I.setImageResource(R.drawable.btn_icon_edit_1);
-            this.J.setTextColor(-11640196);
-            this.M.setBackgroundResource(R.drawable.person_button_1);
-            this.Q.setBackgroundResource(R.drawable.person_button_1);
-            this.U.setBackgroundResource(R.drawable.person_button_1);
-            this.Y.setBackgroundResource(R.drawable.person_button_1);
-            this.ad.setBackgroundResource(R.drawable.person_button_1);
-            this.N.setImageResource(R.drawable.cent_icon_sc_n_1);
-            this.R.setImageResource(R.drawable.cent_icon_myba_n_1);
-            this.V.setImageResource(R.drawable.cent_icon_gz_n_1);
-            this.Z.setImageResource(R.drawable.cent_icon_fs_n_1);
-            this.ae.setImageResource(R.drawable.cent_icon_tiezi_n_1);
-            this.S.setTextColor(-10523526);
-            this.W.setTextColor(-10523526);
-            this.O.setTextColor(-10523526);
-            this.af.setTextColor(-10523526);
-            this.aa.setTextColor(-10523526);
-            this.T.setTextColor(-8352873);
-            this.ab.setTextColor(-8352873);
-            this.X.setTextColor(-8352873);
-            this.ag.setTextColor(-8352873);
-            return;
+            com.baidu.tieba.util.as.e(this.k, (int) R.drawable.person_seperator_1);
+            if (this.z != null && this.z.length() > 0) {
+                this.i.setBackgroundColor(-13618114);
+            }
+            this.j.setBackgroundColor(-13618114);
+            this.n.setForeground(this.b.getResources().getDrawable(R.drawable.pic_bj_touxiang_n_1));
+            this.v.setBackgroundResource(R.drawable.btn_blue_square_1);
+            this.w.setBackgroundResource(R.drawable.btn_w_square_1);
+        } else {
+            com.baidu.tieba.util.as.e(this.k, (int) R.drawable.person_seperator);
+            if (this.z != null && this.z.length() > 0) {
+                this.i.setBackgroundColor(-1644051);
+            }
+            this.j.setBackgroundColor(-1644051);
+            this.n.setForeground(this.b.getResources().getDrawable(R.drawable.pic_bj_touxiang_n));
+            this.v.setBackgroundResource(R.drawable.btn_blue_square);
+            this.w.setBackgroundResource(R.drawable.btn_w_square);
         }
-        this.H.setBackgroundResource(R.drawable.btn_white_bg_selector);
-        this.I.setImageResource(R.drawable.btn_icon_edit);
-        this.J.setTextColor(-9207399);
-        this.M.setBackgroundResource(R.drawable.person_button);
-        this.Q.setBackgroundResource(R.drawable.person_button);
-        this.U.setBackgroundResource(R.drawable.person_button);
-        this.Y.setBackgroundResource(R.drawable.person_button);
-        this.ad.setBackgroundResource(R.drawable.person_button);
-        this.N.setImageResource(R.drawable.cent_icon_sc_n);
-        this.R.setImageResource(R.drawable.cent_icon_myba_n);
-        this.V.setImageResource(R.drawable.cent_icon_gz_n);
-        this.Z.setImageResource(R.drawable.cent_icon_fs_n);
-        this.ae.setImageResource(R.drawable.cent_icon_tiezi_n);
-        this.S.setTextColor(-12564913);
-        this.W.setTextColor(-12564913);
-        this.O.setTextColor(-12564913);
-        this.af.setTextColor(-12564913);
-        this.aa.setTextColor(-12564913);
-        this.T.setTextColor(-6576974);
-        this.ab.setTextColor(-6576974);
-        this.X.setTextColor(-6576974);
-        this.ag.setTextColor(-6576974);
+        this.s.setImageResource(R.drawable.pic_banner_pic);
     }
 
-    @Override // com.baidu.tieba.person.bj
     public void b() {
-        super.b();
-        this.M.setBackgroundResource(0);
-        this.Q.setBackgroundResource(0);
-        this.U.setBackgroundResource(0);
-        this.Y.setBackgroundResource(0);
-        this.ad.setBackgroundResource(0);
-        this.N.setImageResource(0);
-        this.R.setImageResource(0);
-        this.V.setImageResource(0);
-        this.Z.setImageResource(0);
-        this.ae.setImageResource(0);
+        this.x.setImageResource(0);
+        this.s.setImageDrawable(null);
     }
 
-    public LinearLayout d() {
-        return this.M;
+    public void f(com.baidu.tieba.model.bo boVar) {
+        this.A = boVar.c();
+        if (this.A == null) {
+            this.t.setVisibility(0);
+        }
     }
 
-    public LinearLayout e() {
-        return this.Q;
+    public void j() {
+        this.m.setImageResource(R.drawable.person_photo);
     }
 
-    public LinearLayout f() {
-        return this.U;
+    public void g(com.baidu.tieba.model.bo boVar) {
+        String portrait;
+        if (boVar != null && boVar.c() != null && (portrait = boVar.c().getPortrait()) != null && portrait.length() > 0) {
+            com.baidu.adp.widget.a.c c = boVar.e().c(portrait);
+            if (c == null) {
+                boVar.e().c(portrait, new bj(this));
+            } else {
+                c.a(this.m);
+            }
+        }
     }
 
-    public LinearLayout g() {
-        return this.Y;
+    public void c() {
+        if (this.t != null) {
+            this.t.setVisibility(8);
+        }
     }
 
-    public LinearLayout h() {
-        return this.ad;
+    public ImageView k() {
+        return this.d;
     }
 
-    public LinearLayout i() {
-        return this.H;
+    public ImageView l() {
+        return this.e;
+    }
+
+    public Button m() {
+        return this.f;
+    }
+
+    public Button n() {
+        return this.v;
+    }
+
+    public Button o() {
+        return this.w;
     }
 }

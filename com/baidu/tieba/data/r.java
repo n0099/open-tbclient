@@ -6,16 +6,16 @@ import org.json.JSONObject;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1025a = -1;
+    private int f1043a = -1;
     private String b = null;
     private String c = null;
 
     public int a() {
-        return this.f1025a;
+        return this.f1043a;
     }
 
     public void a(int i) {
-        this.f1025a = i;
+        this.f1043a = i;
     }
 
     public String b() {
@@ -30,18 +30,18 @@ public class r {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1025a = jSONObject.optInt("error_code", 0);
+                this.f1043a = jSONObject.optInt("error_code", 0);
                 this.b = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                 this.c = jSONObject.optString("error_data");
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

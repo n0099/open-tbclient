@@ -8,21 +8,21 @@ import java.util.ArrayList;
 public class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final View f344a;
+    final View f348a;
     final /* synthetic */ SlidingPaneLayout b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(SlidingPaneLayout slidingPaneLayout, View view) {
         this.b = slidingPaneLayout;
-        this.f344a = view;
+        this.f348a = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         ArrayList arrayList;
-        if (this.f344a.getParent() == this.b) {
-            aq.a(this.f344a, 0, null);
-            this.b.d(this.f344a);
+        if (this.f348a.getParent() == this.b) {
+            aq.a(this.f348a, 0, null);
+            this.b.d(this.f348a);
         }
         arrayList = this.b.t;
         arrayList.remove(this);

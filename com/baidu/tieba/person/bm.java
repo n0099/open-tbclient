@@ -1,28 +1,35 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
+import com.baidu.tieba.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements com.baidu.tbadk.a.d {
+public class bm implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bl f1632a;
+    final /* synthetic */ PersonListActivity f1682a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bl blVar) {
-        this.f1632a = blVar;
+    public bm(PersonListActivity personListActivity) {
+        this.f1682a = personListActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        PersonListActivity personListActivity;
-        BdListView bdListView;
-        personListActivity = this.f1632a.f1631a;
-        bdListView = personListActivity.c;
-        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-        if (imageView != null && bVar != null) {
-            bVar.a(imageView);
-            imageView.setTag(null);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        br brVar;
+        br brVar2;
+        br brVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        brVar = this.f1682a.e;
+        if (brVar != null) {
+            brVar2 = this.f1682a.e;
+            if (brVar2.getItemViewType(intValue) == 0) {
+                brVar3 = this.f1682a.e;
+                UserData userData = (UserData) brVar3.getItem(intValue);
+                if (userData != null && userData.getId() != null) {
+                    PersonInfoActivity.a(this.f1682a, userData.getId(), userData.getName_show());
+                }
+            }
         }
     }
 }

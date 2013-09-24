@@ -1,255 +1,244 @@
 package com.baidu.tieba.util;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.switchs.SwitchKey;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintStream;
-import java.lang.Thread;
-import java.util.List;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class as implements Thread.UncaughtExceptionHandler {
+public class as {
 
     /* renamed from: a  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f1790a = Thread.getDefaultUncaughtExceptionHandler();
+    private static String f1906a = "skinType not support";
 
-    /* JADX WARN: Removed duplicated region for block: B:115:0x01ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x01ef A[Catch: Exception -> 0x0215, TryCatch #3 {Exception -> 0x0215, blocks: (B:78:0x01ea, B:80:0x01ef, B:82:0x01f4), top: B:115:0x01ea }] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x01f4 A[Catch: Exception -> 0x0215, TRY_LEAVE, TryCatch #3 {Exception -> 0x0215, blocks: (B:78:0x01ea, B:80:0x01ef, B:82:0x01f4), top: B:115:0x01ea }] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x01fd  */
-    @Override // java.lang.Thread.UncaughtExceptionHandler
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void uncaughtException(Thread thread, Throwable th) {
-        FileWriter fileWriter;
-        PrintStream printStream;
-        ByteArrayOutputStream byteArrayOutputStream;
-        PrintStream printStream2;
-        ByteArrayOutputStream byteArrayOutputStream2;
-        String str;
-        FileWriter fileWriter2 = null;
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                printStream = new PrintStream(byteArrayOutputStream);
-                try {
-                    try {
-                        th.printStackTrace(printStream);
-                        String str2 = new String(byteArrayOutputStream.toByteArray());
-                        if (com.baidu.tieba.data.g.s()) {
-                            str = "fatal_error_debug.log";
-                        } else {
-                            str = "fatal_error.log";
-                        }
-                        File f = p.f(str);
-                        if (f != null && f.length() < 204800 && str2 != null) {
-                            fileWriter = new FileWriter(f, true);
-                            try {
-                                a(fileWriter, ap.a(), null);
-                                a(fileWriter, "tieba_crash_new_info", null);
-                                a(fileWriter, "version", com.baidu.tieba.data.g.j());
-                                a(fileWriter, "model", Build.MODEL);
-                                a(fileWriter, "android_version", Build.VERSION.RELEASE);
-                                a(fileWriter, "android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-                                a(fileWriter, "from", com.baidu.tieba.data.g.a());
-                                a(fileWriter, "current_from", com.baidu.tieba.data.g.b());
-                                a(fileWriter, "uid", TiebaApplication.E());
-                                a(fileWriter, "client_id", TiebaApplication.Q());
-                                a(fileWriter, "imei", TiebaApplication.g().r());
-                                a(fileWriter, "uname", TiebaApplication.I());
-                                a(fileWriter, "activity", TiebaApplication.g().h());
-                                a(fileWriter, "maxMemory", String.valueOf(Runtime.getRuntime().maxMemory()));
-                                a(fileWriter, "crash_type", th.getClass().getName());
-                                List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TiebaApplication.g().getSystemService("activity")).getRunningAppProcesses();
-                                int myPid = Process.myPid();
-                                if (runningAppProcesses != null) {
-                                    int i = 0;
-                                    while (true) {
-                                        int i2 = i;
-                                        if (i2 >= runningAppProcesses.size()) {
-                                            break;
-                                        } else if (runningAppProcesses.get(i2).pid != myPid) {
-                                            i = i2 + 1;
-                                        } else {
-                                            a(fileWriter, "process_name", runningAppProcesses.get(i2).processName);
-                                            break;
-                                        }
-                                    }
-                                }
-                                a(fileWriter, "error", str2);
-                                a(fileWriter, "tieba_crash_new_info_end", null);
-                                fileWriter.append("\n");
-                                fileWriter.flush();
-                                fileWriter2 = fileWriter;
-                            } catch (Exception e) {
-                                e = e;
-                                fileWriter2 = fileWriter;
-                                printStream2 = printStream;
-                                byteArrayOutputStream2 = byteArrayOutputStream;
-                                try {
-                                    e.printStackTrace();
-                                    if (printStream2 != null) {
-                                        try {
-                                            printStream2.close();
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
-                                            if (!com.baidu.tieba.data.g.s() && this.f1790a != null) {
-                                                this.f1790a.uncaughtException(thread, th);
-                                                return;
-                                            } else {
-                                                Process.killProcess(Process.myPid());
-                                                return;
-                                            }
-                                        }
-                                    }
-                                    if (byteArrayOutputStream2 != null) {
-                                        byteArrayOutputStream2.close();
-                                    }
-                                    if (fileWriter2 != null) {
-                                        fileWriter2.close();
-                                    }
-                                    if (!com.baidu.tieba.data.g.s()) {
-                                    }
-                                    Process.killProcess(Process.myPid());
-                                    return;
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    byteArrayOutputStream = byteArrayOutputStream2;
-                                    printStream = printStream2;
-                                    fileWriter = fileWriter2;
-                                    if (printStream != null) {
-                                    }
-                                    if (byteArrayOutputStream != null) {
-                                    }
-                                    if (fileWriter != null) {
-                                    }
-                                    if (!com.baidu.tieba.data.g.s()) {
-                                    }
-                                    Process.killProcess(Process.myPid());
-                                    throw th;
-                                }
-                            } catch (Throwable th3) {
-                                th = th3;
-                                if (printStream != null) {
-                                }
-                                if (byteArrayOutputStream != null) {
-                                }
-                                if (fileWriter != null) {
-                                }
-                                if (!com.baidu.tieba.data.g.s()) {
-                                }
-                                Process.killProcess(Process.myPid());
-                                throw th;
-                            }
-                        }
-                        if (str2 != null) {
-                            try {
-                                if (str2.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                                    TiebaApplication.g().i(TiebaApplication.g().ao() + 1);
-                                } else if (str2.contains("com.baidu.location")) {
-                                    TiebaApplication.g().at();
-                                } else if (str2.contains("Couldn't load mtprocessor-jni")) {
-                                    com.baidu.adp.lib.a.d.a().a(SwitchKey.MOTU, 1);
-                                }
-                                if (TiebaApplication.g().h() != null && TiebaApplication.g().h().indexOf("NewVcodeActivity") != -1) {
-                                    TiebaApplication.g().k(TiebaApplication.g().aq() + 1);
-                                }
-                            } catch (Throwable th4) {
-                                th = th4;
-                                fileWriter = fileWriter2;
-                                if (printStream != null) {
-                                    try {
-                                        printStream.close();
-                                    } catch (Exception e3) {
-                                        e3.printStackTrace();
-                                        if (!com.baidu.tieba.data.g.s()) {
-                                        }
-                                        Process.killProcess(Process.myPid());
-                                        throw th;
-                                    }
-                                }
-                                if (byteArrayOutputStream != null) {
-                                    byteArrayOutputStream.close();
-                                }
-                                if (fileWriter != null) {
-                                    fileWriter.close();
-                                }
-                                if (!com.baidu.tieba.data.g.s() && this.f1790a != null) {
-                                    this.f1790a.uncaughtException(thread, th);
-                                } else {
-                                    Process.killProcess(Process.myPid());
-                                }
-                                throw th;
-                            }
-                        }
-                        com.baidu.adp.lib.a.d.a().a(str2);
-                        if (!TextUtils.isEmpty(str2)) {
-                            aq.a(str2);
-                        }
-                        if (printStream != null) {
-                            try {
-                                printStream.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
-                            }
-                        }
-                        if (byteArrayOutputStream != null) {
-                            byteArrayOutputStream.close();
-                        }
-                        if (fileWriter2 != null) {
-                            fileWriter2.close();
-                        }
-                        if (com.baidu.tieba.data.g.s() && this.f1790a != null) {
-                            this.f1790a.uncaughtException(thread, th);
-                        } else {
-                            Process.killProcess(Process.myPid());
-                        }
-                    } catch (Exception e5) {
-                        e = e5;
-                        printStream2 = printStream;
-                        byteArrayOutputStream2 = byteArrayOutputStream;
-                    }
-                } catch (Throwable th5) {
-                    th = th5;
-                    fileWriter = null;
-                }
-            } catch (Exception e6) {
-                e = e6;
-                printStream2 = null;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-            } catch (Throwable th6) {
-                th = th6;
-                fileWriter = null;
-                printStream = null;
+    public static void a(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_button_color));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.white));
             }
-        } catch (Exception e7) {
-            e = e7;
-            printStream2 = null;
-            byteArrayOutputStream2 = null;
-        } catch (Throwable th7) {
-            th = th7;
-            fileWriter = null;
-            printStream = null;
-            byteArrayOutputStream = null;
         }
     }
 
-    private void a(FileWriter fileWriter, String str, String str2) {
-        try {
-            fileWriter.append((CharSequence) str);
-            if (str2 != null) {
-                fileWriter.append("=");
-                fileWriter.append((CharSequence) str2);
+    public static void b(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_color));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.black));
             }
-            fileWriter.append("\n");
-        } catch (Exception e) {
-            aq.b(getClass().getName(), "addInfo", e.getMessage());
+        }
+    }
+
+    public static void c(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_night_1));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.search_text_content));
+            }
+        }
+    }
+
+    public static void d(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_night_2));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_day_2));
+            }
+        }
+    }
+
+    public static void e(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_night_3));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_day_3));
+            }
+        }
+    }
+
+    public static void a(View view, int i) {
+        if (view != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                view.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
+            } else {
+                view.setBackgroundColor(g.getResources().getColor(R.color.backgroundcolor));
+            }
+        }
+    }
+
+    public static void b(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.common_bg_1);
+            } else {
+                view.setBackgroundResource(R.drawable.common_bg);
+            }
+        }
+    }
+
+    public static void c(View view, int i) {
+        if (view != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                view.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
+            } else {
+                view.setBackgroundColor(g.getResources().getColor(R.color.login_bg_color));
+            }
+        }
+    }
+
+    public static void f(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_color));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.white));
+            }
+        }
+    }
+
+    public static void d(View view, int i) {
+        if (view != null) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.titlebar_bg_1);
+            } else {
+                view.setBackgroundResource(R.drawable.titlebar_bg);
+            }
+            view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+        }
+    }
+
+    public static void g(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                e((View) textView, (int) R.drawable.title_comm_1);
+            } else {
+                e((View) textView, (int) R.drawable.title_comm);
+            }
+        }
+        f(textView, i);
+    }
+
+    public static void h(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                e((View) textView, (int) R.drawable.title_comm_hilite_1);
+            } else {
+                e((View) textView, (int) R.drawable.title_comm_hilite);
+            }
+        }
+        f(textView, i);
+    }
+
+    public static void a(ImageView imageView, int i) {
+        if (imageView != null) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            if (i == 1) {
+                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
+                imageView.setImageResource(R.drawable.icon_return_n_1);
+                return;
+            }
+            imageView.setBackgroundResource(R.drawable.title_icon_bg);
+            imageView.setImageResource(R.drawable.icon_return_n);
+        }
+    }
+
+    public static void b(ImageView imageView, int i) {
+        if (imageView != null) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            if (i == 1) {
+                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
+                imageView.setImageResource(R.drawable.icon_refresh_n_1);
+                return;
+            }
+            imageView.setBackgroundResource(R.drawable.title_icon_bg);
+            imageView.setImageResource(R.drawable.icon_refresh_n);
+        }
+    }
+
+    public static void c(ImageView imageView, int i) {
+        if (imageView != null) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            if (i == 1) {
+                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
+                imageView.setImageResource(R.drawable.icon_home_n_1);
+                return;
+            }
+            imageView.setBackgroundResource(R.drawable.title_icon_bg);
+            imageView.setImageResource(R.drawable.icon_home_n);
+        }
+    }
+
+    public static int a(int i) {
+        if (i == 1) {
+            return TiebaApplication.g().getResources().getColor(R.color.skin_1_common_color);
+        }
+        throw new IllegalArgumentException(f1906a);
+    }
+
+    public static int b(int i) {
+        if (i == 1) {
+            return TiebaApplication.g().getResources().getColor(R.color.skin_1_second_common_color);
+        }
+        throw new IllegalArgumentException(f1906a);
+    }
+
+    public static int c(int i) {
+        if (i == 1) {
+            return TiebaApplication.g().getResources().getColor(R.color.skin_1_third_common_color);
+        }
+        throw new IllegalArgumentException(f1906a);
+    }
+
+    public static int d(int i) {
+        TiebaApplication g = TiebaApplication.g();
+        return i == 1 ? g.getResources().getColor(R.color.skin_1_common_bg) : g.getResources().getColor(R.color.backgroundcolor);
+    }
+
+    public static void e(View view, int i) {
+        if (view != null) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            view.setBackgroundResource(i);
+            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
+                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    public static void a(ListView listView, int i) {
+        if (listView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                listView.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
+                listView.setCacheColorHint(g.getResources().getColor(17170445));
+                listView.setDivider(g.getResources().getDrawable(R.drawable.list_divider_1));
+                listView.setSelector(R.drawable.list_selector_1);
+                return;
+            }
+            listView.setBackgroundColor(g.getResources().getColor(R.color.backgroundcolor));
+            listView.setCacheColorHint(g.getResources().getColor(17170445));
+            listView.setDivider(g.getResources().getDrawable(R.drawable.list_divider));
+            listView.setSelector(R.drawable.list_selector);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.zeus;
 /* loaded from: classes.dex */
-public interface ValueCallback {
-    void onReceiveValue(Object obj);
+public interface ValueCallback<T> {
+    void onReceiveValue(T t);
 }

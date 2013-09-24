@@ -17,7 +17,7 @@ import org.apache.http.client.methods.HttpGet;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f520a;
+    protected Context f532a;
     protected b b;
     protected String c;
     private int d = 2;
@@ -25,7 +25,7 @@ public class d implements Runnable {
     private boolean f = false;
 
     public d(Context context, b bVar) {
-        this.f520a = context.getApplicationContext();
+        this.f532a = context.getApplicationContext();
         this.b = bVar;
     }
 
@@ -66,7 +66,7 @@ public class d implements Runnable {
 
     private void b() {
         boolean c;
-        if (this.b == null || TextUtils.isEmpty(this.b.f518a) || TextUtils.isEmpty(this.b.b) || !ConnectManager.isNetworkConnected(this.f520a)) {
+        if (this.b == null || TextUtils.isEmpty(this.b.f530a) || TextUtils.isEmpty(this.b.b) || !ConnectManager.isNetworkConnected(this.f532a)) {
             return;
         }
         do {
@@ -86,9 +86,9 @@ public class d implements Runnable {
     private boolean c() {
         InputStream content;
         boolean z = false;
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f520a);
+        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f532a);
         try {
-            HttpResponse execute = proxyHttpClient.execute(new HttpGet(this.b.f518a));
+            HttpResponse execute = proxyHttpClient.execute(new HttpGet(this.b.f530a));
             if (execute.getStatusLine().getStatusCode() == 200 && (content = execute.getEntity().getContent()) != null && a(content)) {
                 z = true;
             }
@@ -117,7 +117,7 @@ public class d implements Runnable {
     }
 
     private String e() {
-        String str = this.b.f518a;
+        String str = this.b.f530a;
         String substring = str.substring(str.lastIndexOf("/"));
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
         if (!absolutePath.endsWith("/")) {

@@ -6,45 +6,45 @@ import java.util.Hashtable;
 public class q extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1807a;
+    private int f1927a;
     private String b;
-    private Hashtable c;
+    private Hashtable<String, Integer> c;
 
-    public q(Hashtable hashtable) {
-        this.f1807a = 3;
+    public q(Hashtable<String, Integer> hashtable) {
+        this.f1927a = 3;
         this.b = null;
         this.c = null;
-        this.f1807a = 3;
+        this.f1927a = 3;
         this.c = hashtable;
     }
 
     public q(int i, String str) {
-        this.f1807a = 3;
+        this.f1927a = 3;
         this.b = null;
         this.c = null;
-        this.f1807a = i;
+        this.f1927a = i;
         this.b = str;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        ArrayList y;
+        ArrayList<String> y;
         super.run();
         try {
-            if (this.f1807a == 3) {
+            if (this.f1927a == 3) {
                 if (this.c != null && (y = DatabaseService.y()) != null) {
                     int size = y.size();
                     for (int i = 0; i < size; i++) {
-                        this.c.put((String) y.get(i), 1);
+                        this.c.put(y.get(i), 1);
                     }
                 }
-            } else if (this.f1807a == 2) {
+            } else if (this.f1927a == 2) {
                 DatabaseService.r(this.b);
-            } else if (this.f1807a == 1) {
+            } else if (this.f1927a == 1) {
                 DatabaseService.q(this.b);
             }
         } catch (Exception e) {
-            aq.b(getClass().getName(), "run", e.getMessage());
+            av.b(getClass().getName(), "run", e.getMessage());
         }
     }
 }

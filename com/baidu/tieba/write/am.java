@@ -1,30 +1,24 @@
 package com.baidu.tieba.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.voice.RecordVoiceBnt;
 /* loaded from: classes.dex */
-public class am implements TextWatcher {
+class am implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1912a;
+    final /* synthetic */ WriteActivity f2090a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.f1912a = writeActivity;
+        this.f2090a = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.f1912a.n();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.f1912a.c = true;
+    @Override // java.lang.Runnable
+    public void run() {
+        RecordVoiceBnt recordVoiceBnt;
+        recordVoiceBnt = this.f2090a.N;
+        if (recordVoiceBnt.getVisibility() == 0) {
+            return;
+        }
+        this.f2090a.n();
     }
 }

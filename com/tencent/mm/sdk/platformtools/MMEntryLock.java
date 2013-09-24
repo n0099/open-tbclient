@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public final class MMEntryLock {
-    private static Set aF = new HashSet();
+    private static Set<String> aF = new HashSet();
 
     private MMEntryLock() {
     }

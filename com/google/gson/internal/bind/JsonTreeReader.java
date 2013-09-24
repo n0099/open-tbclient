@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class JsonTreeReader extends JsonReader {
-    private final List stack;
+    private final List<Object> stack;
     private static final Reader UNREADABLE_READER = new Reader() { // from class: com.google.gson.internal.bind.JsonTreeReader.1
         @Override // java.io.Reader
         public int read(char[] cArr, int i, int i2) {

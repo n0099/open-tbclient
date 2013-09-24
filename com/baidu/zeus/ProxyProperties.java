@@ -8,8 +8,9 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 /* loaded from: classes.dex */
 public class ProxyProperties implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.baidu.zeus.ProxyProperties.1
+    public static final Parcelable.Creator<ProxyProperties> CREATOR = new Parcelable.Creator<ProxyProperties>() { // from class: com.baidu.zeus.ProxyProperties.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ProxyProperties createFromParcel(Parcel parcel) {
             String str;
@@ -24,6 +25,7 @@ public class ProxyProperties implements Parcelable {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public ProxyProperties[] newArray(int i) {
             return new ProxyProperties[i];

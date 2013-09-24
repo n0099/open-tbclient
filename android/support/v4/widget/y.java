@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.widget.SlidingPaneLayout;
 /* loaded from: classes.dex */
-final class y implements Parcelable.Creator {
+final class y implements Parcelable.Creator<SlidingPaneLayout.SavedState> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

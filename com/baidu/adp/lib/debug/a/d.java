@@ -8,11 +8,11 @@ import java.io.InputStreamReader;
 public class d extends a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f395a;
+    private String f397a;
 
     public d(Context context) {
-        this.f395a = null;
-        this.f395a = context.getPackageName();
+        this.f397a = null;
+        this.f397a = context.getPackageName();
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0091 -> B:5:0x001e). Please submit an issue!!! */
@@ -23,7 +23,7 @@ public class d extends a implements Runnable {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     break;
-                } else if (readLine.contains(this.f395a) && !readLine.contains(String.valueOf(this.f395a) + ":remote") && !readLine.contains(String.valueOf(this.f395a) + ":debug")) {
+                } else if (readLine.contains(this.f397a) && !readLine.contains(String.valueOf(this.f397a) + ":remote") && !readLine.contains(String.valueOf(this.f397a) + ":debug")) {
                     String[] split = readLine.split("\\s+");
                     if (split[2].contains("%")) {
                         return split[2].trim();

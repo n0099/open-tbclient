@@ -17,10 +17,10 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class k {
-    private com.baidu.tieba.g j;
+    private com.baidu.tieba.j j;
 
     /* renamed from: a  reason: collision with root package name */
-    private View f903a = null;
+    private View f919a = null;
     private Dialog b = null;
     private EditText c = null;
     private RadioGroup d = null;
@@ -42,9 +42,9 @@ public class k {
     private p u = null;
     private p v = null;
 
-    public k(com.baidu.tieba.g gVar) {
+    public k(com.baidu.tieba.j jVar) {
         this.j = null;
-        this.j = gVar;
+        this.j = jVar;
     }
 
     public void a(String str) {
@@ -65,27 +65,27 @@ public class k {
 
     public void a() {
         if (this.b == null) {
-            this.f903a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
-            this.c = (EditText) this.f903a.findViewById(R.id.account);
+            this.f919a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
+            this.c = (EditText) this.f919a.findViewById(R.id.account);
             this.c.setHint(String.valueOf(this.j.getString(R.string.input_name)) + ":");
-            this.i = (Button) this.f903a.findViewById(R.id.back);
+            this.i = (Button) this.f919a.findViewById(R.id.back);
             this.i.setOnClickListener(new l(this));
-            this.k = (Button) this.f903a.findViewById(R.id.check_username);
+            this.k = (Button) this.f919a.findViewById(R.id.check_username);
             this.k.setOnClickListener(new m(this));
-            this.p = (ProgressBar) this.f903a.findViewById(R.id.check_progress);
-            this.o = (Button) this.f903a.findViewById(R.id.confirm);
+            this.p = (ProgressBar) this.f919a.findViewById(R.id.check_progress);
+            this.o = (Button) this.f919a.findViewById(R.id.confirm);
             this.o.setOnClickListener(new n(this));
-            this.q = (ProgressBar) this.f903a.findViewById(R.id.confirm_progress);
-            this.n = (TextView) this.f903a.findViewById(R.id.error_info);
-            this.d = (RadioGroup) this.f903a.findViewById(R.id.names_group);
-            this.f = (RadioButton) this.f903a.findViewById(R.id.name1);
-            this.g = (RadioButton) this.f903a.findViewById(R.id.name2);
-            this.h = (RadioButton) this.f903a.findViewById(R.id.name3);
+            this.q = (ProgressBar) this.f919a.findViewById(R.id.confirm_progress);
+            this.n = (TextView) this.f919a.findViewById(R.id.error_info);
+            this.d = (RadioGroup) this.f919a.findViewById(R.id.names_group);
+            this.f = (RadioButton) this.f919a.findViewById(R.id.name1);
+            this.g = (RadioButton) this.f919a.findViewById(R.id.name2);
+            this.h = (RadioButton) this.f919a.findViewById(R.id.name3);
             this.e = new o(this);
             this.f.setOnCheckedChangeListener(this.e);
             this.g.setOnCheckedChangeListener(this.e);
             this.h.setOnCheckedChangeListener(this.e);
-            this.r = (TextView) this.f903a.findViewById(R.id.phone_info);
+            this.r = (TextView) this.f919a.findViewById(R.id.phone_info);
             d();
             this.b = new Dialog(this.j, R.style.input_username_dialog);
             this.b.setCanceledOnTouchOutside(false);
@@ -103,7 +103,7 @@ public class k {
                 this.r.setText("Hi," + this.s);
             }
             this.b.show();
-            this.b.setContentView(this.f903a);
+            this.b.setContentView(this.f919a);
             WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
             attributes.gravity = 51;
             attributes.x = 0;
@@ -123,20 +123,20 @@ public class k {
         }
     }
 
-    public void a(ArrayList arrayList) {
+    public void a(ArrayList<String> arrayList) {
         int size;
         if (arrayList != null && (size = arrayList.size()) > 0) {
             this.d.setVisibility(0);
             if (size > 0 && arrayList.get(0) != null) {
-                this.f.setText((CharSequence) arrayList.get(0));
+                this.f.setText(arrayList.get(0));
                 this.f.setVisibility(0);
             }
             if (size > 1 && arrayList.get(1) != null) {
-                this.g.setText((CharSequence) arrayList.get(1));
+                this.g.setText(arrayList.get(1));
                 this.g.setVisibility(0);
             }
             if (size > 2 && arrayList.get(2) != null) {
-                this.h.setText((CharSequence) arrayList.get(2));
+                this.h.setText(arrayList.get(2));
                 this.h.setVisibility(0);
             }
         }

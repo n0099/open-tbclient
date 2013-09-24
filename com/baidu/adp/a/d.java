@@ -6,15 +6,15 @@ import android.view.inputmethod.InputMethodManager;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f347a;
+    protected Context f351a;
     private InputMethodManager b = null;
 
     public d(Context context) {
-        this.f347a = null;
-        this.f347a = context;
+        this.f351a = null;
+        this.f351a = context;
     }
 
     public Context a() {
-        return this.f347a;
+        return this.f351a;
     }
 }

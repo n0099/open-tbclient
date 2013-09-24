@@ -5,6 +5,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
@@ -41,7 +42,7 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class BdWindow extends FrameLayout implements BdExploreViewListener {
     private static final int TOAST_DUR = 2000;
-    public static Comparator sLastVisitTimeComparator = new Comparator() { // from class: com.baidu.browser.framework.BdWindow.1
+    public static Comparator<BdWindow> sLastVisitTimeComparator = new Comparator<BdWindow>() { // from class: com.baidu.browser.framework.BdWindow.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(BdWindow bdWindow, BdWindow bdWindow2) {
@@ -573,12 +574,12 @@ public class BdWindow extends FrameLayout implements BdExploreViewListener {
         }
 
         @Override // com.baidu.browser.webpool.BdWebPoolChromeClient
-        public void openFileChooser(BdValueCallback bdValueCallback, String str) {
+        public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str) {
             BdWindow.this.mFrameView.openFileChooser(bdValueCallback, str);
         }
 
         @Override // com.baidu.browser.webpool.BdWebPoolChromeClient
-        public void openFileChooser(BdValueCallback bdValueCallback) {
+        public void openFileChooser(BdValueCallback<Uri> bdValueCallback) {
             BdWindow.this.mFrameView.openFileChooser(bdValueCallback);
         }
 

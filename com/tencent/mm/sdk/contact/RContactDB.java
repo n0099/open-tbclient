@@ -6,8 +6,8 @@ import com.tencent.mm.sdk.storage.ContentProviderDB;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class RContactDB extends ContentProviderDB {
-    private static final Map O;
+public class RContactDB extends ContentProviderDB<RContactDB> {
+    private static final Map<String, Uri> O;
 
     static {
         HashMap hashMap = new HashMap();
@@ -21,6 +21,6 @@ public class RContactDB extends ContentProviderDB {
 
     @Override // com.tencent.mm.sdk.storage.ContentProviderDB
     public Uri getUriFromTable(String str) {
-        return (Uri) O.get(str);
+        return O.get(str);
     }
 }

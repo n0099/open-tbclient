@@ -3,7 +3,7 @@ package com.baidu.tieba.data.a;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f972a;
+    protected String f990a;
     protected String b;
     protected String c;
     protected String d;
@@ -15,11 +15,11 @@ public class g {
     protected int j;
 
     public String a() {
-        return String.valueOf(this.f972a) + "@" + this.c;
+        return String.valueOf(this.f990a) + "@" + this.c;
     }
 
     public void a(String str) {
-        this.f972a = str;
+        this.f990a = str;
     }
 
     public String b() {

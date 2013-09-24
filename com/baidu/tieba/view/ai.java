@@ -1,23 +1,34 @@
 package com.baidu.tieba.view;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class ai implements View.OnClickListener {
+class ai extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbPagerAdapter f1846a;
+    final /* synthetic */ ImagePbImageView f1972a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ImagePbPagerAdapter imagePbPagerAdapter) {
-        this.f1846a = imagePbPagerAdapter;
+    public ai(ImagePbImageView imagePbImageView) {
+        this.f1972a = imagePbImageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         int i;
-        ImagePbPagerAdapter imagePbPagerAdapter = this.f1846a;
-        i = this.f1846a.q;
-        imagePbPagerAdapter.a(i);
+        int i2;
+        Handler handler;
+        Handler handler2;
+        super.handleMessage(message);
+        ImagePbImageView imagePbImageView = this.f1972a;
+        i = imagePbImageView.j;
+        imagePbImageView.j = i - 1;
+        i2 = this.f1972a.j;
+        if (i2 >= 0) {
+            handler = this.f1972a.k;
+            handler2 = this.f1972a.k;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 20L);
+            this.f1972a.invalidate();
+        }
     }
 }

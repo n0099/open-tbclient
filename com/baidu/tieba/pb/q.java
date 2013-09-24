@@ -12,11 +12,11 @@ import com.slidingmenu.lib.R;
 public class q implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1577a;
+    final /* synthetic */ ImagePbActivity f1627a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ImagePbActivity imagePbActivity) {
-        this.f1577a = imagePbActivity;
+        this.f1627a = imagePbActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -26,16 +26,16 @@ public class q implements View.OnTouchListener {
         GridView gridView2;
         EditText editText2;
         Button button;
-        gridView = this.f1577a.p;
+        gridView = this.f1627a.p;
         if (gridView.getVisibility() == 0) {
-            editText = this.f1577a.m;
+            editText = this.f1627a.m;
             editText.requestFocus();
-            gridView2 = this.f1577a.p;
+            gridView2 = this.f1627a.p;
             gridView2.setVisibility(8);
-            ImagePbActivity imagePbActivity = this.f1577a;
-            editText2 = this.f1577a.m;
+            ImagePbActivity imagePbActivity = this.f1627a;
+            editText2 = this.f1627a.m;
             UtilHelper.b(imagePbActivity, editText2);
-            button = this.f1577a.o;
+            button = this.f1627a.o;
             button.setBackgroundResource(R.drawable.sub_pb_face);
             return true;
         }

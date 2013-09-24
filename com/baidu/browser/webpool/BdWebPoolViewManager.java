@@ -19,7 +19,7 @@ public final class BdWebPoolViewManager {
     public static final int RECYCLE_WEBVIEW_COUNT_PER_WINDOW_THRESHOD = 4;
     public static final int SMALL_WEBVIEW_COUNT_THRESHOD = 16;
     private static BdWebPoolViewManager sInstance;
-    public static Comparator sLastVisitTimeComparator = new Comparator() { // from class: com.baidu.browser.webpool.BdWebPoolViewManager.1
+    public static Comparator<BdWebPoolView> sLastVisitTimeComparator = new Comparator<BdWebPoolView>() { // from class: com.baidu.browser.webpool.BdWebPoolViewManager.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(BdWebPoolView bdWebPoolView, BdWebPoolView bdWebPoolView2) {
@@ -27,9 +27,9 @@ public final class BdWebPoolViewManager {
         }
     };
     private int mUsedWebViewCount;
-    private List mIdleWebViews = new ArrayList(1);
-    private Map mUsedWebViews = new HashMap();
-    private List mBackupWebViews = new ArrayList(1);
+    private List<BdWebPoolCustomView> mIdleWebViews = new ArrayList(1);
+    private Map<BdWebPoolView, List<BdWebPoolCustomView>> mUsedWebViews = new HashMap();
+    private List<BdWebPoolCustomView> mBackupWebViews = new ArrayList(1);
 
     public static BdWebPoolViewManager getInstance() {
         if (sInstance == null) {
@@ -48,24 +48,24 @@ public final class BdWebPoolViewManager {
         }
         BdWebPoolCustomView bdWebPoolCustomView2 = null;
         if (this.mIdleWebViews.size() > 0) {
-            bdWebPoolCustomView2 = (BdWebPoolCustomView) this.mIdleWebViews.remove(0);
+            bdWebPoolCustomView2 = this.mIdleWebViews.remove(0);
         } else if (bdWebPoolView.isCanUseBackupWebView() && this.mBackupWebViews.size() > 0) {
             BdLog.i("fetch backup webview.");
-            bdWebPoolCustomView2 = (BdWebPoolCustomView) this.mBackupWebViews.remove(0);
+            bdWebPoolCustomView2 = this.mBackupWebViews.remove(0);
         }
         if (bdWebPoolCustomView2 == null) {
             for (int i = 0; i < 1; i++) {
                 createWebView(context);
             }
-            bdWebPoolCustomView = (BdWebPoolCustomView) this.mIdleWebViews.remove(0);
+            bdWebPoolCustomView = this.mIdleWebViews.remove(0);
         } else {
             bdWebPoolCustomView = bdWebPoolCustomView2;
         }
         this.mUsedWebViewCount++;
         bdWebPoolCustomView.setWebPoolView(bdWebPoolView);
-        List list = (List) this.mUsedWebViews.get(bdWebPoolView);
+        List<BdWebPoolCustomView> list = this.mUsedWebViews.get(bdWebPoolView);
         if (list == null) {
-            list = new ArrayList();
+            list = new ArrayList<>();
         }
         list.add(bdWebPoolCustomView);
         this.mUsedWebViews.put(bdWebPoolView, list);
@@ -84,7 +84,7 @@ public final class BdWebPoolViewManager {
     /* JADX INFO: Access modifiers changed from: protected */
     public void onWebViewDestory(BdWebPoolView bdWebPoolView, BdWebView bdWebView) {
         this.mUsedWebViewCount--;
-        List list = (List) this.mUsedWebViews.get(bdWebPoolView);
+        List<BdWebPoolCustomView> list = this.mUsedWebViews.get(bdWebPoolView);
         list.remove(bdWebView);
         if (list.size() == 0) {
             this.mUsedWebViews.remove(bdWebPoolView);
@@ -92,11 +92,11 @@ public final class BdWebPoolViewManager {
     }
 
     private boolean isLowMemory() {
-        Map sysMemoryInfo = BdMemUtil.getSysMemoryInfo();
-        long longValue = ((Long) sysMemoryInfo.get(BdMemUtil.FIELDS_SYS_MEMINFO[0])).longValue();
-        long longValue2 = ((Long) sysMemoryInfo.get(BdMemUtil.FIELDS_SYS_MEMINFO[1])).longValue();
-        long longValue3 = ((Long) sysMemoryInfo.get(BdMemUtil.FIELDS_SYS_MEMINFO[2])).longValue();
-        long longValue4 = ((Long) sysMemoryInfo.get(BdMemUtil.FIELDS_SYS_MEMINFO[3])).longValue();
+        Map<String, Long> sysMemoryInfo = BdMemUtil.getSysMemoryInfo();
+        long longValue = sysMemoryInfo.get(BdMemUtil.FIELDS_SYS_MEMINFO[0]).longValue();
+        long longValue2 = sysMemoryInfo.get(BdMemUtil.FIELDS_SYS_MEMINFO[1]).longValue();
+        long longValue3 = sysMemoryInfo.get(BdMemUtil.FIELDS_SYS_MEMINFO[2]).longValue();
+        long longValue4 = sysMemoryInfo.get(BdMemUtil.FIELDS_SYS_MEMINFO[3]).longValue();
         long j = longValue2 + longValue3 + longValue4;
         BdLog.i(String.valueOf(longValue2) + "," + longValue3 + "," + longValue4);
         BdLog.i(String.valueOf(longValue) + "," + j);
@@ -145,7 +145,7 @@ public final class BdWebPoolViewManager {
         recycleMultiPool(arrayList, i, true);
     }
 
-    private void recycleMultiPool(List list, int i, boolean z) {
+    private void recycleMultiPool(List<BdWebPoolView> list, int i, boolean z) {
         BdWebPoolView bdWebPoolView = null;
         int i2 = 0;
         while (true) {
@@ -181,12 +181,12 @@ public final class BdWebPoolViewManager {
         }
     }
 
-    public BdWebPoolView getLeastUsedPool(List list, int i) {
+    public BdWebPoolView getLeastUsedPool(List<BdWebPoolView> list, int i) {
         BdWebPoolView bdWebPoolView = null;
         int i2 = i + 1;
         while (true) {
             if (i2 < list.size()) {
-                bdWebPoolView = (BdWebPoolView) list.get(i2);
+                bdWebPoolView = list.get(i2);
                 if (bdWebPoolView.isForeground()) {
                     i2++;
                 } else {
@@ -261,7 +261,7 @@ public final class BdWebPoolViewManager {
         BdLog.i("[5583]" + this.mBackupWebViews.size());
         if (this.mBackupWebViews.size() > 8) {
             while (this.mBackupWebViews.size() > 4) {
-                ((BdWebPoolCustomView) this.mBackupWebViews.remove(0)).destroy();
+                this.mBackupWebViews.remove(0).destroy();
             }
         }
     }

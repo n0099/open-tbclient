@@ -1,143 +1,54 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tieba.data.ap;
-import com.baidu.tieba.util.v;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ak;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class g {
+public class g extends com.baidu.tieba.n {
+    private static final String e = String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/u/feed/forum";
+    private int c = 0;
+    private String d;
 
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f854a = String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/f/pb/page";
-    private v b = null;
-
-    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, ap apVar) {
-        if (str == null || str.length() == 0) {
+    public String b(String str) {
+        a("pn", str);
+        a("rn", String.valueOf(20));
+        this.f1510a.e(true);
+        a(e);
+        String j = this.f1510a.j();
+        if (this.f1510a.c()) {
+            this.b = new ak();
+            this.b.a(j);
+            return j;
+        } else if (this.f1510a.d()) {
+            this.c = this.f1510a.e();
+            this.d = this.f1510a.g();
+            return null;
+        } else {
+            this.c = -1;
+            this.d = TiebaApplication.g().getResources().getString(R.string.neterror);
             return null;
         }
-        this.b = new v(f854a);
-        this.b.a("kz", str);
-        this.b.a("rn", String.valueOf(30));
-        this.b.a("with_floor", "1");
-        if (!z) {
-            this.b.a("r", "1");
-        }
-        if (z2) {
-            this.b.a("lz", "1");
-        }
-        if (str2 != null) {
-            this.b.a("st_type", str2);
-        }
-        if (z3) {
-            this.b.a("msg_click", "1");
-            this.b.a("message_id", String.valueOf(j));
-        }
-        if (apVar != null) {
-            apVar.a(this.b);
-        }
-        switch (i3) {
-            case 1:
-                this.b.a("back", "0");
-                if (!z4) {
-                    if (!z) {
-                        if (i > 0) {
-                            this.b.a("pn", String.valueOf(i - 1));
-                        }
-                    } else if (i2 < i5) {
-                        this.b.a("pn", String.valueOf(i2 + 1));
-                    }
-                }
-                if (str3 != null) {
-                    this.b.a("pid", str3);
-                    break;
-                } else if (!z) {
-                    this.b.a("last", "1");
-                    break;
-                }
-                break;
-            case 2:
-                this.b.a("back", "1");
-                if (!z4) {
-                    if (z) {
-                        if (i > 0) {
-                            this.b.a("pn", String.valueOf(i - 1));
-                        }
-                    } else if (i2 < i5) {
-                        this.b.a("pn", String.valueOf(i2 + 1));
-                    }
-                }
-                if (str3 != null) {
-                    this.b.a("pid", str3);
-                    break;
-                }
-                break;
-            case 3:
-                this.b.a("back", "0");
-                if (z) {
-                    this.b.a("pn", "1");
-                } else {
-                    this.b.a("last", "1");
-                }
-                if (z4) {
-                    this.b.a("st_type", "store_thread");
-                    break;
-                }
-                break;
-            case 4:
-                this.b.a("st_type", "store_thread");
-                this.b.a("mark", "1");
-                this.b.a("pid", str3);
-                this.b.a("back", "0");
-                break;
-            case 5:
-                this.b.a("back", "0");
-                this.b.a("pn", String.valueOf(i4));
-                break;
-            case 6:
-                this.b.a("mark", "1");
-                this.b.a("pid", str3);
-                this.b.a("back", "0");
-                break;
-        }
-        return this.b.j();
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.n
+    public int e() {
         if (this.b != null) {
-            this.b.h();
+            return this.b.a();
         }
+        if (this.c == 0) {
+            return this.c;
+        }
+        return -1;
     }
 
-    public boolean b() {
-        if (this.b == null) {
-            return false;
+    @Override // com.baidu.tieba.n
+    public String f() {
+        if (this.b != null) {
+            return this.b.b();
         }
-        return this.b.c();
-    }
-
-    public boolean c() {
-        if (this.b == null) {
-            return false;
+        if (this.d != null) {
+            return this.d;
         }
-        return this.b.d();
-    }
-
-    public int d() {
-        if (this.b == null) {
-            return 0;
-        }
-        return this.b.b();
-    }
-
-    public String e() {
-        if (this.b == null) {
-            return null;
-        }
-        return this.b.g();
-    }
-
-    public int f() {
-        if (this.b == null) {
-            return 0;
-        }
-        return this.b.e();
+        return "";
     }
 }

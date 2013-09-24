@@ -1,6 +1,7 @@
 package com.baidu.zeus;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
@@ -126,14 +127,14 @@ public class WebChromeClient {
         return null;
     }
 
-    public void getVisitedHistory(ValueCallback valueCallback) {
+    public void getVisitedHistory(ValueCallback<String[]> valueCallback) {
     }
 
     public String getStringById(int i) {
         return null;
     }
 
-    public void openFileChooser(ValueCallback valueCallback) {
+    public void openFileChooser(ValueCallback<Uri> valueCallback) {
         valueCallback.onReceiveValue(null);
     }
 

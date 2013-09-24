@@ -49,10 +49,10 @@ public final class WebIconDatabase {
         static final int REQUEST_ICON = 3;
         static final int RETAIN_ICON = 4;
         private Handler mHandler;
-        private Vector mMessages;
+        private Vector<Message> mMessages;
 
         private EventHandler() {
-            this.mMessages = new Vector();
+            this.mMessages = new Vector<>();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -119,7 +119,7 @@ public final class WebIconDatabase {
                     }
                 };
                 for (int size = this.mMessages.size(); size > 0; size--) {
-                    this.mHandler.sendMessage((Message) this.mMessages.remove(0));
+                    this.mHandler.sendMessage(this.mMessages.remove(0));
                 }
                 this.mMessages = null;
             }

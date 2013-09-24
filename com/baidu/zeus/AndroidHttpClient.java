@@ -160,20 +160,20 @@ public final class AndroidHttpClient implements HttpClient {
         return this.delegate.execute(httpHost, httpRequest, httpContext);
     }
 
-    public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler) {
-        return this.delegate.execute(httpUriRequest, responseHandler);
+    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler) {
+        return (T) this.delegate.execute(httpUriRequest, responseHandler);
     }
 
-    public Object execute(HttpUriRequest httpUriRequest, ResponseHandler responseHandler, HttpContext httpContext) {
-        return this.delegate.execute(httpUriRequest, responseHandler, httpContext);
+    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) {
+        return (T) this.delegate.execute(httpUriRequest, responseHandler, httpContext);
     }
 
-    public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler) {
-        return this.delegate.execute(httpHost, httpRequest, responseHandler);
+    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler) {
+        return (T) this.delegate.execute(httpHost, httpRequest, responseHandler);
     }
 
-    public Object execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler responseHandler, HttpContext httpContext) {
-        return this.delegate.execute(httpHost, httpRequest, responseHandler, httpContext);
+    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) {
+        return (T) this.delegate.execute(httpHost, httpRequest, responseHandler, httpContext);
     }
 
     public static AbstractHttpEntity getCompressedEntity(byte[] bArr, ContentResolver contentResolver) {

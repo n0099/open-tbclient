@@ -4,7 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
-public class z extends a {
+public class z extends a<String> {
     public z(com.baidu.adp.a.f fVar) {
         super(fVar);
     }
@@ -12,7 +12,7 @@ public class z extends a {
     @Override // com.baidu.adp.lib.cache.a
     public String a(String str) {
         String str2 = "cache_kv_t" + Math.abs(str.hashCode());
-        this.f375a.a(this.f375a.a(), "CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
+        this.f379a.a(this.f379a.a(), "CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
     }
 
@@ -25,29 +25,30 @@ public class z extends a {
         return 1;
     }
 
+    /* JADX WARN: Type inference failed for: r2v15, types: [T, java.lang.String] */
     @Override // com.baidu.adp.lib.cache.a
-    protected k b(SQLiteDatabase sQLiteDatabase, String str) {
+    protected k<String> b(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
         Throwable th;
-        k kVar = null;
+        k<String> kVar = null;
         try {
             cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
-                    kVar = new k();
-                    kVar.f380a = cursor.getString(0);
+                    kVar = new k<>();
+                    kVar.f384a = cursor.getString(0);
                     kVar.d = cursor.getLong(1);
                     kVar.e = cursor.getLong(2);
                     kVar.f = cursor.getLong(3);
                     kVar.b = cursor.getString(4);
-                    com.baidu.adp.lib.e.b.a(cursor);
+                    com.baidu.adp.lib.d.a.a(cursor);
                 } else {
-                    com.baidu.adp.lib.e.b.a(cursor);
+                    com.baidu.adp.lib.d.a.a(cursor);
                 }
                 return kVar;
             } catch (Throwable th2) {
                 th = th2;
-                com.baidu.adp.lib.e.b.a(cursor);
+                com.baidu.adp.lib.d.a.a(cursor);
                 throw th;
             }
         } catch (Throwable th3) {
@@ -57,10 +58,10 @@ public class z extends a {
     }
 
     @Override // com.baidu.adp.lib.cache.a
-    protected ContentValues a(k kVar) {
+    protected ContentValues a(k<String> kVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", kVar.f380a);
-        contentValues.put("m_value", (String) kVar.b);
+        contentValues.put("m_key", kVar.f384a);
+        contentValues.put("m_value", kVar.b);
         contentValues.put("saveTime", Long.valueOf(kVar.d));
         contentValues.put("lastHitTime", Long.valueOf(kVar.e));
         contentValues.put("timeToExpire", Long.valueOf(kVar.f));

@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
 public class a {
-    public static Parcelable.Creator a(c cVar) {
+    public static <T> Parcelable.Creator<T> a(c<T> cVar) {
         if (Build.VERSION.SDK_INT >= 13) {
             e.a(cVar);
         }

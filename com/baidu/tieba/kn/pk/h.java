@@ -7,36 +7,36 @@ import org.json.JSONObject;
 public class h extends com.baidu.tieba.data.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1246a;
+    public String f1280a;
     public x b;
     public x c;
 
-    public LinkedList d() {
+    public LinkedList<y> d() {
         return this.b.m;
     }
 
-    public LinkedList e() {
+    public LinkedList<y> e() {
         return this.c.m;
     }
 
     @Override // com.baidu.tieba.data.a
     protected void a(JSONObject jSONObject) {
-        this.f1246a = jSONObject.optString("pk_id");
+        this.f1280a = jSONObject.optString("pk_id");
         this.b = new x().a(jSONObject.optJSONObject("vote1"));
         this.c = new x().a(jSONObject.optJSONObject("vote2"));
         a((String) null);
     }
 
     public void a(long j) {
-        Iterator it = this.b.m.iterator();
+        Iterator<y> it = this.b.m.iterator();
         while (it.hasNext()) {
-            y yVar = (y) it.next();
-            yVar.d = j - yVar.c;
+            y next = it.next();
+            next.d = j - next.c;
         }
-        Iterator it2 = this.c.m.iterator();
+        Iterator<y> it2 = this.c.m.iterator();
         while (it2.hasNext()) {
-            y yVar2 = (y) it2.next();
-            yVar2.d = j - yVar2.c;
+            y next2 = it2.next();
+            next2.d = j - next2.c;
         }
     }
 }

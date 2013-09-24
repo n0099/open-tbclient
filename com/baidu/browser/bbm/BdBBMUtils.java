@@ -219,15 +219,16 @@ public final class BdBBMUtils {
             deflater.setStrategy(0);
             deflater.setInput(bArr);
             deflater.finish();
+            byte[] bArr2 = null;
             System.gc();
-            byte[] bArr2 = new byte[1024];
+            byte[] bArr3 = new byte[1024];
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             byteArrayOutputStream.write(length & Util.MASK_8BIT);
             byteArrayOutputStream.write((length >> 8) & Util.MASK_8BIT);
             byteArrayOutputStream.write((length >> 16) & Util.MASK_8BIT);
             byteArrayOutputStream.write((length >> 24) & Util.MASK_8BIT);
             while (!deflater.finished()) {
-                byteArrayOutputStream.write(bArr2, 0, deflater.deflate(bArr2));
+                byteArrayOutputStream.write(bArr3, 0, deflater.deflate(bArr3));
             }
             deflater.end();
             byte[] byteArray = byteArrayOutputStream.toByteArray();

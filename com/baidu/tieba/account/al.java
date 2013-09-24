@@ -6,15 +6,15 @@ import com.baidu.tieba.data.AccountData;
 public class al implements p {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReLoginActivity f879a;
+    final /* synthetic */ ReLoginActivity f895a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ReLoginActivity reLoginActivity) {
-        this.f879a = reLoginActivity;
+        this.f895a = reLoginActivity;
     }
 
     @Override // com.baidu.tieba.account.p
     public void a(AccountData accountData) {
-        this.f879a.a(accountData);
+        this.f895a.a(accountData);
     }
 }

@@ -15,7 +15,7 @@ class ag implements AdapterView.OnItemClickListener {
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         this.f277a.a((ListView) adapterView, view, i, j);
     }
 }

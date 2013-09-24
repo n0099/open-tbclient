@@ -9,13 +9,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.as;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f1241a;
+    protected s f1275a;
     public com.baidu.tieba.kn.pk.widget.b b;
     ImageView c;
     private BdPullRefreshScrollView d;
@@ -67,10 +67,10 @@ public class c implements View.OnClickListener {
         ((ImageView) this.e.findViewById(R.id.share_qqfriend)).setOnClickListener(this.e);
         ((ImageView) this.e.findViewById(R.id.share_qqzone)).setOnClickListener(this.e);
         ((ImageView) this.e.findViewById(R.id.share_sina)).setOnClickListener(this.e);
-        ao.a(this.g, 0);
-        ao.a((ImageView) this.e.findViewById(R.id.home), 0);
-        ao.d(findViewById, 0);
-        ao.f(this.h, 0);
+        as.a(this.g, 0);
+        as.a((ImageView) this.e.findViewById(R.id.home), 0);
+        as.d(findViewById, 0);
+        as.f(this.h, 0);
         this.c = (ImageView) this.e.findViewById(R.id.cmd_folder);
         this.c.setOnClickListener(this);
         this.k = (TextView) this.e.findViewById(R.id.pk_res_left_un);
@@ -108,8 +108,8 @@ public class c implements View.OnClickListener {
     }
 
     public void a(com.baidu.tieba.util.a aVar, s sVar) {
-        com.baidu.adp.widget.a.b a2;
-        com.baidu.adp.widget.a.b a3;
+        com.baidu.adp.widget.a.c a2;
+        com.baidu.adp.widget.a.c a3;
         this.f.setVisibility(8);
         this.d.c();
         if (sVar.b()) {
@@ -117,14 +117,14 @@ public class c implements View.OnClickListener {
             this.e.a(sVar.c());
             return;
         }
-        this.f1241a = sVar;
-        this.h.setText(this.f1241a.d());
-        this.b.a(this.f1241a.b);
-        this.b.a("PK规则", this.f1241a.c);
+        this.f1275a = sVar;
+        this.h.setText(this.f1275a.d());
+        this.b.a(this.f1275a.b);
+        this.b.a("PK规则", this.f1275a.c);
         this.b.a(String.valueOf(sVar.j.e) + this.e.getString(R.string.forum), sVar.j.g, this.e);
         this.b.b(String.valueOf(sVar.k.e) + this.e.getString(R.string.forum), sVar.k.g, this.e);
-        this.i = this.f1241a.j.h;
-        this.j = this.f1241a.k.h;
+        this.i = this.f1275a.j.h;
+        this.j = this.f1275a.k.h;
         d();
         String str = sVar.j.c;
         if (str != null && (a3 = aVar.a(str, new d(this, str))) != null) {
@@ -150,12 +150,12 @@ public class c implements View.OnClickListener {
         } else {
             this.s.setVisibility(8);
         }
-        if (sVar.i.equals(sVar.j.f1274a)) {
+        if (sVar.i.equals(sVar.j.f1308a)) {
             this.l.setTextColor(-13135118);
             this.q.setTextColor(-691656);
             this.o.setImageResource(R.drawable.icon_crown_s);
             this.t.setImageResource(R.drawable.icon_crown_d);
-        } else if (sVar.i.equals(sVar.k.f1274a)) {
+        } else if (sVar.i.equals(sVar.k.f1308a)) {
             this.l.setTextColor(-691656);
             this.q.setTextColor(-13135118);
             this.o.setImageResource(R.drawable.icon_crown_d);

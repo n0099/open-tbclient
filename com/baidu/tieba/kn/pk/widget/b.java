@@ -14,7 +14,7 @@ import com.slidingmenu.lib.R;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f1265a;
+    private Activity f1299a;
     private PKOutterView b;
     private LinearLayout c;
     private int d;
@@ -39,8 +39,8 @@ public class b {
         this.d = this.c.getPaddingTop();
         this.i = this.c.findViewById(R.id.pk_left_bar_container);
         this.j = this.c.findViewById(R.id.pk_right_bar_container);
-        this.f1265a = activity;
-        this.f = new Scroller(this.f1265a, new DecelerateInterpolator());
+        this.f1299a = activity;
+        this.f = new Scroller(this.f1299a, new DecelerateInterpolator());
     }
 
     public void a(View.OnClickListener onClickListener) {

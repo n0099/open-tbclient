@@ -3,17 +3,17 @@ package com.baidu.tieba.account;
 public class az extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f893a;
+    private String f909a;
 
     public az(String str) {
-        this.f893a = str;
+        this.f909a = str;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.v vVar = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "/c/s/pv");
-        vVar.a("share_channel", this.f893a);
-        vVar.j();
+        com.baidu.tieba.util.z zVar = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "/c/s/pv");
+        zVar.a("share_channel", this.f909a);
+        zVar.j();
     }
 }

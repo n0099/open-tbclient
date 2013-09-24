@@ -11,21 +11,21 @@ import org.json.JSONObject;
 public class n implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f551a;
+    private Context f563a;
     private long b = -1;
 
     public n(Context context) {
-        this.f551a = null;
-        this.f551a = context;
+        this.f563a = null;
+        this.f563a = context;
     }
 
     public void a() {
         JSONObject jSONObject = new JSONObject();
-        String deviceID = DeviceId.getDeviceID(this.f551a);
+        String deviceID = DeviceId.getDeviceID(this.f563a);
         this.b = System.currentTimeMillis();
-        r a2 = i.a(this.f551a).a();
+        r a2 = i.a(this.f563a).a();
         try {
-            ArrayList b = e.a(this.f551a).a(a2.j()).b();
+            ArrayList b = e.a(this.f563a).a(a2.j()).b();
             if (b == null || b.size() <= 0) {
                 return;
             }
@@ -42,12 +42,12 @@ public class n implements q {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("op", aVar.a().ordinal());
                 jSONObject2.put("package", aVar.b());
-                jSONObject2.put("signmd5", aVar.a(this.f551a));
+                jSONObject2.put("signmd5", aVar.a(this.f563a));
                 jSONObject2.put("version", aVar.c());
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("applist", jSONArray);
-            i.a(this.f551a).a(jSONObject.toString(), this);
+            i.a(this.f563a).a(jSONObject.toString(), this);
         } catch (JSONException e) {
         }
     }
@@ -58,19 +58,19 @@ public class n implements q {
             rVar.d();
         } else if (rVar.i() == 200) {
             if (rVar.e().size() > 0) {
-                e.a(this.f551a).a(rVar.e());
+                e.a(this.f563a).a(rVar.e());
             }
-            if (e.a(this.f551a).c()) {
-                new n(this.f551a).a();
+            if (e.a(this.f563a).c()) {
+                new n(this.f563a).a();
             }
         } else if (rVar.i() == 58217) {
             if (rVar.a().size() > 0) {
-                e.a(this.f551a).b(rVar.a());
+                e.a(this.f563a).b(rVar.a());
             } else if (rVar.e().size() > 0) {
-                e.a(this.f551a).a(rVar.e());
+                e.a(this.f563a).a(rVar.e());
             }
-            if (e.a(this.f551a).c()) {
-                new n(this.f551a).a();
+            if (e.a(this.f563a).c()) {
+                new n(this.f563a).a();
             }
         }
     }

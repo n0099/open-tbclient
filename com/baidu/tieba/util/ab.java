@@ -1,27 +1,24 @@
 package com.baidu.tieba.util;
 
-import java.util.TimerTask;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab extends TimerTask {
+public class ab implements BaiduAccount.CallbackListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkCoreByBdHttp f1776a;
-
-    private ab(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.f1776a = netWorkCoreByBdHttp;
-    }
+    final /* synthetic */ z f1892a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ab(NetWorkCoreByBdHttp netWorkCoreByBdHttp, ab abVar) {
-        this(netWorkCoreByBdHttp);
+    public ab(z zVar) {
+        this.f1892a = zVar;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        try {
-            this.f1776a.q();
-        } catch (Exception e) {
-            aq.b(getClass().getName(), "initNetWorkCore", e.getMessage());
-        }
+    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
+    public void callback() {
+        s sVar;
+        sVar = this.f1892a.f1932a;
+        sVar.b(TiebaApplication.g().getString(R.string.error_unkown));
     }
 }

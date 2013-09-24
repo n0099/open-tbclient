@@ -126,6 +126,12 @@ public class CompatibleUtile {
         return false;
     }
 
+    public void removeJavascriptInterface(WebView webView) {
+        if (getObject11() != null) {
+            getObject11().removeJavascriptInterface(webView);
+        }
+    }
+
     public void openGpu(Activity activity) {
         if (getObject11() != null) {
             getObject11().openGpu(activity);
@@ -313,6 +319,12 @@ public class CompatibleUtile {
         public void closeViewGpu(View view) {
             if (view != null) {
                 view.setLayerType(0, null);
+            }
+        }
+
+        public void removeJavascriptInterface(WebView webView) {
+            if (webView != null) {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
             }
         }
     }

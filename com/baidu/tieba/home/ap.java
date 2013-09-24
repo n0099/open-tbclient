@@ -1,27 +1,21 @@
 package com.baidu.tieba.home;
 
-import android.widget.AbsListView;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ap implements AbsListView.OnScrollListener {
+class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1161a;
+    TextView f1207a;
+    ProgressBar b;
+    final /* synthetic */ ao c;
+
+    private ap(ao aoVar) {
+        this.c = aoVar;
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(SearchActivity searchActivity) {
-        this.f1161a = searchActivity;
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 2 || i == 1) {
-            UtilHelper.a(this.f1161a, absListView);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    public /* synthetic */ ap(ao aoVar, ap apVar) {
+        this(aoVar);
     }
 }

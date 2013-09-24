@@ -5,15 +5,15 @@ import android.view.View;
 class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ KnTabActivity f1232a;
+    final /* synthetic */ KnTabActivity f1266a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(KnTabActivity knTabActivity) {
-        this.f1232a = knTabActivity;
+        this.f1266a = knTabActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1232a.finish();
+        this.f1266a.finish();
     }
 }

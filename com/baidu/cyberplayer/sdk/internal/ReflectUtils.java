@@ -56,55 +56,55 @@ public class ReflectUtils {
         }
     }
 
-    public static Object invokeWithResult(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, Object obj2) {
+    public static <T> T invokeWithResult(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, T t) {
         try {
             Method method = cls.getMethod(str, clsArr);
             method.setAccessible(true);
-            return method.invoke(obj, objArr);
+            return (T) method.invoke(obj, objArr);
         } catch (Throwable th) {
             LogUtils.dumpException(th);
-            return obj2;
+            return t;
         }
     }
 
-    public static Object invokeWithResult(Method method, Object obj, Object obj2, Object... objArr) {
+    public static <T> T invokeWithResult(Method method, Object obj, T t, Object... objArr) {
         try {
-            return method.invoke(obj, objArr);
+            return (T) method.invoke(obj, objArr);
         } catch (Throwable th) {
             LogUtils.dumpException(th);
-            return obj2;
+            return t;
         }
     }
 
-    public static Object invokeStaticWithResult(Class cls, String str, Class[] clsArr, Object[] objArr, Object obj) {
+    public static <T> T invokeStaticWithResult(Class cls, String str, Class[] clsArr, Object[] objArr, T t) {
         try {
-            return invokeWithResult(cls, null, str, clsArr, objArr, obj);
+            return (T) invokeWithResult(cls, null, str, clsArr, objArr, t);
         } catch (Throwable th) {
             LogUtils.dumpException(th);
-            return obj;
+            return t;
         }
     }
 
-    public static Object invokeDeclaredWithResult(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, Object obj2) {
+    public static <T> T invokeDeclaredWithResult(Class cls, Object obj, String str, Class[] clsArr, Object[] objArr, T t) {
         try {
             Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
             declaredMethod.setAccessible(true);
-            return declaredMethod.invoke(obj, objArr);
+            return (T) declaredMethod.invoke(obj, objArr);
         } catch (Throwable th) {
             LogUtils.dumpException(th);
-            return obj2;
+            return t;
         }
     }
 
-    public static Object invokeStaticWithResultE(Class cls, String str, Class[] clsArr, Object[] objArr, Object obj) {
+    public static <T> T invokeStaticWithResultE(Class cls, String str, Class[] clsArr, Object[] objArr, T t) {
         try {
-            return cls.getMethod(str, clsArr).invoke(null, objArr);
+            return (T) cls.getMethod(str, clsArr).invoke(null, objArr);
         } catch (IllegalAccessException e) {
             LogUtils.dumpException(e);
-            return obj;
+            return t;
         } catch (NoSuchMethodException e2) {
             LogUtils.dumpException(e2);
-            return obj;
+            return t;
         } catch (InvocationTargetException e3) {
             LogUtils.dumpException(e3);
             throw e3.getCause();
@@ -177,14 +177,14 @@ public class ReflectUtils {
         }
     }
 
-    public static Object getDeclaredFieldObject(Class cls, Object obj, String str, Object obj2) {
+    public static <T> T getDeclaredFieldObject(Class cls, Object obj, String str, T t) {
         try {
             Field declaredField = cls.getDeclaredField(str);
             declaredField.setAccessible(true);
-            return declaredField.get(obj);
+            return (T) declaredField.get(obj);
         } catch (Throwable th) {
             LogUtils.dumpException(th);
-            return obj2;
+            return t;
         }
     }
 

@@ -6,23 +6,23 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map f565a = new HashMap();
+    private static final Map f577a = new HashMap();
     private static final String b = GeoLocation.class.getPackage().getName() + ".";
 
     static {
-        f565a.put("geolocation", b + "GeoLocation");
-        f565a.put("getsearchboxinfo", b + "GetSearchboxInfo");
-        f565a.put("getapn", b + "GetApn");
-        f565a.put("getserviceinfo", b + "GetServiceInfo");
-        f565a.put("getpackageinfo", b + "GetPackageInfo");
-        f565a.put("sendintent", b + "SendIntent");
-        f565a.put("getcuid", b + "GetCuid");
-        f565a.put("getlocstring", b + "GetLocString");
-        f565a.put("scandownloadfile", b + "ScanDownloadFile");
+        f577a.put("geolocation", b + "GeoLocation");
+        f577a.put("getsearchboxinfo", b + "GetSearchboxInfo");
+        f577a.put("getapn", b + "GetApn");
+        f577a.put("getserviceinfo", b + "GetServiceInfo");
+        f577a.put("getpackageinfo", b + "GetPackageInfo");
+        f577a.put("sendintent", b + "SendIntent");
+        f577a.put("getcuid", b + "GetCuid");
+        f577a.put("getlocstring", b + "GetLocString");
+        f577a.put("scandownloadfile", b + "ScanDownloadFile");
     }
 
     public String a(String str) {
-        return (String) f565a.get(str);
+        return (String) f577a.get(str);
     }
 
     public void a(String str, com.baidu.android.nebula.b.a aVar, com.baidu.android.nebula.b.b bVar) {

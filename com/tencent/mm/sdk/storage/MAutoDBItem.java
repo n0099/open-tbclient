@@ -87,7 +87,7 @@ public abstract class MAutoDBItem implements MDBItem {
         return strArr;
     }
 
-    public static Field[] getValidFields(Class cls) {
+    public static Field[] getValidFields(Class<?> cls) {
         Field[] declaredFields;
         LinkedList linkedList = new LinkedList();
         for (Field field : cls.getDeclaredFields()) {
@@ -103,7 +103,7 @@ public abstract class MAutoDBItem implements MDBItem {
         return (Field[]) linkedList.toArray(new Field[0]);
     }
 
-    public static Map identify(Field[] fieldArr, StringBuilder sb, String str) {
+    public static Map<String, String> identify(Field[] fieldArr, StringBuilder sb, String str) {
         HashMap hashMap = new HashMap();
         int i = 0;
         while (i < fieldArr.length) {

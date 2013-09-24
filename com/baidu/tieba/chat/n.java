@@ -1,38 +1,38 @@
 package com.baidu.tieba.chat;
 
+import android.app.Activity;
 import android.view.View;
-import android.widget.AdapterView;
+import com.baidu.tieba.person.PersonInfoActivity;
+import com.baidu.tieba.view.HeadImageView;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements AdapterView.OnItemLongClickListener {
+public class n implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListActivity f953a;
+    final /* synthetic */ ChatListFragment f970a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(ChatListActivity chatListActivity) {
-        this.f953a = chatListActivity;
+    public n(ChatListFragment chatListFragment) {
+        this.f970a = chatListFragment;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
-        v vVar;
-        v vVar2;
-        com.baidu.tieba.data.a.g gVar;
-        v vVar3;
-        if (i >= 0) {
-            vVar = this.f953a.f934a;
-            long itemId = vVar.h().getItemId(i);
-            if (itemId != -1 && itemId != -2) {
-                ChatListActivity chatListActivity = this.f953a;
-                vVar2 = this.f953a.f934a;
-                chatListActivity.f = (com.baidu.tieba.data.a.g) vVar2.h().getItem(i);
-                ChatListActivity chatListActivity2 = this.f953a;
-                gVar = this.f953a.f;
-                chatListActivity2.a(gVar);
-                vVar3 = this.f953a.f934a;
-                vVar3.l();
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        switch (view.getId()) {
+            case R.id.chat_head /* 2131099908 */:
+                HeadImageView headImageView = (HeadImageView) view;
+                String userId = headImageView.getUserId();
+                String userName = headImageView.getUserName();
+                if (userId != null && userId.length() > 0) {
+                    activity = this.f970a.c;
+                    PersonInfoActivity.a(activity, userId, userName);
+                    return;
+                }
+                return;
+            default:
+                return;
         }
-        return false;
     }
 }

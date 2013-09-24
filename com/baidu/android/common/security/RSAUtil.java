@@ -103,7 +103,7 @@ public final class RSAUtil {
         return bArr2;
     }
 
-    public static Map generateKey(int i) {
+    public static Map<String, Object> generateKey(int i) {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(ALGORITHM_RSA);
         keyPairGenerator.initialize(i);
         KeyPair generateKeyPair = keyPairGenerator.generateKeyPair();
@@ -137,11 +137,11 @@ public final class RSAUtil {
         }
     }
 
-    public static String getPrivateKey(Map map) {
+    public static String getPrivateKey(Map<String, Object> map) {
         return Base64.encode(((Key) map.get(PRIVATE_KEY)).getEncoded(), BdUtil.UTF8);
     }
 
-    public static String getPublicKey(Map map) {
+    public static String getPublicKey(Map<String, Object> map) {
         return Base64.encode(((Key) map.get(PUBLIC_KEY)).getEncoded(), BdUtil.UTF8);
     }
 }

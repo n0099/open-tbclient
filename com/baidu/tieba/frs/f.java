@@ -7,17 +7,17 @@ import com.slidingmenu.lib.SlidingMenu;
 class f implements SlidingMenu.OnOpenedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1099a;
+    final /* synthetic */ FrsActivity f1147a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(FrsActivity frsActivity) {
-        this.f1099a = frsActivity;
+        this.f1147a = frsActivity;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
     public void onOpened() {
-        if (TiebaApplication.g().u()) {
-            StatService.onEvent(this.f1099a, "frs_total_more", "frsclick", 1);
+        if (TiebaApplication.g().s()) {
+            StatService.onEvent(this.f1147a, "frs_total_more", "frsclick", 1);
         }
     }
 }

@@ -7,11 +7,11 @@ import java.util.Comparator;
 public class t implements Serializable, Comparator {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ s f555a;
+    final /* synthetic */ s f567a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(s sVar) {
-        this.f555a = sVar;
+        this.f567a = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

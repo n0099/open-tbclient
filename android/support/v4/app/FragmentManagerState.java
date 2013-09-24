@@ -5,7 +5,7 @@ import android.os.Parcelable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class FragmentManagerState implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new z();
+    public static final Parcelable.Creator<FragmentManagerState> CREATOR = new z();
 
     /* renamed from: a  reason: collision with root package name */
     FragmentState[] f267a;

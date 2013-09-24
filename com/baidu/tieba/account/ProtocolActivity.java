@@ -9,17 +9,17 @@ import com.slidingmenu.lib.R;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
-public class ProtocolActivity extends com.baidu.tieba.g {
+public class ProtocolActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f863a = null;
+    private ImageView f879a = null;
     private TextView b = null;
     private RelativeLayout c = null;
     private View d = null;
     private TextView e = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_protocol_activity);
@@ -35,8 +35,8 @@ public class ProtocolActivity extends com.baidu.tieba.g {
         this.c = (RelativeLayout) findViewById(R.id.container);
         this.d = findViewById(R.id.title);
         this.e = (TextView) findViewById(R.id.title_text);
-        this.f863a = (ImageView) findViewById(R.id.back);
-        this.f863a.setOnClickListener(new ae(this));
+        this.f879a = (ImageView) findViewById(R.id.back);
+        this.f879a.setOnClickListener(new ae(this));
         this.b = (TextView) findViewById(R.id.text);
         StringBuilder sb = new StringBuilder(1024);
         BufferedReader bufferedReader2 = null;
@@ -96,13 +96,13 @@ public class ProtocolActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ao.f(this.e, i);
-        com.baidu.tieba.util.ao.c(this.c, i);
-        com.baidu.tieba.util.ao.d(this.d, i);
-        com.baidu.tieba.util.ao.a(this.f863a, i);
-        com.baidu.tieba.util.ao.b(this.b, i);
+        com.baidu.tieba.util.as.f(this.e, i);
+        com.baidu.tieba.util.as.c(this.c, i);
+        com.baidu.tieba.util.as.d(this.d, i);
+        com.baidu.tieba.util.as.a(this.f879a, i);
+        com.baidu.tieba.util.as.b(this.b, i);
     }
 }

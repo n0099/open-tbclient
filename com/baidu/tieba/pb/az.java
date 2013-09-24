@@ -1,37 +1,45 @@
 package com.baidu.tieba.pb;
 
 import android.content.DialogInterface;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class az implements DialogInterface.OnClickListener {
+class az implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1502a;
+    final /* synthetic */ NewPbActivity f1545a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(NewPbActivity newPbActivity) {
-        this.f1502a = newPbActivity;
+        this.f1545a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        com.baidu.tieba.model.bb bbVar;
-        String str3;
-        StatService.onEvent(this.f1502a, "pb_phone_call", "call");
-        NewPbActivity newPbActivity = this.f1502a;
-        str = this.f1502a.u;
-        newPbActivity.u = str.trim();
-        NewPbActivity newPbActivity2 = this.f1502a;
-        str2 = this.f1502a.u;
-        UtilHelper.g(newPbActivity2, str2);
-        bbVar = this.f1502a.k;
-        String a2 = bbVar.a();
-        str3 = this.f1502a.u;
-        new com.baidu.tieba.account.j(a2, str3, "1").start();
-        dialogInterface.cancel();
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        com.baidu.tieba.model.aw awVar;
+        br brVar;
+        DialogInterface.OnClickListener onClickListener;
+        com.baidu.tieba.model.bd bdVar;
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.f1545a.f1516a = (com.baidu.tieba.data.as) sparseArray.get(R.id.tag_clip_board);
+            if (this.f1545a.f1516a != null) {
+                boolean z = false;
+                awVar = this.f1545a.o;
+                if (awVar.a() && this.f1545a.f1516a.d() != null) {
+                    String d = this.f1545a.f1516a.d();
+                    bdVar = this.f1545a.n;
+                    if (d.equals(bdVar.j())) {
+                        z = true;
+                    }
+                }
+                boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
+                brVar = this.f1545a.t;
+                onClickListener = this.f1545a.Q;
+                brVar.a(onClickListener, z, booleanValue);
+            }
+        }
+        return true;
     }
 }

@@ -103,18 +103,18 @@ public class CallbackProxy extends Handler {
     private final WebBackForwardList mBackForwardList = new WebBackForwardList(this);
 
     /* loaded from: classes.dex */
-    class ResultTransport {
-        private Object mResult;
+    class ResultTransport<E> {
+        private E mResult;
 
-        public ResultTransport(Object obj) {
-            this.mResult = obj;
+        public ResultTransport(E e) {
+            this.mResult = e;
         }
 
-        public synchronized void setResult(Object obj) {
-            this.mResult = obj;
+        public synchronized void setResult(E e) {
+            this.mResult = e;
         }
 
-        public synchronized Object getResult() {
+        public synchronized E getResult() {
             return this.mResult;
         }
     }
@@ -1268,7 +1268,7 @@ public class CallbackProxy extends Handler {
         return jsResult.getResult();
     }
 
-    public void getVisitedHistory(ValueCallback valueCallback) {
+    public void getVisitedHistory(ValueCallback<String[]> valueCallback) {
         if (this.mWebChromeClient != null) {
             Message obtainMessage = obtainMessage(GET_VISITED_HISTORY);
             obtainMessage.obj = valueCallback;
@@ -1283,9 +1283,8 @@ public class CallbackProxy extends Handler {
         return this.mWebChromeClient.getStringById(i);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class UploadFile implements ValueCallback {
+    class UploadFile implements ValueCallback<Uri> {
         private Uri mValue;
 
         private UploadFile() {

@@ -1,34 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.View;
 /* loaded from: classes.dex */
-class r extends BdAsyncTask {
+class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1667a;
-
-    private r(GuideActivity guideActivity) {
-        this.f1667a = guideActivity;
-    }
+    final /* synthetic */ GuideActivity f1742a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ r(GuideActivity guideActivity, r rVar) {
-        this(guideActivity);
+    public r(GuideActivity guideActivity) {
+        this.f1742a = guideActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        return Boolean.valueOf(GuideActivity.f(this.f1667a));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        if (!bool.booleanValue()) {
-            GuideActivity.g(this.f1667a);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1742a.b();
     }
 }

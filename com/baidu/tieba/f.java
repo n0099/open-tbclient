@@ -1,40 +1,73 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.Context;
 import com.baidu.account.AccountProxy;
 import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.account.ReLoginActivity;
 import com.baidu.tieba.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements AccountProxy.TokenCallback {
-
-    /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ Activity f1035a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ boolean d;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(Activity activity, int i, int i2, boolean z) {
-        this.f1035a = activity;
-        this.b = i;
-        this.c = i2;
-        this.d = z;
+public class f {
+    public static void a(Context context) {
+        AccountData F = TiebaApplication.F();
+        if (F == null) {
+            F = new AccountData();
+            F.setIsActive(1);
+            TiebaApplication.a(F, context);
+        }
+        BaiduAccount baiduAccount = BaiduAccount.get(context);
+        String currentAccount = baiduAccount.getCurrentAccount();
+        if (currentAccount != null && !currentAccount.equals(F.getAccount())) {
+            b(F.getID());
+            F.setAccount(currentAccount);
+            F.setBDUSS(null);
+            F.setID(null);
+            F.setIsActive(1);
+            TiebaApplication.g().R();
+            com.baidu.tieba.mention.s.a().a(true);
+        }
+        baiduAccount.addOnAccountsUpdatedListener(new g());
     }
 
-    @Override // com.baidu.account.AccountProxy.TokenCallback
-    public void callBack(String str) {
-        com.baidu.tieba.util.aq.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void b(String str) {
         if (str != null) {
-            BaiduAccount baiduAccount = BaiduAccount.get(this.f1035a);
-            AccountData accountData = new AccountData();
-            accountData.setAccount(baiduAccount.getCurrentAccount());
-            accountData.setBDUSS(str);
-            accountData.setIsActive(1);
-            ReLoginActivity.a(this.f1035a, this.b, this.c, this.d, accountData);
-        } else if ((this.f1035a instanceof GuideActivity) || (this.f1035a instanceof LogoActivity)) {
-            this.f1035a.finish();
+            new h(str).start();
         }
+    }
+
+    public static boolean a(Activity activity) {
+        AccountProxy accountProxy = new AccountProxy(activity);
+        return accountProxy.hasBaiduAccount() && accountProxy.getNumOfAccounts(AccountProxy.BAIDUACCOUNT_TYPE) > 0;
+    }
+
+    public static void a(Activity activity, int i, int i2, boolean z) {
+        new AccountProxy(activity).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new i(activity, i2, i, z));
+    }
+
+    public static AccountData a(com.baidu.tieba.util.z zVar, String str, String str2) {
+        AccountData accountData = null;
+        if (zVar != null) {
+            StringBuffer stringBuffer = new StringBuffer(60);
+            stringBuffer.append(com.baidu.tieba.data.g.f1032a);
+            stringBuffer.append("c/s/login");
+            zVar.a(stringBuffer.toString());
+            zVar.a("un", str);
+            zVar.a("bdusstoken", str2);
+            zVar.a("channel_id", TiebaApplication.g().aW());
+            String j = zVar.j();
+            if (zVar.c() && j != null) {
+                com.baidu.tieba.model.au auVar = new com.baidu.tieba.model.au();
+                auVar.a(j);
+                accountData = new AccountData();
+                accountData.setAccount(auVar.a().getName());
+                accountData.setBDUSS(auVar.a().getBDUSS());
+                accountData.setIsActive(1);
+                if (auVar.b() != null) {
+                    accountData.setTbs(auVar.b().getTbs());
+                }
+                accountData.setID(auVar.a().getId());
+            }
+        }
+        return accountData;
     }
 }

@@ -6,13 +6,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.ba;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a extends g {
+public class a extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ViewGroup f849a = null;
+    protected ViewGroup f862a = null;
     protected View b = null;
     protected ImageView c = null;
     protected TextView d = null;
@@ -27,10 +27,10 @@ public class a extends g {
     }
 
     protected void b() {
-        if (this.f849a == null) {
-            this.f849a = (ViewGroup) findViewById(R.id.container);
-            if (this.f849a == null) {
-                this.f849a = (ViewGroup) findViewById(R.id.parent);
+        if (this.f862a == null) {
+            this.f862a = (ViewGroup) findViewById(R.id.container);
+            if (this.f862a == null) {
+                this.f862a = (ViewGroup) findViewById(R.id.parent);
             }
             this.b = findViewById(R.id.title);
             this.c = (ImageView) findViewById(R.id.back);
@@ -38,31 +38,31 @@ public class a extends g {
                 this.c.setOnClickListener(new b(this));
             }
             this.d = (TextView) findViewById(R.id.title_text);
-            if (this.f849a != null) {
-                this.f = (Button) this.f849a.findViewWithTag("skin_top_more_button");
+            if (this.f862a != null) {
+                this.f = (Button) this.f862a.findViewWithTag("skin_top_more_button");
             }
         }
         if (this.e == null) {
             this.e = (ListView) findViewById(R.id.list);
         }
         this.g = (ViewGroup) findViewById(R.id.body_container);
-        av.b(this.g);
+        ba.b(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ao.a(this.c, i);
-        com.baidu.tieba.util.ao.d(this.b, i);
-        com.baidu.tieba.util.ao.f(this.d, i);
-        com.baidu.tieba.util.ao.b(this.f849a, i);
-        com.baidu.tieba.util.ao.g((TextView) this.f, i);
+        com.baidu.tieba.util.as.a(this.c, i);
+        com.baidu.tieba.util.as.d(this.b, i);
+        com.baidu.tieba.util.as.f(this.d, i);
+        com.baidu.tieba.util.as.b(this.f862a, i);
+        com.baidu.tieba.util.as.g(this.f, i);
         if (this.e != null) {
             this.e.invalidateViews();
         }
         if (this.g != null) {
-            av.a(this.g, i);
+            ba.a(this.g, i);
         }
     }
 

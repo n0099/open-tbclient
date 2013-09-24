@@ -15,17 +15,17 @@ import android.widget.TextView;
 import com.baidu.tieba.data.WriteData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class VcodeActivity extends com.baidu.tieba.g {
+public class VcodeActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private WriteData f1896a = null;
+    private WriteData f2074a = null;
     private ImageView b = null;
     private Button c = null;
     private ImageView d = null;
     private EditText e = null;
     private ProgressBar f = null;
-    private s g = null;
-    private r j = null;
+    private u g = null;
+    private t j = null;
     private InputMethodManager k = null;
     private DialogInterface.OnCancelListener l = null;
     private RelativeLayout m = null;
@@ -50,27 +50,27 @@ public class VcodeActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.vcode_activity);
         b();
         a(bundle);
-        c(this.f1896a.getVcodeUrl());
+        c(this.f2074a.getVcodeUrl());
     }
 
     private void a(Bundle bundle) {
-        this.l = new n(this);
+        this.l = new p(this);
         if (bundle != null) {
-            this.f1896a = (WriteData) bundle.getSerializable("model");
+            this.f2074a = (WriteData) bundle.getSerializable("model");
         } else {
-            this.f1896a = (WriteData) getIntent().getSerializableExtra("model");
+            this.f2074a = (WriteData) getIntent().getSerializableExtra("model");
         }
         this.k = (InputMethodManager) getSystemService("input_method");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.g != null) {
@@ -86,21 +86,21 @@ public class VcodeActivity extends com.baidu.tieba.g {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.f1896a);
+        bundle.putSerializable("model", this.f2074a);
         super.onSaveInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         int i2;
         super.a(i);
-        com.baidu.tieba.util.ao.a(this.m, i);
-        com.baidu.tieba.util.ao.d(this.n, i);
-        com.baidu.tieba.util.ao.a(this.b, i);
-        com.baidu.tieba.util.ao.g((TextView) this.c, i);
+        com.baidu.tieba.util.as.a(this.m, i);
+        com.baidu.tieba.util.as.d(this.n, i);
+        com.baidu.tieba.util.as.a(this.b, i);
+        com.baidu.tieba.util.as.g(this.c, i);
         if (i == 1) {
-            i2 = com.baidu.tieba.util.ao.a(i);
+            i2 = com.baidu.tieba.util.as.a(i);
         } else {
             i2 = -12895429;
         }
@@ -112,13 +112,13 @@ public class VcodeActivity extends com.baidu.tieba.g {
         this.n = (LinearLayout) findViewById(R.id.title);
         this.o = (TextView) findViewById(R.id.info);
         this.b = (ImageView) findViewById(R.id.back);
-        this.b.setOnClickListener(new o(this));
+        this.b.setOnClickListener(new q(this));
         this.c = (Button) findViewById(R.id.post);
-        this.c.setOnClickListener(new p(this));
+        this.c.setOnClickListener(new r(this));
         this.e = (EditText) findViewById(R.id.input);
         this.d = (ImageView) findViewById(R.id.vcode_image);
         this.d.setImageBitmap(null);
-        this.d.setOnClickListener(new q(this));
+        this.d.setOnClickListener(new s(this));
         this.f = (ProgressBar) findViewById(R.id.progress);
     }
 
@@ -129,7 +129,7 @@ public class VcodeActivity extends com.baidu.tieba.g {
         }
         this.f.setVisibility(0);
         this.d.setImageBitmap(null);
-        this.j = new r(this, null);
+        this.j = new t(this, null);
         this.j.setPriority(3);
         this.j.execute(str);
     }

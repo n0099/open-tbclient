@@ -2,54 +2,57 @@ package com.baidu.tieba.a;
 
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tieba.data.ak;
-import com.baidu.tieba.util.v;
+import com.baidu.tieba.util.z;
 /* loaded from: classes.dex */
 public class c {
-    private static final String c = String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/clearmsg";
 
     /* renamed from: a  reason: collision with root package name */
-    private v f852a = null;
-    private ak b = null;
+    private static final String f865a = String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/s/addmsg";
+    private z b = null;
+    private ak c = null;
 
-    public void a(String str, String str2) {
-        this.f852a = new v(c);
-        this.f852a.a(PushConstants.EXTRA_USER_ID, str);
-        this.f852a.a("com_id", str2);
-        String j = this.f852a.j();
-        this.b = new ak();
-        this.b.a(j);
+    public String a(com.baidu.tieba.data.a.e eVar) {
+        this.b = new z(f865a);
+        this.b.a(PushConstants.EXTRA_USER_ID, eVar.c());
+        this.b.a("com_id", eVar.b());
+        this.b.a("content", eVar.a());
+        this.b.a("last_msg_id", String.valueOf(eVar.d()));
+        String j = this.b.j();
+        this.c = new ak();
+        this.c.a(j);
+        return j;
     }
 
     public void a() {
-        if (this.f852a != null) {
-            this.f852a.h();
+        if (this.b != null) {
+            this.b.h();
         }
     }
 
     public boolean b() {
-        if (this.f852a != null) {
-            return this.f852a.c();
+        if (this.b != null) {
+            return this.b.c();
         }
         return false;
     }
 
     public String c() {
-        if (this.f852a != null) {
-            return this.f852a.g();
+        if (this.b != null) {
+            return this.b.g();
         }
         return null;
     }
 
     public int d() {
-        if (this.b != null) {
-            return this.b.a();
+        if (this.c != null) {
+            return this.c.a();
         }
         return -1;
     }
 
     public String e() {
-        if (this.b != null) {
-            return this.b.b();
+        if (this.c != null) {
+            return this.c.b();
         }
         return null;
     }

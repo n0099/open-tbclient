@@ -27,9 +27,9 @@ public class BdWebViewClient {
     public static final int ERROR_UNKNOWN = -1;
     public static final int ERROR_UNSUPPORTED_AUTH_SCHEME = -3;
     public static final int ERROR_UNSUPPORTED_SCHEME = -10;
-    private SoftReference mHttpAuthHandlerWrapper;
-    private SoftReference mSslErrorHandlerWrapper;
-    private SoftReference mSslErrorWrapper;
+    private SoftReference<BdHttpAuthHandler> mHttpAuthHandlerWrapper;
+    private SoftReference<BdSslErrorHandler> mSslErrorHandlerWrapper;
+    private SoftReference<BdSslError> mSslErrorWrapper;
     private BdSysWebViewClient mSysWebViewClient;
     private BdZeusWebViewClient mZeusWebViewClient;
 
@@ -68,11 +68,11 @@ public class BdWebViewClient {
     public BdSslErrorHandler obtainSslErrorHandlerWrapper(SslErrorHandler sslErrorHandler) {
         BdSslErrorHandler bdSslErrorHandler = null;
         if (this.mSslErrorHandlerWrapper != null) {
-            bdSslErrorHandler = (BdSslErrorHandler) this.mSslErrorHandlerWrapper.get();
+            bdSslErrorHandler = this.mSslErrorHandlerWrapper.get();
         }
         if (bdSslErrorHandler == null || !bdSslErrorHandler.isContains(sslErrorHandler)) {
             BdSslErrorHandler bdSslErrorHandler2 = new BdSslErrorHandler(sslErrorHandler);
-            this.mSslErrorHandlerWrapper = new SoftReference(bdSslErrorHandler2);
+            this.mSslErrorHandlerWrapper = new SoftReference<>(bdSslErrorHandler2);
             return bdSslErrorHandler2;
         }
         return bdSslErrorHandler;
@@ -81,11 +81,11 @@ public class BdWebViewClient {
     public BdSslErrorHandler obtainSslErrorHandlerWrapper(com.baidu.zeus.SslErrorHandler sslErrorHandler) {
         BdSslErrorHandler bdSslErrorHandler = null;
         if (this.mSslErrorHandlerWrapper != null) {
-            bdSslErrorHandler = (BdSslErrorHandler) this.mSslErrorHandlerWrapper.get();
+            bdSslErrorHandler = this.mSslErrorHandlerWrapper.get();
         }
         if (bdSslErrorHandler == null || !bdSslErrorHandler.isContains(sslErrorHandler)) {
             BdSslErrorHandler bdSslErrorHandler2 = new BdSslErrorHandler(sslErrorHandler);
-            this.mSslErrorHandlerWrapper = new SoftReference(bdSslErrorHandler2);
+            this.mSslErrorHandlerWrapper = new SoftReference<>(bdSslErrorHandler2);
             return bdSslErrorHandler2;
         }
         return bdSslErrorHandler;
@@ -94,11 +94,11 @@ public class BdWebViewClient {
     public BdSslError obtainSslErrorWrapper(SslError sslError) {
         BdSslError bdSslError = null;
         if (this.mSslErrorWrapper != null) {
-            bdSslError = (BdSslError) this.mSslErrorWrapper.get();
+            bdSslError = this.mSslErrorWrapper.get();
         }
         if (bdSslError == null || !bdSslError.isContains(sslError)) {
             BdSslError bdSslError2 = new BdSslError(sslError);
-            this.mSslErrorWrapper = new SoftReference(bdSslError2);
+            this.mSslErrorWrapper = new SoftReference<>(bdSslError2);
             return bdSslError2;
         }
         return bdSslError;
@@ -107,11 +107,11 @@ public class BdWebViewClient {
     public BdSslError obtainSslErrorWrapper(com.baidu.zeus.SslError sslError) {
         BdSslError bdSslError = null;
         if (this.mSslErrorWrapper != null) {
-            bdSslError = (BdSslError) this.mSslErrorWrapper.get();
+            bdSslError = this.mSslErrorWrapper.get();
         }
         if (bdSslError == null || !bdSslError.isContains(sslError)) {
             BdSslError bdSslError2 = new BdSslError(sslError);
-            this.mSslErrorWrapper = new SoftReference(bdSslError2);
+            this.mSslErrorWrapper = new SoftReference<>(bdSslError2);
             return bdSslError2;
         }
         return bdSslError;
@@ -120,11 +120,11 @@ public class BdWebViewClient {
     public BdHttpAuthHandler obtainHttpAuthHandlerWrapper(HttpAuthHandler httpAuthHandler) {
         BdHttpAuthHandler bdHttpAuthHandler = null;
         if (this.mHttpAuthHandlerWrapper != null) {
-            bdHttpAuthHandler = (BdHttpAuthHandler) this.mHttpAuthHandlerWrapper.get();
+            bdHttpAuthHandler = this.mHttpAuthHandlerWrapper.get();
         }
         if (bdHttpAuthHandler == null || !bdHttpAuthHandler.isContains(httpAuthHandler)) {
             BdHttpAuthHandler bdHttpAuthHandler2 = new BdHttpAuthHandler(httpAuthHandler);
-            this.mHttpAuthHandlerWrapper = new SoftReference(bdHttpAuthHandler2);
+            this.mHttpAuthHandlerWrapper = new SoftReference<>(bdHttpAuthHandler2);
             return bdHttpAuthHandler2;
         }
         return bdHttpAuthHandler;
@@ -133,11 +133,11 @@ public class BdWebViewClient {
     public BdHttpAuthHandler obtainHttpAuthHandlerWrapper(com.baidu.zeus.HttpAuthHandler httpAuthHandler) {
         BdHttpAuthHandler bdHttpAuthHandler = null;
         if (this.mHttpAuthHandlerWrapper != null) {
-            bdHttpAuthHandler = (BdHttpAuthHandler) this.mHttpAuthHandlerWrapper.get();
+            bdHttpAuthHandler = this.mHttpAuthHandlerWrapper.get();
         }
         if (bdHttpAuthHandler == null || !bdHttpAuthHandler.isContains(httpAuthHandler)) {
             BdHttpAuthHandler bdHttpAuthHandler2 = new BdHttpAuthHandler(httpAuthHandler);
-            this.mHttpAuthHandlerWrapper = new SoftReference(bdHttpAuthHandler2);
+            this.mHttpAuthHandlerWrapper = new SoftReference<>(bdHttpAuthHandler2);
             return bdHttpAuthHandler2;
         }
         return bdHttpAuthHandler;

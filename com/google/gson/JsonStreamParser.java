@@ -11,7 +11,7 @@ import java.io.StringReader;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes.dex */
-public final class JsonStreamParser implements Iterator {
+public final class JsonStreamParser implements Iterator<JsonElement> {
     private final Object lock;
     private final JsonReader parser;
 
@@ -26,6 +26,7 @@ public final class JsonStreamParser implements Iterator {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
     public JsonElement next() {
         if (!hasNext()) {

@@ -200,6 +200,12 @@ public final class i extends ae implements Runnable {
     }
 
     @Override // android.support.v4.app.ae
+    public ae a(int i, Fragment fragment) {
+        a(i, fragment, (String) null, 1);
+        return this;
+    }
+
+    @Override // android.support.v4.app.ae
     public ae a(int i, Fragment fragment, String str) {
         a(i, fragment, str, 1);
         return this;
@@ -224,6 +230,15 @@ public final class i extends ae implements Runnable {
         jVar.c = i2;
         jVar.d = fragment;
         a(jVar);
+    }
+
+    @Override // android.support.v4.app.ae
+    public ae b(int i, Fragment fragment, String str) {
+        if (i == 0) {
+            throw new IllegalArgumentException("Must use non-zero containerViewId");
+        }
+        a(i, fragment, str, 2);
+        return this;
     }
 
     @Override // android.support.v4.app.ae
@@ -268,7 +283,7 @@ public final class i extends ae implements Runnable {
                 }
                 if (jVar.i != null) {
                     for (int size = jVar.i.size() - 1; size >= 0; size--) {
-                        Fragment fragment = (Fragment) jVar.i.get(size);
+                        Fragment fragment = jVar.i.get(size);
                         fragment.A += i;
                         if (v.f290a) {
                             Log.v("FragmentManager", "Bump nesting of " + fragment + " to " + fragment.A);
@@ -329,7 +344,7 @@ public final class i extends ae implements Runnable {
                     if (this.f283a.g != null) {
                         fragment = fragment3;
                         for (int i = 0; i < this.f283a.g.size(); i++) {
-                            Fragment fragment4 = (Fragment) this.f283a.g.get(i);
+                            Fragment fragment4 = this.f283a.g.get(i);
                             if (v.f290a) {
                                 Log.v("FragmentManager", "OP_REPLACE: adding=" + fragment + " old=" + fragment4);
                             }
@@ -339,7 +354,7 @@ public final class i extends ae implements Runnable {
                                     jVar.d = null;
                                 } else {
                                     if (jVar.i == null) {
-                                        jVar.i = new ArrayList();
+                                        jVar.i = new ArrayList<>();
                                     }
                                     jVar.i.add(fragment4);
                                     fragment4.P = jVar.f;
@@ -419,7 +434,7 @@ public final class i extends ae implements Runnable {
                     }
                     if (jVar.i != null) {
                         for (int i = 0; i < jVar.i.size(); i++) {
-                            Fragment fragment3 = (Fragment) jVar.i.get(i);
+                            Fragment fragment3 = jVar.i.get(i);
                             fragment3.P = jVar.g;
                             this.f283a.a(fragment3, false);
                         }

@@ -1,17 +1,16 @@
 package com.baidu.tieba.square;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends BdAsyncTask {
+public class n extends BdAsyncTask<Object, Integer, r> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderSecondDirActivity f1749a;
-    private com.baidu.tieba.util.v b;
+    final /* synthetic */ BarFolderSecondDirActivity f1848a;
+    private com.baidu.tieba.util.z b;
 
     private n(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.f1749a = barFolderSecondDirActivity;
+        this.f1848a = barFolderSecondDirActivity;
         this.b = null;
     }
 
@@ -29,19 +28,19 @@ public class n extends BdAsyncTask {
         String str;
         String str2;
         String str3;
-        oVar = this.f1749a.k;
+        oVar = this.f1848a.k;
         r a2 = oVar.a();
         try {
-            this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/f/forum/seconddir");
-            com.baidu.tieba.util.v vVar = this.b;
-            str = this.f1749a.n;
-            vVar.a("menu_name", str);
-            com.baidu.tieba.util.v vVar2 = this.b;
-            str2 = this.f1749a.o;
-            vVar2.a("menu_type", str2);
-            com.baidu.tieba.util.v vVar3 = this.b;
-            str3 = this.f1749a.p;
-            vVar3.a("menu_id", str3);
+            this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/forum/seconddir");
+            com.baidu.tieba.util.z zVar = this.b;
+            str = this.f1848a.n;
+            zVar.a("menu_name", str);
+            com.baidu.tieba.util.z zVar2 = this.b;
+            str2 = this.f1848a.o;
+            zVar2.a("menu_type", str2);
+            com.baidu.tieba.util.z zVar3 = this.b;
+            str3 = this.f1848a.p;
+            zVar3.a("menu_id", str3);
             String j = this.b.j();
             if (this.b.c()) {
                 a2.b(j);
@@ -50,7 +49,7 @@ public class n extends BdAsyncTask {
             }
         } catch (Exception e) {
             a2.a(e.getMessage());
-            aq.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return a2;
     }
@@ -59,7 +58,7 @@ public class n extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(r rVar) {
-        this.f1749a.a(rVar, false);
+        this.f1848a.a(rVar, false);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -69,6 +68,6 @@ public class n extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f1749a.a((r) null, true);
+        this.f1848a.a((r) null, true);
     }
 }

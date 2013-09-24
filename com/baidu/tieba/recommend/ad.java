@@ -5,11 +5,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ad {
-    private static final String d = String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/f/forum/threadrecommend";
+    private static final String d = String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/forum/threadrecommend";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1675a = -1;
-    private com.baidu.tieba.util.v b = null;
+    private int f1750a = -1;
+    private com.baidu.tieba.util.z b = null;
     private boolean c;
 
     public ad(boolean z) {
@@ -17,7 +17,7 @@ public class ad {
     }
 
     public String a(String str) {
-        this.b = new com.baidu.tieba.util.v();
+        this.b = new com.baidu.tieba.util.z();
         this.b.a(d);
         this.b.c(false);
         if (this.c) {
@@ -29,7 +29,7 @@ public class ad {
         String j = this.b.j();
         if (j != null) {
             try {
-                this.f1675a = new JSONObject(j).optInt("error_code");
+                this.f1750a = new JSONObject(j).optInt("error_code");
             } catch (JSONException e) {
             }
         }
@@ -50,6 +50,6 @@ public class ad {
     }
 
     public int c() {
-        return this.f1675a;
+        return this.f1750a;
     }
 }

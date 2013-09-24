@@ -10,9 +10,9 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tieba.util.ao;
-import com.baidu.tieba.view.az;
-import com.baidu.tieba.view.ba;
+import com.baidu.tieba.util.as;
+import com.baidu.tieba.view.PbListView;
+import com.baidu.tieba.view.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class z extends com.baidu.adp.a.d {
@@ -20,8 +20,8 @@ public class z extends com.baidu.adp.a.d {
     private PinnedHeaderListView c;
     private ProgressBar d;
     private View e;
-    private ba f;
-    private az g;
+    private bb f;
+    private PbListView g;
     private View h;
     private TextView i;
     private h j;
@@ -33,18 +33,18 @@ public class z extends com.baidu.adp.a.d {
     public z(DailyRecommendActivity dailyRecommendActivity, com.baidu.adp.widget.ListView.r rVar, q qVar) {
         super(dailyRecommendActivity);
         this.b = dailyRecommendActivity;
-        this.e = LayoutInflater.from(this.f347a).inflate(R.layout.daily_recommend_view, (ViewGroup) null);
+        this.e = LayoutInflater.from(this.f351a).inflate(R.layout.daily_recommend_view, (ViewGroup) null);
         this.b.setContentView(this.e);
         this.c = (PinnedHeaderListView) this.e.findViewById(R.id.pinnedHeaderListview);
         this.j = new h(dailyRecommendActivity, qVar);
         this.i = (TextView) this.e.findViewById(R.id.text_info);
-        this.f = new ba(this.f347a);
+        this.f = new bb(this.f351a);
         this.c.setPullRefresh(this.f);
         this.c.setAdapter((ListAdapter) this.j);
         this.c.setOnSrollToBottomListener(rVar);
         this.d = (ProgressBar) this.e.findViewById(R.id.progress);
         this.d.setVisibility(8);
-        this.g = new az(this.b);
+        this.g = new PbListView(this.b);
         this.g.a(new aa(this));
         this.h = this.g.b().findViewById(R.id.pb_more_view);
         this.k = this.e.findViewById(R.id.title);
@@ -87,7 +87,7 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void e() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f347a, R.anim.custom_home_text_info);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f351a, R.anim.custom_home_text_info);
         this.i.setVisibility(0);
         loadAnimation.setAnimationListener(new ac(this));
         this.i.startAnimation(loadAnimation);
@@ -105,13 +105,15 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void a(int i) {
-        ao.a(this.l, i);
-        ao.a(this.m, i);
-        ao.d(this.k, i);
-        ao.f(this.n, i);
-        ao.b(this.c, i);
+        as.a(this.l, i);
+        as.a(this.m, i);
+        as.d(this.k, i);
+        as.f(this.n, i);
+        as.b(this.c, i);
         this.f.a(i);
-        ao.g(this.h, i == 1 ? R.drawable.bg_list_all_1 : R.drawable.bg_list_all);
+        if (this.g != null) {
+            this.g.a(i);
+        }
         this.i.setTextColor(i == 1 ? -3380702 : -893399);
         this.i.setBackgroundResource(i == 1 ? R.drawable.bg_update_1 : R.drawable.bg_update);
         this.j.a();

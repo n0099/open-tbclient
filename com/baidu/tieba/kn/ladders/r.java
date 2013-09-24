@@ -6,15 +6,15 @@ import com.baidu.tieba.recommend.ae;
 class r implements com.baidu.tieba.view.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ KnPkHomeFragment f1227a;
+    final /* synthetic */ KnPkHomeFragment f1261a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(KnPkHomeFragment knPkHomeFragment) {
-        this.f1227a = knPkHomeFragment;
+        this.f1261a = knPkHomeFragment;
     }
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        return ae.a(this.f1227a.g(), str);
+        return ae.a(this.f1261a.h(), str);
     }
 }

@@ -1,32 +1,31 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.view.HeadImageView;
+import android.os.Handler;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class bl {
+class bl implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f1515a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public Button f;
-    public Button g;
-    public TbRichTextView h;
-    public LinearLayout i;
-    public LinearLayout j;
-    final /* synthetic */ bk k;
-
-    private bl(bk bkVar) {
-        this.k = bkVar;
-    }
+    final /* synthetic */ NewPbActivity f1558a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bl(bk bkVar, bl blVar) {
-        this(bkVar);
+    public bl(NewPbActivity newPbActivity) {
+        this.f1558a = newPbActivity;
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        handler = this.f1558a.m;
+        handler.removeMessages(1);
+        handler2 = this.f1558a.m;
+        handler3 = this.f1558a.m;
+        handler2.sendMessageDelayed(handler3.obtainMessage(1), 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

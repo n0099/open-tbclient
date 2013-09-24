@@ -7,13 +7,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.ba;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1750a = new p(this);
+    View.OnClickListener f1849a = new p(this);
     private Activity b;
     private final r c;
     private final String d;
@@ -44,11 +44,11 @@ public class o extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            av.b(view);
+            ba.b(view);
         }
-        av.a(view);
+        ba.a(view);
         if (itemViewType != 3) {
-            int an = TiebaApplication.g().an();
+            int ap = TiebaApplication.g().ap();
             View findViewById = view.findViewById(R.id.container);
             View findViewById2 = view.findViewById(R.id.item_up);
             View findViewById3 = view.findViewById(R.id.item_down);
@@ -62,7 +62,7 @@ public class o extends BaseAdapter {
                 findViewById2.setVisibility(8);
                 findViewById3.setVisibility(8);
             }
-            av.a(findViewById, itemViewType, an);
+            ba.a(findViewById, itemViewType, ap);
             a(viewGroup, (q) view.getTag(), i);
         }
         return view;
@@ -74,17 +74,17 @@ public class o extends BaseAdapter {
             return from.inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_second_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f1750a);
+        inflate.setOnClickListener(this.f1849a);
         q qVar = new q();
-        qVar.f1752a = (TextView) inflate.findViewById(R.id.name);
+        qVar.f1851a = (TextView) inflate.findViewById(R.id.name);
         inflate.setTag(qVar);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, q qVar, int i) {
-        s sVar = (s) this.c.d().e.get(i / 2);
+        s sVar = this.c.d().e.get(i / 2);
         qVar.b = sVar;
-        qVar.f1752a.setText(sVar.b);
+        qVar.f1851a.setText(sVar.b);
     }
 
     @Override // android.widget.Adapter

@@ -22,18 +22,18 @@ public class BdNetTask {
     private String mRedirectUrl;
     private String mRefer;
     private String mUrl;
-    private static final Map NULL_ARRAY = Collections.emptyMap();
-    private static Vector sTaskPool = new Vector();
+    private static final Map<String, String> NULL_ARRAY = Collections.emptyMap();
+    private static Vector<BdNetTask> sTaskPool = new Vector<>();
     private String mUserAgent = DEFAULT_USERAGENT;
     private BdNet.HttpMethod mMethod = BdNet.HttpMethod.METHOD_GET;
-    private Map mHeaders = NULL_ARRAY;
-    private Map mCookies = NULL_ARRAY;
+    private Map<String, String> mHeaders = NULL_ARRAY;
+    private Map<String, String> mCookies = NULL_ARRAY;
     private int mReadTimeOut = TIMEOUT_READ;
     private int mConnectionTimeOut = 0;
     private boolean mFollowRedirects = true;
 
     public static BdNetTask obtain() {
-        return sTaskPool.size() > 0 ? (BdNetTask) sTaskPool.remove(0) : new BdNetTask();
+        return sTaskPool.size() > 0 ? sTaskPool.remove(0) : new BdNetTask();
     }
 
     public static BdNetTask obtain(BdNet bdNet) {
@@ -125,7 +125,7 @@ public class BdNetTask {
         this.mMethod = httpMethod;
     }
 
-    public Map getHeaders() {
+    public Map<String, String> getHeaders() {
         return this.mHeaders;
     }
 
@@ -136,11 +136,11 @@ public class BdNetTask {
         this.mHeaders.put(str, str2);
     }
 
-    public void setHeaders(Map map) {
+    public void setHeaders(Map<String, String> map) {
         this.mHeaders = map;
     }
 
-    public Map getCookies() {
+    public Map<String, String> getCookies() {
         return this.mCookies;
     }
 
@@ -167,7 +167,7 @@ public class BdNetTask {
         this.mCookies.put(str, str2);
     }
 
-    public void setCookies(Map map) {
+    public void setCookies(Map<String, String> map) {
         this.mCookies = map;
     }
 

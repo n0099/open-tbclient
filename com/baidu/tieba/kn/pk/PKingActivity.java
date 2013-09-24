@@ -12,10 +12,10 @@ import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.kn.shake.ShakeActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.ba;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PKingActivity extends com.baidu.tieba.g implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
+public class PKingActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
     private t b;
     private q c;
     private r d;
@@ -28,7 +28,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     private Handler k = new Handler();
 
     /* renamed from: a  reason: collision with root package name */
-    Runnable f1238a = new o(this);
+    Runnable f1272a = new o(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
@@ -44,17 +44,17 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     protected void a(boolean z) {
         this.m = z;
         this.f = 0;
-        m();
+        n();
         this.d = new r(this);
         this.d.setPriority(3);
         this.d.execute("");
     }
 
     protected void c() {
-        if (this.b.f1258a != null) {
-            int e = (int) (this.b.f1258a.f - (this.b.f1258a.e() / 1000));
+        if (this.b.f1292a != null) {
+            int e = (int) (this.b.f1292a.f - (this.b.f1292a.e() / 1000));
             if (e <= 0) {
-                PKEndActivity.a(this, this.e, this.b.f1258a.d());
+                PKEndActivity.a(this, this.e, this.b.f1292a.d());
                 finish();
                 return;
             }
@@ -70,7 +70,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
         if (this.g) {
             a(true);
         } else {
-            k();
+            e();
         }
     }
 
@@ -84,7 +84,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
         context.startActivity(intent);
     }
 
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.l = new com.baidu.tieba.util.a(this);
@@ -94,12 +94,12 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
         setContentView(R.layout.kn_pking_activity);
         this.b = new t(this, stringExtra);
         this.b.b.a(this);
-        if (PKJumpActivity.f1236a != null) {
-            a(PKJumpActivity.f1236a);
-            PKJumpActivity.f1236a = null;
+        if (PKJumpActivity.f1270a != null) {
+            a(PKJumpActivity.f1270a);
+            PKJumpActivity.f1270a = null;
             return;
         }
-        k();
+        e();
     }
 
     @Override // android.app.Activity
@@ -109,7 +109,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
         this.b.b.a(0);
@@ -122,26 +122,26 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
         } else if (this.g) {
             if (view.getId() == R.id.star1) {
                 StatService.onEvent(this, "pk_support_click", "all");
-                StatService.onEvent(this, "pk_support_click", this.b.f1258a.f1257a);
-                if (!TiebaApplication.F()) {
+                StatService.onEvent(this, "pk_support_click", this.b.f1292a.f1291a);
+                if (!TiebaApplication.D()) {
                     LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 20003);
                 } else {
-                    ShakeActivity.a(this, this.b.f1258a.f1257a, this.b.f1258a.j.f1274a, this.b.f1258a.j.b, null);
+                    ShakeActivity.a(this, this.b.f1292a.f1291a, this.b.f1292a.j.f1308a, this.b.f1292a.j.b, null);
                 }
             } else if (view.getId() == R.id.star2) {
                 StatService.onEvent(this, "pk_support_click", "all");
-                StatService.onEvent(this, "pk_support_click", this.b.f1258a.f1257a);
-                if (!TiebaApplication.F()) {
+                StatService.onEvent(this, "pk_support_click", this.b.f1292a.f1291a);
+                if (!TiebaApplication.D()) {
                     LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 20003);
                 } else {
-                    ShakeActivity.a(this, this.b.f1258a.f1257a, this.b.f1258a.k.f1274a, this.b.f1258a.k.b, null);
+                    ShakeActivity.a(this, this.b.f1292a.f1291a, this.b.f1292a.k.f1308a, this.b.f1292a.k.b, null);
                 }
             } else if (view.getId() == R.id.pk_left_bar_container) {
-                FrsActivity.a(this, this.b.f1258a.j.e, (String) null);
+                FrsActivity.a(this, this.b.f1292a.j.e, (String) null);
             } else if (view.getId() == R.id.pk_right_bar_container) {
-                FrsActivity.a(this, this.b.f1258a.k.e, (String) null);
+                FrsActivity.a(this, this.b.f1292a.k.e, (String) null);
             } else {
-                av.a(this, view.getId(), this.b.f1258a.f1257a, new p(this));
+                ba.a(this, view.getId(), this.b.f1292a.f1291a, new p(this));
             }
         }
     }
@@ -154,7 +154,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     protected void onActivityResult(int i, int i2, Intent intent) {
     }
 
-    protected void k() {
+    protected void e() {
         this.b.a().setVisibility(0);
         if (this.c != null) {
             this.c.cancel(true);
@@ -162,7 +162,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
         this.c = new q(this);
         this.c.setPriority(3);
         this.c.execute("");
-        m();
+        n();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -173,16 +173,16 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
             if (sVar != null && !sVar.b()) {
                 this.f = 0;
                 this.g = true;
-                m();
+                n();
             }
         } catch (Throwable th) {
             a(getString(R.string.kn_data_corrupted));
-            com.baidu.adp.lib.e.d.a(getClass(), "onDataReadyFromUIThread", th);
+            com.baidu.adp.lib.f.d.a(getClass(), "onDataReadyFromUIThread", th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void l() {
+    public void m() {
         if (this.c != null) {
             this.c.cancel(true);
             this.c = null;
@@ -191,24 +191,24 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.k.removeCallbacks(this.f1238a);
-        l();
+        this.k.removeCallbacks(this.f1272a);
         m();
+        n();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.g && this.f > 0) {
             this.b.a(this.k);
             a(true);
         }
-        this.k.removeCallbacks(this.f1238a);
-        this.k.postDelayed(this.f1238a, 1000L);
+        this.k.removeCallbacks(this.f1272a);
+        this.k.postDelayed(this.f1272a, 1000L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -225,7 +225,7 @@ public class PKingActivity extends com.baidu.tieba.g implements View.OnClickList
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void m() {
+    public void n() {
         if (this.d != null) {
             this.d.cancel(true);
             this.d = null;

@@ -1,167 +1,322 @@
 package com.baidu.tieba.util;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.TextView;
-import com.baidu.browser.explorer.BdWebErrorView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.switchs.SwitchKey;
-import com.slidingmenu.lib.R;
-import java.util.LinkedList;
+import android.util.Log;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Date;
 /* loaded from: classes.dex */
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1792a = -1;
-    private static int b = -1;
-    private static com.baidu.adp.lib.b.a c = new com.baidu.adp.lib.b.a(BdWebErrorView.ERROR_CODE_500);
+    private static int f1909a = 0;
+    private static int b = 0;
+    private static int c = 0;
+    private static int d = 0;
 
-    public static void a(TiebaApplication tiebaApplication) {
-        f1792a = tiebaApplication.getResources().getColor(R.color.skin_1_common_color);
-        b = tiebaApplication.getResources().getColor(R.color.more_color);
-    }
-
-    public static void a(View view) {
-        if (view instanceof ViewGroup) {
-            a((ViewGroup) view, TiebaApplication.g().an());
+    public static int a(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.i("TiebaLog", sb.toString());
         }
+        return 0;
     }
 
-    public static void b(View view) {
-        if (view != null) {
-            c.b(Integer.valueOf(System.identityHashCode(view)));
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, int i) {
-        int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = (Integer) c.a(Integer.valueOf(identityHashCode));
-        if (num == null || i != num.intValue()) {
-            b(viewGroup, i);
-            c.a(Integer.valueOf(identityHashCode), Integer.valueOf(i));
-        }
-    }
-
-    public static void a(ViewGroup viewGroup, boolean z, ba baVar) {
-        if (!z || !baVar.a(viewGroup)) {
-            LinkedList linkedList = new LinkedList();
-            while (true) {
-                int childCount = viewGroup.getChildCount();
-                for (int i = 0; i < childCount; i++) {
-                    View childAt = viewGroup.getChildAt(i);
-                    if (!baVar.a(childAt)) {
-                        if (childAt instanceof ViewGroup) {
-                            linkedList.addLast((ViewGroup) childAt);
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0088 A[Catch: Exception -> 0x008c, TRY_LEAVE, TryCatch #3 {Exception -> 0x008c, blocks: (B:25:0x0083, B:27:0x0088), top: B:44:0x0083 }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0083 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static void d(String str) {
+        BufferedWriter bufferedWriter;
+        FileWriter fileWriter;
+        FileWriter fileWriter2 = null;
+        long currentTimeMillis = System.currentTimeMillis();
+        File f = p.f("log_" + at.d(new Date()));
+        if (f != null) {
+            try {
+                fileWriter = new FileWriter(f, true);
+                try {
+                    bufferedWriter = new BufferedWriter(fileWriter);
+                    try {
+                        bufferedWriter.write(String.valueOf(at.a(currentTimeMillis)) + "\t\t" + str);
+                        bufferedWriter.newLine();
+                        bufferedWriter.flush();
+                    } catch (Exception e) {
+                        e = e;
+                        fileWriter2 = fileWriter;
+                        try {
+                            Log.d("tieba", e.getMessage());
+                            if (fileWriter2 != null) {
+                                try {
+                                    fileWriter2.close();
+                                } catch (Exception e2) {
+                                    Log.d("tieba", e2.getMessage());
+                                    return;
+                                }
+                            }
+                            if (bufferedWriter != null) {
+                                bufferedWriter.close();
+                                return;
+                            }
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileWriter = fileWriter2;
+                            if (fileWriter != null) {
+                                try {
+                                    fileWriter.close();
+                                } catch (Exception e3) {
+                                    Log.d("tieba", e3.getMessage());
+                                    throw th;
+                                }
+                            }
+                            if (bufferedWriter != null) {
+                                bufferedWriter.close();
+                            }
+                            throw th;
                         }
-                    } else {
-                        return;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        if (fileWriter != null) {
+                        }
+                        if (bufferedWriter != null) {
+                        }
+                        throw th;
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    bufferedWriter = null;
+                    fileWriter2 = fileWriter;
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedWriter = null;
+                }
+            } catch (Exception e5) {
+                e = e5;
+                bufferedWriter = null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedWriter = null;
+                fileWriter = null;
+            }
+        } else {
+            bufferedWriter = null;
+            fileWriter = null;
+        }
+        if (fileWriter != null) {
+            try {
+                fileWriter.close();
+            } catch (Exception e6) {
+                Log.d("tieba", e6.getMessage());
+                return;
+            }
+        }
+        if (bufferedWriter != null) {
+            bufferedWriter.close();
+        }
+    }
+
+    public static int b(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            d(sb.toString());
+            return Log.e("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int c(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.w("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int d(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.v("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int e(String str, String str2, String str3) {
+        if (com.baidu.tieba.data.g.s()) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(str);
+            sb.append(":");
+            sb.append(str2);
+            sb.append(":");
+            sb.append(str3);
+            return Log.d("TiebaLog", sb.toString());
+        }
+        return 0;
+    }
+
+    public static int a(int i, String str) {
+        if (com.baidu.tieba.data.g.s()) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace.length < 5) {
+                return -1;
+            }
+            StackTraceElement stackTraceElement = stackTrace[4];
+            String methodName = stackTraceElement.getMethodName();
+            String className = stackTraceElement.getClassName();
+            if (i == 0) {
+                b(className, methodName, str);
+            } else if (i == 1) {
+                c(className, methodName, str);
+            } else if (i == 2) {
+                a(className, methodName, str);
+            } else if (i == 3) {
+                e(className, methodName, str);
+            } else {
+                d(className, methodName, str);
+            }
+            return 0;
+        }
+        return -1;
+    }
+
+    public static int a(String str) {
+        return a(0, str);
+    }
+
+    public static int b(String str) {
+        return a(2, str);
+    }
+
+    public static int c(String str) {
+        return a(3, str);
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static void a(int i, String str, String str2, String str3) {
+        FileWriter fileWriter;
+        Throwable th;
+        boolean z = true;
+        FileWriter fileWriter2 = null;
+        switch (i) {
+            case 1:
+                if (f1909a < 10) {
+                    f1909a++;
+                    break;
+                }
+                z = false;
+                break;
+            case 2:
+                if (b < 10) {
+                    b++;
+                    break;
+                }
+                z = false;
+                break;
+            case 3:
+                if (c < 10) {
+                    c++;
+                    break;
+                }
+                z = false;
+                break;
+            case 4:
+                if (d < 10) {
+                    d++;
+                    break;
+                }
+                z = false;
+                break;
+            default:
+                z = false;
+                break;
+        }
+        try {
+            if (com.baidu.tieba.data.g.s() || z) {
+                StringBuilder sb = new StringBuilder(100);
+                sb.append(new Date().getTime() / 1000);
+                sb.append("\t");
+                sb.append(i);
+                sb.append("\t");
+                sb.append(str2);
+                if (str3 != null) {
+                    sb.append(":");
+                    sb.append(str3.replace("\n", " ").replace("\t", " "));
+                }
+                sb.append("\t");
+                sb.append(str);
+                sb.append("\t");
+                sb.append(0);
+                sb.append("\n");
+                String sb2 = sb.toString();
+                if (com.baidu.tieba.data.g.s()) {
+                    Log.e("TiebaLog", sb2);
+                }
+                if (z) {
+                    File f = p.f("log_error.log");
+                    if (sb2 != null && f != null && f.length() < 204800) {
+                        fileWriter = new FileWriter(f, true);
+                        try {
+                            fileWriter.append((CharSequence) sb2);
+                            fileWriter.flush();
+                            fileWriter2 = fileWriter;
+                        } catch (Exception e) {
+                            fileWriter2 = fileWriter;
+                            if (fileWriter2 != null) {
+                                try {
+                                    fileWriter2.close();
+                                    return;
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
+                                    return;
+                                }
+                            }
+                            return;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (fileWriter != null) {
+                                try {
+                                    fileWriter.close();
+                                } catch (Exception e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
                     }
                 }
-                if (!linkedList.isEmpty()) {
-                    viewGroup = (ViewGroup) linkedList.removeFirst();
-                } else {
-                    return;
+            }
+            if (fileWriter2 != null) {
+                try {
+                    fileWriter2.close();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
                 }
             }
-        }
-    }
-
-    private static void b(ViewGroup viewGroup, int i) {
-        a(viewGroup, true, (ba) new aw(i, i == 1));
-    }
-
-    public static void a(View view, int i) {
-        if (view != null) {
-            if (i == 1) {
-                view.setBackgroundColor(-14078923);
-            } else {
-                view.setBackgroundColor(-1183760);
-            }
-        }
-    }
-
-    public static void a(View view, int i, int i2) {
-        if (view != null) {
-            view.setBackgroundResource(0);
-            if (i2 == 1) {
-                if (i == 0) {
-                    view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_up_1);
-                } else if (i == 2) {
-                    view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_down_1);
-                } else {
-                    view.setBackgroundResource(R.drawable.list_selector_item_1);
-                }
-            } else if (i == 0) {
-                view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_up);
-            } else if (i == 2) {
-                view.setBackgroundResource(R.drawable.auto_skin_list_item_bg_down);
-            } else {
-                view.setBackgroundResource(R.drawable.list_selector_item);
-            }
-        }
-    }
-
-    public static void a(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                textView.setTextColor(-11446171);
-            } else {
-                textView.setTextColor(-5065030);
-            }
-        }
-    }
-
-    public static void b(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
-                textView.setTextColor(f1792a);
-            } else {
-                textView.setTextColor(b);
-            }
-        }
-    }
-
-    public static void a(CheckBox checkBox, int i) {
-        if (checkBox != null) {
-            if (i == 1) {
-                checkBox.setTextColor(f1792a);
-            } else {
-                checkBox.setTextColor(b);
-            }
-        }
-    }
-
-    public static void a(Activity activity, int i, String str, az azVar) {
-        int i2 = 1;
-        if ((i == R.id.share_weixin || i == R.id.share_qqfriend) && com.baidu.adp.lib.a.d.a().b(SwitchKey.MM) == 1) {
-            UtilHelper.a((Context) activity, (int) R.string.share_weixin_turn_off);
-            return;
-        }
-        if (i == R.id.share_weixin) {
-            StatService.onEvent(activity, "kn_share_pk_weixin", "share");
-            i2 = 3;
-        } else if (i == R.id.share_qqfriend) {
-            StatService.onEvent(activity, "kn_share_pk_qqfrend", "share");
-            i2 = 4;
-        } else if (i == R.id.share_qqzone) {
-            StatService.onEvent(activity, "kn_share_pk_qzone", "share");
-            i2 = 2;
-        } else if (i == R.id.share_sina) {
-            StatService.onEvent(activity, "kn_share_pk_weibo", "share");
-        } else {
-            return;
-        }
-        azVar.a();
-        String a2 = ah.a(str);
-        ah a3 = ah.a(activity);
-        if (a3.a(i2)) {
-            a3.a(activity, a2, new ax(azVar, activity, i2, a3));
-        } else {
-            azVar.b();
+        } catch (Exception e5) {
+        } catch (Throwable th3) {
+            fileWriter = null;
+            th = th3;
         }
     }
 }

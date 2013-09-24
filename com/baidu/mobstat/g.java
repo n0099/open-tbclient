@@ -13,7 +13,7 @@ public class g {
     private Timer e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f805a = new HandlerThread("LogSenderThread");
+    private static HandlerThread f817a = new HandlerThread("LogSenderThread");
     private static g i = new g();
     private boolean b = false;
     private SendStrategyEnum c = SendStrategyEnum.APP_START;
@@ -22,8 +22,8 @@ public class g {
     private boolean g = false;
 
     private g() {
-        f805a.start();
-        h = new Handler(f805a.getLooper());
+        f817a.start();
+        h = new Handler(f817a.getLooper());
     }
 
     public static g a() {

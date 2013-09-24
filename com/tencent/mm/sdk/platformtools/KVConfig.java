@@ -19,17 +19,17 @@ import org.xml.sax.SAXException;
 public class KVConfig {
     private static boolean aa = false;
 
-    private static void a(Map map) {
+    private static void a(Map<String, String> map) {
         if (map == null || map.size() <= 0) {
             Log.v("MicroMsg.SDK.KVConfig", "empty values");
             return;
         }
-        for (Map.Entry entry : map.entrySet()) {
-            Log.v("MicroMsg.SDK.KVConfig", "key=" + ((String) entry.getKey()) + " value=" + ((String) entry.getValue()));
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            Log.v("MicroMsg.SDK.KVConfig", "key=" + entry.getKey() + " value=" + entry.getValue());
         }
     }
 
-    private static void a(Map map, String str, Node node, int i) {
+    private static void a(Map<String, String> map, String str, Node node, int i) {
         Node item;
         if (node.getNodeName().equals("#text")) {
             map.put(str, node.getNodeValue());
@@ -55,7 +55,7 @@ public class KVConfig {
         }
     }
 
-    public static Map parseIni(String str) {
+    public static Map<String, String> parseIni(String str) {
         String[] split;
         String[] split2;
         if (str == null || str.length() <= 0) {
@@ -83,7 +83,7 @@ public class KVConfig {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Map parseXml(String str, String str2, String str3) {
+    public static Map<String, String> parseXml(String str, String str2, String str3) {
         Document document;
         int indexOf = str.indexOf(60);
         if (indexOf < 0) {

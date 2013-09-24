@@ -77,7 +77,7 @@ public class WebViewDatabase {
     private static final String[] mTableNames = {"cookies", "password", "formurl", "formdata", "httpauth"};
     private static final String ID_COL = "_id";
     private static final String[] ID_PROJECTION = {ID_COL};
-    private static ArrayList mCacheDataList = new ArrayList();
+    private static ArrayList<CacheDataForInsert> mCacheDataList = new ArrayList<>();
     private final Object mCookieLock = new Object();
     private final Object mPasswordLock = new Object();
     private final Object mFormLock = new Object();
@@ -257,9 +257,9 @@ public class WebViewDatabase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList getCookiesForDomain(String str) {
+    public ArrayList<CookieManager.Cookie> getCookiesForDomain(String str) {
         Cursor cursor;
-        ArrayList arrayList = new ArrayList();
+        ArrayList<CookieManager.Cookie> arrayList = new ArrayList<>();
         if (str == null || mDatabase == null) {
             return arrayList;
         }
@@ -513,7 +513,7 @@ public class WebViewDatabase {
                 mCacheDatabase.beginTransaction();
                 for (int i = size - 1; i >= 0; i--) {
                     try {
-                        CacheDataForInsert cacheDataForInsert = (CacheDataForInsert) mCacheDataList.get(i);
+                        CacheDataForInsert cacheDataForInsert = mCacheDataList.get(i);
                         mCacheInserter.prepareForInsert();
                         mCacheInserter.bind(mCacheUrlColIndex, cacheDataForInsert.url);
                         mCacheInserter.bind(mCacheFilePathColIndex, cacheDataForInsert.c.localPath);
@@ -546,7 +546,7 @@ public class WebViewDatabase {
             return null;
         }
         for (int i = size - 1; i >= 0; i--) {
-            CacheDataForInsert cacheDataForInsert = (CacheDataForInsert) mCacheDataList.get(i);
+            CacheDataForInsert cacheDataForInsert = mCacheDataList.get(i);
             if (str.equals(cacheDataForInsert.url)) {
                 return cacheDataForInsert.c;
             }
@@ -640,7 +640,7 @@ public class WebViewDatabase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List trimCache(long j) {
+    public List<String> trimCache(long j) {
         Cursor cursor;
         ArrayList arrayList = new ArrayList(100);
         Cursor cursor2 = null;
@@ -735,7 +735,7 @@ public class WebViewDatabase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List getAllCacheFileNames() {
+    public List<String> getAllCacheFileNames() {
         Cursor cursor;
         IllegalStateException illegalStateException;
         ArrayList arrayList;
@@ -802,8 +802,8 @@ public class WebViewDatabase {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList allImageCachePaths() {
-        ArrayList arrayList = new ArrayList();
+    public ArrayList<String> allImageCachePaths() {
+        ArrayList<String> arrayList = new ArrayList<>();
         Cursor rawQuery = mCacheDatabase.rawQuery("SELECT filepath FROM cache WHERE mimetype like 'image/%'", null);
         if (rawQuery != null && rawQuery.moveToFirst()) {
             do {
@@ -1156,7 +1156,7 @@ public class WebViewDatabase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void setFormData(String str, HashMap hashMap) {
+    public void setFormData(String str, HashMap<String, String> hashMap) {
         Cursor cursor;
         long j;
         long insert;
@@ -1208,9 +1208,9 @@ public class WebViewDatabase {
                 if (j >= 0) {
                     ContentValues contentValues2 = new ContentValues();
                     contentValues2.put(FORMDATA_URLID_COL, Long.valueOf(j));
-                    for (Map.Entry entry : hashMap.entrySet()) {
-                        contentValues2.put("name", (String) entry.getKey());
-                        contentValues2.put("value", (String) entry.getValue());
+                    for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                        contentValues2.put("name", entry.getKey());
+                        contentValues2.put("value", entry.getValue());
                         mDatabase.insert(mTableNames[3], null, contentValues2);
                     }
                 }
@@ -1228,12 +1228,12 @@ public class WebViewDatabase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public ArrayList getFormData(String str, String str2) {
+    public ArrayList<String> getFormData(String str, String str2) {
         String str3;
         Cursor query;
         Cursor cursor;
         Cursor cursor2 = null;
-        ArrayList arrayList = new ArrayList();
+        ArrayList<String> arrayList = new ArrayList<>();
         if (str == null || str2 == null || mDatabase == null) {
             return arrayList;
         }

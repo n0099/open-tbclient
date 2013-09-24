@@ -1,17 +1,39 @@
 package com.baidu.tieba.pb;
+
+import android.os.Handler;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cr implements com.baidu.tieba.view.g {
+public class cr implements com.baidu.tieba.view.ao {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1547a;
+    final /* synthetic */ br f1589a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cr(bo boVar) {
-        this.f1547a = boVar;
+    public cr(br brVar) {
+        this.f1589a = brVar;
     }
 
-    @Override // com.baidu.tieba.view.g
-    public void a() {
-        this.f1547a.b();
+    @Override // com.baidu.tieba.view.ao
+    public void a(int i) {
+        switch (i) {
+            case 0:
+                if (!this.f1589a.E()) {
+                    new Handler().postDelayed(new cu(this), 0L);
+                } else {
+                    new Handler().postDelayed(new cv(this), 0L);
+                }
+                this.f1589a.at = true;
+                return;
+            case 1:
+                if (!this.f1589a.E()) {
+                    new Handler().postDelayed(new cs(this), 0L);
+                } else {
+                    new Handler().postDelayed(new ct(this), 0L);
+                }
+                this.f1589a.at = false;
+                return;
+            default:
+                return;
+        }
     }
 }

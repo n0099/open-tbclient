@@ -61,8 +61,8 @@ public final class CookieSyncManager extends WebSyncManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList getCookiesForDomain(String str) {
-        return this.mDataBase == null ? new ArrayList() : this.mDataBase.getCookiesForDomain(str);
+    public ArrayList<CookieManager.Cookie> getCookiesForDomain(String str) {
+        return this.mDataBase == null ? new ArrayList<>() : this.mDataBase.getCookiesForDomain(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -101,26 +101,26 @@ public final class CookieSyncManager extends WebSyncManager {
                 CookieManager.getInstance().flushCookieStore();
                 return;
             }
-            ArrayList updatedCookiesSince = CookieManager.getInstance().getUpdatedCookiesSince(this.mLastUpdate);
+            ArrayList<CookieManager.Cookie> updatedCookiesSince = CookieManager.getInstance().getUpdatedCookiesSince(this.mLastUpdate);
             this.mLastUpdate = System.currentTimeMillis();
             syncFromRamToFlash(updatedCookiesSince);
             syncFromRamToFlash(CookieManager.getInstance().deleteLRUDomain());
         }
     }
 
-    private void syncFromRamToFlash(ArrayList arrayList) {
-        Iterator it = arrayList.iterator();
+    private void syncFromRamToFlash(ArrayList<CookieManager.Cookie> arrayList) {
+        Iterator<CookieManager.Cookie> it = arrayList.iterator();
         while (it.hasNext()) {
-            CookieManager.Cookie cookie = (CookieManager.Cookie) it.next();
-            if (cookie.mode != 1) {
-                if (cookie.mode != 0) {
-                    this.mDataBase.deleteCookies(cookie.domain, cookie.path, cookie.name);
+            CookieManager.Cookie next = it.next();
+            if (next.mode != 1) {
+                if (next.mode != 0) {
+                    this.mDataBase.deleteCookies(next.domain, next.path, next.name);
                 }
-                if (cookie.mode != 2) {
-                    this.mDataBase.addCookie(cookie);
-                    CookieManager.getInstance().syncedACookie(cookie);
+                if (next.mode != 2) {
+                    this.mDataBase.addCookie(next);
+                    CookieManager.getInstance().syncedACookie(next);
                 } else {
-                    CookieManager.getInstance().deleteACookie(cookie);
+                    CookieManager.getInstance().deleteACookie(next);
                 }
             }
         }

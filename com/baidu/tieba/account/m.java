@@ -8,32 +8,32 @@ import com.slidingmenu.lib.R;
 public class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f905a;
+    final /* synthetic */ k f921a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.f905a = kVar;
+        this.f921a = kVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        com.baidu.tieba.g gVar;
+        com.baidu.tieba.j jVar;
         r rVar;
         q qVar;
         q qVar2;
         q qVar3;
-        editText = this.f905a.c;
+        editText = this.f921a.c;
         String editable = editText.getText().toString();
         if (editable != null && editable.length() > 0) {
-            rVar = this.f905a.l;
+            rVar = this.f921a.l;
             if (rVar == null) {
-                qVar = this.f905a.m;
+                qVar = this.f921a.m;
                 if (qVar == null) {
-                    this.f905a.m = new q(this.f905a, String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/detectuname", editable);
-                    qVar2 = this.f905a.m;
+                    this.f921a.m = new q(this.f921a, String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/s/detectuname", editable);
+                    qVar2 = this.f921a.m;
                     qVar2.setPriority(3);
-                    qVar3 = this.f905a.m;
+                    qVar3 = this.f921a.m;
                     qVar3.execute(new String[0]);
                     return;
                 }
@@ -41,8 +41,8 @@ public class m implements View.OnClickListener {
             }
             return;
         }
-        k kVar = this.f905a;
-        gVar = this.f905a.j;
-        kVar.b(gVar.getString(R.string.input_name));
+        k kVar = this.f921a;
+        jVar = this.f921a.j;
+        kVar.b(jVar.getString(R.string.input_name));
     }
 }

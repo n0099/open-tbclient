@@ -10,8 +10,8 @@ import java.util.Map;
 public class j extends a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f401a = "logcat ";
-    private static Map f = new HashMap();
+    public static String f403a = "logcat ";
+    private static Map<String, com.baidu.adp.lib.debug.a> f = new HashMap();
     private Process b;
     private InputStream c;
     private OutputStream d;
@@ -19,7 +19,7 @@ public class j extends a implements Runnable {
 
     public static void a(String str, com.baidu.adp.lib.debug.a aVar) {
         f.put(str, aVar);
-        f401a = String.valueOf(f401a) + " -s " + str;
+        f403a = String.valueOf(f403a) + " -s " + str;
     }
 
     public void a(String str) {
@@ -28,14 +28,14 @@ public class j extends a implements Runnable {
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator it = f.entrySet().iterator();
+                Iterator<Map.Entry<String, com.baidu.adp.lib.debug.a>> it = f.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
-                    Map.Entry entry = (Map.Entry) it.next();
-                    if (split[i2].contains(entry.getKey().toString())) {
-                        ((com.baidu.adp.lib.debug.a) entry.getValue()).a(split[i2]);
+                    Map.Entry<String, com.baidu.adp.lib.debug.a> next = it.next();
+                    if (split[i2].contains(next.getKey().toString())) {
+                        next.getValue().a(split[i2]);
                         break;
                     }
                 }
@@ -51,7 +51,7 @@ public class j extends a implements Runnable {
         super.b();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.b = Runtime.getRuntime().exec(f401a);
+            this.b = Runtime.getRuntime().exec(f403a);
             this.d = this.b.getOutputStream();
             this.c = this.b.getInputStream();
             d();

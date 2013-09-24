@@ -1,27 +1,29 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
+import android.view.animation.Animation;
+import com.baidu.tieba.view.AniImageView;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnCancelListener {
+public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VcodeActivity f1938a;
+    final /* synthetic */ AudioIcon f2121a;
+    private final /* synthetic */ List b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(VcodeActivity vcodeActivity) {
-        this.f1938a = vcodeActivity;
+    public n(AudioIcon audioIcon, List list) {
+        this.f2121a = audioIcon;
+        this.b = list;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        s sVar;
-        s sVar2;
-        this.f1938a.g();
-        sVar = this.f1938a.g;
-        if (sVar != null) {
-            sVar2 = this.f1938a.g;
-            sVar2.cancel();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        AniImageView aniImageView;
+        int i;
+        aniImageView = this.f2121a.h;
+        List list = this.b;
+        i = AudioIcon.g;
+        aniImageView.startAnimation((Animation) list.get(i));
     }
 }

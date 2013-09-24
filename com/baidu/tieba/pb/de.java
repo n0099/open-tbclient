@@ -1,85 +1,26 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
+import android.view.View;
+import android.widget.AdapterView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class de extends WebViewClient {
+class de implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f1560a;
+    final /* synthetic */ db f1602a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(WebActivity webActivity) {
-        this.f1560a = webActivity;
+    public de(db dbVar) {
+        this.f1602a = dbVar;
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        ImageView imageView;
-        ImageView imageView2;
-        ProgressBar progressBar;
-        ImageView imageView3;
-        ImageView imageView4;
-        ImageView imageView5;
-        super.onPageFinished(webView, str);
-        if (this.f1560a.f1475a.canGoBack()) {
-            imageView5 = this.f1560a.g;
-            imageView5.setEnabled(true);
-        } else {
-            imageView = this.f1560a.g;
-            imageView.setEnabled(false);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        String str;
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {
+            this.f1602a.b(str);
         }
-        if (this.f1560a.f1475a.canGoForward()) {
-            imageView4 = this.f1560a.j;
-            imageView4.setEnabled(true);
-        } else {
-            imageView2 = this.f1560a.j;
-            imageView2.setEnabled(false);
-        }
-        progressBar = this.f1560a.l;
-        progressBar.setVisibility(8);
-        imageView3 = this.f1560a.k;
-        imageView3.setVisibility(0);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        ImageView imageView;
-        ImageView imageView2;
-        ProgressBar progressBar;
-        ImageView imageView3;
-        ImageView imageView4;
-        ImageView imageView5;
-        super.onPageStarted(webView, str, bitmap);
-        if (this.f1560a.f1475a.canGoBack()) {
-            imageView5 = this.f1560a.g;
-            imageView5.setEnabled(true);
-        } else {
-            imageView = this.f1560a.g;
-            imageView.setEnabled(false);
-        }
-        if (this.f1560a.f1475a.canGoForward()) {
-            imageView4 = this.f1560a.j;
-            imageView4.setEnabled(true);
-        } else {
-            imageView2 = this.f1560a.j;
-            imageView2.setEnabled(false);
-        }
-        progressBar = this.f1560a.l;
-        progressBar.setVisibility(0);
-        imageView3 = this.f1560a.k;
-        imageView3.setVisibility(4);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if ((this.f1560a.f == null || !this.f1560a.f.a(str)) && !com.baidu.tieba.recommend.ae.a(this.f1560a, str)) {
-            return super.shouldOverrideUrlLoading(webView, str);
-        }
-        return true;
     }
 }

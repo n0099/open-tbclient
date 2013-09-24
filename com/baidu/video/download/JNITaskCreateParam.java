@@ -7,14 +7,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class JNITaskCreateParam implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.baidu.video.download.JNITaskCreateParam.1
+    public static final Parcelable.Creator<JNITaskCreateParam> CREATOR = new Parcelable.Creator<JNITaskCreateParam>() { // from class: com.baidu.video.download.JNITaskCreateParam.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public JNITaskCreateParam[] newArray(int i) {
             return new JNITaskCreateParam[i];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public JNITaskCreateParam createFromParcel(Parcel parcel) {
             return new JNITaskCreateParam(parcel, null);

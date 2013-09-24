@@ -1,30 +1,32 @@
 package com.baidu.tieba.more;
 
 import android.view.View;
-import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1446a;
+    final /* synthetic */ d f1489a;
+    private final /* synthetic */ aa b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(AccountActivity accountActivity) {
-        this.f1446a = accountActivity;
+    public e(d dVar, aa aaVar) {
+        this.f1489a = dVar;
+        this.b = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        i iVar;
-        i iVar2;
-        AccountData accountData = (AccountData) view.getTag();
-        if (accountData != null) {
-            this.f1446a.l = new i(this.f1446a, accountData);
-            iVar = this.f1446a.l;
-            iVar.setPriority(3);
-            iVar2 = this.f1446a.l;
-            iVar2.execute(new Object[0]);
+        SettingTextVersionView settingTextVersionView;
+        SettingTextTipView settingTextTipView;
+        settingTextVersionView = this.f1489a.i;
+        if (view == settingTextVersionView) {
+            this.b.a(1);
+            return;
+        }
+        settingTextTipView = this.f1489a.j;
+        if (view == settingTextTipView) {
+            this.b.a(2);
         }
     }
 }

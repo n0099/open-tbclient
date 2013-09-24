@@ -1,89 +1,56 @@
 package com.baidu.tieba.home;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
+import android.text.Selection;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ListView;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.a.d {
-    private Activity b;
-    private View c;
-    private LinearLayout d;
-    private TextView e;
-    private ImageView f;
-    private Button g;
-    private Button h;
-    private int i;
+public class z implements AdapterView.OnItemClickListener {
 
-    public void a(int i) {
-        this.i = i;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ SearchActivity f1233a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(SearchActivity searchActivity) {
+        this.f1233a = searchActivity;
     }
 
-    public int b() {
-        return this.i;
-    }
-
-    public z(Activity activity, String str, String str2, int i) {
-        super(activity);
-        this.i = -1;
-        this.b = activity;
-        this.c = LayoutInflater.from(activity).inflate(R.layout.enter_forum_login, (ViewGroup) null);
-        this.d = (LinearLayout) this.c;
-        this.e = (TextView) this.c.findViewById(R.id.tip);
-        this.f = (ImageView) this.c.findViewById(R.id.img_bg);
-        this.g = (Button) this.c.findViewById(R.id.login_btn);
-        if (str != null) {
-            this.e.setText(str);
-        }
-        this.g.setOnClickListener(new aa(this, activity, i, str2));
-        this.h = (Button) this.c.findViewById(R.id.reg_btn);
-        this.h.setOnClickListener(new ab(this, activity));
-        int a2 = UtilHelper.a((Context) activity, 7.0f);
-        int a3 = UtilHelper.a((Context) activity, 5.0f);
-        this.d.setPadding(a2, a3, a2, a3);
-    }
-
-    public View c() {
-        if (TiebaApplication.g().u()) {
-            StatService.onEvent(this.b, "home_login_show", "loginshow", 1);
-        }
-        return this.c;
-    }
-
-    private boolean c(int i) {
-        if (i == b()) {
-            return false;
-        }
-        a(i);
-        return true;
-    }
-
-    public void b(int i) {
-        if (c(i)) {
-            if (i == 1) {
-                this.e.setTextColor(-8815226);
-                this.f.setBackgroundResource(R.drawable.pic_inset_login_1);
-                this.g.setBackgroundResource(R.drawable.btn_blue_square_1);
-                this.h.setBackgroundResource(R.drawable.btn_w_square_1);
-                this.g.setTextColor(-5454368);
-                this.h.setTextColor(-9207399);
-                return;
-            }
-            this.e.setTextColor(-5065030);
-            this.f.setBackgroundResource(R.drawable.pic_inset_login);
-            this.g.setBackgroundResource(R.drawable.btn_blue_square);
-            this.h.setBackgroundResource(R.drawable.btn_w_square);
-            this.g.setTextColor(-1);
-            this.h.setTextColor(-14277082);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        int i2;
+        am amVar;
+        am amVar2;
+        EditText editText;
+        EditText editText2;
+        EditText editText3;
+        am amVar3;
+        am amVar4;
+        String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
+        i2 = this.f1233a.E;
+        if (i2 == 0) {
+            DatabaseService.l(str);
+            FrsActivity.a(this.f1233a, str, "tb_searchlist");
+            amVar3 = this.f1233a.r;
+            amVar3.a(i);
+            amVar4 = this.f1233a.r;
+            amVar4.notifyDataSetChanged();
+            this.f1233a.finish();
+        } else if (str != null && str.length() > 0) {
+            amVar = this.f1233a.r;
+            amVar.a(i);
+            amVar2 = this.f1233a.r;
+            amVar2.notifyDataSetChanged();
+            this.f1233a.a(1, str);
+            editText = this.f1233a.c;
+            editText.setText(str);
+            editText2 = this.f1233a.c;
+            editText2.requestFocus();
+            editText3 = this.f1233a.c;
+            Selection.setSelection(editText3.getText(), str.length());
         }
     }
 }

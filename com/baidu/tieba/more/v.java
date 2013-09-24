@@ -1,33 +1,38 @@
 package com.baidu.tieba.more;
 
-import android.widget.RadioGroup;
+import android.content.DialogInterface;
 import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class v implements RadioGroup.OnCheckedChangeListener {
+public class v implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BrowseSettingActivity f1463a;
+    final /* synthetic */ u f1505a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(BrowseSettingActivity browseSettingActivity) {
-        this.f1463a = browseSettingActivity;
+    public v(u uVar) {
+        this.f1505a = uVar;
     }
 
-    @Override // android.widget.RadioGroup.OnCheckedChangeListener
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
         switch (i) {
-            case R.id.font_size_big /* 2131099855 */:
+            case 0:
+                TiebaApplication.g().r(true);
+                TiebaApplication.g().f(0);
+                break;
+            case 1:
+                TiebaApplication.g().r(true);
                 TiebaApplication.g().f(1);
-                return;
-            case R.id.font_size_mid /* 2131099856 */:
+                break;
+            case 2:
+                TiebaApplication.g().r(true);
                 TiebaApplication.g().f(2);
-                return;
-            case R.id.font_size_small /* 2131099857 */:
-                TiebaApplication.g().f(3);
-                return;
-            default:
-                return;
+                break;
+            case 3:
+                TiebaApplication.g().r(false);
+                break;
         }
+        this.f1505a.x();
     }
 }

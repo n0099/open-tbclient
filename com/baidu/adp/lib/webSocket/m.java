@@ -3,7 +3,7 @@ package com.baidu.adp.lib.webSocket;
 public class m extends k {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f458a = null;
+    public byte[] f469a = null;
 
     m() {
     }

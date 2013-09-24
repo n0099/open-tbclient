@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f896a;
+    final /* synthetic */ ActivationActivity f912a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ActivationActivity activationActivity) {
-        this.f896a = activationActivity;
+        this.f912a = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -26,29 +26,29 @@ class d implements Runnable {
         TextView textView2;
         h hVar;
         RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.f896a;
+        ActivationActivity activationActivity = this.f912a;
         i = activationActivity.q;
         activationActivity.q = i - 1;
-        i2 = this.f896a.q;
+        i2 = this.f912a.q;
         if (i2 <= 0) {
-            this.f896a.p = true;
-            textView2 = this.f896a.g;
-            textView2.setText(this.f896a.getString(R.string.resend_code));
-            hVar = this.f896a.o;
+            this.f912a.p = true;
+            textView2 = this.f912a.g;
+            textView2.setText(this.f912a.getString(R.string.resend_code));
+            hVar = this.f912a.o;
             if (hVar == null) {
-                relativeLayout = this.f896a.m;
+                relativeLayout = this.f912a.m;
                 relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.f896a.getString(R.string.resend_code_second);
-        i3 = this.f896a.q;
+        String string = this.f912a.getString(R.string.resend_code_second);
+        i3 = this.f912a.q;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.f896a.g;
+        textView = this.f912a.g;
         textView.setText(format);
-        handler = this.f896a.s;
-        runnable = this.f896a.B;
+        handler = this.f912a.s;
+        runnable = this.f912a.B;
         handler.postDelayed(runnable, 1000L);
     }
 }

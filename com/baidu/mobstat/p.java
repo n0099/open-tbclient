@@ -7,16 +7,16 @@ import java.lang.ref.WeakReference;
 public class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f814a;
+    final /* synthetic */ m f826a;
     private long b;
     private long c;
-    private WeakReference d;
+    private WeakReference<Context> d;
 
     public p(m mVar, long j, long j2, Context context) {
-        this.f814a = mVar;
+        this.f826a = mVar;
         this.b = j;
         this.c = j2;
-        this.d = new WeakReference(context);
+        this.d = new WeakReference<>(context);
     }
 
     @Override // java.lang.Runnable
@@ -27,15 +27,15 @@ public class p implements Runnable {
         if (this.c - this.b < 30000 || this.b <= 0 || this.d.get() == null) {
             return;
         }
-        kVar = this.f814a.f;
+        kVar = this.f826a.f;
         kVar.b(this.b);
-        kVar2 = this.f814a.f;
+        kVar2 = this.f826a.f;
         String jSONObject = kVar2.c().toString();
         com.baidu.mobstat.a.b.a("stat", "new session:" + jSONObject);
         b.a().c(jSONObject);
-        b.a().b((Context) this.d.get());
-        kVar3 = this.f814a.f;
+        b.a().b(this.d.get());
+        kVar3 = this.f826a.f;
         kVar3.b();
-        this.f814a.a((Context) this.d.get());
+        this.f826a.a(this.d.get());
     }
 }

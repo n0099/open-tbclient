@@ -11,15 +11,15 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class AllPostActivity extends com.baidu.tieba.g {
+public class AllPostActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f1587a = null;
+    FrameLayout f1637a = null;
     TextView b = null;
     ListView c = null;
     ImageView d = null;
-    ae e = null;
-    com.baidu.tieba.model.az f = null;
+    ad e = null;
+    com.baidu.tieba.model.bb f = null;
     c g = null;
     private ProgressBar j = null;
     private boolean k = false;
@@ -27,7 +27,7 @@ public class AllPostActivity extends com.baidu.tieba.g {
     private Handler m = new Handler(new a(this));
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.all_post_activity);
@@ -37,7 +37,7 @@ public class AllPostActivity extends com.baidu.tieba.g {
     }
 
     void b() {
-        this.f1587a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
+        this.f1637a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
         this.b = (TextView) findViewById(R.id.no_post_view);
         int b = this.f.b();
         if (this.f.a() == null) {
@@ -53,14 +53,14 @@ public class AllPostActivity extends com.baidu.tieba.g {
         this.d = (ImageView) findViewById(R.id.time_line);
         this.d.setVisibility(8);
         this.c = (ListView) findViewById(R.id.all_post_list);
-        this.e = new ae(this, this.f);
+        this.e = new ad(this, this.f);
         this.c.setAdapter((ListAdapter) this.e);
         this.c.setOnItemClickListener(new b(this));
         this.j = (ProgressBar) findViewById(R.id.loading_progress);
     }
 
     void a(Bundle bundle) {
-        this.f = new com.baidu.tieba.model.az();
+        this.f = new com.baidu.tieba.model.bb();
         if (bundle != null) {
             this.f.a(bundle.getString("user"));
             this.f.a(bundle.getInt("user_sex"));
@@ -99,12 +99,12 @@ public class AllPostActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ao.a(this.f1587a, i);
+        com.baidu.tieba.util.as.a(this.f1637a, i);
         if (i == 1) {
-            this.b.setTextColor(com.baidu.tieba.util.ao.a(i));
+            this.b.setTextColor(com.baidu.tieba.util.as.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }
@@ -113,19 +113,19 @@ public class AllPostActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         if (this.g != null) {
             this.g.cancel();

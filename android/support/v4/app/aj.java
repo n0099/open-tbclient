@@ -10,8 +10,8 @@ public class aj extends ah {
 
     /* renamed from: a  reason: collision with root package name */
     static boolean f278a = false;
-    final android.support.v4.b.c b = new android.support.v4.b.c();
-    final android.support.v4.b.c c = new android.support.v4.b.c();
+    final android.support.v4.b.c<ak> b = new android.support.v4.b.c<>();
+    final android.support.v4.b.c<ak> c = new android.support.v4.b.c<>();
     final String d;
     n e;
     boolean f;
@@ -50,7 +50,7 @@ public class aj extends ah {
         }
         this.f = true;
         for (int a2 = this.b.a() - 1; a2 >= 0; a2--) {
-            ((ak) this.b.e(a2)).a();
+            this.b.e(a2).a();
         }
     }
 
@@ -66,7 +66,7 @@ public class aj extends ah {
             return;
         }
         for (int a2 = this.b.a() - 1; a2 >= 0; a2--) {
-            ((ak) this.b.e(a2)).e();
+            this.b.e(a2).e();
         }
         this.f = false;
     }
@@ -85,7 +85,7 @@ public class aj extends ah {
         this.g = true;
         this.f = false;
         for (int a2 = this.b.a() - 1; a2 >= 0; a2--) {
-            ((ak) this.b.e(a2)).b();
+            this.b.e(a2).b();
         }
     }
 
@@ -97,7 +97,7 @@ public class aj extends ah {
             }
             this.g = false;
             for (int a2 = this.b.a() - 1; a2 >= 0; a2--) {
-                ((ak) this.b.e(a2)).c();
+                this.b.e(a2).c();
             }
         }
     }
@@ -105,14 +105,14 @@ public class aj extends ah {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f() {
         for (int a2 = this.b.a() - 1; a2 >= 0; a2--) {
-            ((ak) this.b.e(a2)).k = true;
+            this.b.e(a2).k = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
         for (int a2 = this.b.a() - 1; a2 >= 0; a2--) {
-            ((ak) this.b.e(a2)).d();
+            this.b.e(a2).d();
         }
     }
 
@@ -123,14 +123,14 @@ public class aj extends ah {
                 Log.v("LoaderManager", "Destroying Active in " + this);
             }
             for (int a2 = this.b.a() - 1; a2 >= 0; a2--) {
-                ((ak) this.b.e(a2)).f();
+                this.b.e(a2).f();
             }
         }
         if (f278a) {
             Log.v("LoaderManager", "Destroying Inactive in " + this);
         }
         for (int a3 = this.c.a() - 1; a3 >= 0; a3--) {
-            ((ak) this.c.e(a3)).f();
+            this.c.e(a3).f();
         }
         this.c.b();
     }
@@ -151,13 +151,13 @@ public class aj extends ah {
             printWriter.println("Active Loaders:");
             String str2 = str + "    ";
             for (int i = 0; i < this.b.a(); i++) {
-                ak akVar = (ak) this.b.e(i);
+                ak e = this.b.e(i);
                 printWriter.print(str);
                 printWriter.print("  #");
                 printWriter.print(this.b.d(i));
                 printWriter.print(": ");
-                printWriter.println(akVar.toString());
-                akVar.a(str2, fileDescriptor, printWriter, strArr);
+                printWriter.println(e.toString());
+                e.a(str2, fileDescriptor, printWriter, strArr);
             }
         }
         if (this.c.a() > 0) {
@@ -165,13 +165,13 @@ public class aj extends ah {
             printWriter.println("Inactive Loaders:");
             String str3 = str + "    ";
             for (int i2 = 0; i2 < this.c.a(); i2++) {
-                ak akVar2 = (ak) this.c.e(i2);
+                ak e2 = this.c.e(i2);
                 printWriter.print(str);
                 printWriter.print("  #");
                 printWriter.print(this.c.d(i2));
                 printWriter.print(": ");
-                printWriter.println(akVar2.toString());
-                akVar2.a(str3, fileDescriptor, printWriter, strArr);
+                printWriter.println(e2.toString());
+                e2.a(str3, fileDescriptor, printWriter, strArr);
             }
         }
     }
@@ -181,8 +181,8 @@ public class aj extends ah {
         int a2 = this.b.a();
         boolean z = false;
         for (int i = 0; i < a2; i++) {
-            ak akVar = (ak) this.b.e(i);
-            z |= akVar.h && !akVar.f;
+            ak e = this.b.e(i);
+            z |= e.h && !e.f;
         }
         return z;
     }

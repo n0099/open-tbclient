@@ -1,27 +1,89 @@
 package com.baidu.tieba.home;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class l extends com.baidu.adp.a.e {
+public class l extends com.baidu.adp.a.d {
+    private Activity b;
+    private View c;
+    private LinearLayout d;
+    private TextView e;
+    private ImageView f;
+    private Button g;
+    private Button h;
+    private int i;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumFeedActivity f1188a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(ForumFeedActivity forumFeedActivity) {
-        this.f1188a = forumFeedActivity;
+    public void a(int i) {
+        this.i = i;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        if (!(obj instanceof com.baidu.tieba.model.s)) {
-            if (obj != null) {
-                this.f1188a.b(obj);
-                return;
-            } else {
-                this.f1188a.m();
+    public int b() {
+        return this.i;
+    }
+
+    public l(Activity activity, String str, String str2, int i) {
+        super(activity);
+        this.i = -1;
+        this.b = activity;
+        this.c = LayoutInflater.from(activity).inflate(R.layout.enter_forum_login, (ViewGroup) null);
+        this.d = (LinearLayout) this.c;
+        this.e = (TextView) this.c.findViewById(R.id.tip);
+        this.f = (ImageView) this.c.findViewById(R.id.img_bg);
+        this.g = (Button) this.c.findViewById(R.id.login_btn);
+        if (str != null) {
+            this.e.setText(str);
+        }
+        this.g.setOnClickListener(new m(this, activity, i, str2));
+        this.h = (Button) this.c.findViewById(R.id.reg_btn);
+        this.h.setOnClickListener(new n(this, activity));
+        int a2 = UtilHelper.a((Context) activity, 7.0f);
+        int a3 = UtilHelper.a((Context) activity, 5.0f);
+        this.d.setPadding(a2, a3, a2, a3);
+    }
+
+    public View c() {
+        if (TiebaApplication.g().s()) {
+            StatService.onEvent(this.b, "home_login_show", "loginshow", 1);
+        }
+        return this.c;
+    }
+
+    private boolean c(int i) {
+        if (i == b()) {
+            return false;
+        }
+        a(i);
+        return true;
+    }
+
+    public void b(int i) {
+        if (c(i)) {
+            if (i == 1) {
+                this.e.setTextColor(-8815226);
+                this.f.setBackgroundResource(R.drawable.pic_inset_login_1);
+                this.g.setBackgroundResource(R.drawable.btn_blue_square_1);
+                this.h.setBackgroundResource(R.drawable.btn_w_square_1);
+                this.g.setTextColor(-5454368);
+                this.h.setTextColor(-9207399);
                 return;
             }
+            this.e.setTextColor(-5065030);
+            this.f.setBackgroundResource(R.drawable.pic_inset_login);
+            this.g.setBackgroundResource(R.drawable.btn_blue_square);
+            this.h.setBackgroundResource(R.drawable.btn_w_square);
+            this.g.setTextColor(-1);
+            this.h.setTextColor(-14277082);
         }
-        this.f1188a.a(obj);
     }
 }

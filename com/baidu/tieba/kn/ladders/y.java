@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    final LinearLayout f1234a;
+    final LinearLayout f1268a;
     final LinearLayout b;
     final View c;
     final WebView d;
@@ -33,7 +33,7 @@ public class y {
         this.i = (ViewPager) knTabActivity.findViewById(R.id.pager);
         this.d = (WebView) knTabActivity.findViewById(R.id.web);
         this.j = (IndicatorView) knTabActivity.findViewById(R.id.indicator);
-        this.f1234a = (LinearLayout) knTabActivity.findViewById(R.id.root);
+        this.f1268a = (LinearLayout) knTabActivity.findViewById(R.id.root);
         this.b = (LinearLayout) knTabActivity.findViewById(R.id.root2);
         this.f = (ImageView) knTabActivity.findViewById(R.id.refresh);
         this.g.setOnClickListener(knTabActivity);

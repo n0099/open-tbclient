@@ -1,30 +1,38 @@
 package com.baidu.tieba.write;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ProgressBar;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class az extends BroadcastReceiver {
+public class az implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f1925a;
-
-    private az(WriteImageActivity writeImageActivity) {
-        this.f1925a = writeImageActivity;
-    }
+    final /* synthetic */ WriteImageActivity f2103a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ az(WriteImageActivity writeImageActivity, az azVar) {
-        this(writeImageActivity);
+    public az(WriteImageActivity writeImageActivity) {
+        this.f2103a = writeImageActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.f1925a.a_();
-        if (intent.getBooleanExtra("result", false)) {
-            WriteImageActivity.k(this.f1925a);
-        } else {
-            this.f1925a.a(intent.getStringExtra("error"));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ProgressBar progressBar;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        progressBar = this.f2103a.j;
+        if (progressBar.getVisibility() != 0) {
+            bitmap = this.f2103a.c;
+            if (bitmap == null) {
+                bitmap2 = this.f2103a.r;
+                if (bitmap2 == null) {
+                    return;
+                }
+            }
+            if (view.getTag() != null) {
+                this.f2103a.y = false;
+                this.f2103a.c(view.getTag().toString());
+            }
         }
     }
 }

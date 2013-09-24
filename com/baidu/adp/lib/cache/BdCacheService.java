@@ -6,14 +6,14 @@ import java.util.HashMap;
 public class BdCacheService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static BdCacheService f372a;
+    private static BdCacheService f376a;
     private x b;
     private Context c;
     private com.baidu.adp.a.f d;
     private final String e;
     private boolean f;
-    private HashMap g = new HashMap();
-    private HashMap h = new HashMap();
+    private HashMap<String, q<String>> g = new HashMap<>();
+    private HashMap<String, q<byte[]>> h = new HashMap<>();
 
     /* loaded from: classes.dex */
     public enum CacheEvictPolicy {
@@ -64,20 +64,20 @@ public class BdCacheService {
     }
 
     public static BdCacheService c() {
-        if (f372a == null) {
-            f372a = new BdCacheService("baidu_adp.db");
+        if (f376a == null) {
+            f376a = new BdCacheService("baidu_adp.db");
         }
-        return f372a;
+        return f376a;
     }
 
-    public synchronized String a(a aVar, String str, String str2, int i) {
+    public synchronized String a(a<?> aVar, String str, String str2, int i) {
         l a2;
         int a3 = aVar.a();
         x d = d();
         a2 = d.a(str);
         if (a2 == null) {
             a2 = new l();
-            a2.f381a = str;
+            a2.f385a = str;
             a2.e = a3;
             a2.d = str2;
             a2.c = i;
@@ -97,12 +97,12 @@ public class BdCacheService {
         return a2.b;
     }
 
-    public synchronized q a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
-        q qVar;
+    public synchronized q<String> a(String str, CacheStorage cacheStorage, CacheEvictPolicy cacheEvictPolicy, int i) {
+        q<String> qVar;
         d a2;
         z yVar;
         boolean z;
-        qVar = (q) this.g.get(str);
+        qVar = this.g.get(str);
         if (qVar == null) {
             if (cacheEvictPolicy == CacheEvictPolicy.LRU_ON_COUNT) {
                 a2 = g.a(i, false);
@@ -126,17 +126,17 @@ public class BdCacheService {
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v7, types: [com.baidu.adp.lib.cache.t] */
-    public synchronized q a(String str, p pVar) {
+    public synchronized q<String> a(String str, p<String> pVar) {
         v vVar;
         v vVar2;
-        q qVar = (q) this.g.get(str);
+        q<String> qVar = this.g.get(str);
         vVar2 = qVar;
         if (qVar != null) {
             if (pVar != null) {
                 boolean z = qVar instanceof s;
                 vVar2 = qVar;
                 if (z) {
-                    p a2 = ((s) qVar).a();
+                    p<String> a2 = ((s) qVar).a();
                     vVar2 = qVar;
                     if (a2 != pVar) {
                         throw new IllegalStateException("nameSpace:[" + str + "] is already used for storage:[" + pVar + "]. Make sure to return the old cache before re-use the same namespace.");

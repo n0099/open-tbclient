@@ -22,7 +22,7 @@ import java.util.Random;
 public class PKOutterView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1262a = 50;
+    public static int f1296a = 50;
     private long b;
     private long c;
     private e d;
@@ -159,12 +159,12 @@ public class PKOutterView extends FrameLayout {
         this.q.setSingleLine(true);
         addView(this.q);
         this.r = new h(this);
-        this.r.f1271a = new Point(0, 0);
+        this.r.f1305a = new Point(0, 0);
         this.r.c = new Point(0, 0);
         this.r.b = new Point(0, 0);
         this.r.d = new Point(0, 0);
         this.s = new h(this);
-        this.s.f1271a = new Point(0, 0);
+        this.s.f1305a = new Point(0, 0);
         this.s.c = new Point(0, 0);
         this.s.b = new Point(0, 0);
         this.s.d = new Point(0, 0);
@@ -239,20 +239,20 @@ public class PKOutterView extends FrameLayout {
         this.o.layout(left2, top2, left2 + measuredHeight4, top2 + measuredHeight4);
         this.p.measure(View.MeasureSpec.makeMeasureSpec(i6, 1073741824), View.MeasureSpec.makeMeasureSpec(i7, 1073741824));
         this.p.layout(0, 0, i6, i7);
-        this.r.f1271a.set((i6 / 6) - (measuredHeight4 / 3), 0);
+        this.r.f1305a.set((i6 / 6) - (measuredHeight4 / 3), 0);
         this.r.c.set((i6 / 6) + (measuredHeight4 / 3), 0);
         this.r.b.set((i6 / 6) - measuredHeight4, (measuredHeight4 / 2) + i12 + i5);
         this.r.d.set((i6 / 6) + measuredHeight4, (measuredHeight4 / 2) + i12 + i5);
-        this.s.f1271a.set(((i6 * 5) / 6) - (measuredHeight4 / 3), 0);
+        this.s.f1305a.set(((i6 * 5) / 6) - (measuredHeight4 / 3), 0);
         this.s.c.set(((i6 * 5) / 6) + (measuredHeight4 / 3), 0);
         this.s.b.set(((i6 * 5) / 6) - measuredHeight4, (measuredHeight4 / 2) + i12 + i5);
         this.s.d.set(((i6 * 5) / 6) + measuredHeight4, (measuredHeight4 / 2) + i12 + i5);
         if (this.b > this.c) {
             this.n.setImageResource(R.drawable.icon_top_crown);
-            this.p.a(this.r.f1271a, this.r.c, this.r.b, this.r.d);
+            this.p.a(this.r.f1305a, this.r.c, this.r.b, this.r.d);
         } else if (this.c > this.b) {
             this.o.setImageResource(R.drawable.icon_top_crown);
-            this.p.a(this.s.f1271a, this.s.c, this.s.b, this.s.d);
+            this.p.a(this.s.f1305a, this.s.c, this.s.b, this.s.d);
         }
         this.q.measure(View.MeasureSpec.makeMeasureSpec(i6 / 3, 1073741824), View.MeasureSpec.makeMeasureSpec(i7 / 5, 1073741824));
         int i19 = i7 / 2;
@@ -316,10 +316,10 @@ public class PKOutterView extends FrameLayout {
     private void e() {
         if (this.b > this.c && this.r != null) {
             this.n.setImageResource(R.drawable.icon_top_crown);
-            this.p.a(this.r.f1271a, this.r.c, this.r.b, this.r.d);
+            this.p.a(this.r.f1305a, this.r.c, this.r.b, this.r.d);
         } else if (this.c > this.b && this.s != null) {
             this.o.setImageResource(R.drawable.icon_top_crown);
-            this.p.a(this.s.f1271a, this.s.c, this.s.b, this.s.d);
+            this.p.a(this.s.f1305a, this.s.c, this.s.b, this.s.d);
         }
     }
 

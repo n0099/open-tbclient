@@ -10,7 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.as;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.a.d {
@@ -60,9 +60,9 @@ public class q extends com.baidu.adp.a.d {
             this.k.setEnabled(false);
             this.l.setEnabled(false);
             this.m.setEnabled(false);
-            ao.a(this.d, 0);
-            ao.d((ViewGroup) this.o.findViewById(R.id.top), 0);
-            ao.f(this.f, 0);
+            as.a(this.d, 0);
+            as.d((ViewGroup) this.o.findViewById(R.id.top), 0);
+            as.f(this.f, 0);
         }
     }
 

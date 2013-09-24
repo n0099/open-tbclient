@@ -7,7 +7,6 @@ import com.baidu.loginshare.e;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -41,7 +40,7 @@ public final class CookieManager {
     private static final String HTTP_ONLY = "httponly";
     private static final int HTTP_ONLY_LENGTH = HTTP_ONLY.length();
     private static final String[] BAD_COUNTRY_2LDS = {"ac", "co", "com", "ed", "edu", "go", "gouv", "gov", "info", "lg", "ne", e.e, "or", "org"};
-    private Map mCookieMap = new LinkedHashMap(200, 0.75f, true);
+    private Map<String, ArrayList<Cookie>> mCookieMap = new LinkedHashMap(200, 0.75f, true);
     private boolean mAcceptCookie = true;
 
     private static native boolean nativeAcceptCookie();
@@ -138,7 +137,7 @@ public final class CookieManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class CookieComparator implements Comparator {
+    public final class CookieComparator implements Comparator<Cookie> {
         private CookieComparator() {
         }
 
@@ -226,7 +225,7 @@ public final class CookieManager {
     */
     public synchronized void setCookie(WebAddress webAddress, String str) {
         String[] hostAndPath;
-        ArrayList arrayList;
+        ArrayList<Cookie> arrayList;
         boolean z;
         if (str != null) {
         }
@@ -247,36 +246,36 @@ public final class CookieManager {
             }
             if (arrayList != null && arrayList.size() != 0) {
                 String baseDomain = getBaseDomain(hostAndPath[0]);
-                ArrayList arrayList2 = (ArrayList) this.mCookieMap.get(baseDomain);
+                ArrayList<Cookie> arrayList2 = this.mCookieMap.get(baseDomain);
                 if (arrayList2 == null) {
                     arrayList2 = CookieSyncManager.getInstance().getCookiesForDomain(baseDomain);
                     this.mCookieMap.put(baseDomain, arrayList2);
                 }
-                ArrayList arrayList3 = arrayList2;
+                ArrayList<Cookie> arrayList3 = arrayList2;
                 long currentTimeMillis = System.currentTimeMillis();
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
-                    Cookie cookie = (Cookie) arrayList.get(i);
-                    Iterator it = arrayList3.iterator();
+                    Cookie cookie = arrayList.get(i);
+                    Iterator<Cookie> it = arrayList3.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
                             break;
                         }
-                        Cookie cookie2 = (Cookie) it.next();
-                        if (cookie.exactMatch(cookie2)) {
+                        Cookie next = it.next();
+                        if (cookie.exactMatch(next)) {
                             if (cookie.expires < 0 || cookie.expires > currentTimeMillis) {
-                                if (!cookie2.secure || HTTPS.equals(webAddress.mScheme)) {
-                                    cookie2.value = cookie.value;
-                                    cookie2.expires = cookie.expires;
-                                    cookie2.secure = cookie.secure;
-                                    cookie2.lastAcessTime = currentTimeMillis;
-                                    cookie2.lastUpdateTime = currentTimeMillis;
-                                    cookie2.mode = (byte) 3;
+                                if (!next.secure || HTTPS.equals(webAddress.mScheme)) {
+                                    next.value = cookie.value;
+                                    next.expires = cookie.expires;
+                                    next.secure = cookie.secure;
+                                    next.lastAcessTime = currentTimeMillis;
+                                    next.lastUpdateTime = currentTimeMillis;
+                                    next.mode = (byte) 3;
                                 }
                             } else {
-                                cookie2.lastUpdateTime = currentTimeMillis;
-                                cookie2.mode = (byte) 2;
+                                next.lastUpdateTime = currentTimeMillis;
+                                next.mode = (byte) 2;
                             }
                             z = true;
                         }
@@ -286,17 +285,17 @@ public final class CookieManager {
                         cookie.lastUpdateTime = currentTimeMillis;
                         cookie.mode = (byte) 0;
                         if (arrayList3.size() > MAX_COOKIE_COUNT_PER_BASE_DOMAIN) {
-                            Cookie cookie3 = new Cookie();
-                            cookie3.lastAcessTime = currentTimeMillis;
-                            Iterator it2 = arrayList3.iterator();
+                            Cookie cookie2 = new Cookie();
+                            cookie2.lastAcessTime = currentTimeMillis;
+                            Iterator<Cookie> it2 = arrayList3.iterator();
                             while (it2.hasNext()) {
-                                Cookie cookie4 = (Cookie) it2.next();
-                                if (cookie4.lastAcessTime >= cookie3.lastAcessTime || cookie4.mode == 2) {
-                                    cookie4 = cookie3;
+                                Cookie next2 = it2.next();
+                                if (next2.lastAcessTime >= cookie2.lastAcessTime || next2.mode == 2) {
+                                    next2 = cookie2;
                                 }
-                                cookie3 = cookie4;
+                                cookie2 = next2;
                             }
-                            cookie3.mode = (byte) 2;
+                            cookie2.mode = (byte) 2;
                         }
                         arrayList3.add(cookie);
                     }
@@ -339,36 +338,36 @@ public final class CookieManager {
                 str = null;
             } else {
                 String baseDomain = getBaseDomain(hostAndPath[0]);
-                ArrayList arrayList = (ArrayList) this.mCookieMap.get(baseDomain);
+                ArrayList<Cookie> arrayList = this.mCookieMap.get(baseDomain);
                 if (arrayList == null) {
                     arrayList = CookieSyncManager.getInstance().getCookiesForDomain(baseDomain);
                     this.mCookieMap.put(baseDomain, arrayList);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
                 boolean equals = HTTPS.equals(webAddress.mScheme);
-                Iterator it = arrayList.iterator();
+                Iterator<Cookie> it = arrayList.iterator();
                 TreeSet<Cookie> treeSet = new TreeSet(COMPARATOR);
                 while (it.hasNext()) {
-                    Cookie cookie = (Cookie) it.next();
-                    if (cookie.domainMatch(hostAndPath[0]) && cookie.pathMatch(hostAndPath[1]) && (cookie.expires < 0 || cookie.expires > currentTimeMillis)) {
-                        if (!cookie.secure || equals) {
-                            if (cookie.mode != 2) {
-                                cookie.lastAcessTime = currentTimeMillis;
-                                treeSet.add(cookie);
+                    Cookie next = it.next();
+                    if (next.domainMatch(hostAndPath[0]) && next.pathMatch(hostAndPath[1]) && (next.expires < 0 || next.expires > currentTimeMillis)) {
+                        if (!next.secure || equals) {
+                            if (next.mode != 2) {
+                                next.lastAcessTime = currentTimeMillis;
+                                treeSet.add(next);
                             }
                         }
                     }
                 }
                 StringBuilder sb = new StringBuilder(256);
-                for (Cookie cookie2 : treeSet) {
+                for (Cookie cookie : treeSet) {
                     if (sb.length() > 0) {
                         sb.append(SEMICOLON);
                         sb.append(WHITE_SPACE);
                     }
-                    sb.append(cookie2.name);
-                    if (cookie2.value != null) {
+                    sb.append(cookie.name);
+                    if (cookie.value != null) {
                         sb.append(EQUAL);
-                        sb.append(cookie2.value);
+                        sb.append(cookie.value);
                     }
                 }
                 str = sb.length() > 0 ? sb.toString() : null;
@@ -380,7 +379,7 @@ public final class CookieManager {
     /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.zeus.CookieManager$1] */
     public void removeSessionCookie() {
         if (JniUtil.useChromiumHttpStack()) {
-            new AsyncTask() { // from class: com.baidu.zeus.CookieManager.1
+            new AsyncTask<Void, Void, Void>() { // from class: com.baidu.zeus.CookieManager.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // android.os.AsyncTask
@@ -486,15 +485,15 @@ public final class CookieManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized ArrayList getUpdatedCookiesSince(long j) {
-        ArrayList arrayList;
-        arrayList = new ArrayList();
-        for (ArrayList arrayList2 : this.mCookieMap.values()) {
-            Iterator it = arrayList2.iterator();
+    public synchronized ArrayList<Cookie> getUpdatedCookiesSince(long j) {
+        ArrayList<Cookie> arrayList;
+        arrayList = new ArrayList<>();
+        for (ArrayList<Cookie> arrayList2 : this.mCookieMap.values()) {
+            Iterator<Cookie> it = arrayList2.iterator();
             while (it.hasNext()) {
-                Cookie cookie = (Cookie) it.next();
-                if (cookie.lastUpdateTime > j) {
-                    arrayList.add(cookie);
+                Cookie next = it.next();
+                if (next.lastUpdateTime > j) {
+                    arrayList.add(next);
                 }
             }
         }
@@ -503,14 +502,12 @@ public final class CookieManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void deleteACookie(Cookie cookie) {
-        if (cookie.mode == 2) {
-            String baseDomain = getBaseDomain(cookie.domain);
-            ArrayList arrayList = (ArrayList) this.mCookieMap.get(baseDomain);
-            if (arrayList != null) {
-                arrayList.remove(cookie);
-                if (arrayList.isEmpty()) {
-                    this.mCookieMap.remove(baseDomain);
-                }
+        String baseDomain;
+        ArrayList<Cookie> arrayList;
+        if (cookie.mode == 2 && (arrayList = this.mCookieMap.get((baseDomain = getBaseDomain(cookie.domain)))) != null) {
+            arrayList.remove(cookie);
+            if (arrayList.isEmpty()) {
+                this.mCookieMap.remove(baseDomain);
             }
         }
     }
@@ -521,19 +518,19 @@ public final class CookieManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized ArrayList deleteLRUDomain() {
-        ArrayList arrayList;
+    public synchronized ArrayList<Cookie> deleteLRUDomain() {
+        ArrayList<Cookie> arrayList;
         int i = 0;
         int size = this.mCookieMap.size();
         if (size < 15) {
-            Iterator it = this.mCookieMap.values().iterator();
+            Iterator<ArrayList<Cookie>> it = this.mCookieMap.values().iterator();
             int i2 = 0;
             while (it.hasNext() && i2 < 1000) {
-                i2 += ((ArrayList) it.next()).size();
+                i2 += it.next().size();
             }
             i = i2;
         }
-        arrayList = new ArrayList();
+        arrayList = new ArrayList<>();
         if (size >= 15 || i >= 1000) {
             Object[] array = this.mCookieMap.keySet().toArray();
             int i3 = (size / 10) + 1;
@@ -543,7 +540,7 @@ public final class CookieManager {
                     break;
                 }
                 String obj = array[i4].toString();
-                arrayList.addAll((Collection) this.mCookieMap.get(obj));
+                arrayList.addAll(this.mCookieMap.get(obj));
                 this.mCookieMap.remove(obj);
                 i3 = i4;
             }
@@ -588,13 +585,13 @@ public final class CookieManager {
         return str;
     }
 
-    private ArrayList parseCookie(String str, String str2, String str3) {
+    private ArrayList<Cookie> parseCookie(String str, String str2, String str3) {
         int i;
         String str4;
         int i2;
         int indexOf;
         int indexOf2;
-        ArrayList arrayList = new ArrayList();
+        ArrayList<Cookie> arrayList = new ArrayList<>();
         int i3 = 0;
         int length = str3.length();
         while (i3 >= 0 && i3 < length) {

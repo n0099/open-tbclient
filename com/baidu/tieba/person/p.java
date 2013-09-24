@@ -1,50 +1,38 @@
 package com.baidu.tieba.person;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import com.slidingmenu.lib.R;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements CompoundButton.OnCheckedChangeListener {
+public class p implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1654a;
+    final /* synthetic */ EditHeadActivity f1702a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(EditHeadActivity editHeadActivity) {
-        this.f1654a = editHeadActivity;
+        this.f1702a = editHeadActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        if (z) {
-            compoundButton.setTextColor(this.f1654a.getResources().getColor(R.color.white));
-            radioButton = this.f1654a.q;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.f1654a.m;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.f1654a.s;
-                linearLayout2.setVisibility(4);
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ProgressBar progressBar;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        progressBar = this.f1702a.n;
+        if (progressBar.getVisibility() != 0) {
+            bitmap = this.f1702a.f;
+            if (bitmap == null) {
+                bitmap2 = this.f1702a.v;
+                if (bitmap2 == null) {
+                    return;
+                }
             }
-            radioButton2 = this.f1654a.r;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.f1654a.m;
-                horizontalScrollView.setVisibility(4);
-                linearLayout = this.f1654a.s;
-                linearLayout.setVisibility(0);
-                return;
+            if (view.getTag() != null) {
+                this.f1702a.C = false;
+                this.f1702a.c(view.getTag().toString());
             }
-            return;
         }
-        compoundButton.setTextColor(this.f1654a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
     }
 }

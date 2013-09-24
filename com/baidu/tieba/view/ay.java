@@ -1,24 +1,27 @@
 package com.baidu.tieba.view;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.util.UtilHelper;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class ay extends TbImageView {
-    public ay(Context context) {
-        super(context);
-        d();
+class ay implements Animation.AnimationListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ NoNetworkView f1984a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ay(NoNetworkView noNetworkView) {
+        this.f1984a = noNetworkView;
     }
 
-    private void d() {
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView, android.view.View
-    public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        if (UtilHelper.a(getContext()) > layoutParams.width * 10 && layoutParams.height > 600) {
-            layoutParams.height = 600;
-        }
-        super.setLayoutParams(layoutParams);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.f1984a.setVisibility(8);
     }
 }

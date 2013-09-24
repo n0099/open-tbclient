@@ -1,27 +1,42 @@
 package com.baidu.tieba.model;
+
+import android.content.Context;
 /* loaded from: classes.dex */
-public class ah extends com.baidu.adp.a.c {
+public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private ai f1360a;
-    private aj b;
+    private long f1395a;
+    private long b;
+    private long c;
+    private long d;
 
-    public void a(aj ajVar) {
-        this.b = ajVar;
+    public ah(Context context) {
+        a(0L);
+        b(0L);
+        c(0L);
     }
 
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        return false;
+    public void a(long j) {
+        this.f1395a = j;
     }
 
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        return false;
+    public void b(long j) {
+        this.b = j;
     }
 
-    public void a(String str) {
-        this.f1360a = new ai(this, str);
-        this.f1360a.execute(new Void[0]);
+    public long a() {
+        return this.b + this.c;
+    }
+
+    public void c(long j) {
+        this.c = j;
+    }
+
+    public long b() {
+        return this.d;
+    }
+
+    public void d(long j) {
+        this.d = j;
     }
 }

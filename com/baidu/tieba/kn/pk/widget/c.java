@@ -8,11 +8,11 @@ import android.widget.Scroller;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1266a;
+    final /* synthetic */ b f1300a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f1266a = bVar;
+        this.f1300a = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -24,21 +24,21 @@ public class c implements Runnable {
         LinearLayout linearLayout3;
         LinearLayout linearLayout4;
         Handler handler;
-        scroller = this.f1266a.f;
+        scroller = this.f1300a.f;
         if (scroller.computeScrollOffset()) {
-            scroller2 = this.f1266a.f;
+            scroller2 = this.f1300a.f;
             int currY = scroller2.getCurrY();
-            linearLayout = this.f1266a.c;
-            linearLayout2 = this.f1266a.c;
+            linearLayout = this.f1300a.c;
+            linearLayout2 = this.f1300a.c;
             int paddingLeft = linearLayout2.getPaddingLeft();
-            linearLayout3 = this.f1266a.c;
+            linearLayout3 = this.f1300a.c;
             int paddingRight = linearLayout3.getPaddingRight();
-            linearLayout4 = this.f1266a.c;
+            linearLayout4 = this.f1300a.c;
             linearLayout.setPadding(paddingLeft, currY, paddingRight, linearLayout4.getPaddingBottom());
-            handler = this.f1266a.g;
+            handler = this.f1300a.g;
             handler.postDelayed(this, 16L);
             return;
         }
-        this.f1266a.h = false;
+        this.f1300a.h = false;
     }
 }

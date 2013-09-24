@@ -1,39 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cl implements com.baidu.tieba.view.an {
+public class cl implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1541a;
+    final /* synthetic */ br f1583a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(bo boVar) {
-        this.f1541a = boVar;
+    public cl(br brVar) {
+        this.f1583a = brVar;
     }
 
-    @Override // com.baidu.tieba.view.an
-    public void a(int i) {
-        switch (i) {
-            case 0:
-                if (!this.f1541a.u()) {
-                    new Handler().postDelayed(new co(this), 0L);
-                } else {
-                    new Handler().postDelayed(new cp(this), 0L);
-                }
-                this.f1541a.ap = true;
-                return;
-            case 1:
-                if (!this.f1541a.u()) {
-                    new Handler().postDelayed(new cm(this), 0L);
-                } else {
-                    new Handler().postDelayed(new cn(this), 0L);
-                }
-                this.f1541a.ap = false;
-                return;
-            default:
-                return;
-        }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        return motionEvent.getAction() == 0;
     }
 }

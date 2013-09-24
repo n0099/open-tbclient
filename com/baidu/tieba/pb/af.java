@@ -7,16 +7,16 @@ import com.baidu.tieba.write.NewVcodeActivity;
 import com.baidu.tieba.write.VcodeActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af extends BdAsyncTask {
+public class af extends BdAsyncTask<Integer, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1482a;
+    final /* synthetic */ ImagePbActivity f1525a;
     private WriteData b;
-    private com.baidu.tieba.util.v c = null;
+    private com.baidu.tieba.util.z c = null;
     private boolean d = false;
 
     public af(ImagePbActivity imagePbActivity, WriteData writeData) {
-        this.f1482a = imagePbActivity;
+        this.f1525a = imagePbActivity;
         this.b = null;
         this.b = writeData;
     }
@@ -28,7 +28,7 @@ public class af extends BdAsyncTask {
         if (this.d) {
             return null;
         }
-        this.c = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/c/post/add");
+        this.c = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/post/add");
         this.c.a("anonymous", "0");
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -38,7 +38,7 @@ public class af extends BdAsyncTask {
         if (this.b.getVcode() != null && this.b.getVcode().length() > 0) {
             this.c.a("vcode", this.b.getVcode());
         }
-        if (TiebaApplication.g().aq() < 3) {
+        if (TiebaApplication.g().as() < 3) {
             this.c.a("vcode_tag", "11");
         }
         this.c.a("quote_id", this.b.getFloor());
@@ -55,39 +55,39 @@ public class af extends BdAsyncTask {
                 this.b.setVcodeMD5(bjVar.a());
                 this.b.setVcodeUrl(bjVar.b());
                 if (bjVar.c().equals("4")) {
-                    NewVcodeActivity.a(this.f1482a, this.b, 12006);
+                    NewVcodeActivity.a(this.f1525a, this.b, 12006);
                     return;
                 } else {
-                    VcodeActivity.a(this.f1482a, this.b, 12006);
+                    VcodeActivity.a(this.f1525a, this.b, 12006);
                     return;
                 }
             }
-            this.f1482a.a(str);
+            this.f1525a.a(str);
             return;
         }
-        this.f1482a.a(str);
+        this.f1525a.a(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        super.a((Object) str);
-        this.f1482a.h();
-        this.f1482a.v = null;
+        super.a((af) str);
+        this.f1525a.i();
+        this.f1525a.v = null;
         if (this.c != null) {
             if (!this.c.c()) {
                 a(this.c.e(), this.c.g(), str);
             } else {
-                this.f1482a.o();
+                this.f1525a.p();
             }
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f1482a.v = null;
-        this.f1482a.h();
+        this.f1525a.v = null;
+        this.f1525a.i();
         this.d = true;
         if (this.c != null) {
             this.c.h();

@@ -20,15 +20,15 @@ import java.util.Properties;
 import java.util.Vector;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter implements View.OnFocusChangeListener, View.OnTouchListener, AdapterView.OnItemClickListener {
-    private static Vector b = null;
+    private static Vector<a> b = null;
     private static boolean[] c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f409a;
+    private Context f413a;
 
     public b(Context context) {
-        this.f409a = null;
-        this.f409a = context;
+        this.f413a = null;
+        this.f413a = context;
         a();
         c = new boolean[b.size()];
         for (int i = 0; i < c.length; i++) {
@@ -38,10 +38,10 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     private static void a() {
         if (b == null) {
-            Properties properties = SwitchDebugService.f423a;
+            Properties properties = SwitchDebugService.f427a;
             synchronized (b.class) {
                 if (b == null) {
-                    b = new Vector();
+                    b = new Vector<>();
                     String property = properties.getProperty("edit_options");
                     if (property != null) {
                         String[] split = property.split(",");
@@ -80,7 +80,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f409a).inflate(com.baidu.adp.d.adp_debug_custom_config_items, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f413a).inflate(com.baidu.adp.d.adp_debug_custom_config_items, (ViewGroup) null);
         TextView textView = (TextView) inflate.findViewById(com.baidu.adp.e.adp_debug_custom_config_title);
         TextView textView2 = (TextView) inflate.findViewById(com.baidu.adp.e.adp_debug_edit_custom_config);
         ListView listView = (ListView) inflate.findViewById(com.baidu.adp.e.adp_debug_custom_config_defaults_list);
@@ -101,7 +101,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
             hashMap.put("default_value", aVar.b()[i2]);
             arrayList.add(hashMap);
         }
-        listView.setAdapter((ListAdapter) new SimpleAdapter(this.f409a, arrayList, com.baidu.adp.d.adp_debug_custom_config_default_value_item, new String[]{"default_value"}, new int[]{com.baidu.adp.e.adp_debug_constom_config_default_value}));
+        listView.setAdapter((ListAdapter) new SimpleAdapter(this.f413a, arrayList, com.baidu.adp.d.adp_debug_custom_config_default_value_item, new String[]{"default_value"}, new int[]{com.baidu.adp.e.adp_debug_constom_config_default_value}));
         a(listView);
         if (!c[i]) {
             listView.setVisibility(8);
@@ -127,7 +127,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         Object item = adapterView.getAdapter().getItem(i);
         if (item != null) {
             ((TextView) ((View) adapterView.getParent()).findViewById(com.baidu.adp.e.adp_debug_edit_custom_config)).setText((String) ((HashMap) item).get("default_value"));
@@ -152,7 +152,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
                     cls.getMethod(d, String.class).invoke(cls, charSequence);
                     z = true;
                 } catch (Exception e) {
-                    com.baidu.adp.lib.e.d.a(e.getMessage());
+                    com.baidu.adp.lib.f.d.a(e.getMessage());
                     z = false;
                 }
                 if (z) {
@@ -160,7 +160,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
                 } else {
                     str = "配置修改失败！！！";
                 }
-                Toast makeText = Toast.makeText(this.f409a.getApplicationContext(), str, 1);
+                Toast makeText = Toast.makeText(this.f413a.getApplicationContext(), str, 1);
                 makeText.setGravity(17, 0, 0);
                 makeText.show();
             }

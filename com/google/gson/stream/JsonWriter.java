@@ -18,7 +18,7 @@ public class JsonWriter implements Closeable, Flushable {
     private final Writer out;
     private String separator;
     private boolean serializeNulls;
-    private final List stack = new ArrayList();
+    private final List<JsonScope> stack = new ArrayList();
 
     static {
         for (int i = 0; i <= 31; i++) {
@@ -129,7 +129,7 @@ public class JsonWriter implements Closeable, Flushable {
         if (size == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return (JsonScope) this.stack.get(size - 1);
+        return this.stack.get(size - 1);
     }
 
     private void replaceTop(JsonScope jsonScope) {

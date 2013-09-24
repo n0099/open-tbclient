@@ -1,24 +1,39 @@
 package com.baidu.tieba.model;
+
+import android.content.Context;
 /* loaded from: classes.dex */
-public class a {
+public class a extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.y f1352a = null;
-    private com.baidu.tieba.data.be b = null;
+    protected com.baidu.adp.a.e f1387a;
+    private b b;
+    private Context c;
 
-    public com.baidu.tieba.data.y a() {
-        return this.f1352a;
+    public a(Context context, com.baidu.adp.a.e eVar) {
+        this.f1387a = null;
+        this.c = context;
+        this.f1387a = eVar;
     }
 
-    public void a(com.baidu.tieba.data.y yVar) {
-        this.f1352a = yVar;
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
+        return false;
     }
 
-    public com.baidu.tieba.data.be b() {
-        return this.b;
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        if (this.b != null) {
+            this.b.cancel();
+            return false;
+        }
+        return false;
     }
 
-    public void a(com.baidu.tieba.data.be beVar) {
-        this.b = beVar;
+    public void a() {
+        if (this.b == null) {
+            this.b = new b(this, null);
+        }
+        this.b.setPriority(3);
+        this.b.execute(new String[0]);
     }
 }

@@ -1,29 +1,38 @@
 package com.baidu.tieba.pb;
-
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class ap implements com.baidu.adp.widget.ListView.r {
+class ap implements bm {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1492a;
+    final /* synthetic */ NewPbActivity f1535a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(NewPbActivity newPbActivity) {
-        this.f1492a = newPbActivity;
+        this.f1535a = newPbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.r
-    public void a() {
-        com.baidu.tieba.model.bb bbVar;
-        bo boVar;
-        bbVar = this.f1492a.k;
-        if (bbVar.a(false)) {
-            boVar = this.f1492a.q;
-            boVar.p();
-            if (TiebaApplication.g().u()) {
-                StatService.onEvent(this.f1492a, "pb_more", "pbclick", 1);
-            }
+    @Override // com.baidu.tieba.pb.bm
+    public void a(boolean z) {
+        com.baidu.tieba.model.bd bdVar;
+        com.baidu.tieba.model.bd bdVar2;
+        com.baidu.tieba.model.bd bdVar3;
+        com.baidu.tieba.model.bd bdVar4;
+        com.baidu.tieba.model.bd bdVar5;
+        com.baidu.tieba.model.bd bdVar6;
+        if (z) {
+            bdVar6 = this.f1535a.n;
+            bdVar6.b(true);
+            return;
         }
+        bdVar = this.f1535a.n;
+        int d = bdVar.l().d();
+        bdVar2 = this.f1535a.n;
+        if (d < bdVar2.l().a()) {
+            bdVar4 = this.f1535a.n;
+            bdVar5 = this.f1535a.n;
+            bdVar4.c(bdVar5.l().d() + 1);
+            return;
+        }
+        bdVar3 = this.f1535a.n;
+        bdVar3.a(true);
     }
 }

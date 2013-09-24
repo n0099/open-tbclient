@@ -8,18 +8,18 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1032a = new ArrayList();
-    private HashMap b = null;
+    private ArrayList<MetaData> f1050a = new ArrayList<>();
+    private HashMap<String, String> b = null;
 
     public void a(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
                     if (this.b == null) {
-                        this.b = new HashMap();
+                        this.b = new HashMap<>();
                     }
                 } catch (Exception e) {
-                    com.baidu.tieba.util.aq.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+                    com.baidu.tieba.util.av.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
                     return;
                 }
             }
@@ -29,7 +29,7 @@ public class y {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (metaData.getName_show() != null) {
-                        this.f1032a.add(metaData);
+                        this.f1050a.add(metaData);
                         if (z) {
                             this.b.put(metaData.getName_show(), metaData.getPortrait());
                         }
@@ -43,15 +43,15 @@ public class y {
         try {
             a(new JSONObject(str), true);
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("FriendData", "parserFreindJson", "error = " + e.getMessage());
         }
     }
 
-    public ArrayList a() {
-        return this.f1032a;
+    public ArrayList<MetaData> a() {
+        return this.f1050a;
     }
 
-    public HashMap b() {
+    public HashMap<String, String> b() {
         return this.b;
     }
 }

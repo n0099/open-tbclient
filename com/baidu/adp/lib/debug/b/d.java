@@ -8,11 +8,11 @@ import android.view.View;
 public class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f411a;
+    final /* synthetic */ c f415a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f411a = cVar;
+        this.f415a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,7 +20,7 @@ public class d implements View.OnClickListener {
         Context context;
         try {
             com.baidu.adp.lib.debug.b.c = false;
-            context = this.f411a.k;
+            context = this.f415a.k;
             ((Activity) context).finish();
         } catch (Exception e) {
             e.printStackTrace();

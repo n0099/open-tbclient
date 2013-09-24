@@ -14,11 +14,12 @@ import android.widget.TextView;
 import com.baidu.adp.lib.debug.service.DebugService;
 import com.baidu.adp.lib.debug.service.SwitchDebugService;
 import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f410a;
+    ArrayList<HashMap<String, Object>> f414a;
     String[] b;
     String[] c;
     private EditText d;
@@ -36,7 +37,7 @@ public class c extends View {
         super(activity);
         this.d = null;
         this.e = null;
-        this.f410a = null;
+        this.f414a = null;
         this.b = new String[]{"当前地址", "线上", "沙盒W", "沙盒C", "QA测试机", "RD测试机", "线上client机器"};
         this.c = new String[]{"current server", "http://c.tieba.baidu.com", "http://ai-forum-shahew.ai01.baidu.com:", "http://ai-forum-shahec.ai01.baidu.com:", "http://cq01-testing-forum56.vm.baidu.com:8666", "http://cq01-forum-rdtest00.vm.baidu.com:8666", "http://ai-forum-client01.ai01.baidu.com:8090"};
         this.k = activity;

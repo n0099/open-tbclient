@@ -19,7 +19,7 @@ public class CertTool {
     private static final String LOGTAG = "CertTool";
     static final String PKCS12 = "PKCS12";
     private static final AlgorithmIdentifier MD5_WITH_RSA = new AlgorithmIdentifier(PKCSObjectIdentifiers.md5WithRSAEncryption);
-    private static HashMap sCertificateTypeMap = new HashMap();
+    private static HashMap<String, String> sCertificateTypeMap = new HashMap<>();
 
     static {
         sCertificateTypeMap.put("application/x-x509-ca-cert", "CERT");
@@ -56,7 +56,7 @@ public class CertTool {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String getCertType(String str) {
-        return (String) sCertificateTypeMap.get(str);
+        return sCertificateTypeMap.get(str);
     }
 
     private CertTool() {

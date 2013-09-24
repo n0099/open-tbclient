@@ -5,10 +5,10 @@ import android.database.DataSetObserver;
 class bs extends DataSetObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ViewPager f323a;
+    final /* synthetic */ ViewPager f327a;
 
     private bs(ViewPager viewPager) {
-        this.f323a = viewPager;
+        this.f327a = viewPager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,11 +18,11 @@ class bs extends DataSetObserver {
 
     @Override // android.database.DataSetObserver
     public void onChanged() {
-        this.f323a.b();
+        this.f327a.b();
     }
 
     @Override // android.database.DataSetObserver
     public void onInvalidated() {
-        this.f323a.b();
+        this.f327a.b();
     }
 }

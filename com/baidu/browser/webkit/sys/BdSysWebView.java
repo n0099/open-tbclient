@@ -3,6 +3,7 @@ package com.baidu.browser.webkit.sys;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.net.Uri;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -40,6 +41,9 @@ public class BdSysWebView extends WebView implements BdNoProGuard, BdWapClient {
     }
 
     public void onInit(BdWebView bdWebView, Context context) {
+        if (Build.VERSION.SDK_INT >= 11) {
+            removeJavascriptInterface("searchBoxJavaBridge_");
+        }
         setTag(bdWebView);
         this.mWebView = bdWebView;
         this.mWapEngine = new BdWapEngine(this);
@@ -52,7 +56,7 @@ public class BdSysWebView extends WebView implements BdNoProGuard, BdWapClient {
     }
 
     @Override // android.webkit.WebView
-    public void loadUrl(String str, Map map) {
+    public void loadUrl(String str, Map<String, String> map) {
         loadWapUrl(str);
         super.loadUrl(str, map);
     }
@@ -330,7 +334,7 @@ public class BdSysWebView extends WebView implements BdNoProGuard, BdWapClient {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean invokeMethod(Object obj, String str, Object[] objArr, Object[] objArr2) {
-        Class[] clsArr = objArr == null ? null : new Class[objArr.length];
+        Class<?>[] clsArr = objArr == null ? null : new Class[objArr.length];
         if (objArr != null) {
             for (int i = 0; i < objArr.length; i++) {
                 clsArr[i] = objArr[i] == null ? null : objArr[i].getClass();
@@ -339,7 +343,7 @@ public class BdSysWebView extends WebView implements BdNoProGuard, BdWapClient {
         return invokeMethod(obj, str, clsArr, objArr, objArr2);
     }
 
-    protected boolean invokeMethod(Object obj, String str, Class[] clsArr, Object[] objArr, Object[] objArr2) {
+    protected boolean invokeMethod(Object obj, String str, Class<?>[] clsArr, Object[] objArr, Object[] objArr2) {
         boolean z = true;
         if (obj == null) {
             return false;
@@ -414,7 +418,7 @@ public class BdSysWebView extends WebView implements BdNoProGuard, BdWapClient {
         return null;
     }
 
-    protected Method getMethod(Object obj, String str, Class[] clsArr) {
+    protected Method getMethod(Object obj, String str, Class<?>[] clsArr) {
         for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
             try {
                 return cls.getDeclaredMethod(str, clsArr);

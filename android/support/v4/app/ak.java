@@ -7,13 +7,13 @@ import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class ak implements android.support.v4.content.e {
+public final class ak implements android.support.v4.content.e<Object> {
 
     /* renamed from: a  reason: collision with root package name */
     final int f279a;
     final Bundle b;
-    ai c;
-    android.support.v4.content.c d;
+    ai<Object> c;
+    android.support.v4.content.c<Object> d;
     boolean e;
     boolean f;
     Object g;
@@ -145,7 +145,7 @@ public final class ak implements android.support.v4.content.e {
     }
 
     @Override // android.support.v4.content.e
-    public void a(android.support.v4.content.c cVar, Object obj) {
+    public void a(android.support.v4.content.c<Object> cVar, Object obj) {
         if (aj.f278a) {
             Log.v("LoaderManager", "onLoadComplete: " + this);
         }
@@ -176,10 +176,10 @@ public final class ak implements android.support.v4.content.e {
                     b(cVar, obj);
                 }
             }
-            ak akVar2 = (ak) this.o.c.a(this.f279a);
-            if (akVar2 != null && akVar2 != this) {
-                akVar2.f = false;
-                akVar2.f();
+            ak a2 = this.o.c.a(this.f279a);
+            if (a2 != null && a2 != this) {
+                a2.f = false;
+                a2.f();
                 this.o.c.c(this.f279a);
             }
             if (this.o.e != null && !this.o.a()) {
@@ -188,7 +188,7 @@ public final class ak implements android.support.v4.content.e {
         }
     }
 
-    void b(android.support.v4.content.c cVar, Object obj) {
+    void b(android.support.v4.content.c<Object> cVar, Object obj) {
         String str;
         if (this.c != null) {
             if (this.o.e == null) {
@@ -202,7 +202,7 @@ public final class ak implements android.support.v4.content.e {
                 if (aj.f278a) {
                     Log.v("LoaderManager", "  onLoadFinished in " + cVar + ": " + cVar.c(obj));
                 }
-                this.c.a(cVar, obj);
+                this.c.a((android.support.v4.content.c<android.support.v4.content.c<Object>>) cVar, (android.support.v4.content.c<Object>) obj);
                 this.f = true;
             } finally {
                 if (this.o.e != null) {

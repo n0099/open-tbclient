@@ -9,7 +9,7 @@ public class SslErrorHandler extends Handler {
     private static final int HANDLE_RESPONSE = 100;
     private static final String LOGTAG = "network";
     private final LoadListener mLoadListener;
-    private LinkedList mLoaderQueue;
+    private LinkedList<LoadListener> mLoaderQueue;
     private final SslErrorHandler mOriginHandler;
     private Bundle mSslPrefTable;
 
@@ -31,7 +31,7 @@ public class SslErrorHandler extends Handler {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SslErrorHandler() {
-        this.mLoaderQueue = new LinkedList();
+        this.mLoaderQueue = new LinkedList<>();
         this.mSslPrefTable = new Bundle();
         this.mOriginHandler = null;
         this.mLoadListener = null;
@@ -102,18 +102,18 @@ public class SslErrorHandler extends Handler {
 
     private synchronized boolean processNextLoader() {
         boolean z;
-        LoadListener loadListener = (LoadListener) this.mLoaderQueue.peek();
-        if (loadListener != null) {
-            if (loadListener.cancelled()) {
-                this.mLoaderQueue.remove(loadListener);
+        LoadListener peek = this.mLoaderQueue.peek();
+        if (peek != null) {
+            if (peek.cancelled()) {
+                this.mLoaderQueue.remove(peek);
                 z = true;
             } else {
-                SslError sslError = loadListener.sslError();
-                if (checkSslPrefTable(loadListener, sslError)) {
-                    this.mLoaderQueue.remove(loadListener);
+                SslError sslError = peek.sslError();
+                if (checkSslPrefTable(peek, sslError)) {
+                    this.mLoaderQueue.remove(peek);
                     z = true;
                 } else {
-                    loadListener.getFrame().getCallbackProxy().onReceivedSslError(new SslErrorHandler(this, loadListener), sslError);
+                    peek.getFrame().getCallbackProxy().onReceivedSslError(new SslErrorHandler(this, peek), sslError);
                 }
             }
         }

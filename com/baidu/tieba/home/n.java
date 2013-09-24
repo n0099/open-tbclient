@@ -1,18 +1,23 @@
 package com.baidu.tieba.home;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.account.Register2Activity;
 /* loaded from: classes.dex */
-public class n implements com.baidu.adp.widget.ListView.r {
+class n implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumFeedActivity f1190a;
+    final /* synthetic */ l f1221a;
+    private final /* synthetic */ Activity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(ForumFeedActivity forumFeedActivity) {
-        this.f1190a = forumFeedActivity;
+    public n(l lVar, Activity activity) {
+        this.f1221a = lVar;
+        this.b = activity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.r
-    public void a() {
-        this.f1190a.q();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Register2Activity.a(this.b, 12007);
     }
 }

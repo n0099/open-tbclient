@@ -1,29 +1,19 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.tieba.util.DatabaseService;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class ab implements n {
+class ab implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReplyMeActivity f1324a;
+    final /* synthetic */ z f1358a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(ReplyMeActivity replyMeActivity) {
-        this.f1324a = replyMeActivity;
+    public ab(z zVar) {
+        this.f1358a = zVar;
     }
 
-    @Override // com.baidu.tieba.mention.n
-    public void a(String str) {
-        DatabaseService.j(str);
-    }
-
-    @Override // com.baidu.tieba.mention.n
-    public String a() {
-        return DatabaseService.h();
-    }
-
-    @Override // com.baidu.tieba.mention.n
-    public void b() {
-        DatabaseService.g();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

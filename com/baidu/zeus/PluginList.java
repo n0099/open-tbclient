@@ -6,7 +6,7 @@ import java.util.List;
 @Deprecated
 /* loaded from: classes.dex */
 public class PluginList {
-    private ArrayList mPlugins = new ArrayList();
+    private ArrayList<Plugin> mPlugins = new ArrayList<>();
 
     @Deprecated
     public synchronized List getList() {
@@ -36,7 +36,7 @@ public class PluginList {
     @Deprecated
     public synchronized void pluginClicked(Context context, int i) {
         try {
-            ((Plugin) this.mPlugins.get(i)).dispatchClickEvent(context);
+            this.mPlugins.get(i).dispatchClickEvent(context);
         } catch (IndexOutOfBoundsException e) {
         }
     }

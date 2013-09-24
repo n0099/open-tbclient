@@ -10,76 +10,64 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import com.baidu.adp.widget.a.c;
 import com.baidu.tbadk.a.e;
-import com.baidu.tbadk.c;
 /* loaded from: classes.dex */
 public class TbImageView extends com.baidu.adp.widget.a.a {
+    private static Bitmap b;
     private static int d = 0;
-    private Bitmap b;
     private int c;
-    private boolean e;
+    private String e;
     private String f;
-    private String g;
-    private Animation h;
-    private boolean i;
+    private Animation g;
+    private int h;
+    private int i;
     private int j;
-    private int k;
-    private int l;
-    private Paint m;
-    private boolean n;
-    private final RectF o;
+    private Paint k;
+    private boolean l;
+    private final RectF m;
 
     public TbImageView(Context context) {
         super(context);
-        this.b = BitmapFactory.decodeResource(getResources(), c.icon_gif);
         this.c = 0;
-        this.e = false;
+        this.e = null;
         this.f = null;
         this.g = null;
-        this.h = null;
-        this.i = false;
-        this.j = d;
-        this.k = c.pic_image_h_not;
-        this.l = c.pic_image_h_not_1;
-        this.m = null;
-        this.o = new RectF();
-        d();
+        this.h = d;
+        this.i = com.baidu.tbadk.b.pic_image_h_not;
+        this.j = com.baidu.tbadk.b.pic_image_h_not_1;
+        this.k = null;
+        this.m = new RectF();
+        c();
     }
 
     public TbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = BitmapFactory.decodeResource(getResources(), c.icon_gif);
         this.c = 0;
-        this.e = false;
+        this.e = null;
         this.f = null;
         this.g = null;
-        this.h = null;
-        this.i = false;
-        this.j = d;
-        this.k = c.pic_image_h_not;
-        this.l = c.pic_image_h_not_1;
-        this.m = null;
-        this.o = new RectF();
-        d();
+        this.h = d;
+        this.i = com.baidu.tbadk.b.pic_image_h_not;
+        this.j = com.baidu.tbadk.b.pic_image_h_not_1;
+        this.k = null;
+        this.m = new RectF();
+        c();
     }
 
     public TbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = BitmapFactory.decodeResource(getResources(), c.icon_gif);
         this.c = 0;
-        this.e = false;
+        this.e = null;
         this.f = null;
         this.g = null;
-        this.h = null;
-        this.i = false;
-        this.j = d;
-        this.k = c.pic_image_h_not;
-        this.l = c.pic_image_h_not_1;
-        this.m = null;
-        this.o = new RectF();
-        d();
+        this.h = d;
+        this.i = com.baidu.tbadk.b.pic_image_h_not;
+        this.j = com.baidu.tbadk.b.pic_image_h_not_1;
+        this.k = null;
+        this.m = new RectF();
+        c();
     }
 
     public static void setSkinMode(int i) {
@@ -89,62 +77,59 @@ public class TbImageView extends com.baidu.adp.widget.a.a {
     @Override // com.baidu.adp.widget.a.a, android.view.View
     public void setTag(Object obj) {
         super.setTag(obj);
+        invalidate();
     }
 
     public void setSuffix(String str) {
-        this.g = str;
-    }
-
-    public void setImageSearchUrl(String str) {
         this.f = str;
     }
 
-    private void d() {
-        this.m = new Paint();
-        this.m.setColor(1275068416);
+    public void setImageSearchUrl(String str) {
+        this.e = str;
+    }
+
+    private void c() {
+        if (b == null) {
+            b = BitmapFactory.decodeResource(getResources(), com.baidu.tbadk.b.icon_gif);
+        }
+        this.k = new Paint();
+        this.k.setColor(1275068416);
         setDefaultScaleType(ImageView.ScaleType.CENTER_INSIDE);
         if (d == 1) {
-            setDefaultResource(this.l);
+            setDefaultResource(this.j);
         } else {
-            setDefaultResource(this.k);
+            setDefaultResource(this.i);
         }
     }
 
-    private void e() {
+    private void d() {
         if (d == 1) {
-            setDefaultResource(this.l);
+            setDefaultResource(this.j);
         } else {
-            setDefaultResource(this.k);
+            setDefaultResource(this.i);
         }
     }
 
     public void setDefaultId(int i) {
-        this.k = i;
-        if (this.l == 0) {
-            this.l = this.k;
+        this.i = i;
+        if (this.j == 0) {
+            this.j = this.i;
         }
-        e();
+        d();
     }
 
     public void setNightDefaultId(int i) {
-        this.l = i;
-        e();
-    }
-
-    public void b() {
-        if (this.h == null) {
-            this.h = AnimationUtils.loadAnimation(getContext(), com.baidu.tbadk.b.tb_image_anim);
-        }
-        startAnimation(this.h);
+        this.j = i;
+        d();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        c();
+        b();
     }
 
-    public void c() {
+    public void b() {
         if (getAnimation() != null) {
             setAnimation(null);
         }
@@ -156,14 +141,14 @@ public class TbImageView extends com.baidu.adp.widget.a.a {
     }
 
     @Override // com.baidu.adp.widget.a.a
-    protected com.baidu.adp.widget.a.b getImage() {
+    protected c getImage() {
         String str;
-        if (this.f != null) {
-            str = this.f;
+        if (this.e != null) {
+            str = this.e;
         } else {
             str = (String) getTag();
-            if (str != null && this.g != null) {
-                str = String.valueOf(str) + this.g;
+            if (str != null && this.f != null) {
+                str = String.valueOf(str) + this.f;
             }
         }
         if (str == null) {
@@ -176,39 +161,30 @@ public class TbImageView extends com.baidu.adp.widget.a.a {
     }
 
     public void setDrawRoundCover(boolean z) {
-        this.n = z;
+        this.l = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.a.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Rect bitmapRect;
-        if (this.j != d) {
-            this.j = d;
-            e();
+        if (this.h != d) {
+            this.h = d;
+            d();
         }
         super.onDraw(canvas);
         if (super.getIsLoaded()) {
-            if (!this.i) {
-                this.i = true;
-                if (this.e) {
-                    b();
-                }
-            }
             if (super.getIsGif()) {
-                canvas.drawBitmap(this.b, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(b, 0.0f, 0.0f, (Paint) null);
             }
             if (d == 1 && (bitmapRect = getBitmapRect()) != null) {
-                if (this.n) {
-                    this.o.set(getBitmapRect());
-                    canvas.drawRoundRect(this.o, this.f502a, this.f502a, this.m);
+                if (this.l) {
+                    this.m.set(getBitmapRect());
+                    canvas.drawRoundRect(this.m, this.f513a, this.f513a, this.k);
                     return;
                 }
-                canvas.drawRect(bitmapRect, this.m);
-                return;
+                canvas.drawRect(bitmapRect, this.k);
             }
-            return;
         }
-        this.i = false;
     }
 }

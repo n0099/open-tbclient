@@ -5,50 +5,60 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f830a;
-    private int b;
+    private String f842a;
+    private String b;
     private int c;
-    private boolean d;
+    private int d;
+    private boolean e;
 
     public e(JSONObject jSONObject) {
-        this.f830a = null;
-        this.b = 1;
+        this.f842a = null;
+        this.b = null;
         this.c = 1;
-        this.d = false;
+        this.d = 1;
+        this.e = false;
         if (jSONObject != null) {
-            this.f830a = jSONObject.optString("src");
+            this.f842a = jSONObject.optString("src");
+            this.b = jSONObject.optString("cdn_src", "");
+            if (this.b == null || this.b.length() == 0) {
+                this.b = this.f842a;
+            }
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
-                this.b = Integer.valueOf(split[0]).intValue();
-                this.c = Integer.valueOf(split[1]).intValue();
+                this.c = Integer.valueOf(split[0]).intValue();
+                this.d = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
-                com.baidu.adp.lib.e.d.a(e.getMessage());
-            }
-            if (this.b <= 0) {
-                this.b = 1;
+                com.baidu.adp.lib.f.d.a(e.getMessage());
             }
             if (this.c <= 0) {
                 this.c = 1;
             }
-            if (this.f830a != null && this.f830a.indexOf(".baidu.com") != -1) {
-                this.d = true;
+            if (this.d <= 0) {
+                this.d = 1;
+            }
+            if (this.f842a != null && this.f842a.indexOf(".baidu.com") != -1) {
+                this.e = true;
             }
         }
     }
 
     public int a() {
-        return this.c;
-    }
-
-    public int b() {
-        return this.b;
-    }
-
-    public boolean c() {
         return this.d;
     }
 
+    public int b() {
+        return this.c;
+    }
+
+    public boolean c() {
+        return this.e;
+    }
+
     public String d() {
-        return this.f830a;
+        return this.f842a;
+    }
+
+    public String e() {
+        return this.b;
     }
 }

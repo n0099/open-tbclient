@@ -30,11 +30,11 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             }
             this.g = true;
             if (this.e >= 0) {
-                i().a(this.e, 1);
+                j().a(this.e, 1);
                 this.e = -1;
                 return;
             }
-            ae a2 = i().a();
+            ae a2 = j().a();
             a2.a(this);
             if (z) {
                 a2.b();
@@ -98,7 +98,7 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     public Dialog c(Bundle bundle) {
-        return new Dialog(g(), a());
+        return new Dialog(h(), a());
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
@@ -117,14 +117,14 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         Bundle bundle2;
         super.d(bundle);
         if (this.d) {
-            View m = m();
-            if (m != null) {
-                if (m.getParent() != null) {
+            View n = n();
+            if (n != null) {
+                if (n.getParent() != null) {
                     throw new IllegalStateException("DialogFragment can not be attached to a container view");
                 }
-                this.f.setContentView(m);
+                this.f.setContentView(n);
             }
-            this.f.setOwnerActivity(g());
+            this.f.setOwnerActivity(h());
             this.f.setCancelable(this.c);
             this.f.setOnCancelListener(this);
             this.f.setOnDismissListener(this);

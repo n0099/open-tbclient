@@ -6,16 +6,18 @@ import android.widget.TextView;
 class s {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f1054a;
+    ImageView f1071a;
     TextView b;
     TextView c;
     TextView d;
     TextView e;
     TextView f;
-    final /* synthetic */ p g;
+    TextView g;
+    TextView h;
+    final /* synthetic */ p i;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.g = pVar;
+        this.i = pVar;
     }
 }

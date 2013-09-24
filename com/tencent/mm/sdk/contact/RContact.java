@@ -30,7 +30,7 @@ public class RContact extends MAutoDBItem {
     public static final int DEL_CONTACT_MSG = -1;
     public static final String FAVOUR_CONTACT_SHOW_HEAD_CHAR = "$";
     public static final int FAVOUR_CONTACT_SHOW_HEAD_CODE = 32;
-    private static Map M = null;
+    private static Map<String, String> M = null;
     public static final int MM_CONTACTFLAG_ALL = 127;
     public static final int MM_CONTACTFLAG_BLACKLISTCONTACT = 8;
     public static final int MM_CONTACTFLAG_CHATCONTACT = 2;
@@ -54,7 +54,7 @@ public class RContact extends MAutoDBItem {
     public static final int MM_SEX_FEMALE = 2;
     public static final int MM_SEX_MALE = 1;
     public static final int MM_SEX_UNKNOWN = 0;
-    private static Map N;
+    private static Map<String, String> N;
     public static final int NOT_IN_CHAT_LIST = 0;
     protected static Field[] p;
     private String A;
@@ -179,11 +179,11 @@ public class RContact extends MAutoDBItem {
         return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
     }
 
-    public static void setHardCodeAliasMaps(Map map) {
+    public static void setHardCodeAliasMaps(Map<String, String> map) {
         N = map;
     }
 
-    public static void setHardCodeNickMaps(Map map) {
+    public static void setHardCodeNickMaps(Map<String, String> map) {
         M = map;
     }
 
@@ -266,7 +266,7 @@ public class RContact extends MAutoDBItem {
     }
 
     public String getAlias() {
-        String str = (String) N.get(this.field_username);
+        String str = N.get(this.field_username);
         return str == null ? this.field_alias : str;
     }
 
@@ -307,7 +307,7 @@ public class RContact extends MAutoDBItem {
     }
 
     public String getDisplayNick() {
-        String str = (String) M.get(this.field_username);
+        String str = M.get(this.field_username);
         return str != null ? str : (this.field_nickname == null || this.field_nickname.length() <= 0) ? getDisplayUser() : this.field_nickname;
     }
 

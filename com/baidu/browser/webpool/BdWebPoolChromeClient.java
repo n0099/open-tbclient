@@ -1,6 +1,7 @@
 package com.baidu.browser.webpool;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Message;
 import android.view.View;
 import com.baidu.browser.webkit.BdGeolocationPermissions;
@@ -38,13 +39,13 @@ public class BdWebPoolChromeClient {
     public void onCloseWindow(BdWebPoolView bdWebPoolView) {
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback, String str, String str2) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str, String str2) {
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback, String str) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str) {
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback) {
     }
 
     public void onGeolocationPermissionsShowPrompt(String str, BdGeolocationPermissions.BdCallback bdCallback) {

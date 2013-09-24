@@ -1,23 +1,27 @@
 package com.baidu.tieba.home;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.account.Register2Activity;
+import android.widget.AbsListView;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements View.OnClickListener {
+public class ab implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ z f1147a;
-    private final /* synthetic */ Activity b;
+    final /* synthetic */ SearchActivity f1193a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(z zVar, Activity activity) {
-        this.f1147a = zVar;
-        this.b = activity;
+    public ab(SearchActivity searchActivity) {
+        this.f1193a = searchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Register2Activity.a(this.b, 12007);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (i == 2 || i == 1) {
+            UtilHelper.a(this.f1193a, absListView);
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

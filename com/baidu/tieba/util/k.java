@@ -6,14 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes.dex */
 public class k extends SQLiteOpenHelper {
     public k(Context context) {
-        super(context, "baidu_tieba.db", (SQLiteDatabase.CursorFactory) null, 7);
+        super(context, "baidu_tieba.db", (SQLiteDatabase.CursorFactory) null, 8);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            aq.a(3, getClass().getName(), "ExecSQL", str);
+            av.a(3, getClass().getName(), "ExecSQL", str);
         }
     }
 
@@ -29,7 +29,7 @@ public class k extends SQLiteOpenHelper {
         a(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
         a(sQLiteDatabase, "CREATE TABLE if not exists mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost int,forumName varchar(30),forumId varchar(30),threadId varchar(30))");
         a(sQLiteDatabase, "CREATE TABLE if not exists draft_box(account varchar(30),type int,forum_id varchar(20),forum_name TEXT,thread_id varchar(30),floor_id TEXT,title TEXT,content TEXT, time long)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone)");
+        a(sQLiteDatabase, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time varchar(30),nodisturb_end_time varchar(30))");
         a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
         a(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
         c(sQLiteDatabase);
@@ -66,7 +66,7 @@ public class k extends SQLiteOpenHelper {
             try {
                 a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
             } catch (Exception e) {
-                aq.b(k.class.getName(), "onUpgrade", e.getMessage());
+                av.b(k.class.getName(), "onUpgrade", e.getMessage());
                 b(sQLiteDatabase);
                 a(sQLiteDatabase);
                 return;
@@ -89,6 +89,12 @@ public class k extends SQLiteOpenHelper {
         }
         if (i < 7) {
             c(sQLiteDatabase);
+        }
+        if (i < 8) {
+            a(sQLiteDatabase, "ALTER TABLE setting ADD msg_chat_switch DEFAULT 1");
+            a(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_switch");
+            a(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_start_time varchar(30)");
+            a(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_end_time varchar(30)");
         }
     }
 

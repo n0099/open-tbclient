@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.b;
 /* loaded from: classes.dex */
-public interface c {
-    Object a();
+public interface c<T> {
+    T a();
 
-    void a(Object obj);
+    void a(T t);
 
-    Object b(Object obj);
+    T b(T t);
 
-    Object c(Object obj);
+    T c(T t);
 }

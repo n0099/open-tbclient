@@ -1,31 +1,64 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.view.BaseViewPager;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class n implements com.baidu.tieba.view.a {
+public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1468a;
+    protected com.baidu.tieba.util.z f1510a;
+    protected com.baidu.tieba.data.ak b = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(GuideActivity guideActivity) {
-        this.f1468a = guideActivity;
+    public n() {
+        this.f1510a = null;
+        this.f1510a = new com.baidu.tieba.util.z();
     }
 
-    @Override // com.baidu.tieba.view.a
-    public void b_(int i) {
-        BaseViewPager baseViewPager;
-        BaseViewPager baseViewPager2;
-        if (i == 0) {
-            baseViewPager = this.f1468a.f;
-            if (baseViewPager != null) {
-                baseViewPager2 = this.f1468a.f;
-                baseViewPager2.setOnScrollOutListener(null);
-            }
-            this.f1468a.b();
-            CompatibleUtile.setAnim(this.f1468a, 0, R.anim.left);
+    public void a() {
+        if (this.f1510a != null) {
+            this.f1510a.h();
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a(String str) {
+        this.f1510a.a(str);
+    }
+
+    public void a(String str, String str2) {
+        this.f1510a.a(str, str2);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String b() {
+        String j = this.f1510a.j();
+        this.b = new com.baidu.tieba.data.ak();
+        this.b.a(j);
+        return j;
+    }
+
+    public boolean c() {
+        if (this.f1510a != null) {
+            return this.f1510a.c();
+        }
+        return false;
+    }
+
+    public String d() {
+        if (this.f1510a != null) {
+            return this.f1510a.g();
+        }
+        return null;
+    }
+
+    public int e() {
+        if (this.b != null) {
+            return this.b.a();
+        }
+        return -1;
+    }
+
+    public String f() {
+        if (this.b != null) {
+            return this.b.b();
+        }
+        return null;
     }
 }

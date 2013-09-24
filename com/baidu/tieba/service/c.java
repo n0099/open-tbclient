@@ -2,21 +2,24 @@ package com.baidu.tieba.service;
 
 import android.app.ActivityManager;
 import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.browser.explorer.BdWebErrorView;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.LogoActivity;
+import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-class c extends BdAsyncTask {
+class c extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DealIntentService f1712a;
+    final /* synthetic */ DealIntentService f1786a;
     private Intent b;
 
     public c(DealIntentService dealIntentService, Intent intent) {
-        this.f1712a = dealIntentService;
+        this.f1786a = dealIntentService;
         this.b = null;
         this.b = intent;
     }
@@ -30,19 +33,33 @@ class c extends BdAsyncTask {
             if (this.b.getExtras().getBoolean("is_notify", false)) {
                 b(i);
             }
-            if (i != 5) {
-                for (ActivityManager.RunningTaskInfo runningTaskInfo : ((ActivityManager) TiebaApplication.g().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500)) {
-                    if (runningTaskInfo.baseActivity.getClassName().startsWith(this.f1712a.getPackageName())) {
+            String string = this.b.getExtras().getString("stat");
+            int i2 = this.b.getExtras().getInt("message_id");
+            if (TiebaApplication.g().s() && !TextUtils.isEmpty(string)) {
+                StatService.onEvent(TiebaApplication.g().getApplicationContext(), "cl_push_noti:" + string, "msgID:" + i2);
+            }
+            Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) TiebaApplication.g().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500).iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    ActivityManager.RunningTaskInfo next = it.next();
+                    if (next.baseActivity.getClassName().startsWith(this.f1786a.getPackageName())) {
+                        if (5 == this.b.getIntExtra("class", -1)) {
+                            if (!next.topActivity.getClassName().equalsIgnoreCase(MainTabActivity.class.getName())) {
+                                this.b.putExtra("class", 11);
+                            }
+                        } else if (10 == this.b.getIntExtra("class", -1) && !next.topActivity.getClassName().equalsIgnoreCase(MainTabActivity.class.getName())) {
+                            this.b.putExtra("class", 12);
+                        }
                         this.b.addFlags(268435456);
-                        UtilHelper.a(this.f1712a.getBaseContext(), this.b);
-                        break;
+                        UtilHelper.a(this.f1786a.getBaseContext(), this.b);
                     }
+                } else {
+                    if (this.b.getExtras().getBoolean("is_notify", false)) {
+                        a(i);
+                    }
+                    LogoActivity.a(this.f1786a, this.b);
                 }
             }
-            if (this.b.getExtras().getBoolean("is_notify", false)) {
-                a(i);
-            }
-            LogoActivity.a(this.f1712a, this.b);
         }
         return null;
     }
@@ -59,6 +76,7 @@ class c extends BdAsyncTask {
             default:
                 return;
             case 5:
+            case 10:
                 TiebaSyncService.a("user_msg");
                 return;
             case 6:
@@ -75,13 +93,13 @@ class c extends BdAsyncTask {
     private void b(int i) {
         switch (i) {
             case 6:
-                StatService.onEvent(this.f1712a.getBaseContext(), "notify_to_pk_before", "click");
+                StatService.onEvent(this.f1786a.getBaseContext(), "notify_to_pk_before", "click");
                 return;
             case 7:
-                StatService.onEvent(this.f1712a.getBaseContext(), "notify_to_pk_end", "click");
+                StatService.onEvent(this.f1786a.getBaseContext(), "notify_to_pk_end", "click");
                 return;
             case 8:
-                StatService.onEvent(this.f1712a.getBaseContext(), "notify_to_vote_list", "click");
+                StatService.onEvent(this.f1786a.getBaseContext(), "notify_to_vote_list", "click");
                 return;
             default:
                 return;
@@ -97,6 +115,6 @@ class c extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        this.f1712a.stopSelf();
+        this.f1786a.stopSelf();
     }
 }

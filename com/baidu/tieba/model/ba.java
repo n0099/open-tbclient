@@ -1,56 +1,68 @@
 package com.baidu.tieba.model;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.model.MoreModel;
+import com.baidu.tieba.util.DatabaseService;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba {
+public class ba extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    int f1378a;
-    String b;
-    String c;
-    String d;
-    String e;
-    String f;
-    String g;
-    String h;
-    boolean i;
-    final /* synthetic */ az j;
+    final /* synthetic */ MoreModel f1413a;
 
-    public ba(az azVar) {
-        this.j = azVar;
+    private ba(MoreModel moreModel) {
+        this.f1413a = moreModel;
     }
 
-    public int a() {
-        return this.f1378a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ba(MoreModel moreModel, ba baVar) {
+        this(moreModel);
     }
 
-    public String b() {
-        return this.b;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        com.baidu.adp.a.e eVar;
+        com.baidu.adp.a.e eVar2;
+        super.a((ba) str);
+        this.f1413a.f1385a = null;
+        eVar = this.f1413a.mLoadDataCallBack;
+        if (eVar != null) {
+            eVar2 = this.f1413a.mLoadDataCallBack;
+            eVar2.a(MoreModel.TaskType.DO_CLEAR);
+        }
     }
 
-    public String c() {
-        return this.c;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public String e() {
-        return this.e;
-    }
-
-    public String f() {
-        return this.f;
-    }
-
-    public String g() {
-        return this.g;
-    }
-
-    public String h() {
-        return this.h;
-    }
-
-    public boolean i() {
-        return this.i;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        DatabaseService.x();
+        com.baidu.tieba.voice.a.e.a();
+        try {
+            File[] listFiles = new File(com.baidu.tieba.util.p.f1926a + "/tieba/image/").listFiles();
+            if (listFiles != null) {
+                for (File file : listFiles) {
+                    if (!file.delete()) {
+                        com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                    }
+                }
+            }
+            File[] listFiles2 = new File(com.baidu.tieba.util.p.f1926a + "/tieba/hotspot/").listFiles();
+            if (listFiles2 != null) {
+                for (File file2 : listFiles2) {
+                    if (!file2.delete()) {
+                        com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", "list[i].delete error");
+                    }
+                }
+                return null;
+            }
+            return null;
+        } catch (Exception e) {
+            com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
+            return null;
+        }
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.tieba.person.PersonInfoActivity;
 public class at extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ as f992a;
+    final /* synthetic */ as f1010a;
     private String b;
     private String c;
     private Context d;
 
     public at(as asVar, Context context, String str, String str2) {
-        this.f992a = asVar;
+        this.f1010a = asVar;
         this.b = null;
         this.c = null;
         this.d = null;

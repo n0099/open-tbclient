@@ -23,16 +23,9 @@ public class MyPostActivity extends ActivityGroup {
     private RadioGroup g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1591a = -1;
+    protected int f1641a = -1;
     private String i = null;
     private int j = 0;
-
-    public static void a(Activity activity, String str, int i) {
-        Intent intent = new Intent(activity, MyPostActivity.class);
-        intent.putExtra("user", str);
-        intent.putExtra("user_sex", i);
-        activity.startActivity(intent);
-    }
 
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -67,11 +60,11 @@ public class MyPostActivity extends ActivityGroup {
             this.f.setText(R.string.my_post);
         }
         this.d = (ImageView) findViewById(R.id.back);
-        this.d.setOnClickListener(new ab(this));
+        this.d.setOnClickListener(new aa(this));
         this.e = (ImageView) findViewById(R.id.refresh);
-        this.e.setOnClickListener(new ac(this));
+        this.e.setOnClickListener(new ab(this));
         this.g = (RadioGroup) findViewById(R.id.posttype_tabs);
-        this.g.setOnCheckedChangeListener(new ad(this));
+        this.g.setOnCheckedChangeListener(new ac(this));
         this.g.check(R.id.all_tab);
         this.g.setVisibility(8);
     }
@@ -79,18 +72,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.g().an() != this.f1591a) {
-            this.f1591a = TiebaApplication.g().an();
-            a(this.f1591a);
+        if (TiebaApplication.g().ap() != this.f1641a) {
+            this.f1641a = TiebaApplication.g().ap();
+            a(this.f1641a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.ao.a(this.b, i);
-        com.baidu.tieba.util.ao.d(this.c, i);
-        com.baidu.tieba.util.ao.f(this.f, i);
-        com.baidu.tieba.util.ao.a(this.d, i);
-        com.baidu.tieba.util.ao.b(this.e, i);
+        com.baidu.tieba.util.as.a(this.b, i);
+        com.baidu.tieba.util.as.d(this.c, i);
+        com.baidu.tieba.util.as.f(this.f, i);
+        com.baidu.tieba.util.as.a(this.d, i);
+        com.baidu.tieba.util.as.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -6,15 +6,15 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends BdAsyncTask {
+public class ax extends BdAsyncTask<String, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Register2Activity f891a;
-    private com.baidu.tieba.util.v b = null;
+    final /* synthetic */ Register2Activity f907a;
+    private com.baidu.tieba.util.z b = null;
     private String c;
 
     public ax(Register2Activity register2Activity, String str) {
-        this.f891a = register2Activity;
+        this.f907a = register2Activity;
         this.c = null;
         this.c = str;
     }
@@ -22,8 +22,8 @@ public class ax extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        this.f891a.Q = null;
-        progressBar = this.f891a.I;
+        this.f907a.Q = null;
+        progressBar = this.f907a.I;
         progressBar.setVisibility(8);
         if (this.b != null) {
             this.b.h();
@@ -36,9 +36,9 @@ public class ax extends BdAsyncTask {
     public void b() {
         ImageView imageView;
         ProgressBar progressBar;
-        imageView = this.f891a.J;
+        imageView = this.f907a.J;
         imageView.setImageBitmap(null);
-        progressBar = this.f891a.I;
+        progressBar = this.f907a.I;
         progressBar.setVisibility(0);
     }
 
@@ -46,7 +46,7 @@ public class ax extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
-        this.b = new com.baidu.tieba.util.v(this.c);
+        this.b = new com.baidu.tieba.util.z(this.c);
         return com.baidu.tieba.util.e.a(this.b.i());
     }
 
@@ -56,11 +56,11 @@ public class ax extends BdAsyncTask {
     public void a(Bitmap bitmap) {
         ProgressBar progressBar;
         ImageView imageView;
-        super.a((Object) bitmap);
-        this.f891a.Q = null;
-        progressBar = this.f891a.I;
+        super.a((ax) bitmap);
+        this.f907a.Q = null;
+        progressBar = this.f907a.I;
         progressBar.setVisibility(8);
-        imageView = this.f891a.J;
+        imageView = this.f907a.J;
         imageView.setImageBitmap(bitmap);
     }
 }

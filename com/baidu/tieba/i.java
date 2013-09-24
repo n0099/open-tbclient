@@ -1,25 +1,40 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.app.Activity;
+import com.baidu.account.AccountProxy;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
+import com.baidu.tieba.account.ReLoginActivity;
+import com.baidu.tieba.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements Runnable {
+public class i implements AccountProxy.TokenCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1200a;
-    private View b;
+    private final /* synthetic */ Activity f1234a;
+    private final /* synthetic */ int b;
+    private final /* synthetic */ int c;
+    private final /* synthetic */ boolean d;
 
-    public i(g gVar, View view) {
-        this.f1200a = gVar;
-        this.b = null;
-        this.b = view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(Activity activity, int i, int i2, boolean z) {
+        this.f1234a = activity;
+        this.b = i;
+        this.c = i2;
+        this.d = z;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (!this.f1200a.isFinishing()) {
-            this.f1200a.b((InputMethodManager) this.f1200a.getSystemService("input_method"), this.b);
+    @Override // com.baidu.account.AccountProxy.TokenCallback
+    public void callBack(String str) {
+        com.baidu.tieba.util.av.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        if (str != null) {
+            BaiduAccount baiduAccount = BaiduAccount.get(this.f1234a);
+            AccountData accountData = new AccountData();
+            accountData.setAccount(baiduAccount.getCurrentAccount());
+            accountData.setBDUSS(str);
+            accountData.setIsActive(1);
+            ReLoginActivity.a(this.f1234a, this.b, this.c, this.d, accountData);
+        } else if ((this.f1234a instanceof GuideActivity) || (this.f1234a instanceof LogoActivity)) {
+            this.f1234a.finish();
         }
     }
 }

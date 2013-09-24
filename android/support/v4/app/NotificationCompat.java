@@ -20,7 +20,7 @@ public class NotificationCompat {
     public class InboxStyle extends ar {
 
         /* renamed from: a  reason: collision with root package name */
-        ArrayList f274a = new ArrayList();
+        ArrayList<CharSequence> f274a = new ArrayList<>();
     }
 
     static {

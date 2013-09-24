@@ -12,15 +12,15 @@ import java.util.regex.Pattern;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f819a = null;
+    private static a f831a = null;
     private Context b = null;
     private b c = null;
 
     public static a a() {
-        if (f819a == null) {
-            f819a = new a();
+        if (f831a == null) {
+            f831a = new a();
         }
-        return f819a;
+        return f831a;
     }
 
     private a() {
@@ -34,17 +34,17 @@ public class a {
         this.c = bVar;
     }
 
-    public com.baidu.adp.widget.a.b a(String str) {
+    public com.baidu.adp.widget.a.c a(String str) {
         return a(b(str), str);
     }
 
-    private com.baidu.adp.widget.a.b a(int i, String str) {
+    private com.baidu.adp.widget.a.c a(int i, String str) {
         Bitmap a2;
-        com.baidu.adp.widget.a.b c = e.a().c(str);
-        if (c == null && (a2 = com.baidu.adp.lib.e.a.a().a(this.b, i)) != null) {
-            com.baidu.adp.widget.a.b bVar = new com.baidu.adp.widget.a.b(a2, false, str);
-            e.a().b(str, bVar);
-            return bVar;
+        com.baidu.adp.widget.a.c c = e.a().c(str);
+        if (c == null && (a2 = com.baidu.adp.lib.f.a.a().a(this.b, i)) != null) {
+            com.baidu.adp.widget.a.c cVar = new com.baidu.adp.widget.a.c(a2, false, str);
+            e.a().b(str, cVar);
+            return cVar;
         }
         return c;
     }
@@ -54,7 +54,7 @@ public class a {
     }
 
     public c c(String str) {
-        com.baidu.adp.widget.a.b a2;
+        com.baidu.adp.widget.a.c a2;
         c a3 = this.c.a(this.b, str);
         if (a3 == null && (a2 = a(str)) != null) {
             return new c(a2.a(), a2.b());
@@ -74,7 +74,7 @@ public class a {
         return this.c.a(i);
     }
 
-    public com.baidu.adp.widget.a.b b(int i) {
+    public com.baidu.adp.widget.a.c b(int i) {
         int a2 = a(i);
         return a(a2, String.valueOf(a2));
     }
@@ -84,7 +84,7 @@ public class a {
     }
 
     public SpannableString a(Context context, String str) {
-        com.baidu.adp.widget.a.b a2;
+        com.baidu.adp.widget.a.c a2;
         if (str == null) {
             return null;
         }

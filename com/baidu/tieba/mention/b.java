@@ -10,22 +10,22 @@ import com.baidu.tieba.write.AtListActivity;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MentionActivity f1325a;
+    final /* synthetic */ MentionActivity f1360a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(MentionActivity mentionActivity) {
-        this.f1325a = mentionActivity;
+        this.f1360a = mentionActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ImageView imageView;
-        imageView = this.f1325a.k;
-        if (view == imageView && TiebaApplication.F()) {
-            if (TiebaApplication.g().u()) {
-                StatService.onEvent(this.f1325a, "msg_newchat_tab_c", "click", 1);
+        imageView = this.f1360a.j;
+        if (view == imageView && TiebaApplication.D()) {
+            if (TiebaApplication.g().s()) {
+                StatService.onEvent(this.f1360a, "msg_newchat_tab_c", "click", 1);
             }
-            AtListActivity.a(this.f1325a, 12011);
+            AtListActivity.a(this.f1360a, 12011);
         }
     }
 }

@@ -15,7 +15,7 @@ public final class FieldAttributes {
         this.field = field;
     }
 
-    public Class getDeclaringClass() {
+    public Class<?> getDeclaringClass() {
         return this.field.getDeclaringClass();
     }
 
@@ -27,15 +27,15 @@ public final class FieldAttributes {
         return this.field.getGenericType();
     }
 
-    public Class getDeclaredClass() {
+    public Class<?> getDeclaredClass() {
         return this.field.getType();
     }
 
-    public Annotation getAnnotation(Class cls) {
-        return this.field.getAnnotation(cls);
+    public <T extends Annotation> T getAnnotation(Class<T> cls) {
+        return (T) this.field.getAnnotation(cls);
     }
 
-    public Collection getAnnotations() {
+    public Collection<Annotation> getAnnotations() {
         return Arrays.asList(this.field.getAnnotations());
     }
 

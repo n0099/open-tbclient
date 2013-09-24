@@ -6,12 +6,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 class x extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ KnTabActivity f1233a;
+    final /* synthetic */ KnTabActivity f1267a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(KnTabActivity knTabActivity, android.support.v4.app.t tVar) {
         super(tVar);
-        this.f1233a = knTabActivity;
+        this.f1267a = knTabActivity;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
@@ -23,20 +23,20 @@ class x extends FragmentPagerAdapter {
         KnLaddersFragment knLaddersFragment2;
         switch (i) {
             case 0:
-                knLaddersFragment = this.f1233a.b;
+                knLaddersFragment = this.f1267a.b;
                 if (knLaddersFragment == null) {
-                    this.f1233a.b = new KnLaddersFragment();
+                    this.f1267a.b = new KnLaddersFragment();
                 }
-                knLaddersFragment2 = this.f1233a.b;
+                knLaddersFragment2 = this.f1267a.b;
                 return knLaddersFragment2;
             case 1:
-                knPkHomeFragment = this.f1233a.c;
+                knPkHomeFragment = this.f1267a.c;
                 if (knPkHomeFragment == null) {
-                    this.f1233a.c = new KnPkHomeFragment();
-                    knPkHomeFragment3 = this.f1233a.c;
+                    this.f1267a.c = new KnPkHomeFragment();
+                    knPkHomeFragment3 = this.f1267a.c;
                     knPkHomeFragment3.a(true);
                 }
-                knPkHomeFragment2 = this.f1233a.c;
+                knPkHomeFragment2 = this.f1267a.c;
                 return knPkHomeFragment2;
             default:
                 return null;

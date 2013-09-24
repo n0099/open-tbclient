@@ -10,18 +10,18 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-abstract class ModernAsyncTask {
+abstract class ModernAsyncTask<Params, Progress, Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ThreadFactory f298a = new f();
-    private static final BlockingQueue b = new LinkedBlockingQueue(10);
+    private static final ThreadFactory f298a = new j();
+    private static final BlockingQueue<Runnable> b = new LinkedBlockingQueue(10);
     public static final Executor d = new ThreadPoolExecutor(5, (int) DERTags.TAGGED, 1, TimeUnit.SECONDS, b, f298a);
-    private static final k c = new k(null);
+    private static final o c = new o(null);
     private static volatile Executor e = d;
     private volatile Status h = Status.PENDING;
     private final AtomicBoolean i = new AtomicBoolean();
-    private final l f = new g(this);
-    private final FutureTask g = new h(this, this.f);
+    private final p<Params, Result> f = new k(this);
+    private final FutureTask<Result> g = new l(this, this.f);
 
     /* loaded from: classes.dex */
     public enum Status {
@@ -31,32 +31,32 @@ abstract class ModernAsyncTask {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract Object a(Object... objArr);
+    public abstract Result a(Params... paramsArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(Object obj) {
+    public void c(Result result) {
         if (!this.i.get()) {
-            d(obj);
+            d(result);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Object d(Object obj) {
-        c.obtainMessage(1, new j(this, obj)).sendToTarget();
-        return obj;
+    public Result d(Result result) {
+        c.obtainMessage(1, new n(this, result)).sendToTarget();
+        return result;
     }
 
     protected void b() {
     }
 
-    protected void a(Object obj) {
+    protected void a(Result result) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b(Object... objArr) {
+    public void b(Progress... progressArr) {
     }
 
-    protected void b(Object obj) {
+    protected void b(Result result) {
         a();
     }
 
@@ -71,9 +71,9 @@ abstract class ModernAsyncTask {
         return this.g.cancel(z);
     }
 
-    public final ModernAsyncTask a(Executor executor, Object... objArr) {
+    public final ModernAsyncTask<Params, Progress, Result> a(Executor executor, Params... paramsArr) {
         if (this.h != Status.PENDING) {
-            switch (i.f305a[this.h.ordinal()]) {
+            switch (m.f309a[this.h.ordinal()]) {
                 case 1:
                     throw new IllegalStateException("Cannot execute task: the task is already running.");
                 case 2:
@@ -82,17 +82,17 @@ abstract class ModernAsyncTask {
         }
         this.h = Status.RUNNING;
         b();
-        this.f.b = objArr;
+        this.f.b = paramsArr;
         executor.execute(this.g);
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e(Object obj) {
+    public void e(Result result) {
         if (c()) {
-            b(obj);
+            b((ModernAsyncTask<Params, Progress, Result>) result);
         } else {
-            a(obj);
+            a((ModernAsyncTask<Params, Progress, Result>) result);
         }
         this.h = Status.FINISHED;
     }

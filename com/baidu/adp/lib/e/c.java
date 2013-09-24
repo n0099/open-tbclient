@@ -1,48 +1,43 @@
 package com.baidu.adp.lib.e;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import com.baidu.browser.core.util.BdUtil;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class c {
-    public static void a(InputStream inputStream, OutputStream outputStream) {
-        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = gZIPInputStream.read(bArr, 0, 1024);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-            } else {
-                gZIPInputStream.close();
-                return;
-            }
+
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayList<BasicNameValuePair> f430a;
+
+    public void a(Object obj, Object obj2) {
+        if (this.f430a == null) {
+            this.f430a = new ArrayList<>();
         }
+        this.f430a.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
-        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = inputStream.read(bArr, 0, 1024);
-            if (read != -1) {
-                gZIPOutputStream.write(bArr, 0, read);
-            } else {
-                gZIPOutputStream.flush();
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                return;
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (this.f430a != null) {
+            Iterator<BasicNameValuePair> it = this.f430a.iterator();
+            while (it.hasNext()) {
+                BasicNameValuePair next = it.next();
+                if (sb.length() > 0) {
+                    sb.append('&');
+                }
+                sb.append(next.getName());
+                sb.append('=');
+                try {
+                    sb.append(URLEncoder.encode(next.getValue(), BdUtil.UTF8));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                    sb.append(next.getValue());
+                }
             }
         }
-    }
-
-    public static void a(byte[] bArr, OutputStream outputStream) {
-        if (bArr != null && bArr.length != 0) {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-            gZIPOutputStream.write(bArr, 0, bArr.length);
-            gZIPOutputStream.flush();
-            gZIPOutputStream.finish();
-            gZIPOutputStream.close();
-        }
+        return sb.toString();
     }
 }

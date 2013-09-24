@@ -61,7 +61,7 @@ public class Network {
         this.mRequestQueue = new RequestQueue(context);
     }
 
-    public boolean requestURL(String str, Map map, byte[] bArr, LoadListener loadListener, boolean z) {
+    public boolean requestURL(String str, Map<String, String> map, byte[] bArr, LoadListener loadListener, boolean z) {
         int i = 0;
         String url = loadListener.url();
         if (!URLUtil.isValidUrl(url) || URLUtil.isAssetUrl(url) || URLUtil.isResourceUrl(url) || URLUtil.isFileUrl(url) || URLUtil.isDataUrl(url)) {
@@ -93,7 +93,7 @@ public class Network {
         return true;
     }
 
-    public boolean requestURL(String str, Map map, PreLoadListener preLoadListener) {
+    public boolean requestURL(String str, Map<String, String> map, PreLoadListener preLoadListener) {
         String url = preLoadListener.url();
         WebAddress webAddress = preLoadListener.getWebAddress();
         if (URLUtil.isHttpUrl(url)) {

@@ -5,17 +5,17 @@ import com.baidu.tbadk.widget.TbImageView;
 class u implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendBannerPagerAdapter f1695a;
+    final /* synthetic */ DailyRecommendBannerPagerAdapter f1770a;
     private final /* synthetic */ TbImageView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(DailyRecommendBannerPagerAdapter dailyRecommendBannerPagerAdapter, TbImageView tbImageView) {
-        this.f1695a = dailyRecommendBannerPagerAdapter;
+        this.f1770a = dailyRecommendBannerPagerAdapter;
         this.b = tbImageView;
     }
 
     @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
         if (this.b != null) {
             this.b.invalidate();
         }

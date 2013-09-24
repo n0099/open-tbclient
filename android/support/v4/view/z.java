@@ -7,13 +7,13 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ac f330a;
+    static final ac f334a;
 
     static {
         if (Build.VERSION.SDK_INT >= 5) {
-            f330a = new ab();
+            f334a = new ab();
         } else {
-            f330a = new aa();
+            f334a = new aa();
         }
     }
 
@@ -26,22 +26,22 @@ public class z {
     }
 
     public static int a(MotionEvent motionEvent, int i) {
-        return f330a.a(motionEvent, i);
+        return f334a.a(motionEvent, i);
     }
 
     public static int b(MotionEvent motionEvent, int i) {
-        return f330a.b(motionEvent, i);
+        return f334a.b(motionEvent, i);
     }
 
     public static float c(MotionEvent motionEvent, int i) {
-        return f330a.c(motionEvent, i);
+        return f334a.c(motionEvent, i);
     }
 
     public static float d(MotionEvent motionEvent, int i) {
-        return f330a.d(motionEvent, i);
+        return f334a.d(motionEvent, i);
     }
 
     public static int c(MotionEvent motionEvent) {
-        return f330a.a(motionEvent);
+        return f334a.a(motionEvent);
     }
 }

@@ -3,16 +3,18 @@ package com.baidu.tieba.person;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h extends BdAsyncTask {
+public class h extends BdAsyncTask<com.baidu.tieba.data.v, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1646a;
-    private com.baidu.tieba.util.v b;
+    final /* synthetic */ EditBarActivity f1694a;
+    private com.baidu.tieba.util.z b;
 
     private h(EditBarActivity editBarActivity) {
-        this.f1646a = editBarActivity;
+        this.f1694a = editBarActivity;
         this.b = null;
     }
 
@@ -21,120 +23,87 @@ public class h extends BdAsyncTask {
         this(editBarActivity);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(com.baidu.tieba.data.v... vVarArr) {
+        String str;
+        com.baidu.tieba.data.v vVar = vVarArr[0];
+        if (vVar != null) {
+            try {
+                if (vVar.a() != null && vVar.b() != null) {
+                    this.f1694a.l = vVar.b();
+                    this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/forum/unfavolike");
+                    this.b.a("fid", vVar.a());
+                    com.baidu.tieba.util.z zVar = this.b;
+                    str = this.f1694a.l;
+                    zVar.a("kw", str);
+                    this.b.a("favo_type", String.valueOf(vVar.j()));
+                    this.b.e(true);
+                    this.b.j();
+                    return null;
+                }
+                return null;
+            } catch (Exception e) {
+                com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        ProgressBar progressBar;
+        com.baidu.tieba.model.d dVar;
+        int i;
+        int i2;
+        int i3;
+        String str2;
+        i iVar;
+        i iVar2;
+        super.a((h) str);
+        this.f1694a.m = null;
+        progressBar = this.f1694a.g;
+        progressBar.setVisibility(8);
+        if (this.b != null) {
+            if (this.b.c()) {
+                dVar = this.f1694a.f1638a;
+                ArrayList<com.baidu.tieba.data.v> a2 = dVar.a();
+                if (a2 != null) {
+                    i = this.f1694a.k;
+                    if (i >= 0) {
+                        i2 = this.f1694a.k;
+                        if (i2 < a2.size()) {
+                            i3 = this.f1694a.k;
+                            a2.remove(i3);
+                            TiebaApplication g = TiebaApplication.g();
+                            str2 = this.f1694a.l;
+                            g.f(str2);
+                            iVar = this.f1694a.f;
+                            if (iVar != null) {
+                                this.f1694a.e();
+                                iVar2 = this.f1694a.f;
+                                iVar2.notifyDataSetChanged();
+                            }
+                        }
+                    }
+                }
+                this.f1694a.a(this.f1694a.getString(R.string.success));
+                return;
+            }
+            this.f1694a.a(this.b.g());
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public com.baidu.tieba.model.b a(Object... objArr) {
-        com.baidu.tieba.model.b bVar;
-        Exception e;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        com.baidu.adp.lib.cache.q i;
-        String str5;
-        try {
-            str = this.f1646a.p;
-            if (str == null && (i = com.baidu.tieba.b.a.a().i()) != null && (str5 = (String) i.a(TiebaApplication.E())) != null) {
-                c((Object[]) new String[]{str5});
-            }
-            this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/f/forum/like");
-            str2 = this.f1646a.p;
-            if (str2 != null) {
-                com.baidu.tieba.util.v vVar = this.b;
-                str4 = this.f1646a.p;
-                vVar.a("uid", str4);
-            }
-            String j = this.b.j();
-            if (!this.b.c()) {
-                return null;
-            }
-            bVar = new com.baidu.tieba.model.b();
-            try {
-                bVar.a(j);
-                str3 = this.f1646a.p;
-                if (str3 == null) {
-                    a(j);
-                    return bVar;
-                }
-                return bVar;
-            } catch (Exception e2) {
-                e = e2;
-                com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
-                return bVar;
-            }
-        } catch (Exception e3) {
-            bVar = null;
-            e = e3;
-        }
-    }
-
-    private void a(String str) {
-        com.baidu.adp.lib.cache.q i;
-        String E = TiebaApplication.E();
-        if (E != null && (i = com.baidu.tieba.b.a.a().i()) != null) {
-            i.a(E, str, 604800000L);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void b(String... strArr) {
-        com.baidu.tieba.model.b bVar;
-        j jVar;
-        j jVar2;
         ProgressBar progressBar;
-        super.b((Object[]) strArr);
-        String str = strArr[0];
-        com.baidu.tieba.model.b bVar2 = new com.baidu.tieba.model.b();
-        bVar2.a(str);
-        bVar = this.f1646a.f1588a;
-        bVar.a(bVar2.a());
-        jVar = this.f1646a.e;
-        if (jVar == null) {
-            return;
-        }
-        this.f1646a.k();
-        jVar2 = this.f1646a.e;
-        jVar2.notifyDataSetChanged();
-        progressBar = this.f1646a.f;
+        progressBar = this.f1694a.g;
         progressBar.setVisibility(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.model.b bVar) {
-        ProgressBar progressBar;
-        com.baidu.tieba.model.b bVar2;
-        j jVar;
-        j jVar2;
-        progressBar = this.f1646a.f;
-        progressBar.setVisibility(8);
-        this.f1646a.g = null;
-        if (this.b != null) {
-            if (this.b.c() && bVar != null) {
-                bVar2 = this.f1646a.f1588a;
-                bVar2.a(bVar.a());
-                jVar = this.f1646a.e;
-                if (jVar == null) {
-                    return;
-                }
-                this.f1646a.k();
-                jVar2 = this.f1646a.e;
-                jVar2.notifyDataSetChanged();
-                return;
-            }
-            this.f1646a.a(this.b.g());
-        }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -144,9 +113,9 @@ public class h extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        progressBar = this.f1646a.f;
+        progressBar = this.f1694a.g;
         progressBar.setVisibility(8);
-        this.f1646a.g = null;
+        this.f1694a.m = null;
         super.cancel(true);
     }
 }

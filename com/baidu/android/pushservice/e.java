@@ -20,7 +20,7 @@ import java.util.Properties;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static int f601a = -1;
+    static int f613a = -1;
     private static Boolean e = false;
     private static volatile e p;
     com.baidu.android.pushservice.message.a c;
@@ -97,7 +97,7 @@ public final class e {
             }
         } else if (y.a().e()) {
             e = true;
-            f601a = -1;
+            f613a = -1;
             Thread thread = new Thread(new f(this));
             thread.setName("PushService-PushService-connect");
             thread.start();
@@ -160,8 +160,8 @@ public final class e {
         } catch (IOException e2) {
             e2.printStackTrace();
         }
-        if (PushSocket.f607a) {
-            PushSocket.closeSocket(f601a);
+        if (PushSocket.f619a) {
+            PushSocket.closeSocket(f613a);
         }
         if (this.c != null) {
             this.c.c();

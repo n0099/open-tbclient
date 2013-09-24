@@ -3,15 +3,15 @@ package com.baidu.tieba.recommend;
 class e implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendActivity f1680a;
+    final /* synthetic */ DailyRecommendActivity f1755a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(DailyRecommendActivity dailyRecommendActivity) {
-        this.f1680a = dailyRecommendActivity;
+        this.f1755a = dailyRecommendActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
-        this.f1680a.a(true, (String) null);
+        this.f1755a.a(true, (String) null);
     }
 }

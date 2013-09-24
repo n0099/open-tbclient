@@ -10,10 +10,10 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
     private static Handler b;
-    private WeakReference e;
+    private WeakReference<Context> e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f811a = new HandlerThread("SessionAnalysisThread");
+    private static HandlerThread f823a = new HandlerThread("SessionAnalysisThread");
     private static m g = new m();
     private long c = 0;
     private long d = 0;
@@ -22,8 +22,8 @@ public class m {
     private boolean i = false;
 
     private m() {
-        f811a.start();
-        b = new Handler(f811a.getLooper());
+        f823a.start();
+        b = new Handler(f823a.getLooper());
     }
 
     public static m a() {
@@ -71,7 +71,7 @@ public class m {
             b.post(new n(this));
         }
         b.post(new p(this, this.c, j, context));
-        this.e = new WeakReference(context);
+        this.e = new WeakReference<>(context);
         this.d = j;
     }
 
@@ -86,7 +86,7 @@ public class m {
             return;
         }
         this.i = false;
-        b.post(new o(this, j, context, this.d, (Context) this.e.get()));
+        b.post(new o(this, j, context, this.d, this.e.get()));
         this.c = j;
     }
 

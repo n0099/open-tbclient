@@ -1,42 +1,17 @@
 package com.baidu.tieba.model;
-
-import android.content.Context;
 /* loaded from: classes.dex */
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1358a;
-    private long b;
-    private long c;
-    private long d;
+    public boolean f1393a = false;
+    public boolean b = false;
+    public int c = 0;
+    public String d = "";
+    public long e = 0;
+    public boolean f = false;
+    final /* synthetic */ ac g;
 
-    public af(Context context) {
-        a(0L);
-        b(0L);
-        c(0L);
-    }
-
-    public void a(long j) {
-        this.f1358a = j;
-    }
-
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long a() {
-        return this.b + this.c;
-    }
-
-    public void c(long j) {
-        this.c = j;
-    }
-
-    public long b() {
-        return this.d;
-    }
-
-    public void d(long j) {
-        this.d = j;
+    public af(ac acVar) {
+        this.g = acVar;
     }
 }

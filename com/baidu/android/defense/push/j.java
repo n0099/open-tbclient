@@ -20,11 +20,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class j {
-    private static final String b = com.baidu.android.moplus.b.f534a + "/xcloudboss?r=push/register";
+    private static final String b = com.baidu.android.moplus.b.f546a + "/xcloudboss?r=push/register";
     private static j c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f530a = true;
+    protected boolean f542a = true;
     private Context d;
     private int e;
     private BroadcastReceiver f;
@@ -84,8 +84,8 @@ public final class j {
         }
         String c2 = l.c(this.d);
         if (TextUtils.isEmpty(c2)) {
-            if (this.f530a) {
-                this.f530a = false;
+            if (this.f542a) {
+                this.f542a = false;
                 b();
                 return;
             }
@@ -152,7 +152,7 @@ public final class j {
         if (l.b(this.d) != this.e || (l.g(this.d) && System.currentTimeMillis() - f > 259200000)) {
             l.a(this.d, 0);
             l.a(this.d, false);
-            this.f530a = true;
+            this.f542a = true;
             f();
         }
         if (!l.a(this.d)) {

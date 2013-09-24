@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 /* loaded from: classes.dex */
 public final class JsonPrimitive extends JsonElement {
-    private static final Class[] PRIMITIVE_TYPES = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
+    private static final Class<?>[] PRIMITIVE_TYPES = {Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class};
     private Object value;
 
     public JsonPrimitive(Boolean bool) {
@@ -127,7 +127,7 @@ public final class JsonPrimitive extends JsonElement {
             return true;
         }
         Class<?> cls = obj.getClass();
-        for (Class cls2 : PRIMITIVE_TYPES) {
+        for (Class<?> cls2 : PRIMITIVE_TYPES) {
             if (cls2.isAssignableFrom(cls)) {
                 return true;
             }

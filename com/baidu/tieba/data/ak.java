@@ -5,11 +5,11 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f983a = -1;
+    private int f1001a = -1;
     private String b = null;
 
     public int a() {
-        return this.f983a;
+        return this.f1001a;
     }
 
     public String b() {
@@ -21,7 +21,7 @@ public class ak {
             try {
                 a(new JSONObject(str).optJSONObject("error"));
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }
@@ -29,10 +29,10 @@ public class ak {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f983a = jSONObject.optInt("errno");
+                this.f1001a = jSONObject.optInt("errno");
                 this.b = jSONObject.optString("usermsg");
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

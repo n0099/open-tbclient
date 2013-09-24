@@ -1,29 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class av implements com.baidu.tbadk.a.d {
+class av implements SlidingMenu.OnClosedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1084a;
+    final /* synthetic */ FrsImageActivity f1132a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(FrsImageActivity frsImageActivity) {
-        this.f1084a = frsImageActivity;
+        this.f1132a = frsImageActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        az azVar;
-        try {
-            azVar = this.f1084a.n;
-            View findViewWithTag = azVar.a().a(2).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "imageLoaded", e.getMessage());
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        boolean z;
+        z = this.f1132a.q;
+        if (z) {
+            this.f1132a.q = false;
+            this.f1132a.s = null;
+            this.f1132a.f(1);
         }
     }
 }

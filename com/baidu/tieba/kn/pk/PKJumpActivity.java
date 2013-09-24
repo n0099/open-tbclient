@@ -10,13 +10,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.as;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PKJumpActivity extends com.baidu.tieba.g implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
+public class PKJumpActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
 
     /* renamed from: a  reason: collision with root package name */
-    static s f1236a;
+    static s f1270a;
     private g b;
     private String c;
     private BdPullRefreshScrollView d;
@@ -43,11 +43,11 @@ public class PKJumpActivity extends com.baidu.tieba.g implements View.OnClickLis
             a(sVar.c());
             return;
         }
-        f1236a = sVar;
+        f1270a = sVar;
         new Handler().postDelayed(new f(this, sVar), 300L);
     }
 
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.c = getIntent().getStringExtra("pk_id");
@@ -69,9 +69,9 @@ public class PKJumpActivity extends com.baidu.tieba.g implements View.OnClickLis
         View findViewById = findViewById(R.id.title);
         this.f = (ImageView) findViewById(R.id.back);
         this.f.setOnClickListener(this);
-        ao.a(this.f, 0);
-        ao.d(findViewById, 0);
-        ao.f(this.g, 0);
+        as.a(this.f, 0);
+        as.d(findViewById, 0);
+        as.f(this.g, 0);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -112,7 +112,7 @@ public class PKJumpActivity extends com.baidu.tieba.g implements View.OnClickLis
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
         d();

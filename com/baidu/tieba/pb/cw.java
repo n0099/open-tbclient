@@ -1,33 +1,38 @@
 package com.baidu.tieba.pb;
 
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.LinearLayout;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cw implements Runnable {
+public class cw implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cv f1551a;
+    final /* synthetic */ br f1594a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(cv cvVar) {
-        this.f1551a = cvVar;
+    public cw(br brVar) {
+        this.f1594a = brVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        GridView gridView;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        EditText editText;
-        gridView = this.f1551a.A;
-        gridView.setVisibility(0);
-        linearLayout = this.f1551a.s;
-        linearLayout.setVisibility(0);
-        linearLayout2 = this.f1551a.p;
-        linearLayout2.setEnabled(false);
-        editText = this.f1551a.F;
-        editText.requestFocus();
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (this.f1594a.b()) {
+            button2 = this.f1594a.l;
+            button2.setEnabled(true);
+            return;
+        }
+        button = this.f1594a.l;
+        button.setEnabled(false);
     }
 }

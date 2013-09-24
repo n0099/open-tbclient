@@ -4,10 +4,10 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
-public abstract class BdAsyncTask {
+public abstract class BdAsyncTask<Params, Progress, Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final f f352a = f.a();
+    private static final f f356a = f.a();
     private static d b = new d(null);
     private static /* synthetic */ int[] l;
     private volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
@@ -17,8 +17,8 @@ public abstract class BdAsyncTask {
     private BdAsyncTaskType i = BdAsyncTaskType.MAX_PARALLEL;
     private boolean j = false;
     private final AtomicBoolean k = new AtomicBoolean();
-    private final e c = new a(this);
-    private final l d = new b(this, this.c, this);
+    private final e<Params, Result> c = new a(this);
+    private final l<Result> d = new b(this, this.c, this);
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskStatus {
@@ -38,7 +38,7 @@ public abstract class BdAsyncTask {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract Object a(Object... objArr);
+    public abstract Result a(Params... paramsArr);
 
     static /* synthetic */ int[] d() {
         int[] iArr = l;
@@ -66,15 +66,15 @@ public abstract class BdAsyncTask {
     }
 
     public static void removeAllTask(String str) {
-        f352a.a(str);
+        f356a.a(str);
     }
 
     public static void removeAllQueueTask(String str) {
-        f352a.b(str);
+        f356a.b(str);
     }
 
-    public static BdAsyncTask searchTask(String str) {
-        return f352a.c(str);
+    public static BdAsyncTask<?, ?, ?> searchTask(String str) {
+        return f356a.c(str);
     }
 
     public int setPriority(int i) {
@@ -128,14 +128,14 @@ public abstract class BdAsyncTask {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Object c(Object obj) {
+    public Result c(Result result) {
         synchronized (this) {
             if (this.k.get()) {
                 return null;
             }
             this.k.set(true);
-            b.obtainMessage(1, new c(this, obj)).sendToTarget();
-            return obj;
+            b.obtainMessage(1, new c(this, result)).sendToTarget();
+            return result;
         }
     }
 
@@ -155,14 +155,14 @@ public abstract class BdAsyncTask {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Object obj) {
+    public void a(Result result) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void b(Object... objArr) {
+    public void b(Progress... progressArr) {
     }
 
-    protected void b(Object obj) {
+    protected void b(Result result) {
         c();
     }
 
@@ -176,26 +176,26 @@ public abstract class BdAsyncTask {
 
     public final boolean cancel(boolean z) {
         if (!this.j) {
-            f352a.a(this);
+            f356a.a((BdAsyncTask<?, ?, ?>) this);
         }
         boolean cancel = this.d.cancel(z);
         a();
         return cancel;
     }
 
-    public final Object get() {
+    public final Result get() {
         return this.d.get();
     }
 
-    public final Object get(long j, TimeUnit timeUnit) {
+    public final Result get(long j, TimeUnit timeUnit) {
         return this.d.get(j, timeUnit);
     }
 
-    public final BdAsyncTask execute(Object... objArr) {
-        return executeOnExecutor(f352a, objArr);
+    public final BdAsyncTask<Params, Progress, Result> execute(Params... paramsArr) {
+        return executeOnExecutor(f356a, paramsArr);
     }
 
-    public final BdAsyncTask executeOnExecutor(Executor executor, Object... objArr) {
+    public final BdAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.e != BdAsyncTaskStatus.PENDING) {
             switch (d()[this.e.ordinal()]) {
                 case 2:
@@ -206,24 +206,24 @@ public abstract class BdAsyncTask {
         }
         this.e = BdAsyncTaskStatus.RUNNING;
         b();
-        this.c.b = objArr;
+        this.c.b = paramsArr;
         executor.execute(this.d);
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void c(Object... objArr) {
+    public final void c(Progress... progressArr) {
         if (!isCancelled()) {
-            b.obtainMessage(2, new c(this, objArr)).sendToTarget();
+            b.obtainMessage(2, new c(this, progressArr)).sendToTarget();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(Object obj) {
+    public void d(Result result) {
         if (isCancelled()) {
-            b(obj);
+            b((BdAsyncTask<Params, Progress, Result>) result);
         } else {
-            a(obj);
+            a((BdAsyncTask<Params, Progress, Result>) result);
         }
         this.e = BdAsyncTaskStatus.FINISHED;
     }

@@ -12,7 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
-public class DailyRecommendActivity extends com.baidu.tieba.g {
+public class DailyRecommendActivity extends com.baidu.tieba.j {
     private z c;
     private w d;
     private String g;
@@ -21,7 +21,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.g {
     private Runnable f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    q f1669a = new c(this);
+    q f1744a = new c(this);
     private com.baidu.adp.widget.ListView.r j = new d(this);
     private com.baidu.adp.widget.ListView.b k = new e(this);
 
@@ -39,24 +39,24 @@ public class DailyRecommendActivity extends com.baidu.tieba.g {
         }
     }
 
-    private void k() {
+    private void e() {
         this.d = new w(this);
         this.d.a(new g(this));
         a(false, (String) null);
     }
 
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a
     public void a(String str) {
         UtilHelper.a((Context) this, str);
     }
 
-    private void l() {
-        this.c = new z(this, this.j, this.f1669a);
+    private void m() {
+        this.c = new z(this, this.j, this.f1744a);
         this.c.a(this.k);
         this.c.c();
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.e != null) {
@@ -64,7 +64,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.g {
             this.e.postDelayed(this.f, 300L);
         }
         this.c.g();
-        if (TiebaApplication.g().u()) {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this, "recommend_feature", "visit", 1);
         }
     }
@@ -86,7 +86,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.g {
         this.d.cancelLoadData();
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
         if (this.e != null) {
@@ -95,7 +95,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.g {
         super.onPause();
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         if (this.e != null) {
             this.e.removeCallbacks(this.f);
@@ -106,15 +106,15 @@ public class DailyRecommendActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         b();
-        l();
-        k();
+        m();
+        e();
     }
 
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         this.c.a(i);
     }

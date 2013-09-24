@@ -15,7 +15,7 @@ public class BaseActivity extends Activity {
     private static final int DELAY_FOR_CANCEL_ALARM = 5000;
     private static final int MSG_CANCEL_ALARM = 1;
     private static final String TAG = "BaseActivity";
-    private static LinkedList mActivityStack = new LinkedList();
+    private static LinkedList<Activity> mActivityStack = new LinkedList<>();
     private static int mLiveActivityNum = 0;
     private static boolean sEmptyKillApp = true;
     private static boolean sIsFirstIn;
@@ -95,11 +95,11 @@ public class BaseActivity extends Activity {
     }
 
     public static void clearTaskExceptMain() {
-        Iterator it = mActivityStack.iterator();
+        Iterator<Activity> it = mActivityStack.iterator();
         while (it.hasNext()) {
-            Activity activity = (Activity) it.next();
-            if (!(activity instanceof MainActivity)) {
-                activity.finish();
+            Activity next = it.next();
+            if (!(next instanceof MainActivity)) {
+                next.finish();
             }
         }
     }
@@ -108,18 +108,18 @@ public class BaseActivity extends Activity {
         if (!mActivityStack.isEmpty()) {
             sEmptyKillApp = false;
         }
-        Iterator it = mActivityStack.iterator();
+        Iterator<Activity> it = mActivityStack.iterator();
         while (it.hasNext()) {
-            ((Activity) it.next()).finish();
+            it.next().finish();
         }
     }
 
     public static void clearTaskExcept(Activity activity) {
-        Iterator it = mActivityStack.iterator();
+        Iterator<Activity> it = mActivityStack.iterator();
         while (it.hasNext()) {
-            Activity activity2 = (Activity) it.next();
-            if (activity2 != activity) {
-                activity2.finish();
+            Activity next = it.next();
+            if (next != activity) {
+                next.finish();
             }
         }
     }

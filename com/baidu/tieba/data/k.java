@@ -9,13 +9,13 @@ import java.util.regex.Pattern;
 public class k extends com.baidu.tieba.util.t {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1018a;
+    final /* synthetic */ i f1036a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(i iVar, Context context) {
         super(context);
-        this.f1018a = iVar;
+        this.f1036a = iVar;
     }
 
     @Override // com.baidu.tieba.util.t, android.text.style.ClickableSpan
@@ -25,8 +25,8 @@ public class k extends com.baidu.tieba.util.t {
         Pattern pattern2;
         String str2;
         String str3;
-        pattern = i.h;
-        str = this.f1018a.f;
+        pattern = i.i;
+        str = this.f1036a.f;
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             try {
@@ -34,11 +34,11 @@ public class k extends com.baidu.tieba.util.t {
                 b(group.substring(group.lastIndexOf("/") + 1));
                 return;
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "onClick", e.toString());
+                com.baidu.tieba.util.av.b(getClass().getName(), "onClick", e.toString());
             }
         }
-        pattern2 = i.i;
-        str2 = this.f1018a.f;
+        pattern2 = i.j;
+        str2 = this.f1036a.f;
         Matcher matcher2 = pattern2.matcher(str2);
         if (matcher2.find()) {
             try {
@@ -46,10 +46,10 @@ public class k extends com.baidu.tieba.util.t {
                 b(group2.substring(group2.lastIndexOf("=") + 1));
                 return;
             } catch (Exception e2) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "onClick", e2.toString());
+                com.baidu.tieba.util.av.b(getClass().getName(), "onClick", e2.toString());
             }
         }
-        str3 = this.f1018a.f;
+        str3 = this.f1036a.f;
         a(str3);
     }
 }

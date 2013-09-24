@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class bf {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1004a = false;
+    private boolean f1022a = false;
     private String b = null;
     private String c = null;
     private long d = 0;
@@ -17,15 +17,15 @@ public class bf {
     private int h = 0;
     private String i = null;
     private String j = null;
-    private ArrayList k = new ArrayList();
+    private ArrayList<am> k = new ArrayList<>();
 
     public void a(JSONObject jSONObject) {
         try {
             if (jSONObject == null) {
-                this.f1004a = false;
+                this.f1022a = false;
                 return;
             }
-            this.f1004a = true;
+            this.f1022a = true;
             JSONObject optJSONObject = jSONObject.optJSONObject("player_rank_info");
             if (optJSONObject != null) {
                 this.b = optJSONObject.optString("player_id", null);
@@ -51,7 +51,7 @@ public class bf {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -71,12 +71,12 @@ public class bf {
         return this.e;
     }
 
-    public ArrayList e() {
+    public ArrayList<am> e() {
         return this.k;
     }
 
     public boolean f() {
-        return this.f1004a;
+        return this.f1022a;
     }
 
     public int g() {

@@ -16,8 +16,8 @@ public class BdNet implements BdNetEngine.BdNetEngineListener {
     private BdNetListener mListener;
     private int mPriority = 1;
     private int mPoolSize = 2;
-    private Vector mTaskList = new Vector();
-    private Vector mWorkerList = new Vector();
+    private Vector<BdNetTask> mTaskList = new Vector<>();
+    private Vector<BdNetWorker> mWorkerList = new Vector<>();
 
     /* loaded from: classes.dex */
     public enum HttpMethod {
@@ -106,14 +106,14 @@ public class BdNet implements BdNetEngine.BdNetEngineListener {
 
     public BdNetTask peekTask() {
         if (this.mTaskList.size() > 0) {
-            return (BdNetTask) this.mTaskList.get(0);
+            return this.mTaskList.get(0);
         }
         return null;
     }
 
     public BdNetTask pollTask() {
         if (this.mTaskList.size() > 0) {
-            return (BdNetTask) this.mTaskList.remove(0);
+            return this.mTaskList.remove(0);
         }
         return null;
     }
@@ -123,18 +123,18 @@ public class BdNet implements BdNetEngine.BdNetEngineListener {
             BdLog.w("start NullPointer NetTask");
             return;
         }
-        Iterator it = this.mWorkerList.iterator();
+        Iterator<BdNetWorker> it = this.mWorkerList.iterator();
         while (it.hasNext()) {
-            BdNetWorker bdNetWorker = (BdNetWorker) it.next();
-            if (!bdNetWorker.isWorking()) {
-                bdNetWorker.start(bdNetTask);
+            BdNetWorker next = it.next();
+            if (!next.isWorking()) {
+                next.start(bdNetTask);
                 return;
             }
         }
         if (this.mWorkerList.size() < this.mPoolSize) {
-            BdNetWorker bdNetWorker2 = new BdNetWorker(this);
-            this.mWorkerList.add(bdNetWorker2);
-            bdNetWorker2.start(bdNetTask);
+            BdNetWorker bdNetWorker = new BdNetWorker(this);
+            this.mWorkerList.add(bdNetWorker);
+            bdNetWorker.start(bdNetTask);
             return;
         }
         this.mTaskList.add(bdNetTask);
@@ -170,9 +170,9 @@ public class BdNet implements BdNetEngine.BdNetEngineListener {
     }
 
     public void stop() {
-        Iterator it = this.mWorkerList.iterator();
+        Iterator<BdNetWorker> it = this.mWorkerList.iterator();
         while (it.hasNext()) {
-            ((BdNetWorker) it.next()).stop();
+            it.next().stop();
         }
         this.mTaskList.clear();
     }
@@ -180,7 +180,7 @@ public class BdNet implements BdNetEngine.BdNetEngineListener {
     private boolean isComplete() {
         int size = this.mWorkerList.size();
         for (int i = 0; i < size; i++) {
-            if (((BdNetWorker) this.mWorkerList.get(i)).isWorking()) {
+            if (this.mWorkerList.get(i).isWorking()) {
                 return false;
             }
         }

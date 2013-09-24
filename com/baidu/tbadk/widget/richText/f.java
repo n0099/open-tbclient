@@ -8,16 +8,16 @@ import com.baidu.zeus.bouncycastle.DERTags;
 public class f extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f831a;
+    private Context f843a;
     private int b;
     private String c;
     private String d;
 
     public f(Context context, int i, String str) {
-        this.f831a = null;
+        this.f843a = null;
         this.b = 0;
         this.c = null;
-        this.f831a = context;
+        this.f843a = context;
         this.c = str;
         this.b = i;
     }
@@ -29,28 +29,28 @@ public class f extends ClickableSpan {
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
         h hVar = null;
-        if (this.f831a instanceof h) {
-            hVar = (h) this.f831a;
+        if (this.f843a instanceof h) {
+            hVar = (h) this.f843a;
         }
         if (hVar != null) {
             switch (this.b) {
                 case 2:
-                    hVar.b(this.f831a, this.c);
+                    hVar.b(this.f843a, this.c);
                     return;
                 case 16:
-                    hVar.a(this.f831a, this.c);
+                    hVar.a(this.f843a, this.c);
                     return;
                 case 32:
-                    hVar.c(this.f831a, this.c);
+                    hVar.c(this.f843a, this.c);
                     return;
                 case 64:
-                    hVar.d(this.f831a, this.c);
+                    hVar.d(this.f843a, this.c);
                     return;
                 case DERTags.TAGGED /* 128 */:
-                    hVar.e(this.f831a, this.c);
+                    hVar.e(this.f843a, this.c);
                     return;
                 case 256:
-                    hVar.a(this.f831a, this.c, this.d);
+                    hVar.a(this.f843a, this.c, this.d);
                     return;
                 default:
                     return;

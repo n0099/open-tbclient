@@ -4,14 +4,14 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.aq;
+import com.baidu.tieba.util.av;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class ClearTempService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f1700a = false;
+    private volatile boolean f1775a = false;
     private Thread b = null;
     private Handler c = new a(this);
 
@@ -28,13 +28,13 @@ public class ClearTempService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.f1700a = true;
+        this.f1775a = true;
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        this.f1700a = false;
+        this.f1775a = false;
         if (this.b == null) {
             this.b = new b(this);
             this.b.start();
@@ -46,9 +46,9 @@ public class ClearTempService extends Service {
         File[] listFiles = file.listFiles();
         long time = new Date().getTime();
         if (listFiles != null) {
-            for (int i = 0; i < listFiles.length && !this.f1700a; i++) {
+            for (int i = 0; i < listFiles.length && !this.f1775a; i++) {
                 if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
-                    aq.b(getClass().getName(), "run", "list[i].delete error");
+                    av.b(getClass().getName(), "run", "list[i].delete error");
                 }
             }
         }

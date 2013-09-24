@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public abstract class UnsafeAllocator {
-    public abstract Object newInstance(Class cls);
+    public abstract <T> T newInstance(Class<T> cls);
 
     public static UnsafeAllocator create() {
         try {
@@ -17,8 +17,8 @@ public abstract class UnsafeAllocator {
             final Method method = cls.getMethod("allocateInstance", Class.class);
             return new UnsafeAllocator() { // from class: com.google.gson.internal.UnsafeAllocator.1
                 @Override // com.google.gson.internal.UnsafeAllocator
-                public Object newInstance(Class cls2) {
-                    return method.invoke(obj, cls2);
+                public <T> T newInstance(Class<T> cls2) {
+                    return (T) method.invoke(obj, cls2);
                 }
             };
         } catch (Exception e) {
@@ -27,8 +27,8 @@ public abstract class UnsafeAllocator {
                 declaredMethod.setAccessible(true);
                 return new UnsafeAllocator() { // from class: com.google.gson.internal.UnsafeAllocator.2
                     @Override // com.google.gson.internal.UnsafeAllocator
-                    public Object newInstance(Class cls2) {
-                        return declaredMethod.invoke(null, cls2, Object.class);
+                    public <T> T newInstance(Class<T> cls2) {
+                        return (T) declaredMethod.invoke(null, cls2, Object.class);
                     }
                 };
             } catch (Exception e2) {
@@ -40,14 +40,14 @@ public abstract class UnsafeAllocator {
                     declaredMethod3.setAccessible(true);
                     return new UnsafeAllocator() { // from class: com.google.gson.internal.UnsafeAllocator.3
                         @Override // com.google.gson.internal.UnsafeAllocator
-                        public Object newInstance(Class cls2) {
-                            return declaredMethod3.invoke(null, cls2, Integer.valueOf(intValue));
+                        public <T> T newInstance(Class<T> cls2) {
+                            return (T) declaredMethod3.invoke(null, cls2, Integer.valueOf(intValue));
                         }
                     };
                 } catch (Exception e3) {
                     return new UnsafeAllocator() { // from class: com.google.gson.internal.UnsafeAllocator.4
                         @Override // com.google.gson.internal.UnsafeAllocator
-                        public Object newInstance(Class cls2) {
+                        public <T> T newInstance(Class<T> cls2) {
                             throw new UnsupportedOperationException("Cannot allocate " + cls2);
                         }
                     };

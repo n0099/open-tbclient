@@ -9,24 +9,24 @@ import java.lang.reflect.TypeVariable;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class TypeToken {
+public class TypeToken<T> {
     final int hashCode;
-    final Class rawType;
+    final Class<? super T> rawType;
     final Type type;
 
     protected TypeToken() {
         this.type = getSuperclassTypeParameter(getClass());
-        this.rawType = C$Gson$Types.getRawType(this.type);
+        this.rawType = (Class<? super T>) C$Gson$Types.getRawType(this.type);
         this.hashCode = this.type.hashCode();
     }
 
     TypeToken(Type type) {
         this.type = C$Gson$Types.canonicalize((Type) C$Gson$Preconditions.checkNotNull(type));
-        this.rawType = C$Gson$Types.getRawType(this.type);
+        this.rawType = (Class<? super T>) C$Gson$Types.getRawType(this.type);
         this.hashCode = this.type.hashCode();
     }
 
-    static Type getSuperclassTypeParameter(Class cls) {
+    static Type getSuperclassTypeParameter(Class<?> cls) {
         Type genericSuperclass = cls.getGenericSuperclass();
         if (genericSuperclass instanceof Class) {
             throw new RuntimeException("Missing type parameter.");
@@ -34,7 +34,7 @@ public class TypeToken {
         return C$Gson$Types.canonicalize(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class getRawType() {
+    public final Class<? super T> getRawType() {
         return this.rawType;
     }
 
@@ -43,7 +43,7 @@ public class TypeToken {
     }
 
     @Deprecated
-    public boolean isAssignableFrom(Class cls) {
+    public boolean isAssignableFrom(Class<?> cls) {
         return isAssignableFrom((Type) cls);
     }
 
@@ -68,7 +68,7 @@ public class TypeToken {
     }
 
     @Deprecated
-    public boolean isAssignableFrom(TypeToken typeToken) {
+    public boolean isAssignableFrom(TypeToken<?> typeToken) {
         return isAssignableFrom(typeToken.getType());
     }
 
@@ -96,7 +96,7 @@ public class TypeToken {
         return true;
     }
 
-    private static boolean isAssignableFrom(Type type, ParameterizedType parameterizedType, Map map) {
+    private static boolean isAssignableFrom(Type type, ParameterizedType parameterizedType, Map<String, Type> map) {
         ParameterizedType parameterizedType2;
         if (type == null) {
             return false;
@@ -104,7 +104,7 @@ public class TypeToken {
         if (parameterizedType.equals(type)) {
             return true;
         }
-        Class rawType = C$Gson$Types.getRawType(type);
+        Class<?> rawType = C$Gson$Types.getRawType(type);
         if (!(type instanceof ParameterizedType)) {
             parameterizedType2 = null;
         } else {
@@ -112,12 +112,12 @@ public class TypeToken {
         }
         if (parameterizedType2 != null) {
             Type[] actualTypeArguments = parameterizedType2.getActualTypeArguments();
-            TypeVariable[] typeParameters = rawType.getTypeParameters();
+            TypeVariable<Class<?>>[] typeParameters = rawType.getTypeParameters();
             for (int i = 0; i < actualTypeArguments.length; i++) {
                 Type type2 = actualTypeArguments[i];
-                TypeVariable typeVariable = typeParameters[i];
+                TypeVariable<Class<?>> typeVariable = typeParameters[i];
                 while (type2 instanceof TypeVariable) {
-                    type2 = (Type) map.get(((TypeVariable) type2).getName());
+                    type2 = map.get(((TypeVariable) type2).getName());
                 }
                 map.put(typeVariable.getName(), type2);
             }
@@ -133,7 +133,7 @@ public class TypeToken {
         return isAssignableFrom(rawType.getGenericSuperclass(), parameterizedType, new HashMap(map));
     }
 
-    private static boolean typeEquals(ParameterizedType parameterizedType, ParameterizedType parameterizedType2, Map map) {
+    private static boolean typeEquals(ParameterizedType parameterizedType, ParameterizedType parameterizedType2, Map<String, Type> map) {
         if (parameterizedType.getRawType().equals(parameterizedType2.getRawType())) {
             Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
             Type[] actualTypeArguments2 = parameterizedType2.getActualTypeArguments();
@@ -147,16 +147,16 @@ public class TypeToken {
         return false;
     }
 
-    private static AssertionError buildUnexpectedTypeError(Type type, Class... clsArr) {
+    private static AssertionError buildUnexpectedTypeError(Type type, Class<?>... clsArr) {
         StringBuilder sb = new StringBuilder("Unexpected type. Expected one of: ");
-        for (Class cls : clsArr) {
+        for (Class<?> cls : clsArr) {
             sb.append(cls.getName()).append(", ");
         }
         sb.append("but got: ").append(type.getClass().getName()).append(", for type token: ").append(type.toString()).append('.');
         return new AssertionError(sb.toString());
     }
 
-    private static boolean matches(Type type, Type type2, Map map) {
+    private static boolean matches(Type type, Type type2, Map<String, Type> map) {
         return type2.equals(type) || ((type instanceof TypeVariable) && type2.equals(map.get(((TypeVariable) type).getName())));
     }
 
@@ -172,11 +172,11 @@ public class TypeToken {
         return C$Gson$Types.typeToString(this.type);
     }
 
-    public static TypeToken get(Type type) {
-        return new TypeToken(type);
+    public static TypeToken<?> get(Type type) {
+        return new TypeToken<>(type);
     }
 
-    public static TypeToken get(Class cls) {
-        return new TypeToken(cls);
+    public static <T> TypeToken<T> get(Class<T> cls) {
+        return new TypeToken<>(cls);
     }
 }

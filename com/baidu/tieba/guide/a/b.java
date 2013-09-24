@@ -7,7 +7,7 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.aq;
+import com.baidu.tieba.util.av;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Random;
@@ -16,7 +16,7 @@ public class b extends com.baidu.tieba.guide.e {
     private Context i;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1126a = 12;
+    private int f1173a = 12;
     private int b = 10;
     private float c = 1.0f;
     private float d = -20.0f;
@@ -57,6 +57,7 @@ public class b extends com.baidu.tieba.guide.e {
     private int[] N = null;
     private float[] O = null;
     private boolean P = false;
+    private boolean Q = true;
 
     public b(Context context) {
         this.i = null;
@@ -72,6 +73,10 @@ public class b extends com.baidu.tieba.guide.e {
         this.n = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.guide_sun_sparkle);
         this.o = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.ballons_sparkle1);
         this.p = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.ballons_sparkle2);
+        if (this.k == null || this.l == null || this.m == null || this.j == null || this.n == null || this.o == null || this.p == null) {
+            this.Q = false;
+            return;
+        }
         this.B = new Paint();
         this.A = new Paint();
         this.z = new Paint();
@@ -115,7 +120,7 @@ public class b extends com.baidu.tieba.guide.e {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.C != 0 && !this.P) {
+        if (this.Q && this.C != 0 && !this.P) {
             canvas.save();
             if (this.C == 1) {
                 canvas.translate((this.L + this.w) - this.E, ((this.M + this.y) * this.D) - this.y);
@@ -169,7 +174,7 @@ public class b extends com.baidu.tieba.guide.e {
     @Override // com.baidu.tieba.guide.e
     public void a() {
         int i = Util.MASK_8BIT;
-        if (this.C != 0) {
+        if (this.Q && this.C != 0) {
             this.h = (float) (this.h + (this.c * (1.0d - (0.5d * Math.abs(this.h / this.e)))));
             if (this.h < this.d || this.h > this.e) {
                 this.h = this.h < this.d ? this.d : this.h;
@@ -182,11 +187,11 @@ public class b extends com.baidu.tieba.guide.e {
             this.t.postTranslate(this.I, this.F);
             this.u.postTranslate(this.J, this.G);
             this.v.postTranslate(this.K, this.H);
-            this.f += this.f1126a;
+            this.f += this.f1173a;
             if (this.f > 255 || this.f < 0) {
                 this.f = this.f > 255 ? 255 : this.f;
                 this.f = this.f < 0 ? 0 : this.f;
-                this.f1126a = -this.f1126a;
+                this.f1173a = -this.f1173a;
             }
             this.g += this.b;
             if (this.g > 255 || this.g < 0) {
@@ -224,7 +229,7 @@ public class b extends com.baidu.tieba.guide.e {
             this.o.recycle();
             this.p.recycle();
         } catch (Exception e) {
-            aq.b(getClass().getName(), "releaseResource", e.toString());
+            av.b(getClass().getName(), "releaseResource", e.toString());
         }
     }
 }

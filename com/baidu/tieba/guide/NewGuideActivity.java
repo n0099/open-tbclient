@@ -1,7 +1,6 @@
 package com.baidu.tieba.guide;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,25 +11,28 @@ import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.mobstat.StatService;
+import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.g;
+import com.baidu.tieba.data.g;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.guide.a.f;
-import com.baidu.tieba.util.aq;
+import com.baidu.tieba.j;
+import com.baidu.tieba.util.av;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class NewGuideActivity extends g implements View.OnClickListener {
+public class NewGuideActivity extends j implements View.OnClickListener {
 
     /* renamed from: a */
-    private d f1122a;
+    private d f1169a;
     private GuideView b;
     private c c;
 
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.new_guide_activity);
         this.b = (GuideView) findViewById(R.id.guide);
-        this.f1122a = new d(this.b.getForegroundView(), null);
+        this.f1169a = new d(this.b.getForegroundView(), null);
         this.b.setOnEnterClickListener(this);
         this.b.setIndicator((IndicatorView) findViewById(R.id.indicator));
         a(new f(this, 10));
@@ -38,11 +40,11 @@ public class NewGuideActivity extends g implements View.OnClickListener {
         com.baidu.tieba.guide.a.b bVar = new com.baidu.tieba.guide.a.b(getApplicationContext());
         a(bVar);
         a(new com.baidu.tieba.guide.a.e(this, bVar.d()));
-        if (TiebaApplication.g().u()) {
+        if (TiebaApplication.g().s()) {
             try {
-                StatService.setAppChannel(com.baidu.tieba.data.g.a());
+                StatService.setAppChannel(g.a());
             } catch (Exception e) {
-                aq.b(getClass().getName(), "onCreate", e.getMessage());
+                av.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
         this.c = new c(this, null);
@@ -56,40 +58,40 @@ public class NewGuideActivity extends g implements View.OnClickListener {
 
     private void a(e eVar) {
         this.b.getForegroundView().a(eVar);
-        this.f1122a.a(eVar);
+        this.f1169a.a(eVar);
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1122a.b();
-        if (TiebaApplication.g().u()) {
+        this.f1169a.b();
+        if (TiebaApplication.g().s()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                aq.b(getClass().getName(), "onResume", e.getMessage());
+                av.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.f1122a.a();
-        if (TiebaApplication.g().u()) {
+        this.f1169a.a();
+        if (TiebaApplication.g().s()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                aq.b(getClass().getName(), "onPause", e.getMessage());
+                av.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.f1122a != null) {
-            this.f1122a.c();
+        if (this.f1169a != null) {
+            this.f1169a.c();
             this.b.getForegroundView().a();
             this.b.getBackgroundView().a();
         }
@@ -99,7 +101,7 @@ public class NewGuideActivity extends g implements View.OnClickListener {
         }
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
@@ -113,8 +115,13 @@ public class NewGuideActivity extends g implements View.OnClickListener {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.enter) {
-            b();
+            if (TiebaApplication.g().s()) {
+                StatService.onEvent(this, "guide_start_voice", "voice_click", 1);
+            }
+            c();
+            return;
         }
+        b();
     }
 
     private void b() {
@@ -122,11 +129,16 @@ public class NewGuideActivity extends g implements View.OnClickListener {
         finish();
     }
 
-    public void c() {
-        Intent intent = new Intent();
+    private void c() {
+        setResult(-1);
+        FrsActivity.a(this, "贴吧好声优", "from_guide");
+        finish();
+    }
+
+    public void d() {
+        Intent intent = new Intent(getApplicationContext(), LogoActivity.class);
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setAction("android.intent.action.MAIN");
-        intent.setComponent(new ComponentName(getPackageName(), String.valueOf(getPackageName()) + ".LogoActivity"));
         Intent intent2 = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
         intent2.putExtra("duplicate", false);
         intent2.putExtra("android.intent.extra.shortcut.NAME", getString(R.string.app_name));
@@ -135,7 +147,7 @@ public class NewGuideActivity extends g implements View.OnClickListener {
         sendBroadcast(intent2);
     }
 
-    public boolean d() {
+    public boolean e() {
         String str;
         try {
             ContentResolver contentResolver = getContentResolver();
@@ -151,7 +163,7 @@ public class NewGuideActivity extends g implements View.OnClickListener {
                 }
             }
         } catch (Exception e) {
-            aq.a(getClass().getName(), "checkShortCut", e.toString());
+            av.a(getClass().getName(), "checkShortCut", e.toString());
         }
         return false;
     }

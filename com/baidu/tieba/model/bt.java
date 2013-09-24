@@ -1,24 +1,22 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.SendPKVoteData;
+import com.baidu.tieba.data.SendAloneVoteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bt extends BdAsyncTask {
+public class bt extends BdAsyncTask<Void, Void, SendAloneVoteData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bq f1393a;
+    final /* synthetic */ bs f1429a;
     private String b;
-    private String c;
-    private int d;
-    private com.baidu.tieba.a.j e;
+    private int c;
+    private com.baidu.tieba.a.k d;
 
-    public bt(bq bqVar, String str, String str2, int i) {
-        this.f1393a = bqVar;
+    public bt(bs bsVar, String str, int i) {
+        this.f1429a = bsVar;
         setPriority(3);
         this.b = str;
-        this.c = str2;
-        this.d = i;
+        this.c = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,9 +25,9 @@ public class bt extends BdAsyncTask {
         bu buVar;
         bu buVar2;
         super.b();
-        buVar = this.f1393a.d;
+        buVar = this.f1429a.c;
         if (buVar != null) {
-            buVar2 = this.f1393a.d;
+            buVar2 = this.f1429a.c;
             buVar2.a();
         }
     }
@@ -37,31 +35,31 @@ public class bt extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.e != null) {
-            this.e.a();
+        if (this.d != null) {
+            this.d.a();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public SendPKVoteData a(Void... voidArr) {
-        this.e = new com.baidu.tieba.a.j();
-        return new SendPKVoteData().parserJson(this.e.a(this.b, this.c, this.d));
+    public SendAloneVoteData a(Void... voidArr) {
+        this.d = new com.baidu.tieba.a.k();
+        return new SendAloneVoteData().parserJson(this.d.a(this.b, this.c));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(SendPKVoteData sendPKVoteData) {
+    public void a(SendAloneVoteData sendAloneVoteData) {
         bu buVar;
         bu buVar2;
-        super.a((Object) sendPKVoteData);
-        this.f1393a.f = sendPKVoteData;
-        buVar = this.f1393a.d;
+        super.a((bt) sendAloneVoteData);
+        this.f1429a.e = sendAloneVoteData;
+        buVar = this.f1429a.c;
         if (buVar != null) {
-            buVar2 = this.f1393a.d;
-            buVar2.a(sendPKVoteData);
+            buVar2 = this.f1429a.c;
+            buVar2.a(sendAloneVoteData);
         }
     }
 }

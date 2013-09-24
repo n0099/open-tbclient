@@ -14,5 +14,5 @@ public final class j {
     int f;
     int g;
     int h;
-    ArrayList i;
+    ArrayList<Fragment> i;
 }

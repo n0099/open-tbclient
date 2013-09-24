@@ -8,7 +8,7 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import com.tencent.mm.sdk.platformtools.Log;
 /* loaded from: classes.dex */
-public abstract class ContentProviderDB implements ISQLiteDatabase {
+public abstract class ContentProviderDB<T> implements ISQLiteDatabase {
     private final Context R;
 
     public ContentProviderDB(Context context) {

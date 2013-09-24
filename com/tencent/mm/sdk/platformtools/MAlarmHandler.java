@@ -16,7 +16,7 @@ public class MAlarmHandler {
     private final boolean ax;
     private long ay = 0;
     private long az = 0;
-    private static Map aA = new HashMap();
+    private static Map<Integer, MAlarmHandler> aA = new HashMap();
     private static boolean aD = false;
 
     /* loaded from: classes.dex */
@@ -49,7 +49,7 @@ public class MAlarmHandler {
         hashSet.addAll(aA.keySet());
         long j = Long.MAX_VALUE;
         for (Integer num : hashSet) {
-            MAlarmHandler mAlarmHandler = (MAlarmHandler) aA.get(num);
+            MAlarmHandler mAlarmHandler = aA.get(num);
             if (mAlarmHandler != null) {
                 long ticksToNow = Util.ticksToNow(mAlarmHandler.ay);
                 if (ticksToNow < 0) {
@@ -95,22 +95,22 @@ public class MAlarmHandler {
         long j3 = this.az;
         Log.d("MicroMsg.MAlarmHandler", "check need prepare: check=" + j3);
         long j4 = Long.MAX_VALUE;
-        Iterator it = aA.entrySet().iterator();
+        Iterator<Map.Entry<Integer, MAlarmHandler>> it = aA.entrySet().iterator();
         while (true) {
             j2 = j4;
             if (!it.hasNext()) {
                 break;
             }
-            MAlarmHandler mAlarmHandler = (MAlarmHandler) ((Map.Entry) it.next()).getValue();
-            if (mAlarmHandler != null) {
-                long ticksToNow = Util.ticksToNow(mAlarmHandler.ay);
+            MAlarmHandler value = it.next().getValue();
+            if (value != null) {
+                long ticksToNow = Util.ticksToNow(value.ay);
                 if (ticksToNow < 0) {
                     ticksToNow = 0;
                 }
-                if (ticksToNow > mAlarmHandler.az) {
-                    j4 = mAlarmHandler.az;
-                } else if (mAlarmHandler.az - ticksToNow < j2) {
-                    j2 = mAlarmHandler.az - ticksToNow;
+                if (ticksToNow > value.az) {
+                    j4 = value.az;
+                } else if (value.az - ticksToNow < j2) {
+                    j2 = value.az - ticksToNow;
                 }
             }
             j4 = j2;

@@ -14,10 +14,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes.dex */
-public final class TimeTypeAdapter extends TypeAdapter {
+public final class TimeTypeAdapter extends TypeAdapter<Time> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TimeTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
-        public TypeAdapter create(Gson gson, TypeToken typeToken) {
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
             if (typeToken.getRawType() == Time.class) {
                 return new TimeTypeAdapter();
             }

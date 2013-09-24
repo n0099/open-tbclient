@@ -76,7 +76,7 @@ public abstract class FragmentPagerAdapter extends android.support.v4.view.ae {
 
     @Override // android.support.v4.view.ae
     public boolean isViewFromObject(View view, Object obj) {
-        return ((Fragment) obj).m() == view;
+        return ((Fragment) obj).n() == view;
     }
 
     @Override // android.support.v4.view.ae

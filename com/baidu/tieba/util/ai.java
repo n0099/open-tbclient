@@ -1,45 +1,38 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-public class ai implements MediaScannerConnection.MediaScannerConnectionClient {
+public class ai {
+    private static ArrayList<aj> b = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ah f1783a;
+    public static AtomicInteger f1898a = new AtomicInteger(0);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ah ahVar) {
-        this.f1783a = ahVar;
+    public static int a(int i) {
+        return f1898a.getAndSet(i);
     }
 
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        Context context;
-        int i;
-        String str2;
-        MediaScannerConnection mediaScannerConnection;
-        aq.b(getClass().getName(), "MediaScannerConnectionClient", "onScanCompleted");
-        ah ahVar = this.f1783a;
-        context = ah.e;
-        i = this.f1783a.c;
-        str2 = this.f1783a.d;
-        ahVar.a(context, i, str2, uri);
-        mediaScannerConnection = this.f1783a.h;
-        mediaScannerConnection.disconnect();
-        this.f1783a.h = null;
+    public static int b(int i) {
+        return f1898a.addAndGet(i);
     }
 
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        MediaScannerConnection mediaScannerConnection;
-        File file;
-        aq.b(getClass().getName(), "MediaScannerConnectionClient", "onMediaScannerConnected");
-        mediaScannerConnection = this.f1783a.h;
-        file = this.f1783a.b;
-        mediaScannerConnection.scanFile(file.getPath(), "image/*");
+    public static synchronized void a(aj ajVar) {
+        synchronized (ai.class) {
+            if (ajVar != null) {
+                if (b.size() <= 20) {
+                    b.add(ajVar);
+                }
+            }
+        }
+    }
+
+    public static synchronized aj a() {
+        aj remove;
+        synchronized (ai.class) {
+            int size = b.size();
+            remove = size > 0 ? b.remove(size - 1) : null;
+        }
+        return remove;
     }
 }

@@ -38,36 +38,36 @@ import java.util.Map;
 public final class Gson {
     static final boolean DEFAULT_JSON_NON_EXECUTABLE = false;
     private static final String JSON_NON_EXECUTABLE_PREFIX = ")]}'\n";
-    private final ThreadLocal calls;
+    private final ThreadLocal<Map<TypeToken<?>, FutureTypeAdapter<?>>> calls;
     private final ConstructorConstructor constructorConstructor;
     final JsonDeserializationContext deserializationContext;
-    private final List factories;
+    private final List<TypeAdapterFactory> factories;
     private final boolean generateNonExecutableJson;
     private final boolean htmlSafe;
     private final boolean prettyPrinting;
     final JsonSerializationContext serializationContext;
     private final boolean serializeNulls;
-    private final Map typeTokenCache;
+    private final Map<TypeToken<?>, TypeAdapter<?>> typeTokenCache;
 
     public Gson() {
         this(Excluder.DEFAULT, FieldNamingPolicy.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, LongSerializationPolicy.DEFAULT, Collections.emptyList());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy, Map map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, LongSerializationPolicy longSerializationPolicy, List list) {
-        this.calls = new ThreadLocal() { // from class: com.google.gson.Gson.1
+    public Gson(Excluder excluder, FieldNamingStrategy fieldNamingStrategy, Map<Type, InstanceCreator<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, LongSerializationPolicy longSerializationPolicy, List<TypeAdapterFactory> list) {
+        this.calls = new ThreadLocal<Map<TypeToken<?>, FutureTypeAdapter<?>>>() { // from class: com.google.gson.Gson.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // java.lang.ThreadLocal
-            public Map initialValue() {
+            public Map<TypeToken<?>, FutureTypeAdapter<?>> initialValue() {
                 return new HashMap();
             }
         };
         this.typeTokenCache = Collections.synchronizedMap(new HashMap());
         this.deserializationContext = new JsonDeserializationContext() { // from class: com.google.gson.Gson.2
             @Override // com.google.gson.JsonDeserializationContext
-            public Object deserialize(JsonElement jsonElement, Type type) {
-                return Gson.this.fromJson(jsonElement, type);
+            public <T> T deserialize(JsonElement jsonElement, Type type) {
+                return (T) Gson.this.fromJson(jsonElement, type);
             }
         };
         this.serializationContext = new JsonSerializationContext() { // from class: com.google.gson.Gson.3
@@ -125,11 +125,13 @@ public final class Gson {
         this.factories = Collections.unmodifiableList(arrayList);
     }
 
-    private TypeAdapter doubleAdapter(boolean z) {
-        return z ? TypeAdapters.DOUBLE : new TypeAdapter() { // from class: com.google.gson.Gson.4
+    private TypeAdapter<Number> doubleAdapter(boolean z) {
+        return z ? TypeAdapters.DOUBLE : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.4
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Double' to match base method */
             @Override // com.google.gson.TypeAdapter
-            public Double read(JsonReader jsonReader) {
+            /* renamed from: read */
+            public Number read2(JsonReader jsonReader) {
                 if (jsonReader.peek() == JsonToken.NULL) {
                     jsonReader.nextNull();
                     return null;
@@ -150,11 +152,13 @@ public final class Gson {
         };
     }
 
-    private TypeAdapter floatAdapter(boolean z) {
-        return z ? TypeAdapters.FLOAT : new TypeAdapter() { // from class: com.google.gson.Gson.5
+    private TypeAdapter<Number> floatAdapter(boolean z) {
+        return z ? TypeAdapters.FLOAT : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.5
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX DEBUG: Return type fixed from 'java.lang.Float' to match base method */
             @Override // com.google.gson.TypeAdapter
-            public Float read(JsonReader jsonReader) {
+            /* renamed from: read */
+            public Number read2(JsonReader jsonReader) {
                 if (jsonReader.peek() == JsonToken.NULL) {
                     jsonReader.nextNull();
                     return null;
@@ -182,9 +186,10 @@ public final class Gson {
         }
     }
 
-    private TypeAdapter longAdapter(LongSerializationPolicy longSerializationPolicy) {
-        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? TypeAdapters.LONG : new TypeAdapter() { // from class: com.google.gson.Gson.6
+    private TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) {
+        return longSerializationPolicy == LongSerializationPolicy.DEFAULT ? TypeAdapters.LONG : new TypeAdapter<Number>() { // from class: com.google.gson.Gson.6
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) {
                 if (jsonReader.peek() == JsonToken.NULL) {
@@ -206,23 +211,26 @@ public final class Gson {
         };
     }
 
-    public TypeAdapter getAdapter(TypeToken typeToken) {
-        TypeAdapter typeAdapter = (TypeAdapter) this.typeTokenCache.get(typeToken);
+    /* JADX DEBUG: Multi-variable search result rejected for r2v5, resolved type: java.util.Map<com.google.gson.reflect.TypeToken<?>, com.google.gson.TypeAdapter<?>> */
+    /* JADX DEBUG: Type inference failed for r1v8. Raw type applied. Possible types: com.google.gson.TypeAdapter<T>, com.google.gson.TypeAdapter<?> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public <T> TypeAdapter<T> getAdapter(TypeToken<T> typeToken) {
+        TypeAdapter<T> typeAdapter = (TypeAdapter<T>) this.typeTokenCache.get(typeToken);
         if (typeAdapter == null) {
-            Map map = (Map) this.calls.get();
-            FutureTypeAdapter futureTypeAdapter = (FutureTypeAdapter) map.get(typeToken);
+            Map<TypeToken<?>, FutureTypeAdapter<?>> map = this.calls.get();
+            FutureTypeAdapter<?> futureTypeAdapter = map.get(typeToken);
             if (futureTypeAdapter != null) {
                 return futureTypeAdapter;
             }
-            FutureTypeAdapter futureTypeAdapter2 = new FutureTypeAdapter();
+            FutureTypeAdapter<?> futureTypeAdapter2 = new FutureTypeAdapter<>();
             map.put(typeToken, futureTypeAdapter2);
             try {
                 for (TypeAdapterFactory typeAdapterFactory : this.factories) {
-                    TypeAdapter create = typeAdapterFactory.create(this, typeToken);
-                    if (create != null) {
-                        futureTypeAdapter2.setDelegate(create);
-                        this.typeTokenCache.put(typeToken, create);
-                        return create;
+                    TypeAdapter typeAdapter2 = (TypeAdapter<T>) typeAdapterFactory.create(this, typeToken);
+                    if (typeAdapter2 != null) {
+                        futureTypeAdapter2.setDelegate(typeAdapter2);
+                        this.typeTokenCache.put(typeToken, typeAdapter2);
+                        return typeAdapter2;
                     }
                 }
                 throw new IllegalArgumentException("GSON cannot handle " + typeToken);
@@ -233,7 +241,7 @@ public final class Gson {
         return typeAdapter;
     }
 
-    public TypeAdapter getDelegateAdapter(TypeAdapterFactory typeAdapterFactory, TypeToken typeToken) {
+    public <T> TypeAdapter<T> getDelegateAdapter(TypeAdapterFactory typeAdapterFactory, TypeToken<T> typeToken) {
         boolean z = false;
         for (TypeAdapterFactory typeAdapterFactory2 : this.factories) {
             if (!z) {
@@ -241,7 +249,7 @@ public final class Gson {
                     z = true;
                 }
             } else {
-                TypeAdapter create = typeAdapterFactory2.create(this, typeToken);
+                TypeAdapter<T> create = typeAdapterFactory2.create(this, typeToken);
                 if (create != null) {
                     return create;
                 }
@@ -250,8 +258,8 @@ public final class Gson {
         throw new IllegalArgumentException("GSON cannot serialize " + typeToken);
     }
 
-    public TypeAdapter getAdapter(Class cls) {
-        return getAdapter(TypeToken.get(cls));
+    public <T> TypeAdapter<T> getAdapter(Class<T> cls) {
+        return getAdapter(TypeToken.get((Class) cls));
     }
 
     public JsonElement toJsonTree(Object obj) {
@@ -357,29 +365,29 @@ public final class Gson {
         }
     }
 
-    public Object fromJson(String str, Class cls) {
-        return Primitives.wrap(cls).cast(fromJson(str, (Type) cls));
+    public <T> T fromJson(String str, Class<T> cls) {
+        return (T) Primitives.wrap(cls).cast(fromJson(str, (Type) cls));
     }
 
-    public Object fromJson(String str, Type type) {
+    public <T> T fromJson(String str, Type type) {
         if (str == null) {
             return null;
         }
-        return fromJson(new StringReader(str), type);
+        return (T) fromJson(new StringReader(str), type);
     }
 
-    public Object fromJson(Reader reader, Class cls) {
+    public <T> T fromJson(Reader reader, Class<T> cls) {
         JsonReader jsonReader = new JsonReader(reader);
         Object fromJson = fromJson(jsonReader, cls);
         assertFullConsumption(fromJson, jsonReader);
-        return Primitives.wrap(cls).cast(fromJson);
+        return (T) Primitives.wrap(cls).cast(fromJson);
     }
 
-    public Object fromJson(Reader reader, Type type) {
+    public <T> T fromJson(Reader reader, Type type) {
         JsonReader jsonReader = new JsonReader(reader);
-        Object fromJson = fromJson(jsonReader, type);
-        assertFullConsumption(fromJson, jsonReader);
-        return fromJson;
+        T t = (T) fromJson(jsonReader, type);
+        assertFullConsumption(t, jsonReader);
+        return t;
     }
 
     private static void assertFullConsumption(Object obj, JsonReader jsonReader) {
@@ -396,7 +404,7 @@ public final class Gson {
         }
     }
 
-    public Object fromJson(JsonReader jsonReader, Type type) {
+    public <T> T fromJson(JsonReader jsonReader, Type type) {
         boolean z = true;
         boolean isLenient = jsonReader.isLenient();
         jsonReader.setLenient(true);
@@ -404,7 +412,7 @@ public final class Gson {
             try {
                 jsonReader.peek();
                 z = false;
-                Object read = getAdapter(TypeToken.get(type)).read(jsonReader);
+                T read = getAdapter(TypeToken.get(type)).read(jsonReader);
                 jsonReader.setLenient(isLenient);
                 return read;
             } catch (EOFException e) {
@@ -424,26 +432,26 @@ public final class Gson {
         }
     }
 
-    public Object fromJson(JsonElement jsonElement, Class cls) {
-        return Primitives.wrap(cls).cast(fromJson(jsonElement, (Type) cls));
+    public <T> T fromJson(JsonElement jsonElement, Class<T> cls) {
+        return (T) Primitives.wrap(cls).cast(fromJson(jsonElement, (Type) cls));
     }
 
-    public Object fromJson(JsonElement jsonElement, Type type) {
+    public <T> T fromJson(JsonElement jsonElement, Type type) {
         if (jsonElement == null) {
             return null;
         }
-        return fromJson(new JsonTreeReader(jsonElement), type);
+        return (T) fromJson(new JsonTreeReader(jsonElement), type);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class FutureTypeAdapter extends TypeAdapter {
-        private TypeAdapter delegate;
+    public class FutureTypeAdapter<T> extends TypeAdapter<T> {
+        private TypeAdapter<T> delegate;
 
         FutureTypeAdapter() {
         }
 
-        public void setDelegate(TypeAdapter typeAdapter) {
+        public void setDelegate(TypeAdapter<T> typeAdapter) {
             if (this.delegate != null) {
                 throw new AssertionError();
             }
@@ -451,7 +459,7 @@ public final class Gson {
         }
 
         @Override // com.google.gson.TypeAdapter
-        public Object read(JsonReader jsonReader) {
+        public T read(JsonReader jsonReader) {
             if (this.delegate == null) {
                 throw new IllegalStateException();
             }
@@ -459,11 +467,11 @@ public final class Gson {
         }
 
         @Override // com.google.gson.TypeAdapter
-        public void write(JsonWriter jsonWriter, Object obj) {
+        public void write(JsonWriter jsonWriter, T t) {
             if (this.delegate == null) {
                 throw new IllegalStateException();
             }
-            this.delegate.write(jsonWriter, obj);
+            this.delegate.write(jsonWriter, t);
         }
     }
 

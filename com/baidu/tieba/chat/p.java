@@ -1,33 +1,39 @@
 package com.baidu.tieba.chat;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
+import android.widget.AdapterView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p implements AbsListView.OnScrollListener {
+public class p implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListActivity f955a;
+    final /* synthetic */ ChatListFragment f972a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(ChatListActivity chatListActivity) {
-        this.f955a = chatListActivity;
+    public p(ChatListFragment chatListFragment) {
+        this.f972a = chatListFragment;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.f955a.d;
-        runnable = this.f955a.e;
-        handler.removeCallbacks(runnable);
-        handler2 = this.f955a.d;
-        runnable2 = this.f955a.e;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        l lVar;
+        l lVar2;
+        com.baidu.tieba.data.a.g gVar;
+        if (i >= 0) {
+            lVar = this.f972a.Z;
+            long itemId = lVar.getItemId(i);
+            if (itemId != -1 && itemId != -2) {
+                ChatListFragment chatListFragment = this.f972a;
+                lVar2 = this.f972a.Z;
+                chatListFragment.g = (com.baidu.tieba.data.a.g) lVar2.getItem(i);
+                ChatListFragment chatListFragment2 = this.f972a;
+                gVar = this.f972a.g;
+                chatListFragment2.a(gVar);
+                if (this.f972a.f952a != null) {
+                    this.f972a.f952a.show();
+                }
+            }
+        }
+        return false;
     }
 }

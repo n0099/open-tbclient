@@ -1,63 +1,65 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
-import android.view.animation.Interpolator;
-import android.view.animation.Transformation;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends Animation {
+public class m extends GestureDetector.SimpleOnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1873a;
-    private boolean b = false;
-    private boolean c = false;
-    private long d;
-    private long e;
-    private int f;
-    private int g;
-    private long h;
-    private long i;
+    final /* synthetic */ k f2001a;
 
-    public m(j jVar) {
-        this.f1873a = jVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(k kVar) {
+        this.f2001a = kVar;
     }
 
-    public void a(float f, float f2) {
-        Interpolator interpolator;
-        if (f > 1500.0f) {
-            f = 1500.0f;
-        } else if (f < -1500.0f) {
-            f = -1500.0f;
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        n nVar;
+        n nVar2;
+        if (Math.abs(f) > 200.0f || Math.abs(f2) > 200.0f) {
+            nVar = this.f2001a.t;
+            nVar.a(f, f2);
+            k kVar = this.f2001a;
+            nVar2 = this.f2001a.t;
+            kVar.startAnimation(nVar2);
         }
-        if (f2 > 1500.0f) {
-            f2 = 1500.0f;
-        } else if (f2 < -1500.0f) {
-            f2 = -1500.0f;
-        }
-        this.d = f;
-        this.e = f2;
-        this.h = Math.abs((f * 1000.0f) / 2500.0f);
-        this.i = Math.abs((f2 * 1000.0f) / 2500.0f);
-        setDuration(Math.max(this.h, this.i));
-        interpolator = this.f1873a.L;
-        setInterpolator(interpolator);
-        this.f = this.f1873a.getScrollX();
-        this.g = this.f1873a.getScrollY();
-        this.b = true;
+        return super.onFling(motionEvent, motionEvent2, f, f2);
     }
 
-    @Override // android.view.animation.Animation
-    protected void applyTransformation(float f, Transformation transformation) {
-        long j;
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        View.OnClickListener onClickListener;
+        boolean z;
+        View.OnClickListener onClickListener2;
+        onClickListener = this.f2001a.r;
+        if (onClickListener != null) {
+            z = this.f2001a.y;
+            if (!z) {
+                onClickListener2 = this.f2001a.r;
+                onClickListener2.onClick(this.f2001a);
+            }
+        }
+        return super.onSingleTapUp(motionEvent);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0084  */
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         int i;
-        int i2;
-        float f2;
-        int i3;
-        int i4;
         float f3;
+        int i2;
+        int scrollY;
         float f4;
-        int i5;
+        int i3;
         float f5;
+        int i4;
+        int i5;
         int i6;
         float f6;
         int i7;
@@ -66,101 +68,77 @@ public class m extends Animation {
         int i9;
         int i10;
         int i11;
-        int i12 = 0;
-        if (f > 1.0f) {
-            f = 1.0f;
-        }
-        if (this.h > this.i) {
-            j = ((float) this.h) * f;
-        } else {
-            j = ((float) this.i) * f;
-        }
-        float f8 = ((float) (j > this.h ? this.h : j)) / 1000.0f;
-        if (this.d > 0) {
-            i = this.f - ((int) (f8 * (((float) this.d) - ((2500.0f * f8) / 2.0f))));
-        } else {
-            i = this.f - ((int) (f8 * (((float) this.d) + ((2500.0f * f8) / 2.0f))));
-        }
-        if (j > this.i) {
-            j = this.i;
-        }
-        float f9 = ((float) j) / 1000.0f;
-        if (this.e > 0) {
-            i2 = this.g - ((int) (f9 * (((float) this.e) - ((2500.0f * f9) / 2.0f))));
-        } else {
-            i2 = this.g - ((int) (f9 * (((float) this.e) + ((2500.0f * f9) / 2.0f))));
-        }
-        f2 = this.f1873a.f;
-        i3 = this.f1873a.H;
-        float f10 = f2 + i3;
-        i4 = this.f1873a.I;
-        if (f10 + i4 > this.f1873a.getHeight()) {
-            i6 = this.f1873a.J;
-            if (i2 < (-i6)) {
-                i11 = this.f1873a.J;
-                i2 = -i11;
-            }
-            f6 = this.f1873a.f;
-            i7 = this.f1873a.I;
-            float f11 = f6 + i7;
-            i8 = this.f1873a.K;
-            if (this.f1873a.getHeight() + i2 > f11 + i8) {
-                f7 = this.f1873a.f;
-                i9 = this.f1873a.I;
-                float height = (f7 - this.f1873a.getHeight()) + i9;
-                i10 = this.f1873a.K;
-                i2 = (int) (height + i10);
-            }
-        } else {
-            i2 = 0;
-        }
-        f3 = this.f1873a.e;
-        if (f3 > this.f1873a.getWidth()) {
-            f4 = this.f1873a.e;
-            if (this.f1873a.getWidth() + i > f4) {
-                f5 = this.f1873a.e;
-                i5 = (int) (f5 - this.f1873a.getWidth());
-            } else {
-                i5 = i;
-            }
-            if (i5 >= 0) {
-                i12 = i5;
-            }
-        }
-        this.f1873a.scrollTo(i12, i2);
-        this.f1873a.invalidate();
-    }
-
-    @Override // android.view.animation.Animation
-    public boolean getTransformation(long j, Transformation transformation) {
+        int i12;
+        float f8;
+        float f9;
         boolean z;
-        if (!this.c) {
-            z = this.f1873a.l;
+        this.f2001a.y = true;
+        i = this.f2001a.p;
+        if (i == 0) {
+            z = this.f2001a.z;
             if (z) {
-                this.b = false;
                 return false;
             }
-            try {
-                if (!super.getTransformation(j, transformation)) {
-                    this.b = false;
-                    return false;
+        }
+        int scrollX = this.f2001a.getScrollX();
+        f3 = this.f2001a.e;
+        if (f3 >= this.f2001a.getWidth()) {
+            scrollX = (int) (scrollX + f);
+            i12 = this.f2001a.p;
+            if (i12 == 0) {
+                i2 = scrollX >= 0 ? scrollX : 0;
+                f8 = this.f2001a.e;
+                if (this.f2001a.getWidth() + i2 > f8) {
+                    f9 = this.f2001a.e;
+                    i2 = (int) (f9 - this.f2001a.getWidth());
+                }
+                scrollY = this.f2001a.getScrollY();
+                f4 = this.f2001a.f;
+                i3 = this.f2001a.H;
+                f5 = f4 + i3;
+                i4 = this.f2001a.I;
+                if (f5 + i4 >= this.f2001a.getHeight()) {
+                    scrollY = (int) (scrollY + f2);
+                    i5 = this.f2001a.p;
+                    if (i5 == 0) {
+                        i6 = this.f2001a.J;
+                        if (scrollY < (-i6)) {
+                            i11 = this.f2001a.J;
+                            scrollY = -i11;
+                        }
+                        f6 = this.f2001a.f;
+                        i7 = this.f2001a.I;
+                        float f10 = f6 + i7;
+                        i8 = this.f2001a.K;
+                        if (this.f2001a.getHeight() + scrollY > f10 + i8) {
+                            f7 = this.f2001a.f;
+                            float height = f7 - this.f2001a.getHeight();
+                            i9 = this.f2001a.I;
+                            float f11 = height + i9;
+                            i10 = this.f2001a.K;
+                            scrollY = (int) (f11 + i10);
+                        }
+                    }
+                }
+                if (i2 == this.f2001a.getScrollX() || scrollY != this.f2001a.getScrollY()) {
+                    this.f2001a.scrollTo(i2, scrollY);
+                    this.f2001a.invalidate();
                 }
                 return true;
-            } catch (Exception e) {
-                this.b = false;
-                return false;
             }
         }
-        this.c = false;
-        this.b = false;
-        return false;
-    }
-
-    public boolean a() {
-        return this.b;
-    }
-
-    public void b() {
-        this.c = true;
+        i2 = scrollX;
+        scrollY = this.f2001a.getScrollY();
+        f4 = this.f2001a.f;
+        i3 = this.f2001a.H;
+        f5 = f4 + i3;
+        i4 = this.f2001a.I;
+        if (f5 + i4 >= this.f2001a.getHeight()) {
+        }
+        if (i2 == this.f2001a.getScrollX()) {
+        }
+        this.f2001a.scrollTo(i2, scrollY);
+        this.f2001a.invalidate();
+        return true;
     }
 }

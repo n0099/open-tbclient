@@ -9,7 +9,7 @@ import java.io.File;
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ File f524a;
+    final /* synthetic */ File f536a;
     final /* synthetic */ Context b;
     final /* synthetic */ String c;
     final /* synthetic */ b d;
@@ -19,7 +19,7 @@ public class c extends Thread {
     public c(b bVar, String str, File file, Context context, String str2) {
         super(str);
         this.d = bVar;
-        this.f524a = file;
+        this.f536a = file;
         this.b = context;
         this.c = str2;
     }
@@ -27,7 +27,7 @@ public class c extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         File a2;
-        File file = this.f524a;
+        File file = this.f536a;
         e eVar = new e(this.b, this.c);
         a2 = this.d.a(this.b, file);
         if (a2 != null) {

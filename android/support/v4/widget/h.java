@@ -8,7 +8,7 @@ public class h {
     private static final k b;
 
     /* renamed from: a  reason: collision with root package name */
-    private Object f342a;
+    private Object f346a;
 
     static {
         if (Build.VERSION.SDK_INT >= 14) {
@@ -19,30 +19,30 @@ public class h {
     }
 
     public h(Context context) {
-        this.f342a = b.a(context);
+        this.f346a = b.a(context);
     }
 
     public void a(int i, int i2) {
-        b.a(this.f342a, i, i2);
+        b.a(this.f346a, i, i2);
     }
 
     public boolean a() {
-        return b.a(this.f342a);
+        return b.a(this.f346a);
     }
 
     public void b() {
-        b.b(this.f342a);
+        b.b(this.f346a);
     }
 
     public boolean a(float f) {
-        return b.a(this.f342a, f);
+        return b.a(this.f346a, f);
     }
 
     public boolean c() {
-        return b.c(this.f342a);
+        return b.c(this.f346a);
     }
 
     public boolean a(Canvas canvas) {
-        return b.a(this.f342a, canvas);
+        return b.a(this.f346a, canvas);
     }
 }

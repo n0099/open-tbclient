@@ -5,15 +5,15 @@ import android.view.View;
 class dh implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f1563a;
+    final /* synthetic */ db f1605a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(WebActivity webActivity) {
-        this.f1563a = webActivity;
+    public dh(db dbVar) {
+        this.f1605a = dbVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1563a.f1475a.reload();
+        this.f1605a.m();
     }
 }

@@ -4,33 +4,31 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class EditBarActivity extends com.baidu.tieba.g {
+public class EditBarActivity extends com.baidu.tieba.j {
+    private NavigationBar c;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.model.b f1588a = null;
+    private com.baidu.tieba.model.d f1638a = null;
     private ListView b = null;
-    private ImageView c = null;
     private Button d = null;
-    private j e = null;
-    private ProgressBar f = null;
-    private h g = null;
-    private int j = -1;
-    private String k = null;
-    private i l = null;
-    private RelativeLayout m = null;
-    private LinearLayout n = null;
-    private TextView o = null;
-    private String p = null;
-    private int q = 0;
+    private TextView e = null;
+    private i f = null;
+    private ProgressBar g = null;
+    private g j = null;
+    private int k = -1;
+    private String l = null;
+    private h m = null;
+    private RelativeLayout n = null;
+    private String o = null;
+    private int p = 0;
 
     public static void a(Activity activity, int i, String str, int i2) {
         Intent intent = new Intent(activity, EditBarActivity.class);
@@ -42,7 +40,7 @@ public class EditBarActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.edit_bar_activity);
@@ -52,45 +50,42 @@ public class EditBarActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
+        if (this.j != null) {
+            this.j.cancel();
+        }
+        if (this.m != null) {
+            this.m.cancel();
+        }
         if (this.g != null) {
-            this.g.cancel();
-        }
-        if (this.l != null) {
-            this.l.cancel();
-        }
-        if (this.f != null) {
-            this.f.setVisibility(8);
+            this.g.setVisibility(8);
         }
         super.onDestroy();
     }
 
     private void b() {
-        if (this.g != null) {
-            this.g.cancel();
+        if (this.j != null) {
+            this.j.cancel();
         }
-        this.g = new h(this, null);
-        this.g.setPriority(3);
-        this.g.execute(new Object[0]);
+        this.j = new g(this, null);
+        this.j.setPriority(3);
+        this.j.execute(new Object[0]);
     }
 
     private void c() {
-        this.f1588a = new com.baidu.tieba.model.b();
-        this.p = getIntent().getStringExtra("view_user_id");
-        this.q = getIntent().getIntExtra("user_sex", 0);
+        this.f1638a = new com.baidu.tieba.model.d();
+        this.o = getIntent().getStringExtra("view_user_id");
+        this.p = getIntent().getIntExtra("user_sex", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ao.a(this.m, i);
-        com.baidu.tieba.util.ao.d(this.n, i);
-        com.baidu.tieba.util.ao.f(this.o, i);
-        com.baidu.tieba.util.ao.a(this.c, i);
-        com.baidu.tieba.util.ao.g((TextView) this.d, i);
-        this.e.notifyDataSetChanged();
+        this.c.b(i);
+        com.baidu.tieba.util.as.a(this.n, i);
+        this.f.notifyDataSetChanged();
         if (i == 1) {
             this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
             this.b.setSelector(R.drawable.list_selector_1);
@@ -101,43 +96,42 @@ public class EditBarActivity extends com.baidu.tieba.g {
     }
 
     private void d() {
-        this.m = (RelativeLayout) findViewById(R.id.parent);
-        this.n = (LinearLayout) findViewById(R.id.title);
-        this.o = (TextView) findViewById(R.id.title_text);
-        this.f = (ProgressBar) findViewById(R.id.progress);
-        this.c = (ImageView) findViewById(R.id.back);
-        this.c.setOnClickListener(new d(this));
-        this.e = new j(this, this.f1588a, this.q);
-        this.e.a(new e(this));
+        this.n = (RelativeLayout) findViewById(R.id.parent);
+        this.c = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.e = this.c.a("");
+        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.edit));
+        this.g = (ProgressBar) findViewById(R.id.progress);
+        this.f = new i(this, this.f1638a, this.p);
+        this.f.a(new d(this));
         this.b = (ListView) findViewById(R.id.list);
-        this.b.setAdapter((ListAdapter) this.e);
-        this.b.setOnItemClickListener(new f(this));
-        this.d = (Button) findViewById(R.id.edit);
-        this.d.setOnClickListener(new g(this));
-        if (this.p != null) {
+        this.b.setAdapter((ListAdapter) this.f);
+        this.b.setOnItemClickListener(new e(this));
+        this.d.setOnClickListener(new f(this));
+        if (this.o != null) {
             this.d.setVisibility(4);
-            if (this.q == 2) {
-                this.o.setText(getString(R.string.her_attention_forums));
-            } else if (this.q == 1) {
-                this.o.setText(getString(R.string.his_attention_forums));
+            if (this.p == 2) {
+                this.e.setText(getString(R.string.her_attention_forums));
+            } else if (this.p == 1) {
+                this.e.setText(getString(R.string.his_attention_forums));
             } else {
-                this.o.setText(getString(R.string.ta_attention_forums));
+                this.e.setText(getString(R.string.ta_attention_forums));
             }
-            this.e.b(false);
+            this.f.b(false);
             return;
         }
-        this.o.setText(getString(R.string.my_bar));
-        this.e.b(true);
+        this.e.setText(getString(R.string.my_bar));
+        this.f.b(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
-        if (this.e != null) {
-            this.e.b();
-            if (this.e.c()) {
+    public void e() {
+        if (this.f != null) {
+            this.f.b();
+            if (this.f.c()) {
                 this.d.setVisibility(4);
-                this.e.a(false);
-            } else if (this.p == null) {
+                this.f.a(false);
+            } else if (this.o == null) {
                 this.d.setVisibility(0);
             }
         }

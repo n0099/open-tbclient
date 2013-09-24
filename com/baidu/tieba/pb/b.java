@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask {
+public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1503a;
-    private com.baidu.tieba.util.v b = null;
+    final /* synthetic */ a f1546a;
+    private com.baidu.tieba.util.z b = null;
     private String c;
     private String d;
     private int e;
     private int f;
 
     public b(a aVar, String str, String str2, int i, int i2) {
-        this.f1503a = aVar;
+        this.f1546a = aVar;
         this.c = null;
         this.d = null;
         this.e = 0;
@@ -38,17 +38,17 @@ public class b extends BdAsyncTask {
     public com.baidu.tieba.data.ac a(Object... objArr) {
         String str;
         boolean z;
-        this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/f/pb/picpage");
-        com.baidu.tieba.util.v vVar = this.b;
-        str = this.f1503a.e;
-        vVar.a("kw", str);
+        this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/pb/picpage");
+        com.baidu.tieba.util.z zVar = this.b;
+        str = this.f1546a.e;
+        zVar.a("kw", str);
         this.b.a("tid", this.c);
         if (this.d != null) {
             this.b.a("pic_id", this.d);
         }
         this.b.a("next", String.valueOf(this.e));
         this.b.a("prev", String.valueOf(this.f));
-        z = this.f1503a.j;
+        z = this.f1546a.j;
         if (!z) {
             this.b.a("not_see_lz", String.valueOf(1));
         }
@@ -67,7 +67,7 @@ public class b extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1503a.h = null;
+        this.f1546a.h = null;
         super.cancel(true);
     }
 
@@ -88,7 +88,7 @@ public class b extends BdAsyncTask {
         int i;
         c cVar;
         c cVar2;
-        ArrayList arrayList;
+        ArrayList<String> arrayList;
         int i2;
         String str;
         String str2;
@@ -101,56 +101,56 @@ public class b extends BdAsyncTask {
         int i4;
         String str4;
         c cVar4;
-        super.a((Object) acVar);
-        this.f1503a.h = null;
+        super.a((b) acVar);
+        this.f1546a.h = null;
         if (acVar != null) {
-            this.f1503a.i = acVar.k();
-            this.f1503a.c = acVar.g();
-            this.f1503a.b = acVar.f();
+            this.f1546a.i = acVar.k();
+            this.f1546a.c = acVar.g();
+            this.f1546a.b = acVar.f();
             if (this.d == null) {
-                arrayList3 = this.f1503a.f1477a;
+                arrayList3 = this.f1546a.f1520a;
                 arrayList3.clear();
             }
-            LinkedList h = acVar.h();
+            LinkedList<com.baidu.tieba.data.ab> h = acVar.h();
             int size = h.size();
             if (size <= 0) {
-                this.f1503a.g = true;
+                this.f1546a.g = true;
             } else {
                 for (int i5 = 0; i5 < size; i5++) {
-                    arrayList2 = this.f1503a.f1477a;
-                    a2 = this.f1503a.a((com.baidu.tieba.data.ab) h.get(i5));
+                    arrayList2 = this.f1546a.f1520a;
+                    a2 = this.f1546a.a(h.get(i5));
                     arrayList2.add(a2);
                 }
-                com.baidu.tieba.data.ab abVar = (com.baidu.tieba.data.ab) h.get(size - 1);
-                this.f1503a.f = abVar.c();
-                i3 = this.f1503a.i;
+                com.baidu.tieba.data.ab abVar = h.get(size - 1);
+                this.f1546a.f = abVar.c();
+                i3 = this.f1546a.i;
                 if (i3 == abVar.h()) {
-                    this.f1503a.g = true;
+                    this.f1546a.g = true;
                 } else {
-                    this.f1503a.g = false;
+                    this.f1546a.g = false;
                 }
             }
-            z = this.f1503a.g;
+            z = this.f1546a.g;
             if (z) {
-                str2 = this.f1503a.b;
+                str2 = this.f1546a.b;
                 if (str2 != null) {
-                    str3 = this.f1503a.b;
+                    str3 = this.f1546a.b;
                     if (str3.length() > 0) {
                         z2 = true;
                         if (this.d != null) {
-                            this.f1503a.d = this.c;
+                            this.f1546a.d = this.c;
                             z3 = true;
                             i = 0;
                         } else {
                             z3 = false;
                             i = -1;
                         }
-                        cVar = this.f1503a.l;
+                        cVar = this.f1546a.l;
                         if (cVar == null) {
-                            cVar2 = this.f1503a.l;
-                            arrayList = this.f1503a.f1477a;
-                            i2 = this.f1503a.i;
-                            str = this.f1503a.c;
+                            cVar2 = this.f1546a.l;
+                            arrayList = this.f1546a.f1520a;
+                            i2 = this.f1546a.i;
+                            str = this.f1546a.c;
                             cVar2.a(arrayList, i, i2, z2, str, z3);
                             return;
                         }
@@ -161,11 +161,11 @@ public class b extends BdAsyncTask {
             z2 = false;
             if (this.d != null) {
             }
-            cVar = this.f1503a.l;
+            cVar = this.f1546a.l;
             if (cVar == null) {
             }
         } else {
-            cVar3 = this.f1503a.l;
+            cVar3 = this.f1546a.l;
             if (cVar3 != null) {
                 if (this.b != null) {
                     i4 = this.b.e();
@@ -174,7 +174,7 @@ public class b extends BdAsyncTask {
                     i4 = -1;
                     str4 = null;
                 }
-                cVar4 = this.f1503a.l;
+                cVar4 = this.f1546a.l;
                 cVar4.a(i4, str4);
             }
         }

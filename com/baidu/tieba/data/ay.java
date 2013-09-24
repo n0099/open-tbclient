@@ -5,10 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ay {
-    private ArrayList f;
+    private ArrayList<ax> f;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f997a = 0;
+    private int f1015a = 0;
     private int d = 0;
     private int e = 0;
     private boolean c = false;
@@ -16,10 +16,10 @@ public class ay {
 
     public ay() {
         this.f = null;
-        this.f = new ArrayList();
+        this.f = new ArrayList<>();
     }
 
-    public ArrayList a() {
+    public ArrayList<ax> a() {
         return this.f;
     }
 
@@ -39,7 +39,7 @@ public class ay {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -55,13 +55,13 @@ public class ay {
                     axVar.a(optJSONObject2);
                     this.f.add(axVar);
                 }
-                this.f997a = optJSONObject.optInt("total_count");
+                this.f1015a = optJSONObject.optInt("total_count");
                 this.e = optJSONObject.optInt("total_page");
                 this.b = optJSONObject.optInt("has_more") != 0;
                 this.c = optJSONObject.optInt("has_prev") != 0;
                 this.d = optJSONObject.optInt("current_page");
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.av.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
             }
         }
     }

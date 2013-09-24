@@ -394,16 +394,16 @@ public class BdNetEngine extends HandlerThread {
     }
 
     private void addHeaders(BdNetTask bdNetTask) {
-        Map headers = bdNetTask.getHeaders();
+        Map<String, String> headers = bdNetTask.getHeaders();
         for (String str : headers.keySet()) {
-            this.mConnection.addRequestProperty(str, (String) headers.get(str));
+            this.mConnection.addRequestProperty(str, headers.get(str));
         }
         StringBuffer stringBuffer = new StringBuffer();
-        Map cookies = bdNetTask.getCookies();
+        Map<String, String> cookies = bdNetTask.getCookies();
         for (String str2 : cookies.keySet()) {
             stringBuffer.append(str2.trim());
             stringBuffer.append("=");
-            stringBuffer.append(((String) cookies.get(str2)).trim());
+            stringBuffer.append(cookies.get(str2).trim());
             stringBuffer.append(";");
         }
         if (stringBuffer.length() > 0) {

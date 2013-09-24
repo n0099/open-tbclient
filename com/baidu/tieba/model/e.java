@@ -1,101 +1,132 @@
 package com.baidu.tieba.model;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.pushservice.PushConstants;
+import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e extends BdAsyncTask {
+public class e extends com.baidu.adp.a.c {
+    private String g;
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1403a;
-    private volatile com.baidu.tieba.util.v b;
+    private List<com.baidu.tieba.data.a.g> f1442a = null;
+    private String b = null;
+    private String c = null;
+    private String d = "1";
+    private String e = "20";
+    private int f = -1;
+    private boolean h = false;
+    private g i = null;
+    private f j = null;
 
-    private e(c cVar) {
-        this.f1403a = cVar;
-        this.b = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(c cVar, e eVar) {
-        this(cVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Boolean a(Object... objArr) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        List list;
-        String str5;
-        List list2;
-        try {
-            this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/comlist");
-            this.b.e(true);
-            com.baidu.tieba.util.v vVar = this.b;
-            str = this.f1403a.b;
-            vVar.a(PushConstants.EXTRA_USER_ID, str);
-            com.baidu.tieba.util.v vVar2 = this.b;
-            str2 = this.f1403a.d;
-            vVar2.a("pn", str2);
-            com.baidu.tieba.util.v vVar3 = this.b;
-            str3 = this.f1403a.e;
-            vVar3.a("rn", str3);
-            String j = this.b.j();
-            if (this.b.c() && j != null) {
-                this.f1403a.b(j);
-                if (this.f1403a.c() == 0) {
-                    str4 = this.f1403a.d;
-                    if (str4.equals("1")) {
-                        list = this.f1403a.f1398a;
-                        if (list != null) {
-                            com.baidu.tieba.data.a.f a2 = com.baidu.tieba.data.a.f.a();
-                            str5 = this.f1403a.b;
-                            list2 = this.f1403a.f1398a;
-                            a2.a(str5, list2);
-                        }
-                    }
-                }
-                return true;
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
-        }
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
         return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        this.f1403a.i = null;
-        if (bool.booleanValue()) {
-            eVar = this.f1403a.mLoadDataCallBack;
-            eVar.a(true);
-            return;
-        }
-        this.f1403a.mErrorCode = this.b.e();
-        this.f1403a.mErrorString = this.b.g();
-        eVar2 = this.f1403a.mLoadDataCallBack;
-        eVar2.a(false);
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        return false;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.e eVar;
-        super.cancel(true);
-        if (this.b != null) {
-            this.b.h();
-            this.b = null;
+    public boolean a(String str, String str2) {
+        if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0) {
+            return false;
         }
-        this.f1403a.f1398a = null;
-        eVar = this.f1403a.mLoadDataCallBack;
-        eVar.a(false);
+        this.b = str;
+        this.d = str2;
+        if (this.i == null) {
+            this.i = new g(this, null);
+            this.i.setPriority(2);
+            this.i.execute(new Object[0]);
+        }
+        return true;
+    }
+
+    public void a(String str) {
+        if (str != null && str.length() > 0) {
+            this.c = str;
+            if (this.j == null) {
+                this.j = new f(this, null);
+                this.j.setPriority(2);
+                this.j.execute(new Object[0]);
+            }
+        }
+    }
+
+    public List<com.baidu.tieba.data.a.g> a() {
+        return this.f1442a;
+    }
+
+    public void b(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                if (optJSONObject != null) {
+                    a(optJSONObject.optInt("errno"));
+                    d(optJSONObject.optString("errmsg"));
+                }
+                this.h = jSONObject.optInt("has_more") != 0;
+                JSONArray optJSONArray = jSONObject.optJSONArray("record");
+                long currentTimeMillis = System.currentTimeMillis();
+                this.f1442a = new ArrayList();
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                        com.baidu.tieba.data.a.g gVar = new com.baidu.tieba.data.a.g();
+                        gVar.a(this.b);
+                        gVar.b(optJSONObject2.optString(PushConstants.EXTRA_USER_ID));
+                        gVar.e(optJSONObject2.optString("user_name"));
+                        gVar.a(1);
+                        gVar.b(optJSONObject2.optLong("time") * 1000);
+                        gVar.b(optJSONObject2.optInt("unread_count"));
+                        gVar.c(optJSONObject2.optString("portrait"));
+                        gVar.a(currentTimeMillis);
+                        String optString = optJSONObject2.optString("abstract");
+                        if (optString != null && optString.length() >= 1) {
+                            gVar.d(optString);
+                        }
+                        this.f1442a.add(gVar);
+                    }
+                }
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public List<com.baidu.tieba.data.a.g> c(String str) {
+        this.f1442a = com.baidu.tieba.data.a.f.a().a(str);
+        for (com.baidu.tieba.data.a.g gVar : this.f1442a) {
+            gVar.b(0);
+        }
+        return this.f1442a;
+    }
+
+    public boolean b() {
+        return this.h;
+    }
+
+    public void a(int i) {
+        this.f = i;
+    }
+
+    public int c() {
+        return this.f;
+    }
+
+    public void d(String str) {
+        this.g = str;
+    }
+
+    public String d() {
+        return this.g;
     }
 }

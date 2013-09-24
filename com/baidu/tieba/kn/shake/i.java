@@ -6,7 +6,7 @@ import android.os.Bundle;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1285a;
+    private String f1319a;
     private String b;
     private String c;
     private int d;
@@ -16,7 +16,7 @@ public class i {
     private boolean h = false;
 
     public i(Bundle bundle) {
-        this.f1285a = null;
+        this.f1319a = null;
         this.b = null;
         this.c = null;
         this.d = 1;
@@ -28,7 +28,7 @@ public class i {
             this.f = bundle.getInt("key_shake_time", 0);
             this.g = bundle.getBoolean("key_is_shaking", false);
             b(bundle.getBoolean("key_is_finished", false));
-            this.f1285a = bundle.getString("key_pk_id");
+            this.f1319a = bundle.getString("key_pk_id");
             this.b = bundle.getString("key_player_id");
             this.c = bundle.getString("key_player_name");
             this.d = bundle.getInt("key_mode", 1);
@@ -36,7 +36,7 @@ public class i {
     }
 
     public i(Intent intent) {
-        this.f1285a = null;
+        this.f1319a = null;
         this.b = null;
         this.c = null;
         this.d = 1;
@@ -48,7 +48,7 @@ public class i {
             this.f = intent.getIntExtra("key_shake_time", 0);
             this.g = intent.getBooleanExtra("key_is_shaking", false);
             b(intent.getBooleanExtra("key_is_finished", false));
-            this.f1285a = intent.getStringExtra("key_pk_id");
+            this.f1319a = intent.getStringExtra("key_pk_id");
             this.b = intent.getStringExtra("key_player_id");
             this.d = intent.getIntExtra("key_mode", 1);
             this.c = intent.getStringExtra("key_player_name");
@@ -59,7 +59,7 @@ public class i {
         bundle.putLong("key_left_time", this.e);
         bundle.putInt("key_shake_time", this.f);
         bundle.putBoolean("key_is_shaking", this.g);
-        bundle.putString("key_pk_id", this.f1285a);
+        bundle.putString("key_pk_id", this.f1319a);
         bundle.putString("key_player_id", this.b);
         bundle.putInt("key_mode", this.d);
         bundle.putString("key_player_name", this.c);
@@ -94,7 +94,7 @@ public class i {
     }
 
     public String e() {
-        return this.f1285a;
+        return this.f1319a;
     }
 
     public String f() {

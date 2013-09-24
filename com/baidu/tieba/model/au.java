@@ -1,72 +1,66 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.MarkData;
+import com.baidu.tieba.data.AntiData;
+import com.baidu.tieba.data.UserData;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class au extends com.baidu.adp.a.c {
-    private MarkData b;
+public class au {
+    private ArrayList<String> c;
+    private int d = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1372a = false;
-    private av c = null;
-    private aw d = null;
+    private UserData f1407a = new UserData();
+    private AntiData b = new AntiData();
 
     public au() {
-        this.b = null;
-        this.b = new MarkData();
+        this.c = null;
+        this.c = new ArrayList<>();
+        a(0);
     }
 
-    public boolean a() {
-        return this.f1372a;
+    public UserData a() {
+        return this.f1407a;
     }
 
-    public void a(aw awVar) {
-        this.d = awVar;
+    public AntiData b() {
+        return this.b;
     }
 
-    public void a(MarkData markData) {
-        this.b = markData;
-    }
-
-    public void a(boolean z) {
-        this.f1372a = z;
-    }
-
-    public String b() {
-        if (this.b != null) {
-            return this.b.getPostId();
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.av.b("LoginModel", "parserJson", "error = " + e.getMessage());
         }
-        return null;
     }
 
-    public void c() {
-        if (this.c != null) {
-            this.c.cancel();
+    public void a(JSONObject jSONObject) {
+        try {
+            this.f1407a.parserJson(jSONObject.optJSONObject("user"));
+            this.b.parserJson(jSONObject.optJSONObject("anti"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.c.add(optJSONArray.optString(i, null));
+                }
+            }
+            a(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            com.baidu.tieba.util.av.b("LoginModel", "parserJson", "error = " + e.getMessage());
         }
-        this.c = new av(this, true);
-        this.c.setPriority(3);
-        this.c.execute(new Boolean[0]);
     }
 
-    public void d() {
-        if (this.c != null) {
-            this.c.cancel();
-        }
-        this.c = new av(this, false);
-        this.c.setPriority(3);
-        this.c.execute(new Boolean[0]);
+    public ArrayList<String> c() {
+        return this.c;
     }
 
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        return false;
+    public void a(int i) {
+        this.d = i;
     }
 
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        if (this.c != null) {
-            this.c.cancel();
-            return false;
-        }
-        return false;
+    public int d() {
+        return this.d;
     }
 }

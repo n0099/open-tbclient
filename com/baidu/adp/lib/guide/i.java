@@ -6,17 +6,15 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import java.lang.reflect.InvocationTargetException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private final RectF f437a;
+    private final RectF f446a;
     private final RectF b;
     private final RectF c;
     private final Paint d;
@@ -32,7 +30,7 @@ public class i extends ViewGroup {
 
     public i(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f437a = new RectF();
+        this.f446a = new RectF();
         this.b = new RectF();
         this.c = new RectF();
         this.d = new Paint();
@@ -43,17 +41,6 @@ public class i extends ViewGroup {
         this.h.setColor(-65536);
         this.h.setStrokeWidth(10.0f);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        if (Build.VERSION.SDK_INT >= 11) {
-            try {
-                getClass().getMethod("setLayerType", Integer.TYPE, Paint.class).invoke(this, 1, null);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e2) {
-                e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
-            }
-        }
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
@@ -97,37 +84,37 @@ public class i extends ViewGroup {
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt != null && (jVar = (j) childAt.getLayoutParams()) != null) {
-                switch (jVar.f438a) {
+                switch (jVar.f447a) {
                     case 1:
-                        this.c.right = this.f437a.left;
+                        this.c.right = this.f446a.left;
                         this.c.left = this.c.right - childAt.getMeasuredWidth();
                         b(childAt, this.c, jVar.b);
                         break;
                     case 2:
-                        this.c.bottom = this.f437a.top;
+                        this.c.bottom = this.f446a.top;
                         this.c.top = this.c.bottom - childAt.getMeasuredHeight();
                         a(childAt, this.c, jVar.b);
                         break;
                     case 3:
-                        this.c.left = this.f437a.right;
+                        this.c.left = this.f446a.right;
                         this.c.right = this.c.left + childAt.getMeasuredWidth();
                         b(childAt, this.c, jVar.b);
                         break;
                     case 4:
-                        this.c.top = this.f437a.bottom;
+                        this.c.top = this.f446a.bottom;
                         this.c.bottom = this.c.top + childAt.getMeasuredHeight();
                         a(childAt, this.c, jVar.b);
                         break;
                     case 5:
-                        this.c.left = (((int) this.f437a.width()) - childAt.getMeasuredWidth()) >> 1;
-                        this.c.top = (((int) this.f437a.height()) - childAt.getMeasuredHeight()) >> 1;
-                        this.c.right = (((int) this.f437a.width()) + childAt.getMeasuredWidth()) >> 1;
-                        this.c.bottom = (((int) this.f437a.height()) + childAt.getMeasuredHeight()) >> 1;
-                        this.c.offset(this.f437a.left, this.f437a.top);
+                        this.c.left = (((int) this.f446a.width()) - childAt.getMeasuredWidth()) >> 1;
+                        this.c.top = (((int) this.f446a.height()) - childAt.getMeasuredHeight()) >> 1;
+                        this.c.right = (((int) this.f446a.width()) + childAt.getMeasuredWidth()) >> 1;
+                        this.c.bottom = (((int) this.f446a.height()) + childAt.getMeasuredHeight()) >> 1;
+                        this.c.offset(this.f446a.left, this.f446a.top);
                         break;
                 }
                 this.c.offset((int) ((jVar.c * f) + 0.5f), (int) ((jVar.d * f) + 0.5f));
-                com.baidu.adp.lib.e.d.e("MaskView", "onLayout", "child layout to: " + this.c);
+                com.baidu.adp.lib.f.d.e("MaskView", "onLayout", "child layout to: " + this.c);
                 childAt.layout((int) this.c.left, (int) this.c.top, (int) this.c.right, (int) this.c.bottom);
             }
         }
@@ -136,16 +123,16 @@ public class i extends ViewGroup {
     private void a(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.left = this.f437a.left;
+                rectF.left = this.f446a.left;
                 rectF.right = rectF.left + view.getMeasuredWidth();
                 return;
             case 32:
-                rectF.left = (this.f437a.width() - view.getMeasuredWidth()) / 2.0f;
-                rectF.right = (this.f437a.width() + view.getMeasuredWidth()) / 2.0f;
-                rectF.offset(this.f437a.left, 0.0f);
+                rectF.left = (this.f446a.width() - view.getMeasuredWidth()) / 2.0f;
+                rectF.right = (this.f446a.width() + view.getMeasuredWidth()) / 2.0f;
+                rectF.offset(this.f446a.left, 0.0f);
                 return;
             case 48:
-                rectF.right = this.f437a.right;
+                rectF.right = this.f446a.right;
                 rectF.left = rectF.right - view.getMeasuredWidth();
                 return;
             default:
@@ -156,17 +143,17 @@ public class i extends ViewGroup {
     private void b(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.top = this.f437a.top;
+                rectF.top = this.f446a.top;
                 rectF.bottom = rectF.top + view.getMeasuredHeight();
                 return;
             case 32:
-                rectF.top = (this.f437a.width() - view.getMeasuredHeight()) / 2.0f;
-                rectF.bottom = (this.f437a.width() + view.getMeasuredHeight()) / 2.0f;
-                rectF.offset(0.0f, this.f437a.top);
+                rectF.top = (this.f446a.width() - view.getMeasuredHeight()) / 2.0f;
+                rectF.bottom = (this.f446a.width() + view.getMeasuredHeight()) / 2.0f;
+                rectF.offset(0.0f, this.f446a.top);
                 return;
             case 48:
-                rectF.bottom = this.f437a.bottom;
-                rectF.top = this.f437a.bottom - view.getMeasuredHeight();
+                rectF.bottom = this.f446a.bottom;
+                rectF.top = this.f446a.bottom - view.getMeasuredHeight();
                 return;
             default:
                 return;
@@ -175,23 +162,23 @@ public class i extends ViewGroup {
 
     private void b() {
         this.e.reset();
-        this.e.addRect(this.f437a, Path.Direction.CW);
-        com.baidu.adp.lib.e.d.e("MaskView", "resetOutPath", "target rect = " + this.f437a);
+        this.e.addRect(this.f446a, Path.Direction.CW);
+        com.baidu.adp.lib.f.d.e("MaskView", "resetOutPath", "target rect = " + this.f446a);
         this.e.addRect(this.b, Path.Direction.CW);
-        com.baidu.adp.lib.e.d.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
+        com.baidu.adp.lib.f.d.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
     }
 
     public void a(Rect rect) {
-        this.f437a.set(rect);
+        this.f446a.set(rect);
         b();
-        com.baidu.adp.lib.e.d.e("MaskView", "settargetRect", "target rect = " + this.f437a);
+        com.baidu.adp.lib.f.d.e("MaskView", "settargetRect", "target rect = " + this.f446a);
         invalidate();
     }
 
     public void b(Rect rect) {
         this.b.set(rect);
         b();
-        com.baidu.adp.lib.e.d.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
+        com.baidu.adp.lib.f.d.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
         this.f = true;
         invalidate();
     }

@@ -8,25 +8,25 @@ import android.widget.TextView;
 public class t implements TextView.OnEditorActionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f911a;
+    final /* synthetic */ LoginActivity f927a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(LoginActivity loginActivity) {
-        this.f911a = loginActivity;
+        this.f927a = loginActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
     public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         View view;
         View view2;
-        view = this.f911a.G;
+        view = this.f927a.G;
         if (view.getVisibility() != 8 || i != 4) {
-            view2 = this.f911a.G;
+            view2 = this.f927a.G;
             if (view2.getVisibility() != 0 || i != 6) {
                 return false;
             }
         }
-        this.f911a.n();
+        this.f927a.o();
         return true;
     }
 }

@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public class m extends c {
-    protected final a c;
+public class m<T> extends c<T> {
+    protected final a<T> c;
 
-    public m(a aVar, d dVar, boolean z) {
+    public m(a<T> aVar, d dVar, boolean z) {
         super(dVar, z);
         this.c = aVar;
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public k a(String str) {
+    public k<T> a(String str) {
         return this.c.b(str);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public void a(k kVar) {
+    public void a(k<T> kVar) {
         this.c.b(kVar);
     }
 
@@ -31,10 +31,10 @@ public class m extends c {
     @Override // com.baidu.adp.lib.cache.p
     public void d(String str) {
         if (this.b instanceof f) {
-            com.baidu.adp.lib.e.f.a().a(new n(this, str));
+            com.baidu.adp.lib.d.b.a().a(new n(this, str));
         }
         if (this.b instanceof e) {
-            com.baidu.adp.lib.e.f.a().a(new o(this, str));
+            com.baidu.adp.lib.d.b.a().a(new o(this, str));
         }
     }
 }

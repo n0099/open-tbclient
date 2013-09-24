@@ -1,43 +1,40 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements TextWatcher {
+public class cq implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1546a;
+    final /* synthetic */ br f1588a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(bo boVar) {
-        this.f1546a = boVar;
+    public cq(br brVar) {
+        this.f1588a = brVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        ImageButton imageButton;
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            imageButton = this.f1546a.p;
-            if (imageButton.getTag() == null) {
-                button = this.f1546a.k;
-                button.setEnabled(false);
-                return;
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
+        BdListView bdListView;
+        db dbVar;
+        db dbVar2;
+        if (cVar != null) {
+            bdListView = this.f1588a.g;
+            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+            if (imageView != null) {
+                imageView.invalidate();
+            }
+            if (this.f1588a.E()) {
+                dbVar = this.f1588a.E;
+                if (dbVar != null) {
+                    dbVar2 = this.f1588a.E;
+                    ImageView imageView2 = (ImageView) dbVar2.g().findViewWithTag(str);
+                    if (imageView2 != null) {
+                        imageView2.invalidate();
+                    }
+                }
             }
         }
-        button2 = this.f1546a.k;
-        button2.setEnabled(true);
     }
 }

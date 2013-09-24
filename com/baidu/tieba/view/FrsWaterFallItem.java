@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class FrsWaterFallItem extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextPaint f1827a;
+    private TextPaint f1948a;
     private String b;
     private String c;
     private String d;
@@ -29,7 +29,7 @@ public class FrsWaterFallItem extends LinearLayout {
 
     public FrsWaterFallItem(Context context) {
         super(context);
-        this.f1827a = null;
+        this.f1948a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -47,7 +47,7 @@ public class FrsWaterFallItem extends LinearLayout {
 
     public FrsWaterFallItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1827a = null;
+        this.f1948a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -70,7 +70,7 @@ public class FrsWaterFallItem extends LinearLayout {
     }
 
     private void a() {
-        this.f1827a = new TextPaint(1);
+        this.f1948a = new TextPaint(1);
         this.l = new Paint();
         this.l.setAntiAlias(true);
         this.j = UtilHelper.a(getContext(), 5.0f);
@@ -87,13 +87,13 @@ public class FrsWaterFallItem extends LinearLayout {
             com.baidu.tieba.data.bi biVar = (com.baidu.tieba.data.bi) getTag();
             int height = ((getHeight() - getPaddingBottom()) - this.h) - this.j;
             int width = (getWidth() - getPaddingRight()) - this.j;
-            this.f1827a.setTextSize(this.h);
+            this.f1948a.setTextSize(this.h);
             if (this.m == 1) {
-                this.f1827a.setColor(-11446171);
+                this.f1948a.setColor(-11446171);
             } else {
-                this.f1827a.setColor(-5065030);
+                this.f1948a.setColor(-5065030);
             }
-            int ceil = (int) Math.ceil(this.f1827a.getFontMetrics().ascent);
+            int ceil = (int) Math.ceil(this.f1948a.getFontMetrics().ascent);
             if (biVar.e() > 0) {
                 if (this.d == null) {
                     if (biVar.e() > 999) {
@@ -103,9 +103,9 @@ public class FrsWaterFallItem extends LinearLayout {
                     }
                 }
                 if (this.e == -1) {
-                    this.e = (width - ((int) Math.ceil(UtilHelper.a((Paint) this.f1827a, this.d)))) - this.j;
+                    this.e = (width - ((int) Math.ceil(UtilHelper.a((Paint) this.f1948a, this.d)))) - this.j;
                 }
-                canvas.drawText(this.d, this.e, height - ceil, this.f1827a);
+                canvas.drawText(this.d, this.e, height - ceil, this.f1948a);
                 width = this.e;
             }
             if (this.e != -1) {
@@ -124,21 +124,21 @@ public class FrsWaterFallItem extends LinearLayout {
             } else {
                 a2 = com.baidu.tieba.util.e.a((int) R.drawable.icon_little_people);
             }
-            this.c = UtilHelper.a(this.f1827a, biVar.a(), (i - a2.getWidth()) - (this.j * 2));
+            this.c = UtilHelper.a(this.f1948a, biVar.a(), (i - a2.getWidth()) - (this.j * 2));
             int paddingLeft = getPaddingLeft() + this.j;
             canvas.drawBitmap(a2, paddingLeft, ((this.h - a2.getHeight()) / 2) + height, this.l);
-            canvas.drawText(this.c, a2.getWidth() + paddingLeft + this.j, height - ceil, this.f1827a);
-            this.f1827a.setTextSize(this.g);
+            canvas.drawText(this.c, a2.getWidth() + paddingLeft + this.j, height - ceil, this.f1948a);
+            this.f1948a.setTextSize(this.g);
             if (this.m == 1) {
-                this.f1827a.setColor(-8682086);
+                this.f1948a.setColor(-8682086);
             } else {
-                this.f1827a.setColor(-14277082);
+                this.f1948a.setColor(-14277082);
             }
-            int ceil2 = (int) Math.ceil(this.f1827a.getFontMetrics().ascent);
+            int ceil2 = (int) Math.ceil(this.f1948a.getFontMetrics().ascent);
             if (this.b == null) {
-                this.b = UtilHelper.a(this.f1827a, biVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - this.j);
+                this.b = UtilHelper.a(this.f1948a, biVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - this.j);
             }
-            canvas.drawText(this.b, this.k + this.j, (height - ((this.i + this.g) + UtilHelper.a(getContext(), 3.0f))) - ceil2, this.f1827a);
+            canvas.drawText(this.b, this.k + this.j, (height - ((this.i + this.g) + UtilHelper.a(getContext(), 3.0f))) - ceil2, this.f1948a);
         } catch (Exception e) {
             e.printStackTrace();
         }

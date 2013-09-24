@@ -1,91 +1,85 @@
 package com.baidu.tieba.service;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.aj;
-import com.baidu.tieba.util.aq;
+import com.baidu.tieba.write.bf;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends BdAsyncTask {
+public class o extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.v f1724a = null;
-    int b;
-    final /* synthetic */ TiebaMessageService c;
+    int f1798a;
+    Uri b;
+    String c = null;
+    final /* synthetic */ TiebaPrepareImageService d;
 
-    public o(TiebaMessageService tiebaMessageService, int i) {
-        this.c = tiebaMessageService;
-        this.b = 0;
-        this.b = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        super.b();
+    public o(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
+        this.d = tiebaPrepareImageService;
+        this.f1798a = 0;
+        this.b = null;
+        this.f1798a = i;
+        this.b = uri;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public aj a(String... strArr) {
-        aj ajVar;
-        Exception e;
+    /* renamed from: d */
+    public Boolean a(Object... objArr) {
+        int i;
+        boolean z = true;
+        TiebaPrepareImageService.f1781a = true;
         try {
-        } catch (Exception e2) {
-            ajVar = null;
-            e = e2;
-        }
-        if (TiebaApplication.g().ab()) {
-            this.f1724a = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/s/msg");
-            if (this.b == 2) {
-                this.f1724a.a("bookmark", "1");
-            }
-            String j = this.f1724a.j();
-            if (this.f1724a.c()) {
-                ajVar = new aj();
-                try {
-                    ajVar.a(j);
-                } catch (Exception e3) {
-                    e = e3;
-                    aq.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return ajVar;
+            int i2 = this.f1798a;
+            TiebaPrepareImageService tiebaPrepareImageService = this.d;
+            Uri uri = this.b;
+            i = this.d.f;
+            Bitmap a2 = bf.a(i2, tiebaPrepareImageService, uri, i);
+            if (a2 != null) {
+                if (com.baidu.tieba.util.p.a(null, "tieba_resized_image", a2, 80) != null) {
+                    Bitmap a3 = com.baidu.tieba.util.e.a(a2, 100);
+                    if (a3 == null || com.baidu.tieba.util.p.a(null, "tieba_resized_image_display", a3, 80) == null) {
+                        this.c = this.d.getString(R.string.error_sd_error);
+                        z = false;
+                    }
+                } else {
+                    this.c = this.d.getString(R.string.error_sd_error);
+                    z = false;
                 }
             } else {
-                ajVar = null;
+                this.c = this.d.getString(R.string.pic_parser_error);
+                z = false;
             }
-            return ajVar;
+            TiebaPrepareImageService.f1781a = false;
+        } catch (Exception e) {
+            TiebaPrepareImageService.f1781a = false;
+            z = false;
+        } catch (Throwable th) {
+            TiebaPrepareImageService.f1781a = false;
+            throw th;
         }
-        return null;
+        return Boolean.valueOf(z);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.c.f1706a = null;
-        this.c.b = null;
-        if (this.f1724a != null) {
-            this.f1724a.h();
-        }
+        this.d.d = null;
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(aj ajVar) {
-        try {
-            super.a((Object) ajVar);
-            this.c.f1706a = null;
-            this.c.b = null;
-            if (ajVar != null) {
-                this.c.c = ajVar;
-                if (this.b == 2) {
-                    TiebaApplication.g().a((Boolean) false);
-                }
-                this.c.b(this.b);
-            }
-        } catch (Exception e) {
-            aq.b(getClass().getName(), "onPostExecute", e.getMessage());
+    public void a(Boolean bool) {
+        super.a((o) bool);
+        Intent intent = new Intent("com.baidu.tieba.broadcast.image.resized");
+        intent.putExtra("result", bool);
+        if (this.c != null) {
+            intent.putExtra("error", this.c);
         }
+        this.d.sendBroadcast(intent);
     }
 }

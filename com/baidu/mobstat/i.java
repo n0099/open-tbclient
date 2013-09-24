@@ -5,19 +5,19 @@ import android.content.Context;
 class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f807a;
+    final /* synthetic */ h f819a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f807a = hVar;
+        this.f819a = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
         b a2 = b.a();
-        Context context = this.f807a.f806a;
-        z = this.f807a.b.b;
+        Context context = this.f819a.f818a;
+        z = this.f819a.b.b;
         a2.a(context, z);
     }
 }

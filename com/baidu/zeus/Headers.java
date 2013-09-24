@@ -72,10 +72,10 @@ public final class Headers {
     public static final String REFRESH = "refresh";
     public static final String X_PERMITTED_CROSS_DOMAIN_POLICIES = "x-permitted-cross-domain-policies";
     private static final String[] sHeaderNames = {TRANSFER_ENCODING, CONTENT_LEN, CONTENT_TYPE, CONTENT_ENCODING, CONN_DIRECTIVE, LOCATION, PROXY_CONNECTION, WWW_AUTHENTICATE, PROXY_AUTHENTICATE, CONTENT_DISPOSITION, ACCEPT_RANGES, EXPIRES, CACHE_CONTROL, LAST_MODIFIED, ETAG, SET_COOKIE, PRAGMA, REFRESH, X_PERMITTED_CROSS_DOMAIN_POLICIES};
-    private ArrayList cookies = new ArrayList(2);
+    private ArrayList<String> cookies = new ArrayList<>(2);
     private String[] mHeaders = new String[19];
-    private ArrayList mExtraHeaderNames = new ArrayList(4);
-    private ArrayList mExtraHeaderValues = new ArrayList(4);
+    private ArrayList<String> mExtraHeaderNames = new ArrayList<>(4);
+    private ArrayList<String> mExtraHeaderValues = new ArrayList<>(4);
     private long transferEncoding = 0;
     private long contentLength = -1;
     private int connectionType = 0;
@@ -291,7 +291,7 @@ public final class Headers {
         return this.mHeaders[14];
     }
 
-    public ArrayList getSetCookie() {
+    public ArrayList<String> getSetCookie() {
         return this.cookies;
     }
 
@@ -368,7 +368,7 @@ public final class Headers {
         }
         int size = this.mExtraHeaderNames.size();
         for (int i2 = 0; i2 < size; i2++) {
-            headerCallback.header((String) this.mExtraHeaderNames.get(i2), (String) this.mExtraHeaderValues.get(i2));
+            headerCallback.header(this.mExtraHeaderNames.get(i2), this.mExtraHeaderValues.get(i2));
         }
     }
 

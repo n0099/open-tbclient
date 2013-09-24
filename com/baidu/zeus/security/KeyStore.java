@@ -38,11 +38,11 @@ public class KeyStore {
     }
 
     public byte[] get(byte[] bArr) {
-        ArrayList execute = execute(103, bArr);
+        ArrayList<byte[]> execute = execute(103, bArr);
         if (execute == null || execute.isEmpty()) {
             return null;
         }
-        return (byte[]) execute.get(0);
+        return execute.get(0);
     }
 
     public String get(String str) {
@@ -81,7 +81,7 @@ public class KeyStore {
     }
 
     public byte[][] saw(byte[] bArr) {
-        ArrayList execute = execute(115, bArr);
+        ArrayList<byte[]> execute = execute(115, bArr);
         if (execute == null) {
             return null;
         }
@@ -141,7 +141,7 @@ public class KeyStore {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [222=6, 223=6] */
-    private ArrayList execute(int i, byte[]... bArr) {
+    private ArrayList<byte[]> execute(int i, byte[]... bArr) {
         this.mError = 5;
         for (byte[] bArr2 : bArr) {
             if (bArr2 == null || bArr2.length > 65535) {
@@ -173,7 +173,7 @@ public class KeyStore {
                     return null;
                 }
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList<byte[]> arrayList = new ArrayList<>();
             while (true) {
                 int read2 = inputStream.read();
                 if (read2 == -1) {

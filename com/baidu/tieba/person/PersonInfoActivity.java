@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.mobstat.StatService;
@@ -17,17 +16,18 @@ import com.baidu.tieba.chat.ChatActivity;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.more.MoreActivity;
+import com.baidu.tieba.person.post.PersonPostActivity;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PersonInfoActivity extends com.baidu.tieba.g {
+public class PersonInfoActivity extends com.baidu.tieba.j {
     private BroadcastReceiver c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    bi f1593a = null;
-    bh b = null;
-    private com.baidu.tieba.model.bm d = null;
+    bh f1643a = null;
+    bg b = null;
+    private com.baidu.tieba.model.bo d = null;
     private Boolean e = false;
 
     public static void a(Context context, String str, String str2) {
@@ -39,13 +39,13 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
             Intent intent = new Intent(context, PersonInfoActivity.class);
             intent.putExtra("un", str);
             intent.putExtra("name", str2);
-            if (TiebaApplication.E() != null && TiebaApplication.E().equals(str)) {
+            if (TiebaApplication.C() != null && TiebaApplication.C().equals(str)) {
                 intent.putExtra("self", true);
             } else {
                 intent.putExtra("self", false);
             }
             intent.putExtra("tab_page", false);
-            if (z) {
+            if (z || !(context instanceof Activity)) {
                 intent.setFlags(268435456);
             }
             context.startActivity(intent);
@@ -53,35 +53,35 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
         this.e = Boolean.valueOf(this.d.b());
-        d();
+        c();
         if (this.d.a() != null && this.d.a().length() > 0 && this.e.booleanValue()) {
-            k();
+            d();
         }
         DatabaseService.b((Boolean) true);
         if (this.d.a() != null && this.d.a().length() > 0) {
-            c();
+            b();
         }
+    }
+
+    private void c() {
+        if (this.e.booleanValue()) {
+            this.b = null;
+            this.f1643a = new bh(this, this.d);
+            this.f1643a.a(new ax(this));
+            return;
+        }
+        this.f1643a = null;
+        this.b = new bg(this, this.d);
     }
 
     private void d() {
-        if (this.e.booleanValue()) {
-            this.b = null;
-            this.f1593a = new bi(this, this.d);
-            this.f1593a.a(new ay(this));
-            return;
-        }
-        this.f1593a = null;
-        this.b = new bh(this, this.d);
-    }
-
-    private void k() {
         if (this.c == null) {
-            this.c = new az(this);
+            this.c = new ay(this);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.tieba.broadcast.notify");
             registerReceiver(this.c, intentFilter);
@@ -89,39 +89,30 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     }
 
     private void a(Bundle bundle) {
-        this.d = new com.baidu.tieba.model.bm(this);
+        this.d = new com.baidu.tieba.model.bo(this);
         if (bundle != null) {
             this.d.a(bundle.getBoolean("self", true));
             this.d.a(bundle.getString("un"));
             this.d.b(bundle.getString("name"));
-            this.d.c(bundle.getBoolean("tab_page", false));
-            this.d.d(bundle.getBoolean("tab_msg", false));
-            this.d.b(bundle.getBoolean("showBack", false));
+            this.d.b(bundle.getBoolean("tab_page", false));
+            this.d.c(bundle.getBoolean("tab_msg", false));
         } else {
             Intent intent = getIntent();
             if (intent != null) {
                 this.d.a(intent.getBooleanExtra("self", true));
                 this.d.a(intent.getStringExtra("un"));
                 this.d.b(intent.getStringExtra("name"));
-                this.d.c(intent.getBooleanExtra("tab_page", false));
-                this.d.d(intent.getBooleanExtra("tab_msg", false));
-                this.d.b(intent.getBooleanExtra("showBack", false));
+                this.d.b(intent.getBooleanExtra("tab_page", false));
+                this.d.c(intent.getBooleanExtra("tab_msg", false));
             }
         }
-        this.d.setLoadDataCallBack(new ba(this));
+        this.d.setLoadDataCallBack(new az(this));
     }
 
-    public boolean b() {
-        if (this.d != null) {
-            return this.d.d();
-        }
-        return false;
-    }
-
-    public void c() {
+    public void b() {
         if (this.e.booleanValue()) {
-            if (this.f1593a != null) {
-                this.f1593a.f(this.d);
+            if (this.f1643a != null) {
+                this.f1643a.f(this.d);
             }
             this.d.a(true, true);
             return;
@@ -137,52 +128,51 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
         super.onSaveInstanceState(bundle);
         bundle.putBoolean("self", this.d.b());
         bundle.putString("un", this.d.a());
-        bundle.putString("name", this.d.g());
-        bundle.putBoolean("tab_page", this.d.j());
-        bundle.putBoolean("tab_msg", this.d.k());
-        bundle.putBoolean("showBack", this.d.d());
+        bundle.putString("name", this.d.f());
+        bundle.putBoolean("tab_page", this.d.i());
+        bundle.putBoolean("tab_msg", this.d.j());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         boolean z = false;
         super.onResume();
         this.e = Boolean.valueOf(this.d.b());
         if (this.d.a() == null || this.d.a().length() <= 0) {
-            if (TiebaApplication.g().u()) {
+            if (TiebaApplication.g().s()) {
                 StatService.onEvent(this, "home_login_show", "loginshow", 1);
             }
-            if (TiebaApplication.E() != null) {
+            if (TiebaApplication.C() != null) {
                 this.d.a(true);
-                this.d.a(TiebaApplication.E());
-                this.d.b(TiebaApplication.I());
-                k();
-                c();
-                if (this.f1593a != null) {
-                    this.f1593a.a(true);
+                this.d.a(TiebaApplication.C());
+                this.d.b(TiebaApplication.G());
+                d();
+                b();
+                if (this.f1643a != null) {
+                    this.f1643a.a(true);
                 } else if (this.b != null) {
                     this.b.a(true);
                 }
-            } else if (this.f1593a != null) {
-                this.f1593a.a(false);
+            } else if (this.f1643a != null) {
+                this.f1643a.a(false);
             } else if (this.b != null) {
                 this.b.a(false);
             }
         } else if (this.e.booleanValue()) {
-            if (com.baidu.tieba.mention.r.a().i() != this.d.h()) {
-                this.d.a(com.baidu.tieba.mention.r.a().i());
+            if (com.baidu.tieba.mention.s.a().k() != this.d.g()) {
+                this.d.a(com.baidu.tieba.mention.s.a().k());
                 z = true;
             }
-            if (com.baidu.tieba.mention.r.a().k() != this.d.i()) {
-                this.d.c(com.baidu.tieba.mention.r.a().k());
+            if (com.baidu.tieba.mention.s.a().m() != this.d.h()) {
+                this.d.c(com.baidu.tieba.mention.s.a().m());
                 z = true;
             }
-            if (this.f1593a != null) {
+            if (this.f1643a != null) {
                 if (z) {
-                    this.f1593a.d(this.d);
+                    this.f1643a.d(this.d);
                 }
-                this.f1593a.a(true);
+                this.f1643a.a(true);
             }
         } else if (this.b != null) {
             this.b.a(false);
@@ -190,12 +180,12 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
         if (this.e.booleanValue()) {
-            if (this.f1593a != null) {
-                this.f1593a.a(i, this.d);
+            if (this.f1643a != null) {
+                this.f1643a.a(i, this.d);
             }
         } else if (this.b != null) {
             this.b.a(i, this.d);
@@ -203,27 +193,27 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
-    public void i() {
-        super.i();
+    @Override // com.baidu.tieba.j
+    public void j() {
+        super.j();
         d(-1);
         if (this.e.booleanValue()) {
-            if (this.f1593a != null) {
-                this.f1593a.b();
+            if (this.f1643a != null) {
+                this.f1643a.b();
             }
         } else if (this.b != null) {
             this.b.b();
         }
     }
 
-    public Boolean a(View view, bj bjVar) {
-        if (view == bjVar.k()) {
+    public Boolean a(View view, bi biVar) {
+        if (view == biVar.k()) {
             finish();
             return true;
-        } else if (view == bjVar.l()) {
+        } else if (view == biVar.l()) {
             MainTabActivity.a(this);
             return true;
-        } else if (view == bjVar.m()) {
+        } else if (view == biVar.m()) {
             PersonChangeData personChangeData = new PersonChangeData();
             if (this.d.c() != null) {
                 personChangeData.setName(this.d.c().getName_show());
@@ -233,10 +223,10 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
             }
             MoreActivity.a(this, WebChromeClient.STRING_DLG_TITLE_DATETIME, personChangeData);
             return true;
-        } else if (view == bjVar.n()) {
+        } else if (view == biVar.n()) {
             LoginActivity.a((Activity) this, (String) null, true, 11003);
             return true;
-        } else if (view != bjVar.o()) {
+        } else if (view != biVar.o()) {
             return false;
         } else {
             Register2Activity.a(this, 12007);
@@ -248,22 +238,27 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
     public void onClick(View view) {
         UserData c = this.d.c();
         if (this.e.booleanValue()) {
-            if (this.f1593a != null && !a(view, this.f1593a).booleanValue()) {
-                if (view == this.f1593a.d()) {
-                    if (TiebaApplication.g().u()) {
+            if (this.f1643a != null && !a(view, this.f1643a).booleanValue()) {
+                if (view == this.f1643a.d()) {
+                    if (TiebaApplication.g().s()) {
                         StatService.onEvent(this, "personal_my_collect", "personclick", 1);
                     }
                     EditMarkActivity.a(this, (int) WebChromeClient.STRING_DLG_TITLE_WEEK);
-                } else if (view == this.f1593a.e()) {
+                } else if (view == this.f1643a.e()) {
                     new com.baidu.tieba.account.ag("tb_mytieba").start();
                     EditBarActivity.a(this, 103, null, c != null ? c.getSex() : 0);
-                } else if (view == this.f1593a.f()) {
-                    PersonListActivity.a(this, true, TiebaApplication.E(), c != null ? c.getSex() : 0);
-                } else if (view == this.f1593a.g()) {
-                    PersonListActivity.a(this, false, TiebaApplication.E(), c != null ? c.getSex() : 0);
-                } else if (view == this.f1593a.h()) {
-                    startActivity(new Intent(this, MyPostActivity.class));
-                } else if (view == this.f1593a.i()) {
+                } else if (view == this.f1643a.f()) {
+                    PersonListActivity.a(this, true, TiebaApplication.C(), c != null ? c.getSex() : 0);
+                } else if (view == this.f1643a.g()) {
+                    PersonListActivity.a(this, false, TiebaApplication.C(), c != null ? c.getSex() : 0);
+                } else if (view == this.f1643a.h()) {
+                    if (TiebaApplication.g().s()) {
+                        StatService.onEvent(this, "personal_my_threads", "click", 1);
+                    }
+                    if (this.d != null && this.d.c() != null) {
+                        PersonPostActivity.a(this, TiebaApplication.C(), 0, this.d.c().getPortrait());
+                    }
+                } else if (view == this.f1643a.i()) {
                     PersonChangeData personChangeData = new PersonChangeData();
                     if (this.d.c() != null) {
                         personChangeData.setName(this.d.c().getName_show());
@@ -281,10 +276,10 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                 }
             } else if (view == this.b.g()) {
                 if (c != null) {
-                    MyPostActivity.a(this, c.getId(), c.getSex());
-                    if (TiebaApplication.g().u()) {
+                    if (TiebaApplication.g().s()) {
                         StatService.onEvent(this, "personal_his_threads", "click", 1);
                     }
+                    PersonPostActivity.a(this, c.getId(), c.getSex(), this.d.c().getPortrait());
                 }
             } else if (view == this.b.h()) {
                 if (c != null) {
@@ -296,34 +291,34 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
                 }
             } else if (view == this.b.d()) {
                 this.b.c(this.d);
-                this.d.e();
+                this.d.d();
             } else if (view == this.b.e() && c != null) {
                 if (this.d.a() == null || this.d.a().length() <= 0) {
                     LoginActivity.a((Activity) this, getString(R.string.login_to_chat), true, 11028);
                 } else {
-                    l();
+                    e();
                 }
             }
         }
     }
 
-    private void l() {
-        if (TiebaApplication.g().u()) {
+    private void e() {
+        if (TiebaApplication.g().s()) {
             StatService.onEvent(this, "enter_chat", "personclick", 1);
         }
         ChatActivity.a(this, this.d.c().getId(), this.d.c().getName(), this.d.c().getPortrait(), null, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         if (this.d.a() != null && this.d.a().length() > 0 && this.d.b() && this.c != null) {
             unregisterReceiver(this.c);
         }
-        this.d.l();
+        this.d.k();
         if (this.e.booleanValue()) {
-            if (this.f1593a != null) {
-                this.f1593a.c();
+            if (this.f1643a != null) {
+                this.f1643a.c();
             }
         } else if (this.b != null) {
             this.b.c();
@@ -339,15 +334,15 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
             if (i == 101) {
                 a(intent);
             } else if (i == 11003 || i == 12007) {
-                if (TiebaApplication.E() != null) {
+                if (TiebaApplication.C() != null) {
                     this.d.a(true);
-                    this.d.a(TiebaApplication.E());
-                    this.d.b(TiebaApplication.I());
-                    k();
-                    c();
+                    this.d.a(TiebaApplication.C());
+                    this.d.b(TiebaApplication.G());
+                    d();
+                    b();
                 }
             } else if (i == 11028) {
-                l();
+                e();
             }
         }
     }
@@ -357,22 +352,22 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
         if (personChangeData != null && this.d.c() != null) {
             this.d.a(personChangeData);
             if (this.e.booleanValue()) {
-                if (this.f1593a != null) {
-                    this.f1593a.d(this.d);
+                if (this.f1643a != null) {
+                    this.f1643a.d(this.d);
                 }
             } else if (this.b != null) {
                 this.b.d(this.d);
             }
             if (personChangeData.getPhotoChanged()) {
                 if (this.e.booleanValue()) {
-                    if (this.f1593a != null) {
-                        this.f1593a.j();
+                    if (this.f1643a != null) {
+                        this.f1643a.j();
                     }
                 } else if (this.b != null) {
                     this.b.j();
                 }
                 if (this.d.c() != null) {
-                    this.d.f().e(this.d.c().getPortrait());
+                    this.d.e().e(this.d.c().getPortrait());
                 }
                 this.d.a(false, false);
             }
@@ -381,14 +376,13 @@ public class PersonInfoActivity extends com.baidu.tieba.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void m() {
-        SharedPreferences sharedPreferences = TiebaApplication.g().getSharedPreferences("settings", 0);
-        if (!sharedPreferences.getBoolean("key_show_tip_send_message", false)) {
+        if (!com.baidu.tieba.sharedPref.b.a().a("key_show_tip_send_message", false)) {
             com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
             gVar.b(R.id.guest_btn_send_message).a(WebChromeClient.STRING_DLG_BTN_SET).a(true);
-            bf bfVar = new bf(this);
-            gVar.a(bfVar).a(new bg(this));
+            be beVar = new be(this);
+            gVar.a(beVar).a(new bf(this));
             gVar.a().a(this);
-            sharedPreferences.edit().putBoolean("key_show_tip_send_message", true).commit();
+            com.baidu.tieba.sharedPref.b.a().b("key_show_tip_send_message", true);
         }
     }
 }

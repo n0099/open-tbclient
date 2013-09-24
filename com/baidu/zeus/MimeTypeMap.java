@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class MimeTypeMap {
     private static MimeTypeMap sMimeTypeMap;
-    private HashMap mMimeTypeToExtensionMap = new HashMap();
-    private HashMap mExtensionToMimeTypeMap = new HashMap();
+    private HashMap<String, String> mMimeTypeToExtensionMap = new HashMap<>();
+    private HashMap<String, String> mExtensionToMimeTypeMap = new HashMap<>();
 
     private MimeTypeMap() {
     }
@@ -48,7 +48,7 @@ public class MimeTypeMap {
         if (str == null || str.length() <= 0) {
             return null;
         }
-        return (String) this.mExtensionToMimeTypeMap.get(str);
+        return this.mExtensionToMimeTypeMap.get(str);
     }
 
     private static String mimeTypeFromExtension(String str) {
@@ -66,7 +66,7 @@ public class MimeTypeMap {
         if (str == null || str.length() <= 0) {
             return null;
         }
-        return (String) this.mMimeTypeToExtensionMap.get(str);
+        return this.mMimeTypeToExtensionMap.get(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

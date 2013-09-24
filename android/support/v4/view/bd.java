@@ -6,17 +6,17 @@ import android.view.ViewConfiguration;
 public class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    static final bg f319a;
+    static final bg f323a;
 
     static {
         if (Build.VERSION.SDK_INT >= 11) {
-            f319a = new bf();
+            f323a = new bf();
         } else {
-            f319a = new be();
+            f323a = new be();
         }
     }
 
     public static int a(ViewConfiguration viewConfiguration) {
-        return f319a.a(viewConfiguration);
+        return f323a.a(viewConfiguration);
     }
 }

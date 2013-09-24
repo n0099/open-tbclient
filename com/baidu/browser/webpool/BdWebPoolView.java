@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 import com.baidu.browser.core.BdNoProGuard;
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.browser.webkit.BdConsoleMessage;
 import com.baidu.browser.webkit.BdDownloadListener;
 import com.baidu.browser.webkit.BdGeolocationPermissions;
 import com.baidu.browser.webkit.BdHttpAuthHandler;
@@ -94,7 +96,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
     private BdDownloadListener mDownloadListener;
     protected FrameLayout mFullscreenContainer;
     private boolean mIsForeground;
-    protected Map mJsItems;
+    protected Map<String, Object> mJsItems;
     private long mLastVisitTime;
     private Bundle mLoadExtra;
     private BdWebPoolMaskView mMaskView;
@@ -104,7 +106,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
     private BdWebPoolChromeClient mWebPoolChromeClient;
     private BdWebPoolCustomViewClient mWebPoolCustomViewClient;
     private BdWebPoolViewClient mWebPoolViewClient;
-    private List mWebViewList;
+    private List<BdWebPoolCustomView> mWebViewList;
     private static final String[] ARRAY_STR_MARKET_URLS = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
     protected static final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
     private static Handler sPrivateHandler = new Handler() { // from class: com.baidu.browser.webpool.BdWebPoolView.1
@@ -174,8 +176,8 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
             this.mJsItems.remove(str);
         }
         this.mJsItems.put(str, obj);
-        for (BdWebView bdWebView : this.mWebViewList) {
-            bdWebView.addJavascriptInterface(obj, str);
+        for (BdWebPoolCustomView bdWebPoolCustomView : this.mWebViewList) {
+            bdWebPoolCustomView.addJavascriptInterface(obj, str);
         }
     }
 
@@ -264,7 +266,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
     public void clear() {
         BdLog.i("");
         while (this.mWebViewList.size() > 0) {
-            destoryWebView((BdWebPoolCustomView) this.mWebViewList.get(0));
+            destoryWebView(this.mWebViewList.get(0));
         }
         this.mBackForwardList.clear();
         this.mCurWebView = null;
@@ -272,13 +274,13 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
 
     public BdWebPoolCustomView clearExceptReuseOne(int i) {
         BdLog.i("");
-        BdWebPoolCustomView bdWebPoolCustomView = (BdWebPoolCustomView) this.mWebViewList.remove(i);
+        BdWebPoolCustomView remove = this.mWebViewList.remove(i);
         while (this.mWebViewList.size() > 0) {
-            destoryWebView((BdWebPoolCustomView) this.mWebViewList.get(0));
+            destoryWebView(this.mWebViewList.get(0));
         }
         this.mBackForwardList.clear();
         this.mCurWebView = null;
-        return bdWebPoolCustomView;
+        return remove;
     }
 
     protected void reuseWebView(BdWebPoolCustomView bdWebPoolCustomView) {
@@ -684,8 +686,8 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
     @Override // android.view.View
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
-        for (BdWebView bdWebView : this.mWebViewList) {
-            stringBuffer.append(getWebViewDebugInfo(bdWebView));
+        for (BdWebPoolCustomView bdWebPoolCustomView : this.mWebViewList) {
+            stringBuffer.append(getWebViewDebugInfo(bdWebPoolCustomView));
         }
         return stringBuffer.toString();
     }
@@ -740,8 +742,8 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
         bdWebPoolCustomView.setWebPoolView(this);
         this.mWebPoolCustomViewClient = new BdWebPoolCustomViewClient();
         bdWebPoolCustomView.setWebViewClient(this.mWebPoolCustomViewClient);
-        bdWebPoolCustomView.setWebChromeClient(new BdWebPoolCustomChromeClient());
         bdWebPoolCustomView.setWebJsClient(new BdWebPoolCustomJsClient());
+        bdWebPoolCustomView.setWebChromeClient(new BdWebPoolCustomChromeClient(bdWebPoolCustomView));
         bdWebPoolCustomView.setOnLongClickListener(this);
         bdWebPoolCustomView.disableZoomButtonsController();
         bdWebPoolCustomView.setScrollBarStyle(33554432);
@@ -782,7 +784,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
         if (i < 0 || i >= this.mWebViewList.size()) {
             return null;
         }
-        return (BdWebPoolCustomView) this.mWebViewList.get(i);
+        return this.mWebViewList.get(i);
     }
 
     public BdWebPoolBackForwardListItem getItem(int i) {
@@ -964,7 +966,7 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
         while (true) {
             int i2 = i;
             if (i2 < this.mWebViewList.size()) {
-                if (((BdWebView) this.mWebViewList.get(i2)).equals(bdWebView)) {
+                if (this.mWebViewList.get(i2).equals(bdWebView)) {
                     return i2;
                 }
                 i = i2 + 1;
@@ -1406,14 +1408,14 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
         int i6 = 0;
         int i7 = 0;
         while (i6 < round) {
-            int i8 = !recycleWebView((BdWebPoolCustomView) this.mWebViewList.get(i7)) ? i7 + 1 : i7;
+            int i8 = !recycleWebView(this.mWebViewList.get(i7)) ? i7 + 1 : i7;
             BdLog.i(new StringBuilder(String.valueOf(i8)).toString());
             i6++;
             i7 = i8;
         }
         int size2 = this.mWebViewList.size() - 1;
         while (i2 < i5) {
-            recycleWebView((BdWebPoolCustomView) this.mWebViewList.get(size2));
+            recycleWebView(this.mWebViewList.get(size2));
             int i9 = size2 - 1;
             BdLog.i(new StringBuilder(String.valueOf(i9)).toString());
             i2++;
@@ -2259,7 +2261,58 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class BdWebPoolCustomChromeClient extends BdWebChromeClient {
-        BdWebPoolCustomChromeClient() {
+        protected static final String JIS_NAME = "FLYFLOW-JSI:";
+        protected static final String PARAM_SEPARATOR = "\\|";
+        BdWebPoolCustomView webview;
+
+        BdWebPoolCustomChromeClient(BdWebPoolCustomView bdWebPoolCustomView) {
+            this.webview = bdWebPoolCustomView;
+        }
+
+        protected boolean isJsPromptDefaultValueValid(String str) {
+            return (TextUtils.isEmpty(str) || str.equalsIgnoreCase("null")) ? false : true;
+        }
+
+        @Override // com.baidu.browser.webkit.BdWebChromeClient
+        public boolean onConsoleMessage(BdConsoleMessage bdConsoleMessage) {
+            String message = bdConsoleMessage.message();
+            if (TextUtils.isEmpty(message) || !message.startsWith(JIS_NAME)) {
+                return super.onConsoleMessage(bdConsoleMessage);
+            }
+            BdWebPoolCustomJsClient webJsClient = this.webview.getWebJsClient();
+            String substring = message.substring(JIS_NAME.length());
+            int indexOf = substring.indexOf(58);
+            if (indexOf != -1) {
+                String substring2 = substring.substring(0, indexOf);
+                String substring3 = substring.substring(indexOf + 1);
+                if (!isJsPromptDefaultValueValid(substring3)) {
+                    substring3 = null;
+                }
+                dispatchJsConsole(substring2, substring3, webJsClient);
+            }
+            return true;
+        }
+
+        private void dispatchJsConsole(String str, String str2, BdWebPoolCustomJsClient bdWebPoolCustomJsClient) {
+            if (bdWebPoolCustomJsClient != null) {
+                try {
+                    if (str.equals("onGoBack")) {
+                        bdWebPoolCustomJsClient.onGoBack(this.webview);
+                    } else if (str.equals("onGoForward")) {
+                        bdWebPoolCustomJsClient.onGoForward(this.webview);
+                    } else if (str.equals("onGo")) {
+                        if (str2 != null) {
+                            bdWebPoolCustomJsClient.onGo(this.webview, Integer.parseInt(str2));
+                        }
+                    } else if (str.equals("onClick")) {
+                        bdWebPoolCustomJsClient.onClick(this.webview, str2);
+                    } else if (str.equals("onReload")) {
+                        bdWebPoolCustomJsClient.onReload(this.webview);
+                    }
+                } catch (Exception e) {
+                    BdLog.printStackTrace(e);
+                }
+            }
         }
 
         @Override // com.baidu.browser.webkit.BdWebChromeClient
@@ -2348,21 +2401,21 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
         }
 
         @Override // com.baidu.browser.webkit.BdWebChromeClient
-        public void openFileChooser(BdValueCallback bdValueCallback, String str, String str2) {
+        public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str, String str2) {
             if (BdWebPoolView.this.mWebPoolChromeClient != null) {
                 BdWebPoolView.this.mWebPoolChromeClient.openFileChooser(bdValueCallback, str, str2);
             }
         }
 
         @Override // com.baidu.browser.webkit.BdWebChromeClient
-        public void openFileChooser(BdValueCallback bdValueCallback, String str) {
+        public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str) {
             if (BdWebPoolView.this.mWebPoolChromeClient != null) {
                 BdWebPoolView.this.mWebPoolChromeClient.openFileChooser(bdValueCallback, str);
             }
         }
 
         @Override // com.baidu.browser.webkit.BdWebChromeClient
-        public void openFileChooser(BdValueCallback bdValueCallback) {
+        public void openFileChooser(BdValueCallback<Uri> bdValueCallback) {
             if (BdWebPoolView.this.mWebPoolChromeClient != null) {
                 BdWebPoolView.this.mWebPoolChromeClient.openFileChooser(bdValueCallback);
             }
@@ -2470,49 +2523,39 @@ public class BdWebPoolView extends FrameLayout implements View.OnLongClickListen
 
         @Override // com.baidu.browser.webkit.BdWebJsClient
         public void onGoBack(BdWebView bdWebView) {
-            if (!bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
-                return;
+            if (bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
+                BdWebPoolView.this.goBack();
             }
-            BdWebPoolView.sPrivateHandler.obtainMessage(1, BdWebPoolView.this).sendToTarget();
         }
 
         @Override // com.baidu.browser.webkit.BdWebJsClient
         public void onGoForward(BdWebView bdWebView) {
-            if (!bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
-                return;
+            if (bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
+                BdWebPoolView.this.getForeground();
             }
-            BdWebPoolView.sPrivateHandler.obtainMessage(2, BdWebPoolView.this).sendToTarget();
         }
 
         @Override // com.baidu.browser.webkit.BdWebJsClient
         public void onGo(BdWebView bdWebView, int i) {
             if (bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
-                BdWebPoolView.sPrivateHandler.obtainMessage(3, i, 0, BdWebPoolView.this).sendToTarget();
+                if (i < 0) {
+                    BdWebPoolView.this.goBack();
+                } else if (i > 0) {
+                    BdWebPoolView.this.goForward();
+                }
             }
         }
 
         @Override // com.baidu.browser.webkit.BdWebJsClient
         public void onClick(BdWebView bdWebView, String str) {
-            if (bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
-                ((BdWebPoolCustomView) bdWebView).setClickLink(str);
-                BdWebPoolView.sPrivateHandler.obtainMessage(5, BdWebPoolView.this).sendToTarget();
-            }
+            bdWebView.equals(BdWebPoolView.this.mCurWebView);
         }
 
         @Override // com.baidu.browser.webkit.BdWebJsClient
         public void onReload(BdWebView bdWebView) {
-            if (!bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
-                return;
+            if (bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
+                BdWebPoolView.this.reload();
             }
-            BdWebPoolView.sPrivateHandler.obtainMessage(4, BdWebPoolView.this).sendToTarget();
-        }
-
-        @Override // com.baidu.browser.webkit.BdWebJsClient
-        public void onWebJsClientFinished(BdWebView bdWebView) {
-            if (!bdWebView.equals(BdWebPoolView.this.mCurWebView)) {
-                return;
-            }
-            BdWebPoolView.sPrivateHandler.obtainMessage(6, BdWebPoolView.this).sendToTarget();
         }
     }
 }

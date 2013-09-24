@@ -1,7 +1,11 @@
 package com.baidu.tieba.util;
-/* loaded from: classes.dex */
-public interface az {
-    void a();
 
-    void b();
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class az implements DialogInterface.OnClickListener {
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.cancel();
+    }
 }

@@ -16,7 +16,7 @@ class FrameLoader {
     private static final String mAboutBlank = "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EB\"><html><head><title>about:blank</title></head><body></body></html>";
     private int mCacheMode;
     private String mContentType;
-    private Map mHeaders;
+    private Map<String, String> mHeaders;
     private final LoadListener mListener;
     private final String mMethod;
     private Network mNetwork;
@@ -218,7 +218,7 @@ class FrameLoader {
     }
 
     private void populateStaticHeaders() {
-        String str = (String) this.mHeaders.get("Accept");
+        String str = this.mHeaders.get("Accept");
         if (str == null || str.length() == 0) {
             this.mHeaders.put("Accept", HEADER_STR);
         }
@@ -227,7 +227,7 @@ class FrameLoader {
         if (acceptLanguage.length() > 0) {
             this.mHeaders.put("Accept-Language", acceptLanguage);
         }
-        if (!((String) this.mHeaders.get(HttpUtils.HEADER_NAME_USER_AGENT)).equals(IPHONE_UA)) {
+        if (!this.mHeaders.get(HttpUtils.HEADER_NAME_USER_AGENT).equals(IPHONE_UA)) {
             this.mHeaders.put(HttpUtils.HEADER_NAME_USER_AGENT, this.mSettings.getUserAgentString());
         }
     }

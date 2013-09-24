@@ -1,24 +1,19 @@
 package com.baidu.tieba.home;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.MainTabActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
+class y implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ x f1199a;
-    private final /* synthetic */ Context b;
+    final /* synthetic */ w f1232a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar, Context context) {
-        this.f1199a = xVar;
-        this.b = context;
+    public y(w wVar) {
+        this.f1232a = wVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity.a(this.b, 2);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.cancel();
     }
 }

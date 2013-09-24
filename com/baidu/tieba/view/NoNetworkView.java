@@ -20,7 +20,7 @@ import java.util.Iterator;
 public class NoNetworkView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList f1836a = new ArrayList();
+    private static ArrayList<NoNetworkView> f1960a = new ArrayList<>();
     private static boolean f;
     private TextView b;
     private ImageView c;
@@ -28,23 +28,23 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
     private TextView e;
     private Context g;
     private boolean h;
-    private ArrayList i;
+    private ArrayList<az> i;
 
     public NoNetworkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.i = new ArrayList();
+        this.i = new ArrayList<>();
         a(context);
     }
 
     public NoNetworkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.i = new ArrayList();
+        this.i = new ArrayList<>();
         a(context);
     }
 
     public NoNetworkView(Context context) {
         super(context);
-        this.i = new ArrayList();
+        this.i = new ArrayList<>();
         a(context);
     }
 
@@ -68,15 +68,15 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
         setIsHasNetwork(false);
     }
 
-    public void a(ax axVar) {
-        if (axVar != null && !this.i.contains(axVar)) {
-            this.i.add(axVar);
+    public void a(az azVar) {
+        if (azVar != null && !this.i.contains(azVar)) {
+            this.i.add(azVar);
         }
     }
 
-    public void b(ax axVar) {
-        if (axVar != null && this.i.contains(axVar)) {
-            this.i.remove(axVar);
+    public void b(az azVar) {
+        if (azVar != null && this.i.contains(azVar)) {
+            this.i.remove(azVar);
         }
     }
 
@@ -84,15 +84,15 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
         if (z != f) {
             f = z;
             if (f) {
-                Iterator it = f1836a.iterator();
+                Iterator<NoNetworkView> it = f1960a.iterator();
                 while (it.hasNext()) {
-                    ((NoNetworkView) it.next()).setVisible(false);
+                    it.next().setVisible(false);
                 }
                 return;
             }
-            Iterator it2 = f1836a.iterator();
+            Iterator<NoNetworkView> it2 = f1960a.iterator();
             while (it2.hasNext()) {
-                ((NoNetworkView) it2.next()).setVisible(true);
+                it2.next().setVisible(true);
             }
         }
     }
@@ -104,20 +104,20 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new av(this));
+                alphaAnimation.setAnimationListener(new ax(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
                 for (int i = 0; i < this.i.size(); i++) {
-                    ((ax) this.i.get(i)).a(false);
+                    this.i.get(i).a(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
-                alphaAnimation2.setAnimationListener(new aw(this));
+                alphaAnimation2.setAnimationListener(new ay(this));
                 startAnimation(alphaAnimation2);
                 for (int i2 = 0; i2 < this.i.size(); i2++) {
-                    ((ax) this.i.get(i2)).a(true);
+                    this.i.get(i2).a(true);
                 }
             }
         }
@@ -135,13 +135,13 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        f1836a.add(this);
+        f1960a.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f1836a.remove(this);
+        f1960a.remove(this);
         this.i.clear();
     }
 

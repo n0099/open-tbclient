@@ -8,10 +8,10 @@ import android.os.Handler;
 import android.view.View;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.ba;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
+public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
     private l b;
     private k c;
     private String d;
@@ -21,7 +21,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     private Handler g = new Handler();
 
     /* renamed from: a  reason: collision with root package name */
-    Runnable f1237a = new i(this);
+    Runnable f1271a = new i(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
@@ -31,11 +31,11 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     }
 
     protected void c() {
-        if (this.b.f1250a != null && !this.b.f1250a.g()) {
-            if (this.b.f1250a.f()) {
-                PKEndActivity.a(this, this.d, this.b.f1250a.d());
+        if (this.b.f1284a != null && !this.b.f1284a.g()) {
+            if (this.b.f1284a.f()) {
+                PKEndActivity.a(this, this.d, this.b.f1284a.d());
             } else {
-                PKingActivity.a(this, this.d, this.b.f1250a.d());
+                PKingActivity.a(this, this.d, this.b.f1284a.d());
             }
             finish();
         }
@@ -43,7 +43,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
 
     @Override // com.baidu.adp.widget.ScrollView.n
     public void a() {
-        k();
+        e();
     }
 
     public static void a(Context context, String str, String str2) {
@@ -56,7 +56,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
         context.startActivity(intent);
     }
 
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.j = new com.baidu.tieba.util.a(this);
@@ -66,12 +66,12 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
         setContentView(R.layout.kn_pkwaiting_activity);
         this.b = new l(this, stringExtra);
         this.b.b.a(this);
-        if (PKJumpActivity.f1236a != null) {
-            a(PKJumpActivity.f1236a);
-            PKJumpActivity.f1236a = null;
+        if (PKJumpActivity.f1270a != null) {
+            a(PKJumpActivity.f1270a);
+            PKJumpActivity.f1270a = null;
             return;
         }
-        k();
+        e();
     }
 
     @Override // android.app.Activity
@@ -81,7 +81,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
         this.b.b.a(0);
@@ -93,11 +93,11 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
             d();
         } else if (this.e) {
             if (view.getId() == R.id.pk_left_bar_container) {
-                FrsActivity.a(this, this.b.f1250a.j.e, (String) null);
+                FrsActivity.a(this, this.b.f1284a.j.e, (String) null);
             } else if (view.getId() == R.id.pk_right_bar_container) {
-                FrsActivity.a(this, this.b.f1250a.k.e, (String) null);
+                FrsActivity.a(this, this.b.f1284a.k.e, (String) null);
             } else {
-                av.a(this, view.getId(), this.b.f1250a.f1257a, new j(this));
+                ba.a(this, view.getId(), this.b.f1284a.f1291a, new j(this));
             }
         }
     }
@@ -106,7 +106,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
         finish();
     }
 
-    protected void k() {
+    protected void e() {
         this.b.a().setVisibility(0);
         if (this.c != null) {
             this.c.cancel(true);
@@ -130,7 +130,7 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void l() {
+    public void m() {
         if (this.c != null) {
             this.c.cancel(true);
             this.c = null;
@@ -139,17 +139,17 @@ public class PKWaitingActivity extends com.baidu.tieba.g implements View.OnClick
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.g.removeCallbacks(this.f1237a);
-        l();
+        this.g.removeCallbacks(this.f1271a);
+        m();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.g.postDelayed(this.f1237a, 1000L);
+        this.g.postDelayed(this.f1271a, 1000L);
     }
 }

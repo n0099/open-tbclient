@@ -6,113 +6,108 @@ import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.tieba.data.av;
-import com.baidu.tieba.data.aw;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class t extends BaseAdapter {
+public class t extends com.baidu.adp.widget.ListView.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f1755a;
-    private com.baidu.tieba.util.a h;
-    private com.baidu.tieba.util.a i;
-    private LinearLayout b = null;
-    private av c = null;
-    private HeadImageView d = null;
-    private HeadImageView e = null;
-    private HeadImageView f = null;
-    private LinearLayout g = null;
-    private View.OnClickListener j = new u(this);
+    private Activity f1854a;
+    private com.baidu.tieba.data.av b;
+    private com.baidu.tieba.util.a c;
+    private com.baidu.tieba.util.a d;
+    private View.OnClickListener e;
 
     public t(Activity activity) {
-        this.f1755a = null;
-        this.f1755a = activity;
-        int b = UtilHelper.b(activity, UtilHelper.a((Context) activity));
-        int a2 = UtilHelper.a(activity, b - 20);
-        int a3 = UtilHelper.a(activity, ((b - 20) * 90) / 300);
-        this.h = new com.baidu.tieba.util.a(activity);
-        this.h.a(a2, a3);
-        int a4 = UtilHelper.a(activity, (b - 26) / 2);
-        int a5 = UtilHelper.a(activity, (((b - 26) / 2) * 90) / 147);
-        this.i = new com.baidu.tieba.util.a(activity);
-        this.i.a(a4, a5);
-        a();
+        super(activity);
+        this.f1854a = null;
+        this.b = null;
+        this.e = new u(this);
+        this.f1854a = activity;
+        int b = UtilHelper.b(this.f1854a, UtilHelper.a((Context) this.f1854a));
+        int a2 = UtilHelper.a(this.f1854a, b - 20);
+        int a3 = UtilHelper.a(this.f1854a, ((b - 20) * 90) / 300);
+        this.c = new com.baidu.tieba.util.a(this.f1854a);
+        this.c.a(a2, a3);
+        int a4 = UtilHelper.a(this.f1854a, (b - 26) / 2);
+        int a5 = UtilHelper.a(this.f1854a, (((b - 26) / 2) * 90) / 147);
+        this.d = new com.baidu.tieba.util.a(this.f1854a);
+        this.d.a(a4, a5);
     }
 
-    @Override // android.widget.Adapter
+    @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
     public int getCount() {
         return 1;
     }
 
-    @Override // android.widget.Adapter
+    @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
     public Object getItem(int i) {
         return Integer.valueOf(i);
     }
 
-    @Override // android.widget.Adapter
+    @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
     public long getItemId(int i) {
         return i;
     }
 
-    @Override // android.widget.Adapter
+    @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.b;
-    }
-
-    private void a() {
-        this.b = (LinearLayout) LayoutInflater.from(this.f1755a).inflate(R.layout.square_recommend, (ViewGroup) null);
-        this.d = (HeadImageView) this.b.findViewById(R.id.banner_big);
-        this.e = (HeadImageView) this.b.findViewById(R.id.banner_small_left);
-        this.f = (HeadImageView) this.b.findViewById(R.id.banner_small_right);
-        this.g = (LinearLayout) this.b.findViewById(R.id.square_recommend_box);
-        this.d.setOnClickListener(this.j);
-        this.e.setOnClickListener(this.j);
-        this.f.setOnClickListener(this.j);
-    }
-
-    public void a(av avVar) {
-        this.c = avVar;
-        a(this.d, this.c == null ? null : this.c.a());
-        b();
-    }
-
-    private void a(HeadImageView headImageView, aw awVar) {
-        if (awVar == null || awVar.a() == null || awVar.a().equals("")) {
-            headImageView.setVisibility(8);
-        } else {
-            headImageView.setVisibility(0);
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.square_recommend, (ViewGroup) null);
+            w wVar = new w(null);
+            wVar.f1857a = (ImageView) view.findViewById(R.id.banner_big);
+            wVar.b = (ImageView) view.findViewById(R.id.banner_small_left);
+            wVar.c = (ImageView) view.findViewById(R.id.banner_small_right);
+            wVar.f1857a.setOnClickListener(this.e);
+            wVar.b.setOnClickListener(this.e);
+            wVar.c.setOnClickListener(this.e);
+            view.setTag(wVar);
         }
+        d(view);
+        return view;
+    }
+
+    private void d(View view) {
+        if (this.b != null) {
+            w wVar = (w) view.getTag();
+            com.baidu.tieba.data.aw a2 = this.b.a();
+            if (a2 == null || a2.a() == null || a2.a().equals("")) {
+                wVar.f1857a.setVisibility(8);
+            } else {
+                wVar.f1857a.setVisibility(0);
+                a(this.c, this.b.a(), wVar.f1857a);
+            }
+            a(this.d, this.b.b(), wVar.b);
+            a(this.d, this.b.c(), wVar.c);
+        }
+    }
+
+    public void a(com.baidu.tieba.data.av avVar) {
+        this.b = avVar;
+        notifyDataSetChanged();
     }
 
     public void a(int i) {
         notifyDataSetChanged();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(HeadImageView headImageView, Bitmap bitmap) {
-        headImageView.setImageBitmap(bitmap);
-        headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        headImageView.invalidate();
-        this.g.setVisibility(0);
-    }
-
-    private void b() {
-        a(this.h, this.c.a(), this.d);
-        a(this.i, this.c.b(), this.e);
-        a(this.i, this.c.c(), this.f);
-    }
-
-    private void a(com.baidu.tieba.util.a aVar, aw awVar, HeadImageView headImageView) {
-        com.baidu.adp.widget.a.b d = aVar.d(awVar.a());
+    private void a(com.baidu.tieba.util.a aVar, com.baidu.tieba.data.aw awVar, ImageView imageView) {
+        com.baidu.adp.widget.a.c d = aVar.d(awVar.a());
         if (d != null) {
-            a(headImageView, d.f());
-        } else {
-            aVar.a(awVar.a(), new v(this, headImageView));
+            a(imageView, d.f());
+            return;
         }
+        com.baidu.adp.widget.a.c a2 = aVar.a(awVar.a(), new v(this, imageView));
+        if (a2 != null) {
+            a(imageView, a2.f());
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(ImageView imageView, Bitmap bitmap) {
+        imageView.setImageBitmap(bitmap);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        imageView.invalidate();
     }
 }

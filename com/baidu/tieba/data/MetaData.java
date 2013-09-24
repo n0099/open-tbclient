@@ -56,7 +56,7 @@ public class MetaData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("MetaData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("MetaData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -72,16 +72,16 @@ public class MetaData implements Serializable {
                 this.name_show = jSONObject.optString("name_show");
                 this.portrait = jSONObject.optString("portrait");
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b("MetaData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.av.b("MetaData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.aq.d("MetaData", "logPrint", "id = " + this.id);
-        com.baidu.tieba.util.aq.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
-        com.baidu.tieba.util.aq.d("MetaData", "logPrint", "name = " + this.name);
-        com.baidu.tieba.util.aq.d("MetaData", "logPrint", "name_show = " + this.name_show);
-        com.baidu.tieba.util.aq.d("MetaData", "logPrint", "portrait = " + this.portrait);
+        com.baidu.tieba.util.av.d("MetaData", "logPrint", "id = " + this.id);
+        com.baidu.tieba.util.av.d("MetaData", "logPrint", "type = " + String.valueOf(this.type));
+        com.baidu.tieba.util.av.d("MetaData", "logPrint", "name = " + this.name);
+        com.baidu.tieba.util.av.d("MetaData", "logPrint", "name_show = " + this.name_show);
+        com.baidu.tieba.util.av.d("MetaData", "logPrint", "portrait = " + this.portrait);
     }
 }

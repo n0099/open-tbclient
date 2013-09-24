@@ -1,66 +1,45 @@
 package com.baidu.tieba.model;
-
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class as {
-    private ArrayList c;
-    private int d = 0;
+public class as extends com.baidu.adp.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private UserData f1370a = new UserData();
-    private AntiData b = new AntiData();
-
-    public as() {
-        this.c = null;
-        this.c = new ArrayList();
-        a(0);
-    }
-
-    public UserData a() {
-        return this.f1370a;
-    }
-
-    public AntiData b() {
-        return this.b;
-    }
+    private String f1405a = null;
+    private String b = null;
+    private at c = null;
+    private String d;
 
     public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("LoginModel", "parserJson", "error = " + e.getMessage());
+        this.d = str;
+    }
+
+    @Override // com.baidu.adp.a.c
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.c
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a() {
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            this.f1370a.parserJson(jSONObject.optJSONObject("user"));
-            this.b.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.c.add(optJSONArray.optString(i, null));
-                }
-            }
-            a(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("LoginModel", "parserJson", "error = " + e.getMessage());
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
+            this.f1405a = str;
+            this.b = str2;
+            this.c = new at(this, null);
+            this.c.setPriority(2);
+            this.c.execute(new Object[0]);
         }
     }
 
-    public ArrayList c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int d() {
-        return this.d;
+    public boolean b() {
+        return this.c != null;
     }
 }

@@ -3,12 +3,12 @@ package com.baidu.tieba.data;
 public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ av f995a;
+    final /* synthetic */ av f1013a;
     private String b = null;
     private String c = null;
 
     public aw(av avVar) {
-        this.f995a = avVar;
+        this.f1013a = avVar;
     }
 
     public String a() {

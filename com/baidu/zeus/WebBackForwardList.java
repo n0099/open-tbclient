@@ -7,7 +7,7 @@ public class WebBackForwardList implements Serializable, Cloneable {
     private final CallbackProxy mCallbackProxy;
     private boolean mClearPending;
     private int mCurrentIndex = -1;
-    private ArrayList mArray = new ArrayList();
+    private ArrayList<WebHistoryItem> mArray = new ArrayList<>();
 
     private static native void nativeClose(int i);
 
@@ -31,7 +31,7 @@ public class WebBackForwardList implements Serializable, Cloneable {
         WebHistoryItem webHistoryItem;
         if (i >= 0) {
             if (i < getSize()) {
-                webHistoryItem = (WebHistoryItem) this.mArray.get(i);
+                webHistoryItem = this.mArray.get(i);
             }
         }
         webHistoryItem = null;
@@ -59,7 +59,7 @@ public class WebBackForwardList implements Serializable, Cloneable {
         int i = this.mCurrentIndex;
         if (i != size) {
             for (int i2 = size - 1; i2 >= i; i2--) {
-                WebHistoryItem webHistoryItem2 = (WebHistoryItem) this.mArray.remove(i2);
+                this.mArray.remove(i2);
             }
         }
         this.mArray.add(webHistoryItem);
@@ -77,7 +77,7 @@ public class WebBackForwardList implements Serializable, Cloneable {
     }
 
     private synchronized void removeHistoryItem(int i) {
-        WebHistoryItem webHistoryItem = (WebHistoryItem) this.mArray.remove(i);
+        this.mArray.remove(i);
         this.mCurrentIndex--;
     }
 
@@ -93,9 +93,9 @@ public class WebBackForwardList implements Serializable, Cloneable {
         } else {
             webBackForwardList2.mCurrentIndex = this.mCurrentIndex;
             int size = getSize();
-            webBackForwardList2.mArray = new ArrayList(size);
+            webBackForwardList2.mArray = new ArrayList<>(size);
             for (int i = 0; i < size; i++) {
-                webBackForwardList2.mArray.add(((WebHistoryItem) this.mArray.get(i)).m266clone());
+                webBackForwardList2.mArray.add(this.mArray.get(i).m266clone());
             }
             webBackForwardList = webBackForwardList2;
         }

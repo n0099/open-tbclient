@@ -9,10 +9,10 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes.dex */
-public abstract class MStorageEvent {
+public abstract class MStorageEvent<T, E> {
     private int bP = 0;
-    private final Hashtable bQ = new Hashtable();
-    private final CopyOnWriteArraySet bR = new CopyOnWriteArraySet();
+    private final Hashtable<T, Object> bQ = new Hashtable<>();
+    private final CopyOnWriteArraySet<E> bR = new CopyOnWriteArraySet<>();
 
     private void e() {
         HashSet hashSet = new HashSet(this.bQ.keySet());
@@ -20,29 +20,31 @@ public abstract class MStorageEvent {
             return;
         }
         HashMap hashMap = new HashMap();
-        for (final Object obj : hashSet) {
-            Object obj2 = this.bQ.get(obj);
-            Iterator it = this.bR.iterator();
+        for (final E e : hashSet) {
+            Object obj = this.bQ.get(e);
+            Iterator<E> it = this.bR.iterator();
             while (it.hasNext()) {
-                final Object next = it.next();
+                final E next = it.next();
                 if (next != null) {
-                    if (obj2 == null) {
+                    if (obj == null) {
                         Log.f("MicroMsg.SDK.MStorageEvent", "handle listener fatal unknown bug");
-                    } else if (obj2 instanceof Looper) {
-                        Looper looper = (Looper) obj2;
+                    } else if (obj instanceof Looper) {
+                        Looper looper = (Looper) obj;
                         Handler handler = (Handler) hashMap.get(looper);
                         if (handler == null) {
                             handler = new Handler(looper);
                             hashMap.put(looper, handler);
                         }
                         handler.post(new Runnable() { // from class: com.tencent.mm.sdk.storage.MStorageEvent.1
+                            /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.tencent.mm.sdk.storage.MStorageEvent */
+                            /* JADX WARN: Multi-variable type inference failed */
                             @Override // java.lang.Runnable
                             public void run() {
-                                MStorageEvent.this.processEvent(obj, next);
+                                MStorageEvent.this.processEvent(e, next);
                             }
                         });
                     } else {
-                        processEvent(obj, next);
+                        processEvent(e, next);
                     }
                 }
             }
@@ -50,14 +52,14 @@ public abstract class MStorageEvent {
         this.bR.clear();
     }
 
-    public void add(Object obj, Looper looper) {
-        if (this.bQ.containsKey(obj)) {
+    public void add(T t, Looper looper) {
+        if (this.bQ.containsKey(t)) {
             return;
         }
         if (looper != null) {
-            this.bQ.put(obj, looper);
+            this.bQ.put(t, looper);
         } else {
-            this.bQ.put(obj, new Object());
+            this.bQ.put(t, new Object());
         }
     }
 
@@ -68,8 +70,8 @@ public abstract class MStorageEvent {
         e();
     }
 
-    public boolean event(Object obj) {
-        return this.bR.add(obj);
+    public boolean event(E e) {
+        return this.bR.add(e);
     }
 
     public boolean isLocked() {
@@ -80,10 +82,10 @@ public abstract class MStorageEvent {
         this.bP++;
     }
 
-    protected abstract void processEvent(Object obj, Object obj2);
+    protected abstract void processEvent(T t, E e);
 
-    public void remove(Object obj) {
-        this.bQ.remove(obj);
+    public void remove(T t) {
+        this.bQ.remove(t);
     }
 
     public void removeAll() {

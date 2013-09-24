@@ -3,6 +3,7 @@ package com.baidu.browser.webkit;
 import android.webkit.WebStorage;
 import com.baidu.zeus.ValueCallback;
 import com.baidu.zeus.WebStorage;
+import java.util.Map;
 /* loaded from: classes.dex */
 public final class BdWebStorage {
     private static BdWebStorage sSysInstance;
@@ -85,7 +86,7 @@ public final class BdWebStorage {
         return this.mZeusWebStorage != null ? this.mZeusWebStorage : this.mSysWebStorage;
     }
 
-    public void getOrigins(BdValueCallback bdValueCallback) {
+    public void getOrigins(BdValueCallback<Map> bdValueCallback) {
         if (this.mZeusWebStorage != null) {
             this.mZeusWebStorage.getOrigins((ValueCallback) bdValueCallback.unwrap());
         } else {
@@ -93,7 +94,7 @@ public final class BdWebStorage {
         }
     }
 
-    public void getUsageForOrigin(String str, BdValueCallback bdValueCallback) {
+    public void getUsageForOrigin(String str, BdValueCallback<Long> bdValueCallback) {
         if (this.mZeusWebStorage != null) {
             this.mZeusWebStorage.getUsageForOrigin(str, (ValueCallback) bdValueCallback.unwrap());
         } else {
@@ -101,7 +102,7 @@ public final class BdWebStorage {
         }
     }
 
-    public void getQuotaForOrigin(String str, BdValueCallback bdValueCallback) {
+    public void getQuotaForOrigin(String str, BdValueCallback<Long> bdValueCallback) {
         if (this.mZeusWebStorage != null) {
             this.mZeusWebStorage.getQuotaForOrigin(str, (ValueCallback) bdValueCallback.unwrap());
         } else {

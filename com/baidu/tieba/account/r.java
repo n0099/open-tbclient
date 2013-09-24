@@ -8,16 +8,16 @@ import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends BdAsyncTask {
+public class r extends BdAsyncTask<String, Integer, com.baidu.tieba.data.c> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f909a;
-    private com.baidu.tieba.util.v b = null;
+    final /* synthetic */ k f925a;
+    private com.baidu.tieba.util.z b = null;
     private String c;
     private String d;
 
     public r(k kVar, String str, String str2) {
-        this.f909a = kVar;
+        this.f925a = kVar;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -28,10 +28,10 @@ public class r extends BdAsyncTask {
     public void cancel() {
         ProgressBar progressBar;
         Button button;
-        this.f909a.l = null;
-        progressBar = this.f909a.q;
+        this.f925a.l = null;
+        progressBar = this.f925a.q;
         progressBar.setVisibility(8);
-        button = this.f909a.o;
+        button = this.f925a.o;
         button.setEnabled(true);
     }
 
@@ -42,31 +42,31 @@ public class r extends BdAsyncTask {
         ProgressBar progressBar;
         Button button;
         AccountData accountData;
-        com.baidu.tieba.g gVar;
+        com.baidu.tieba.j jVar;
         p pVar;
         p pVar2;
         AccountData accountData2;
-        super.a((Object) cVar);
-        this.f909a.l = null;
-        progressBar = this.f909a.q;
+        super.a((r) cVar);
+        this.f925a.l = null;
+        progressBar = this.f925a.q;
         progressBar.setVisibility(8);
-        button = this.f909a.o;
+        button = this.f925a.o;
         button.setEnabled(true);
         if (cVar == null) {
-            this.f909a.b(this.b.g());
+            this.f925a.b(this.b.g());
         } else if (cVar.a().getName() == null) {
-            this.f909a.b(this.b.g());
-            this.f909a.a(cVar.b());
+            this.f925a.b(this.b.g());
+            this.f925a.a(cVar.b());
         } else {
-            this.f909a.e();
-            accountData = this.f909a.t;
-            gVar = this.f909a.j;
-            TiebaApplication.a(accountData, gVar);
+            this.f925a.e();
+            accountData = this.f925a.t;
+            jVar = this.f925a.j;
+            TiebaApplication.a(accountData, jVar);
             a.a().b();
-            pVar = this.f909a.u;
+            pVar = this.f925a.u;
             if (pVar != null) {
-                pVar2 = this.f909a.u;
-                accountData2 = this.f909a.t;
+                pVar2 = this.f925a.u;
+                accountData2 = this.f925a.t;
                 pVar2.a(accountData2);
             }
         }
@@ -77,12 +77,12 @@ public class r extends BdAsyncTask {
     public void b() {
         ProgressBar progressBar;
         Button button;
-        progressBar = this.f909a.q;
+        progressBar = this.f925a.q;
         progressBar.setVisibility(0);
-        button = this.f909a.o;
+        button = this.f925a.o;
         button.setEnabled(false);
-        this.f909a.b((String) null);
-        this.f909a.d();
+        this.f925a.b((String) null);
+        this.f925a.d();
         super.b();
     }
 
@@ -121,11 +121,11 @@ public class r extends BdAsyncTask {
         str2 = null;
         str2 = null;
         try {
-            this.b = new com.baidu.tieba.util.v(this.c);
+            this.b = new com.baidu.tieba.util.z(this.c);
             this.b.a("un", this.d);
-            com.baidu.tieba.util.v vVar = this.b;
-            accountData = this.f909a.t;
-            vVar.a("BDUSS", accountData.getBDUSS());
+            com.baidu.tieba.util.z zVar = this.b;
+            accountData = this.f925a.t;
+            zVar.a("BDUSS", accountData.getBDUSS());
             this.b.c(false);
             j = this.b.j();
         } catch (Exception e2) {
@@ -145,15 +145,15 @@ public class r extends BdAsyncTask {
                     str2 = name;
                     str2 = name;
                     if (name != null && bduss != null) {
-                        accountData2 = this.f909a.t;
+                        accountData2 = this.f925a.t;
                         str = cVar;
                         str2 = name;
                         if (accountData2 != null) {
-                            accountData3 = this.f909a.t;
+                            accountData3 = this.f925a.t;
                             accountData3.setAccount(name);
-                            accountData4 = this.f909a.t;
+                            accountData4 = this.f925a.t;
                             accountData4.setBDUSS(bduss);
-                            r1 = this.f909a.t;
+                            r1 = this.f925a.t;
                             DatabaseService.a((AccountData) r1);
                             str = cVar;
                             str2 = r1;
@@ -164,12 +164,12 @@ public class r extends BdAsyncTask {
                     cVar2.a(j);
                     str = cVar2;
                 } else if (this.b.e() == 1) {
-                    this.f909a.e();
+                    this.f925a.e();
                     str = 0;
                 }
             } catch (Exception e3) {
                 e = e3;
-                com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
+                com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
                 return str;
             }
             return str;

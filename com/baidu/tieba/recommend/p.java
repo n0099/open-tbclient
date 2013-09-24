@@ -9,7 +9,7 @@ import com.baidu.tbadk.widget.TbImageView;
 class p {
 
     /* renamed from: a  reason: collision with root package name */
-    View f1691a;
+    View f1766a;
     LinearLayout b;
     RelativeLayout c;
     TextView d;

@@ -1,24 +1,33 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
 class af implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ae f1601a;
-    private final /* synthetic */ com.baidu.tieba.model.ba b;
+    final /* synthetic */ ad f1651a;
+    private final /* synthetic */ com.baidu.tieba.model.bc b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ae aeVar, com.baidu.tieba.model.ba baVar) {
-        this.f1601a = aeVar;
-        this.b = baVar;
+    public af(ad adVar, com.baidu.tieba.model.bc bcVar) {
+        this.f1651a = adVar;
+        this.b = bcVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.b.f() != null) {
-            FrsActivity.a(this.f1601a.f1600a, this.b.f(), (String) null);
+        if (this.b.a() == 2) {
+            NewPbActivity.a(this.f1651a.f1649a, this.b.g(), null, "");
+        } else if (this.b.i()) {
+            NewPbActivity.b(this.f1651a.f1649a, this.b.g(), this.b.h(), "");
+        } else {
+            NewPbActivity.a(this.f1651a.f1649a, this.b.g(), this.b.h(), "");
+        }
+        if (this.f1651a.b.a() != null && TiebaApplication.g().s()) {
+            StatService.onEvent(this.f1651a.f1649a, "his_threads_item", "click", 1);
         }
     }
 }

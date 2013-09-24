@@ -1,15 +1,15 @@
 package android.support.v4.content;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-public class j {
+final class j implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    final ModernAsyncTask f306a;
-    final Object[] b;
+    private final AtomicInteger f306a = new AtomicInteger(1);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public j(ModernAsyncTask modernAsyncTask, Object... objArr) {
-        this.f306a = modernAsyncTask;
-        this.b = objArr;
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        return new Thread(runnable, "ModernAsyncTask #" + this.f306a.getAndIncrement());
     }
 }

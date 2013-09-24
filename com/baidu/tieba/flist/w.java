@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.aa;
+import com.baidu.tieba.view.ab;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class w {
@@ -27,7 +27,7 @@ public class w {
     private int C = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    final View f1057a;
+    final View f1074a;
     final View b;
     ViewPager c;
     LinearLayout d;
@@ -44,8 +44,8 @@ public class w {
     LinearLayout o;
     TextView p;
     ImageView q;
-    aa r;
-    aa s;
+    ab r;
+    ab s;
     PopupWindow t;
     View u;
     ForumListActivity v;
@@ -67,10 +67,10 @@ public class w {
         this.j.setOnClickListener(forumListActivity);
         this.k = (TextView) forumListActivity.findViewById(R.id.tab_hot);
         this.k.setOnClickListener(forumListActivity);
-        this.r = new aa(forumListActivity);
-        this.s = new aa(forumListActivity);
+        this.r = new ab(forumListActivity);
+        this.s = new ab(forumListActivity);
         this.l = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.f1057a = this.l.findViewById(R.id.footer_background);
+        this.f1074a = this.l.findViewById(R.id.footer_background);
         this.m = (TextView) this.l.findViewById(R.id.footer_text);
         this.n = (ImageView) this.l.findViewById(R.id.footer_icon);
         this.o = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
@@ -97,7 +97,7 @@ public class w {
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
         if (!this.B) {
-            if (TiebaApplication.g().an() == 1) {
+            if (TiebaApplication.g().ap() == 1) {
                 this.z.setImageResource(R.drawable.btn_allsproutpop_up_1);
             } else {
                 this.z.setImageResource(R.drawable.btn_allsproutpop_up);

@@ -1,25 +1,34 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class ci implements View.OnFocusChangeListener {
+class ci implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1538a;
+    final /* synthetic */ br f1580a;
+    private final /* synthetic */ com.baidu.tieba.data.bd b;
+    private final /* synthetic */ boolean c;
+    private final /* synthetic */ String d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(bo boVar) {
-        this.f1538a = boVar;
+    public ci(br brVar, com.baidu.tieba.data.bd bdVar, boolean z, String str) {
+        this.f1580a = brVar;
+        this.b = bdVar;
+        this.c = z;
+        this.d = str;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        com.baidu.tieba.g gVar;
-        if (!z) {
-            gVar = this.f1538a.b;
-            UtilHelper.a(gVar, view);
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new cj(this, this.b, this.c, this.d));
     }
 }

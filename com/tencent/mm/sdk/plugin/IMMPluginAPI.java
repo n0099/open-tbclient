@@ -39,7 +39,7 @@ public interface IMMPluginAPI {
 
     void release();
 
-    boolean sendMsgNotify(String str, String str2, int i, String str3, Class cls);
+    boolean sendMsgNotify(String str, String str2, int i, String str3, Class<?> cls);
 
     boolean unregisterAutoMsg(String str, String str2);
 }

@@ -10,7 +10,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static h f712a = null;
+    private static h f724a = null;
     private Context b;
     private Handler c = new Handler();
     private com.baidu.android.systemmonitor.devicestatistic.a.b d = null;
@@ -24,18 +24,18 @@ public final class h {
     public static synchronized h a(Context context) {
         h hVar;
         synchronized (h.class) {
-            if (f712a == null) {
-                f712a = new h(context);
+            if (f724a == null) {
+                f724a = new h(context);
             }
-            hVar = f712a;
+            hVar = f724a;
         }
         return hVar;
     }
 
     public static void f() {
-        if (f712a != null) {
-            f712a.e();
-            f712a = null;
+        if (f724a != null) {
+            f724a.e();
+            f724a = null;
         }
     }
 
@@ -51,7 +51,7 @@ public final class h {
 
     public void a() {
         this.d = new com.baidu.android.systemmonitor.devicestatistic.a.b(System.currentTimeMillis());
-        this.d.f702a = BDLocationManager.d(this.b.getApplicationContext());
+        this.d.f714a = BDLocationManager.d(this.b.getApplicationContext());
         this.d.d = com.baidu.android.systemmonitor.d.c.b(this.b);
         this.d.b = d();
         this.c.postDelayed(this.e, Util.MILLSECONDS_OF_MINUTE);

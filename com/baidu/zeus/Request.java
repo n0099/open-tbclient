@@ -38,7 +38,7 @@ public class Request {
     private boolean mLoadingPaused = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Request(String str, HttpHost httpHost, HttpHost httpHost2, String str2, InputStream inputStream, int i, EventHandler eventHandler, Map map) {
+    public Request(String str, HttpHost httpHost, HttpHost httpHost2, String str2, InputStream inputStream, int i, EventHandler eventHandler, Map<String, String> map) {
         this.mEventHandler = eventHandler;
         this.mHost = httpHost;
         this.mProxyHost = httpHost2;
@@ -89,10 +89,10 @@ public class Request {
         }
     }
 
-    void addHeaders(Map map) {
+    void addHeaders(Map<String, String> map) {
         if (map != null) {
-            for (Map.Entry entry : map.entrySet()) {
-                addHeader((String) entry.getKey(), (String) entry.getValue());
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                addHeader(entry.getKey(), entry.getValue());
             }
         }
     }

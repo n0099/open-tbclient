@@ -15,10 +15,10 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
-public final class DateTypeAdapter extends TypeAdapter {
+public final class DateTypeAdapter extends TypeAdapter<Date> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.DateTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
-        public TypeAdapter create(Gson gson, TypeToken typeToken) {
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
             if (typeToken.getRawType() == Date.class) {
                 return new DateTypeAdapter();
             }

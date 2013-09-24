@@ -1,52 +1,152 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
+public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1645a;
+    final /* synthetic */ EditBarActivity f1693a;
+    private com.baidu.tieba.util.z b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(EditBarActivity editBarActivity) {
-        this.f1645a = editBarActivity;
+    private g(EditBarActivity editBarActivity) {
+        this.f1693a = editBarActivity;
+        this.b = null;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        j jVar;
-        j jVar2;
-        Button button;
-        Button button2;
-        j jVar3;
-        j jVar4;
-        Button button3;
-        Button button4;
-        j jVar5;
-        jVar = this.f1645a.e;
-        if (!jVar.a()) {
-            jVar4 = this.f1645a.e;
-            jVar4.a(true);
-            button3 = this.f1645a.d;
-            button3.setText(R.string.done);
-            button4 = this.f1645a.d;
-            com.baidu.tieba.util.ao.h(button4, TiebaApplication.g().an());
-            jVar5 = this.f1645a.e;
-            jVar5.notifyDataSetChanged();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ g(EditBarActivity editBarActivity, g gVar) {
+        this(editBarActivity);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public com.baidu.tieba.model.d a(Object... objArr) {
+        com.baidu.tieba.model.d dVar;
+        Exception e;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        com.baidu.adp.lib.cache.q<String> i;
+        String a2;
+        try {
+            str = this.f1693a.o;
+            if (str == null && (i = com.baidu.tieba.b.a.a().i()) != null && (a2 = i.a(TiebaApplication.C())) != null) {
+                c((Object[]) new String[]{a2});
+            }
+            this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/forum/like");
+            str2 = this.f1693a.o;
+            if (str2 != null) {
+                com.baidu.tieba.util.z zVar = this.b;
+                str4 = this.f1693a.o;
+                zVar.a("uid", str4);
+            }
+            String j = this.b.j();
+            if (!this.b.c()) {
+                return null;
+            }
+            dVar = new com.baidu.tieba.model.d();
+            try {
+                dVar.a(j);
+                str3 = this.f1693a.o;
+                if (str3 == null) {
+                    a(j);
+                    return dVar;
+                }
+                return dVar;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
+                return dVar;
+            }
+        } catch (Exception e3) {
+            dVar = null;
+            e = e3;
+        }
+    }
+
+    private void a(String str) {
+        com.baidu.adp.lib.cache.q<String> i;
+        String C = TiebaApplication.C();
+        if (C != null && (i = com.baidu.tieba.b.a.a().i()) != null) {
+            i.a(C, str, 604800000L);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void b(String... strArr) {
+        com.baidu.tieba.model.d dVar;
+        i iVar;
+        i iVar2;
+        ProgressBar progressBar;
+        super.b((Object[]) strArr);
+        String str = strArr[0];
+        com.baidu.tieba.model.d dVar2 = new com.baidu.tieba.model.d();
+        dVar2.a(str);
+        dVar = this.f1693a.f1638a;
+        dVar.a(dVar2.a());
+        iVar = this.f1693a.f;
+        if (iVar == null) {
             return;
         }
-        jVar2 = this.f1645a.e;
-        jVar2.a(false);
-        button = this.f1645a.d;
-        button.setText(R.string.edit);
-        button2 = this.f1645a.d;
-        com.baidu.tieba.util.ao.g((TextView) button2, TiebaApplication.g().an());
-        jVar3 = this.f1645a.e;
-        jVar3.notifyDataSetChanged();
+        this.f1693a.e();
+        iVar2 = this.f1693a.f;
+        iVar2.notifyDataSetChanged();
+        progressBar = this.f1693a.g;
+        progressBar.setVisibility(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.model.d dVar) {
+        ProgressBar progressBar;
+        com.baidu.tieba.model.d dVar2;
+        i iVar;
+        i iVar2;
+        progressBar = this.f1693a.g;
+        progressBar.setVisibility(8);
+        this.f1693a.j = null;
+        if (this.b != null) {
+            if (this.b.c() && dVar != null) {
+                dVar2 = this.f1693a.f1638a;
+                dVar2.a(dVar.a());
+                iVar = this.f1693a.f;
+                if (iVar == null) {
+                    return;
+                }
+                this.f1693a.e();
+                iVar2 = this.f1693a.f;
+                iVar2.notifyDataSetChanged();
+                return;
+            }
+            this.f1693a.a(this.b.g());
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.b != null) {
+            this.b.h();
+            this.b = null;
+        }
+        progressBar = this.f1693a.g;
+        progressBar.setVisibility(8);
+        this.f1693a.j = null;
+        super.cancel(true);
     }
 }

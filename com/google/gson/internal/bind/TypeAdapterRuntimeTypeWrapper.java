@@ -10,34 +10,34 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class TypeAdapterRuntimeTypeWrapper extends TypeAdapter {
+public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     private final Gson context;
-    private final TypeAdapter delegate;
+    private final TypeAdapter<T> delegate;
     private final Type type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public TypeAdapterRuntimeTypeWrapper(Gson gson, TypeAdapter typeAdapter, Type type) {
+    public TypeAdapterRuntimeTypeWrapper(Gson gson, TypeAdapter<T> typeAdapter, Type type) {
         this.context = gson;
         this.delegate = typeAdapter;
         this.type = type;
     }
 
     @Override // com.google.gson.TypeAdapter
-    public Object read(JsonReader jsonReader) {
+    public T read(JsonReader jsonReader) {
         return this.delegate.read(jsonReader);
     }
 
     @Override // com.google.gson.TypeAdapter
-    public void write(JsonWriter jsonWriter, Object obj) {
-        TypeAdapter typeAdapter = this.delegate;
-        Type runtimeTypeIfMoreSpecific = getRuntimeTypeIfMoreSpecific(this.type, obj);
+    public void write(JsonWriter jsonWriter, T t) {
+        TypeAdapter<T> typeAdapter = this.delegate;
+        Type runtimeTypeIfMoreSpecific = getRuntimeTypeIfMoreSpecific(this.type, t);
         if (runtimeTypeIfMoreSpecific != this.type) {
             typeAdapter = this.context.getAdapter(TypeToken.get(runtimeTypeIfMoreSpecific));
             if ((typeAdapter instanceof ReflectiveTypeAdapterFactory.Adapter) && !(this.delegate instanceof ReflectiveTypeAdapterFactory.Adapter)) {
                 typeAdapter = this.delegate;
             }
         }
-        typeAdapter.write(jsonWriter, obj);
+        typeAdapter.write(jsonWriter, t);
     }
 
     private Type getRuntimeTypeIfMoreSpecific(Type type, Object obj) {

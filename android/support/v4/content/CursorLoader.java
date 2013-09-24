@@ -7,8 +7,8 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public class CursorLoader extends AsyncTaskLoader {
-    final d f;
+public class CursorLoader extends AsyncTaskLoader<Cursor> {
+    final c<Cursor>.d f;
     Uri g;
     String[] h;
     String i;
@@ -23,7 +23,7 @@ public class CursorLoader extends AsyncTaskLoader {
         Cursor query = j().getContentResolver().query(this.g, this.h, this.i, this.j, this.k);
         if (query != null) {
             query.getCount();
-            a(query, this.f);
+            a(query, (ContentObserver) this.f);
         }
         return query;
     }
@@ -34,7 +34,7 @@ public class CursorLoader extends AsyncTaskLoader {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v4.content.c
-    /* renamed from: a */
+    /* renamed from: a  reason: avoid collision after fix types in other method */
     public void b(Cursor cursor) {
         if (m()) {
             if (cursor != null) {
@@ -46,7 +46,7 @@ public class CursorLoader extends AsyncTaskLoader {
         Cursor cursor2 = this.l;
         this.l = cursor;
         if (k()) {
-            super.b((Object) cursor);
+            super.b((CursorLoader) cursor);
         }
         if (cursor2 != null && cursor2 != cursor && !cursor2.isClosed()) {
             cursor2.close();

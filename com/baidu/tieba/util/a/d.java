@@ -5,28 +5,32 @@ import com.baidu.adp.lib.c.g;
 public class d implements com.baidu.adp.lib.c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f1774a = null;
+    private static d f1890a = null;
 
     public static d a() {
-        if (f1774a == null) {
-            f1774a = new d();
+        if (f1890a == null) {
+            f1890a = new d();
         }
-        return f1774a;
+        return f1890a;
     }
 
     private d() {
     }
 
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.adp.lib.c.a
     public g a(int i) {
+        com.baidu.tieba.voice.a.g gVar = null;
         switch (i) {
             case 1:
                 return new c();
             case 2:
                 return new b();
-            default:
-                com.baidu.adp.lib.e.d.b("TiebaLoaderCreater", "getLoaderByType", "invalid type:" + i);
-                return null;
+            case 273:
+                gVar = new com.baidu.tieba.voice.a.g();
+                break;
         }
+        com.baidu.adp.lib.f.d.b("TiebaLoaderCreater", "getLoaderByType", "invalid type:" + i);
+        return gVar;
     }
 }

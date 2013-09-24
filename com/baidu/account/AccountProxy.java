@@ -28,7 +28,7 @@ public class AccountProxy {
     }
 
     /* loaded from: classes.dex */
-    class MyAccountManagerCallback implements AccountManagerCallback {
+    class MyAccountManagerCallback implements AccountManagerCallback<Bundle> {
         private String mAccountType;
         private TokenCallback mCallback;
         private boolean mIfAddAccount;
@@ -57,14 +57,14 @@ public class AccountProxy {
         }
 
         @Override // android.accounts.AccountManagerCallback
-        public void run(AccountManagerFuture accountManagerFuture) {
+        public void run(AccountManagerFuture<Bundle> accountManagerFuture) {
             AccountManager accountManager;
             Account[] accountsByType;
             synchronized (this) {
                 try {
-                    Bundle bundle = (Bundle) accountManagerFuture.getResult();
+                    accountManagerFuture.getResult();
                     Log.d(AccountProxy.TAG, "account callback");
-                    this.mytoken = ((Bundle) accountManagerFuture.getResult()).getString("authtoken");
+                    this.mytoken = accountManagerFuture.getResult().getString("authtoken");
                     accountManager = AccountManager.get(AccountProxy.this.mContext);
                     accountsByType = accountManager.getAccountsByType(this.mAccountType);
                     Log.d(AccountProxy.TAG, "mytoken is" + this.mytoken + " account length is" + accountsByType.length);

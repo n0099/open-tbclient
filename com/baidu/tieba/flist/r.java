@@ -3,76 +3,76 @@ package com.baidu.tieba.flist;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ag;
 import com.baidu.tieba.model.ForumListModel;
-import com.baidu.tieba.model.aq;
+import com.baidu.tieba.model.as;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class r extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f1053a;
+    final /* synthetic */ p f1070a;
     private final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar, int i) {
-        this.f1053a = pVar;
+        this.f1070a = pVar;
         this.b = i;
     }
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
         ForumListModel.Forum[] forumArr;
-        com.baidu.tieba.g gVar;
+        com.baidu.tieba.j jVar;
         ForumListModel.Forum[] forumArr2;
-        aq aqVar;
-        aq aqVar2;
-        com.baidu.tieba.g gVar2;
-        com.baidu.tieba.g gVar3;
+        as asVar;
+        as asVar2;
+        com.baidu.tieba.j jVar2;
+        com.baidu.tieba.j jVar3;
         ForumListModel.Forum[] forumArr3;
-        com.baidu.tieba.g gVar4;
-        com.baidu.tieba.g gVar5;
+        com.baidu.tieba.j jVar4;
+        com.baidu.tieba.j jVar5;
         ForumListModel.Forum[] forumArr4;
-        com.baidu.tieba.g gVar6;
-        aq aqVar3;
+        com.baidu.tieba.j jVar6;
+        as asVar3;
         ForumListModel.Forum[] forumArr5;
-        com.baidu.tieba.g gVar7;
-        com.baidu.tieba.g gVar8;
-        forumArr = this.f1053a.h;
+        com.baidu.tieba.j jVar7;
+        com.baidu.tieba.j jVar8;
+        forumArr = this.f1070a.j;
         if (forumArr != null) {
-            forumArr2 = this.f1053a.h;
+            forumArr2 = this.f1070a.j;
             if (forumArr2[this.b] != null) {
-                aqVar = this.f1053a.f;
-                if (aqVar.getErrorCode() != 22) {
-                    aqVar2 = this.f1053a.f;
-                    if (aqVar2.getErrorCode() != 0) {
-                        gVar6 = this.f1053a.b;
-                        aqVar3 = this.f1053a.f;
-                        gVar6.a(aqVar3.getErrorString());
+                asVar = this.f1070a.f;
+                if (asVar.getErrorCode() != 22) {
+                    asVar2 = this.f1070a.f;
+                    if (asVar2.getErrorCode() != 0) {
+                        jVar6 = this.f1070a.b;
+                        asVar3 = this.f1070a.f;
+                        jVar6.a(asVar3.getErrorString());
                     } else if (((ag) obj) == null) {
-                        gVar2 = this.f1053a.b;
-                        gVar3 = this.f1053a.b;
-                        gVar2.a(gVar3.getString(R.string.neterror));
+                        jVar2 = this.f1070a.b;
+                        jVar3 = this.f1070a.b;
+                        jVar2.a(jVar3.getString(R.string.neterror));
                     } else {
-                        forumArr3 = this.f1053a.h;
+                        forumArr3 = this.f1070a.j;
                         forumArr3[this.b].is_like = 1;
-                        gVar4 = this.f1053a.b;
-                        gVar5 = this.f1053a.b;
-                        gVar4.a(gVar5.getString(R.string.like_success));
-                        this.f1053a.notifyDataSetChanged();
+                        jVar4 = this.f1070a.b;
+                        jVar5 = this.f1070a.b;
+                        jVar4.a(jVar5.getString(R.string.like_success));
+                        this.f1070a.notifyDataSetChanged();
                         TiebaApplication g = TiebaApplication.g();
-                        forumArr4 = this.f1053a.h;
+                        forumArr4 = this.f1070a.j;
                         g.e(forumArr4[this.b].forum_name);
                     }
                 } else {
-                    forumArr5 = this.f1053a.h;
+                    forumArr5 = this.f1070a.j;
                     forumArr5[this.b].is_like = 1;
-                    gVar7 = this.f1053a.b;
-                    gVar8 = this.f1053a.b;
-                    gVar7.a(gVar8.getString(R.string.like_success));
-                    this.f1053a.notifyDataSetChanged();
+                    jVar7 = this.f1070a.b;
+                    jVar8 = this.f1070a.b;
+                    jVar7.a(jVar8.getString(R.string.like_success));
+                    this.f1070a.notifyDataSetChanged();
                 }
             }
         }
-        gVar = this.f1053a.b;
-        gVar.findViewById(R.id.loading).setVisibility(4);
+        jVar = this.f1070a.b;
+        jVar.findViewById(R.id.loading).setVisibility(4);
     }
 }

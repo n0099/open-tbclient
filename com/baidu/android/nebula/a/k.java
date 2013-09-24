@@ -11,7 +11,7 @@ import java.util.List;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f548a = k.class.getSimpleName();
+    private static final String f560a = k.class.getSimpleName();
     private static final char[] b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     private k() {

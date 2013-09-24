@@ -23,8 +23,8 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     private double version = IGNORE_VERSIONS;
     private int modifiers = 136;
     private boolean serializeInnerClasses = true;
-    private List serializationStrategies = Collections.emptyList();
-    private List deserializationStrategies = Collections.emptyList();
+    private List<ExclusionStrategy> serializationStrategies = Collections.emptyList();
+    private List<ExclusionStrategy> deserializationStrategies = Collections.emptyList();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -78,16 +78,17 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
     }
 
     @Override // com.google.gson.TypeAdapterFactory
-    public TypeAdapter create(final Gson gson, final TypeToken typeToken) {
-        Class rawType = typeToken.getRawType();
+    public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> typeToken) {
+        Class<? super T> rawType = typeToken.getRawType();
         final boolean excludeClass = excludeClass(rawType, true);
         final boolean excludeClass2 = excludeClass(rawType, false);
         if (excludeClass || excludeClass2) {
-            return new TypeAdapter() { // from class: com.google.gson.internal.Excluder.1
-                private TypeAdapter delegate;
+            return new TypeAdapter<T>() { // from class: com.google.gson.internal.Excluder.1
+                private TypeAdapter<T> delegate;
 
+                /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
                 @Override // com.google.gson.TypeAdapter
-                public Object read(JsonReader jsonReader) {
+                public T read(JsonReader jsonReader) {
                     if (excludeClass2) {
                         jsonReader.skipValue();
                         return null;
@@ -96,20 +97,20 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
                 }
 
                 @Override // com.google.gson.TypeAdapter
-                public void write(JsonWriter jsonWriter, Object obj) {
+                public void write(JsonWriter jsonWriter, T t) {
                     if (excludeClass) {
                         jsonWriter.nullValue();
                     } else {
-                        delegate().write(jsonWriter, obj);
+                        delegate().write(jsonWriter, t);
                     }
                 }
 
-                private TypeAdapter delegate() {
-                    TypeAdapter typeAdapter = this.delegate;
-                    if (typeAdapter != null) {
+                private TypeAdapter<T> delegate() {
+                    TypeAdapter<T> typeAdapter = this.delegate;
+                    if (typeAdapter != 0) {
                         return typeAdapter;
                     }
-                    TypeAdapter delegateAdapter = gson.getDelegateAdapter(Excluder.this, typeToken);
+                    TypeAdapter<T> delegateAdapter = gson.getDelegateAdapter(Excluder.this, typeToken);
                     this.delegate = delegateAdapter;
                     return delegateAdapter;
                 }
@@ -144,7 +145,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return true;
     }
 
-    public boolean excludeClass(Class cls, boolean z) {
+    public boolean excludeClass(Class<?> cls, boolean z) {
         if (this.version == IGNORE_VERSIONS || isValidVersion((Since) cls.getAnnotation(Since.class), (Until) cls.getAnnotation(Until.class))) {
             if ((this.serializeInnerClasses || !isInnerClass(cls)) && !isAnonymousOrLocal(cls)) {
                 for (ExclusionStrategy exclusionStrategy : z ? this.serializationStrategies : this.deserializationStrategies) {
@@ -159,15 +160,15 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
         return true;
     }
 
-    private boolean isAnonymousOrLocal(Class cls) {
+    private boolean isAnonymousOrLocal(Class<?> cls) {
         return !Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass());
     }
 
-    private boolean isInnerClass(Class cls) {
+    private boolean isInnerClass(Class<?> cls) {
         return cls.isMemberClass() && !isStatic(cls);
     }
 
-    private boolean isStatic(Class cls) {
+    private boolean isStatic(Class<?> cls) {
         return (cls.getModifiers() & 8) != 0;
     }
 

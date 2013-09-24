@@ -3,5 +3,5 @@ package com.baidu.adp.lib.webSocket;
 public class p extends k {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f460a;
+    public String f471a;
 }

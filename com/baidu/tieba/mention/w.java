@@ -7,25 +7,25 @@ import android.widget.LinearLayout;
 public class w implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1345a;
+    final /* synthetic */ PostActivity f1380a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PostActivity postActivity) {
-        this.f1345a = postActivity;
+        this.f1380a = postActivity;
     }
 
     @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
+    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
-        linearLayout = this.f1345a.f1320a;
+        linearLayout = this.f1380a.f1354a;
         ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
         while (imageView != null) {
             imageView.setTag(null);
-            if (imageView != null && bVar != null) {
-                bVar.a(imageView);
+            if (imageView != null && cVar != null) {
+                cVar.a(imageView);
             }
-            linearLayout2 = this.f1345a.f1320a;
+            linearLayout2 = this.f1380a.f1354a;
             imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }

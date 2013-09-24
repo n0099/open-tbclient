@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class h implements DialogInterface.OnCancelListener {
+class h extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1135a;
+    private final /* synthetic */ String f1182a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar) {
-        this.f1135a = gVar;
+    public h(String str) {
+        this.f1182a = str;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.f1135a.h = null;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        DatabaseService.p(this.f1182a);
     }
 }

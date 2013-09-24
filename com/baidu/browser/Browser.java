@@ -79,9 +79,9 @@ public final class Browser extends Fragment {
 
         Bundle onTabChangeFinished(Bundle bundle);
 
-        void openFileChooser(BdValueCallback bdValueCallback);
+        void openFileChooser(BdValueCallback<Uri> bdValueCallback);
 
-        void openFileChooser(BdValueCallback bdValueCallback, String str);
+        void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str);
 
         boolean shouldOverrideUrlLoading(BdWebPoolView bdWebPoolView, String str);
     }
@@ -480,13 +480,13 @@ public final class Browser extends Fragment {
         return null;
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback, String str) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str) {
         if (this.mListener != null) {
             this.mListener.openFileChooser(bdValueCallback, str);
         }
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback) {
         if (this.mListener != null) {
             this.mListener.openFileChooser(bdValueCallback);
         }

@@ -8,13 +8,13 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.Vibrator;
 import android.view.View;
-import com.baidu.tieba.util.aq;
-import com.baidu.tieba.view.bd;
+import com.baidu.tieba.util.av;
+import com.baidu.tieba.view.bf;
 /* loaded from: classes.dex */
-public class ShakeActivity extends com.baidu.tieba.g {
+public class ShakeActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private PowerManager.WakeLock f1276a = null;
+    private PowerManager.WakeLock f1310a = null;
     private PowerManager b = null;
     private Vibrator c = null;
     private g d = null;
@@ -23,7 +23,7 @@ public class ShakeActivity extends com.baidu.tieba.g {
     private i g = null;
     private k j = null;
     private h k = new a(this);
-    private bd l = new b(this);
+    private bf l = new b(this);
     private DialogInterface.OnClickListener m = new c(this);
     private DialogInterface.OnDismissListener n = new d(this);
 
@@ -47,15 +47,15 @@ public class ShakeActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
-        l();
+        m();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.f != null) {
@@ -71,12 +71,12 @@ public class ShakeActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
         b();
-        if (this.f1276a != null) {
-            this.f1276a.release();
+        if (this.f1310a != null) {
+            this.f1310a.release();
         }
     }
 
@@ -84,7 +84,7 @@ public class ShakeActivity extends com.baidu.tieba.g {
     public void c() {
         if (!this.e.b()) {
             this.g.a(1);
-            k();
+            e();
         } else if (!this.g.b()) {
             this.f.c();
             this.g.a(0);
@@ -95,17 +95,17 @@ public class ShakeActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
         c();
-        if (this.f1276a != null) {
-            this.f1276a.acquire();
+        if (this.f1310a != null) {
+            this.f1310a.acquire();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         this.e.a();
         super.onStop();
@@ -134,7 +134,7 @@ public class ShakeActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
+    public void e() {
         this.g.a(false);
         this.g.b(true);
         this.e.a();
@@ -152,7 +152,7 @@ public class ShakeActivity extends com.baidu.tieba.g {
         finish();
     }
 
-    private void l() {
+    private void m() {
         this.j = new k(this);
         this.j.a(this.l);
         this.j.a(this.m);
@@ -167,9 +167,9 @@ public class ShakeActivity extends com.baidu.tieba.g {
         }
         try {
             this.b = (PowerManager) getSystemService("power");
-            this.f1276a = this.b.newWakeLock(26, "My Lock");
+            this.f1310a = this.b.newWakeLock(26, "My Lock");
         } catch (Exception e) {
-            aq.b(getClass().getName(), "initData", e.toString());
+            av.b(getClass().getName(), "initData", e.toString());
         }
         this.e = new f(this, this);
         this.d = new g();
@@ -181,7 +181,7 @@ public class ShakeActivity extends com.baidu.tieba.g {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.j.b()) {
-            k();
+            e();
         } else if ((view == this.j.c() || view == this.j.d()) && !this.g.b()) {
             d();
         }

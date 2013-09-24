@@ -41,18 +41,18 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     @Override // com.google.gson.TypeAdapterFactory
-    public TypeAdapter create(Gson gson, TypeToken typeToken) {
-        Class rawType = typeToken.getRawType();
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+        Class<? super T> rawType = typeToken.getRawType();
         if (Object.class.isAssignableFrom(rawType)) {
             return new Adapter(this.constructorConstructor.get(typeToken), getBoundFields(gson, typeToken, rawType));
         }
         return null;
     }
 
-    private BoundField createBoundField(final Gson gson, final Field field, String str, final TypeToken typeToken, boolean z, boolean z2) {
+    private BoundField createBoundField(final Gson gson, final Field field, String str, final TypeToken<?> typeToken, boolean z, boolean z2) {
         final boolean isPrimitive = Primitives.isPrimitive(typeToken.getRawType());
         return new BoundField(str, z, z2) { // from class: com.google.gson.internal.bind.ReflectiveTypeAdapterFactory.1
-            final TypeAdapter typeAdapter;
+            final TypeAdapter<?> typeAdapter;
 
             {
                 this.typeAdapter = gson.getAdapter(typeToken);
@@ -73,7 +73,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         };
     }
 
-    private Map getBoundFields(Gson gson, TypeToken typeToken, Class cls) {
+    private Map<String, BoundField> getBoundFields(Gson gson, TypeToken<?> typeToken, Class<?> cls) {
         Field[] declaredFields;
         BoundField boundField;
         LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -118,26 +118,26 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     /* loaded from: classes.dex */
-    public final class Adapter extends TypeAdapter {
-        private final Map boundFields;
-        private final ObjectConstructor constructor;
+    public final class Adapter<T> extends TypeAdapter<T> {
+        private final Map<String, BoundField> boundFields;
+        private final ObjectConstructor<T> constructor;
 
-        private Adapter(ObjectConstructor objectConstructor, Map map) {
+        private Adapter(ObjectConstructor<T> objectConstructor, Map<String, BoundField> map) {
             this.constructor = objectConstructor;
             this.boundFields = map;
         }
 
         @Override // com.google.gson.TypeAdapter
-        public Object read(JsonReader jsonReader) {
+        public T read(JsonReader jsonReader) {
             if (jsonReader.peek() == JsonToken.NULL) {
                 jsonReader.nextNull();
                 return null;
             }
-            Object construct = this.constructor.construct();
+            T construct = this.constructor.construct();
             try {
                 jsonReader.beginObject();
                 while (jsonReader.hasNext()) {
-                    BoundField boundField = (BoundField) this.boundFields.get(jsonReader.nextName());
+                    BoundField boundField = this.boundFields.get(jsonReader.nextName());
                     if (boundField == null || !boundField.deserialized) {
                         jsonReader.skipValue();
                     } else {
@@ -154,8 +154,8 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         }
 
         @Override // com.google.gson.TypeAdapter
-        public void write(JsonWriter jsonWriter, Object obj) {
-            if (obj == null) {
+        public void write(JsonWriter jsonWriter, T t) {
+            if (t == null) {
                 jsonWriter.nullValue();
                 return;
             }
@@ -164,7 +164,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 for (BoundField boundField : this.boundFields.values()) {
                     if (boundField.serialized) {
                         jsonWriter.name(boundField.name);
-                        boundField.write(jsonWriter, obj);
+                        boundField.write(jsonWriter, t);
                     }
                 }
                 jsonWriter.endObject();

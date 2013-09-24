@@ -1,20 +1,35 @@
 package com.baidu.tieba.view;
 
-import java.util.TimerTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.view.View;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.square.SquareSearchActivity;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bc extends TimerTask {
+class bc implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShakeCutDownView f1861a;
+    final /* synthetic */ SearchBoxView f1987a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(ShakeCutDownView shakeCutDownView) {
-        this.f1861a = shakeCutDownView;
+    public bc(SearchBoxView searchBoxView) {
+        this.f1987a = searchBoxView;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        this.f1861a.f1837a.sendEmptyMessage(0);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Activity activity;
+        Activity activity2;
+        String str;
+        if (view.getId() == R.id.search_bg_layout) {
+            if (TiebaApplication.g().s()) {
+                activity2 = this.f1987a.f1963a;
+                str = this.f1987a.b;
+                StatService.onEvent(activity2, str, "click", 1);
+            }
+            activity = this.f1987a.f1963a;
+            SquareSearchActivity.a(activity, "");
+        }
     }
 }

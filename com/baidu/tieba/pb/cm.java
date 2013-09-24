@@ -1,27 +1,35 @@
 package com.baidu.tieba.pb;
 
-import android.widget.GridView;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.widget.EditText;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cm implements Runnable {
+public class cm implements DialogInterface.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cl f1542a;
+    final /* synthetic */ br f1584a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(cl clVar) {
-        this.f1542a = clVar;
+    public cm(br brVar) {
+        this.f1584a = brVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bo boVar;
-        GridView gridView;
-        bo boVar2;
-        boVar = this.f1542a.f1541a;
-        gridView = boVar.I;
-        if (gridView.getVisibility() == 8) {
-            boVar2 = this.f1542a.f1541a;
-            boVar2.V();
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        NewPbActivity newPbActivity;
+        EditText editText;
+        Dialog dialog;
+        if (i == 4) {
+            newPbActivity = this.f1584a.c;
+            editText = this.f1584a.G;
+            UtilHelper.a(newPbActivity, editText);
+            dialog = this.f1584a.C;
+            dialog.dismiss();
+            return true;
         }
+        return false;
     }
 }

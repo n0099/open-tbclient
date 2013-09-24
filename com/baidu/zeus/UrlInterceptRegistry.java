@@ -62,7 +62,7 @@ public final class UrlInterceptRegistry {
     }
 
     @Deprecated
-    public static synchronized CacheManager.CacheResult getSurrogate(String str, Map map) {
+    public static synchronized CacheManager.CacheResult getSurrogate(String str, Map<String, String> map) {
         CacheManager.CacheResult cacheResult;
         synchronized (UrlInterceptRegistry.class) {
             if (!urlInterceptDisabled()) {
@@ -85,7 +85,7 @@ public final class UrlInterceptRegistry {
     }
 
     @Deprecated
-    public static synchronized PluginData getPluginData(String str, Map map) {
+    public static synchronized PluginData getPluginData(String str, Map<String, String> map) {
         PluginData pluginData;
         synchronized (UrlInterceptRegistry.class) {
             if (!urlInterceptDisabled()) {

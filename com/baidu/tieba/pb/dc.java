@@ -1,32 +1,36 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dc implements com.baidu.tbadk.a.d {
+public class dc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cv f1558a;
+    final /* synthetic */ db f1600a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dc(cv cvVar) {
-        this.f1558a = cvVar;
+    public dc(db dbVar) {
+        this.f1600a = dbVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (bVar != null) {
-            bdListView = this.f1558a.c;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                bVar.a(imageView);
-                bdListView2 = this.f1558a.c;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        PbWriteToolView pbWriteToolView;
+        GridView gridView;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        EditText editText;
+        pbWriteToolView = this.f1600a.f;
+        pbWriteToolView.b();
+        gridView = this.f1600a.B;
+        gridView.setVisibility(0);
+        linearLayout = this.f1600a.t;
+        linearLayout.setVisibility(0);
+        linearLayout2 = this.f1600a.q;
+        linearLayout2.setEnabled(false);
+        editText = this.f1600a.E;
+        editText.requestFocus();
     }
 }

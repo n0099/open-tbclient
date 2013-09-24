@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class Primitives {
-    private static final Map PRIMITIVE_TO_WRAPPER_TYPE;
-    private static final Map WRAPPER_TO_PRIMITIVE_TYPE;
+    private static final Map<Class<?>, Class<?>> PRIMITIVE_TO_WRAPPER_TYPE;
+    private static final Map<Class<?>, Class<?>> WRAPPER_TO_PRIMITIVE_TYPE;
 
     private Primitives() {
     }
@@ -28,7 +28,7 @@ public final class Primitives {
         WRAPPER_TO_PRIMITIVE_TYPE = Collections.unmodifiableMap(hashMap2);
     }
 
-    private static void add(Map map, Map map2, Class cls, Class cls2) {
+    private static void add(Map<Class<?>, Class<?>> map, Map<Class<?>, Class<?>> map2, Class<?> cls, Class<?> cls2) {
         map.put(cls, cls2);
         map2.put(cls2, cls);
     }
@@ -41,13 +41,13 @@ public final class Primitives {
         return WRAPPER_TO_PRIMITIVE_TYPE.containsKey(C$Gson$Preconditions.checkNotNull(type));
     }
 
-    public static Class wrap(Class cls) {
-        Class cls2 = (Class) PRIMITIVE_TO_WRAPPER_TYPE.get(C$Gson$Preconditions.checkNotNull(cls));
+    public static <T> Class<T> wrap(Class<T> cls) {
+        Class<T> cls2 = (Class<T>) PRIMITIVE_TO_WRAPPER_TYPE.get(C$Gson$Preconditions.checkNotNull(cls));
         return cls2 == null ? cls : cls2;
     }
 
-    public static Class unwrap(Class cls) {
-        Class cls2 = (Class) WRAPPER_TO_PRIMITIVE_TYPE.get(C$Gson$Preconditions.checkNotNull(cls));
+    public static <T> Class<T> unwrap(Class<T> cls) {
+        Class<T> cls2 = (Class<T>) WRAPPER_TO_PRIMITIVE_TYPE.get(C$Gson$Preconditions.checkNotNull(cls));
         return cls2 == null ? cls : cls2;
     }
 }

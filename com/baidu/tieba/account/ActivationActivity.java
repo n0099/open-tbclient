@@ -15,14 +15,15 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.data.RegistData;
+import com.baidu.tieba.topRec.TopRecActivity;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ActivationActivity extends com.baidu.tieba.g {
+public class ActivationActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f861a = 60;
+    private static int f877a = 60;
     private ImageView b = null;
     private LinearLayout c = null;
     private ImageView d = null;
@@ -36,7 +37,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     private i n = null;
     private h o = null;
     private boolean p = false;
-    private int q = f861a;
+    private int q = f877a;
     private RegistData r = null;
     private Handler s = new Handler();
     private RelativeLayout t = null;
@@ -59,7 +60,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_register_activation);
@@ -78,7 +79,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
             setResult(0);
             finish();
         } else if (this.r.getSmsCodeTime() > 0) {
-            f861a = this.r.getSmsCodeTime();
+            f877a = this.r.getSmsCodeTime();
         }
     }
 
@@ -95,7 +96,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         this.s.removeCallbacks(this.B);
         if (this.n != null) {
@@ -111,7 +112,7 @@ public class ActivationActivity extends com.baidu.tieba.g {
     public void b() {
         this.p = false;
         this.m.setEnabled(false);
-        this.q = f861a;
+        this.q = f877a;
         this.g.setText(String.format(getString(R.string.resend_code_second), Integer.valueOf(this.q)));
         this.s.postDelayed(this.B, 1000L);
     }
@@ -147,16 +148,16 @@ public class ActivationActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ao.a(this.t, i);
-        com.baidu.tieba.util.ao.d(this.v, i);
-        com.baidu.tieba.util.ao.a(this.b, i);
-        com.baidu.tieba.util.ao.f(this.u, i);
-        com.baidu.tieba.util.ao.a(this.w, i);
-        com.baidu.tieba.util.ao.a(this.g, i);
-        com.baidu.tieba.util.ao.b(this.x, i);
+        com.baidu.tieba.util.as.a(this.t, i);
+        com.baidu.tieba.util.as.d(this.v, i);
+        com.baidu.tieba.util.as.a(this.b, i);
+        com.baidu.tieba.util.as.f(this.u, i);
+        com.baidu.tieba.util.as.a(this.w, i);
+        com.baidu.tieba.util.as.a(this.g, i);
+        com.baidu.tieba.util.as.b(this.x, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -173,23 +174,24 @@ public class ActivationActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.model.as asVar) {
+    public void a(com.baidu.tieba.model.au auVar) {
         AccountData accountData = new AccountData();
-        accountData.setAccount(asVar.a().getName());
-        if (asVar.a().getPassword() != null) {
-            accountData.setPassword(asVar.a().getPassword());
+        accountData.setAccount(auVar.a().getName());
+        if (auVar.a().getPassword() != null) {
+            accountData.setPassword(auVar.a().getPassword());
         } else {
             accountData.setPassword(this.r.getPsw());
         }
-        accountData.setID(asVar.a().getId());
-        accountData.setBDUSS(asVar.a().getBDUSS());
+        accountData.setID(auVar.a().getId());
+        accountData.setBDUSS(auVar.a().getBDUSS());
         accountData.setIsActive(1);
-        if (asVar.b() != null) {
-            accountData.setTbs(asVar.b().getTbs());
+        if (auVar.b() != null) {
+            accountData.setTbs(auVar.b().getTbs());
         }
         DatabaseService.a(accountData);
         TiebaApplication.a(accountData, getBaseContext());
         setResult(-1);
         finish();
+        TopRecActivity.a(this);
     }
 }

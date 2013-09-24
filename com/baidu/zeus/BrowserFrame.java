@@ -57,7 +57,7 @@ public class BrowserFrame extends Handler {
     private final Context mContext;
     private final WebViewDatabase mDatabase;
     private boolean mIsMainFrame;
-    private Map mJSInterfaceMap;
+    private Map<String, Object> mJSInterfaceMap;
     boolean mLoadInitFromJava;
     private int mLoadType;
     private LoadListener mMainLoadListener;
@@ -97,7 +97,7 @@ public class BrowserFrame extends Handler {
 
     private native void nativeLoadData(String str, String str2, String str3, String str4, String str5);
 
-    private native void nativeLoadUrl(String str, Map map);
+    private native void nativeLoadUrl(String str, Map<String, String> map);
 
     private native void nativeOrientationChanged(int i);
 
@@ -138,7 +138,7 @@ public class BrowserFrame extends Handler {
 
     /* loaded from: classes.dex */
     class ConfigCallback implements ComponentCallbacks {
-        private final ArrayList mHandlers = new ArrayList();
+        private final ArrayList<WeakReference<Handler>> mHandlers = new ArrayList<>();
         private final WindowManager mWindowManager;
 
         ConfigCallback(WindowManager windowManager) {
@@ -146,7 +146,7 @@ public class BrowserFrame extends Handler {
         }
 
         public synchronized void addHandler(Handler handler) {
-            this.mHandlers.add(new WeakReference(handler));
+            this.mHandlers.add(new WeakReference<>(handler));
         }
 
         @Override // android.content.ComponentCallbacks
@@ -173,14 +173,14 @@ public class BrowserFrame extends Handler {
                 }
                 synchronized (this) {
                     ArrayList arrayList = new ArrayList(this.mHandlers.size());
-                    Iterator it = this.mHandlers.iterator();
+                    Iterator<WeakReference<Handler>> it = this.mHandlers.iterator();
                     while (it.hasNext()) {
-                        WeakReference weakReference = (WeakReference) it.next();
-                        Handler handler = (Handler) weakReference.get();
+                        WeakReference<Handler> next = it.next();
+                        Handler handler = next.get();
                         if (handler != null) {
                             handler.sendMessage(handler.obtainMessage(BrowserFrame.ORIENTATION_CHANGED, i, 0));
                         } else {
-                            arrayList.add(weakReference);
+                            arrayList.add(next);
                         }
                     }
                     Iterator it2 = arrayList.iterator();
@@ -196,7 +196,7 @@ public class BrowserFrame extends Handler {
         }
     }
 
-    public BrowserFrame(Context context, WebViewCore webViewCore, CallbackProxy callbackProxy, WebSettings webSettings, Map map) {
+    public BrowserFrame(Context context, WebViewCore webViewCore, CallbackProxy callbackProxy, WebSettings webSettings, Map<String, Object> map) {
         Context applicationContext = context.getApplicationContext();
         if (sJavaBridge == null) {
             sJavaBridge = new JWebCoreJavaBridge();
@@ -223,7 +223,7 @@ public class BrowserFrame extends Handler {
         nativeCreateFrame(webViewCore, context.getAssets(), callbackProxy.getBackForwardList());
     }
 
-    public void loadUrl(String str, Map map) {
+    public void loadUrl(String str, Map<String, String> map) {
         this.mLoadInitFromJava = true;
         if (URLUtil.isJavaScriptUrl(str)) {
             stringByEvaluatingJavaScriptFromString(str.substring("javascript:".length()));

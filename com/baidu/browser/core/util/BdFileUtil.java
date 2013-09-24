@@ -135,47 +135,31 @@ public class BdFileUtil {
     }
 
     public static byte[] readPrivateFile(Context context, String str) {
-        byte[] bArr;
-        IOException e;
-        FileNotFoundException e2;
+        byte[] bArr = null;
         try {
             FileInputStream openFileInput = context.openFileInput(str);
-            if (openFileInput.available() <= 0) {
-                bArr = null;
-            } else {
+            if (openFileInput.available() > 0) {
                 byte[] bArr2 = new byte[openFileInput.available()];
                 try {
                     openFileInput.read(bArr2);
                     bArr = bArr2;
-                } catch (FileNotFoundException e3) {
+                } catch (FileNotFoundException e) {
                     bArr = bArr2;
-                    e2 = e3;
-                    e2.printStackTrace();
+                    e = e;
+                    e.printStackTrace();
                     return bArr;
-                } catch (IOException e4) {
+                } catch (IOException e2) {
                     bArr = bArr2;
-                    e = e4;
+                    e = e2;
                     e.printStackTrace();
                     return bArr;
                 }
             }
-            try {
-                openFileInput.close();
-            } catch (FileNotFoundException e5) {
-                e2 = e5;
-                e2.printStackTrace();
-                return bArr;
-            } catch (IOException e6) {
-                e = e6;
-                e.printStackTrace();
-                return bArr;
-            }
-        } catch (FileNotFoundException e7) {
-            bArr = null;
-            e2 = e7;
-        } catch (IOException e8) {
-            bArr = null;
-            e = e8;
+            openFileInput.close();
+        } catch (FileNotFoundException e3) {
+            e = e3;
+        } catch (IOException e4) {
+            e = e4;
         }
         return bArr;
     }

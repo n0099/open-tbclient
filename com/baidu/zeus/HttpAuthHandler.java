@@ -15,7 +15,7 @@ public class HttpAuthHandler extends Handler {
     boolean mRequestInFlight;
     String mUsername;
     Object mRequestInFlightLock = new Object();
-    private LinkedList mLoaderQueue = new LinkedList();
+    private LinkedList<LoadListener> mLoaderQueue = new LinkedList<>();
 
     static {
         $assertionsDisabled = !HttpAuthHandler.class.desiredAssertionStatus();
@@ -28,30 +28,30 @@ public class HttpAuthHandler extends Handler {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        LoadListener loadListener;
+        LoadListener poll;
         synchronized (this.mLoaderQueue) {
-            loadListener = (LoadListener) this.mLoaderQueue.poll();
+            poll = this.mLoaderQueue.poll();
         }
-        if (!$assertionsDisabled && loadListener.isSynchronous()) {
+        if (!$assertionsDisabled && poll.isSynchronous()) {
             throw new AssertionError();
         }
         switch (message.what) {
             case 100:
-                loadListener.handleAuthResponse(message.getData().getString("username"), message.getData().getString("password"));
+                poll.handleAuthResponse(message.getData().getString("username"), message.getData().getString("password"));
                 break;
             case 200:
-                loadListener.handleAuthResponse(null, null);
+                poll.handleAuthResponse(null, null);
                 break;
         }
         processNextLoader();
     }
 
     private boolean handleResponseForSynchronousRequest(String str, String str2) {
-        LoadListener loadListener;
+        LoadListener peek;
         synchronized (this.mLoaderQueue) {
-            loadListener = (LoadListener) this.mLoaderQueue.peek();
+            peek = this.mLoaderQueue.peek();
         }
-        if (loadListener.isSynchronous()) {
+        if (peek.isSynchronous()) {
             this.mUsername = str;
             this.mPassword = str2;
             return true;
@@ -91,11 +91,11 @@ public class HttpAuthHandler extends Handler {
     }
 
     public boolean useHttpAuthUsernamePassword() {
-        LoadListener loadListener;
+        LoadListener peek;
         synchronized (this.mLoaderQueue) {
-            loadListener = (LoadListener) this.mLoaderQueue.peek();
+            peek = this.mLoaderQueue.peek();
         }
-        return (loadListener == null || loadListener.authCredentialsInvalid()) ? false : true;
+        return (peek == null || peek.authCredentialsInvalid()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -139,18 +139,18 @@ public class HttpAuthHandler extends Handler {
     }
 
     private void processNextLoader() {
-        LoadListener loadListener;
+        LoadListener peek;
         synchronized (this.mLoaderQueue) {
-            loadListener = (LoadListener) this.mLoaderQueue.peek();
+            peek = this.mLoaderQueue.peek();
         }
-        if (loadListener != null) {
+        if (peek != null) {
             synchronized (this.mRequestInFlightLock) {
                 if (!$assertionsDisabled && this.mRequestInFlight) {
                     throw new AssertionError();
                 }
                 this.mRequestInFlight = true;
             }
-            loadListener.getFrame().getCallbackProxy().onReceivedHttpAuthRequest(this, loadListener.proxyAuthenticate() ? this.mNetwork.getProxyHostname() : loadListener.host(), loadListener.realm());
+            peek.getFrame().getCallbackProxy().onReceivedHttpAuthRequest(this, peek.proxyAuthenticate() ? this.mNetwork.getProxyHostname() : peek.host(), peek.realm());
         }
     }
 

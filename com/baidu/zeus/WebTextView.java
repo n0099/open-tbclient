@@ -560,10 +560,10 @@ public class WebTextView extends AutoCompleteTextView {
     }
 
     /* loaded from: classes.dex */
-    public class AutoCompleteAdapter extends ArrayAdapter {
+    public class AutoCompleteAdapter extends ArrayAdapter<String> {
         private TextView mTextView;
 
-        public AutoCompleteAdapter(Context context, ArrayList arrayList) {
+        public AutoCompleteAdapter(Context context, ArrayList<String> arrayList) {
             super(context, context.getResources().getIdentifier("zeus_search_dropdown_item_line.xml", "layout", context.getPackageName()), arrayList);
         }
 

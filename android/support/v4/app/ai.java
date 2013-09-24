@@ -2,10 +2,10 @@ package android.support.v4.app;
 
 import android.os.Bundle;
 /* loaded from: classes.dex */
-public interface ai {
-    android.support.v4.content.c a(int i, Bundle bundle);
+public interface ai<D> {
+    android.support.v4.content.c<D> a(int i, Bundle bundle);
 
-    void a(android.support.v4.content.c cVar);
+    void a(android.support.v4.content.c<D> cVar);
 
-    void a(android.support.v4.content.c cVar, Object obj);
+    void a(android.support.v4.content.c<D> cVar, D d);
 }

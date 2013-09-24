@@ -5,7 +5,7 @@ import android.content.Context;
 public class LoginShareAssistant {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LoginShareAssistant f784a = null;
+    private static LoginShareAssistant f796a = null;
     private b b;
 
     private LoginShareAssistant() {
@@ -16,10 +16,10 @@ public class LoginShareAssistant {
     public static synchronized LoginShareAssistant getInstance() {
         LoginShareAssistant loginShareAssistant;
         synchronized (LoginShareAssistant.class) {
-            if (f784a == null) {
-                f784a = new LoginShareAssistant();
+            if (f796a == null) {
+                f796a = new LoginShareAssistant();
             }
-            loginShareAssistant = f784a;
+            loginShareAssistant = f796a;
         }
         return loginShareAssistant;
     }
@@ -28,7 +28,7 @@ public class LoginShareAssistant {
         if (this.b != null) {
             this.b.b();
         }
-        f784a = null;
+        f796a = null;
         this.b = null;
     }
 

@@ -1,66 +1,73 @@
 package com.baidu.tieba.service;
 
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.ad;
-import com.baidu.tieba.util.aq;
-import com.tencent.mm.sdk.platformtools.Util;
+import com.baidu.tieba.data.aj;
+import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.z;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends BdAsyncTask {
+public class m extends BdAsyncTask<String, Integer, aj> {
+    int b;
+    final /* synthetic */ TiebaMessageService c;
 
     /* renamed from: a  reason: collision with root package name */
-    NetWorkCore f1722a;
-    final /* synthetic */ TiebaActiveService b;
+    z f1796a = null;
+    private TiebaApplication d = TiebaApplication.g();
+    private String e = TiebaApplication.C();
 
-    private m(TiebaActiveService tiebaActiveService) {
-        this.b = tiebaActiveService;
-        this.f1722a = null;
+    public m(TiebaMessageService tiebaMessageService, int i) {
+        this.c = tiebaMessageService;
+        this.b = 0;
+        this.b = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(TiebaActiveService tiebaActiveService, m mVar) {
-        this(tiebaActiveService);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        super.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        aq.a(getClass().getName(), "doBackGround", "send active...");
+    public aj a(String... strArr) {
+        aj ajVar;
+        Exception e;
         try {
-            this.f1722a = new NetWorkCore(new ad());
-            this.f1722a.a("http://114.113.149.3:8086/partnersService");
-            this.f1722a.a(this.b.getApplicationContext());
-            this.f1722a.a("apk", TiebaApplication.g().getPackageName());
-            this.f1722a.a("imei", TiebaApplication.g().r());
-            this.f1722a.a("model", Build.MODEL);
-            this.f1722a.a("edition", com.baidu.tieba.data.g.j());
-            this.f1722a.a("system", Build.VERSION.SDK);
-            this.f1722a.c(false);
-            String r = this.f1722a.r();
-            if (this.f1722a.o()) {
-                aq.a(getClass().getName(), "task", "data=" + r);
-                return r;
+        } catch (Exception e2) {
+            ajVar = null;
+            e = e2;
+        }
+        if (this.d.ad() && this.e != null && this.e.length() > 0) {
+            this.f1796a = new z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/s/msg");
+            if (this.b == 2) {
+                this.f1796a.a("bookmark", "1");
             }
-        } catch (Exception e) {
-            SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
-            edit.putInt("active", 1);
-            edit.commit();
-            aq.b(getClass().getName(), "doInBackground", e.getMessage());
+            String j = this.f1796a.j();
+            if (this.f1796a.c()) {
+                ajVar = new aj();
+                try {
+                    ajVar.a(j);
+                } catch (Exception e3) {
+                    e = e3;
+                    av.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return ajVar;
+                }
+            } else {
+                ajVar = null;
+            }
+            return ajVar;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f1705a = null;
-        if (this.f1722a != null) {
-            this.f1722a.q();
+        this.c.f1780a = null;
+        this.c.b = null;
+        if (this.f1796a != null) {
+            this.f1796a.h();
         }
         super.cancel(true);
     }
@@ -68,37 +75,22 @@ public class m extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        int i;
-        int i2;
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        super.a((Object) str);
-        this.b.f1705a = null;
-        SharedPreferences.Editor edit = this.b.getSharedPreferences("settings", 0).edit();
-        edit.putInt("active", 1);
-        if (str == null) {
-            TiebaActiveService tiebaActiveService = this.b;
-            i = tiebaActiveService.b;
-            tiebaActiveService.b = i + 1;
-            i2 = this.b.b;
-            if (i2 < 10) {
-                handler = this.b.c;
-                runnable = this.b.d;
-                handler.removeCallbacks(runnable);
-                handler2 = this.b.c;
-                runnable2 = this.b.d;
-                handler2.postDelayed(runnable2, Util.MILLSECONDS_OF_MINUTE);
-            } else {
-                edit.commit();
-                this.b.stopSelf();
+    public void a(aj ajVar) {
+        try {
+            super.a((m) ajVar);
+            this.c.f1780a = null;
+            this.c.b = null;
+            if (ajVar != null) {
+                this.c.c = ajVar;
+                if (this.b == 2) {
+                    this.d.a((Boolean) false);
+                }
+                if (this.e != null && this.e.length() > 0) {
+                    this.c.b(this.b);
+                }
             }
+        } catch (Exception e) {
+            av.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
-        aq.a(getClass().getName(), "onPostExecute", "send active ok");
-        edit.putInt("active", 2);
-        edit.commit();
-        this.b.stopSelf();
     }
 }

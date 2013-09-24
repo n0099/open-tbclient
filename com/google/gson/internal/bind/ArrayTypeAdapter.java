@@ -13,10 +13,10 @@ import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class ArrayTypeAdapter extends TypeAdapter {
+public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
-        public TypeAdapter create(Gson gson, TypeToken typeToken) {
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
             Type type = typeToken.getType();
             if (!(type instanceof GenericArrayType) && (!(type instanceof Class) || !((Class) type).isArray())) {
                 return null;
@@ -25,10 +25,10 @@ public final class ArrayTypeAdapter extends TypeAdapter {
             return new ArrayTypeAdapter(gson, gson.getAdapter(TypeToken.get(arrayComponentType)), C$Gson$Types.getRawType(arrayComponentType));
         }
     };
-    private final Class componentType;
-    private final TypeAdapter componentTypeAdapter;
+    private final Class<E> componentType;
+    private final TypeAdapter<E> componentTypeAdapter;
 
-    public ArrayTypeAdapter(Gson gson, TypeAdapter typeAdapter, Class cls) {
+    public ArrayTypeAdapter(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
         this.componentTypeAdapter = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
         this.componentType = cls;
     }
@@ -45,13 +45,15 @@ public final class ArrayTypeAdapter extends TypeAdapter {
             arrayList.add(this.componentTypeAdapter.read(jsonReader));
         }
         jsonReader.endArray();
-        Object newInstance = Array.newInstance(this.componentType, arrayList.size());
+        Object newInstance = Array.newInstance((Class<?>) this.componentType, arrayList.size());
         for (int i = 0; i < arrayList.size(); i++) {
             Array.set(newInstance, i, arrayList.get(i));
         }
         return newInstance;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.google.gson.TypeAdapter<E> */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // com.google.gson.TypeAdapter
     public void write(JsonWriter jsonWriter, Object obj) {
         if (obj == null) {

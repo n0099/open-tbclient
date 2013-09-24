@@ -35,9 +35,9 @@ public class NotificationManagerThread {
     public Context mContext;
     private ThreadHandler mHandler;
     private String mPackageName;
-    private final HashMap mNotificationProxys = new HashMap();
-    private final HashMap mReplaceIdMap = new HashMap();
-    private final ArrayList mDefaultIdArray = new ArrayList();
+    private final HashMap<Integer, NotificationProxy> mNotificationProxys = new HashMap<>();
+    private final HashMap<Integer, String> mReplaceIdMap = new HashMap<>();
+    private final ArrayList<Integer> mDefaultIdArray = new ArrayList<>();
     private NotificationResource mNotificationRes = new NotificationResource();
     private BroadcastReceiver mServiceInitReceiver = null;
     private Messenger mService = null;
@@ -165,7 +165,7 @@ public class NotificationManagerThread {
         if (notificationProxy != null) {
             synchronized (this.mNotificationProxys) {
                 int hashCode = notificationProxy.hashCode();
-                if (((NotificationProxy) this.mNotificationProxys.get(Integer.valueOf(hashCode))) != null) {
+                if (this.mNotificationProxys.get(Integer.valueOf(hashCode)) != null) {
                     notificationProxy.cancelFromJs();
                     notificationProxy.dispatchEvent(1);
                     Log.e(TAG, "some web notification has the same hash code !\n");
@@ -190,7 +190,7 @@ public class NotificationManagerThread {
                     int i = APHash;
                     if (!this.mReplaceIdMap.containsKey(Integer.valueOf(i))) {
                         break;
-                    } else if (((String) this.mReplaceIdMap.get(Integer.valueOf(i))).compareTo(str) != 0) {
+                    } else if (this.mReplaceIdMap.get(Integer.valueOf(i)).compareTo(str) != 0) {
                         APHash = i + 1;
                     } else {
                         return i;
@@ -209,7 +209,7 @@ public class NotificationManagerThread {
             while (true) {
                 int i2 = APHash2;
                 if (this.mReplaceIdMap.containsKey(Integer.valueOf(i2))) {
-                    if (((String) this.mReplaceIdMap.get(Integer.valueOf(i2))).compareTo(str) != 0) {
+                    if (this.mReplaceIdMap.get(Integer.valueOf(i2)).compareTo(str) != 0) {
                         APHash2 = i2 + 1;
                     } else {
                         return i2;
@@ -323,8 +323,8 @@ public class NotificationManagerThread {
         int i2;
         synchronized (this.mNotificationProxys) {
             i2 = 0;
-            for (Map.Entry entry : this.mNotificationProxys.entrySet()) {
-                if (i == ((NotificationProxy) entry.getValue()).mReplaceId) {
+            for (Map.Entry<Integer, NotificationProxy> entry : this.mNotificationProxys.entrySet()) {
+                if (i == entry.getValue().mReplaceId) {
                     i2++;
                 }
             }
@@ -353,21 +353,21 @@ public class NotificationManagerThread {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clearFromBroadcast() {
-        Map.Entry entry;
+        Map.Entry<Integer, NotificationProxy> next;
         while (true) {
             synchronized (this.mNotificationProxys) {
-                Iterator it = this.mNotificationProxys.entrySet().iterator();
+                Iterator<Map.Entry<Integer, NotificationProxy>> it = this.mNotificationProxys.entrySet().iterator();
                 if (it.hasNext()) {
-                    entry = (Map.Entry) it.next();
+                    next = it.next();
                 } else {
                     this.mNotificationProxys.clear();
                     this.mService = null;
                     return;
                 }
             }
-            NotificationProxy notificationProxy = (NotificationProxy) entry.getValue();
-            removeNotificationProxy(notificationProxy);
-            notificationProxy.cancelFromUser();
+            NotificationProxy value = next.getValue();
+            removeNotificationProxy(value);
+            value.cancelFromUser();
         }
     }
 
@@ -394,16 +394,16 @@ public class NotificationManagerThread {
     }
 
     public void destroy() {
-        Map.Entry entry;
+        Map.Entry<Integer, NotificationProxy> next;
         while (true) {
             synchronized (this.mNotificationProxys) {
-                Iterator it = this.mNotificationProxys.entrySet().iterator();
+                Iterator<Map.Entry<Integer, NotificationProxy>> it = this.mNotificationProxys.entrySet().iterator();
                 if (!it.hasNext()) {
                     break;
                 }
-                entry = (Map.Entry) it.next();
+                next = it.next();
             }
-            cancelNotificationInner((NotificationProxy) entry.getValue());
+            cancelNotificationInner(next.getValue());
         }
         this.mNotificationProxys.clear();
         if (this.mServiceInitReceiver != null) {

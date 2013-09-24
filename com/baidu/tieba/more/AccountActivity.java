@@ -5,36 +5,33 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.as;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class AccountActivity extends com.baidu.tieba.g {
+public class AccountActivity extends com.baidu.tieba.j {
+    private NavigationBar d;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1425a = null;
+    private ArrayList<AccountData> f1464a = null;
     private o b = null;
-    private LinearLayout c = null;
-    private TextView d = null;
-    private ListView e = null;
-    private ImageView f = null;
-    private Button g = null;
-    private View.OnClickListener j = null;
-    private l k = null;
-    private i l = null;
+    private ListView c = null;
+    private Button e = null;
+    private View.OnClickListener f = null;
+    private l g = null;
+    private i j = null;
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, AccountActivity.class));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_activity);
@@ -43,46 +40,42 @@ public class AccountActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        ao.d(this.c, i);
-        ao.a(this.f, i);
-        ao.g((TextView) this.g, i);
-        ao.f(this.d, i);
-        ao.a((View) this.e, i);
+        this.d.b(i);
+        as.a((View) this.c, i);
         this.b.notifyDataSetChanged();
         if (i == 1) {
-            this.e.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            this.e.setSelector(R.drawable.list_selector_1);
+            this.c.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
+            this.c.setSelector(R.drawable.list_selector_1);
             return;
         }
-        this.e.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        this.e.setSelector(R.drawable.list_selector);
+        this.c.setDivider(getResources().getDrawable(R.drawable.list_divider));
+        this.c.setSelector(R.drawable.list_selector);
     }
 
     private void b() {
-        this.f1425a = DatabaseService.l();
+        this.f1464a = DatabaseService.l();
     }
 
     private void c() {
-        this.j = new e(this);
-        this.f = (ImageView) findViewById(R.id.title_back);
-        this.f.setOnClickListener(new f(this));
-        this.g = (Button) findViewById(R.id.edit);
-        this.g.setOnClickListener(new g(this));
-        this.c = (LinearLayout) findViewById(R.id.title);
-        this.d = (TextView) findViewById(R.id.title_text);
-        this.b = new o(this, this.j);
-        this.b.a(this.f1425a);
-        this.e = (ListView) findViewById(R.id.list);
-        this.e.setAdapter((ListAdapter) this.b);
-        this.e.setOnItemClickListener(new h(this));
+        this.f = new f(this);
+        this.d = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.d.a(getString(R.string.account_manager));
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit));
+        this.e.setOnClickListener(new g(this));
+        this.b = new o(this, this.f);
+        this.b.a(this.f1464a);
+        this.c = (ListView) findViewById(R.id.list);
+        this.c.setAdapter((ListAdapter) this.b);
+        this.c.setOnItemClickListener(new h(this));
     }
 }

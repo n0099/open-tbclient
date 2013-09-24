@@ -1,9 +1,10 @@
 package com.baidu.tieba.util;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c {
+public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1797a;
+    String f1917a;
     int b;
     com.baidu.tbadk.a.d c;
     boolean d;

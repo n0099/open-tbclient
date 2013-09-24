@@ -6,11 +6,11 @@ import android.view.View;
 class k implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f418a;
+    final /* synthetic */ j f422a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f418a = jVar;
+        this.f422a = jVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -19,6 +19,7 @@ class k implements View.OnTouchListener {
             view.setBackgroundResource(com.baidu.adp.d.adp_debug_refresh_press);
             com.baidu.adp.lib.debug.b.b(0);
             com.baidu.adp.lib.debug.b.c(0);
+            com.baidu.adp.lib.debug.b.g();
         } else if (motionEvent.getAction() == 1) {
             view.setBackgroundResource(com.baidu.adp.d.adp_debug_refresh);
         }

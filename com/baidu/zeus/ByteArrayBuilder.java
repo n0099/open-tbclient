@@ -8,33 +8,33 @@ import java.util.ListIterator;
 /* loaded from: classes.dex */
 public class ByteArrayBuilder {
     private static final int DEFAULT_CAPACITY = 8192;
-    private static final LinkedList sPool = new LinkedList();
-    private static final ReferenceQueue sQueue = new ReferenceQueue();
-    private LinkedList mChunks = new LinkedList();
+    private static final LinkedList<SoftReference<Chunk>> sPool = new LinkedList<>();
+    private static final ReferenceQueue<Chunk> sQueue = new ReferenceQueue<>();
+    private LinkedList<Chunk> mChunks = new LinkedList<>();
 
     public synchronized void append(byte[] bArr, int i, int i2) {
-        Chunk chunk;
+        Chunk last;
         while (i2 > 0) {
             if (this.mChunks.isEmpty()) {
-                chunk = obtainChunk(i2);
-                this.mChunks.addLast(chunk);
+                last = obtainChunk(i2);
+                this.mChunks.addLast(last);
             } else {
-                chunk = (Chunk) this.mChunks.getLast();
-                if (chunk.mLength == chunk.mArray.length) {
-                    chunk = obtainChunk(i2);
-                    this.mChunks.addLast(chunk);
+                last = this.mChunks.getLast();
+                if (last.mLength == last.mArray.length) {
+                    last = obtainChunk(i2);
+                    this.mChunks.addLast(last);
                 }
             }
-            int min = Math.min(i2, chunk.mArray.length - chunk.mLength);
-            System.arraycopy(bArr, i, chunk.mArray, chunk.mLength, min);
-            chunk.mLength += min;
+            int min = Math.min(i2, last.mArray.length - last.mLength);
+            System.arraycopy(bArr, i, last.mArray, last.mLength, min);
+            last.mLength += min;
             i2 -= min;
             i += min;
         }
     }
 
     public synchronized Chunk getFirstChunk() {
-        return this.mChunks.isEmpty() ? null : (Chunk) this.mChunks.removeFirst();
+        return this.mChunks.isEmpty() ? null : this.mChunks.removeFirst();
     }
 
     public synchronized boolean isEmpty() {
@@ -45,11 +45,11 @@ public class ByteArrayBuilder {
         int i;
         int i2 = 0;
         synchronized (this) {
-            ListIterator listIterator = this.mChunks.listIterator(0);
+            ListIterator<Chunk> listIterator = this.mChunks.listIterator(0);
             while (true) {
                 i = i2;
                 if (listIterator.hasNext()) {
-                    i2 = ((Chunk) listIterator.next()).mLength + i;
+                    i2 = listIterator.next().mLength + i;
                 }
             }
         }
@@ -82,7 +82,7 @@ public class ByteArrayBuilder {
         }
         synchronized (sPool) {
             processPoolLocked();
-            if (sPool.isEmpty() || (chunk = (Chunk) ((SoftReference) sPool.removeFirst()).get()) == null) {
+            if (sPool.isEmpty() || (chunk = sPool.removeFirst().get()) == null) {
                 chunk = new Chunk(i);
             }
         }

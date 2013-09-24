@@ -11,12 +11,12 @@ import java.util.List;
 class d extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private List f1134a;
-    private WeakReference b;
+    private List<e> f1181a;
+    private WeakReference<View> b;
 
     private d(View view) {
-        this.f1134a = new ArrayList(10);
-        this.b = new WeakReference(view);
+        this.f1181a = new ArrayList(10);
+        this.b = new WeakReference<>(view);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,26 +31,26 @@ class d extends Handler {
             case 1:
                 long uptimeMillis = SystemClock.uptimeMillis();
                 boolean z = false;
-                for (e eVar : this.f1134a) {
+                for (e eVar : this.f1181a) {
                     if (eVar.b()) {
                         eVar.a();
                         z = true;
                     }
                 }
-                if (z && (view = (View) this.b.get()) != null) {
+                if (z && (view = this.b.get()) != null) {
                     view.invalidate();
                 }
                 removeMessages(1);
                 sendEmptyMessageAtTime(1, 16 + uptimeMillis);
                 return;
             case 2:
-                this.f1134a.add((e) message.obj);
+                this.f1181a.add((e) message.obj);
                 return;
             case 3:
             default:
                 return;
             case 4:
-                this.f1134a.remove(message.obj);
+                this.f1181a.remove(message.obj);
                 return;
         }
     }
@@ -72,7 +72,7 @@ class d extends Handler {
     }
 
     public void c() {
-        for (e eVar : this.f1134a) {
+        for (e eVar : this.f1181a) {
             b(eVar);
         }
     }

@@ -2,18 +2,19 @@ package com.baidu.tieba.home;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.av;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask {
+public class i extends BdAsyncTask<com.baidu.tieba.data.ae, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1186a;
-    private com.baidu.tieba.util.v b = null;
+    final /* synthetic */ EnterForumActivity f1218a;
+    private com.baidu.tieba.util.z b = null;
     private com.baidu.tieba.data.ae c;
 
     public i(EnterForumActivity enterForumActivity, com.baidu.tieba.data.ae aeVar) {
-        this.f1186a = enterForumActivity;
+        this.f1218a = enterForumActivity;
         this.c = null;
         this.c = aeVar;
     }
@@ -26,7 +27,7 @@ public class i extends BdAsyncTask {
         if (aeVar != null) {
             try {
                 if (aeVar.a() != null && aeVar.b() != null) {
-                    this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/c/forum/unfavo");
+                    this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/forum/unfavo");
                     this.b.a("fid", aeVar.a());
                     this.b.a("kw", aeVar.b());
                     this.b.e(true);
@@ -35,7 +36,7 @@ public class i extends BdAsyncTask {
                 }
                 return null;
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
+                av.b(getClass().getName(), "doInBackground", e.getMessage());
                 return null;
             }
         }
@@ -47,17 +48,17 @@ public class i extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         k kVar;
-        super.a((Object) str);
-        this.f1186a.b = null;
+        super.a((i) str);
+        this.f1218a.b = null;
         if (this.b != null) {
             if (this.b.c()) {
-                this.f1186a.a(this.f1186a.getString(R.string.success));
-                TiebaApplication.g().i(true);
-                kVar = this.f1186a.f1138a;
+                this.f1218a.a(this.f1218a.getString(R.string.success));
+                TiebaApplication.g().h(true);
+                kVar = this.f1218a.f1185a;
                 kVar.b();
                 return;
             }
-            this.f1186a.a(this.b.g());
+            this.f1218a.a(this.b.g());
         }
     }
 
@@ -72,7 +73,7 @@ public class i extends BdAsyncTask {
             this.b.h();
             this.b = null;
         }
-        this.f1186a.b = null;
+        this.f1218a.b = null;
         super.cancel(true);
     }
 }

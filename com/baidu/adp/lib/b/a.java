@@ -1,14 +1,14 @@
 package com.baidu.adp.lib.b;
 
 import android.util.Log;
-import com.baidu.adp.lib.e.d;
+import com.baidu.adp.lib.f.d;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class a {
+public class a<K, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final LinkedHashMap f365a = new LinkedHashMap(0, 0.75f, true);
+    private final LinkedHashMap<K, V> f369a = new LinkedHashMap<>(0, 0.75f, true);
     private int b;
     private int c;
     private int d;
@@ -22,46 +22,46 @@ public class a {
         this.b = this.d / 5;
     }
 
-    public final Object a(Object obj) {
-        Object obj2 = null;
-        if (obj != null) {
+    public final V a(K k) {
+        V v = null;
+        if (k != null) {
             synchronized (this) {
-                Object obj3 = this.f365a.get(obj);
-                if (obj3 != null) {
+                V v2 = this.f369a.get(k);
+                if (v2 != null) {
                     this.g++;
-                    obj2 = obj3;
+                    v = v2;
                 } else {
                     this.h++;
                 }
             }
         }
-        return obj2;
+        return v;
     }
 
-    public final Object a(Object obj, Object obj2) {
-        Object obj3 = null;
-        if (obj != null && obj2 != null) {
-            if (b(obj, obj2) > this.b) {
+    public final V a(K k, V v) {
+        V v2 = null;
+        if (k != null && v != null) {
+            if (b(k, v) > this.b) {
                 if (d.a()) {
-                    Log.w("adp", "image too big:" + obj2 + ", size:" + b(obj, obj2), new Exception());
+                    Log.w("adp", "image too big:" + v + ", size:" + b(k, v), new Exception());
                 }
-                a(false, obj, obj2, null);
+                a(false, k, v, null);
             } else {
                 synchronized (this) {
                     this.e++;
-                    this.c += c(obj, obj2);
-                    obj3 = this.f365a.put(obj, obj2);
-                    if (obj3 != null) {
-                        this.c -= c(obj, obj3);
+                    this.c += c(k, v);
+                    v2 = this.f369a.put(k, v);
+                    if (v2 != null) {
+                        this.c -= c(k, v2);
                     }
                 }
-                if (obj3 != null) {
-                    a(false, obj, obj3, obj2);
+                if (v2 != null) {
+                    a(false, k, v2, v);
                 }
                 b(this.d);
             }
         }
-        return obj3;
+        return v2;
     }
 
     public synchronized boolean a(int i) {
@@ -85,19 +85,19 @@ public class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b(int i) {
-        Object key;
-        Object value;
+        K key;
+        V value;
         while (true) {
             synchronized (this) {
-                if (this.c < 0 || (this.f365a.isEmpty() && this.c != 0)) {
+                if (this.c < 0 || (this.f369a.isEmpty() && this.c != 0)) {
                     break;
-                } else if (this.c <= i || this.f365a.isEmpty()) {
+                } else if (this.c <= i || this.f369a.isEmpty()) {
                     break;
                 } else {
-                    Map.Entry entry = (Map.Entry) this.f365a.entrySet().iterator().next();
-                    key = entry.getKey();
-                    value = entry.getValue();
-                    this.f365a.remove(key);
+                    Map.Entry<K, V> next = this.f369a.entrySet().iterator().next();
+                    key = next.getKey();
+                    value = next.getValue();
+                    this.f369a.remove(key);
                     this.c -= c(key, value);
                     this.f++;
                 }
@@ -106,35 +106,35 @@ public class a {
         }
     }
 
-    public final Object b(Object obj) {
-        Object remove;
-        if (obj == null) {
+    public final V b(K k) {
+        V remove;
+        if (k == null) {
             return null;
         }
         synchronized (this) {
-            remove = this.f365a.remove(obj);
+            remove = this.f369a.remove(k);
             if (remove != null) {
-                this.c -= c(obj, remove);
+                this.c -= c(k, remove);
             }
         }
         if (remove != null) {
-            a(false, obj, remove, null);
+            a(false, k, remove, null);
         }
         return remove;
     }
 
-    protected void a(boolean z, Object obj, Object obj2, Object obj3) {
+    protected void a(boolean z, K k, V v, V v2) {
     }
 
-    private int c(Object obj, Object obj2) {
-        int b = b(obj, obj2);
+    private int c(K k, V v) {
+        int b = b(k, v);
         if (b < 0) {
-            throw new IllegalStateException("Negative size: " + obj + "=" + obj2);
+            throw new IllegalStateException("Negative size: " + k + "=" + v);
         }
         return b;
     }
 
-    protected int b(Object obj, Object obj2) {
+    protected int b(K k, V v) {
         return 1;
     }
 

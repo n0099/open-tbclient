@@ -9,31 +9,31 @@ import com.baidu.tieba.data.AccountData;
 public class h implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1449a;
+    final /* synthetic */ AccountActivity f1492a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(AccountActivity accountActivity) {
-        this.f1449a = accountActivity;
+        this.f1492a = accountActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         o oVar;
         o oVar2;
         o oVar3;
         l lVar;
         l lVar2;
-        oVar = this.f1449a.b;
+        oVar = this.f1492a.b;
         if (oVar.getItemId(i) >= 0) {
-            oVar2 = this.f1449a.b;
+            oVar2 = this.f1492a.b;
             if (!oVar2.a()) {
-                oVar3 = this.f1449a.b;
+                oVar3 = this.f1492a.b;
                 AccountData accountData = (AccountData) oVar3.getItem(i);
                 if (accountData != null && accountData.getIsActive() != 1) {
-                    this.f1449a.k = new l(this.f1449a, accountData);
-                    lVar = this.f1449a.k;
+                    this.f1492a.g = new l(this.f1492a, accountData);
+                    lVar = this.f1492a.g;
                     lVar.setPriority(3);
-                    lVar2 = this.f1449a.k;
+                    lVar2 = this.f1492a.g;
                     lVar2.execute(new Object[0]);
                     return;
                 }
@@ -41,6 +41,6 @@ public class h implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        LoginActivity.a(this.f1449a);
+        LoginActivity.a(this.f1492a);
     }
 }

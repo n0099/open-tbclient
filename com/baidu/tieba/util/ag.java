@@ -1,64 +1,88 @@
 package com.baidu.tieba.util;
 
-import java.util.HashMap;
-import java.util.Map;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Proxy;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class ag {
-    private volatile int b;
-    private volatile HashMap c = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f1781a = 0;
+    public static int f1896a;
+    private static ag b;
+    private static long d;
+    private static volatile int c = 0;
+    private static int e = 300000;
+    private static int f = 10;
 
-    public ag(int i) {
-        this.b = i;
+    private ag() {
+        f1896a = TiebaApplication.g().aR();
     }
 
-    public void a(String str) {
+    public static synchronized ag a() {
+        ag agVar;
+        synchronized (ag.class) {
+            if (b == null) {
+                b = new ag();
+            }
+            agVar = b;
+        }
+        return agVar;
+    }
+
+    public s a(ah ahVar) {
+        switch (f1896a) {
+            case 0:
+                return new NetWorkCore(ahVar);
+            case 1:
+                return new NetWorkCoreByBdHttp(ahVar);
+            default:
+                return new NetWorkCoreByBdHttp(ahVar);
+        }
+    }
+
+    public static synchronized void b() {
+        synchronized (ag.class) {
+            if (f1896a == 1) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - d < e) {
+                    c++;
+                    av.c(ag.class.getName(), "addError", "发生一次新网络内核不通畅警告！ errotime:" + c);
+                    if (c > f) {
+                        f1896a = 0;
+                        av.b(ag.class.getName(), "addError", "切换会老的网络内核");
+                        TiebaApplication.g().o(f1896a);
+                        if (TiebaApplication.g().s()) {
+                            StatService.onEvent(TiebaApplication.g().getApplicationContext(), "network_core", "current Net：" + UtilHelper.i(TiebaApplication.g().getApplicationContext()) + ", TelType:" + com.baidu.adp.lib.network.g.c() + ", wap:" + c(), 1);
+                        }
+                    }
+                } else {
+                    c = 0;
+                    d = currentTimeMillis;
+                }
+            }
+        }
+    }
+
+    public static String c() {
         try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.c.size() >= this.b) {
-                    a();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) TiebaApplication.g().getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo.isAvailable()) {
+                if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
+                    return "wifi";
                 }
-                this.f1781a++;
-                this.c.put(valueOf, Integer.valueOf(this.f1781a));
-            }
-        } catch (Exception e) {
-            aq.b(getClass().getName(), "addThread", e.getMessage());
-        }
-    }
-
-    public void a() {
-        synchronized (this) {
-            int i = 134217727;
-            Long l = null;
-            for (Map.Entry entry : this.c.entrySet()) {
-                if (((Integer) entry.getValue()).intValue() < i) {
-                    i = ((Integer) entry.getValue()).intValue();
-                    l = (Long) entry.getKey();
+                String defaultHost = Proxy.getDefaultHost();
+                if (defaultHost != null) {
+                    if (defaultHost.length() > 0) {
+                        return com.baidu.loginshare.e.d;
+                    }
                 }
+                return com.baidu.loginshare.e.e;
             }
-            if (l != null) {
-                this.c.remove(l);
-            } else {
-                this.c.clear();
-            }
+            return null;
+        } catch (Exception e2) {
+            return null;
         }
-    }
-
-    public boolean b(String str) {
-        boolean z = false;
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.c.get(valueOf) != null) {
-                    z = true;
-                }
-            }
-        } catch (Exception e) {
-            aq.b(getClass().getName(), "getThread", e.getMessage());
-        }
-        return z;
     }
 }

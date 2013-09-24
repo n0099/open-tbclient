@@ -8,29 +8,25 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1023a;
+    private String f1041a;
     private String b;
     private String c;
     private boolean d;
-    private ArrayList e = new ArrayList();
+    private ArrayList<o> e = new ArrayList<>();
 
     public String a() {
-        return this.f1023a;
+        return this.f1041a;
     }
 
     public String b() {
         return this.b;
     }
 
-    public ArrayList c() {
+    public ArrayList<o> c() {
         return this.e;
     }
 
-    public String d() {
-        return this.c;
-    }
-
-    public boolean e() {
+    public boolean d() {
         return this.d;
     }
 
@@ -41,7 +37,7 @@ public class p {
     public void a(JSONObject jSONObject) {
         try {
             this.b = jSONObject.optString("publish_time");
-            this.f1023a = jSONObject.optString("total");
+            this.f1041a = jSONObject.optString("total");
             this.c = jSONObject.optString("update_time");
             JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
             if (optJSONArray != null) {
@@ -53,7 +49,7 @@ public class p {
                 }
             }
         } catch (JSONException e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 }

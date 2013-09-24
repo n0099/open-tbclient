@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.widget.DrawerLayout;
 /* loaded from: classes.dex */
-final class f implements Parcelable.Creator {
+final class f implements Parcelable.Creator<DrawerLayout.SavedState> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

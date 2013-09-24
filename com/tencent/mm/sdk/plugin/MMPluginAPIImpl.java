@@ -151,7 +151,7 @@ public class MMPluginAPIImpl implements IMMPluginAPI {
     }
 
     @Override // com.tencent.mm.sdk.plugin.IMMPluginAPI
-    public boolean sendMsgNotify(String str, String str2, int i, String str3, Class cls) {
+    public boolean sendMsgNotify(String str, String str2, int i, String str3, Class<?> cls) {
         if (cls == null) {
             return false;
         }

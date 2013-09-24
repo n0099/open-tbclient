@@ -46,14 +46,14 @@ public class PreLoadListener implements EventHandler {
 
     private void handleHeaders(Headers headers) {
         if (!this.mCancelled) {
-            ArrayList setCookie = headers.getSetCookie();
+            ArrayList<String> setCookie = headers.getSetCookie();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 >= setCookie.size()) {
                     break;
                 }
-                CookieManager.getInstance().setCookie(this.mUri, (String) setCookie.get(i2));
+                CookieManager.getInstance().setCookie(this.mUri, setCookie.get(i2));
                 i = i2 + 1;
             }
             if ((this.mStatusCode == 200 || this.mStatusCode == 302) && this.mRequestHandle != null) {

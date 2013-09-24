@@ -3,18 +3,20 @@ package com.tencent.mm.sdk.storage;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public abstract class MStorage {
-    private final MStorageEvent bM = new MStorageEvent() { // from class: com.tencent.mm.sdk.storage.MStorage.1
+    private final MStorageEvent<IOnStorageChange, String> bM = new MStorageEvent<IOnStorageChange, String>() { // from class: com.tencent.mm.sdk.storage.MStorage.1
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // com.tencent.mm.sdk.storage.MStorageEvent
-        protected /* synthetic */ void processEvent(Object obj, Object obj2) {
+        protected /* synthetic */ void processEvent(IOnStorageChange iOnStorageChange, String str) {
             MStorage mStorage = MStorage.this;
-            ((IOnStorageChange) obj).onNotifyChange((String) obj2);
+            iOnStorageChange.onNotifyChange(str);
         }
     };
-    private final MStorageEvent bN = new MStorageEvent() { // from class: com.tencent.mm.sdk.storage.MStorage.2
+    private final MStorageEvent<IOnStorageLoaded, String> bN = new MStorageEvent<IOnStorageLoaded, String>() { // from class: com.tencent.mm.sdk.storage.MStorage.2
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
         @Override // com.tencent.mm.sdk.storage.MStorageEvent
-        protected /* synthetic */ void processEvent(Object obj, Object obj2) {
+        protected /* synthetic */ void processEvent(IOnStorageLoaded iOnStorageLoaded, String str) {
             MStorage mStorage = MStorage.this;
-            ((IOnStorageLoaded) obj).onNotifyLoaded();
+            iOnStorageLoaded.onNotifyLoaded();
         }
     };
 

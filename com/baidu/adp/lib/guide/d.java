@@ -11,14 +11,14 @@ import android.view.animation.AnimationUtils;
 public class d implements View.OnClickListener, View.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f433a;
+    static final /* synthetic */ boolean f442a;
     private Configuration b;
     private i c;
     private b[] d;
     private h e;
 
     static {
-        f433a = !d.class.desiredAssertionStatus();
+        f442a = !d.class.desiredAssertionStatus();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,9 +43,9 @@ public class d implements View.OnClickListener, View.OnKeyListener {
         ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
         if (this.c.getParent() == null) {
             viewGroup.addView(this.c);
-            if (this.b.h != -1) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.b.h);
-                if (!f433a && loadAnimation == null) {
+            if (this.b.i != -1) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.b.i);
+                if (!f442a && loadAnimation == null) {
                     throw new AssertionError();
                 }
                 loadAnimation.setAnimationListener(new e(this));
@@ -59,13 +59,13 @@ public class d implements View.OnClickListener, View.OnKeyListener {
     public void a() {
         ViewGroup viewGroup;
         if (this.c != null && (viewGroup = (ViewGroup) this.c.getParent()) != null) {
-            if (this.b.i != -1) {
+            if (this.b.j != -1) {
                 Context context = this.c.getContext();
-                if (!f433a && context == null) {
+                if (!f442a && context == null) {
                     throw new AssertionError();
                 }
-                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.b.i);
-                if (!f433a && loadAnimation == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(context, this.b.j);
+                if (!f442a && loadAnimation == null) {
                     throw new AssertionError();
                 }
                 loadAnimation.setAnimationListener(new f(this, viewGroup));
@@ -82,9 +82,9 @@ public class d implements View.OnClickListener, View.OnKeyListener {
 
     private i b(Activity activity) {
         i iVar = new i(activity);
-        iVar.b(activity.getResources().getColor(this.b.d));
-        iVar.a(this.b.f432a);
-        iVar.a(this.b.f);
+        iVar.b(activity.getResources().getColor(this.b.e));
+        iVar.a(this.b.b);
+        iVar.a(this.b.g);
         iVar.setOnKeyListener(this);
         int[] iArr = new int[2];
         ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
@@ -109,11 +109,15 @@ public class d implements View.OnClickListener, View.OnKeyListener {
                 e7.printStackTrace();
             }
         }
-        View findViewById = activity.findViewById(this.b.c);
-        if (findViewById != null) {
-            iVar.a(a.a(findViewById, 0, i));
+        if (this.b.f441a != null) {
+            iVar.a(a.a(this.b.f441a, 0, i));
+        } else {
+            View findViewById = activity.findViewById(this.b.d);
+            if (findViewById != null) {
+                iVar.a(a.a(findViewById, 0, i));
+            }
         }
-        View findViewById2 = activity.findViewById(this.b.b);
+        View findViewById2 = activity.findViewById(this.b.c);
         if (findViewById2 != null) {
             iVar.b(a.a(findViewById2, 0, i));
         }
@@ -136,7 +140,7 @@ public class d implements View.OnClickListener, View.OnKeyListener {
     @Override // android.view.View.OnKeyListener
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
         if (i == 4 && keyEvent.getAction() == 1) {
-            if (this.b == null || !this.b.e) {
+            if (this.b == null || !this.b.f) {
                 return false;
             }
             a();
@@ -147,7 +151,7 @@ public class d implements View.OnClickListener, View.OnKeyListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.b != null && this.b.e) {
+        if (this.b != null && this.b.f) {
             a();
         }
     }

@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import com.baidu.adp.d;
 import com.baidu.adp.e;
 import com.baidu.adp.f;
@@ -16,15 +17,16 @@ import com.baidu.adp.f;
 public class BdSwitchView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f462a;
+    FrameLayout f473a;
     ImageView b;
     private c c;
     private SwitchState d;
     private boolean e;
     private boolean f;
-    private TranslateAnimation g;
+    private boolean g;
     private TranslateAnimation h;
-    private Animation.AnimationListener i;
+    private TranslateAnimation i;
+    private Animation.AnimationListener j;
 
     /* loaded from: classes.dex */
     public enum SwitchState {
@@ -65,8 +67,9 @@ public class BdSwitchView extends FrameLayout {
         this.d = SwitchState.ON;
         this.e = false;
         this.f = false;
-        this.i = null;
-        this.f462a = null;
+        this.g = false;
+        this.j = null;
+        this.f473a = null;
         this.b = null;
         a(context);
     }
@@ -77,31 +80,32 @@ public class BdSwitchView extends FrameLayout {
         this.d = SwitchState.ON;
         this.e = false;
         this.f = false;
-        this.i = null;
-        this.f462a = null;
+        this.g = false;
+        this.j = null;
+        this.f473a = null;
         this.b = null;
         a(context);
     }
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(f.bd_switch_view, (ViewGroup) this, true);
-        this.f462a = (FrameLayout) findViewById(e.layout);
+        this.f473a = (FrameLayout) findViewById(e.layout);
         this.b = (ImageView) findViewById(e.switch_image);
         d();
         e();
-        this.i = new a(this);
+        this.j = new a(this);
         setOnClickListener(new b(this));
         f();
     }
 
     private void d() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f462a.getLayoutParams();
-        layoutParams.width = this.f462a.getForeground().getIntrinsicWidth();
-        this.f462a.setLayoutParams(layoutParams);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f473a.getLayoutParams();
+        layoutParams.width = this.f473a.getForeground().getIntrinsicWidth();
+        this.f473a.setLayoutParams(layoutParams);
     }
 
     private void e() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
         layoutParams.width = this.b.getBackground().getIntrinsicWidth();
         this.b.setLayoutParams(layoutParams);
     }
@@ -116,18 +120,23 @@ public class BdSwitchView extends FrameLayout {
 
     private void f() {
         float translateDis = getTranslateDis();
-        this.g = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
-        this.g.setDuration(200L);
-        this.g.setFillAfter(true);
-        this.g.setAnimationListener(this.i);
-        this.h = new TranslateAnimation(0.0f, -translateDis, 0.0f, 0.0f);
+        if (!this.g) {
+            this.h = new TranslateAnimation(-translateDis, 0.0f, 0.0f, 0.0f);
+            this.i = new TranslateAnimation(0.0f, -translateDis, 0.0f, 0.0f);
+        } else {
+            this.h = new TranslateAnimation(0.0f, translateDis, 0.0f, 0.0f);
+            this.i = new TranslateAnimation(translateDis, 0.0f, 0.0f, 0.0f);
+        }
         this.h.setDuration(200L);
         this.h.setFillAfter(true);
-        this.h.setAnimationListener(this.i);
+        this.h.setAnimationListener(this.j);
+        this.i.setDuration(200L);
+        this.i.setFillAfter(true);
+        this.i.setAnimationListener(this.j);
     }
 
     private float getTranslateDis() {
-        return this.f462a.getForeground().getIntrinsicWidth() * 0.6666667f;
+        return this.f473a.getForeground().getIntrinsicWidth() * 0.6666667f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -135,23 +144,23 @@ public class BdSwitchView extends FrameLayout {
         if (!this.f) {
             if (this.d == SwitchState.ON) {
                 this.d = SwitchState.OFF;
-                if (this.h != null) {
+                if (this.i != null) {
                     if (z) {
-                        this.h.setDuration(200L);
+                        this.i.setDuration(200L);
+                        this.b.startAnimation(this.i);
                     } else {
-                        this.h.setDuration(1L);
+                        b(false);
                     }
-                    this.b.startAnimation(this.h);
                 }
             } else {
                 this.d = SwitchState.ON;
-                if (this.g != null) {
+                if (this.h != null) {
                     if (z) {
-                        this.g.setDuration(200L);
+                        this.h.setDuration(200L);
+                        this.b.startAnimation(this.h);
                     } else {
-                        this.g.setDuration(1L);
+                        b(true);
                     }
-                    this.b.startAnimation(this.g);
                 }
             }
             if (this.c != null) {
@@ -161,7 +170,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     public void setSwitchFrame(int i) {
-        this.f462a.setForeground(getResources().getDrawable(i));
+        this.f473a.setForeground(getResources().getDrawable(i));
         d();
     }
 
@@ -197,6 +206,39 @@ public class BdSwitchView extends FrameLayout {
 
     public boolean c() {
         return this.d == SwitchState.ON;
+    }
+
+    private void b(boolean z) {
+        if (!this.f) {
+            this.f = true;
+            float translateDis = getTranslateDis();
+            if (!z) {
+                this.d = SwitchState.OFF;
+                if (!this.g) {
+                    this.g = true;
+                    setLeftMargin((int) (-translateDis));
+                    f();
+                } else {
+                    return;
+                }
+            } else {
+                this.d = SwitchState.ON;
+                if (this.g) {
+                    this.g = false;
+                    setLeftMargin(0);
+                    f();
+                } else {
+                    return;
+                }
+            }
+            this.f = false;
+        }
+    }
+
+    private void setLeftMargin(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
+        layoutParams.setMargins(i, 0, 0, 0);
+        this.b.setLayoutParams(layoutParams);
     }
 
     public void setOnSwitchStateChangeListener(c cVar) {

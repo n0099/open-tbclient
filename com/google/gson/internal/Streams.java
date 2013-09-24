@@ -18,7 +18,7 @@ public final class Streams {
         try {
             jsonReader.peek();
             z = false;
-            return (JsonElement) TypeAdapters.JSON_ELEMENT.read(jsonReader);
+            return TypeAdapters.JSON_ELEMENT.read(jsonReader);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {

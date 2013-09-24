@@ -5,12 +5,12 @@ import android.app.Application;
 public class b extends Application {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f346a = null;
+    private static b f350a = null;
     private boolean b = false;
 
     @Override // android.app.Application
     public void onCreate() {
-        f346a = this;
+        f350a = this;
         super.onCreate();
         e();
         f();
@@ -22,7 +22,7 @@ public class b extends Application {
     }
 
     public static b a() {
-        return f346a;
+        return f350a;
     }
 
     private void e() {
@@ -38,7 +38,7 @@ public class b extends Application {
     }
 
     private void f() {
-        com.baidu.adp.lib.e.a.a().a(this);
+        com.baidu.adp.lib.f.a.a().a(this);
     }
 
     public void c() {

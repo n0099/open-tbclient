@@ -1,20 +1,17 @@
 package com.baidu.tieba.home;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements View.OnClickListener {
+class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumFeedActivity f1191a;
+    final /* synthetic */ ForumTopicActivity f1222a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(ForumFeedActivity forumFeedActivity) {
-        this.f1191a = forumFeedActivity;
+    public o(ForumTopicActivity forumTopicActivity) {
+        this.f1222a = forumTopicActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1191a.q();
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f1222a.c();
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.view.ba;
+import com.baidu.tieba.view.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class KnLaddersFragment extends BaseFragment implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    BdListView f1208a;
+    BdListView f1242a;
     private a b;
     private int c;
     private boolean d;
@@ -26,14 +26,14 @@ public class KnLaddersFragment extends BaseFragment implements q {
     @Override // android.support.v4.app.Fragment
     public final void a(Bundle bundle) {
         super.a(bundle);
-        this.c = TiebaApplication.g().getSharedPreferences("settings", 0).getInt("key_kn_ladders_last_tab", 1);
+        this.c = com.baidu.tieba.sharedPref.b.a().a("key_kn_ladders_last_tab", 1);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public final void n() {
-        super.n();
+    public final void o() {
+        super.o();
         if (this.d && this.e && this.b != null) {
-            this.f1208a.b();
+            this.f1242a.b();
             this.e = false;
         }
         if (this.b != null) {
@@ -57,33 +57,33 @@ public class KnLaddersFragment extends BaseFragment implements q {
 
     @Override // android.support.v4.app.Fragment
     public final View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f1208a = (BdListView) layoutInflater.inflate(R.layout.kn_ladders_fragment, viewGroup, false);
+        this.f1242a = (BdListView) layoutInflater.inflate(R.layout.kn_ladders_fragment, viewGroup, false);
         this.b = new a(this);
-        this.f1208a.setAdapter((ListAdapter) this.b);
-        ba baVar = new ba(g());
-        this.f1208a.setPullRefresh(baVar);
-        baVar.a(new m(this));
-        return this.f1208a;
+        this.f1242a.setAdapter((ListAdapter) this.b);
+        bb bbVar = new bb(h());
+        this.f1242a.setPullRefresh(bbVar);
+        bbVar.a(new m(this));
+        return this.f1242a;
     }
 
     @Override // android.support.v4.app.Fragment
     public final void a(View view, Bundle bundle) {
         this.b.a(new n(this));
         this.f = true;
-        KnLaddersModel.fetch(g(), this, this.f);
+        KnLaddersModel.fetch(h(), this, this.f);
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void a(int i) {
+    public void b(int i) {
     }
 
     @Override // com.baidu.tieba.kn.ladders.q
     public final void a(KnLaddersModel knLaddersModel) {
-        this.f1208a.a();
+        this.f1242a.a();
         if (knLaddersModel != null) {
-            if ((this.f && TiebaApplication.g().aS()) || (!this.f && knLaddersModel.mainbar != null && knLaddersModel.mainbar.offline == 1)) {
-                y a2 = ((KnTabActivity) g()).a();
-                a2.f1234a.setVisibility(8);
+            if ((this.f && TiebaApplication.g().aO()) || (!this.f && knLaddersModel.mainbar != null && knLaddersModel.mainbar.offline == 1)) {
+                y a2 = ((KnTabActivity) h()).a();
+                a2.f1268a.setVisibility(8);
                 a2.b.setVisibility(0);
                 a2.e.setText(knLaddersModel.mainbar.title);
                 if (knLaddersModel.mainbar.link != null && knLaddersModel.mainbar.link.startsWith("webview:")) {
@@ -104,13 +104,13 @@ public class KnLaddersFragment extends BaseFragment implements q {
                     } else {
                         aVar.e().i.setVisibility(0);
                         aVar.e().h.setVisibility(4);
-                        aVar.e().e.setText(g().getString(R.string.neterror));
+                        aVar.e().e.setText(h().getString(R.string.neterror));
                     }
                     this.b.notifyDataSetChanged();
                 }
             } catch (NullPointerException e) {
-                if (g() != null) {
-                    UtilHelper.a((Context) g(), (int) R.string.neterror);
+                if (h() != null) {
+                    UtilHelper.a((Context) h(), (int) R.string.neterror);
                 }
             }
         }
@@ -121,15 +121,15 @@ public class KnLaddersFragment extends BaseFragment implements q {
     }
 
     @Override // android.support.v4.app.Fragment
-    public final void p() {
-        TiebaApplication.g().getSharedPreferences("settings", 0).edit().putInt("key_kn_ladders_last_tab", this.c).commit();
+    public final void q() {
+        com.baidu.tieba.sharedPref.b.a().b("key_kn_ladders_last_tab", this.c);
         KnLaddersModel.cancel();
-        super.p();
+        super.q();
     }
 
     public final void a() {
         if (this.d) {
-            this.f1208a.b();
+            this.f1242a.b();
         }
     }
 

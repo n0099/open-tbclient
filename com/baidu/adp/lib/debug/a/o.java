@@ -6,18 +6,18 @@ import java.io.IOException;
 public class o extends a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f406a;
+    private d f408a;
     private l b;
 
     public o(Context context) {
-        this.f406a = new d(context);
+        this.f408a = new d(context);
         this.b = new l(context);
     }
 
     @Override // com.baidu.adp.lib.debug.a.a
     public void c() {
         super.c();
-        this.f406a.c();
+        this.f408a.c();
         this.b.c();
     }
 
@@ -26,7 +26,7 @@ public class o extends a implements Runnable {
         super.b();
         while (true) {
             try {
-                com.baidu.adp.lib.debug.b.b(this.f406a.d());
+                com.baidu.adp.lib.debug.b.b(this.f408a.d());
                 com.baidu.adp.lib.debug.b.a(this.b.d());
             } catch (IOException e) {
                 e.printStackTrace();

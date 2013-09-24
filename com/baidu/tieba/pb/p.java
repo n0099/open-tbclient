@@ -13,13 +13,13 @@ import com.slidingmenu.lib.R;
 public class p implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1576a;
+    final /* synthetic */ ImagePbActivity f1626a;
     private final /* synthetic */ Handler b;
     private final /* synthetic */ Runnable c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ImagePbActivity imagePbActivity, Handler handler, Runnable runnable) {
-        this.f1576a = imagePbActivity;
+        this.f1626a = imagePbActivity;
         this.b = handler;
         this.c = runnable;
     }
@@ -34,26 +34,26 @@ public class p implements View.OnClickListener {
         GridView gridView2;
         EditText editText3;
         Button button2;
-        gridView = this.f1576a.p;
+        gridView = this.f1626a.p;
         if (gridView.getVisibility() == 0) {
-            editText2 = this.f1576a.m;
+            editText2 = this.f1626a.m;
             editText2.requestFocus();
-            gridView2 = this.f1576a.p;
+            gridView2 = this.f1626a.p;
             gridView2.setVisibility(8);
-            ImagePbActivity imagePbActivity = this.f1576a;
-            editText3 = this.f1576a.m;
+            ImagePbActivity imagePbActivity = this.f1626a;
+            editText3 = this.f1626a.m;
             UtilHelper.b(imagePbActivity, editText3);
-            button2 = this.f1576a.o;
+            button2 = this.f1626a.o;
             button2.setBackgroundResource(R.drawable.sub_pb_face);
             return;
         }
-        keyboardLayout = this.f1576a.t;
+        keyboardLayout = this.f1626a.t;
         keyboardLayout.setOnkbdStateListener(null);
-        ImagePbActivity imagePbActivity2 = this.f1576a;
-        editText = this.f1576a.m;
+        ImagePbActivity imagePbActivity2 = this.f1626a;
+        editText = this.f1626a.m;
         UtilHelper.a(imagePbActivity2, editText);
         this.b.postDelayed(this.c, 200L);
-        button = this.f1576a.o;
+        button = this.f1626a.o;
         button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }
 }

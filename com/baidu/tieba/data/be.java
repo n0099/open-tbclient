@@ -8,9 +8,9 @@ import org.json.JSONObject;
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1003a = new ArrayList();
+    private ArrayList<MetaData> f1021a = new ArrayList<>();
 
-    public void a(JSONObject jSONObject, HashMap hashMap) {
+    public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
         String str;
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("uname");
@@ -22,36 +22,36 @@ public class be {
                     String optString = optJSONArray.optString(i2);
                     metaData.setName(optString);
                     metaData.setName_show(optString);
-                    if (hashMap != null && (str = (String) hashMap.get(metaData.getName())) != null) {
+                    if (hashMap != null && (str = hashMap.get(metaData.getName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.f1003a.add(metaData);
+                    this.f1021a.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(String str, HashMap hashMap) {
+    public void a(String str, HashMap<String, String> hashMap) {
         try {
             a(new JSONObject(str), hashMap);
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(HashMap hashMap) {
+    public void a(HashMap<String, String> hashMap) {
         if (hashMap != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.f1003a.size()) {
-                    MetaData metaData = (MetaData) this.f1003a.get(i2);
-                    metaData.setPortrait((String) hashMap.get(metaData.getName()));
+                if (i2 < this.f1021a.size()) {
+                    MetaData metaData = this.f1021a.get(i2);
+                    metaData.setPortrait(hashMap.get(metaData.getName()));
                     i = i2 + 1;
                 } else {
                     return;
@@ -60,7 +60,7 @@ public class be {
         }
     }
 
-    public ArrayList a() {
-        return this.f1003a;
+    public ArrayList<MetaData> a() {
+        return this.f1021a;
     }
 }

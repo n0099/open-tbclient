@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1275a;
+    public String f1309a;
     public int b;
     public long c;
     public long d;
@@ -16,14 +16,14 @@ public class y {
     public View f;
 
     public y a(JSONObject jSONObject) {
-        this.f1275a = jSONObject.optString("user_name");
+        this.f1309a = jSONObject.optString("user_name");
         this.b = jSONObject.optInt("vote_number");
         this.c = jSONObject.optLong("time");
         return this;
     }
 
-    public static LinkedList a(JSONArray jSONArray) {
-        LinkedList linkedList = new LinkedList();
+    public static LinkedList<y> a(JSONArray jSONArray) {
+        LinkedList<y> linkedList = new LinkedList<>();
         if (jSONArray == null) {
             return linkedList;
         }

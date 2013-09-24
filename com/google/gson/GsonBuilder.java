@@ -23,9 +23,9 @@ public final class GsonBuilder {
     private Excluder excluder = Excluder.DEFAULT;
     private LongSerializationPolicy longSerializationPolicy = LongSerializationPolicy.DEFAULT;
     private FieldNamingStrategy fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
-    private final Map instanceCreators = new HashMap();
-    private final List factories = new ArrayList();
-    private final List hierarchyFactories = new ArrayList();
+    private final Map<Type, InstanceCreator<?>> instanceCreators = new HashMap();
+    private final List<TypeAdapterFactory> factories = new ArrayList();
+    private final List<TypeAdapterFactory> hierarchyFactories = new ArrayList();
     private int dateStyle = 2;
     private int timeStyle = 2;
     private boolean escapeHtmlChars = true;
@@ -144,7 +144,7 @@ public final class GsonBuilder {
         return this;
     }
 
-    public GsonBuilder registerTypeHierarchyAdapter(Class cls, Object obj) {
+    public GsonBuilder registerTypeHierarchyAdapter(Class<?> cls, Object obj) {
         C$Gson$Preconditions.checkArgument((obj instanceof JsonSerializer) || (obj instanceof JsonDeserializer) || (obj instanceof TypeAdapter));
         if ((obj instanceof JsonDeserializer) || (obj instanceof JsonSerializer)) {
             this.hierarchyFactories.add(0, TreeTypeAdapter.newTypeHierarchyFactory(cls, obj));
@@ -169,7 +169,7 @@ public final class GsonBuilder {
         return new Gson(this.excluder, this.fieldNamingPolicy, this.instanceCreators, this.serializeNulls, this.complexMapKeySerialization, this.generateNonExecutableJson, this.escapeHtmlChars, this.prettyPrinting, this.serializeSpecialFloatingPointValues, this.longSerializationPolicy, arrayList);
     }
 
-    private void addTypeAdaptersForDate(String str, int i, int i2, List list) {
+    private void addTypeAdaptersForDate(String str, int i, int i2, List<TypeAdapterFactory> list) {
         DefaultDateTypeAdapter defaultDateTypeAdapter;
         if (str != null && !"".equals(str.trim())) {
             defaultDateTypeAdapter = new DefaultDateTypeAdapter(str);

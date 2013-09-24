@@ -17,7 +17,7 @@ public class MMessage {
 
     /* loaded from: classes.dex */
     public final class Receiver extends BroadcastReceiver {
-        public static final Map callbacks = new HashMap();
+        public static final Map<String, CallBack> callbacks = new HashMap();
         private final CallBack o;
 
         public Receiver() {
@@ -44,7 +44,7 @@ public class MMessage {
                 Log.d("MicroMsg.SDK.MMessage", "mm message self-handled");
                 return;
             }
-            CallBack callBack = (CallBack) callbacks.get(intent.getAction());
+            CallBack callBack = callbacks.get(intent.getAction());
             if (callBack != null) {
                 callBack.handleMessage(intent);
                 Log.d("MicroMsg.SDK.MMessage", "mm message handled");

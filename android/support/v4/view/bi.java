@@ -2,7 +2,7 @@ package android.support.v4.view;
 
 import java.util.Comparator;
 /* loaded from: classes.dex */
-final class bi implements Comparator {
+final class bi implements Comparator<bm> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */

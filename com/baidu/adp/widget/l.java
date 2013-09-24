@@ -8,7 +8,7 @@ public class l {
     private static /* synthetic */ int[] f;
 
     /* renamed from: a */
-    VelocityTracker f507a;
+    VelocityTracker f519a;
     boolean b;
     final int c;
     final int d;
@@ -77,7 +77,7 @@ public class l {
                 }
                 break;
         }
-        this.f507a = VelocityTracker.obtain();
+        this.f519a = VelocityTracker.obtain();
         this.b = true;
         return true;
     }
@@ -148,8 +148,8 @@ public class l {
     public void c() {
         float max;
         HorizontalTranslateLayout.TrackDirection trackDirection;
-        this.f507a.computeCurrentVelocity(this.c);
-        float xVelocity = this.f507a.getXVelocity();
+        this.f519a.computeCurrentVelocity(this.c);
+        float xVelocity = this.f519a.getXVelocity();
         Log.d("HorizontalTranslateLayout", "@fling x " + xVelocity);
         if (xVelocity < 0.0f) {
             max = Math.min(xVelocity, -this.d);
@@ -169,8 +169,8 @@ public class l {
                 a(max);
                 break;
         }
-        this.f507a.recycle();
-        this.f507a = null;
+        this.f519a.recycle();
+        this.f519a = null;
     }
 
     private void a(float f2) {

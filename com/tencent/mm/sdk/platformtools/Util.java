@@ -185,7 +185,7 @@ public final class Util {
         }
     }
 
-    private static void a(Map map, String str, Node node, int i) {
+    private static void a(Map<String, String> map, String str, Node node, int i) {
         Node item;
         if (node.getNodeName().equals("#text")) {
             map.put(str, node.getNodeValue());
@@ -455,11 +455,11 @@ public final class Util {
         return new SimpleDateFormat("[yy-MM-dd HH:mm:ss]").format(new Date(1000 * j));
     }
 
-    public static void freeBitmapMap(Map map) {
-        for (Map.Entry entry : map.entrySet()) {
-            Bitmap bitmap = (Bitmap) entry.getValue();
-            if (bitmap != null) {
-                bitmap.recycle();
+    public static void freeBitmapMap(Map<String, Bitmap> map) {
+        for (Map.Entry<String, Bitmap> entry : map.entrySet()) {
+            Bitmap value = entry.getValue();
+            if (value != null) {
+                value.recycle();
             }
         }
         map.clear();
@@ -888,7 +888,7 @@ public final class Util {
         return false;
     }
 
-    public static String listToString(List list, String str) {
+    public static String listToString(List<String> list, String str) {
         if (list == null) {
             return "";
         }
@@ -900,29 +900,29 @@ public final class Util {
                 return sb.toString();
             }
             if (i2 == list.size() - 1) {
-                sb.append(((String) list.get(i2)).trim());
+                sb.append(list.get(i2).trim());
             } else {
-                sb.append(((String) list.get(i2)).trim() + str);
+                sb.append(list.get(i2).trim() + str);
             }
             i = i2 + 1;
         }
     }
 
-    public static String mapToXml(String str, LinkedHashMap linkedHashMap) {
+    public static String mapToXml(String str, LinkedHashMap<String, String> linkedHashMap) {
         StringBuilder sb = new StringBuilder();
         sb.append("<key>");
-        for (Map.Entry entry : linkedHashMap.entrySet()) {
-            Object key = entry.getKey();
-            Object value = entry.getValue();
+        for (Map.Entry<String, String> entry : linkedHashMap.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
             if (key == null) {
                 key = "unknow";
             }
             if (value == null) {
                 value = "unknow";
             }
-            sb.append("<" + key + ">");
-            sb.append(value);
-            sb.append("</" + key + ">");
+            sb.append("<" + ((Object) key) + ">");
+            sb.append((Object) value);
+            sb.append("</" + ((Object) key) + ">");
         }
         sb.append("</key>");
         return sb.toString();
@@ -992,7 +992,7 @@ public final class Util {
         return bool.booleanValue();
     }
 
-    public static Map parseIni(String str) {
+    public static Map<String, String> parseIni(String str) {
         String[] split;
         String[] split2;
         if (str == null || str.length() <= 0) {
@@ -1016,7 +1016,7 @@ public final class Util {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Map parseXml(String str, String str2, String str3) {
+    public static Map<String, String> parseXml(String str, String str2, String str3) {
         Document document;
         if (str == null || str.length() <= 0) {
             return null;
@@ -1229,7 +1229,7 @@ public final class Util {
         }
     }
 
-    public static List stringsToList(String[] strArr) {
+    public static List<String> stringsToList(String[] strArr) {
         if (strArr == null || strArr.length == 0) {
             return null;
         }

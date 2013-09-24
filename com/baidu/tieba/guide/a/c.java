@@ -16,10 +16,10 @@ public class c extends com.baidu.tieba.guide.e {
     private int h;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1127a = 4;
+    private int f1174a = 4;
     private Rect d = new Rect();
     private Rect e = new Rect();
-    private d[] c = new d[this.f1127a];
+    private d[] c = new d[this.f1174a];
 
     public c(Context context) {
         Resources resources = context.getResources();
@@ -31,9 +31,9 @@ public class c extends com.baidu.tieba.guide.e {
         this.f = -(this.f >= 1.0f ? this.f : 1.0f);
         d dVar = new d(this);
         this.c[0] = dVar;
-        dVar.f1128a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud1);
-        dVar.b = dVar.f1128a.getWidth();
-        dVar.c = dVar.f1128a.getHeight();
+        dVar.f1175a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud1);
+        dVar.b = dVar.f1175a.getWidth();
+        dVar.c = dVar.f1175a.getHeight();
         dVar.e = this.h / 3;
         dVar.h = dVar.e;
         dVar.d = this.g - dVar.b;
@@ -45,9 +45,9 @@ public class c extends com.baidu.tieba.guide.e {
         dVar.n = this.g;
         d dVar2 = new d(this);
         this.c[1] = dVar2;
-        dVar2.f1128a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud2);
-        dVar2.b = dVar2.f1128a.getWidth();
-        dVar2.c = dVar2.f1128a.getHeight();
+        dVar2.f1175a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud2);
+        dVar2.b = dVar2.f1175a.getWidth();
+        dVar2.c = dVar2.f1175a.getHeight();
         dVar2.e = (int) (f * 206.0f);
         dVar2.h = dVar2.e;
         dVar2.d = this.g - dVar2.b;
@@ -61,9 +61,9 @@ public class c extends com.baidu.tieba.guide.e {
         dVar2.j = false;
         d dVar3 = new d(this);
         this.c[2] = dVar3;
-        dVar3.f1128a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud3);
-        dVar3.b = dVar3.f1128a.getWidth();
-        dVar3.c = dVar3.f1128a.getHeight();
+        dVar3.f1175a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud3);
+        dVar3.b = dVar3.f1175a.getWidth();
+        dVar3.c = dVar3.f1175a.getHeight();
         dVar3.e = 0;
         dVar3.h = dVar3.e;
         dVar3.d = (-dVar3.b) / 2;
@@ -77,9 +77,9 @@ public class c extends com.baidu.tieba.guide.e {
         dVar3.j = false;
         d dVar4 = new d(this);
         this.c[3] = dVar4;
-        dVar4.f1128a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud3);
-        dVar4.b = dVar4.f1128a.getWidth();
-        dVar4.c = dVar4.f1128a.getHeight();
+        dVar4.f1175a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud3);
+        dVar4.b = dVar4.f1175a.getWidth();
+        dVar4.c = dVar4.f1175a.getHeight();
         dVar4.e = (this.h * 2) / 3;
         dVar4.h = dVar4.e;
         dVar4.d = this.g - dVar4.b;
@@ -95,7 +95,7 @@ public class c extends com.baidu.tieba.guide.e {
 
     @Override // com.baidu.tieba.guide.e
     public void a() {
-        for (int i = 0; i < this.f1127a; i++) {
+        for (int i = 0; i < this.f1174a; i++) {
             d dVar = this.c[i];
             if (dVar.j) {
                 dVar.f = (int) (dVar.f + this.f);
@@ -226,12 +226,12 @@ public class c extends com.baidu.tieba.guide.e {
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         canvas.save();
-        for (int i = 0; i < this.f1127a; i++) {
+        for (int i = 0; i < this.f1174a; i++) {
             d dVar = this.c[i];
             if (!dVar.i) {
                 this.d.set(0, 0, dVar.b, dVar.c);
                 this.e.set(dVar.f, dVar.h, dVar.f + dVar.b, dVar.h + dVar.c);
-                canvas.drawBitmap(dVar.f1128a, this.d, this.e, this.b);
+                canvas.drawBitmap(dVar.f1175a, this.d, this.e, this.b);
             }
         }
         canvas.restore();
@@ -239,10 +239,10 @@ public class c extends com.baidu.tieba.guide.e {
 
     @Override // com.baidu.tieba.guide.e
     public void c() {
-        for (int i = 0; i < this.f1127a; i++) {
+        for (int i = 0; i < this.f1174a; i++) {
             d dVar = this.c[i];
-            dVar.f1128a.recycle();
-            dVar.f1128a = null;
+            dVar.f1175a.recycle();
+            dVar.f1175a = null;
         }
     }
 }

@@ -7,7 +7,7 @@ public class q {
     private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private af f1024a = new af();
+    private af f1042a = new af();
 
     public q() {
         this.b = true;
@@ -24,22 +24,22 @@ public class q {
             this.b = true;
         } catch (Exception e) {
             this.b = false;
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f1024a.a(jSONObject.optJSONArray("like_forum"));
+            this.f1042a.a(jSONObject.optJSONArray("like_forum"));
             this.c = jSONObject.optLong("time");
         } catch (Exception e) {
             this.b = false;
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public af a() {
-        return this.f1024a;
+        return this.f1042a;
     }
 
     public void a(boolean z) {

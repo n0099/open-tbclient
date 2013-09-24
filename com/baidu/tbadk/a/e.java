@@ -3,12 +3,12 @@ package com.baidu.tbadk.a;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f821a = new e();
-    private com.baidu.adp.lib.b.a b;
-    private com.baidu.adp.lib.b.a c;
+    private static e f833a = new e();
+    private com.baidu.adp.lib.b.a<String, com.baidu.adp.widget.a.c> b;
+    private com.baidu.adp.lib.b.a<String, com.baidu.adp.widget.a.c> c;
 
     public static e a() {
-        return f821a;
+        return f833a;
     }
 
     private e() {
@@ -35,9 +35,9 @@ public class e {
         return this.c.d();
     }
 
-    public void a(String str, com.baidu.adp.widget.a.b bVar) {
-        if (bVar != null && this.b != null) {
-            this.b.a(str, bVar);
+    public void a(String str, com.baidu.adp.widget.a.c cVar) {
+        if (cVar != null && this.b != null) {
+            this.b.a(str, cVar);
         }
     }
 
@@ -45,33 +45,33 @@ public class e {
         return this.c.a(i);
     }
 
-    public void a(String str, com.baidu.adp.widget.a.b bVar, boolean z) {
-        if (bVar != null && this.c != null) {
-            if (com.baidu.adp.lib.e.d.a()) {
-                com.baidu.adp.lib.e.d.c("image joined cache:" + bVar.h() + ", size:" + bVar.d());
+    public void a(String str, com.baidu.adp.widget.a.c cVar, boolean z) {
+        if (cVar != null && this.c != null) {
+            if (com.baidu.adp.lib.f.d.a()) {
+                com.baidu.adp.lib.f.d.c("image joined cache:" + cVar.h() + ", size:" + cVar.d());
             }
-            this.c.a(str, bVar);
+            this.c.a(str, cVar);
         }
     }
 
-    public void b(String str, com.baidu.adp.widget.a.b bVar) {
-        a(str, bVar, false);
+    public void b(String str, com.baidu.adp.widget.a.c cVar) {
+        a(str, cVar, false);
     }
 
     public void a(String str) {
-        this.b.b(str);
+        this.b.b((com.baidu.adp.lib.b.a<String, com.baidu.adp.widget.a.c>) str);
     }
 
-    public com.baidu.adp.widget.a.b b(String str) {
-        return (com.baidu.adp.widget.a.b) this.b.a(str);
+    public com.baidu.adp.widget.a.c b(String str) {
+        return this.b.a((com.baidu.adp.lib.b.a<String, com.baidu.adp.widget.a.c>) str);
     }
 
-    public com.baidu.adp.widget.a.b c(String str) {
-        return (com.baidu.adp.widget.a.b) this.c.a(str);
+    public com.baidu.adp.widget.a.c c(String str) {
+        return this.c.a((com.baidu.adp.lib.b.a<String, com.baidu.adp.widget.a.c>) str);
     }
 
-    public com.baidu.adp.widget.a.b d(String str) {
-        return (com.baidu.adp.widget.a.b) this.c.a(str);
+    public com.baidu.adp.widget.a.c d(String str) {
+        return this.c.a((com.baidu.adp.lib.b.a<String, com.baidu.adp.widget.a.c>) str);
     }
 
     public void c() {

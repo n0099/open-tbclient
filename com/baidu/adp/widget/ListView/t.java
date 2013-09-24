@@ -8,7 +8,7 @@ import java.security.InvalidParameterException;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f483a = 3.0f;
+    private static float f494a = 3.0f;
     private d b;
     private BdListView f;
     private boolean c = false;
@@ -88,7 +88,7 @@ public class t {
                     if (this.e != 2 && this.c) {
                         if (this.e == 0) {
                             this.f.setSelection(0);
-                            if (((int) ((y - this.d) / f483a)) < this.b.h() && y - this.d > 0) {
+                            if (((int) ((y - this.d) / f494a)) < this.b.h() && y - this.d > 0) {
                                 this.e = 1;
                                 this.b.a(this.g.booleanValue());
                                 this.g = false;
@@ -99,7 +99,7 @@ public class t {
                             }
                         } else if (this.e == 1) {
                             this.f.setSelection(0);
-                            if (((int) ((y - this.d) / f483a)) >= this.b.h()) {
+                            if (((int) ((y - this.d) / f494a)) >= this.b.h()) {
                                 this.e = 0;
                                 this.g = true;
                                 this.b.b();
@@ -114,7 +114,7 @@ public class t {
                             this.g = false;
                         }
                         if (this.e == 1 || this.e == 0) {
-                            this.b.a(0, ((int) ((y - this.d) / f483a)) - this.b.h(), 0, 0);
+                            this.b.a(0, ((int) ((y - this.d) / f494a)) - this.b.h(), 0, 0);
                             return;
                         }
                         return;

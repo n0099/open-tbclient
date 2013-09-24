@@ -9,11 +9,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ab {
     private as c;
-    private ArrayList d;
+    private ArrayList<i> d;
     private Context l;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f974a = null;
+    private String f992a = null;
     private String b = null;
     private int e = 0;
     private int f = 0;
@@ -29,7 +29,7 @@ public class ab {
         this.l = null;
         this.l = context;
         this.c = new as();
-        this.d = new ArrayList();
+        this.d = new ArrayList<>();
     }
 
     public as a() {
@@ -41,7 +41,7 @@ public class ab {
     }
 
     public String c() {
-        return this.f974a;
+        return this.f992a;
     }
 
     public String d() {
@@ -78,7 +78,7 @@ public class ab {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.k = jSONObject.optInt("index", -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.f974a = optJSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f992a = optJSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = optJSONObject.optString("url");
                 this.e = optJSONObject.optInt("width", 0);
                 this.f = optJSONObject.optInt("height", 0);
@@ -96,7 +96,7 @@ public class ab {
                 this.c.c(this.l);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

@@ -19,7 +19,7 @@ public class f extends com.baidu.tieba.guide.e {
     private Scroller B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1130a;
+    private int f1177a;
     private float b;
     private float c;
     private float d;
@@ -47,7 +47,7 @@ public class f extends com.baidu.tieba.guide.e {
     private Paint f = new Paint();
 
     public f(Context context, int i) {
-        this.f1130a = i;
+        this.f1177a = i;
         this.f.setAntiAlias(true);
         this.f.setFilterBitmap(true);
         this.g = new Paint();
@@ -75,7 +75,7 @@ public class f extends com.baidu.tieba.guide.e {
         for (int i3 = 0; i3 < i; i3++) {
             g gVar = new g(this);
             this.w[i3] = gVar;
-            gVar.f1131a = this.k.nextInt(this.l - this.n);
+            gVar.f1178a = this.k.nextInt(this.l - this.n);
             gVar.b = this.k.nextInt(this.m - this.o);
             gVar.c = this.k.nextInt(this.n) + (this.n / 2);
             gVar.d = this.k.nextInt(this.o) + (this.o / 2);
@@ -108,7 +108,7 @@ public class f extends com.baidu.tieba.guide.e {
             } else {
                 this.B.startScroll(0, 0, 360, 0, 20000);
             }
-            for (int i = 0; i < this.f1130a; i++) {
+            for (int i = 0; i < this.f1177a; i++) {
                 g gVar = this.w[i];
                 if (i % 2 == 0) {
                     gVar.e = this.x;
@@ -155,10 +155,10 @@ public class f extends com.baidu.tieba.guide.e {
             canvas.rotate(this.y, (i + i3) / 2, (i2 + i4) / 2);
             canvas.drawBitmap(this.h, this.p, this.q, this.f);
             canvas.restore();
-            for (int i5 = 0; i5 < this.f1130a; i5++) {
+            for (int i5 = 0; i5 < this.f1177a; i5++) {
                 g gVar = this.w[i5];
                 this.p.set(0, 0, this.n, this.o);
-                int i6 = (int) (gVar.f1131a + this.d);
+                int i6 = (int) (gVar.f1178a + this.d);
                 int i7 = (int) (gVar.b + this.e);
                 this.q.set(i6, i7, gVar.c + i6, gVar.d + i7);
                 this.g.setAlpha(gVar.e);

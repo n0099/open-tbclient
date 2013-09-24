@@ -1,6 +1,7 @@
 package com.baidu.browser.webkit;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Message;
 import android.view.View;
 import android.webkit.ConsoleMessage;
@@ -23,16 +24,16 @@ import com.baidu.zeus.WebView;
 import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class BdWebChromeClient {
-    private SoftReference mConsoleMessageWrapper;
-    private SoftReference mCustomViewCallbackWrapper;
-    private SoftReference mGeolocationPermissionsCallbackWrapper;
-    private SoftReference mJsPromptResultWrapper;
-    private SoftReference mJsResultWrapper;
-    private SoftReference mQuotaUpdaterWrapper;
+    private SoftReference<BdConsoleMessage> mConsoleMessageWrapper;
+    private SoftReference<BdCustomViewCallback> mCustomViewCallbackWrapper;
+    private SoftReference<BdGeolocationPermissions.BdCallback> mGeolocationPermissionsCallbackWrapper;
+    private SoftReference<BdJsPromptResult> mJsPromptResultWrapper;
+    private SoftReference<BdJsResult> mJsResultWrapper;
+    private SoftReference<BdWebStorage.BdQuotaUpdater> mQuotaUpdaterWrapper;
     private BdSysWebChromeClient mSysWebChromeClient;
-    private SoftReference mValueCallbackStringArrayWrapper;
-    private SoftReference mValueCallbackUriWrapper;
-    private SoftReference mWebViewTransportWrapper;
+    private SoftReference<BdValueCallback<String[]>> mValueCallbackStringArrayWrapper;
+    private SoftReference<BdValueCallback<Uri>> mValueCallbackUriWrapper;
+    private SoftReference<BdWebView.BdWebViewTransport> mWebViewTransportWrapper;
     private BdZeusWebChromeClient mZeusWebChromeClient;
 
     /* loaded from: classes.dex */
@@ -108,11 +109,11 @@ public class BdWebChromeClient {
     public BdCustomViewCallback obtainCustomViewCallbackWrapper(WebChromeClient.CustomViewCallback customViewCallback) {
         BdCustomViewCallback bdCustomViewCallback = null;
         if (this.mCustomViewCallbackWrapper != null) {
-            bdCustomViewCallback = (BdCustomViewCallback) this.mCustomViewCallbackWrapper.get();
+            bdCustomViewCallback = this.mCustomViewCallbackWrapper.get();
         }
         if (bdCustomViewCallback == null || !bdCustomViewCallback.isContains(customViewCallback)) {
             BdCustomViewCallback bdCustomViewCallback2 = new BdCustomViewCallback(customViewCallback);
-            this.mCustomViewCallbackWrapper = new SoftReference(bdCustomViewCallback2);
+            this.mCustomViewCallbackWrapper = new SoftReference<>(bdCustomViewCallback2);
             return bdCustomViewCallback2;
         }
         return bdCustomViewCallback;
@@ -121,11 +122,11 @@ public class BdWebChromeClient {
     public BdCustomViewCallback obtainCustomViewCallbackWrapper(WebChromeClient.CustomViewCallback customViewCallback) {
         BdCustomViewCallback bdCustomViewCallback = null;
         if (this.mCustomViewCallbackWrapper != null) {
-            bdCustomViewCallback = (BdCustomViewCallback) this.mCustomViewCallbackWrapper.get();
+            bdCustomViewCallback = this.mCustomViewCallbackWrapper.get();
         }
         if (bdCustomViewCallback == null || !bdCustomViewCallback.isContains(customViewCallback)) {
             BdCustomViewCallback bdCustomViewCallback2 = new BdCustomViewCallback(customViewCallback);
-            this.mCustomViewCallbackWrapper = new SoftReference(bdCustomViewCallback2);
+            this.mCustomViewCallbackWrapper = new SoftReference<>(bdCustomViewCallback2);
             return bdCustomViewCallback2;
         }
         return bdCustomViewCallback;
@@ -134,11 +135,11 @@ public class BdWebChromeClient {
     public BdJsResult obtainJsResultWrapper(JsResult jsResult) {
         BdJsResult bdJsResult = null;
         if (this.mJsResultWrapper != null) {
-            bdJsResult = (BdJsResult) this.mJsResultWrapper.get();
+            bdJsResult = this.mJsResultWrapper.get();
         }
         if (bdJsResult == null || !bdJsResult.isContains(jsResult)) {
             BdJsResult bdJsResult2 = new BdJsResult(jsResult);
-            this.mJsResultWrapper = new SoftReference(bdJsResult2);
+            this.mJsResultWrapper = new SoftReference<>(bdJsResult2);
             return bdJsResult2;
         }
         return bdJsResult;
@@ -147,11 +148,11 @@ public class BdWebChromeClient {
     public BdJsResult obtainJsResultWrapper(com.baidu.zeus.JsResult jsResult) {
         BdJsResult bdJsResult = null;
         if (this.mJsResultWrapper != null) {
-            bdJsResult = (BdJsResult) this.mJsResultWrapper.get();
+            bdJsResult = this.mJsResultWrapper.get();
         }
         if (bdJsResult == null || !bdJsResult.isContains(jsResult)) {
             BdJsResult bdJsResult2 = new BdJsResult(jsResult);
-            this.mJsResultWrapper = new SoftReference(bdJsResult2);
+            this.mJsResultWrapper = new SoftReference<>(bdJsResult2);
             return bdJsResult2;
         }
         return bdJsResult;
@@ -160,11 +161,11 @@ public class BdWebChromeClient {
     public BdJsPromptResult obtainJsPromptResultWrapper(JsPromptResult jsPromptResult) {
         BdJsPromptResult bdJsPromptResult = null;
         if (this.mJsResultWrapper != null) {
-            bdJsPromptResult = (BdJsPromptResult) this.mJsPromptResultWrapper.get();
+            bdJsPromptResult = this.mJsPromptResultWrapper.get();
         }
         if (bdJsPromptResult == null || !bdJsPromptResult.isContains(jsPromptResult)) {
             BdJsPromptResult bdJsPromptResult2 = new BdJsPromptResult(jsPromptResult);
-            this.mJsPromptResultWrapper = new SoftReference(bdJsPromptResult2);
+            this.mJsPromptResultWrapper = new SoftReference<>(bdJsPromptResult2);
             return bdJsPromptResult2;
         }
         return bdJsPromptResult;
@@ -173,11 +174,11 @@ public class BdWebChromeClient {
     public BdJsPromptResult obtainJsPromptResultWrapper(com.baidu.zeus.JsPromptResult jsPromptResult) {
         BdJsPromptResult bdJsPromptResult = null;
         if (this.mJsResultWrapper != null) {
-            bdJsPromptResult = (BdJsPromptResult) this.mJsPromptResultWrapper.get();
+            bdJsPromptResult = this.mJsPromptResultWrapper.get();
         }
         if (bdJsPromptResult == null || !bdJsPromptResult.isContains(jsPromptResult)) {
             BdJsPromptResult bdJsPromptResult2 = new BdJsPromptResult(jsPromptResult);
-            this.mJsPromptResultWrapper = new SoftReference(bdJsPromptResult2);
+            this.mJsPromptResultWrapper = new SoftReference<>(bdJsPromptResult2);
             return bdJsPromptResult2;
         }
         return bdJsPromptResult;
@@ -186,13 +187,13 @@ public class BdWebChromeClient {
     public BdWebStorage.BdQuotaUpdater obtainQuotaUpdaterWrapper(WebStorage.QuotaUpdater quotaUpdater) {
         BdWebStorage.BdQuotaUpdater bdQuotaUpdater = null;
         if (this.mQuotaUpdaterWrapper != null) {
-            bdQuotaUpdater = (BdWebStorage.BdQuotaUpdater) this.mQuotaUpdaterWrapper.get();
+            bdQuotaUpdater = this.mQuotaUpdaterWrapper.get();
         }
         if (bdQuotaUpdater == null || !bdQuotaUpdater.isContains(quotaUpdater)) {
             BdWebStorage bdWebStorage = BdWebStorage.getInstance();
             bdWebStorage.getClass();
             BdWebStorage.BdQuotaUpdater bdQuotaUpdater2 = new BdWebStorage.BdQuotaUpdater(quotaUpdater);
-            this.mQuotaUpdaterWrapper = new SoftReference(bdQuotaUpdater2);
+            this.mQuotaUpdaterWrapper = new SoftReference<>(bdQuotaUpdater2);
             return bdQuotaUpdater2;
         }
         return bdQuotaUpdater;
@@ -201,13 +202,13 @@ public class BdWebChromeClient {
     public BdWebStorage.BdQuotaUpdater obtainQuotaUpdaterWrapper(WebStorage.QuotaUpdater quotaUpdater) {
         BdWebStorage.BdQuotaUpdater bdQuotaUpdater = null;
         if (this.mQuotaUpdaterWrapper != null) {
-            bdQuotaUpdater = (BdWebStorage.BdQuotaUpdater) this.mQuotaUpdaterWrapper.get();
+            bdQuotaUpdater = this.mQuotaUpdaterWrapper.get();
         }
         if (bdQuotaUpdater == null || !bdQuotaUpdater.isContains(quotaUpdater)) {
             BdWebStorage bdWebStorage = BdWebStorage.getInstance();
             bdWebStorage.getClass();
             BdWebStorage.BdQuotaUpdater bdQuotaUpdater2 = new BdWebStorage.BdQuotaUpdater(quotaUpdater);
-            this.mQuotaUpdaterWrapper = new SoftReference(bdQuotaUpdater2);
+            this.mQuotaUpdaterWrapper = new SoftReference<>(bdQuotaUpdater2);
             return bdQuotaUpdater2;
         }
         return bdQuotaUpdater;
@@ -216,13 +217,13 @@ public class BdWebChromeClient {
     public BdGeolocationPermissions.BdCallback obtainGeolocationPermissionsCallbackWrapper(GeolocationPermissions.Callback callback) {
         BdGeolocationPermissions.BdCallback bdCallback = null;
         if (this.mGeolocationPermissionsCallbackWrapper != null) {
-            bdCallback = (BdGeolocationPermissions.BdCallback) this.mGeolocationPermissionsCallbackWrapper.get();
+            bdCallback = this.mGeolocationPermissionsCallbackWrapper.get();
         }
         if (bdCallback == null || !bdCallback.isContains(callback)) {
             BdGeolocationPermissions bdGeolocationPermissions = BdGeolocationPermissions.getInstance();
             bdGeolocationPermissions.getClass();
             BdGeolocationPermissions.BdCallback bdCallback2 = new BdGeolocationPermissions.BdCallback(callback);
-            this.mGeolocationPermissionsCallbackWrapper = new SoftReference(bdCallback2);
+            this.mGeolocationPermissionsCallbackWrapper = new SoftReference<>(bdCallback2);
             return bdCallback2;
         }
         return bdCallback;
@@ -231,13 +232,13 @@ public class BdWebChromeClient {
     public BdGeolocationPermissions.BdCallback obtainGeolocationPermissionsCallbackWrapper(GeolocationPermissions.Callback callback) {
         BdGeolocationPermissions.BdCallback bdCallback = null;
         if (this.mGeolocationPermissionsCallbackWrapper != null) {
-            bdCallback = (BdGeolocationPermissions.BdCallback) this.mGeolocationPermissionsCallbackWrapper.get();
+            bdCallback = this.mGeolocationPermissionsCallbackWrapper.get();
         }
         if (bdCallback == null || !bdCallback.isContains(callback)) {
             BdGeolocationPermissions bdGeolocationPermissions = BdGeolocationPermissions.getInstance();
             bdGeolocationPermissions.getClass();
             BdGeolocationPermissions.BdCallback bdCallback2 = new BdGeolocationPermissions.BdCallback(callback);
-            this.mGeolocationPermissionsCallbackWrapper = new SoftReference(bdCallback2);
+            this.mGeolocationPermissionsCallbackWrapper = new SoftReference<>(bdCallback2);
             return bdCallback2;
         }
         return bdCallback;
@@ -246,11 +247,11 @@ public class BdWebChromeClient {
     public BdConsoleMessage obtainConsoleMessageWrapper(ConsoleMessage consoleMessage) {
         BdConsoleMessage bdConsoleMessage = null;
         if (this.mConsoleMessageWrapper != null) {
-            bdConsoleMessage = (BdConsoleMessage) this.mConsoleMessageWrapper.get();
+            bdConsoleMessage = this.mConsoleMessageWrapper.get();
         }
         if (bdConsoleMessage == null || !bdConsoleMessage.isContains(consoleMessage)) {
             BdConsoleMessage bdConsoleMessage2 = new BdConsoleMessage(consoleMessage);
-            this.mConsoleMessageWrapper = new SoftReference(bdConsoleMessage2);
+            this.mConsoleMessageWrapper = new SoftReference<>(bdConsoleMessage2);
             return bdConsoleMessage2;
         }
         return bdConsoleMessage;
@@ -259,63 +260,63 @@ public class BdWebChromeClient {
     public BdConsoleMessage obtainConsoleMessageWrapper(com.baidu.zeus.ConsoleMessage consoleMessage) {
         BdConsoleMessage bdConsoleMessage = null;
         if (this.mConsoleMessageWrapper != null) {
-            bdConsoleMessage = (BdConsoleMessage) this.mConsoleMessageWrapper.get();
+            bdConsoleMessage = this.mConsoleMessageWrapper.get();
         }
         if (bdConsoleMessage == null || !bdConsoleMessage.isContains(consoleMessage)) {
             BdConsoleMessage bdConsoleMessage2 = new BdConsoleMessage(consoleMessage);
-            this.mConsoleMessageWrapper = new SoftReference(bdConsoleMessage2);
+            this.mConsoleMessageWrapper = new SoftReference<>(bdConsoleMessage2);
             return bdConsoleMessage2;
         }
         return bdConsoleMessage;
     }
 
-    public BdValueCallback obtainValueCallbackStringArrayWrapper(ValueCallback valueCallback) {
-        BdValueCallback bdValueCallback = null;
+    public BdValueCallback<String[]> obtainValueCallbackStringArrayWrapper(ValueCallback<String[]> valueCallback) {
+        BdValueCallback<String[]> bdValueCallback = null;
         if (this.mValueCallbackStringArrayWrapper != null) {
-            bdValueCallback = (BdValueCallback) this.mValueCallbackStringArrayWrapper.get();
+            bdValueCallback = this.mValueCallbackStringArrayWrapper.get();
         }
         if (bdValueCallback == null || !bdValueCallback.isContains(valueCallback)) {
-            BdValueCallback bdValueCallback2 = new BdValueCallback(valueCallback);
-            this.mValueCallbackStringArrayWrapper = new SoftReference(bdValueCallback2);
+            BdValueCallback<String[]> bdValueCallback2 = new BdValueCallback<>(valueCallback);
+            this.mValueCallbackStringArrayWrapper = new SoftReference<>(bdValueCallback2);
             return bdValueCallback2;
         }
         return bdValueCallback;
     }
 
-    public BdValueCallback obtainValueCallbackStringArrayWrapper(com.baidu.zeus.ValueCallback valueCallback) {
-        BdValueCallback bdValueCallback = null;
+    public BdValueCallback<String[]> obtainValueCallbackStringArrayWrapper(com.baidu.zeus.ValueCallback<String[]> valueCallback) {
+        BdValueCallback<String[]> bdValueCallback = null;
         if (this.mValueCallbackStringArrayWrapper != null) {
-            bdValueCallback = (BdValueCallback) this.mValueCallbackStringArrayWrapper.get();
+            bdValueCallback = this.mValueCallbackStringArrayWrapper.get();
         }
         if (bdValueCallback == null || !bdValueCallback.isContains(valueCallback)) {
-            BdValueCallback bdValueCallback2 = new BdValueCallback(valueCallback);
-            this.mValueCallbackStringArrayWrapper = new SoftReference(bdValueCallback2);
+            BdValueCallback<String[]> bdValueCallback2 = new BdValueCallback<>(valueCallback);
+            this.mValueCallbackStringArrayWrapper = new SoftReference<>(bdValueCallback2);
             return bdValueCallback2;
         }
         return bdValueCallback;
     }
 
-    public BdValueCallback obtainValueCallbackUriWrapper(ValueCallback valueCallback) {
-        BdValueCallback bdValueCallback = null;
+    public BdValueCallback<Uri> obtainValueCallbackUriWrapper(ValueCallback<Uri> valueCallback) {
+        BdValueCallback<Uri> bdValueCallback = null;
         if (this.mValueCallbackUriWrapper != null) {
-            bdValueCallback = (BdValueCallback) this.mValueCallbackUriWrapper.get();
+            bdValueCallback = this.mValueCallbackUriWrapper.get();
         }
         if (bdValueCallback == null || !bdValueCallback.isContains(valueCallback)) {
-            BdValueCallback bdValueCallback2 = new BdValueCallback(valueCallback);
-            this.mValueCallbackUriWrapper = new SoftReference(bdValueCallback2);
+            BdValueCallback<Uri> bdValueCallback2 = new BdValueCallback<>(valueCallback);
+            this.mValueCallbackUriWrapper = new SoftReference<>(bdValueCallback2);
             return bdValueCallback2;
         }
         return bdValueCallback;
     }
 
-    public BdValueCallback obtainValueCallbackUriWrapper(com.baidu.zeus.ValueCallback valueCallback) {
-        BdValueCallback bdValueCallback = null;
+    public BdValueCallback<Uri> obtainValueCallbackUriWrapper(com.baidu.zeus.ValueCallback<Uri> valueCallback) {
+        BdValueCallback<Uri> bdValueCallback = null;
         if (this.mValueCallbackUriWrapper != null) {
-            bdValueCallback = (BdValueCallback) this.mValueCallbackUriWrapper.get();
+            bdValueCallback = this.mValueCallbackUriWrapper.get();
         }
         if (bdValueCallback == null || !bdValueCallback.isContains(valueCallback)) {
-            BdValueCallback bdValueCallback2 = new BdValueCallback(valueCallback);
-            this.mValueCallbackUriWrapper = new SoftReference(bdValueCallback2);
+            BdValueCallback<Uri> bdValueCallback2 = new BdValueCallback<>(valueCallback);
+            this.mValueCallbackUriWrapper = new SoftReference<>(bdValueCallback2);
             return bdValueCallback2;
         }
         return bdValueCallback;
@@ -324,12 +325,12 @@ public class BdWebChromeClient {
     public BdWebView.BdWebViewTransport obtainWebViewTransportWrapper(BdWebView bdWebView, WebView.WebViewTransport webViewTransport) {
         BdWebView.BdWebViewTransport bdWebViewTransport = null;
         if (this.mWebViewTransportWrapper != null) {
-            bdWebViewTransport = (BdWebView.BdWebViewTransport) this.mWebViewTransportWrapper.get();
+            bdWebViewTransport = this.mWebViewTransportWrapper.get();
         }
         if (bdWebViewTransport == null || !bdWebViewTransport.isContains(webViewTransport)) {
             bdWebView.getClass();
             BdWebView.BdWebViewTransport bdWebViewTransport2 = new BdWebView.BdWebViewTransport(webViewTransport);
-            this.mWebViewTransportWrapper = new SoftReference(bdWebViewTransport2);
+            this.mWebViewTransportWrapper = new SoftReference<>(bdWebViewTransport2);
             return bdWebViewTransport2;
         }
         return bdWebViewTransport;
@@ -338,12 +339,12 @@ public class BdWebChromeClient {
     public BdWebView.BdWebViewTransport obtainWebViewTransportWrapper(BdWebView bdWebView, WebView.WebViewTransport webViewTransport) {
         BdWebView.BdWebViewTransport bdWebViewTransport = null;
         if (this.mWebViewTransportWrapper != null) {
-            bdWebViewTransport = (BdWebView.BdWebViewTransport) this.mWebViewTransportWrapper.get();
+            bdWebViewTransport = this.mWebViewTransportWrapper.get();
         }
         if (bdWebViewTransport == null || !bdWebViewTransport.isContains(webViewTransport)) {
             bdWebView.getClass();
             BdWebView.BdWebViewTransport bdWebViewTransport2 = new BdWebView.BdWebViewTransport(webViewTransport);
-            this.mWebViewTransportWrapper = new SoftReference(bdWebViewTransport2);
+            this.mWebViewTransportWrapper = new SoftReference<>(bdWebViewTransport2);
             return bdWebViewTransport2;
         }
         return bdWebViewTransport;
@@ -426,16 +427,16 @@ public class BdWebChromeClient {
         return null;
     }
 
-    public void getVisitedHistory(BdValueCallback bdValueCallback) {
+    public void getVisitedHistory(BdValueCallback<String[]> bdValueCallback) {
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback, String str, String str2) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str, String str2) {
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback, String str) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str) {
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback) {
     }
 
     public String getStringById(int i) {

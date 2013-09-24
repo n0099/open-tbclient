@@ -1,35 +1,26 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
-import com.slidingmenu.lib.R;
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu implements CompoundButton.OnCheckedChangeListener {
+public class bu implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1524a;
+    final /* synthetic */ br f1566a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(bo boVar) {
-        this.f1524a = boVar;
+    public bu(br brVar) {
+        this.f1566a = brVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131100013 */:
-                    this.f1524a.aa = 1;
-                    return;
-                case R.id.radio_button_3day /* 2131100014 */:
-                    this.f1524a.aa = 3;
-                    return;
-                case R.id.radio_button_10day /* 2131100015 */:
-                    this.f1524a.aa = 10;
-                    return;
-                default:
-                    return;
-            }
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        com.baidu.tieba.write.o oVar;
+        oVar = this.f1566a.N;
+        String a2 = oVar.a(i);
+        if (a2 != null) {
+            this.f1566a.f1563a.getText().insert(this.f1566a.f1563a.getSelectionStart(), a2);
         }
     }
 }

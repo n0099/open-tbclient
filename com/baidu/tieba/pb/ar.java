@@ -1,30 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class ar implements DialogInterface.OnClickListener {
+class ar implements com.baidu.adp.widget.ListView.r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1494a;
+    final /* synthetic */ NewPbActivity f1537a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(NewPbActivity newPbActivity) {
-        this.f1494a = newPbActivity;
+        this.f1537a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        bo boVar;
-        bo boVar2;
-        NewPbActivity newPbActivity = this.f1494a;
-        boVar = this.f1494a.q;
-        newPbActivity.r = boVar.U();
-        boVar2 = this.f1494a.q;
-        boVar2.b();
-        if (i == 0) {
-            com.baidu.tieba.write.ba.a(this.f1494a);
-        } else if (i == 1) {
-            com.baidu.tieba.write.ba.b(this.f1494a);
+    @Override // com.baidu.adp.widget.ListView.r
+    public void a() {
+        com.baidu.tieba.model.bd bdVar;
+        br brVar;
+        bdVar = this.f1537a.n;
+        if (bdVar.a(false)) {
+            brVar = this.f1537a.t;
+            brVar.z();
+            if (TiebaApplication.g().s()) {
+                StatService.onEvent(this.f1537a, "pb_more", "pbclick", 1);
+            }
         }
     }
 }

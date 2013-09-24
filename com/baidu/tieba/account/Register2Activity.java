@@ -25,7 +25,7 @@ import com.baidu.zeus.WebChromeClient;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class Register2Activity extends com.baidu.tieba.g {
+public class Register2Activity extends com.baidu.tieba.j {
     private static int e = LocationClientOption.MIN_SCAN_SPAN;
     private static int f = 27;
     private static int g = 29;
@@ -64,13 +64,13 @@ public class Register2Activity extends com.baidu.tieba.g {
     private String P = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f866a = null;
+    RelativeLayout f882a = null;
     LinearLayout b = null;
     TextView c = null;
     TextView d = null;
     private ax Q = null;
     private ay R = null;
-    private com.baidu.tieba.model.as S = null;
+    private com.baidu.tieba.model.au S = null;
     private View.OnClickListener T = new as(this);
     private TextWatcher U = new at(this);
     private View.OnFocusChangeListener V = new au(this);
@@ -81,16 +81,16 @@ public class Register2Activity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.account_register2_activity);
-        o();
+        p();
         new ag("reg").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
+    public void o() {
         int selectionStart = this.y.getSelectionStart();
         if (!this.N) {
             this.n.setText(getString(R.string.hide));
@@ -106,7 +106,7 @@ public class Register2Activity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         if (this.R != null) {
@@ -115,11 +115,11 @@ public class Register2Activity extends com.baidu.tieba.g {
         if (this.Q != null) {
             this.Q.cancel();
         }
-        com.baidu.tieba.util.aq.a("Register2Activity", "onDestroy", "onDestroy");
+        com.baidu.tieba.util.av.a("Register2Activity", "onDestroy", "onDestroy");
     }
 
-    private void o() {
-        this.f866a = (RelativeLayout) findViewById(R.id.container);
+    private void p() {
+        this.f882a = (RelativeLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.reg_text);
@@ -166,31 +166,31 @@ public class Register2Activity extends com.baidu.tieba.g {
         this.q.setOnClickListener(this.T);
         this.A = (EditText) findViewById(R.id.edit_vcode);
         this.A.addTextChangedListener(this.U);
-        n();
+        o();
         a(this.x, WebChromeClient.STRING_DLG_BTN_SET);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.ao.f(this.c, i);
-        com.baidu.tieba.util.ao.f((TextView) this.m, i);
-        com.baidu.tieba.util.ao.a(this.d, i);
-        com.baidu.tieba.util.ao.c(this.f866a, i);
-        com.baidu.tieba.util.ao.d(this.b, i);
-        com.baidu.tieba.util.ao.g((TextView) this.m, i);
-        com.baidu.tieba.util.ao.a(this.l, i);
-        u();
-        r();
+        com.baidu.tieba.util.as.f(this.c, i);
+        com.baidu.tieba.util.as.f(this.m, i);
+        com.baidu.tieba.util.as.a(this.d, i);
+        com.baidu.tieba.util.as.c(this.f882a, i);
+        com.baidu.tieba.util.as.d(this.b, i);
+        com.baidu.tieba.util.as.g(this.m, i);
+        com.baidu.tieba.util.as.a(this.l, i);
+        v();
+        s();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
+    public void q() {
         b(false);
     }
 
-    private void q() {
+    private void r() {
         this.C.setPadding(this.K, 0, this.L, 0);
         this.D.setPadding(this.K, 0, this.L, 0);
         this.E.setPadding(this.K, 0, this.L, 0);
@@ -199,7 +199,7 @@ public class Register2Activity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void r() {
+    public void s() {
         this.w.setText(this.P);
         if (this.P != null) {
             this.w.setVisibility(0);
@@ -251,7 +251,7 @@ public class Register2Activity extends com.baidu.tieba.g {
             }
             this.G.setBackgroundResource(R.drawable.login_input_under);
         }
-        q();
+        r();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -280,7 +280,7 @@ public class Register2Activity extends com.baidu.tieba.g {
                 this.F.setBackgroundResource(R.drawable.login_input_under);
             }
         }
-        r();
+        s();
     }
 
     private void b(boolean z) {
@@ -324,12 +324,12 @@ public class Register2Activity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void s() {
+    public void t() {
         b(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public RegistData t() {
+    public RegistData u() {
         RegistData registData = new RegistData();
         registData.setName(this.x.getText().toString());
         registData.setPsw(this.y.getText().toString());
@@ -344,7 +344,7 @@ public class Register2Activity extends com.baidu.tieba.g {
         return registData;
     }
 
-    private void u() {
+    private void v() {
         String string;
         int length = getString(R.string.reg_info).length();
         String str = String.valueOf(string) + getString(R.string.user_server_agreement);
@@ -362,7 +362,7 @@ public class Register2Activity extends com.baidu.tieba.g {
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == e && i2 == -1) {
-            com.baidu.tieba.util.aq.a("Register2Activity", "onActivityResult", "onActivityResult");
+            com.baidu.tieba.util.av.a("Register2Activity", "onActivityResult", "onActivityResult");
             setResult(-1);
             finish();
         }
@@ -377,21 +377,21 @@ public class Register2Activity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(ArrayList arrayList) {
+    public void a(ArrayList<String> arrayList) {
         int size;
         b();
         if (arrayList != null && (size = arrayList.size()) > 0) {
             this.D.setVisibility(0);
             if (size > 0 && arrayList.get(0) != null) {
-                this.s.setText((CharSequence) arrayList.get(0));
+                this.s.setText(arrayList.get(0));
                 this.s.setVisibility(0);
             }
             if (size > 1 && arrayList.get(1) != null) {
-                this.t.setText((CharSequence) arrayList.get(1));
+                this.t.setText(arrayList.get(1));
                 this.t.setVisibility(0);
             }
             if (size > 2 && arrayList.get(2) != null) {
-                this.u.setText((CharSequence) arrayList.get(2));
+                this.u.setText(arrayList.get(2));
                 this.u.setVisibility(0);
             }
         }

@@ -2,6 +2,7 @@ package com.baidu.browser;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.KeyEvent;
@@ -16,7 +17,6 @@ import com.baidu.browser.explorer.BdExploreViewListener;
 import com.baidu.browser.explorer.share.BdSharer;
 import com.baidu.browser.framework.BdUploadHandler;
 import com.baidu.browser.version.BdPvStatistic;
-import com.baidu.browser.version.BdUpdateTask;
 import com.baidu.browser.webkit.BdValueCallback;
 import com.baidu.browser.webkit.BdWebSettings;
 import com.baidu.browser.webkit.BdWebView;
@@ -32,7 +32,7 @@ import java.util.regex.Pattern;
 public class BrowserActivity extends Activity implements Browser.BrowserListener, BdExploreViewListener, Observer {
     public static BrowserActivity mySelf;
     private BdUploadHandler mUploadHandler;
-    private BdValueCallback mUploadMessage;
+    private BdValueCallback<Uri> mUploadMessage;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -44,7 +44,6 @@ public class BrowserActivity extends Activity implements Browser.BrowserListener
         Browser.getInstance(this).setmListener(this);
         setContentView(Browser.getInstance(this).getRootView());
         Browser.getInstance(mySelf).loadUrl("http://wap.baidu.com/");
-        new BdUpdateTask(this).execute(new String[0]);
         BdPvStatistic.getInstance(this).addLauchCount();
     }
 
@@ -74,13 +73,13 @@ public class BrowserActivity extends Activity implements Browser.BrowserListener
     }
 
     @Override // com.baidu.browser.Browser.BrowserListener
-    public void openFileChooser(BdValueCallback bdValueCallback, String str) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str) {
         this.mUploadHandler = new BdUploadHandler(this);
         this.mUploadHandler.openFileChooser(bdValueCallback, str);
     }
 
     @Override // com.baidu.browser.Browser.BrowserListener
-    public void openFileChooser(BdValueCallback bdValueCallback) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback) {
         if (this.mUploadMessage == null) {
             this.mUploadMessage = bdValueCallback;
             Intent intent = new Intent("android.intent.action.GET_CONTENT");

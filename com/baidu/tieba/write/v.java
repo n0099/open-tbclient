@@ -1,23 +1,36 @@
 package com.baidu.tieba.write;
 
-import android.app.AlertDialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class v implements View.OnClickListener {
+class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1946a;
+    final /* synthetic */ WriteActivity f2129a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(WriteActivity writeActivity) {
-        this.f1946a = writeActivity;
+        this.f2129a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlertDialog alertDialog;
-        alertDialog = this.f1946a.s;
-        alertDialog.show();
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        InputMethodManager inputMethodManager;
+        EditText editText2;
+        InputMethodManager inputMethodManager2;
+        EditText editText3;
+        editText = this.f2129a.e;
+        if (editText.getVisibility() == 0) {
+            WriteActivity writeActivity = this.f2129a;
+            inputMethodManager2 = this.f2129a.d;
+            editText3 = this.f2129a.e;
+            writeActivity.b(inputMethodManager2, editText3);
+            return;
+        }
+        WriteActivity writeActivity2 = this.f2129a;
+        inputMethodManager = this.f2129a.d;
+        editText2 = this.f2129a.g;
+        writeActivity2.b(inputMethodManager, editText2);
     }
 }

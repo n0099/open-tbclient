@@ -3,7 +3,6 @@ package com.google.gson.internal;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
-import java.lang.reflect.GenericDeclaration;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
@@ -55,7 +54,7 @@ public final class C$Gson$Types {
         }
     }
 
-    public static Class getRawType(Type type) {
+    public static Class<?> getRawType(Type type) {
         if (type instanceof Class) {
             return (Class) type;
         }
@@ -137,7 +136,7 @@ public final class C$Gson$Types {
         return type instanceof Class ? ((Class) type).getName() : type.toString();
     }
 
-    static Type getGenericSupertype(Type type, Class cls, Class cls2) {
+    static Type getGenericSupertype(Type type, Class<?> cls, Class<?> cls2) {
         if (cls2 != cls) {
             if (cls2.isInterface()) {
                 Class<?>[] interfaces = cls.getInterfaces();
@@ -153,7 +152,7 @@ public final class C$Gson$Types {
             }
             if (!cls.isInterface()) {
                 while (cls != Object.class) {
-                    Class<?> superclass = cls.getSuperclass();
+                    Class<? super Object> superclass = cls.getSuperclass();
                     if (superclass == cls2) {
                         return cls.getGenericSuperclass();
                     }
@@ -168,7 +167,7 @@ public final class C$Gson$Types {
         return type;
     }
 
-    static Type getSupertype(Type type, Class cls, Class cls2) {
+    static Type getSupertype(Type type, Class<?> cls, Class<?> cls2) {
         C$Gson$Preconditions.checkArgument(cls2.isAssignableFrom(cls));
         return resolve(type, cls, getGenericSupertype(type, cls, cls2));
     }
@@ -177,7 +176,7 @@ public final class C$Gson$Types {
         return type instanceof GenericArrayType ? ((GenericArrayType) type).getGenericComponentType() : ((Class) type).getComponentType();
     }
 
-    public static Type getCollectionElementType(Type type, Class cls) {
+    public static Type getCollectionElementType(Type type, Class<?> cls) {
         Type supertype = getSupertype(type, cls, Collection.class);
         if (supertype instanceof WildcardType) {
             supertype = ((WildcardType) supertype).getUpperBounds()[0];
@@ -185,7 +184,7 @@ public final class C$Gson$Types {
         return supertype instanceof ParameterizedType ? ((ParameterizedType) supertype).getActualTypeArguments()[0] : Object.class;
     }
 
-    public static Type[] getMapKeyAndValueTypes(Type type, Class cls) {
+    public static Type[] getMapKeyAndValueTypes(Type type, Class<?> cls) {
         if (type == Properties.class) {
             return new Type[]{String.class, String.class};
         }
@@ -193,7 +192,7 @@ public final class C$Gson$Types {
         return supertype instanceof ParameterizedType ? ((ParameterizedType) supertype).getActualTypeArguments() : new Type[]{Object.class, Object.class};
     }
 
-    public static Type resolve(Type type, Class cls, Type type2) {
+    public static Type resolve(Type type, Class<?> cls, Type type2) {
         Type resolve;
         while (true) {
             Type type3 = type2;
@@ -255,8 +254,8 @@ public final class C$Gson$Types {
         }
     }
 
-    static Type resolveTypeVariable(Type type, Class cls, TypeVariable typeVariable) {
-        Class declaringClassOf = declaringClassOf(typeVariable);
+    static Type resolveTypeVariable(Type type, Class<?> cls, TypeVariable<?> typeVariable) {
+        Class<?> declaringClassOf = declaringClassOf(typeVariable);
         if (declaringClassOf != null) {
             Type genericSupertype = getGenericSupertype(type, cls, declaringClassOf);
             if (genericSupertype instanceof ParameterizedType) {
@@ -276,8 +275,8 @@ public final class C$Gson$Types {
         throw new NoSuchElementException();
     }
 
-    private static Class declaringClassOf(TypeVariable typeVariable) {
-        GenericDeclaration genericDeclaration = typeVariable.getGenericDeclaration();
+    private static Class<?> declaringClassOf(TypeVariable<?> typeVariable) {
+        Object genericDeclaration = typeVariable.getGenericDeclaration();
         if (genericDeclaration instanceof Class) {
             return (Class) genericDeclaration;
         }

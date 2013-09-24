@@ -1,30 +1,30 @@
 package android.support.v4.content;
 
-import android.os.Handler;
-import android.os.Message;
+import android.os.Process;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends Handler {
-    private k() {
-    }
+public class k extends p<Params, Result> {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ModernAsyncTask f307a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(f fVar) {
-        this();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k(ModernAsyncTask modernAsyncTask) {
+        super(null);
+        this.f307a = modernAsyncTask;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        j jVar = (j) message.obj;
-        switch (message.what) {
-            case 1:
-                jVar.f306a.e(jVar.b[0]);
-                return;
-            case 2:
-                jVar.f306a.b(jVar.b);
-                return;
-            default:
-                return;
-        }
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.Object, Result] */
+    @Override // java.util.concurrent.Callable
+    public Result call() {
+        AtomicBoolean atomicBoolean;
+        ?? d;
+        atomicBoolean = this.f307a.i;
+        atomicBoolean.set(true);
+        Process.setThreadPriority(10);
+        d = this.f307a.d(this.f307a.a((Object[]) this.b));
+        return d;
     }
 }

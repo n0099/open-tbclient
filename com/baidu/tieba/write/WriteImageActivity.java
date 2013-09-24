@@ -32,13 +32,13 @@ import com.slidingmenu.lib.R;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class WriteImageActivity extends com.baidu.tieba.g {
+public class WriteImageActivity extends com.baidu.tieba.j {
 
     /* renamed from: a */
-    private static String[] f1898a = null;
+    private static String[] f2076a = null;
     private int A;
-    private HashMap B;
-    private HashMap C;
+    private HashMap<String, Bitmap> B;
+    private HashMap<String, ImageView> C;
     private RadioButton m;
     private RadioButton n;
     private LinearLayout x;
@@ -49,20 +49,20 @@ public class WriteImageActivity extends com.baidu.tieba.g {
     private LinearLayout f = null;
     private HorizontalScrollView g = null;
     private ProgressBar j = null;
-    private ay k = null;
-    private ax l = null;
+    private bd k = null;
+    private bc l = null;
     private LinearLayout o = null;
     private LinearLayout p = null;
     private TextView q = null;
     private Bitmap r = null;
-    private az s = null;
+    private be s = null;
     private int t = 0;
     private int u = 0;
     private boolean v = true;
     private String w = null;
     private boolean y = false;
     private boolean z = false;
-    private View.OnClickListener D = new ap(this);
+    private View.OnClickListener D = new au(this);
 
     public static void a(Activity activity, Bitmap bitmap, int i) {
         Intent intent = new Intent(activity, WriteImageActivity.class);
@@ -98,10 +98,10 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         activity.startActivityForResult(intent, i2);
     }
 
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        TiebaApplication.g().a((com.baidu.tieba.g) this);
+        TiebaApplication.g().a((com.baidu.tieba.j) this);
         setContentView(R.layout.write_image_activity);
         Intent intent = getIntent();
         this.A = intent.getIntExtra("request", 0);
@@ -109,18 +109,18 @@ public class WriteImageActivity extends com.baidu.tieba.g {
             this.z = true;
         }
         if (this.A == 12002 || this.A == 12001) {
-            k();
+            e();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.a(this.A, intent.getData(), TiebaApplication.g().aw());
+                TiebaPrepareImageService.a(this.A, intent.getData(), com.baidu.tieba.util.au.a().e());
             } else {
-                TiebaPrepareImageService.a(this.A, null, TiebaApplication.g().aw());
+                TiebaPrepareImageService.a(this.A, null, com.baidu.tieba.util.au.a().e());
             }
-            l();
+            m();
         } else {
-            k();
+            e();
             d();
         }
-        f1898a = getResources().getStringArray(R.array.fiter_name);
+        f2076a = getResources().getStringArray(R.array.fiter_name);
         if (com.baidu.adp.lib.a.d.a().b(SwitchKey.MOTU) == 1) {
             this.v = false;
         } else {
@@ -128,17 +128,17 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         }
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
         Drawable drawable = this.b.getDrawable();
         if (drawable != null && (drawable instanceof BitmapDrawable) && ((BitmapDrawable) drawable).getBitmap() == null && this.k == null) {
-            this.k = new ay(this, null);
+            this.k = new bd(this, null);
             this.k.execute(new Object[0]);
         }
     }
 
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a
     public void a_() {
         if (this.k != null) {
             this.k.cancel();
@@ -149,20 +149,20 @@ public class WriteImageActivity extends com.baidu.tieba.g {
 
     private void c() {
         if (this.C != null) {
-            for (Map.Entry entry : this.C.entrySet()) {
-                ImageView imageView = (ImageView) entry.getValue();
-                if (imageView != null) {
-                    imageView.setImageBitmap(null);
+            for (Map.Entry<String, ImageView> entry : this.C.entrySet()) {
+                ImageView value = entry.getValue();
+                if (value != null) {
+                    value.setImageBitmap(null);
                 }
             }
             this.C.clear();
             this.C = null;
         }
         if (this.B != null) {
-            for (Map.Entry entry2 : this.B.entrySet()) {
-                Bitmap bitmap = (Bitmap) entry2.getValue();
-                if (bitmap != null && !bitmap.isRecycled()) {
-                    bitmap.recycle();
+            for (Map.Entry<String, Bitmap> entry2 : this.B.entrySet()) {
+                Bitmap value2 = entry2.getValue();
+                if (value2 != null && !value2.isRecycled()) {
+                    value2.recycle();
                 }
             }
             this.B.clear();
@@ -174,11 +174,11 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         if (this.k != null) {
             this.k.cancel();
         }
-        this.k = new ay(this, null);
+        this.k = new bd(this, null);
         this.k.execute(new Object[0]);
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         a_();
         super.onDestroy();
@@ -198,10 +198,10 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         if (this.A == 12002 || this.A == 12001) {
             unregisterReceiver(this.s);
         }
-        TiebaApplication.g().b((com.baidu.tieba.g) this);
+        TiebaApplication.g().b((com.baidu.tieba.j) this);
     }
 
-    @Override // com.baidu.tieba.g, android.app.Activity, android.view.KeyEvent.Callback
+    @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
             this.D.onClick(null);
@@ -210,21 +210,21 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void k() {
+    private void e() {
         this.j = (ProgressBar) findViewById(R.id.progress);
         this.j.setVisibility(8);
         this.b = (ImageView) findViewById(R.id.image);
-        this.b.setOnClickListener(new aq(this));
+        this.b.setOnClickListener(new av(this));
         this.b.setImageBitmap(this.c);
         this.f = (LinearLayout) findViewById(R.id.title);
         this.g = (HorizontalScrollView) findViewById(R.id.filters_layout);
         this.d = (Button) findViewById(R.id.back);
-        this.d.setOnClickListener(new ar(this));
+        this.d.setOnClickListener(new aw(this));
         this.e = (Button) findViewById(R.id.delete);
         if (this.z || this.A != 12003) {
             this.e.setText(getString(R.string.done));
         }
-        this.e.setOnClickListener(new as(this));
+        this.e.setOnClickListener(new ax(this));
         this.x = (LinearLayout) findViewById(R.id.filters);
         this.t = UtilHelper.a((Context) this, 2.0f);
         this.q = (TextView) findViewById(R.id.editimage_title);
@@ -232,9 +232,9 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         this.o = (LinearLayout) findViewById(R.id.rotate);
         this.m = (RadioButton) findViewById(R.id.beautify_btn);
         this.n = (RadioButton) findViewById(R.id.rotate_btn);
-        at atVar = new at(this);
-        this.m.setOnCheckedChangeListener(atVar);
-        this.n.setOnCheckedChangeListener(atVar);
+        ay ayVar = new ay(this);
+        this.m.setOnCheckedChangeListener(ayVar);
+        this.n.setOnCheckedChangeListener(ayVar);
         this.m.setChecked(true);
         Button button = (Button) findViewById(R.id.rotate_left);
         Button button2 = (Button) findViewById(R.id.rotate_right);
@@ -244,11 +244,11 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         button2.setTag(1);
         button3.setTag(2);
         button4.setTag(3);
-        au auVar = new au(this);
-        button.setOnClickListener(auVar);
-        button2.setOnClickListener(auVar);
-        button3.setOnClickListener(auVar);
-        button4.setOnClickListener(auVar);
+        az azVar = new az(this);
+        button.setOnClickListener(azVar);
+        button2.setOnClickListener(azVar);
+        button3.setOnClickListener(azVar);
+        button4.setOnClickListener(azVar);
         if (Build.VERSION.SDK_INT < 7 || !this.v) {
             this.p.setVisibility(8);
         }
@@ -258,7 +258,7 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         if (this.l != null) {
             this.l.cancel();
         }
-        this.l = new ax(this, null);
+        this.l = new bc(this, null);
         this.l.execute(str);
     }
 
@@ -272,7 +272,7 @@ public class WriteImageActivity extends com.baidu.tieba.g {
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "saveFile", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "saveFile", e.toString());
         }
         return false;
     }
@@ -294,12 +294,12 @@ public class WriteImageActivity extends com.baidu.tieba.g {
                 View inflate2 = getLayoutInflater().inflate(R.layout.filter_item, (ViewGroup) null);
                 ImageView imageView2 = (ImageView) inflate2.findViewById(R.id.filter_immage);
                 ((TextView) inflate2.findViewById(R.id.filter_text)).setText(substring2);
-                imageView2.setImageBitmap((Bitmap) this.B.get(substring));
+                imageView2.setImageBitmap(this.B.get(substring));
                 int i3 = i2 + 1;
                 if (substring.equals("normal")) {
-                    imageView2.setOnClickListener(new av(this, substring, i2));
+                    imageView2.setOnClickListener(new ba(this, substring, i2));
                 } else {
-                    imageView2.setOnClickListener(new aw(this, substring, i2));
+                    imageView2.setOnClickListener(new bb(this, substring, i2));
                 }
                 this.x.addView(inflate2);
                 this.C.put(substring, imageView2);
@@ -313,11 +313,11 @@ public class WriteImageActivity extends com.baidu.tieba.g {
     public void e(String str) {
         ImageView imageView;
         if (str != null) {
-            if (this.w != null && (imageView = (ImageView) this.C.get(this.w)) != null) {
+            if (this.w != null && (imageView = this.C.get(this.w)) != null) {
                 imageView.setBackgroundDrawable(null);
                 imageView.setPadding(this.t, this.t, this.t, this.t);
             }
-            ImageView imageView2 = (ImageView) this.C.get(str);
+            ImageView imageView2 = this.C.get(str);
             if (imageView2 != null) {
                 imageView2.setBackgroundResource(R.drawable.round_corner);
                 imageView2.setPadding(this.t, this.t, this.t, this.t);
@@ -326,8 +326,8 @@ public class WriteImageActivity extends com.baidu.tieba.g {
         }
     }
 
-    private void l() {
-        this.s = new az(this, null);
+    private void m() {
+        this.s = new be(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.image.resized");
         registerReceiver(this.s, intentFilter);

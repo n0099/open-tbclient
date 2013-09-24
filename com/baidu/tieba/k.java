@@ -1,64 +1,20 @@
 package com.baidu.tieba;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k {
+public class k implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.util.v f1202a;
-    protected com.baidu.tieba.data.ak b = null;
+    final /* synthetic */ j f1236a;
 
-    public k() {
-        this.f1202a = null;
-        this.f1202a = new com.baidu.tieba.util.v();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(j jVar) {
+        this.f1236a = jVar;
     }
 
-    public void a() {
-        if (this.f1202a != null) {
-            this.f1202a.h();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(String str) {
-        this.f1202a.a(str);
-    }
-
-    public void a(String str, String str2) {
-        this.f1202a.a(str, str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String b() {
-        String j = this.f1202a.j();
-        this.b = new com.baidu.tieba.data.ak();
-        this.b.a(j);
-        return j;
-    }
-
-    public boolean c() {
-        if (this.f1202a != null) {
-            return this.f1202a.c();
-        }
-        return false;
-    }
-
-    public String d() {
-        if (this.f1202a != null) {
-            return this.f1202a.g();
-        }
-        return null;
-    }
-
-    public int e() {
-        if (this.b != null) {
-            return this.b.a();
-        }
-        return -1;
-    }
-
-    public String f() {
-        if (this.b != null) {
-            return this.b.b();
-        }
-        return null;
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.f1236a.h = null;
     }
 }

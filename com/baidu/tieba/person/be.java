@@ -1,21 +1,43 @@
 package com.baidu.tieba.person;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class be implements Runnable {
+public class be implements com.baidu.adp.lib.guide.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bd f1627a;
+    final /* synthetic */ PersonInfoActivity f1677a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(bd bdVar) {
-        this.f1627a = bdVar;
+    public be(PersonInfoActivity personInfoActivity) {
+        this.f1677a = personInfoActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ba baVar;
-        PersonInfoActivity personInfoActivity;
-        baVar = this.f1627a.f1626a;
-        personInfoActivity = baVar.f1623a;
-        personInfoActivity.m();
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(R.layout.tip_person_info_send_message, (ViewGroup) null);
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

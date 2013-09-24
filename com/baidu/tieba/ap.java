@@ -1,22 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-public class ap implements DialogInterface.OnDismissListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f926a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(UpdateDialog updateDialog) {
-        this.f926a = updateDialog;
+class ap extends BdAsyncTask<String, Integer, String> {
+    private ap() {
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        ae aeVar;
-        aeVar = this.f926a.c;
-        aeVar.dismiss();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ap(ap apVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        byte[] bArr;
+        byte[] bArr2;
+        bArr = TiebaApplication.aq;
+        synchronized (bArr) {
+            TiebaApplication.ar = Boolean.valueOf(UtilHelper.a());
+            bArr2 = TiebaApplication.aq;
+            bArr2.notifyAll();
+        }
+        return null;
     }
 }

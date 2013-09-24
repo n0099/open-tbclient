@@ -346,7 +346,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private boolean mIsShiftPressed;
     private boolean mIsSubjectWebView;
     private boolean mIsUnderSubject;
-    private Vector mKeysPressed;
+    private Vector<Integer> mKeysPressed;
     private Rect mLastCursorBounds;
     private long mLastCursorTime;
     private float mLastDeferTouchX;
@@ -439,12 +439,12 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private int mStartScrollPosY;
     public boolean mStopingLoading;
     private int mSubjectClickIndex;
-    private ArrayList mSubjectClickRects;
+    private ArrayList<Rect> mSubjectClickRects;
     private boolean mSubjectNeedScrollOnLoad;
     private Paint mSubjectPaint;
-    private ArrayList mSubjectRects;
+    private ArrayList<Rect> mSubjectRects;
     private int mSubjectScrollOffsetY;
-    private ArrayList mSubjectViewRects;
+    private ArrayList<Rect> mSubjectViewRects;
     private boolean mSupportMultiTouch;
     private boolean mSuspendWebView;
     private boolean mSwitchScreenFlag;
@@ -546,7 +546,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private static int mProxyPort = 0;
     private static final Uri PREFERRED_APN_URI = Uri.parse("content://telephony/carriers/preferapn");
     private static int EDIT_TEXT_DELAY_TIME = 500;
-    private static ArrayList mSubjectRingScale = new ArrayList();
+    private static ArrayList<Float> mSubjectRingScale = new ArrayList<>();
     private static int lastRectHeight = -1;
     private static Bitmap mSubjectClickBmp = null;
     private static Rect mSubjectClickBmpRect = null;
@@ -1072,7 +1072,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         this(context, attributeSet, i, null);
     }
 
-    protected WebView(Context context, AttributeSet attributeSet, int i, Map map) {
+    protected WebView(Context context, AttributeSet attributeSet, int i, Map<String, Object> map) {
         super(context, attributeSet, i);
         this.mInitViewScale = 0.0f;
         this.mGlobalLayoutListener = null;
@@ -1213,9 +1213,9 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         this.magnifierX = 0;
         this.magnifierY = 0;
         this.mTextSelectionRegion = new Region();
-        this.mSubjectClickRects = new ArrayList();
-        this.mSubjectRects = new ArrayList();
-        this.mSubjectViewRects = new ArrayList();
+        this.mSubjectClickRects = new ArrayList<>();
+        this.mSubjectRects = new ArrayList<>();
+        this.mSubjectViewRects = new ArrayList<>();
         this.mSubjectPaint = new Paint();
         this.mSubjectClickIndex = -1;
         this.mIsUnderSubject = false;
@@ -1647,7 +1647,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         this.mMaxZoomScale = DEFAULT_MAX_ZOOM_SCALE;
         this.mMinZoomScale = DEFAULT_MIN_ZOOM_SCALE;
         this.mMaximumFling = viewConfiguration.getScaledMaximumFlingVelocity();
-        this.mKeysPressed = new Vector(2);
+        this.mKeysPressed = new Vector<>(2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -2049,7 +2049,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         return webBackForwardList;
     }
 
-    public void loadUrl(String str, Map map, PageType pageType) {
+    public void loadUrl(String str, Map<String, String> map, PageType pageType) {
         stopProgressTimer();
         switchOutDrawHistory();
         WebViewCore.GetUrlData getUrlData = new WebViewCore.GetUrlData();
@@ -3190,7 +3190,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         return this.mWebViewCore.getSettings();
     }
 
-    public void addPackageNames(Set set) {
+    public void addPackageNames(Set<String> set) {
         this.mWebViewCore.sendMessage(184, set);
     }
 
@@ -4005,7 +4005,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
             mSubjectRingScale.clear();
             setSubjectRingDrawScale(i2);
         }
-        return getCurrentScale() - ((Float) mSubjectRingScale.get(i)).floatValue() <= 0.01f;
+        return getCurrentScale() - mSubjectRingScale.get(i).floatValue() <= 0.01f;
     }
 
     public void initialSubjectRingScale() {
@@ -4052,41 +4052,41 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
     public void initialSubjectRects() {
         if (this.mSubjectRects == null) {
-            this.mSubjectRects = new ArrayList();
+            this.mSubjectRects = new ArrayList<>();
         }
         this.mSubjectRects.clear();
         if (this.mSubjectClickRects == null) {
-            this.mSubjectClickRects = new ArrayList();
+            this.mSubjectClickRects = new ArrayList<>();
         }
         this.mSubjectClickRects.clear();
         if (this.mSubjectViewRects == null) {
-            this.mSubjectViewRects = new ArrayList();
+            this.mSubjectViewRects = new ArrayList<>();
         }
         this.mSubjectViewRects.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setSubjectRectsFromWebCore(ArrayList arrayList) {
+    public void setSubjectRectsFromWebCore(ArrayList<Rect> arrayList) {
         if (this.mSubjectRects == null) {
-            this.mSubjectRects = new ArrayList();
+            this.mSubjectRects = new ArrayList<>();
         }
         if (this.mSubjectClickRects == null) {
-            this.mSubjectClickRects = new ArrayList();
+            this.mSubjectClickRects = new ArrayList<>();
         }
         if (this.mSubjectViewRects == null) {
-            this.mSubjectViewRects = new ArrayList();
+            this.mSubjectViewRects = new ArrayList<>();
         }
         if (arrayList != null) {
             if (arrayList.size() != getSubjectCount()) {
                 this.mSubjectRects.clear();
                 this.mSubjectClickRects.clear();
                 this.mSubjectViewRects.clear();
-                Iterator it = arrayList.iterator();
+                Iterator<Rect> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    Rect rect = (Rect) it.next();
-                    this.mSubjectRects.add(new Rect(rect));
-                    this.mSubjectViewRects.add(new Rect(rect));
-                    this.mSubjectClickRects.add(new Rect(rect));
+                    Rect next = it.next();
+                    this.mSubjectRects.add(new Rect(next));
+                    this.mSubjectViewRects.add(new Rect(next));
+                    this.mSubjectClickRects.add(new Rect(next));
                 }
                 return;
             }
@@ -4094,7 +4094,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
             while (true) {
                 int i2 = i;
                 if (i2 < getSubjectCount()) {
-                    getSubjectRect(i2).set((Rect) arrayList.get(i2));
+                    getSubjectRect(i2).set(arrayList.get(i2));
                     i = i2 + 1;
                 } else {
                     return;
@@ -4108,15 +4108,15 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     private Rect getSubjectRect(int i) {
-        return (Rect) this.mSubjectRects.get(i);
+        return this.mSubjectRects.get(i);
     }
 
     private Rect getSubjectClickRect(int i) {
-        return (Rect) this.mSubjectClickRects.get(i);
+        return this.mSubjectClickRects.get(i);
     }
 
     private Rect getSubjectViewRect(int i) {
-        return (Rect) this.mSubjectViewRects.get(i);
+        return this.mSubjectViewRects.get(i);
     }
 
     private void drawSubjectTapShadow(Canvas canvas, Rect rect, boolean z, int i) {
@@ -4221,20 +4221,20 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
             this.mSubjectPaint = new Paint();
         }
         if (mSubjectRingScale == null) {
-            mSubjectRingScale = new ArrayList();
+            mSubjectRingScale = new ArrayList<>();
         }
         if (this.mSubjectRects == null) {
-            this.mSubjectRects = new ArrayList();
+            this.mSubjectRects = new ArrayList<>();
             z = true;
         } else {
             z = false;
         }
         if (this.mSubjectViewRects == null) {
-            this.mSubjectViewRects = new ArrayList();
+            this.mSubjectViewRects = new ArrayList<>();
             z = true;
         }
         if (this.mSubjectClickRects == null) {
-            this.mSubjectClickRects = new ArrayList();
+            this.mSubjectClickRects = new ArrayList<>();
             z = true;
         }
         if (z) {
@@ -4682,7 +4682,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
         @Override // java.lang.Runnable
         public void run() {
-            ArrayList formData = WebView.this.mDatabase.getFormData(this.mUrl, this.mName);
+            ArrayList<String> formData = WebView.this.mDatabase.getFormData(this.mUrl, this.mName);
             if (formData.size() > 0) {
                 this.mUpdateMessage.obj = new WebTextView.AutoCompleteAdapter(WebView.this.mContext, formData);
                 this.mUpdateMessage.sendToTarget();
@@ -8410,13 +8410,13 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setTouchHighlightRects(ArrayList arrayList) {
+    public void setTouchHighlightRects(ArrayList<Rect> arrayList) {
         invalidate(this.mTouchHighlightRegion.getBounds());
         this.mTouchHighlightRegion.setEmpty();
         if (arrayList != null) {
-            Iterator it = arrayList.iterator();
+            Iterator<Rect> it = arrayList.iterator();
             while (it.hasNext()) {
-                Rect contentToViewRect = contentToViewRect((Rect) it.next());
+                Rect contentToViewRect = contentToViewRect(it.next());
                 if (contentToViewRect.width() < (getWidth() >> 1) || contentToViewRect.height() < (getHeight() >> 1)) {
                     this.mTouchHighlightRegion.union(contentToViewRect);
                 } else {
@@ -8498,7 +8498,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes.dex */
-        public class SelectItemsAdapter extends ArrayAdapter {
+        public class SelectItemsAdapter extends ArrayAdapter<Container> {
             private static final int DEFAULT_ITEM_HEIGHT = 62;
             private static final int DEFAULT_TEXT_SIZE = 24;
             private int mDefaultTextHeight;
@@ -8570,7 +8570,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 if (i < 0 || i >= getCount()) {
                     return null;
                 }
-                return (Container) getItem(i);
+                return getItem(i);
             }
 
             @Override // android.widget.ArrayAdapter, android.widget.Adapter
@@ -8619,7 +8619,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         }
 
         /* loaded from: classes.dex */
-        class MyArrayListAdapter extends ArrayAdapter {
+        class MyArrayListAdapter extends ArrayAdapter<Container> {
             private int mSelectedItem;
 
             public MyArrayListAdapter(Context context, Container[] containerArr, boolean z) {
@@ -8671,7 +8671,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 if (i < 0 || i >= getCount()) {
                     return null;
                 }
-                return (Container) getItem(i);
+                return getItem(i);
             }
 
             @Override // android.widget.ArrayAdapter, android.widget.Adapter
@@ -8880,13 +8880,13 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 });
                 listView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.2
                     @Override // android.widget.AdapterView.OnItemSelectedListener
-                    public void onItemSelected(AdapterView adapterView, View view, int i, long j) {
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
                         InvokeListBox.this.mListAdapter.setSelectedItem(i);
                         InvokeListBox.this.mListAdapter.notifyDataSetChanged();
                     }
 
                     @Override // android.widget.AdapterView.OnItemSelectedListener
-                    public void onNothingSelected(AdapterView adapterView) {
+                    public void onNothingSelected(AdapterView<?> adapterView) {
                     }
                 });
             }

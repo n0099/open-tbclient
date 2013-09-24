@@ -37,7 +37,7 @@ public class e extends com.baidu.tieba.guide.e {
     private Context z;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1129a = 0;
+    private final int f1176a = 0;
     private final int b = 1;
     private final int c = 2;
     private final int d = 3;

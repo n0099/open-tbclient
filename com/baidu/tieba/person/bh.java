@@ -1,52 +1,56 @@
 package com.baidu.tieba.person;
 
+import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bh extends bj {
+public class bh extends bi {
     private int D;
-    private int E;
-    private ViewGroup F;
-    private LinearLayout G;
-    private LinearLayout H;
+    private LinearLayout E;
+    private Context F;
+    private int G;
+    private ViewGroup H;
     private LinearLayout I;
     private ImageView J;
     private TextView K;
     private LinearLayout L;
-    private ImageView M;
-    private TextView N;
-    private ProgressBar O;
-    private LinearLayout P;
+    private LinearLayout M;
+    private LinearLayout N;
+    private ImageView O;
+    private TextView P;
     private ImageView Q;
-    private TextView R;
-    private TextView S;
-    private LinearLayout T;
-    private ImageView U;
-    private TextView V;
-    private TextView W;
-    private LinearLayout X;
-    private ImageView Y;
-    private TextView Z;
-    private TextView aa;
-    private LinearLayout ab;
-    private ImageView ac;
+    private LinearLayout R;
+    private ImageView S;
+    private TextView T;
+    private TextView U;
+    private LinearLayout V;
+    private ImageView W;
+    private TextView X;
+    private TextView Y;
+    private LinearLayout Z;
+    private ImageView aa;
+    private TextView ab;
+    private TextView ac;
     private TextView ad;
-    private TextView ae;
-    private LinearLayout af;
-    private LinearLayout ag;
+    private LinearLayout ae;
+    private ImageView af;
+    private TextView ag;
+    private TextView ah;
 
-    public bh(PersonInfoActivity personInfoActivity, com.baidu.tieba.model.bm bmVar) {
-        super(personInfoActivity, bmVar);
+    public bh(PersonInfoActivity personInfoActivity, com.baidu.tieba.model.bo boVar) {
+        super(personInfoActivity, boVar);
         this.D = -1;
-        this.E = 0;
+        this.E = null;
         this.F = null;
-        this.G = null;
+        this.G = 0;
         this.H = null;
         this.I = null;
         this.J = null;
@@ -73,276 +77,213 @@ public class bh extends bj {
         this.ae = null;
         this.af = null;
         this.ag = null;
-        this.F = (ViewGroup) LayoutInflater.from(personInfoActivity).inflate(R.layout.person_info_activity_guest, (ViewGroup) null);
-        this.G = (LinearLayout) this.F.findViewById(R.id.guest_operation_btns);
-        this.H = (LinearLayout) this.F.findViewById(R.id.sudoku_buttons_guest);
-        this.F.removeView(this.G);
-        this.F.removeView(this.H);
-        this.B.addView(this.G);
-        this.C.addView(this.H);
-        this.O = (ProgressBar) personInfoActivity.findViewById(R.id.attention_progress);
-        this.I = (LinearLayout) personInfoActivity.findViewById(R.id.guest_btn_attention);
-        this.K = (TextView) personInfoActivity.findViewById(R.id.btn_attention_text);
-        this.J = (ImageView) personInfoActivity.findViewById(R.id.btn_attention_icon);
-        this.L = (LinearLayout) personInfoActivity.findViewById(R.id.guest_btn_send_message);
-        this.N = (TextView) personInfoActivity.findViewById(R.id.btn_send_message_text);
-        this.M = (ImageView) personInfoActivity.findViewById(R.id.btn_send_message_icon);
-        this.D = TiebaApplication.g().an();
-        this.P = (LinearLayout) personInfoActivity.findViewById(R.id.guest_forums);
-        this.Q = (ImageView) personInfoActivity.findViewById(R.id.guest_forums_image);
-        this.R = (TextView) personInfoActivity.findViewById(R.id.guest_forums_text);
-        this.S = (TextView) personInfoActivity.findViewById(R.id.guest_forums_num);
-        this.ab = (LinearLayout) personInfoActivity.findViewById(R.id.guest_posts);
-        this.ac = (ImageView) personInfoActivity.findViewById(R.id.guest_posts_image);
-        this.ad = (TextView) personInfoActivity.findViewById(R.id.guest_posts_text);
-        this.ae = (TextView) personInfoActivity.findViewById(R.id.guest_posts_num);
-        this.T = (LinearLayout) personInfoActivity.findViewById(R.id.guest_attention);
-        this.U = (ImageView) personInfoActivity.findViewById(R.id.guest_attention_image);
-        this.V = (TextView) personInfoActivity.findViewById(R.id.guest_attention_text);
-        this.W = (TextView) personInfoActivity.findViewById(R.id.guest_attention_num);
-        this.X = (LinearLayout) personInfoActivity.findViewById(R.id.guest_fans);
-        this.Y = (ImageView) personInfoActivity.findViewById(R.id.guest_fans_image);
-        this.Z = (TextView) personInfoActivity.findViewById(R.id.guest_fans_text);
-        this.aa = (TextView) personInfoActivity.findViewById(R.id.guest_fans_num);
-        this.af = (LinearLayout) personInfoActivity.findViewById(R.id.place_holder1);
-        this.ag = (LinearLayout) personInfoActivity.findViewById(R.id.place_holder2);
-        this.P.setOnClickListener(personInfoActivity);
-        this.ab.setOnClickListener(personInfoActivity);
-        this.T.setOnClickListener(personInfoActivity);
-        this.X.setOnClickListener(personInfoActivity);
+        this.ah = null;
+        this.F = personInfoActivity;
+        this.H = (ViewGroup) LayoutInflater.from(personInfoActivity).inflate(R.layout.person_info_activity_host, (ViewGroup) null);
+        this.E = (LinearLayout) this.H.findViewById(R.id.host);
+        this.I = (LinearLayout) this.H.findViewById(R.id.btn_edit_profile);
+        this.L = (LinearLayout) this.H.findViewById(R.id.sudoku_buttons_host);
+        this.H.removeView(this.I);
+        this.H.removeView(this.L);
+        this.B.addView(this.I);
+        this.C.addView(this.L);
+        this.J = (ImageView) personInfoActivity.findViewById(R.id.edit_icon);
+        this.K = (TextView) personInfoActivity.findViewById(R.id.edit_text);
+        this.D = TiebaApplication.g().ap();
+        this.M = (LinearLayout) personInfoActivity.findViewById(R.id.place_holder1);
+        this.N = (LinearLayout) personInfoActivity.findViewById(R.id.my_bookmark);
+        this.O = (ImageView) personInfoActivity.findViewById(R.id.my_bookmark_image);
+        this.P = (TextView) personInfoActivity.findViewById(R.id.my_bookmark_text);
+        this.Q = (ImageView) personInfoActivity.findViewById(R.id.new_bookmark_mention);
+        this.G = UtilHelper.a((Context) personInfoActivity);
+        a(this.Q, UtilHelper.a((Context) personInfoActivity, 14.0f), (this.G / 6) - UtilHelper.a((Context) personInfoActivity, 23.0f));
+        this.R = (LinearLayout) personInfoActivity.findViewById(R.id.my_forums);
+        this.S = (ImageView) personInfoActivity.findViewById(R.id.my_forums_image);
+        this.T = (TextView) personInfoActivity.findViewById(R.id.my_forums_text);
+        this.U = (TextView) personInfoActivity.findViewById(R.id.my_forums_num);
+        this.V = (LinearLayout) personInfoActivity.findViewById(R.id.my_attention);
+        this.W = (ImageView) personInfoActivity.findViewById(R.id.my_attention_image);
+        this.X = (TextView) personInfoActivity.findViewById(R.id.my_attention_text);
+        this.Y = (TextView) personInfoActivity.findViewById(R.id.my_attention_num);
+        this.Z = (LinearLayout) personInfoActivity.findViewById(R.id.my_fans);
+        this.aa = (ImageView) personInfoActivity.findViewById(R.id.my_fans_image);
+        this.ab = (TextView) personInfoActivity.findViewById(R.id.my_fans_text);
+        this.ac = (TextView) personInfoActivity.findViewById(R.id.my_fans_num);
+        this.ad = (TextView) personInfoActivity.findViewById(R.id.new_fans_mention);
+        a(this.ad, UtilHelper.a((Context) personInfoActivity, 8.0f), (this.G / 6) - UtilHelper.a((Context) personInfoActivity, 30.0f));
+        this.ae = (LinearLayout) personInfoActivity.findViewById(R.id.my_post);
+        this.af = (ImageView) personInfoActivity.findViewById(R.id.my_post_image);
+        this.ag = (TextView) personInfoActivity.findViewById(R.id.my_post_text);
+        this.ah = (TextView) personInfoActivity.findViewById(R.id.my_post_num);
+        this.N.setOnClickListener(personInfoActivity);
+        this.R.setOnClickListener(personInfoActivity);
+        this.V.setOnClickListener(personInfoActivity);
+        this.Z.setOnClickListener(personInfoActivity);
+        this.ae.setOnClickListener(personInfoActivity);
         this.I.setOnClickListener(personInfoActivity);
-        this.L.setOnClickListener(personInfoActivity);
-        d(bmVar);
-        h(bmVar);
+        d(boVar);
     }
 
-    @Override // com.baidu.tieba.person.bj
-    public void a(com.baidu.tieba.model.bm bmVar) {
-        super.a(bmVar);
-        this.A = bmVar.c();
-        if (this.A == null) {
-            this.h.setText(bmVar.g());
-        } else {
-            this.h.setText(this.A.getName_show());
+    private void a(View view, int i, int i2) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+        layoutParams.topMargin = i;
+        layoutParams.rightMargin = i2;
+        view.setLayoutParams(layoutParams);
+    }
+
+    @Override // com.baidu.tieba.person.bi
+    public void a(com.baidu.tieba.model.bo boVar) {
+        super.a(boVar);
+        this.z = boVar.a();
+        if (this.z != null && this.z.length() > 0) {
+            this.h.setText(R.string.person_info);
+            if (boVar.i()) {
+                this.d.setVisibility(4);
+                this.e.setVisibility(8);
+                this.f.setVisibility(0);
+            } else if (boVar.j()) {
+                this.d.setVisibility(0);
+                this.e.setVisibility(8);
+                this.f.setVisibility(0);
+            } else {
+                this.d.setVisibility(0);
+                this.e.setVisibility(0);
+                this.f.setVisibility(8);
+            }
         }
-        this.c.setVisibility(0);
-        this.d.setVisibility(0);
-        this.e.setVisibility(8);
     }
 
-    public void a(boolean z, com.baidu.tieba.model.bm bmVar, int i) {
+    public void a(boolean z, com.baidu.tieba.model.bo boVar, int i) {
         this.t.setVisibility(8);
         if (z) {
-            d(bmVar);
-            h(bmVar);
-            g(bmVar);
+            d(boVar);
+            g(boVar);
         }
         if (i == 1) {
             this.i.c();
-            if (bmVar.getErrorString() != null) {
-                this.b.a(bmVar.getErrorString());
+            if (boVar.getErrorString() != null) {
+                this.b.a(boVar.getErrorString());
             }
         }
     }
 
-    @Override // com.baidu.tieba.person.bj
-    public void b(com.baidu.tieba.model.bm bmVar) {
-        super.b(bmVar);
-        this.z = bmVar.a();
-        this.af.setVisibility(4);
-        this.ag.setVisibility(4);
+    @Override // com.baidu.tieba.person.bi
+    public void b(com.baidu.tieba.model.bo boVar) {
+        super.b(boVar);
+        this.M.setVisibility(4);
+        this.z = boVar.a();
         if (this.z != null && this.z.length() > 0) {
-            this.A = bmVar.c();
-            if (this.A != null) {
-                int sex = this.A.getSex();
-                if (sex == 2) {
-                    this.R.setText(R.string.her_attention_forums);
-                    this.ad.setText(R.string.her_posts);
-                    this.V.setText(R.string.her_attention_people);
-                    this.Z.setText(R.string.attention_to_her);
-                } else if (sex == 1) {
-                    this.R.setText(R.string.his_attention_forums);
-                    this.ad.setText(R.string.his_posts);
-                    this.V.setText(R.string.his_attention_people);
-                    this.Z.setText(R.string.attention_to_him);
-                } else {
-                    this.R.setText(R.string.ta_attention_forums);
-                    this.ad.setText(R.string.ta_posts);
-                    this.V.setText(R.string.ta_attention_people);
-                    this.Z.setText(R.string.attention_to_ta);
-                }
-            }
+            this.A = boVar.c();
+            b(this.D, boVar);
             if (this.A != null && this.A.getLike_bars() > 0) {
-                this.S.setVisibility(0);
-                this.S.setText(String.valueOf(this.A.getLike_bars()));
+                this.U.setVisibility(0);
+                this.U.setText(String.valueOf(this.A.getLike_bars()));
             } else {
-                this.S.setVisibility(4);
+                this.U.setVisibility(4);
             }
             if (this.A != null && this.A.getConcern_num() > 0) {
-                this.W.setVisibility(0);
-                this.W.setText(String.valueOf(this.A.getConcern_num()));
+                this.Y.setVisibility(0);
+                this.Y.setText(String.valueOf(this.A.getConcern_num()));
             } else {
-                this.W.setVisibility(4);
+                this.Y.setVisibility(4);
             }
             if (this.A != null && this.A.getPosts_num() > 0) {
-                this.ae.setVisibility(0);
-                this.ae.setText(String.valueOf(this.A.getPosts_num()));
+                this.ah.setVisibility(0);
+                this.ah.setText(String.valueOf(this.A.getPosts_num()));
             } else {
-                this.ae.setVisibility(4);
+                this.ah.setVisibility(4);
             }
             if (this.A != null && this.A.getFans_num() > 0) {
-                this.aa.setVisibility(0);
-                this.aa.setText(String.valueOf(this.A.getFans_num()));
+                this.ac.setVisibility(0);
+                this.ac.setText(String.valueOf(this.A.getFans_num()));
                 return;
             }
-            this.aa.setVisibility(4);
+            this.ac.setVisibility(4);
         }
     }
 
-    public void c(com.baidu.tieba.model.bm bmVar) {
-        if (bmVar.c() != null) {
-            this.O.setVisibility(0);
-        }
-    }
-
-    public void a(boolean z, com.baidu.tieba.model.bm bmVar) {
-        this.O.setVisibility(8);
-        if (z) {
-            this.b.a(this.b.getString(R.string.success));
-            h(bmVar);
-        } else if (bmVar.getErrorString() != null) {
-            this.b.a(bmVar.getErrorString());
-        }
-    }
-
-    private void h(com.baidu.tieba.model.bm bmVar) {
-        this.I.setVisibility(8);
-        this.A = bmVar.c();
-        this.z = bmVar.a();
-        if (this.z != null && this.z.length() > 0 && this.A != null) {
-            this.I.setVisibility(0);
-            this.E = this.A.getHave_attention();
-            i(bmVar);
-        }
-    }
-
-    private void i(com.baidu.tieba.model.bm bmVar) {
-        if (this.E == 1) {
-            this.K.setText(R.string.attention_cancel);
-            this.J.setImageResource(0);
-            this.J.setVisibility(0);
-            if (this.D == 1) {
-                this.I.setBackgroundResource(R.drawable.btn_white_bg_night_selector);
-                this.K.setTextColor(-11640196);
-                return;
-            }
-            this.I.setBackgroundResource(R.drawable.btn_white_bg_selector);
-            this.K.setTextColor(-9207399);
-            return;
-        }
-        this.K.setText(R.string.attention);
-        if (this.D == 1) {
-            com.baidu.tieba.util.ao.g(this.I, (int) R.drawable.btn_attention_to_bg_night_selector);
-            this.J.setVisibility(0);
-            this.J.setImageResource(R.drawable.btn_icon_follow_1);
-            this.K.setTextColor(-1199663);
-            return;
-        }
-        com.baidu.tieba.util.ao.g(this.I, (int) R.drawable.btn_attention_to_bg_selector);
-        this.J.setVisibility(0);
-        this.J.setImageResource(R.drawable.btn_icon_follow);
-        this.K.setTextColor(-1);
-    }
-
-    @Override // com.baidu.tieba.person.bj
-    public void a(int i, com.baidu.tieba.model.bm bmVar) {
-        super.a(i, bmVar);
-        i(bmVar);
+    private void a(View view, int i, int i2, int i3) {
         if (i == 1) {
-            com.baidu.tieba.util.ao.g(this.L, (int) R.drawable.btn_send_message_bg_night_selector);
-            this.M.setImageResource(R.drawable.btn_icon_information_1);
-            this.N.setTextColor(-5454368);
-            this.P.setBackgroundResource(R.drawable.person_button_1);
-            this.ab.setBackgroundResource(R.drawable.person_button_1);
-            this.T.setBackgroundResource(R.drawable.person_button_1);
-            this.X.setBackgroundResource(R.drawable.person_button_1);
-            this.Q.setImageResource(R.drawable.cent_icon_myba_n_1);
-            this.ac.setImageResource(R.drawable.cent_icon_tiezi_n_1);
-            this.U.setImageResource(R.drawable.cent_icon_gz_n_1);
-            this.Y.setImageResource(R.drawable.cent_icon_fs_n_1);
-            this.R.setTextColor(-10523526);
-            this.ad.setTextColor(-10523526);
-            this.V.setTextColor(-10523526);
-            this.Z.setTextColor(-10523526);
-            this.S.setTextColor(-8352873);
-            this.ae.setTextColor(-8352873);
-            this.W.setTextColor(-8352873);
-            this.aa.setTextColor(-8352873);
-            return;
+            view.setBackgroundResource(i2);
+        } else {
+            view.setBackgroundResource(i3);
         }
-        com.baidu.tieba.util.ao.g(this.L, (int) R.drawable.btn_send_message_bg_selector);
-        this.M.setImageResource(R.drawable.btn_icon_information);
-        this.N.setTextColor(-1);
-        this.P.setBackgroundResource(R.drawable.person_button);
-        this.ab.setBackgroundResource(R.drawable.person_button);
-        this.T.setBackgroundResource(R.drawable.person_button);
-        this.X.setBackgroundResource(R.drawable.person_button);
-        this.Q.setImageResource(R.drawable.cent_icon_myba_n);
-        this.ac.setImageResource(R.drawable.cent_icon_tiezi_n);
-        this.U.setImageResource(R.drawable.cent_icon_gz_n);
-        this.Y.setImageResource(R.drawable.cent_icon_fs_n);
-        this.R.setTextColor(-12564913);
-        this.ad.setTextColor(-12564913);
-        this.V.setTextColor(-12564913);
-        this.Z.setTextColor(-12564913);
-        this.S.setTextColor(-6576974);
-        this.ae.setTextColor(-6576974);
-        this.W.setTextColor(-6576974);
-        this.aa.setTextColor(-6576974);
     }
 
-    @Override // com.baidu.tieba.person.bj
+    private void b(int i, com.baidu.tieba.model.bo boVar) {
+        long g = boVar.g();
+        long h = boVar.h();
+        if (g > 0) {
+            this.ad.setVisibility(0);
+            if (g <= 9) {
+                a(this.ad, i, R.drawable.icon_news_prompt_1, R.drawable.icon_news_prompt);
+                a(this.ad, UtilHelper.a(this.F, 9.0f), (this.G / 6) - UtilHelper.a(this.F, 28.0f));
+                this.ad.setText(String.valueOf(g));
+            } else if (g > 9 && g <= 99) {
+                a(this.ad, i, R.drawable.icon_news_head_prompt_1, R.drawable.icon_news_head_prompt);
+                this.ad.setText(String.valueOf(g));
+            } else if (g > 99) {
+                a(this.ad, i, R.drawable.icon_news_head_prompt_more_1, R.drawable.icon_news_head_prompt_more);
+            }
+        } else {
+            this.ad.setVisibility(8);
+        }
+        if (h > 0) {
+            a(this.Q, i, R.drawable.icon_news_content_prompt_1, R.drawable.icon_news_content_prompt);
+            this.Q.setVisibility(0);
+            return;
+        }
+        this.Q.setVisibility(8);
+    }
+
+    @Override // com.baidu.tieba.person.bi
+    public void a(int i, com.baidu.tieba.model.bo boVar) {
+        super.a(i, boVar);
+        a(this.ad, i, R.drawable.icon_news_prompt_1, R.drawable.icon_news_prompt);
+        a(this.Q, i, R.drawable.icon_news_content_prompt_1, R.drawable.icon_news_content_prompt);
+        if (i == 1) {
+            this.I.setBackgroundResource(R.drawable.btn_white_bg_night_selector);
+        } else {
+            this.I.setBackgroundResource(R.drawable.btn_white_bg_selector);
+        }
+    }
+
+    @Override // com.baidu.tieba.person.bi
     public void b() {
         super.b();
-        this.I.setBackgroundResource(0);
-        this.J.setImageResource(0);
-        this.L.setBackgroundResource(0);
-        this.M.setImageResource(0);
-        this.Q.setImageResource(0);
-        this.ac.setImageResource(0);
-        this.U.setImageResource(0);
-        this.Y.setImageResource(0);
-    }
-
-    @Override // com.baidu.tieba.person.bj
-    public void c() {
-        super.c();
-        if (this.O != null) {
-            this.O.setVisibility(8);
-        }
+        this.N.setBackgroundResource(0);
+        this.R.setBackgroundResource(0);
+        this.V.setBackgroundResource(0);
+        this.Z.setBackgroundResource(0);
+        this.ae.setBackgroundResource(0);
+        this.O.setImageResource(0);
+        this.S.setImageResource(0);
+        this.W.setImageResource(0);
+        this.aa.setImageResource(0);
+        this.af.setImageResource(0);
     }
 
     public LinearLayout d() {
-        return this.I;
+        return this.N;
     }
 
     public LinearLayout e() {
-        return this.L;
+        return this.R;
     }
 
     public LinearLayout f() {
-        return this.P;
+        return this.V;
     }
 
     public LinearLayout g() {
-        return this.ab;
+        return this.Z;
     }
 
     public LinearLayout h() {
-        return this.T;
+        return this.ae;
     }
 
     public LinearLayout i() {
-        return this.X;
+        return this.I;
     }
 }

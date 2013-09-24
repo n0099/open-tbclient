@@ -22,7 +22,7 @@ public final class GeolocationPermissions {
     private static final String TAG = "geolocationPermissions";
     private static GeolocationPermissions sInstance;
     private Handler mHandler;
-    private Vector mQueuedMessages;
+    private Vector<Message> mQueuedMessages;
     private Handler mUIHandler;
 
     /* loaded from: classes.dex */
@@ -111,7 +111,7 @@ public final class GeolocationPermissions {
             };
             if (this.mQueuedMessages != null) {
                 while (!this.mQueuedMessages.isEmpty()) {
-                    this.mHandler.sendMessage((Message) this.mQueuedMessages.remove(0));
+                    this.mHandler.sendMessage(this.mQueuedMessages.remove(0));
                 }
                 this.mQueuedMessages = null;
             }
@@ -121,7 +121,7 @@ public final class GeolocationPermissions {
     private synchronized void postMessage(Message message) {
         if (this.mHandler == null) {
             if (this.mQueuedMessages == null) {
-                this.mQueuedMessages = new Vector();
+                this.mQueuedMessages = new Vector<>();
             }
             this.mQueuedMessages.add(message);
         } else {
@@ -136,7 +136,7 @@ public final class GeolocationPermissions {
         }
     }
 
-    public void getOrigins(ValueCallback valueCallback) {
+    public void getOrigins(ValueCallback<Set<String>> valueCallback) {
         if (valueCallback != null) {
             if ("WebViewCoreThread".equals(Thread.currentThread().getName())) {
                 valueCallback.onReceiveValue(nativeGetOrigins());
@@ -146,7 +146,7 @@ public final class GeolocationPermissions {
         }
     }
 
-    public void getAllowed(String str, ValueCallback valueCallback) {
+    public void getAllowed(String str, ValueCallback<Boolean> valueCallback) {
         if (valueCallback != null) {
             if (str == null) {
                 valueCallback.onReceiveValue(null);

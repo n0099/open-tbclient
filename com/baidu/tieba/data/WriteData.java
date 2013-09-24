@@ -11,6 +11,7 @@ public class WriteData implements Serializable {
     private boolean isAd;
     private InfoData mBitmapId;
     private String mContent;
+    private int mDuringTime;
     private String mFloor;
     private int mFloorNum;
     private String mForumId;
@@ -23,6 +24,7 @@ public class WriteData implements Serializable {
     private String mVcode;
     private String mVcodeMD5;
     private String mVcodeUrl;
+    private String mVoiceMd5;
 
     public WriteData() {
         this.mType = 0;
@@ -37,6 +39,7 @@ public class WriteData implements Serializable {
         this.mVcodeMD5 = null;
         this.mVcodeUrl = null;
         this.mBitmapId = null;
+        this.mVoiceMd5 = null;
         this.mHaveDraft = false;
         this.mPicType = 0;
         setIsAd(false);
@@ -166,5 +169,21 @@ public class WriteData implements Serializable {
 
     public void setIsAd(boolean z) {
         this.isAd = z;
+    }
+
+    public void setVoice(String str) {
+        this.mVoiceMd5 = str;
+    }
+
+    public String getVoice() {
+        return this.mVoiceMd5;
+    }
+
+    public void setVoiceDuringTime(int i) {
+        this.mDuringTime = i;
+    }
+
+    public int getVoiceDuringTime() {
+        return this.mDuringTime;
     }
 }

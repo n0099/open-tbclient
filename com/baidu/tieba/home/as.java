@@ -1,20 +1,23 @@
 package com.baidu.tieba.home;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
+class as {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1164a;
+    private int f1210a = -1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(SearchActivity searchActivity) {
-        this.f1164a = searchActivity;
+    public void a(int i) {
+        this.f1210a = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1164a.finish();
+    public int a() {
+        return this.f1210a;
+    }
+
+    public boolean b(int i) {
+        if (i == a()) {
+            return false;
+        }
+        a(i);
+        return true;
     }
 }

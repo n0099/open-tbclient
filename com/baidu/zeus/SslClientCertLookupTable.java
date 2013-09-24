@@ -7,9 +7,9 @@ import java.util.Set;
 /* loaded from: classes.dex */
 final class SslClientCertLookupTable {
     private static SslClientCertLookupTable sTable;
-    private final Map privateKeys = new HashMap();
-    private final Map certificateChains = new HashMap();
-    private final Set denied = new HashSet();
+    private final Map<String, byte[]> privateKeys = new HashMap();
+    private final Map<String, byte[][]> certificateChains = new HashMap();
+    private final Set<String> denied = new HashSet();
 
     public static synchronized SslClientCertLookupTable getInstance() {
         SslClientCertLookupTable sslClientCertLookupTable;
@@ -46,10 +46,10 @@ final class SslClientCertLookupTable {
     }
 
     public byte[] PrivateKey(String str) {
-        return (byte[]) this.privateKeys.get(str);
+        return this.privateKeys.get(str);
     }
 
     public byte[][] CertificateChain(String str) {
-        return (byte[][]) this.certificateChains.get(str);
+        return this.certificateChains.get(str);
     }
 }

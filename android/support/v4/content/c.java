@@ -1,21 +1,39 @@
 package android.support.v4.content;
 
 import android.content.Context;
+import android.database.ContentObserver;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class c {
+public class c<D> {
     int m;
-    e n;
+    e<D> n;
     Context o;
     boolean p;
     boolean q;
     boolean r;
     boolean s;
 
-    public void b(Object obj) {
+    /* loaded from: classes.dex */
+    public final class d extends ContentObserver {
+
+        /* renamed from: a  reason: collision with root package name */
+        final /* synthetic */ c f301a;
+
+        @Override // android.database.ContentObserver
+        public boolean deliverSelfNotifications() {
+            return true;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            this.f301a.s();
+        }
+    }
+
+    public void b(D d2) {
         if (this.n != null) {
-            this.n.a(this, obj);
+            this.n.a(this, d2);
         }
     }
 
@@ -23,7 +41,7 @@ public class c {
         return this.o;
     }
 
-    public void a(int i, e eVar) {
+    public void a(int i, e<D> eVar) {
         if (this.n != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
@@ -31,7 +49,7 @@ public class c {
         this.m = i;
     }
 
-    public void a(e eVar) {
+    public void a(e<D> eVar) {
         if (this.n == null) {
             throw new IllegalStateException("No listener register");
         }
@@ -105,9 +123,9 @@ public class c {
         }
     }
 
-    public String c(Object obj) {
+    public String c(D d2) {
         StringBuilder sb = new StringBuilder(64);
-        android.support.v4.b.a.a(obj, sb);
+        android.support.v4.b.a.a(d2, sb);
         sb.append("}");
         return sb.toString();
     }

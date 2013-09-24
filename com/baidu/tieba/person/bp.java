@@ -1,30 +1,34 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements View.OnClickListener {
+public class bp implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f1635a;
+    final /* synthetic */ PersonListActivity f1685a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(PersonListActivity personListActivity) {
-        this.f1635a = personListActivity;
+        this.f1685a = personListActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1635a.f1594a = ((Integer) view.getTag()).intValue();
-        String E = TiebaApplication.E();
-        if (E == null || E.length() <= 0) {
-            LoginActivity.a((Activity) this.f1635a, this.f1635a.getString(R.string.login_to_chat), true, 11028);
-        } else {
-            this.f1635a.d();
-        }
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.f1685a.f;
+        runnable = this.f1685a.o;
+        handler.removeCallbacks(runnable);
+        handler2 = this.f1685a.f;
+        runnable2 = this.f1685a.o;
+        handler2.postDelayed(runnable2, 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

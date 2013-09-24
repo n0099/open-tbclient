@@ -1,21 +1,23 @@
 package com.baidu.tieba.home;
 
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag {
+public class ag implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1152a;
-    ProgressBar b;
-    final /* synthetic */ af c;
-
-    private ag(af afVar) {
-        this.c = afVar;
-    }
+    final /* synthetic */ SearchActivity f1198a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(af afVar, ag agVar) {
-        this(afVar);
+    public ag(SearchActivity searchActivity) {
+        this.f1198a = searchActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        editText = this.f1198a.c;
+        editText.setText("");
     }
 }

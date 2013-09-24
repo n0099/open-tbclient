@@ -9,18 +9,18 @@ public class w {
     private String g;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1030a = 0;
+    private int f1048a = 0;
     private String b = "";
     private String c = "";
     private int d = 0;
     private boolean e = false;
-    private ArrayList h = new ArrayList();
+    private ArrayList<x> h = new ArrayList<>();
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -29,7 +29,7 @@ public class w {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.f1030a = optJSONObject.optInt("errno", 0);
+                    this.f1048a = optJSONObject.optInt("errno", 0);
                     this.b = optJSONObject.optString("errmsg", "");
                     this.c = optJSONObject.optString("usermsg", "");
                 }
@@ -45,7 +45,7 @@ public class w {
                     a(optJSONArray.length() == 0);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.av.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -68,7 +68,7 @@ public class w {
         this.e = z;
     }
 
-    public ArrayList a() {
+    public ArrayList<x> a() {
         return this.h;
     }
 
@@ -101,7 +101,7 @@ public class w {
     }
 
     public int f() {
-        return this.f1030a;
+        return this.f1048a;
     }
 
     public String g() {

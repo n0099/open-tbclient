@@ -1,25 +1,20 @@
 package com.baidu.tieba.home;
 
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae extends WebChromeClient {
+public class ae implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumTopicActivity f1150a;
+    final /* synthetic */ SearchActivity f1196a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ForumTopicActivity forumTopicActivity) {
-        this.f1150a = forumTopicActivity;
+    public ae(SearchActivity searchActivity) {
+        this.f1196a = searchActivity;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i) {
-        super.onProgressChanged(webView, i);
-        if (i != 100) {
-            return;
-        }
-        this.f1150a.m();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1196a.finish();
     }
 }

@@ -8,15 +8,15 @@ import android.widget.ListAdapter;
 public class j implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdListView f479a;
+    final /* synthetic */ BdListView f490a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(BdListView bdListView) {
-        this.f479a = bdListView;
+        this.f490a = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         e eVar;
         e eVar2;
         c cVar;
@@ -31,50 +31,50 @@ public class j implements AdapterView.OnItemClickListener {
         o oVar2;
         c cVar5;
         c cVar6;
-        eVar = this.f479a.f470a;
+        eVar = this.f490a.f481a;
         int c = eVar.c();
         if (i < c) {
-            cVar4 = this.f479a.m;
+            cVar4 = this.f490a.m;
             if (cVar4 != null) {
-                cVar5 = this.f479a.m;
+                cVar5 = this.f490a.m;
                 if (view == cVar5.b()) {
-                    cVar6 = this.f479a.m;
+                    cVar6 = this.f490a.m;
                     cVar6.onClick();
                     return;
                 }
             }
-            oVar = this.f479a.e;
+            oVar = this.f490a.e;
             if (oVar != null) {
-                oVar2 = this.f479a.e;
+                oVar2 = this.f490a.e;
                 oVar2.onClick(view);
                 return;
             }
             return;
         }
         int i2 = i - c;
-        eVar2 = this.f479a.f470a;
+        eVar2 = this.f490a.f481a;
         ListAdapter b = eVar2.b();
         if (b != null && i2 < b.getCount()) {
-            onItemClickListener = this.f479a.b;
+            onItemClickListener = this.f490a.b;
             if (onItemClickListener != null) {
-                onItemClickListener2 = this.f479a.b;
+                onItemClickListener2 = this.f490a.b;
                 onItemClickListener2.onItemClick(adapterView, view, i2, j);
                 return;
             }
             return;
         }
-        cVar = this.f479a.n;
+        cVar = this.f490a.n;
         if (cVar != null) {
-            cVar2 = this.f479a.n;
+            cVar2 = this.f490a.n;
             if (view == cVar2.b()) {
-                cVar3 = this.f479a.n;
+                cVar3 = this.f490a.n;
                 cVar3.onClick();
                 return;
             }
         }
-        nVar = this.f479a.f;
+        nVar = this.f490a.f;
         if (nVar != null) {
-            nVar2 = this.f479a.f;
+            nVar2 = this.f490a.f;
             nVar2.onClick(view);
         }
     }

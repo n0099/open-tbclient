@@ -8,10 +8,10 @@ public class d {
     public volatile int d;
     public volatile Bitmap e;
     public boolean g;
-    public volatile com.baidu.adp.widget.a.b i;
+    public volatile com.baidu.adp.widget.a.c i;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile v f1798a = null;
+    public volatile z f1918a = null;
     public boolean f = true;
     public volatile boolean h = false;
     public boolean j = false;
@@ -31,8 +31,8 @@ public class d {
 
     public void a() {
         this.j = true;
-        if (this.f1798a != null) {
-            this.f1798a.h();
+        if (this.f1918a != null) {
+            this.f1918a.h();
         }
     }
 

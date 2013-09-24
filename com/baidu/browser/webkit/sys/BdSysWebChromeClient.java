@@ -1,6 +1,7 @@
 package com.baidu.browser.webkit.sys;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Message;
 import android.view.View;
 import android.webkit.ConsoleMessage;
@@ -134,19 +135,19 @@ public class BdSysWebChromeClient extends WebChromeClient implements BdNoProGuar
     }
 
     @Override // android.webkit.WebChromeClient
-    public void getVisitedHistory(ValueCallback valueCallback) {
+    public void getVisitedHistory(ValueCallback<String[]> valueCallback) {
         this.mWebChromeClient.getVisitedHistory(this.mWebChromeClient.obtainValueCallbackStringArrayWrapper(valueCallback));
     }
 
-    public void openFileChooser(ValueCallback valueCallback, String str, String str2) {
+    public void openFileChooser(ValueCallback<Uri> valueCallback, String str, String str2) {
         this.mWebChromeClient.openFileChooser(this.mWebChromeClient.obtainValueCallbackUriWrapper(valueCallback), str, str2);
     }
 
-    public void openFileChooser(ValueCallback valueCallback, String str) {
+    public void openFileChooser(ValueCallback<Uri> valueCallback, String str) {
         this.mWebChromeClient.openFileChooser(this.mWebChromeClient.obtainValueCallbackUriWrapper(valueCallback), str);
     }
 
-    public void openFileChooser(ValueCallback valueCallback) {
+    public void openFileChooser(ValueCallback<Uri> valueCallback) {
         this.mWebChromeClient.openFileChooser(this.mWebChromeClient.obtainValueCallbackUriWrapper(valueCallback));
     }
 }

@@ -12,43 +12,52 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f832a = 0;
+    private int f844a = 0;
     private b b = null;
     private e c = null;
+    private o d = null;
 
     public int a() {
-        return this.f832a;
+        return this.f844a;
     }
 
-    public void a(int i, b bVar, e eVar) {
-        this.f832a = i;
+    public void a(int i, b bVar, e eVar, o oVar) {
+        this.f844a = i;
         this.b = bVar;
         this.c = eVar;
+        this.d = oVar;
     }
 
     public e b() {
-        if (this.f832a == 8) {
+        if (this.f844a == 8) {
             return this.c;
         }
         return null;
     }
 
-    public SpannableString c() {
-        if (this.f832a != 1 || this.b == null) {
+    public o c() {
+        if (this.f844a == 512) {
+            return this.d;
+        }
+        return null;
+    }
+
+    public SpannableString d() {
+        if (this.f844a != 1 || this.b == null) {
             return null;
         }
         return new SpannableString(this.b.a());
     }
 
-    public CharSequence a(Context context, ArrayList arrayList) {
+    public CharSequence a(Context context, ArrayList<d> arrayList) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.f832a == 32 && this.b != null) {
+        if (this.f844a == 32 && this.b != null) {
             spannableStringBuilder.append((CharSequence) "视频：");
             CharSequence d = d(context, arrayList);
             if (d != null) {
                 spannableStringBuilder.append(d);
             }
-            SpannableString a2 = a(context, this.f832a, this.b.a(), this.b.a());
+            SpannableString a2 = a(context, this.f844a, this.b.a(), this.b.a());
             if (a2 != null) {
                 spannableStringBuilder.append((CharSequence) a2);
             }
@@ -56,14 +65,14 @@ public class g {
         return spannableStringBuilder;
     }
 
-    public CharSequence b(Context context, ArrayList arrayList) {
+    public CharSequence b(Context context, ArrayList<d> arrayList) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.f832a == 128 && this.b != null) {
+        if (this.f844a == 128 && this.b != null) {
             CharSequence d = d(context, arrayList);
             if (d != null) {
                 spannableStringBuilder.append(d);
             }
-            SpannableString a2 = a(context, this.f832a, this.b.b(), this.b.b());
+            SpannableString a2 = a(context, this.f844a, this.b.b(), this.b.b());
             if (a2 != null) {
                 spannableStringBuilder.append((CharSequence) a2);
             }
@@ -71,28 +80,28 @@ public class g {
         return spannableStringBuilder;
     }
 
-    private CharSequence d(Context context, ArrayList arrayList) {
+    private CharSequence d(Context context, ArrayList<d> arrayList) {
         g gVar = new g();
-        gVar.a(4, new b("video_icon", " "), null);
+        gVar.a(4, new b("video_icon", " "), (e) null, (o) null);
         return gVar.c(context, arrayList);
     }
 
-    public String d() {
-        if (this.f832a != 32 || this.b == null) {
+    public String e() {
+        if (this.f844a != 32 || this.b == null) {
             return null;
         }
         return this.b.a();
     }
 
     public SpannableString a(Context context) {
-        if (this.f832a != 2 || this.b == null) {
+        if (this.f844a != 2 || this.b == null) {
             return null;
         }
-        return a(context, this.f832a, this.b.a(), this.b.b());
+        return a(context, this.f844a, this.b.a(), this.b.b());
     }
 
     public SpannableString b(Context context) {
-        if (this.f832a != 256 || this.b == null) {
+        if (this.f844a != 256 || this.b == null) {
             return null;
         }
         String a2 = this.b.a();
@@ -103,22 +112,22 @@ public class g {
             a2 = String.valueOf(a2) + " ";
         }
         SpannableString spannableString = new SpannableString(a2);
-        f fVar = new f(context, this.f832a, a2);
+        f fVar = new f(context, this.f844a, a2);
         fVar.a(this.b.b());
         spannableString.setSpan(fVar, 0, a2.length() - 1, 33);
         return spannableString;
     }
 
     public SpannableString c(Context context) {
-        if (this.f832a != 16 || this.b == null) {
+        if (this.f844a != 16 || this.b == null) {
             return null;
         }
-        return a(context, this.f832a, this.b.a(), this.b.b());
+        return a(context, this.f844a, this.b.a(), this.b.b());
     }
 
-    private SpannableString e(Context context, ArrayList arrayList) {
+    private SpannableString e(Context context, ArrayList<d> arrayList) {
         SpannableString spannableString = null;
-        if (this.f832a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
+        if (this.f844a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
             String a2 = this.b.a();
             String b = this.b.b();
             int b2 = com.baidu.tbadk.a.a.a().b(a2);
@@ -152,10 +161,10 @@ public class g {
         return spannableString;
     }
 
-    public CharSequence c(Context context, ArrayList arrayList) {
-        switch (this.f832a) {
+    public CharSequence c(Context context, ArrayList<d> arrayList) {
+        switch (this.f844a) {
             case 1:
-                return c();
+                return d();
             case 2:
                 return a(context);
             case 4:
@@ -176,30 +185,32 @@ public class g {
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f832a = a(jSONObject.optInt("type", 0));
-            if (this.f832a == 8) {
+            this.f844a = a(jSONObject.optInt("type", 0));
+            if (this.f844a == 8) {
                 this.c = new e(jSONObject);
-            } else if (this.f832a == 16) {
+            } else if (this.f844a == 512) {
+                this.d = new o(jSONObject);
+            } else if (this.f844a == 16) {
                 this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else {
                 this.b = new b(jSONObject);
-                if (this.f832a == 4) {
+                if (this.f844a == 4) {
                     String str = "[" + jSONObject.optString("c") + "]";
                     if (com.baidu.tbadk.a.a.a().b(this.b.a()) <= 0) {
-                        this.f832a = 1;
+                        this.f844a = 1;
                         this.b.a(str);
                     } else {
                         this.b.b(str);
                     }
-                } else if (this.f832a == 256) {
+                } else if (this.f844a == 256) {
                     this.b.b(jSONObject.optString("phonetype"));
                 }
             }
-            if (this.f832a != 1 && this.b != null) {
+            if (this.f844a != 1 && this.b != null) {
                 this.b.c();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.e.d.a(e.getMessage());
+            com.baidu.adp.lib.f.d.a(e.getMessage());
         }
     }
 
@@ -226,6 +237,8 @@ public class g {
                 return DERTags.TAGGED;
             case 9:
                 return 256;
+            case 10:
+                return 512;
         }
     }
 }

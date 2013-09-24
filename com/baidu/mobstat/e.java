@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f803a = new e();
+    private static e f815a = new e();
     private boolean b = false;
 
     private e() {
     }
 
     public static e a() {
-        return f803a;
+        return f815a;
     }
 
     public void a(Context context) {

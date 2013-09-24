@@ -50,11 +50,11 @@ public final class PhoneUtil {
     private PhoneUtil() {
     }
 
-    public static List getCellInfoList(Context context) {
+    public static List<CellInfo> getCellInfoList(Context context) {
         return Integer.valueOf(Build.VERSION.SDK).intValue() >= 5 ? new PhoneUtil20Impl().getCellInfoList(context) : new PhoneUtil16Impl().getCellInfoList(context);
     }
 
-    public static String getCellXml(List list) {
+    public static String getCellXml(List<CellInfo> list) {
         if (list == null || list.size() <= 0) {
             return "";
         }
@@ -62,12 +62,12 @@ public final class PhoneUtil {
         int i = 0;
         while (i < list.size()) {
             i++;
-            str = (((((((((((str + "<cell ") + "mcc=\"" + ((CellInfo) list.get(i)).mcc + "\" ") + "mnc=\"" + ((CellInfo) list.get(i)).mnc + "\" ") + "lac=\"" + ((CellInfo) list.get(i)).lac + "\" ") + "type=\"" + ((CellInfo) list.get(i)).type + "\" ") + "stationId=\"" + ((CellInfo) list.get(i)).stationId + "\" ") + "networkId=\"" + ((CellInfo) list.get(i)).networkId + "\" ") + "systemId=\"" + ((CellInfo) list.get(i)).systemId + "\" ") + "dbm=\"" + ((CellInfo) list.get(i)).dbm + "\" ") + " >") + ((CellInfo) list.get(i)).cellid) + "</cell>";
+            str = (((((((((((str + "<cell ") + "mcc=\"" + list.get(i).mcc + "\" ") + "mnc=\"" + list.get(i).mnc + "\" ") + "lac=\"" + list.get(i).lac + "\" ") + "type=\"" + list.get(i).type + "\" ") + "stationId=\"" + list.get(i).stationId + "\" ") + "networkId=\"" + list.get(i).networkId + "\" ") + "systemId=\"" + list.get(i).systemId + "\" ") + "dbm=\"" + list.get(i).dbm + "\" ") + " >") + list.get(i).cellid) + "</cell>";
         }
         return str;
     }
 
-    public static String getMacXml(List list) {
+    public static String getMacXml(List<MacInfo> list) {
         String str;
         String str2 = "";
         if (list == null || list.size() <= 0) {
@@ -75,10 +75,10 @@ public final class PhoneUtil {
         }
         int i = 0;
         while (i < list.size()) {
-            if (list.get(i) == null || ((MacInfo) list.get(i)).mac.length() != aJ) {
+            if (list.get(i) == null || list.get(i).mac.length() != aJ) {
                 str = str2;
             } else {
-                str = ((((str2 + "<mac ") + "macDbm=\"" + ((MacInfo) list.get(i)).dbm + "\"") + ">") + ((MacInfo) list.get(i)).mac) + "</mac>";
+                str = ((((str2 + "<mac ") + "macDbm=\"" + list.get(i).dbm + "\"") + ">") + list.get(i).mac) + "</mac>";
             }
             i++;
             str2 = str;

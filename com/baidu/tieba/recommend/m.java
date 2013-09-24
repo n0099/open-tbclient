@@ -9,12 +9,12 @@ import com.baidu.tieba.util.UtilHelper;
 public class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1688a;
+    final /* synthetic */ h f1763a;
     private final /* synthetic */ com.baidu.tieba.data.o b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(h hVar, com.baidu.tieba.data.o oVar) {
-        this.f1688a = hVar;
+        this.f1763a = hVar;
         this.b = oVar;
     }
 
@@ -22,9 +22,9 @@ public class m implements View.OnClickListener {
     public void onClick(View view) {
         Activity activity;
         Activity activity2;
-        activity = this.f1688a.i;
+        activity = this.f1763a.i;
         StatService.onEvent(activity, "recommend_to_pb", "click");
-        activity2 = this.f1688a.i;
+        activity2 = this.f1763a.i;
         UtilHelper.a(activity2, this.b.a(), (String) null);
     }
 }

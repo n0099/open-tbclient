@@ -8,7 +8,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class Crypto {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f815a = false;
+    private static boolean f827a = false;
     private static final String b = f();
     private static final String c = e();
     private static final String d = d();
@@ -61,14 +61,14 @@ public class Crypto {
     }
 
     private static void b() {
-        if (f815a) {
+        if (f827a) {
             return;
         }
         try {
             System.loadLibrary("share_v2");
-            f815a = true;
+            f827a = true;
         } catch (Throwable th) {
-            f815a = false;
+            f827a = false;
         }
     }
 

@@ -7,7 +7,7 @@ import com.baidu.android.pushservice.PushConstants;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f590a;
+    public String f602a;
     public String b;
     public String c;
     public String d;
@@ -18,7 +18,7 @@ public class l {
     public String i;
 
     public l() {
-        this.f590a = "";
+        this.f602a = "";
         this.b = "";
         this.c = "";
         this.d = "";
@@ -30,7 +30,7 @@ public class l {
     }
 
     public l(Intent intent) {
-        this.f590a = "";
+        this.f602a = "";
         this.b = "";
         this.c = "";
         this.d = "";
@@ -45,7 +45,7 @@ public class l {
         }
         this.d = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
         this.i = intent.getStringExtra(PushConstants.EXTRA_API_KEY);
-        this.f590a = intent.getStringExtra(PushConstants.EXTRA_METHOD);
+        this.f602a = intent.getStringExtra(PushConstants.EXTRA_METHOD);
         this.b = intent.getStringExtra("method_type");
         this.c = intent.getStringExtra("method_version");
         this.h = intent.getStringExtra("bduss");
@@ -53,6 +53,6 @@ public class l {
     }
 
     public String toString() {
-        return "method=" + this.f590a + ", rsarsaAccessToken=" + this.d + ", packageName=" + this.e + ", appId=" + this.f + ", userId=" + this.g + ", rsaBduss=" + this.h;
+        return "method=" + this.f602a + ", rsarsaAccessToken=" + this.d + ", packageName=" + this.e + ", appId=" + this.f + ", userId=" + this.g + ", rsaBduss=" + this.h;
     }
 }

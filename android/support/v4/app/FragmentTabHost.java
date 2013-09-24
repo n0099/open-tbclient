@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ArrayList f270a;
+    private final ArrayList<ad> f270a;
     private Context b;
     private t c;
     private int d;
@@ -21,7 +21,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
 
     /* loaded from: classes.dex */
     class SavedState extends View.BaseSavedState {
-        public static final Parcelable.Creator CREATOR = new ac();
+        public static final Parcelable.Creator<SavedState> CREATOR = new ac();
 
         /* renamed from: a  reason: collision with root package name */
         String f271a;
@@ -73,14 +73,14 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             if (i2 >= this.f270a.size()) {
                 break;
             }
-            ad adVar = (ad) this.f270a.get(i2);
+            ad adVar = this.f270a.get(i2);
             t tVar = this.c;
             str = adVar.f275a;
             adVar.d = tVar.a(str);
             fragment = adVar.d;
             if (fragment != null) {
                 fragment2 = adVar.d;
-                if (!fragment2.k()) {
+                if (!fragment2.l()) {
                     str2 = adVar.f275a;
                     if (str2.equals(currentTabTag)) {
                         this.f = adVar;
@@ -147,7 +147,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         ad adVar = null;
         int i = 0;
         while (i < this.f270a.size()) {
-            ad adVar2 = (ad) this.f270a.get(i);
+            ad adVar2 = this.f270a.get(i);
             str3 = adVar2.f275a;
             if (!str3.equals(str)) {
                 adVar2 = adVar;

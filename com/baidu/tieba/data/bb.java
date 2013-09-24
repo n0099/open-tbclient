@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1000a = 0;
+    private int f1018a = 0;
     private int c = 0;
     private int d = 0;
     private int e = 0;
@@ -23,7 +23,7 @@ public class bb {
     }
 
     public int b() {
-        return this.f1000a;
+        return this.f1018a;
     }
 
     public int c() {
@@ -31,7 +31,7 @@ public class bb {
     }
 
     public void b(int i) {
-        this.f1000a = i;
+        this.f1018a = i;
     }
 
     public void c(int i) {
@@ -58,7 +58,7 @@ public class bb {
         try {
             JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
             if (optJSONObject != null) {
-                this.f1000a = optJSONObject.getInt("is_sign_in");
+                this.f1018a = optJSONObject.getInt("is_sign_in");
                 this.c = optJSONObject.getInt("user_sign_rank");
                 this.d = optJSONObject.getInt("cont_sign_num");
                 this.e = optJSONObject.getInt("cout_total_sing_num");

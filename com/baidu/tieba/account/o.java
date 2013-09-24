@@ -7,18 +7,18 @@ import android.widget.EditText;
 public class o implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f907a;
+    final /* synthetic */ k f923a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(k kVar) {
-        this.f907a = kVar;
+        this.f923a = kVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         EditText editText;
         if (z) {
-            editText = this.f907a.c;
+            editText = this.f923a.c;
             editText.setText(compoundButton.getText());
         }
     }

@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f679a = null;
+    private static a f691a = null;
     private Context b;
     private Handler c = new Handler();
     private Runnable d = new b(this);
@@ -34,10 +34,10 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f679a == null) {
-                f679a = new a(context);
+            if (f691a == null) {
+                f691a = new a(context);
             }
-            aVar = f679a;
+            aVar = f691a;
         }
         return aVar;
     }
@@ -50,7 +50,7 @@ public final class a {
             JSONObject jSONObject2 = new JSONObject();
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                switch (c.f681a[((l) it.next()).ordinal()]) {
+                switch (c.f693a[((l) it.next()).ordinal()]) {
                     case 1:
                         jSONObject2.put("apptrace", d());
                         break;
@@ -89,9 +89,9 @@ public final class a {
     }
 
     public static void g() {
-        if (f679a != null) {
-            f679a.f();
-            f679a = null;
+        if (f691a != null) {
+            f691a.f();
+            f691a = null;
         }
     }
 
@@ -105,7 +105,7 @@ public final class a {
                 com.baidu.android.systemmonitor.devicestatistic.a.c cVar = (com.baidu.android.systemmonitor.devicestatistic.a.c) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(cVar.g / 1000));
-                jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) cVar).f703a / 1000));
+                jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) cVar).f715a / 1000));
                 jSONObject.put("netflow", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) cVar).c));
                 jSONObject.put("nettype", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.d) cVar).b));
                 jSONArray.put(jSONObject);
@@ -140,7 +140,7 @@ public final class a {
                 com.baidu.android.systemmonitor.devicestatistic.a.c cVar = (com.baidu.android.systemmonitor.devicestatistic.a.c) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(cVar.g / 1000));
-                jSONObject.put("phonecontactsnum", String.valueOf(((f) cVar).f705a));
+                jSONObject.put("phonecontactsnum", String.valueOf(((f) cVar).f717a));
                 jSONObject.put("simcontactsnum", String.valueOf(((f) cVar).b));
                 jSONObject.put("smsnum", String.valueOf(((f) cVar).c));
                 jSONObject.put("smsinfo", ((f) cVar).d);
@@ -204,7 +204,7 @@ public final class a {
                 com.baidu.android.systemmonitor.b.a aVar = (com.baidu.android.systemmonitor.b.a) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("event", String.valueOf(aVar.c));
-                jSONObject.put("packagename", aVar.f664a);
+                jSONObject.put("packagename", aVar.f676a);
                 jSONObject.put("appname", aVar.h);
                 jSONObject.put("time", String.valueOf(aVar.b / 1000));
                 if (aVar.c == 1) {
@@ -238,7 +238,7 @@ public final class a {
                 jSONObject.put("startlevel", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).b));
                 jSONObject.put("stoplevel", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).c));
                 jSONObject.put("nettype", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).d));
-                jSONObject.put(Headers.LOCATION, ((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).f702a);
+                jSONObject.put(Headers.LOCATION, ((com.baidu.android.systemmonitor.devicestatistic.a.b) cVar).f714a);
                 jSONArray.put(jSONObject);
             }
         } catch (Exception e) {
@@ -256,7 +256,7 @@ public final class a {
                 com.baidu.android.systemmonitor.devicestatistic.a.c cVar = (com.baidu.android.systemmonitor.devicestatistic.a.c) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(cVar.g / 1000));
-                jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.e) cVar).f704a / 1000));
+                jSONObject.put("stopstamp", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.e) cVar).f716a / 1000));
                 jSONArray.put(jSONObject);
             }
         } catch (Exception e) {
@@ -369,7 +369,7 @@ public final class a {
                 com.baidu.android.systemmonitor.devicestatistic.a.c cVar = (com.baidu.android.systemmonitor.devicestatistic.a.c) it.next();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("startstamp", String.valueOf(cVar.g / 1000));
-                jSONObject.put("downloadpath", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) cVar).f701a));
+                jSONObject.put("downloadpath", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) cVar).f713a));
                 jSONObject.put("apkname", String.valueOf(((com.baidu.android.systemmonitor.devicestatistic.a.a) cVar).b));
                 jSONArray.put(jSONObject);
             }

@@ -6,21 +6,21 @@ import android.view.VelocityTracker;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ao f317a;
+    static final ao f321a;
 
     static {
         if (Build.VERSION.SDK_INT >= 11) {
-            f317a = new an();
+            f321a = new an();
         } else {
-            f317a = new am();
+            f321a = new am();
         }
     }
 
     public static float a(VelocityTracker velocityTracker, int i) {
-        return f317a.a(velocityTracker, i);
+        return f321a.a(velocityTracker, i);
     }
 
     public static float b(VelocityTracker velocityTracker, int i) {
-        return f317a.b(velocityTracker, i);
+        return f321a.b(velocityTracker, i);
     }
 }

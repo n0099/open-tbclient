@@ -8,13 +8,13 @@ import java.util.TimerTask;
 public class h extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f494a;
+    final /* synthetic */ g f505a;
     private final /* synthetic */ View b;
     private final /* synthetic */ Timer c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, View view, Timer timer) {
-        this.f494a = gVar;
+        this.f505a = gVar;
         this.b = view;
         this.c = timer;
     }

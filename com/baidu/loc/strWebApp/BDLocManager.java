@@ -22,7 +22,7 @@ public class BDLocManager {
     private static Method mMethodCid = null;
     private static Method mMethodLac = null;
     private static Method mMethodSid = null;
-    private static Class mCdmaClass = null;
+    private static Class<?> mCdmaClass = null;
     private final long WIFI_SCAN_SPAN_MIN = 5000;
     private CellInfo mCellInfo = new CellInfo();
     private WifiList mWifiList = null;
@@ -69,10 +69,10 @@ public class BDLocManager {
 
     /* loaded from: classes.dex */
     public class WifiList {
-        public List _WifiList;
+        public List<ScanResult> _WifiList;
         private long _WifiTime;
 
-        public WifiList(List list) {
+        public WifiList(List<ScanResult> list) {
             this._WifiList = null;
             this._WifiTime = 0L;
             this._WifiList = list;
@@ -96,9 +96,9 @@ public class BDLocManager {
                 int i = 0;
                 z2 = false;
                 while (i < size) {
-                    if (((ScanResult) this._WifiList.get(i)).level < ((ScanResult) this._WifiList.get(i + 1)).level) {
+                    if (this._WifiList.get(i).level < this._WifiList.get(i + 1).level) {
                         this._WifiList.set(i + 1, this._WifiList.get(i));
-                        this._WifiList.set(i, (ScanResult) this._WifiList.get(i + 1));
+                        this._WifiList.set(i, this._WifiList.get(i + 1));
                         z = true;
                     } else {
                         z = z2;
@@ -132,10 +132,10 @@ public class BDLocManager {
             int i4 = 0;
             boolean z = true;
             while (i4 < size) {
-                if (((ScanResult) this._WifiList.get(i4)).level == 0) {
+                if (this._WifiList.get(i4).level == 0) {
                     i2 = i3;
                 } else if (z) {
-                    String replace = ((ScanResult) this._WifiList.get(i4)).BSSID.replace(":", "");
+                    String replace = this._WifiList.get(i4).BSSID.replace(":", "");
                     if (BDLocManager.this.connectWifi == null || !replace.equals(BDLocManager.this.connectWifi)) {
                         stringBuffer.append("h");
                         stringBuffer.append(replace);
@@ -148,7 +148,7 @@ public class BDLocManager {
                         i2 = i3;
                     }
                 } else {
-                    String replace2 = ((ScanResult) this._WifiList.get(i4)).BSSID.replace(":", "");
+                    String replace2 = this._WifiList.get(i4).BSSID.replace(":", "");
                     if (BDLocManager.this.connectWifi == null || !replace2.equals(BDLocManager.this.connectWifi)) {
                         stringBuffer.append("h");
                         stringBuffer.append(replace2);

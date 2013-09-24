@@ -8,7 +8,7 @@ import com.baidu.tieba.kn.TimerTextView;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1218a;
+    LinearLayout f1252a;
     TextView b;
     TbImageView c;
     TextView d;

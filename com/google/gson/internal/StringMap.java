@@ -11,18 +11,25 @@ import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Set;
 /* loaded from: classes.dex */
-public final class StringMap extends AbstractMap {
+public final class StringMap<V> extends AbstractMap<String, V> {
     private static final int MAXIMUM_CAPACITY = 1073741824;
     private static final int MINIMUM_CAPACITY = 4;
-    private Set entrySet;
-    private Set keySet;
+    private Set<Map.Entry<String, V>> entrySet;
+    private Set<String> keySet;
     private int size;
-    private Collection values;
+    private Collection<V> values;
     private static final Map.Entry[] EMPTY_TABLE = new LinkedEntry[2];
     private static final int seed = new Random().nextInt();
-    private LinkedEntry[] table = (LinkedEntry[]) EMPTY_TABLE;
+    private LinkedEntry<V>[] table = (LinkedEntry[]) EMPTY_TABLE;
     private int threshold = -1;
-    private LinkedEntry header = new LinkedEntry();
+    private LinkedEntry<V> header = new LinkedEntry<>();
+
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // java.util.AbstractMap, java.util.Map
+    public /* bridge */ /* synthetic */ Object put(Object obj, Object obj2) {
+        return put((String) obj, (String) obj2);
+    }
 
     @Override // java.util.AbstractMap, java.util.Map
     public int size() {
@@ -35,21 +42,21 @@ public final class StringMap extends AbstractMap {
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public Object get(Object obj) {
-        LinkedEntry entry;
+    public V get(Object obj) {
+        LinkedEntry<V> entry;
         if (!(obj instanceof String) || (entry = getEntry((String) obj)) == null) {
             return null;
         }
         return entry.value;
     }
 
-    private LinkedEntry getEntry(String str) {
+    private LinkedEntry<V> getEntry(String str) {
         if (str == null) {
             return null;
         }
         int hash = hash(str);
-        LinkedEntry[] linkedEntryArr = this.table;
-        for (LinkedEntry linkedEntry = linkedEntryArr[(linkedEntryArr.length - 1) & hash]; linkedEntry != null; linkedEntry = linkedEntry.next) {
+        LinkedEntry<V>[] linkedEntryArr = this.table;
+        for (LinkedEntry<V> linkedEntry = linkedEntryArr[(linkedEntryArr.length - 1) & hash]; linkedEntry != null; linkedEntry = linkedEntry.next) {
             String str2 = linkedEntry.key;
             if (str2 == str || (linkedEntry.hash == hash && str.equals(str2))) {
                 return linkedEntry;
@@ -58,20 +65,18 @@ public final class StringMap extends AbstractMap {
         return null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.AbstractMap, java.util.Map
-    public Object put(String str, Object obj) {
+    public V put(String str, V v) {
         if (str == null) {
             throw new NullPointerException("key == null");
         }
         int hash = hash(str);
-        LinkedEntry[] linkedEntryArr = this.table;
+        LinkedEntry<V>[] linkedEntryArr = this.table;
         int length = (linkedEntryArr.length - 1) & hash;
-        for (LinkedEntry linkedEntry = linkedEntryArr[length]; linkedEntry != null; linkedEntry = linkedEntry.next) {
+        for (LinkedEntry<V> linkedEntry = linkedEntryArr[length]; linkedEntry != null; linkedEntry = linkedEntry.next) {
             if (linkedEntry.hash == hash && str.equals(linkedEntry.key)) {
-                Object obj2 = linkedEntry.value;
-                linkedEntry.value = obj;
-                return obj2;
+                V v2 = linkedEntry.value;
+                linkedEntry.value = v;
+                return v2;
             }
         }
         int i = this.size;
@@ -79,46 +84,46 @@ public final class StringMap extends AbstractMap {
         if (i > this.threshold) {
             length = (doubleCapacity().length - 1) & hash;
         }
-        addNewEntry(str, obj, hash, length);
+        addNewEntry(str, v, hash, length);
         return null;
     }
 
-    private void addNewEntry(String str, Object obj, int i, int i2) {
-        LinkedEntry linkedEntry = this.header;
-        LinkedEntry linkedEntry2 = linkedEntry.prv;
-        LinkedEntry linkedEntry3 = new LinkedEntry(str, obj, i, this.table[i2], linkedEntry, linkedEntry2);
-        LinkedEntry[] linkedEntryArr = this.table;
+    private void addNewEntry(String str, V v, int i, int i2) {
+        LinkedEntry<V> linkedEntry = this.header;
+        LinkedEntry<V> linkedEntry2 = linkedEntry.prv;
+        LinkedEntry<V> linkedEntry3 = new LinkedEntry<>(str, v, i, this.table[i2], linkedEntry, linkedEntry2);
+        LinkedEntry<V>[] linkedEntryArr = this.table;
         linkedEntry.prv = linkedEntry3;
         linkedEntry2.nxt = linkedEntry3;
         linkedEntryArr[i2] = linkedEntry3;
     }
 
-    private LinkedEntry[] makeTable(int i) {
-        LinkedEntry[] linkedEntryArr = new LinkedEntry[i];
+    private LinkedEntry<V>[] makeTable(int i) {
+        LinkedEntry<V>[] linkedEntryArr = new LinkedEntry[i];
         this.table = linkedEntryArr;
         this.threshold = (i >> 1) + (i >> 2);
         return linkedEntryArr;
     }
 
-    private LinkedEntry[] doubleCapacity() {
+    private LinkedEntry<V>[] doubleCapacity() {
         int i;
-        LinkedEntry[] linkedEntryArr = this.table;
+        LinkedEntry<V>[] linkedEntryArr = this.table;
         int length = linkedEntryArr.length;
         if (length == MAXIMUM_CAPACITY) {
             return linkedEntryArr;
         }
-        LinkedEntry[] makeTable = makeTable(length * 2);
+        LinkedEntry<V>[] makeTable = makeTable(length * 2);
         if (this.size == 0) {
             return makeTable;
         }
         for (int i2 = 0; i2 < length; i2++) {
-            LinkedEntry linkedEntry = linkedEntryArr[i2];
+            LinkedEntry<V> linkedEntry = linkedEntryArr[i2];
             if (linkedEntry != null) {
                 int i3 = linkedEntry.hash & length;
                 makeTable[i2 | i3] = linkedEntry;
-                LinkedEntry linkedEntry2 = null;
-                LinkedEntry linkedEntry3 = linkedEntry;
-                for (LinkedEntry linkedEntry4 = linkedEntry.next; linkedEntry4 != null; linkedEntry4 = linkedEntry4.next) {
+                LinkedEntry<V> linkedEntry2 = null;
+                LinkedEntry<V> linkedEntry3 = linkedEntry;
+                for (LinkedEntry<V> linkedEntry4 = linkedEntry.next; linkedEntry4 != null; linkedEntry4 = linkedEntry4.next) {
                     int i4 = linkedEntry4.hash & length;
                     if (i4 != i3) {
                         if (linkedEntry2 == null) {
@@ -144,18 +149,18 @@ public final class StringMap extends AbstractMap {
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public Object remove(Object obj) {
+    public V remove(Object obj) {
         if (obj == null || !(obj instanceof String)) {
             return null;
         }
         int hash = hash((String) obj);
-        LinkedEntry[] linkedEntryArr = this.table;
+        LinkedEntry<V>[] linkedEntryArr = this.table;
         int length = hash & (linkedEntryArr.length - 1);
-        LinkedEntry linkedEntry = linkedEntryArr[length];
-        LinkedEntry linkedEntry2 = null;
+        LinkedEntry<V> linkedEntry = linkedEntryArr[length];
+        LinkedEntry<V> linkedEntry2 = null;
         while (linkedEntry != null) {
             if (linkedEntry.hash != hash || !obj.equals(linkedEntry.key)) {
-                LinkedEntry linkedEntry3 = linkedEntry;
+                LinkedEntry<V> linkedEntry3 = linkedEntry;
                 linkedEntry = linkedEntry.next;
                 linkedEntry2 = linkedEntry3;
             } else {
@@ -172,7 +177,7 @@ public final class StringMap extends AbstractMap {
         return null;
     }
 
-    private void unlink(LinkedEntry linkedEntry) {
+    private void unlink(LinkedEntry<V> linkedEntry) {
         linkedEntry.prv.nxt = linkedEntry.nxt;
         linkedEntry.nxt.prv = linkedEntry.prv;
         linkedEntry.prv = null;
@@ -185,10 +190,10 @@ public final class StringMap extends AbstractMap {
             Arrays.fill(this.table, (Object) null);
             this.size = 0;
         }
-        LinkedEntry linkedEntry = this.header;
-        LinkedEntry linkedEntry2 = linkedEntry.nxt;
+        LinkedEntry<V> linkedEntry = this.header;
+        LinkedEntry<V> linkedEntry2 = linkedEntry.nxt;
         while (linkedEntry2 != linkedEntry) {
-            LinkedEntry linkedEntry3 = linkedEntry2.nxt;
+            LinkedEntry<V> linkedEntry3 = linkedEntry2.nxt;
             linkedEntry2.prv = null;
             linkedEntry2.nxt = null;
             linkedEntry2 = linkedEntry3;
@@ -198,8 +203,8 @@ public final class StringMap extends AbstractMap {
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public Set keySet() {
-        Set set = this.keySet;
+    public Set<String> keySet() {
+        Set<String> set = this.keySet;
         if (set != null) {
             return set;
         }
@@ -209,8 +214,8 @@ public final class StringMap extends AbstractMap {
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public Collection values() {
-        Collection collection = this.values;
+    public Collection<V> values() {
+        Collection<V> collection = this.values;
         if (collection != null) {
             return collection;
         }
@@ -220,8 +225,8 @@ public final class StringMap extends AbstractMap {
     }
 
     @Override // java.util.AbstractMap, java.util.Map
-    public Set entrySet() {
-        Set set = this.entrySet;
+    public Set<Map.Entry<String, V>> entrySet() {
+        Set<Map.Entry<String, V>> set = this.entrySet;
         if (set != null) {
             return set;
         }
@@ -232,13 +237,13 @@ public final class StringMap extends AbstractMap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class LinkedEntry implements Map.Entry {
+    public class LinkedEntry<V> implements Map.Entry<String, V> {
         final int hash;
         final String key;
-        LinkedEntry next;
-        LinkedEntry nxt;
-        LinkedEntry prv;
-        Object value;
+        LinkedEntry<V> next;
+        LinkedEntry<V> nxt;
+        LinkedEntry<V> prv;
+        V value;
 
         LinkedEntry() {
             this(null, null, 0, null, null, null);
@@ -246,9 +251,9 @@ public final class StringMap extends AbstractMap {
             this.nxt = this;
         }
 
-        LinkedEntry(String str, Object obj, int i, LinkedEntry linkedEntry, LinkedEntry linkedEntry2, LinkedEntry linkedEntry3) {
+        LinkedEntry(String str, V v, int i, LinkedEntry<V> linkedEntry, LinkedEntry<V> linkedEntry2, LinkedEntry<V> linkedEntry3) {
             this.key = str;
-            this.value = obj;
+            this.value = v;
             this.hash = i;
             this.next = linkedEntry;
             this.nxt = linkedEntry2;
@@ -262,15 +267,15 @@ public final class StringMap extends AbstractMap {
         }
 
         @Override // java.util.Map.Entry
-        public final Object getValue() {
+        public final V getValue() {
             return this.value;
         }
 
         @Override // java.util.Map.Entry
-        public final Object setValue(Object obj) {
-            Object obj2 = this.value;
-            this.value = obj;
-            return obj2;
+        public final V setValue(V v) {
+            V v2 = this.value;
+            this.value = v;
+            return v2;
         }
 
         @Override // java.util.Map.Entry
@@ -309,13 +314,13 @@ public final class StringMap extends AbstractMap {
             return false;
         }
         int hash = hash((String) obj);
-        LinkedEntry[] linkedEntryArr = this.table;
+        LinkedEntry<V>[] linkedEntryArr = this.table;
         int length = hash & (linkedEntryArr.length - 1);
-        LinkedEntry linkedEntry = linkedEntryArr[length];
-        LinkedEntry linkedEntry2 = null;
+        LinkedEntry<V> linkedEntry = linkedEntryArr[length];
+        LinkedEntry<V> linkedEntry2 = null;
         while (linkedEntry != null) {
             if (linkedEntry.hash != hash || !obj.equals(linkedEntry.key)) {
-                LinkedEntry linkedEntry3 = linkedEntry;
+                LinkedEntry<V> linkedEntry3 = linkedEntry;
                 linkedEntry = linkedEntry.next;
                 linkedEntry2 = linkedEntry3;
             } else if (obj2 != null ? !obj2.equals(linkedEntry.value) : linkedEntry.value != null) {
@@ -336,9 +341,9 @@ public final class StringMap extends AbstractMap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public abstract class LinkedHashIterator implements Iterator {
-        LinkedEntry lastReturned;
-        LinkedEntry next;
+    public abstract class LinkedHashIterator<T> implements Iterator<T> {
+        LinkedEntry<V> lastReturned;
+        LinkedEntry<V> next;
 
         private LinkedHashIterator() {
             this.next = StringMap.this.header.nxt;
@@ -350,8 +355,8 @@ public final class StringMap extends AbstractMap {
             return this.next != StringMap.this.header;
         }
 
-        final LinkedEntry nextEntry() {
-            LinkedEntry linkedEntry = this.next;
+        final LinkedEntry<V> nextEntry() {
+            LinkedEntry<V> linkedEntry = this.next;
             if (linkedEntry == StringMap.this.header) {
                 throw new NoSuchElementException();
             }
@@ -371,13 +376,13 @@ public final class StringMap extends AbstractMap {
     }
 
     /* loaded from: classes.dex */
-    final class KeySet extends AbstractSet {
+    final class KeySet extends AbstractSet<String> {
         private KeySet() {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
-        public Iterator iterator() {
-            return new LinkedHashIterator() { // from class: com.google.gson.internal.StringMap.KeySet.1
+        public Iterator<String> iterator() {
+            return new StringMap<V>.LinkedHashIterator<String>() { // from class: com.google.gson.internal.StringMap.KeySet.1
                 {
                     StringMap stringMap = StringMap.this;
                 }
@@ -414,19 +419,19 @@ public final class StringMap extends AbstractMap {
     }
 
     /* loaded from: classes.dex */
-    final class Values extends AbstractCollection {
+    final class Values extends AbstractCollection<V> {
         private Values() {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-        public Iterator iterator() {
-            return new LinkedHashIterator() { // from class: com.google.gson.internal.StringMap.Values.1
+        public Iterator<V> iterator() {
+            return new StringMap<V>.LinkedHashIterator<V>() { // from class: com.google.gson.internal.StringMap.Values.1
                 {
                     StringMap stringMap = StringMap.this;
                 }
 
                 @Override // java.util.Iterator
-                public final Object next() {
+                public final V next() {
                     return nextEntry().value;
                 }
             };
@@ -449,20 +454,20 @@ public final class StringMap extends AbstractMap {
     }
 
     /* loaded from: classes.dex */
-    final class EntrySet extends AbstractSet {
+    final class EntrySet extends AbstractSet<Map.Entry<String, V>> {
         private EntrySet() {
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
-        public Iterator iterator() {
-            return new LinkedHashIterator() { // from class: com.google.gson.internal.StringMap.EntrySet.1
+        public Iterator<Map.Entry<String, V>> iterator() {
+            return new StringMap<V>.LinkedHashIterator<Map.Entry<String, V>>() { // from class: com.google.gson.internal.StringMap.EntrySet.1
                 {
                     StringMap stringMap = StringMap.this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.Iterator
-                public final Map.Entry next() {
+                public final Map.Entry<String, V> next() {
                     return nextEntry();
                 }
             };

@@ -2,6 +2,7 @@ package com.baidu.browser.framework;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
@@ -42,7 +43,7 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
     private int mToolBarShadowDis;
     private RelativeLayout mToolbar;
     private int mToolbarHeight;
-    private List mWindowList;
+    private List<BdWindow> mWindowList;
     private int mWindowPopMenu;
     private View refreshView;
     private View selectView;
@@ -166,9 +167,9 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
 
     public void selectedWindowToOpenUrl(String str, int i, boolean z) {
         if (z) {
-            swapWindowToFocus((BdWindow) this.mWindowList.get(i));
+            swapWindowToFocus(this.mWindowList.get(i));
         }
-        ((BdWindow) this.mWindowList.get(i)).loadUrl(str);
+        this.mWindowList.get(i).loadUrl(str);
     }
 
     private void initFuncListener() {
@@ -345,7 +346,7 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
         while (true) {
             int i2 = i;
             if (i2 < this.mWindowList.size()) {
-                ((BdWindow) this.mWindowList.get(i2)).freeMemory();
+                this.mWindowList.get(i2).freeMemory();
                 i = i2 + 1;
             } else {
                 return;
@@ -492,7 +493,7 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
             this.mWindowList.remove(bdWindow);
             int max = Math.max(0, indexOf - 1);
             if (max < this.mWindowList.size()) {
-                swapWindowToFocus((BdWindow) this.mWindowList.get(max));
+                swapWindowToFocus(this.mWindowList.get(max));
             }
             bdWindow.release();
         }
@@ -600,7 +601,7 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
         while (true) {
             int i2 = i;
             if (i2 < this.mWindowList.size()) {
-                ((BdWindow) this.mWindowList.get(i2)).onPause();
+                this.mWindowList.get(i2).onPause();
                 i = i2 + 1;
             } else {
                 return;
@@ -612,11 +613,11 @@ public class BdFrameView extends FrameLayout implements View.OnTouchListener, Bd
         this.mCurrentWindow.onResume();
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback, String str) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback, String str) {
         this.mBrowser.openFileChooser(bdValueCallback, str);
     }
 
-    public void openFileChooser(BdValueCallback bdValueCallback) {
+    public void openFileChooser(BdValueCallback<Uri> bdValueCallback) {
         this.mBrowser.openFileChooser(bdValueCallback);
     }
 

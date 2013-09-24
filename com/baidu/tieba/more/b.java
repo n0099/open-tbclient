@@ -1,19 +1,18 @@
 package com.baidu.tieba.more;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b implements View.OnClickListener {
+public class b extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AboutActivity f1443a;
+    final /* synthetic */ AboutActivity f1487a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AboutActivity aboutActivity) {
-        this.f1443a = aboutActivity;
+        this.f1487a = aboutActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1443a.b();
+    @Override // com.baidu.adp.a.e
+    public void a(Object obj) {
+        this.f1487a.a(obj);
     }
 }

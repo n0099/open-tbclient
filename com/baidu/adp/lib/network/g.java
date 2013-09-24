@@ -112,12 +112,12 @@ public class g {
         return true;
     }
 
-    public static byte[] a(ArrayList arrayList) {
+    public static byte[] a(ArrayList<byte[]> arrayList) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            Iterator it = arrayList.iterator();
+            Iterator<byte[]> it = arrayList.iterator();
             while (it.hasNext()) {
-                byteArrayOutputStream.write((byte[]) it.next());
+                byteArrayOutputStream.write(it.next());
             }
             return byteArrayOutputStream.toByteArray();
         } catch (Exception e) {

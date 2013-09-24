@@ -1,45 +1,28 @@
 package com.baidu.tieba.person;
 
+import android.widget.ImageView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.data.UserData;
 /* loaded from: classes.dex */
-class bl implements Runnable {
+class bl implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f1631a;
+    final /* synthetic */ bk f1681a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(PersonListActivity personListActivity) {
-        this.f1631a = personListActivity;
+    public bl(bk bkVar) {
+        this.f1681a = bkVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
+        PersonListActivity personListActivity;
         BdListView bdListView;
-        BdListView bdListView2;
-        bt btVar;
-        bt btVar2;
-        bt btVar3;
-        try {
-            bdListView = this.f1631a.c;
-            int firstVisiblePosition = bdListView.getFirstVisiblePosition();
-            bdListView2 = this.f1631a.c;
-            int lastVisiblePosition = bdListView2.getLastVisiblePosition();
-            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                btVar = this.f1631a.f;
-                if (i < btVar.getCount()) {
-                    btVar2 = this.f1631a.f;
-                    UserData userData = (UserData) btVar2.getItem(i);
-                    if (userData != null && userData.getPortrait() != null) {
-                        btVar3 = this.f1631a.f;
-                        btVar3.c().b(userData.getPortrait(), new bm(this));
-                    }
-                } else {
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
+        personListActivity = this.f1681a.f1680a;
+        bdListView = personListActivity.b;
+        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+        if (imageView != null && cVar != null) {
+            cVar.a(imageView);
+            imageView.setTag(null);
         }
     }
 }

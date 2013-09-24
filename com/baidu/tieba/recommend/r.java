@@ -3,14 +3,14 @@ package com.baidu.tieba.recommend;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1692a;
+    public int f1767a;
     public Object b;
     public String c;
     final /* synthetic */ h d;
 
     public r(h hVar, int i, Object obj, String str) {
         this.d = hVar;
-        this.f1692a = i;
+        this.f1767a = i;
         this.b = obj;
         this.c = str;
     }

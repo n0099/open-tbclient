@@ -1,6 +1,5 @@
 package com.baidu.tieba.flist;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -11,23 +10,25 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.model.ForumListModel;
-import com.baidu.tieba.model.aq;
-import com.baidu.tieba.util.ao;
+import com.baidu.tieba.model.as;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.av;
 import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ForumListActivity extends com.baidu.tieba.g implements bq {
-    private p A;
-    private p B;
-    private c C;
-    private t D;
+public class ForumListActivity extends com.baidu.tieba.j implements bq {
+    private p C;
+    private p D;
+    private c E;
+    private t F;
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumListModel.List f1036a;
+    public ForumListModel.List f1053a;
     public ForumListModel.List b;
     public w c;
-    private int d;
     private int e;
     private int f;
     private int g;
@@ -35,23 +36,69 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     private int k;
     private int l;
     private int m;
-    private ForumListModel.RequestParams x;
-    private int n = 10;
+    private int n;
+    private ForumListModel.RequestParams z;
+    public static boolean d = false;
+    private static String K = "";
+    private static String L = "";
+    private static String M = "";
+    private static String N = "";
     private int o = 10;
-    private int p = -1;
-    private aq q = new aq();
-    private boolean r = false;
-    private int s = 0;
-    private boolean t = false;
-    private int u = 0;
-    private int v = 10;
-    private boolean w = true;
-    private boolean y = false;
-    private boolean z = false;
-    private u E = new f(this);
-    private e F = new g(this);
-    private AdapterView.OnItemClickListener G = new h(this);
-    private com.baidu.adp.widget.ListView.b H = new i(this);
+    private int p = 10;
+    private int q = -1;
+    private as r = new as();
+    private boolean s = false;
+    private int t = 0;
+    private boolean u = false;
+    private int v = 0;
+    private int w = 10;
+    private boolean x = true;
+    private boolean y = true;
+    private boolean A = false;
+    private boolean B = false;
+    private u G = new f(this);
+    private e H = new g(this);
+    private AdapterView.OnItemClickListener I = new h(this);
+    private com.baidu.adp.widget.ListView.b J = new i(this);
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(String str) {
+        com.baidu.tieba.square.s a2 = this.c.x.a();
+        if (a2 != null) {
+            ArrayList<com.baidu.tieba.square.s> arrayList = a2.e;
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                if (arrayList.get(i).b.equals(str)) {
+                    this.t = i;
+                    this.c.x.a(this.t);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(String str, String str2, String str3) {
+        try {
+            this.z.menu_id = Integer.valueOf(str2).intValue();
+            this.z.menu_name = str;
+            this.z.menu_type = Integer.valueOf(str3).intValue();
+            this.z.parent_menu_id = Integer.valueOf(getIntent().getStringExtra("parent_menu_id")).intValue();
+            this.z.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
+            this.z.offset = 0;
+            this.z.rn = 10;
+            av.e("ForumListActivity", "onCreate", this.z.toString());
+        } catch (NullPointerException e) {
+            finish();
+        }
+        this.v = this.z.recommend_type;
+        this.w = this.z.rn;
+        this.z.recommend_type = 0;
+        this.z.rn = 10;
+        this.u = true;
+        this.F.a(this.z);
+        this.F.LoadData();
+    }
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
         Intent intent = new Intent(context, ForumListActivity.class);
@@ -63,93 +110,127 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
         context.startActivity(intent);
     }
 
-    public static void a(Activity activity, String str, String str2, String str3) {
-        Intent intent = new Intent(activity, ForumListActivity.class);
+    public static void a(Context context, String str, String str2, String str3) {
+        Intent intent = new Intent(context, ForumListActivity.class);
         intent.putExtra("parent_menu_name", str);
         intent.putExtra("menu_type", str2);
         intent.putExtra("parent_menu_id", str3);
-        activity.startActivity(intent);
+        context.startActivity(intent);
     }
 
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    public static void a(Context context, String str, String str2, String str3, String str4) {
+        Intent intent = new Intent(context, ForumListActivity.class);
+        intent.putExtra("parent_menu_name", str);
+        intent.putExtra("menu_type", str2);
+        intent.putExtra("parent_menu_id", str3);
+        intent.putExtra("level_2_menu_name", str4);
+        context.startActivity(intent);
+    }
+
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.forum_list_activity);
         this.c = new w(this);
         this.c.h = (BdListView) b();
         this.c.i = (BdListView) d();
-        this.c.c.setAdapter(new m(this));
-        this.c.g.setText(getIntent().getStringExtra("parent_menu_name"));
-        this.A = new p(this);
-        this.c.h.setAdapter((ListAdapter) this.A);
-        this.B = new p(this);
-        this.c.i.setAdapter((ListAdapter) this.B);
+        this.c.A.setVisibility(0);
         this.c.y.setOnClickListener(this);
-        this.x = new ForumListModel.RequestParams();
+        this.c.c.setAdapter(new m(this));
+        this.C = new p(this, 0);
+        this.c.h.setAdapter((ListAdapter) this.C);
+        this.D = new p(this, 1);
+        this.c.i.setAdapter((ListAdapter) this.D);
+        this.c.h.addFooterView(this.c.l);
+        this.c.i.addFooterView(this.c.o);
+        b(getIntent().getStringExtra("parent_menu_name"), getIntent().getStringExtra("parent_menu_id"), getIntent().getStringExtra("menu_type"), getIntent().getStringExtra("level_2_menu_name"));
+    }
+
+    private void b(String str, String str2, String str3, String str4) {
+        if (at.c(str4)) {
+            str4 = str;
+        }
+        this.c.g.setText(str4);
+        this.z = new ForumListModel.RequestParams();
         try {
-            this.x.menu_id = Integer.valueOf(getIntent().getStringExtra("parent_menu_id")).intValue();
-            this.x.menu_name = getIntent().getStringExtra("parent_menu_name");
-            this.x.menu_type = Integer.valueOf(getIntent().getStringExtra("menu_type")).intValue();
-            this.x.parent_menu_id = Integer.valueOf(getIntent().getStringExtra("parent_menu_id")).intValue();
-            this.x.parent_menu_name = getIntent().getStringExtra("parent_menu_name");
-            this.x.offset = 0;
-            this.x.rn = 10;
-            com.baidu.tieba.util.aq.e("ForumListActivity", "onCreate", this.x.toString());
+            this.z.menu_id = Integer.valueOf(str2).intValue();
+            this.z.menu_name = str4;
+            this.z.menu_type = Integer.valueOf(str3).intValue();
+            this.z.parent_menu_id = Integer.valueOf(str2).intValue();
+            this.z.parent_menu_name = str;
+            this.z.offset = 0;
+            this.z.rn = 10;
+            av.e("ForumListActivity", "onCreate", this.z.toString());
         } catch (NullPointerException e) {
             finish();
         }
-        if (this.x.menu_id != 0) {
+        if (this.z.menu_id != 0) {
             this.c.b();
-            this.r = true;
+            this.s = true;
+            this.y = false;
+            this.C.a(Boolean.valueOf(this.y));
             this.c.c.getAdapter().notifyDataSetChanged();
         } else {
+            this.y = true;
+            this.C.a(Boolean.valueOf(this.y));
             this.c.a();
         }
-        this.f1036a = new ForumListModel.List();
+        this.f1053a = new ForumListModel.List();
         this.b = new ForumListModel.List();
-        this.f1036a.forum_list = new ForumListModel.Forum[50];
+        this.f1053a.forum_list = new ForumListModel.Forum[50];
         this.b.forum_list = new ForumListModel.Forum[50];
         this.c.h.setPullRefresh(this.c.r);
         this.c.i.setPullRefresh(this.c.s);
-        this.c.r.a(this.H);
-        this.c.s.a(this.H);
-        this.c.h.addFooterView(this.c.l);
-        this.c.i.addFooterView(this.c.o);
-        if (getIntent().getStringExtra("menu_type").equals("2")) {
-            com.baidu.tieba.util.aq.e("ForumListActivity", "OnCreate", "from frs");
+        this.c.r.a(this.J);
+        this.c.s.a(this.J);
+        if (str3.equals("2")) {
+            av.e("ForumListActivity", "OnCreate", "from frs");
             this.c.z.setVisibility(8);
             this.c.d();
         } else {
-            this.C = new c(this, getIntent().getStringExtra("parent_menu_name"), getIntent().getStringExtra("menu_type"), getIntent().getStringExtra("parent_menu_id"));
-            this.C.a(this.F);
-            this.C.LoadData();
+            this.E = new c(this, str, str3, str2);
+            this.E.a(this.H);
+            this.E.LoadData();
             this.c.y.setOnClickListener(this);
         }
-        this.D = new t(this, this.x);
-        this.D.a(this.E);
+        this.F = new t(this, this.z);
+        this.F.a(this.G);
         this.c.h.b();
     }
 
+    public static void a(String str, String str2, String str3, String str4) {
+        K = str;
+        L = str2;
+        M = str3;
+        N = str4;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.A != null) {
-            this.A.b();
-            this.A.notifyDataSetChanged();
+        if (d) {
+            d = false;
+            finish();
+            a(this, K, M, L, N);
+            return;
         }
-        if (this.B != null) {
-            this.B.b();
-            this.B.notifyDataSetChanged();
+        if (this.C != null) {
+            this.C.b();
+            this.C.notifyDataSetChanged();
+        }
+        if (this.D != null) {
+            this.D.b();
+            this.D.notifyDataSetChanged();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.q != null) {
-            this.q.a();
+        if (this.r != null) {
+            this.r.a();
         }
         this.c.c.setAdapter(null);
         this.c.i.setAdapter((ListAdapter) null);
@@ -157,22 +238,22 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
         if (this.c.w != null) {
             this.c.w.setAdapter((ListAdapter) null);
         }
-        if (this.C != null) {
-            this.C.cancelLoadData();
+        if (this.E != null) {
+            this.E.cancelLoadData();
         }
-        if (this.D != null) {
-            this.D.cancelLoadData();
+        if (this.F != null) {
+            this.F.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
-        ao.d(this.c.e, i);
-        ao.a(this.c.f, i);
-        ao.f(this.c.g, i);
-        ao.b(findViewById(R.id.container), i);
-        if (TiebaApplication.g().an() == 1) {
+        com.baidu.tieba.util.as.d(this.c.e, i);
+        com.baidu.tieba.util.as.a(this.c.f, i);
+        com.baidu.tieba.util.as.f(this.c.g, i);
+        com.baidu.tieba.util.as.b(findViewById(R.id.container), i);
+        if (TiebaApplication.g().ap() == 1) {
             this.c.h.setDivider(new ColorDrawable(-13881543));
             this.c.i.setDivider(new ColorDrawable(-13881543));
         } else {
@@ -181,40 +262,40 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
         }
         this.c.h.setDividerHeight(2);
         this.c.i.setDividerHeight(2);
-        this.A.notifyDataSetChanged();
-        this.B.notifyDataSetChanged();
+        this.C.notifyDataSetChanged();
+        this.D.notifyDataSetChanged();
         if (i == 1) {
             if (this.c.t != null) {
                 this.c.t.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_allsproutpop_dropdown_1));
             }
             this.c.z.setImageResource(R.drawable.btn_allsproutpop_down_1);
             this.c.d.setBackgroundResource(R.drawable.bg_up_bar_1);
-            this.d = getResources().getColor(R.color.flist_text_color_night);
-            this.e = getResources().getColor(R.color.forum_list_tab_text_select);
-            this.f = R.drawable.btn_pop_most_left_n_1;
-            this.g = R.drawable.btn_pop_most_right_n_1;
-            this.j = R.drawable.btn_pop_most_left_s_1;
-            this.k = R.drawable.btn_pop_most_right_s_1;
-            this.l = R.drawable.ico_downward_1;
-            this.m = R.drawable.ico_upward_1;
-            this.A.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);
-            this.B.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);
-            this.c.j.setTextColor(this.d);
-            this.c.k.setTextColor(this.d);
+            this.e = getResources().getColor(R.color.flist_text_color_night);
+            this.f = getResources().getColor(R.color.forum_list_tab_text_select);
+            this.g = R.drawable.btn_pop_most_left_n_1;
+            this.j = R.drawable.btn_pop_most_right_n_1;
+            this.k = R.drawable.btn_pop_most_left_s_1;
+            this.l = R.drawable.btn_pop_most_right_s_1;
+            this.m = R.drawable.ico_downward_1;
+            this.n = R.drawable.ico_upward_1;
+            this.C.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);
+            this.D.a(R.drawable.btn_add_end_1, R.drawable.btn_add_1);
+            this.c.j.setTextColor(this.e);
+            this.c.k.setTextColor(this.e);
             this.c.b.setBackgroundResource(R.drawable.bg_black_banner_down_1);
             this.c.p.setTextColor(getResources().getColor(R.color.flist_text_color_night));
-            this.c.f1057a.setBackgroundResource(R.drawable.bg_black_banner_down_1);
+            this.c.f1074a.setBackgroundResource(R.drawable.bg_black_banner_down_1);
             this.c.m.setTextColor(getResources().getColor(R.color.flist_text_color_night));
             if (this.c.r != null && this.c.s != null) {
                 this.c.r.a(i);
                 this.c.s.a(i);
             }
-            if (this.y) {
+            if (this.A) {
                 this.c.n.setImageResource(R.drawable.ico_upward_1);
             } else {
                 this.c.n.setImageResource(R.drawable.ico_downward_1);
             }
-            if (this.z) {
+            if (this.B) {
                 this.c.q.setImageResource(R.drawable.ico_upward_1);
             } else {
                 this.c.q.setImageResource(R.drawable.ico_downward_1);
@@ -225,124 +306,136 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
             }
             this.c.z.setImageResource(R.drawable.btn_allsproutpop_down);
             this.c.d.setBackgroundResource(R.drawable.bg_pop_most);
-            this.d = getResources().getColor(R.color.flist_text_color_day);
-            this.e = getResources().getColor(R.color.forum_list_tab_text_select);
-            this.f = R.drawable.btn_pop_most_left_n;
-            this.g = R.drawable.btn_pop_most_right_n;
-            this.j = R.drawable.btn_pop_most_left_s;
-            this.k = R.drawable.btn_pop_most_right_s;
-            this.l = R.drawable.ico_downward;
-            this.m = R.drawable.ico_upward;
-            this.A.a(R.drawable.btn_add_end, R.drawable.btn_add);
-            this.B.a(R.drawable.btn_add_end, R.drawable.btn_add);
+            this.e = getResources().getColor(R.color.flist_text_color_day);
+            this.f = getResources().getColor(R.color.forum_list_tab_text_select);
+            this.g = R.drawable.btn_pop_most_left_n;
+            this.j = R.drawable.btn_pop_most_right_n;
+            this.k = R.drawable.btn_pop_most_left_s;
+            this.l = R.drawable.btn_pop_most_right_s;
+            this.m = R.drawable.ico_downward;
+            this.n = R.drawable.ico_upward;
+            this.C.a(R.drawable.btn_add_end, R.drawable.btn_add);
+            this.D.a(R.drawable.btn_add_end, R.drawable.btn_add);
             this.c.b.setBackgroundResource(R.drawable.bg_black_banner_down);
             this.c.p.setTextColor(getResources().getColor(R.color.flist_text_color_day));
-            this.c.f1057a.setBackgroundResource(R.drawable.bg_black_banner_down);
+            this.c.f1074a.setBackgroundResource(R.drawable.bg_black_banner_down);
             this.c.m.setTextColor(getResources().getColor(R.color.flist_text_color_day));
-            if (this.y) {
+            if (this.A) {
                 this.c.n.setImageResource(R.drawable.ico_upward);
             } else {
                 this.c.n.setImageResource(R.drawable.ico_downward);
             }
-            if (this.z) {
+            if (this.B) {
                 this.c.q.setImageResource(R.drawable.ico_upward);
             } else {
                 this.c.q.setImageResource(R.drawable.ico_downward);
             }
         }
         if (this.c.c.getCurrentItem() == 0) {
-            this.c.j.setTextColor(this.e);
-            this.c.j.setBackgroundResource(this.j);
-            this.c.k.setBackgroundResource(this.g);
-            this.c.k.setTextColor(this.d);
+            this.c.j.setTextColor(this.f);
+            this.c.j.setBackgroundResource(this.k);
+            this.c.k.setBackgroundResource(this.j);
+            this.c.k.setTextColor(this.e);
             return;
         }
-        this.c.k.setTextColor(this.e);
-        this.c.k.setBackgroundResource(this.k);
-        this.c.j.setBackgroundResource(this.f);
-        this.c.j.setTextColor(this.d);
+        this.c.k.setTextColor(this.f);
+        this.c.k.setBackgroundResource(this.l);
+        this.c.j.setBackgroundResource(this.g);
+        this.c.j.setTextColor(this.e);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.title_back /* 2131099689 */:
+            case R.id.title_back /* 2131100073 */:
                 finish();
                 return;
-            case R.id.title_menu /* 2131100036 */:
-                this.c.a(this.G);
+            case R.id.title_menu /* 2131100074 */:
+                this.c.a(this.I);
                 return;
-            case R.id.tab_recommends /* 2131100040 */:
-                this.c.c.setCurrentItem(0);
-                this.p = 0;
-                return;
-            case R.id.tab_hot /* 2131100041 */:
-                this.c.c.setCurrentItem(1);
-                this.p = 1;
-                return;
+            case R.id.title_arrow /* 2131100075 */:
+            case R.id.item_root /* 2131100076 */:
+            case R.id.tab_strip /* 2131100077 */:
             default:
+                return;
+            case R.id.tab_recommends /* 2131100078 */:
+                this.c.c.setCurrentItem(0);
+                this.q = 0;
+                if (TiebaApplication.g().s()) {
+                    StatService.onEvent(view.getContext(), "recommend_list_click", "click", 1);
+                    return;
+                }
+                return;
+            case R.id.tab_hot /* 2131100079 */:
+                this.c.c.setCurrentItem(1);
+                this.q = 1;
+                if (TiebaApplication.g().s()) {
+                    StatService.onEvent(view.getContext(), "hot_list_click", "click", 1);
+                    return;
+                }
                 return;
         }
     }
 
     private View b() {
-        this.c.h = l();
+        this.c.h = m();
         this.c.l.setOnClickListener(new j(this));
         return this.c.h;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.y) {
-            int min = Math.min(this.A.getCount(), 10);
-            this.n = 10;
+        if (this.A) {
+            int min = Math.min(this.C.getCount(), 10);
+            this.o = 10;
             ForumListModel.Forum[] forumArr = new ForumListModel.Forum[min];
-            System.arraycopy(this.A.a(), 0, forumArr, 0, min);
-            this.A.a(min);
-            this.A.a(forumArr);
-            this.y = false;
+            System.arraycopy(this.C.a(), 0, forumArr, 0, min);
+            this.C.a(min);
+            this.C.a(forumArr);
+            this.A = false;
             this.c.m.setText(getString(R.string.flist_expand_list));
-            this.c.n.setImageResource(this.l);
+            this.c.n.setImageResource(this.m);
             return;
         }
-        this.n = 50;
+        this.o = 50;
         o oVar = new o(this, null);
         oVar.a(true);
         oVar.execute(new Void[0]);
     }
 
     private View d() {
-        this.c.i = l();
+        this.c.i = m();
         this.c.o.setOnClickListener(new k(this));
         return this.c.i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
-        if (this.z) {
-            int min = Math.min(this.B.getCount(), 10);
-            this.o = 10;
+    public void e() {
+        if (this.B) {
+            int min = Math.min(this.D.getCount(), 10);
+            this.p = 10;
             ForumListModel.Forum[] forumArr = new ForumListModel.Forum[min];
-            System.arraycopy(this.B.a(), 0, forumArr, 0, min);
-            this.B.a(min);
-            this.B.a(forumArr);
-            this.z = false;
+            System.arraycopy(this.D.a(), 0, forumArr, 0, min);
+            this.D.a(min);
+            this.D.a(forumArr);
+            this.B = false;
             this.c.p.setText(getString(R.string.flist_expand_list));
-            this.c.q.setImageResource(this.l);
+            this.c.q.setImageResource(this.m);
             return;
         }
-        this.o = 50;
+        this.p = 50;
         n nVar = new n(this, null);
         nVar.a(true);
         nVar.execute(new Void[0]);
     }
 
-    private BdListView l() {
+    private BdListView m() {
         BdListView bdListView = new BdListView(this);
+        bdListView.setScrollingCacheEnabled(false);
         bdListView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         bdListView.setCacheColorHint(0);
         bdListView.setSelector(17170445);
-        if (TiebaApplication.g().an() == 1) {
+        if (TiebaApplication.g().ap() == 1) {
             bdListView.setDivider(new ColorDrawable(-13881543));
         } else {
             bdListView.setDivider(new ColorDrawable(-1775893));
@@ -360,17 +453,17 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
 
     @Override // android.support.v4.view.bq
     public void a_(int i) {
-        if (!this.r) {
+        if (!this.s) {
             if (i == 0) {
-                this.c.j.setBackgroundResource(this.j);
-                this.c.j.setTextColor(this.e);
-                this.c.k.setBackgroundResource(this.g);
-                this.c.k.setTextColor(this.d);
-            } else if (i == 1) {
-                this.c.k.setBackgroundResource(this.k);
+                this.c.j.setBackgroundResource(this.k);
+                this.c.j.setTextColor(this.f);
+                this.c.k.setBackgroundResource(this.j);
                 this.c.k.setTextColor(this.e);
-                this.c.j.setBackgroundResource(this.f);
-                this.c.j.setTextColor(this.d);
+            } else if (i == 1) {
+                this.c.k.setBackgroundResource(this.l);
+                this.c.k.setTextColor(this.f);
+                this.c.j.setBackgroundResource(this.g);
+                this.c.j.setTextColor(this.e);
             }
         }
     }
@@ -383,15 +476,15 @@ public class ForumListActivity extends com.baidu.tieba.g implements bq {
     protected void onActivityResult(int i, int i2, Intent intent) {
         ForumListModel.Forum[] a2;
         if (i == 11002 && i2 == -1) {
-            if (this.p == 0) {
-                a2 = this.A.a();
-            } else if (this.p == 1) {
-                a2 = this.B.a();
+            if (this.q == 0) {
+                a2 = this.C.a();
+            } else if (this.q == 1) {
+                a2 = this.D.a();
             } else {
                 return;
             }
-            this.q.setLoadDataCallBack(new l(this, a2));
-            this.q.a(a2[this.A.f1051a].forum_name, String.valueOf(a2[this.A.f1051a].forum_id));
+            this.r.setLoadDataCallBack(new l(this, a2));
+            this.r.a(a2[this.C.f1068a].forum_name, String.valueOf(a2[this.C.f1068a].forum_id));
         }
     }
 }

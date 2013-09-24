@@ -8,23 +8,24 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.bj;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends BdAsyncTask {
+public class ad extends BdAsyncTask<Object, Integer, com.baidu.tieba.model.au> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f871a;
+    ArrayList<BasicNameValuePair> f887a;
     final /* synthetic */ LoginActivity b;
     private String d;
-    private com.baidu.tieba.util.v c = null;
+    private com.baidu.tieba.util.z c = null;
     private String e = null;
 
-    public ad(LoginActivity loginActivity, String str, ArrayList arrayList) {
+    public ad(LoginActivity loginActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = loginActivity;
         this.d = null;
-        this.f871a = null;
+        this.f887a = null;
         this.d = str;
-        this.f871a = arrayList;
+        this.f887a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,30 +56,30 @@ public class ad extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.model.as a(Object... objArr) {
-        com.baidu.tieba.model.as asVar;
+    public com.baidu.tieba.model.au a(Object... objArr) {
+        com.baidu.tieba.model.au auVar;
         Exception e;
         try {
-            this.c = new com.baidu.tieba.util.v(this.d);
-            this.c.a(this.f871a);
+            this.c = new com.baidu.tieba.util.z(this.d);
+            this.c.a(this.f887a);
             this.e = this.c.j();
             if (this.e != null) {
-                com.baidu.tieba.util.aq.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
+                com.baidu.tieba.util.av.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
             }
             if (!this.c.c() || this.e == null) {
                 return null;
             }
-            asVar = new com.baidu.tieba.model.as();
+            auVar = new com.baidu.tieba.model.au();
             try {
-                asVar.a(this.e);
-                return asVar;
+                auVar.a(this.e);
+                return auVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.aq.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return asVar;
+                com.baidu.tieba.util.av.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return auVar;
             }
         } catch (Exception e3) {
-            asVar = null;
+            auVar = null;
             e = e3;
         }
     }
@@ -86,7 +87,7 @@ public class ad extends BdAsyncTask {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.model.as asVar) {
+    public void a(com.baidu.tieba.model.au auVar) {
         ProgressBar progressBar;
         TextView textView;
         TextView textView2;
@@ -101,10 +102,10 @@ public class ad extends BdAsyncTask {
         progressBar.setVisibility(8);
         textView = this.b.N;
         textView.setText(R.string.account_login);
-        this.b.t();
-        if (asVar != null) {
-            this.b.R = asVar;
-            this.b.o();
+        this.b.u();
+        if (auVar != null) {
+            this.b.R = auVar;
+            this.b.p();
         } else if (this.c != null) {
             if ((!this.c.d() || this.c.e() != 5) && this.c.e() != 6) {
                 textView2 = this.b.L;
@@ -113,7 +114,7 @@ public class ad extends BdAsyncTask {
                 textView3.setText(this.c.g());
                 textView4 = this.b.M;
                 textView4.setVisibility(8);
-                this.b.p();
+                this.b.q();
             } else {
                 bj bjVar = new bj();
                 bjVar.a(this.e);
@@ -124,14 +125,14 @@ public class ad extends BdAsyncTask {
                     textView6.setText(this.c.g());
                     textView7 = this.b.M;
                     textView7.setVisibility(8);
-                    this.b.p();
+                    this.b.q();
                 } else {
                     this.b.l = bjVar.a();
                     this.b.m = bjVar.b();
                     LoginActivity loginActivity = this.b;
                     str = this.b.m;
                     loginActivity.c(str);
-                    this.b.q();
+                    this.b.r();
                     LoginActivity loginActivity2 = this.b;
                     editText = this.b.s;
                     loginActivity2.j = editText.getText().toString();
@@ -154,6 +155,6 @@ public class ad extends BdAsyncTask {
         progressBar.setVisibility(8);
         textView = this.b.N;
         textView.setText(R.string.account_login);
-        this.b.t();
+        this.b.u();
     }
 }

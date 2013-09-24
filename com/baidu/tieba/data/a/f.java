@@ -1,6 +1,5 @@
 package com.baidu.tieba.data.a;
 
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
@@ -8,7 +7,7 @@ public class f {
     private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f971a = new a();
+    private final a f989a = new a();
 
     private f() {
     }
@@ -29,28 +28,26 @@ public class f {
         return currentTimeMillis;
     }
 
-    public void a(List list) {
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            d dVar = (d) it.next();
+    public void a(List<d> list) {
+        for (d dVar : list) {
             dVar.a(b());
-            this.f971a.a(dVar);
+            this.f989a.a(dVar);
         }
     }
 
-    public List a(String str, String str2) {
-        return this.f971a.a(str, str2, 20);
+    public List<d> a(String str, String str2) {
+        return this.f989a.a(str, str2, 20);
     }
 
     public void b(String str, String str2) {
-        this.f971a.a(str, str2);
+        this.f989a.a(str, str2);
     }
 
-    public void a(String str, List list) {
-        this.f971a.a(str, list);
+    public void a(String str, List<g> list) {
+        this.f989a.a(str, list);
     }
 
-    public List a(String str) {
-        return this.f971a.a(str, 20);
+    public List<g> a(String str) {
+        return this.f989a.a(str, 20);
     }
 }

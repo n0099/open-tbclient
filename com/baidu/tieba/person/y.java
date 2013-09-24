@@ -1,26 +1,227 @@
 package com.baidu.tieba.person;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.MarkData;
+import com.baidu.tieba.view.NavigationBar;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class y implements DialogInterface.OnClickListener {
+public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditMarkActivity f1664a;
+    Context f1739a;
+    private ListView c;
+    private com.baidu.tieba.home.r d;
+    private Button e;
+    private RelativeLayout f;
+    private ProgressBar g;
+    private NavigationBar i;
+    private Dialog h = null;
+    DialogInterface.OnClickListener b = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public y(EditMarkActivity editMarkActivity) {
-        this.f1664a = editMarkActivity;
+        this.f1739a = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.f1739a = editMarkActivity;
+        editMarkActivity.setContentView(R.layout.edit_mark_activity);
+        this.g = (ProgressBar) editMarkActivity.findViewById(R.id.progress);
+        this.f = (RelativeLayout) editMarkActivity.findViewById(R.id.parent);
+        this.d = new com.baidu.tieba.home.r(editMarkActivity);
+        this.d.c(false);
+        this.d.b();
+        this.c = (ListView) editMarkActivity.findViewById(R.id.list);
+        this.c.setAdapter((ListAdapter) this.d);
+        this.c.setOnItemClickListener(editMarkActivity);
+        this.i = (NavigationBar) editMarkActivity.findViewById(R.id.view_navigation_bar);
+        this.i.a(editMarkActivity.getResources().getString(R.string.my_mark));
+        this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, editMarkActivity.getResources().getString(R.string.edit));
+        this.e.setOnClickListener(editMarkActivity);
+        this.e.setVisibility(4);
+        this.d.a(editMarkActivity);
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        z zVar;
-        com.baidu.tieba.model.f fVar;
-        com.baidu.tieba.model.f fVar2;
-        zVar = this.f1664a.b;
-        fVar = this.f1664a.f1590a;
-        zVar.a(fVar.a());
-        fVar2 = this.f1664a.f1590a;
-        fVar2.a((Boolean) true);
+    public Button a() {
+        return this.e;
+    }
+
+    public void a(DialogInterface.OnClickListener onClickListener) {
+        this.b = onClickListener;
+    }
+
+    public void b() {
+        if (!this.d.c()) {
+            this.d.d(true);
+            this.e.setText(R.string.done);
+            com.baidu.tieba.util.as.h(this.e, TiebaApplication.g().ap());
+            this.d.notifyDataSetChanged();
+            return;
+        }
+        this.d.d(false);
+        this.e.setText(R.string.edit);
+        com.baidu.tieba.util.as.g(this.e, TiebaApplication.g().ap());
+        this.d.notifyDataSetChanged();
+    }
+
+    public int c() {
+        return R.id.home_lv_markitem_delete;
+    }
+
+    public void a(int i) {
+        if (i == 0) {
+            this.g.setVisibility(0);
+        }
+        this.d.b(true);
+        this.d.notifyDataSetChanged();
+    }
+
+    public void d() {
+        this.g.setVisibility(0);
+    }
+
+    public void e() {
+        this.g.setVisibility(8);
+    }
+
+    public void a(String str, com.baidu.tieba.model.h hVar, Boolean bool) {
+        this.d.b(true);
+        if (str != null) {
+            a(str);
+        }
+        if (hVar.e() == 0 && !bool.booleanValue() && hVar.d() > 0) {
+            a(this.f1739a.getString(R.string.no_more_mark));
+        }
+        if (hVar.d() < 20) {
+            this.d.a(false);
+        }
+        this.d.a(hVar.c());
+        this.d.c(true);
+        this.d.b();
+        if (hVar.d() > 0) {
+            this.e.setVisibility(0);
+        } else {
+            this.e.setVisibility(4);
+        }
+        this.g.setVisibility(8);
+        this.d.b(false);
+        this.d.notifyDataSetChanged();
+        if (bool.booleanValue()) {
+            d();
+        }
+    }
+
+    public void a(String str) {
+        ((com.baidu.tieba.j) this.f1739a).a(str);
+    }
+
+    public void f() {
+        ((com.baidu.tieba.j) this.f1739a).b(this.f1739a.getString(R.string.syncing));
+    }
+
+    public void a(boolean z, String str, boolean z2) {
+        ((com.baidu.tieba.j) this.f1739a).i();
+        if (z) {
+            this.d.b();
+        }
+        if (str != null) {
+            ((com.baidu.tieba.j) this.f1739a).a(str);
+        }
+        if (z2) {
+            j();
+        }
+        this.d.notifyDataSetChanged();
+    }
+
+    public void g() {
+        this.g.setVisibility(0);
+    }
+
+    public void a(boolean z, String str, ArrayList<MarkData> arrayList) {
+        if (z) {
+            ((com.baidu.tieba.j) this.f1739a).a(this.f1739a.getString(R.string.del_mark_success));
+            this.d.a(arrayList);
+            this.d.c(true);
+            this.d.b();
+            if (arrayList.size() == 0) {
+                this.e.setText(R.string.edit);
+                this.e.setVisibility(4);
+                this.d.d(false);
+            }
+        } else {
+            ((com.baidu.tieba.j) this.f1739a).a(str);
+        }
+        this.d.notifyDataSetChanged();
+        this.g.setVisibility(8);
+    }
+
+    public void a(ArrayList<MarkData> arrayList) {
+        if (arrayList != null) {
+            this.d.a(arrayList);
+            this.d.b();
+            this.d.notifyDataSetChanged();
+        }
+    }
+
+    private void j() {
+        if (this.h == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1739a);
+            builder.setTitle(this.f1739a.getString(R.string.sync_mark_fail));
+            builder.setMessage(this.f1739a.getString(R.string.sync_mark_fail_con));
+            if (this.b != null) {
+                builder.setPositiveButton(this.f1739a.getString(R.string.retry_rightnow), this.b);
+            }
+            builder.setNegativeButton(this.f1739a.getString(R.string.confirm), new z(this));
+            this.h = builder.create();
+            this.h.setCanceledOnTouchOutside(true);
+        }
+        this.h.show();
+    }
+
+    public void b(int i) {
+        com.baidu.tieba.util.as.a(this.f, i);
+        this.i.b(i);
+        if (this.d.c()) {
+            com.baidu.tieba.util.as.h(this.e, i);
+        } else {
+            com.baidu.tieba.util.as.g(this.e, i);
+        }
+        this.d.notifyDataSetChanged();
+        if (i == 1) {
+            this.c.setDivider(this.f1739a.getResources().getDrawable(R.drawable.list_divider_1));
+            this.c.setSelector(R.drawable.list_selector_1);
+        } else {
+            this.c.setDivider(this.f1739a.getResources().getDrawable(R.drawable.list_divider));
+            this.c.setSelector(R.drawable.list_selector);
+        }
+        this.d.notifyDataSetChanged();
+    }
+
+    public void h() {
+        this.d.b();
+        this.d.notifyDataSetChanged();
+    }
+
+    public void i() {
+        if (this.h != null) {
+            this.h.dismiss();
+            this.h = null;
+        }
+        if (this.g != null) {
+            this.g.setVisibility(8);
+        }
+        this.d.a();
     }
 }

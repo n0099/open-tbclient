@@ -7,8 +7,8 @@ public class TimeLogger {
     private String bg;
     private String bh;
     private boolean bi;
-    ArrayList bj;
-    ArrayList bk;
+    ArrayList<Long> bj;
+    ArrayList<String> bk;
 
     public TimeLogger(String str, String str2) {
         reset(str, str2);
@@ -29,11 +29,11 @@ public class TimeLogger {
         }
         Log.d(this.bg, this.bh + ": begin");
         int i = 1;
-        long longValue2 = ((Long) this.bj.get(0)).longValue();
+        long longValue2 = this.bj.get(0).longValue();
         while (i < this.bj.size()) {
-            long longValue3 = ((Long) this.bj.get(i)).longValue();
-            long longValue4 = ((Long) this.bj.get(i - 1)).longValue();
-            Log.d(this.bg, this.bh + ":      " + (longValue3 - longValue4) + " ms, " + ((String) this.bk.get(i)));
+            long longValue3 = this.bj.get(i).longValue();
+            long longValue4 = this.bj.get(i - 1).longValue();
+            Log.d(this.bg, this.bh + ":      " + (longValue3 - longValue4) + " ms, " + this.bk.get(i));
             i++;
             longValue2 = longValue3;
         }
@@ -46,8 +46,8 @@ public class TimeLogger {
             return;
         }
         if (this.bj == null) {
-            this.bj = new ArrayList();
-            this.bk = new ArrayList();
+            this.bj = new ArrayList<>();
+            this.bk = new ArrayList<>();
         } else {
             this.bj.clear();
             this.bk.clear();

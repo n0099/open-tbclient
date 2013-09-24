@@ -14,7 +14,7 @@ class CertificateValidatorCache {
     private static final long CACHE_ENTRY_LIFETIME = 600000;
     private static CertificateFactory sCertificateFactory;
     private int mBigScrew = new Random().nextInt();
-    private HashMap mCacheMap = new HashMap();
+    private HashMap<Integer, CacheEntry> mCacheMap = new HashMap<>();
     public static long mSave = 0;
     public static long mCost = 0;
 
@@ -45,7 +45,7 @@ class CertificateValidatorCache {
 
     public boolean has(String str, byte[] bArr) {
         CacheEntry cacheEntry;
-        if (str != null && str.length() != 0 && bArr != null && bArr.length != 0 && (cacheEntry = (CacheEntry) this.mCacheMap.get(new Integer(this.mBigScrew ^ str.hashCode()))) != null) {
+        if (str != null && str.length() != 0 && bArr != null && bArr.length != 0 && (cacheEntry = this.mCacheMap.get(new Integer(this.mBigScrew ^ str.hashCode()))) != null) {
             if (!cacheEntry.expired()) {
                 boolean has = cacheEntry.has(str, bArr);
                 if (has) {

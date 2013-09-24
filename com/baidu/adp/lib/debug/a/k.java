@@ -7,12 +7,12 @@ import java.io.InputStream;
 public class k extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f402a;
+    final /* synthetic */ j f404a;
     private InputStream b;
     private boolean c = false;
 
     public k(j jVar, InputStream inputStream) {
-        this.f402a = jVar;
+        this.f404a = jVar;
         this.b = inputStream;
     }
 
@@ -24,7 +24,7 @@ public class k extends Thread {
             try {
                 String str = new String(bArr, 0, read);
                 if (str != null) {
-                    this.f402a.a(str);
+                    this.f404a.a(str);
                 }
             } catch (IOException e) {
                 e.printStackTrace();

@@ -6,14 +6,14 @@ import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends BdAsyncTask {
+public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.y> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f1934a;
-    private com.baidu.tieba.util.v b;
+    final /* synthetic */ AtListActivity f2117a;
+    private com.baidu.tieba.util.z b;
 
     private j(AtListActivity atListActivity) {
-        this.f1934a = atListActivity;
+        this.f2117a = atListActivity;
         this.b = null;
     }
 
@@ -26,7 +26,7 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        progressBar = this.f1934a.n;
+        progressBar = this.f2117a.n;
         progressBar.setVisibility(0);
         super.b();
     }
@@ -37,8 +37,8 @@ public class j extends BdAsyncTask {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1934a.j = null;
-        progressBar = this.f1934a.n;
+        this.f2117a.j = null;
+        progressBar = this.f2117a.n;
         progressBar.setVisibility(8);
         super.cancel(true);
     }
@@ -47,8 +47,8 @@ public class j extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public com.baidu.tieba.data.y a(String... strArr) {
-        this.b = new com.baidu.tieba.util.v();
-        this.b.a(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/u/follow/list");
+        this.b = new com.baidu.tieba.util.z();
+        this.b.a(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/u/follow/list");
         String j = this.b.j();
         if (!this.b.c()) {
             return null;
@@ -63,55 +63,55 @@ public class j extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(com.baidu.tieba.data.y yVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.model.a aVar;
+        com.baidu.tieba.model.c cVar;
         k kVar;
         EditText editText;
-        com.baidu.tieba.model.a aVar2;
-        com.baidu.tieba.model.a aVar3;
+        com.baidu.tieba.model.c cVar2;
+        com.baidu.tieba.model.c cVar3;
         k kVar2;
         k kVar3;
         k kVar4;
         ListView listView;
-        this.f1934a.j = null;
-        progressBar = this.f1934a.n;
+        this.f2117a.j = null;
+        progressBar = this.f2117a.n;
         progressBar.setVisibility(8);
         if (this.b.c()) {
-            aVar = this.f1934a.k;
-            aVar.a(yVar);
-            kVar = this.f1934a.l;
+            cVar = this.f2117a.k;
+            cVar.a(yVar);
+            kVar = this.f2117a.l;
             if (kVar != null) {
-                editText = this.f1934a.b;
+                editText = this.f2117a.b;
                 if (editText.getText().toString().length() != 0) {
-                    aVar2 = this.f1934a.k;
-                    if (aVar2.b() != null) {
+                    cVar2 = this.f2117a.k;
+                    if (cVar2.b() != null) {
                         if (!yVar.b().isEmpty()) {
-                            this.f1934a.a(false);
+                            this.f2117a.a(false);
                         }
-                        aVar3 = this.f1934a.k;
-                        aVar3.b().a(yVar.b());
-                        kVar2 = this.f1934a.l;
+                        cVar3 = this.f2117a.k;
+                        cVar3.b().a(yVar.b());
+                        kVar2 = this.f2117a.l;
                         kVar2.notifyDataSetInvalidated();
                     }
                 } else {
                     if (yVar.a().isEmpty()) {
-                        this.f1934a.a(true);
+                        this.f2117a.a(true);
                     } else {
-                        this.f1934a.a(false);
+                        this.f2117a.a(false);
                     }
-                    AtListActivity.f1885a = yVar.a();
-                    kVar3 = this.f1934a.l;
-                    kVar3.a(AtListActivity.f1885a);
-                    kVar4 = this.f1934a.l;
+                    AtListActivity.f2062a = yVar.a();
+                    kVar3 = this.f2117a.l;
+                    kVar3.a(AtListActivity.f2062a);
+                    kVar4 = this.f2117a.l;
                     kVar4.notifyDataSetInvalidated();
-                    listView = this.f1934a.e;
+                    listView = this.f2117a.e;
                     listView.setSelection(0);
                 }
             } else {
                 return;
             }
         } else {
-            this.f1934a.a(this.b.g());
+            this.f2117a.a(this.b.g());
         }
-        super.a((Object) yVar);
+        super.a((j) yVar);
     }
 }

@@ -1,28 +1,39 @@
 package com.baidu.tieba.home;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.a.d {
+class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ s f1195a;
+    final /* synthetic */ SearchActivity f1228a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(s sVar) {
-        this.f1195a = sVar;
+    public u(SearchActivity searchActivity) {
+        this.f1228a = searchActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        if (bVar != null) {
-            bdListView = this.f1195a.c;
-            View findViewWithTag = bdListView.findViewWithTag(str);
-            if (findViewWithTag != null) {
-                findViewWithTag.invalidate();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        String str2;
+        int i;
+        String str3;
+        str = this.f1228a.D;
+        if (str != null) {
+            str2 = this.f1228a.D;
+            if (str2.trim().length() >= 1) {
+                i = this.f1228a.E;
+                if (i == 0) {
+                    this.f1228a.e();
+                    return;
+                }
+                SearchActivity searchActivity = this.f1228a;
+                str3 = this.f1228a.D;
+                searchActivity.a(1, str3);
+                return;
             }
         }
+        this.f1228a.a(this.f1228a.getResources().getString(R.string.write_keyword));
     }
 }

@@ -1,132 +1,69 @@
 package com.baidu.tieba.person;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.DatabaseService;
-import com.slidingmenu.lib.R;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends BdAsyncTask {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1663a;
-    private com.baidu.tieba.util.v b;
-    private com.baidu.tieba.data.e c;
-    private com.baidu.tieba.util.f d;
-
-    private w(EditHeadActivity editHeadActivity) {
-        this.f1663a = editHeadActivity;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-    }
+class w extends com.baidu.tieba.m {
+    final /* synthetic */ EditMarkActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ w(EditHeadActivity editHeadActivity, w wVar) {
-        this(editHeadActivity);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(EditMarkActivity editMarkActivity, com.baidu.tieba.j jVar) {
+        super(jVar);
+        this.b = editMarkActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        this.f1663a.b(this.f1663a.getString(R.string.upload_head));
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0128 */
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.String */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v5, types: [int] */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        String str;
-        Exception e;
-        File c;
-        com.baidu.tieba.data.d dVar;
-        long j;
-        this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/c/img/portrait");
+    @Override // com.baidu.tieba.m
+    public void a(Object... objArr) {
+        boolean booleanValue;
+        y yVar;
+        com.baidu.tieba.model.h hVar;
+        y yVar2;
+        y yVar3;
+        com.baidu.tieba.model.h hVar2;
+        com.baidu.tieba.model.h hVar3;
+        y yVar4;
+        y yVar5;
+        y yVar6;
+        com.baidu.tieba.model.h hVar4;
+        com.baidu.tieba.model.h hVar5;
         try {
-            c = com.baidu.tieba.util.p.c("tieba_head_image");
-            str = (c.length() > 102400L ? 1 : (c.length() == 102400L ? 0 : -1));
-        } catch (Exception e2) {
-            str = 0;
-            e = e2;
-        }
-        try {
-            if (str <= 0 || (com.baidu.tieba.data.g.n() == 0 && this.b.f() != null && !this.b.f().equals("2"))) {
-                com.baidu.tieba.util.aq.e("PostThreadTask", "doInBackground", "image size is less than 100K");
-                String b = this.b.b("tieba_head_image");
-                if (this.b.c()) {
-                    return b;
+            if (((Integer) objArr[0]).intValue() == 0) {
+                if (objArr[1] != null && (objArr[1] instanceof String)) {
+                    r1 = (String) objArr[1];
                 }
-                return null;
-            }
-            com.baidu.tieba.util.aq.e("PostThreadTask", "doInBackground", "image size is more than 100K");
-            String a2 = com.baidu.tieba.util.ap.a(com.baidu.tieba.util.p.a(c));
-            com.baidu.tieba.data.d o = DatabaseService.o(a2);
-            if (o == null) {
-                com.baidu.tieba.util.aq.e("PostThreadTask", "doInBackground", "upload data is null");
-                com.baidu.tieba.data.d dVar2 = new com.baidu.tieba.data.d();
-                dVar2.a(a2);
-                dVar2.a(0);
-                dVar2.a(c.length());
-                dVar = dVar2;
-            } else {
-                dVar = o;
-            }
-            this.d = new com.baidu.tieba.util.f("tieba_head_image", dVar, String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/c/img/chunkupload");
-            this.c = this.d.b();
-            if (this.c.a()) {
-                this.b = new com.baidu.tieba.util.v(String.valueOf(com.baidu.tieba.data.g.f1014a) + "c/c/img/finupload");
-                this.b.a("md5", dVar.a());
-                String j2 = this.b.j();
-                if (j2 == null || !this.b.c()) {
-                    long b2 = dVar.b();
-                    if (b2 % 102400 == 0) {
-                        j = b2 / 102400;
-                    } else {
-                        j = (b2 / 102400) + 1;
-                    }
-                    dVar.a((int) j);
-                    DatabaseService.a(dVar);
-                    return null;
+                yVar6 = this.b.b;
+                hVar4 = this.b.f1640a;
+                yVar6.a(r1, hVar4, (Boolean) objArr[2]);
+                EditMarkActivity editMarkActivity = this.b;
+                hVar5 = this.b.f1640a;
+                editMarkActivity.d = hVar5.c();
+            } else if (((Integer) objArr[0]).intValue() == 3) {
+                if (objArr[1] != null && (objArr[1] instanceof String)) {
+                    r1 = (String) objArr[1];
                 }
-                DatabaseService.n(a2);
-                return j2;
+                yVar4 = this.b.b;
+                yVar4.e();
+                yVar5 = this.b.b;
+                yVar5.a(r1);
+            } else if (((Integer) objArr[0]).intValue() == 1) {
+                boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
+                r1 = objArr[2] != null ? (String) objArr[2] : null;
+                booleanValue = objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false;
+                yVar2 = this.b.b;
+                yVar2.a(booleanValue2, r1, booleanValue);
+                if (booleanValue2) {
+                    yVar3 = this.b.b;
+                    hVar2 = this.b.f1640a;
+                    yVar3.a(hVar2.a());
+                    hVar3 = this.b.f1640a;
+                    hVar3.a((Boolean) true);
+                }
+            } else if (((Integer) objArr[0]).intValue() == 2) {
+                booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
+                String str = objArr[2] != null ? (String) objArr[2] : null;
+                yVar = this.b.b;
+                hVar = this.b.f1640a;
+                yVar.a(booleanValue, str, hVar.c());
             }
-            return null;
-        } catch (Exception e3) {
-            e = e3;
-            com.baidu.tieba.util.aq.b(getClass().getName(), "doInBackground", e.getMessage());
-            return str;
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        this.f1663a.h();
-        this.f1663a.u = null;
-        if (this.b != null) {
-            this.b.h();
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        this.f1663a.h();
-        if (this.b != null) {
-            if (this.b.c()) {
-                this.f1663a.setResult(-1);
-                this.f1663a.finish();
-                this.f1663a.a(this.f1663a.getString(R.string.upload_head_ok));
-                return;
-            }
-            this.f1663a.a(this.b.g());
+        } catch (Exception e) {
         }
     }
 }

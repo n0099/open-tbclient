@@ -1,44 +1,31 @@
 package com.baidu.tieba;
 
-import android.support.v4.view.bq;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.view.BaseViewPager;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class q implements bq {
+class q implements com.baidu.tieba.view.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1666a;
+    final /* synthetic */ GuideActivity f1741a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(GuideActivity guideActivity) {
-        this.f1666a = guideActivity;
+        this.f1741a = guideActivity;
     }
 
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.f1666a.k;
-        int childCount = linearLayout.getChildCount();
-        if (i < childCount) {
-            for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.f1666a.k;
-                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
-                if (i2 != i) {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
-                } else {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
-                }
+    @Override // com.baidu.tieba.view.a
+    public void b_(int i) {
+        BaseViewPager baseViewPager;
+        BaseViewPager baseViewPager2;
+        if (i == 0) {
+            baseViewPager = this.f1741a.f;
+            if (baseViewPager != null) {
+                baseViewPager2 = this.f1741a.f;
+                baseViewPager2.setOnScrollOutListener(null);
             }
+            this.f1741a.b();
+            CompatibleUtile.setAnim(this.f1741a, 0, R.anim.left);
         }
-    }
-
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
-    }
-
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
     }
 }

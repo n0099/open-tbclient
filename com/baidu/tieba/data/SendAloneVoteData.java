@@ -92,7 +92,7 @@ public class SendAloneVoteData implements Serializable {
         try {
             return a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
             return null;
         }
     }
@@ -111,7 +111,7 @@ public class SendAloneVoteData implements Serializable {
             sendAloneVoteData.setLogId(jSONObject.optInt("logid"));
             return sendAloneVoteData;
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
             return null;
         }
     }
@@ -159,7 +159,7 @@ public class SendAloneVoteData implements Serializable {
                 error.setUserMsg(jSONObject.optString("usermsg"));
                 return error;
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
                 return null;
             }
         }

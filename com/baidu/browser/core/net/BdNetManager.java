@@ -14,17 +14,17 @@ public final class BdNetManager implements IElement {
     public static final int MAX_POOL_SIZE = 6;
     private static BdNetManager sInstance;
     private Activity mActivity;
-    private Vector mNetEngineList;
+    private Vector<BdNetEngine> mNetEngineList;
     private BdNetReceiver mNetReceiver;
-    private List mTaskList;
+    private List<Vector<BdNetTask>> mTaskList;
 
     private BdNetManager() {
         int length = ARRAY_PRIORITY.length;
         this.mTaskList = new ArrayList(length);
         for (int i = 0; i < length; i++) {
-            this.mTaskList.add(new Vector());
+            this.mTaskList.add(new Vector<>());
         }
-        this.mNetEngineList = new Vector();
+        this.mNetEngineList = new Vector<>();
     }
 
     public static BdNetManager getInstance() {
@@ -75,7 +75,7 @@ public final class BdNetManager implements IElement {
             int length = ARRAY_PRIORITY.length;
             for (int i2 = 0; i2 < length; i2++) {
                 if (i == ARRAY_PRIORITY[i2]) {
-                    ((Vector) this.mTaskList.get(i2)).add(bdNetTask);
+                    this.mTaskList.get(i2).add(bdNetTask);
                     return;
                 }
             }
@@ -85,9 +85,9 @@ public final class BdNetManager implements IElement {
     BdNetTask peekTask() {
         int size = this.mTaskList.size();
         for (int i = 0; i < size; i++) {
-            Vector vector = (Vector) this.mTaskList.get(i);
+            Vector<BdNetTask> vector = this.mTaskList.get(i);
             if (vector.size() > 0) {
-                return (BdNetTask) vector.get(0);
+                return vector.get(0);
             }
         }
         return null;
@@ -97,9 +97,9 @@ public final class BdNetManager implements IElement {
     public BdNetTask pollTask() {
         int size = this.mTaskList.size();
         for (int i = 0; i < size; i++) {
-            Vector vector = (Vector) this.mTaskList.get(i);
+            Vector<BdNetTask> vector = this.mTaskList.get(i);
             if (vector.size() > 0) {
-                return (BdNetTask) vector.remove(0);
+                return vector.remove(0);
             }
         }
         return null;
@@ -109,7 +109,7 @@ public final class BdNetManager implements IElement {
     public BdNetEngine obtainNetEngine() {
         int size = this.mNetEngineList.size();
         for (int i = 0; i < size; i++) {
-            BdNetEngine bdNetEngine = (BdNetEngine) this.mNetEngineList.get(i);
+            BdNetEngine bdNetEngine = this.mNetEngineList.get(i);
             if (!bdNetEngine.isWorking() && !bdNetEngine.isAllocate()) {
                 bdNetEngine.allocate();
                 return bdNetEngine;
@@ -133,7 +133,7 @@ public final class BdNetManager implements IElement {
     public void releaseAllNetEngine() {
         int size = this.mNetEngineList.size();
         for (int i = 0; i < size; i++) {
-            ((BdNetEngine) this.mNetEngineList.get(i)).stopDownload();
+            this.mNetEngineList.get(i).stopDownload();
         }
         this.mNetEngineList.clear();
     }
@@ -142,7 +142,7 @@ public final class BdNetManager implements IElement {
         BdNetEngine bdNetEngine;
         int size = this.mNetEngineList.size();
         for (int i = 0; i < size; i++) {
-            BdLog.d("NetEngine [" + ((BdNetEngine) this.mNetEngineList.get(i)) + "]  isWorking[" + bdNetEngine.isWorking() + "] isAllocate[" + bdNetEngine.isAllocate() + "]");
+            BdLog.d("NetEngine [" + this.mNetEngineList.get(i) + "]  isWorking[" + bdNetEngine.isWorking() + "] isAllocate[" + bdNetEngine.isAllocate() + "]");
         }
     }
 }

@@ -6,12 +6,12 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public final class PluginData {
     private long mContentLength;
-    private Map mHeaders;
+    private Map<String, String[]> mHeaders;
     private int mStatusCode;
     private InputStream mStream;
 
     @Deprecated
-    public PluginData(InputStream inputStream, long j, Map map, int i) {
+    public PluginData(InputStream inputStream, long j, Map<String, String[]> map, int i) {
         this.mStream = inputStream;
         this.mContentLength = j;
         this.mHeaders = map;
@@ -29,7 +29,7 @@ public final class PluginData {
     }
 
     @Deprecated
-    public Map getHeaders() {
+    public Map<String, String[]> getHeaders() {
         return this.mHeaders;
     }
 

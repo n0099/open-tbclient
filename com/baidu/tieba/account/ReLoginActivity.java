@@ -25,7 +25,7 @@ import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
-public class ReLoginActivity extends com.baidu.tieba.g {
+public class ReLoginActivity extends com.baidu.tieba.j {
     private an c = null;
     private Button d = null;
     private Button e = null;
@@ -40,7 +40,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     private String p = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f864a = null;
+    LinearLayout f880a = null;
     LinearLayout b = null;
     private Handler q = null;
     private Runnable r = new ah(this);
@@ -56,7 +56,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.relogin_activity);
@@ -67,12 +67,12 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
         if (this.l) {
             String currentAccount = BaiduAccount.get(this).getCurrentAccount();
-            com.baidu.tieba.util.aq.e(getClass().getName(), "onResume", "account=" + currentAccount);
+            com.baidu.tieba.util.av.e(getClass().getName(), "onResume", "account=" + currentAccount);
             if (currentAccount == null || currentAccount.equals("BaiduUser")) {
                 finish();
             } else {
@@ -84,7 +84,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         if (this.c != null) {
             this.c.cancel();
@@ -108,26 +108,26 @@ public class ReLoginActivity extends com.baidu.tieba.g {
         this.f.setOnClickListener(this.s);
         this.j = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.g = (TextView) findViewById(R.id.relogin_textview);
-        this.f864a = (LinearLayout) findViewById(R.id.container);
+        this.f880a = (LinearLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
         a(0, getIntent().getStringExtra("uname"));
-        com.baidu.tieba.util.ao.a((TextView) this.e, i);
-        com.baidu.tieba.util.ao.a(this.f, i);
-        com.baidu.tieba.util.ao.a(this.f864a, i);
-        com.baidu.tieba.util.ao.d(this.b, i);
+        com.baidu.tieba.util.as.a((TextView) this.e, i);
+        com.baidu.tieba.util.as.a(this.f, i);
+        com.baidu.tieba.util.as.a(this.f880a, i);
+        com.baidu.tieba.util.as.d(this.b, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (TiebaApplication.p()) {
-            String E = TiebaApplication.E();
-            if (E == null || E.length() <= 0) {
+        if (TiebaApplication.n()) {
+            String C = TiebaApplication.C();
+            if (C == null || C.length() <= 0) {
                 a(getIntent().getStringExtra("uname"), getIntent().getStringExtra("bduss"));
             }
         }
@@ -144,23 +144,23 @@ public class ReLoginActivity extends com.baidu.tieba.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountData accountData) {
-        AccountData H = TiebaApplication.H();
-        if (H == null) {
+        AccountData F = TiebaApplication.F();
+        if (F == null) {
             TiebaApplication.a(accountData, getBaseContext());
-            TiebaApplication.g().T();
+            TiebaApplication.g().R();
         } else {
-            H.setID(accountData.getID());
-            H.setTbs(accountData.getTbs());
-            H.setBDUSS(accountData.getBDUSS());
+            F.setID(accountData.getID());
+            F.setTbs(accountData.getTbs());
+            F.setBDUSS(accountData.getBDUSS());
         }
-        DatabaseService.a(TiebaApplication.H());
+        DatabaseService.a(TiebaApplication.F());
         Handler handler = TiebaApplication.g().c;
-        if (TiebaApplication.g().S() > 0) {
+        if (TiebaApplication.g().Q() > 0) {
             handler.sendMessage(handler.obtainMessage(2));
         } else {
             handler.sendMessage(handler.obtainMessage(3));
         }
-        k();
+        e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -171,7 +171,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
             case 0:
                 this.d.setVisibility(8);
                 this.j.setVisibility(0);
-                if (TiebaApplication.p()) {
+                if (TiebaApplication.n()) {
                     string = getString(R.string.relogin_yi_statement);
                 } else {
                     string = getString(R.string.relogin_statement);
@@ -205,9 +205,9 @@ public class ReLoginActivity extends com.baidu.tieba.g {
         super.onActivityResult(i, i2, intent);
     }
 
-    private void k() {
+    private void e() {
         if (this.k) {
-            TiebaApplication.g().B();
+            TiebaApplication.g().z();
             setResult(-1);
         } else {
             MainTabActivity.b(this, getIntent().getIntExtra("locate_type", -1));
@@ -216,12 +216,12 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
+    public void m() {
         try {
             new AccountProxy(this).startFillNameActivity(false);
             this.l = true;
         } catch (ActivityNotFoundException e) {
-            com.baidu.tieba.util.aq.a(getClass().getName(), "fillUserName", e.toString());
+            com.baidu.tieba.util.av.a(getClass().getName(), "fillUserName", e.toString());
             if (this.n == null) {
                 this.n = new k(this);
                 this.n.a(new al(this));
@@ -235,7 +235,7 @@ public class ReLoginActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String m() {
+    public String n() {
         Cursor query = getContentResolver().query(Uri.parse("content://com.baidu.account.provider.AccountInfoProvider/accountInfo"), new String[]{"ptoken"}, null, null, null);
         if (query == null || !query.moveToFirst()) {
             return "";

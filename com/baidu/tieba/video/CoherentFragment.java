@@ -4,12 +4,12 @@ import com.baidu.tieba.BaseFragment;
 /* loaded from: classes.dex */
 public class CoherentFragment extends BaseFragment {
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void n() {
-        super.n();
+    public void o() {
+        super.o();
     }
 
     @Override // android.support.v4.app.Fragment
-    public void o() {
-        super.o();
+    public void p() {
+        super.p();
     }
 }

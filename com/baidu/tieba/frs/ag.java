@@ -1,30 +1,45 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.view.DottedLine;
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
+class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ af f1069a;
-    private final /* synthetic */ com.baidu.tieba.data.ai b;
+    FrameLayout f1117a;
+    LinearLayout b;
+    LinearLayout c;
+    RelativeLayout d;
+    TextView e;
+    LinearLayout f;
+    LinearLayout g;
+    FrameLayout h;
+    LinearLayout i;
+    TextView j;
+    ProgressBar k;
+    LinearLayout l;
+    TextView m;
+    TextView n;
+    TextView o;
+    TextView p;
+    ImageView q;
+    ImageView r;
+    ViewGroup s;
+    DottedLine t;
+    final /* synthetic */ ae u;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar, com.baidu.tieba.data.ai aiVar) {
-        this.f1069a = afVar;
-        this.b = aiVar;
+    private ag(ae aeVar) {
+        this.u = aeVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        context = this.f1069a.f1068a;
-        StatService.onEvent(context, "frs_video", "frsclick", 1);
-        context2 = this.f1069a.f1068a;
-        UtilHelper.c(context2, this.b.c());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(ae aeVar, ag agVar) {
+        this(aeVar);
     }
 }

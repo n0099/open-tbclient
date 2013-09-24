@@ -49,7 +49,7 @@ public class CustomViewAbove extends ViewGroup {
     private long mCurrentTime;
     private boolean mEnabled;
     private int mFlingDistance;
-    private List mIgnoredViews;
+    private List<View> mIgnoredViews;
     private float mInitialMotionX;
     private OnPageChangeListener mInternalPageChangeListener;
     private boolean mIsBeingDragged;

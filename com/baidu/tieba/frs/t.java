@@ -4,17 +4,17 @@ package com.baidu.tieba.frs;
 public class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1113a;
+    final /* synthetic */ FrsActivity f1161a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FrsActivity frsActivity) {
-        this.f1113a = frsActivity;
+        this.f1161a = frsActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        be beVar;
-        beVar = this.f1113a.I;
-        beVar.a();
+        bd bdVar;
+        bdVar = this.f1161a.I;
+        bdVar.a();
     }
 }

@@ -8,7 +8,7 @@ public class y {
     private static /* synthetic */ int[] f;
 
     /* renamed from: a */
-    VelocityTracker f515a;
+    VelocityTracker f527a;
     boolean b;
     final int c;
     final int d;
@@ -77,7 +77,7 @@ public class y {
                 }
                 break;
         }
-        this.f515a = VelocityTracker.obtain();
+        this.f527a = VelocityTracker.obtain();
         this.b = true;
         return true;
     }
@@ -156,8 +156,8 @@ public class y {
     public void c() {
         float max;
         VerticalTranslateLayout.TrackDirection trackDirection;
-        this.f515a.computeCurrentVelocity(this.c);
-        float yVelocity = this.f515a.getYVelocity();
+        this.f527a.computeCurrentVelocity(this.c);
+        float yVelocity = this.f527a.getYVelocity();
         Log.d("VerticalTranslateLayout", "@fling y " + yVelocity);
         if (yVelocity < 0.0f) {
             max = Math.min(yVelocity, -this.d);
@@ -177,8 +177,8 @@ public class y {
                 a(max);
                 break;
         }
-        this.f515a.recycle();
-        this.f515a = null;
+        this.f527a.recycle();
+        this.f527a = null;
     }
 
     private void a(float f2) {

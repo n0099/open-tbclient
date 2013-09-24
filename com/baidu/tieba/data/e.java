@@ -3,16 +3,20 @@ package com.baidu.tieba.data;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f1012a;
+    private d f1030a;
     private boolean b;
     private int c;
     private String d;
 
-    public void a(d dVar) {
-        this.f1012a = dVar;
+    public d a() {
+        return this.f1030a;
     }
 
-    public boolean a() {
+    public void a(d dVar) {
+        this.f1030a = dVar;
+    }
+
+    public boolean b() {
         return this.b;
     }
 
@@ -20,7 +24,7 @@ public class e {
         this.b = z;
     }
 
-    public int b() {
+    public int c() {
         return this.c;
     }
 
@@ -28,7 +32,7 @@ public class e {
         this.c = i;
     }
 
-    public String c() {
+    public String d() {
         return this.d;
     }
 

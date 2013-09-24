@@ -7,7 +7,7 @@ public class e {
     public byte[] d;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f446a = 0;
+    public int f455a = 0;
     public f c = new f();
     public String e = BdUtil.UTF8;
 

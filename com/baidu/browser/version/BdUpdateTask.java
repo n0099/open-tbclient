@@ -7,7 +7,7 @@ import com.baidu.browser.core.net.BdNetListener;
 import com.baidu.browser.core.net.BdNetTask;
 import com.baidu.browser.core.util.BdLog;
 /* loaded from: classes.dex */
-public class BdUpdateTask extends AsyncTask implements BdNetListener {
+public class BdUpdateTask extends AsyncTask<String, Integer, String> implements BdNetListener {
     public static final String UPDATE_URL = "http://shahe.baidu.com/update.php";
     private Context mContext;
     private BdNet mNet;
@@ -20,7 +20,6 @@ public class BdUpdateTask extends AsyncTask implements BdNetListener {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public String doInBackground(String... strArr) {
-        checkUpdate();
         return null;
     }
 

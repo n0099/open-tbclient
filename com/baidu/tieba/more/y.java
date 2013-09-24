@@ -1,26 +1,31 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.model.MoreModel;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class y extends com.baidu.adp.a.e {
+class y implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoreActivity f1466a;
+    final /* synthetic */ u f1508a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(MoreActivity moreActivity) {
-        this.f1466a = moreActivity;
+    public y(u uVar) {
+        this.f1508a = uVar;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        aa aaVar;
-        if (obj != null && (obj instanceof MoreModel.TaskType) && obj == MoreModel.TaskType.DO_CLEAR) {
-            this.f1466a.a(this.f1466a.getString(R.string.image_cash_del_suc));
-            aaVar = this.f1466a.f1428a;
-            aaVar.s();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        switch (i) {
+            case 0:
+                TiebaApplication.g().a(1);
+                break;
+            case 1:
+                TiebaApplication.g().a(0);
+                break;
+            case 2:
+                TiebaApplication.g().a(2);
+                break;
         }
+        this.f1508a.o();
     }
 }

@@ -3,14 +3,14 @@ package com.baidu.adp.lib.cache;
 class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f386a;
+    final /* synthetic */ t f390a;
     private final /* synthetic */ String b;
     private final /* synthetic */ Object c;
     private final /* synthetic */ long d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar, String str, Object obj, long j) {
-        this.f386a = tVar;
+        this.f390a = tVar;
         this.b = str;
         this.c = obj;
         this.d = j;
@@ -18,6 +18,6 @@ class u implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f386a.a(this.b, this.c, this.d);
+        this.f390a.a(this.b, this.c, this.d);
     }
 }

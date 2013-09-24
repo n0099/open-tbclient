@@ -1,26 +1,25 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.GridView;
+import android.content.DialogInterface;
+import com.baidu.tieba.data.WriteData;
+import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah implements View.OnClickListener {
+public class ah implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f1907a;
+    final /* synthetic */ WriteActivity f2085a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(WriteActivity writeActivity) {
-        this.f1907a = writeActivity;
+        this.f2085a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        GridView gridView;
-        GridView gridView2;
-        gridView = this.f1907a.r;
-        if (gridView.getVisibility() == 0) {
-            gridView2 = this.f1907a.r;
-            gridView2.setVisibility(8);
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        writeData = this.f2085a.f2075a;
+        DatabaseService.a(writeData);
+        this.f2085a.finish();
     }
 }

@@ -8,8 +8,8 @@ import org.json.JSONObject;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f1027a = new ArrayList();
-    private ArrayList b = new ArrayList();
+    private ArrayList<s> f1045a = new ArrayList<>();
+    private ArrayList<s> b = new ArrayList<>();
     private an c = new an();
     private Date d = null;
     private boolean e = true;
@@ -23,8 +23,8 @@ public class t {
         return this.f;
     }
 
-    public ArrayList c() {
-        return this.f1027a;
+    public ArrayList<s> c() {
+        return this.f1045a;
     }
 
     public void a(String str) {
@@ -32,7 +32,7 @@ public class t {
             a(new JSONObject(str));
         } catch (Exception e) {
             this.e = false;
-            com.baidu.tieba.util.aq.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -43,7 +43,7 @@ public class t {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     s sVar = new s();
                     sVar.a(optJSONArray.getJSONObject(i));
-                    this.f1027a.add(sVar);
+                    this.f1045a.add(sVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("commend_forum_list");
@@ -64,7 +64,7 @@ public class t {
             this.f = jSONObject.optInt("is_login", 0);
         } catch (Exception e) {
             this.e = false;
-            com.baidu.tieba.util.aq.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

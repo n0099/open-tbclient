@@ -4,7 +4,7 @@ import android.content.Context;
 import com.tencent.mm.sdk.storage.ISQLiteDatabase;
 import com.tencent.mm.sdk.storage.MAutoStorage;
 /* loaded from: classes.dex */
-public class RConversationStorage extends MAutoStorage {
+public class RConversationStorage extends MAutoStorage<RConversation> {
     public static final String AUTHORITY = "com.tencent.mm.sdk.conversation.provider";
     public static final String PRIMARY_KEY = "username";
     public static final String TABLE = "rconversation";
@@ -20,7 +20,7 @@ public class RConversationStorage extends MAutoStorage {
     public RConversation get(String str) {
         RConversation rConversation = new RConversation();
         rConversation.field_username = str;
-        if (super.get(rConversation, "username")) {
+        if (super.get((RConversationStorage) rConversation, "username")) {
             return rConversation;
         }
         return null;

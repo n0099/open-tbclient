@@ -1,31 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ck implements com.baidu.tbadk.a.d {
+public class ck implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1540a;
+    final /* synthetic */ br f1582a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ck(bo boVar) {
-        this.f1540a = boVar;
+    public ck(br brVar) {
+        this.f1582a = brVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.b bVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (bVar != null) {
-            bdListView = this.f1540a.f;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(bVar.f());
-                bdListView2 = this.f1540a.f;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        view2 = this.f1582a.u;
+        View findViewById = view2.findViewById(R.id.manage_bottom_bar);
+        if (findViewById != null) {
+            if (findViewById.getVisibility() == 0) {
+                findViewById.setVisibility(8);
+            } else {
+                findViewById.setVisibility(0);
             }
         }
     }

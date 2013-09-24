@@ -25,7 +25,7 @@ public final class WebStorage {
     static final int UPDATE = 0;
     private static final String USAGE = "usage";
     private static WebStorage sWebStorage;
-    private Map mOrigins;
+    private Map<String, Origin> mOrigins;
     private Handler mHandler = null;
     private Handler mUIHandler = null;
 
@@ -178,7 +178,7 @@ public final class WebStorage {
         }
     }
 
-    public void getOrigins(ValueCallback valueCallback) {
+    public void getOrigins(ValueCallback<Map> valueCallback) {
         if (valueCallback != null) {
             if ("WebViewCoreThread".equals(Thread.currentThread().getName())) {
                 syncValues();
@@ -190,7 +190,7 @@ public final class WebStorage {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Collection getOriginsSync() {
+    public Collection<Origin> getOriginsSync() {
         if ("WebViewCoreThread".equals(Thread.currentThread().getName())) {
             update();
             return this.mOrigins.values();
@@ -198,13 +198,13 @@ public final class WebStorage {
         return null;
     }
 
-    public void getUsageForOrigin(String str, ValueCallback valueCallback) {
+    public void getUsageForOrigin(String str, ValueCallback<Long> valueCallback) {
         if (valueCallback != null) {
             if (str == null) {
                 valueCallback.onReceiveValue(null);
             } else if ("WebViewCoreThread".equals(Thread.currentThread().getName())) {
                 syncValues();
-                valueCallback.onReceiveValue(new Long(((Origin) this.mOrigins.get(str)).getUsage()));
+                valueCallback.onReceiveValue(new Long(this.mOrigins.get(str).getUsage()));
             } else {
                 HashMap hashMap = new HashMap();
                 hashMap.put(ORIGIN, str);
@@ -214,13 +214,13 @@ public final class WebStorage {
         }
     }
 
-    public void getQuotaForOrigin(String str, ValueCallback valueCallback) {
+    public void getQuotaForOrigin(String str, ValueCallback<Long> valueCallback) {
         if (valueCallback != null) {
             if (str == null) {
                 valueCallback.onReceiveValue(null);
             } else if ("WebViewCoreThread".equals(Thread.currentThread().getName())) {
                 syncValues();
-                valueCallback.onReceiveValue(new Long(((Origin) this.mOrigins.get(str)).getUsage()));
+                valueCallback.onReceiveValue(new Long(this.mOrigins.get(str).getUsage()));
             } else {
                 HashMap hashMap = new HashMap();
                 hashMap.put(ORIGIN, str);

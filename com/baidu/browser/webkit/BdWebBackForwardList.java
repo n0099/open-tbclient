@@ -6,7 +6,7 @@ import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class BdWebBackForwardList {
     private WebBackForwardList mSysWebBackForwardList;
-    private SoftReference mWebHistroyItemWrapper;
+    private SoftReference<BdWebHistoryItem> mWebHistroyItemWrapper;
     private com.baidu.zeus.WebBackForwardList mZeusWebBackForwardList;
 
     public BdWebBackForwardList(WebBackForwardList webBackForwardList) {
@@ -36,11 +36,11 @@ public class BdWebBackForwardList {
     private BdWebHistoryItem obtainWebHistoryItemWrapper(WebHistoryItem webHistoryItem) {
         BdWebHistoryItem bdWebHistoryItem = null;
         if (this.mWebHistroyItemWrapper != null) {
-            bdWebHistoryItem = (BdWebHistoryItem) this.mWebHistroyItemWrapper.get();
+            bdWebHistoryItem = this.mWebHistroyItemWrapper.get();
         }
         if (bdWebHistoryItem == null || !bdWebHistoryItem.isContains(webHistoryItem)) {
             BdWebHistoryItem bdWebHistoryItem2 = new BdWebHistoryItem(webHistoryItem);
-            this.mWebHistroyItemWrapper = new SoftReference(bdWebHistoryItem2);
+            this.mWebHistroyItemWrapper = new SoftReference<>(bdWebHistoryItem2);
             return bdWebHistoryItem2;
         }
         return bdWebHistoryItem;
@@ -49,11 +49,11 @@ public class BdWebBackForwardList {
     private BdWebHistoryItem obtainWebHistoryItemWrapper(com.baidu.zeus.WebHistoryItem webHistoryItem) {
         BdWebHistoryItem bdWebHistoryItem = null;
         if (this.mWebHistroyItemWrapper != null) {
-            bdWebHistoryItem = (BdWebHistoryItem) this.mWebHistroyItemWrapper.get();
+            bdWebHistoryItem = this.mWebHistroyItemWrapper.get();
         }
         if (bdWebHistoryItem == null || !bdWebHistoryItem.isContains(webHistoryItem)) {
             BdWebHistoryItem bdWebHistoryItem2 = new BdWebHistoryItem(webHistoryItem);
-            this.mWebHistroyItemWrapper = new SoftReference(bdWebHistoryItem2);
+            this.mWebHistroyItemWrapper = new SoftReference<>(bdWebHistoryItem2);
             return bdWebHistoryItem2;
         }
         return bdWebHistoryItem;

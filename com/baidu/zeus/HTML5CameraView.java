@@ -309,7 +309,7 @@ public class HTML5CameraView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Camera.Size getOptimalPreviewSize(List list, int i, int i2) {
+    public Camera.Size getOptimalPreviewSize(List<Camera.Size> list, int i, int i2) {
         double d;
         Camera.Size size;
         double d2 = i / i2;
@@ -318,9 +318,7 @@ public class HTML5CameraView extends FrameLayout {
         }
         Camera.Size size2 = null;
         double d3 = Double.MAX_VALUE;
-        Iterator it = list.iterator();
-        while (it.hasNext()) {
-            Camera.Size size3 = (Camera.Size) it.next();
+        for (Camera.Size size3 : list) {
             if (Math.abs((size3.width / size3.height) - d2) <= 0.05d) {
                 if (Math.abs(size3.height - i2) < d3) {
                     size = size3;
@@ -335,14 +333,14 @@ public class HTML5CameraView extends FrameLayout {
         }
         if (size2 == null) {
             double d4 = Double.MAX_VALUE;
-            Iterator it2 = list.iterator();
+            Iterator<Camera.Size> it = list.iterator();
             while (true) {
                 double d5 = d4;
-                if (it2.hasNext()) {
-                    Camera.Size size4 = (Camera.Size) it2.next();
-                    if (Math.abs(size4.height - i2) < d5) {
-                        size2 = size4;
-                        d4 = Math.abs(size4.height - i2);
+                if (it.hasNext()) {
+                    Camera.Size next = it.next();
+                    if (Math.abs(next.height - i2) < d5) {
+                        size2 = next;
+                        d4 = Math.abs(next.height - i2);
                     } else {
                         d4 = d5;
                     }

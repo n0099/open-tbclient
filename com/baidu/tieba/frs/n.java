@@ -4,32 +4,32 @@ package com.baidu.tieba.frs;
 public class n extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1107a;
+    final /* synthetic */ FrsActivity f1155a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.f1107a = frsActivity;
+        this.f1155a = frsActivity;
     }
 
     @Override // com.baidu.adp.a.e
     public void a(Object obj) {
-        com.baidu.tieba.model.n nVar;
-        bb bbVar;
-        com.baidu.tieba.model.n nVar2;
+        com.baidu.tieba.model.p pVar;
+        ba baVar;
+        com.baidu.tieba.model.p pVar2;
         String str;
-        nVar = this.f1107a.D;
-        if (nVar.getLoadDataMode() == 1) {
+        pVar = this.f1155a.F;
+        if (pVar.getLoadDataMode() == 1) {
             if (((Boolean) obj).booleanValue()) {
-                com.baidu.tieba.model.p a2 = com.baidu.tieba.model.p.a();
-                str = this.f1107a.c;
+                com.baidu.tieba.model.r a2 = com.baidu.tieba.model.r.a();
+                str = this.f1155a.e;
                 a2.b(str);
-                this.f1107a.t();
+                this.f1155a.w();
             }
-            bbVar = this.f1107a.l;
-            bh a3 = bbVar.a();
+            baVar = this.f1155a.o;
+            bg a3 = baVar.a();
             boolean booleanValue = ((Boolean) obj).booleanValue();
-            nVar2 = this.f1107a.D;
-            a3.a(booleanValue, nVar2.getErrorString());
+            pVar2 = this.f1155a.F;
+            a3.a(booleanValue, pVar2.getErrorString());
         }
     }
 }

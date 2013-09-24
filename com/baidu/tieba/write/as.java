@@ -1,85 +1,64 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.view.View;
-import com.tencent.mm.sdk.platformtools.Util;
-import java.util.Date;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
+public class as extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f1918a;
+    final /* synthetic */ WriteActivity f2096a;
+    private String b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public as(WriteImageActivity writeImageActivity) {
-        this.f1918a = writeImageActivity;
+    public as(WriteActivity writeActivity, String str) {
+        this.f2096a = writeActivity;
+        this.b = null;
+        this.b = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean d;
-        boolean z3;
-        Bitmap bitmap3;
-        Bitmap bitmap4;
-        boolean d2;
-        z = this.f1918a.z;
-        if (!z) {
-            i = this.f1918a.A;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                intent.putExtra("delete", true);
-                this.f1918a.setResult(-1, intent);
-            } else {
-                Intent intent2 = new Intent();
-                z2 = this.f1918a.y;
-                if (z2) {
-                    bitmap = this.f1918a.r;
-                    if (bitmap != null) {
-                        bitmap2 = this.f1918a.r;
-                        if (!bitmap2.isRecycled()) {
-                            String str = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
-                            d = this.f1918a.d(str);
-                            if (d) {
-                                intent2.putExtra("change", true);
-                                intent2.putExtra("file_name", str);
-                            } else {
-                                intent2.putExtra("change", false);
-                            }
-                        }
-                    }
-                    intent2.putExtra("change", false);
-                } else {
-                    intent2.setData(this.f1918a.getIntent().getData());
-                    this.f1918a.setResult(-1, intent2);
-                }
-                this.f1918a.setResult(-1, intent2);
-            }
-            this.f1918a.finish();
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        if (this.b != null && !this.b.equals("tieba_resized_image")) {
+            com.baidu.tieba.util.p.e("photos/" + this.b, "tieba_resized_image");
         }
-        Intent intent3 = new Intent();
-        z3 = this.f1918a.y;
-        if (z3) {
-            bitmap3 = this.f1918a.r;
-            if (bitmap3 != null) {
-                bitmap4 = this.f1918a.r;
-                if (!bitmap4.isRecycled()) {
-                    String str2 = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
-                    d2 = this.f1918a.d(str2);
-                    if (d2) {
-                        intent3.putExtra("filename", str2);
-                    }
-                }
-            }
-        }
-        this.f1918a.setResult(-1, intent3);
-        this.f1918a.finish();
+        return com.baidu.tieba.util.p.c(null, "tieba_resized_image_display");
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        ImageView imageView;
+        FrameLayout frameLayout;
+        this.f2096a.x = null;
+        progressBar = this.f2096a.q;
+        progressBar.setVisibility(8);
+        imageView = this.f2096a.s;
+        imageView.setVisibility(8);
+        frameLayout = this.f2096a.r;
+        frameLayout.setVisibility(8);
+        this.f2096a.y();
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Bitmap bitmap) {
+        super.a((as) bitmap);
+        this.f2096a.x = null;
+        com.baidu.tieba.util.av.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        this.f2096a.a(bitmap);
     }
 }

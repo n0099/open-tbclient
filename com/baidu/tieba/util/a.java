@@ -4,33 +4,32 @@ import android.content.Context;
 import com.baidu.tieba.TiebaApplication;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f1773a;
+    public Context f1889a;
     public boolean d;
     public boolean e;
     public String f;
     public boolean g;
-    public int i;
-    public ArrayList h = null;
+    private boolean i = false;
+    public ArrayList<BasicNameValuePair> h = null;
     public int b = 0;
     public int c = 0;
-    private LinkedList j = new LinkedList();
-    private LinkedList k = new LinkedList();
+    private LinkedList<d> j = new LinkedList<>();
+    private LinkedList<c> k = new LinkedList<>();
 
     public a(Context context) {
         this.d = false;
         this.e = false;
         this.f = null;
         this.g = false;
-        this.i = 0;
-        this.f1773a = context;
+        this.f1889a = context;
         this.d = true;
         this.f = null;
         this.e = false;
-        this.i = 0;
         this.g = false;
     }
 
@@ -44,7 +43,7 @@ public class a {
     public void a(boolean z) {
     }
 
-    public void a(ArrayList arrayList) {
+    public void a(ArrayList<BasicNameValuePair> arrayList) {
         this.h = arrayList;
     }
 
@@ -56,19 +55,15 @@ public class a {
         this.f = str;
     }
 
-    public void a(int i) {
-        this.i = i;
-    }
-
     public void a() {
         this.k.clear();
     }
 
-    public com.baidu.adp.widget.a.b c(String str) {
+    public com.baidu.adp.widget.a.c c(String str) {
         return com.baidu.tbadk.a.e.a().b(str);
     }
 
-    public com.baidu.adp.widget.a.b d(String str) {
+    public com.baidu.adp.widget.a.c d(String str) {
         return com.baidu.tbadk.a.e.a().c(str);
     }
 
@@ -76,29 +71,29 @@ public class a {
         com.baidu.tbadk.a.e.a().a(str);
     }
 
-    public com.baidu.adp.widget.a.b a(String str, com.baidu.tbadk.a.d dVar) {
+    public com.baidu.adp.widget.a.c a(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 0, true);
     }
 
-    public com.baidu.adp.widget.a.b b(String str, com.baidu.tbadk.a.d dVar) {
+    public com.baidu.adp.widget.a.c b(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 1, true);
     }
 
-    public com.baidu.adp.widget.a.b c(String str, com.baidu.tbadk.a.d dVar) {
+    public com.baidu.adp.widget.a.c c(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 1, false);
     }
 
-    public com.baidu.adp.widget.a.b d(String str, com.baidu.tbadk.a.d dVar) {
+    public com.baidu.adp.widget.a.c d(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 2, true);
     }
 
-    public com.baidu.adp.widget.a.b e(String str, com.baidu.tbadk.a.d dVar) {
+    public com.baidu.adp.widget.a.c e(String str, com.baidu.tbadk.a.d dVar) {
         return a(str, dVar, 4, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.adp.widget.a.b a(String str, com.baidu.tbadk.a.d dVar, Integer num, boolean z) {
-        com.baidu.adp.widget.a.b c;
+    public com.baidu.adp.widget.a.c a(String str, com.baidu.tbadk.a.d dVar, Integer num, boolean z) {
+        com.baidu.adp.widget.a.c c;
         if (str == null) {
             return null;
         }
@@ -112,14 +107,14 @@ public class a {
             try {
                 int size = this.j.size();
                 for (int i = 0; i < size; i++) {
-                    if (((d) this.j.get(i)).b().equals(str)) {
+                    if (this.j.get(i).b().equals(str)) {
                         return null;
                     }
                 }
                 if (this.d && this.k != null) {
                     int size2 = this.k.size();
                     for (int i2 = 0; i2 < size2; i2++) {
-                        if (((c) this.k.get(i2)).f1797a != null && ((c) this.k.get(i2)).f1797a.equals(str)) {
+                        if (this.k.get(i2).f1917a != null && this.k.get(i2).f1917a.equals(str)) {
                             return null;
                         }
                     }
@@ -128,13 +123,13 @@ public class a {
                     if (this.d) {
                         c cVar = new c(this, null);
                         cVar.c = dVar;
-                        cVar.f1797a = str;
+                        cVar.f1917a = str;
                         cVar.b = num.intValue();
                         cVar.d = z;
                         this.k.add(cVar);
                         return null;
                     }
-                    com.baidu.adp.lib.c.c.a().a(((d) this.j.get(0)).c, TiebaApplication.g());
+                    com.baidu.adp.lib.c.c.a().a(this.j.get(0).c, TiebaApplication.g());
                 }
                 d dVar2 = new d(str, num.intValue(), dVar, z);
                 this.j.add(dVar2);
@@ -142,11 +137,11 @@ public class a {
                 fVar.a("ImageAsyncTaskInfo", dVar2);
                 fVar.a("AsyncImageLoader", this);
                 Object a2 = com.baidu.adp.lib.c.c.a().a(str, (num.intValue() == 0 || num.intValue() == 4) ? 2 : 1, new b(this, dVar2), TiebaApplication.g(), fVar, num.intValue() != 0 ? 2 : 1);
-                if (a2 != null && (a2 instanceof com.baidu.adp.widget.a.b)) {
-                    return (com.baidu.adp.widget.a.b) a2;
+                if (a2 != null && (a2 instanceof com.baidu.adp.widget.a.c)) {
+                    return (com.baidu.adp.widget.a.c) a2;
                 }
             } catch (Exception e) {
-                aq.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
+                av.b("AsyncImageLoader", "loadBitmap", "error = " + e.getMessage());
             }
             return null;
         }
@@ -159,7 +154,7 @@ public class a {
         while (true) {
             int i2 = i;
             if (i2 < this.j.size()) {
-                d dVar = (d) this.j.get(i2);
+                d dVar = this.j.get(i2);
                 if (dVar != null) {
                     com.baidu.adp.lib.c.c.a().a(dVar.c, TiebaApplication.g());
                 }
@@ -178,5 +173,13 @@ public class a {
 
     public void c(boolean z) {
         this.g = z;
+    }
+
+    public boolean c() {
+        return this.i;
+    }
+
+    public void d(boolean z) {
+        this.i = z;
     }
 }

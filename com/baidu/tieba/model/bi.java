@@ -1,7 +1,5 @@
 package com.baidu.tieba.model;
-
-import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
 public interface bi {
-    void a(boolean z, String str, com.baidu.tieba.data.bj bjVar, WriteData writeData);
+    void a(boolean z, int i, String str, com.baidu.tieba.data.bd bdVar);
 }

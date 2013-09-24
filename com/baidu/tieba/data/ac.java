@@ -9,19 +9,19 @@ import org.json.JSONObject;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f975a;
+    private String f993a;
     private String b;
     private int c;
     private AntiData d;
     private Context e;
-    private LinkedList f;
+    private LinkedList<ab> f;
     private String g;
     private String h;
     private String i;
     private String j;
 
     public ac(Context context) {
-        this.f975a = null;
+        this.f993a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
@@ -32,7 +32,7 @@ public class ac {
         this.i = null;
         this.j = null;
         this.e = context;
-        this.f = new LinkedList();
+        this.f = new LinkedList<>();
         this.d = new AntiData();
     }
 
@@ -73,7 +73,7 @@ public class ac {
     }
 
     public ac() {
-        this.f975a = null;
+        this.f993a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
@@ -83,7 +83,7 @@ public class ac {
         this.h = null;
         this.i = null;
         this.j = null;
-        this.f = new LinkedList();
+        this.f = new LinkedList<>();
         this.d = new AntiData();
     }
 
@@ -91,20 +91,20 @@ public class ac {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
-    public LinkedList h() {
+    public LinkedList<ab> h() {
         return this.f;
     }
 
     public void c(String str) {
-        this.f975a = str;
+        this.f993a = str;
     }
 
     public String i() {
-        return this.f975a;
+        return this.f993a;
     }
 
     public String j() {
@@ -116,7 +116,7 @@ public class ac {
     }
 
     public String l() {
-        return this.f.size() > 0 ? ((ab) this.f.get(this.f.size() - 1)).c() : "";
+        return this.f.size() > 0 ? this.f.get(this.f.size() - 1).c() : "";
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -124,7 +124,7 @@ public class ac {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.f975a = optJSONObject.optString("name");
+                    this.f993a = optJSONObject.optString("name");
                     this.b = optJSONObject.optString(LocaleUtil.INDONESIAN);
                 }
                 this.c = jSONObject.optInt("pic_amount", 0);
@@ -154,7 +154,7 @@ public class ac {
                 this.g = optJSONObject2.optString("tid");
                 this.h = optJSONObject2.optString("title");
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "paserJson", e.toString());
+                com.baidu.tieba.util.av.b(getClass().getName(), "paserJson", e.toString());
             }
         }
     }

@@ -11,62 +11,62 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 /* loaded from: classes.dex */
-public abstract class TypeAdapter {
-    public abstract Object read(JsonReader jsonReader);
+public abstract class TypeAdapter<T> {
+    public abstract T read(JsonReader jsonReader);
 
-    public abstract void write(JsonWriter jsonWriter, Object obj);
+    public abstract void write(JsonWriter jsonWriter, T t);
 
-    public final void toJson(Writer writer, Object obj) {
-        write(new JsonWriter(writer), obj);
+    public final void toJson(Writer writer, T t) {
+        write(new JsonWriter(writer), t);
     }
 
-    public final TypeAdapter nullSafe() {
-        return new TypeAdapter() { // from class: com.google.gson.TypeAdapter.1
+    public final TypeAdapter<T> nullSafe() {
+        return new TypeAdapter<T>() { // from class: com.google.gson.TypeAdapter.1
             @Override // com.google.gson.TypeAdapter
-            public void write(JsonWriter jsonWriter, Object obj) {
-                if (obj == null) {
+            public void write(JsonWriter jsonWriter, T t) {
+                if (t == null) {
                     jsonWriter.nullValue();
                 } else {
-                    TypeAdapter.this.write(jsonWriter, obj);
+                    TypeAdapter.this.write(jsonWriter, t);
                 }
             }
 
             @Override // com.google.gson.TypeAdapter
-            public Object read(JsonReader jsonReader) {
+            public T read(JsonReader jsonReader) {
                 if (jsonReader.peek() == JsonToken.NULL) {
                     jsonReader.nextNull();
                     return null;
                 }
-                return TypeAdapter.this.read(jsonReader);
+                return (T) TypeAdapter.this.read(jsonReader);
             }
         };
     }
 
-    public final String toJson(Object obj) {
+    public final String toJson(T t) {
         StringWriter stringWriter = new StringWriter();
-        toJson(stringWriter, obj);
+        toJson(stringWriter, t);
         return stringWriter.toString();
     }
 
-    public final JsonElement toJsonTree(Object obj) {
+    public final JsonElement toJsonTree(T t) {
         try {
             JsonTreeWriter jsonTreeWriter = new JsonTreeWriter();
-            write(jsonTreeWriter, obj);
+            write(jsonTreeWriter, t);
             return jsonTreeWriter.get();
         } catch (IOException e) {
             throw new JsonIOException(e);
         }
     }
 
-    public final Object fromJson(Reader reader) {
+    public final T fromJson(Reader reader) {
         return read(new JsonReader(reader));
     }
 
-    public final Object fromJson(String str) {
+    public final T fromJson(String str) {
         return fromJson(new StringReader(str));
     }
 
-    public final Object fromJsonTree(JsonElement jsonElement) {
+    public final T fromJsonTree(JsonElement jsonElement) {
         try {
             return read(new JsonTreeReader(jsonElement));
         } catch (IOException e) {

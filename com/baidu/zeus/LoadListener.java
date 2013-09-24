@@ -46,7 +46,7 @@ public class LoadListener extends Handler implements EventHandler {
     private static final int MSG_SSL_ERROR = 180;
     private static final int MSG_STATUS = 160;
     private static final String XML_MIME_TYPE = "^[\\w_\\-+~!$\\^{}|.%'`#&*]+/[\\w_\\-+~!$\\^{}|.%'`#&*]+\\+xml$";
-    private static HashMap sCertificateTypeMap;
+    private static HashMap<String, String> sCertificateTypeMap;
     private static int sNativeLoaderCount;
     private boolean mAuthFailed;
     private HttpAuthHeader mAuthHeader;
@@ -61,7 +61,7 @@ public class LoadListener extends Handler implements EventHandler {
     private Headers mHeaders;
     private boolean mIsMainPageLoader;
     private final boolean mIsMainResourceLoader;
-    private Vector mMessageQueue;
+    private Vector<Message> mMessageQueue;
     private String mMethod;
     private String mMimeType;
     private int mNativeLoader;
@@ -71,7 +71,7 @@ public class LoadListener extends Handler implements EventHandler {
     private byte[] mPostData;
     private long mPostIdentifier;
     private RequestHandle mRequestHandle;
-    private Map mRequestHeaders;
+    private Map<String, String> mRequestHeaders;
     private SslError mSslError;
     private RequestHandle mSslErrorRequestHandle;
     private int mStatusCode;
@@ -109,7 +109,7 @@ public class LoadListener extends Handler implements EventHandler {
 
     static {
         $assertionsDisabled = !LoadListener.class.desiredAssertionStatus();
-        sCertificateTypeMap = new HashMap();
+        sCertificateTypeMap = new HashMap<>();
         sCertificateTypeMap.put("application/x-x509-ca-cert", "CERT");
         sCertificateTypeMap.put("application/x-x509-user-cert", "CERT");
         sCertificateTypeMap.put("application/x-pkcs12", "PKCS12");
@@ -135,7 +135,7 @@ public class LoadListener extends Handler implements EventHandler {
         this.mNativeLoader = i;
         this.mSynchronous = z;
         if (z) {
-            this.mMessageQueue = new Vector();
+            this.mMessageQueue = new Vector<>();
         }
         this.mIsMainPageLoader = z2;
         this.mIsMainResourceLoader = z3;
@@ -217,9 +217,9 @@ public class LoadListener extends Handler implements EventHandler {
     @Override // com.baidu.zeus.EventHandler
     public void headers(Headers headers) {
         if (!this.mCancelled) {
-            ArrayList setCookie = headers.getSetCookie();
+            ArrayList<String> setCookie = headers.getSetCookie();
             for (int i = 0; i < setCookie.size(); i++) {
-                CookieManager.getInstance().setCookie(this.mUri, (String) setCookie.get(i));
+                CookieManager.getInstance().setCookie(this.mUri, setCookie.get(i));
             }
             String contentType = headers.getContentType();
             if (contentType != null && contentType.startsWith("text/vnd.wap.wml")) {
@@ -487,7 +487,7 @@ public class LoadListener extends Handler implements EventHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean checkCache(Map map) {
+    public boolean checkCache(Map<String, String> map) {
         CacheManager.CacheResult cacheFile = CacheManager.getCacheFile(url(), this.mPostIdentifier, map, this.mType);
         this.mCacheLoader = null;
         this.mFromCache = false;
@@ -585,7 +585,7 @@ public class LoadListener extends Handler implements EventHandler {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setRequestData(String str, Map map, byte[] bArr) {
+    public void setRequestData(String str, Map<String, String> map, byte[] bArr) {
         this.mMethod = str;
         this.mRequestHeaders = map;
         this.mPostData = bArr;
@@ -690,7 +690,7 @@ public class LoadListener extends Handler implements EventHandler {
         String str;
         int i = 0;
         if (!this.mCancelled) {
-            if (this.mIsMainPageLoader && (str = (String) sCertificateTypeMap.get(this.mMimeType)) != null) {
+            if (this.mIsMainPageLoader && (str = sCertificateTypeMap.get(this.mMimeType)) != null) {
                 synchronized (this.mDataBuilder) {
                     byte[] bArr = new byte[this.mDataBuilder.getByteSize()];
                     while (true) {
@@ -1015,7 +1015,7 @@ public class LoadListener extends Handler implements EventHandler {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadSynchronousMessages() {
         while (!this.mMessageQueue.isEmpty()) {
-            handleMessage((Message) this.mMessageQueue.remove(0));
+            handleMessage(this.mMessageQueue.remove(0));
         }
     }
 

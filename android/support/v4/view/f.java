@@ -8,53 +8,53 @@ import android.view.accessibility.AccessibilityEvent;
 class f implements m {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f325a;
+    final /* synthetic */ a f329a;
     final /* synthetic */ e b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, a aVar) {
         this.b = eVar;
-        this.f325a = aVar;
+        this.f329a = aVar;
     }
 
     @Override // android.support.v4.view.m
     public boolean a(View view, AccessibilityEvent accessibilityEvent) {
-        return this.f325a.b(view, accessibilityEvent);
+        return this.f329a.b(view, accessibilityEvent);
     }
 
     @Override // android.support.v4.view.m
     public void b(View view, AccessibilityEvent accessibilityEvent) {
-        this.f325a.d(view, accessibilityEvent);
+        this.f329a.d(view, accessibilityEvent);
     }
 
     @Override // android.support.v4.view.m
     public void a(View view, Object obj) {
-        this.f325a.a(view, new android.support.v4.view.a.a(obj));
+        this.f329a.a(view, new android.support.v4.view.a.a(obj));
     }
 
     @Override // android.support.v4.view.m
     public void c(View view, AccessibilityEvent accessibilityEvent) {
-        this.f325a.c(view, accessibilityEvent);
+        this.f329a.c(view, accessibilityEvent);
     }
 
     @Override // android.support.v4.view.m
     public boolean a(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
-        return this.f325a.a(viewGroup, view, accessibilityEvent);
+        return this.f329a.a(viewGroup, view, accessibilityEvent);
     }
 
     @Override // android.support.v4.view.m
     public void a(View view, int i) {
-        this.f325a.a(view, i);
+        this.f329a.a(view, i);
     }
 
     @Override // android.support.v4.view.m
     public void d(View view, AccessibilityEvent accessibilityEvent) {
-        this.f325a.a(view, accessibilityEvent);
+        this.f329a.a(view, accessibilityEvent);
     }
 
     @Override // android.support.v4.view.m
     public Object a(View view) {
-        android.support.v4.view.a.g a2 = this.f325a.a(view);
+        android.support.v4.view.a.g a2 = this.f329a.a(view);
         if (a2 != null) {
             return a2.a();
         }
@@ -63,6 +63,6 @@ class f implements m {
 
     @Override // android.support.v4.view.m
     public boolean a(View view, int i, Bundle bundle) {
-        return this.f325a.a(view, i, bundle);
+        return this.f329a.a(view, i, bundle);
     }
 }

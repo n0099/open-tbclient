@@ -7,16 +7,16 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends BdAsyncTask {
+public class ac extends BdAsyncTask<String, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.v f870a;
+    com.baidu.tieba.util.z f886a;
     final /* synthetic */ LoginActivity b;
     private volatile boolean c;
 
     private ac(LoginActivity loginActivity) {
         this.b = loginActivity;
-        this.f870a = null;
+        this.f886a = null;
         this.c = false;
     }
 
@@ -28,9 +28,9 @@ public class ac extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.b.S = null;
-        if (this.f870a != null) {
-            this.f870a.h();
-            this.f870a = null;
+        if (this.f886a != null) {
+            this.f886a.h();
+            this.f886a = null;
         }
         this.c = true;
         super.cancel(true);
@@ -52,8 +52,8 @@ public class ac extends BdAsyncTask {
         if (str == null || str.length() <= 0 || this.c) {
             return null;
         }
-        this.f870a = new com.baidu.tieba.util.v(str);
-        return com.baidu.tieba.util.e.a(this.f870a.i());
+        this.f886a = new com.baidu.tieba.util.z(str);
+        return com.baidu.tieba.util.e.a(this.f886a.i());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -73,6 +73,6 @@ public class ac extends BdAsyncTask {
         }
         progressBar = this.b.A;
         progressBar.setVisibility(8);
-        super.a((Object) bitmap);
+        super.a((ac) bitmap);
     }
 }

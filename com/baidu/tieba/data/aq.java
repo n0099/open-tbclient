@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class aq {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f989a = new ArrayList();
+    private ArrayList<UserData> f1007a = new ArrayList<>();
     private an b = new an();
 
     public void a(an anVar) {
@@ -18,15 +18,15 @@ public class aq {
         return this.b;
     }
 
-    public ArrayList b() {
-        return this.f989a;
+    public ArrayList<UserData> b() {
+        return this.f1007a;
     }
 
     public void a(String str) {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.getMessage());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
@@ -38,12 +38,12 @@ public class aq {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.f989a.add(userData);
+                        this.f1007a.add(userData);
                     }
                 }
                 this.b.a(jSONObject.optJSONObject("page"));
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.getMessage());
+                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

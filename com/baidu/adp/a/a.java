@@ -14,7 +14,7 @@ public class a extends Activity implements DialogInterface.OnClickListener, View
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,12 +22,12 @@ public class a extends Activity implements DialogInterface.OnClickListener, View
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView adapterView, View view, int i, long j) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         return true;
     }
 
     public void a(String str) {
-        com.baidu.adp.lib.e.e.a(getApplicationContext(), str);
+        com.baidu.adp.lib.f.f.a(getApplicationContext(), str);
     }
 
     public void a_() {

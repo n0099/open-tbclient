@@ -6,8 +6,8 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public interface UrlInterceptHandler {
     @Deprecated
-    PluginData getPluginData(String str, Map map);
+    PluginData getPluginData(String str, Map<String, String> map);
 
     @Deprecated
-    CacheManager.CacheResult service(String str, Map map);
+    CacheManager.CacheResult service(String str, Map<String, String> map);
 }

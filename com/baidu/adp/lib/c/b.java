@@ -1,18 +1,18 @@
 package com.baidu.adp.lib.c;
 /* loaded from: classes.dex */
-public abstract class b {
+public abstract class b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f367a;
+    private boolean f371a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a() {
-        this.f367a = true;
+        this.f371a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean b() {
-        return this.f367a;
+        return this.f371a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,7 +24,7 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Object obj, String str, f fVar) {
+    public void a(T t, String str, f fVar) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

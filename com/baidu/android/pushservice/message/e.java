@@ -8,13 +8,13 @@ import android.net.Uri;
 class e implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f614a;
+    final /* synthetic */ Context f626a;
     final /* synthetic */ PublicMsg b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PublicMsg publicMsg, Context context) {
         this.b = publicMsg;
-        this.f614a = context;
+        this.f626a = context;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -23,6 +23,6 @@ class e implements DialogInterface.OnClickListener {
         intent.setAction("android.intent.action.VIEW");
         intent.setData(Uri.parse(this.b.e));
         intent.addFlags(268435456);
-        this.f614a.startActivity(intent);
+        this.f626a.startActivity(intent);
     }
 }

@@ -4,24 +4,70 @@ import android.os.Handler;
 import android.os.SystemClock;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes.dex */
-public abstract class AsyncTaskLoader extends c {
+public abstract class AsyncTaskLoader<D> extends c<D> {
 
     /* renamed from: a  reason: collision with root package name */
-    volatile a f297a;
-    volatile a b;
+    volatile AsyncTaskLoader<D>.a f297a;
+    volatile AsyncTaskLoader<D>.a b;
     long c;
     long d;
     Handler e;
 
-    public abstract Object d();
+    public abstract D d();
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public final class a extends ModernAsyncTask<Void, Void, D> implements Runnable {
+
+        /* renamed from: a  reason: collision with root package name */
+        D f300a;
+        boolean b;
+        private CountDownLatch e = new CountDownLatch(1);
+
+        a() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // android.support.v4.content.ModernAsyncTask
+        public D a(Void... voidArr) {
+            this.f300a = (D) AsyncTaskLoader.this.e();
+            return this.f300a;
+        }
+
+        @Override // android.support.v4.content.ModernAsyncTask
+        protected void a(D d) {
+            try {
+                AsyncTaskLoader.this.b(this, d);
+            } finally {
+                this.e.countDown();
+            }
+        }
+
+        @Override // android.support.v4.content.ModernAsyncTask
+        protected void a() {
+            try {
+                AsyncTaskLoader.this.a((AsyncTaskLoader<a>.a) this, (a) this.f300a);
+            } finally {
+                this.e.countDown();
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            this.b = false;
+            AsyncTaskLoader.this.c();
+        }
+    }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.content.c
     public void a() {
         super.a();
         b();
-        this.f297a = new a(this);
+        this.f297a = new a();
         c();
     }
 
@@ -49,11 +95,10 @@ public abstract class AsyncTaskLoader extends c {
         return z;
     }
 
-    public void a(Object obj) {
+    public void a(D d) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
+    void c() {
         if (this.b == null && this.f297a != null) {
             if (this.f297a.b) {
                 this.f297a.b = false;
@@ -64,13 +109,12 @@ public abstract class AsyncTaskLoader extends c {
                 this.e.postAtTime(this.f297a, this.d + this.c);
                 return;
             }
-            this.f297a.a(ModernAsyncTask.d, (Object[]) null);
+            this.f297a.a(ModernAsyncTask.d, null);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a aVar, Object obj) {
-        a(obj);
+    void a(AsyncTaskLoader<D>.a aVar, D d) {
+        a((AsyncTaskLoader<D>) d);
         if (this.b == aVar) {
             this.d = SystemClock.uptimeMillis();
             this.b = null;
@@ -78,21 +122,19 @@ public abstract class AsyncTaskLoader extends c {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(a aVar, Object obj) {
+    void b(AsyncTaskLoader<D>.a aVar, D d) {
         if (this.f297a != aVar) {
-            a(aVar, obj);
+            a((AsyncTaskLoader<AsyncTaskLoader<D>.a>.a) aVar, (AsyncTaskLoader<D>.a) d);
         } else if (l()) {
-            a(obj);
+            a((AsyncTaskLoader<D>) d);
         } else {
             this.d = SystemClock.uptimeMillis();
             this.f297a = null;
-            b(obj);
+            b(d);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Object e() {
+    protected D e() {
         return d();
     }
 

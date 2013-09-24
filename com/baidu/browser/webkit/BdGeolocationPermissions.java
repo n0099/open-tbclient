@@ -3,6 +3,7 @@ package com.baidu.browser.webkit;
 import android.webkit.GeolocationPermissions;
 import com.baidu.zeus.GeolocationPermissions;
 import com.baidu.zeus.ValueCallback;
+import java.util.Set;
 /* loaded from: classes.dex */
 public final class BdGeolocationPermissions {
     private static BdGeolocationPermissions sSysInstance;
@@ -85,7 +86,7 @@ public final class BdGeolocationPermissions {
         return this.mZeusGeolocationPermissions != null ? this.mZeusGeolocationPermissions : this.mSysGeolocationPermissions;
     }
 
-    public void getOrigins(BdValueCallback bdValueCallback) {
+    public void getOrigins(BdValueCallback<Set<String>> bdValueCallback) {
         if (this.mZeusGeolocationPermissions != null) {
             this.mZeusGeolocationPermissions.getOrigins((ValueCallback) bdValueCallback.unwrap());
         } else {
@@ -93,7 +94,7 @@ public final class BdGeolocationPermissions {
         }
     }
 
-    public void getAllowed(String str, BdValueCallback bdValueCallback) {
+    public void getAllowed(String str, BdValueCallback<Boolean> bdValueCallback) {
         if (this.mZeusGeolocationPermissions != null) {
             this.mZeusGeolocationPermissions.getAllowed(str, (ValueCallback) bdValueCallback.unwrap());
         } else {

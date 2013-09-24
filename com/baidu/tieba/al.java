@@ -1,77 +1,81 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.data.AccountData;
+import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
-public class al extends BdAsyncTask {
+class al implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f923a;
-
-    private al(TiebaApplication tiebaApplication) {
-        this.f923a = tiebaApplication;
-    }
+    final /* synthetic */ TiebaApplication f938a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ al(TiebaApplication tiebaApplication, al alVar) {
-        this(tiebaApplication);
+    public al(TiebaApplication tiebaApplication) {
+        this.f938a = tiebaApplication;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Address a(Location... locationArr) {
-        List<Address> list;
-        Geocoder geocoder = new Geocoder(TiebaApplication.g(), Locale.getDefault());
-        if (locationArr == null || locationArr.length < 1) {
-            return null;
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        long j;
+        switch (message.what) {
+            case 1:
+                com.baidu.tieba.util.av.b("TiebaApplication", "handleMessage", "Do Aoto Login" + String.valueOf(message.what));
+                if (TiebaApplication.n()) {
+                    TiebaApplication.a((AccountData) null, this.f938a.getBaseContext());
+                    MainTabActivity.b(this.f938a, -1, true);
+                    break;
+                } else {
+                    Intent intent = new Intent(TiebaApplication.g(), LoginActivity.class);
+                    String string = message.getData().getString("account");
+                    if (string == null) {
+                        string = "";
+                    }
+                    intent.putExtra("account", string);
+                    intent.putExtra("has_exit_dialog", false);
+                    intent.setFlags(268435456);
+                    TiebaApplication.g().startActivity(intent);
+                    break;
+                }
+            case 2:
+                com.baidu.tieba.mention.s.a().f();
+                break;
+            case 3:
+                com.baidu.tieba.mention.s.a().h();
+                break;
+            case 4:
+                long nanoTime = System.nanoTime();
+                j = this.f938a.q;
+                long j2 = (((nanoTime - j) / 1000000) - Util.MILLSECONDS_OF_MINUTE) / 1000;
+                if (j2 > 0) {
+                    new com.baidu.tieba.account.ag("use", String.valueOf(j2)).start();
+                }
+                this.f938a.q = 0L;
+                break;
+            case 5:
+                this.f938a.aJ();
+                String str = "";
+                switch (this.f938a.B) {
+                    case 1:
+                        str = this.f938a.getString(R.string.loc_gps_off);
+                        break;
+                    case 2:
+                        str = this.f938a.getString(R.string.loc_net_off);
+                        break;
+                    case 3:
+                        str = this.f938a.getString(R.string.loc_gps_net_off);
+                        break;
+                    case 4:
+                        str = this.f938a.getString(R.string.loc_out_of_time);
+                        break;
+                }
+                this.f938a.a(this.f938a.B, str, (Address) null);
+                break;
         }
-        Location location = locationArr[0];
-        try {
-            list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-        } catch (IOException e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e.toString());
-            list = null;
-        } catch (IllegalArgumentException e2) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e2.toString());
-            list = null;
-        }
-        if (list == null || list.size() <= 0) {
-            return null;
-        }
-        Address address = list.get(0);
-        StringBuffer stringBuffer = new StringBuffer();
-        if (address.getSubLocality() == null || address.getThoroughfare() == null) {
-            stringBuffer.append(address.getLocality());
-        }
-        stringBuffer.append(address.getSubLocality());
-        stringBuffer.append(address.getThoroughfare());
-        address.setAddressLine(0, stringBuffer.toString());
-        return address;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        cancel(true);
-        this.f923a.G = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Address address) {
-        super.a((Object) address);
-        if (address != null) {
-            this.f923a.aJ();
-            this.f923a.a(0, "", address);
-            this.f923a.F = address;
-        }
-        this.f923a.G = null;
+        return false;
     }
 }

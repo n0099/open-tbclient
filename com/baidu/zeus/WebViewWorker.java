@@ -31,7 +31,7 @@ public final class WebViewWorker extends Handler {
     static final int MSG_UPDATE_CACHE_ENCODING = 104;
     static final int MSG_UPDATE_CACHE_EXPIRES = 114;
     private static final String THREAD_NAME = "WebViewWorkerThread";
-    private static Map mCacheResultMap;
+    private static Map<LoadListener, CacheManager.CacheResult> mCacheResultMap;
     private static boolean mCacheTickersBlocked;
     private static WebViewWorker sWorkerHandler;
 
@@ -120,7 +120,7 @@ public final class WebViewWorker extends Handler {
                     throw new AssertionError();
                 }
                 CacheEncoding cacheEncoding = (CacheEncoding) message.obj;
-                CacheManager.CacheResult cacheResult = (CacheManager.CacheResult) mCacheResultMap.get(cacheEncoding.mListener);
+                CacheManager.CacheResult cacheResult = mCacheResultMap.get(cacheEncoding.mListener);
                 if (cacheResult != null) {
                     cacheResult.encoding = cacheEncoding.mEncoding;
                     return;
@@ -131,7 +131,7 @@ public final class WebViewWorker extends Handler {
                     throw new AssertionError();
                 }
                 CacheData cacheData = (CacheData) message.obj;
-                CacheManager.CacheResult cacheResult2 = (CacheManager.CacheResult) mCacheResultMap.get(cacheData.mListener);
+                CacheManager.CacheResult cacheResult2 = mCacheResultMap.get(cacheData.mListener);
                 if (cacheResult2 != null) {
                     cacheResult2.contentLength += cacheData.mChunk.mLength;
                     if (cacheResult2.contentLength > CacheManager.CACHE_MAX_SIZE) {
@@ -153,7 +153,7 @@ public final class WebViewWorker extends Handler {
                     throw new AssertionError();
                 }
                 CacheSaveData cacheSaveData = (CacheSaveData) message.obj;
-                CacheManager.CacheResult cacheResult3 = (CacheManager.CacheResult) mCacheResultMap.get(cacheSaveData.mListener);
+                CacheManager.CacheResult cacheResult3 = mCacheResultMap.get(cacheSaveData.mListener);
                 if (cacheResult3 != null) {
                     CacheManager.saveCacheFile(cacheSaveData.mUrl, cacheSaveData.mPostId, cacheResult3, cacheSaveData.mListener.pageType());
                     mCacheResultMap.remove(cacheSaveData.mListener);
@@ -165,7 +165,7 @@ public final class WebViewWorker extends Handler {
                     throw new AssertionError();
                 }
                 LoadListener loadListener = (LoadListener) message.obj;
-                CacheManager.CacheResult cacheResult4 = (CacheManager.CacheResult) mCacheResultMap.get(loadListener);
+                CacheManager.CacheResult cacheResult4 = mCacheResultMap.get(loadListener);
                 if (cacheResult4 != null) {
                     CacheManager.cleanupCacheFile(cacheResult4);
                     mCacheResultMap.remove(loadListener);
@@ -220,7 +220,7 @@ public final class WebViewWorker extends Handler {
                 return;
             case MSG_UPDATE_CACHE_EXPIRES /* 114 */:
                 LoadListener loadListener2 = (LoadListener) message.obj;
-                CacheManager.CacheResult cacheResult5 = (CacheManager.CacheResult) mCacheResultMap.get(loadListener2);
+                CacheManager.CacheResult cacheResult5 = mCacheResultMap.get(loadListener2);
                 if (cacheResult5 == null) {
                     cacheResult5 = CacheManager.getCacheResult(loadListener2.url(), loadListener2.postIdentifier(), loadListener2.pageType());
                 }
@@ -235,7 +235,7 @@ public final class WebViewWorker extends Handler {
     }
 
     static void appendCache(CacheData cacheData) {
-        CacheManager.CacheResult cacheResult = (CacheManager.CacheResult) mCacheResultMap.get(cacheData.mListener);
+        CacheManager.CacheResult cacheResult = mCacheResultMap.get(cacheData.mListener);
         if (cacheResult != null) {
             cacheResult.contentLength += cacheData.mChunk.mLength;
             if (cacheResult.contentLength > CacheManager.CACHE_MAX_SIZE) {

@@ -1,41 +1,45 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.View;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-class aw implements Handler.Callback {
+class aw implements com.baidu.adp.lib.b.c<View> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1499a;
+    final /* synthetic */ NewPbActivity f1542a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(NewPbActivity newPbActivity) {
-        this.f1499a = newPbActivity;
+        this.f1542a = newPbActivity;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        com.baidu.tieba.model.bb bbVar;
-        bo boVar;
-        bo boVar2;
-        switch (message.what) {
-            case 0:
-                boVar2 = this.f1499a.q;
-                boVar2.S();
-                return false;
-            case 1:
-                boVar = this.f1499a.q;
-                boVar.R();
-                return false;
-            case 2:
-                bbVar = this.f1499a.k;
-                if (!bbVar.s()) {
-                    return false;
-                }
-                this.f1499a.p();
-                return false;
-            default:
-                return false;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.b.c
+    /* renamed from: b */
+    public View a() {
+        return new PlayVoiceBnt(this.f1542a, PlayVoiceBnt.PLAY_TYPE.NORMAL);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.b.c
+    public void a(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view;
+        playVoiceBnt.setVoiceModel(null);
+        playVoiceBnt.setTag(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.b.c
+    public View b(View view) {
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.b.c
+    public View c(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view;
+        playVoiceBnt.setVoiceModel(null);
+        playVoiceBnt.setTag(null);
+        return view;
     }
 }

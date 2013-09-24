@@ -7,7 +7,7 @@ import android.os.IBinder;
 public class FatalErrorService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f1702a = null;
+    private d f1777a = null;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -22,17 +22,17 @@ public class FatalErrorService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (this.f1702a != null) {
-            this.f1702a.cancel();
+        if (this.f1777a != null) {
+            this.f1777a.cancel();
         }
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.f1702a == null) {
-            this.f1702a = new d(this, null);
-            this.f1702a.execute(new String[0]);
+        if (this.f1777a == null) {
+            this.f1777a = new d(this, null);
+            this.f1777a.execute(new String[0]);
         }
     }
 }

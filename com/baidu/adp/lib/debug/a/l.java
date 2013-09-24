@@ -8,24 +8,24 @@ import java.util.List;
 public class l extends a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private ActivityManager f403a;
+    private ActivityManager f405a;
     private String b;
 
     public l(Context context) {
-        this.f403a = null;
+        this.f405a = null;
         this.b = null;
         this.b = context.getPackageName();
-        this.f403a = (ActivityManager) context.getSystemService("activity");
+        this.f405a = (ActivityManager) context.getSystemService("activity");
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0039: IGET  (r0v5 int A[REMOVE]) = (r0v4 android.app.ActivityManager$RunningAppProcessInfo) android.app.ActivityManager.RunningAppProcessInfo.importance int)] */
     public String d() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.f403a.getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.f405a.getRunningAppProcesses();
         for (int i = 0; i < runningAppProcesses.size(); i++) {
             ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
             int i2 = runningAppProcessInfo.pid;
             String str = runningAppProcessInfo.processName;
-            int i3 = this.f403a.getProcessMemoryInfo(new int[]{i2})[0].dalvikPrivateDirty;
+            int i3 = this.f405a.getProcessMemoryInfo(new int[]{i2})[0].dalvikPrivateDirty;
             if (this.b.contains(str)) {
                 Log.i("processInfo", new StringBuilder().append(runningAppProcessInfo.importance).toString());
                 return String.valueOf(i3) + "kb";

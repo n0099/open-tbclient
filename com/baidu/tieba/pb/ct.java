@@ -1,27 +1,32 @@
 package com.baidu.tieba.pb;
-
-import android.util.SparseArray;
-import android.view.View;
-import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class ct implements View.OnClickListener {
+class ct implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1549a;
+    final /* synthetic */ cr f1591a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(bo boVar) {
-        this.f1549a = boVar;
+    public ct(cr crVar) {
+        this.f1591a = crVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            if (!"".equals(sparseArray.get(R.id.tag_forbid_user_name)) && !"".equals(sparseArray.get(R.id.tag_del_post_id))) {
-                this.f1549a.a(view);
-            } else {
-                this.f1549a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+    @Override // java.lang.Runnable
+    public void run() {
+        br brVar;
+        db dbVar;
+        br brVar2;
+        db dbVar2;
+        br brVar3;
+        db dbVar3;
+        brVar = this.f1591a.f1589a;
+        dbVar = brVar.E;
+        if (dbVar.l().getVisibility() != 0) {
+            brVar2 = this.f1591a.f1589a;
+            dbVar2 = brVar2.E;
+            if (dbVar2.k().getVisibility() != 0) {
+                brVar3 = this.f1591a.f1589a;
+                dbVar3 = brVar3.E;
+                dbVar3.m();
             }
         }
     }

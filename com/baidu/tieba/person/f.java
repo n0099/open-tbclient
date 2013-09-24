@@ -1,36 +1,51 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.frs.FrsActivity;
+import android.widget.Button;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements AdapterView.OnItemClickListener {
+public class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1644a;
+    final /* synthetic */ EditBarActivity f1692a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EditBarActivity editBarActivity) {
-        this.f1644a = editBarActivity;
+        this.f1692a = editBarActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
-        j jVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         i iVar;
-        j jVar2;
-        jVar = this.f1644a.e;
-        if (jVar.getItem(i) != null) {
-            iVar = this.f1644a.l;
-            if (iVar == null) {
-                this.f1644a.j = i;
-                jVar2 = this.f1644a.e;
-                com.baidu.tieba.data.v vVar = (com.baidu.tieba.data.v) jVar2.getItem(i);
-                if (vVar != null) {
-                    FrsActivity.a(this.f1644a, vVar.b(), "tb_mytieba");
-                }
-            }
+        i iVar2;
+        Button button;
+        Button button2;
+        i iVar3;
+        i iVar4;
+        Button button3;
+        Button button4;
+        i iVar5;
+        iVar = this.f1692a.f;
+        if (!iVar.a()) {
+            iVar4 = this.f1692a.f;
+            iVar4.a(true);
+            button3 = this.f1692a.d;
+            button3.setText(R.string.done);
+            button4 = this.f1692a.d;
+            com.baidu.tieba.util.as.h(button4, TiebaApplication.g().ap());
+            iVar5 = this.f1692a.f;
+            iVar5.notifyDataSetChanged();
+            return;
         }
+        iVar2 = this.f1692a.f;
+        iVar2.a(false);
+        button = this.f1692a.d;
+        button.setText(R.string.edit);
+        button2 = this.f1692a.d;
+        com.baidu.tieba.util.as.g(button2, TiebaApplication.g().ap());
+        iVar3 = this.f1692a.f;
+        iVar3.notifyDataSetChanged();
     }
 }

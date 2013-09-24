@@ -6,20 +6,20 @@ import android.view.View;
 class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PushTestActivity f622a;
+    final /* synthetic */ PushTestActivity f634a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(PushTestActivity pushTestActivity) {
-        this.f622a = pushTestActivity;
+        this.f634a = pushTestActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Intent intent = new Intent();
         new Intent(PushConstants.ACTION_METHOD).putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
-        intent.putExtra("package_name", this.f622a.getPackageName());
+        intent.putExtra("package_name", this.f634a.getPackageName());
         intent.putExtra(PushConstants.EXTRA_APP_ID, "101962");
-        intent.setClass(this.f622a, PushService.class);
-        this.f622a.startService(intent);
+        intent.setClass(this.f634a, PushService.class);
+        this.f634a.startService(intent);
     }
 }

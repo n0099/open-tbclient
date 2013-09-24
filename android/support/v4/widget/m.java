@@ -6,7 +6,7 @@ public class m {
     static final n b;
 
     /* renamed from: a  reason: collision with root package name */
-    Object f343a;
+    Object f347a;
 
     static {
         int i = Build.VERSION.SDK_INT;
@@ -20,34 +20,34 @@ public class m {
     }
 
     public boolean a() {
-        return b.a(this.f343a);
+        return b.a(this.f347a);
     }
 
     public int b() {
-        return b.b(this.f343a);
+        return b.b(this.f347a);
     }
 
     public int c() {
-        return b.c(this.f343a);
+        return b.c(this.f347a);
     }
 
     public int d() {
-        return b.f(this.f343a);
+        return b.f(this.f347a);
     }
 
     public int e() {
-        return b.g(this.f343a);
+        return b.g(this.f347a);
     }
 
     public boolean f() {
-        return b.d(this.f343a);
+        return b.d(this.f347a);
     }
 
     public void a(int i, int i2, int i3, int i4, int i5) {
-        b.a(this.f343a, i, i2, i3, i4, i5);
+        b.a(this.f347a, i, i2, i3, i4, i5);
     }
 
     public void g() {
-        b.e(this.f343a);
+        b.e(this.f347a);
     }
 }

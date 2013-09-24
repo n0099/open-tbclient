@@ -3,21 +3,21 @@ package com.baidu.tieba.chat;
 import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-class a implements com.baidu.adp.lib.b.c {
+class a implements com.baidu.adp.lib.b.c<ImageView> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f935a;
+    final /* synthetic */ ChatActivity f953a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChatActivity chatActivity) {
-        this.f935a = chatActivity;
+        this.f953a = chatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.b.c
     /* renamed from: b */
     public ImageView a() {
-        return new TbImageView(this.f935a);
+        return new TbImageView(this.f953a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

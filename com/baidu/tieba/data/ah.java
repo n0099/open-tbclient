@@ -5,14 +5,14 @@ import org.json.JSONObject;
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f980a = null;
+    private String f998a = null;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f980a = jSONObject.optString("name");
+                this.f998a = jSONObject.optString("name");
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b("LocationData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.av.b("LocationData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

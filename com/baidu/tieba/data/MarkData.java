@@ -102,16 +102,16 @@ public class MarkData implements Serializable {
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mId = " + this.mId);
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mAccount = " + this.mAccount);
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mTitle = " + this.mTitle);
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mPostId = " + this.mPostId);
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
-        com.baidu.tieba.util.aq.d("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mId = " + this.mId);
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mAccount = " + this.mAccount);
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mFloor = " + String.valueOf(this.mFloor));
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mTime = " + String.valueOf(this.mTime));
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mSequence = " + String.valueOf(this.mSequence));
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mHostMode = " + String.valueOf(this.mHostMode));
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mTitle = " + this.mTitle);
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mPostId = " + this.mPostId);
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mAuthorName = " + this.mAuthorName);
+        com.baidu.tieba.util.av.d("MarkData", "logPrint", "mFloorNum = " + String.valueOf(this.mReplyNum));
     }
 
     public void setAccount(String str) {
@@ -168,7 +168,7 @@ public class MarkData implements Serializable {
             }
             return jSONObject;
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "toJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "toJson", e.toString());
             return null;
         }
     }
@@ -190,7 +190,7 @@ public class MarkData implements Serializable {
                 this.mSequence = false;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "fromJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "fromJson", e.toString());
         }
     }
 }

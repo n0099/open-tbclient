@@ -1,25 +1,20 @@
 package com.baidu.tieba.view;
 
-import java.util.List;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 /* loaded from: classes.dex */
-class i {
+class i extends GestureDetector.SimpleOnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f1869a;
-    public final List b;
-    public final List c;
+    final /* synthetic */ CustomScrollView f1997a;
 
-    public static i a(List list, List list2) {
-        return new i(true, list, list2);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(CustomScrollView customScrollView) {
+        this.f1997a = customScrollView;
     }
 
-    public static i a() {
-        return new i(false, null, null);
-    }
-
-    private i(boolean z, List list, List list2) {
-        this.f1869a = z;
-        this.b = list;
-        this.c = list2;
+    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return Math.abs(f2) > Math.abs(f);
     }
 }

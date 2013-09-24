@@ -25,7 +25,7 @@ public class RequestQueue implements RequestFeeder {
     private final ActivePool mActivePool;
     private final ConnectivityManager mConnectivityManager;
     private final Context mContext;
-    private final LinkedHashMap mPending;
+    private final LinkedHashMap<HttpHost, LinkedList<Request>> mPending;
     private BroadcastReceiver mProxyChangeReceiver;
     private HttpHost mProxyHost;
 
@@ -163,7 +163,7 @@ public class RequestQueue implements RequestFeeder {
         this.LOGTAG = "RequestQueue";
         this.mProxyHost = null;
         this.mContext = context;
-        this.mPending = new LinkedHashMap(32);
+        this.mPending = new LinkedHashMap<>(32);
         this.mActivePool = new ActivePool(i);
         this.mActivePool.startup();
         this.mConnectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -279,11 +279,11 @@ public class RequestQueue implements RequestFeeder {
         return this.mProxyHost;
     }
 
-    public RequestHandle queueRequest(String str, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueRequest(String str, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
         return queueRequest(str, new WebAddress(str), str2, map, eventHandler, inputStream, i);
     }
 
-    public RequestHandle queueRequest(String str, WebAddress webAddress, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
         Request request = new Request(str2, new HttpHost(webAddress.mHost, webAddress.mPort, webAddress.mScheme), this.mProxyHost, webAddress.mPath, inputStream, i, eventHandler == null ? new LoggingEventHandler() : eventHandler, map);
         queueRequest(request, false);
         ActivePool.access$408(this.mActivePool);
@@ -322,7 +322,7 @@ public class RequestQueue implements RequestFeeder {
         }
     }
 
-    public RequestHandle queueSynchronousRequest(String str, WebAddress webAddress, String str2, Map map, EventHandler eventHandler, InputStream inputStream, int i) {
+    public RequestHandle queueSynchronousRequest(String str, WebAddress webAddress, String str2, Map<String, String> map, EventHandler eventHandler, InputStream inputStream, int i) {
         HttpHost httpHost = new HttpHost(webAddress.mHost, webAddress.mPort, webAddress.mScheme);
         return new RequestHandle(this, str, webAddress, str2, map, inputStream, i, new Request(str2, httpHost, this.mProxyHost, webAddress.mPath, inputStream, i, eventHandler, map), Connection.getConnection(this.mContext, determineHost(httpHost), this.mProxyHost, new SyncFeeder()));
     }
@@ -340,13 +340,13 @@ public class RequestQueue implements RequestFeeder {
         HttpLog.v("dump()");
         StringBuilder sb = new StringBuilder();
         if (!this.mPending.isEmpty()) {
-            Iterator it = this.mPending.entrySet().iterator();
+            Iterator<Map.Entry<HttpHost, LinkedList<Request>>> it = this.mPending.entrySet().iterator();
             int i = 0;
             while (it.hasNext()) {
-                Map.Entry entry = (Map.Entry) it.next();
+                Map.Entry<HttpHost, LinkedList<Request>> next = it.next();
                 int i2 = i + 1;
-                StringBuilder sb2 = new StringBuilder("p" + i + " " + ((HttpHost) entry.getKey()).getHostName() + " ");
-                ((LinkedList) entry.getValue()).listIterator(0);
+                StringBuilder sb2 = new StringBuilder("p" + i + " " + next.getKey().getHostName() + " ");
+                next.getValue().listIterator(0);
                 while (it.hasNext()) {
                     sb2.append(((Request) it.next()) + " ");
                 }
@@ -368,8 +368,8 @@ public class RequestQueue implements RequestFeeder {
         Request request;
         request = null;
         if (this.mPending.containsKey(httpHost)) {
-            LinkedList linkedList = (LinkedList) this.mPending.get(httpHost);
-            request = (Request) linkedList.removeFirst();
+            LinkedList<Request> linkedList = this.mPending.get(httpHost);
+            request = linkedList.removeFirst();
             if (linkedList.isEmpty()) {
                 this.mPending.remove(httpHost);
             }
@@ -392,12 +392,12 @@ public class RequestQueue implements RequestFeeder {
     }
 
     protected synchronized void queueRequest(Request request, boolean z) {
-        LinkedList linkedList;
+        LinkedList<Request> linkedList;
         HttpHost httpHost = request.mProxyHost == null ? request.mHost : request.mProxyHost;
         if (this.mPending.containsKey(httpHost)) {
-            linkedList = (LinkedList) this.mPending.get(httpHost);
+            linkedList = this.mPending.get(httpHost);
         } else {
-            linkedList = new LinkedList();
+            linkedList = new LinkedList<>();
             this.mPending.put(httpHost, linkedList);
         }
         if (z) {
@@ -415,15 +415,15 @@ public class RequestQueue implements RequestFeeder {
         this.mActivePool.stopTiming();
     }
 
-    private Request removeFirst(LinkedHashMap linkedHashMap) {
+    private Request removeFirst(LinkedHashMap<HttpHost, LinkedList<Request>> linkedHashMap) {
         Request request = null;
-        Iterator it = linkedHashMap.entrySet().iterator();
+        Iterator<Map.Entry<HttpHost, LinkedList<Request>>> it = linkedHashMap.entrySet().iterator();
         if (it.hasNext()) {
-            Map.Entry entry = (Map.Entry) it.next();
-            LinkedList linkedList = (LinkedList) entry.getValue();
-            request = (Request) linkedList.removeFirst();
-            if (linkedList.isEmpty()) {
-                linkedHashMap.remove(entry.getKey());
+            Map.Entry<HttpHost, LinkedList<Request>> next = it.next();
+            LinkedList<Request> value = next.getValue();
+            request = value.removeFirst();
+            if (value.isEmpty()) {
+                linkedHashMap.remove(next.getKey());
             }
         }
         return request;

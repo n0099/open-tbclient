@@ -101,7 +101,7 @@ public class SendPKVoteData implements Serializable {
         try {
             return a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
             return null;
         }
     }
@@ -121,7 +121,7 @@ public class SendPKVoteData implements Serializable {
             sendPKVoteData.setLogId(jSONObject.optInt("logid"));
             return sendPKVoteData;
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
             return null;
         }
     }
@@ -168,7 +168,7 @@ public class SendPKVoteData implements Serializable {
                 error.setUserMsg(jSONObject.optString("usermsg"));
                 return error;
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
                 return null;
             }
         }
@@ -285,7 +285,7 @@ public class SendPKVoteData implements Serializable {
                 pKInfo.setPlayer2(new Player().parserJson(jSONObject.optJSONObject("player2")));
                 return pKInfo;
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
                 return null;
             }
         }
@@ -352,7 +352,7 @@ public class SendPKVoteData implements Serializable {
                 player.setVoteTimes(jSONObject.optInt("vote_times"));
                 return player;
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "parserJson", e.toString());
+                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
                 return null;
             }
         }

@@ -1,26 +1,52 @@
 package com.baidu.tieba.view;
 
 import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tieba.flist.ForumListActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import com.baidu.tieba.util.UtilHelper;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class x implements View.OnClickListener {
+public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsHeaderView f1882a;
+    private View f2010a;
+    private GoodGridView b;
+    private Activity c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(FrsHeaderView frsHeaderView) {
-        this.f1882a = frsHeaderView;
+    public x(Activity activity) {
+        this.f2010a = null;
+        this.b = null;
+        this.c = null;
+        this.c = activity;
+        this.f2010a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.f2010a.findViewById(R.id.good_gridview);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Activity activity;
-        String str;
-        activity = this.f1882a.v;
-        str = this.f1882a.B;
-        ForumListActivity.a(activity, str, "2", "1");
+    public void a(com.baidu.tieba.frs.ah ahVar) {
+        this.b.setAdapter((ListAdapter) ahVar);
+    }
+
+    public void a(AdapterView.OnItemClickListener onItemClickListener) {
+        this.b.setOnItemClickListener(onItemClickListener);
+    }
+
+    public View a() {
+        return this.f2010a;
+    }
+
+    public void a(int i) {
+        int a2 = UtilHelper.a((Context) this.c, 10.0f);
+        if (i == 1) {
+            this.b.setBackgroundResource(R.drawable.bg_topbar_1);
+            this.b.setPadding(0, a2, 0, a2);
+            return;
+        }
+        this.b.setBackgroundDrawable(null);
+        this.b.setBackgroundColor(-1);
+        this.b.setPadding(0, a2, 0, a2);
     }
 }

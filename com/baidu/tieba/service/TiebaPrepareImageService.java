@@ -10,13 +10,13 @@ import com.baidu.tieba.TiebaApplication;
 public class TiebaPrepareImageService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f1707a = false;
+    public static volatile boolean f1781a = false;
     private int f;
     private int b = 0;
     private Uri c = null;
-    private q d = null;
+    private o d = null;
     private Handler e = new Handler();
-    private Runnable g = new p(this);
+    private Runnable g = new n(this);
 
     public static void a(int i, Uri uri, int i2) {
         Intent intent = new Intent(TiebaApplication.g(), TiebaPrepareImageService.class);
@@ -65,9 +65,9 @@ public class TiebaPrepareImageService extends Service {
         this.c = intent.getData();
         this.b = intent.getIntExtra("request_code", 0);
         this.f = intent.getIntExtra("max_size", 600);
-        TiebaApplication.g().a((com.baidu.tieba.g) null);
-        if (!f1707a) {
-            this.d = new q(this, this.b, this.c);
+        TiebaApplication.g().a((com.baidu.tieba.j) null);
+        if (!f1781a) {
+            this.d = new o(this, this.b, this.c);
             this.d.execute(new Object[0]);
             return;
         }

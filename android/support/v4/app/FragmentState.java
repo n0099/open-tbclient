@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import android.util.Log;
 /* loaded from: classes.dex */
 final class FragmentState implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new aa();
+    public static final Parcelable.Creator<FragmentState> CREATOR = new aa();
 
     /* renamed from: a  reason: collision with root package name */
     final String f269a;

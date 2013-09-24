@@ -72,7 +72,7 @@ public final class BdUtil {
         return invokeMethod(obj, str, clsArr, objArr, objArr2);
     }
 
-    public static boolean invokeMethod(Object obj, String str, Class[] clsArr, Object[] objArr, Object[] objArr2) {
+    public static boolean invokeMethod(Object obj, String str, Class<?>[] clsArr, Object[] objArr, Object[] objArr2) {
         boolean z = true;
         if (obj == null) {
             return false;
@@ -146,7 +146,7 @@ public final class BdUtil {
         return null;
     }
 
-    protected static Method getMethod(Object obj, String str, Class[] clsArr) {
+    protected static Method getMethod(Object obj, String str, Class<?>[] clsArr) {
         for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
             try {
                 return cls.getDeclaredMethod(str, clsArr);

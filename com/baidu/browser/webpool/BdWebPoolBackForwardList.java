@@ -7,7 +7,7 @@ public final class BdWebPoolBackForwardList {
     private static final boolean DEBUG = false;
     private static final String LOG_TAG = "BdWebPoolBackForwardList";
     private int mCurIndex = -1;
-    private List mArray = new ArrayList();
+    private List<BdWebPoolBackForwardListItem> mArray = new ArrayList();
 
     public void addItem(BdWebPoolBackForwardListItem bdWebPoolBackForwardListItem) {
         if (bdWebPoolBackForwardListItem != null) {
@@ -47,7 +47,7 @@ public final class BdWebPoolBackForwardList {
 
     public BdWebPoolBackForwardListItem getItem(int i) {
         if (i >= 0 && i < this.mArray.size()) {
-            return (BdWebPoolBackForwardListItem) this.mArray.get(i);
+            return this.mArray.get(i);
         }
         throw new ArrayIndexOutOfBoundsException(i);
     }

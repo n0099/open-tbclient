@@ -1,46 +1,58 @@
 package com.baidu.tieba.frs;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.FrsImageActivity;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ap extends BroadcastReceiver {
+class ap implements ax {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1078a;
+    final /* synthetic */ FrsImageActivity f1126a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(FrsImageActivity frsImageActivity) {
-        this.f1078a = frsImageActivity;
+        this.f1126a = frsImageActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        com.baidu.tieba.model.af afVar;
-        com.baidu.tieba.model.af afVar2;
-        com.baidu.tieba.model.af afVar3;
-        com.baidu.tieba.model.af afVar4;
-        com.baidu.tieba.model.af afVar5;
-        az azVar;
-        com.baidu.tieba.model.af afVar6;
-        long longExtra = intent.getLongExtra("fans", 0L);
-        long longExtra2 = intent.getLongExtra("relay", 0L);
-        long longExtra3 = intent.getLongExtra("at_me", 0L);
-        long longExtra4 = intent.getLongExtra("pletter", 0L);
-        afVar = this.f1078a.p;
-        if (afVar != null) {
-            afVar2 = this.f1078a.p;
-            afVar2.a(longExtra);
-            afVar3 = this.f1078a.p;
-            afVar3.c(longExtra2);
-            afVar4 = this.f1078a.p;
-            afVar4.b(longExtra3);
-            afVar5 = this.f1078a.p;
-            afVar5.d(longExtra4);
-            azVar = this.f1078a.n;
-            afVar6 = this.f1078a.p;
-            azVar.a(afVar6);
+    @Override // com.baidu.tieba.frs.ax
+    public void a(int i) {
+        this.f1126a.a(FrsImageActivity.FooterType.LOADING);
+    }
+
+    @Override // com.baidu.tieba.frs.ax
+    public void a(int i, JSONObject jSONObject, com.baidu.tieba.model.ao aoVar) {
+        int i2;
+        com.baidu.tieba.model.ai aiVar;
+        com.baidu.tieba.model.ai aiVar2;
+        int i3;
+        com.baidu.tieba.model.am amVar;
+        com.baidu.tieba.model.am amVar2;
+        this.f1126a.c();
+        this.f1126a.a(FrsImageActivity.FooterType.NORMAL);
+        if (jSONObject == null) {
+            if (aoVar != null && aoVar.f1401a) {
+                this.f1126a.a(aoVar.d);
+                return;
+            }
+            return;
+        }
+        FrsImageActivity frsImageActivity = this.f1126a;
+        i2 = frsImageActivity.g;
+        frsImageActivity.g = i2 + 30;
+        this.f1126a.t = new com.baidu.tieba.model.ai();
+        aiVar = this.f1126a.t;
+        aiVar.a(jSONObject);
+        FrsImageActivity frsImageActivity2 = this.f1126a;
+        aiVar2 = this.f1126a.t;
+        frsImageActivity2.a(aiVar2.a());
+        i3 = this.f1126a.g;
+        amVar = this.f1126a.s;
+        if (i3 >= amVar.c().size()) {
+            amVar2 = this.f1126a.s;
+            if (amVar2.d() == 0) {
+                this.f1126a.a(FrsImageActivity.FooterType.LAST);
+            } else {
+                this.f1126a.a(FrsImageActivity.FooterType.NEXT);
+            }
         }
     }
 }

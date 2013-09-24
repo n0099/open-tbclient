@@ -5,14 +5,14 @@ import android.view.ViewGroup;
 class j extends ViewGroup.LayoutParams {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f438a;
+    public int f447a;
     public int b;
     public int c;
     public int d;
 
     public j(int i, int i2) {
         super(i, i2);
-        this.f438a = 4;
+        this.f447a = 4;
         this.b = 32;
         this.c = 0;
         this.d = 0;

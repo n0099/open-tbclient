@@ -1,158 +1,137 @@
 package com.baidu.tieba.square;
 
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.tieba.data.bc;
-import com.baidu.tieba.util.ao;
-import com.baidu.tieba.util.aq;
-import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.ax;
-import com.baidu.tieba.view.ba;
-import com.baidu.zeus.Headers;
-import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class ab extends com.baidu.adp.a.d {
-    ImageView b;
-    ba c;
-    private SquareActivity d;
-    private BdListView e;
-    private aa f;
-    private LinearLayout g;
-    private RelativeLayout h;
-    private TextView i;
-    private LinearLayout j;
-    private ImageView k;
-    private LinearLayout l;
-    private TextView m;
-    private ProgressBar n;
-    private NoNetworkView o;
+public class ab extends BaseAdapter {
 
-    public ab(SquareActivity squareActivity, View.OnKeyListener onKeyListener) {
-        super(squareActivity);
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
+    /* renamed from: a  reason: collision with root package name */
+    private com.baidu.tieba.j f1813a;
+    private ArrayList<BaseAdapter> b;
+    private t c;
+    private h d;
+
+    public ab(com.baidu.tieba.j jVar) {
+        this.f1813a = null;
+        this.b = null;
         this.c = null;
-        this.d = squareActivity;
-        squareActivity.setContentView(R.layout.square_view);
-        this.g = (LinearLayout) squareActivity.findViewById(R.id.container);
-        this.h = (RelativeLayout) squareActivity.findViewById(R.id.title);
-        this.i = (TextView) squareActivity.findViewById(R.id.title_text);
-        this.j = (LinearLayout) squareActivity.findViewById(R.id.search_bg_layout);
-        this.l = (LinearLayout) squareActivity.findViewById(R.id.search_tap_layout);
-        this.m = (TextView) squareActivity.findViewById(R.id.search_bar_text);
-        this.k = (ImageView) squareActivity.findViewById(R.id.search_bar_icon);
-        this.j.setOnClickListener(squareActivity);
-        this.e = (BdListView) squareActivity.findViewById(R.id.bar_cat_listview);
-        this.e.setOnKeyListener(onKeyListener);
-        this.e.setOnItemClickListener(squareActivity);
-        this.e.setOnScrollListener(squareActivity);
-        this.f = new aa(squareActivity);
-        this.e.setAdapter((ListAdapter) this.f);
-        this.c = new ba(squareActivity);
-        this.e.setPullRefresh(this.c);
-        this.b = (ImageView) squareActivity.findViewById(R.id.enter_forum_dir);
-        this.b.setOnClickListener(squareActivity);
-        this.n = (ProgressBar) squareActivity.findViewById(R.id.enter_forum_progress);
-        this.o = (NoNetworkView) squareActivity.findViewById(R.id.view_no_network);
+        this.f1813a = jVar;
+        this.b = new ArrayList<>();
+        this.c = new t(this.f1813a);
+        this.d = new h(this.f1813a);
+        a(this.c);
+        a(this.d);
+    }
+
+    public void a(BaseAdapter baseAdapter) {
+        this.b.add(baseAdapter);
     }
 
     public void a(bc bcVar) {
-        if (bcVar != null) {
-            try {
-                this.f.a(bcVar);
-                this.f.notifyDataSetChanged();
-            } catch (Exception e) {
-                aq.b(getClass().getName(), Headers.REFRESH, e.getMessage());
+        if (this.c != null) {
+            this.c.a(bcVar.b());
+        }
+        if (this.d != null) {
+            this.d.a(bcVar.a());
+        }
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        int i = 0;
+        Iterator<BaseAdapter> it = this.b.iterator();
+        while (true) {
+            int i2 = i;
+            if (it.hasNext()) {
+                i = it.next().getCount() + i2;
+            } else {
+                return i2;
             }
         }
     }
 
-    public void b() {
-        this.e.a();
-    }
-
-    public void a(boolean z, String str) {
-        b();
-        if (!z && str != null) {
-            this.d.a(str);
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        int i2 = 0;
+        while (true) {
+            int i3 = i2;
+            if (i3 < this.b.size()) {
+                BaseAdapter baseAdapter = this.b.get(i3);
+                if (i < baseAdapter.getCount()) {
+                    return baseAdapter.getItem(i);
+                }
+                i -= baseAdapter.getCount();
+                i2 = i3 + 1;
+            } else {
+                return null;
+            }
         }
     }
 
-    public void c() {
-        this.e.b();
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        int i;
+        int i2 = 0;
+        Iterator<BaseAdapter> it = this.b.iterator();
+        while (true) {
+            i = i2;
+            if (!it.hasNext()) {
+                break;
+            }
+            i2 = it.next().getViewTypeCount() + i;
+        }
+        if (i <= 0) {
+            return 1;
+        }
+        return i;
     }
 
-    public View d() {
-        return this.b;
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        int i2 = 0;
+        for (int i3 = 0; i3 < this.b.size(); i3++) {
+            BaseAdapter baseAdapter = this.b.get(i3);
+            if (i < baseAdapter.getCount()) {
+                return baseAdapter.getItemViewType(i) + i2;
+            }
+            i2 += baseAdapter.getViewTypeCount();
+            i -= baseAdapter.getCount();
+        }
+        return 0;
     }
 
-    public void e() {
-        this.o.setVisibility(0);
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    public void f() {
-        this.o.setVisibility(8);
-    }
-
-    public void a(ax axVar) {
-        this.o.a(axVar);
-    }
-
-    public void b(ax axVar) {
-        this.o.b(axVar);
-    }
-
-    public void g() {
-    }
-
-    public void h() {
-    }
-
-    public void i() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        int i2 = 0;
+        while (true) {
+            int i3 = i2;
+            if (i3 < this.b.size()) {
+                BaseAdapter baseAdapter = this.b.get(i3);
+                if (i < baseAdapter.getCount()) {
+                    return baseAdapter.getView(i, view, viewGroup);
+                }
+                i -= baseAdapter.getCount();
+                i2 = i3 + 1;
+            } else {
+                return null;
+            }
+        }
     }
 
     public void a(int i) {
-        ao.b(this.g, i);
-        ao.d(this.h, i);
-        ao.f(this.i, i);
-        if (i == 1) {
-            this.g.setBackgroundColor(-13618114);
-            ao.g(this.l, (int) R.drawable.inputbox_topbg_1);
-            ao.g(this.j, (int) R.drawable.inputbox_top_1);
-            this.m.setHintTextColor(-11446171);
-            this.k.setImageResource(R.drawable.icon_head_bar_search_1);
-            this.b.setBackgroundResource(R.drawable.title_icon_bg_1);
-            this.b.setImageResource(R.drawable.icon_more_1);
-        } else {
-            this.g.setBackgroundColor(-197380);
-            ao.g(this.l, (int) R.drawable.inputbox_topbg);
-            ao.g(this.j, (int) R.drawable.inputbox_top);
-            this.m.setHintTextColor(-5921112);
-            this.k.setImageResource(R.drawable.icon_head_bar_search);
-            this.b.setBackgroundResource(R.drawable.title_icon_bg);
-            this.b.setImageResource(R.drawable.icon_more);
+        if (this.c != null) {
+            this.c.a(i);
         }
-        this.f.a(i);
-        this.c.a(i);
-        this.o.a(i);
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.c.a(bVar);
+        notifyDataSetChanged();
     }
 }

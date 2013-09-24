@@ -57,7 +57,7 @@ public class ImageFile {
     private ThreadNote mThreadNote;
     private static final String[] ACCEPTABLE_IMAGE_TYPES = {"image/jpeg", "image/png", "image/gif"};
     private static final String[] IMAGE_PROJECTION = {"_id", "datetaken", "date_added", "orientation", "_data"};
-    private static Set sImageTaskQueue = new HashSet();
+    private static Set<ThreadNote> sImageTaskQueue = new HashSet();
 
     /* loaded from: classes.dex */
     public interface OnFileLoadedListener {
@@ -409,7 +409,7 @@ public class ImageFile {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class LoadTask extends AsyncTask {
+    public class LoadTask extends AsyncTask<Object, Void, Integer> {
         private Bitmap miBitmap;
         private Object tag;
 
@@ -422,6 +422,7 @@ public class ImageFile {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public Integer doInBackground(Object... objArr) {
             try {
@@ -474,7 +475,7 @@ public class ImageFile {
     }
 
     /* loaded from: classes.dex */
-    class SaveTask extends AsyncTask {
+    class SaveTask extends AsyncTask<Object, Void, Integer> {
         private Uri miUri;
 
         private SaveTask() {
@@ -486,6 +487,7 @@ public class ImageFile {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public Integer doInBackground(Object... objArr) {
             try {
@@ -512,7 +514,7 @@ public class ImageFile {
     }
 
     /* loaded from: classes.dex */
-    class SampleFileTask extends AsyncTask {
+    class SampleFileTask extends AsyncTask<Object, Void, Integer> {
         private File file;
 
         private SampleFileTask() {
@@ -524,6 +526,7 @@ public class ImageFile {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.AsyncTask
         public Integer doInBackground(Object... objArr) {
             try {

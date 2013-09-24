@@ -4,9 +4,8 @@ import com.baidu.tbadk.a.e;
 import com.baidu.tieba.data.g;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.aq;
-import com.baidu.tieba.util.v;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.z;
 /* loaded from: classes.dex */
 public class c extends a {
     @Override // com.baidu.tieba.util.a.a
@@ -19,7 +18,7 @@ public class c extends a {
         if (dVar.g) {
             int i = dVar.d;
             String a2 = aVar.a(str);
-            synchronized (com.baidu.tieba.util.e.f1799a) {
+            synchronized (com.baidu.tieba.util.e.f1919a) {
                 if (i == 1) {
                     dVar.e = DatabaseService.c(a2);
                 } else if (i == 2) {
@@ -31,7 +30,7 @@ public class c extends a {
                 if (dVar.e == null) {
                     return null;
                 }
-                dVar.i = new com.baidu.adp.widget.a.b(dVar.e, false, str);
+                dVar.i = new com.baidu.adp.widget.a.c(dVar.e, false, str);
                 e.a().a(a2, dVar.i);
                 if (eVar.isCancelled()) {
                     return null;
@@ -54,7 +53,7 @@ public class c extends a {
         } else if (i == 1) {
             str2 = String.valueOf(g.l()) + str;
         }
-        dVar.f1798a = new v(aVar.f1773a, str2);
+        dVar.f1918a = new z(aVar.f1889a, str2);
         if (aVar.h != null) {
             int i2 = 0;
             while (true) {
@@ -62,16 +61,16 @@ public class c extends a {
                 if (i3 >= aVar.h.size()) {
                     break;
                 }
-                dVar.f1798a.a((BasicNameValuePair) aVar.h.get(i3));
+                dVar.f1918a.a(aVar.h.get(i3));
                 i2 = i3 + 1;
             }
         }
-        byte[] i4 = dVar.f1798a.i();
-        if (i4 == null || !dVar.f1798a.c() || dVar.j) {
+        byte[] i4 = dVar.f1918a.i();
+        if (i4 == null || !dVar.f1918a.c() || dVar.j) {
             return null;
         }
         String a2 = aVar.a(str);
-        synchronized (com.baidu.tieba.util.e.f1799a) {
+        synchronized (com.baidu.tieba.util.e.f1919a) {
             if (dVar.j) {
                 return null;
             }
@@ -88,7 +87,7 @@ public class c extends a {
                 i5 = g.m();
             }
             if (dVar.e.getWidth() > i5 || dVar.e.getHeight() > i5) {
-                aq.a(1, getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(String.valueOf(dVar.e.getWidth()) + "*" + String.valueOf(dVar.e.getHeight())));
+                av.a(1, getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(String.valueOf(dVar.e.getWidth()) + "*" + String.valueOf(dVar.e.getHeight())));
                 e.a().c(com.baidu.tieba.util.e.a(dVar.e) * 2);
                 dVar.e = com.baidu.tieba.util.e.a(dVar.e, i5);
             }
@@ -100,7 +99,7 @@ public class c extends a {
             if (dVar.j) {
                 return null;
             }
-            dVar.i = new com.baidu.adp.widget.a.b(dVar.e, false, str);
+            dVar.i = new com.baidu.adp.widget.a.c(dVar.e, false, str);
             e.a().a(a2, dVar.i);
             if (dVar.j) {
                 return null;

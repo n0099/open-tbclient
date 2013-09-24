@@ -1,34 +1,25 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.slidingmenu.lib.R;
+import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
+public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CommonWebviewActivity f1293a;
+    final /* synthetic */ j f1327a;
+    private View b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(CommonWebviewActivity commonWebviewActivity) {
-        this.f1293a = commonWebviewActivity;
+    public l(j jVar, View view) {
+        this.f1327a = jVar;
+        this.b = null;
+        this.b = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.back /* 2131099730 */:
-                this.f1293a.finish();
-                return;
-            case R.id.refresh /* 2131099800 */:
-                TiebaApplication.g().i(0);
-                this.f1293a.b();
-                return;
-            case R.id.common_webview_item /* 2131099918 */:
-                this.f1293a.b();
-                return;
-            default:
-                return;
+    @Override // java.lang.Runnable
+    public void run() {
+        if (!this.f1327a.isFinishing()) {
+            this.f1327a.b((InputMethodManager) this.f1327a.getSystemService("input_method"), this.b);
         }
     }
 }

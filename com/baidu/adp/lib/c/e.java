@@ -4,27 +4,27 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class e extends BdAsyncTask {
+public class e extends BdAsyncTask<String, Object, Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f370a;
+    final /* synthetic */ c f374a;
     private String b;
     private int c;
-    private Map d = new HashMap();
+    private Map<b, f> d = new HashMap();
 
     public f e() {
         if (this.d.isEmpty()) {
             return null;
         }
         try {
-            return (f) this.d.values().iterator().next();
+            return this.d.values().iterator().next();
         } catch (Exception e) {
             return null;
         }
     }
 
     public e(c cVar, String str, int i, b bVar, f fVar) {
-        this.f370a = cVar;
+        this.f374a = cVar;
         this.b = str;
         this.c = i;
         this.d.put(bVar, fVar);
@@ -41,9 +41,9 @@ public class e extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(b bVar) {
         if (bVar != null) {
-            bVar.a(this.b, (f) this.d.get(bVar));
+            bVar.a(this.b, this.d.get(bVar));
             bVar.a();
-            bVar.c(this.b, (f) this.d.get(bVar));
+            bVar.c(this.b, this.d.get(bVar));
         }
     }
 
@@ -52,7 +52,7 @@ public class e extends BdAsyncTask {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Object a(String... strArr) {
         g a2;
-        if (c.a(this.f370a) == null || (a2 = c.a(this.f370a, this.c)) == null) {
+        if (c.a(this.f374a) == null || (a2 = c.a(this.f374a, this.c)) == null) {
             return null;
         }
         Object a3 = a2.a(this.b, this);
@@ -64,11 +64,11 @@ public class e extends BdAsyncTask {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     protected void a() {
-        for (Map.Entry entry : this.d.entrySet()) {
-            b bVar = (b) entry.getKey();
-            f fVar = (f) entry.getValue();
-            if (!bVar.b()) {
-                bVar.a(this.b, fVar);
+        for (Map.Entry<b, f> entry : this.d.entrySet()) {
+            b key = entry.getKey();
+            f value = entry.getValue();
+            if (!key.b()) {
+                key.a(this.b, value);
             }
         }
     }
@@ -76,11 +76,11 @@ public class e extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        for (Map.Entry entry : this.d.entrySet()) {
-            b bVar = (b) entry.getKey();
-            f fVar = (f) entry.getValue();
-            if (!bVar.b()) {
-                bVar.b(this.b, fVar);
+        for (Map.Entry<b, f> entry : this.d.entrySet()) {
+            b key = entry.getKey();
+            f value = entry.getValue();
+            if (!key.b()) {
+                key.b(this.b, value);
             }
         }
     }
@@ -88,11 +88,11 @@ public class e extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Object obj) {
-        for (Map.Entry entry : this.d.entrySet()) {
-            b bVar = (b) entry.getKey();
-            f fVar = (f) entry.getValue();
-            if (!bVar.b()) {
-                bVar.a(obj, this.b, fVar);
+        for (Map.Entry<b, f> entry : this.d.entrySet()) {
+            b key = entry.getKey();
+            f value = entry.getValue();
+            if (!key.b()) {
+                key.a(obj, this.b, value);
             }
         }
     }
@@ -100,11 +100,11 @@ public class e extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b(Object... objArr) {
-        for (Map.Entry entry : this.d.entrySet()) {
-            b bVar = (b) entry.getKey();
-            f fVar = (f) entry.getValue();
-            if (!bVar.b()) {
-                bVar.a(objArr);
+        for (Map.Entry<b, f> entry : this.d.entrySet()) {
+            b key = entry.getKey();
+            entry.getValue();
+            if (!key.b()) {
+                key.a(objArr);
             }
         }
     }
@@ -112,11 +112,11 @@ public class e extends BdAsyncTask {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void c() {
-        for (Map.Entry entry : this.d.entrySet()) {
-            b bVar = (b) entry.getKey();
-            f fVar = (f) entry.getValue();
-            if (!bVar.b()) {
-                bVar.c(this.b, fVar);
+        for (Map.Entry<b, f> entry : this.d.entrySet()) {
+            b key = entry.getKey();
+            f value = entry.getValue();
+            if (!key.b()) {
+                key.c(this.b, value);
             }
         }
     }

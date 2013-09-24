@@ -14,26 +14,26 @@ import java.util.ArrayList;
 public class ImagePagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1829a;
-    private ArrayList b;
-    private n e;
+    private Context f1950a;
+    private ArrayList<String> b;
+    private o e;
     private View.OnClickListener c = null;
-    private o d = null;
+    private p d = null;
     private int f = 0;
     private boolean g = false;
     private String h = null;
     private int i = 0;
 
-    public ImagePagerAdapter(Context context, ArrayList arrayList, n nVar) {
-        this.f1829a = null;
+    public ImagePagerAdapter(Context context, ArrayList<String> arrayList, o oVar) {
+        this.f1950a = null;
         this.b = null;
         this.e = null;
-        this.f1829a = context;
+        this.f1950a = context;
         this.b = arrayList;
-        this.e = nVar;
+        this.e = oVar;
     }
 
-    public void a(ArrayList arrayList) {
+    public void a(ArrayList<String> arrayList) {
         this.b = arrayList;
         notifyDataSetChanged();
     }
@@ -76,8 +76,8 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
         this.f = i;
     }
 
-    public void a(o oVar) {
-        this.d = oVar;
+    public void a(p pVar) {
+        this.d = pVar;
     }
 
     @Override // android.support.v4.view.ae
@@ -88,39 +88,39 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
-        if (obj instanceof bf) {
-            ((bf) obj).c();
+        if (obj instanceof bh) {
+            ((bh) obj).c();
         }
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.f1829a).inflate(R.layout.big_image_next, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f1950a).inflate(R.layout.big_image_next, (ViewGroup) null);
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.h);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.c);
             return inflate;
         }
-        bf bfVar = new bf(this.f1829a);
-        String str = i < this.b.size() ? (String) this.b.get(i) : null;
-        bfVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-        bfVar.setImageOnClickListener(this.c);
-        bfVar.setOnSizeChangedListener(this.d);
-        ((ViewPager) viewGroup).addView(bfVar, 0);
-        bfVar.setUrl(str);
-        bfVar.setGifMaxUseableMem(this.f);
-        bfVar.setTag(String.valueOf(i));
-        bfVar.setGifSetListener(this.e);
-        return bfVar;
+        bh bhVar = new bh(this.f1950a);
+        String str = i < this.b.size() ? this.b.get(i) : null;
+        bhVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        bhVar.setImageOnClickListener(this.c);
+        bhVar.setOnSizeChangedListener(this.d);
+        ((ViewPager) viewGroup).addView(bhVar, 0);
+        bhVar.setUrl(str);
+        bhVar.setGifMaxUseableMem(this.f);
+        bhVar.setTag(String.valueOf(i));
+        bhVar.setGifSetListener(this.e);
+        return bhVar;
     }
 
     @Override // android.support.v4.view.ae
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj instanceof bf) {
+        if (obj instanceof bh) {
             GalleryViewPager galleryViewPager = (GalleryViewPager) viewGroup;
-            j imageView = ((bf) obj).getImageView();
+            k imageView = ((bh) obj).getImageView();
             if (galleryViewPager.getSelectedView() == null) {
                 galleryViewPager.setSelectedView(imageView);
                 ViewParent parent = galleryViewPager.getParent();
@@ -128,14 +128,14 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
                     ((MultiImageView) parent).setZoomButton(imageView);
                 }
             }
-            j currentView = galleryViewPager.getCurrentView();
+            k currentView = galleryViewPager.getCurrentView();
             if (imageView != currentView) {
                 if (currentView != null) {
                     currentView.o();
                 }
-                ((bf) obj).f();
+                ((bh) obj).f();
                 galleryViewPager.setCurrentView(imageView);
-                if (((bf) obj).getImageType() == 1) {
+                if (((bh) obj).getImageType() == 1) {
                     this.e.a(imageView);
                 }
             }

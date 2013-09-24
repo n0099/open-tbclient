@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class TimerTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f1203a;
+    private d f1237a;
     private b b;
 
     public TimerTextView(Context context) {
@@ -24,7 +24,7 @@ public class TimerTextView extends TextView {
 
     public TimerTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1203a = new d(this);
+        this.f1237a = new d(this);
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -41,8 +41,8 @@ public class TimerTextView extends TextView {
     public void setTimeInSeconds(long j) {
         this.b = new b(j);
         setText(this.b.toString());
-        this.f1203a.removeMessages(65536);
-        this.f1203a.sendEmptyMessageDelayed(65536, 1000L);
+        this.f1237a.removeMessages(65536);
+        this.f1237a.sendEmptyMessageDelayed(65536, 1000L);
     }
 
     public void setOnCooldown(c cVar) {
@@ -50,6 +50,6 @@ public class TimerTextView extends TextView {
     }
 
     public void a() {
-        this.f1203a.removeMessages(65536);
+        this.f1237a.removeMessages(65536);
     }
 }

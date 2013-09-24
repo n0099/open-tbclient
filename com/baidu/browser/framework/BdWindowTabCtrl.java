@@ -18,7 +18,7 @@ public class BdWindowTabCtrl extends FrameLayout implements View.OnClickListener
     private BdWindowTabButton mCurTabButton;
     private BdTabCtrlListener mListener;
     private int mMaxTabCount;
-    private List mTabList;
+    private List<BdWindowTabButton> mTabList;
     private float scale;
 
     /* loaded from: classes.dex */
@@ -137,7 +137,7 @@ public class BdWindowTabCtrl extends FrameLayout implements View.OnClickListener
     public void selectToFocus(int i) {
         if (i >= 0 && i < this.mTabList.size()) {
             lostAllFocus();
-            this.mCurTabButton = (BdWindowTabButton) this.mTabList.get(i);
+            this.mCurTabButton = this.mTabList.get(i);
             this.mCurTabButton.setSelected(true);
         }
     }

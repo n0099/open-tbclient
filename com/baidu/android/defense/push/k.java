@@ -17,14 +17,14 @@ import org.json.JSONObject;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f531a;
+    final /* synthetic */ j f543a;
     private String b;
     private UrlEncodedFormEntity c;
     private int d;
 
     public k(j jVar, String str, UrlEncodedFormEntity urlEncodedFormEntity, int i) {
         Context context;
-        this.f531a = jVar;
+        this.f543a = jVar;
         this.b = str;
         this.c = urlEncodedFormEntity;
         this.d = i;
@@ -41,7 +41,7 @@ public class k implements Runnable {
         try {
             HttpPost httpPost = new HttpPost(this.b);
             httpPost.setEntity(this.c);
-            context = this.f531a.d;
+            context = this.f543a.d;
             proxyHttpClient = new ProxyHttpClient(context);
             try {
                 HttpResponse execute = proxyHttpClient.execute(httpPost);
@@ -98,9 +98,9 @@ public class k implements Runnable {
                     try {
                         String string = new JSONObject(str).getString(PushConstants.EXTRA_ACCESS_TOKEN);
                         if (!TextUtils.isEmpty(string)) {
-                            context3 = this.f531a.d;
+                            context3 = this.f543a.d;
                             l.a(context3, string);
-                            this.f531a.f();
+                            this.f543a.f();
                             break;
                         }
                     } catch (JSONException e) {
@@ -108,14 +108,14 @@ public class k implements Runnable {
                     }
                     break;
                 case 1:
-                    this.f531a.a(str);
+                    this.f543a.a(str);
                     break;
             }
         }
         if (this.d == 0) {
-            context = this.f531a.d;
+            context = this.f543a.d;
             synchronized (j.a(context)) {
-                context2 = this.f531a.d;
+                context2 = this.f543a.d;
                 j.a(context2).notifyAll();
             }
         }

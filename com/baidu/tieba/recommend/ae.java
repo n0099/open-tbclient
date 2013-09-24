@@ -11,7 +11,7 @@ import com.baidu.tieba.kn.pk.PKingActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.aq;
+import com.baidu.tieba.util.av;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class ae {
@@ -23,7 +23,7 @@ public class ae {
                     return true;
                 }
             } catch (Exception e) {
-                aq.b(ae.class.getName(), "jumpTiebaNative", e.getMessage());
+                av.b(ae.class.getName(), "jumpTiebaNative", e.getMessage());
             }
         }
         if (str != null && str.contains("jump_tieba_native=1")) {

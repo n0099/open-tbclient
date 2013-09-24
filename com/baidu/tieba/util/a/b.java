@@ -1,14 +1,13 @@
 package com.baidu.tieba.util.a;
 
 import com.baidu.tbadk.a.e;
-import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.g;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ap;
-import com.baidu.tieba.util.aq;
+import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.au;
+import com.baidu.tieba.util.av;
 import com.baidu.tieba.util.p;
-import com.baidu.tieba.util.v;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.tieba.util.z;
 /* loaded from: classes.dex */
 public class b extends a {
     @Override // com.baidu.tieba.util.a.a
@@ -19,12 +18,12 @@ public class b extends a {
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, com.baidu.adp.lib.c.e eVar, com.baidu.tieba.util.a aVar, com.baidu.tieba.util.d dVar) {
         if (dVar.g) {
-            String f = ap.f(str);
+            String f = at.f(str);
             if (aVar.f != null) {
                 f = String.valueOf(f) + aVar.f;
             }
             String a2 = aVar.a(str);
-            synchronized (com.baidu.tieba.util.e.f1799a) {
+            synchronized (com.baidu.tieba.util.e.f1919a) {
                 if (f != null) {
                     int a3 = (int) p.a("image", f);
                     if (a3 > 0) {
@@ -41,7 +40,7 @@ public class b extends a {
                 if (dVar.e == null) {
                     return null;
                 }
-                dVar.i = new com.baidu.adp.widget.a.b(dVar.e, dVar.h, str);
+                dVar.i = new com.baidu.adp.widget.a.c(dVar.e, dVar.h, str);
                 e.a().b(a2, dVar.i);
                 if (eVar.isCancelled()) {
                     return null;
@@ -59,65 +58,70 @@ public class b extends a {
     public Object b(String str, com.baidu.adp.lib.c.e eVar, com.baidu.tieba.util.a aVar, com.baidu.tieba.util.d dVar) {
         int i;
         int i2;
+        String sb;
+        if (str == null || str.length() == 0) {
+            return null;
+        }
         int i3 = dVar.d;
-        String f = ap.f(str);
+        String f = at.f(str);
         String str2 = aVar.f != null ? String.valueOf(f) + aVar.f : f;
-        StringBuilder sb = new StringBuilder(100);
-        sb.append(g.k);
-        sb.append("src=");
-        sb.append(ap.d(str));
-        sb.append("&width=");
         if (aVar.b == 0) {
-            i = UtilHelper.a(aVar.f1773a, 105.0f);
+            i = UtilHelper.a(aVar.f1889a, 105.0f);
         } else {
             i = aVar.b;
         }
-        sb.append(String.valueOf(i));
-        sb.append("&height=");
         if (aVar.c == 0) {
-            i2 = UtilHelper.a(aVar.f1773a, 105.0f);
+            i2 = UtilHelper.a(aVar.f1889a, 105.0f);
         } else {
             i2 = aVar.c;
         }
-        sb.append(String.valueOf(i2));
-        sb.append("&imgtype=0");
-        if (aVar.i != 0) {
-            if (aVar.i == 1) {
-                sb.append("&qulity=" + String.valueOf(80));
-            } else {
-                sb.append("&qulity=" + String.valueOf(45));
-            }
-        } else if (TiebaApplication.g().ai() == 1) {
-            sb.append("&qulity=" + String.valueOf(80));
+        boolean c = aVar.c();
+        if (c) {
+            sb = str;
         } else {
-            sb.append("&qulity=" + String.valueOf(45));
+            StringBuilder sb2 = new StringBuilder(100);
+            sb2.append(g.k);
+            sb2.append("src=");
+            sb2.append(at.d(str));
+            sb2.append("&width=");
+            sb2.append(String.valueOf(i));
+            sb2.append("&height=");
+            sb2.append(String.valueOf(i2));
+            sb2.append("&imgtype=0");
+            sb2.append("&qulity=" + au.a().d());
+            sb2.append("&first_gif=1");
+            if (aVar.e) {
+                sb2.append("&ispv=1");
+            }
+            if (aVar.g) {
+                sb2.append("&no_prefix=1");
+            }
+            sb = sb2.toString();
         }
-        sb.append("&first_gif=1");
-        if (aVar.e) {
-            sb.append("&ispv=1");
+        dVar.f1918a = new z(aVar.f1889a, sb);
+        if (c) {
+            dVar.f1918a.d(false);
+        } else {
+            dVar.f1918a.d(true);
         }
-        if (aVar.g) {
-            sb.append("&no_prefix=1");
-        }
-        dVar.f1798a = new v(aVar.f1773a, sb.toString());
-        dVar.f1798a.d(true);
-        if (aVar.h != null) {
+        dVar.f1918a.f(c);
+        if (aVar.h != null && !c) {
             int i4 = 0;
             while (true) {
                 int i5 = i4;
                 if (i5 >= aVar.h.size()) {
                     break;
                 }
-                dVar.f1798a.a((BasicNameValuePair) aVar.h.get(i5));
+                dVar.f1918a.a(aVar.h.get(i5));
                 i4 = i5 + 1;
             }
         }
-        byte[] i6 = dVar.f1798a.i();
-        if (i6 == null || !dVar.f1798a.c() || dVar.j) {
+        byte[] i6 = dVar.f1918a.i();
+        if (i6 == null || !dVar.f1918a.c() || dVar.j) {
             return null;
         }
         String a2 = aVar.a(str);
-        synchronized (com.baidu.tieba.util.e.f1799a) {
+        synchronized (com.baidu.tieba.util.e.f1919a) {
             if (dVar.j) {
                 return null;
             }
@@ -126,12 +130,12 @@ public class b extends a {
             if (dVar.e == null) {
                 return null;
             }
-            dVar.h = UtilHelper.a(i6);
+            dVar.h = dVar.f1918a.n() || UtilHelper.a(i6);
             if (dVar.j) {
                 return null;
             }
             if (dVar.e.getWidth() > i || dVar.e.getHeight() > i2) {
-                aq.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(dVar.e.getWidth()) + "*" + String.valueOf(dVar.e.getHeight())));
+                av.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(String.valueOf(dVar.e.getWidth()) + "*" + String.valueOf(dVar.e.getHeight())));
                 e.a().c(com.baidu.tieba.util.e.a(dVar.e) * 2);
                 dVar.e = com.baidu.tieba.util.e.a(dVar.e, i, i2);
             }
@@ -145,7 +149,7 @@ public class b extends a {
             if (dVar.j) {
                 return null;
             }
-            dVar.i = new com.baidu.adp.widget.a.b(dVar.e, dVar.h, str);
+            dVar.i = new com.baidu.adp.widget.a.c(dVar.e, dVar.h, str);
             e.a().b(a2, dVar.i);
             if (dVar.j) {
                 return null;

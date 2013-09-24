@@ -463,14 +463,16 @@ public class SlidingMenu extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public class SavedState extends View.BaseSavedState {
-        public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.slidingmenu.lib.SlidingMenu.SavedState.1
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.slidingmenu.lib.SlidingMenu.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel, (SavedState) null);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             public SavedState[] newArray(int i) {
                 return new SavedState[i];

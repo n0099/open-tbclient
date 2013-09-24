@@ -1,33 +1,27 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.view.PbListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bs implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1522a;
+    final /* synthetic */ br f1564a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bs(bo boVar) {
-        this.f1522a = boVar;
+    public bs(br brVar) {
+        this.f1564a = brVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.f1522a.R;
-        if (dialog != null) {
-            dialog2 = this.f1522a.R;
-            dialog2.dismiss();
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.f1522a.a((String) sparseArray.get(R.id.tag_forbid_user_name), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue());
-        }
+        PbListView pbListView;
+        boolean z;
+        pbListView = this.f1564a.aA;
+        pbListView.c();
+        bm bmVar = this.f1564a.b;
+        z = this.f1564a.aB;
+        bmVar.a(z);
     }
 }

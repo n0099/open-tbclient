@@ -1,32 +1,34 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-class u implements Runnable {
+class u extends BdAsyncTask<String, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1763a;
+    final /* synthetic */ GuideActivity f1879a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(LogoActivity logoActivity) {
-        this.f1763a = logoActivity;
+    private u(GuideActivity guideActivity) {
+        this.f1879a = guideActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ImageView imageView;
-        Bitmap bitmap;
-        ImageView imageView2;
-        AlphaAnimation alphaAnimation;
-        this.f1763a.e = com.baidu.tieba.util.e.a(this.f1763a, (int) R.drawable.logo);
-        imageView = this.f1763a.d;
-        bitmap = this.f1763a.e;
-        imageView.setImageBitmap(bitmap);
-        imageView2 = this.f1763a.d;
-        alphaAnimation = this.f1763a.f;
-        imageView2.startAnimation(alphaAnimation);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ u(GuideActivity guideActivity, u uVar) {
+        this(guideActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        return Boolean.valueOf(GuideActivity.f(this.f1879a));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        if (!bool.booleanValue()) {
+            GuideActivity.g(this.f1879a);
+        }
     }
 }

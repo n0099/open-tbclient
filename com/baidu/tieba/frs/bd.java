@@ -1,28 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import com.baidu.zeus.WebChromeClient;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bd implements DialogInterface.OnClickListener {
+public class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bb f1092a;
+    Activity f1140a;
+    int b = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(bb bbVar) {
-        this.f1092a = bbVar;
+    public bd(Activity activity) {
+        this.f1140a = activity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.g gVar;
-        com.baidu.tieba.g gVar2;
-        if (i == 0) {
-            gVar2 = this.f1092a.d;
-            com.baidu.tieba.write.ba.a(gVar2);
-        } else if (i == 1) {
-            gVar = this.f1092a.d;
-            com.baidu.tieba.write.ba.b(gVar);
+    public void a() {
+        if (com.baidu.tieba.sharedPref.b.a().a("frs_first_in", true)) {
+            new com.baidu.adp.lib.guide.g().b(R.id.frs_top_more).a(WebChromeClient.STRING_DLG_BTN_SET).a(true).a(new be(this)).a(new bf(this)).a().a(this.f1140a);
+            com.baidu.tieba.sharedPref.b.a().b("frs_first_in", false);
         }
     }
 }

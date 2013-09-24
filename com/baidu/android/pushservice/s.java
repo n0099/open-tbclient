@@ -7,21 +7,21 @@ import android.view.View;
 class s implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PushTestActivity f642a;
+    final /* synthetic */ PushTestActivity f654a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PushTestActivity pushTestActivity) {
-        this.f642a = pushTestActivity;
+        this.f654a = pushTestActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Intent intent = new Intent(PushConstants.ACTION_METHOD);
         intent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_FETCH);
-        intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this.f642a, 0, new Intent(), 0));
+        intent.putExtra(PushConstants.EXTRA_APP, PendingIntent.getBroadcast(this.f654a, 0, new Intent(), 0));
         intent.putExtra(PushConstants.EXTRA_FETCH_TYPE, 1);
         intent.putExtra(PushConstants.EXTRA_FETCH_NUM, 2);
-        intent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, PushConstants.rsaEncrypt(this.f642a.f586a));
-        this.f642a.sendBroadcast(intent);
+        intent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, PushConstants.rsaEncrypt(this.f654a.f598a));
+        this.f654a.sendBroadcast(intent);
     }
 }

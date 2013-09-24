@@ -5,31 +5,31 @@ import java.util.LinkedList;
 class h implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f378a;
-    private LinkedList b;
+    private final int f382a;
+    private LinkedList<k<?>> b;
 
     public h(int i) {
-        this.f378a = i;
+        this.f382a = i;
     }
 
     @Override // com.baidu.adp.lib.cache.d
     public int a() {
-        return this.f378a;
+        return this.f382a;
     }
 
     @Override // com.baidu.adp.lib.cache.e
     public void c() {
-        this.b = new LinkedList();
+        this.b = new LinkedList<>();
     }
 
     @Override // com.baidu.adp.lib.cache.e
-    public String a(k kVar) {
+    public String a(k<?> kVar) {
         String str;
         long j;
         int i;
         String str2 = null;
         if (kVar.f < System.currentTimeMillis()) {
-            return kVar.f380a;
+            return kVar.f384a;
         }
         this.b.add(kVar);
         if (this.b.size() > a()) {
@@ -37,9 +37,9 @@ class h implements e {
             int i2 = 0;
             int i3 = -1;
             while (i2 < this.b.size()) {
-                k kVar2 = (k) this.b.get(i2);
+                k<?> kVar2 = this.b.get(i2);
                 if (i3 == -1 || kVar2.e < j2) {
-                    String str3 = kVar2.f380a;
+                    String str3 = kVar2.f384a;
                     long j3 = kVar2.e;
                     str = str3;
                     j = j3;

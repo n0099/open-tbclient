@@ -11,10 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class NoNetworkMoreActivity extends g {
+public class NoNetworkMoreActivity extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f844a;
+    private View f857a;
     private ImageView b;
     private ImageView c;
     private TextView d;
@@ -22,7 +22,7 @@ public class NoNetworkMoreActivity extends g {
     private TextView f;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.no_network_more_view);
@@ -30,7 +30,7 @@ public class NoNetworkMoreActivity extends g {
     }
 
     protected void b() {
-        this.f844a = findViewById(R.id.title);
+        this.f857a = findViewById(R.id.title);
         this.b = (ImageView) findViewById(R.id.back);
         this.b.setOnClickListener(this);
         this.c = (ImageView) findViewById(R.id.home);
@@ -58,11 +58,11 @@ public class NoNetworkMoreActivity extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
-        com.baidu.tieba.util.ao.a(this.b, i);
-        com.baidu.tieba.util.ao.a(this.c, i);
-        com.baidu.tieba.util.ao.d(this.f844a, i);
-        com.baidu.tieba.util.ao.f(this.d, i);
+        com.baidu.tieba.util.as.a(this.b, i);
+        com.baidu.tieba.util.as.a(this.c, i);
+        com.baidu.tieba.util.as.d(this.f857a, i);
+        com.baidu.tieba.util.as.f(this.d, i);
     }
 }

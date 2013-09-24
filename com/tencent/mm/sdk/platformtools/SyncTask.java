@@ -2,21 +2,23 @@ package com.tencent.mm.sdk.platformtools;
 
 import android.os.Handler;
 /* loaded from: classes.dex */
-public abstract class SyncTask {
+public abstract class SyncTask<R> {
     private final long ba;
     private long bb;
     private long bc;
     private Runnable bd;
     private Object lock;
-    private Object result;
+    private R result;
 
     public SyncTask() {
         this(0L, null);
     }
 
-    public SyncTask(long j, Object obj) {
+    public SyncTask(long j, R r) {
         this.lock = new Object();
         this.bd = new Runnable() { // from class: com.tencent.mm.sdk.platformtools.SyncTask.1
+            /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: com.tencent.mm.sdk.platformtools.SyncTask */
+            /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
                 SyncTask.this.bc = Util.ticksToNow(SyncTask.this.bb);
@@ -24,11 +26,11 @@ public abstract class SyncTask {
             }
         };
         this.ba = j;
-        this.result = obj;
+        this.result = r;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x005b: IGET  (r8v0 'this' com.tencent.mm.sdk.platformtools.SyncTask A[IMMUTABLE_TYPE, THIS]) com.tencent.mm.sdk.platformtools.SyncTask.result java.lang.Object)] */
-    public Object exec(Handler handler) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: R : 0x005b: IGET  (r8v0 'this' com.tencent.mm.sdk.platformtools.SyncTask<R> A[IMMUTABLE_TYPE, THIS]) com.tencent.mm.sdk.platformtools.SyncTask.result java.lang.Object)] */
+    public R exec(Handler handler) {
         if (handler == null) {
             Log.d("MicroMsg.SDK.SyncTask", "null handler, task in exec thread, return now");
             return run();
@@ -51,10 +53,10 @@ public abstract class SyncTask {
         }
     }
 
-    protected abstract Object run();
+    protected abstract R run();
 
-    public void setResult(Object obj) {
-        this.result = obj;
+    public void setResult(R r) {
+        this.result = r;
         synchronized (this.lock) {
             this.lock.notify();
         }

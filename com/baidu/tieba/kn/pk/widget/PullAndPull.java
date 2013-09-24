@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.kn.pk.s;
 import com.baidu.tieba.kn.pk.y;
-import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.at;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,18 +25,18 @@ import java.util.LinkedList;
 public class PullAndPull extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1263a;
+    private int f1297a;
     private int b;
     private int c;
     private float d;
     private Scroller e;
-    private LinkedList f;
+    private LinkedList<y> f;
     private float g;
     private int h;
     private boolean i;
     private s j;
     private Context k;
-    private ArrayList l;
+    private ArrayList<View> l;
     private int m;
     private int n;
     private Camera o;
@@ -45,9 +45,9 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context) {
         super(context);
-        this.f1263a = 10;
-        this.f = new LinkedList();
-        this.l = new ArrayList();
+        this.f1297a = 10;
+        this.f = new LinkedList<>();
+        this.l = new ArrayList<>();
         this.m = 600;
         this.n = -100;
         this.q = new j(this);
@@ -56,9 +56,9 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1263a = 10;
-        this.f = new LinkedList();
-        this.l = new ArrayList();
+        this.f1297a = 10;
+        this.f = new LinkedList<>();
+        this.l = new ArrayList<>();
         this.m = 600;
         this.n = -100;
         this.q = new j(this);
@@ -67,9 +67,9 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1263a = 10;
-        this.f = new LinkedList();
-        this.l = new ArrayList();
+        this.f1297a = 10;
+        this.f = new LinkedList<>();
+        this.l = new ArrayList<>();
         this.m = 600;
         this.n = -100;
         this.q = new j(this);
@@ -93,8 +93,8 @@ public class PullAndPull extends View {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int size = this.f.size();
-        if (size > this.f1263a) {
-            size = this.f1263a;
+        if (size > this.f1297a) {
+            size = this.f1297a;
         }
         this.b = ((size - 1) * this.h) + (this.c * size);
         if (this.b < 0) {
@@ -111,11 +111,11 @@ public class PullAndPull extends View {
             this.d = this.e.getCurrX();
             invalidate();
         } else {
-            while (this.f.size() > this.f1263a) {
-                y yVar = (y) this.f.removeFirst();
-                if (yVar != null) {
-                    this.l.add(yVar.f);
-                    yVar.f = null;
+            while (this.f.size() > this.f1297a) {
+                y removeFirst = this.f.removeFirst();
+                if (removeFirst != null) {
+                    this.l.add(removeFirst.f);
+                    removeFirst.f = null;
                 }
             }
         }
@@ -123,18 +123,18 @@ public class PullAndPull extends View {
         int size = this.f.size() - 1;
         int i3 = i2;
         while (size >= 0) {
-            y yVar2 = (y) this.f.get(size);
-            if (!yVar2.e) {
-                yVar2.f = getView();
-                TextView textView = (TextView) yVar2.f.findViewById(R.id.name);
-                TextView textView2 = (TextView) yVar2.f.findViewById(R.id.time);
-                TextView textView3 = (TextView) yVar2.f.findViewById(R.id.score);
-                TextView textView4 = (TextView) yVar2.f.findViewById(R.id.highlight);
-                textView.setText(yVar2.f1275a);
-                textView2.setText(ap.a(new Date(this.j.e()), new Date(yVar2.c * 1000)));
-                textView3.setText("+" + String.format(this.k.getString(R.string.pk_ticket_count), Integer.valueOf(yVar2.b)));
+            y yVar = this.f.get(size);
+            if (!yVar.e) {
+                yVar.f = getView();
+                TextView textView = (TextView) yVar.f.findViewById(R.id.name);
+                TextView textView2 = (TextView) yVar.f.findViewById(R.id.time);
+                TextView textView3 = (TextView) yVar.f.findViewById(R.id.score);
+                TextView textView4 = (TextView) yVar.f.findViewById(R.id.highlight);
+                textView.setText(yVar.f1309a);
+                textView2.setText(at.a(new Date(this.j.e()), new Date(yVar.c * 1000)));
+                textView3.setText("+" + String.format(this.k.getString(R.string.pk_ticket_count), Integer.valueOf(yVar.b)));
                 int parseColor = Color.parseColor("#FCFCFC");
-                if (!TextUtils.isEmpty(yVar2.f1275a) && yVar2.f1275a.equalsIgnoreCase(TiebaApplication.I())) {
+                if (!TextUtils.isEmpty(yVar.f1309a) && yVar.f1309a.equalsIgnoreCase(TiebaApplication.G())) {
                     if (this.i) {
                         int parseColor2 = Color.parseColor("#e3f1ff");
                         textView4.setBackgroundResource(R.drawable.icon_me_blue_line);
@@ -151,11 +151,11 @@ public class PullAndPull extends View {
                 textView3.setBackgroundColor(i);
                 textView.setBackgroundColor(i);
                 textView2.setBackgroundColor(i);
-                yVar2.f.measure(View.MeasureSpec.makeMeasureSpec(getWidth(), 1073741824), View.MeasureSpec.makeMeasureSpec(this.c, 1073741824));
-                yVar2.f.layout(0, 0, getWidth(), this.c);
-                yVar2.e = true;
+                yVar.f.measure(View.MeasureSpec.makeMeasureSpec(getWidth(), 1073741824), View.MeasureSpec.makeMeasureSpec(this.c, 1073741824));
+                yVar.f.layout(0, 0, getWidth(), this.c);
+                yVar.e = true;
             } else {
-                ((TextView) yVar2.f.findViewById(R.id.time)).setText(ap.a(new Date(this.j.e()), new Date(yVar2.c * 1000)));
+                ((TextView) yVar.f.findViewById(R.id.time)).setText(at.a(new Date(this.j.e()), new Date(yVar.c * 1000)));
             }
             int paddingLeft = getPaddingLeft();
             int save = canvas.save();
@@ -173,7 +173,7 @@ public class PullAndPull extends View {
                 canvas.concat(this.p);
             }
             canvas.translate(paddingLeft, i3);
-            yVar2.f.draw(canvas);
+            yVar.f.draw(canvas);
             canvas.restoreToCount(save);
             size--;
             i3 += this.c + this.h;
@@ -184,7 +184,7 @@ public class PullAndPull extends View {
     private View getView() {
         View view = null;
         if (this.l.size() > 0) {
-            view = (View) this.l.remove(0);
+            view = this.l.remove(0);
         }
         if (view == null) {
             return c();
@@ -247,15 +247,15 @@ public class PullAndPull extends View {
     public void a(y yVar, boolean z, boolean z2) {
         this.i = z;
         this.f.add(yVar);
-        if (this.f.size() <= this.f1263a) {
+        if (this.f.size() <= this.f1297a) {
             requestLayout();
         }
         removeCallbacks(this.q);
-        while (this.f.size() > this.f1263a + 1) {
-            y yVar2 = (y) this.f.removeFirst();
-            if (yVar2 != null) {
-                this.l.add(yVar2.f);
-                yVar2.f = null;
+        while (this.f.size() > this.f1297a + 1) {
+            y removeFirst = this.f.removeFirst();
+            if (removeFirst != null) {
+                this.l.add(removeFirst.f);
+                removeFirst.f = null;
             }
         }
         if (z2) {

@@ -5,7 +5,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.adp.lib.e.d;
+import com.baidu.adp.lib.f.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends TextView {
@@ -41,7 +41,7 @@ public class a extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         b b = b(spannableStringBuilder, i, i2);
-        if (b.f824a) {
+        if (b.f836a) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             b(i, i2);

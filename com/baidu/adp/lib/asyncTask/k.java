@@ -6,23 +6,23 @@ import java.util.LinkedList;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    int f363a;
+    int f367a;
     int b = 0;
     int c = 0;
     int d = 0;
     int e = 0;
     final /* synthetic */ f f;
 
-    public k(f fVar, LinkedList linkedList) {
+    public k(f fVar, LinkedList<j> linkedList) {
         int i = 0;
         this.f = fVar;
-        this.f363a = 0;
+        this.f367a = 0;
         if (linkedList != null) {
-            this.f363a = linkedList.size();
+            this.f367a = linkedList.size();
             while (true) {
                 int i2 = i;
-                if (i2 < this.f363a) {
-                    j jVar = (j) linkedList.get(i2);
+                if (i2 < this.f367a) {
+                    j jVar = linkedList.get(i2);
                     if (jVar.g() == BdAsyncTaskType.SERIAL) {
                         this.b++;
                     } else if (jVar.g() == BdAsyncTaskType.TWO_PARALLEL) {

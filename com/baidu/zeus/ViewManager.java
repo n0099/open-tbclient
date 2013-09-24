@@ -14,7 +14,7 @@ public class ViewManager {
     private boolean mHidden;
     private boolean mReadyToDraw;
     private final WebView mWebView;
-    private final ArrayList mChildren = new ArrayList();
+    private final ArrayList<ChildView> mChildren = new ArrayList<>();
     private boolean mZoomInProgress = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -157,43 +157,43 @@ public class ViewManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void startZoom() {
         this.mZoomInProgress = true;
-        Iterator it = this.mChildren.iterator();
+        Iterator<ChildView> it = this.mChildren.iterator();
         while (it.hasNext()) {
-            requestLayout((ChildView) it.next());
+            requestLayout(it.next());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void removeChildView() {
-        Iterator it = this.mChildren.iterator();
+        Iterator<ChildView> it = this.mChildren.iterator();
         while (it.hasNext()) {
-            ((ChildView) it.next()).removeView();
+            it.next().removeView();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void endZoom() {
         this.mZoomInProgress = false;
-        Iterator it = this.mChildren.iterator();
+        Iterator<ChildView> it = this.mChildren.iterator();
         while (it.hasNext()) {
-            requestLayout((ChildView) it.next());
+            requestLayout(it.next());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void scaleAll() {
-        Iterator it = this.mChildren.iterator();
+        Iterator<ChildView> it = this.mChildren.iterator();
         while (it.hasNext()) {
-            requestLayout((ChildView) it.next());
+            requestLayout(it.next());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void hideAll() {
         if (!this.mHidden) {
-            Iterator it = this.mChildren.iterator();
+            Iterator<ChildView> it = this.mChildren.iterator();
             while (it.hasNext()) {
-                ((ChildView) it.next()).mView.setVisibility(8);
+                it.next().mView.setVisibility(8);
             }
             this.mHidden = true;
         }
@@ -202,9 +202,9 @@ public class ViewManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void showAll() {
         if (this.mHidden) {
-            Iterator it = this.mChildren.iterator();
+            Iterator<ChildView> it = this.mChildren.iterator();
             while (it.hasNext()) {
-                ((ChildView) it.next()).mView.setVisibility(0);
+                it.next().mView.setVisibility(0);
             }
             this.mHidden = false;
         }
@@ -239,11 +239,11 @@ public class ViewManager {
         if (this.mHidden) {
             return null;
         }
-        Iterator it = this.mChildren.iterator();
+        Iterator<ChildView> it = this.mChildren.iterator();
         while (it.hasNext()) {
-            ChildView childView = (ChildView) it.next();
-            if (childView.mView.getVisibility() == 0 && i >= childView.x && i < childView.x + childView.width && i2 >= childView.y && i2 < childView.y + childView.height) {
-                return childView;
+            ChildView next = it.next();
+            if (next.mView.getVisibility() == 0 && i >= next.x && i < next.x + next.width && i2 >= next.y && i2 < next.y + next.height) {
+                return next;
             }
         }
         return null;

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Date f965a;
+    private Date f983a;
     private String b;
     private int c;
 
@@ -34,7 +34,7 @@ public abstract class a {
             b(new JSONObject(str));
         } catch (Exception e) {
             a("你的网络状况不大好，请稍后重试");
-            com.baidu.tieba.util.aq.a("error = " + e.getMessage());
+            com.baidu.tieba.util.av.a("error = " + e.getMessage());
         }
     }
 
@@ -55,12 +55,12 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.f965a = new Date(optLong * 1000);
+                this.f983a = new Date(optLong * 1000);
             }
             a(jSONObject);
         } catch (Exception e) {
             a("你的网络状况不大好，请稍后重试");
-            com.baidu.tieba.util.aq.a("error = " + e.getMessage());
+            com.baidu.tieba.util.av.a("error = " + e.getMessage());
         }
     }
 }

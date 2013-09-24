@@ -61,7 +61,7 @@ public final class WebViewCore {
     private final EventHub mEventHub;
     private int mHighMemoryUsageThresholdMb;
     private int mHighUsageDeltaMb;
-    private Map mJavascriptInterfaces;
+    private Map<String, Object> mJavascriptInterfaces;
     private int mLowMemoryUsageThresholdMb;
     private int mNativeClass;
     private final WebSettings mSettings;
@@ -95,7 +95,7 @@ public final class WebViewCore {
     DrawData mLastDrawData = null;
     final DrawFilter mZoomFilter = new PaintFlagsDrawFilter(ZOOM_BITS, 64);
     final DrawFilter mScrollFilter = new PaintFlagsDrawFilter(6, 0);
-    private ArrayList mSubjectRectsWebCore = new ArrayList();
+    private ArrayList<Rect> mSubjectRectsWebCore = new ArrayList<>();
     private int mLastSubjectRectLeft = -1;
     private int mLastSubjectRectTop = -1;
     private int mLastSubjectRectRight = -1;
@@ -134,7 +134,7 @@ public final class WebViewCore {
 
     /* loaded from: classes.dex */
     class GetUrlData {
-        Map mExtraHeaders;
+        Map<String, String> mExtraHeaders;
         WebView.PageType mType;
         String mUrl;
     }
@@ -304,7 +304,7 @@ public final class WebViewCore {
     /* JADX INFO: Access modifiers changed from: private */
     public native String nativeGetSubjectContent(int i);
 
-    private native ArrayList nativeGetTouchHighlightRects(int i, int i2, int i3);
+    private native ArrayList<Rect> nativeGetTouchHighlightRects(int i, int i2, int i3);
 
     /* JADX INFO: Access modifiers changed from: private */
     public native boolean nativeHandleTouchEvent(int i, int i2, int i3, int i4);
@@ -472,7 +472,7 @@ public final class WebViewCore {
         this.mEventHub.sendMessage(Message.obtain((Handler) null, 130));
     }
 
-    public WebViewCore(Context context, WebView webView, CallbackProxy callbackProxy, Map map) {
+    public WebViewCore(Context context, WebView webView, CallbackProxy callbackProxy, Map<String, Object> map) {
         this.mCallbackProxy = callbackProxy;
         this.mWebView = webView;
         this.mJavascriptInterfaces = map;
@@ -636,7 +636,7 @@ public final class WebViewCore {
     }
 
     protected void populateVisitedLinks() {
-        this.mCallbackProxy.getVisitedHistory(new ValueCallback() { // from class: com.baidu.zeus.WebViewCore.3
+        this.mCallbackProxy.getVisitedHistory(new ValueCallback<String[]>() { // from class: com.baidu.zeus.WebViewCore.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.zeus.ValueCallback
             public void onReceiveValue(String[] strArr) {
@@ -914,12 +914,12 @@ public final class WebViewCore {
         static final int WEBKIT_DRAW_LAYERS = 148;
         private boolean mBlockMessages;
         private Handler mHandler;
-        private ArrayList mMessages;
+        private ArrayList<Message> mMessages;
         private int mSavedPriority;
         private int mTid;
 
         private EventHub() {
-            this.mMessages = new ArrayList();
+            this.mMessages = new ArrayList<>();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -1367,7 +1367,7 @@ public final class WebViewCore {
             synchronized (this) {
                 int size = this.mMessages.size();
                 for (int i = 0; i < size; i++) {
-                    this.mHandler.sendMessage((Message) this.mMessages.get(i));
+                    this.mHandler.sendMessage(this.mMessages.get(i));
                 }
                 this.mMessages = null;
             }
@@ -1534,7 +1534,7 @@ public final class WebViewCore {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void loadUrl(String str, Map map, WebView.PageType pageType) {
+    public void loadUrl(String str, Map<String, String> map, WebView.PageType pageType) {
         this.mBrowserFrame.setPageType(pageType);
         this.mBrowserFrame.loadUrl(str, map);
     }
@@ -1597,17 +1597,17 @@ public final class WebViewCore {
 
     private long getUsedQuota() {
         long j = 0;
-        Collection originsSync = WebStorage.getInstance().getOriginsSync();
+        Collection<WebStorage.Origin> originsSync = WebStorage.getInstance().getOriginsSync();
         if (originsSync == null) {
             return 0L;
         }
-        Iterator it = originsSync.iterator();
+        Iterator<WebStorage.Origin> it = originsSync.iterator();
         while (true) {
             long j2 = j;
             if (!it.hasNext()) {
                 return j2;
             }
-            j = j2 + ((WebStorage.Origin) it.next()).getQuota();
+            j = j2 + it.next().getQuota();
         }
     }
 
@@ -1995,7 +1995,7 @@ public final class WebViewCore {
 
     public void initialLastSubjectRectSize() {
         if (this.mSubjectRectsWebCore == null) {
-            this.mSubjectRectsWebCore = new ArrayList();
+            this.mSubjectRectsWebCore = new ArrayList<>();
         }
         this.mSubjectRectsWebCore.clear();
         nativeClearLastSubjectRects();
@@ -2006,13 +2006,13 @@ public final class WebViewCore {
     }
 
     public Rect getJavaSubjectRect(int i) {
-        return (Rect) this.mSubjectRectsWebCore.get(i);
+        return this.mSubjectRectsWebCore.get(i);
     }
 
     private void sendSubjectRectsToWebView() {
         if (nativeCheckIfNeedUpdateSubjectRects()) {
             if (this.mSubjectRectsWebCore == null) {
-                this.mSubjectRectsWebCore = new ArrayList();
+                this.mSubjectRectsWebCore = new ArrayList<>();
             }
             int nativeGetLastSubjectCount = nativeGetLastSubjectCount();
             if (nativeGetLastSubjectCount != getJavaSubjectCount()) {
@@ -2024,7 +2024,7 @@ public final class WebViewCore {
             } else {
                 for (int i2 = 0; i2 < nativeGetLastSubjectCount; i2++) {
                     nativeSetSubjectRectToJava(i2);
-                    ((Rect) this.mSubjectRectsWebCore.get(i2)).set(this.mLastSubjectRectLeft, this.mLastSubjectRectTop, this.mLastSubjectRectRight, this.mLastSubjectRectBottom);
+                    this.mSubjectRectsWebCore.get(i2).set(this.mLastSubjectRectLeft, this.mLastSubjectRectTop, this.mLastSubjectRectRight, this.mLastSubjectRectBottom);
                 }
             }
             if (this.mWebView != null) {
@@ -2391,7 +2391,7 @@ public final class WebViewCore {
         return this.mContext;
     }
 
-    private Class getPluginClass(String str, String str2) {
+    private Class<?> getPluginClass(String str, String str2) {
         if (this.mWebView == null) {
             return null;
         }

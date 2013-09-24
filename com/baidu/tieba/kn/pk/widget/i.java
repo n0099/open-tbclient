@@ -14,7 +14,7 @@ import android.view.View;
 public class i extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Point f1272a;
+    private Point f1306a;
     private Point b;
     private Point c;
     private Point d;
@@ -37,7 +37,7 @@ public class i extends View {
     }
 
     public void a(Point point, Point point2, Point point3, Point point4) {
-        this.f1272a = point;
+        this.f1306a = point;
         this.c = point3;
         this.d = point4;
         this.b = point2;
@@ -48,12 +48,12 @@ public class i extends View {
     @SuppressLint({"DrawAllocation"})
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f1272a != null && this.c != null && this.b != null && this.d != null) {
-            this.g = new LinearGradient(this.f1272a.x / 2.0f, 0.0f, this.c.x / 2.0f, this.c.y, Color.parseColor("#9a000000"), Color.parseColor("#00000000"), Shader.TileMode.MIRROR);
+        if (this.f1306a != null && this.c != null && this.b != null && this.d != null) {
+            this.g = new LinearGradient(this.f1306a.x / 2.0f, 0.0f, this.c.x / 2.0f, this.c.y, Color.parseColor("#9a000000"), Color.parseColor("#00000000"), Shader.TileMode.MIRROR);
             this.h = new LinearGradient((this.b.x + getWidth()) / 2.0f, 0.0f, (this.d.x + getWidth()) / 2.0f, this.d.y, Color.parseColor("#9a000000"), Color.parseColor("#00000000"), Shader.TileMode.MIRROR);
             this.f.reset();
             this.f.moveTo(0.0f, 0.0f);
-            this.f.lineTo(this.f1272a.x, this.f1272a.y);
+            this.f.lineTo(this.f1306a.x, this.f1306a.y);
             this.f.lineTo(this.c.x, this.c.y);
             this.f.lineTo(0.0f, this.c.y);
             this.e.setShader(this.g);

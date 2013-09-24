@@ -5,22 +5,22 @@ import android.content.DialogInterface;
 class d implements DialogInterface.OnDismissListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShakeActivity f1281a;
+    final /* synthetic */ ShakeActivity f1315a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ShakeActivity shakeActivity) {
-        this.f1281a = shakeActivity;
+        this.f1315a = shakeActivity;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         i iVar;
         i iVar2;
-        iVar = this.f1281a.g;
+        iVar = this.f1315a.g;
         if (iVar.b()) {
-            iVar2 = this.f1281a.g;
+            iVar2 = this.f1315a.g;
             if (!iVar2.c()) {
-                this.f1281a.c();
+                this.f1315a.c();
             }
         }
     }

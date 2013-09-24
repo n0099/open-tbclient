@@ -20,7 +20,7 @@ import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
-public class ReLoginShareActivity extends com.baidu.tieba.g {
+public class ReLoginShareActivity extends com.baidu.tieba.j {
     private ap c = null;
     private Button d = null;
     private Button e = null;
@@ -34,7 +34,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     private k o = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f865a = null;
+    LinearLayout f881a = null;
     LinearLayout b = null;
     private View.OnClickListener p = new ao(this);
 
@@ -48,13 +48,13 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.relogin_activity);
         b();
         c();
-        k();
+        e();
     }
 
     private void b() {
@@ -89,20 +89,20 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
         this.f.setOnClickListener(this.p);
         this.j = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.g = (TextView) findViewById(R.id.relogin_textview);
-        this.f865a = (LinearLayout) findViewById(R.id.container);
+        this.f881a = (LinearLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
         a(0, this.k);
-        com.baidu.tieba.util.ao.a((TextView) this.e, i);
-        com.baidu.tieba.util.ao.a(this.f, i);
-        com.baidu.tieba.util.ao.a(this.f865a, i);
-        com.baidu.tieba.util.ao.d(this.b, i);
-        com.baidu.tieba.util.ao.b(this.g, i);
+        com.baidu.tieba.util.as.a((TextView) this.e, i);
+        com.baidu.tieba.util.as.a(this.f, i);
+        com.baidu.tieba.util.as.a(this.f881a, i);
+        com.baidu.tieba.util.as.d(this.b, i);
+        com.baidu.tieba.util.as.b(this.g, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,8 +152,8 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        String E = TiebaApplication.E();
-        if (E == null || E.length() <= 0) {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
             MainTabActivity.a(this, 0);
             return;
         }
@@ -163,7 +163,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, android.app.Activity
+    @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         if (this.c != null) {
             this.c.cancel();
@@ -172,7 +172,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k() {
+    public void e() {
         if (this.c == null && this.l != null && this.m != null) {
             this.c = new ap(this, null);
             this.c.setPriority(3);
@@ -181,7 +181,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l() {
+    public void m() {
         int intExtra = getIntent().getIntExtra("locate_type", -1);
         DatabaseService.a(this.n);
         TiebaApplication.a(this.n, getBaseContext());

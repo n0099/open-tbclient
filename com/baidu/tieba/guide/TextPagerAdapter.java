@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class TextPagerAdapter extends ae implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnClickListener f1123a;
+    private View.OnClickListener f1170a;
 
     @Override // android.support.v4.view.ae
     public int getCount() {
@@ -37,6 +37,7 @@ public class TextPagerAdapter extends ae implements View.OnClickListener {
                 return LayoutInflater.from(context).inflate(R.layout.guide_page_2, viewGroup, false);
             case 2:
                 View inflate = LayoutInflater.from(context).inflate(R.layout.guide_page_3, viewGroup, false);
+                inflate.setOnClickListener(this);
                 inflate.findViewById(R.id.enter).setOnClickListener(this);
                 return inflate;
             default:
@@ -51,12 +52,12 @@ public class TextPagerAdapter extends ae implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == R.id.enter && this.f1123a != null) {
-            this.f1123a.onClick(view);
+        if (this.f1170a != null) {
+            this.f1170a.onClick(view);
         }
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.f1123a = onClickListener;
+        this.f1170a = onClickListener;
     }
 }

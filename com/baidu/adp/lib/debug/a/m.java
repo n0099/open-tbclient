@@ -3,14 +3,14 @@ package com.baidu.adp.lib.debug.a;
 public class m extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f404a = "StrictMode";
+    private String f406a = "StrictMode";
     private String[] b = {"StrictMode", "policy", "violation"};
 
     @Override // com.baidu.adp.lib.debug.a.a
     public void b() {
         super.b();
         try {
-            j.a(this.f404a, new n(this));
+            j.a(this.f406a, new n(this));
         } catch (Exception e) {
             e.printStackTrace();
         }

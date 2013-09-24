@@ -10,7 +10,7 @@ import java.util.List;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    float f513a;
+    float f525a;
     float b;
     float c;
     float d;
@@ -21,7 +21,7 @@ public class r {
 
     private void e() {
         long uptimeMillis = SystemClock.uptimeMillis();
-        this.f513a = ((((float) (uptimeMillis - this.e)) / 1000.0f) * this.b) + this.f513a;
+        this.f525a = ((((float) (uptimeMillis - this.e)) / 1000.0f) * this.b) + this.f525a;
         this.e = uptimeMillis;
         this.f += 16;
     }
@@ -31,7 +31,7 @@ public class r {
         q qVar;
         v vVar;
         e();
-        if (this.f513a <= this.c) {
+        if (this.f525a <= this.c) {
             vVar = this.h.x;
             if (vVar != null) {
                 vVar.b();
@@ -41,7 +41,7 @@ public class r {
             this.h.a();
             return;
         }
-        this.h.h = (int) (a.a(this.c, this.f513a, false) + this.d);
+        this.h.h = (int) (a.a(this.c, this.f525a, false) + this.d);
         this.h.invalidate();
         qVar = this.h.u;
         qVar.sendEmptyMessageAtTime(-100, this.f);
@@ -52,7 +52,7 @@ public class r {
         q qVar;
         s sVar;
         e();
-        if (this.f513a >= this.c) {
+        if (this.f525a >= this.c) {
             sVar = this.h.y;
             if (sVar != null) {
                 sVar.b();
@@ -62,7 +62,7 @@ public class r {
             this.h.a();
             return;
         }
-        this.h.h = (int) (a.a(this.c, this.f513a, false) + this.d);
+        this.h.h = (int) (a.a(this.c, this.f525a, false) + this.d);
         this.h.invalidate();
         qVar = this.h.u;
         qVar.sendEmptyMessageAtTime(-101, this.f);
@@ -73,7 +73,7 @@ public class r {
         q qVar;
         List<u> list;
         e();
-        if (this.f513a >= this.c) {
+        if (this.f525a >= this.c) {
             list = this.h.z;
             for (u uVar : list) {
                 if (uVar != null) {
@@ -85,7 +85,7 @@ public class r {
             this.h.a();
             return;
         }
-        this.h.h = (int) (a.a(this.c, this.f513a, false) + this.d);
+        this.h.h = (int) (a.a(this.c, this.f525a, false) + this.d);
         this.h.invalidate();
         qVar = this.h.u;
         qVar.sendEmptyMessageAtTime(-104, this.f);
@@ -96,7 +96,7 @@ public class r {
         q qVar;
         List<u> list;
         e();
-        if (this.f513a <= this.c) {
+        if (this.f525a <= this.c) {
             list = this.h.z;
             for (u uVar : list) {
                 if (uVar != null) {
@@ -108,7 +108,7 @@ public class r {
             this.h.a();
             return;
         }
-        this.h.h = (int) (a.a(this.c, this.f513a, false) + this.d);
+        this.h.h = (int) (a.a(this.c, this.f525a, false) + this.d);
         this.h.invalidate();
         qVar = this.h.u;
         qVar.sendEmptyMessageAtTime(-105, this.f);
@@ -132,7 +132,7 @@ public class r {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f513a = 0.0f;
+        this.f525a = 0.0f;
         i = this.h.h;
         this.c = 0 - i;
         i2 = this.h.h;
@@ -163,7 +163,7 @@ public class r {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f513a = 0.0f;
+        this.f525a = 0.0f;
         i = this.h.h;
         this.c = 0 - i;
         i2 = this.h.h;
@@ -194,7 +194,7 @@ public class r {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f513a = 0.0f;
+        this.f525a = 0.0f;
         i = this.h.c;
         f2 = this.h.d;
         float f3 = (-i) + f2;
@@ -228,7 +228,7 @@ public class r {
         this.e = uptimeMillis;
         this.f = uptimeMillis + 16;
         this.b = f;
-        this.f513a = 0.0f;
+        this.f525a = 0.0f;
         i = this.h.c;
         f2 = this.h.f;
         float f3 = i - f2;

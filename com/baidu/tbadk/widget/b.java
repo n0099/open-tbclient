@@ -5,11 +5,11 @@ import java.util.List;
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f824a;
-    public final List b;
-    public final List c;
+    public final boolean f836a;
+    public final List<Object> b;
+    public final List<Object> c;
 
-    public static b a(List list, List list2) {
+    public static b a(List<Object> list, List<Object> list2) {
         return new b(true, list, list2);
     }
 
@@ -17,8 +17,8 @@ class b {
         return new b(false, null, null);
     }
 
-    private b(boolean z, List list, List list2) {
-        this.f824a = z;
+    private b(boolean z, List<Object> list, List<Object> list2) {
+        this.f836a = z;
         this.b = list;
         this.c = list2;
     }

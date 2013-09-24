@@ -12,7 +12,7 @@ public final class BdMemUtil {
     public static final String[] FIELDS_SYS_MEMINFO = {"MemTotal:", "MemFree:", "Buffers:", "Cached:", "Active:", "Inactive:", "Dirty:"};
     public static final String[] FIELDS_PROC_MEMINFO = {"VmLck:", "VmRSS:", "VmSize:", "VmExe:", "VmStk:", "VmLib", "Threads:"};
 
-    public static Map getSysMemoryInfo() {
+    public static Map<String, Long> getSysMemoryInfo() {
         HashMap hashMap = new HashMap();
         try {
             Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
@@ -42,7 +42,7 @@ public final class BdMemUtil {
         }
     }
 
-    public Map getProcMemoryInfo() {
+    public Map<String, Long> getProcMemoryInfo() {
         HashMap hashMap = new HashMap();
         try {
             Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);

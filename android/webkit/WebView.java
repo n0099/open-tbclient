@@ -63,11 +63,15 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         throw new RuntimeException("stub!");
     }
 
+    public void removeJavascriptInterface(String str) {
+        throw new RuntimeException("stub!");
+    }
+
     public void addPackageName(String str) {
         throw new RuntimeException("stub!");
     }
 
-    public void addPackageNames(Set set) {
+    public void addPackageNames(Set<String> set) {
         throw new RuntimeException("stub!");
     }
 
@@ -316,7 +320,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         throw new RuntimeException("stub!");
     }
 
-    public void loadUrl(String str, Map map) {
+    public void loadUrl(String str, Map<String, String> map) {
         throw new RuntimeException("stub!");
     }
 
@@ -449,7 +453,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         throw new RuntimeException("stub!");
     }
 
-    public void saveWebArchive(String str, boolean z, ValueCallback valueCallback) {
+    public void saveWebArchive(String str, boolean z, ValueCallback<String> valueCallback) {
         throw new RuntimeException("stub!");
     }
 

@@ -1,206 +1,189 @@
 package com.baidu.tieba.more;
 
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.CompoundButton;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.ao;
+import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class MsgRemindActivity extends com.baidu.tieba.g {
+public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private RadioGroup f1429a = null;
-    private TextView b = null;
-    private CheckBox c = null;
-    private CheckBox d = null;
-    private CheckBox e = null;
-    private LinearLayout f = null;
-    private BdSwitchView g = null;
-    private LinearLayout j = null;
-    private BdSwitchView k = null;
-    private RelativeLayout l = null;
-    private RelativeLayout m = null;
-    private TextView n = null;
-    private TextView o = null;
-    private RadioButton p = null;
-    private RadioButton q = null;
-    private RadioButton r = null;
-    private RadioButton s = null;
-    private CheckBox t = null;
-    private CheckBox u = null;
-    private CheckBox v = null;
-    private TextView w = null;
-    private TextView x = null;
-    private ImageView y = null;
+    private aj f1468a;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g, com.baidu.adp.a.a, android.app.Activity
+    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.msg_remind_activity);
-        b();
-        c();
-        k();
-        l();
-        m();
+        this.f1468a = new aj(this);
+        this.f1468a.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.g
+    @Override // com.baidu.tieba.j
     public void a(int i) {
-        int color;
         super.a(i);
-        ao.b(this.l, i);
-        ao.d(this.m, i);
-        ao.a(this.y, i);
-        ao.f(this.n, i);
-        if (i == 1) {
-            color = ao.a(i);
-            ao.g((View) this.p, (int) R.drawable.more_up_1);
-            ao.g((View) this.q, (int) R.drawable.more_middle_1);
-            ao.g((View) this.r, (int) R.drawable.more_middle_1);
-            ao.g((View) this.s, (int) R.drawable.more_down_1);
-            ao.g((View) this.t, (int) R.drawable.more_up_1);
-            ao.g((View) this.u, (int) R.drawable.more_middle_1);
-            ao.g((View) this.v, (int) R.drawable.more_down_1);
-            this.f.setBackgroundResource(R.drawable.more_up_1);
-            this.j.setBackgroundResource(R.drawable.more_down_1);
-            this.g.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
-            this.k.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
-        } else {
-            color = getResources().getColor(R.color.more_color);
-            ao.g((View) this.p, (int) R.drawable.more_up);
-            ao.g((View) this.q, (int) R.drawable.more_middle);
-            ao.g((View) this.r, (int) R.drawable.more_middle);
-            ao.g((View) this.s, (int) R.drawable.more_down);
-            ao.g((View) this.t, (int) R.drawable.more_up);
-            ao.g((View) this.u, (int) R.drawable.more_middle);
-            ao.g((View) this.v, (int) R.drawable.more_down);
-            this.f.setBackgroundResource(R.drawable.more_up);
-            this.j.setBackgroundResource(R.drawable.more_down);
-            this.g.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
-            this.k.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
-        }
-        this.o.setTextColor(color);
-        this.p.setTextColor(color);
-        this.q.setTextColor(color);
-        this.r.setTextColor(color);
-        this.s.setTextColor(color);
-        this.b.setTextColor(color);
-        this.t.setTextColor(color);
-        this.u.setTextColor(color);
-        this.v.setTextColor(color);
-        this.w.setTextColor(color);
-        this.x.setTextColor(color);
-    }
-
-    void b() {
-        this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.f1429a = (RadioGroup) findViewById(R.id.frequency_radio);
-        this.m = (RelativeLayout) findViewById(R.id.title);
-        this.n = (TextView) findViewById(R.id.title_text);
-        this.o = (TextView) findViewById(R.id.frequency_text);
-        this.p = (RadioButton) findViewById(R.id.radio_30sec);
-        this.q = (RadioButton) findViewById(R.id.radio_2min);
-        this.r = (RadioButton) findViewById(R.id.radio_5min);
-        this.s = (RadioButton) findViewById(R.id.radio_no);
-        this.t = (CheckBox) findViewById(R.id.check_replyme);
-        this.u = (CheckBox) findViewById(R.id.check_atme);
-        this.v = (CheckBox) findViewById(R.id.check_newfans);
-        this.w = (TextView) findViewById(R.id.tone_text);
-        this.x = (TextView) findViewById(R.id.vibrate_text);
-        this.f1429a.setOnCheckedChangeListener(new ad(this));
-        ae aeVar = new ae(this);
-        this.b = (TextView) findViewById(R.id.content_text);
-        this.c = (CheckBox) findViewById(R.id.check_replyme);
-        this.d = (CheckBox) findViewById(R.id.check_atme);
-        this.e = (CheckBox) findViewById(R.id.check_newfans);
-        this.c.setOnCheckedChangeListener(aeVar);
-        this.d.setOnCheckedChangeListener(aeVar);
-        this.e.setOnCheckedChangeListener(aeVar);
-        this.f = (LinearLayout) findViewById(R.id.remind_tone);
-        this.f.setClickable(false);
-        this.g = (BdSwitchView) findViewById(R.id.remind_tone_switch);
-        this.g.setOnSwitchStateChangeListener(new af(this));
-        this.j = (LinearLayout) findViewById(R.id.remind_vibrate);
-        this.j.setClickable(false);
-        this.k = (BdSwitchView) findViewById(R.id.remind_vibrate_switch);
-        this.k.setOnSwitchStateChangeListener(new ag(this));
-        this.y = (ImageView) findViewById(R.id.back);
-        this.y.setOnClickListener(new ah(this));
+        this.f1468a.a(i);
     }
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, MsgRemindActivity.class));
     }
 
-    private void c() {
-        int S = TiebaApplication.g().S();
-        if (S == 30) {
-            this.f1429a.check(R.id.radio_30sec);
-        } else if (S == 120) {
-            this.f1429a.check(R.id.radio_2min);
-        } else if (S == 300) {
-            this.f1429a.check(R.id.radio_5min);
-        } else {
-            this.f1429a.check(R.id.radio_no);
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (view == this.f1468a.e()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                TiebaApplication.g().i(true);
+            } else {
+                TiebaApplication.g().i(false);
+            }
+        } else if (view == this.f1468a.f()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                TiebaApplication.g().q(true);
+                this.f1468a.c();
+                this.f1468a.b(true);
+                return;
+            }
+            TiebaApplication.g().q(false);
+            this.f1468a.b(false);
+        } else if (view == this.f1468a.g()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                TiebaApplication.g().d(300);
+                this.f1468a.c(true);
+                return;
+            }
+            TiebaApplication.g().d(0);
+            this.f1468a.c(false);
+        } else if (view == this.f1468a.i()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                TiebaApplication.g().k(true);
+                this.f1468a.a(true);
+                return;
+            }
+            TiebaApplication.g().k(false);
+            this.f1468a.a(false);
+        } else if (view == this.f1468a.m()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                TiebaApplication.g().j(true);
+            } else {
+                TiebaApplication.g().j(false);
+            }
+        } else if (view == this.f1468a.n()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                TiebaApplication.g().l(true);
+            } else {
+                TiebaApplication.g().l(false);
+            }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (TiebaApplication.g().S() <= 0) {
-            this.b.setVisibility(8);
-            this.d.setVisibility(8);
-            this.c.setVisibility(8);
-            this.e.setVisibility(8);
-            this.f.setVisibility(8);
-            this.j.setVisibility(8);
-            return;
-        }
-        this.b.setVisibility(0);
-        this.d.setVisibility(0);
-        this.c.setVisibility(0);
-        this.e.setVisibility(0);
-        this.f.setVisibility(0);
-        this.j.setVisibility(0);
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        this.f1468a.b().performClick();
     }
 
-    private void k() {
-        if (TiebaApplication.g().aa()) {
-            this.c.setChecked(true);
-        }
-        if (TiebaApplication.g().Z()) {
-            this.d.setChecked(true);
-        }
-        if (TiebaApplication.g().Y()) {
-            this.e.setChecked(true);
+    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
+    public void onClick(View view) {
+        super.onClick(view);
+        if (view == this.f1468a.b()) {
+            if (this.f1468a.b) {
+                finish();
+            } else {
+                this.f1468a.d(true);
+            }
+        } else if (view == this.f1468a.h()) {
+            showDialog(R.id.sign_remind);
+        } else if (view == this.f1468a.j()) {
+            this.f1468a.d(false);
+        } else if (view == this.f1468a.k()) {
+            showDialog(R.id.no_disturb_start_time);
+        } else if (view == this.f1468a.l()) {
+            showDialog(R.id.no_disturb_end_time);
         }
     }
 
-    private void l() {
-        if (TiebaApplication.g().V()) {
-            this.g.a();
-        } else {
-            this.g.b();
+    @Override // android.app.Activity
+    protected void onPrepareDialog(int i, Dialog dialog) {
+        if (dialog instanceof TimePickerDialog) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == R.id.sign_remind) {
+                ((TimePickerDialog) dialog).updateTime(g.af(), g.ag());
+                return;
+            } else if (i == R.id.no_disturb_start_time || i == R.id.no_disturb_end_time) {
+                String[] split = i == R.id.no_disturb_start_time ? g.U().split(":") : g.V().split(":");
+                ((TimePickerDialog) dialog).updateTime(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
+                return;
+            } else {
+                return;
+            }
         }
+        super.onPrepareDialog(i, dialog);
     }
 
-    private void m() {
-        if (TiebaApplication.g().W()) {
-            this.k.a();
-        } else {
-            this.k.b();
+    @Override // android.app.Activity
+    protected Dialog onCreateDialog(int i) {
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, new ai(this, i, TiebaApplication.g()), 0, 0, true);
+        if (i == R.id.sign_remind) {
+            timePickerDialog.setTitle(R.string.sign_remind);
+        } else if (i == R.id.no_disturb_end_time) {
+            timePickerDialog.setTitle(R.string.no_disturb_end_time);
+        } else if (i == R.id.no_disturb_start_time) {
+            timePickerDialog.setTitle(R.string.no_disturb_start_time);
+        }
+        return timePickerDialog;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.j, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        DatabaseService.u();
+    }
+
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        switch (compoundButton.getId()) {
+            case R.id.check_replyme /* 2131100467 */:
+                if (z) {
+                    TiebaApplication.g().o(true);
+                    return;
+                } else {
+                    TiebaApplication.g().o(false);
+                    return;
+                }
+            case R.id.check_atme /* 2131100468 */:
+                if (z) {
+                    TiebaApplication.g().n(true);
+                    return;
+                } else {
+                    TiebaApplication.g().n(false);
+                    return;
+                }
+            case R.id.check_newfans /* 2131100469 */:
+                if (z) {
+                    TiebaApplication.g().m(true);
+                    return;
+                } else {
+                    TiebaApplication.g().m(false);
+                    return;
+                }
+            case R.id.check_chatmessage /* 2131100470 */:
+                if (z) {
+                    TiebaApplication.g().p(true);
+                    return;
+                } else {
+                    TiebaApplication.g().p(false);
+                    return;
+                }
+            default:
+                return;
         }
     }
 }

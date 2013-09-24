@@ -137,6 +137,10 @@ public class BdWebPoolCustomView extends BdWebView {
         this.mJsEngine.setWebJsClient(bdWebPoolCustomJsClient);
     }
 
+    public BdWebPoolView.BdWebPoolCustomJsClient getWebJsClient() {
+        return (BdWebPoolView.BdWebPoolCustomJsClient) this.mJsEngine.getWebJsClient();
+    }
+
     public void runJavaScript(String str) {
         if (this.mJsEngine != null) {
             this.mJsEngine.runJavaScript(str);

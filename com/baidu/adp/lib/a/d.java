@@ -6,21 +6,21 @@ import java.util.Iterator;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f351a = null;
-    private HashMap b;
+    private static d f355a = null;
+    private HashMap<String, c> b;
 
     private d() {
         this.b = null;
-        this.b = new HashMap();
+        this.b = new HashMap<>();
     }
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f351a == null) {
-                f351a = new d();
+            if (f355a == null) {
+                f355a = new d();
             }
-            dVar = f351a;
+            dVar = f355a;
         }
         return dVar;
     }
@@ -32,21 +32,21 @@ public class d {
     }
 
     public void a(String str) {
-        Iterator it = this.b.values().iterator();
-        while (it.hasNext() && !((c) it.next()).a(str)) {
+        Iterator<c> it = this.b.values().iterator();
+        while (it.hasNext() && !it.next().a(str)) {
         }
     }
 
     public boolean a(String str, int i) {
         c cVar;
-        if (i >= 0 && (cVar = (c) this.b.get(str)) != null) {
+        if (i >= 0 && (cVar = this.b.get(str)) != null) {
             return cVar.a(i);
         }
         return false;
     }
 
     public int b(String str) {
-        c cVar = (c) this.b.get(str);
+        c cVar = this.b.get(str);
         if (cVar != null) {
             return cVar.b();
         }

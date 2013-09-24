@@ -6,11 +6,11 @@ import android.os.Handler;
 public class g implements y {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendActivity f1682a;
+    final /* synthetic */ DailyRecommendActivity f1757a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(DailyRecommendActivity dailyRecommendActivity) {
-        this.f1682a = dailyRecommendActivity;
+        this.f1757a = dailyRecommendActivity;
     }
 
     @Override // com.baidu.tieba.recommend.y
@@ -27,34 +27,34 @@ public class g implements y {
         Handler handler2;
         Runnable runnable2;
         z zVar4;
-        zVar = this.f1682a.c;
+        zVar = this.f1757a.c;
         zVar.a(true, "");
         if (z) {
-            zVar3 = this.f1682a.c;
+            zVar3 = this.f1757a.c;
             zVar3.a(nVar);
-            handler = this.f1682a.e;
-            runnable = this.f1682a.f;
+            handler = this.f1757a.e;
+            runnable = this.f1757a.f;
             handler.removeCallbacks(runnable);
-            handler2 = this.f1682a.e;
-            runnable2 = this.f1682a.f;
+            handler2 = this.f1757a.e;
+            runnable2 = this.f1757a.f;
             handler2.postDelayed(runnable2, 0L);
             if (i == 0) {
-                zVar4 = this.f1682a.c;
+                zVar4 = this.f1757a.c;
                 zVar4.e();
             }
         } else {
-            zVar2 = this.f1682a.c;
+            zVar2 = this.f1757a.c;
             zVar2.a((com.baidu.tieba.data.n) null);
             if (i != 1) {
                 if (str.equals("70000")) {
-                    this.f1682a.a("已经无新数据了");
+                    this.f1757a.a("已经无新数据了");
                 } else {
-                    this.f1682a.a("获取数据失败");
+                    this.f1757a.a("获取数据失败");
                 }
             }
         }
         if (i == 1) {
-            this.f1682a.a(true, (String) null);
+            this.f1757a.a(true, (String) null);
         }
     }
 }

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class az {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f998a;
+    private String f1016a;
     private String b;
     private String c;
     private int d;
@@ -15,7 +15,7 @@ public class az {
     private ba h;
 
     public void a(String str) {
-        this.f998a = str;
+        this.f1016a = str;
     }
 
     public String a() {

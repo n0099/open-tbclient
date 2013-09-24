@@ -2,53 +2,53 @@ package com.baidu.tieba.chat;
 
 import android.os.Handler;
 /* loaded from: classes.dex */
-class e implements ac {
+class e implements ab {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f944a;
+    final /* synthetic */ ChatActivity f961a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ChatActivity chatActivity) {
-        this.f944a = chatActivity;
+        this.f961a = chatActivity;
     }
 
-    @Override // com.baidu.tieba.chat.ac
+    @Override // com.baidu.tieba.chat.ab
     public void a() {
-        ad adVar;
-        adVar = this.f944a.f933a;
-        adVar.l();
+        ac acVar;
+        acVar = this.f961a.f951a;
+        acVar.l();
     }
 
-    @Override // com.baidu.tieba.chat.ac
+    @Override // com.baidu.tieba.chat.ab
     public void a(boolean z, String str, com.baidu.tieba.data.a.c cVar) {
-        ad adVar;
-        w wVar;
-        ad adVar2;
-        aa aaVar;
+        ac acVar;
+        v vVar;
+        ac acVar2;
+        z zVar;
         Handler handler;
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        adVar = this.f944a.f933a;
-        adVar.m();
+        acVar = this.f961a.f951a;
+        acVar.m();
         if (z) {
-            wVar = this.f944a.b;
-            wVar.a().a(cVar);
-            adVar2 = this.f944a.f933a;
-            adVar2.g();
+            vVar = this.f961a.b;
+            vVar.a().a(cVar);
+            acVar2 = this.f961a.f951a;
+            acVar2.g();
             new Handler().post(new f(this));
             if (cVar.c()) {
-                handler = this.f944a.j;
-                runnable = this.f944a.m;
+                handler = this.f961a.j;
+                runnable = this.f961a.m;
                 handler.removeCallbacks(runnable);
-                handler2 = this.f944a.j;
-                runnable2 = this.f944a.m;
+                handler2 = this.f961a.j;
+                runnable2 = this.f961a.m;
                 handler2.post(runnable2);
             }
-            aaVar = this.f944a.c;
-            aaVar.a((com.baidu.tieba.data.a.e) null);
+            zVar = this.f961a.c;
+            zVar.a((com.baidu.tieba.data.a.e) null);
             return;
         }
-        this.f944a.a(str);
+        this.f961a.a(str);
     }
 }

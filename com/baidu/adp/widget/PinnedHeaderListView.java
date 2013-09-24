@@ -13,7 +13,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 public class PinnedHeaderListView extends BdListView implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private AbsListView.OnScrollListener f484a;
+    private AbsListView.OnScrollListener f495a;
     private View b;
     private int c;
     private int d;
@@ -176,21 +176,21 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.f484a = onScrollListener;
+        this.f495a = onScrollListener;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.f484a != null) {
-            this.f484a.onScrollStateChanged(absListView, i);
+        if (this.f495a != null) {
+            this.f495a.onScrollStateChanged(absListView, i);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         c();
-        if (this.f484a != null) {
-            this.f484a.onScroll(absListView, i, i2, i3);
+        if (this.f495a != null) {
+            this.f495a.onScroll(absListView, i, i2, i3);
         }
     }
 }

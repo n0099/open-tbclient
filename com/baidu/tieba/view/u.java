@@ -3,20 +3,22 @@ package com.baidu.tieba.view;
 class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public s f1879a;
-    public s b;
-    public boolean c;
-    final /* synthetic */ r d;
+    public t f2007a;
+    public t b;
+    public t c;
+    public boolean d;
+    final /* synthetic */ s e;
 
-    private u(r rVar) {
-        this.d = rVar;
-        this.f1879a = new s(rVar, null);
-        this.b = new s(rVar, null);
-        this.c = false;
+    private u(s sVar) {
+        this.e = sVar;
+        this.f2007a = new t(sVar, null);
+        this.b = new t(sVar, null);
+        this.c = new t(sVar, null);
+        this.d = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(r rVar, u uVar) {
-        this(rVar);
+    public /* synthetic */ u(s sVar, u uVar) {
+        this(sVar);
     }
 }

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class am {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f985a = null;
+    private String f1003a = null;
     private ar b = null;
     private ar c = null;
     private String d = null;
@@ -18,7 +18,7 @@ public class am {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f985a = jSONObject.optString("pk_id", null);
+                this.f1003a = jSONObject.optString("pk_id", null);
                 this.b = new ar();
                 this.b.a(jSONObject.optJSONObject("player1"));
                 this.c = new ar();
@@ -29,13 +29,13 @@ public class am {
                 this.d = jSONObject.optString("title");
                 this.i = jSONObject.optInt("status", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b("PKInfoData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.av.b("PKInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public String a() {
-        return this.f985a;
+        return this.f1003a;
     }
 
     public ar b() {

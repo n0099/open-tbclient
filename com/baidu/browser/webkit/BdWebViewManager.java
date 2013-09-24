@@ -596,6 +596,6 @@ public final class BdWebViewManager extends Observable {
         long fetchCpuMaxFreq = (fetchCpuMaxFreq() * getCpuCoresNum()) / 1000;
         boolean HasGPU = getInstance().isZeusLoaded() ? WebView.HasGPU() : true;
         BdLog.d("GFS info: " + String.valueOf(fetchCpuMaxFreq) + " " + String.valueOf(HasGPU));
-        return fetchCpuMaxFreq >= 1433 && ((Long) BdMemUtil.getSysMemoryInfo().get("MemTotal:")).longValue() / 1000 >= 512 && HasGPU;
+        return fetchCpuMaxFreq >= 1433 && BdMemUtil.getSysMemoryInfo().get("MemTotal:").longValue() / 1000 >= 512 && HasGPU;
     }
 }

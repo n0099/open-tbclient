@@ -17,7 +17,7 @@ public class BdPopMenu extends LinearLayout implements View.OnClickListener {
     private int height;
     private LinearLayout.LayoutParams layoutParams;
     private BdPopMenuListener listener;
-    private List menuItems;
+    private List<BdPopMenuItem> menuItems;
     private int mid;
     private int width;
 
@@ -77,9 +77,9 @@ public class BdPopMenu extends LinearLayout implements View.OnClickListener {
             LinearLayout linearLayout2 = new LinearLayout(this.context);
             for (int i2 = 0; i2 < size; i2++) {
                 if (i2 < 2) {
-                    linearLayout.addView((View) this.menuItems.get(i2), this.layoutParams);
+                    linearLayout.addView(this.menuItems.get(i2), this.layoutParams);
                 } else {
-                    linearLayout2.addView((View) this.menuItems.get(i2), this.layoutParams);
+                    linearLayout2.addView(this.menuItems.get(i2), this.layoutParams);
                 }
             }
             addView(linearLayout);
@@ -103,7 +103,7 @@ public class BdPopMenu extends LinearLayout implements View.OnClickListener {
             int i5 = i4 / 3;
             ImageView imageView = new ImageView(getContext());
             imageView.setBackgroundResource(this.context.getResources().getIdentifier("browser_select_separator", "drawable", this.context.getPackageName()));
-            ((LinearLayout) arrayList.get(i5)).addView((View) this.menuItems.get(i4), this.layoutParams);
+            ((LinearLayout) arrayList.get(i5)).addView(this.menuItems.get(i4), this.layoutParams);
             if ((i4 + 1) % 3 != 0 && i4 + 1 != size) {
                 ((LinearLayout) arrayList.get(i5)).addView(imageView, layoutParams);
             }
@@ -157,13 +157,13 @@ public class BdPopMenu extends LinearLayout implements View.OnClickListener {
 
     public void showItem(int i) {
         if (i >= 0 && i <= this.menuItems.size()) {
-            ((BdPopMenuItem) this.menuItems.get(i)).setEnabled(true);
+            this.menuItems.get(i).setEnabled(true);
         }
     }
 
     public void hideItem(int i) {
         if (i >= 0 && i <= this.menuItems.size()) {
-            ((BdPopMenuItem) this.menuItems.get(i)).setEnabled(false);
+            this.menuItems.get(i).setEnabled(false);
         }
     }
 
@@ -181,7 +181,7 @@ public class BdPopMenu extends LinearLayout implements View.OnClickListener {
 
     public void updateItemText(int i, String str) {
         if (i >= 0 && i <= this.menuItems.size()) {
-            ((BdPopMenuItem) this.menuItems.get(i)).setMText(str);
+            this.menuItems.get(i).setMText(str);
             postInvalidate();
         }
     }
@@ -196,7 +196,7 @@ public class BdPopMenu extends LinearLayout implements View.OnClickListener {
         this.mid = i;
     }
 
-    public List getMenuItemList() {
+    public List<BdPopMenuItem> getMenuItemList() {
         return this.menuItems;
     }
 }

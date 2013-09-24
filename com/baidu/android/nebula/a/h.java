@@ -9,10 +9,10 @@ import android.text.TextUtils;
 public class h extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f545a;
+    final /* synthetic */ e f557a;
 
     private h(e eVar) {
-        this.f545a = eVar;
+        this.f557a = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,26 +38,26 @@ public class h extends BroadcastReceiver {
                     } else {
                         b.a(b.INSERT);
                     }
-                    sVar3 = this.f545a.b;
+                    sVar3 = this.f557a.b;
                     sVar3.a(b);
-                    sVar4 = this.f545a.e;
+                    sVar4 = this.f557a.e;
                     sVar4.a(b);
                 }
                 z = false;
             } else {
                 if (TextUtils.equals(intent.getAction(), "android.intent.action.PACKAGE_REMOVED") && !booleanExtra) {
-                    sVar = this.f545a.b;
+                    sVar = this.f557a.b;
                     a b2 = sVar.b(schemeSpecificPart);
                     if (b2 != null) {
                         b2.a(b.DELETE);
-                        sVar2 = this.f545a.e;
+                        sVar2 = this.f557a.e;
                         sVar2.a(b2);
                     }
                 }
                 z = false;
             }
             if (z) {
-                this.f545a.i();
+                this.f557a.i();
             }
         }
     }

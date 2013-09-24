@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class j extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.g f1187a;
+    private com.baidu.tieba.j f1219a;
     private View.OnClickListener h;
     private View.OnLongClickListener i;
     private Boolean b = false;
@@ -26,17 +26,17 @@ public class j extends BaseAdapter {
     private int g = 0;
     private boolean j = false;
 
-    public j(com.baidu.tieba.g gVar) {
-        this.f1187a = null;
-        this.f1187a = gVar;
+    public j(com.baidu.tieba.j jVar) {
+        this.f1219a = null;
+        this.f1219a = jVar;
         a();
     }
 
     public void a() {
-        this.d = UtilHelper.a((Context) this.f1187a, 3.0f);
-        this.e = UtilHelper.a((Context) this.f1187a, 6.0f);
-        this.f = UtilHelper.a((Context) this.f1187a, 10.0f);
-        this.g = UtilHelper.a((Context) this.f1187a, 30.0f);
+        this.d = UtilHelper.a((Context) this.f1219a, 3.0f);
+        this.e = UtilHelper.a((Context) this.f1219a, 6.0f);
+        this.f = UtilHelper.a((Context) this.f1219a, 10.0f);
+        this.g = UtilHelper.a((Context) this.f1219a, 30.0f);
     }
 
     public void a(com.baidu.tieba.data.af afVar) {
@@ -87,71 +87,73 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        z zVar = null;
-        int an = TiebaApplication.g().an();
+        l lVar = null;
+        int ap = TiebaApplication.g().ap();
         int itemViewType = getItemViewType(i);
         if (itemViewType == 1) {
             if (view == null) {
-                view = a((bf) null);
+                view = a((ar) null);
             }
-            bf bfVar = 0 == 0 ? (bf) view.getTag() : null;
-            if (bfVar != null && this.c != null && this.c.a() != null) {
-                b(an, bfVar);
-                a(i, bfVar);
+            ar arVar = 0 == 0 ? (ar) view.getTag() : null;
+            if (arVar != null && this.c != null && this.c.a() != null) {
+                this.f1219a.l().a(ap == 1);
+                this.f1219a.l().a(view);
+                b(ap, arVar);
+                a(i, arVar);
                 if (i >= 0) {
                     if (i * 2 < this.c.a().size()) {
-                        a((com.baidu.tieba.data.ae) this.c.a().get(i * 2), bfVar);
+                        a(this.c.a().get(i * 2), arVar);
                     }
                     if ((i * 2) + 1 < this.c.a().size()) {
-                        bfVar.f.b.setVisibility(0);
-                        a((com.baidu.tieba.data.ae) this.c.a().get((i * 2) + 1), bfVar.f);
+                        arVar.f.b.setVisibility(0);
+                        a(this.c.a().get((i * 2) + 1), arVar.f);
                     } else {
-                        bfVar.f.b.setVisibility(4);
+                        arVar.f.b.setVisibility(4);
                     }
                 }
             }
         } else if (itemViewType == 0) {
             if (view == null) {
-                zVar = new z(this.f1187a, this.f1187a.getString(R.string.login_block_tip), this.f1187a.getResources().getString(R.string.login_home_tab), 1);
-                view = zVar.c();
-                view.setTag(zVar);
+                lVar = new l(this.f1219a, this.f1219a.getString(R.string.login_block_tip), this.f1219a.getResources().getString(R.string.login_home_tab), 1);
+                view = lVar.c();
+                view.setTag(lVar);
             }
-            if (zVar == null) {
-                zVar = (z) view.getTag();
+            if (lVar == null) {
+                lVar = (l) view.getTag();
             }
-            zVar.b(an);
+            lVar.b(ap);
         }
         return view;
     }
 
-    private void a(int i, bf bfVar) {
+    private void a(int i, ar arVar) {
         if (i == 0) {
-            bfVar.f1178a.setPadding(this.e, this.f, this.e, 0);
+            arVar.f1209a.setPadding(this.e, this.f, this.e, 0);
         } else if (i == getCount() - 1) {
-            bfVar.f1178a.setPadding(this.e, this.d, this.e, this.g);
+            arVar.f1209a.setPadding(this.e, this.d, this.e, this.g);
         } else {
-            bfVar.f1178a.setPadding(this.e, this.d, this.e, 0);
+            arVar.f1209a.setPadding(this.e, this.d, this.e, 0);
         }
     }
 
-    private View a(bf bfVar) {
-        View inflate = LayoutInflater.from(this.f1187a).inflate(R.layout.home_like_item, (ViewGroup) null);
-        bf bfVar2 = new bf();
-        bfVar2.f1178a = (LinearLayout) inflate;
-        bfVar2.e = (TextView) inflate.findViewById(R.id.forum_icon_sign1);
-        bfVar2.b = (RelativeLayout) inflate.findViewById(R.id.first);
-        bfVar2.b.setOnClickListener(this.h);
-        bfVar2.b.setOnLongClickListener(this.i);
-        bfVar2.c = (TextView) inflate.findViewById(R.id.home_lv_like_forum1);
-        bfVar2.d = (TextView) inflate.findViewById(R.id.forum_lv_like_grade1);
-        bfVar2.f = new bf();
-        bfVar2.f.e = (TextView) inflate.findViewById(R.id.forum_icon_sign2);
-        bfVar2.f.b = (RelativeLayout) inflate.findViewById(R.id.second);
-        bfVar2.f.b.setOnClickListener(this.h);
-        bfVar2.f.b.setOnLongClickListener(this.i);
-        bfVar2.f.c = (TextView) inflate.findViewById(R.id.home_lv_like_forum2);
-        bfVar2.f.d = (TextView) inflate.findViewById(R.id.forum_lv_like_grade2);
-        inflate.setTag(bfVar2);
+    private View a(ar arVar) {
+        View inflate = LayoutInflater.from(this.f1219a).inflate(R.layout.home_like_item, (ViewGroup) null);
+        ar arVar2 = new ar();
+        arVar2.f1209a = (LinearLayout) inflate;
+        arVar2.e = (TextView) inflate.findViewById(R.id.forum_icon_sign1);
+        arVar2.b = (RelativeLayout) inflate.findViewById(R.id.first);
+        arVar2.b.setOnClickListener(this.h);
+        arVar2.b.setOnLongClickListener(this.i);
+        arVar2.c = (TextView) inflate.findViewById(R.id.home_lv_like_forum1);
+        arVar2.d = (TextView) inflate.findViewById(R.id.forum_lv_like_grade1);
+        arVar2.f = new ar();
+        arVar2.f.e = (TextView) inflate.findViewById(R.id.forum_icon_sign2);
+        arVar2.f.b = (RelativeLayout) inflate.findViewById(R.id.second);
+        arVar2.f.b.setOnClickListener(this.h);
+        arVar2.f.b.setOnLongClickListener(this.i);
+        arVar2.f.c = (TextView) inflate.findViewById(R.id.home_lv_like_forum2);
+        arVar2.f.d = (TextView) inflate.findViewById(R.id.forum_lv_like_grade2);
+        inflate.setTag(arVar2);
         return inflate;
     }
 
@@ -159,27 +161,15 @@ public class j extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private void b(int i, bf bfVar) {
-        if (bfVar != null && bfVar.b(i)) {
+    private void b(int i, ar arVar) {
+        if (arVar != null && arVar.b(i)) {
             if (i == 1) {
-                com.baidu.tieba.util.ao.g(bfVar.b, (int) R.drawable.home_like_item_bg_1);
-                bfVar.e.setBackgroundResource(R.drawable.ico_sign_1);
-                bfVar.f.e.setBackgroundResource(R.drawable.ico_sign_1);
-                bfVar.c.setTextColor(-8682095);
-                com.baidu.tieba.util.ao.g(bfVar.f.b, (int) R.drawable.home_like_item_bg_1);
-                bfVar.f.c.setTextColor(-8682095);
-                bfVar.d.setTextColor(-2171170);
-                bfVar.f.d.setTextColor(-2171170);
+                com.baidu.tieba.util.as.e(arVar.b, (int) R.drawable.home_like_item_bg_1);
+                com.baidu.tieba.util.as.e(arVar.f.b, (int) R.drawable.home_like_item_bg_1);
                 return;
             }
-            com.baidu.tieba.util.ao.g(bfVar.b, (int) R.drawable.home_like_item_bg);
-            bfVar.e.setBackgroundResource(R.drawable.ico_sign);
-            bfVar.f.e.setBackgroundResource(R.drawable.ico_sign);
-            bfVar.c.setTextColor(-14277082);
-            com.baidu.tieba.util.ao.g(bfVar.f.b, (int) R.drawable.home_like_item_bg);
-            bfVar.f.c.setTextColor(-14277082);
-            bfVar.d.setTextColor(-1);
-            bfVar.f.d.setTextColor(-1);
+            com.baidu.tieba.util.as.e(arVar.b, (int) R.drawable.home_like_item_bg);
+            com.baidu.tieba.util.as.e(arVar.f.b, (int) R.drawable.home_like_item_bg);
         }
     }
 
@@ -214,23 +204,23 @@ public class j extends BaseAdapter {
         this.i = onLongClickListener;
     }
 
-    private void a(com.baidu.tieba.data.ae aeVar, bf bfVar) {
-        if (aeVar != null && bfVar != null) {
+    private void a(com.baidu.tieba.data.ae aeVar, ar arVar) {
+        if (aeVar != null && arVar != null) {
             int d = aeVar.d();
-            bfVar.b.setTag(aeVar);
-            bfVar.c.setText(a(aeVar));
+            arVar.b.setTag(aeVar);
+            arVar.c.setText(a(aeVar));
             if (aeVar.c() == 0) {
-                bfVar.e.setVisibility(4);
+                arVar.e.setVisibility(4);
             } else {
-                bfVar.e.setVisibility(0);
+                arVar.e.setVisibility(0);
             }
             if (d == 0) {
-                bfVar.d.setVisibility(4);
+                arVar.d.setVisibility(4);
                 return;
             }
-            bfVar.d.setVisibility(0);
-            bfVar.d.setBackgroundResource(com.baidu.tieba.util.e.b(d));
-            bfVar.d.setText(String.valueOf(aeVar.d()));
+            arVar.d.setVisibility(0);
+            arVar.d.setBackgroundResource(com.baidu.tieba.util.e.b(d));
+            arVar.d.setText(String.valueOf(aeVar.d()));
         }
     }
 

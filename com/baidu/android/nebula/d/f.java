@@ -5,27 +5,27 @@ import com.baidu.android.common.logging.Log;
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f578a;
+    private c f590a;
     private a b;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(a aVar, c cVar) {
-        this.f578a = null;
+        this.f590a = null;
         this.b = null;
-        this.f578a = cVar;
+        this.f590a = cVar;
         this.b = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.f578a.e()) {
+        if (this.f590a.e()) {
             return;
         }
         try {
-            this.b.b(this.f578a);
+            this.b.b(this.f590a);
         } catch (Exception e) {
             Log.e("HttpServer", "Deal Request Exception", e);
-            this.b.a(this.f578a, e);
+            this.b.a(this.f590a, e);
         }
     }
 }

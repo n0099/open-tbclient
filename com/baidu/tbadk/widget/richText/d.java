@@ -11,19 +11,19 @@ import android.graphics.drawable.BitmapDrawable;
 public class d extends BitmapDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f829a;
+    private int f841a;
     private Context b;
     private String d;
     private Rect c = null;
     private Matrix e = null;
 
     public d(Context context, int i) {
-        this.f829a = 0;
+        this.f841a = 0;
         this.b = null;
         this.d = null;
         this.b = context;
-        this.f829a = i;
-        this.d = String.valueOf(this.f829a);
+        this.f841a = i;
+        this.d = String.valueOf(this.f841a);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -48,25 +48,25 @@ public class d extends BitmapDrawable {
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        com.baidu.adp.widget.a.b bVar;
-        if (this.f829a > 0 && this.b != null) {
+        com.baidu.adp.widget.a.c cVar;
+        if (this.f841a > 0 && this.b != null) {
             com.baidu.tbadk.a.e a2 = com.baidu.tbadk.a.e.a();
-            com.baidu.adp.widget.a.b c = (a2 == null || this.d == null) ? null : a2.c(this.d);
+            com.baidu.adp.widget.a.c c = (a2 == null || this.d == null) ? null : a2.c(this.d);
             if (c == null) {
-                Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.f829a);
+                Bitmap decodeResource = BitmapFactory.decodeResource(this.b.getResources(), this.f841a);
                 if (decodeResource != null) {
-                    c = new com.baidu.adp.widget.a.b(decodeResource, false, null);
+                    c = new com.baidu.adp.widget.a.c(decodeResource, false, null);
                 }
                 if (a2 != null && c != null && this.d != null) {
                     a2.b(this.d, c);
                 }
-                bVar = c;
+                cVar = c;
             } else {
-                bVar = c;
+                cVar = c;
             }
-            if (bVar != null) {
-                int a3 = bVar.a();
-                int b = bVar.b();
+            if (cVar != null) {
+                int a3 = cVar.a();
+                int b = cVar.b();
                 if (a3 > 0 && b > 0 && this.c != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
@@ -81,9 +81,9 @@ public class d extends BitmapDrawable {
                             }
                             this.e.postScale(f, f);
                         }
-                        bVar.a(canvas, this.e, null);
+                        cVar.a(canvas, this.e, null);
                     } else {
-                        bVar.a(canvas, 0.0f, 0.0f, null);
+                        cVar.a(canvas, 0.0f, 0.0f, null);
                     }
                     canvas.restore();
                 }

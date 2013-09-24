@@ -2,22 +2,24 @@ package com.baidu.tieba.frs;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class bf implements com.baidu.adp.lib.guide.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ be f1094a;
+    final /* synthetic */ bd f1142a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(be beVar) {
-        this.f1094a = beVar;
+    public bf(bd bdVar) {
+        this.f1142a = bdVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(R.layout.frs_love_cover, (ViewGroup) null);
+        ImageView imageView = new ImageView(this.f1142a.f1140a);
+        imageView.setImageResource(R.drawable.btn_more_n);
+        return imageView;
     }
 
     @Override // com.baidu.adp.lib.guide.b

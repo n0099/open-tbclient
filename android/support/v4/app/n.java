@@ -30,7 +30,7 @@ public class n extends Activity {
     static final int MSG_REALLY_STOPPED = 1;
     static final int MSG_RESUME_PENDING = 2;
     private static final String TAG = "FragmentActivity";
-    HashMap mAllLoaderManagers;
+    HashMap<String, aj> mAllLoaderManagers;
     boolean mCheckedForLoaderManager;
     boolean mCreated;
     aj mLoaderManager;
@@ -44,8 +44,9 @@ public class n extends Activity {
     final v mFragments = new v();
     final s mContainer = new p(this);
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         this.mFragments.i();
         int i3 = i >> 16;
         if (i3 != 0) {
@@ -54,7 +55,7 @@ public class n extends Activity {
                 Log.w(TAG, "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
                 return;
             }
-            Fragment fragment = (Fragment) this.mFragments.f.get(i4);
+            Fragment fragment = this.mFragments.f.get(i4);
             if (fragment == null) {
                 Log.w(TAG, "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
                 return;
@@ -291,7 +292,7 @@ public class n extends Activity {
             doReallyStop(true);
         }
         Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
-        ArrayList g = this.mFragments.g();
+        ArrayList<Fragment> g = this.mFragments.g();
         if (this.mAllLoaderManagers != null) {
             aj[] ajVarArr = new aj[this.mAllLoaderManagers.size()];
             this.mAllLoaderManagers.values().toArray(ajVarArr);
@@ -332,8 +333,9 @@ public class n extends Activity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         this.mStopped = false;
         this.mReallyStopped = false;
@@ -591,7 +593,7 @@ public class n extends Activity {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void invalidateSupportFragment(String str) {
         aj ajVar;
-        if (this.mAllLoaderManagers != null && (ajVar = (aj) this.mAllLoaderManagers.get(str)) != null && !ajVar.g) {
+        if (this.mAllLoaderManagers != null && (ajVar = this.mAllLoaderManagers.get(str)) != null && !ajVar.g) {
             ajVar.h();
             this.mAllLoaderManagers.remove(str);
         }
@@ -609,9 +611,9 @@ public class n extends Activity {
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj getLoaderManager(String str, boolean z, boolean z2) {
         if (this.mAllLoaderManagers == null) {
-            this.mAllLoaderManagers = new HashMap();
+            this.mAllLoaderManagers = new HashMap<>();
         }
-        aj ajVar = (aj) this.mAllLoaderManagers.get(str);
+        aj ajVar = this.mAllLoaderManagers.get(str);
         if (ajVar == null) {
             if (z2) {
                 aj ajVar2 = new aj(str, this, z);

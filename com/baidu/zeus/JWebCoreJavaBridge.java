@@ -13,7 +13,7 @@ public final class JWebCoreJavaBridge extends Handler {
     private static final String LOGTAG = "webkit-timers";
     static final int REFRESH_PLUGINS = 100;
     private static final int TIMER_MESSAGE = 1;
-    private HashMap mContentUriToFilePathMap;
+    private HashMap<String, String> mContentUriToFilePathMap;
     private WebView mCurrentMainWebView;
     private boolean mHasDeferredTimers;
     private boolean mHasInstantTimer;
@@ -33,7 +33,7 @@ public final class JWebCoreJavaBridge extends Handler {
 
     public native void addPackageName(String str);
 
-    public native void addPackageNames(Set set);
+    public native void addPackageNames(Set<String> set);
 
     public native void nativeUpdateProxy(String str, String str2);
 
@@ -216,12 +216,12 @@ public final class JWebCoreJavaBridge extends Handler {
 
     private String resolveFilePathForContentUri(String str) {
         String str2;
-        return (this.mContentUriToFilePathMap == null || (str2 = (String) this.mContentUriToFilePathMap.get(str)) == null) ? Uri.parse(str).getLastPathSegment() : str2;
+        return (this.mContentUriToFilePathMap == null || (str2 = this.mContentUriToFilePathMap.get(str)) == null) ? Uri.parse(str).getLastPathSegment() : str2;
     }
 
     public void storeFilePathForContentUri(String str, String str2) {
         if (this.mContentUriToFilePathMap == null) {
-            this.mContentUriToFilePathMap = new HashMap();
+            this.mContentUriToFilePathMap = new HashMap<>();
         }
         this.mContentUriToFilePathMap.put(str2, str);
     }

@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public interface s {
-    long a();
-
     Boolean a(String str, Handler handler, int i);
 
     void a(Context context);
@@ -20,19 +18,23 @@ public interface s {
 
     void a(String str, byte[] bArr);
 
-    void a(ArrayList arrayList);
+    void a(ArrayList<BasicNameValuePair> arrayList);
 
     void a(BasicNameValuePair basicNameValuePair);
 
     void a(boolean z);
 
-    String b();
+    boolean a();
+
+    long b();
 
     void b(String str);
 
     void b(boolean z);
 
-    long c();
+    String c();
+
+    void c(boolean z);
 
     long d();
 
@@ -40,37 +42,39 @@ public interface s {
 
     long f();
 
-    int g();
+    long g();
 
-    long h();
+    int h();
 
-    int i();
+    long i();
 
-    Context j();
+    int j();
 
-    ArrayList k();
+    Context k();
 
-    int l();
+    ArrayList<BasicNameValuePair> l();
 
-    String m();
+    int m();
 
-    boolean n();
+    String n();
 
     boolean o();
 
-    String p();
+    boolean p();
 
-    void q();
+    String q();
 
-    String r();
+    void r();
 
-    void s();
+    String s();
 
-    byte[] t();
+    void t();
 
-    String u();
+    byte[] u();
 
     String v();
 
-    boolean w();
+    String w();
+
+    boolean x();
 }

@@ -8,7 +8,7 @@ import android.widget.TextView;
 public class BestStringsFitTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private String[] f1733a;
+    private String[] f1808a;
     private String b;
 
     public BestStringsFitTextView(Context context) {
@@ -32,7 +32,7 @@ public class BestStringsFitTextView extends TextView {
         String str2 = "";
         int i = 0;
         while (true) {
-            if (i >= this.f1733a.length) {
+            if (i >= this.f1808a.length) {
                 str = str2;
                 break;
             }
@@ -41,7 +41,7 @@ public class BestStringsFitTextView extends TextView {
             if (i > 0) {
                 sb.append(this.b);
             }
-            sb.append(this.f1733a[i]);
+            sb.append(this.f1808a[i]);
             str = sb.toString();
             float measureText = getPaint().measureText(str);
             if (width < measureText) {
@@ -53,13 +53,13 @@ public class BestStringsFitTextView extends TextView {
             i++;
             str2 = str;
         }
-        this.f1733a = null;
+        this.f1808a = null;
         setText(str);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.f1733a == null) {
+        if (this.f1808a == null) {
             super.onDraw(canvas);
         } else {
             a();
@@ -67,7 +67,7 @@ public class BestStringsFitTextView extends TextView {
     }
 
     public void setTextArray(String[] strArr) {
-        this.f1733a = strArr;
+        this.f1808a = strArr;
     }
 
     public String getSeperator() {

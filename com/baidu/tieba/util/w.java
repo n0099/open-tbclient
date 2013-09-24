@@ -1,20 +1,27 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class w implements BaiduAccount.CallbackListener {
+class w implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ v f1811a;
+    private final /* synthetic */ ListView f1930a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(v vVar) {
-        this.f1811a = vVar;
+    public w(ListView listView) {
+        this.f1930a = listView;
     }
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        this.f1811a.s();
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
+        if (cVar != null) {
+            ImageView imageView = (ImageView) this.f1930a.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(cVar.f());
+                imageView = (ImageView) this.f1930a.findViewWithTag(str);
+            }
+        }
     }
 }

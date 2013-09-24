@@ -16,8 +16,8 @@ public abstract class FragmentStatePagerAdapter extends ae {
     private static final String TAG = "FragmentStatePagerAdapter";
     private final FragmentManager mFragmentManager;
     private FragmentTransaction mCurTransaction = null;
-    private ArrayList mSavedState = new ArrayList();
-    private ArrayList mFragments = new ArrayList();
+    private ArrayList<Fragment.SavedState> mSavedState = new ArrayList<>();
+    private ArrayList<Fragment> mFragments = new ArrayList<>();
     private Fragment mCurrentPrimaryItem = null;
 
     public abstract Fragment getItem(int i);
@@ -34,12 +34,12 @@ public abstract class FragmentStatePagerAdapter extends ae {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         Fragment.SavedState savedState;
         Fragment fragment;
-        if (this.mFragments.size() <= i || (fragment = (Fragment) this.mFragments.get(i)) == null) {
+        if (this.mFragments.size() <= i || (fragment = this.mFragments.get(i)) == null) {
             if (this.mCurTransaction == null) {
                 this.mCurTransaction = this.mFragmentManager.beginTransaction();
             }
             Fragment item = getItem(i);
-            if (this.mSavedState.size() > i && (savedState = (Fragment.SavedState) this.mSavedState.get(i)) != null) {
+            if (this.mSavedState.size() > i && (savedState = this.mSavedState.get(i)) != null) {
                 item.setInitialSavedState(savedState);
             }
             while (this.mFragments.size() <= i) {
@@ -109,7 +109,7 @@ public abstract class FragmentStatePagerAdapter extends ae {
         }
         Bundle bundle2 = bundle;
         for (int i = 0; i < this.mFragments.size(); i++) {
-            Fragment fragment = (Fragment) this.mFragments.get(i);
+            Fragment fragment = this.mFragments.get(i);
             if (fragment != null) {
                 if (bundle2 == null) {
                     bundle2 = new Bundle();

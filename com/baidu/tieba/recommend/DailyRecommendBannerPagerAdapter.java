@@ -14,15 +14,15 @@ import java.util.ArrayList;
 public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f1670a = new ArrayList();
+    ArrayList<View> f1745a = new ArrayList<>();
     public int b;
     public int c;
     Activity d;
     Resources e;
-    ArrayList f;
+    ArrayList<com.baidu.tieba.data.m> f;
     private com.baidu.tieba.util.a g;
 
-    public DailyRecommendBannerPagerAdapter(Activity activity, ArrayList arrayList) {
+    public DailyRecommendBannerPagerAdapter(Activity activity, ArrayList<com.baidu.tieba.data.m> arrayList) {
         this.d = activity;
         this.e = activity.getResources();
         this.b = (int) (UtilHelper.a((Context) activity) - (2.0f * this.e.getDimension(R.dimen.daily_recommend_banner_X_DIS)));
@@ -35,17 +35,17 @@ public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae
 
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView((View) this.f1670a.get(i));
+        viewGroup.removeView(this.f1745a.get(i));
     }
 
-    private void a(ArrayList arrayList) {
+    private void a(ArrayList<com.baidu.tieba.data.m> arrayList) {
         this.f = arrayList;
         if (arrayList != null && arrayList.size() > 0) {
-            this.f1670a.add(a((com.baidu.tieba.data.m) arrayList.get(arrayList.size() - 1)));
+            this.f1745a.add(a(arrayList.get(arrayList.size() - 1)));
             for (int i = 0; i < arrayList.size(); i++) {
-                this.f1670a.add(a((com.baidu.tieba.data.m) arrayList.get(i)));
+                this.f1745a.add(a(arrayList.get(i)));
             }
-            this.f1670a.add(a((com.baidu.tieba.data.m) arrayList.get(0)));
+            this.f1745a.add(a(arrayList.get(0)));
             notifyDataSetChanged();
         }
     }
@@ -65,13 +65,13 @@ public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView((View) this.f1670a.get(i));
-        return this.f1670a.get(i);
+        viewGroup.addView(this.f1745a.get(i));
+        return this.f1745a.get(i);
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        return this.f1670a.size();
+        return this.f1745a.size();
     }
 
     @Override // android.support.v4.view.ae
@@ -85,7 +85,7 @@ public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae
             while (true) {
                 int i4 = i3;
                 if (i4 < this.f.size()) {
-                    this.g.a(((com.baidu.tieba.data.m) this.f.get(i4)).a(), new v(this, view));
+                    this.g.a(this.f.get(i4).a(), new v(this, view));
                     i3 = i4 + 1;
                 } else {
                     return;

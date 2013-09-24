@@ -1,36 +1,68 @@
 package com.baidu.tieba.write;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ProgressBar;
+import com.tencent.mm.sdk.platformtools.Util;
+import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f1922a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+    final /* synthetic */ WriteImageActivity f2100a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(WriteImageActivity writeImageActivity, String str, int i) {
-        this.f1922a = writeImageActivity;
-        this.b = str;
-        this.c = i;
+    public aw(WriteImageActivity writeImageActivity) {
+        this.f2100a = writeImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        boolean z;
+        int i;
         ProgressBar progressBar;
-        String str;
-        progressBar = this.f1922a.j;
-        if (progressBar.getVisibility() != 0) {
-            String str2 = this.b;
-            str = this.f1922a.w;
-            if (!str2.equals(str)) {
-                this.f1922a.c(this.b);
-                this.f1922a.e(this.b);
-                this.f1922a.u = this.c;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean d;
+        z = this.f2100a.z;
+        if (!z) {
+            i = this.f2100a.A;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                progressBar = this.f2100a.j;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.f2100a.y;
+                    if (z2) {
+                        bitmap = this.f2100a.r;
+                        if (bitmap != null) {
+                            bitmap2 = this.f2100a.r;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
+                                d = this.f2100a.d(str);
+                                if (d) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.f2100a.setResult(-1, intent);
+                            }
+                        }
+                    }
+                    intent.putExtra("change", false);
+                    this.f2100a.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.f2100a.setResult(0, new Intent());
             }
+        } else {
+            this.f2100a.setResult(0, new Intent());
         }
+        this.f2100a.finish();
     }
 }

@@ -9,10 +9,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public final class ObjectTypeAdapter extends TypeAdapter {
+public final class ObjectTypeAdapter extends TypeAdapter<Object> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ObjectTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
-        public TypeAdapter create(Gson gson, TypeToken typeToken) {
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
             if (typeToken.getRawType() == Object.class) {
                 return new ObjectTypeAdapter(gson);
             }

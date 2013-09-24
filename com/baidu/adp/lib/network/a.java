@@ -5,7 +5,7 @@ import java.net.HttpURLConnection;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private HttpURLConnection f443a;
+    private HttpURLConnection f452a;
     private boolean b = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,23 +22,23 @@ public class a {
             }
             return;
         }
-        this.f443a = httpURLConnection;
+        this.f452a = httpURLConnection;
     }
 
     public void a() {
         this.b = true;
-        if (this.f443a != null) {
+        if (this.f452a != null) {
             try {
-                this.f443a.disconnect();
+                this.f452a.disconnect();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        this.f443a = null;
+        this.f452a = null;
     }
 
     public void b() {
-        this.f443a = null;
+        this.f452a = null;
     }
 
     public boolean c() {

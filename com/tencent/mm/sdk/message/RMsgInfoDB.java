@@ -6,8 +6,8 @@ import com.tencent.mm.sdk.storage.ContentProviderDB;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class RMsgInfoDB extends ContentProviderDB {
-    private static final Map O;
+public class RMsgInfoDB extends ContentProviderDB<RMsgInfoDB> {
+    private static final Map<String, Uri> O;
     public static final String TABLE = "message";
 
     static {
@@ -22,6 +22,6 @@ public class RMsgInfoDB extends ContentProviderDB {
 
     @Override // com.tencent.mm.sdk.storage.ContentProviderDB
     public Uri getUriFromTable(String str) {
-        return (Uri) O.get(str);
+        return O.get(str);
     }
 }

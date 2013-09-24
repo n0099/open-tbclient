@@ -18,7 +18,7 @@ public class RequestHandle {
     private int mBodyLength;
     private InputStream mBodyProvider;
     private Connection mConnection;
-    private Map mHeaders;
+    private Map<String, String> mHeaders;
     private String mMethod;
     private int mRedirectCount;
     private Request mRequest;
@@ -26,9 +26,9 @@ public class RequestHandle {
     private WebAddress mUri;
     private String mUrl;
 
-    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map map, InputStream inputStream, int i, Request request) {
+    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i, Request request) {
         this.mRedirectCount = 0;
-        this.mHeaders = map == null ? new HashMap() : map;
+        this.mHeaders = map == null ? new HashMap<>() : map;
         this.mBodyProvider = inputStream;
         this.mBodyLength = i;
         this.mMethod = str2 == null ? "GET" : str2;
@@ -38,7 +38,7 @@ public class RequestHandle {
         this.mRequest = request;
     }
 
-    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map map, InputStream inputStream, int i, Request request, Connection connection) {
+    public RequestHandle(RequestQueue requestQueue, String str, WebAddress webAddress, String str2, Map<String, String> map, InputStream inputStream, int i, Request request, Connection connection) {
         this(requestQueue, str, webAddress, str2, map, inputStream, i, request);
         this.mConnection = connection;
     }
@@ -73,7 +73,7 @@ public class RequestHandle {
         this.mRedirectCount = i;
     }
 
-    public boolean setupRedirect(String str, int i, Map map) {
+    public boolean setupRedirect(String str, int i, Map<String, String> map) {
         this.mHeaders.remove(AUTHORIZATION_HEADER);
         this.mHeaders.remove(PROXY_AUTHORIZATION_HEADER);
         int i2 = this.mRedirectCount + 1;

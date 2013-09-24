@@ -6,13 +6,13 @@ import android.os.Process;
 class i extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f361a;
+    final /* synthetic */ f f365a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(f fVar, l lVar) {
         super(lVar);
-        this.f361a = fVar;
+        this.f365a = fVar;
     }
 
     @Override // java.lang.Runnable
@@ -29,13 +29,13 @@ class i extends j {
                     Process.setThreadPriority(10);
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.e.d.a(e.getMessage());
+                com.baidu.adp.lib.f.d.a(e.getMessage());
             }
             a();
         } finally {
             if (!h()) {
-                handler = this.f361a.i;
-                handler2 = this.f361a.i;
+                handler = this.f365a.i;
+                handler2 = this.f365a.i;
                 handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
             }
         }

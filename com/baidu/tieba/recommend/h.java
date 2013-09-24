@@ -26,7 +26,7 @@ import java.util.Date;
 public class h extends com.baidu.adp.widget.o {
 
     /* renamed from: a  reason: collision with root package name */
-    int f1683a;
+    int f1758a;
     int b;
     int c;
     int d;
@@ -37,7 +37,7 @@ public class h extends com.baidu.adp.widget.o {
     private Activity i;
     private LayoutInflater j;
     private q k;
-    private ArrayList n = new ArrayList();
+    private ArrayList<r> n = new ArrayList<>();
     private SimpleDateFormat l = new SimpleDateFormat("yyyyMMdd");
     private SimpleDateFormat m = new SimpleDateFormat("MM-dd");
 
@@ -48,11 +48,11 @@ public class h extends com.baidu.adp.widget.o {
         this.f = new ChildViewPager(activity);
         this.f.setOnSingleTouchListener(new i(this));
         Resources resources = activity.getResources();
-        this.f1683a = (int) (UtilHelper.a((Context) activity) - (resources.getDimension(R.dimen.daily_recommend_banner_X_DIS) * 2.0f));
-        this.b = (int) ((this.f1683a * resources.getDimension(R.dimen.daily_recommend_banner_height)) / resources.getDimension(R.dimen.daily_recommend_banner_width));
+        this.f1758a = (int) (UtilHelper.a((Context) activity) - (resources.getDimension(R.dimen.daily_recommend_banner_X_DIS) * 2.0f));
+        this.b = (int) ((this.f1758a * resources.getDimension(R.dimen.daily_recommend_banner_height)) / resources.getDimension(R.dimen.daily_recommend_banner_width));
         this.f.setLayoutParams(new AbsListView.LayoutParams(-1, this.b + ((int) (resources.getDimension(R.dimen.daily_recommend_banner_Y_DIS) * 2.0f))));
         this.f.setOnPageChangeListener(new j(this));
-        this.c = this.f1683a - UtilHelper.a((Context) this.i, 4.0f);
+        this.c = this.f1758a - UtilHelper.a((Context) this.i, 4.0f);
         this.d = (int) ((this.c * resources.getDimension(R.dimen.daily_recommend_advice_height)) / resources.getDimension(R.dimen.daily_recommend_advice_width));
         this.h = new com.baidu.tieba.util.a(this.i);
         this.h.a(this.c, this.d);
@@ -80,7 +80,7 @@ public class h extends com.baidu.adp.widget.o {
                 if (view == null || view.getTag() == null) {
                     view = this.j.inflate(R.layout.daily_recommend_time, (ViewGroup) null);
                     t tVar2 = new t(this, null);
-                    tVar2.f1694a = (TextView) view.findViewById(R.id.time);
+                    tVar2.f1769a = (TextView) view.findViewById(R.id.time);
                     tVar2.b = (TextView) view.findViewById(R.id.count);
                     tVar2.c = (ImageView) view.findViewById(R.id.line);
                     view.setTag(R.id.position, tVar2);
@@ -95,7 +95,7 @@ public class h extends com.baidu.adp.widget.o {
                 if (view == null || view.getTag() == null) {
                     view = this.j.inflate(R.layout.daily_recommend_talk, (ViewGroup) null);
                     s sVar2 = new s(this, null);
-                    sVar2.f1693a = view.findViewById(R.id.father);
+                    sVar2.f1768a = view.findViewById(R.id.father);
                     sVar2.c = (LinearLayout) view.findViewById(R.id.head_div);
                     sVar2.d = (RelativeLayout) view.findViewById(R.id.bottom_div);
                     sVar2.h = (TextView) view.findViewById(R.id.bar_name);
@@ -114,7 +114,7 @@ public class h extends com.baidu.adp.widget.o {
                 if (view == null || view.getTag() == null) {
                     view = this.j.inflate(R.layout.daily_recommend_concentratio, (ViewGroup) null);
                     p pVar2 = new p(this, null);
-                    pVar2.f1691a = view.findViewById(R.id.father);
+                    pVar2.f1766a = view.findViewById(R.id.father);
                     pVar2.b = (LinearLayout) view.findViewById(R.id.head_div);
                     pVar2.c = (RelativeLayout) view.findViewById(R.id.bottom_div);
                     pVar2.h = (TextView) view.findViewById(R.id.bar_name);
@@ -143,41 +143,41 @@ public class h extends com.baidu.adp.widget.o {
     @Override // android.widget.Adapter
     public int getItemViewType(int i) {
         if (i < this.n.size()) {
-            return ((r) this.n.get(i)).f1692a;
+            return this.n.get(i).f1767a;
         }
         return -1;
     }
 
     public void a(t tVar, int i) {
-        boolean z = TiebaApplication.g().an() == 1;
-        if (((r) this.n.get(i)).f1692a == 1) {
-            com.baidu.tieba.data.p pVar = (com.baidu.tieba.data.p) ((r) this.n.get(i)).b;
+        boolean z = TiebaApplication.g().ap() == 1;
+        if (this.n.get(i).f1767a == 1) {
+            com.baidu.tieba.data.p pVar = (com.baidu.tieba.data.p) this.n.get(i).b;
             Date date = new Date();
             try {
                 date = this.l.parse(pVar.b());
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            tVar.f1694a.setText(this.m.format(date));
-            tVar.f1694a.setTextColor(z ? -2048596 : -1);
-            if (pVar.e()) {
-                tVar.f1694a.setBackgroundResource(z ? R.drawable.icon_daily_sentence_bar_red_1 : R.drawable.icon_daily_sentence_bar_red);
+            tVar.f1769a.setText(this.m.format(date));
+            tVar.f1769a.setTextColor(z ? -2048596 : -1);
+            if (pVar.d()) {
+                tVar.f1769a.setBackgroundResource(z ? R.drawable.icon_daily_sentence_bar_red_1 : R.drawable.icon_daily_sentence_bar_red);
             } else {
-                tVar.f1694a.setBackgroundResource(z ? R.drawable.icon_daily_sentence_bar_gray : R.drawable.icon_daily_sentence_bar_gray_1);
+                tVar.f1769a.setBackgroundResource(z ? R.drawable.icon_daily_sentence_bar_gray : R.drawable.icon_daily_sentence_bar_gray_1);
             }
             tVar.b.setText(String.valueOf(pVar.a()) + "条精选");
             tVar.b.setTextColor(z ? -11446171 : -7038558);
             tVar.c.setBackgroundResource(z ? R.drawable.daily_dot_line_1 : R.drawable.daily_dot_line);
             if (this.e < i) {
-                tVar.f1694a.setVisibility(0);
+                tVar.f1769a.setVisibility(0);
             }
         }
     }
 
     public void a(s sVar, int i) {
-        boolean z = TiebaApplication.g().an() == 1;
-        if (((r) this.n.get(i)).f1692a == 2) {
-            com.baidu.tieba.data.o oVar = (com.baidu.tieba.data.o) ((r) this.n.get(i)).b;
+        boolean z = TiebaApplication.g().ap() == 1;
+        if (this.n.get(i).f1767a == 2) {
+            com.baidu.tieba.data.o oVar = (com.baidu.tieba.data.o) this.n.get(i).b;
             int paddingLeft = sVar.c.getPaddingLeft();
             int paddingRight = sVar.c.getPaddingRight();
             sVar.c.setBackgroundResource(z ? R.drawable.bg_list_top_1 : R.drawable.bg_list_top);
@@ -197,14 +197,14 @@ public class h extends com.baidu.adp.widget.o {
             sVar.h.setText(oVar.d());
             sVar.h.setTextColor(z ? -7100744 : -9207399);
             sVar.h.setCompoundDrawablesWithIntrinsicBounds(z ? R.drawable.icon_little_ba_n_1 : R.drawable.icon_little_ba_n, 0, 0, 0);
-            sVar.f1693a.setOnClickListener(new k(this, oVar));
+            sVar.f1768a.setOnClickListener(new k(this, oVar));
         }
     }
 
     public void a(p pVar, int i) {
-        boolean z = TiebaApplication.g().an() == 1;
-        if (((r) this.n.get(i)).f1692a == 3) {
-            com.baidu.tieba.data.o oVar = (com.baidu.tieba.data.o) ((r) this.n.get(i)).b;
+        boolean z = TiebaApplication.g().ap() == 1;
+        if (this.n.get(i).f1767a == 3) {
+            com.baidu.tieba.data.o oVar = (com.baidu.tieba.data.o) this.n.get(i).b;
             int paddingLeft = pVar.b.getPaddingLeft();
             int paddingRight = pVar.b.getPaddingRight();
             pVar.b.setBackgroundResource(z ? R.drawable.bg_list_top_1 : R.drawable.bg_list_top);
@@ -240,7 +240,7 @@ public class h extends com.baidu.adp.widget.o {
             pVar.h.setText(oVar.d());
             pVar.h.setTextColor(z ? -7100744 : -9207399);
             pVar.h.setCompoundDrawablesWithIntrinsicBounds(z ? R.drawable.icon_little_ba_n_1 : R.drawable.icon_little_ba_n, 0, 0, 0);
-            pVar.f1691a.setOnClickListener(new m(this, oVar));
+            pVar.f1766a.setOnClickListener(new m(this, oVar));
         }
     }
 
@@ -250,7 +250,7 @@ public class h extends com.baidu.adp.widget.o {
         }
         while (i < getCount() && i < i2) {
             r item = getItem(i);
-            if (item.f1692a == 3) {
+            if (item.f1767a == 3) {
                 this.h.a(((com.baidu.tieba.data.o) item.b).e(), new n(this, view));
             }
             i++;
@@ -267,9 +267,9 @@ public class h extends com.baidu.adp.widget.o {
                 this.g.notifyDataSetChanged();
             }
             if (nVar.b() != null && nVar.b().size() > 0) {
-                ArrayList b = nVar.b();
+                ArrayList<com.baidu.tieba.data.p> b = nVar.b();
                 for (int i = 0; i < b.size(); i++) {
-                    com.baidu.tieba.data.p pVar = (com.baidu.tieba.data.p) b.get(i);
+                    com.baidu.tieba.data.p pVar = b.get(i);
                     String b2 = pVar.b();
                     if (this.k != null) {
                         this.k.a(b2);
@@ -277,7 +277,7 @@ public class h extends com.baidu.adp.widget.o {
                     this.n.add(new r(this, 1, pVar, b2));
                     if (pVar.c() != null && pVar.c().size() > 0) {
                         for (int i2 = 0; i2 < pVar.c().size(); i2++) {
-                            com.baidu.tieba.data.o oVar = (com.baidu.tieba.data.o) pVar.c().get(i2);
+                            com.baidu.tieba.data.o oVar = pVar.c().get(i2);
                             if (oVar.g().equals("1")) {
                                 this.n.add(new r(this, 2, oVar, b2));
                             } else if (oVar.g().equals("0")) {
@@ -315,9 +315,9 @@ public class h extends com.baidu.adp.widget.o {
             }
             return;
         }
-        r rVar = (r) this.n.get(i);
+        r rVar = this.n.get(i);
         TextView textView = (TextView) view.findViewById(R.id.time);
-        boolean z = TiebaApplication.g().an() == 1;
+        boolean z = TiebaApplication.g().ap() == 1;
         Date date2 = new Date();
         try {
             date = this.l.parse(rVar.c);
@@ -343,7 +343,7 @@ public class h extends com.baidu.adp.widget.o {
     @Override // android.widget.Adapter
     /* renamed from: a */
     public r getItem(int i) {
-        return (r) this.n.get(i);
+        return this.n.get(i);
     }
 
     private int b(int i) {

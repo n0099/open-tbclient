@@ -6,7 +6,7 @@ public class MoreModel extends com.baidu.adp.a.c {
     private PersonChangeData b;
 
     /* renamed from: a  reason: collision with root package name */
-    private ay f1350a = null;
+    private ba f1385a = null;
     private boolean c = false;
 
     /* loaded from: classes.dex */
@@ -55,9 +55,9 @@ public class MoreModel extends com.baidu.adp.a.c {
     }
 
     public void b() {
-        if (this.f1350a == null) {
-            this.f1350a = new ay(this, null);
-            this.f1350a.execute(new String[0]);
+        if (this.f1385a == null) {
+            this.f1385a = new ba(this, null);
+            this.f1385a.execute(new String[0]);
         }
     }
 

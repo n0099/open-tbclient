@@ -7,30 +7,36 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ao {
+    private int i;
 
     /* renamed from: a  reason: collision with root package name */
-    private v f987a = new v();
+    private v f1005a = new v();
     private bh b = new bh();
-    private ArrayList c = new ArrayList();
+    private ArrayList<as> c = new ArrayList<>();
     private an d = new an();
     private AntiData e = new AntiData();
     private ah f = new ah();
     private int h = 0;
     private boolean g = false;
 
+    public ao() {
+        this.i = 0;
+        this.i = 0;
+    }
+
     public boolean a() {
         return this.c != null && this.c.size() > 0;
     }
 
     public v b() {
-        return this.f987a;
+        return this.f1005a;
     }
 
     public bh c() {
         return this.b;
     }
 
-    public ArrayList d() {
+    public ArrayList<as> d() {
         return this.c;
     }
 
@@ -72,7 +78,7 @@ public class ao {
 
     public String h() {
         if (this.b != null) {
-            return this.b.l();
+            return this.b.n();
         }
         return null;
     }
@@ -87,7 +93,7 @@ public class ao {
         try {
             a(new JSONObject(str), context);
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -95,7 +101,7 @@ public class ao {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -106,7 +112,8 @@ public class ao {
     public void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
-                this.f987a.a(jSONObject.optJSONObject("forum"));
+                a(jSONObject.optInt("is_new_url", 0));
+                this.f1005a.a(jSONObject.optJSONObject("forum"));
                 this.b.a(jSONObject.optJSONObject("thread"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null) {
@@ -122,7 +129,7 @@ public class ao {
                 this.g = jSONObject.optInt("has_floor") == 1;
                 this.h = jSONObject.optJSONObject("user").optInt("is_manager", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b("PbData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.av.b("PbData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -133,5 +140,13 @@ public class ao {
 
     public int j() {
         return this.h;
+    }
+
+    public int k() {
+        return this.i;
+    }
+
+    public void a(int i) {
+        this.i = i;
     }
 }

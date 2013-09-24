@@ -43,7 +43,7 @@ public class BdWebView {
     private Context mContext;
     private int mErrorCode;
     private SparseIntArray mErrorCodeList;
-    private SoftReference mHitTestResultWrapper;
+    private SoftReference<BdHitTestResult> mHitTestResultWrapper;
     private BdSysWebSettings mSysWebSettings;
     private BdSysWebView mSysWebView;
     private BdWebChromeClient mWebChromeClient;
@@ -295,11 +295,11 @@ public class BdWebView {
     private BdHitTestResult obtainHitTestResultWrapper(WebView.HitTestResult hitTestResult) {
         BdHitTestResult bdHitTestResult = null;
         if (this.mHitTestResultWrapper != null) {
-            bdHitTestResult = (BdHitTestResult) this.mHitTestResultWrapper.get();
+            bdHitTestResult = this.mHitTestResultWrapper.get();
         }
         if (bdHitTestResult == null || !bdHitTestResult.isContains(hitTestResult)) {
             BdHitTestResult bdHitTestResult2 = new BdHitTestResult(hitTestResult);
-            this.mHitTestResultWrapper = new SoftReference(bdHitTestResult2);
+            this.mHitTestResultWrapper = new SoftReference<>(bdHitTestResult2);
             return bdHitTestResult2;
         }
         return bdHitTestResult;
@@ -308,11 +308,11 @@ public class BdWebView {
     private BdHitTestResult obtainHitTestResultWrapper(WebView.HitTestResult hitTestResult) {
         BdHitTestResult bdHitTestResult = null;
         if (this.mHitTestResultWrapper != null) {
-            bdHitTestResult = (BdHitTestResult) this.mHitTestResultWrapper.get();
+            bdHitTestResult = this.mHitTestResultWrapper.get();
         }
         if (bdHitTestResult == null || !bdHitTestResult.isContains(hitTestResult)) {
             BdHitTestResult bdHitTestResult2 = new BdHitTestResult(hitTestResult);
-            this.mHitTestResultWrapper = new SoftReference(bdHitTestResult2);
+            this.mHitTestResultWrapper = new SoftReference<>(bdHitTestResult2);
             return bdHitTestResult2;
         }
         return bdHitTestResult;
@@ -436,7 +436,7 @@ public class BdWebView {
         }
     }
 
-    public void loadUrl(String str, Map map) {
+    public void loadUrl(String str, Map<String, String> map) {
         if (this.mZeusWebView != null) {
             this.mZeusWebView.loadUrl(str, map, WebView.PageType.NormalType);
         } else {

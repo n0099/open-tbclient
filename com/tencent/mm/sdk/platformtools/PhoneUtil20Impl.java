@@ -44,7 +44,7 @@ class PhoneUtil20Impl {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x026e: SGET  (r6v7 int A[REMOVE]) =  com.tencent.mm.sdk.platformtools.PhoneUtil20Impl.aL int)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : ?: ARITH  null = (wrap: int : 0x0144: ARITH  (r4v9 int A[REMOVE]) = (wrap: int : 0x0140: INVOKE  (r4v8 int A[REMOVE]) = (r5v1 android.telephony.NeighboringCellInfo) type: VIRTUAL call: android.telephony.NeighboringCellInfo.getRssi():int) * (2 int)) - (113 int))] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : ?: ARITH  null = (wrap: int : 0x01f9: ARITH  (r4v26 int A[REMOVE]) = (wrap: int : 0x01f5: INVOKE  (r4v25 int A[REMOVE]) = (r5v9 android.telephony.NeighboringCellInfo) type: VIRTUAL call: android.telephony.NeighboringCellInfo.getRssi():int) * (2 int)) - (113 int))] */
-    public List getCellInfoList(Context context) {
+    public List<PhoneUtil.CellInfo> getCellInfoList(Context context) {
         String str;
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
         LinkedList linkedList = new LinkedList();

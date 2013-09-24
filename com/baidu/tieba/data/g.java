@@ -11,17 +11,17 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1014a = "http://c.tieba.baidu.com/";
+    public static String f1032a = "http://c.tieba.baidu.com/";
     public static String b = "http://tieba.baidu.com/";
     public static final Long c = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
     public static final Long d = 36000000L;
     public static final Long e = 36000000L;
     public static final Long f = Long.valueOf((long) Util.MILLSECONDS_OF_DAY);
-    public static final String g = String.valueOf(f1014a) + "c/s/apprecommend";
-    public static final String h = String.valueOf(f1014a) + "c/s/recommend/";
-    public static final String i = String.valueOf(f1014a) + "c/s/classic";
+    public static final String g = String.valueOf(f1032a) + "c/s/apprecommend";
+    public static final String h = String.valueOf(f1032a) + "c/s/recommend/";
+    public static final String i = String.valueOf(f1032a) + "c/s/classic";
     public static String j = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String k = String.valueOf(f1014a) + "c/p/img?";
+    public static final String k = String.valueOf(f1032a) + "c/p/img?";
     public static int l = 80;
     public static final Bitmap.Config m = Bitmap.Config.RGB_565;
     private static String o = null;
@@ -104,7 +104,7 @@ public class g {
             i2 = a2;
         }
         v = (int) (i2 * i2 * 1.62f * 2.0f);
-        com.baidu.adp.lib.e.d.c("BIG_IMAGE_SIZE = " + v);
+        com.baidu.adp.lib.f.d.c("BIG_IMAGE_SIZE = " + v);
         return v;
     }
 
@@ -117,7 +117,7 @@ public class g {
         if (u < UtilHelper.c(context) * 0.28d) {
             u = (int) (UtilHelper.c(context) * 0.28d);
         }
-        com.baidu.adp.lib.e.d.c("BIG_IMAGE_MAX_USED_MEMORY = " + u);
+        com.baidu.adp.lib.f.d.c("BIG_IMAGE_MAX_USED_MEMORY = " + u);
     }
 
     public static void c(Context context) {
@@ -176,7 +176,7 @@ public class g {
     }
 
     public static int o() {
-        switch (TiebaApplication.g().ak()) {
+        switch (TiebaApplication.g().am()) {
             case 1:
                 return 18;
             case 2:
@@ -195,7 +195,7 @@ public class g {
     }
 
     public static int r() {
-        switch (TiebaApplication.g().ak()) {
+        switch (TiebaApplication.g().am()) {
             case 1:
                 return 13;
             case 2:

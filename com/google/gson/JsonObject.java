@@ -2,20 +2,21 @@ package com.google.gson;
 
 import com.google.gson.internal.C$Gson$Preconditions;
 import com.google.gson.internal.StringMap;
+import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public final class JsonObject extends JsonElement {
-    private final StringMap members = new StringMap();
+    private final StringMap<JsonElement> members = new StringMap<>();
 
     public void add(String str, JsonElement jsonElement) {
         if (jsonElement == null) {
             jsonElement = JsonNull.INSTANCE;
         }
-        this.members.put((String) C$Gson$Preconditions.checkNotNull(str), (Object) jsonElement);
+        this.members.put((String) C$Gson$Preconditions.checkNotNull(str), (String) jsonElement);
     }
 
     public JsonElement remove(String str) {
-        return (JsonElement) this.members.remove(str);
+        return this.members.remove(str);
     }
 
     public void addProperty(String str, String str2) {
@@ -38,7 +39,7 @@ public final class JsonObject extends JsonElement {
         return obj == null ? JsonNull.INSTANCE : new JsonPrimitive(obj);
     }
 
-    public Set entrySet() {
+    public Set<Map.Entry<String, JsonElement>> entrySet() {
         return this.members.entrySet();
     }
 
@@ -48,7 +49,7 @@ public final class JsonObject extends JsonElement {
 
     public JsonElement get(String str) {
         if (this.members.containsKey(str)) {
-            JsonElement jsonElement = (JsonElement) this.members.get(str);
+            JsonElement jsonElement = this.members.get(str);
             return jsonElement == null ? JsonNull.INSTANCE : jsonElement;
         }
         return null;

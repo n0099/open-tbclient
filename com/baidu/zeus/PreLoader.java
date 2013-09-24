@@ -10,7 +10,7 @@ class PreLoader {
     private static final String LOGTAG = "PreLoader";
     private static final int URI_PROTOCOL = 256;
     private static final String mAboutBlank = "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EB\"><html><head><title>about:blank</title></head><body></body></html>";
-    private Map mHeaders = null;
+    private Map<String, String> mHeaders = null;
     private final PreLoadListener mListener;
     private final String mMethod;
     private Network mNetwork;

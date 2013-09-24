@@ -27,7 +27,7 @@ public class MMPluginOAuth {
 
     /* loaded from: classes.dex */
     public class Receiver extends BroadcastReceiver {
-        private static final Map aA = new HashMap();
+        private static final Map<String, MMPluginOAuth> aA = new HashMap();
         private final MMPluginOAuth bE;
 
         public Receiver() {
@@ -55,7 +55,7 @@ public class MMPluginOAuth {
             if (this.bE != null) {
                 mMPluginOAuth = this.bE;
             } else {
-                mMPluginOAuth = (MMPluginOAuth) aA.get(stringExtra);
+                mMPluginOAuth = aA.get(stringExtra);
                 if (mMPluginOAuth == null) {
                     Log.e("MicroMsg.SDK.MMPluginOAuth", "oauth unregistered, request token = " + stringExtra);
                     return;

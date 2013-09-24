@@ -18,9 +18,9 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int b;
     private LinearLayout c;
     private LinearLayout d;
-    private bk e;
+    private bm e;
     private LinearLayout f;
-    private bk g;
+    private bm g;
     private View h;
     private View i;
     private int j;
@@ -28,7 +28,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     private int l;
     private int m;
     private int n;
-    private bl o;
+    private bn o;
 
     public WaterFallView(Context context) {
         super(context);
@@ -68,8 +68,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
         j();
     }
 
-    public void setOnScrollListener(bl blVar) {
-        this.o = blVar;
+    public void setOnScrollListener(bn bnVar) {
+        this.o = bnVar;
     }
 
     public void a(View view) {
@@ -104,8 +104,8 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void j() {
-        this.e = new bk(this);
-        this.g = new bk(this);
+        this.e = new bm(this);
+        this.g = new bm(this);
         this.n = UtilHelper.a(getContext(), 20.0f);
         this.b = UtilHelper.a(getContext(), 3.0f);
         this.c = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.water_fall_view, (ViewGroup) null);
@@ -122,7 +122,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     private void k() {
-        this.k = new bj(this);
+        this.k = new bl(this);
     }
 
     @Override // android.view.View
@@ -140,7 +140,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
                     ((Scroller) obj).abortAnimation();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.aq.b(getClass().getName(), "onScrollChanged", e.getMessage());
+                com.baidu.tieba.util.av.b(getClass().getName(), "onScrollChanged", e.getMessage());
             }
         }
         if (this.o != null) {
@@ -215,7 +215,7 @@ public class WaterFallView extends BdPullRefreshScrollView {
     }
 
     public void d(int i) {
-        com.baidu.tieba.util.ao.b(this.c, i);
+        com.baidu.tieba.util.as.b(this.c, i);
         this.d.invalidate();
         this.f.invalidate();
         for (int i2 = 0; i2 < this.d.getChildCount(); i2++) {

@@ -29,17 +29,28 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 notification.icon = R.drawable.icon;
                 notification.setLatestEventInfo(context, string2, string, service);
                 notification.defaults = -1;
-                notification.defaults &= -3;
+                if (com.baidu.tieba.mention.s.c()) {
+                    notification.defaults &= -2;
+                    notification.defaults &= -3;
+                } else {
+                    if (!TiebaApplication.g().X()) {
+                        notification.defaults &= -3;
+                    }
+                    if (!TiebaApplication.g().W()) {
+                        notification.defaults &= -2;
+                    } else {
+                        notification.audioStreamType = 5;
+                    }
+                }
                 notification.flags |= 16;
-                notification.audioStreamType = 5;
                 ((NotificationManager) context.getSystemService("notification")).notify(12, notification);
             } catch (Throwable th) {
                 try {
-                    if (com.baidu.adp.lib.e.d.a()) {
-                        com.baidu.adp.lib.e.d.a(th.getMessage());
+                    if (com.baidu.adp.lib.f.d.a()) {
+                        com.baidu.adp.lib.f.d.a(th.getMessage());
                     }
                 } finally {
-                    TiebaApplication.g().af();
+                    TiebaApplication.g().ah();
                 }
             }
         }

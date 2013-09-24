@@ -8,9 +8,9 @@ import java.util.Date;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static a f1204a;
-    private final com.baidu.adp.lib.b.a c = new com.baidu.adp.lib.b.a(100);
-    private final q b = BdCacheService.c().a("tb.cooldown", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 100);
+    static a f1238a;
+    private final com.baidu.adp.lib.b.a<String, Long> c = new com.baidu.adp.lib.b.a<>(100);
+    private final q<String> b = BdCacheService.c().a("tb.cooldown", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.NO_EVICT, 100);
 
     private a() {
     }
@@ -18,35 +18,35 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1204a == null) {
-                f1204a = new a();
+            if (f1238a == null) {
+                f1238a = new a();
             }
-            aVar = f1204a;
+            aVar = f1238a;
         }
         return aVar;
     }
 
     public void a(int i, long j) {
-        String E = TiebaApplication.E();
-        if (E != null) {
+        String C = TiebaApplication.C();
+        if (C != null) {
             long time = new Date().getTime() + j;
-            this.b.a(String.valueOf(i) + E, String.valueOf(time), j);
-            this.c.a(String.valueOf(i) + E, Long.valueOf(time));
+            this.b.a(String.valueOf(i) + C, String.valueOf(time), j);
+            this.c.a(String.valueOf(i) + C, Long.valueOf(time));
         }
     }
 
     public long a(int i) {
-        String E = TiebaApplication.E();
-        String str = E == null ? "" : E;
-        Long l = (Long) this.c.a(String.valueOf(i) + str);
-        if (l == null) {
-            String str2 = (String) this.b.a(String.valueOf(String.valueOf(i) + str));
-            if (str2 == null) {
+        String C = TiebaApplication.C();
+        String str = C == null ? "" : C;
+        Long a2 = this.c.a((com.baidu.adp.lib.b.a<String, Long>) (String.valueOf(i) + str));
+        if (a2 == null) {
+            String a3 = this.b.a(String.valueOf(String.valueOf(i) + str));
+            if (a3 == null) {
                 return 0L;
             }
             this.c.a(String.valueOf(i) + str, Long.valueOf(new Date().getTime()));
-            return Long.valueOf(str2).longValue();
+            return Long.valueOf(a3).longValue();
         }
-        return l.longValue();
+        return a2.longValue();
     }
 }

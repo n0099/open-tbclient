@@ -1,27 +1,23 @@
 package com.baidu.tieba.more;
-
-import android.view.View;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements com.baidu.adp.widget.BdSwitchView.c {
+public class ag implements com.baidu.tbadk.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgRemindActivity f1437a;
+    final /* synthetic */ af f1478a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(MsgRemindActivity msgRemindActivity) {
-        this.f1437a = msgRemindActivity;
+    public ag(af afVar) {
+        this.f1478a = afVar;
     }
 
-    @Override // com.baidu.adp.widget.BdSwitchView.c
-    public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (switchState == BdSwitchView.SwitchState.ON) {
-            TiebaApplication.g().l(true);
-        } else {
-            TiebaApplication.g().l(false);
+    @Override // com.baidu.tbadk.a.d
+    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
+        SettingTextImageView settingTextImageView;
+        if (cVar == null) {
+            return;
         }
-        DatabaseService.u();
+        settingTextImageView = this.f1478a.f;
+        settingTextImageView.setIcon(cVar);
     }
 }

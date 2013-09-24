@@ -1,6 +1,6 @@
 package android.support.v4.b;
 /* loaded from: classes.dex */
-public class c {
+public class c<E> {
 
     /* renamed from: a  reason: collision with root package name */
     private static final Object f295a = new Object();
@@ -21,13 +21,13 @@ public class c {
         this.e = 0;
     }
 
-    public Object a(int i) {
+    public E a(int i) {
         return a(i, null);
     }
 
-    public Object a(int i, Object obj) {
+    public E a(int i, E e) {
         int a2 = a(this.c, 0, this.e, i);
-        return (a2 < 0 || this.d[a2] == f295a) ? obj : this.d[a2];
+        return (a2 < 0 || this.d[a2] == f295a) ? e : (E) this.d[a2];
     }
 
     public void b(int i) {
@@ -61,16 +61,16 @@ public class c {
         this.e = i2;
     }
 
-    public void b(int i, Object obj) {
+    public void b(int i, E e) {
         int a2 = a(this.c, 0, this.e, i);
         if (a2 >= 0) {
-            this.d[a2] = obj;
+            this.d[a2] = e;
             return;
         }
         int i2 = a2 ^ (-1);
         if (i2 < this.e && this.d[i2] == f295a) {
             this.c[i2] = i;
-            this.d[i2] = obj;
+            this.d[i2] = e;
             return;
         }
         if (this.b && this.e >= this.c.length) {
@@ -91,7 +91,7 @@ public class c {
             System.arraycopy(this.d, i2, this.d, i2 + 1, this.e - i2);
         }
         this.c[i2] = i;
-        this.d[i2] = obj;
+        this.d[i2] = e;
         this.e++;
     }
 
@@ -109,11 +109,11 @@ public class c {
         return this.c[i];
     }
 
-    public Object e(int i) {
+    public E e(int i) {
         if (this.b) {
             c();
         }
-        return this.d[i];
+        return (E) this.d[i];
     }
 
     public void b() {

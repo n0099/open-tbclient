@@ -7,7 +7,7 @@ import android.os.Message;
 public class q extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VerticalTranslateLayout f512a;
+    final /* synthetic */ VerticalTranslateLayout f524a;
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
@@ -16,15 +16,15 @@ public class q extends Handler {
         r rVar3;
         r rVar4;
         r rVar5;
-        rVar = this.f512a.v;
+        rVar = this.f524a.v;
         if (rVar.g) {
             switch (message.what) {
                 case -105:
-                    rVar5 = this.f512a.v;
+                    rVar5 = this.f524a.v;
                     rVar5.d();
                     return;
                 case -104:
-                    rVar2 = this.f512a.v;
+                    rVar2 = this.f524a.v;
                     rVar2.c();
                     return;
                 case -103:
@@ -32,11 +32,11 @@ public class q extends Handler {
                 default:
                     return;
                 case -101:
-                    rVar3 = this.f512a.v;
+                    rVar3 = this.f524a.v;
                     rVar3.b();
                     return;
                 case -100:
-                    rVar4 = this.f512a.v;
+                    rVar4 = this.f524a.v;
                     rVar4.a();
                     return;
             }

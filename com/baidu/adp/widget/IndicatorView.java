@@ -11,7 +11,7 @@ import android.view.View;
 public class IndicatorView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f469a;
+    private boolean f480a;
     private int b;
     private int c;
     private float d;
@@ -87,9 +87,8 @@ public class IndicatorView extends View {
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.h = new m(this);
-        int i2 = (int) ((getResources().getDisplayMetrics().density * 50.0f) + 0.5f);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.h.IndicatorView);
-        this.b = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+        this.b = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.c = obtainStyledAttributes.getInteger(4, 0);
         this.f = obtainStyledAttributes.getDrawable(1);
         if (this.f == null) {
@@ -105,7 +104,7 @@ public class IndicatorView extends View {
             this.g.setBounds(0, 0, this.g.getIntrinsicWidth(), this.g.getIntrinsicHeight());
             Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.g.getBounds());
         }
-        this.f469a = obtainStyledAttributes.getBoolean(3, false);
+        this.f480a = obtainStyledAttributes.getBoolean(3, false);
     }
 
     @Override // android.view.View
@@ -119,7 +118,7 @@ public class IndicatorView extends View {
     }
 
     public void setAutoHide(boolean z) {
-        this.f469a = z;
+        this.f480a = z;
     }
 
     public void setDrawable(Drawable drawable) {

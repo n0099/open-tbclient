@@ -9,13 +9,13 @@ import android.view.MotionEvent;
 public class BaseViewPager extends ViewPager implements GestureDetector.OnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private GestureDetector f1815a;
+    private GestureDetector f1934a;
     private a b;
     private a c;
 
     public BaseViewPager(Context context) {
         super(context);
-        this.f1815a = null;
+        this.f1934a = null;
         this.b = null;
         this.c = null;
         g();
@@ -23,7 +23,7 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1815a = null;
+        this.f1934a = null;
         this.b = null;
         this.c = null;
         g();
@@ -39,15 +39,15 @@ public class BaseViewPager extends ViewPager implements GestureDetector.OnGestur
 
     @Override // android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.f1815a == null || getAdapter() == null || getAdapter().getCount() == 0 || (getCurrentItem() != 0 && getAdapter().getCount() != getCurrentItem() + 1)) {
+        if (this.f1934a == null || getAdapter() == null || getAdapter().getCount() == 0 || (getCurrentItem() != 0 && getAdapter().getCount() != getCurrentItem() + 1)) {
             return super.onTouchEvent(motionEvent);
         }
-        this.f1815a.onTouchEvent(motionEvent);
+        this.f1934a.onTouchEvent(motionEvent);
         return super.onTouchEvent(motionEvent);
     }
 
     private void g() {
-        this.f1815a = new GestureDetector(this);
+        this.f1934a = new GestureDetector(this);
     }
 
     @Override // android.view.GestureDetector.OnGestureListener

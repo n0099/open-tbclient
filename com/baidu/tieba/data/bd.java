@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    private v f1002a;
+    private v f1020a;
     private int e;
     private int g;
     private AntiData h;
@@ -16,7 +16,7 @@ public class bd {
     private int f = 10;
     private boolean j = false;
     private as b = null;
-    private ArrayList c = new ArrayList();
+    private ArrayList<as> c = new ArrayList<>();
     private int d = 1;
 
     public as a() {
@@ -46,11 +46,11 @@ public class bd {
         }
     }
 
-    public ArrayList b() {
+    public ArrayList<as> b() {
         return this.c;
     }
 
-    public void a(ArrayList arrayList) {
+    public void a(ArrayList<as> arrayList) {
         this.c = arrayList;
     }
 
@@ -89,11 +89,11 @@ public class bd {
     }
 
     public void a(v vVar) {
-        this.f1002a = vVar;
+        this.f1020a = vVar;
     }
 
     public v g() {
-        return this.f1002a;
+        return this.f1020a;
     }
 
     public void a(AntiData antiData) {
@@ -145,7 +145,7 @@ public class bd {
             asVar.a(optJSONObject, context);
             a(asVar);
             int length = optJSONArray.length();
-            ArrayList arrayList = new ArrayList();
+            ArrayList<as> arrayList = new ArrayList<>();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                 as asVar2 = new as();
@@ -163,7 +163,7 @@ public class bd {
             b(optInt4);
             a(optInt);
         } catch (Exception e) {
-            com.baidu.tieba.util.aq.b("SubPbModel", "parseJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.av.b("SubPbModel", "parseJson", "error = " + e.getMessage());
         }
     }
 

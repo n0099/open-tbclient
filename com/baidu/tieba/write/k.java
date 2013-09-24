@@ -18,13 +18,13 @@ public class k extends BaseAdapter {
     boolean c;
     private Context e;
     private com.baidu.tieba.util.a f;
-    private ArrayList d = null;
+    private ArrayList<MetaData> d = null;
     private boolean g = false;
     private boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1935a = false;
-    private ArrayList i = new ArrayList();
+    boolean f2118a = false;
+    private ArrayList<ProgressBar> i = new ArrayList<>();
 
     public void a() {
         if (this.i != null) {
@@ -33,9 +33,9 @@ public class k extends BaseAdapter {
                 int i2 = i;
                 if (i2 < this.i.size()) {
                     try {
-                        ((ProgressBar) this.i.get(i2)).setVisibility(8);
+                        this.i.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.util.aq.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.tieba.util.av.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -61,13 +61,13 @@ public class k extends BaseAdapter {
         return this.f;
     }
 
-    public void a(ArrayList arrayList) {
+    public void a(ArrayList<MetaData> arrayList) {
         this.d = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1935a) {
+        if (this.f2118a) {
             return 1;
         }
         int i = 0;
@@ -106,7 +106,7 @@ public class k extends BaseAdapter {
                 l lVar2 = new l(this, null);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.at_list_item, (ViewGroup) null);
-                    lVar2.f1936a = (ImageView) inflate.findViewById(R.id.photo);
+                    lVar2.f2119a = (ImageView) inflate.findViewById(R.id.photo);
                     lVar2.b = (TextView) inflate.findViewById(R.id.name);
                     lVar2.e = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     view2 = inflate;
@@ -125,8 +125,8 @@ public class k extends BaseAdapter {
             }
             try {
                 if (getItemViewType(i) == 0) {
-                    if (this.f1935a) {
-                        lVar.f1936a.setVisibility(8);
+                    if (this.f2118a) {
+                        lVar.f2119a.setVisibility(8);
                         lVar.b.setVisibility(8);
                         lVar.e.setVisibility(0);
                         if (this.b) {
@@ -141,19 +141,19 @@ public class k extends BaseAdapter {
                             lVar.e.setText(R.string.no_fan_other);
                         }
                     } else {
-                        lVar.f1936a.setVisibility(0);
+                        lVar.f2119a.setVisibility(0);
                         lVar.b.setVisibility(0);
                         lVar.e.setVisibility(8);
-                        String portrait = ((MetaData) this.d.get(i)).getPortrait();
-                        com.baidu.adp.widget.a.b c = this.f.c(portrait);
+                        String portrait = this.d.get(i).getPortrait();
+                        com.baidu.adp.widget.a.c c = this.f.c(portrait);
                         if (c != null) {
-                            lVar.f1936a.setTag(null);
-                            c.a(lVar.f1936a);
+                            lVar.f2119a.setTag(null);
+                            c.a(lVar.f2119a);
                         } else {
-                            lVar.f1936a.setTag(portrait);
-                            lVar.f1936a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
+                            lVar.f2119a.setTag(portrait);
+                            lVar.f2119a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
                         }
-                        lVar.b.setText(((MetaData) this.d.get(i)).getName_show());
+                        lVar.b.setText(this.d.get(i).getName_show());
                     }
                 } else if (this.h) {
                     lVar.b.setText(this.e.getString(R.string.loading));
@@ -162,13 +162,13 @@ public class k extends BaseAdapter {
                     lVar.b.setText(this.e.getString(R.string.load_more));
                     lVar.d.setVisibility(8);
                 }
-                int an = TiebaApplication.g().an();
-                if (an == 1) {
-                    com.baidu.tieba.util.ao.g(view, (int) R.drawable.list_selector_1);
+                int ap = TiebaApplication.g().ap();
+                if (ap == 1) {
+                    com.baidu.tieba.util.as.e(view, (int) R.drawable.list_selector_1);
                 } else {
-                    com.baidu.tieba.util.ao.g(view, (int) R.drawable.list_selector_divider1);
+                    com.baidu.tieba.util.as.e(view, (int) R.drawable.list_selector_divider1);
                 }
-                if (an == 1) {
+                if (ap == 1) {
                     lVar.b.setTextColor(-8682086);
                     lVar.c.setTextColor(-11446171);
                     if (lVar.e != null) {
@@ -182,7 +182,7 @@ public class k extends BaseAdapter {
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.e.d.a(e.getMessage());
+                com.baidu.adp.lib.f.d.a(e.getMessage());
             }
         }
         return view;
@@ -190,7 +190,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f1935a) {
+        if (this.f2118a) {
             return 0;
         }
         return (this.d == null || i >= this.d.size()) ? 1 : 0;
@@ -203,7 +203,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.f1935a) {
+        if (this.f2118a) {
             return false;
         }
         return super.isEnabled(i);

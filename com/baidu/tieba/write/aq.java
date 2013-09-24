@@ -1,37 +1,31 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.LinearLayout;
+import android.content.DialogInterface;
+import com.baidu.tieba.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements View.OnClickListener {
+public class aq implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f1916a;
+    final /* synthetic */ WriteActivity f2094a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(WriteImageActivity writeImageActivity) {
-        this.f1916a = writeImageActivity;
+    public aq(WriteActivity writeActivity) {
+        this.f2094a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        LinearLayout linearLayout3;
-        LinearLayout linearLayout4;
-        LinearLayout linearLayout5;
-        linearLayout = this.f1916a.f;
-        if (linearLayout.getVisibility() == 0) {
-            linearLayout4 = this.f1916a.f;
-            linearLayout4.setVisibility(8);
-            linearLayout5 = this.f1916a.p;
-            linearLayout5.setVisibility(8);
-            return;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        WriteData writeData2;
+        if (i == 0) {
+            bf.a(this.f2094a);
+            writeData2 = this.f2094a.f2075a;
+            writeData2.setPicType(2);
+        } else if (i == 1) {
+            bf.b(this.f2094a);
+            writeData = this.f2094a.f2075a;
+            writeData.setPicType(1);
         }
-        linearLayout2 = this.f1916a.f;
-        linearLayout2.setVisibility(0);
-        linearLayout3 = this.f1916a.p;
-        linearLayout3.setVisibility(0);
     }
 }

@@ -52,7 +52,7 @@ public class BdSysWebView7 extends BdSysWebView {
     }
 
     @Override // com.baidu.browser.webkit.sys.BdSysWebView, android.webkit.WebView
-    public void loadUrl(String str, Map map) {
+    public void loadUrl(String str, Map<String, String> map) {
         super.loadUrl(str);
     }
 

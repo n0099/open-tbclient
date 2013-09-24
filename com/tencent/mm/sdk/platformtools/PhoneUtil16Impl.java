@@ -27,7 +27,7 @@ class PhoneUtil16Impl {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0093: INVOKE  (r4v3 int A[REMOVE]) = (r4v2 android.telephony.NeighboringCellInfo) type: VIRTUAL call: android.telephony.NeighboringCellInfo.getCid():int)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00bb: SGET  (r5v3 int A[REMOVE]) =  com.tencent.mm.sdk.platformtools.PhoneUtil16Impl.aL int)] */
-    public List getCellInfoList(Context context) {
+    public List<PhoneUtil.CellInfo> getCellInfoList(Context context) {
         LinkedList linkedList = new LinkedList();
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
         String networkOperator = telephonyManager.getNetworkOperator();

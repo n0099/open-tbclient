@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import com.tencent.mm.sdk.platformtools.Log;
 import com.tencent.mm.sdk.platformtools.Util;
+import com.tencent.mm.sdk.storage.MAutoDBItem;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -11,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import junit.framework.Assert;
 /* loaded from: classes.dex */
-public abstract class MAutoStorage extends MStorage {
+public abstract class MAutoStorage<T extends MAutoDBItem> extends MStorage {
     private ISQLiteDatabase P;
     private final String bL;
     private final String[] columns;
@@ -57,11 +58,11 @@ public abstract class MAutoStorage extends MStorage {
         Log.e("MicroMsg.SDK.MAutoStorage", getTableName() + ":" + str);
     }
 
-    public static List getCreateSQLs(Field[] fieldArr, String str, String str2, String... strArr) {
+    public static List<String> getCreateSQLs(Field[] fieldArr, String str, String str2, String... strArr) {
         LinkedList linkedList = new LinkedList();
         StringBuilder sb = new StringBuilder();
         sb.append("CREATE TABLE IF NOT EXISTS " + str + " ( ");
-        Map identify = MAutoDBItem.identify(fieldArr, sb, str2);
+        Map<String, String> identify = MAutoDBItem.identify(fieldArr, sb, str2);
         sb.append(");");
         linkedList.addFirst(sb.toString());
         if (strArr != null && strArr.length > 0) {
@@ -77,7 +78,7 @@ public abstract class MAutoStorage extends MStorage {
         return linkedList;
     }
 
-    public static List getUpdateSQLs(Field[] fieldArr, String str, ISQLiteDatabase iSQLiteDatabase) {
+    public static List<String> getUpdateSQLs(Field[] fieldArr, String str, ISQLiteDatabase iSQLiteDatabase) {
         LinkedList linkedList = new LinkedList();
         HashMap hashMap = new HashMap();
         Cursor rawQuery = iSQLiteDatabase.rawQuery("PRAGMA table_info( " + str + " )", null);
@@ -85,17 +86,17 @@ public abstract class MAutoStorage extends MStorage {
             hashMap.put(rawQuery.getString(rawQuery.getColumnIndex("name")), rawQuery.getString(rawQuery.getColumnIndex("type")));
         }
         rawQuery.close();
-        for (Map.Entry entry : MAutoDBItem.identify(fieldArr, null, null).entrySet()) {
-            String str2 = (String) entry.getValue();
-            String str3 = (String) entry.getKey();
-            if (!((str2 == null) | (str2.length() <= 0))) {
-                String str4 = (String) hashMap.get(str3);
-                if (str4 == null) {
-                    linkedList.add("ALTER TABLE " + str + " ADD COLUMN " + str3 + " " + str2 + ";");
-                    hashMap.remove(str3);
-                } else if (!str4.equalsIgnoreCase(str2)) {
-                    Log.e("MicroMsg.SDK.MAutoStorage", "conflicting alter table on column: " + str3 + ", " + str4 + "<o-n>" + str2);
-                    hashMap.remove(str3);
+        for (Map.Entry<String, String> entry : MAutoDBItem.identify(fieldArr, null, null).entrySet()) {
+            String value = entry.getValue();
+            String key = entry.getKey();
+            if (!((value == null) | (value.length() <= 0))) {
+                String str2 = (String) hashMap.get(key);
+                if (str2 == null) {
+                    linkedList.add("ALTER TABLE " + str + " ADD COLUMN " + key + " " + value + ";");
+                    hashMap.remove(key);
+                } else if (!str2.equalsIgnoreCase(value)) {
+                    Log.e("MicroMsg.SDK.MAutoStorage", "conflicting alter table on column: " + key + ", " + str2 + "<o-n>" + value);
+                    hashMap.remove(key);
                 }
             }
         }
@@ -110,8 +111,8 @@ public abstract class MAutoStorage extends MStorage {
         return z;
     }
 
-    public boolean delete(MAutoDBItem mAutoDBItem, String... strArr) {
-        ContentValues convertTo = mAutoDBItem.convertTo();
+    public boolean delete(T t, String... strArr) {
+        ContentValues convertTo = t.convertTo();
         if (convertTo == null || convertTo.size() <= 0) {
             e("delete failed, value.size <= 0");
             return false;
@@ -138,19 +139,19 @@ public abstract class MAutoStorage extends MStorage {
         }
     }
 
-    public boolean get(long j, MAutoDBItem mAutoDBItem) {
+    public boolean get(long j, T t) {
         Cursor query = this.P.query(getTableName(), this.columns, "rowid = ?", new String[]{String.valueOf(j)}, null, null, null);
         if (!query.moveToFirst()) {
             query.close();
             return false;
         }
-        mAutoDBItem.convertFrom(query);
+        t.convertFrom(query);
         query.close();
         return true;
     }
 
-    public boolean get(MAutoDBItem mAutoDBItem, String... strArr) {
-        ContentValues convertTo = mAutoDBItem.convertTo();
+    public boolean get(T t, String... strArr) {
+        ContentValues convertTo = t.convertTo();
         if (convertTo == null || convertTo.size() <= 0) {
             e("get failed, value.size <= 0");
             return false;
@@ -161,7 +162,7 @@ public abstract class MAutoStorage extends MStorage {
                 query.close();
                 return false;
             }
-            mAutoDBItem.convertFrom(query);
+            t.convertFrom(query);
             query.close();
             return true;
         } else {
@@ -172,7 +173,7 @@ public abstract class MAutoStorage extends MStorage {
             }
             Cursor query2 = this.P.query(getTableName(), this.columns, a2.toString(), a(strArr, convertTo), null, null, null);
             if (query2.moveToFirst()) {
-                mAutoDBItem.convertFrom(query2);
+                t.convertFrom(query2);
                 query2.close();
                 return true;
             }
@@ -203,14 +204,14 @@ public abstract class MAutoStorage extends MStorage {
 
     public abstract String getTableName();
 
-    public boolean insert(MAutoDBItem mAutoDBItem) {
-        ContentValues convertTo = mAutoDBItem.convertTo();
+    public boolean insert(T t) {
+        ContentValues convertTo = t.convertTo();
         if (convertTo == null || convertTo.size() <= 0) {
             e("insert failed, value.size <= 0");
             return false;
         }
-        mAutoDBItem.systemRowid = this.P.insert(getTableName(), this.bL, mAutoDBItem.convertTo());
-        if (mAutoDBItem.systemRowid <= 0) {
+        t.systemRowid = this.P.insert(getTableName(), this.bL, t.convertTo());
+        if (t.systemRowid <= 0) {
             e("insert failed");
             return false;
         }
@@ -222,11 +223,11 @@ public abstract class MAutoStorage extends MStorage {
         return this.P.rawQuery(str, strArr);
     }
 
-    public boolean replace(MAutoDBItem mAutoDBItem) {
+    public boolean replace(T t) {
         Assert.assertTrue("replace primaryKey == null", !Util.isNullOrNil(this.bL));
-        ContentValues convertTo = mAutoDBItem.convertTo();
+        ContentValues convertTo = t.convertTo();
         if (convertTo != null) {
-            if (convertTo.size() == (convertTo.containsKey(MAutoDBItem.SYSTEM_ROWID_FIELD) ? 1 : 0) + mAutoDBItem.fields().length) {
+            if (convertTo.size() == (convertTo.containsKey(MAutoDBItem.SYSTEM_ROWID_FIELD) ? 1 : 0) + t.fields().length) {
                 if (a(convertTo)) {
                     d("no need replace , fields no change");
                     return true;
@@ -243,8 +244,8 @@ public abstract class MAutoStorage extends MStorage {
         return false;
     }
 
-    public boolean update(long j, MAutoDBItem mAutoDBItem) {
-        ContentValues convertTo = mAutoDBItem.convertTo();
+    public boolean update(long j, T t) {
+        ContentValues convertTo = t.convertTo();
         if (convertTo == null || convertTo.size() <= 0) {
             e("update failed, value.size <= 0");
             return false;
@@ -264,8 +265,8 @@ public abstract class MAutoStorage extends MStorage {
         return z;
     }
 
-    public boolean update(MAutoDBItem mAutoDBItem, String... strArr) {
-        ContentValues convertTo = mAutoDBItem.convertTo();
+    public boolean update(T t, String... strArr) {
+        ContentValues convertTo = t.convertTo();
         if (convertTo == null || convertTo.size() <= 0) {
             e("update failed, value.size <= 0");
             return false;

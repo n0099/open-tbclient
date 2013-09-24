@@ -2,15 +2,15 @@ package com.baidu.browser.webkit;
 
 import android.webkit.ValueCallback;
 /* loaded from: classes.dex */
-public class BdValueCallback {
-    private ValueCallback mSysValueCallback;
-    private com.baidu.zeus.ValueCallback mZeusValueCallback;
+public class BdValueCallback<T> {
+    private ValueCallback<T> mSysValueCallback;
+    private com.baidu.zeus.ValueCallback<T> mZeusValueCallback;
 
-    public BdValueCallback(ValueCallback valueCallback) {
+    public BdValueCallback(ValueCallback<T> valueCallback) {
         this.mSysValueCallback = valueCallback;
     }
 
-    public BdValueCallback(com.baidu.zeus.ValueCallback valueCallback) {
+    public BdValueCallback(com.baidu.zeus.ValueCallback<T> valueCallback) {
         this.mZeusValueCallback = valueCallback;
     }
 
@@ -30,11 +30,11 @@ public class BdValueCallback {
         return this.mZeusValueCallback != null ? this.mZeusValueCallback : this.mSysValueCallback;
     }
 
-    public void onReceiveValue(Object obj) {
+    public void onReceiveValue(T t) {
         if (this.mZeusValueCallback != null) {
-            this.mZeusValueCallback.onReceiveValue(obj);
+            this.mZeusValueCallback.onReceiveValue(t);
         } else {
-            this.mSysValueCallback.onReceiveValue(obj);
+            this.mSysValueCallback.onReceiveValue(t);
         }
     }
 }

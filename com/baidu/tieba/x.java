@@ -1,37 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import com.baidu.tieba.util.DatabaseService;
+import android.graphics.Bitmap;
+import android.view.animation.AlphaAnimation;
+import android.widget.ImageView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class x extends Thread {
+class x implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1951a;
+    final /* synthetic */ LogoActivity f2134a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(LogoActivity logoActivity) {
-        this.f1951a = logoActivity;
+        this.f2134a = logoActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.f1951a.getApplication();
-            tiebaApplication.a(tiebaApplication.J() + 1);
-            if (tiebaApplication.O()) {
-                DatabaseService.x();
-                tiebaApplication.a(0);
-            }
-            DatabaseService.t();
-            DatabaseService.w();
-            this.f1951a.a(this.f1951a.getCacheDir());
-        } catch (Exception e) {
-        }
-        handler = this.f1951a.k;
-        handler2 = this.f1951a.k;
-        handler.sendMessage(handler2.obtainMessage());
+        ImageView imageView;
+        Bitmap bitmap;
+        ImageView imageView2;
+        AlphaAnimation alphaAnimation;
+        this.f2134a.e = com.baidu.tieba.util.e.a(this.f2134a, (int) R.drawable.logo);
+        imageView = this.f2134a.d;
+        bitmap = this.f2134a.e;
+        imageView.setImageBitmap(bitmap);
+        imageView2 = this.f2134a.d;
+        alphaAnimation = this.f2134a.f;
+        imageView2.startAnimation(alphaAnimation);
     }
 }

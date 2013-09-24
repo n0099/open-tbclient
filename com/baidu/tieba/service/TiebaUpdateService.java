@@ -10,23 +10,23 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.aq;
+import com.baidu.tieba.util.av;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1709a = null;
+    protected String f1783a = null;
     private NotificationManager b = null;
     private Notification c = null;
     private Notification d = null;
-    private v e = null;
+    private t e = null;
     private VersionData f = null;
-    private w g = null;
+    private u g = null;
     private String h = null;
     private boolean i = false;
-    private Handler j = new t(this);
-    private Handler k = new u(this);
+    private Handler j = new r(this);
+    private Handler k = new s(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -74,7 +74,7 @@ public class TiebaUpdateService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         boolean z;
-        aq.a(getClass().getName(), "onStart", "onStart");
+        av.a(getClass().getName(), "onStart", "onStart");
         if (intent != null && intent.getBooleanExtra("update", false)) {
             VersionData versionData = (VersionData) intent.getSerializableExtra("version");
             this.f = versionData;
@@ -84,7 +84,7 @@ public class TiebaUpdateService extends Service {
                 if (com.baidu.tieba.util.p.c(this.f.getNew_file()) != null) {
                     this.j.sendMessageDelayed(this.j.obtainMessage(1, this.f), 100L);
                 } else if (this.e == null) {
-                    this.e = new v(this, this.f);
+                    this.e = new t(this, this.f);
                     this.e.execute(new String[0]);
                     this.c.contentView.setProgressBar(R.id.progress, 100, 0, false);
                     this.b.notify(10, this.c);
@@ -96,18 +96,18 @@ public class TiebaUpdateService extends Service {
                 } else {
                     z = true;
                 }
-                this.f1709a = a(this.h);
-                if (this.f1709a == null || this.f1709a.length() < 4) {
+                this.f1783a = a(this.h);
+                if (this.f1783a == null || this.f1783a.length() < 4) {
                     this.i = true;
                     z = false;
                 }
                 if (z) {
                     this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
                     this.d.contentView.setTextViewText(R.id.schedule, "0/0");
-                    if (com.baidu.tieba.util.p.c(this.f1709a) != null) {
+                    if (com.baidu.tieba.util.p.c(this.f1783a) != null) {
                         this.k.sendMessageDelayed(this.k.obtainMessage(2, this.f), 100L);
                     } else if (this.g == null) {
-                        this.g = new w(this, this.h);
+                        this.g = new u(this, this.h);
                         this.g.execute(new String[0]);
                         this.d.contentView.setProgressBar(R.id.progress, 100, 0, false);
                         this.b.notify(14, this.d);

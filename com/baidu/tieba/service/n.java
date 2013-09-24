@@ -1,43 +1,37 @@
 package com.baidu.tieba.service;
 
+import android.net.Uri;
 import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class n extends Handler {
+class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    long f1723a = TiebaApplication.g().S();
-    long b = 0;
-    final /* synthetic */ TiebaMessageService c;
+    final /* synthetic */ TiebaPrepareImageService f1797a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(TiebaMessageService tiebaMessageService) {
-        this.c = tiebaMessageService;
+    public n(TiebaPrepareImageService tiebaPrepareImageService) {
+        this.f1797a = tiebaPrepareImageService;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        int i2;
+    @Override // java.lang.Runnable
+    public void run() {
         Handler handler;
-        if (message.what == 1) {
-            if (this.f1723a > 0) {
-                this.b = 1800 / this.f1723a;
-                i = this.c.d;
-                if (i % this.b == 0) {
-                    this.c.a(2);
-                } else {
-                    this.c.a(1);
-                }
-                TiebaMessageService tiebaMessageService = this.c;
-                i2 = tiebaMessageService.d;
-                tiebaMessageService.d = i2 + 1;
-                handler = this.c.e;
-                handler.sendEmptyMessageDelayed(1, this.f1723a * 1000);
-                return;
-            }
-            this.c.stopSelf();
+        Runnable runnable;
+        int i;
+        Uri uri;
+        o oVar;
+        if (TiebaPrepareImageService.f1781a) {
+            handler = this.f1797a.e;
+            runnable = this.f1797a.g;
+            handler.postDelayed(runnable, 1000L);
+            return;
         }
+        TiebaPrepareImageService tiebaPrepareImageService = this.f1797a;
+        TiebaPrepareImageService tiebaPrepareImageService2 = this.f1797a;
+        i = this.f1797a.b;
+        uri = this.f1797a.c;
+        tiebaPrepareImageService.d = new o(tiebaPrepareImageService2, i, uri);
+        oVar = this.f1797a.d;
+        oVar.execute(new Object[0]);
     }
 }

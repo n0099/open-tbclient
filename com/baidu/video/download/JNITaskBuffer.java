@@ -5,14 +5,16 @@ import android.os.Parcelable;
 /* loaded from: classes.dex */
 public class JNITaskBuffer implements Parcelable {
     public static final int BufferSize = 16384;
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() { // from class: com.baidu.video.download.JNITaskBuffer.1
+    public static final Parcelable.Creator<JNITaskBuffer> CREATOR = new Parcelable.Creator<JNITaskBuffer>() { // from class: com.baidu.video.download.JNITaskBuffer.1
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public JNITaskBuffer[] newArray(int i) {
             return new JNITaskBuffer[i];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.os.Parcelable.Creator
         public JNITaskBuffer createFromParcel(Parcel parcel) {
             return new JNITaskBuffer(parcel, null);

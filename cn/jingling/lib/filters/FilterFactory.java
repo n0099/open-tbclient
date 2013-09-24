@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FilterFactory {
-    private static final Map sOneKeyFilters = new HashMap() { // from class: cn.jingling.lib.filters.FilterFactory.1
+    private static final Map<String, Class<? extends OneKeyFilter>> sOneKeyFilters = new HashMap<String, Class<? extends OneKeyFilter>>() { // from class: cn.jingling.lib.filters.FilterFactory.1
         private static final long serialVersionUID = -4215192030410560547L;
 
         {
@@ -74,7 +74,7 @@ public class FilterFactory {
             return null;
         }
         try {
-            return (OneKeyFilter) ((Class) sOneKeyFilters.get(str.toLowerCase())).newInstance();
+            return sOneKeyFilters.get(str.toLowerCase()).newInstance();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             return null;
