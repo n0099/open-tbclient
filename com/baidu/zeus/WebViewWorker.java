@@ -148,7 +148,7 @@ public final class WebViewWorker extends Handler {
                 }
                 cacheData.mChunk.release();
                 return;
-            case MSG_SAVE_CACHE /* 106 */:
+            case 106:
                 if (!$assertionsDisabled && JniUtil.useChromiumHttpStack()) {
                     throw new AssertionError();
                 }
@@ -160,7 +160,7 @@ public final class WebViewWorker extends Handler {
                     return;
                 }
                 return;
-            case MSG_REMOVE_CACHE /* 107 */:
+            case 107:
                 if (!$assertionsDisabled && JniUtil.useChromiumHttpStack()) {
                     throw new AssertionError();
                 }
@@ -184,34 +184,34 @@ public final class WebViewWorker extends Handler {
                 }
                 CacheManager.clearCache();
                 return;
-            case MSG_CACHE_TRANSACTION_TICKER /* 110 */:
+            case 110:
                 if (!$assertionsDisabled && JniUtil.useChromiumHttpStack()) {
                     throw new AssertionError();
                 }
                 if (!mCacheTickersBlocked) {
                     CacheManager.endTransaction();
                     CacheManager.startTransaction();
-                    sendEmptyMessageDelayed(MSG_CACHE_TRANSACTION_TICKER, Util.MILLSECONDS_OF_MINUTE);
+                    sendEmptyMessageDelayed(110, Util.MILLSECONDS_OF_MINUTE);
                     return;
                 }
                 return;
-            case MSG_PAUSE_CACHE_TRANSACTION /* 111 */:
+            case 111:
                 if (!$assertionsDisabled && JniUtil.useChromiumHttpStack()) {
                     throw new AssertionError();
                 }
                 if (CacheManager.disableTransaction()) {
                     mCacheTickersBlocked = true;
-                    removeMessages(MSG_CACHE_TRANSACTION_TICKER);
+                    removeMessages(110);
                     return;
                 }
                 return;
-            case MSG_RESUME_CACHE_TRANSACTION /* 112 */:
+            case 112:
                 if (!$assertionsDisabled && JniUtil.useChromiumHttpStack()) {
                     throw new AssertionError();
                 }
                 if (CacheManager.enableTransaction()) {
                     mCacheTickersBlocked = false;
-                    sendEmptyMessageDelayed(MSG_CACHE_TRANSACTION_TICKER, Util.MILLSECONDS_OF_MINUTE);
+                    sendEmptyMessageDelayed(110, Util.MILLSECONDS_OF_MINUTE);
                     return;
                 }
                 return;

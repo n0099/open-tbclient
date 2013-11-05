@@ -21,6 +21,7 @@ import com.baidu.browser.webkit.BdValueCallback;
 import com.baidu.browser.webkit.BdWebView;
 import com.baidu.browser.webkit.BdWebViewManager;
 import com.baidu.browser.webpool.BdWebPoolView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 import java.util.Observable;
@@ -29,7 +30,7 @@ import java.util.Observer;
 public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserListener, BdExploreViewListener, Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1519a = null;
+    private String f2036a = null;
     private String b = null;
     private String c = null;
     private BdUploadHandler d;
@@ -44,16 +45,16 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
         if (!(context instanceof Activity)) {
             intent.setFlags(268435456);
         }
-        intent.putExtra("url", str);
-        intent.putExtra("bduss", str2);
+        intent.putExtra(SocialConstants.PARAM_URL, str);
+        intent.putExtra(SocialConstants.PARAM_BDUSS, str2);
         intent.putExtra("ptoken", str3);
         context.startActivity(intent);
     }
 
     private void a(Bundle bundle) {
         Intent intent = getIntent();
-        this.f1519a = intent.getStringExtra("url");
-        this.b = intent.getStringExtra("bduss");
+        this.f2036a = intent.getStringExtra(SocialConstants.PARAM_URL);
+        this.b = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
         this.c = intent.getStringExtra("ptoken");
     }
 
@@ -73,11 +74,11 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
-        if (this.f1519a == null) {
+        if (this.f2036a == null) {
             finish();
             return;
         }
-        String guessUrl = URLUtil.guessUrl(this.f1519a);
+        String guessUrl = URLUtil.guessUrl(this.f2036a);
         if (!URLUtil.isNetworkUrl(guessUrl)) {
             finish();
             return;

@@ -11,7 +11,7 @@ public class a {
         String string = TiebaApplication.g().getResources().getString(R.string.forum);
         int length = stringArray.length;
         for (int i = 0; i < length; i++) {
-            if (stringArray[i].equals(str) || str.equals(String.valueOf(stringArray[i]) + string)) {
+            if (stringArray[i].equals(str) || str.equals(stringArray[i] + string)) {
                 return true;
             }
         }
@@ -19,11 +19,11 @@ public class a {
     }
 
     public static boolean a(String str, Boolean bool) {
-        if (str == null || !a(str)) {
-            if (bool != null) {
+        if (d.a().b(SwitchKey.VOICE) == 0) {
+            if ((str == null || !a(str)) && bool != null) {
                 return bool.booleanValue();
             }
-            return d.a().b(SwitchKey.VOICE) == 0;
+            return false;
         }
         return false;
     }

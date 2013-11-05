@@ -7,6 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class SensorController extends BroadcastReceiver implements SensorEventListener {
     private static float aR = 4.2949673E9f;
@@ -42,7 +43,7 @@ public class SensorController extends BroadcastReceiver implements SensorEventLi
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals("android.intent.action.HEADSET_PLUG")) {
-            int intExtra = intent.getIntExtra("state", 0);
+            int intExtra = intent.getIntExtra(SocialConstants.PARAM_STATE, 0);
             if (intExtra == 1) {
                 this.aY = true;
             }

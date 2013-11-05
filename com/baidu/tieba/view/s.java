@@ -8,17 +8,17 @@ import com.baidu.tieba.util.UtilHelper;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f2005a;
+    final /* synthetic */ q f2540a;
     private t b;
     private v c;
     private u d;
 
     private s(q qVar) {
-        this.f2005a = qVar;
+        this.f2540a = qVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(q qVar, s sVar) {
+    public /* synthetic */ s(q qVar, r rVar) {
         this(qVar);
     }
 
@@ -53,8 +53,8 @@ public class s {
     }
 
     private void a(LinearLayout linearLayout, aa aaVar, t tVar) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(tVar.f2006a, tVar.b);
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(tVar.f2006a, -2);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(tVar.f2541a, tVar.b);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(tVar.f2541a, -2);
         layoutParams2.leftMargin = tVar.c;
         layoutParams2.rightMargin = tVar.d;
         layoutParams2.topMargin = 0;
@@ -87,12 +87,12 @@ public class s {
             if (this.c == null || this.c.c != z) {
                 b(context, a2, z);
             }
-            return i3 == 1 ? this.c.b : this.c.f2008a;
+            return i3 == 1 ? this.c.b : this.c.f2543a;
         } else if (i2 == 3) {
             if (this.d == null || this.d.d != z) {
                 c(context, a2, z);
             }
-            return i3 == 2 ? this.d.c : i3 == 1 ? this.d.b : this.d.f2007a;
+            return i3 == 2 ? this.d.c : i3 == 1 ? this.d.b : this.d.f2542a;
         } else {
             return null;
         }
@@ -105,7 +105,7 @@ public class s {
         int i3 = 0;
         this.b = new t(this, null);
         if (!z) {
-            f = this.f2005a.d;
+            f = this.f2540a.d;
             int i4 = (int) (i * f);
             i2 = (int) (i4 * 0.5d);
             a2 = UtilHelper.a(context, 7.0f);
@@ -124,7 +124,7 @@ public class s {
         int i2 = i / 2;
         int i3 = (i2 * 2) / 3;
         int i4 = i2 - 0;
-        this.c.f2008a.a(i / 2, i3, 0, 0);
+        this.c.f2543a.a(i / 2, i3, 0, 0);
         int a2 = UtilHelper.a(context, 7.0f);
         int a3 = UtilHelper.a(context, 0.0f);
         int i5 = ((i / 2) - a2) - a3;
@@ -136,7 +136,7 @@ public class s {
         int i2 = ((i / 3) * 3) / 4;
         this.d = new u(this, null);
         int a2 = UtilHelper.a(context, 0.0f);
-        this.d.f2007a.a((i / 3) - a2, i2, a2, 0);
+        this.d.f2542a.a((i / 3) - a2, i2, a2, 0);
         int a3 = UtilHelper.a(context, 7.0f);
         this.d.b.a((i / 3) - a3, i2, a3, 0);
         int a4 = UtilHelper.a(context, 7.0f);

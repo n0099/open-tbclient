@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f661a;
+    private static g f740a;
 
     public static int a(SQLiteDatabase sQLiteDatabase, String str, i iVar) {
         if (sQLiteDatabase == null) {
@@ -23,7 +23,7 @@ public class e {
         }
         String[] strArr = {str};
         ContentValues contentValues = new ContentValues();
-        contentValues.put(h.belongTo.name(), iVar.f663a);
+        contentValues.put(h.belongTo.name(), iVar.f742a);
         contentValues.put(h.downloadUrl.name(), iVar.b);
         contentValues.put(h.title.name(), iVar.c);
         contentValues.put(h.description.name(), iVar.d);
@@ -41,7 +41,7 @@ public class e {
             return -1L;
         }
         ContentValues contentValues = new ContentValues();
-        contentValues.put(h.belongTo.name(), iVar.f663a);
+        contentValues.put(h.belongTo.name(), iVar.f742a);
         contentValues.put(h.downloadUrl.name(), iVar.b);
         contentValues.put(h.title.name(), iVar.c);
         contentValues.put(h.description.name(), iVar.d);
@@ -100,7 +100,7 @@ public class e {
         Cursor query = sQLiteDatabase.query("FileDownloadingInfo", null, "(" + h.downloadUrl.name() + "==?)", new String[]{str}, null, null, null);
         if (query.moveToFirst()) {
             iVar = new i();
-            iVar.f663a = query.getString(query.getColumnIndex(h.belongTo.name()));
+            iVar.f742a = query.getString(query.getColumnIndex(h.belongTo.name()));
             iVar.b = query.getString(query.getColumnIndex(h.downloadUrl.name()));
             iVar.c = query.getString(query.getColumnIndex(h.title.name()));
             iVar.d = query.getString(query.getColumnIndex(h.description.name()));
@@ -123,7 +123,7 @@ public class e {
         Cursor query = sQLiteDatabase.query("MsgResultInfo", null, null, null, null, null, null);
         while (query.moveToNext()) {
             j jVar = new j();
-            jVar.f664a = query.getInt(query.getColumnIndex(k.info_id.name()));
+            jVar.f743a = query.getInt(query.getColumnIndex(k.info_id.name()));
             jVar.b = query.getString(query.getColumnIndex(k.msg_id.name()));
             jVar.c = query.getString(query.getColumnIndex(k.app_id.name()));
             jVar.d = query.getInt(query.getColumnIndex(k.result_code.name()));
@@ -141,7 +141,7 @@ public class e {
         Cursor query = sQLiteDatabase.query("StatisticsInfo", null, null, null, null, null, null, "" + i);
         while (query.moveToNext()) {
             l lVar = new l();
-            lVar.f666a = query.getInt(query.getColumnIndex(m.info_id.name()));
+            lVar.f745a = query.getInt(query.getColumnIndex(m.info_id.name()));
             lVar.b = query.getString(query.getColumnIndex(m.packageName.name()));
             lVar.c = query.getString(query.getColumnIndex(m.open_type.name()));
             lVar.d = query.getString(query.getColumnIndex(m.msgid.name()));
@@ -163,11 +163,11 @@ public class e {
     }
 
     public static void a() {
-        if (f661a == null || f661a.getWritableDatabase() == null || !f661a.getWritableDatabase().isOpen()) {
+        if (f740a == null || f740a.getWritableDatabase() == null || !f740a.getWritableDatabase().isOpen()) {
             return;
         }
-        f661a.close();
-        f661a = null;
+        f740a.close();
+        f740a = null;
     }
 
     public static int b(SQLiteDatabase sQLiteDatabase, int i) {
@@ -185,7 +185,7 @@ public class e {
     }
 
     private static g b(Context context) {
-        if (f661a == null) {
+        if (f740a == null) {
             if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 return null;
             }
@@ -193,9 +193,9 @@ public class e {
             if (!file.exists()) {
                 file.mkdirs();
             }
-            f661a = new g(context, file.getAbsolutePath() + File.separator + "push.db", 1);
+            f740a = new g(context, file.getAbsolutePath() + File.separator + "push.db", 1);
         }
-        return f661a;
+        return f740a;
     }
 
     public static List b(SQLiteDatabase sQLiteDatabase) {
@@ -206,7 +206,7 @@ public class e {
         Cursor query = sQLiteDatabase.query("FileDownloadingInfo", null, null, null, null, null, h.timeStamp.name() + " DESC");
         while (query.moveToNext()) {
             i iVar = new i();
-            iVar.f663a = query.getString(query.getColumnIndex(h.belongTo.name()));
+            iVar.f742a = query.getString(query.getColumnIndex(h.belongTo.name()));
             iVar.b = query.getString(query.getColumnIndex(h.downloadUrl.name()));
             iVar.c = query.getString(query.getColumnIndex(h.title.name()));
             iVar.d = query.getString(query.getColumnIndex(h.description.name()));

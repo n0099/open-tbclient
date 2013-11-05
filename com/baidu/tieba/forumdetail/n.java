@@ -1,42 +1,28 @@
 package com.baidu.tieba.forumdetail;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.flist.ForumListActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.support.v4.view.bq;
 /* loaded from: classes.dex */
-public class n implements View.OnClickListener {
+class n implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ItemInfoView f1095a;
-    private final /* synthetic */ boolean b;
-    private final /* synthetic */ String c;
-    private final /* synthetic */ String d;
-    private final /* synthetic */ String e;
-    private final /* synthetic */ String f;
-    private final /* synthetic */ com.baidu.tieba.j g;
+    final /* synthetic */ ItemHotThreadView f1226a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, com.baidu.tieba.j jVar) {
-        this.f1095a = itemInfoView;
-        this.b = z;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = jVar;
+    private n(ItemHotThreadView itemHotThreadView) {
+        this.f1226a = itemHotThreadView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        if (!this.b) {
-            context = this.f1095a.f1083a;
-            ForumListActivity.a(context, this.c, this.e, this.d, this.f);
-            return;
+    @Override // android.support.v4.view.bq
+    public void onPageScrolled(int i, float f, int i2) {
+        if (ItemHotThreadView.a(this.f1226a) != null) {
+            ItemHotThreadView.a(this.f1226a).setPosition(i + f);
         }
-        ForumListActivity.d = !ForumListActivity.d;
-        ForumListActivity.a(this.c, this.d, this.e, this.f);
-        this.g.finish();
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageSelected(int i) {
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrollStateChanged(int i) {
     }
 }

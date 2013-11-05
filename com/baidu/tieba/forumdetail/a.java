@@ -3,22 +3,22 @@ package com.baidu.tieba.forumdetail;
 class a implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumDetailActivity f1084a;
+    final /* synthetic */ ForumDetailActivity f1215a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ForumDetailActivity forumDetailActivity) {
-        this.f1084a = forumDetailActivity;
+        this.f1215a = forumDetailActivity;
     }
 
     @Override // com.baidu.tieba.forumdetail.d
     public void a(ForumDetailData forumDetailData) {
         e eVar;
-        eVar = this.f1084a.f1078a;
+        eVar = this.f1215a.f1209a;
         eVar.a(forumDetailData);
     }
 
     @Override // com.baidu.tieba.forumdetail.d
     public void b(ForumDetailData forumDetailData) {
-        this.f1084a.a(forumDetailData.errorMsg);
+        this.f1215a.a(forumDetailData.errorMsg);
     }
 }

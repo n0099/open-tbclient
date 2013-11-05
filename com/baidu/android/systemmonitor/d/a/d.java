@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Xml;
 import com.baidu.android.common.net.ProxyHttpClient;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -25,13 +26,13 @@ import org.xmlpull.v1.XmlPullParser;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProxyHttpClient f699a;
+    private ProxyHttpClient f778a;
     private ArrayList b;
     private Context c;
 
     public d(Context context) {
         this.c = context;
-        this.f699a = new ProxyHttpClient(context);
+        this.f778a = new ProxyHttpClient(context);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -48,7 +49,7 @@ public class d {
     }
 
     private void a(b bVar, XmlPullParser xmlPullParser) {
-        String attributeValue = xmlPullParser.getAttributeValue(null, "name");
+        String attributeValue = xmlPullParser.getAttributeValue(null, SocialConstants.PARAM_MEDIA_UNAME);
         if (TextUtils.isEmpty(attributeValue)) {
             return;
         }
@@ -211,7 +212,7 @@ public class d {
     }
 
     private void b(b bVar, XmlPullParser xmlPullParser) {
-        String attributeValue = xmlPullParser.getAttributeValue(null, "name");
+        String attributeValue = xmlPullParser.getAttributeValue(null, SocialConstants.PARAM_MEDIA_UNAME);
         if (TextUtils.isEmpty(attributeValue)) {
             return;
         }

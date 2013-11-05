@@ -2,34 +2,54 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends com.baidu.tieba.util.t {
+public class l extends com.baidu.tieba.util.aa {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1037a;
+    final /* synthetic */ j f1169a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(i iVar, Context context) {
+    public l(j jVar, Context context) {
         super(context);
-        this.f1037a = iVar;
+        this.f1169a = jVar;
     }
 
-    @Override // com.baidu.tieba.util.t, android.text.style.ClickableSpan
+    @Override // com.baidu.tieba.util.aa, android.text.style.ClickableSpan
     public void onClick(View view) {
+        Pattern pattern;
         String str;
+        Pattern pattern2;
         String str2;
         String str3;
-        String str4 = null;
-        str = this.f1037a.b;
-        if (str != null) {
-            str3 = this.f1037a.b;
-            str4 = str3.replace("@", "").replace(" ", "");
+        pattern = j.i;
+        str = this.f1169a.f;
+        Matcher matcher = pattern.matcher(str);
+        if (matcher.find()) {
+            try {
+                String group = matcher.group();
+                b(group.substring(group.lastIndexOf("/") + 1));
+                return;
+            } catch (Exception e) {
+                com.baidu.tieba.util.be.b(getClass().getName(), "onClick", e.toString());
+            }
         }
-        Context a2 = a();
-        str2 = this.f1037a.f;
-        PersonInfoActivity.a(a2, str2, str4);
+        pattern2 = j.j;
+        str2 = this.f1169a.f;
+        Matcher matcher2 = pattern2.matcher(str2);
+        if (matcher2.find()) {
+            try {
+                String group2 = matcher2.group();
+                b(group2.substring(group2.lastIndexOf("=") + 1));
+                return;
+            } catch (Exception e2) {
+                com.baidu.tieba.util.be.b(getClass().getName(), "onClick", e2.toString());
+            }
+        }
+        str3 = this.f1169a.f;
+        a(str3);
     }
 }

@@ -38,8 +38,8 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
     private ArrayList<View> s = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LayoutInflater f1952a = null;
-    private View.OnClickListener t = new aj(this);
+    LayoutInflater f2484a = null;
+    private View.OnClickListener t = new ak(this);
 
     public ImagePbPagerAdapter(Context context) {
         this.b = null;
@@ -111,7 +111,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
                 this.r.add((View) obj);
             }
             this.s.remove(obj);
-            com.baidu.tieba.util.av.a(getClass().getName(), "destroyItem", String.valueOf(this.s.size()));
+            com.baidu.tieba.util.be.a(getClass().getName(), "destroyItem", String.valueOf(this.s.size()));
         }
         viewGroup.removeView((View) obj);
     }
@@ -129,15 +129,15 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View inflate;
         if (i == this.f.k()) {
-            View inflate2 = this.f1952a.inflate(R.layout.image_pb_next, (ViewGroup) null);
+            View inflate2 = this.f2484a.inflate(R.layout.image_pb_next, (ViewGroup) null);
             ((TextView) inflate2.findViewById(R.id.thread_name)).setText(this.f.g());
             viewGroup.addView(inflate2);
             ImageView imageView = (ImageView) inflate2.findViewById(R.id.image);
             TextView textView = (TextView) inflate2.findViewById(R.id.next);
             TextView textView2 = (TextView) inflate2.findViewById(R.id.thread_name);
-            if (TiebaApplication.g().ap() == 1) {
-                textView.setTextColor(com.baidu.tieba.util.as.c(1));
-                textView2.setTextColor(com.baidu.tieba.util.as.a(1));
+            if (TiebaApplication.g().as() == 1) {
+                textView.setTextColor(com.baidu.tieba.util.bb.c(1));
+                textView2.setTextColor(com.baidu.tieba.util.bb.a(1));
                 imageView.setBackgroundResource(R.drawable.image_pb_next_default_1);
             } else {
                 textView.setTextColor(-9539986);
@@ -151,15 +151,15 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
             this.r.remove(0);
             inflate = this.r.get(0);
         } else {
-            inflate = this.f1952a.inflate(R.layout.image_pb_list, (ViewGroup) null);
+            inflate = this.f2484a.inflate(R.layout.image_pb_list, (ViewGroup) null);
         }
         if (this.s.size() > 5) {
             this.s.clear();
         }
         this.s.add(inflate);
-        com.baidu.tieba.util.av.a(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
+        com.baidu.tieba.util.be.a(getClass().getName(), "instantiateItem", String.valueOf(this.s.size()));
         ListView listView = (ListView) inflate.findViewById(R.id.image_pb_listview);
-        com.baidu.tieba.util.as.a(listView, TiebaApplication.g().ap());
+        com.baidu.tieba.util.bb.a(listView, TiebaApplication.g().as());
         if (abVar == null) {
             if (this.i != null) {
                 this.i.a(i, 0, 0);
@@ -175,7 +175,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
         ahVar.a(this.t);
         listView.setAdapter((ListAdapter) ahVar);
         listView.setVerticalScrollBarEnabled(false);
-        listView.setOnItemClickListener(new ak(this, ahVar));
+        listView.setOnItemClickListener(new aj(this, ahVar));
         if (this.h.get(abVar.d()) != null) {
             ahVar.a(this.h.get(abVar.d()));
         } else {
@@ -201,8 +201,8 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
             for (int i2 = 0; i2 < this.g.size(); i2++) {
                 com.baidu.tieba.data.ab abVar = this.g.get(i2);
                 StringBuffer stringBuffer = new StringBuffer(100);
-                if (abVar.g() * abVar.f() > com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i()) {
-                    double sqrt = Math.sqrt((com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i()) / (abVar.g() * abVar.f()));
+                if (abVar.g() * abVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
+                    double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (abVar.g() * abVar.f()));
                     stringBuffer.append("width=");
                     stringBuffer.append(String.valueOf((int) (abVar.f() * sqrt)));
                     stringBuffer.append("&height=");
@@ -214,10 +214,15 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
                     stringBuffer.append(String.valueOf(abVar.g()));
                 }
                 stringBuffer.append("&src=");
-                stringBuffer.append(com.baidu.tieba.util.at.d(abVar.b()));
+                stringBuffer.append(com.baidu.tieba.util.bc.d(abVar.b()));
                 arrayList.add(stringBuffer.toString());
             }
-            ImageActivity.a(this.b, arrayList, i, this.f.k(), this.f.k() == arrayList.size() && this.f.b(), this.f);
+            boolean z = this.f.k() == arrayList.size() && this.f.b();
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                com.baidu.tieba.util.be.c("image:" + ((String) it.next()));
+            }
+            ImageActivity.a(this.b, arrayList, i, this.f.k(), z, this.f);
         }
     }
 
@@ -244,7 +249,7 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
                         }
                     }
                 } catch (Exception e) {
-                    com.baidu.tieba.util.av.a(getClass().getName(), "setPrimaryItem", e.toString());
+                    com.baidu.tieba.util.be.a(getClass().getName(), "setPrimaryItem", e.toString());
                 }
             }
         }
@@ -266,10 +271,10 @@ public class ImagePbPagerAdapter extends android.support.v4.view.ae {
         this.m = UtilHelper.a(this.b);
         this.n = (UtilHelper.b(this.b) * 3) / 5;
         this.o = this.n >> 1;
-        int i = com.baidu.tieba.data.g.i() < this.m ? com.baidu.tieba.data.g.i() : this.m;
-        this.n = com.baidu.tieba.data.g.i() < this.n ? com.baidu.tieba.data.g.i() : this.n;
+        int i = com.baidu.tieba.data.h.i() < this.m ? com.baidu.tieba.data.h.i() : this.m;
+        this.n = com.baidu.tieba.data.h.i() < this.n ? com.baidu.tieba.data.h.i() : this.n;
         this.c.a(i - UtilHelper.a(this.b, 8.0f), this.n);
-        this.f1952a = LayoutInflater.from(this.b);
+        this.f2484a = LayoutInflater.from(this.b);
         this.j = new ArrayList<>();
         this.h = new HashMap<>();
         this.r = new ArrayList<>();

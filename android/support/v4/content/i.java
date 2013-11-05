@@ -7,13 +7,13 @@ import com.baidu.zeus.bouncycastle.DERTags;
 class i {
 
     /* renamed from: a  reason: collision with root package name */
-    final IntentFilter f305a;
+    final IntentFilter f315a;
     final BroadcastReceiver b;
     boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(IntentFilter intentFilter, BroadcastReceiver broadcastReceiver) {
-        this.f305a = intentFilter;
+        this.f315a = intentFilter;
         this.b = broadcastReceiver;
     }
 
@@ -22,7 +22,7 @@ class i {
         sb.append("Receiver{");
         sb.append(this.b);
         sb.append(" filter=");
-        sb.append(this.f305a);
+        sb.append(this.f315a);
         sb.append("}");
         return sb.toString();
     }

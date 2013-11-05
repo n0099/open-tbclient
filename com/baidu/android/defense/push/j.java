@@ -11,6 +11,7 @@ import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -20,11 +21,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class j {
-    private static final String b = com.baidu.android.moplus.b.f546a + "/xcloudboss?r=push/register";
+    private static final String b = com.baidu.android.moplus.b.f625a + "/xcloudboss?r=push/register";
     private static j c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f542a = true;
+    protected boolean f621a = true;
     private Context d;
     private int e;
     private BroadcastReceiver f;
@@ -84,15 +85,15 @@ public final class j {
         }
         String c2 = l.c(this.d);
         if (TextUtils.isEmpty(c2)) {
-            if (this.f542a) {
-                this.f542a = false;
+            if (this.f621a) {
+                this.f621a = false;
                 b();
                 return;
             }
             return;
         }
         Intent createMethodIntent = PushConstants.createMethodIntent(this.d);
-        createMethodIntent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, PushConstants.rsaEncrypt(c2));
+        createMethodIntent.putExtra("access_token", PushConstants.rsaEncrypt(c2));
         createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
         createMethodIntent.putExtra(PushConstants.EXTRA_BIND_NAME, Build.MODEL);
         createMethodIntent.putExtra(PushConstants.EXTRA_BIND_STATUS, 0);
@@ -121,7 +122,7 @@ public final class j {
         String valueOf4 = String.valueOf(displayMetrics.densityDpi);
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(cuid)) {
-            arrayList.add(new BasicNameValuePair("cuid", cuid));
+            arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, cuid));
         }
         if (!TextUtils.isEmpty(e2)) {
             arrayList.add(new BasicNameValuePair("ch_uid", e2));
@@ -152,7 +153,7 @@ public final class j {
         if (l.b(this.d) != this.e || (l.g(this.d) && System.currentTimeMillis() - f > 259200000)) {
             l.a(this.d, 0);
             l.a(this.d, false);
-            this.f542a = true;
+            this.f621a = true;
             f();
         }
         if (!l.a(this.d)) {
@@ -166,8 +167,8 @@ public final class j {
     public void b() {
         UrlEncodedFormEntity urlEncodedFormEntity;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new BasicNameValuePair("grant_type", "client_credentials"));
-        arrayList.add(new BasicNameValuePair("client_id", "Zq8wwbvNemxR4qGmWGhE6sva"));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_GRANT_TYPE, "client_credentials"));
+        arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CLIENT_ID, "Zq8wwbvNemxR4qGmWGhE6sva"));
         arrayList.add(new BasicNameValuePair("client_secret", "iq1WKpTUQYoplQqGUmu6iVtU0vkKN41I"));
         try {
             urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, BdUtil.UTF8);

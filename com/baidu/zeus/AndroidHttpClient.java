@@ -3,6 +3,7 @@ package com.baidu.zeus;
 import android.content.ContentResolver;
 import android.os.Looper;
 import android.util.Log;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -216,7 +217,7 @@ public final class AndroidHttpClient implements HttpClient {
 
     public void enableCurlLogging(String str, int i) {
         if (str == null) {
-            throw new NullPointerException("name");
+            throw new NullPointerException(SocialConstants.PARAM_MEDIA_UNAME);
         }
         if (i < 2 || i > 7) {
             throw new IllegalArgumentException("Level is out of range [2..7]");

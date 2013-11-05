@@ -5,33 +5,63 @@ import org.json.JSONObject;
 public class ba {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ az f1017a;
-    private int b;
-    private String c;
-    private String d;
+    private av f1147a;
+    private com.baidu.tieba.square.g b;
+    private boolean c;
+    private long d = 0;
 
-    public ba(az azVar) {
-        this.f1017a = azVar;
-    }
-
-    public void a(int i) {
-        this.b = i;
+    public ba() {
+        this.c = true;
+        this.c = true;
     }
 
     public void a(String str) {
-        this.c = str;
+        if (str == null || str.length() < 1) {
+            this.c = false;
+            return;
+        }
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            this.c = false;
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+        }
     }
 
-    public void b(String str) {
-        this.d = str;
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("recommend_info");
+            this.f1147a = new av();
+            this.f1147a.a(optJSONObject);
+            this.b = new com.baidu.tieba.square.g();
+            this.b.b(jSONObject);
+            this.d = jSONObject.optLong("time");
+        } catch (Exception e) {
+            this.c = false;
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public ba a(JSONObject jSONObject) {
-        ba baVar = new ba(this.f1017a);
-        baVar.a(jSONObject.optInt("errno"));
-        baVar.a(jSONObject.optString("errmsg"));
-        baVar.b(jSONObject.optString("usermsg"));
-        return baVar;
+    public com.baidu.tieba.square.g a() {
+        return this.b;
+    }
+
+    public av b() {
+        return this.f1147a;
+    }
+
+    public boolean c() {
+        return this.c;
+    }
+
+    public boolean d() {
+        boolean z = false;
+        if (this.c) {
+            if (this.f1147a == null || this.b == null) {
+                z = true;
+            }
+            return z;
+        }
+        return true;
     }
 }

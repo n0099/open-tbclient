@@ -2,6 +2,7 @@ package com.baidu.video.download;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -76,9 +77,9 @@ public class JNITaskInfo implements Parcelable {
     public String toString() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("url", getUrl());
+            jSONObject.put(SocialConstants.PARAM_URL, getUrl());
             jSONObject.put("fileName", getFileName());
-            jSONObject.put("state", this.nStatus);
+            jSONObject.put(SocialConstants.PARAM_STATE, this.nStatus);
             jSONObject.put("errorCode", this.nErrorCode);
             jSONObject.put("totalSize", this.nFileLen);
             jSONObject.put("downloadedSize", this.nDownloadLen);

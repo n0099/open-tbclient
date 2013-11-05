@@ -1,38 +1,53 @@
 package com.baidu.tieba.util;
 
 import android.graphics.Bitmap;
+import java.util.HashSet;
 /* loaded from: classes.dex */
 public class d {
-    public com.baidu.tbadk.a.d b;
+    public HashSet<com.baidu.tbadk.imageManager.c> b;
     public String c;
     public volatile int d;
     public volatile Bitmap e;
     public boolean g;
-    public volatile com.baidu.adp.widget.a.c i;
+    public volatile com.baidu.adp.widget.ImageView.e i;
+    public boolean k;
+    public boolean l;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile z f1918a = null;
+    public volatile ag f2448a = null;
     public boolean f = true;
     public volatile boolean h = false;
     public boolean j = false;
 
-    public d(String str, int i, com.baidu.tbadk.a.d dVar, boolean z) {
+    public d(String str, int i, com.baidu.tbadk.imageManager.c cVar, boolean z, boolean z2, boolean z3) {
         this.b = null;
         this.c = null;
         this.d = 0;
         this.e = null;
         this.g = false;
+        this.k = false;
+        this.l = false;
         this.c = str;
         this.d = i;
-        this.b = dVar;
+        this.b = new HashSet<>();
+        this.b.add(cVar);
         this.e = null;
         this.g = z;
+        this.l = z2;
+        this.k = z3;
+    }
+
+    public void a(com.baidu.tbadk.imageManager.c cVar) {
+        if (this.b == null) {
+            this.b = new HashSet<>();
+        }
+        this.b.add(cVar);
     }
 
     public void a() {
         this.j = true;
-        if (this.f1918a != null) {
-            this.f1918a.h();
+        if (this.f2448a != null) {
+            this.f2448a.h();
         }
     }
 

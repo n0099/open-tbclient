@@ -60,10 +60,10 @@ class DateTimePickerDialog extends AlertDialog implements DialogInterface.OnClic
         this.mRes = jsPromptResult;
         this.mDateTimeLocal = z;
         this.mIs24HourView = true;
-        setButton(-1, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_CLEAR, "Clear"), this);
-        setButton(-3, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_SET, "Set"), this);
-        setButton(-2, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_CANCEL, "Cancel"), this);
-        setTitle(PickerHelper.getStringById(WebChromeClient.STRING_DLG_TITLE_DATETIME, "Set Date And Time"));
+        setButton(-1, PickerHelper.getStringById(152, "Clear"), this);
+        setButton(-3, PickerHelper.getStringById(150, "Set"), this);
+        setButton(-2, PickerHelper.getStringById(151, "Cancel"), this);
+        setTitle(PickerHelper.getStringById(101, "Set Date And Time"));
         this.mDatePicker = new DatePicker(context);
         PickerHelper.hideCalendarViewIfNeeded(this.mDatePicker);
         DatePicker datePicker = this.mDatePicker;

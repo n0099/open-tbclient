@@ -5,18 +5,18 @@ import java.io.RandomAccessFile;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1920a;
+    private String f2450a;
     private String b;
-    private com.baidu.tieba.data.d c;
-    private z d;
+    private com.baidu.tieba.data.e c;
+    private ag d;
     private boolean e = false;
 
-    public f(String str, com.baidu.tieba.data.d dVar, String str2) {
-        this.f1920a = null;
+    public f(String str, com.baidu.tieba.data.e eVar, String str2) {
+        this.f2450a = null;
         this.b = null;
         this.c = null;
-        this.f1920a = str;
-        this.c = dVar;
+        this.f2450a = str;
+        this.c = eVar;
         this.b = str2;
     }
 
@@ -27,67 +27,68 @@ public class f {
         this.e = true;
     }
 
-    public com.baidu.tieba.data.e b() {
-        com.baidu.tieba.data.e eVar = new com.baidu.tieba.data.e();
+    public com.baidu.tieba.data.f b() {
+        com.baidu.tieba.data.f fVar = new com.baidu.tieba.data.f();
         long b = this.c.b();
         long j = b % 102400 == 0 ? b / 102400 : (b / 102400) + 1;
         int c = this.c.c();
         if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(p.c(this.f1920a), "r");
-            av.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
-            if (randomAccessFile.skipBytes(102400 * c) < 102400 * c) {
-                eVar.a(false);
-                randomAccessFile.close();
-                return eVar;
-            }
-            while (true) {
-                int i = c;
-                if (i < j) {
-                    int i2 = 102400;
-                    if (i == j - 1) {
-                        i2 = (int) (b - (102400 * (j - 1)));
-                    }
-                    byte[] bArr = new byte[i2];
-                    int read = randomAccessFile.read(bArr, 0, i2);
-                    if (read != -1) {
-                        this.d = new z(this.b);
-                        this.d.a("md5", this.c.a());
-                        this.d.a("total_length", String.valueOf(b));
-                        this.d.a("total_num", String.valueOf(j));
-                        av.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
-                        this.d.a("pic_chunk", bArr);
-                        this.d.a("offset", String.valueOf(102400 * i));
-                        this.d.a("chunk_no", String.valueOf(i + 1));
-                        this.d.a("length", String.valueOf(read));
-                        boolean z = false;
-                        if (this.e) {
-                            z = true;
-                        } else {
-                            String l = this.d.l();
-                            av.e("ChunkUploadHelper", "uploadChunkFile", "ret " + l);
-                            if (l == null || !this.d.c()) {
-                                this.c.a(i);
-                                DatabaseService.a(this.c);
-                                randomAccessFile.close();
+            RandomAccessFile randomAccessFile = new RandomAccessFile(w.d(this.f2450a), "r");
+            be.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
+            if (randomAccessFile.skipBytes(102400 * c) >= 102400 * c) {
+                while (true) {
+                    int i = c;
+                    if (i < j) {
+                        int i2 = 102400;
+                        if (i == j - 1) {
+                            i2 = (int) (b - (102400 * (j - 1)));
+                        }
+                        byte[] bArr = new byte[i2];
+                        int read = randomAccessFile.read(bArr, 0, i2);
+                        if (read != -1) {
+                            this.d = new ag(this.b);
+                            this.d.a("md5", this.c.a());
+                            this.d.a("total_length", String.valueOf(b));
+                            this.d.a("total_num", String.valueOf(j));
+                            be.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
+                            this.d.a("pic_chunk", bArr);
+                            this.d.a("offset", String.valueOf(102400 * i));
+                            this.d.a("chunk_no", String.valueOf(i + 1));
+                            this.d.a("length", String.valueOf(read));
+                            boolean z = false;
+                            if (this.e) {
                                 z = true;
+                            } else {
+                                String l = this.d.l();
+                                be.e("ChunkUploadHelper", "uploadChunkFile", "ret " + l);
+                                if (l == null || !this.d.c()) {
+                                    this.c.a(i);
+                                    DatabaseService.a(this.c);
+                                    randomAccessFile.close();
+                                    z = true;
+                                }
+                            }
+                            if (z) {
+                                fVar.a(this.d.e());
+                                fVar.a(this.d.g());
+                                fVar.a(this.c);
+                                fVar.a(false);
+                                return fVar;
                             }
                         }
-                        if (z) {
-                            eVar.a(this.d.e());
-                            eVar.a(this.d.g());
-                            eVar.a(this.c);
-                            eVar.a(false);
-                            return eVar;
-                        }
+                        c = i + 1;
+                    } else {
+                        randomAccessFile.close();
+                        break;
                     }
-                    c = i + 1;
-                } else {
-                    randomAccessFile.close();
-                    break;
                 }
+            } else {
+                fVar.a(false);
+                randomAccessFile.close();
+                return fVar;
             }
         }
-        eVar.a(true);
-        return eVar;
+        fVar.a(true);
+        return fVar;
     }
 }

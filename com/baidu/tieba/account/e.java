@@ -1,86 +1,51 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.os.Handler;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class e implements View.OnClickListener {
+class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f913a;
+    final /* synthetic */ ActivationActivity f1042a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ActivationActivity activationActivity) {
-        this.f913a = activationActivity;
+        this.f1042a = activationActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        RelativeLayout relativeLayout;
-        RelativeLayout relativeLayout2;
-        ImageView imageView2;
-        EditText editText;
-        boolean z;
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        int i2;
+        TextView textView;
+        Handler handler;
+        Runnable runnable;
+        TextView textView2;
         i iVar;
-        h hVar;
-        i iVar2;
-        i iVar3;
-        h hVar2;
-        i iVar4;
-        h hVar3;
-        h hVar4;
-        imageView = this.f913a.b;
-        if (view != imageView) {
-            relativeLayout = this.f913a.l;
-            if (view != relativeLayout) {
-                relativeLayout2 = this.f913a.m;
-                if (view != relativeLayout2) {
-                    imageView2 = this.f913a.d;
-                    if (view == imageView2) {
-                        editText = this.f913a.k;
-                        editText.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                }
-                z = this.f913a.p;
-                if (z) {
-                    iVar = this.f913a.n;
-                    if (iVar == null) {
-                        hVar = this.f913a.o;
-                        if (hVar == null) {
-                            this.f913a.n = new i(this.f913a, null);
-                            iVar2 = this.f913a.n;
-                            iVar2.setPriority(3);
-                            iVar3 = this.f913a.n;
-                            iVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            hVar2 = this.f913a.o;
-            if (hVar2 == null) {
-                iVar4 = this.f913a.n;
-                if (iVar4 == null) {
-                    this.f913a.o = new h(this.f913a, null);
-                    hVar3 = this.f913a.o;
-                    hVar3.setPriority(3);
-                    hVar4 = this.f913a.o;
-                    hVar4.execute(new String[0]);
-                    return;
-                }
+        RelativeLayout relativeLayout;
+        ActivationActivity.a(this.f1042a);
+        i = this.f1042a.q;
+        if (i <= 0) {
+            this.f1042a.p = true;
+            textView2 = this.f1042a.g;
+            textView2.setText(this.f1042a.getString(R.string.resend_code));
+            iVar = this.f1042a.o;
+            if (iVar == null) {
+                relativeLayout = this.f1042a.m;
+                relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        this.f913a.setResult(0);
-        this.f913a.finish();
-        com.baidu.tieba.util.av.a("ActivationActivity", "mBack", "onClick");
+        String string = this.f1042a.getString(R.string.resend_code_second);
+        i2 = this.f1042a.q;
+        String format = String.format(string, Integer.valueOf(i2));
+        textView = this.f1042a.g;
+        textView.setText(format);
+        handler = this.f1042a.s;
+        runnable = this.f1042a.B;
+        handler.postDelayed(runnable, 1000L);
     }
 }

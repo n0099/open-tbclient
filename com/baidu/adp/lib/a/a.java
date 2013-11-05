@@ -5,7 +5,7 @@ import java.security.InvalidParameterException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f353a = 0;
+    private int f403a = 0;
     private String[] b = null;
     private int c = 0;
     private String d;
@@ -25,7 +25,7 @@ public class a {
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.f353a = i;
+        this.f403a = i;
         this.b = strArr;
         this.c = i2;
     }
@@ -35,7 +35,7 @@ public class a {
     }
 
     public int b() {
-        return this.f353a;
+        return this.f403a;
     }
 
     public String[] c() {

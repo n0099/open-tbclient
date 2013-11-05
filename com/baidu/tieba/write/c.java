@@ -3,25 +3,23 @@ package com.baidu.tieba.write;
 import android.widget.ImageView;
 import android.widget.ListView;
 /* loaded from: classes.dex */
-class c implements com.baidu.tbadk.a.d {
+class c implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2110a;
+    final /* synthetic */ b f2655a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f2110a = bVar;
+        this.f2655a = bVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        AtListActivity atListActivity;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         ListView listView;
-        atListActivity = this.f2110a.f2104a;
-        listView = atListActivity.e;
+        listView = this.f2655a.f2648a.e;
         ImageView imageView = (ImageView) listView.findViewWithTag(str);
-        if (imageView != null && cVar != null) {
-            cVar.a(imageView);
+        if (imageView != null && eVar != null) {
+            eVar.a(imageView);
             imageView.setTag(null);
         }
     }

@@ -4,15 +4,15 @@ package com.baidu.tieba.square;
 public class ay implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f1835a;
+    final /* synthetic */ ax f2357a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(ax axVar) {
-        this.f1835a = axVar;
+        this.f2357a = axVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1835a.h();
+        this.f2357a.j();
     }
 }

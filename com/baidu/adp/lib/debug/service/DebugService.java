@@ -10,12 +10,12 @@ import com.baidu.adp.lib.debug.b.j;
 public class DebugService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    j f426a;
+    j f476a;
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.f426a = new j(this);
+        this.f476a = new j(this);
     }
 
     @Override // android.app.Service
@@ -26,10 +26,14 @@ public class DebugService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (this.f426a != null) {
+        if (this.f476a != null) {
             Log.i("Monitor", "off");
-            this.f426a.c();
-            this.f426a.setVisibility(8);
+            try {
+                this.f476a.c();
+                this.f476a.setVisibility(8);
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
     }
 

@@ -1,242 +1,45 @@
 package com.baidu.adp.widget;
 
-import android.os.SystemClock;
-import android.util.Log;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
-import java.util.List;
+import android.os.Handler;
+import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e {
+public class e extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    float f518a;
-    float b;
-    float c;
-    float d;
-    long e;
-    long f;
-    boolean g;
-    final /* synthetic */ HorizontalTranslateLayout h;
+    final /* synthetic */ HorizontalTranslateLayout f597a;
 
-    private void e() {
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.f518a = ((((float) (uptimeMillis - this.e)) / 1000.0f) * this.b) + this.f518a;
-        this.e = uptimeMillis;
-        this.f += 16;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a() {
-        d dVar;
-        g gVar;
-        e();
-        if (this.f518a <= this.c) {
-            gVar = this.h.v;
-            if (gVar != null) {
-                gVar.b();
-            }
-            this.g = false;
-            this.h.k = VersionUtils.CUR_DEVELOPMENT;
-            this.h.a();
-            return;
-        }
-        this.h.f = (int) (z.a(this.c, this.f518a, false) + this.d);
-        this.h.invalidate();
-        dVar = this.h.s;
-        dVar.sendEmptyMessageAtTime(-100, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b() {
-        d dVar;
-        j jVar;
-        e();
-        if (this.f518a >= this.c) {
-            jVar = this.h.w;
-            if (jVar != null) {
-                jVar.b();
-            }
-            this.g = false;
-            this.h.k = PushConstants.ERROR_NETWORK_ERROR;
-            this.h.a();
-            return;
-        }
-        this.h.f = (int) (z.a(this.c, this.f518a, false) + this.d);
-        this.h.invalidate();
-        dVar = this.h.s;
-        dVar.sendEmptyMessageAtTime(-101, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        d dVar;
-        List<i> list;
-        e();
-        if (this.f518a >= this.c) {
-            list = this.h.x;
-            for (i iVar : list) {
-                if (iVar != null) {
-                    iVar.b();
-                }
-            }
-            this.g = false;
-            this.h.k = 10004;
-            this.h.a();
-            return;
-        }
-        this.h.f = (int) (z.a(this.c, this.f518a, false) + this.d);
-        this.h.invalidate();
-        dVar = this.h.s;
-        dVar.sendEmptyMessageAtTime(-104, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void d() {
-        d dVar;
-        List<i> list;
-        e();
-        if (this.f518a <= this.c) {
-            list = this.h.x;
-            for (i iVar : list) {
-                if (iVar != null) {
-                    iVar.b();
-                }
-            }
-            this.g = false;
-            this.h.k = 10004;
-            this.h.a();
-            return;
-        }
-        this.h.f = (int) (z.a(this.c, this.f518a, false) + this.d);
-        this.h.invalidate();
-        dVar = this.h.s;
-        dVar.sendEmptyMessageAtTime(-105, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(float f) {
-        List<i> list;
-        int i;
-        int i2;
-        d dVar;
-        d dVar2;
-        list = this.h.x;
-        for (i iVar : list) {
-            if (iVar != null) {
-                iVar.a();
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        f fVar;
+        f fVar2;
+        f fVar3;
+        f fVar4;
+        f fVar5;
+        fVar = this.f597a.t;
+        if (fVar.g) {
+            switch (message.what) {
+                case -105:
+                    fVar5 = this.f597a.t;
+                    fVar5.d();
+                    return;
+                case -104:
+                    fVar2 = this.f597a.t;
+                    fVar2.c();
+                    return;
+                case -103:
+                case -102:
+                default:
+                    return;
+                case -101:
+                    fVar3 = this.f597a.t;
+                    fVar3.b();
+                    return;
+                case -100:
+                    fVar4 = this.f597a.t;
+                    fVar4.a();
+                    return;
             }
         }
-        this.g = true;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.e = uptimeMillis;
-        this.f = uptimeMillis + 16;
-        this.b = f;
-        this.f518a = 0.0f;
-        i = this.h.f;
-        this.c = 0 - i;
-        i2 = this.h.f;
-        this.d = i2;
-        dVar = this.h.s;
-        dVar.removeMessages(-104);
-        Log.d("Animator", "@animateTopOpen " + this.c);
-        Log.d("Animator", "@animateTopOpen " + f);
-        dVar2 = this.h.s;
-        dVar2.sendEmptyMessageAtTime(-104, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(float f) {
-        List<i> list;
-        int i;
-        int i2;
-        d dVar;
-        d dVar2;
-        list = this.h.x;
-        for (i iVar : list) {
-            if (iVar != null) {
-                iVar.a();
-            }
-        }
-        this.g = true;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.e = uptimeMillis;
-        this.f = uptimeMillis + 16;
-        this.b = f;
-        this.f518a = 0.0f;
-        i = this.h.f;
-        this.c = 0 - i;
-        i2 = this.h.f;
-        this.d = i2;
-        Log.d("Animator", "@animateBottomOpen " + this.c);
-        Log.d("Animator", "@animateBottomOpen " + f);
-        dVar = this.h.s;
-        dVar.removeMessages(-105);
-        dVar2 = this.h.s;
-        dVar2.sendEmptyMessageAtTime(-105, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(float f) {
-        g gVar;
-        float f2;
-        int i;
-        int i2;
-        d dVar;
-        d dVar2;
-        gVar = this.h.v;
-        if (gVar != null) {
-            gVar.a();
-        }
-        this.g = true;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.e = uptimeMillis;
-        this.f = uptimeMillis + 16;
-        this.b = f;
-        this.f518a = 0.0f;
-        f2 = this.h.d;
-        float f3 = (-this.h.getMeasuredWidth()) + f2;
-        i = this.h.f;
-        this.c = f3 - i;
-        i2 = this.h.f;
-        this.d = i2;
-        Log.d("Animator", "@animateTop " + this.c);
-        Log.d("Animator", "@animateTop " + f);
-        dVar = this.h.s;
-        dVar.removeMessages(-100);
-        dVar2 = this.h.s;
-        dVar2.sendEmptyMessageAtTime(-100, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void d(float f) {
-        j jVar;
-        float f2;
-        int i;
-        int i2;
-        d dVar;
-        d dVar2;
-        jVar = this.h.w;
-        if (jVar != null) {
-            jVar.a();
-        }
-        this.g = true;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.e = uptimeMillis;
-        this.f = uptimeMillis + 16;
-        this.b = f;
-        this.f518a = 0.0f;
-        f2 = this.h.e;
-        float measuredWidth = this.h.getMeasuredWidth() - f2;
-        i = this.h.f;
-        this.c = measuredWidth - i;
-        i2 = this.h.f;
-        this.d = i2;
-        Log.d("Animator", "@animateBottom " + this.c);
-        Log.d("Animator", "@animateBottom " + f);
-        dVar = this.h.s;
-        dVar.removeMessages(-101);
-        dVar2 = this.h.s;
-        dVar2.sendEmptyMessageAtTime(-101, this.f);
     }
 }

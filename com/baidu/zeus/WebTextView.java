@@ -39,6 +39,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import com.android.internal.widget.EditableInputConnection;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.BDLocation;
 import com.baidu.zeus.bouncycastle.DERTags;
 import com.tencent.mm.sdk.platformtools.Util;
@@ -386,7 +387,7 @@ public class WebTextView extends AutoCompleteTextView {
             mCircleTopColor = z ? -10193012 : -11245700;
             mCircleBottomColor = -11245700;
         } else {
-            mCircleTopColor = z ? Color.argb((int) Util.MASK_8BIT, (int) WebChromeClient.STRING_DLG_TITLE_DATETIME, (int) DERTags.TAGGED, 157) : Color.argb((int) Util.MASK_8BIT, 85, 112, 141);
+            mCircleTopColor = z ? Color.argb((int) Util.MASK_8BIT, 101, (int) DERTags.TAGGED, 157) : Color.argb((int) Util.MASK_8BIT, 85, (int) SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY, 141);
             mCircleBottomColor = Color.argb((int) Util.MASK_8BIT, 132, 158, 187);
         }
         m_circleGradient = null;
@@ -640,10 +641,10 @@ public class WebTextView extends AutoCompleteTextView {
             } else {
                 int unused7 = WebTextView.mBkgColor = -1773833;
                 int unused8 = WebTextView.mOutlineColor = -9400399;
-                int unused9 = WebTextView.mCircleTopColor = Color.argb((int) Util.MASK_8BIT, 85, 112, 141);
+                int unused9 = WebTextView.mCircleTopColor = Color.argb((int) Util.MASK_8BIT, 85, (int) SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY, 141);
                 int unused10 = WebTextView.mCircleBottomColor = Color.argb((int) Util.MASK_8BIT, 132, 158, 187);
                 int unused11 = WebTextView.mCircleDeleteColor = Color.argb((int) Util.MASK_8BIT, 228, 238, 247);
-                int unused12 = WebTextView.mCircleDeleteShadowColor = Color.argb((int) Util.MASK_8BIT, 85, 112, 141);
+                int unused12 = WebTextView.mCircleDeleteShadowColor = Color.argb((int) Util.MASK_8BIT, 85, (int) SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY, 141);
             }
             WebTextView.m_tempRectF.set(WebTextView.m_innerBox);
             if (WebTextView.paintBkg == null) {

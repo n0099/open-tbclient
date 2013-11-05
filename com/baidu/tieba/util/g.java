@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class g {
     public static void a(InputStream inputStream) {
@@ -12,7 +13,7 @@ public class g {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                av.b("CloseUtil", "error on close the inputstream.", e.getMessage());
+                be.b("CloseUtil", "error on close the inputstream.", e.getMessage());
             }
         }
     }
@@ -22,7 +23,17 @@ public class g {
             try {
                 closeable.close();
             } catch (Throwable th) {
-                av.b("CloseUtil", "error on close the Closeable.", th.getMessage());
+                be.b("CloseUtil", "error on close the Closeable.", th.getMessage());
+            }
+        }
+    }
+
+    public static void a(OutputStream outputStream) {
+        if (outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                be.b("CloseUtil", "error on close the outputstream.", e.getMessage());
             }
         }
     }
@@ -32,7 +43,7 @@ public class g {
             try {
                 cursor.close();
             } catch (Exception e) {
-                av.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
+                be.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
             }
         }
     }
@@ -42,7 +53,7 @@ public class g {
             try {
                 sQLiteDatabase.close();
             } catch (Exception e) {
-                av.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+                be.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
             }
         }
     }

@@ -1,21 +1,20 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageButton;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
+class k {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1697a;
+    TextView f2217a;
+    StringBuffer b;
+    TextView c;
+    StringBuffer d;
+    TextView e;
+    ImageButton f;
+    final /* synthetic */ i g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(EditHeadActivity editHeadActivity) {
-        this.f1697a = editHeadActivity;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1697a.setResult(0);
-        this.f1697a.finish();
+    private k(i iVar) {
+        this.g = iVar;
     }
 }

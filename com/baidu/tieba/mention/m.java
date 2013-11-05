@@ -1,34 +1,38 @@
 package com.baidu.tieba.mention;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements AbsListView.OnScrollListener {
+public class m implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1371a;
+    final /* synthetic */ j f1868a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(i iVar) {
-        this.f1371a = iVar;
+    public m(j jVar) {
+        this.f1868a = jVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.f1371a.q;
-        runnable = this.f1371a.r;
-        handler.removeCallbacks(runnable);
-        handler2 = this.f1371a.q;
-        runnable2 = this.f1371a.r;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        q qVar;
+        f fVar = (f) ((BdListView) adapterView).getWrappedAdapter();
+        long itemId = fVar.getItemId(i);
+        if (itemId == -1) {
+            this.f1868a.b();
+        } else if (itemId == -2) {
+            j.e(this.f1868a);
+            this.f1868a.n = 4;
+            this.f1868a.d();
+        } else {
+            com.baidu.tieba.data.v vVar = (com.baidu.tieba.data.v) fVar.getItem(i);
+            if (vVar != null) {
+                qVar = this.f1868a.p;
+                qVar.a(vVar);
+                this.f1868a.a(vVar, i);
+            }
+        }
     }
 }

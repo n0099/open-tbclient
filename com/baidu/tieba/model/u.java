@@ -3,11 +3,13 @@ package com.baidu.tieba.model;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.tieba.data.w f1457a;
-    public int b;
-    final /* synthetic */ s c;
+    public String f1960a = "";
+    public boolean b = false;
+    public int c = -1;
+    public com.baidu.tieba.data.r d = null;
+    final /* synthetic */ t e;
 
-    public u(s sVar) {
-        this.c = sVar;
+    public u(t tVar) {
+        this.e = tVar;
     }
 }

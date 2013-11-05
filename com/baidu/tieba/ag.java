@@ -1,82 +1,12 @@
 package com.baidu.tieba;
 
-import com.slidingmenu.lib.R;
+import android.content.Context;
+import com.baidu.mobstat.StatService;
 /* loaded from: classes.dex */
-public final class ag {
-    public static final int AdpPullToRefreshScrollView_adpFooterDurationTime = 5;
-    public static final int AdpPullToRefreshScrollView_adpFooterNeedRefreshDelta = 2;
-    public static final int AdpPullToRefreshScrollView_adpHeaderDurationTime = 4;
-    public static final int AdpPullToRefreshScrollView_adpHeaderHeight = 3;
-    public static final int AdpPullToRefreshScrollView_adpHeaderNeedRefreshDelta = 1;
-    public static final int AdpPullToRefreshScrollView_adpMode = 0;
-    public static final int BDImageView_radius = 0;
-    public static final int HeadImageView_percent = 0;
-    public static final int HorizontalTranslateLayout_background = 6;
-    public static final int HorizontalTranslateLayout_leftOffset = 0;
-    public static final int HorizontalTranslateLayout_leftWidth = 2;
-    public static final int HorizontalTranslateLayout_rightOffset = 1;
-    public static final int HorizontalTranslateLayout_rightWidth = 3;
-    public static final int HorizontalTranslateLayout_tapBack = 5;
-    public static final int HorizontalTranslateLayout_track = 4;
-    public static final int IndicatorView_autoHide = 3;
-    public static final int IndicatorView_count = 4;
-    public static final int IndicatorView_drawable = 1;
-    public static final int IndicatorView_selector = 2;
-    public static final int IndicatorView_spacing = 0;
-    public static final int ModeAttr_tb_background = 0;
-    public static final int ModeAttr_tb_src = 2;
-    public static final int ModeAttr_tb_style = 3;
-    public static final int ModeAttr_tb_textColor = 1;
-    public static final int PbWriteToolView_audioDayBackground = 4;
-    public static final int PbWriteToolView_audioDayKeyBoard = 6;
-    public static final int PbWriteToolView_audioHeight = 9;
-    public static final int PbWriteToolView_audioNightBackground = 5;
-    public static final int PbWriteToolView_audioNightKeyBoard = 7;
-    public static final int PbWriteToolView_audioWidth = 8;
-    public static final int PbWriteToolView_hideAt = 3;
-    public static final int PbWriteToolView_hideAudio = 1;
-    public static final int PbWriteToolView_hideCamera = 0;
-    public static final int PbWriteToolView_hideFace = 2;
-    public static final int RefresherView_direction = 0;
-    public static final int RefresherView_empty_view = 5;
-    public static final int RefresherView_max_height = 1;
-    public static final int RefresherView_refresher_content = 4;
-    public static final int RefresherView_refresher_head = 3;
-    public static final int RefresherView_threshold_height = 2;
-    public static final int SettingView_settingText = 0;
-    public static final int SettingView_settingTextColor = 1;
-    public static final int SettingView_settingTip = 2;
-    public static final int SettingView_settingTipColor = 3;
-    public static final int TbRichTextView_defaultImage = 8;
-    public static final int TbRichTextView_faceHeight = 10;
-    public static final int TbRichTextView_faceWidth = 9;
-    public static final int TbRichTextView_lineSpacing = 5;
-    public static final int TbRichTextView_linkColor = 4;
-    public static final int TbRichTextView_maxImageHeight = 7;
-    public static final int TbRichTextView_maxImageWidth = 6;
-    public static final int TbRichTextView_segmentMargin = 0;
-    public static final int TbRichTextView_textColor = 3;
-    public static final int TbRichTextView_textPadding = 1;
-    public static final int TbRichTextView_textSize = 2;
-    public static final int TbRichTextView_videoImage = 11;
-    public static final int VerticalTranslateLayout_background = 2;
-    public static final int VerticalTranslateLayout_bottomHeight = 6;
-    public static final int VerticalTranslateLayout_bottomOffset = 4;
-    public static final int VerticalTranslateLayout_tapBack = 1;
-    public static final int VerticalTranslateLayout_topHeight = 5;
-    public static final int VerticalTranslateLayout_topOffset = 3;
-    public static final int VerticalTranslateLayout_track = 0;
-    public static final int Voice_play_type_play_type = 0;
-    public static final int[] AdpPullToRefreshScrollView = {R.attr.adpMode, R.attr.adpHeaderNeedRefreshDelta, R.attr.adpFooterNeedRefreshDelta, R.attr.adpHeaderHeight, R.attr.adpHeaderDurationTime, R.attr.adpFooterDurationTime};
-    public static final int[] BDImageView = {R.attr.radius};
-    public static final int[] HeadImageView = {R.attr.percent};
-    public static final int[] HorizontalTranslateLayout = {R.attr.leftOffset, R.attr.rightOffset, R.attr.leftWidth, R.attr.rightWidth, R.attr.track, R.attr.tapBack, R.attr.background};
-    public static final int[] IndicatorView = {R.attr.spacing, R.attr.drawable, R.attr.selector, R.attr.autoHide, R.attr.count};
-    public static final int[] ModeAttr = {R.attr.tb_background, R.attr.tb_textColor, R.attr.tb_src, R.attr.tb_style};
-    public static final int[] PbWriteToolView = {R.attr.hideCamera, R.attr.hideAudio, R.attr.hideFace, R.attr.hideAt, R.attr.audioDayBackground, R.attr.audioNightBackground, R.attr.audioDayKeyBoard, R.attr.audioNightKeyBoard, R.attr.audioWidth, R.attr.audioHeight};
-    public static final int[] RefresherView = {R.attr.direction, R.attr.max_height, R.attr.threshold_height, R.attr.refresher_head, R.attr.refresher_content, R.attr.empty_view};
-    public static final int[] SettingView = {R.attr.settingText, R.attr.settingTextColor, R.attr.settingTip, R.attr.settingTipColor};
-    public static final int[] TbRichTextView = {R.attr.segmentMargin, R.attr.textPadding, R.attr.textSize, R.attr.textColor, R.attr.linkColor, R.attr.lineSpacing, R.attr.maxImageWidth, R.attr.maxImageHeight, R.attr.defaultImage, R.attr.faceWidth, R.attr.faceHeight, R.attr.videoImage};
-    public static final int[] VerticalTranslateLayout = {R.attr.track, R.attr.tapBack, R.attr.background, R.attr.topOffset, R.attr.bottomOffset, R.attr.topHeight, R.attr.bottomHeight};
-    public static final int[] Voice_play_type = {R.attr.play_type};
+public class ag {
+    public static void a(Context context, String str) {
+        if (TiebaApplication.g().s()) {
+            StatService.onEvent(context, str, "click", 1);
+        }
+    }
 }

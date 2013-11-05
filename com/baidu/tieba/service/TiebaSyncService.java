@@ -4,21 +4,28 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.model.ce;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.model.co;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1782a = null;
-    private q b = null;
+    private static String f2303a = null;
+    private r b = null;
     private int c = 0;
-    private ce d = null;
+    private co d = null;
     private Handler e = new Handler();
-    private Runnable f = new p(this);
+    private Runnable f = new q(this);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int d(TiebaSyncService tiebaSyncService) {
+        int i = tiebaSyncService.c;
+        tiebaSyncService.c = i + 1;
+        return i;
+    }
 
     public static void a(String str) {
-        f1782a = str;
+        f2303a = str;
     }
 
     @Override // android.app.Service
@@ -36,7 +43,7 @@ public class TiebaSyncService extends Service {
         if (this.b != null) {
             this.b.cancel();
         }
-        this.b = new q(this, null);
+        this.b = new r(this, null);
         this.b.execute(new String[0]);
     }
 
@@ -61,7 +68,7 @@ public class TiebaSyncService extends Service {
     public void c() {
         if (this.d != null) {
             sendBroadcast(new Intent("com.baidu.tieba.broadcast.sync"));
-            av.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.d.c().getNew_version()));
+            be.a(getClass().getName(), "broadcastNewVersion", "sendBroadcast: " + String.format("%s", this.d.c().getNew_version()));
         }
     }
 }

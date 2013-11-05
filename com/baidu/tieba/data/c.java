@@ -1,49 +1,29 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private UserData f1028a;
-    private ArrayList<String> b;
-
-    public c() {
-        this.f1028a = null;
-        this.b = null;
-        this.f1028a = new UserData();
-        this.b = new ArrayList<>(3);
-    }
-
-    public UserData a() {
-        return this.f1028a;
-    }
-
-    public ArrayList<String> b() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
-        }
-    }
+    private int f1156a = 0;
+    private int b = 0;
 
     public void a(JSONObject jSONObject) {
-        try {
-            this.f1028a.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.b.add(optJSONArray.optString(i, null));
-                }
+        if (jSONObject != null) {
+            try {
+                this.f1156a = jSONObject.optInt("group_count", 0);
+                this.b = jSONObject.optInt("hide_recommend_group", 0);
+            } catch (Exception e) {
+                com.baidu.tieba.util.be.b("FrsStarData", "parserJson", "error = " + e.getMessage());
             }
-        } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
         }
+    }
+
+    public int a() {
+        return this.f1156a;
+    }
+
+    public int b() {
+        return this.b;
     }
 }

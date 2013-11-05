@@ -12,43 +12,43 @@ import com.slidingmenu.lib.R;
 public class KnPkHomeFragment extends BaseFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private u f1244a;
+    private u f1739a;
     private boolean b;
     private t c;
     private boolean d;
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.kn_pk_list_web_fragment, viewGroup, false);
-        this.f1244a = new u(inflate);
-        this.f1244a.f1264a.setOnLoadUrlListener(new r(this));
-        this.f1244a.e.setOnClickListener(new s(this));
+        this.f1739a = new u(inflate);
+        this.f1739a.f1759a.setOnLoadUrlListener(new r(this));
+        this.f1739a.e.setOnClickListener(new s(this));
         this.b = true;
         return inflate;
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void o() {
-        super.o();
+    public void p() {
+        super.p();
         this.d = true;
         a();
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void b(int i) {
-        super.b(i);
+    public void c(int i) {
+        super.c(i);
     }
 
-    @Override // android.support.v4.app.Fragment
-    public void q() {
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void r() {
         try {
-            super.q();
+            super.r();
             if (this.c != null) {
                 this.c.cancel();
                 this.c = null;
             }
         } catch (NullPointerException e) {
-            com.baidu.adp.lib.f.d.e("KnPkHomeFragment", "onDestroy", e.getMessage());
+            com.baidu.adp.lib.h.d.e("KnPkHomeFragment", "onDestroy", e.getMessage());
         }
     }
 

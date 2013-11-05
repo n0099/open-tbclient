@@ -14,8 +14,8 @@ import java.util.List;
 public class HorizontalTranslateLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f478a;
-    private f A;
+    static final /* synthetic */ boolean f551a;
+    private g A;
     private int b;
     private int c;
     private float d;
@@ -33,14 +33,14 @@ public class HorizontalTranslateLayout extends FrameLayout {
     private int p;
     private int q;
     private boolean r;
-    private final d s;
-    private final e t;
-    private final l u;
-    private g v;
-    private j w;
-    private final List<i> x;
-    private h y;
-    private k z;
+    private final e s;
+    private final f t;
+    private final m u;
+    private h v;
+    private k w;
+    private final List<j> x;
+    private i y;
+    private l z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -48,21 +48,18 @@ public class HorizontalTranslateLayout extends FrameLayout {
         left,
         right,
         horizontal,
-        none;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static TrackDirection[] valuesCustom() {
-            TrackDirection[] valuesCustom = values();
-            int length = valuesCustom.length;
-            TrackDirection[] trackDirectionArr = new TrackDirection[length];
-            System.arraycopy(valuesCustom, 0, trackDirectionArr, 0, length);
-            return trackDirectionArr;
-        }
+        none
     }
 
     static {
-        f478a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
+        f551a = !HorizontalTranslateLayout.class.desiredAssertionStatus();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int a(HorizontalTranslateLayout horizontalTranslateLayout, int i) {
+        int i2 = horizontalTranslateLayout.f - i;
+        horizontalTranslateLayout.f = i2;
+        return i2;
     }
 
     @Override // android.view.View
@@ -111,24 +108,24 @@ public class HorizontalTranslateLayout extends FrameLayout {
         return this.k;
     }
 
-    public void setLeftAnimationListener(g gVar) {
-        this.v = gVar;
+    public void setLeftAnimationListener(h hVar) {
+        this.v = hVar;
     }
 
-    public void setRightAnimationListener(j jVar) {
-        this.w = jVar;
+    public void setRightAnimationListener(k kVar) {
+        this.w = kVar;
     }
 
-    public void setLeftTrackListener(h hVar) {
-        this.y = hVar;
+    public void setLeftTrackListener(i iVar) {
+        this.y = iVar;
     }
 
-    public void setRightTrackListener(k kVar) {
-        this.z = kVar;
+    public void setRightTrackListener(l lVar) {
+        this.z = lVar;
     }
 
-    public void setHorizontalTrackListener(f fVar) {
-        this.A = fVar;
+    public void setHorizontalTrackListener(g gVar) {
+        this.A = gVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -195,7 +192,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     if (this.u.b) {
                         Log.d("HorizontalTranslateLayout", "@onTouchEvent tracking");
                         this.u.a();
-                        l.a(this.u);
+                        m.a(this.u);
                         return true;
                     }
                     return true;
@@ -212,7 +209,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
                         }
                         this.u.b(this.q - x);
                         this.q = x;
-                        this.u.f519a.addMovement(motionEvent);
+                        this.u.f599a.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -238,7 +235,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             case 3:
                 if (this.u.b) {
                     this.u.a();
-                    l.a(this.u);
+                    m.a(this.u);
                     return true;
                 }
                 return true;
@@ -250,7 +247,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
         if (this.u.b) {
             this.u.b(this.q - x);
             this.q = x;
-            this.u.f519a.addMovement(motionEvent);
+            this.u.f599a.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -276,10 +273,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int i3 = 1073741823 & i;
-        if (!f478a && i3 < this.d) {
+        if (!f551a && i3 < this.d) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!f478a && i3 < this.e) {
+        if (!f551a && i3 < this.e) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
         this.b = getMeasuredWidth();

@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f994a;
+    private int f1124a;
     private int b;
     private AntiData c;
     private Context d;
     private ArrayList<as> e;
 
     public ad() {
-        this.f994a = 0;
+        this.f1124a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -24,7 +24,7 @@ public class ad {
     }
 
     public ad(Context context) {
-        this.f994a = 0;
+        this.f1124a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -38,7 +38,7 @@ public class ad {
     }
 
     public int b() {
-        return this.f994a;
+        return this.f1124a;
     }
 
     public int c() {
@@ -57,7 +57,7 @@ public class ad {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
@@ -81,12 +81,12 @@ public class ad {
                     }
                     size++;
                 }
-                this.f994a = this.e.size();
+                this.f1124a = this.e.size();
             }
             this.b = jSONObject.optInt("comment_amount", 0);
             this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

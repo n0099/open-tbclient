@@ -5,39 +5,39 @@ import android.database.sqlite.SQLiteDatabase;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1923a;
+    private int f2453a;
     private boolean b = false;
     private m e = null;
     private String c = "tieba_database.db";
-    private String d = p.f1926a + "/tieba/" + this.c;
+    private String d = w.f2463a + "/tieba/" + this.c;
 
     public l() {
-        this.f1923a = 1;
-        this.f1923a = 8;
+        this.f2453a = 1;
+        this.f2453a = 9;
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            av.a(3, getClass().getName(), "ExecSQL", str);
+            be.a(3, getClass().getName(), "ExecSQL", str);
         }
     }
 
     public SQLiteDatabase a() {
         SQLiteDatabase sQLiteDatabase = null;
-        if (p.c()) {
-            this.b = p.b(this.c);
+        if (w.c()) {
+            this.b = w.b(this.c);
             sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(this.d, (SQLiteDatabase.CursorFactory) null);
             if (sQLiteDatabase != null) {
                 if (!this.b) {
                     a(sQLiteDatabase);
-                    sQLiteDatabase.setVersion(this.f1923a);
+                    sQLiteDatabase.setVersion(this.f2453a);
                 } else {
                     int version = sQLiteDatabase.getVersion();
-                    if (version != this.f1923a) {
-                        a(sQLiteDatabase, version, this.f1923a);
-                        sQLiteDatabase.setVersion(this.f1923a);
+                    if (version != this.f2453a) {
+                        a(sQLiteDatabase, version, this.f2453a);
+                        sQLiteDatabase.setVersion(this.f2453a);
                     }
                 }
             }
@@ -64,7 +64,7 @@ public class l {
             try {
                 this.e.a();
             } catch (Exception e) {
-                av.b(getClass().getName(), "onCreateDatabase", e.getMessage());
+                be.b(getClass().getName(), "onCreateDatabase", e.getMessage());
             }
         }
     }

@@ -14,10 +14,10 @@ import java.util.List;
 public class VerticalTranslateLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f510a;
-    private w A;
-    private t B;
-    private x C;
+    static final /* synthetic */ boolean f591a;
+    private z A;
+    private w B;
+    private aa C;
     private int b;
     private int c;
     private float d;
@@ -37,12 +37,12 @@ public class VerticalTranslateLayout extends FrameLayout {
     private int r;
     private int s;
     private boolean t;
-    private final q u;
-    private final r v;
-    private final y w;
-    private v x;
-    private s y;
-    private final List<u> z;
+    private final t u;
+    private final u v;
+    private final ab w;
+    private y x;
+    private v y;
+    private final List<x> z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -50,21 +50,18 @@ public class VerticalTranslateLayout extends FrameLayout {
         top,
         bottom,
         vertical,
-        none;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static TrackDirection[] valuesCustom() {
-            TrackDirection[] valuesCustom = values();
-            int length = valuesCustom.length;
-            TrackDirection[] trackDirectionArr = new TrackDirection[length];
-            System.arraycopy(valuesCustom, 0, trackDirectionArr, 0, length);
-            return trackDirectionArr;
-        }
+        none
     }
 
     static {
-        f510a = !VerticalTranslateLayout.class.desiredAssertionStatus();
+        f591a = !VerticalTranslateLayout.class.desiredAssertionStatus();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int a(VerticalTranslateLayout verticalTranslateLayout, int i) {
+        int i2 = verticalTranslateLayout.h - i;
+        verticalTranslateLayout.h = i2;
+        return i2;
     }
 
     @Override // android.view.View
@@ -113,24 +110,24 @@ public class VerticalTranslateLayout extends FrameLayout {
         return this.m;
     }
 
-    public void setTopAnimationListener(v vVar) {
-        this.x = vVar;
+    public void setTopAnimationListener(y yVar) {
+        this.x = yVar;
     }
 
-    public void setBottomAnimationListener(s sVar) {
-        this.y = sVar;
+    public void setBottomAnimationListener(v vVar) {
+        this.y = vVar;
     }
 
-    public void setTopTrackListener(w wVar) {
-        this.A = wVar;
+    public void setTopTrackListener(z zVar) {
+        this.A = zVar;
     }
 
-    public void setBottomTrackListener(t tVar) {
-        this.B = tVar;
+    public void setBottomTrackListener(w wVar) {
+        this.B = wVar;
     }
 
-    public void setVerticalTrackListener(x xVar) {
-        this.C = xVar;
+    public void setVerticalTrackListener(aa aaVar) {
+        this.C = aaVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -197,7 +194,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     if (this.w.b) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
                         this.w.a();
-                        y.a(this.w);
+                        ab.a(this.w);
                         return true;
                     }
                     return true;
@@ -214,7 +211,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                         }
                         this.w.b(this.s - y);
                         this.s = y;
-                        this.w.f527a.addMovement(motionEvent);
+                        this.w.f594a.addMovement(motionEvent);
                         return true;
                     }
                     return true;
@@ -237,7 +234,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             case 3:
                 if (this.w.b) {
                     this.w.a();
-                    y.a(this.w);
+                    ab.a(this.w);
                     return true;
                 }
                 return true;
@@ -249,7 +246,7 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (this.w.b) {
             this.w.b(this.s - y);
             this.s = y;
-            this.w.f527a.addMovement(motionEvent);
+            this.w.f594a.addMovement(motionEvent);
             return true;
         }
         return true;
@@ -281,10 +278,10 @@ public class VerticalTranslateLayout extends FrameLayout {
         if (this.g != -1.0f) {
             this.f = i3 - this.e;
         }
-        if (!f510a && i3 < this.d) {
+        if (!f591a && i3 < this.d) {
             throw new AssertionError("top offset should not be larger than the view's width");
         }
-        if (!f510a && i3 < this.f) {
+        if (!f591a && i3 < this.f) {
             throw new AssertionError("bottom offset should not be larger than the view's width");
         }
         this.b = getMeasuredWidth();

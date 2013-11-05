@@ -3,6 +3,7 @@ package com.baidu.tbadk.widget.richText;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 /* loaded from: classes.dex */
@@ -17,15 +18,17 @@ public interface h {
 
     void b(Context context, String str);
 
-    com.baidu.adp.lib.b.b<ImageView> c();
+    com.baidu.adp.lib.d.b<ImageView> c();
 
     void c(Context context, String str);
 
-    com.baidu.adp.lib.b.b<TextView> d();
+    com.baidu.adp.lib.d.b<TextView> d();
 
     void d(Context context, String str);
 
-    com.baidu.adp.lib.b.b<View> e();
+    com.baidu.adp.lib.d.b<View> e();
 
     void e(Context context, String str);
+
+    com.baidu.adp.lib.d.b<LinearLayout> f();
 }

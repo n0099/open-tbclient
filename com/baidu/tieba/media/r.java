@@ -6,15 +6,15 @@ import android.view.View;
 public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f1350a;
+    final /* synthetic */ q f1846a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.f1350a = qVar;
+        this.f1846a = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.f.d.d("pre btn clicked");
+        com.baidu.adp.lib.h.d.e("pre btn clicked");
     }
 }

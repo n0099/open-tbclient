@@ -6,6 +6,7 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,10 +14,10 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class x implements com.baidu.tieba.util.x {
+public class x implements com.baidu.tieba.util.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1049a;
+    private String f1181a;
     private String b;
     private String c;
     private SpannableString d;
@@ -29,14 +30,14 @@ public class x implements com.baidu.tieba.util.x {
     private int k;
     private int l;
     private ArrayList<ai> m;
-    private ArrayList<com.baidu.tieba.voice.ai> n = new ArrayList<>();
+    private ArrayList<VoiceManager.VoiceModel> n = new ArrayList<>();
     private int o = 0;
     private int p;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1049a = jSONObject.optString("forum_id", "");
+                this.f1181a = jSONObject.optString("forum_id", "");
                 this.b = jSONObject.optString("forum_name", "");
                 this.c = jSONObject.optString("thread_id", "");
                 String optString = jSONObject.optString("title", "");
@@ -76,17 +77,17 @@ public class x implements com.baidu.tieba.util.x {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
                 if (optJSONArray3 != null) {
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        com.baidu.tieba.voice.ai aiVar2 = new com.baidu.tieba.voice.ai();
+                        VoiceManager.VoiceModel voiceModel = new VoiceManager.VoiceModel();
                         JSONObject jSONObject3 = optJSONArray3.getJSONObject(i3);
-                        aiVar2.f2028a = "home_voice_play";
-                        aiVar2.b = jSONObject3.optString("voice_md5");
-                        aiVar2.d = jSONObject3.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
-                        this.n.add(aiVar2);
+                        voiceModel.from = "home_voice_play";
+                        voiceModel.voiceId = jSONObject3.optString("voice_md5");
+                        voiceModel.duration = jSONObject3.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
+                        this.n.add(voiceModel);
                     }
                 }
                 a(optString);
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(x.class.getName(), "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(x.class.getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -103,7 +104,7 @@ public class x implements com.baidu.tieba.util.x {
                 for (int i = 0; i < arrayList.size(); i++) {
                     sb.append("1 ");
                 }
-                SpannableString spannableString2 = new SpannableString(String.valueOf(sb.toString()) + str);
+                SpannableString spannableString2 = new SpannableString(sb.toString() + str);
                 int i2 = 0;
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
                     Bitmap a2 = com.baidu.tieba.util.e.a(((Integer) arrayList.get(i3)).intValue());
@@ -121,7 +122,7 @@ public class x implements com.baidu.tieba.util.x {
     }
 
     public String a() {
-        return this.f1049a;
+        return this.f1181a;
     }
 
     public String b() {
@@ -160,12 +161,12 @@ public class x implements com.baidu.tieba.util.x {
         return this.m;
     }
 
-    public ArrayList<com.baidu.tieba.voice.ai> k() {
+    public ArrayList<VoiceManager.VoiceModel> k() {
         return this.n;
     }
 
-    @Override // com.baidu.tieba.util.x
-    public LinkedList<String> l() {
+    @Override // com.baidu.tieba.util.ae
+    public LinkedList<String> getImageUrl() {
         if (this.m == null) {
             return null;
         }
@@ -184,8 +185,8 @@ public class x implements com.baidu.tieba.util.x {
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.x
-    public LinkedList<String> m() {
+    @Override // com.baidu.tieba.util.ae
+    public LinkedList<String> getPhotoUrl() {
         return null;
     }
 }

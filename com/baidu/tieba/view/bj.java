@@ -1,127 +1,80 @@
 package com.baidu.tieba.view;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.pb.ImageActivity;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class bj extends BdAsyncTask<String, Integer, bk> {
+public class bj extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bh f1992a;
-    private com.baidu.tieba.util.z b = null;
-    private String c;
-    private String d;
+    private Context f2525a;
+    private TextView b = null;
+    private ProgressBar c = null;
+    private ImageView d = null;
+    private View.OnClickListener e = null;
+    private View f = null;
+    private int g = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(bh bhVar, String str) {
-        this.f1992a = bhVar;
-        this.c = null;
-        this.d = null;
-        this.c = str;
-        this.d = com.baidu.tieba.util.at.f(str);
+    public bj(Context context) {
+        this.f2525a = null;
+        this.f2525a = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public bk a(String... strArr) {
-        bk bkVar;
-        Exception e;
-        Bitmap bitmap;
-        byte[] bArr;
-        if (this.c == null || this.d == null) {
-            return null;
+    @Override // com.baidu.adp.widget.ListView.c
+    public View a() {
+        this.f = LayoutInflater.from(this.f2525a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
+        this.b = (TextView) this.f.findViewById(R.id.sub_pb_more_text);
+        this.d = (ImageView) this.f.findViewById(R.id.image);
+        if (TiebaApplication.g().as() == 1) {
+            this.d.setBackgroundResource(R.drawable.ico_downward_1);
+        } else {
+            this.d.setBackgroundResource(R.drawable.ico_downward);
         }
-        String str = String.valueOf(String.valueOf(this.c) + "&imgtype=0") + "&qulity=" + com.baidu.tieba.util.au.a().d();
-        try {
-            byte[] imageData = this.f1992a.b.getImageData();
-            Bitmap a2 = imageData != null ? com.baidu.tieba.util.e.a(imageData) : null;
-            if (a2 == null && (imageData = com.baidu.tieba.util.p.d("image", this.d)) != null) {
-                a2 = com.baidu.tieba.util.e.a(imageData);
-            }
-            if (a2 == null) {
-                this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.k) + str);
-                if (this.f1992a.c != null && (this.f1992a.c instanceof ImageActivity)) {
-                    if (((ImageActivity) this.f1992a.c).b() != null) {
-                        this.b.a("fid", ((ImageActivity) this.f1992a.c).b());
-                    }
-                    if (((ImageActivity) this.f1992a.c).c() != null) {
-                        this.b.a("tid", ((ImageActivity) this.f1992a.c).c());
-                    }
-                    if (((ImageActivity) this.f1992a.c).d() != null) {
-                        this.b.a("fname", ((ImageActivity) this.f1992a.c).d());
-                    }
-                }
-                this.b.d(true);
-                imageData = this.b.i();
-                if (this.b.c()) {
-                    a2 = com.baidu.tieba.util.e.a(imageData);
-                }
-                com.baidu.tieba.util.p.a("image", this.d, imageData);
-            }
-            bitmap = a2;
-            bArr = imageData;
-            bkVar = new bk(this.f1992a, null);
-        } catch (Exception e2) {
-            bkVar = null;
-            e = e2;
-        }
-        try {
-            bkVar.f1993a = this.c;
-            bkVar.b = bArr;
-            bkVar.c = bitmap;
-            return bkVar;
-        } catch (Exception e3) {
-            e = e3;
-            com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
-            return bkVar;
+        this.c = (ProgressBar) this.f.findViewById(R.id.progress);
+        return this.f;
+    }
+
+    public void c() {
+        this.c.setVisibility(0);
+        this.d.setVisibility(8);
+        this.b.setText(this.f2525a.getText(R.string.loading));
+    }
+
+    public void a(int i) {
+        this.g = i;
+        this.c.setVisibility(8);
+        this.d.setVisibility(0);
+        if (i > 0) {
+            com.baidu.tieba.pb.bo.a(this.f2525a, this.b, i);
+        } else {
+            this.b.setText(this.f2525a.getText(R.string.load_more));
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(bk bkVar) {
-        bi biVar;
-        bi biVar2;
-        this.f1992a.f1991a.setVisibility(8);
-        this.f1992a.d = null;
-        if (bkVar != null) {
-            biVar = this.f1992a.e;
-            if (biVar != null) {
-                biVar2 = this.f1992a.e;
-                biVar2.a(bkVar.f1993a, bkVar.b);
-            }
-            Bitmap bitmap = bkVar.c;
-            if (bitmap == null) {
-                this.f1992a.b.l();
-            } else if (UtilHelper.a(bkVar.b)) {
-                this.f1992a.b.a(bkVar.b, bitmap);
-            } else {
-                this.f1992a.b.setImageBitmap(bitmap);
-                this.f1992a.b.setImageData(bkVar.b);
-            }
+    public void d() {
+        this.c.setVisibility(8);
+        this.d.setVisibility(0);
+        if (this.g > 0) {
+            com.baidu.tieba.pb.bo.a(this.f2525a, this.b, this.g);
+        } else {
+            this.b.setText(this.f2525a.getText(R.string.load_more));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        this.f1992a.b.setImageBitmap(null);
-        this.f1992a.f1991a.setVisibility(0);
-        super.b();
+    public void a(View.OnClickListener onClickListener) {
+        this.e = onClickListener;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        if (this.b != null) {
-            this.b.h();
+    @Override // com.baidu.adp.widget.ListView.c
+    public void onClick() {
+        if (this.e != null) {
+            this.e.onClick(this.f);
         }
-        this.f1992a.b.setVisibility(0);
-        this.f1992a.f1991a.setVisibility(8);
-        this.f1992a.d = null;
-        super.cancel(true);
     }
 }

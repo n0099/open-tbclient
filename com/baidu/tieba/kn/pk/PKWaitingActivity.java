@@ -8,10 +8,10 @@ import android.os.Handler;
 import android.view.View;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bj;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
+public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.o {
     private l b;
     private k c;
     private String d;
@@ -21,7 +21,7 @@ public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClick
     private Handler g = new Handler();
 
     /* renamed from: a  reason: collision with root package name */
-    Runnable f1271a = new i(this);
+    Runnable f1766a = new i(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b() {
@@ -31,17 +31,17 @@ public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClick
     }
 
     protected void c() {
-        if (this.b.f1284a != null && !this.b.f1284a.g()) {
-            if (this.b.f1284a.f()) {
-                PKEndActivity.a(this, this.d, this.b.f1284a.d());
+        if (this.b.f1779a != null && !this.b.f1779a.g()) {
+            if (this.b.f1779a.f()) {
+                PKEndActivity.a(this, this.d, this.b.f1779a.d());
             } else {
-                PKingActivity.a(this, this.d, this.b.f1284a.d());
+                PKingActivity.a(this, this.d, this.b.f1779a.d());
             }
             finish();
         }
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.n
+    @Override // com.baidu.adp.widget.ScrollView.o
     public void a() {
         e();
     }
@@ -66,9 +66,9 @@ public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClick
         setContentView(R.layout.kn_pkwaiting_activity);
         this.b = new l(this, stringExtra);
         this.b.b.a(this);
-        if (PKJumpActivity.f1270a != null) {
-            a(PKJumpActivity.f1270a);
-            PKJumpActivity.f1270a = null;
+        if (PKJumpActivity.f1765a != null) {
+            a(PKJumpActivity.f1765a);
+            PKJumpActivity.f1765a = null;
             return;
         }
         e();
@@ -93,11 +93,11 @@ public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClick
             d();
         } else if (this.e) {
             if (view.getId() == R.id.pk_left_bar_container) {
-                FrsActivity.a(this, this.b.f1284a.j.e, (String) null);
+                FrsActivity.a(this, this.b.f1779a.j.e, (String) null);
             } else if (view.getId() == R.id.pk_right_bar_container) {
-                FrsActivity.a(this, this.b.f1284a.k.e, (String) null);
+                FrsActivity.a(this, this.b.f1779a.k.e, (String) null);
             } else {
-                ba.a(this, view.getId(), this.b.f1284a.f1291a, new j(this));
+                bj.a(this, view.getId(), this.b.f1779a.f1786a, new j(this));
             }
         }
     }
@@ -130,7 +130,7 @@ public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClick
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void m() {
+    public void f() {
         if (this.c != null) {
             this.c.cancel(true);
             this.c = null;
@@ -142,14 +142,14 @@ public class PKWaitingActivity extends com.baidu.tieba.j implements View.OnClick
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.g.removeCallbacks(this.f1271a);
-        m();
+        this.g.removeCallbacks(this.f1766a);
+        f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.g.postDelayed(this.f1271a, 1000L);
+        this.g.postDelayed(this.f1766a, 1000L);
     }
 }

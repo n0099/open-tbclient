@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class am extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private Window f1976a;
+    private Window f2509a;
     private ImageView b;
     private View c;
     private ProgressBar d;
@@ -32,7 +32,7 @@ public class am extends Dialog {
 
     public am(Context context, int i, int i2) {
         super(context, R.style.big_image_dialog);
-        this.f1976a = null;
+        this.f2509a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -71,16 +71,16 @@ public class am extends Dialog {
         }
     }
 
-    public void a(com.baidu.adp.widget.a.c cVar) {
+    public void a(com.baidu.adp.widget.ImageView.e eVar) {
         this.d.setVisibility(8);
-        if (cVar != null) {
+        if (eVar != null) {
             this.b.setLayoutParams(this.b.getLayoutParams());
-            cVar.a(this.b);
+            eVar.a(this.b);
         }
     }
 
-    public void a(com.baidu.adp.widget.a.c cVar, boolean z) {
-        b(cVar);
+    public void a(com.baidu.adp.widget.ImageView.e eVar, boolean z) {
+        b(eVar);
         if (!z) {
             this.d.setVisibility(8);
         } else {
@@ -90,16 +90,16 @@ public class am extends Dialog {
         show();
     }
 
-    private void b(com.baidu.adp.widget.a.c cVar) {
+    private void b(com.baidu.adp.widget.ImageView.e eVar) {
         int i;
         int b;
-        if (cVar != null) {
-            if (this.h / this.i > cVar.a() / cVar.b()) {
-                i = (cVar.a() * this.i) / cVar.b();
+        if (eVar != null) {
+            if (this.h / this.i > eVar.a() / eVar.b()) {
+                i = (eVar.a() * this.i) / eVar.b();
                 b = this.i;
             } else {
                 i = this.h;
-                b = (cVar.b() * this.h) / cVar.a();
+                b = (eVar.b() * this.h) / eVar.a();
             }
             ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
             int i2 = i + (this.l * 2);
@@ -109,7 +109,7 @@ public class am extends Dialog {
             this.b.setLayoutParams(layoutParams);
             this.j = (this.f - (i2 + (this.m * 2))) / 2;
             this.k = (this.g - (i3 + (this.m * 2))) / 2;
-            cVar.a(this.b);
+            eVar.a(this.b);
         }
     }
 
@@ -129,14 +129,14 @@ public class am extends Dialog {
     }
 
     public void b() {
-        this.f1976a = getWindow();
-        this.f1976a.setWindowAnimations(R.style.big_image_dialog_anim);
-        WindowManager.LayoutParams attributes = this.f1976a.getAttributes();
+        this.f2509a = getWindow();
+        this.f2509a.setWindowAnimations(R.style.big_image_dialog_anim);
+        WindowManager.LayoutParams attributes = this.f2509a.getAttributes();
         attributes.x = this.j;
         attributes.y = this.k;
         attributes.horizontalMargin = 0.0f;
         attributes.verticalMargin = 0.0f;
         attributes.gravity = 51;
-        this.f1976a.setAttributes(attributes);
+        this.f2509a.setAttributes(attributes);
     }
 }

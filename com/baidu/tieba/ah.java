@@ -1,60 +1,75 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.widget.Button;
-import android.widget.CheckBox;
+import android.app.Activity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.data.CombineDownload;
-import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ah extends Dialog {
+public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f935a;
-    public TextView b;
-    public Button c;
-    public Button d;
-    public CheckBox e;
-    private VersionData f;
-    private CombineDownload g;
-    private ak h;
+    private LinearLayout f1066a;
+    private ImageView b;
+    private TextView c;
+    private int d;
+    private int e;
+    private int f = -1;
 
-    public ah(Context context, int i) {
-        super(context, i);
-        this.g = null;
-        this.h = null;
-    }
-
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        setContentView(R.layout.update_dialog);
-        this.f935a = (TextView) findViewById(R.id.newvison);
-        this.b = (TextView) findViewById(R.id.desc);
-        this.d = (Button) findViewById(R.id.update_button);
-        this.c = (Button) findViewById(R.id.update_cancel);
-        this.e = (CheckBox) findViewById(R.id.other_app_checkbox);
-        this.f935a.setText("新版本：" + this.f.getNew_version());
-        this.b.setText(this.f.getNew_version_desc());
-        this.e.setText(this.g.getAppName());
-        if (!UtilHelper.f(getContext(), this.g.getAppProc()) && !TextUtils.isEmpty(this.g.getAppUrl())) {
-            this.e.setChecked(true);
-        } else {
-            this.e.setChecked(false);
-            this.e.setVisibility(8);
+    public ah(View view, int i, int i2) {
+        this.d = i;
+        this.e = i2;
+        if (view != null) {
+            this.f1066a = (LinearLayout) view.findViewById(R.id.no_data_container);
+            this.b = (ImageView) view.findViewById(R.id.no_data_image);
+            this.c = (TextView) view.findViewById(R.id.no_data_image_text);
         }
-        this.d.setOnClickListener(new ai(this));
-        this.c.setOnClickListener(new aj(this));
     }
 
-    public void a(VersionData versionData, CombineDownload combineDownload, ak akVar) {
-        this.f = versionData;
-        this.g = combineDownload;
-        this.h = akVar;
+    public ah(Activity activity, int i, int i2) {
+        this.d = i;
+        this.e = i2;
+        this.f1066a = (LinearLayout) activity.findViewById(R.id.no_data_container);
+        this.b = (ImageView) activity.findViewById(R.id.no_data_image);
+        this.c = (TextView) activity.findViewById(R.id.no_data_image_text);
+    }
+
+    public void a(int i) {
+        if (i != this.f) {
+            this.f = i;
+            if (i == 1) {
+                this.b.setImageResource(this.e);
+                this.c.setTextColor(com.baidu.tieba.util.bb.a(i));
+                return;
+            }
+            this.b.setImageResource(this.d);
+            this.c.setTextColor(-5065030);
+        }
+    }
+
+    public void a() {
+        a(TiebaApplication.g().as());
+    }
+
+    public void b() {
+        this.b.setImageDrawable(null);
+        this.f = -1;
+    }
+
+    public void b(int i) {
+        this.f1066a.setVisibility(i);
+        if (i == 8) {
+            this.b.setImageDrawable(null);
+            this.b.setVisibility(8);
+            this.f = -1;
+            return;
+        }
+        this.b.setVisibility(0);
+        a(TiebaApplication.g().as());
+    }
+
+    public boolean c() {
+        return this.f1066a.getVisibility() != 8;
     }
 }

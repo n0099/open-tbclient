@@ -1,32 +1,17 @@
 package com.baidu.adp.lib.asyncTask;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-public class h extends Handler {
+final class h implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f364a;
+    private final AtomicInteger f414a = new AtomicInteger(1);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h(f fVar, Looper looper) {
-        super(looper);
-        this.f364a = fVar;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        if (message.what == 1) {
-            if (message.obj == null || !(message.obj instanceof j)) {
-                return;
-            }
-            this.f364a.b((j) message.obj);
-        } else if (message.what == 2 && message.obj != null && (message.obj instanceof j)) {
-            this.f364a.a((j) message.obj);
-        }
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        String str = "BdAsyncTask #" + String.valueOf(this.f414a.getAndIncrement());
+        com.baidu.adp.lib.h.d.c(str);
+        return new Thread(runnable, str);
     }
 }

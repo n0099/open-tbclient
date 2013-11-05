@@ -10,7 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bj;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 public class h extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f1842a = new i(this);
+    View.OnClickListener f2364a = new i(this);
     private final Activity b;
     private g c;
     private com.baidu.tieba.util.a d;
@@ -51,28 +52,28 @@ public class h extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            ba.b(view);
+            bj.b(view);
         }
-        int ap = TiebaApplication.g().ap();
+        int as = TiebaApplication.g().as();
         com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.b;
-        jVar.l().a(ap == 1);
-        jVar.l().a(view);
+        jVar.m().a(as == 1);
+        jVar.m().a(view);
         if (itemViewType == 0) {
             View findViewById = view.findViewById(R.id.container);
-            if (ap == 1) {
-                com.baidu.tieba.util.as.e(findViewById, (int) R.drawable.bg_ba_catalogue_1);
+            if (as == 1) {
+                bb.e(findViewById, (int) R.drawable.bg_ba_catalogue_1);
             } else {
-                com.baidu.tieba.util.as.e(findViewById, (int) R.drawable.bg_ba_catalogue);
+                bb.e(findViewById, (int) R.drawable.bg_ba_catalogue);
             }
         } else if (itemViewType == 1) {
-            ba.a(view);
+            bj.a(view);
         } else if (itemViewType == 3) {
-            ba.a(view.findViewById(R.id.container), 2, ap);
-            ba.a(view);
+            bj.a(view.findViewById(R.id.container), 2, as);
+            bj.a(view);
             Button button = (Button) view.findViewById(R.id.bar_item_all);
         } else {
-            ba.a(view.findViewById(R.id.container), 1, ap);
-            ba.a(view);
+            bj.a(view.findViewById(R.id.container), 1, as);
+            bj.a(view);
             a(viewGroup, (l) view.getTag(), i);
         }
         return view;
@@ -89,18 +90,18 @@ public class h extends BaseAdapter {
         if (i == 3) {
             View inflate = from.inflate(R.layout.bar_home_all_dir_item, (ViewGroup) null);
             s sVar = new s();
-            sVar.f1853a = null;
+            sVar.f2375a = null;
             l lVar = new l();
             lVar.d = sVar;
             Button button = (Button) inflate.findViewById(R.id.bar_item_all);
-            button.setOnClickListener(this.f1842a);
+            button.setOnClickListener(this.f2364a);
             button.setTag(lVar);
             return inflate;
         }
         View inflate2 = from.inflate(R.layout.bar_home_first_dir_item, (ViewGroup) null);
-        inflate2.setOnClickListener(this.f1842a);
+        inflate2.setOnClickListener(this.f2364a);
         l lVar2 = new l();
-        lVar2.f1846a = (HeadImageView) inflate2.findViewById(R.id.portrait);
+        lVar2.f2368a = (HeadImageView) inflate2.findViewById(R.id.portrait);
         lVar2.b = (TextView) inflate2.findViewById(R.id.squre_name);
         lVar2.c = (BestStringsFitTextView) inflate2.findViewById(R.id.description);
         inflate2.setTag(lVar2);
@@ -122,11 +123,11 @@ public class h extends BaseAdapter {
             lVar.c.setVisibility(8);
         }
         if (sVar.d != null) {
-            lVar.f1846a.setTag(sVar.d);
-            com.baidu.adp.widget.a.c d = this.d.d(sVar.d);
+            lVar.f2368a.setTag(sVar.d);
+            com.baidu.adp.widget.ImageView.e d = this.d.d(sVar.d);
             if (d != null) {
-                lVar.f1846a.setImageBitmap(d.f());
-                lVar.f1846a.invalidate();
+                lVar.f2368a.setImageBitmap(d.f());
+                lVar.f2368a.invalidate();
                 return;
             }
             this.d.a(sVar.d, new j(this, viewGroup));

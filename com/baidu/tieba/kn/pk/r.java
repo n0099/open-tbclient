@@ -1,18 +1,18 @@
 package com.baidu.tieba.kn.pk;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.av;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends BdAsyncTask<Object, Integer, h> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PKingActivity f1290a;
-    private z b = null;
+    final /* synthetic */ PKingActivity f1785a;
+    private ag b = null;
 
     public r(PKingActivity pKingActivity) {
-        this.f1290a = pKingActivity;
+        this.f1785a = pKingActivity;
         pKingActivity.j = true;
     }
 
@@ -27,27 +27,27 @@ public class r extends BdAsyncTask<Object, Integer, h> {
         t tVar3;
         t tVar4;
         h hVar = new h();
-        tVar = this.f1290a.b;
-        tVar2 = this.f1290a.b;
-        long min = Math.min(((tVar.f1292a.e() / 1000) - tVar2.d) - 1, 15L);
+        tVar = this.f1785a.b;
+        tVar2 = this.f1785a.b;
+        long min = Math.min(((tVar.f1787a.e() / 1000) - tVar2.d) - 1, 15L);
         if (min <= 0) {
-            StringBuilder sb = new StringBuilder("inc interval last vote:");
-            tVar3 = this.f1290a.b;
-            StringBuilder append = sb.append(tVar3.d).append(", now is:");
-            tVar4 = this.f1290a.b;
-            com.baidu.adp.lib.f.d.a(append.append(tVar4.f1292a.e() / 1000).toString());
+            StringBuilder append = new StringBuilder().append("inc interval last vote:");
+            tVar3 = this.f1785a.b;
+            StringBuilder append2 = append.append(tVar3.d).append(", now is:");
+            tVar4 = this.f1785a.b;
+            com.baidu.adp.lib.h.d.a(append2.append(tVar4.f1787a.e() / 1000).toString());
             return null;
         }
         try {
-            this.b = new z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/s/uo/pkvoteinfo");
-            z zVar = this.b;
-            str = this.f1290a.e;
-            zVar.a("pk_id", str);
+            this.b = new ag(com.baidu.tieba.data.h.f1165a + "c/s/uo/pkvoteinfo");
+            ag agVar = this.b;
+            str = this.f1785a.e;
+            agVar.a("pk_id", str);
             this.b.a("rn", "15");
             this.b.a("time", String.valueOf(min));
             String j = this.b.j();
-            if (com.baidu.adp.lib.f.d.a()) {
-                com.baidu.adp.lib.f.d.c("inc interval is:" + min + ", result is:" + j);
+            if (com.baidu.adp.lib.h.d.a()) {
+                com.baidu.adp.lib.h.d.d("inc interval is:" + min + ", result is:" + j);
             }
             if (this.b.c()) {
                 hVar.b(j);
@@ -57,7 +57,7 @@ public class r extends BdAsyncTask<Object, Integer, h> {
             return hVar;
         } catch (Exception e) {
             hVar.a(e.getMessage());
-            av.b(getClass().getName(), "doInBackground", e.getMessage());
+            be.b(getClass().getName(), "doInBackground", e.getMessage());
             return hVar;
         }
     }
@@ -66,8 +66,8 @@ public class r extends BdAsyncTask<Object, Integer, h> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(h hVar) {
-        this.f1290a.a(hVar);
-        this.f1290a.j = false;
+        this.f1785a.a(hVar);
+        this.f1785a.j = false;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -77,7 +77,7 @@ public class r extends BdAsyncTask<Object, Integer, h> {
             this.b.h();
             this.b = null;
         }
-        this.f1290a.n();
-        this.f1290a.j = false;
+        this.f1785a.n();
+        this.f1785a.j = false;
     }
 }

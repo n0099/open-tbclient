@@ -1,45 +1,25 @@
 package com.baidu.adp.widget;
 
-import android.os.Handler;
-import android.os.Message;
+import com.baidu.adp.widget.HorizontalTranslateLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends Handler {
+public /* synthetic */ class d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HorizontalTranslateLayout f517a;
+    static final /* synthetic */ int[] f596a = new int[HorizontalTranslateLayout.TrackDirection.values().length];
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        e eVar;
-        e eVar2;
-        e eVar3;
-        e eVar4;
-        e eVar5;
-        eVar = this.f517a.t;
-        if (eVar.g) {
-            switch (message.what) {
-                case -105:
-                    eVar5 = this.f517a.t;
-                    eVar5.d();
-                    return;
-                case -104:
-                    eVar2 = this.f517a.t;
-                    eVar2.c();
-                    return;
-                case -103:
-                case -102:
-                default:
-                    return;
-                case -101:
-                    eVar3 = this.f517a.t;
-                    eVar3.b();
-                    return;
-                case -100:
-                    eVar4 = this.f517a.t;
-                    eVar4.a();
-                    return;
-            }
+    static {
+        try {
+            f596a[HorizontalTranslateLayout.TrackDirection.left.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
+        }
+        try {
+            f596a[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            f596a[HorizontalTranslateLayout.TrackDirection.horizontal.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
         }
     }
 }

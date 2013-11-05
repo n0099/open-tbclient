@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class CustomTimerView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f1943a = 359999;
+    private static long f2475a = 359999;
     private TextView b;
     private TextView c;
     private TextView d;
@@ -80,8 +80,8 @@ public class CustomTimerView extends LinearLayout {
     }
 
     public void setTime(long j) {
-        if (j < 0 || j > f1943a) {
-            j = f1943a;
+        if (j < 0 || j > f2475a) {
+            j = f2475a;
         }
         this.b.setText(String.format("%1$02d", Long.valueOf(j / 3600)));
         this.d.setText(String.format("%1$02d", Long.valueOf((j % 3600) / 60)));

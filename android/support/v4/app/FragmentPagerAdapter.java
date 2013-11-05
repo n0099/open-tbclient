@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 public abstract class FragmentPagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private final t f268a;
+    private final t f278a;
     private ae b = null;
     private Fragment c = null;
 
     public abstract Fragment a(int i);
 
     public FragmentPagerAdapter(t tVar) {
-        this.f268a = tVar;
+        this.f278a = tVar;
     }
 
     @Override // android.support.v4.view.ae
@@ -24,12 +24,12 @@ public abstract class FragmentPagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (this.b == null) {
-            this.b = this.f268a.a();
+            this.b = this.f278a.a();
         }
         long b = b(i);
-        Fragment a2 = this.f268a.a(a(viewGroup.getId(), b));
+        Fragment a2 = this.f278a.a(a(viewGroup.getId(), b));
         if (a2 != null) {
-            this.b.c(a2);
+            this.b.e(a2);
         } else {
             a2 = a(i);
             this.b.a(viewGroup.getId(), a2, a(viewGroup.getId(), b));
@@ -44,9 +44,9 @@ public abstract class FragmentPagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (this.b == null) {
-            this.b = this.f268a.a();
+            this.b = this.f278a.a();
         }
-        this.b.b((Fragment) obj);
+        this.b.d((Fragment) obj);
     }
 
     @Override // android.support.v4.view.ae
@@ -70,13 +70,13 @@ public abstract class FragmentPagerAdapter extends android.support.v4.view.ae {
         if (this.b != null) {
             this.b.b();
             this.b = null;
-            this.f268a.b();
+            this.f278a.b();
         }
     }
 
     @Override // android.support.v4.view.ae
     public boolean isViewFromObject(View view, Object obj) {
-        return ((Fragment) obj).n() == view;
+        return ((Fragment) obj).o() == view;
     }
 
     @Override // android.support.v4.view.ae

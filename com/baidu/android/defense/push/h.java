@@ -30,9 +30,9 @@ public class h extends a {
     }
 
     public void b() {
-        if (this.f540a != null) {
+        if (this.f619a != null) {
             try {
-                JSONArray jSONArray = this.f540a.getJSONArray("params");
+                JSONArray jSONArray = this.f619a.getJSONArray("params");
                 if (jSONArray == null || jSONArray.length() == 0) {
                     this.b = false;
                     return;
@@ -43,7 +43,7 @@ public class h extends a {
                     JSONObject jSONObject = (JSONObject) jSONArray.get(i);
                     if (jSONObject != null) {
                         com.baidu.android.defense.a.b bVar = new com.baidu.android.defense.a.b();
-                        bVar.f530a = jSONObject.getString("downurl");
+                        bVar.f609a = jSONObject.getString("downurl");
                         bVar.b = jSONObject.getString("savepath");
                         bVar.c = jSONObject.getInt("filesize");
                         this.d.add(bVar);

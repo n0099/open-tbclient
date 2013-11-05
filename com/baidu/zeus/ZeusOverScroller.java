@@ -228,8 +228,8 @@ public class ZeusOverScroller {
         private long mStartTime;
         private int mVelocity;
         private static float DECELERATION_RATE = (float) (Math.log(0.78d) / Math.log(0.9d));
-        private static final float[] SPLINE_POSITION = new float[WebChromeClient.STRING_DLG_TITLE_DATETIME];
-        private static final float[] SPLINE_TIME = new float[WebChromeClient.STRING_DLG_TITLE_DATETIME];
+        private static final float[] SPLINE_POSITION = new float[101];
+        private static final float[] SPLINE_TIME = new float[101];
         private float mFlingFriction = ViewConfiguration.getScrollFriction();
         private int mState = 0;
         private boolean mFinished = true;

@@ -1,15 +1,13 @@
 package com.baidu.adp.lib.webSocket;
 
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
+import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class f extends k {
+interface f {
+    int a(ByteBuffer byteBuffer);
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f465a;
-    public String b;
-    public String c;
-    public String d;
-    public String[] e;
-    public List<BasicNameValuePair> f;
+    void a();
+
+    int b(ByteBuffer byteBuffer);
+
+    boolean b();
 }

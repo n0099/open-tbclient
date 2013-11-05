@@ -7,24 +7,24 @@ import android.text.TextUtils;
 public class b extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f575a;
+    final /* synthetic */ a f654a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f575a = aVar;
+        this.f654a = aVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Context context;
-        a aVar = this.f575a;
-        context = this.f575a.c;
+        a aVar = this.f654a;
+        context = this.f654a.c;
         String b = aVar.b(context);
         if (TextUtils.isEmpty(b)) {
-            this.f575a.b = (byte) 0;
+            this.f654a.b = (byte) 0;
             return;
         }
-        this.f575a.f572a = b;
-        this.f575a.b = (byte) 2;
+        this.f654a.f651a = b;
+        this.f654a.b = (byte) 2;
     }
 }

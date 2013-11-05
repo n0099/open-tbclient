@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1961a;
+    private Context f2493a;
     private TextView b;
     private ProgressBar c;
     private ImageView d;
@@ -26,21 +26,11 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     /* loaded from: classes.dex */
     public enum IconType {
         ICON_DOWN_WARD,
-        ICON_UP_WARD;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static IconType[] valuesCustom() {
-            IconType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            IconType[] iconTypeArr = new IconType[length];
-            System.arraycopy(valuesCustom, 0, iconTypeArr, 0, length);
-            return iconTypeArr;
-        }
+        ICON_UP_WARD
     }
 
     public PbListView(Context context) {
-        this.f1961a = null;
+        this.f2493a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -49,7 +39,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         this.g = null;
         this.h = null;
         this.i = IconType.ICON_DOWN_WARD;
-        this.f1961a = context;
+        this.f2493a = context;
     }
 
     public PbListView(Context context, IconType iconType) {
@@ -59,7 +49,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.f = LayoutInflater.from(this.f1961a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        this.f = LayoutInflater.from(this.f2493a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.h = (LinearLayout) this.f.findViewById(R.id.pb_more_view);
         this.b = (TextView) this.f.findViewById(R.id.pb_more_text);
         this.d = (ImageView) this.f.findViewById(R.id.image);
@@ -70,7 +60,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void c() {
         this.c.setVisibility(0);
         this.d.setVisibility(8);
-        this.b.setText(this.f1961a.getText(R.string.loading));
+        this.b.setText(this.f2493a.getText(R.string.loading));
     }
 
     public void d() {
@@ -79,7 +69,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         if (this.g != null) {
             this.b.setText(this.g);
         } else {
-            this.b.setText(this.f1961a.getText(R.string.load_more));
+            this.b.setText(this.f2493a.getText(R.string.load_more));
         }
     }
 
@@ -102,7 +92,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     public void a(int i) {
         if (this.f != null) {
             if (i == 1) {
-                com.baidu.tieba.util.as.e(this.h, (int) R.drawable.bg_list_all_1);
+                com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.bg_list_all_1);
                 if (this.i == IconType.ICON_DOWN_WARD) {
                     this.d.setBackgroundResource(R.drawable.ico_downward_1);
                     return;
@@ -111,7 +101,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
                     return;
                 }
             }
-            com.baidu.tieba.util.as.e(this.h, (int) R.drawable.bg_list_all);
+            com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.bg_list_all);
             if (this.i == IconType.ICON_DOWN_WARD) {
                 this.d.setBackgroundResource(R.drawable.ico_downward);
             } else {

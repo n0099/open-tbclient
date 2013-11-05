@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class a extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    b f1054a;
+    b f1186a;
     Activity b;
     private com.baidu.tieba.square.s c;
     private int d = 0;
@@ -48,9 +48,9 @@ public class a extends BaseAdapter {
         }
         if (this.c != null) {
             com.baidu.tieba.square.s sVar = this.c.e.get(i);
-            this.f1054a = (b) view.getTag();
+            this.f1186a = (b) view.getTag();
             if (sVar != null) {
-                a(this.f1054a, sVar, view, i);
+                a(this.f1186a, sVar, view, i);
             }
         }
         return view;
@@ -71,10 +71,10 @@ public class a extends BaseAdapter {
 
     private View b() {
         View inflate = this.b.getLayoutInflater().inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.f1054a = new b(this);
-        this.f1054a.f1055a = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.f1054a.b = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.f1054a);
+        this.f1186a = new b(this);
+        this.f1186a.f1188a = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.f1186a.b = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.f1186a);
         return inflate;
     }
 
@@ -82,16 +82,16 @@ public class a extends BaseAdapter {
         if (bVar != null && sVar != null) {
             bVar.b.setText("");
             if (i == 0) {
-                bVar.b.setText(String.valueOf(this.b.getString(R.string.forum_list_menu_all)) + sVar.b);
+                bVar.b.setText(this.b.getString(R.string.forum_list_menu_all) + sVar.b);
             } else {
                 bVar.b.setText(sVar.b);
             }
             if (i != this.d) {
-                bVar.f1055a.setVisibility(4);
+                bVar.f1188a.setVisibility(4);
                 bVar.b.setTextColor(this.b.getResources().getColor(R.color.forum_list_menu_notselected));
                 return;
             }
-            bVar.f1055a.setVisibility(0);
+            bVar.f1188a.setVisibility(0);
             bVar.b.setTextColor(this.b.getResources().getColor(R.color.forum_list_menu_selected));
         }
     }

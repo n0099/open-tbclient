@@ -3,15 +3,15 @@ package com.baidu.tieba.recommend;
 class c implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendActivity f1753a;
+    final /* synthetic */ DailyRecommendActivity f2273a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DailyRecommendActivity dailyRecommendActivity) {
-        this.f1753a = dailyRecommendActivity;
+        this.f2273a = dailyRecommendActivity;
     }
 
     @Override // com.baidu.tieba.recommend.q
     public void a(String str) {
-        this.f1753a.g = str;
+        this.f2273a.g = str;
     }
 }

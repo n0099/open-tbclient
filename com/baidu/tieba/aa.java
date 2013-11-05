@@ -6,11 +6,11 @@ import com.baidu.tieba.util.DatabaseService;
 class aa extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f874a;
+    final /* synthetic */ LogoActivity f1003a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(LogoActivity logoActivity) {
-        this.f874a = logoActivity;
+        this.f1003a = logoActivity;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -19,19 +19,19 @@ class aa extends Thread {
         Handler handler2;
         super.run();
         try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.f874a.getApplication();
-            tiebaApplication.b(tiebaApplication.H() + 1);
-            if (tiebaApplication.M()) {
+            TiebaApplication tiebaApplication = (TiebaApplication) this.f1003a.getApplication();
+            tiebaApplication.b(tiebaApplication.I() + 1);
+            if (tiebaApplication.N()) {
                 DatabaseService.x();
                 tiebaApplication.b(0);
             }
             DatabaseService.t();
             DatabaseService.w();
-            this.f874a.a(this.f874a.getCacheDir());
+            this.f1003a.a(this.f1003a.getCacheDir());
         } catch (Exception e) {
         }
-        handler = this.f874a.k;
-        handler2 = this.f874a.k;
+        handler = this.f1003a.k;
+        handler2 = this.f1003a.k;
         handler.sendMessage(handler2.obtainMessage());
     }
 }

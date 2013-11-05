@@ -1,39 +1,39 @@
 package com.baidu.tieba.home;
 
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.ListView;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 /* loaded from: classes.dex */
-class g implements View.OnKeyListener {
+class g implements com.baidu.tieba.im.pushNotify.m {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1216a;
+    final /* synthetic */ EnterForumActivity f1356a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(EnterForumActivity enterForumActivity) {
-        this.f1216a = enterForumActivity;
+        this.f1356a = enterForumActivity;
     }
 
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (view instanceof ListView) {
-            ListView listView = (ListView) view;
-            if (keyEvent.getAction() == 0) {
-                if (i == 21) {
-                    if (listView.getSelectedView() == null) {
-                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
-                        return true;
+    @Override // com.baidu.tieba.im.pushNotify.m
+    public void a(GroupNewsPojo groupNewsPojo) {
+        n nVar;
+        n nVar2;
+        n nVar3;
+        n nVar4;
+        n nVar5;
+        nVar = this.f1356a.c;
+        if (nVar != null) {
+            nVar2 = this.f1356a.c;
+            if (nVar2.d != null) {
+                nVar3 = this.f1356a.c;
+                if (nVar3.d.f1381a != null) {
+                    if (this.f1356a.b()) {
+                        nVar5 = this.f1356a.c;
+                        nVar5.d.f1381a.b();
+                        return;
                     }
-                    return false;
-                } else if (i == 22 && listView.getSelectedView() == null) {
-                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
-                    return true;
-                } else {
-                    return false;
+                    nVar4 = this.f1356a.c;
+                    nVar4.d.c = true;
                 }
             }
-            return false;
         }
-        return false;
     }
 }

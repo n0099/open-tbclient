@@ -7,21 +7,21 @@ import com.baidu.tieba.person.PersonInfoActivity;
 class aj implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ah f1529a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ String c;
+    final /* synthetic */ String f2046a;
+    final /* synthetic */ String b;
+    final /* synthetic */ ah c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ah ahVar, String str, String str2) {
-        this.f1529a = ahVar;
-        this.b = str;
-        this.c = str2;
+        this.c = ahVar;
+        this.f2046a = str;
+        this.b = str2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        context = this.f1529a.c;
-        PersonInfoActivity.a(context, this.b, this.c);
+        context = this.c.c;
+        PersonInfoActivity.a(context, this.f2046a, this.b);
     }
 }

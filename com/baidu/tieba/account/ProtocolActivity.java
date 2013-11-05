@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,7 +13,7 @@ import java.io.InputStreamReader;
 public class ProtocolActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f879a = null;
+    private ImageView f1008a = null;
     private TextView b = null;
     private RelativeLayout c = null;
     private View d = null;
@@ -26,7 +27,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
         b();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:38:0x008e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0093 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -35,8 +36,8 @@ public class ProtocolActivity extends com.baidu.tieba.j {
         this.c = (RelativeLayout) findViewById(R.id.container);
         this.d = findViewById(R.id.title);
         this.e = (TextView) findViewById(R.id.title_text);
-        this.f879a = (ImageView) findViewById(R.id.back);
-        this.f879a.setOnClickListener(new ae(this));
+        this.f1008a = (ImageView) findViewById(R.id.back);
+        this.f1008a.setOnClickListener(new af(this));
         this.b = (TextView) findViewById(R.id.text);
         StringBuilder sb = new StringBuilder(1024);
         BufferedReader bufferedReader2 = null;
@@ -99,10 +100,10 @@ public class ProtocolActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.as.f(this.e, i);
-        com.baidu.tieba.util.as.c(this.c, i);
-        com.baidu.tieba.util.as.d(this.d, i);
-        com.baidu.tieba.util.as.a(this.f879a, i);
-        com.baidu.tieba.util.as.b(this.b, i);
+        bb.f(this.e, i);
+        bb.c(this.c, i);
+        bb.d(this.d, i);
+        bb.a(this.f1008a, i);
+        bb.b(this.b, i);
     }
 }

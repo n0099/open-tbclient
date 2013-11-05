@@ -1,28 +1,31 @@
 package com.baidu.tieba.frs;
-
-import android.view.View;
-import com.baidu.tieba.data.bi;
-import com.baidu.tieba.pb.ImagePbActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class as implements View.OnClickListener {
+public class as extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1129a;
+    final /* synthetic */ FrsImageActivity f1262a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(FrsImageActivity frsImageActivity) {
-        this.f1129a = frsImageActivity;
+        this.f1262a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        if (view.getTag() != null && (view.getTag() instanceof bi)) {
-            bi biVar = (bi) view.getTag();
-            FrsImageActivity frsImageActivity = this.f1129a;
-            String d = biVar.d();
-            str = this.f1129a.b;
-            ImagePbActivity.a(frsImageActivity, d, str, biVar.c());
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        com.baidu.tieba.model.x xVar;
+        ay ayVar;
+        com.baidu.tieba.model.x xVar2;
+        xVar = this.f1262a.p;
+        if (xVar.getLoadDataMode() == 1) {
+            if (((Boolean) obj).booleanValue()) {
+                this.f1262a.q();
+            }
+            ayVar = this.f1262a.m;
+            bh b = ayVar.b();
+            boolean booleanValue = ((Boolean) obj).booleanValue();
+            xVar2 = this.f1262a.p;
+            b.a(booleanValue, xVar2.getErrorString());
         }
     }
 }

@@ -1,27 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.NetWorkCore;
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.a.d {
+class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1150a;
+    final /* synthetic */ String f1285a;
+    final /* synthetic */ h b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(FrsActivity frsActivity) {
-        this.f1150a = frsActivity;
+    public i(h hVar, String str) {
+        this.b = hVar;
+        this.f1285a = str;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        ba baVar;
-        if (cVar != null) {
-            baVar = this.f1150a.o;
-            View d = baVar.d(str);
-            if (d != null) {
-                d.invalidate();
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        NetWorkCore netWorkCore = new NetWorkCore(new com.baidu.tieba.util.aq());
+        netWorkCore.a(this.f1285a);
+        netWorkCore.u();
     }
 }

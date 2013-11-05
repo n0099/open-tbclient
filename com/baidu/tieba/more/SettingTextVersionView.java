@@ -12,20 +12,20 @@ public final class SettingTextVersionView extends SettingTextTipView {
     }
 
     public void d() {
-        boolean z = true;
-        boolean z2 = TiebaApplication.g().ap() == 1;
-        VersionData au = TiebaApplication.g().au();
-        if (au == null || au.getHas_new_ver() != 1) {
-            z = false;
+        boolean z = false;
+        boolean z2 = TiebaApplication.g().as() == 1;
+        VersionData ax = TiebaApplication.g().ax();
+        if (ax != null && ax.getHas_new_ver() == 1) {
+            z = true;
         }
         if (z) {
             this.d.setText("New");
-            this.d.setTextAppearance(this.f1471a, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
+            this.d.setTextAppearance(this.f1973a, z2 ? R.style.setting_version_prompt_text_1 : R.style.setting_version_prompt_text);
             this.d.setBackgroundResource(z2 ? R.drawable.icon_news_text_prompt_1 : R.drawable.icon_news_text_prompt);
             return;
         }
-        this.d.setText(com.baidu.tieba.data.g.j());
+        this.d.setText(com.baidu.tieba.data.h.j());
         this.d.setBackgroundDrawable(null);
-        this.d.setTextAppearance(this.f1471a, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+        this.d.setTextAppearance(this.f1973a, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
     }
 }

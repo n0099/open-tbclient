@@ -65,7 +65,7 @@ public class WebSettings implements BdNoProGuard {
         SMALLEST(50),
         SMALLER(75),
         NORMAL(100),
-        LARGER(com.baidu.zeus.WebChromeClient.STRING_DLG_BTN_SET),
+        LARGER(150),
         LARGEST(200);
         
         int value;
@@ -87,7 +87,7 @@ public class WebSettings implements BdNoProGuard {
 
     /* loaded from: classes.dex */
     public enum ZoomDensity {
-        FAR(com.baidu.zeus.WebChromeClient.STRING_DLG_BTN_SET),
+        FAR(150),
         MEDIUM(100),
         CLOSE(75);
         

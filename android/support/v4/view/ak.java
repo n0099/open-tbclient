@@ -8,17 +8,17 @@ import java.util.Locale;
 class ak extends SingleLineTransformationMethod {
 
     /* renamed from: a  reason: collision with root package name */
-    private Locale f320a;
+    private Locale f330a;
 
     public ak(Context context) {
-        this.f320a = context.getResources().getConfiguration().locale;
+        this.f330a = context.getResources().getConfiguration().locale;
     }
 
     @Override // android.text.method.ReplacementTransformationMethod, android.text.method.TransformationMethod
     public CharSequence getTransformation(CharSequence charSequence, View view) {
         CharSequence transformation = super.getTransformation(charSequence, view);
         if (transformation != null) {
-            return transformation.toString().toUpperCase(this.f320a);
+            return transformation.toString().toUpperCase(this.f330a);
         }
         return null;
     }

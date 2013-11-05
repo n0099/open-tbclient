@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.util.at;
+import com.baidu.tieba.data.chat.ChatData;
+import com.baidu.tieba.data.chat.ChatMessageData;
+import com.baidu.tieba.util.bc;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.Date;
@@ -15,15 +17,15 @@ import java.util.Date;
 public class j extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private ChatActivity f966a;
-    private com.baidu.tieba.data.a.c b = null;
+    private ChatActivity f1104a;
+    private ChatData b = null;
     private int c = 0;
     private com.baidu.tieba.util.a d;
 
     public j(ChatActivity chatActivity) {
-        this.f966a = null;
+        this.f1104a = null;
         this.d = null;
-        this.f966a = chatActivity;
+        this.f1104a = chatActivity;
         this.d = new com.baidu.tieba.util.a(chatActivity);
     }
 
@@ -31,8 +33,8 @@ public class j extends BaseAdapter {
         return this.d;
     }
 
-    public void a(com.baidu.tieba.data.a.c cVar) {
-        this.b = cVar;
+    public void a(ChatData chatData) {
+        this.b = chatData;
     }
 
     public void a(int i) {
@@ -45,81 +47,81 @@ public class j extends BaseAdapter {
         if (view == null) {
             view = b(itemViewType);
         }
-        a((k) view.getTag(), (com.baidu.tieba.data.a.d) getItem(i), i, itemViewType);
+        a((l) view.getTag(), (ChatMessageData) getItem(i), i, itemViewType);
         return view;
     }
 
     private View b(int i) {
         View inflate;
-        k kVar = new k(this, null);
-        LayoutInflater from = LayoutInflater.from(this.f966a);
+        l lVar = new l(this);
+        LayoutInflater from = LayoutInflater.from(this.f1104a);
         if (i == 0) {
             inflate = from.inflate(R.layout.chat_item_opposite, (ViewGroup) null);
         } else {
             inflate = from.inflate(R.layout.chat_item_own, (ViewGroup) null);
         }
-        kVar.f967a = (HeadImageView) inflate.findViewById(R.id.photo);
-        kVar.b = (TbRichTextView) inflate.findViewById(R.id.text);
-        kVar.c = (TextView) inflate.findViewById(R.id.time);
-        kVar.f967a.setOnClickListener(this.f966a);
-        kVar.b.setOnLongClickListener(this.f966a);
-        inflate.setTag(kVar);
+        lVar.f1105a = (HeadImageView) inflate.findViewById(R.id.photo);
+        lVar.b = (TbRichTextView) inflate.findViewById(R.id.text);
+        lVar.c = (TextView) inflate.findViewById(R.id.time);
+        lVar.f1105a.setOnClickListener(this.f1104a);
+        lVar.b.setOnLongClickListener(this.f1104a);
+        inflate.setTag(lVar);
         return inflate;
     }
 
-    private void a(k kVar, com.baidu.tieba.data.a.d dVar, int i, int i2) {
-        long f;
-        String b;
+    private void a(l lVar, ChatMessageData chatMessageData, int i, int i2) {
+        long serverTime;
+        String userPortrait;
         if (i <= 0) {
-            f = dVar.f();
+            serverTime = chatMessageData.getServerTime();
         } else {
-            com.baidu.tieba.data.a.d dVar2 = (com.baidu.tieba.data.a.d) getItem(i - 1);
-            f = (dVar2 == null || dVar.f() - dVar2.f() <= 60) ? 0L : dVar.f();
+            ChatMessageData chatMessageData2 = (ChatMessageData) getItem(i - 1);
+            serverTime = (chatMessageData2 == null || chatMessageData.getServerTime() - chatMessageData2.getServerTime() <= 60) ? 0L : chatMessageData.getServerTime();
         }
-        if (f > 0) {
-            kVar.c.setVisibility(0);
-            if (new Date().getDay() != new Date(f * 1000).getDay()) {
-                kVar.c.setText(at.a(new Date(f * 1000)));
+        if (serverTime > 0) {
+            lVar.c.setVisibility(0);
+            if (new Date().getDay() != new Date(serverTime * 1000).getDay()) {
+                lVar.c.setText(bc.a(new Date(serverTime * 1000)));
             } else {
-                kVar.c.setText(at.b(new Date(f * 1000)));
+                lVar.c.setText(bc.b(new Date(serverTime * 1000)));
             }
         } else {
-            kVar.c.setVisibility(8);
+            lVar.c.setVisibility(8);
         }
-        kVar.b.setVoiceViewRes(R.layout.voice_play_btn);
-        kVar.b.setText(dVar.a(this.f966a));
-        kVar.b.setTag(dVar);
-        if (dVar.e() == 1) {
-            kVar.f967a.setUserId(dVar.d());
-            b = this.b.a();
+        lVar.b.setVoiceViewRes(R.layout.voice_play_btn);
+        lVar.b.setText(chatMessageData.getRichText(this.f1104a));
+        lVar.b.setTag(chatMessageData);
+        if (chatMessageData.getStatus() == 1) {
+            lVar.f1105a.setUserId(chatMessageData.getFriendId());
+            userPortrait = this.b.getFriendPortrait();
         } else {
-            kVar.f967a.setUserId(dVar.c());
-            b = this.b.b();
+            lVar.f1105a.setUserId(chatMessageData.getOwnerId());
+            userPortrait = this.b.getUserPortrait();
         }
-        com.baidu.adp.widget.a.c c = this.d.c(b);
+        com.baidu.adp.widget.ImageView.e c = this.d.c(userPortrait);
         if (c != null) {
-            c.a(kVar.f967a);
+            c.a(lVar.f1105a);
         } else {
-            kVar.f967a.setTag(b);
-            kVar.f967a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.util.e.a((int) R.drawable.photo)));
+            lVar.f1105a.setTag(userPortrait);
+            lVar.f1105a.setBackgroundDrawable(new BitmapDrawable(com.baidu.tieba.util.e.a((int) R.drawable.photo)));
         }
         if (this.c == 1) {
             if (i2 == 0) {
-                kVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_friends_1);
+                lVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_friends_1);
             } else {
-                kVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_me_1);
+                lVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_me_1);
             }
-            kVar.b.setTextColor(this.f966a.getResources().getColor(R.color.gray_night_4));
-            kVar.c.setTextColor(this.f966a.getResources().getColor(R.color.gray_night_2));
+            lVar.b.setTextColor(this.f1104a.getResources().getColor(R.color.gray_night_4));
+            lVar.c.setTextColor(this.f1104a.getResources().getColor(R.color.gray_night_2));
             return;
         }
         if (i2 == 0) {
-            kVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_friends);
+            lVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_friends);
         } else {
-            kVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_me);
+            lVar.b.setBackgroundResource(R.drawable.bj_bubble_chat_me);
         }
-        kVar.b.setTextColor(this.f966a.getResources().getColor(R.color.black));
-        kVar.c.setTextColor(this.f966a.getResources().getColor(R.color.white));
+        lVar.b.setTextColor(this.f1104a.getResources().getColor(R.color.black));
+        lVar.c.setTextColor(this.f1104a.getResources().getColor(R.color.white));
     }
 
     @Override // android.widget.Adapter
@@ -127,7 +129,7 @@ public class j extends BaseAdapter {
         if (this.b == null) {
             return 0;
         }
-        return this.b.d().size();
+        return this.b.getChatList().size();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -137,10 +139,10 @@ public class j extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (i < 0 || i >= this.b.d().size()) {
+        if (i < 0 || i >= this.b.getChatList().size()) {
             return 0;
         }
-        return this.b.d().get(i).e() == 1 ? 0 : 1;
+        return this.b.getChatList().get(i).getStatus() == 1 ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
@@ -148,7 +150,7 @@ public class j extends BaseAdapter {
         if (this.b == null) {
             return null;
         }
-        return this.b.a(i);
+        return this.b.getMsg(i);
     }
 
     @Override // android.widget.Adapter

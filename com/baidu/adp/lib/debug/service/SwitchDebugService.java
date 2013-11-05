@@ -29,7 +29,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     private static int f = BdWebErrorView.ERROR_CODE_500;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Properties f427a = null;
+    public static Properties f477a = null;
     private SensorManager g = null;
     private Vibrator h = null;
     private long i = 0;
@@ -58,14 +58,14 @@ public class SwitchDebugService extends Service implements SensorEventListener {
     }
 
     private static void a(AssetManager assetManager) {
-        if (f427a == null) {
+        if (f477a == null) {
             synchronized (SwitchDebugService.class) {
-                if (f427a == null) {
-                    f427a = new Properties();
+                if (f477a == null) {
+                    f477a = new Properties();
                     try {
-                        f427a.load(assetManager.open("debug/debug_ascii.conf"));
+                        f477a.load(assetManager.open("debug/debug_ascii.conf"));
                     } catch (IOException e2) {
-                        f427a = null;
+                        f477a = null;
                         e2.printStackTrace();
                     }
                 }

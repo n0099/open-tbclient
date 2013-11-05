@@ -8,24 +8,24 @@ import org.json.JSONObject;
 public class u implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f568a;
+    private Context f647a;
     private long b = -1;
 
     public u(Context context) {
-        this.f568a = null;
-        this.f568a = context;
+        this.f647a = null;
+        this.f647a = context;
     }
 
     public void a() {
         JSONObject jSONObject = new JSONObject();
-        String deviceID = DeviceId.getDeviceID(this.f568a);
+        String deviceID = DeviceId.getDeviceID(this.f647a);
         this.b = System.currentTimeMillis();
         try {
             jSONObject.put("req", d.SEND_USERDATA.ordinal());
             jSONObject.put("deviceid", deviceID);
             jSONObject.put("time", this.b);
             jSONObject.put("ccode", k.a(deviceID, "MhxzKhl", this.b));
-            i.a(this.f568a).a(jSONObject.toString(), this);
+            i.a(this.f647a).a(jSONObject.toString(), this);
         } catch (JSONException e) {
         }
     }
@@ -33,14 +33,14 @@ public class u implements q {
     @Override // com.baidu.android.nebula.a.q
     public void a(r rVar) {
         if (rVar.i() == 200) {
-            if (e.a(this.f568a).e()) {
-                new n(this.f568a).a();
+            if (e.a(this.f647a).e()) {
+                new n(this.f647a).a();
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - c.a(this.f568a, currentTimeMillis) > c.a(this.f568a) * 1000) {
-                new o(this.f568a).a();
-                c.b(this.f568a, currentTimeMillis);
+            if (currentTimeMillis - c.a(this.f647a, currentTimeMillis) > c.a(this.f647a) * 1000) {
+                new o(this.f647a).a();
+                c.b(this.f647a, currentTimeMillis);
             }
         }
     }

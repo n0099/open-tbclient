@@ -1,13 +1,13 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.Date;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Date f983a;
+    private Date f1120a;
     private String b;
     private int c;
 
@@ -34,15 +34,15 @@ public abstract class a {
             b(new JSONObject(str));
         } catch (Exception e) {
             a("你的网络状况不大好，请稍后重试");
-            com.baidu.tieba.util.av.a("error = " + e.getMessage());
+            com.baidu.tieba.util.be.a("error = " + e.getMessage());
         }
     }
 
     public void b(JSONObject jSONObject) {
         try {
-            this.c = jSONObject.optInt("error_code", 0);
+            this.c = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0);
             if (this.c != 0) {
-                a(jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "你的网络状况不大好，请稍后重试"));
+                a(jSONObject.optString("error_msg", "你的网络状况不大好，请稍后重试"));
                 return;
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
@@ -55,12 +55,12 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.f983a = new Date(optLong * 1000);
+                this.f1120a = new Date(optLong * 1000);
             }
             a(jSONObject);
         } catch (Exception e) {
             a("你的网络状况不大好，请稍后重试");
-            com.baidu.tieba.util.av.a("error = " + e.getMessage());
+            com.baidu.tieba.util.be.a("error = " + e.getMessage());
         }
     }
 }

@@ -5,22 +5,21 @@ import android.view.animation.Animation;
 class z implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f2136a;
+    final /* synthetic */ LogoActivity f2680a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(LogoActivity logoActivity) {
-        this.f2136a = logoActivity;
+        this.f2680a = logoActivity;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         boolean z;
-        this.f2136a.b = true;
-        z = this.f2136a.c;
-        if (!z) {
-            return;
+        this.f2680a.b = true;
+        z = this.f2680a.c;
+        if (z) {
+            this.f2680a.a(this.f2680a.getBaseContext());
         }
-        this.f2136a.a(this.f2136a.getBaseContext());
     }
 
     @Override // android.view.animation.Animation.AnimationListener

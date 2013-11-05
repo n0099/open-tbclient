@@ -7,16 +7,16 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Random;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tieba.guide.e {
+public class b extends com.baidu.tieba.guide.f {
     private Context i;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1173a = 12;
+    private int f1308a = 12;
     private int b = 10;
     private float c = 1.0f;
     private float d = -20.0f;
@@ -157,21 +157,21 @@ public class b extends com.baidu.tieba.guide.e {
         canvas.drawBitmap(this.m, this.v, null);
     }
 
-    @Override // com.baidu.tieba.guide.e, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         this.z.setAlpha(i);
     }
 
-    @Override // com.baidu.tieba.guide.e, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
     }
 
-    @Override // com.baidu.tieba.guide.e, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
     public int getOpacity() {
         return 0;
     }
 
-    @Override // com.baidu.tieba.guide.e
+    @Override // com.baidu.tieba.guide.f
     public void a() {
         int i = Util.MASK_8BIT;
         if (this.Q && this.C != 0) {
@@ -187,11 +187,11 @@ public class b extends com.baidu.tieba.guide.e {
             this.t.postTranslate(this.I, this.F);
             this.u.postTranslate(this.J, this.G);
             this.v.postTranslate(this.K, this.H);
-            this.f += this.f1173a;
+            this.f += this.f1308a;
             if (this.f > 255 || this.f < 0) {
                 this.f = this.f > 255 ? 255 : this.f;
                 this.f = this.f < 0 ? 0 : this.f;
-                this.f1173a = -this.f1173a;
+                this.f1308a = -this.f1308a;
             }
             this.g += this.b;
             if (this.g > 255 || this.g < 0) {
@@ -205,19 +205,19 @@ public class b extends com.baidu.tieba.guide.e {
         }
     }
 
-    @Override // com.baidu.tieba.guide.e
+    @Override // com.baidu.tieba.guide.f
     public boolean b() {
         return this.C != 0;
     }
 
-    @Override // com.baidu.tieba.guide.e
+    @Override // com.baidu.tieba.guide.f
     public void a(int i, float f, int i2) {
         this.C = i;
         this.D = f;
         this.E = i2;
     }
 
-    @Override // com.baidu.tieba.guide.e
+    @Override // com.baidu.tieba.guide.f
     public void c() {
         this.P = true;
         try {
@@ -229,7 +229,7 @@ public class b extends com.baidu.tieba.guide.e {
             this.o.recycle();
             this.p.recycle();
         } catch (Exception e) {
-            av.b(getClass().getName(), "releaseResource", e.toString());
+            be.b(getClass().getName(), "releaseResource", e.toString());
         }
     }
 }

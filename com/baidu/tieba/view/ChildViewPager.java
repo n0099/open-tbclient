@@ -8,13 +8,13 @@ import android.view.MotionEvent;
 public class ChildViewPager extends ViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    PointF f1938a;
+    PointF f2470a;
     PointF b;
     f c;
 
     public ChildViewPager(Context context) {
         super(context);
-        this.f1938a = new PointF();
+        this.f2470a = new PointF();
         this.b = new PointF();
     }
 
@@ -28,14 +28,14 @@ public class ChildViewPager extends ViewPager {
         this.b.x = motionEvent.getX();
         this.b.y = motionEvent.getY();
         if (motionEvent.getAction() == 0) {
-            this.f1938a.x = motionEvent.getX();
-            this.f1938a.y = motionEvent.getY();
+            this.f2470a.x = motionEvent.getX();
+            this.f2470a.y = motionEvent.getY();
             getParent().requestDisallowInterceptTouchEvent(true);
         }
         if (motionEvent.getAction() == 2) {
             getParent().requestDisallowInterceptTouchEvent(true);
         }
-        if (motionEvent.getAction() != 1 || Math.abs(this.f1938a.x - this.b.x) + Math.abs(this.f1938a.y - this.b.y) >= 3.0f) {
+        if (motionEvent.getAction() != 1 || Math.abs(this.f2470a.x - this.b.x) + Math.abs(this.f2470a.y - this.b.y) >= 3.0f) {
             return super.onTouchEvent(motionEvent);
         }
         g();

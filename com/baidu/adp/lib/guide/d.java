@@ -11,14 +11,14 @@ import android.view.animation.AnimationUtils;
 public class d implements View.OnClickListener, View.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f442a;
+    static final /* synthetic */ boolean f495a;
     private Configuration b;
     private i c;
     private b[] d;
     private h e;
 
     static {
-        f442a = !d.class.desiredAssertionStatus();
+        f495a = !d.class.desiredAssertionStatus();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,7 +45,7 @@ public class d implements View.OnClickListener, View.OnKeyListener {
             viewGroup.addView(this.c);
             if (this.b.i != -1) {
                 Animation loadAnimation = AnimationUtils.loadAnimation(activity, this.b.i);
-                if (!f442a && loadAnimation == null) {
+                if (!f495a && loadAnimation == null) {
                     throw new AssertionError();
                 }
                 loadAnimation.setAnimationListener(new e(this));
@@ -61,11 +61,11 @@ public class d implements View.OnClickListener, View.OnKeyListener {
         if (this.c != null && (viewGroup = (ViewGroup) this.c.getParent()) != null) {
             if (this.b.j != -1) {
                 Context context = this.c.getContext();
-                if (!f442a && context == null) {
+                if (!f495a && context == null) {
                     throw new AssertionError();
                 }
                 Animation loadAnimation = AnimationUtils.loadAnimation(context, this.b.j);
-                if (!f442a && loadAnimation == null) {
+                if (!f495a && loadAnimation == null) {
                     throw new AssertionError();
                 }
                 loadAnimation.setAnimationListener(new f(this, viewGroup));
@@ -109,8 +109,8 @@ public class d implements View.OnClickListener, View.OnKeyListener {
                 e7.printStackTrace();
             }
         }
-        if (this.b.f441a != null) {
-            iVar.a(a.a(this.b.f441a, 0, i));
+        if (this.b.f494a != null) {
+            iVar.a(a.a(this.b.f494a, 0, i));
         } else {
             View findViewById = activity.findViewById(this.b.d);
             if (findViewById != null) {

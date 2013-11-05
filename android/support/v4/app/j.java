@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    j f284a;
+    j f294a;
     j b;
     int c;
     Fragment d;

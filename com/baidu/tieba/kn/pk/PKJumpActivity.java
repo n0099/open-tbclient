@@ -10,13 +10,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-import com.baidu.tieba.util.as;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PKJumpActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
+public class PKJumpActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.o {
 
     /* renamed from: a  reason: collision with root package name */
-    static s f1270a;
+    static s f1765a;
     private g b;
     private String c;
     private BdPullRefreshScrollView d;
@@ -43,7 +43,7 @@ public class PKJumpActivity extends com.baidu.tieba.j implements View.OnClickLis
             a(sVar.c());
             return;
         }
-        f1270a = sVar;
+        f1765a = sVar;
         new Handler().postDelayed(new f(this, sVar), 300L);
     }
 
@@ -69,9 +69,9 @@ public class PKJumpActivity extends com.baidu.tieba.j implements View.OnClickLis
         View findViewById = findViewById(R.id.title);
         this.f = (ImageView) findViewById(R.id.back);
         this.f.setOnClickListener(this);
-        as.a(this.f, 0);
-        as.d(findViewById, 0);
-        as.f(this.g, 0);
+        bb.a(this.f, 0);
+        bb.d(findViewById, 0);
+        bb.f(this.g, 0);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -95,7 +95,7 @@ public class PKJumpActivity extends com.baidu.tieba.j implements View.OnClickLis
         this.b.execute("");
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.n
+    @Override // com.baidu.adp.widget.ScrollView.o
     public void a() {
         c();
     }

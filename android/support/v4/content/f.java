@@ -16,7 +16,7 @@ public class f {
     private static f g;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f302a;
+    private final Context f312a;
     private final HashMap<BroadcastReceiver, ArrayList<IntentFilter>> b = new HashMap<>();
     private final HashMap<String, ArrayList<i>> c = new HashMap<>();
     private final ArrayList<h> d = new ArrayList<>();
@@ -34,7 +34,7 @@ public class f {
     }
 
     private f(Context context) {
-        this.f302a = context;
+        this.f312a = context;
         this.e = new g(this, context.getMainLooper());
     }
 
@@ -95,7 +95,7 @@ public class f {
         ArrayList arrayList;
         synchronized (this.b) {
             String action = intent.getAction();
-            String resolveTypeIfNeeded = intent.resolveTypeIfNeeded(this.f302a.getContentResolver());
+            String resolveTypeIfNeeded = intent.resolveTypeIfNeeded(this.f312a.getContentResolver());
             Uri data = intent.getData();
             String scheme = intent.getScheme();
             Set<String> categories = intent.getCategories();
@@ -113,7 +113,7 @@ public class f {
                 while (i < arrayList2.size()) {
                     i iVar = arrayList2.get(i);
                     if (z) {
-                        Log.v("LocalBroadcastManager", "Matching against filter " + iVar.f305a);
+                        Log.v("LocalBroadcastManager", "Matching against filter " + iVar.f315a);
                     }
                     if (iVar.c) {
                         if (z) {
@@ -122,7 +122,7 @@ public class f {
                         }
                         arrayList = arrayList3;
                     } else {
-                        int match = iVar.f305a.match(action, resolveTypeIfNeeded, scheme, data, categories, "LocalBroadcastManager");
+                        int match = iVar.f315a.match(action, resolveTypeIfNeeded, scheme, data, categories, "LocalBroadcastManager");
                         if (match >= 0) {
                             if (z) {
                                 Log.v("LocalBroadcastManager", "  Filter matched!  match=0x" + Integer.toHexString(match));
@@ -187,7 +187,7 @@ public class f {
             }
             for (h hVar : hVarArr) {
                 for (int i = 0; i < hVar.b.size(); i++) {
-                    hVar.b.get(i).b.onReceive(this.f302a, hVar.f304a);
+                    hVar.b.get(i).b.onReceive(this.f312a, hVar.f314a);
                 }
             }
         }

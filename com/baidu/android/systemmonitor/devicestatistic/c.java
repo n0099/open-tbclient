@@ -5,7 +5,7 @@ import android.provider.BaseColumns;
 public final class c implements BaseColumns {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f719a = {"_id", "startstamp", "stopstamp"};
+    public static final String[] f798a = {"_id", "startstamp", "stopstamp"};
     public static final String[] b = {"_id", "startstamp", "stopstamp", "chargetype", "startlevel", "stoplevel", "loc", "netype"};
     public static final String[] c = {"_id", "startstamp", "stopstamp", "flow", "netype"};
     public static final String[] d = {"_id", "startstamp", "pconum", "sconum", "msnum", "msinfo", "calognum", "caloginfo", "sdfall", "pfall", "pphnum", "sphnum", "pmpnum", "smpnum", "stvnum"};

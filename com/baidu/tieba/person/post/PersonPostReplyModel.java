@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
-public class PersonPostReplyModel extends com.baidu.adp.a.c implements Serializable {
+public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializable {
     public static final int PAGE_SIZE = 20;
     public static f sFetchReplyAsyncTask;
     @SerializedName("post_list")
@@ -16,12 +16,12 @@ public class PersonPostReplyModel extends com.baidu.adp.a.c implements Serializa
     static int mReplyPn = 0;
     static String mLastReplyUid = "";
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
         return false;
     }

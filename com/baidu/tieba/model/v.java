@@ -1,81 +1,132 @@
 package com.baidu.tieba.model;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.a.c {
+public class v extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.r> {
 
     /* renamed from: a  reason: collision with root package name */
-    private w f1458a = null;
-    private y b = null;
-    private aa c = null;
+    final /* synthetic */ t f1961a;
+    private com.baidu.tieba.a.f b = null;
+    private int c;
 
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        return false;
+    public v(t tVar, int i) {
+        this.f1961a = tVar;
+        this.c = 1;
+        this.c = i;
+        setPriority(3);
     }
 
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        a();
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public com.baidu.tieba.data.r a(Object... objArr) {
+        boolean z;
+        com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
+        this.b = new com.baidu.tieba.a.f();
+        z = this.f1961a.c;
+        if (!z) {
+            rVar.a(true);
+            return rVar;
+        }
+        int i = this.c;
+        if (i == 0) {
+            return e();
+        }
+        if (i == 1) {
+            if (UtilHelper.i(TiebaApplication.g().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+                return d();
+            }
+            return e();
+        }
+        return rVar;
     }
 
-    public void a() {
-        if (this.f1458a != null) {
-            this.f1458a.cancel();
-            this.f1458a = null;
+    private com.baidu.tieba.data.r d() {
+        com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
+        String g = this.b.g();
+        if (this.b.c()) {
+            rVar.a(g);
+            a(g);
         }
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
+        return rVar;
+    }
+
+    private com.baidu.tieba.data.r e() {
+        boolean z;
+        com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
+        String str = null;
+        z = this.f1961a.c;
+        if (z) {
+            str = DatabaseService.d();
         }
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+        if (str != null) {
+            rVar.a(str);
+            if (rVar.b() && !rVar.c()) {
+                rVar.a().b();
+            }
+        }
+        return rVar;
+    }
+
+    private void a(String str) {
+        boolean z;
+        z = this.f1961a.c;
+        if (z) {
+            DatabaseService.e(str);
         }
     }
 
-    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.f1458a != null) {
-            this.f1458a.cancel();
-            this.f1458a = null;
-        }
-        this.mLoadDataMode = 0;
-        this.f1458a = new w(this, str, str2, str3, str4, i, i2, z);
-        this.f1458a.setPriority(2);
-        this.f1458a.execute(new String[0]);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        this.f1961a.f1959a = null;
     }
 
-    public boolean b() {
-        return (this.f1458a == null && this.b == null && this.c == null) ? false : true;
-    }
-
-    public void a(String str, String str2, String str3, String str4, int i) {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.r rVar) {
+        w wVar;
+        w wVar2;
+        com.baidu.tieba.data.r rVar2;
+        w wVar3;
+        com.baidu.tieba.data.r rVar3;
+        w wVar4;
+        this.f1961a.f1959a = null;
+        this.f1961a.b = rVar;
+        u uVar = new u(this.f1961a);
+        uVar.c = this.c;
+        wVar = this.f1961a.d;
+        if (wVar != null) {
+            if (this.c != 0 && (this.b == null || !this.b.c())) {
+                rVar2 = this.f1961a.b;
+                if (rVar2 != null) {
+                    rVar3 = this.f1961a.b;
+                    if (rVar3.b()) {
+                        uVar.b = true;
+                        uVar.d = rVar;
+                        wVar4 = this.f1961a.d;
+                        wVar4.a(uVar);
+                        return;
+                    }
+                }
+                String d = this.b != null ? this.b.d() : null;
+                uVar.b = false;
+                uVar.f1960a = d;
+                uVar.d = rVar;
+                wVar3 = this.f1961a.d;
+                wVar3.a(uVar);
+                return;
+            }
+            uVar.b = true;
+            uVar.d = rVar;
+            wVar2 = this.f1961a.d;
+            wVar2.a(uVar);
         }
-        this.mLoadDataMode = 1;
-        this.b = new y(this, str, str2, str3, str4, String.valueOf(i));
-        this.b.setPriority(2);
-        this.b.execute(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/bawu/commitprison");
-    }
-
-    public void a(String str, String str2, String str3, int i, String str4) {
-        String str5;
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
-        }
-        this.mLoadDataMode = i;
-        this.c = new aa(this, str, str2, str3, i, str4);
-        this.c.setPriority(2);
-        String str6 = com.baidu.tieba.data.g.f1032a;
-        if (i == 6) {
-            str5 = String.valueOf(str6) + "c/c/bawu/goodlist";
-        } else if (i == 2 || i == 3) {
-            str5 = String.valueOf(str6) + "c/c/bawu/commitgood";
-        } else {
-            str5 = String.valueOf(str6) + "c/c/bawu/committop";
-        }
-        this.c.execute(str5);
     }
 }

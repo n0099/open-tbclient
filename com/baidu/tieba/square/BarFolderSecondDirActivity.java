@@ -7,6 +7,7 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
@@ -27,7 +28,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         this.o = getIntent().getStringExtra("menuType");
         this.p = getIntent().getStringExtra("menuId");
         d();
-        m();
+        f();
         e();
         StatService.onEvent(this, "category_2", "enter");
     }
@@ -44,7 +45,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
     @Override // com.baidu.tieba.a, com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.as.c(this.m, i);
+        bb.c(this.m, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,7 +70,7 @@ public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
         this.m.setOnClickListener(this);
     }
 
-    protected void m() {
+    protected void f() {
         this.j.setVisibility(0);
         this.e.setEnabled(false);
         if (this.l != null) {

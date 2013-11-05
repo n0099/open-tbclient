@@ -2,27 +2,28 @@ package com.baidu.tieba;
 
 import com.baidu.tieba.BaiduAccount.BaiduAccount;
 import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements BaiduAccount.BaiduOnAccountsUpdateListener {
+public final class g implements BaiduAccount.BaiduOnAccountsUpdateListener {
     @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.BaiduOnAccountsUpdateListener
     public void onAccountsUpdated(String str) {
-        com.baidu.tieba.util.av.e(getClass().getName(), "onAccountsUpdated", "account =" + str);
-        if ((str != null && str.equals(TiebaApplication.G())) || TiebaApplication.F() == null) {
-            return;
-        }
-        f.b(TiebaApplication.C());
-        AccountData F = TiebaApplication.F();
-        if (F != null) {
-            F.setBDUSS(null);
-            F.setAccount(str);
-            F.setID(null);
-            F.setIsActive(1);
-        }
-        com.baidu.tieba.mention.s.a().a(true);
-        TiebaApplication.g().R();
-        if (str == null || str.equals("BaiduUser")) {
-            TiebaApplication.g().d(0);
+        be.e(getClass().getName(), "onAccountsUpdated", "account =" + str);
+        if ((str == null || !str.equals(TiebaApplication.H())) && TiebaApplication.G() != null) {
+            f.b(TiebaApplication.C());
+            AccountData G = TiebaApplication.G();
+            if (G != null) {
+                G.setPortrait(null);
+                G.setAccount(str);
+                G.setID(null);
+                G.setIsActive(1);
+                TiebaApplication.k((String) null);
+            }
+            com.baidu.tieba.mention.t.a().a(true);
+            TiebaApplication.g().S();
+            if (str == null || str.equals("BaiduUser")) {
+                TiebaApplication.g().d(0);
+            }
         }
     }
 }

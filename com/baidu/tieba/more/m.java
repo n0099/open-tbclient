@@ -1,21 +1,58 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.be;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements DialogInterface.OnCancelListener {
+public class m extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ l f1497a;
+    final /* synthetic */ AccountActivity f2014a;
+    private AccountData b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar) {
-        this.f1497a = lVar;
+    public m(AccountActivity accountActivity, AccountData accountData) {
+        this.f2014a = accountActivity;
+        this.b = null;
+        this.b = accountData;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        AccountActivity accountActivity;
-        accountActivity = this.f1497a.f1496a;
-        accountActivity.h();
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        this.f2014a.a(this.f2014a.getString(R.string.account_logining), new n(this));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Boolean a(Object... objArr) {
+        try {
+            Thread.sleep(1000L);
+            this.b.setIsActive(1);
+            DatabaseService.a(this.b);
+            TiebaApplication.a(this.b, this.f2014a.getBaseContext());
+        } catch (Exception e) {
+            be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+        }
+        return true;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        if (this.b != null) {
+            new o(this.f2014a, this.b.getBDUSS()).start();
+        }
+        this.f2014a.j();
+        MainTabActivity.b(this.f2014a, 1);
+        com.baidu.tieba.account.a.a().b();
+        this.f2014a.g = null;
     }
 }

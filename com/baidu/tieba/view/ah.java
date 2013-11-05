@@ -17,7 +17,7 @@ import java.util.Date;
 public class ah extends LinearLayout implements com.baidu.adp.widget.ScrollView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animation f1971a;
+    private Animation f2504a;
     private Animation b;
     private ProgressBar c;
     private ImageView d;
@@ -27,9 +27,9 @@ public class ah extends LinearLayout implements com.baidu.adp.widget.ScrollView.
 
     public ah(Context context) {
         this(context, null);
-        this.f1971a = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_down_to_up);
+        this.f2504a = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_down_to_up);
         this.b = AnimationUtils.loadAnimation(getContext(), R.anim.arrow_up_to_down);
-        this.f1971a.setFillAfter(true);
+        this.f2504a.setFillAfter(true);
         this.b.setFillAfter(true);
         LayoutInflater.from(context).inflate(R.layout.image_frs_pullview, this);
         this.c = (ProgressBar) findViewById(R.id.head_layout_left_progressbar);
@@ -54,7 +54,7 @@ public class ah extends LinearLayout implements com.baidu.adp.widget.ScrollView.
 
     @Override // com.baidu.adp.widget.ScrollView.c
     public void b() {
-        this.d.startAnimation(this.f1971a);
+        this.d.startAnimation(this.f2504a);
         this.g = true;
         this.e.setText(getResources().getString(R.string.pulldown_loosen));
     }
@@ -78,7 +78,7 @@ public class ah extends LinearLayout implements com.baidu.adp.widget.ScrollView.
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
         Date date = new Date(System.currentTimeMillis());
         this.f.setVisibility(0);
-        this.f.setText(String.valueOf(getResources().getString(R.string.pulldown_lasttime)) + simpleDateFormat.format(date));
+        this.f.setText(getResources().getString(R.string.pulldown_lasttime) + simpleDateFormat.format(date));
     }
 
     public LinearLayout getRealView() {

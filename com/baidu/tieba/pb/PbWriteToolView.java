@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class PbWriteToolView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1517a;
+    private Context f2034a;
     private boolean b;
     private ImageView c;
     private ImageView d;
@@ -26,7 +26,7 @@ public class PbWriteToolView extends LinearLayout {
     public PbWriteToolView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.b = false;
-        this.f1517a = context;
+        this.f2034a = context;
         h();
         a(attributeSet);
     }
@@ -40,14 +40,14 @@ public class PbWriteToolView extends LinearLayout {
     }
 
     private void h() {
-        LayoutInflater.from(this.f1517a).inflate(R.layout.pb_write_tool_view, (ViewGroup) this, true);
+        LayoutInflater.from(this.f2034a).inflate(R.layout.pb_write_tool_view, (ViewGroup) this, true);
         this.c = (ImageView) findViewById(R.id.pb_button_camera1);
         this.d = (ImageView) findViewById(R.id.pb_button_face1);
         this.e = (ImageView) findViewById(R.id.pb_button_at1);
         this.f = (AudioIcon) findViewById(R.id.audio_button1);
-        a(TiebaApplication.g().ap());
+        a(TiebaApplication.g().as());
         this.f.d();
-        setPadding(UtilHelper.a(this.f1517a, 6.0f), 0, UtilHelper.a(this.f1517a, 6.0f), 0);
+        setPadding(UtilHelper.a(this.f2034a, 6.0f), 0, UtilHelper.a(this.f2034a, 6.0f), 0);
     }
 
     public void a(int i) {
@@ -66,7 +66,7 @@ public class PbWriteToolView extends LinearLayout {
 
     public void c() {
         this.b = true;
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.g().as() == 1) {
             this.d.setImageResource(R.drawable.new_pb_keyboard_btn_1);
         } else {
             this.d.setImageResource(R.drawable.new_pb_keyboard_btn);
@@ -76,7 +76,7 @@ public class PbWriteToolView extends LinearLayout {
 
     public void d() {
         this.b = false;
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.g().as() == 1) {
             this.d.setImageResource(R.drawable.new_pb_face_btn_1);
         } else {
             this.d.setImageResource(R.drawable.new_pb_face_btn);
@@ -113,16 +113,16 @@ public class PbWriteToolView extends LinearLayout {
         return this.d;
     }
 
-    public void setActionListener(com.baidu.tieba.more.aa aaVar) {
-        da daVar = new da(this, aaVar);
-        this.c.setOnClickListener(daVar);
-        this.d.setOnClickListener(daVar);
-        this.e.setOnClickListener(daVar);
-        this.f.setOnClickListener(daVar);
+    public void setActionListener(com.baidu.tieba.more.ac acVar) {
+        dc dcVar = new dc(this, acVar);
+        this.c.setOnClickListener(dcVar);
+        this.d.setOnClickListener(dcVar);
+        this.e.setOnClickListener(dcVar);
+        this.f.setOnClickListener(dcVar);
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f1517a.obtainStyledAttributes(attributeSet, com.baidu.tieba.ag.PbWriteToolView);
+        TypedArray obtainStyledAttributes = this.f2034a.obtainStyledAttributes(attributeSet, com.baidu.tieba.al.PbWriteToolView);
         boolean z = obtainStyledAttributes.getBoolean(0, false);
         boolean z2 = obtainStyledAttributes.getBoolean(1, false);
         boolean z3 = obtainStyledAttributes.getBoolean(3, false);

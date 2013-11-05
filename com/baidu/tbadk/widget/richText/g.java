@@ -5,6 +5,8 @@ import android.graphics.Rect;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
+import com.baidu.cloudsdk.common.imgloader.ImageManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -12,38 +14,38 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f844a = 0;
+    private int f973a = 0;
     private b b = null;
     private e c = null;
     private o d = null;
 
     public int a() {
-        return this.f844a;
+        return this.f973a;
     }
 
     public void a(int i, b bVar, e eVar, o oVar) {
-        this.f844a = i;
+        this.f973a = i;
         this.b = bVar;
         this.c = eVar;
         this.d = oVar;
     }
 
     public e b() {
-        if (this.f844a == 8) {
+        if (this.f973a == 8) {
             return this.c;
         }
         return null;
     }
 
     public o c() {
-        if (this.f844a == 512) {
+        if (this.f973a == 512 || this.f973a == 768) {
             return this.d;
         }
         return null;
     }
 
     public SpannableString d() {
-        if (this.f844a != 1 || this.b == null) {
+        if (this.f973a != 1 || this.b == null) {
             return null;
         }
         return new SpannableString(this.b.a());
@@ -51,13 +53,13 @@ public class g {
 
     public CharSequence a(Context context, ArrayList<d> arrayList) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.f844a == 32 && this.b != null) {
+        if (this.f973a == 32 && this.b != null) {
             spannableStringBuilder.append((CharSequence) "视频：");
             CharSequence d = d(context, arrayList);
             if (d != null) {
                 spannableStringBuilder.append(d);
             }
-            SpannableString a2 = a(context, this.f844a, this.b.a(), this.b.a());
+            SpannableString a2 = a(context, this.f973a, this.b.a(), this.b.a());
             if (a2 != null) {
                 spannableStringBuilder.append((CharSequence) a2);
             }
@@ -67,12 +69,12 @@ public class g {
 
     public CharSequence b(Context context, ArrayList<d> arrayList) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.f844a == 128 && this.b != null) {
+        if (this.f973a == 128 && this.b != null) {
             CharSequence d = d(context, arrayList);
             if (d != null) {
                 spannableStringBuilder.append(d);
             }
-            SpannableString a2 = a(context, this.f844a, this.b.b(), this.b.b());
+            SpannableString a2 = a(context, this.f973a, this.b.b(), this.b.b());
             if (a2 != null) {
                 spannableStringBuilder.append((CharSequence) a2);
             }
@@ -87,21 +89,21 @@ public class g {
     }
 
     public String e() {
-        if (this.f844a != 32 || this.b == null) {
+        if (this.f973a != 32 || this.b == null) {
             return null;
         }
         return this.b.a();
     }
 
     public SpannableString a(Context context) {
-        if (this.f844a != 2 || this.b == null) {
+        if (this.f973a != 2 || this.b == null) {
             return null;
         }
-        return a(context, this.f844a, this.b.a(), this.b.b());
+        return a(context, this.f973a, this.b.a(), this.b.b());
     }
 
     public SpannableString b(Context context) {
-        if (this.f844a != 256 || this.b == null) {
+        if (this.f973a != 256 || this.b == null) {
             return null;
         }
         String a2 = this.b.a();
@@ -109,35 +111,35 @@ public class g {
             return null;
         }
         if (!a2.endsWith(" ")) {
-            a2 = String.valueOf(a2) + " ";
+            a2 = a2 + " ";
         }
         SpannableString spannableString = new SpannableString(a2);
-        f fVar = new f(context, this.f844a, a2);
+        f fVar = new f(context, this.f973a, a2);
         fVar.a(this.b.b());
         spannableString.setSpan(fVar, 0, a2.length() - 1, 33);
         return spannableString;
     }
 
     public SpannableString c(Context context) {
-        if (this.f844a != 16 || this.b == null) {
+        if (this.f973a != 16 || this.b == null) {
             return null;
         }
-        return a(context, this.f844a, this.b.a(), this.b.b());
+        return a(context, this.f973a, this.b.a(), this.b.b());
     }
 
     private SpannableString e(Context context, ArrayList<d> arrayList) {
         SpannableString spannableString = null;
-        if (this.f844a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
+        if (this.f973a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
             String a2 = this.b.a();
             String b = this.b.b();
-            int b2 = com.baidu.tbadk.a.a.a().b(a2);
+            int b2 = TbFaceManager.a().b(a2);
             if (b2 != 0) {
-                spannableString = new SpannableString(String.valueOf(b) + " ");
+                spannableString = new SpannableString(b + " ");
                 d dVar = new d(context, b2);
                 if (arrayList != null) {
                     arrayList.add(dVar);
                 }
-                com.baidu.tbadk.a.c c = com.baidu.tbadk.a.a.a().c(a2);
+                com.baidu.tbadk.imageManager.b c = TbFaceManager.a().c(a2);
                 if (c != null) {
                     dVar.setBounds(new Rect(0, 0, c.a(), c.b()));
                 } else {
@@ -154,7 +156,7 @@ public class g {
             return null;
         }
         if (!str.endsWith(" ")) {
-            str = String.valueOf(str) + " ";
+            str = str + " ";
         }
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new f(context, i, str2), 0, str.length() - 1, 33);
@@ -162,7 +164,7 @@ public class g {
     }
 
     public CharSequence c(Context context, ArrayList<d> arrayList) {
-        switch (this.f844a) {
+        switch (this.f973a) {
             case 1:
                 return d();
             case 2:
@@ -185,32 +187,32 @@ public class g {
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f844a = a(jSONObject.optInt("type", 0));
-            if (this.f844a == 8) {
+            this.f973a = a(jSONObject.optInt("type", 0));
+            if (this.f973a == 8) {
                 this.c = new e(jSONObject);
-            } else if (this.f844a == 512) {
+            } else if (this.f973a == 512) {
                 this.d = new o(jSONObject);
-            } else if (this.f844a == 16) {
+            } else if (this.f973a == 16) {
                 this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else {
                 this.b = new b(jSONObject);
-                if (this.f844a == 4) {
+                if (this.f973a == 4) {
                     String str = "[" + jSONObject.optString("c") + "]";
-                    if (com.baidu.tbadk.a.a.a().b(this.b.a()) <= 0) {
-                        this.f844a = 1;
+                    if (TbFaceManager.a().b(this.b.a()) <= 0) {
+                        this.f973a = 1;
                         this.b.a(str);
                     } else {
                         this.b.b(str);
                     }
-                } else if (this.f844a == 256) {
+                } else if (this.f973a == 256) {
                     this.b.b(jSONObject.optString("phonetype"));
                 }
             }
-            if (this.f844a != 1 && this.b != null) {
+            if (this.f973a != 1 && this.b != null) {
                 this.b.c();
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.f.d.a(e.getMessage());
+            com.baidu.adp.lib.h.d.a(e.getMessage());
         }
     }
 
@@ -238,7 +240,7 @@ public class g {
             case 9:
                 return 256;
             case 10:
-                return 512;
+                return ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
         }
     }
 }

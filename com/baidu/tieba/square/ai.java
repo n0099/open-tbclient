@@ -5,6 +5,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.SearchPostModel;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.model.BarSuggestModel;
 import com.baidu.tieba.pb.NewPbActivity;
@@ -13,86 +14,86 @@ import com.baidu.tieba.pb.NewPbActivity;
 public class ai implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f1820a;
+    final /* synthetic */ SquareSearchActivity f2341a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(SquareSearchActivity squareSearchActivity) {
-        this.f1820a = squareSearchActivity;
+        this.f2341a = squareSearchActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         int i2;
-        com.baidu.tieba.home.ao aoVar;
-        com.baidu.tieba.home.ao aoVar2;
-        com.baidu.tieba.home.ao aoVar3;
-        com.baidu.tieba.data.ay ayVar;
-        com.baidu.tieba.data.ay ayVar2;
+        com.baidu.tieba.home.au auVar;
+        com.baidu.tieba.home.au auVar2;
+        com.baidu.tieba.home.au auVar3;
+        SearchPostModel searchPostModel;
+        SearchPostModel searchPostModel2;
         String str;
-        com.baidu.tieba.home.ao aoVar4;
-        com.baidu.tieba.home.ao aoVar5;
-        com.baidu.tieba.data.ay ayVar3;
-        com.baidu.tieba.data.ay ayVar4;
-        com.baidu.tieba.data.ay ayVar5;
+        com.baidu.tieba.home.au auVar4;
+        com.baidu.tieba.home.au auVar5;
+        SearchPostModel searchPostModel3;
+        SearchPostModel searchPostModel4;
+        SearchPostModel searchPostModel5;
         String str2;
-        com.baidu.tieba.home.ao aoVar6;
-        com.baidu.tieba.home.ao aoVar7;
-        i2 = this.f1820a.F;
+        com.baidu.tieba.home.au auVar6;
+        com.baidu.tieba.home.au auVar7;
+        i2 = this.f2341a.F;
         if (i2 != 0) {
-            aoVar = this.f1820a.v;
-            if (aoVar.getItemId(i) != -1) {
-                aoVar2 = this.f1820a.v;
-                if (aoVar2.getItemId(i) != -2) {
-                    aoVar3 = this.f1820a.v;
-                    com.baidu.tieba.data.ax axVar = (com.baidu.tieba.data.ax) aoVar3.getItem(i);
-                    if (axVar != null) {
-                        if (axVar.a()) {
-                            NewPbActivity.a(this.f1820a, axVar.c(), null, "search_post");
-                            return;
-                        } else {
-                            NewPbActivity.a(this.f1820a, axVar.c(), axVar.b(), "search_post");
-                            return;
-                        }
+            auVar = this.f2341a.v;
+            if (auVar.getItemId(i) == -1) {
+                searchPostModel3 = this.f2341a.B;
+                if (searchPostModel3 != null) {
+                    searchPostModel4 = this.f2341a.B;
+                    if (searchPostModel4.getCurrentPage() > 1) {
+                        SquareSearchActivity squareSearchActivity = this.f2341a;
+                        searchPostModel5 = this.f2341a.B;
+                        str2 = this.f2341a.E;
+                        squareSearchActivity.a(searchPostModel5.getCurrentPage() - 1, str2);
+                        auVar6 = this.f2341a.v;
+                        auVar6.a(1);
+                        auVar7 = this.f2341a.v;
+                        auVar7.notifyDataSetChanged();
+                        return;
                     }
-                    return;
-                }
-                ayVar = this.f1820a.B;
-                if (ayVar != null) {
-                    SquareSearchActivity squareSearchActivity = this.f1820a;
-                    ayVar2 = this.f1820a.B;
-                    str = this.f1820a.E;
-                    squareSearchActivity.a(ayVar2.d() + 1, str);
-                    aoVar4 = this.f1820a.v;
-                    aoVar4.a(2);
-                    aoVar5 = this.f1820a.v;
-                    aoVar5.notifyDataSetChanged();
                     return;
                 }
                 return;
             }
-            ayVar3 = this.f1820a.B;
-            if (ayVar3 != null) {
-                ayVar4 = this.f1820a.B;
-                if (ayVar4.d() > 1) {
-                    SquareSearchActivity squareSearchActivity2 = this.f1820a;
-                    ayVar5 = this.f1820a.B;
-                    str2 = this.f1820a.E;
-                    squareSearchActivity2.a(ayVar5.d() - 1, str2);
-                    aoVar6 = this.f1820a.v;
-                    aoVar6.a(1);
-                    aoVar7 = this.f1820a.v;
-                    aoVar7.notifyDataSetChanged();
+            auVar2 = this.f2341a.v;
+            if (auVar2.getItemId(i) == -2) {
+                searchPostModel = this.f2341a.B;
+                if (searchPostModel != null) {
+                    SquareSearchActivity squareSearchActivity2 = this.f2341a;
+                    searchPostModel2 = this.f2341a.B;
+                    str = this.f2341a.E;
+                    squareSearchActivity2.a(searchPostModel2.getCurrentPage() + 1, str);
+                    auVar4 = this.f2341a.v;
+                    auVar4.a(2);
+                    auVar5 = this.f2341a.v;
+                    auVar5.notifyDataSetChanged();
                     return;
                 }
                 return;
+            }
+            auVar3 = this.f2341a.v;
+            com.baidu.tieba.data.ax axVar = (com.baidu.tieba.data.ax) auVar3.getItem(i);
+            if (axVar != null) {
+                if (axVar.a()) {
+                    NewPbActivity.a(this.f2341a, axVar.c(), null, "search_post");
+                    return;
+                } else {
+                    NewPbActivity.a(this.f2341a, axVar.c(), axVar.b(), "search_post");
+                    return;
+                }
             }
             return;
         }
         String str3 = ((BarSuggestModel.Forum) ((ListView) adapterView).getAdapter().getItem(i)).forum_name;
         if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1820a, "search_bar_result_click", "click", 1);
+            StatService.onEvent(this.f2341a, "search_bar_result_click", "click", 1);
         }
-        FrsActivity.a(this.f1820a, str3, "tb_searchlist", 1);
-        this.f1820a.finish();
+        FrsActivity.a(this.f2341a, str3, "tb_searchlist", 1);
+        this.f2341a.finish();
     }
 }

@@ -1,34 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.View;
+import com.baidu.tieba.view.BaseViewPager;
 /* loaded from: classes.dex */
-class u extends BdAsyncTask<String, Integer, Boolean> {
+class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1879a;
-
-    private u(GuideActivity guideActivity) {
-        this.f1879a = guideActivity;
-    }
+    final /* synthetic */ GuideActivity f2401a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ u(GuideActivity guideActivity, u uVar) {
-        this(guideActivity);
+    public u(GuideActivity guideActivity) {
+        this.f2401a = guideActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        return Boolean.valueOf(GuideActivity.f(this.f1879a));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        if (!bool.booleanValue()) {
-            GuideActivity.g(this.f1879a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseViewPager baseViewPager;
+        int[] iArr;
+        BaseViewPager baseViewPager2;
+        baseViewPager = this.f2401a.f;
+        int currentItem = baseViewPager.getCurrentItem();
+        iArr = this.f2401a.c;
+        if (currentItem != iArr.length - 1) {
+            baseViewPager2 = this.f2401a.f;
+            baseViewPager2.a(currentItem + 1, true);
         }
     }
 }

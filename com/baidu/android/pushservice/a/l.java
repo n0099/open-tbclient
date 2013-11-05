@@ -3,11 +3,12 @@ package com.baidu.android.pushservice.a;
 import android.app.PendingIntent;
 import android.content.Intent;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f602a;
+    public String f681a;
     public String b;
     public String c;
     public String d;
@@ -18,7 +19,7 @@ public class l {
     public String i;
 
     public l() {
-        this.f602a = "";
+        this.f681a = "";
         this.b = "";
         this.c = "";
         this.d = "";
@@ -30,7 +31,7 @@ public class l {
     }
 
     public l(Intent intent) {
-        this.f602a = "";
+        this.f681a = "";
         this.b = "";
         this.c = "";
         this.d = "";
@@ -43,16 +44,16 @@ public class l {
         if (pendingIntent != null) {
             this.e = pendingIntent.getTargetPackage();
         }
-        this.d = intent.getStringExtra(PushConstants.EXTRA_ACCESS_TOKEN);
+        this.d = intent.getStringExtra("access_token");
         this.i = intent.getStringExtra(PushConstants.EXTRA_API_KEY);
-        this.f602a = intent.getStringExtra(PushConstants.EXTRA_METHOD);
+        this.f681a = intent.getStringExtra(PushConstants.EXTRA_METHOD);
         this.b = intent.getStringExtra("method_type");
         this.c = intent.getStringExtra("method_version");
-        this.h = intent.getStringExtra("bduss");
+        this.h = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
         this.f = intent.getStringExtra("appid");
     }
 
     public String toString() {
-        return "method=" + this.f602a + ", rsarsaAccessToken=" + this.d + ", packageName=" + this.e + ", appId=" + this.f + ", userId=" + this.g + ", rsaBduss=" + this.h;
+        return "method=" + this.f681a + ", rsarsaAccessToken=" + this.d + ", packageName=" + this.e + ", appId=" + this.f + ", userId=" + this.g + ", rsaBduss=" + this.h;
     }
 }

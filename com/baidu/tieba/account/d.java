@@ -1,54 +1,40 @@
 package com.baidu.tieba.account;
 
-import android.os.Handler;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import com.baidu.loginshare.ILoginShareListener;
+import com.baidu.loginshare.LoginShareEvent;
+import com.baidu.loginshare.Token;
+import com.baidu.tieba.util.be;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements Runnable {
+public class d implements ILoginShareListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f912a;
+    final /* synthetic */ a f1041a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(ActivationActivity activationActivity) {
-        this.f912a = activationActivity;
+    private d(a aVar) {
+        this.f1041a = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
-        int i2;
-        int i3;
-        TextView textView;
-        Handler handler;
-        Runnable runnable;
-        TextView textView2;
-        h hVar;
-        RelativeLayout relativeLayout;
-        ActivationActivity activationActivity = this.f912a;
-        i = activationActivity.q;
-        activationActivity.q = i - 1;
-        i2 = this.f912a.q;
-        if (i2 <= 0) {
-            this.f912a.p = true;
-            textView2 = this.f912a.g;
-            textView2.setText(this.f912a.getString(R.string.resend_code));
-            hVar = this.f912a.o;
-            if (hVar == null) {
-                relativeLayout = this.f912a.m;
-                relativeLayout.setEnabled(true);
+    @Override // com.baidu.loginshare.ILoginShareListener
+    public void onLoginShareEvent(Token token) {
+        if (token != null) {
+            LoginShareEvent loginShareEvent = token.mEvent;
+            String str = token.mUsername;
+            String str2 = token.mBduss;
+            String str3 = token.mPtoken;
+            be.e(getClass().getName(), "onLoginShareEvent", "bduss = " + str2);
+            be.e(getClass().getName(), "onLoginShareEvent", "username = " + str);
+            be.e(getClass().getName(), "onLoginShareEvent", "ptoken = " + str3);
+            if (loginShareEvent == LoginShareEvent.VALID) {
+                if (str2 != null && str3 != null) {
+                    be.e(getClass().getName(), "onLoginShareEvent", "login");
+                    this.f1041a.a(true, str2, str3, str);
+                    return;
+                }
                 return;
             }
-            return;
+            be.e(getClass().getName(), "onLoginShareEvent", "logout");
+            this.f1041a.a(false, null, null, null);
         }
-        String string = this.f912a.getString(R.string.resend_code_second);
-        i3 = this.f912a.q;
-        String format = String.format(string, Integer.valueOf(i3));
-        textView = this.f912a.g;
-        textView.setText(format);
-        handler = this.f912a.s;
-        runnable = this.f912a.B;
-        handler.postDelayed(runnable, 1000L);
     }
 }

@@ -1,30 +1,31 @@
 package com.baidu.tieba.topRec;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.topRec.TRForumListData;
-import com.baidu.tieba.util.av;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<Integer, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    int f1866a;
+    int f2388a;
     int b;
     TRForumListData.TRForum c;
     final /* synthetic */ TopRecActivity d;
-    private z e;
+    private ag e;
 
     private d(TopRecActivity topRecActivity) {
         this.d = topRecActivity;
         this.e = null;
-        this.f1866a = -1;
+        this.f2388a = -1;
         this.b = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(TopRecActivity topRecActivity, d dVar) {
+    public /* synthetic */ d(TopRecActivity topRecActivity, a aVar) {
         this(topRecActivity);
     }
 
@@ -32,21 +33,21 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(Integer... numArr) {
-        int b;
+        int d;
         TRForumListData tRForumListData;
         this.b = numArr[0].intValue();
-        b = this.d.b(this.b);
-        this.f1866a = b;
-        if (this.f1866a >= 0) {
+        d = this.d.d(this.b);
+        this.f2388a = d;
+        if (this.f2388a >= 0) {
             tRForumListData = this.d.f;
-            this.c = tRForumListData.forum_list[this.f1866a];
+            this.c = tRForumListData.forum_list[this.f2388a];
         }
         try {
             if (this.c != null && this.c.forum_id != 0 && this.c.forum_name != null) {
-                this.e = new z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/forum/unfavolike");
+                this.e = new ag(com.baidu.tieba.data.h.f1165a + "c/c/forum/unfavolike");
                 this.e.a("fid", String.valueOf(this.c.forum_id));
                 this.e.a("kw", this.c.forum_name);
-                this.e.a("favo_type", "1");
+                this.e.a("favo_type", SocialConstants.TRUE);
                 this.e.a("st_type", "from_topRec");
                 this.e.e(true);
                 this.e.j();
@@ -54,7 +55,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
             }
             return null;
         } catch (Exception e) {
-            av.b(getClass().getName(), "doInBackground", e.getMessage());
+            be.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -66,11 +67,11 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
         super.a((d) str);
         this.d.e = null;
         if (this.e == null) {
-            this.d.a(this.f1866a, this.c.forum_id);
+            this.d.b(this.f2388a, this.c.forum_id);
         } else if (!this.e.c()) {
-            this.d.a(this.f1866a, this.c.forum_id);
+            this.d.b(this.f2388a, this.c.forum_id);
         } else if (this.c == null) {
-            this.d.a(this.f1866a, this.c.forum_id);
+            this.d.b(this.f2388a, this.c.forum_id);
         } else {
             TiebaApplication.g().f(this.c.forum_name);
             this.d.e();
@@ -84,7 +85,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
             this.e.h();
             this.e = null;
         }
-        hVar = this.d.f1862a;
+        hVar = this.d.f2384a;
         hVar.a(false);
         this.d.e = null;
         super.cancel(true);

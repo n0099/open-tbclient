@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
@@ -28,7 +29,7 @@ public final class Util {
                 hexString = hexString.toUpperCase();
             }
             if (hexString.length() == 1) {
-                sb.append("0");
+                sb.append(SocialConstants.FALSE);
             }
             sb.append(hexString).append(str);
         }

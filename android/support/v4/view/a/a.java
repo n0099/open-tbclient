@@ -5,16 +5,16 @@ import android.os.Build;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final c f315a;
+    private static final c f325a;
     private final Object b;
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            f315a = new d();
+            f325a = new d();
         } else if (Build.VERSION.SDK_INT >= 14) {
-            f315a = new b();
+            f325a = new b();
         } else {
-            f315a = new e();
+            f325a = new e();
         }
     }
 
@@ -27,15 +27,15 @@ public class a {
     }
 
     public void a(int i) {
-        f315a.a(this.b, i);
+        f325a.a(this.b, i);
     }
 
     public void a(boolean z) {
-        f315a.a(this.b, z);
+        f325a.a(this.b, z);
     }
 
     public void a(CharSequence charSequence) {
-        f315a.a(this.b, charSequence);
+        f325a.a(this.b, charSequence);
     }
 
     public int hashCode() {

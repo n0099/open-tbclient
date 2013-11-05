@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 public class i extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private final RectF f446a;
+    private final RectF f499a;
     private final RectF b;
     private final RectF c;
     private final Paint d;
@@ -30,7 +30,7 @@ public class i extends ViewGroup {
 
     public i(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f446a = new RectF();
+        this.f499a = new RectF();
         this.b = new RectF();
         this.c = new RectF();
         this.d = new Paint();
@@ -84,37 +84,37 @@ public class i extends ViewGroup {
         for (int i5 = 0; i5 < childCount; i5++) {
             View childAt = getChildAt(i5);
             if (childAt != null && (jVar = (j) childAt.getLayoutParams()) != null) {
-                switch (jVar.f447a) {
+                switch (jVar.f500a) {
                     case 1:
-                        this.c.right = this.f446a.left;
+                        this.c.right = this.f499a.left;
                         this.c.left = this.c.right - childAt.getMeasuredWidth();
                         b(childAt, this.c, jVar.b);
                         break;
                     case 2:
-                        this.c.bottom = this.f446a.top;
+                        this.c.bottom = this.f499a.top;
                         this.c.top = this.c.bottom - childAt.getMeasuredHeight();
                         a(childAt, this.c, jVar.b);
                         break;
                     case 3:
-                        this.c.left = this.f446a.right;
+                        this.c.left = this.f499a.right;
                         this.c.right = this.c.left + childAt.getMeasuredWidth();
                         b(childAt, this.c, jVar.b);
                         break;
                     case 4:
-                        this.c.top = this.f446a.bottom;
+                        this.c.top = this.f499a.bottom;
                         this.c.bottom = this.c.top + childAt.getMeasuredHeight();
                         a(childAt, this.c, jVar.b);
                         break;
                     case 5:
-                        this.c.left = (((int) this.f446a.width()) - childAt.getMeasuredWidth()) >> 1;
-                        this.c.top = (((int) this.f446a.height()) - childAt.getMeasuredHeight()) >> 1;
-                        this.c.right = (((int) this.f446a.width()) + childAt.getMeasuredWidth()) >> 1;
-                        this.c.bottom = (((int) this.f446a.height()) + childAt.getMeasuredHeight()) >> 1;
-                        this.c.offset(this.f446a.left, this.f446a.top);
+                        this.c.left = (((int) this.f499a.width()) - childAt.getMeasuredWidth()) >> 1;
+                        this.c.top = (((int) this.f499a.height()) - childAt.getMeasuredHeight()) >> 1;
+                        this.c.right = (((int) this.f499a.width()) + childAt.getMeasuredWidth()) >> 1;
+                        this.c.bottom = (((int) this.f499a.height()) + childAt.getMeasuredHeight()) >> 1;
+                        this.c.offset(this.f499a.left, this.f499a.top);
                         break;
                 }
                 this.c.offset((int) ((jVar.c * f) + 0.5f), (int) ((jVar.d * f) + 0.5f));
-                com.baidu.adp.lib.f.d.e("MaskView", "onLayout", "child layout to: " + this.c);
+                com.baidu.adp.lib.h.d.e("MaskView", "onLayout", "child layout to: " + this.c);
                 childAt.layout((int) this.c.left, (int) this.c.top, (int) this.c.right, (int) this.c.bottom);
             }
         }
@@ -123,16 +123,16 @@ public class i extends ViewGroup {
     private void a(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.left = this.f446a.left;
+                rectF.left = this.f499a.left;
                 rectF.right = rectF.left + view.getMeasuredWidth();
                 return;
             case 32:
-                rectF.left = (this.f446a.width() - view.getMeasuredWidth()) / 2.0f;
-                rectF.right = (this.f446a.width() + view.getMeasuredWidth()) / 2.0f;
-                rectF.offset(this.f446a.left, 0.0f);
+                rectF.left = (this.f499a.width() - view.getMeasuredWidth()) / 2.0f;
+                rectF.right = (this.f499a.width() + view.getMeasuredWidth()) / 2.0f;
+                rectF.offset(this.f499a.left, 0.0f);
                 return;
             case 48:
-                rectF.right = this.f446a.right;
+                rectF.right = this.f499a.right;
                 rectF.left = rectF.right - view.getMeasuredWidth();
                 return;
             default:
@@ -143,17 +143,17 @@ public class i extends ViewGroup {
     private void b(View view, RectF rectF, int i) {
         switch (i) {
             case 16:
-                rectF.top = this.f446a.top;
+                rectF.top = this.f499a.top;
                 rectF.bottom = rectF.top + view.getMeasuredHeight();
                 return;
             case 32:
-                rectF.top = (this.f446a.width() - view.getMeasuredHeight()) / 2.0f;
-                rectF.bottom = (this.f446a.width() + view.getMeasuredHeight()) / 2.0f;
-                rectF.offset(0.0f, this.f446a.top);
+                rectF.top = (this.f499a.width() - view.getMeasuredHeight()) / 2.0f;
+                rectF.bottom = (this.f499a.width() + view.getMeasuredHeight()) / 2.0f;
+                rectF.offset(0.0f, this.f499a.top);
                 return;
             case 48:
-                rectF.bottom = this.f446a.bottom;
-                rectF.top = this.f446a.bottom - view.getMeasuredHeight();
+                rectF.bottom = this.f499a.bottom;
+                rectF.top = this.f499a.bottom - view.getMeasuredHeight();
                 return;
             default:
                 return;
@@ -162,23 +162,23 @@ public class i extends ViewGroup {
 
     private void b() {
         this.e.reset();
-        this.e.addRect(this.f446a, Path.Direction.CW);
-        com.baidu.adp.lib.f.d.e("MaskView", "resetOutPath", "target rect = " + this.f446a);
+        this.e.addRect(this.f499a, Path.Direction.CW);
+        com.baidu.adp.lib.h.d.e("MaskView", "resetOutPath", "target rect = " + this.f499a);
         this.e.addRect(this.b, Path.Direction.CW);
-        com.baidu.adp.lib.f.d.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
+        com.baidu.adp.lib.h.d.e("MaskView", "resetOutPath", "fulling rect = " + this.b);
     }
 
     public void a(Rect rect) {
-        this.f446a.set(rect);
+        this.f499a.set(rect);
         b();
-        com.baidu.adp.lib.f.d.e("MaskView", "settargetRect", "target rect = " + this.f446a);
+        com.baidu.adp.lib.h.d.e("MaskView", "settargetRect", "target rect = " + this.f499a);
         invalidate();
     }
 
     public void b(Rect rect) {
         this.b.set(rect);
         b();
-        com.baidu.adp.lib.f.d.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
+        com.baidu.adp.lib.h.d.e("MaskView", "setFullingRect", "fulling rect = " + this.b);
         this.f = true;
         invalidate();
     }

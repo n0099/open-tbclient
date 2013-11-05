@@ -11,13 +11,13 @@ import com.slidingmenu.lib.R;
 public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f2004a;
-    private final /* synthetic */ Context b;
+    final /* synthetic */ Context f2539a;
+    final /* synthetic */ q b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar, Context context) {
-        this.f2004a = qVar;
-        this.b = context;
+        this.b = qVar;
+        this.f2539a = context;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,16 +26,16 @@ public class r implements View.OnClickListener {
         Context context2;
         if (view.getId() == R.id.textHomeListFrsName) {
             String obj = view.getTag().toString();
-            context2 = this.f2004a.f2003a;
+            context2 = this.b.f2538a;
             FrsActivity.a(context2, obj, "");
-            StatService.onEvent(this.b, "forum_feed_frsclick", "frs_click", 1);
+            StatService.onEvent(this.f2539a, "forum_feed_frsclick", "frs_click", 1);
             return;
         }
         w wVar = (w) view.getTag();
         if (wVar != null) {
-            context = this.f2004a.f2003a;
+            context = this.b.f2538a;
             NewPbActivity.a(context, wVar.l, null, null);
-            StatService.onEvent(this.b, "forum_feed_pbclick", "pb_click", 1);
+            StatService.onEvent(this.f2539a, "forum_feed_pbclick", "pb_click", 1);
         }
     }
 }

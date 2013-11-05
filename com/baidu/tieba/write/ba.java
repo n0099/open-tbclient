@@ -9,15 +9,15 @@ import android.widget.ProgressBar;
 public class ba implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2105a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+    final /* synthetic */ String f2649a;
+    final /* synthetic */ int b;
+    final /* synthetic */ WriteImageActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(WriteImageActivity writeImageActivity, String str, int i) {
-        this.f2105a = writeImageActivity;
-        this.b = str;
-        this.c = i;
+        this.c = writeImageActivity;
+        this.f2649a = str;
+        this.b = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,14 +25,14 @@ public class ba implements View.OnClickListener {
         ProgressBar progressBar;
         ImageView imageView;
         Bitmap bitmap;
-        progressBar = this.f2105a.j;
+        progressBar = this.c.j;
         if (progressBar.getVisibility() != 0) {
-            imageView = this.f2105a.b;
-            bitmap = this.f2105a.c;
+            imageView = this.c.b;
+            bitmap = this.c.c;
             imageView.setImageBitmap(bitmap);
-            this.f2105a.y = false;
-            this.f2105a.e(this.b);
-            this.f2105a.u = this.c;
+            this.c.z = false;
+            this.c.e(this.f2649a);
+            this.c.u = this.b;
         }
     }
 }

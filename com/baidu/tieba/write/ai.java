@@ -1,27 +1,36 @@
 package com.baidu.tieba.write;
+
+import android.content.DialogInterface;
+import android.widget.EditText;
+import com.baidu.tieba.data.WriteData;
+import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements com.baidu.tieba.voice.o {
+public class ai implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2086a;
+    final /* synthetic */ WriteActivity f2630a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(WriteActivity writeActivity) {
-        this.f2086a = writeActivity;
+        this.f2630a = writeActivity;
     }
 
-    @Override // com.baidu.tieba.voice.o
-    public void a() {
-        AudioIcon audioIcon;
-        audioIcon = this.f2086a.n;
-        audioIcon.g();
-    }
-
-    @Override // com.baidu.tieba.voice.o
-    public void b() {
-        AudioIcon audioIcon;
-        audioIcon = this.f2086a.n;
-        audioIcon.h();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        EditText editText;
+        WriteData writeData2;
+        EditText editText2;
+        WriteData writeData3;
+        writeData = this.f2630a.f2619a;
+        editText = this.f2630a.e;
+        writeData.setTitle(editText.getText().toString());
+        writeData2 = this.f2630a.f2619a;
+        editText2 = this.f2630a.g;
+        writeData2.setContent(editText2.getText().toString());
+        writeData3 = this.f2630a.f2619a;
+        DatabaseService.b(writeData3);
+        this.f2630a.finish();
     }
 }

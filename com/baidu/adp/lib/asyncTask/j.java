@@ -1,80 +1,43 @@
 package com.baidu.adp.lib.asyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.os.Handler;
+import android.os.Process;
 /* loaded from: classes.dex */
-public abstract class j implements Runnable {
+class j extends k {
 
     /* renamed from: a  reason: collision with root package name */
-    private l<?> f366a;
+    final /* synthetic */ g f416a;
 
-    public j(l<?> lVar) {
-        this.f366a = null;
-        if (lVar == null) {
-            throw new NullPointerException();
-        }
-        this.f366a = lVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j(g gVar, m mVar) {
+        super(mVar);
+        this.f416a = gVar;
     }
 
-    public void a() {
-        if (this.f366a != null) {
+    @Override // java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        try {
             try {
-                this.f366a.run();
-            } catch (OutOfMemoryError e) {
-                com.baidu.adp.a.b.a().c();
-                System.gc();
+                if (d() == 3) {
+                    Process.setThreadPriority(-1);
+                } else if (d() == 2) {
+                    Process.setThreadPriority(0);
+                } else {
+                    Process.setThreadPriority(10);
+                }
+            } catch (Exception e) {
+                com.baidu.adp.lib.h.d.a(e.getMessage());
             }
-        }
-    }
-
-    public void b() {
-        if (this.f366a != null) {
-            this.f366a.a();
-        }
-    }
-
-    public BdAsyncTask<?, ?, ?> c() {
-        if (this.f366a != null) {
-            return this.f366a.b();
-        }
-        return null;
-    }
-
-    public int d() {
-        try {
-            return this.f366a.b().getPriority();
-        } catch (Exception e) {
-            return 1;
-        }
-    }
-
-    public String e() {
-        try {
-            return this.f366a.b().getTag();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public String f() {
-        try {
-            return this.f366a.b().getKey();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public BdAsyncTaskType g() {
-        try {
-            return this.f366a.b().getType();
-        } catch (Exception e) {
-            return BdAsyncTaskType.MAX_PARALLEL;
-        }
-    }
-
-    public boolean h() {
-        try {
-            return this.f366a.b().isSelfExecute();
-        } catch (Exception e) {
-            return false;
+            a();
+        } finally {
+            if (!h()) {
+                handler = this.f416a.i;
+                handler2 = this.f416a.i;
+                handler.sendMessageDelayed(handler2.obtainMessage(2, this), 1L);
+            }
         }
     }
 }

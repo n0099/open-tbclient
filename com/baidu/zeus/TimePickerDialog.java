@@ -34,10 +34,10 @@ class TimePickerDialog extends AlertDialog implements DialogInterface.OnClickLis
         };
         this.mIs24HourView = true;
         this.mRes = jsPromptResult;
-        setButton(-1, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_CLEAR, "Clear"), this);
-        setButton(-3, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_SET, "Set"), this);
-        setButton(-2, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_CANCEL, "Cancel"), this);
-        setTitle(PickerHelper.getStringById(WebChromeClient.STRING_DLG_TITLE_TIME, "Set Time"));
+        setButton(-1, PickerHelper.getStringById(152, "Clear"), this);
+        setButton(-3, PickerHelper.getStringById(150, "Set"), this);
+        setButton(-2, PickerHelper.getStringById(151, "Cancel"), this);
+        setTitle(PickerHelper.getStringById(104, "Set Time"));
         this.mTimePicker = new TimePicker(context);
         setView(this.mTimePicker);
         initTimePicker(str, str2);

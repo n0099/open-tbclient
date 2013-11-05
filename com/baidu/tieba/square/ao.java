@@ -7,17 +7,17 @@ import android.widget.EditText;
 public class ao implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f1826a;
+    final /* synthetic */ SquareSearchActivity f2347a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(SquareSearchActivity squareSearchActivity) {
-        this.f1826a = squareSearchActivity;
+        this.f2347a = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        editText = this.f1826a.c;
+        editText = this.f2347a.c;
         editText.setText("");
     }
 }

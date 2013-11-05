@@ -9,7 +9,7 @@ import com.baidu.android.common.logging.Log;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f604a = 600;
+    public static int f683a = 600;
     public static int b = 30;
     public static int c = 3;
 

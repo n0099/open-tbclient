@@ -32,11 +32,11 @@ public final class CookieManager {
     private static final char PERIOD = '.';
     private static final char QUESTION_MARK = '?';
     private static final char QUOTATION = '\"';
+    private static final String SECURE = "secure";
     private static final char SEMICOLON = ';';
     private static final char WHITE_SPACE = ' ';
     private static CookieManager sRef;
-    private static final String SECURE = "secure";
-    private static final int SECURE_LENGTH = SECURE.length();
+    private static final int SECURE_LENGTH = "secure".length();
     private static final String HTTP_ONLY = "httponly";
     private static final int HTTP_ONLY_LENGTH = HTTP_ONLY.length();
     private static final String[] BAD_COUNTRY_2LDS = {"ac", "co", "com", "ed", "edu", "go", "gouv", "gov", "info", "lg", "ne", e.e, "or", "org"};
@@ -637,7 +637,7 @@ public final class CookieManager {
                     } else if (str3.charAt(indexOf3) == ',') {
                         indexOf3++;
                         break;
-                    } else if (length - indexOf3 >= SECURE_LENGTH && str3.substring(indexOf3, SECURE_LENGTH + indexOf3).equalsIgnoreCase(SECURE)) {
+                    } else if (length - indexOf3 >= SECURE_LENGTH && str3.substring(indexOf3, SECURE_LENGTH + indexOf3).equalsIgnoreCase("secure")) {
                         indexOf3 += SECURE_LENGTH;
                         cookie.secure = true;
                         if (indexOf3 == length) {

@@ -1,22 +1,9 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.switchs.SwitchKey;
+import com.baidu.tieba.data.SendPKVoteData;
 /* loaded from: classes.dex */
-public class cf {
+public interface cf {
+    void a();
 
-    /* renamed from: a  reason: collision with root package name */
-    private String f1439a = SwitchKey.BAR_DETAIL_DIR;
-    private cg b;
-
-    public void a(String str) {
-        this.f1439a = str;
-    }
-
-    public void a(cg cgVar) {
-        this.b = cgVar;
-    }
-
-    public void a(String str, long j) {
-        new ch(str, j, this.f1439a, this.b).execute(new Integer[0]);
-    }
+    void a(SendPKVoteData sendPKVoteData);
 }

@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.data.AntiData;
@@ -49,7 +50,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     private GridView p;
 
     /* renamed from: a  reason: collision with root package name */
-    private ac f1514a = null;
+    private ac f2031a = null;
     private ImageView b = null;
     private ImageView c = null;
     private Button d = null;
@@ -87,11 +88,33 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     private boolean P = false;
     private Handler Q = null;
     private Runnable R = new k(this);
-    private ad S = new u(this);
-    private com.baidu.tieba.view.ap T = new v(this);
+    private ad S = new q(this);
+    private com.baidu.tieba.view.ap T = new t(this);
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Failed to check method usage
+    java.util.ConcurrentModificationException
+    	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1631)
+    	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+    	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+    	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+    	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+    	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+    	at jadx.core.codegen.ClassGen.skipMethod(ClassGen.java:332)
+    	at jadx.core.codegen.ClassGen.addMethod(ClassGen.java:298)
+    	at jadx.core.codegen.ClassGen.lambda$addInnerClsAndMethods$2(ClassGen.java:272)
+    	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+    	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+    	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
+    	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
+     */
+    public static /* synthetic */ TextView l(ImagePbActivity imagePbActivity) {
+        return imagePbActivity.g;
+    }
 
     @Override // com.baidu.tieba.j
-    public boolean f() {
+    public boolean g() {
         return TiebaApplication.g().u();
     }
 
@@ -147,7 +170,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        a(this.K, this.K);
+        b(this.K, this.K);
         r();
         if (this.y != null) {
             this.y.cancel();
@@ -158,8 +181,8 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         if (this.v != null) {
             this.v.cancel();
         }
-        if (this.f1514a != null) {
-            this.f1514a.cancel();
+        if (this.f2031a != null) {
+            this.f2031a.cancel();
         }
         if (this.k != null && this.k.isShowing()) {
             this.k.dismiss();
@@ -182,11 +205,11 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.as.a(this.t, i);
-        com.baidu.tieba.util.as.d(this.f, i);
-        com.baidu.tieba.util.as.f(this.g, i);
-        com.baidu.tieba.util.as.f(this.j, i);
-        com.baidu.tieba.util.as.a(this.b, i);
+        com.baidu.tieba.util.bb.a(this.t, i);
+        com.baidu.tieba.util.bb.d(this.f, i);
+        com.baidu.tieba.util.bb.f(this.g, i);
+        com.baidu.tieba.util.bb.f(this.j, i);
+        com.baidu.tieba.util.bb.a(this.b, i);
         int childCount = this.z.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = this.z.getChildAt(i2);
@@ -196,8 +219,8 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                 ImageView imageView = (ImageView) childAt.findViewById(R.id.image);
                 if (textView != null && textView2 != null && imageView != null) {
                     if (i == 1) {
-                        textView.setTextColor(com.baidu.tieba.util.as.c(1));
-                        textView2.setTextColor(com.baidu.tieba.util.as.a(1));
+                        textView.setTextColor(com.baidu.tieba.util.bb.c(1));
+                        textView2.setTextColor(com.baidu.tieba.util.bb.a(1));
                         imageView.setBackgroundResource(R.drawable.image_pb_next_default_1);
                     } else {
                         textView.setTextColor(-9539986);
@@ -209,9 +232,9 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                 View findViewById = childAt.findViewById(R.id.image_pb_listview);
                 if (findViewById != null && (findViewById instanceof ListView)) {
                     ListView listView = (ListView) findViewById;
-                    com.baidu.tieba.util.as.a(listView, i);
+                    com.baidu.tieba.util.bb.a(listView, i);
                     if (childAt.getTag() != null && (childAt.getTag() instanceof ah)) {
-                        com.baidu.tieba.util.as.a(listView, i);
+                        com.baidu.tieba.util.bb.a(listView, i);
                         ((ah) childAt.getTag()).notifyDataSetChanged();
                     }
                 }
@@ -224,7 +247,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
             this.d.setTextColor(getResources().getColorStateList(R.color.text_blue_selector_color_1));
             this.e.setTextColor(getResources().getColorStateList(R.color.text_blue_selector_color_1));
             this.p.setBackgroundColor(getResources().getColor(R.color.skin_1_face_bg_color));
-            com.baidu.tieba.util.as.e(this.r, (int) R.drawable.sub_pb_reply_bg_1);
+            com.baidu.tieba.util.bb.e(this.r, (int) R.drawable.sub_pb_reply_bg_1);
             this.s.setBackgroundResource(R.drawable.maintab_toolbar_bg_1);
             return;
         }
@@ -234,7 +257,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         this.d.setTextColor(getResources().getColorStateList(R.color.text_blue_selector_color));
         this.e.setTextColor(getResources().getColorStateList(R.color.text_blue_selector_color));
         this.p.setBackgroundColor(-1644826);
-        com.baidu.tieba.util.as.e(this.r, (int) R.drawable.sub_pb_reply_bg);
+        com.baidu.tieba.util.bb.e(this.r, (int) R.drawable.sub_pb_reply_bg);
         this.s.setBackgroundResource(R.drawable.maintab_toolbar_bg);
     }
 
@@ -245,22 +268,22 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     private void d() {
         this.f = (RelativeLayout) findViewById(R.id.title);
         this.b = (ImageView) findViewById(R.id.back);
-        this.b.setOnClickListener(new w(this));
+        this.b.setOnClickListener(new u(this));
         this.c = (ImageView) findViewById(R.id.camera);
-        this.c.setOnClickListener(new x(this));
+        this.c.setOnClickListener(new v(this));
         this.d = (Button) findViewById(R.id.reply);
-        this.d.setOnClickListener(new y(this));
+        this.d.setOnClickListener(new w(this));
         this.e = (Button) findViewById(R.id.save);
-        this.e.setOnClickListener(new z(this));
+        this.e.setOnClickListener(new x(this));
         this.g = (TextView) findViewById(R.id.title_text);
-        this.g.setOnClickListener(new aa(this));
+        this.g.setOnClickListener(new y(this));
         this.j = (TextView) findViewById(R.id.title_page);
         this.z = (BaseViewPager) findViewById(R.id.content_view);
         this.z.setOnFlipOutListener(this);
         String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.operation));
-        builder.setItems(strArr, new ab(this));
+        builder.setItems(strArr, new z(this));
         this.r = (LinearLayout) findViewById(R.id.layout_reply);
         this.m = (EditText) findViewById(R.id.reply_content);
         this.o = (Button) findViewById(R.id.button_face);
@@ -268,17 +291,17 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         this.n.setEnabled(false);
         q();
         this.p = (GridView) findViewById(R.id.face_view);
-        com.baidu.tieba.write.o oVar = new com.baidu.tieba.write.o(this);
-        this.p.setAdapter((ListAdapter) oVar);
-        this.p.setOnItemClickListener(new m(this, oVar));
+        com.baidu.tieba.write.p pVar = new com.baidu.tieba.write.p(this);
+        this.p.setAdapter((ListAdapter) pVar);
+        this.p.setOnItemClickListener(new aa(this, pVar));
         this.t = (KeyboardLayout) findViewById(R.id.image_pb_layout);
         this.t.setOnkbdStateListener(this.T);
-        this.n.setOnClickListener(new n(this));
-        this.o.setOnClickListener(new p(this, new Handler(), new o(this)));
+        this.n.setOnClickListener(new ab(this));
+        this.o.setOnClickListener(new n(this, new Handler(), new m(this)));
         this.s = (LinearLayout) findViewById(R.id.image_pb_bottom);
-        this.m.setOnTouchListener(new q(this));
+        this.m.setOnTouchListener(new o(this));
         this.q = (ProgressBar) findViewById(R.id.image_pb_progress);
-        this.u = new r(this);
+        this.u = new p(this);
         if (this.J == null) {
             this.J = builder.create();
             this.J.setCanceledOnTouchOutside(true);
@@ -341,7 +364,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
             a((String) null, 0, 9, true);
         }
         this.O = new HashMap<>();
-        a(this.K, this.K);
+        b(this.K, this.K);
     }
 
     private void c(boolean z) {
@@ -354,7 +377,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
             String str = this.F;
             if (this.F != null) {
                 if (this.F.length() > 6) {
-                    str = String.valueOf(this.F.substring(0, 6)) + getString(R.string.three_point);
+                    str = this.F.substring(0, 6) + getString(R.string.three_point);
                 }
                 a(getString(R.string.image_pb_imagethread).replace("?", str));
             }
@@ -370,12 +393,12 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         if (z && this.D != null && this.D.length() > 0 && this.E != null && this.E.length() > 0) {
             a((String) null, 0, 9, true);
         } else {
-            b(0);
+            d(0);
         }
         if (this.k != null && this.k.isShowing()) {
             this.k.dismiss();
         }
-        a(this.K, this.K);
+        b(this.K, this.K);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -400,7 +423,6 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         bundle.putString("title", this.F);
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0033: INVOKE  (r3v2 int A[REMOVE]) = (r14v0 android.content.Intent), ("index"), (0 int) type: VIRTUAL call: android.content.Intent.getIntExtra(java.lang.String, int):int)] */
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
@@ -424,7 +446,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                             WriteImageActivity.a(this, 12002, 12009, intent.getData(), String.valueOf(this.H.j()), this.D, null);
                             return;
                         } else {
-                            com.baidu.tieba.write.bf.b(this);
+                            com.baidu.tieba.write.bg.b(this);
                             return;
                         }
                     }
@@ -449,7 +471,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                     return;
                 case 14001:
                     if (intent != null && intent.getIntExtra("index", -1) >= 0) {
-                        com.baidu.tieba.util.av.a(getClass().getName(), "onActivityResult", new StringBuilder().append(intent.getIntExtra("index", 0)).toString());
+                        com.baidu.tieba.util.be.a(getClass().getName(), "onActivityResult", "" + intent.getIntExtra("index", 0));
                         this.z.a(intent.getIntExtra("index", 0), false);
                         return;
                     }
@@ -461,7 +483,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void f() {
         if (this.y != null) {
             this.y.cancel();
         }
@@ -482,12 +504,11 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r9v0 int)] */
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, int i, int i2, boolean z) {
-        com.baidu.tieba.util.av.a(getClass().getName(), str, new StringBuilder().append(i2).toString());
-        if (!this.H.a() && this.f1514a == null) {
-            String str2 = String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/pb/picpage";
+        com.baidu.tieba.util.be.a(getClass().getName(), str, "" + i2);
+        if (!this.H.a() && this.f2031a == null) {
+            String str2 = com.baidu.tieba.data.h.f1165a + "c/f/pb/picpage";
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("kw", this.D));
             arrayList.add(new BasicNameValuePair("tid", this.E));
@@ -501,23 +522,23 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                 arrayList.add(new BasicNameValuePair("st_type", "commend_pic_page"));
             }
             a(true);
-            com.baidu.tieba.util.av.a(getClass().getName(), "startImagePbAsyncTask", str);
-            this.f1514a = new ac(this, str2.toString(), arrayList, z);
-            this.f1514a.setPriority(3);
-            this.f1514a.execute(new Object[0]);
+            com.baidu.tieba.util.be.a(getClass().getName(), "startImagePbAsyncTask", str);
+            this.f2031a = new ac(this, str2.toString(), arrayList, z);
+            this.f2031a.setPriority(3);
+            this.f2031a.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i) {
+    public void d(int i) {
         Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pageadded");
         LinkedList<com.baidu.tieba.data.ab> h = this.H.h();
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i2 = 0; i2 < h.size(); i2++) {
             com.baidu.tieba.data.ab abVar = h.get(i2);
             StringBuilder sb = new StringBuilder(100);
-            if (abVar.g() * abVar.f() > com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i()) {
-                double sqrt = Math.sqrt((com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i()) / (abVar.g() * abVar.f()));
+            if (abVar.g() * abVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
+                double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (abVar.g() * abVar.f()));
                 sb.append("width=");
                 sb.append(String.valueOf((int) (abVar.f() * sqrt)));
                 sb.append("&height=");
@@ -529,11 +550,11 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                 sb.append(String.valueOf(abVar.g()));
             }
             sb.append("&src=");
-            sb.append(com.baidu.tieba.util.at.d(abVar.b()));
+            sb.append(com.baidu.tieba.util.bc.d(abVar.b()));
             arrayList.add(sb.toString());
         }
         if (arrayList != null && arrayList.size() > 0) {
-            intent.putStringArrayListExtra("url", arrayList);
+            intent.putStringArrayListExtra(SocialConstants.PARAM_URL, arrayList);
             intent.putExtra("count", this.H.k());
             if (this.H.b() && arrayList.size() == this.H.k()) {
                 intent.putExtra("hasnext", true);
@@ -556,16 +577,16 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         }
 
         @Override // android.support.v4.view.bq
-        public void b(int i) {
+        public void onPageScrollStateChanged(int i) {
         }
 
         @Override // android.support.v4.view.bq
-        public void a(int i, float f, int i2) {
+        public void onPageScrolled(int i, float f, int i2) {
         }
 
         @Override // android.support.v4.view.bq
-        public void a_(int i) {
-            ImagePbActivity.this.a(ImagePbActivity.this.K, i);
+        public void onPageSelected(int i) {
+            ImagePbActivity.this.b(ImagePbActivity.this.K, i);
             ImagePbActivity.this.K = i;
             ImagePbActivity.this.c.setVisibility(4);
             ImagePbActivity.this.c.setClickable(false);
@@ -580,7 +601,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                 ImagePbActivity.this.g.setText(ImagePbActivity.this.F);
                 ImagePbActivity.this.j.setVisibility(0);
                 ImagePbActivity.this.s.setVisibility(0);
-                ImagePbActivity.this.j.setText(String.valueOf(String.valueOf(i + 1)) + "/" + String.valueOf(ImagePbActivity.this.H.k()));
+                ImagePbActivity.this.j.setText(String.valueOf(i + 1) + "/" + String.valueOf(ImagePbActivity.this.H.k()));
                 LinkedList<com.baidu.tieba.data.ab> h = ImagePbActivity.this.H.h();
                 if (h != null && ImagePbActivity.this.K < h.size() && h.get(ImagePbActivity.this.K) != null) {
                     ImagePbActivity.this.M = h.get(ImagePbActivity.this.K).d();
@@ -620,16 +641,16 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         } else if (this.w != null && this.w.getIfpost() == 0) {
             UtilHelper.a((Context) this, this.w.getForbid_info());
         } else {
-            String editable = this.m.getText().toString();
-            if (editable != null && editable.length() > 0 && this.H != null) {
+            String obj = this.m.getText().toString();
+            if (obj != null && obj.length() > 0 && this.H != null) {
                 if (o()) {
-                    editable = editable.substring(0, 140);
+                    obj = obj.substring(0, 140);
                 }
                 a(getString(R.string.sending), this.u);
                 WriteData writeData = new WriteData();
                 writeData.setForumId(this.H.j());
                 writeData.setForumName(this.H.i());
-                writeData.setContent(editable);
+                writeData.setContent(obj);
                 writeData.setVcode(null);
                 writeData.setFloor(this.M);
                 writeData.setThreadId(this.E);
@@ -667,31 +688,31 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     }
 
     @Override // com.baidu.tieba.j
-    public void i() {
+    public void j() {
         if (this.h != null) {
             try {
                 if (this.h.isShowing()) {
                     this.h.dismiss();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
             this.h = null;
         }
     }
 
     private void q() {
-        this.m.addTextChangedListener(new s(this));
-        this.m.setFilters(new InputFilter[]{new t(this)});
+        this.m.addTextChangedListener(new r(this));
+        this.m.setFilters(new InputFilter[]{new s(this)});
     }
 
     @Override // com.baidu.tieba.view.a
-    public void b_(int i) {
+    public void a_(int i) {
         switch (i) {
             case 0:
                 if (this.H.f() != null && this.H.g() != null) {
-                    if (this.f1514a != null) {
-                        this.f1514a.cancel();
+                    if (this.f2031a != null) {
+                        this.f2031a.cancel();
                     }
                     this.E = this.H.f();
                     this.D = this.H.i();
@@ -708,8 +729,8 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                 return;
             case 1:
                 if (this.I != null) {
-                    if (this.f1514a != null) {
-                        this.f1514a.cancel();
+                    if (this.f2031a != null) {
+                        this.f2031a.cancel();
                     }
                     this.H = this.I;
                     this.I = null;
@@ -729,7 +750,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, int i2) {
+    public void b(int i, int i2) {
         synchronized (this.O) {
             if (System.nanoTime() - this.N > 300000000 && this.H != null && this.H.h() != null && this.K < this.H.h().size()) {
                 this.O.put(this.H.h().get(i).b(), true);
@@ -750,9 +771,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                 if (this.O.size() > 0) {
                     int i = 0;
                     for (Map.Entry<String, Boolean> entry : this.O.entrySet()) {
-                        if (entry.getValue().booleanValue()) {
-                            i++;
-                        }
+                        i = entry.getValue().booleanValue() ? i + 1 : i;
                     }
                     TiebaApplication.g().a(i, this.O.size(), "photo");
                     this.O.clear();

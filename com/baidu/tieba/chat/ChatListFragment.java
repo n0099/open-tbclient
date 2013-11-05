@@ -2,10 +2,12 @@ package com.baidu.tieba.chat;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,46 +18,83 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.chat.RecentChatFriendData;
+import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.ShutDownValidateTipView;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
-public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.a.d {
-    private DialogInterface.OnClickListener ab;
-    private LinearLayout ac;
-    private com.baidu.tieba.ae ad;
-    private com.baidu.tieba.home.l ae;
-    private com.baidu.tieba.model.e b = null;
-    private Activity c = null;
-    private int d = 1;
-    private Handler e = null;
-    private Runnable f = null;
-    private com.baidu.tieba.data.a.g g = null;
-    private int h = 3;
-    private RelativeLayout i = null;
-    private BdListView Y = null;
-    private l Z = null;
-    private com.baidu.tieba.view.ab aa = null;
+public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.im.pushNotify.m {
+    private ShutDownValidateTipView ac;
+    private DialogInterface.OnClickListener ae;
+    private LinearLayout af;
+    private com.baidu.tieba.ah ag;
+    private com.baidu.tieba.home.p ah;
+    private com.baidu.tieba.model.f c = null;
+    private Activity d = null;
+    private int e = 1;
+    private Handler f = null;
+    private Runnable g = null;
+    private RecentChatFriendData h = null;
+    private int i = 3;
+    private RelativeLayout Y = null;
+    private BdListView Z = null;
+    private m aa = null;
+    private com.baidu.tieba.view.ab ab = null;
+    private String ad = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f952a = null;
-    private View.OnClickListener af = new n(this);
-    private AdapterView.OnItemClickListener ag = new o(this);
-    private AdapterView.OnItemLongClickListener ah = new p(this);
-    private com.baidu.adp.widget.ListView.b ai = new q(this);
-    private AbsListView.OnScrollListener aj = new r(this);
+    AlertDialog f1084a = null;
+    private boolean ai = true;
+    private com.baidu.tieba.im.a<Void> aj = new p(this);
+    com.baidu.adp.a.g b = new r(this);
+    private View.OnClickListener ak = new t(this);
+    private AdapterView.OnItemClickListener al = new u(this);
+    private AdapterView.OnItemLongClickListener am = new w(this);
+    private com.baidu.adp.widget.ListView.b an = new z(this);
+    private AbsListView.OnScrollListener ao = new aa(this);
 
-    @Override // android.support.v4.app.Fragment
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int h(ChatListFragment chatListFragment) {
+        int i = chatListFragment.e;
+        chatListFragment.e = i - 1;
+        return i;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int i(ChatListFragment chatListFragment) {
+        int i = chatListFragment.e;
+        chatListFragment.e = i + 1;
+        return i;
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void a(Bundle bundle) {
+        super.a(bundle);
+        com.baidu.tieba.im.pushNotify.n.a().a("apply_join_group", this);
+        com.baidu.tieba.im.pushNotify.n.a().a("group_msg_arrived", this);
+        com.baidu.tieba.im.pushNotify.n.a().a("apply_join_success", this);
+        com.baidu.tieba.im.pushNotify.n.a().a("kick_out", this);
+        com.baidu.tieba.im.pushNotify.n.a().a("group_intro_change", this);
+        com.baidu.tieba.im.pushNotify.n.a().a("group_level_up", this);
+        com.baidu.tieba.im.pushNotify.n.a().a("group_name_change", this);
+        com.baidu.tieba.im.pushNotify.n.a().a("group_notice_change", this);
+        com.baidu.tieba.im.pushNotify.n.a().a("group_head_change", this);
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.c = h();
+        this.d = i();
         View inflate = layoutInflater.inflate(R.layout.chat_list_activity, viewGroup, false);
         a(inflate);
-        C();
+        F();
         if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.c, "enter_chatlist", "chatlistclick", 1);
+            StatService.onEvent(this.d, "enter_chatlist", "chatlistclick", 1);
         }
         return inflate;
     }
@@ -63,94 +102,158 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.a.
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2) {
         if (i >= 1) {
-            this.d = i;
-            this.h = i2;
-            if (this.h == 1) {
-                this.Z.a(true);
-            } else if (this.h == 2) {
-                this.Z.b(true);
+            this.e = i;
+            this.i = i2;
+            if (this.i == 1) {
+                this.aa.a(true);
+            } else if (this.i == 2) {
+                this.aa.b(true);
             }
-            this.Z.notifyDataSetChanged();
-            this.b.a(TiebaApplication.C(), String.valueOf(this.d));
+            com.baidu.tieba.im.pushNotify.n.a().c();
+            H();
+            if (this.c.a(TiebaApplication.C(), String.valueOf(this.e))) {
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(int i, int i2) {
+        if (i >= 1) {
+            this.e = i;
+            this.i = i2;
+            if (this.i == 1) {
+                this.aa.a(true);
+            } else if (this.i == 2) {
+                this.aa.b(true);
+            }
+            H();
+            if (this.c.a(TiebaApplication.C(), String.valueOf(this.e))) {
+            }
         }
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void o() {
-        super.o();
+    public void p() {
+        super.p();
         if (TiebaApplication.D()) {
-            this.Y.setVisibility(0);
-            this.ac.setVisibility(8);
-            a(this.d, 3);
-            this.f.run();
+            this.Z.setVisibility(0);
+            this.af.setVisibility(8);
+            if (this.ad == null) {
+                this.ad = TiebaApplication.C();
+            } else if (!this.ad.equals(TiebaApplication.C())) {
+                this.ad = TiebaApplication.C();
+                com.baidu.tieba.im.pushNotify.a.g().e();
+                this.c.b();
+                com.baidu.adp.lib.h.d.d(" change account");
+            }
+            b(this.e, 3);
+            this.g.run();
             return;
         }
-        if (this.ae == null) {
-            this.ae = new com.baidu.tieba.home.l(this.c, this.c.getString(R.string.login_msg_tab), this.c.getString(R.string.login_msg_form), 3);
-            this.ac.addView(this.ae.c());
-            this.ae.b(TiebaApplication.g().ap());
+        if (this.ah == null) {
+            this.ah = new com.baidu.tieba.home.p(this.d, this.d.getString(R.string.login_msg_tab), this.d.getString(R.string.login_msg_form), 3);
+            this.af.addView(this.ah.e());
+            this.ah.b(TiebaApplication.g().as());
         } else {
-            ((ViewGroup) this.ae.c().getParent()).removeAllViews();
-            this.ac.addView(this.ae.c());
-            this.ae.b(TiebaApplication.g().ap());
+            ((ViewGroup) this.ah.e().getParent()).removeAllViews();
+            this.af.addView(this.ah.e());
+            this.ah.b(TiebaApplication.g().as());
         }
-        this.Y.setVisibility(8);
-        this.ac.setVisibility(0);
+        this.aa.a(this.c.d(TiebaApplication.C()));
+        if (this.aa.getCount() > 0) {
+            e(false);
+        }
+        this.Z.setVisibility(8);
+        this.af.setVisibility(0);
     }
 
-    @Override // android.support.v4.app.Fragment
-    public void q() {
-        if (this.Z.a() != null) {
-            this.Z.a().b();
-            this.Z.b();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(String str) {
+        if (str != null) {
+            String trim = str.trim();
+            if (trim.length() != 0 && !trim.contains("网络")) {
+                UtilHelper.a((Context) this.d, trim);
+            }
         }
-        if (this.e != null) {
-            this.e.removeCallbacks(this.f);
-        }
-        super.q();
     }
 
-    private void C() {
-        this.b = new com.baidu.tieba.model.e();
-        this.b.setLoadDataCallBack(new s(this));
-        this.Z.a(this.b.c(TiebaApplication.C()));
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void r() {
+        if (this.aa.b() != null) {
+            this.aa.b().b();
+            this.aa.a();
+        }
+        if (this.f != null) {
+            this.f.removeCallbacks(this.g);
+        }
+        com.baidu.tieba.im.pushNotify.n.a().a(this);
+        super.r();
+    }
+
+    private void F() {
+        this.c = new com.baidu.tieba.model.f();
+        this.c.setLoadDataCallBack(this.b);
+        f(com.baidu.tieba.sharedPref.b.a().a("is_shut_down_validate", false) ? false : true);
         a();
     }
 
     private void a(View view) {
-        this.i = (RelativeLayout) view.findViewById(R.id.chat_list);
-        this.ad = new com.baidu.tieba.ae(view, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
-        this.ac = (LinearLayout) view.findViewById(R.id.bodyNotLogin);
-        this.Y = (BdListView) view.findViewById(R.id.chat_list_content);
-        this.Y.setDivider(null);
-        this.aa = new com.baidu.tieba.view.ab(this.c);
-        this.aa.a(this.ai);
-        this.Y.setPullRefresh(this.aa);
-        this.Z = new l(this.c);
-        this.Y.setAdapter((ListAdapter) this.Z);
-        this.Z.a(this.af);
-        this.Y.setOnItemClickListener(this.ag);
-        this.Y.setOnScrollListener(this.aj);
-        this.Y.setOnItemLongClickListener(this.ah);
+        this.Y = (RelativeLayout) view.findViewById(R.id.chat_list);
+        this.ag = new com.baidu.tieba.ah(view, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
+        this.ac = (ShutDownValidateTipView) view.findViewById(R.id.view_no_validate);
+        this.ac.setVisibility(8);
+        this.ac.setShutDownClickListener(new s(this));
+        this.af = (LinearLayout) view.findViewById(R.id.bodyNotLogin);
+        this.Z = (BdListView) view.findViewById(R.id.chat_list_content);
+        this.Z.setDivider(null);
+        this.ab = new com.baidu.tieba.view.ab(this.d);
+        this.ab.a(this.an);
+        this.Z.setPullRefresh(this.ab);
+        this.aa = new m(this.d);
+        this.aa.a(this);
+        this.Z.setAdapter((ListAdapter) this.aa);
+        this.aa.a(this.ak);
+        this.Z.setOnItemClickListener(this.al);
+        this.Z.setOnScrollListener(this.ao);
+        this.Z.setOnItemLongClickListener(this.am);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void D() {
-        String c;
-        UtilHelper.NetworkStateInfo i = UtilHelper.i(this.c);
-        this.Z.a().a();
-        boolean z = i == UtilHelper.NetworkStateInfo.WIFI || i == UtilHelper.NetworkStateInfo.ThreeG;
-        this.Z.a().a(z);
-        int lastVisiblePosition = this.Y.getLastVisiblePosition();
-        this.Z.a().a();
-        int i2 = 0;
-        for (int firstVisiblePosition = this.Y.getFirstVisiblePosition(); firstVisiblePosition < this.Z.getCount(); firstVisiblePosition++) {
-            if (z || firstVisiblePosition <= lastVisiblePosition) {
-                if ((this.Z.getItem(firstVisiblePosition) instanceof com.baidu.tieba.data.a.g) && i2 < 13 && (c = ((com.baidu.tieba.data.a.g) this.Z.getItem(firstVisiblePosition)).c()) != null && !c.equals("")) {
-                    i2++;
-                    this.Z.a().b(c, this);
+    public void G() {
+        int i;
+        String friendPortrait;
+        UtilHelper.NetworkStateInfo i2 = UtilHelper.i(this.d);
+        this.aa.b().a();
+        boolean z = i2 == UtilHelper.NetworkStateInfo.WIFI || i2 == UtilHelper.NetworkStateInfo.ThreeG;
+        this.aa.b().a(z);
+        int firstVisiblePosition = this.Z.getFirstVisiblePosition();
+        int lastVisiblePosition = this.Z.getLastVisiblePosition();
+        this.aa.b().a();
+        int i3 = firstVisiblePosition;
+        int i4 = 0;
+        while (i3 < this.aa.getCount()) {
+            if (z || i3 <= lastVisiblePosition) {
+                RecentChatFriendData recentChatFriendData = (RecentChatFriendData) this.aa.getItem(i3);
+                if (!(this.aa.getItem(i3) instanceof RecentChatFriendData) || i4 >= 13 || (friendPortrait = ((RecentChatFriendData) this.aa.getItem(i3)).getFriendPortrait()) == null || friendPortrait.equals("")) {
+                    i = i4;
+                } else {
+                    String ownerName = recentChatFriendData.getOwnerName();
+                    if (!TextUtils.isEmpty(ownerName)) {
+                        if (ownerName.equals(String.valueOf(1))) {
+                            com.baidu.adp.lib.h.d.d("group head url:" + friendPortrait);
+                            this.aa.b().a(friendPortrait, this);
+                        } else {
+                            this.aa.b().b(friendPortrait, this);
+                        }
+                    } else {
+                        this.aa.b().b(friendPortrait, this);
+                    }
+                    i = i4 + 1;
                 }
-                if (i2 >= 30) {
+                if (i < 30) {
+                    i3++;
+                    i4 = i;
+                } else {
                     return;
                 }
             } else {
@@ -160,44 +263,47 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.a.
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void b(int i) {
-        if (this.ad != null) {
-            this.ad.a(i);
+    public void c(int i) {
+        if (this.ag != null) {
+            this.ag.a(i);
         }
-        if (this.aa != null) {
-            this.aa.a(i);
+        if (this.ac != null) {
+            this.ac.a(i);
         }
-        if (this.ae != null) {
-            this.ae.b(i);
+        if (this.ab != null) {
+            this.ab.a(i);
+        }
+        if (this.ah != null) {
+            this.ah.b(i);
         }
         if (i == 1) {
-            this.i.setBackgroundColor(-13618114);
-            if (this.ad.c()) {
-                this.Y.setDivider(this.c.getResources().getDrawable(17170445));
+            this.Y.setBackgroundColor(-13618114);
+            if (this.ag.c()) {
+                this.Z.setDivider(this.d.getResources().getDrawable(17170445));
                 return;
             } else {
-                this.Y.setDivider(this.c.getResources().getDrawable(R.drawable.list_divider_1));
+                this.Z.setDivider(this.d.getResources().getDrawable(R.drawable.list_divider_1));
                 return;
             }
         }
-        this.i.setBackgroundColor(-197380);
-        if (this.ad.c()) {
-            this.Y.setDivider(this.c.getResources().getDrawable(17170445));
+        this.Y.setBackgroundColor(-197380);
+        if (this.ag.c()) {
+            this.Z.setDivider(this.d.getResources().getDrawable(17170445));
         } else {
-            this.Y.setDivider(this.c.getResources().getDrawable(R.drawable.list_divider));
+            this.Z.setDivider(this.d.getResources().getDrawable(R.drawable.list_divider));
         }
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void c() {
         super.c();
-        this.ad.a();
+        this.ag.a();
     }
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void d() {
         super.d();
-        this.ad.b();
+        this.ag.b();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -207,10 +313,10 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.a.
             switch (i) {
                 case 12011:
                     String stringExtra = intent.getStringExtra(LocaleUtil.INDONESIAN);
-                    String stringExtra2 = intent.getStringExtra("name");
+                    String stringExtra2 = intent.getStringExtra(SocialConstants.PARAM_MEDIA_UNAME);
                     String stringExtra3 = intent.getStringExtra("portrait");
                     if (stringExtra2 != null && stringExtra != null) {
-                        ChatActivity.a(this.c, stringExtra, stringExtra2, stringExtra3, null, null);
+                        ChatActivity.a(this.d, stringExtra, stringExtra2, stringExtra3, null, null);
                         return;
                     }
                     return;
@@ -221,27 +327,72 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.a.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.data.a.g gVar) {
-        this.ab = new t(this);
-        String string = this.c.getString(R.string.delete_user_chat);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.c);
+    public void a(RecentChatFriendData recentChatFriendData) {
+        this.ae = new x(this, recentChatFriendData);
+        String string = this.d.getString(R.string.delete_user_chat);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.d);
         builder.setTitle(R.string.operation);
-        builder.setItems(new String[]{string}, this.ab);
-        this.f952a = builder.create();
-        this.f952a.setCanceledOnTouchOutside(true);
+        builder.setItems(new String[]{string}, this.ae);
+        this.f1084a = builder.create();
+        this.f1084a.setCanceledOnTouchOutside(true);
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        ImageView imageView;
-        if (cVar != null && this.Y != null && (imageView = (ImageView) this.Y.findViewWithTag(str)) != null) {
-            cVar.a(imageView);
-            imageView.invalidate();
+    public void a(boolean z) {
+        if (z) {
+            if (E() && this.ac.getVisibility() != 0) {
+                this.ac.setVisibility(0);
+            }
+        } else if (this.ac.getVisibility() != 8) {
+            this.ac.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        if (eVar != null && this.Z != null) {
+            com.baidu.adp.lib.h.d.d("imageUrl:" + str);
+            ImageView imageView = (ImageView) this.Z.findViewWithTag(str);
+            if (imageView != null) {
+                com.baidu.adp.lib.h.d.d("view found:  imageUrl:" + str);
+                eVar.a(imageView);
+                imageView.invalidate();
+                return;
+            }
+            com.baidu.adp.lib.h.d.d("view not found:  imageUrl:" + str);
+        }
+    }
+
+    public void e(boolean z) {
+        com.baidu.adp.lib.h.d.d("is show no data:" + z);
+        if (z) {
+            this.ag.b(0);
+        } else {
+            this.ag.b(8);
         }
     }
 
     public void a() {
-        this.e = new Handler();
-        this.f = new u(this);
+        this.f = new Handler();
+        this.g = new q(this);
+    }
+
+    @Override // com.baidu.tieba.im.pushNotify.m
+    public void a(GroupNewsPojo groupNewsPojo) {
+        H();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void H() {
+        if (this.c != null) {
+            this.c.a(this.aj);
+        }
+    }
+
+    public boolean E() {
+        return this.ai;
+    }
+
+    public void f(boolean z) {
+        this.ai = z;
     }
 }

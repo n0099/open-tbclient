@@ -1,57 +1,29 @@
 package com.baidu.tieba.util;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class ad implements com.baidu.adp.lib.network.c {
+final class ad implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkCoreByBdHttp f1893a;
+    final /* synthetic */ ListView f2416a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.f1893a = netWorkCoreByBdHttp;
+    public ad(ListView listView) {
+        this.f2416a = listView;
     }
 
-    @Override // com.baidu.adp.lib.network.c
-    public void a(int i, HttpURLConnection httpURLConnection) {
-        ah ahVar;
-        boolean z = true;
-        if (httpURLConnection != null) {
-            try {
-                String headerField = httpURLConnection.getHeaderField("imgsrc");
-                if (headerField == null || headerField.length() <= 0) {
-                    z = false;
-                }
-                ahVar = this.f1893a.d;
-                if (ahVar.h || z) {
-                    byte[] bArr = new byte[23];
-                    int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
-                    if (!new String(bArr, 0, bArr.length).equalsIgnoreCase("app:tiebaclient;type:0;") && httpURLConnection != null && httpURLConnection.getOutputStream() != null) {
-                        httpURLConnection.getOutputStream().write(bArr, 0, read);
-                    }
-                }
-                if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
-                    this.f1893a.f = true;
-                } else {
-                    this.f1893a.f = false;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        com.baidu.adp.lib.h.d.d("loadimg:" + str + " bitmap:" + (eVar == null));
+        if (eVar != null) {
+            ImageView imageView = (ImageView) this.f2416a.findViewWithTag(str);
+            while (imageView != null) {
+                com.baidu.adp.lib.h.d.d("--loadimg:" + str + " bitmap:" + (eVar == null));
+                imageView.setTag(null);
+                imageView.setImageBitmap(eVar.f());
+                imageView = (ImageView) this.f2416a.findViewWithTag(str);
             }
         }
-    }
-
-    @Override // com.baidu.adp.lib.network.c
-    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
-    }
-
-    @Override // com.baidu.adp.lib.network.c
-    public void a(com.baidu.adp.lib.network.e eVar) {
-    }
-
-    @Override // com.baidu.adp.lib.network.c
-    public void a() {
     }
 }

@@ -25,6 +25,8 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.zeus.GeolocationPermissions;
 import com.baidu.zeus.ViewManager;
 import com.baidu.zeus.WebSettings;
@@ -519,7 +521,7 @@ public final class WebViewCore {
         GeolocationPermissions.getInstance().createHandler();
         this.mEventHub.transferMessages();
         if (this.mWebView != null) {
-            Message.obtain(this.mWebView.mPrivateHandler, 107, this.mNativeClass, 0).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP, this.mNativeClass, 0).sendToTarget();
         }
     }
 
@@ -936,7 +938,7 @@ public final class WebViewCore {
                                 int i = message.arg2;
                                 String nativeRequestLabel = WebViewCore.this.nativeRequestLabel(message.arg1, i);
                                 if (nativeRequestLabel != null && nativeRequestLabel.length() > 0) {
-                                    Message.obtain(WebViewCore.this.mWebView.mPrivateHandler, EventHub.MESSAGE_RELAY, i, 0, nativeRequestLabel).sendToTarget();
+                                    Message.obtain(WebViewCore.this.mWebView.mPrivateHandler, 125, i, 0, nativeRequestLabel).sendToTarget();
                                     return;
                                 }
                                 return;
@@ -945,7 +947,7 @@ public final class WebViewCore {
                         case EventHub.UPDATE_FRAME_CACHE_IF_LOADING /* 98 */:
                             WebViewCore.this.nativeUpdateFrameCacheIfLoading();
                             return;
-                        case EventHub.SCROLL_TEXT_INPUT /* 99 */:
+                        case 99:
                             WebViewCore.this.nativeScrollFocusedTextInput(((Float) message.obj).floatValue(), message.arg1);
                             return;
                         case 100:
@@ -971,7 +973,7 @@ public final class WebViewCore {
                             WebView.ViewSizeData viewSizeData = (WebView.ViewSizeData) message.obj;
                             WebViewCore.this.viewSizeChanged(viewSizeData.mWidth, viewSizeData.mHeight, viewSizeData.mTextWrapWidth, viewSizeData.mScale, viewSizeData.mAnchorX, viewSizeData.mAnchorY, viewSizeData.mIgnoreHeight);
                             return;
-                        case EventHub.GO_BACK_FORWARD /* 106 */:
+                        case 106:
                             if (WebViewCore.this.mBrowserFrame.committed() || message.arg1 != -1 || WebViewCore.this.mBrowserFrame.loadType() != 0) {
                                 WebViewCore.this.mBrowserFrame.goBackOrForward(message.arg1);
                                 return;
@@ -979,7 +981,7 @@ public final class WebViewCore {
                                 WebViewCore.this.mBrowserFrame.reload(true);
                                 return;
                             }
-                        case EventHub.SET_SCROLL_OFFSET /* 107 */:
+                        case 107:
                             Point point = (Point) message.obj;
                             WebViewCore.this.nativeSetScrollOffset(message.arg1, point.x, point.y);
                             return;
@@ -995,21 +997,21 @@ public final class WebViewCore {
                                 WebViewCore.this.nativeCloseIdleConnections();
                                 return;
                             } else {
-                                WebViewWorker.getHandler().sendEmptyMessage(EventHub.CLEAR_CACHE);
+                                WebViewWorker.getHandler().sendEmptyMessage(111);
                                 return;
                             }
-                        case EventHub.RESUME_TIMERS /* 110 */:
+                        case 110:
                             Process.setThreadPriority(EventHub.this.mTid, EventHub.this.mSavedPriority);
                             WebViewCore.resumeTimers();
                             if (!JniUtil.useChromiumHttpStack()) {
-                                WebViewWorker.getHandler().sendEmptyMessage(EventHub.CLEAR_HISTORY);
+                                WebViewWorker.getHandler().sendEmptyMessage(112);
                                 return;
                             }
                             return;
-                        case EventHub.CLEAR_CACHE /* 111 */:
+                        case 111:
                             WebViewCore.this.clearCache(message.arg1 == 1);
                             return;
-                        case EventHub.CLEAR_HISTORY /* 112 */:
+                        case 112:
                             WebViewCore.this.mCallbackProxy.getBackForwardList().close(WebViewCore.this.mBrowserFrame.mNativeFrame);
                             return;
                         case EventHub.SET_SELECTION /* 113 */:
@@ -1019,41 +1021,41 @@ public final class WebViewCore {
                             ReplaceTextData replaceTextData = (ReplaceTextData) message.obj;
                             WebViewCore.this.nativeReplaceTextfieldText(message.arg1, message.arg2, replaceTextData.mReplace, replaceTextData.mNewStart, replaceTextData.mNewEnd, replaceTextData.mTextGeneration);
                             return;
-                        case EventHub.PASS_TO_JS /* 115 */:
+                        case 115:
                             JSKeyData jSKeyData = (JSKeyData) message.obj;
                             KeyEvent keyEvent = jSKeyData.mEvent;
                             WebViewCore.this.passToJs(message.arg1, jSKeyData.mCurrentText, keyEvent.getKeyCode(), keyEvent.getUnicodeChar(), keyEvent.isDown(), keyEvent.isShiftPressed(), keyEvent.isAltPressed(), keyEvent.isSymPressed());
                             return;
-                        case EventHub.SET_GLOBAL_BOUNDS /* 116 */:
+                        case 116:
                             Rect rect = (Rect) message.obj;
                             WebViewCore.this.nativeSetGlobalBounds(rect.left, rect.top, rect.width(), rect.height());
                             return;
-                        case EventHub.UPDATE_CACHE_AND_TEXT_ENTRY /* 117 */:
+                        case 117:
                             WebViewCore.this.nativeUpdateFrameCache();
                             if (WebViewCore.this.mWebView != null) {
                                 WebViewCore.this.mWebView.postInvalidate();
                             }
                             WebViewCore.this.sendUpdateTextEntry();
                             return;
-                        case EventHub.CLICK /* 118 */:
+                        case 118:
                             WebViewCore.this.nativeClick(message.arg1, message.arg2);
                             return;
-                        case EventHub.SET_NETWORK_STATE /* 119 */:
+                        case 119:
                             if (BrowserFrame.sJavaBridge == null) {
                                 throw new IllegalStateException("No WebView has been created in this process!");
                             }
                             BrowserFrame.sJavaBridge.setNetworkOnLine(message.arg1 == 1);
                             return;
-                        case EventHub.DOC_HAS_IMAGES /* 120 */:
+                        case 120:
                             Message message2 = (Message) message.obj;
                             message2.arg1 = WebViewCore.this.mBrowserFrame.documentHasImages() ? 1 : 0;
                             message2.sendToTarget();
                             return;
-                        case EventHub.DELETE_SELECTION /* 122 */:
+                        case 122:
                             TextSelectionData textSelectionData = (TextSelectionData) message.obj;
                             WebViewCore.this.nativeDeleteSelection(textSelectionData.mStart, textSelectionData.mEnd, message.arg1);
                             return;
-                        case EventHub.LISTBOX_CHOICES /* 123 */:
+                        case 123:
                             SparseBooleanArray sparseBooleanArray = (SparseBooleanArray) message.obj;
                             int i2 = message.arg1;
                             boolean[] zArr = new boolean[i2];
@@ -1062,10 +1064,10 @@ public final class WebViewCore {
                             }
                             WebViewCore.this.nativeSendListBoxChoices(zArr, i2);
                             return;
-                        case EventHub.SINGLE_LISTBOX_CHOICE /* 124 */:
+                        case 124:
                             WebViewCore.this.nativeSendListBoxChoice(message.arg1);
                             return;
-                        case EventHub.MESSAGE_RELAY /* 125 */:
+                        case 125:
                             if (message.obj instanceof Message) {
                                 ((Message) message.obj).sendToTarget();
                                 return;
@@ -1113,7 +1115,7 @@ public final class WebViewCore {
                             return;
                         case EventHub.REQUEST_CURSOR_HREF /* 137 */:
                             Message message3 = (Message) message.obj;
-                            message3.getData().putString("url", WebViewCore.this.nativeRetrieveHref(message.arg1, message.arg2));
+                            message3.getData().putString(SocialConstants.PARAM_URL, WebViewCore.this.nativeRetrieveHref(message.arg1, message.arg2));
                             message3.getData().putString("title", WebViewCore.this.nativeRetrieveAnchorText(message.arg1, message.arg2));
                             message3.sendToTarget();
                             return;
@@ -1147,7 +1149,7 @@ public final class WebViewCore {
                             if (!touchEventData.mReprocess) {
                                 touchEventData = null;
                             }
-                            Message.obtain(handler, EventHub.PASS_TO_JS, i4, i5, touchEventData).sendToTarget();
+                            Message.obtain(handler, 115, i4, i5, touchEventData).sendToTarget();
                             return;
                         case EventHub.SET_ACTIVE /* 142 */:
                             WebViewCore.this.nativeSetFocusControllerActive(message.arg1 == 1);
@@ -1167,7 +1169,7 @@ public final class WebViewCore {
                             if (!WebViewCore.this.nativeValidNodeAndBounds(motionUpData.mFrame, motionUpData.mNode, motionUpData.mBounds)) {
                                 WebViewCore.this.nativeUpdateFrameCache();
                             }
-                            WebViewCore.this.mWebView.mPrivateHandler.sendMessageAtFrontOfQueue(WebViewCore.this.mWebView.mPrivateHandler.obtainMessage(EventHub.SET_NETWORK_STATE, motionUpData.mX, motionUpData.mY, Boolean.valueOf(motionUpData.sendToCore)));
+                            WebViewCore.this.mWebView.mPrivateHandler.sendMessageAtFrontOfQueue(WebViewCore.this.mWebView.mPrivateHandler.obtainMessage(119, motionUpData.mX, motionUpData.mY, Boolean.valueOf(motionUpData.sendToCore)));
                             return;
                         case EventHub.STOP_SCROLL /* 147 */:
                             if (WebViewCore.this.mWebView != null) {
@@ -1511,7 +1513,7 @@ public final class WebViewCore {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void destroy() {
         synchronized (this.mEventHub) {
-            boolean hasMessages = this.mEventHub.hasMessages(110);
+            boolean hasMessages = this.mEventHub.hasMessages(SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN);
             boolean hasMessages2 = this.mEventHub.hasMessages(109);
             this.mEventHub.removeMessages();
             this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain((Handler) null, 200));
@@ -1519,7 +1521,7 @@ public final class WebViewCore {
                 this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain((Handler) null, 109));
             }
             if (hasMessages) {
-                this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain((Handler) null, 110));
+                this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain((Handler) null, (int) SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN));
             }
             this.mEventHub.blockMessages();
         }
@@ -1552,7 +1554,7 @@ public final class WebViewCore {
         if (z2 && keyCode != 66) {
             if (keyCode >= 19 && keyCode <= 22) {
                 if (this.mWebView != null && keyEvent.isDown()) {
-                    Message.obtain(this.mWebView.mPrivateHandler, 110, Integer.valueOf(keyCode)).sendToTarget();
+                    Message.obtain(this.mWebView.mPrivateHandler, SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN, Integer.valueOf(keyCode)).sendToTarget();
                     return;
                 }
                 return;
@@ -1584,14 +1586,14 @@ public final class WebViewCore {
             if (z2) {
                 contentDraw();
             }
-            this.mEventHub.sendMessage(Message.obtain((Handler) null, 117));
+            this.mEventHub.sendMessage(Message.obtain((Handler) null, (int) SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendUpdateTextEntry() {
         if (this.mWebView != null) {
-            Message.obtain(this.mWebView.mPrivateHandler, 106).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, (int) SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE_ALGORITHM).sendToTarget();
         }
     }
 
@@ -1675,8 +1677,8 @@ public final class WebViewCore {
         if (nativeUpdateLayers(this.mLastDrawData.mBaseLayer)) {
             webkitDraw();
         }
-        this.mWebView.mPrivateHandler.removeMessages(117);
-        this.mWebView.mPrivateHandler.sendMessageAtFrontOfQueue(this.mWebView.mPrivateHandler.obtainMessage(117));
+        this.mWebView.mPrivateHandler.removeMessages(SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE);
+        this.mWebView.mPrivateHandler.sendMessageAtFrontOfQueue(this.mWebView.mPrivateHandler.obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1706,9 +1708,9 @@ public final class WebViewCore {
                 }
                 drawData.mUpdateViewPort = this.mUpdateViewPort;
                 this.mUpdateViewPort = false;
-                Message.obtain(this.mWebView.mPrivateHandler, WebChromeClient.STRING_DLG_TITLE_COLOR, drawData).sendToTarget();
+                Message.obtain(this.mWebView.mPrivateHandler, 105, drawData).sendToTarget();
                 if (this.mWebkitScrollX != 0 || this.mWebkitScrollY != 0) {
-                    Message.obtain(this.mWebView.mPrivateHandler, WebChromeClient.STRING_DLG_TITLE_TIME, this.mWebkitScrollX, this.mWebkitScrollY).sendToTarget();
+                    Message.obtain(this.mWebView.mPrivateHandler, 104, this.mWebkitScrollX, this.mWebkitScrollY).sendToTarget();
                     this.mWebkitScrollY = 0;
                     this.mWebkitScrollX = 0;
                 }
@@ -1920,9 +1922,9 @@ public final class WebViewCore {
 
     private void contentScrollBy(int i, int i2, boolean z) {
         if (this.mBrowserFrame.firstLayoutDone() && this.mWebView != null) {
-            Message obtain = Message.obtain(this.mWebView.mPrivateHandler, WebChromeClient.STRING_DLG_TITLE_WEEK, i, i2, new Boolean(z));
+            Message obtain = Message.obtain(this.mWebView.mPrivateHandler, 102, i, i2, new Boolean(z));
             if (this.mDrawIsScheduled) {
-                this.mEventHub.sendMessage(Message.obtain(null, 125, obtain));
+                this.mEventHub.sendMessage(Message.obtain(null, SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE, obtain));
             } else {
                 obtain.sendToTarget();
             }
@@ -1936,9 +1938,9 @@ public final class WebViewCore {
         } else if (this.mWebView != null) {
             this.mWebkitScrollY = 0;
             this.mWebkitScrollX = 0;
-            Message obtain = Message.obtain(this.mWebView.mPrivateHandler, WebChromeClient.STRING_DLG_TITLE_DATETIME, i, i2);
+            Message obtain = Message.obtain(this.mWebView.mPrivateHandler, 101, i, i2);
             if (this.mDrawIsScheduled) {
-                this.mEventHub.sendMessage(Message.obtain(null, 125, obtain));
+                this.mEventHub.sendMessage(Message.obtain(null, SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE, obtain));
             } else {
                 obtain.sendToTarget();
             }
@@ -1952,7 +1954,7 @@ public final class WebViewCore {
         } else if (this.mWebView != null) {
             Message obtain = Message.obtain(this.mWebView.mPrivateHandler, 103, i, i2);
             if (this.mDrawIsScheduled) {
-                this.mEventHub.sendMessage(Message.obtain(null, 125, obtain));
+                this.mEventHub.sendMessage(Message.obtain(null, SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE, obtain));
             } else {
                 obtain.sendToTarget();
             }
@@ -1963,15 +1965,15 @@ public final class WebViewCore {
         sendUpdateTextEntry();
         if (!JniUtil.useChromiumHttpStack()) {
             WebViewWorker.getHandler().sendEmptyMessage(113);
-            WebViewWorker.getHandler().removeMessages(110);
-            WebViewWorker.getHandler().sendEmptyMessage(110);
+            WebViewWorker.getHandler().removeMessages(SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN);
+            WebViewWorker.getHandler().sendEmptyMessage(SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN);
         }
         contentDraw();
     }
 
     private void sendViewInvalidate(int i, int i2, int i3, int i4) {
         if (this.mWebView != null) {
-            Message.obtain(this.mWebView.mPrivateHandler, 117, new Rect(i, i2, i3, i4)).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE, new Rect(i, i2, i3, i4)).sendToTarget();
         }
     }
 
@@ -1983,7 +1985,7 @@ public final class WebViewCore {
     private void sendImmediateRepaint() {
         if (this.mWebView != null && !mRepaintScheduled) {
             mRepaintScheduled = true;
-            Message.obtain(this.mWebView.mPrivateHandler, 123).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, (int) SocialAPIErrorCodes.ERROR_INVALID_BDUSS).sendToTarget();
         }
     }
 
@@ -2038,7 +2040,7 @@ public final class WebViewCore {
 
     private void setRootLayer(int i) {
         if (this.mWebView != null) {
-            Message.obtain(this.mWebView.mPrivateHandler, 124, i, 0).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, SocialAPIErrorCodes.ERROR_UPLOAD_FILE_SIZE_TOO_LARGE, i, 0).sendToTarget();
         }
     }
 
@@ -2239,8 +2241,8 @@ public final class WebViewCore {
             viewSizeData.mIgnoreHeight = false;
             viewSizeData.mAnchorY = 0;
             viewSizeData.mAnchorX = 0;
-            this.mEventHub.removeMessages(WebChromeClient.STRING_DLG_TITLE_COLOR);
-            this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain(null, WebChromeClient.STRING_DLG_TITLE_COLOR, viewSizeData));
+            this.mEventHub.removeMessages(105);
+            this.mEventHub.sendMessageAtFrontOfQueue(Message.obtain(null, 105, viewSizeData));
         } else if (this.mSettings.getUseWideViewPort()) {
             if (i == 0) {
                 this.mWebView.mLastWidthSent = 0;
@@ -2263,7 +2265,7 @@ public final class WebViewCore {
             viewSizeData2.mIgnoreHeight = false;
             viewSizeData2.mAnchorY = 0;
             viewSizeData2.mAnchorX = 0;
-            this.mEventHub.removeMessages(WebChromeClient.STRING_DLG_TITLE_COLOR);
+            this.mEventHub.removeMessages(105);
             viewSizeChanged(viewSizeData2.mWidth, viewSizeData2.mHeight, viewSizeData2.mTextWrapWidth, viewSizeData2.mScale, viewSizeData2.mAnchorX, viewSizeData2.mAnchorY, viewSizeData2.mIgnoreHeight);
         }
     }
@@ -2282,7 +2284,7 @@ public final class WebViewCore {
 
     private void needTouchEvents(boolean z) {
         if (this.mWebView != null) {
-            Message.obtain(this.mWebView.mPrivateHandler, 116, z ? 1 : 0, 0).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE, z ? 1 : 0, 0).sendToTarget();
         }
     }
 
@@ -2296,13 +2298,13 @@ public final class WebViewCore {
 
     private void updateTextSelection(int i, int i2, int i3, int i4) {
         if (this.mWebView != null) {
-            Message.obtain(this.mWebView.mPrivateHandler, 112, i, i4, new TextSelectionData(i2, i3)).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY, i, i4, new TextSelectionData(i2, i3)).sendToTarget();
         }
     }
 
     private void clearTextEntry() {
         if (this.mWebView != null) {
-            Message.obtain(this.mWebView.mPrivateHandler, 111).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, (int) SocialAPIErrorCodes.ERROR_EXPIRED_ACCESS_TOKEN).sendToTarget();
         }
     }
 
@@ -2367,7 +2369,7 @@ public final class WebViewCore {
         if (this.mWebView != null) {
             Message obtain = Message.obtain(this.mWebView.mPrivateHandler, 133, i, i4, new RequestKeyboardData(new TextSelectionData(i2, i3), new Rect(i5, i6, i7, i8), str));
             if (this.mDrawIsScheduled) {
-                this.mEventHub.sendMessage(Message.obtain(null, 125, obtain));
+                this.mEventHub.sendMessage(Message.obtain(null, SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE, obtain));
                 Log.d(LOGTAG, "yejianchun anxin contentScrollTo2");
                 return;
             }
@@ -2383,7 +2385,7 @@ public final class WebViewCore {
 
     private void requestKeyboard(boolean z) {
         if (this.mWebView != null) {
-            Message.obtain(this.mWebView.mPrivateHandler, 118, z ? 1 : 0, 0).sendToTarget();
+            Message.obtain(this.mWebView.mPrivateHandler, SocialAPIErrorCodes.ERROR_INVALID_REDIRECT_URI, z ? 1 : 0, 0).sendToTarget();
         }
     }
 
@@ -2414,7 +2416,7 @@ public final class WebViewCore {
 
     private void showFullScreenPlugin(ViewManager.ChildView childView, int i) {
         if (this.mWebView != null) {
-            Message obtainMessage = this.mWebView.mPrivateHandler.obtainMessage(120);
+            Message obtainMessage = this.mWebView.mPrivateHandler.obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE);
             obtainMessage.obj = childView.mView;
             obtainMessage.arg1 = i;
             obtainMessage.sendToTarget();
@@ -2423,7 +2425,7 @@ public final class WebViewCore {
 
     private void showFullScreenPlugin(ViewManager.ChildView childView, int i, int i2) {
         if (this.mWebView != null) {
-            Message obtainMessage = this.mWebView.mPrivateHandler.obtainMessage(120);
+            Message obtainMessage = this.mWebView.mPrivateHandler.obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE);
             obtainMessage.obj = childView.mView;
             obtainMessage.arg1 = i;
             obtainMessage.arg2 = i2;
@@ -2433,7 +2435,7 @@ public final class WebViewCore {
 
     private void hideFullScreenPlugin() {
         if (this.mWebView != null) {
-            this.mWebView.mPrivateHandler.obtainMessage(121).sendToTarget();
+            this.mWebView.mPrivateHandler.obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_STATE).sendToTarget();
         }
     }
 

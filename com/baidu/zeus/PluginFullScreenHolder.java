@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class PluginFullScreenHolder extends Dialog {
@@ -32,7 +33,7 @@ public class PluginFullScreenHolder extends Dialog {
 
     @Override // android.app.Dialog
     public void onBackPressed() {
-        this.mWebView.mPrivateHandler.obtainMessage(121).sendToTarget();
+        this.mWebView.mPrivateHandler.obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_STATE).sendToTarget();
     }
 
     @Override // android.app.Dialog, android.view.KeyEvent.Callback

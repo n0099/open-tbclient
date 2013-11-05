@@ -1,69 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.data.ForumData;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements AdapterView.OnItemClickListener {
+public class x extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1165a;
+    final /* synthetic */ FrsActivity f1300a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(FrsActivity frsActivity) {
-        this.f1165a = frsActivity;
+        this.f1300a = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
         ba baVar;
-        ba baVar2;
-        boolean z;
-        int i2;
-        int i3;
-        int i4;
-        if (i >= 0) {
-            baVar = this.f1165a.o;
-            long itemId = baVar.g().getItemId(i);
-            if (itemId == -1) {
-                i3 = this.f1165a.j;
-                if (i3 > 1) {
-                    FrsActivity frsActivity = this.f1165a;
-                    i4 = frsActivity.j;
-                    frsActivity.j = i4 - 1;
-                    this.f1165a.d = 2;
-                    this.f1165a.E();
-                }
-            } else if (itemId != -2) {
-                baVar2 = this.f1165a.o;
-                com.baidu.tieba.data.bh bhVar = (com.baidu.tieba.data.bh) baVar2.g().getItem(i);
-                if (bhVar != null) {
-                    com.baidu.tieba.util.ak aw = TiebaApplication.g().aw();
-                    if (aw != null && !aw.b(bhVar.a())) {
-                        aw.a(bhVar.a());
-                    }
-                    String i5 = bhVar.i();
-                    if (i5 == null || i5.equals("")) {
-                        z = false;
-                    } else {
-                        new Thread(new y(this, i5)).start();
-                        z = true;
-                    }
-                    NewPbActivity.a(this.f1165a, bhVar, null, 18003, true, false, z);
-                }
-            } else {
-                if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.f1165a, "frs_nextpage", "frsclick", 1);
-                }
-                FrsActivity frsActivity2 = this.f1165a;
-                i2 = frsActivity2.j;
-                frsActivity2.j = i2 + 1;
-                this.f1165a.d = 1;
-                this.f1165a.E();
-            }
+        com.baidu.tieba.model.ba baVar2;
+        ba baVar3;
+        String str;
+        String str2;
+        ba baVar4;
+        com.baidu.tieba.model.ak akVar;
+        com.baidu.tieba.model.ak akVar2;
+        ba baVar5;
+        String str3;
+        ba baVar6;
+        com.baidu.tieba.model.ak akVar3;
+        com.baidu.tieba.model.ak akVar4;
+        boolean z = false;
+        baVar = this.f1300a.o;
+        baVar.c(false);
+        if (obj != null && (obj instanceof com.baidu.tieba.data.ag)) {
+            akVar4 = this.f1300a.x;
+            akVar4.a((com.baidu.tieba.data.ag) obj);
+            z = true;
         }
+        if (z) {
+            str = this.f1300a.C;
+            if (str.equals("normal_page")) {
+                baVar6 = this.f1300a.o;
+                akVar3 = this.f1300a.x;
+                baVar6.a(1, akVar3.a());
+            } else {
+                str2 = this.f1300a.C;
+                if (str2.equals("frs_page")) {
+                    baVar4 = this.f1300a.o;
+                    akVar = this.f1300a.x;
+                    ForumData a2 = akVar.a();
+                    akVar2 = this.f1300a.x;
+                    baVar4.a(1, a2, akVar2.e());
+                }
+            }
+            baVar5 = this.f1300a.o;
+            baVar5.a(this.f1300a.getString(R.string.like_success));
+            TiebaApplication g = TiebaApplication.g();
+            str3 = this.f1300a.e;
+            g.e(str3);
+            return;
+        }
+        baVar2 = this.f1300a.y;
+        if (baVar2.getErrorCode() == 22) {
+        }
+        baVar3 = this.f1300a.o;
+        baVar3.a(this.f1300a.getString(R.string.had_liked_forum));
+        this.f1300a.C();
     }
 }

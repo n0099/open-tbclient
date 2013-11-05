@@ -6,17 +6,17 @@ import android.os.Message;
 class a extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ClearTempService f1784a;
+    final /* synthetic */ ClearTempService f2305a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ClearTempService clearTempService) {
-        this.f1784a = clearTempService;
+        this.f2305a = clearTempService;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         super.handleMessage(message);
-        this.f1784a.stopSelf();
-        this.f1784a.b = null;
+        this.f2305a.stopSelf();
+        this.f2305a.b = null;
     }
 }

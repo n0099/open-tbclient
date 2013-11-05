@@ -1,35 +1,25 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.EditText;
+import android.view.View;
 import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cm implements DialogInterface.OnKeyListener {
+public class cm implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ br f1584a;
+    final /* synthetic */ bt f2100a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cm(br brVar) {
-        this.f1584a = brVar;
+    public cm(bt btVar) {
+        this.f2100a = btVar;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
         NewPbActivity newPbActivity;
-        EditText editText;
-        Dialog dialog;
-        if (i == 4) {
-            newPbActivity = this.f1584a.c;
-            editText = this.f1584a.G;
-            UtilHelper.a(newPbActivity, editText);
-            dialog = this.f1584a.C;
-            dialog.dismiss();
-            return true;
+        if (!z) {
+            newPbActivity = this.f2100a.c;
+            UtilHelper.a(newPbActivity, view);
         }
-        return false;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.zeus.security;
 
 import android.net.LocalSocket;
 import android.net.LocalSocketAddress;
-import com.baidu.zeus.WebChromeClient;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -33,7 +33,7 @@ public class KeyStore {
     }
 
     public int test() {
-        execute(116, new byte[0]);
+        execute(SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE, new byte[0]);
         return this.mError;
     }
 
@@ -54,7 +54,7 @@ public class KeyStore {
     }
 
     public boolean put(byte[] bArr, byte[] bArr2) {
-        execute(WebChromeClient.STRING_DLG_TITLE_COLOR, bArr, bArr2);
+        execute(105, bArr, bArr2);
         return this.mError == 1;
     }
 
@@ -72,7 +72,7 @@ public class KeyStore {
     }
 
     public boolean contains(byte[] bArr) {
-        execute(WebChromeClient.STRING_DLG_TITLE_DATETIME, bArr);
+        execute(101, bArr);
         return this.mError == 1;
     }
 
@@ -81,7 +81,7 @@ public class KeyStore {
     }
 
     public byte[][] saw(byte[] bArr) {
-        ArrayList<byte[]> execute = execute(115, bArr);
+        ArrayList<byte[]> execute = execute(SocialAPIErrorCodes.ERROR_INVALID_RESPONSE_TYPE, bArr);
         if (execute == null) {
             return null;
         }
@@ -106,7 +106,7 @@ public class KeyStore {
     }
 
     public boolean password(byte[] bArr, byte[] bArr2) {
-        execute(112, bArr, bArr2);
+        execute(SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY, bArr, bArr2);
         return this.mError == 1;
     }
 
@@ -128,7 +128,7 @@ public class KeyStore {
     }
 
     public boolean unlock(byte[] bArr) {
-        execute(117, bArr);
+        execute(SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE, bArr);
         return this.mError == 1;
     }
 

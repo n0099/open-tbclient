@@ -10,11 +10,11 @@ import android.widget.EditText;
 public class d implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtListActivity f2111a;
+    final /* synthetic */ AtListActivity f2656a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AtListActivity atListActivity) {
-        this.f2111a = atListActivity;
+        this.f2656a = atListActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -26,23 +26,23 @@ public class d implements TextWatcher {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        String editable2 = editable.toString();
-        if (editable2 != null) {
-            str = this.f2111a.m;
-            if (!editable2.equals(str)) {
-                handler = this.f2111a.f;
-                runnable = this.f2111a.v;
+        String obj = editable.toString();
+        if (obj != null) {
+            str = this.f2656a.m;
+            if (!obj.equals(str)) {
+                handler = this.f2656a.f;
+                runnable = this.f2656a.v;
                 handler.removeCallbacks(runnable);
-                handler2 = this.f2111a.f;
-                runnable2 = this.f2111a.v;
+                handler2 = this.f2656a.f;
+                runnable2 = this.f2656a.v;
                 handler2.postDelayed(runnable2, 300L);
             }
-            if (editable2.length() > 0) {
-                button2 = this.f2111a.c;
+            if (obj.length() > 0) {
+                button2 = this.f2656a.c;
                 button2.setVisibility(0);
                 return;
             }
-            button = this.f2111a.c;
+            button = this.f2656a.c;
             button.setVisibility(8);
         }
     }
@@ -50,8 +50,8 @@ public class d implements TextWatcher {
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         EditText editText;
-        AtListActivity atListActivity = this.f2111a;
-        editText = this.f2111a.b;
+        AtListActivity atListActivity = this.f2656a;
+        editText = this.f2656a.b;
         atListActivity.m = editText.getText().toString();
     }
 

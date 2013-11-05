@@ -8,11 +8,11 @@ import android.widget.Scroller;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1301a;
+    final /* synthetic */ b f1796a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.f1301a = bVar;
+        this.f1796a = bVar;
     }
 
     @Override // java.lang.Runnable
@@ -25,23 +25,23 @@ public class d implements Runnable {
         LinearLayout linearLayout4;
         LinearLayout linearLayout5;
         Handler handler;
-        scroller = this.f1301a.f;
-        if (!scroller.computeScrollOffset()) {
-            linearLayout = this.f1301a.c;
-            linearLayout.setVisibility(8);
-            this.f1301a.h = false;
+        scroller = this.f1796a.f;
+        if (scroller.computeScrollOffset()) {
+            scroller2 = this.f1796a.f;
+            int currY = scroller2.getCurrY();
+            linearLayout2 = this.f1796a.c;
+            linearLayout3 = this.f1796a.c;
+            int paddingLeft = linearLayout3.getPaddingLeft();
+            linearLayout4 = this.f1796a.c;
+            int paddingRight = linearLayout4.getPaddingRight();
+            linearLayout5 = this.f1796a.c;
+            linearLayout2.setPadding(paddingLeft, currY, paddingRight, linearLayout5.getPaddingBottom());
+            handler = this.f1796a.g;
+            handler.post(this);
             return;
         }
-        scroller2 = this.f1301a.f;
-        int currY = scroller2.getCurrY();
-        linearLayout2 = this.f1301a.c;
-        linearLayout3 = this.f1301a.c;
-        int paddingLeft = linearLayout3.getPaddingLeft();
-        linearLayout4 = this.f1301a.c;
-        int paddingRight = linearLayout4.getPaddingRight();
-        linearLayout5 = this.f1301a.c;
-        linearLayout2.setPadding(paddingLeft, currY, paddingRight, linearLayout5.getPaddingBottom());
-        handler = this.f1301a.g;
-        handler.post(this);
+        linearLayout = this.f1796a.c;
+        linearLayout.setVisibility(8);
+        this.f1796a.h = false;
     }
 }

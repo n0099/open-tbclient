@@ -1,89 +1,79 @@
 package com.baidu.tieba.home;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.mobstat.StatService;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends com.baidu.adp.a.d {
-    private Activity b;
-    private View c;
-    private LinearLayout d;
-    private TextView e;
-    private ImageView f;
-    private Button g;
-    private Button h;
-    private int i;
+public class l extends BdAsyncTask<com.baidu.tieba.data.ae, Integer, String> {
 
-    public void a(int i) {
-        this.i = i;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ EnterForumActivity f1361a;
+    private com.baidu.tieba.util.ag b = null;
+    private com.baidu.tieba.data.ae c;
+
+    public l(EnterForumActivity enterForumActivity, com.baidu.tieba.data.ae aeVar) {
+        this.f1361a = enterForumActivity;
+        this.c = null;
+        this.c = aeVar;
     }
 
-    public int b() {
-        return this.i;
-    }
-
-    public l(Activity activity, String str, String str2, int i) {
-        super(activity);
-        this.i = -1;
-        this.b = activity;
-        this.c = LayoutInflater.from(activity).inflate(R.layout.enter_forum_login, (ViewGroup) null);
-        this.d = (LinearLayout) this.c;
-        this.e = (TextView) this.c.findViewById(R.id.tip);
-        this.f = (ImageView) this.c.findViewById(R.id.img_bg);
-        this.g = (Button) this.c.findViewById(R.id.login_btn);
-        if (str != null) {
-            this.e.setText(str);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(com.baidu.tieba.data.ae... aeVarArr) {
+        com.baidu.tieba.data.ae aeVar = this.c;
+        if (aeVar != null) {
+            try {
+                if (aeVar.a() != null && aeVar.b() != null) {
+                    this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/c/forum/unfavo");
+                    this.b.a("fid", aeVar.a());
+                    this.b.a("kw", aeVar.b());
+                    this.b.e(true);
+                    this.b.j();
+                    return null;
+                }
+                return null;
+            } catch (Exception e) {
+                be.b(getClass().getName(), "doInBackground", e.getMessage());
+                return null;
+            }
         }
-        this.g.setOnClickListener(new m(this, activity, i, str2));
-        this.h = (Button) this.c.findViewById(R.id.reg_btn);
-        this.h.setOnClickListener(new n(this, activity));
-        int a2 = UtilHelper.a((Context) activity, 7.0f);
-        int a3 = UtilHelper.a((Context) activity, 5.0f);
-        this.d.setPadding(a2, a3, a2, a3);
+        return null;
     }
 
-    public View c() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.b, "home_login_show", "loginshow", 1);
-        }
-        return this.c;
-    }
-
-    private boolean c(int i) {
-        if (i == b()) {
-            return false;
-        }
-        a(i);
-        return true;
-    }
-
-    public void b(int i) {
-        if (c(i)) {
-            if (i == 1) {
-                this.e.setTextColor(-8815226);
-                this.f.setBackgroundResource(R.drawable.pic_inset_login_1);
-                this.g.setBackgroundResource(R.drawable.btn_blue_square_1);
-                this.h.setBackgroundResource(R.drawable.btn_w_square_1);
-                this.g.setTextColor(-5454368);
-                this.h.setTextColor(-9207399);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        n nVar;
+        super.a((l) str);
+        this.f1361a.d = null;
+        if (this.b != null) {
+            if (this.b.c()) {
+                this.f1361a.a(this.f1361a.getString(R.string.success));
+                TiebaApplication.g().h(true);
+                nVar = this.f1361a.c;
+                nVar.e();
                 return;
             }
-            this.e.setTextColor(-5065030);
-            this.f.setBackgroundResource(R.drawable.pic_inset_login);
-            this.g.setBackgroundResource(R.drawable.btn_blue_square);
-            this.h.setBackgroundResource(R.drawable.btn_w_square);
-            this.g.setTextColor(-1);
-            this.h.setTextColor(-14277082);
+            this.f1361a.a(this.b.g());
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.h();
+            this.b = null;
+        }
+        this.f1361a.d = null;
+        super.cancel(true);
     }
 }

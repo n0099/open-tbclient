@@ -5,65 +5,58 @@ import android.app.NotificationManager;
 import android.os.Handler;
 import android.os.Message;
 import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class s extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaUpdateService f1802a;
+    final /* synthetic */ TiebaUpdateService f2322a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(TiebaUpdateService tiebaUpdateService) {
-        this.f1802a = tiebaUpdateService;
+        this.f2322a = tiebaUpdateService;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        String str;
-        String str2;
-        boolean z;
-        Handler handler;
-        Handler handler2;
         VersionData versionData;
+        boolean z;
         Notification notification;
         Notification notification2;
         Notification notification3;
         NotificationManager notificationManager;
         Notification notification4;
         super.handleMessage(message);
-        if (message.what == 900003) {
-            notification = this.f1802a.d;
+        if (message.what == 900002) {
+            notification = this.f2322a.c;
             if (notification != null && message.arg2 > 0) {
-                notification2 = this.f1802a.d;
+                notification2 = this.f2322a.c;
                 notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
                 StringBuffer stringBuffer = new StringBuffer(20);
                 stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
                 stringBuffer.append("K/");
                 stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
                 stringBuffer.append("K");
-                notification3 = this.f1802a.d;
+                notification3 = this.f2322a.c;
                 notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
-                notificationManager = this.f1802a.b;
-                notification4 = this.f1802a.d;
-                notificationManager.notify(14, notification4);
+                notificationManager = this.f2322a.b;
+                notification4 = this.f2322a.c;
+                notificationManager.notify(10, notification4);
             }
-        } else if (message.what == 2) {
-            str = this.f1802a.h;
-            if (str != null) {
-                str2 = this.f1802a.h;
-                if (str2.length() > 0) {
-                    z = this.f1802a.i;
-                    if (!z) {
-                        this.f1802a.i = true;
-                        return;
-                    }
-                    handler = this.f1802a.j;
-                    handler2 = this.f1802a.j;
-                    versionData = this.f1802a.f;
-                    handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
-                }
+        } else if (message.what == 1 && (versionData = (VersionData) message.obj) != null) {
+            z = this.f2322a.i;
+            if (!z) {
+                this.f2322a.i = true;
+                return;
             }
+            UtilHelper.b(TiebaApplication.g(), versionData.getNew_file());
+            if (this.f2322a.f2304a != null && this.f2322a.f2304a.length() > 4) {
+                TiebaApplication.g().l(this.f2322a.f2304a);
+            }
+            this.f2322a.stopSelf();
         }
     }
 }

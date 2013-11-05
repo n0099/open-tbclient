@@ -1,53 +1,33 @@
 package com.baidu.adp.lib.gif;
 
-import android.graphics.BitmapFactory;
-import android.os.SystemClock;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
+import android.view.View;
 /* loaded from: classes.dex */
-class d extends Thread {
+class d extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GifView f440a;
+    final /* synthetic */ GifView f491a;
 
-    private d(GifView gifView) {
-        this.f440a = gifView;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(GifView gifView, d dVar) {
-        this(gifView);
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        if (GifView.a(this.f440a) != null) {
-            while (GifView.b(this.f440a)) {
-                if (GifView.a(this.f440a).b() == 1) {
-                    GifView.a(this.f440a, GifView.a(this.f440a).d().f439a);
-                    GifView.a(this.f440a).a();
-                    GifView.c(this.f440a);
-                    return;
-                } else if (!GifView.d(this.f440a)) {
-                    c d = GifView.a(this.f440a).d();
-                    if (d == null) {
-                        SystemClock.sleep(50L);
-                    } else {
-                        if (d.f439a != null) {
-                            GifView.a(this.f440a, d.f439a);
-                        } else if (d.c != null) {
-                            GifView.a(this.f440a, BitmapFactory.decodeFile(d.c));
-                        }
-                        long j = d.b;
-                        if (GifView.e(this.f440a) != null) {
-                            GifView.c(this.f440a);
-                            SystemClock.sleep(j);
-                        } else {
-                            return;
-                        }
-                    }
-                } else {
-                    SystemClock.sleep(50L);
-                }
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        View view;
+        View view2;
+        Bitmap bitmap;
+        try {
+            view = this.f491a.f;
+            if (view != null) {
+                view2 = this.f491a.f;
+                bitmap = this.f491a.b;
+                view2.setBackgroundDrawable(new BitmapDrawable(bitmap));
+            } else {
+                this.f491a.b();
             }
+        } catch (Exception e) {
+            Log.e("GifView", e.toString());
         }
     }
 }

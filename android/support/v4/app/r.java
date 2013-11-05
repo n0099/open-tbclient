@@ -7,7 +7,7 @@ import java.util.HashMap;
 public final class r {
 
     /* renamed from: a  reason: collision with root package name */
-    Object f289a;
+    Object f299a;
     Object b;
     HashMap<String, Object> c;
     ArrayList<Fragment> d;

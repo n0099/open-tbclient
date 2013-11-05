@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class TextPagerAdapter extends ae implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnClickListener f1170a;
+    private View.OnClickListener f1305a;
 
     @Override // android.support.v4.view.ae
     public int getCount() {
@@ -52,12 +52,12 @@ public class TextPagerAdapter extends ae implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f1170a != null) {
-            this.f1170a.onClick(view);
+        if (this.f1305a != null) {
+            this.f1305a.onClick(view);
         }
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.f1170a = onClickListener;
+        this.f1305a = onClickListener;
     }
 }

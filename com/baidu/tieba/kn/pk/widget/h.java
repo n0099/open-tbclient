@@ -6,7 +6,7 @@ import android.graphics.Point;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    Point f1305a;
+    Point f1800a;
     Point b;
     Point c;
     Point d;

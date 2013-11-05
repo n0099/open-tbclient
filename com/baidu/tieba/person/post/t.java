@@ -3,17 +3,21 @@ package com.baidu.tieba.person.post;
 class t implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonThreadFragment f1725a;
+    final /* synthetic */ PersonThreadFragment f2245a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PersonThreadFragment personThreadFragment) {
-        this.f1725a = personThreadFragment;
+        this.f2245a = personThreadFragment;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         q qVar;
-        qVar = this.f1725a.b;
-        qVar.a(true);
+        q qVar2;
+        qVar = this.f2245a.b;
+        if (qVar != null) {
+            qVar2 = this.f2245a.b;
+            qVar2.a(true);
+        }
     }
 }

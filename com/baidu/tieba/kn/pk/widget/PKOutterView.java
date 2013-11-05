@@ -16,13 +16,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.slidingmenu.lib.R;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class PKOutterView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1296a = 50;
+    public static int f1791a = 50;
     private long b;
     private long c;
     private e d;
@@ -159,12 +160,12 @@ public class PKOutterView extends FrameLayout {
         this.q.setSingleLine(true);
         addView(this.q);
         this.r = new h(this);
-        this.r.f1305a = new Point(0, 0);
+        this.r.f1800a = new Point(0, 0);
         this.r.c = new Point(0, 0);
         this.r.b = new Point(0, 0);
         this.r.d = new Point(0, 0);
         this.s = new h(this);
-        this.s.f1305a = new Point(0, 0);
+        this.s.f1800a = new Point(0, 0);
         this.s.c = new Point(0, 0);
         this.s.b = new Point(0, 0);
         this.s.d = new Point(0, 0);
@@ -187,8 +188,10 @@ public class PKOutterView extends FrameLayout {
         this.k.setOnClickListener(onClickListener);
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.FrameLayout, android.view.ViewGroup
-    protected FrameLayout.LayoutParams generateDefaultLayoutParams() {
+    public FrameLayout.LayoutParams generateDefaultLayoutParams() {
         return new FrameLayout.LayoutParams(-2, -2);
     }
 
@@ -239,20 +242,20 @@ public class PKOutterView extends FrameLayout {
         this.o.layout(left2, top2, left2 + measuredHeight4, top2 + measuredHeight4);
         this.p.measure(View.MeasureSpec.makeMeasureSpec(i6, 1073741824), View.MeasureSpec.makeMeasureSpec(i7, 1073741824));
         this.p.layout(0, 0, i6, i7);
-        this.r.f1305a.set((i6 / 6) - (measuredHeight4 / 3), 0);
+        this.r.f1800a.set((i6 / 6) - (measuredHeight4 / 3), 0);
         this.r.c.set((i6 / 6) + (measuredHeight4 / 3), 0);
         this.r.b.set((i6 / 6) - measuredHeight4, (measuredHeight4 / 2) + i12 + i5);
         this.r.d.set((i6 / 6) + measuredHeight4, (measuredHeight4 / 2) + i12 + i5);
-        this.s.f1305a.set(((i6 * 5) / 6) - (measuredHeight4 / 3), 0);
+        this.s.f1800a.set(((i6 * 5) / 6) - (measuredHeight4 / 3), 0);
         this.s.c.set(((i6 * 5) / 6) + (measuredHeight4 / 3), 0);
         this.s.b.set(((i6 * 5) / 6) - measuredHeight4, (measuredHeight4 / 2) + i12 + i5);
         this.s.d.set(((i6 * 5) / 6) + measuredHeight4, (measuredHeight4 / 2) + i12 + i5);
         if (this.b > this.c) {
             this.n.setImageResource(R.drawable.icon_top_crown);
-            this.p.a(this.r.f1305a, this.r.c, this.r.b, this.r.d);
+            this.p.a(this.r.f1800a, this.r.c, this.r.b, this.r.d);
         } else if (this.c > this.b) {
             this.o.setImageResource(R.drawable.icon_top_crown);
-            this.p.a(this.s.f1305a, this.s.c, this.s.b, this.s.d);
+            this.p.a(this.s.f1800a, this.s.c, this.s.b, this.s.d);
         }
         this.q.measure(View.MeasureSpec.makeMeasureSpec(i6 / 3, 1073741824), View.MeasureSpec.makeMeasureSpec(i7 / 5, 1073741824));
         int i19 = i7 / 2;
@@ -316,10 +319,10 @@ public class PKOutterView extends FrameLayout {
     private void e() {
         if (this.b > this.c && this.r != null) {
             this.n.setImageResource(R.drawable.icon_top_crown);
-            this.p.a(this.r.f1305a, this.r.c, this.r.b, this.r.d);
+            this.p.a(this.r.f1800a, this.r.c, this.r.b, this.r.d);
         } else if (this.c > this.b && this.s != null) {
             this.o.setImageResource(R.drawable.icon_top_crown);
-            this.p.a(this.s.f1305a, this.s.c, this.s.b, this.s.d);
+            this.p.a(this.s.f1800a, this.s.c, this.s.b, this.s.d);
         }
     }
 
@@ -370,25 +373,25 @@ public class PKOutterView extends FrameLayout {
     }
 
     private SpannableString b(int i, int i2, int i3) {
-        String sb;
-        String sb2;
-        String sb3;
+        String str;
+        String str2;
+        String str3;
         if (i < 10) {
-            sb = "0" + i;
+            str = SocialConstants.FALSE + i;
         } else {
-            sb = new StringBuilder(String.valueOf(i)).toString();
+            str = i + "";
         }
         if (i2 < 10) {
-            sb2 = "0" + i2;
+            str2 = SocialConstants.FALSE + i2;
         } else {
-            sb2 = new StringBuilder(String.valueOf(i2)).toString();
+            str2 = i2 + "";
         }
         if (i3 < 10) {
-            sb3 = "0" + i3;
+            str3 = SocialConstants.FALSE + i3;
         } else {
-            sb3 = new StringBuilder(String.valueOf(i3)).toString();
+            str3 = i3 + "";
         }
-        String format = String.format(" %s  :  %s  :  %s ", sb, sb2, sb3);
+        String format = String.format(" %s  :  %s  :  %s ", str, str2, str3);
         SpannableString spannableString = new SpannableString(format);
         spannableString.setSpan(new BackgroundColorSpan(Color.parseColor("#88ffffff")), 0, 4, 17);
         spannableString.setSpan(new BackgroundColorSpan(Color.parseColor("#88ffffff")), 7, 11, 17);

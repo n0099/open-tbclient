@@ -1,177 +1,39 @@
 package com.baidu.tieba.chat;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.data.chat.RecentChatFriendData;
+import com.baidu.tieba.im.SingleRunnable;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.a.c {
+class v extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f978a;
-    private String b;
-    private com.baidu.tieba.data.a.c h;
-    private com.baidu.tieba.data.a.f l;
-    private String c = null;
-    private String d = null;
-    private String e = null;
-    private String f = null;
-    private String g = null;
-    private w i = null;
-    private y j = null;
-    private x k = null;
+    final /* synthetic */ RecentChatFriendData f1114a;
+    final /* synthetic */ u b;
 
-    public void a(Intent intent) {
-        this.e = intent.getStringExtra("chat_com_name");
-        this.d = intent.getStringExtra("chat_com_id");
-        this.g = intent.getStringExtra("chat_st_type");
-        this.c = intent.getStringExtra("chat_my_portrait");
-        this.f = intent.getStringExtra("chat_com_portrait");
-        l();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(u uVar, RecentChatFriendData recentChatFriendData) {
+        this.b = uVar;
+        this.f1114a = recentChatFriendData;
     }
 
-    public void a(Bundle bundle) {
-        this.e = bundle.getString("chat_com_name");
-        this.d = bundle.getString("chat_com_id");
-        this.g = bundle.getString("chat_st_type");
-        this.c = bundle.getString("chat_my_portrait");
-        this.f = bundle.getString("chat_com_portrait");
-        l();
-    }
-
-    public void b(Bundle bundle) {
-        bundle.putString("chat_com_name", this.e);
-        bundle.putString("chat_com_id", this.d);
-        bundle.putString("chat_st_type", this.g);
-        bundle.putString("chat_my_portrait", this.c);
-        bundle.putString("chat_com_portrait", this.f);
-    }
-
-    public v() {
-        this.f978a = null;
-        this.b = null;
-        this.h = null;
-        this.l = null;
-        AccountData F = TiebaApplication.F();
-        if (F != null) {
-            this.b = F.getID();
-            this.f978a = F.getAccount();
-        }
-        this.h = new com.baidu.tieba.data.a.c();
-        this.l = com.baidu.tieba.data.a.f.a();
-    }
-
-    private void l() {
-        this.h.a(this.d);
-        this.h.b(this.b);
-        this.h.f(this.e);
-        this.h.c(this.f);
-        this.h.d(this.c);
-    }
-
-    public void a(x xVar) {
-        this.k = xVar;
-    }
-
-    public com.baidu.tieba.data.a.c a() {
-        return this.h;
-    }
-
-    public String b() {
-        return this.d;
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    public long d() {
-        if (this.h.f() == null) {
-            return 0L;
-        }
-        return this.h.f().b();
-    }
-
-    public String e() {
-        if (this.h != null) {
-            return this.h.b();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        if (this.f1114a != null) {
+            this.f1114a.setUnReadCount(0);
+            com.baidu.adp.lib.h.d.d("updates before updates:" + this.f1114a.getUnReadCount() + "ownerName" + this.f1114a.getOwnerName() + " fid" + this.f1114a.getFriendId() + " uid" + this.f1114a.getOwnerId());
+            if (this.f1114a.getOwnerName().equals("2")) {
+                com.baidu.tieba.im.db.g.a().a("apply_join_group");
+                com.baidu.tieba.im.pushNotify.a.g().b(this.f1114a);
+            } else if (this.f1114a.getOwnerName().equals("3")) {
+                com.baidu.tieba.im.pushNotify.a.g().c(this.f1114a);
+                com.baidu.adp.lib.h.d.d("updates data.getOwnerName():" + this.f1114a.getOwnerName());
+                com.baidu.tieba.im.db.g.a().a("group_intro_change");
+                com.baidu.tieba.im.db.g.a().a("group_name_change");
+                com.baidu.tieba.im.db.g.a().a("group_notice_change");
+                com.baidu.tieba.im.db.g.a().a("group_level_up");
+            }
         }
         return null;
-    }
-
-    public String f() {
-        if (this.h != null) {
-            return this.h.a();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        return true;
-    }
-
-    public boolean g() {
-        if (this.b == null || this.d == null) {
-            return false;
-        }
-        if (this.j != null) {
-            this.j.cancel();
-        }
-        if (this.i != null) {
-            this.i.cancel();
-        }
-        this.j = new y(this);
-        this.j.execute(new Object[0]);
-        return true;
-    }
-
-    public void h() {
-        this.l.b(this.b, this.d);
-    }
-
-    public boolean i() {
-        if (this.b == null || this.d == null || this.j != null) {
-            return false;
-        }
-        this.i = new w(this, 2);
-        this.i.execute(new Object[0]);
-        return true;
-    }
-
-    public boolean j() {
-        if (this.b == null || this.d == null || this.j != null) {
-            return false;
-        }
-        if (this.i != null) {
-            this.i.cancel();
-        }
-        this.i = new w(this, 0);
-        this.i.execute(new Object[0]);
-        return true;
-    }
-
-    public boolean k() {
-        if (this.b == null || this.d == null || this.j != null) {
-            return false;
-        }
-        if (this.i != null) {
-            this.i.cancel();
-        }
-        this.i = new w(this, 1);
-        this.i.execute(new Object[0]);
-        return true;
-    }
-
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        if (this.j != null) {
-            this.j.cancel();
-        }
-        if (this.i != null) {
-            this.i.cancel();
-            return false;
-        }
-        return false;
     }
 }

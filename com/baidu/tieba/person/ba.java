@@ -1,21 +1,40 @@
 package com.baidu.tieba.person;
 
-import java.util.TimerTask;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.tieba.model.bw;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ba extends TimerTask {
+public class ba extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ az f1673a;
+    final /* synthetic */ PersonInfoActivity f2191a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(az azVar) {
-        this.f1673a = azVar;
+    public ba(PersonInfoActivity personInfoActivity) {
+        this.f2191a = personInfoActivity;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        PersonInfoActivity personInfoActivity;
-        personInfoActivity = this.f1673a.f1671a;
-        personInfoActivity.runOnUiThread(new bb(this));
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        bw bwVar;
+        bw bwVar2;
+        bw bwVar3;
+        bw bwVar4;
+        long longExtra = intent.getLongExtra("fans", 0L);
+        long longExtra2 = intent.getLongExtra("new_bookmark", 0L);
+        bwVar = this.f2191a.d;
+        if (bwVar != null) {
+            bwVar3 = this.f2191a.d;
+            bwVar3.a(longExtra);
+            bwVar4 = this.f2191a.d;
+            bwVar4.c(longExtra2);
+        }
+        if (this.f2191a.f2161a != null) {
+            bj bjVar = this.f2191a.f2161a;
+            bwVar2 = this.f2191a.d;
+            bjVar.d(bwVar2);
+        }
     }
 }

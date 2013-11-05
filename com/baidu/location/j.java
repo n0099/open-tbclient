@@ -8,6 +8,8 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.account.AccountProxy;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.c;
 import com.baidu.location.e;
 import java.io.File;
@@ -72,7 +74,7 @@ public class j {
     public static int t = 3;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f792a = 10;
+    public static int f921a = 10;
     public static int u = 2;
 
     /* renamed from: if  reason: not valid java name */
@@ -81,7 +83,7 @@ public class j {
     /* renamed from: int  reason: not valid java name */
     public static int f238int = 20;
     public static int k = 70;
-    public static int K = 120;
+    public static int K = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
     public static float T = 2.0f;
     public static float Q = 10.0f;
     public static float d = 50.0f;
@@ -110,7 +112,7 @@ public class j {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final boolean f793a = false;
+        private static final boolean f922a = false;
 
         /* renamed from: if  reason: not valid java name */
         private static final String f243if = a.class.getSimpleName();
@@ -124,7 +126,7 @@ public class j {
             String a2 = a(context);
             String m259do = b.m259do(context);
             if (TextUtils.isEmpty(m259do)) {
-                m259do = "0";
+                m259do = SocialConstants.FALSE;
             }
             return a2 + "|" + new StringBuffer(m259do).reverse().toString();
         }
@@ -134,7 +136,7 @@ public class j {
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f794a = "a";
+        private static final String f923a = "a";
 
         /* renamed from: do  reason: not valid java name */
         private static final String f244do = "bids";
@@ -157,11 +159,11 @@ public class j {
                 edit.putString(f245for, string);
                 edit.commit();
             }
-            String string2 = sharedPreferences.getString(f794a, null);
+            String string2 = sharedPreferences.getString(f923a, null);
             if (string2 == null) {
                 string2 = m260if(context);
                 SharedPreferences.Editor edit2 = sharedPreferences.edit();
-                edit2.putString(f794a, string2);
+                edit2.putString(f923a, string2);
                 edit2.commit();
             }
             String a2 = j.a((AccountProxy.BAIDUACCOUNT_TYPE + string + string2).getBytes(), true);
@@ -277,7 +279,7 @@ public class j {
                 hexString = hexString.toUpperCase();
             }
             if (hexString.length() == 1) {
-                sb.append("0");
+                sb.append(SocialConstants.FALSE);
             }
             sb.append(hexString).append(str);
         }

@@ -1,61 +1,36 @@
 package com.baidu.tieba.more;
-
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad extends BdAsyncTask<Object, Integer, Bitmap> {
+public class ad implements ac {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoreActivity f1476a;
-
-    private ad(MoreActivity moreActivity) {
-        this.f1476a = moreActivity;
-    }
+    final /* synthetic */ MoreActivity f1979a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ad(MoreActivity moreActivity, ad adVar) {
-        this(moreActivity);
+    public ad(MoreActivity moreActivity) {
+        this.f1979a = moreActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        super.b();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        return com.baidu.tieba.util.p.c(null, "tieba_head_image");
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        af afVar;
-        af afVar2;
-        super.a((ad) bitmap);
-        if (bitmap != null) {
-            com.baidu.adp.widget.a.c cVar = new com.baidu.adp.widget.a.c(bitmap, false, null);
-            afVar = this.f1476a.f1467a;
-            if (afVar != null) {
-                afVar2 = this.f1476a.f1467a;
-                afVar2.a(cVar);
-            }
+    @Override // com.baidu.tieba.more.ac
+    public void a(int i) {
+        if (i == 0) {
+            this.f1979a.s();
+        } else if (i == 1) {
+            this.f1979a.r();
+        } else if (i == 2) {
+            this.f1979a.q();
+        } else if (i == 3) {
+            this.f1979a.p();
+        } else if (i == 4) {
+            this.f1979a.t();
+        } else if (i == 6) {
+            this.f1979a.o();
+        } else if (i == 7) {
+            this.f1979a.f();
+        } else if (i == 8) {
+            this.f1979a.n();
+        } else if (i == 5) {
+            SystemHelpSettingActivity.a(this.f1979a);
         }
     }
 }

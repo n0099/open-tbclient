@@ -10,7 +10,7 @@ final class BackStackState implements Parcelable {
     public static final Parcelable.Creator<BackStackState> CREATOR = new k();
 
     /* renamed from: a  reason: collision with root package name */
-    final int[] f263a;
+    final int[] f273a;
     final int b;
     final int c;
     final String d;
@@ -22,43 +22,43 @@ final class BackStackState implements Parcelable {
 
     public BackStackState(v vVar, i iVar) {
         int i = 0;
-        for (j jVar = iVar.b; jVar != null; jVar = jVar.f284a) {
+        for (j jVar = iVar.b; jVar != null; jVar = jVar.f294a) {
             if (jVar.i != null) {
                 i += jVar.i.size();
             }
         }
-        this.f263a = new int[i + (iVar.d * 7)];
+        this.f273a = new int[i + (iVar.d * 7)];
         if (!iVar.k) {
             throw new IllegalStateException("Not on back stack");
         }
         int i2 = 0;
-        for (j jVar2 = iVar.b; jVar2 != null; jVar2 = jVar2.f284a) {
+        for (j jVar2 = iVar.b; jVar2 != null; jVar2 = jVar2.f294a) {
             int i3 = i2 + 1;
-            this.f263a[i2] = jVar2.c;
+            this.f273a[i2] = jVar2.c;
             int i4 = i3 + 1;
-            this.f263a[i3] = jVar2.d != null ? jVar2.d.o : -1;
+            this.f273a[i3] = jVar2.d != null ? jVar2.d.o : -1;
             int i5 = i4 + 1;
-            this.f263a[i4] = jVar2.e;
+            this.f273a[i4] = jVar2.e;
             int i6 = i5 + 1;
-            this.f263a[i5] = jVar2.f;
+            this.f273a[i5] = jVar2.f;
             int i7 = i6 + 1;
-            this.f263a[i6] = jVar2.g;
+            this.f273a[i6] = jVar2.g;
             int i8 = i7 + 1;
-            this.f263a[i7] = jVar2.h;
+            this.f273a[i7] = jVar2.h;
             if (jVar2.i != null) {
                 int size = jVar2.i.size();
                 int i9 = i8 + 1;
-                this.f263a[i8] = size;
+                this.f273a[i8] = size;
                 int i10 = 0;
                 while (i10 < size) {
-                    this.f263a[i9] = jVar2.i.get(i10).o;
+                    this.f273a[i9] = jVar2.i.get(i10).o;
                     i10++;
                     i9++;
                 }
                 i2 = i9;
             } else {
                 i2 = i8 + 1;
-                this.f263a[i8] = 0;
+                this.f273a[i8] = 0;
             }
         }
         this.b = iVar.i;
@@ -72,7 +72,7 @@ final class BackStackState implements Parcelable {
     }
 
     public BackStackState(Parcel parcel) {
-        this.f263a = parcel.createIntArray();
+        this.f273a = parcel.createIntArray();
         this.b = parcel.readInt();
         this.c = parcel.readInt();
         this.d = parcel.readString();
@@ -87,38 +87,38 @@ final class BackStackState implements Parcelable {
         i iVar = new i(vVar);
         int i = 0;
         int i2 = 0;
-        while (i2 < this.f263a.length) {
+        while (i2 < this.f273a.length) {
             j jVar = new j();
             int i3 = i2 + 1;
-            jVar.c = this.f263a[i2];
-            if (v.f290a) {
-                Log.v("FragmentManager", "Instantiate " + iVar + " op #" + i + " base fragment #" + this.f263a[i3]);
+            jVar.c = this.f273a[i2];
+            if (v.f300a) {
+                Log.v("FragmentManager", "Instantiate " + iVar + " op #" + i + " base fragment #" + this.f273a[i3]);
             }
             int i4 = i3 + 1;
-            int i5 = this.f263a[i3];
+            int i5 = this.f273a[i3];
             if (i5 >= 0) {
                 jVar.d = vVar.f.get(i5);
             } else {
                 jVar.d = null;
             }
             int i6 = i4 + 1;
-            jVar.e = this.f263a[i4];
+            jVar.e = this.f273a[i4];
             int i7 = i6 + 1;
-            jVar.f = this.f263a[i6];
+            jVar.f = this.f273a[i6];
             int i8 = i7 + 1;
-            jVar.g = this.f263a[i7];
+            jVar.g = this.f273a[i7];
             int i9 = i8 + 1;
-            jVar.h = this.f263a[i8];
+            jVar.h = this.f273a[i8];
             int i10 = i9 + 1;
-            int i11 = this.f263a[i9];
+            int i11 = this.f273a[i9];
             if (i11 > 0) {
                 jVar.i = new ArrayList<>(i11);
                 int i12 = 0;
                 while (i12 < i11) {
-                    if (v.f290a) {
-                        Log.v("FragmentManager", "Instantiate " + iVar + " set remove fragment #" + this.f263a[i10]);
+                    if (v.f300a) {
+                        Log.v("FragmentManager", "Instantiate " + iVar + " set remove fragment #" + this.f273a[i10]);
                     }
-                    jVar.i.add(vVar.f.get(this.f263a[i10]));
+                    jVar.i.add(vVar.f.get(this.f273a[i10]));
                     i12++;
                     i10++;
                 }
@@ -147,7 +147,7 @@ final class BackStackState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeIntArray(this.f263a);
+        parcel.writeIntArray(this.f273a);
         parcel.writeInt(this.b);
         parcel.writeInt(this.c);
         parcel.writeString(this.d);

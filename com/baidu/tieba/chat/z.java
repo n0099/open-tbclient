@@ -1,43 +1,20 @@
 package com.baidu.tieba.chat;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.a.c {
+public class z implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.a.e f981a = null;
-    private aa b = null;
-    private ab c = null;
-    private com.baidu.tieba.data.a.f d;
+    final /* synthetic */ ChatListFragment f1118a;
 
-    public z() {
-        this.d = null;
-        this.d = com.baidu.tieba.data.a.f.a();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(ChatListFragment chatListFragment) {
+        this.f1118a = chatListFragment;
     }
 
-    public void a(ab abVar) {
-        this.c = abVar;
-    }
-
-    public void a(com.baidu.tieba.data.a.e eVar) {
-        this.f981a = eVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.a.c
-    public boolean LoadData() {
-        if (this.f981a != null && this.b == null) {
-            this.b = new aa(this);
-            this.b.execute(new Object[0]);
-            return true;
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        if (!z) {
+            this.f1118a.a(1, 3);
         }
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        if (this.b != null) {
-            this.b.cancel();
-            return false;
-        }
-        return false;
     }
 }

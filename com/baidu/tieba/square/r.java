@@ -5,14 +5,14 @@ import org.json.JSONObject;
 public class r extends com.baidu.tieba.data.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private s f1852a;
+    private s f2374a;
 
     public s d() {
-        return this.f1852a;
+        return this.f2374a;
     }
 
     public void a(s sVar) {
-        this.f1852a = sVar;
+        this.f2374a = sVar;
         a((String) null);
     }
 

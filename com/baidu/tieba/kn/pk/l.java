@@ -5,13 +5,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
-import com.baidu.tieba.util.as;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f1284a;
+    protected s f1779a;
     public com.baidu.tieba.kn.pk.widget.b b;
     ImageView c;
     private BdPullRefreshScrollView d;
@@ -50,10 +50,10 @@ public class l implements View.OnClickListener {
         ((ImageView) this.e.findViewById(R.id.share_qqfriend)).setOnClickListener(this.e);
         ((ImageView) this.e.findViewById(R.id.share_qqzone)).setOnClickListener(this.e);
         ((ImageView) this.e.findViewById(R.id.share_sina)).setOnClickListener(this.e);
-        as.a(this.g, 0);
-        as.a((ImageView) this.e.findViewById(R.id.home), 0);
-        as.d(findViewById, 0);
-        as.f(this.h, 0);
+        bb.a(this.g, 0);
+        bb.a((ImageView) this.e.findViewById(R.id.home), 0);
+        bb.d(findViewById, 0);
+        bb.f(this.h, 0);
         this.c = (ImageView) this.e.findViewById(R.id.cmd_folder);
         this.c.setOnClickListener(this);
     }
@@ -72,8 +72,8 @@ public class l implements View.OnClickListener {
     }
 
     public void a(com.baidu.tieba.util.a aVar, s sVar) {
-        com.baidu.adp.widget.a.c a2;
-        com.baidu.adp.widget.a.c a3;
+        com.baidu.adp.widget.ImageView.e a2;
+        com.baidu.adp.widget.ImageView.e a3;
         this.f.setVisibility(8);
         this.d.c();
         if (sVar.b()) {
@@ -81,12 +81,12 @@ public class l implements View.OnClickListener {
             this.e.a(sVar.c());
             return;
         }
-        this.f1284a = sVar;
-        this.h.setText(this.f1284a.d());
-        this.b.a(this.f1284a.b);
-        this.b.a("PK规则", this.f1284a.c);
-        this.b.a(String.valueOf(sVar.j.e) + this.e.getString(R.string.forum), sVar.j.g, this.e);
-        this.b.b(String.valueOf(sVar.k.e) + this.e.getString(R.string.forum), sVar.k.g, this.e);
+        this.f1779a = sVar;
+        this.h.setText(this.f1779a.d());
+        this.b.a(this.f1779a.b);
+        this.b.a("PK规则", this.f1779a.c);
+        this.b.a(sVar.j.e + this.e.getString(R.string.forum), sVar.j.g, this.e);
+        this.b.b(sVar.k.e + this.e.getString(R.string.forum), sVar.k.g, this.e);
         d();
         String str = sVar.j.c;
         if (str != null && (a3 = aVar.a(str, new m(this, str))) != null) {

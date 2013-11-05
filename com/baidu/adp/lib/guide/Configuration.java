@@ -9,7 +9,7 @@ class Configuration implements Parcelable {
     public static Parcelable.Creator<Configuration> k = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    View f441a = null;
+    View f494a = null;
     int b = Util.MASK_8BIT;
     int c = -1;
     int d = -1;

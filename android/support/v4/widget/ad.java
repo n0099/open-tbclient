@@ -13,7 +13,7 @@ public class ad {
     private static final Interpolator v = new ae();
 
     /* renamed from: a  reason: collision with root package name */
-    private int f342a;
+    private int f352a;
     private int b;
     private int c;
     private float[] d;
@@ -37,7 +37,7 @@ public class ad {
     private final Runnable w;
 
     public int a() {
-        return this.f342a;
+        return this.f352a;
     }
 
     public int b() {
@@ -73,7 +73,7 @@ public class ad {
 
     public void f() {
         e();
-        if (this.f342a == 2) {
+        if (this.f352a == 2) {
             int b = this.q.b();
             int c = this.q.c();
             this.q.g();
@@ -164,7 +164,7 @@ public class ad {
 
     public boolean a(boolean z) {
         boolean z2;
-        if (this.f342a == 2) {
+        if (this.f352a == 2) {
             boolean f = this.q.f();
             int b = this.q.b();
             int c = this.q.c();
@@ -193,14 +193,14 @@ public class ad {
                 }
             }
         }
-        return this.f342a == 2;
+        return this.f352a == 2;
     }
 
     private void a(float f, float f2) {
         this.t = true;
         this.r.a(this.s, f, f2);
         this.t = false;
-        if (this.f342a == 1) {
+        if (this.f352a == 1) {
             b(0);
         }
     }
@@ -287,8 +287,8 @@ public class ad {
     }
 
     void b(int i) {
-        if (this.f342a != i) {
-            this.f342a = i;
+        if (this.f352a != i) {
+            this.f352a = i;
             this.r.a(i);
             if (i == 0) {
                 this.s = null;
@@ -328,7 +328,7 @@ public class ad {
                 int b2 = android.support.v4.view.z.b(motionEvent, 0);
                 a(x, y, b2);
                 View e3 = e((int) x, (int) y);
-                if (e3 == this.s && this.f342a == 2) {
+                if (e3 == this.s && this.f352a == 2) {
                     b(e3, b2);
                 }
                 int i2 = this.h[b2];
@@ -350,7 +350,7 @@ public class ad {
                     float f = c2 - this.d[b3];
                     float f2 = d - this.e[b3];
                     b(f, f2, b3);
-                    i = (this.f342a == 1 || ((e = e((int) c2, (int) d)) != null && a(e, f, f2) && b(e, b3))) ? 0 : i + 1;
+                    i = (this.f352a == 1 || ((e = e((int) c2, (int) d)) != null && a(e, f, f2) && b(e, b3))) ? 0 : i + 1;
                     c(motionEvent);
                     break;
                 }
@@ -361,13 +361,13 @@ public class ad {
                 float c3 = android.support.v4.view.z.c(motionEvent, b);
                 float d2 = android.support.v4.view.z.d(motionEvent, b);
                 a(c3, d2, b4);
-                if (this.f342a == 0) {
+                if (this.f352a == 0) {
                     int i3 = this.h[b4];
                     if ((this.p & i3) != 0) {
                         this.r.a(i3 & this.p, b4);
                         break;
                     }
-                } else if (this.f342a == 2 && (e2 = e((int) c3, (int) d2)) == this.s) {
+                } else if (this.f352a == 2 && (e2 = e((int) c3, (int) d2)) == this.s) {
                     b(e2, b4);
                     break;
                 }
@@ -376,7 +376,7 @@ public class ad {
                 e(android.support.v4.view.z.b(motionEvent, b));
                 break;
         }
-        return this.f342a == 1;
+        return this.f352a == 1;
     }
 
     public void b(MotionEvent motionEvent) {
@@ -406,13 +406,13 @@ public class ad {
                 }
                 return;
             case 1:
-                if (this.f342a == 1) {
+                if (this.f352a == 1) {
                     h();
                 }
                 e();
                 return;
             case 2:
-                if (this.f342a == 1) {
+                if (this.f352a == 1) {
                     int a3 = android.support.v4.view.z.a(motionEvent, this.c);
                     float c = android.support.v4.view.z.c(motionEvent, a3);
                     float d = android.support.v4.view.z.d(motionEvent, a3);
@@ -430,7 +430,7 @@ public class ad {
                     float f = c3 - this.d[b3];
                     float f2 = d2 - this.e[b3];
                     b(f, f2, b3);
-                    if (this.f342a != 1) {
+                    if (this.f352a != 1) {
                         View e2 = e((int) c3, (int) d2);
                         if (!a(e2, f, f2) || !b(e2, b3)) {
                             i2++;
@@ -442,7 +442,7 @@ public class ad {
                 c(motionEvent);
                 return;
             case 3:
-                if (this.f342a == 1) {
+                if (this.f352a == 1) {
                     a(0.0f, 0.0f);
                 }
                 e();
@@ -455,7 +455,7 @@ public class ad {
                 float c4 = android.support.v4.view.z.c(motionEvent, b);
                 float d3 = android.support.v4.view.z.d(motionEvent, b);
                 a(c4, d3, b4);
-                if (this.f342a == 0) {
+                if (this.f352a == 0) {
                     b(e((int) c4, (int) d3), b4);
                     int i6 = this.h[b4];
                     if ((this.p & i6) != 0) {
@@ -471,7 +471,7 @@ public class ad {
                 }
             case 6:
                 int b5 = android.support.v4.view.z.b(motionEvent, b);
-                if (this.f342a == 1 && b5 == this.c) {
+                if (this.f352a == 1 && b5 == this.c) {
                     int c5 = android.support.v4.view.z.c(motionEvent);
                     while (true) {
                         if (i2 >= c5) {

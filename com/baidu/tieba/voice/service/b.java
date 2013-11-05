@@ -3,15 +3,15 @@ package com.baidu.tieba.voice.service;
 class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2048a;
+    final /* synthetic */ a f2587a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f2048a = aVar;
+        this.f2587a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2048a.d();
+        this.f2587a.d();
     }
 }

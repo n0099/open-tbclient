@@ -1,7 +1,9 @@
 package com.google.gson.stream;
+
+import com.baidu.cloudsdk.common.imgloader.ImageManager;
 /* loaded from: classes.dex */
 final class StringPool {
-    private final String[] pool = new String[512];
+    private final String[] pool = new String[ImageManager.DEFAULT_MAX_CACHEABLE_SIZE];
 
     public String get(char[] cArr, int i, int i2) {
         int i3 = 0;

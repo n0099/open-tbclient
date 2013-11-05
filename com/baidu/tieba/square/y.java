@@ -5,18 +5,17 @@ import com.baidu.tieba.view.az;
 class y implements az {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareActivity f1859a;
+    final /* synthetic */ SquareActivity f2381a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(SquareActivity squareActivity) {
-        this.f1859a = squareActivity;
+        this.f2381a = squareActivity;
     }
 
     @Override // com.baidu.tieba.view.az
     public void a(boolean z) {
-        if (!z) {
-            return;
+        if (z) {
+            this.f2381a.a(true);
         }
-        this.f1859a.a(true);
     }
 }

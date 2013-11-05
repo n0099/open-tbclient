@@ -1,30 +1,30 @@
 package com.baidu.tieba.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements TextWatcher {
+public class aa implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2078a;
+    final /* synthetic */ WriteActivity f2622a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(WriteActivity writeActivity) {
-        this.f2078a = writeActivity;
+        this.f2622a = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.f2078a.y();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.f2078a.c = true;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        GridView gridView;
+        if (motionEvent.getAction() == 1) {
+            gridView = this.f2622a.u;
+            gridView.setVisibility(8);
+            this.f2622a.f();
+            this.f2622a.d(7);
+            return false;
+        }
+        return false;
     }
 }

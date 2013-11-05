@@ -13,7 +13,7 @@ public class m {
     private WeakReference<Context> e;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HandlerThread f823a = new HandlerThread("SessionAnalysisThread");
+    private static HandlerThread f952a = new HandlerThread("SessionAnalysisThread");
     private static m g = new m();
     private long c = 0;
     private long d = 0;
@@ -22,8 +22,8 @@ public class m {
     private boolean i = false;
 
     private m() {
-        f823a.start();
-        b = new Handler(f823a.getLooper());
+        f952a.start();
+        b = new Handler(f952a.getLooper());
     }
 
     public static m a() {

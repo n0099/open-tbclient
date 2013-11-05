@@ -6,11 +6,11 @@ import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 public class l implements j {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdPullRefreshScrollView f508a;
+    final /* synthetic */ BdPullRefreshScrollView f588a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BdPullRefreshScrollView bdPullRefreshScrollView) {
-        this.f508a = bdPullRefreshScrollView;
+        this.f588a = bdPullRefreshScrollView;
     }
 
     @Override // com.baidu.adp.widget.ScrollView.j
@@ -19,28 +19,28 @@ public class l implements j {
         BdPullRefreshScrollView.State state2;
         c cVar;
         c cVar2;
-        n nVar;
-        n nVar2;
-        state = this.f508a.c;
+        o oVar;
+        o oVar2;
+        state = this.f588a.c;
         if (state != BdPullRefreshScrollView.State.RELEASE_TO_REFRESH) {
-            state2 = this.f508a.c;
+            state2 = this.f588a.c;
             if (state2 == BdPullRefreshScrollView.State.PULL_TO_REFRESH) {
-                BdPullRefreshScrollView bdPullRefreshScrollView = this.f508a;
+                BdPullRefreshScrollView bdPullRefreshScrollView = this.f588a;
                 BdPullRefreshScrollView.State state3 = BdPullRefreshScrollView.State.RESET;
-                cVar = this.f508a.n;
+                cVar = this.f588a.n;
                 bdPullRefreshScrollView.a(state3, cVar);
                 return;
             }
             return;
         }
-        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.f508a;
+        BdPullRefreshScrollView bdPullRefreshScrollView2 = this.f588a;
         BdPullRefreshScrollView.State state4 = BdPullRefreshScrollView.State.REFRESHING;
-        cVar2 = this.f508a.n;
+        cVar2 = this.f588a.n;
         bdPullRefreshScrollView2.a(state4, cVar2);
-        nVar = this.f508a.t;
-        if (nVar != null) {
-            nVar2 = this.f508a.t;
-            nVar2.a();
+        oVar = this.f588a.t;
+        if (oVar != null) {
+            oVar2 = this.f588a.t;
+            oVar2.a();
         }
     }
 }

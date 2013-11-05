@@ -8,13 +8,13 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.Vibrator;
 import android.view.View;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.bf;
 /* loaded from: classes.dex */
 public class ShakeActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private PowerManager.WakeLock f1310a = null;
+    private PowerManager.WakeLock f1805a = null;
     private PowerManager b = null;
     private Vibrator c = null;
     private g d = null;
@@ -22,10 +22,10 @@ public class ShakeActivity extends com.baidu.tieba.j {
     private j f = null;
     private i g = null;
     private k j = null;
-    private h k = new a(this);
-    private bf l = new b(this);
-    private DialogInterface.OnClickListener m = new c(this);
-    private DialogInterface.OnDismissListener n = new d(this);
+    private h k = new b(this);
+    private bf l = new c(this);
+    private DialogInterface.OnClickListener m = new d(this);
+    private DialogInterface.OnDismissListener n = new e(this);
 
     public static void a(Context context, String str, String str2, String str3, String str4) {
         Intent intent = new Intent(context, ShakeActivity.class);
@@ -51,7 +51,7 @@ public class ShakeActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         a(bundle);
-        m();
+        f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,7 +59,7 @@ public class ShakeActivity extends com.baidu.tieba.j {
     public void onDestroy() {
         super.onDestroy();
         if (this.f != null) {
-            new Handler().postDelayed(new e(this), 1500L);
+            new Handler().postDelayed(new a(this), 1500L);
         }
         this.j.f();
     }
@@ -75,8 +75,8 @@ public class ShakeActivity extends com.baidu.tieba.j {
     public void onPause() {
         super.onPause();
         b();
-        if (this.f1310a != null) {
-            this.f1310a.release();
+        if (this.f1805a != null) {
+            this.f1805a.release();
         }
     }
 
@@ -99,8 +99,8 @@ public class ShakeActivity extends com.baidu.tieba.j {
     public void onResume() {
         super.onResume();
         c();
-        if (this.f1310a != null) {
-            this.f1310a.acquire();
+        if (this.f1805a != null) {
+            this.f1805a.acquire();
         }
     }
 
@@ -152,7 +152,7 @@ public class ShakeActivity extends com.baidu.tieba.j {
         finish();
     }
 
-    private void m() {
+    private void f() {
         this.j = new k(this);
         this.j.a(this.l);
         this.j.a(this.m);
@@ -167,9 +167,9 @@ public class ShakeActivity extends com.baidu.tieba.j {
         }
         try {
             this.b = (PowerManager) getSystemService("power");
-            this.f1310a = this.b.newWakeLock(26, "My Lock");
+            this.f1805a = this.b.newWakeLock(26, "My Lock");
         } catch (Exception e) {
-            av.b(getClass().getName(), "initData", e.toString());
+            be.b(getClass().getName(), "initData", e.toString());
         }
         this.e = new f(this, this);
         this.d = new g();

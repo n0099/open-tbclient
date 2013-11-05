@@ -6,17 +6,17 @@ import com.slidingmenu.lib.R;
 class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1765a;
-    private final /* synthetic */ View b;
+    final /* synthetic */ View f2285a;
+    final /* synthetic */ h b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(h hVar, View view) {
-        this.f1765a = hVar;
-        this.b = view;
+        this.b = hVar;
+        this.f2285a = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.findViewById(R.id.time).setVisibility(4);
+        this.f2285a.findViewById(R.id.time).setVisibility(4);
     }
 }

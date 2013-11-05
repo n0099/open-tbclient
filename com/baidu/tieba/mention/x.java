@@ -4,28 +4,28 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.a.d {
+public class x implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1381a;
+    final /* synthetic */ PostActivity f1878a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(PostActivity postActivity) {
-        this.f1381a = postActivity;
+        this.f1878a = postActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
-        linearLayout = this.f1381a.f1354a;
+        linearLayout = this.f1878a.f1850a;
         ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
         while (imageView != null) {
             imageView.setTag(null);
-            if (imageView != null && cVar != null) {
-                cVar.a(imageView);
+            if (imageView != null && eVar != null) {
+                eVar.a(imageView);
             }
-            linearLayout2 = this.f1381a.f1354a;
+            linearLayout2 = this.f1878a.f1850a;
             imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }

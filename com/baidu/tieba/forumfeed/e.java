@@ -9,14 +9,14 @@ import com.baidu.tieba.data.ai;
 import com.baidu.tieba.data.w;
 import com.baidu.tieba.data.x;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.au;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.q;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private w f1102a;
+    private w f1234a;
     private Context b;
     private q c;
     private View.OnClickListener d;
@@ -28,9 +28,9 @@ public class e extends BaseAdapter {
     private float j = 0.4f;
 
     public void a(w wVar) {
-        a(au.a().b());
+        a(bd.a().b());
         this.e = true;
-        this.f1102a = wVar;
+        this.f1234a = wVar;
     }
 
     public e(Context context) {
@@ -38,7 +38,7 @@ public class e extends BaseAdapter {
         this.b = context;
         this.f = new com.baidu.tieba.util.a(context);
         this.g = UtilHelper.a(context);
-        a(au.a().b());
+        a(bd.a().b());
     }
 
     @Override // android.widget.Adapter
@@ -47,7 +47,7 @@ public class e extends BaseAdapter {
         if (!this.e) {
             return 1;
         }
-        if (this.f1102a == null || (a2 = this.f1102a.a()) == null) {
+        if (this.f1234a == null || (a2 = this.f1234a.a()) == null) {
             return 0;
         }
         return a2.size();
@@ -55,10 +55,10 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (!this.e || this.f1102a == null || this.f1102a.a() == null) {
+        if (!this.e || this.f1234a == null || this.f1234a.a() == null) {
             return null;
         }
-        ArrayList<x> a2 = this.f1102a.a();
+        ArrayList<x> a2 = this.f1234a.a();
         if (i < 0 || a2 == null || i >= a2.size()) {
             return null;
         }
@@ -86,14 +86,14 @@ public class e extends BaseAdapter {
         this.c.a(this.g, this.i, this.j);
         View a2 = (view == null || view.getTag() == null) ? this.c.a() : view;
         a2.setPadding(0, i == 0 ? 8 : 0, 0, 0);
-        int ap = TiebaApplication.g().ap();
+        int as = TiebaApplication.g().as();
         ForumFeedActivity forumFeedActivity = (ForumFeedActivity) this.b;
-        forumFeedActivity.l().a(ap == 1);
-        forumFeedActivity.l().a(a2);
-        ArrayList<x> a3 = this.f1102a.a();
+        forumFeedActivity.m().a(as == 1);
+        forumFeedActivity.m().a(a2);
+        ArrayList<x> a3 = this.f1234a.a();
         if (a3 != null && (xVar = a3.get(i)) != null) {
             this.c.a(a2, xVar);
-            this.c.a(ap, a2);
+            this.c.a(as, a2);
         }
         return a2;
     }
@@ -107,8 +107,8 @@ public class e extends BaseAdapter {
     public int getItemViewType(int i) {
         x xVar;
         ArrayList<ai> j;
-        if (this.e && this.f1102a != null) {
-            ArrayList<x> a2 = this.f1102a.a();
+        if (this.e && this.f1234a != null) {
+            ArrayList<x> a2 = this.f1234a.a();
             if (a2 == null || (xVar = a2.get(i)) == null || (j = xVar.j()) == null) {
                 return 2;
             }

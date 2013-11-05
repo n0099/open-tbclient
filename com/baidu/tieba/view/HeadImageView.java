@@ -25,23 +25,28 @@ public class HeadImageView extends TbImageView {
     private int j;
     private float k;
     private boolean l;
+    private boolean m;
+    private boolean n;
 
     public HeadImageView(Context context) {
         this(context, null, 0);
+        this.m = true;
     }
 
     public HeadImageView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+        this.m = true;
     }
 
     public HeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.c = null;
         this.d = null;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.ag.HeadImageView);
+        this.m = true;
+        this.n = false;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.al.HeadImageView);
         this.k = obtainStyledAttributes.getFloat(0, -1.0f);
         obtainStyledAttributes.recycle();
-        this.j = UtilHelper.a(context, 5.0f);
         this.g = new RectF();
         this.h = new RectF();
         this.i = (int) ((getResources().getDisplayMetrics().density * 1.0f) + 0.5d);
@@ -53,7 +58,14 @@ public class HeadImageView extends TbImageView {
         this.f = new Paint();
         this.f.setColor(1275068416);
         this.f.setAntiAlias(true);
-        setRadius(this.j);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.al.HeadImageView);
+        if (obtainStyledAttributes2.getBoolean(1, true)) {
+            this.j = UtilHelper.a(context, 5.0f);
+            setRadius(this.j);
+        }
+        setIsShowGifTag(obtainStyledAttributes2.getBoolean(2, true));
+        obtainStyledAttributes2.recycle();
+        this.m = true;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -71,6 +83,10 @@ public class HeadImageView extends TbImageView {
         int i5 = this.i >> 1;
         this.h.set(0.0f, 0.0f, i3 - i, i4 - i2);
         this.g.set(i5, i5, (i3 - i) - i5, (i4 - i2) - i5);
+    }
+
+    public void setAutoChangeStyle(boolean z) {
+        this.n = z;
     }
 
     public void setUserId(String str) {
@@ -91,28 +107,31 @@ public class HeadImageView extends TbImageView {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
+        super.setBackgroundColor(i);
     }
 
     @Override // android.view.View
     public void setBackgroundResource(int i) {
+        super.setBackgroundResource(i);
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
+        super.setBackgroundDrawable(drawable);
     }
 
-    @Override // com.baidu.adp.widget.a.a, android.widget.ImageView
+    @Override // com.baidu.adp.widget.ImageView.a, android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         if (bitmap == null) {
             this.l = false;
             return;
         }
-        setImageDrawable(new com.baidu.adp.widget.p(getResources(), null, this, bitmap, this.j));
+        setImageDrawable(new com.baidu.adp.widget.r(getResources(), null, this, bitmap, this.j));
         this.l = true;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.a.a, android.view.View
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.view.View
     public void setTag(Object obj) {
         super.setTag(obj);
         if (obj != null) {
@@ -120,25 +139,35 @@ public class HeadImageView extends TbImageView {
         }
     }
 
-    public void c() {
+    public void b() {
         if (this.l) {
-            if (this.b != TiebaApplication.g().ap()) {
+            if (this.b != TiebaApplication.g().as()) {
                 invalidate();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.a.a, android.widget.ImageView, android.view.View
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.l) {
-            canvas.drawRoundRect(this.g, this.j, this.j, this.e);
-            int ap = TiebaApplication.g().ap();
-            if (ap == 1) {
-                canvas.drawRoundRect(this.h, this.j, this.j, this.f);
+            int as = TiebaApplication.g().as();
+            if (c()) {
+                canvas.drawRoundRect(this.g, this.j, this.j, this.e);
+                if (this.n && as == 1) {
+                    canvas.drawRoundRect(this.h, this.j, this.j, this.f);
+                }
             }
-            this.b = ap;
+            this.b = as;
         }
+    }
+
+    public boolean c() {
+        return this.m;
+    }
+
+    public void setDrawBorder(boolean z) {
+        this.m = z;
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.location;
 
 import android.location.Location;
 import cn.jingling.lib.file.ImageFile;
+import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.location.c;
 import com.baidu.location.e;
 import com.baidu.zeus.bouncycastle.DERTags;
@@ -30,7 +31,7 @@ public class k {
     private static int f249char = 1024;
 
     /* renamed from: if  reason: not valid java name */
-    private static int f254if = 512;
+    private static int f254if = ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
     private static int i = 32;
 
     /* renamed from: case  reason: not valid java name */
@@ -40,7 +41,7 @@ public class k {
     private static double e = 0.0d;
 
     /* renamed from: a  reason: collision with root package name */
-    private static double f795a = 0.1d;
+    private static double f924a = 0.1d;
 
     /* renamed from: long  reason: not valid java name */
     private static double f256long = 30.0d;
@@ -199,7 +200,7 @@ public class k {
             d2 = e;
         }
         e = d2;
-        f795a = d3;
+        f924a = d3;
         if (d4 <= 20.0d) {
             d4 = f256long;
         }

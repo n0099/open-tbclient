@@ -1,27 +1,23 @@
 package com.baidu.tieba.voice;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import com.baidu.tieba.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements DialogInterface.OnClickListener {
+public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecordVoiceBnt f2037a;
+    final /* synthetic */ PlayVoiceBnt f2576a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(RecordVoiceBnt recordVoiceBnt) {
-        this.f2037a = recordVoiceBnt;
+    public l(PlayVoiceBnt playVoiceBnt) {
+        this.f2576a = playVoiceBnt;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        AlertDialog alertDialog;
-        AlertDialog alertDialog2;
-        alertDialog = this.f2037a.G;
-        if (alertDialog != null) {
-            alertDialog2 = this.f2037a.G;
-            alertDialog2.dismiss();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        VoiceManager.VoiceModel voiceModel;
+        PlayVoiceBnt playVoiceBnt = this.f2576a;
+        voiceModel = this.f2576a.b;
+        playVoiceBnt.a(voiceModel);
     }
 }

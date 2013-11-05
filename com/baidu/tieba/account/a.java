@@ -2,18 +2,20 @@ package com.baidu.tieba.account;
 
 import android.app.Activity;
 import android.content.Context;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.loginshare.LoginShareAssistant;
 import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
 public class a {
     private static a b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private b f883a = null;
-    private c c = null;
+    private c f1012a = null;
+    private d c = null;
 
     public static a a() {
         if (b == null) {
@@ -29,22 +31,22 @@ public class a {
         try {
             if (!TiebaApplication.n()) {
                 Token token = new Token();
-                String E = TiebaApplication.E();
-                if (E != null) {
+                String F = TiebaApplication.F();
+                if (F != null) {
                     d();
-                    String[] split = E.split("[|]");
+                    String[] split = F.split("[|]");
                     if (split != null && split.length == 2) {
                         token.mBduss = split[0];
                         token.mPtoken = split[1];
                         if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                            token.mUsername = TiebaApplication.G();
+                            token.mUsername = TiebaApplication.H();
                             LoginShareAssistant.getInstance().valid(token);
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "valid", e.getMessage());
+            be.b(getClass().getName(), "valid", e.getMessage());
         }
     }
 
@@ -62,7 +64,7 @@ public class a {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "invalid", e.getMessage());
+            be.b(getClass().getName(), "invalid", e.getMessage());
         }
     }
 
@@ -73,7 +75,7 @@ public class a {
                     LoginShareAssistant.getInstance().invalid(token);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "invalid", e.getMessage());
+                be.b(getClass().getName(), "invalid", e.getMessage());
             }
         }
     }
@@ -84,45 +86,45 @@ public class a {
                 LoginShareAssistant.getInstance().onActivityCreate();
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "onActivityCreate", e.getMessage());
+            be.b(getClass().getName(), "onActivityCreate", e.getMessage());
         }
     }
 
     public void a(Context context) {
-        String aH;
+        String aM;
         try {
-            if (!TiebaApplication.n() && (aH = TiebaApplication.g().aH()) != null) {
-                this.f883a = new b(this);
-                String[] split = aH.split(":");
+            if (!TiebaApplication.n() && (aM = TiebaApplication.g().aM()) != null) {
+                this.f1012a = new c(this);
+                String[] split = aM.split(":");
                 int length = split.length;
                 if (length >= 1) {
-                    if ("1".equals(split[0])) {
-                        this.f883a.f910a = true;
+                    if (SocialConstants.TRUE.equals(split[0])) {
+                        this.f1012a.f1040a = true;
                     } else {
-                        this.f883a.f910a = false;
+                        this.f1012a.f1040a = false;
                     }
                 }
                 if (length >= 2) {
-                    this.f883a.b = split[1];
+                    this.f1012a.b = split[1];
                 }
                 if (length >= 3) {
-                    this.f883a.c = split[2];
+                    this.f1012a.c = split[2];
                 }
                 if (length >= 4) {
                     if (split[3] == null || split[3].equalsIgnoreCase("null")) {
-                        this.f883a.d = null;
+                        this.f1012a.d = null;
                     } else {
-                        this.f883a.d = split[3];
+                        this.f1012a.d = split[3];
                     }
                 }
-                if (this.f883a != null && !this.f883a.f910a) {
+                if (this.f1012a != null && !this.f1012a.f1040a) {
                     DatabaseService.k();
                     TiebaApplication.a((AccountData) null, context);
                     d();
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "prepare", e.getMessage());
+            be.b(getClass().getName(), "prepare", e.getMessage());
         }
     }
 
@@ -144,7 +146,7 @@ public class a {
                 return token;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.av.b("AccountShareHelper", "parseBDUSS", e.getMessage());
+                be.b("AccountShareHelper", "parseBDUSS", e.getMessage());
                 return token;
             }
         } catch (Exception e3) {
@@ -154,18 +156,18 @@ public class a {
     }
 
     public void d() {
-        this.f883a = null;
-        TiebaApplication.g().aG();
+        this.f1012a = null;
+        TiebaApplication.g().aL();
     }
 
     public void e() {
-        this.f883a = null;
+        this.f1012a = null;
     }
 
     public void a(Activity activity, int i) {
-        String G;
-        if (this.f883a != null && this.f883a.f910a && TiebaApplication.C() == null && ((G = TiebaApplication.G()) == null || !G.equals(this.f883a.d))) {
-            ReLoginShareActivity.a(activity, this.f883a.d, this.f883a.b, this.f883a.c, i);
+        String H;
+        if (this.f1012a != null && this.f1012a.f1040a && TiebaApplication.C() == null && ((H = TiebaApplication.H()) == null || !H.equals(this.f1012a.d))) {
+            ReLoginShareActivity.a(activity, this.f1012a.d, this.f1012a.b, this.f1012a.c, i);
         }
         e();
     }
@@ -174,10 +176,10 @@ public class a {
         try {
             LoginShareAssistant loginShareAssistant = LoginShareAssistant.getInstance();
             loginShareAssistant.initial(context, "tb", "1536");
-            this.c = new c(this, null);
+            this.c = new d(this);
             loginShareAssistant.setLoginShareListener(this.c);
         } catch (Error e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "init", e.getMessage());
+            be.b(getClass().getName(), "init", e.getMessage());
         }
     }
 
@@ -186,6 +188,6 @@ public class a {
         if (!z) {
             str4 = "2:";
         }
-        TiebaApplication.g().r(String.valueOf(str4) + str + ":" + str2 + ":" + str3);
+        TiebaApplication.g().r(str4 + str + ":" + str2 + ":" + str3);
     }
 }

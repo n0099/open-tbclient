@@ -11,11 +11,11 @@ import com.slidingmenu.lib.R;
 public class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1855a;
+    final /* synthetic */ t f2377a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.f1855a = tVar;
+        this.f2377a = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,37 +32,37 @@ public class u implements View.OnClickListener {
         String str2 = "";
         if (view.getId() == R.id.banner_big) {
             str = "sq_banner_big";
-            avVar5 = this.f1855a.b;
+            avVar5 = this.f2377a.b;
             if (avVar5 != null) {
-                avVar6 = this.f1855a.b;
+                avVar6 = this.f2377a.b;
                 str2 = avVar6.a().b();
             } else {
                 str2 = "";
             }
         } else if (view.getId() == R.id.banner_small_left) {
             str = "sq_banner_left";
-            avVar3 = this.f1855a.b;
+            avVar3 = this.f2377a.b;
             if (avVar3 != null) {
-                avVar4 = this.f1855a.b;
+                avVar4 = this.f2377a.b;
                 str2 = avVar4.b().b();
             } else {
                 str2 = "";
             }
         } else if (view.getId() == R.id.banner_small_right) {
             str = "sq_banner_right";
-            avVar = this.f1855a.b;
+            avVar = this.f2377a.b;
             if (avVar != null) {
-                avVar2 = this.f1855a.b;
+                avVar2 = this.f2377a.b;
                 str2 = avVar2.c().b();
             } else {
                 str2 = "";
             }
         }
         if (TiebaApplication.g().s()) {
-            activity2 = this.f1855a.f1854a;
+            activity2 = this.f2377a.f2376a;
             StatService.onEvent(activity2, str, "click", 1);
         }
-        activity = this.f1855a.f1854a;
+        activity = this.f2377a.f2376a;
         UtilHelper.a(activity, str2, (String) null);
     }
 }

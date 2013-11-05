@@ -5,7 +5,7 @@ import android.webkit.WebSettings;
 import com.baidu.browser.core.BdNoProGuard;
 import com.baidu.browser.webkit.sys.BdSysWebSettings;
 import com.baidu.browser.webkit.zeus.BdZeusWebSettings;
-import com.baidu.zeus.WebChromeClient;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.zeus.WebSettings;
 import java.util.Observable;
 import java.util.Observer;
@@ -471,8 +471,8 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
         SMALLEST(BdWebSettings.MSG_setNightModeEnabled),
         SMALLER(75),
         NORMAL(100),
-        LARGERLITTLE(125),
-        LARGER(WebChromeClient.STRING_DLG_BTN_SET),
+        LARGERLITTLE(SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE),
+        LARGER(150),
         LARGERMORE(175),
         LARGEST(200);
         
@@ -495,7 +495,7 @@ public class BdWebSettings extends Observable implements BdNoProGuard, Cloneable
 
     /* loaded from: classes.dex */
     public enum ZoomDensity {
-        FAR(WebChromeClient.STRING_DLG_BTN_SET),
+        FAR(150),
         MEDIUM(100),
         CLOSE(75);
         

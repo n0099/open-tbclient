@@ -2,17 +2,18 @@ package com.baidu.tieba.person;
 
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.frs.FrsActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1691a;
+    final /* synthetic */ EditBarActivity f2212a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(EditBarActivity editBarActivity) {
-        this.f1691a = editBarActivity;
+        this.f2212a = editBarActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,15 +21,15 @@ public class e implements AdapterView.OnItemClickListener {
         i iVar;
         h hVar;
         i iVar2;
-        iVar = this.f1691a.f;
+        iVar = this.f2212a.f;
         if (iVar.getItem(i) != null) {
-            hVar = this.f1691a.m;
+            hVar = this.f2212a.m;
             if (hVar == null) {
-                this.f1691a.k = i;
-                iVar2 = this.f1691a.f;
-                com.baidu.tieba.data.v vVar = (com.baidu.tieba.data.v) iVar2.getItem(i);
-                if (vVar != null) {
-                    FrsActivity.a(this.f1691a, vVar.b(), "tb_mytieba");
+                this.f2212a.k = i;
+                iVar2 = this.f2212a.f;
+                ForumData forumData = (ForumData) iVar2.getItem(i);
+                if (forumData != null) {
+                    FrsActivity.a(this.f2212a, forumData.getName(), "tb_mytieba");
                 }
             }
         }

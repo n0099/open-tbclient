@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.contact.RContact;
@@ -91,16 +92,19 @@ public class EditHeadImageView extends k {
         canvas.drawRect(0.0f, this.d, getWidth() - 1, getHeight() - this.e, this.c);
     }
 
-    public Bitmap getHeadBitmap() {
-        Bitmap createBitmap;
+    public Bitmap a(int i) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
-            if (visableBitmap != null && (bitmap = Bitmap.createScaledBitmap((createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.d, getWidth(), getWidth())), 110, 110, false)) != createBitmap) {
-                createBitmap.recycle();
+            if (visableBitmap != null) {
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.d, getWidth(), getWidth());
+                bitmap = i == 0 ? Bitmap.createScaledBitmap(createBitmap, SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN, SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN, false) : createBitmap;
+                if (bitmap != createBitmap) {
+                    createBitmap.recycle();
+                }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "getVisableBitmap", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "getVisableBitmap", e.toString());
         }
         return bitmap;
     }

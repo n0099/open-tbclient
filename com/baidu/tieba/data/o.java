@@ -1,61 +1,60 @@
 package com.baidu.tieba.data;
 
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1040a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
-    private String h;
-    private String i;
+    private ArrayList<n> f1172a = new ArrayList<>();
+    private ArrayList<q> b = new ArrayList<>();
 
-    public String a() {
-        return this.f1040a;
+    public ArrayList<n> a() {
+        return this.f1172a;
     }
 
-    public String b() {
+    public ArrayList<q> b() {
         return this.b;
     }
 
-    public String c() {
-        return this.c;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public String e() {
-        return this.e;
-    }
-
-    public String f() {
-        return this.g;
-    }
-
-    public String g() {
-        return this.f;
-    }
-
-    public String h() {
-        return this.h;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+        }
     }
 
     public void a(JSONObject jSONObject) {
-        this.f1040a = jSONObject.optString("link");
-        this.b = jSONObject.optString("title");
-        this.c = jSONObject.optString("abstract");
-        this.d = jSONObject.optString("forum_name");
-        this.e = jSONObject.optString("img");
-        this.f = jSONObject.optString("post_type");
-        this.g = jSONObject.optString("user_name");
-        this.h = jSONObject.optString("reply_num");
-        this.i = jSONObject.optString("proper");
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("banner");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    n nVar = new n();
+                    nVar.a(optJSONArray.getJSONObject(i));
+                    this.f1172a.add(nVar);
+                }
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("threadRecommend");
+            if (optJSONArray2 != null) {
+                int length2 = optJSONArray2.length();
+                for (int i2 = 0; i2 < length2; i2++) {
+                    q qVar = new q();
+                    qVar.a(optJSONArray2.getJSONObject(i2));
+                    this.b.add(qVar);
+                }
+            }
+        } catch (JSONException e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+        }
+    }
+
+    public void a(o oVar) {
+        if (oVar != null) {
+            this.b.addAll(oVar.b());
+        }
     }
 }

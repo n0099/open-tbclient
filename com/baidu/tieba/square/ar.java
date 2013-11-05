@@ -7,19 +7,19 @@ import android.widget.RadioButton;
 public class ar implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f1829a;
+    final /* synthetic */ SquareSearchActivity f2350a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(SquareSearchActivity squareSearchActivity) {
-        this.f1829a = squareSearchActivity;
+        this.f2350a = squareSearchActivity;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         RadioButton radioButton;
         if (z) {
-            this.f1829a.b(1);
-            radioButton = this.f1829a.l;
+            this.f2350a.d(1);
+            radioButton = this.f2350a.l;
             radioButton.setChecked(false);
         }
     }

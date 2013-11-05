@@ -31,7 +31,7 @@ public class HttpUtils {
     public static final String IP_CTWAP = "10.0.0.200";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Uri f744a = Uri.parse("content://telephony/carriers/preferapn");
+    private static final Uri f873a = Uri.parse("content://telephony/carriers/preferapn");
 
     /* renamed from: a  reason: collision with other field name */
     private OnNetListener f9a;
@@ -566,7 +566,7 @@ public class HttpUtils {
                     return;
                 }
             }
-            if (VersionUtils.getCurrentVersion() <= 16 && (query = context.getContentResolver().query(f744a, new String[]{"_id", "apn", "proxy", "user"}, null, null, null)) != null) {
+            if (VersionUtils.getCurrentVersion() <= 16 && (query = context.getContentResolver().query(f873a, new String[]{"_id", "apn", "proxy", "user"}, null, null, null)) != null) {
                 query.moveToFirst();
                 query.getCount();
                 if (!query.isAfterLast()) {

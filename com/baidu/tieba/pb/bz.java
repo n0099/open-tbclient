@@ -1,35 +1,31 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class bz implements CompoundButton.OnCheckedChangeListener {
+class bz implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ br f1571a;
+    final /* synthetic */ ImageView f2087a;
+    final /* synthetic */ bt b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(br brVar) {
-        this.f1571a = brVar;
+    public bz(bt btVar, ImageView imageView) {
+        this.b = btVar;
+        this.f2087a = imageView;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            switch (compoundButton.getId()) {
-                case R.id.radio_button_1day /* 2131100011 */:
-                    this.f1571a.ae = 1;
-                    return;
-                case R.id.radio_button_3day /* 2131100012 */:
-                    this.f1571a.ae = 3;
-                    return;
-                case R.id.radio_button_10day /* 2131100013 */:
-                    this.f1571a.ae = 10;
-                    return;
-                default:
-                    return;
-            }
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new ca(this));
     }
 }

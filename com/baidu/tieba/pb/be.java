@@ -1,28 +1,45 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
+import android.util.SparseArray;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class be implements Runnable {
+class be implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1551a;
+    final /* synthetic */ NewPbActivity f2068a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(NewPbActivity newPbActivity) {
-        this.f1551a = newPbActivity;
+        this.f2068a = newPbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        br brVar;
-        br brVar2;
-        br brVar3;
-        brVar = this.f1551a.t;
-        if (!brVar.E()) {
-            brVar3 = this.f1551a.t;
-            brVar3.b(false);
-            return;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        com.baidu.tieba.model.bf bfVar;
+        bt btVar;
+        DialogInterface.OnClickListener onClickListener;
+        com.baidu.tieba.model.bl blVar;
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            this.f2068a.f2033a = (com.baidu.tieba.data.as) sparseArray.get(R.id.tag_clip_board);
+            if (this.f2068a.f2033a != null) {
+                boolean z = false;
+                bfVar = this.f2068a.p;
+                if (bfVar.a() && this.f2068a.f2033a.d() != null) {
+                    String d = this.f2068a.f2033a.d();
+                    blVar = this.f2068a.o;
+                    if (d.equals(blVar.j())) {
+                        z = true;
+                    }
+                }
+                boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_is_subpb)).booleanValue();
+                btVar = this.f2068a.u;
+                onClickListener = this.f2068a.R;
+                btVar.a(onClickListener, z, booleanValue);
+            }
         }
-        brVar2 = this.f1551a.t;
-        brVar2.b(true);
+        return true;
     }
 }

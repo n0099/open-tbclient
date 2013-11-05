@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.moplus.util.NoProGuard;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.util.Map;
 import org.json.JSONException;
@@ -36,7 +37,7 @@ public class GetCuid implements NoProGuard, e {
             JSONObject jSONObject = new JSONObject();
             try {
                 if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("cuid", str2);
+                    jSONObject.put(SocialConstants.PARAM_CUID, str2);
                     this.mErrcode = 0;
                 }
                 jSONObject.put("error", this.mErrcode);

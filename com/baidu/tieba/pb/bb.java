@@ -1,37 +1,27 @@
 package com.baidu.tieba.pb;
-
-import android.content.DialogInterface;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements DialogInterface.OnClickListener {
+class bb implements db {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1548a;
+    final /* synthetic */ NewPbActivity f2065a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(NewPbActivity newPbActivity) {
-        this.f1548a = newPbActivity;
+        this.f2065a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        String str;
-        String str2;
-        com.baidu.tieba.model.bd bdVar;
-        String str3;
-        StatService.onEvent(this.f1548a, "pb_phone_call", "call");
-        NewPbActivity newPbActivity = this.f1548a;
-        str = this.f1548a.x;
-        newPbActivity.x = str.trim();
-        NewPbActivity newPbActivity2 = this.f1548a;
-        str2 = this.f1548a.x;
-        UtilHelper.g(newPbActivity2, str2);
-        bdVar = this.f1548a.n;
-        String a2 = bdVar.a();
-        str3 = this.f1548a.x;
-        new com.baidu.tieba.account.j(a2, str3, "1").start();
-        dialogInterface.cancel();
+    @Override // com.baidu.tieba.pb.db
+    public void a(com.baidu.tieba.data.bb bbVar) {
+        com.baidu.tieba.model.bo boVar;
+        com.baidu.tieba.model.bo boVar2;
+        bt btVar;
+        boVar = this.f2065a.s;
+        if (boVar != null) {
+            boVar2 = this.f2065a.s;
+            if (boVar2.e()) {
+                btVar = this.f2065a.u;
+                btVar.D();
+            }
+        }
     }
 }

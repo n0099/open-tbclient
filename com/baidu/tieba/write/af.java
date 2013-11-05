@@ -1,36 +1,27 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import android.widget.EditText;
-import com.baidu.tieba.data.WriteData;
-import com.baidu.tieba.util.DatabaseService;
+import android.view.View;
+import android.widget.GridView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements DialogInterface.OnClickListener {
+public class af implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2083a;
+    final /* synthetic */ WriteActivity f2627a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(WriteActivity writeActivity) {
-        this.f2083a = writeActivity;
+        this.f2627a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        WriteData writeData;
-        EditText editText;
-        WriteData writeData2;
-        EditText editText2;
-        WriteData writeData3;
-        writeData = this.f2083a.f2075a;
-        editText = this.f2083a.e;
-        writeData.setTitle(editText.getText().toString());
-        writeData2 = this.f2083a.f2075a;
-        editText2 = this.f2083a.g;
-        writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.f2083a.f2075a;
-        DatabaseService.b(writeData3);
-        this.f2083a.finish();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        GridView gridView;
+        gridView = this.f2627a.u;
+        if (gridView.getVisibility() == 0) {
+            this.f2627a.d(2);
+        } else {
+            this.f2627a.d(1);
+        }
     }
 }

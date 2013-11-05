@@ -7,11 +7,11 @@ import android.widget.ListView;
 class z implements View.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareActivity f1860a;
+    final /* synthetic */ SquareActivity f2382a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(SquareActivity squareActivity) {
-        this.f1860a = squareActivity;
+        this.f2382a = squareActivity;
     }
 
     @Override // android.view.View.OnKeyListener

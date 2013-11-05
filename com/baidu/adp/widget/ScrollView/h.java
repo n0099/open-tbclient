@@ -8,19 +8,19 @@ import java.util.TimerTask;
 public class h extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f505a;
-    private final /* synthetic */ View b;
-    private final /* synthetic */ Timer c;
+    final /* synthetic */ View f585a;
+    final /* synthetic */ Timer b;
+    final /* synthetic */ g c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, View view, Timer timer) {
-        this.f505a = gVar;
-        this.b = view;
-        this.c = timer;
+        this.c = gVar;
+        this.f585a = view;
+        this.b = timer;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        this.b.post(new i(this, this.b, this.c));
+        this.f585a.post(new i(this));
     }
 }

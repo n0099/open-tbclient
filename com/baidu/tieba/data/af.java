@@ -7,14 +7,14 @@ import org.json.JSONArray;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<ae> f996a = new ArrayList<>();
+    private ArrayList<ae> f1126a = new ArrayList<>();
 
     public ArrayList<ae> a() {
-        return this.f996a;
+        return this.f1126a;
     }
 
     public void b() {
-        Iterator<ae> it = this.f996a.iterator();
+        Iterator<ae> it = this.f1126a.iterator();
         while (it.hasNext()) {
             it.next().a(0);
         }
@@ -26,9 +26,9 @@ public class af {
                 try {
                     ae aeVar = new ae();
                     aeVar.a(jSONArray.getJSONObject(i));
-                    this.f996a.add(aeVar);
+                    this.f1126a.add(aeVar);
                 } catch (Exception e) {
-                    com.baidu.tieba.util.av.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
+                    com.baidu.tieba.util.be.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
                     return;
                 }
             }

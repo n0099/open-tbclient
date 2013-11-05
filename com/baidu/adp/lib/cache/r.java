@@ -1,9 +1,13 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public class r<T> {
+public interface r<T> {
+    void a(String str, String str2, T t, long j);
 
-    /* renamed from: a  reason: collision with root package name */
-    public T f388a;
-    public long b;
-    public long c;
+    T c(String str, String str2);
+
+    t<T> d(String str, String str2);
+
+    void d(String str);
+
+    void e(String str, String str2);
 }

@@ -5,15 +5,15 @@ import android.view.View;
 class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1742a;
+    final /* synthetic */ q f2262a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(GuideActivity guideActivity) {
-        this.f1742a = guideActivity;
+    public r(q qVar) {
+        this.f2262a = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1742a.b();
+        this.f2262a.cancel();
     }
 }

@@ -1,26 +1,20 @@
 package com.baidu.tieba.util;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah {
-    protected boolean j;
-    protected boolean i = true;
-    protected String k = "UTF-8";
+public class ah implements BaiduAccount.CallbackListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f1897a = null;
-    protected int b = 0;
-    protected int c = 0;
-    protected String d = null;
-    protected ArrayList<BasicNameValuePair> e = null;
-    protected boolean g = true;
-    protected boolean h = false;
-    protected HashMap<String, byte[]> f = null;
+    final /* synthetic */ ag f2419a;
 
-    public ah() {
-        this.j = true;
-        this.j = true;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(ag agVar) {
+        this.f2419a = agVar;
+    }
+
+    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
+    public void callback() {
+        this.f2419a.u();
     }
 }

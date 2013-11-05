@@ -1,105 +1,250 @@
 package com.baidu.tieba.data;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
+import com.baidu.location.LocationClientOption;
+import com.baidu.tieba.voice.VoiceManager;
+import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bf {
-
-    /* renamed from: a  reason: collision with root package name */
-    private boolean f1022a = false;
-    private String b = null;
+public class bf implements com.baidu.tieba.util.ae {
+    private SpannableString r;
+    private int w;
+    private int x;
+    private String v = null;
     private String c = null;
-    private long d = 0;
-    private int e = 0;
+    private String d = null;
+    private String e = null;
     private int f = 0;
     private int g = 0;
     private int h = 0;
     private String i = null;
-    private String j = null;
-    private ArrayList<am> k = new ArrayList<>();
+    private long j = 0;
+    private int k = 0;
+    private int l = 0;
+    private MetaData m = new MetaData();
+    private String n = null;
 
-    public void a(JSONObject jSONObject) {
-        try {
-            if (jSONObject == null) {
-                this.f1022a = false;
-                return;
-            }
-            this.f1022a = true;
-            JSONObject optJSONObject = jSONObject.optJSONObject("player_rank_info");
-            if (optJSONObject != null) {
-                this.b = optJSONObject.optString("player_id", null);
-                this.c = optJSONObject.optString("player_name", null);
-                this.d = optJSONObject.optLong("vote_number", 0L);
-                this.e = optJSONObject.optInt("player_rank");
-                this.f = optJSONObject.optInt("join_type", 0);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("media");
-            if (optJSONObject2 != null) {
-                a(optJSONObject2.optInt("has_audio", 0));
-                b(optJSONObject2.optInt("has_video", 0));
-                this.i = optJSONObject2.optString("audio_url", null);
-                this.j = optJSONObject2.optString("video_url", null);
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("pinfo");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.k.clear();
-                for (int i = 0; i < optJSONArray.length() && i < 2; i++) {
-                    am amVar = new am();
-                    amVar.a(optJSONArray.getJSONObject(i));
-                    this.k.add(amVar);
-                }
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.av.b("SupperBoyData", "parserJson", "error = " + e.getMessage());
-        }
-    }
+    /* renamed from: a  reason: collision with root package name */
+    ArrayList<ai> f1152a = new ArrayList<>();
+    ArrayList<VoiceManager.VoiceModel> b = new ArrayList<>();
+    private int o = 0;
+    private int p = 0;
+    private String q = null;
+    private String s = null;
+    private String t = null;
+    private int u = 0;
 
     public String a() {
-        return this.b;
-    }
-
-    public String b() {
         return this.c;
     }
 
-    public long c() {
-        return this.d;
-    }
-
-    public int d() {
+    public String b() {
         return this.e;
     }
 
-    public ArrayList<am> e() {
+    public int c() {
+        return this.f;
+    }
+
+    public long d() {
+        return this.j;
+    }
+
+    public void a(long j) {
+        this.j = j;
+    }
+
+    public int e() {
         return this.k;
     }
 
-    public boolean f() {
-        return this.f1022a;
-    }
-
-    public int g() {
-        return this.g;
-    }
-
     public void a(int i) {
-        this.g = i;
+        this.k = i;
     }
 
-    public int h() {
-        return this.h;
+    public int f() {
+        return this.l;
     }
 
     public void b(int i) {
-        this.h = i;
+        this.l = i;
+    }
+
+    public MetaData g() {
+        return this.m;
+    }
+
+    public int h() {
+        return this.p;
     }
 
     public String i() {
-        return this.i;
+        return this.q;
     }
 
     public String j() {
-        return this.j;
+        return this.s;
+    }
+
+    public int k() {
+        return this.u;
+    }
+
+    public void c(int i) {
+        this.u = i;
+    }
+
+    public String l() {
+        return this.v;
+    }
+
+    public void a(String str) {
+        this.v = str;
+    }
+
+    public ArrayList<ai> m() {
+        return this.f1152a;
+    }
+
+    public ArrayList<VoiceManager.VoiceModel> n() {
+        return this.b;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.c = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.d = jSONObject.optString("tid");
+                this.e = jSONObject.optString("title");
+                this.f = jSONObject.optInt("reply_num", 0);
+                this.g = jSONObject.optInt("repost_num", 0);
+                this.h = jSONObject.optInt("view_num", 0);
+                this.i = jSONObject.optString("last_time");
+                this.j = jSONObject.optLong("last_time_int", 0L);
+                this.k = jSONObject.optInt("is_top", 0);
+                this.l = jSONObject.optInt("is_good", 0);
+                this.m.parserJson(jSONObject.optJSONObject("author"));
+                this.n = jSONObject.optString("fname");
+                this.o = jSONObject.optInt("has_commented", 0);
+                this.p = jSONObject.optInt("show_commented", 0);
+                this.q = jSONObject.optString("click_url");
+                this.t = jSONObject.optString("from");
+                this.u = jSONObject.optInt("collect_status");
+                this.v = jSONObject.optString("collect_mark_pid");
+                this.w = jSONObject.optInt("is_voice_thread");
+                this.x = jSONObject.optInt("thread_type");
+                StringBuilder sb = new StringBuilder();
+                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        if (optJSONArray.getJSONObject(i) != null) {
+                            if (optJSONArray.getJSONObject(i).optInt("type") == 0) {
+                                sb.append(optJSONArray.getJSONObject(i).optString("text"));
+                            }
+                        } else {
+                            return;
+                        }
+                    }
+                }
+                this.s = sb.toString();
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("media");
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        ai aiVar = new ai();
+                        aiVar.a(optJSONArray2.getJSONObject(i2));
+                        this.f1152a.add(aiVar);
+                    }
+                }
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
+                if (optJSONArray3 != null) {
+                    int length = optJSONArray3.length();
+                    for (int i3 = 0; i3 < length; i3++) {
+                        VoiceManager.VoiceModel voiceModel = new VoiceManager.VoiceModel();
+                        JSONObject jSONObject2 = optJSONArray3.getJSONObject(i3);
+                        voiceModel.from = "frs_voice_play";
+                        voiceModel.voiceId = jSONObject2.optString("voice_md5");
+                        voiceModel.duration = jSONObject2.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
+                        this.b.add(voiceModel);
+                    }
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.util.be.b("ThreadData", "parserJson", "error = " + e.getMessage());
+            }
+        }
+    }
+
+    public SpannableString o() {
+        return this.r;
+    }
+
+    public void p() {
+        SpannableString spannableString;
+        if (this.e != null) {
+            ArrayList arrayList = new ArrayList();
+            if (e() == 1) {
+                arrayList.add(Integer.valueOf((int) R.drawable.icon_top));
+            }
+            if (f() == 1) {
+                arrayList.add(Integer.valueOf((int) R.drawable.icon_elite));
+            }
+            if (h() == 1) {
+                arrayList.add(Integer.valueOf((int) R.drawable.frs_post_ding));
+            }
+            if (this.w == 1 || this.x == 11) {
+                arrayList.add(Integer.valueOf((int) R.drawable.icon_voice));
+            }
+            if (arrayList.size() > 0) {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < arrayList.size(); i++) {
+                    sb.append("1 ");
+                }
+                SpannableString spannableString2 = new SpannableString(sb.toString() + this.e);
+                int i2 = 0;
+                for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                    Bitmap a2 = com.baidu.tieba.util.e.a(((Integer) arrayList.get(i3)).intValue());
+                    BitmapDrawable bitmapDrawable = new BitmapDrawable(a2);
+                    bitmapDrawable.setBounds(0, 0, a2.getWidth(), a2.getHeight());
+                    spannableString2.setSpan(new ImageSpan(bitmapDrawable, 1), i2, i2 + 1, 33);
+                    i2 += 2;
+                }
+                spannableString = spannableString2;
+            } else {
+                spannableString = new SpannableString(this.e);
+            }
+            this.r = spannableString;
+        }
+    }
+
+    @Override // com.baidu.tieba.util.ae
+    public LinkedList<String> getImageUrl() {
+        ArrayList<ai> m = m();
+        if (m == null) {
+            return null;
+        }
+        LinkedList<String> linkedList = new LinkedList<>();
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 >= m.size() || i2 >= 3) {
+                break;
+            }
+            if (m.get(i2).a() == 3) {
+                linkedList.add(m.get(i2).b());
+            }
+            i = i2 + 1;
+        }
+        return linkedList;
+    }
+
+    @Override // com.baidu.tieba.util.ae
+    public LinkedList<String> getPhotoUrl() {
+        return null;
     }
 }

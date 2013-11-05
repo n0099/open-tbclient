@@ -1,64 +1,27 @@
 package com.baidu.tieba.model;
-
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar extends BdAsyncTask<Object, Integer, Bitmap> {
+public class ar extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f1404a;
-    private String b;
+    private as f1902a;
+    private at b;
 
-    public ar(aq aqVar, String str) {
-        this.f1404a = aqVar;
-        this.b = null;
-        this.b = str;
+    public void a(at atVar) {
+        this.b = atVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        if (this.b != null && !this.b.equals("tieba_resized_image")) {
-            com.baidu.tieba.util.p.e("photos/" + this.b, "tieba_resized_image");
-        }
-        return com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(com.baidu.tieba.util.p.c(null, "tieba_resized_image_display")), 5.0f);
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        this.f1404a.f1403a = null;
-        eVar = this.f1404a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.f1404a.mLoadDataCallBack;
-            eVar2.a(null);
-        }
-        super.cancel(true);
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((ar) bitmap);
-        this.f1404a.f1403a = null;
-        com.baidu.tieba.util.av.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
-        eVar = this.f1404a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.f1404a.mLoadDataCallBack;
-            eVar2.a(bitmap);
-        }
+    public void a(String str) {
+        this.f1902a = new as(this, str);
+        this.f1902a.execute(new Void[0]);
     }
 }

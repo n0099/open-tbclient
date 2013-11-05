@@ -10,11 +10,13 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.util.as;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class q extends com.baidu.adp.a.d {
-    public ScrollView b;
+public class q extends com.baidu.adp.a.e {
+
+    /* renamed from: a  reason: collision with root package name */
+    public ScrollView f1822a;
     private VoteResultActivity c;
     private ImageView d;
     private TbImageView e;
@@ -50,7 +52,7 @@ public class q extends com.baidu.adp.a.d {
             this.n = (ProgressBar) this.o.findViewById(R.id.progress);
             this.p = (LinearLayout) this.o.findViewById(R.id.result_vote_loading);
             this.q = (LinearLayout) this.o.findViewById(R.id.result_vote_show);
-            this.b = (ScrollView) this.o.findViewById(R.id.bodyContainer);
+            this.f1822a = (ScrollView) this.o.findViewById(R.id.bodyContainer);
             this.d.setOnClickListener(this.c);
             this.j.setOnClickListener(this.c);
             this.k.setOnClickListener(this.c);
@@ -60,57 +62,57 @@ public class q extends com.baidu.adp.a.d {
             this.k.setEnabled(false);
             this.l.setEnabled(false);
             this.m.setEnabled(false);
-            as.a(this.d, 0);
-            as.d((ViewGroup) this.o.findViewById(R.id.top), 0);
-            as.f(this.f, 0);
+            bb.a(this.d, 0);
+            bb.d((ViewGroup) this.o.findViewById(R.id.top), 0);
+            bb.f(this.f, 0);
         }
     }
 
-    public void b() {
+    public void a() {
         this.n.setVisibility(0);
     }
 
-    public void c() {
+    public void e() {
         this.n.setVisibility(8);
     }
 
-    public void d() {
+    public void f() {
         this.p.setVisibility(8);
         this.q.setVisibility(0);
     }
 
-    public void e() {
+    public void g() {
         this.p.setVisibility(0);
         this.q.setVisibility(8);
     }
 
-    public void f() {
+    public void h() {
         this.j.setEnabled(true);
         this.k.setEnabled(true);
         this.l.setEnabled(true);
         this.m.setEnabled(true);
     }
 
-    public void g() {
+    public void i() {
         this.j.setEnabled(false);
         this.k.setEnabled(false);
         this.l.setEnabled(false);
         this.m.setEnabled(false);
     }
 
-    public TbImageView h() {
+    public TbImageView j() {
         return this.e;
     }
 
-    public TextView i() {
+    public TextView k() {
         return this.g;
     }
 
-    public TextView j() {
+    public TextView l() {
         return this.h;
     }
 
-    public TextView k() {
+    public TextView m() {
         return this.i;
     }
 }

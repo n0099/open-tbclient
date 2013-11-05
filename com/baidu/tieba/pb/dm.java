@@ -1,85 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
+import android.view.View;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dm extends WebViewClient {
+public class dm implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f1610a;
+    final /* synthetic */ dd f2126a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dm(WebActivity webActivity) {
-        this.f1610a = webActivity;
+    public dm(dd ddVar) {
+        this.f2126a = ddVar;
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        ImageView imageView;
-        ImageView imageView2;
-        ProgressBar progressBar;
-        ImageView imageView3;
-        ImageView imageView4;
-        ImageView imageView5;
-        super.onPageFinished(webView, str);
-        if (this.f1610a.f1518a.canGoBack()) {
-            imageView5 = this.f1610a.g;
-            imageView5.setEnabled(true);
-        } else {
-            imageView = this.f1610a.g;
-            imageView.setEnabled(false);
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        View.OnLongClickListener onLongClickListener;
+        View.OnLongClickListener onLongClickListener2;
+        onLongClickListener = this.f2126a.I;
+        if (onLongClickListener != null) {
+            onLongClickListener2 = this.f2126a.I;
+            onLongClickListener2.onLongClick(view);
+            return false;
         }
-        if (this.f1610a.f1518a.canGoForward()) {
-            imageView4 = this.f1610a.j;
-            imageView4.setEnabled(true);
-        } else {
-            imageView2 = this.f1610a.j;
-            imageView2.setEnabled(false);
-        }
-        progressBar = this.f1610a.l;
-        progressBar.setVisibility(8);
-        imageView3 = this.f1610a.k;
-        imageView3.setVisibility(0);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        ImageView imageView;
-        ImageView imageView2;
-        ProgressBar progressBar;
-        ImageView imageView3;
-        ImageView imageView4;
-        ImageView imageView5;
-        super.onPageStarted(webView, str, bitmap);
-        if (this.f1610a.f1518a.canGoBack()) {
-            imageView5 = this.f1610a.g;
-            imageView5.setEnabled(true);
-        } else {
-            imageView = this.f1610a.g;
-            imageView.setEnabled(false);
-        }
-        if (this.f1610a.f1518a.canGoForward()) {
-            imageView4 = this.f1610a.j;
-            imageView4.setEnabled(true);
-        } else {
-            imageView2 = this.f1610a.j;
-            imageView2.setEnabled(false);
-        }
-        progressBar = this.f1610a.l;
-        progressBar.setVisibility(0);
-        imageView3 = this.f1610a.k;
-        imageView3.setVisibility(4);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if ((this.f1610a.f == null || !this.f1610a.f.a(str)) && !com.baidu.tieba.recommend.ae.a(this.f1610a, str)) {
-            return super.shouldOverrideUrlLoading(webView, str);
-        }
-        return true;
+        return false;
     }
 }

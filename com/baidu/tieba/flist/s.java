@@ -6,7 +6,7 @@ import android.widget.TextView;
 class s {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f1071a;
+    ImageView f1203a;
     TextView b;
     TextView c;
     TextView d;
@@ -14,10 +14,10 @@ class s {
     TextView f;
     TextView g;
     TextView h;
-    final /* synthetic */ p i;
+    final /* synthetic */ q i;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(p pVar) {
-        this.i = pVar;
+    public s(q qVar) {
+        this.i = qVar;
     }
 }

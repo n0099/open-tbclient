@@ -5,19 +5,20 @@ import com.baidu.account.AccountProxy;
 import com.baidu.tieba.BaiduAccount.BaiduAccount;
 import com.baidu.tieba.account.ReLoginActivity;
 import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements AccountProxy.TokenCallback {
+public final class i implements AccountProxy.TokenCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ Activity f1234a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ int c;
-    private final /* synthetic */ boolean d;
+    final /* synthetic */ Activity f1375a;
+    final /* synthetic */ int b;
+    final /* synthetic */ int c;
+    final /* synthetic */ boolean d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(Activity activity, int i, int i2, boolean z) {
-        this.f1234a = activity;
+        this.f1375a = activity;
         this.b = i;
         this.c = i2;
         this.d = z;
@@ -25,16 +26,17 @@ public class i implements AccountProxy.TokenCallback {
 
     @Override // com.baidu.account.AccountProxy.TokenCallback
     public void callBack(String str) {
-        com.baidu.tieba.util.av.e("BaiduAccountProxy", "getAccountData", "token = " + str);
+        be.e("BaiduAccountProxy", "getAccountData", "token = " + str);
         if (str != null) {
-            BaiduAccount baiduAccount = BaiduAccount.get(this.f1234a);
+            BaiduAccount baiduAccount = BaiduAccount.get(this.f1375a);
             AccountData accountData = new AccountData();
             accountData.setAccount(baiduAccount.getCurrentAccount());
+            accountData.setPortrait(null);
             accountData.setBDUSS(str);
             accountData.setIsActive(1);
-            ReLoginActivity.a(this.f1234a, this.b, this.c, this.d, accountData);
-        } else if ((this.f1234a instanceof GuideActivity) || (this.f1234a instanceof LogoActivity)) {
-            this.f1234a.finish();
+            ReLoginActivity.a(this.f1375a, this.b, this.c, this.d, accountData);
+        } else if ((this.f1375a instanceof GuideActivity) || (this.f1375a instanceof LogoActivity)) {
+            this.f1375a.finish();
         }
     }
 }

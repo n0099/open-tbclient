@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,7 +23,7 @@ import java.util.Iterator;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f595a = e.class.getSimpleName();
+    private static final String f674a = e.class.getSimpleName();
     private static e b;
     private Context c;
     private long e;
@@ -37,7 +38,7 @@ public final class e {
     private String h = "";
     private String l = "xcloud";
     private String n = "app_moblie_txt";
-    private String o = "1";
+    private String o = SocialConstants.TRUE;
 
     private e(Context context) {
         b(context);
@@ -72,7 +73,7 @@ public final class e {
         stringBuffer.append("_");
         stringBuffer.append(i2);
         stringBuffer.append("_");
-        stringBuffer.append("android");
+        stringBuffer.append(SocialConstants.ANDROID_CLIENT_TYPE);
         stringBuffer.append("_");
         stringBuffer.append(this.d);
         stringBuffer.append("_");
@@ -212,7 +213,7 @@ public final class e {
         stringBuffer2.append("ver=" + b(String.valueOf(this.e)));
         stringBuffer2.append("&");
         if (z) {
-            stringBuffer2.append("vfrom=" + b("1"));
+            stringBuffer2.append("vfrom=" + b(SocialConstants.TRUE));
             stringBuffer2.append("&");
         }
         stringBuffer2.append("pu=" + b8);

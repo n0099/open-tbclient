@@ -1,21 +1,20 @@
 package com.baidu.tieba.person;
 
 import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bc extends TimerTask {
+public class bc extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ az f1675a;
+    final /* synthetic */ bb f2193a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(az azVar) {
-        this.f1675a = azVar;
+    public bc(bb bbVar) {
+        this.f2193a = bbVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        PersonInfoActivity personInfoActivity;
-        personInfoActivity = this.f1675a.f1671a;
-        personInfoActivity.runOnUiThread(new bd(this));
+        this.f2193a.f2192a.runOnUiThread(new bd(this));
     }
 }

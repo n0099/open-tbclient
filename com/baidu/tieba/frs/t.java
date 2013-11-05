@@ -1,20 +1,32 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements Runnable {
+class t implements com.baidu.tieba.view.az {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1161a;
+    final /* synthetic */ FrsActivity f1296a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FrsActivity frsActivity) {
-        this.f1161a = frsActivity;
+        this.f1296a = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bd bdVar;
-        bdVar = this.f1161a.I;
-        bdVar.a();
+    @Override // com.baidu.tieba.view.az
+    public void a(boolean z) {
+        ba baVar;
+        com.baidu.tieba.model.ak akVar;
+        com.baidu.tieba.model.ak akVar2;
+        if (z) {
+            baVar = this.f1296a.o;
+            if (!baVar.g()) {
+                akVar = this.f1296a.x;
+                if (akVar != null) {
+                    akVar2 = this.f1296a.x;
+                    if (akVar2.b().size() != 0) {
+                        return;
+                    }
+                }
+                this.f1296a.C();
+            }
+        }
     }
 }

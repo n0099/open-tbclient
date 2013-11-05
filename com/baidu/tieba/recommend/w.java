@@ -3,11 +3,11 @@ package com.baidu.tieba.recommend;
 import android.content.Context;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class w extends com.baidu.adp.a.c {
+public class w extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private y f1772a;
-    private com.baidu.tieba.data.n b = new com.baidu.tieba.data.n();
+    private y f2292a;
+    private com.baidu.tieba.data.o b = new com.baidu.tieba.data.o();
     private x c;
     private x d;
     private boolean e;
@@ -17,7 +17,7 @@ public class w extends com.baidu.adp.a.c {
         this.f = context;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
         return true;
     }
@@ -31,7 +31,7 @@ public class w extends com.baidu.adp.a.c {
         this.c.execute(new String[0]);
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
         if (this.c != null) {
             this.c.cancel(true);
@@ -55,9 +55,9 @@ public class w extends com.baidu.adp.a.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        com.baidu.adp.lib.cache.q<String> aX = TiebaApplication.g().aX();
-        if (aX != null) {
-            aX.a("dailyrecommend", str, 2592000000L);
+        com.baidu.adp.lib.cache.s<String> bh = TiebaApplication.g().bh();
+        if (bh != null) {
+            bh.a("dailyrecommend", str, 2592000000L);
         }
     }
 
@@ -71,6 +71,6 @@ public class w extends com.baidu.adp.a.c {
     }
 
     public void a(y yVar) {
-        this.f1772a = yVar;
+        this.f2292a = yVar;
     }
 }

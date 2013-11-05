@@ -11,7 +11,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class BaseWebView extends WebView {
 
     /* renamed from: a  reason: collision with root package name */
-    private WebViewClient f1936a;
+    private WebViewClient f2468a;
     private d b;
     private Context c;
     private d d;
@@ -52,8 +52,8 @@ public class BaseWebView extends WebView {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
         UtilHelper.a(getSettings());
-        this.f1936a = new MyWebViewClient();
-        setWebViewClient(this.f1936a);
+        this.f2468a = new MyWebViewClient();
+        setWebViewClient(this.f2468a);
         setOnLongClickListener(new b(this));
     }
 

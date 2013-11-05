@@ -23,7 +23,7 @@ public final class d {
     private Context e = null;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f679a = false;
+    boolean f758a = false;
 
     private d(Context context) {
         this.b = null;
@@ -180,7 +180,7 @@ public final class d {
         if (this.c == null || e()) {
             return;
         }
-        this.f679a = true;
+        this.f758a = true;
         this.c.c();
         this.c = null;
     }
@@ -202,7 +202,7 @@ public final class d {
             return null;
         }
         try {
-            cursor = this.c.b().query("astatus", c.f678a, "pn=?", new String[]{str}, null, null, "lautimes ASC");
+            cursor = this.c.b().query("astatus", c.f757a, "pn=?", new String[]{str}, null, null, "lautimes ASC");
         } catch (NullPointerException e) {
             cursor2 = null;
         } catch (Exception e2) {
@@ -284,7 +284,7 @@ public final class d {
         String str;
         String str2 = null;
         try {
-            str = com.baidu.android.systemmonitor.security.a.a(aVar.f676a);
+            str = com.baidu.android.systemmonitor.security.a.a(aVar.f755a);
             try {
                 str2 = com.baidu.android.systemmonitor.security.a.a(aVar.h);
             } catch (Exception e) {
@@ -729,7 +729,7 @@ public final class d {
     }
 
     public boolean e() {
-        return this.f679a;
+        return this.f758a;
     }
 
     public ArrayList f() {

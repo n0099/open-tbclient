@@ -5,12 +5,12 @@ import org.json.JSONObject;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f999a = -1;
+    private int f1129a = -1;
     private String b = null;
     private String c = null;
 
     public int a() {
-        return this.f999a;
+        return this.f1129a;
     }
 
     public String b() {
@@ -22,7 +22,7 @@ public class ai {
     }
 
     public void a(int i) {
-        this.f999a = i;
+        this.f1129a = i;
     }
 
     public void a(String str) {
@@ -32,15 +32,15 @@ public class ai {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f999a = jSONObject.optInt("type");
-                if (this.f999a == 3) {
+                this.f1129a = jSONObject.optInt("type");
+                if (this.f1129a == 3) {
                     this.b = jSONObject.optString("big_pic");
-                } else if (this.f999a == 5) {
+                } else if (this.f1129a == 5) {
                     this.b = jSONObject.optString("vpic");
                     this.c = jSONObject.optString("vsrc");
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

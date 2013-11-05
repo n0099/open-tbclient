@@ -1,39 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements View.OnClickListener {
+public class u extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1228a;
+    final /* synthetic */ ForumTopicActivity f1370a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(SearchActivity searchActivity) {
-        this.f1228a = searchActivity;
+    public u(ForumTopicActivity forumTopicActivity) {
+        this.f1370a = forumTopicActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        String str2;
-        int i;
-        String str3;
-        str = this.f1228a.D;
-        if (str != null) {
-            str2 = this.f1228a.D;
-            if (str2.trim().length() >= 1) {
-                i = this.f1228a.E;
-                if (i == 0) {
-                    this.f1228a.e();
-                    return;
-                }
-                SearchActivity searchActivity = this.f1228a;
-                str3 = this.f1228a.D;
-                searchActivity.a(1, str3);
-                return;
-            }
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
+        super.onProgressChanged(webView, i);
+        if (i == 100) {
+            this.f1370a.n();
         }
-        this.f1228a.a(this.f1228a.getResources().getString(R.string.write_keyword));
     }
 }

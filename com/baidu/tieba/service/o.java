@@ -1,85 +1,37 @@
 package com.baidu.tieba.service;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.write.bf;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
 /* loaded from: classes.dex */
-public class o extends BdAsyncTask<Object, Integer, Boolean> {
+class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    int f1798a;
-    Uri b;
-    String c = null;
-    final /* synthetic */ TiebaPrepareImageService d;
+    final /* synthetic */ TiebaPrepareImageService f2318a;
 
-    public o(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
-        this.d = tiebaPrepareImageService;
-        this.f1798a = 0;
-        this.b = null;
-        this.f1798a = i;
-        this.b = uri;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(TiebaPrepareImageService tiebaPrepareImageService) {
+        this.f2318a = tiebaPrepareImageService;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Boolean a(Object... objArr) {
+    @Override // java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Runnable runnable;
         int i;
-        boolean z = true;
-        TiebaPrepareImageService.f1781a = true;
-        try {
-            int i2 = this.f1798a;
-            TiebaPrepareImageService tiebaPrepareImageService = this.d;
-            Uri uri = this.b;
-            i = this.d.f;
-            Bitmap a2 = bf.a(i2, tiebaPrepareImageService, uri, i);
-            if (a2 != null) {
-                if (com.baidu.tieba.util.p.a(null, "tieba_resized_image", a2, 80) != null) {
-                    Bitmap a3 = com.baidu.tieba.util.e.a(a2, 100);
-                    if (a3 == null || com.baidu.tieba.util.p.a(null, "tieba_resized_image_display", a3, 80) == null) {
-                        this.c = this.d.getString(R.string.error_sd_error);
-                        z = false;
-                    }
-                } else {
-                    this.c = this.d.getString(R.string.error_sd_error);
-                    z = false;
-                }
-            } else {
-                this.c = this.d.getString(R.string.pic_parser_error);
-                z = false;
-            }
-            TiebaPrepareImageService.f1781a = false;
-        } catch (Exception e) {
-            TiebaPrepareImageService.f1781a = false;
-            z = false;
-        } catch (Throwable th) {
-            TiebaPrepareImageService.f1781a = false;
-            throw th;
+        Uri uri;
+        p pVar;
+        if (TiebaPrepareImageService.f2302a) {
+            handler = this.f2318a.e;
+            runnable = this.f2318a.h;
+            handler.postDelayed(runnable, 1000L);
+            return;
         }
-        return Boolean.valueOf(z);
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        this.d.d = null;
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        super.a((o) bool);
-        Intent intent = new Intent("com.baidu.tieba.broadcast.image.resized");
-        intent.putExtra("result", bool);
-        if (this.c != null) {
-            intent.putExtra("error", this.c);
-        }
-        this.d.sendBroadcast(intent);
+        TiebaPrepareImageService tiebaPrepareImageService = this.f2318a;
+        TiebaPrepareImageService tiebaPrepareImageService2 = this.f2318a;
+        i = this.f2318a.b;
+        uri = this.f2318a.c;
+        tiebaPrepareImageService.d = new p(tiebaPrepareImageService2, i, uri);
+        pVar = this.f2318a.d;
+        pVar.execute(new Object[0]);
     }
 }

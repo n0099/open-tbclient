@@ -9,48 +9,48 @@ import java.util.HashMap;
 public class g implements android.support.v4.view.bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageActivity f1617a;
+    final /* synthetic */ ImageActivity f2135a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ImageActivity imageActivity) {
-        this.f1617a = imageActivity;
+        this.f2135a = imageActivity;
     }
 
     @Override // android.support.v4.view.bq
-    public void a_(int i) {
+    public void onPageSelected(int i) {
         boolean z;
         a aVar;
         MultiImageView multiImageView;
         a aVar2;
         int i2;
-        z = this.f1617a.D;
+        z = this.f2135a.D;
         if (!z) {
-            aVar = this.f1617a.w;
+            aVar = this.f2135a.w;
             if (aVar != null) {
-                multiImageView = this.f1617a.o;
+                multiImageView = this.f2135a.o;
                 if (i > multiImageView.getItemNum() - 5) {
-                    aVar2 = this.f1617a.w;
+                    aVar2 = this.f2135a.w;
                     aVar2.a();
                 }
             }
         } else {
             Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pagechanged");
             intent.putExtra("index", i);
-            this.f1617a.sendBroadcast(intent);
+            this.f2135a.sendBroadcast(intent);
         }
-        ImageActivity imageActivity = this.f1617a;
-        i2 = this.f1617a.d;
-        imageActivity.a(i2, i);
-        this.f1617a.d = i;
-        this.f1617a.n();
+        ImageActivity imageActivity = this.f2135a;
+        i2 = this.f2135a.d;
+        imageActivity.b(i2, i);
+        this.f2135a.d = i;
+        this.f2135a.n();
     }
 
     @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.bq
-    public void b(int i) {
+    public void onPageScrollStateChanged(int i) {
         long j;
         ArrayList arrayList;
         int i2;
@@ -60,17 +60,17 @@ public class g implements android.support.v4.view.bq {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.f1617a.x;
+            j = this.f2135a.x;
             if (nanoTime - j > 300000000) {
-                arrayList = this.f1617a.c;
+                arrayList = this.f2135a.c;
                 if (arrayList != null) {
-                    i2 = this.f1617a.d;
-                    arrayList2 = this.f1617a.c;
+                    i2 = this.f2135a.d;
+                    arrayList2 = this.f2135a.c;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.f1617a.y;
-                        arrayList3 = this.f1617a.c;
-                        i3 = this.f1617a.d;
-                        hashMap.put((String) arrayList3.get(i3), true);
+                        hashMap = this.f2135a.y;
+                        arrayList3 = this.f2135a.c;
+                        i3 = this.f2135a.d;
+                        hashMap.put(arrayList3.get(i3), true);
                     }
                 }
             }

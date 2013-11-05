@@ -21,7 +21,7 @@ public class b extends Thread {
     private a Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f438a;
+    public int f489a;
     public int b;
     private InputStream c;
     private int d;
@@ -97,16 +97,16 @@ public class b extends Thread {
                 return z2;
             }
             if (str.endsWith(File.separator)) {
-                file = new File(String.valueOf(str) + list[i]);
+                file = new File(str + list[i]);
             } else {
-                file = new File(String.valueOf(str) + File.separator + list[i]);
+                file = new File(str + File.separator + list[i]);
             }
             if (file.isFile()) {
                 file.delete();
                 z = z2;
             } else if (file.isDirectory()) {
-                a(String.valueOf(str) + File.separator + list[i]);
-                a(String.valueOf(str) + File.separator + list[i], true);
+                a(str + File.separator + list[i]);
+                a(str + File.separator + list[i], true);
                 z = true;
             } else {
                 z = z2;
@@ -121,8 +121,8 @@ public class b extends Thread {
 
     private void a(Bitmap bitmap, String str) {
         try {
-            new File(String.valueOf(this.S) + File.separator + str + ".png");
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(String.valueOf(this.S) + File.separator + e() + ".png"));
+            new File(this.S + File.separator + str + ".png");
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(this.S + File.separator + e() + ".png"));
         } catch (Exception e) {
         }
     }
@@ -140,10 +140,10 @@ public class b extends Thread {
         c cVar = this.O;
         if (!this.T) {
             while (cVar != null) {
-                if (cVar.f439a != null && !cVar.f439a.isRecycled()) {
-                    cVar.f439a.recycle();
+                if (cVar.f490a != null && !cVar.f490a.isRecycled()) {
+                    cVar.f490a.recycle();
                 }
-                cVar.f439a = null;
+                cVar.f490a = null;
                 this.O = this.O.d;
                 cVar = this.O;
             }
@@ -172,7 +172,7 @@ public class b extends Thread {
 
     private void f() {
         int i;
-        int[] iArr = new int[this.f438a * this.b];
+        int[] iArr = new int[this.f489a * this.b];
         if (this.G > 0) {
             if (this.G == 3) {
                 int i2 = this.P - 2;
@@ -183,11 +183,11 @@ public class b extends Thread {
                 }
             }
             if (this.A != null) {
-                this.A.getPixels(iArr, 0, this.f438a, 0, 0, this.f438a, this.b);
+                this.A.getPixels(iArr, 0, this.f489a, 0, 0, this.f489a, this.b);
                 if (this.G == 2) {
                     int i3 = !this.H ? this.m : 0;
                     for (int i4 = 0; i4 < this.y; i4++) {
-                        int i5 = ((this.w + i4) * this.f438a) + this.v;
+                        int i5 = ((this.w + i4) * this.f489a) + this.v;
                         int i6 = this.x + i5;
                         while (i5 < i6) {
                             iArr[i5] = i3;
@@ -226,11 +226,11 @@ public class b extends Thread {
             }
             int i12 = i + this.s;
             if (i12 < this.b) {
-                int i13 = this.f438a * i12;
+                int i13 = this.f489a * i12;
                 int i14 = i13 + this.r;
                 int i15 = this.t + i14;
-                if (this.f438a + i13 < i15) {
-                    i15 = this.f438a + i13;
+                if (this.f489a + i13 < i15) {
+                    i15 = this.f489a + i13;
                 }
                 int i16 = this.t * i10;
                 int i17 = i14;
@@ -245,7 +245,7 @@ public class b extends Thread {
                 }
             }
         }
-        this.z = Bitmap.createBitmap(iArr, this.f438a, this.b, Bitmap.Config.ARGB_4444);
+        this.z = Bitmap.createBitmap(iArr, this.f489a, this.b, Bitmap.Config.ARGB_4444);
     }
 
     public Bitmap a(int i) {
@@ -253,16 +253,17 @@ public class b extends Thread {
         if (b == null) {
             return null;
         }
-        return b.f439a;
+        return b.f490a;
     }
 
     public c b(int i) {
         int i2 = 0;
         for (c cVar = this.O; cVar != null; cVar = cVar.d) {
-            if (i2 == i) {
+            if (i2 != i) {
+                i2++;
+            } else {
                 return cVar;
             }
-            i2++;
         }
         return null;
     }
@@ -320,7 +321,7 @@ public class b extends Thread {
         return this.d;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00df */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00e8 */
     /* JADX DEBUG: Multi-variable search result rejected for r6v13, resolved type: short */
     /* JADX WARN: Multi-variable type inference failed */
     private void i() {
@@ -543,7 +544,7 @@ public class b extends Thread {
                             m();
                             String str = "";
                             for (int i = 0; i < 11; i++) {
-                                str = String.valueOf(str) + ((char) this.D[i]);
+                                str = str + ((char) this.D[i]);
                             }
                             if (str.equals("NETSCAPE2.0")) {
                                 s();
@@ -585,7 +586,7 @@ public class b extends Thread {
     private void p() {
         String str = "";
         for (int i = 0; i < 6; i++) {
-            str = String.valueOf(str) + ((char) l());
+            str = str + ((char) l());
         }
         if (!str.startsWith("GIF")) {
             this.d = 1;
@@ -630,12 +631,12 @@ public class b extends Thread {
             v();
             if (!j()) {
                 this.P++;
-                this.z = Bitmap.createBitmap(this.f438a, this.b, Bitmap.Config.ARGB_4444);
+                this.z = Bitmap.createBitmap(this.f489a, this.b, Bitmap.Config.ARGB_4444);
                 f();
                 if (this.O == null) {
                     if (this.T) {
                         String e = e();
-                        this.O = new c(String.valueOf(this.S) + File.separator + e + ".png", this.I);
+                        this.O = new c(this.S + File.separator + e + ".png", this.I);
                         a(this.z, e);
                     } else {
                         this.O = new c(this.z, this.I);
@@ -648,7 +649,7 @@ public class b extends Thread {
                     }
                     if (this.T) {
                         String e2 = e();
-                        cVar.d = new c(String.valueOf(this.S) + File.separator + e2 + ".png", this.I);
+                        cVar.d = new c(this.S + File.separator + e2 + ".png", this.I);
                         a(this.z, e2);
                     } else {
                         cVar.d = new c(this.z, this.I);
@@ -664,7 +665,7 @@ public class b extends Thread {
     }
 
     private void r() {
-        this.f438a = t();
+        this.f489a = t();
         this.b = t();
         int l = l();
         this.e = (l & DERTags.TAGGED) != 0;

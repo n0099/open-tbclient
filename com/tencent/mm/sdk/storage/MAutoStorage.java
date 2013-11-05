@@ -2,6 +2,7 @@ package com.tencent.mm.sdk.storage;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.tencent.mm.sdk.platformtools.Log;
 import com.tencent.mm.sdk.platformtools.Util;
 import com.tencent.mm.sdk.storage.MAutoDBItem;
@@ -83,7 +84,7 @@ public abstract class MAutoStorage<T extends MAutoDBItem> extends MStorage {
         HashMap hashMap = new HashMap();
         Cursor rawQuery = iSQLiteDatabase.rawQuery("PRAGMA table_info( " + str + " )", null);
         while (rawQuery.moveToNext()) {
-            hashMap.put(rawQuery.getString(rawQuery.getColumnIndex("name")), rawQuery.getString(rawQuery.getColumnIndex("type")));
+            hashMap.put(rawQuery.getString(rawQuery.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)), rawQuery.getString(rawQuery.getColumnIndex("type")));
         }
         rawQuery.close();
         for (Map.Entry<String, String> entry : MAutoDBItem.identify(fieldArr, null, null).entrySet()) {

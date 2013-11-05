@@ -17,7 +17,7 @@ import com.baidu.adp.f;
 public class BdSwitchView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f473a;
+    FrameLayout f546a;
     ImageView b;
     private c c;
     private SwitchState d;
@@ -31,34 +31,14 @@ public class BdSwitchView extends FrameLayout {
     /* loaded from: classes.dex */
     public enum SwitchState {
         ON,
-        OFF;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static SwitchState[] valuesCustom() {
-            SwitchState[] valuesCustom = values();
-            int length = valuesCustom.length;
-            SwitchState[] switchStateArr = new SwitchState[length];
-            System.arraycopy(valuesCustom, 0, switchStateArr, 0, length);
-            return switchStateArr;
-        }
+        OFF
     }
 
     /* loaded from: classes.dex */
     public enum SwitchStyle {
         DAY,
         NIGHT,
-        SIDE_BAR;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static SwitchStyle[] valuesCustom() {
-            SwitchStyle[] valuesCustom = values();
-            int length = valuesCustom.length;
-            SwitchStyle[] switchStyleArr = new SwitchStyle[length];
-            System.arraycopy(valuesCustom, 0, switchStyleArr, 0, length);
-            return switchStyleArr;
-        }
+        SIDE_BAR
     }
 
     public BdSwitchView(Context context) {
@@ -69,7 +49,7 @@ public class BdSwitchView extends FrameLayout {
         this.f = false;
         this.g = false;
         this.j = null;
-        this.f473a = null;
+        this.f546a = null;
         this.b = null;
         a(context);
     }
@@ -82,14 +62,14 @@ public class BdSwitchView extends FrameLayout {
         this.f = false;
         this.g = false;
         this.j = null;
-        this.f473a = null;
+        this.f546a = null;
         this.b = null;
         a(context);
     }
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(f.bd_switch_view, (ViewGroup) this, true);
-        this.f473a = (FrameLayout) findViewById(e.layout);
+        this.f546a = (FrameLayout) findViewById(e.layout);
         this.b = (ImageView) findViewById(e.switch_image);
         d();
         e();
@@ -99,9 +79,9 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private void d() {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f473a.getLayoutParams();
-        layoutParams.width = this.f473a.getForeground().getIntrinsicWidth();
-        this.f473a.setLayoutParams(layoutParams);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f546a.getLayoutParams();
+        layoutParams.width = this.f546a.getForeground().getIntrinsicWidth();
+        this.f546a.setLayoutParams(layoutParams);
     }
 
     private void e() {
@@ -136,7 +116,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private float getTranslateDis() {
-        return this.f473a.getForeground().getIntrinsicWidth() * 0.6666667f;
+        return this.f546a.getForeground().getIntrinsicWidth() * 0.6666667f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -170,7 +150,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     public void setSwitchFrame(int i) {
-        this.f473a.setForeground(getResources().getDrawable(i));
+        this.f546a.setForeground(getResources().getDrawable(i));
         d();
     }
 

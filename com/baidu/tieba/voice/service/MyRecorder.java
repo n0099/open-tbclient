@@ -10,7 +10,7 @@ import java.io.RandomAccessFile;
 public class MyRecorder extends AsyncTask<Void, Integer, Void> implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private File f2045a;
+    private File f2584a;
     private final int b;
     private final int c;
     private final int d;
@@ -42,7 +42,7 @@ public class MyRecorder extends AsyncTask<Void, Integer, Void> implements h {
     public Void doInBackground(Void... voidArr) {
         this.g = true;
         try {
-            this.j = new RandomAccessFile(this.f2045a, "rw");
+            this.j = new RandomAccessFile(this.f2584a, "rw");
             f();
             int minBufferSize = AudioRecord.getMinBufferSize(this.b, this.c, this.d);
             AudioRecord audioRecord = new AudioRecord(1, this.b, this.c, this.d, minBufferSize);
@@ -111,12 +111,12 @@ public class MyRecorder extends AsyncTask<Void, Integer, Void> implements h {
 
     @Override // com.baidu.tieba.voice.service.h
     public boolean a(String str) {
-        this.f2045a = new File(str);
-        if (this.f2045a.exists()) {
+        this.f2584a = new File(str);
+        if (this.f2584a.exists()) {
             return true;
         }
         try {
-            this.f2045a.createNewFile();
+            this.f2584a.createNewFile();
             return true;
         } catch (IOException e) {
             e.printStackTrace();

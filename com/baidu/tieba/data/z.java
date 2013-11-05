@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1051a = 0;
+    private int f1183a = 0;
     private int b = 0;
     private String c = null;
     private String d = null;
@@ -17,10 +17,10 @@ public class z {
     private int j = 0;
     private long k = 0;
     private long l = 0;
-    private bf m = new bf();
+    private bd m = new bd();
 
     public int a() {
-        return this.f1051a;
+        return this.f1183a;
     }
 
     public String b() {
@@ -78,8 +78,8 @@ public class z {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1051a = jSONObject.optInt("has_frs_star", 0);
-                if (this.f1051a == 1) {
+                this.f1183a = jSONObject.optInt("has_frs_star", 0);
+                if (this.f1183a == 1) {
                     this.c = jSONObject.optString("top", "");
                     this.d = jSONObject.optString("head", "");
                     JSONObject optJSONObject = jSONObject.optJSONObject("fans");
@@ -96,12 +96,12 @@ public class z {
                     this.j = optJSONObject3.optInt("height", 0);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b("FrsStarData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("FrsStarData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public bf l() {
+    public bd l() {
         return this.m;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.adp.lib.debug.a;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    double f410a = 0.0d;
+    double f460a = 0.0d;
     double b = 0.0d;
     double c = 0.0d;
     final /* synthetic */ p d;
@@ -13,7 +13,7 @@ public class q {
     }
 
     public double a() {
-        return this.f410a;
+        return this.f460a;
     }
 
     public double b() {
@@ -25,7 +25,7 @@ public class q {
     }
 
     public void a(double d) {
-        this.f410a = d;
+        this.f460a = d;
     }
 
     public void b(double d) {

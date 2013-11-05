@@ -1,20 +1,26 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class q implements DialogInterface.OnDismissListener {
+class q implements SlidingMenu.OnClosedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1158a;
+    final /* synthetic */ FrsActivity f1293a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(FrsActivity frsActivity) {
-        this.f1158a = frsActivity;
+        this.f1293a = frsActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.f1158a.B();
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        ba baVar;
+        ba baVar2;
+        baVar = this.f1293a.o;
+        if (baVar.a().h()) {
+            baVar2 = this.f1293a.o;
+            baVar2.a().b(false);
+            this.f1293a.C();
+        }
     }
 }

@@ -1,48 +1,56 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
+    private boolean b;
+    private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1043a = -1;
-    private String b = null;
-    private String c = null;
+    private af f1175a = new af();
 
-    public int a() {
-        return this.f1043a;
-    }
-
-    public void a(int i) {
-        this.f1043a = i;
-    }
-
-    public String b() {
-        return this.b;
+    public r() {
+        this.b = true;
+        this.b = false;
     }
 
     public void a(String str) {
-        this.b = str;
-    }
-
-    public void b(String str) {
+        if (str == null || str.length() < 1) {
+            this.b = false;
+            return;
+        }
         try {
             a(new JSONObject(str));
+            this.b = true;
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
+            this.b = false;
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.f1043a = jSONObject.optInt("error_code", 0);
-                this.b = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-                this.c = jSONObject.optString("error_data");
-            } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
-            }
+        try {
+            this.f1175a.a(jSONObject.optJSONArray("like_forum"));
+            this.c = jSONObject.optLong("time");
+        } catch (Exception e) {
+            this.b = false;
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
         }
+    }
+
+    public af a() {
+        return this.f1175a;
+    }
+
+    public void a(boolean z) {
+        this.b = z;
+    }
+
+    public boolean b() {
+        return this.b;
+    }
+
+    public boolean c() {
+        return System.currentTimeMillis() / h.f.longValue() == (this.c * 1000) / h.f.longValue();
     }
 }

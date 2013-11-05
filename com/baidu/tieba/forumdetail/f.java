@@ -13,37 +13,37 @@ import com.slidingmenu.lib.R;
 public class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ItemFootNavView f1087a;
-    private final /* synthetic */ com.baidu.tieba.j b;
-    private final /* synthetic */ boolean c;
+    final /* synthetic */ com.baidu.tieba.j f1219a;
+    final /* synthetic */ boolean b;
+    final /* synthetic */ ItemFootNavView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(ItemFootNavView itemFootNavView, com.baidu.tieba.j jVar, boolean z) {
-        this.f1087a = itemFootNavView;
-        this.b = jVar;
-        this.c = z;
+        this.c = itemFootNavView;
+        this.f1219a = jVar;
+        this.b = z;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ViewGroup viewGroup;
         Context context;
-        if ((TiebaApplication.C() == null || TiebaApplication.G() == null) ? false : true) {
-            viewGroup = this.f1087a.b;
+        if ((TiebaApplication.C() == null || TiebaApplication.H() == null) ? false : true) {
+            viewGroup = this.c.b;
             int intValue = ((Integer) viewGroup.getTag()).intValue();
-            if (intValue != 1) {
-                this.f1087a.a(this.b, this.c);
+            if (intValue == 1) {
+                this.c.b(this.f1219a, this.b);
             } else {
-                this.f1087a.b(this.b, this.c);
+                this.c.a(this.f1219a, this.b);
             }
             if (TiebaApplication.g().s()) {
                 String str = intValue == 1 ? "detail_care_add" : "detail_care_cancel";
-                context = this.f1087a.f1080a;
+                context = this.c.f1211a;
                 StatService.onEvent(context, str, "click", 1);
                 return;
             }
             return;
         }
-        LoginActivity.a((Activity) this.b, this.f1087a.getResources().getString(R.string.login_to_use), true, 11034);
+        LoginActivity.a((Activity) this.f1219a, this.c.getResources().getString(R.string.login_to_use), true, 11034);
     }
 }

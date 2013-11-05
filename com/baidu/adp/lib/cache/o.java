@@ -1,19 +1,40 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-class o implements Runnable {
+public class o<T> extends e<T> {
+    protected final c<T> c;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f387a;
-    private final /* synthetic */ String b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public o(m mVar, String str) {
-        this.f387a = mVar;
-        this.b = str;
+    public o(c<T> cVar, f fVar, boolean z) {
+        super(fVar, z);
+        this.c = cVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.f387a.c.d(this.b);
+    @Override // com.baidu.adp.lib.cache.e
+    public m<T> a(String str) {
+        return this.c.b(str);
+    }
+
+    @Override // com.baidu.adp.lib.cache.e
+    public void a(m<T> mVar) {
+        this.c.b(mVar);
+    }
+
+    @Override // com.baidu.adp.lib.cache.e
+    public void b(String str) {
+        this.c.c(str);
+    }
+
+    @Override // com.baidu.adp.lib.cache.e
+    protected void c(String str) {
+        this.c.a(str, true);
+    }
+
+    @Override // com.baidu.adp.lib.cache.r
+    public void d(String str) {
+        if (this.b instanceof h) {
+            com.baidu.adp.lib.f.c.a().a(new p(this, str));
+        }
+        if (this.b instanceof g) {
+            com.baidu.adp.lib.f.c.a().a(new q(this, str));
+        }
     }
 }

@@ -12,23 +12,24 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.model.bz;
-import com.baidu.tieba.model.ca;
+import com.baidu.tieba.model.cj;
+import com.baidu.tieba.model.ck;
 import com.baidu.tieba.more.AboutActivity;
 import com.baidu.tieba.more.AccountActivity;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.az;
 import com.baidu.tieba.write.WriteActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.tbadk.a.d {
+public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ax f1809a = null;
-    private bz b = null;
+    private ax f2330a = null;
+    private cj b = null;
     private boolean c = false;
     private boolean d = false;
-    private ca e = new x(this);
+    private ck e = new x(this);
     private az f = new y(this);
     private View.OnKeyListener g = new z(this);
     private com.baidu.adp.widget.ListView.b j = new aa(this);
@@ -41,13 +42,13 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
     }
 
     private void b() {
-        this.f1809a = new ax(this, this.g);
-        this.f1809a.a(this.j);
-        this.f1809a.c().setClickStatKey("sq_tb_search");
+        this.f2330a = new ax(this, this.g);
+        this.f2330a.a(this.j);
+        this.f2330a.e().setClickStatKey("sq_tb_search");
     }
 
     private void c() {
-        this.b = new bz();
+        this.b = new cj();
         this.b.a(this.e);
         this.d = true;
         a(this.d);
@@ -55,18 +56,18 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        this.f1809a.a(this.f);
+        this.f2330a.a(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f1809a.b(this.f);
+        this.f2330a.b(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
-        this.f1809a.i();
+        this.f2330a.k();
         super.onStop();
     }
 
@@ -74,7 +75,7 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1809a.j();
+        this.f2330a.l();
     }
 
     @Override // android.app.Activity
@@ -88,7 +89,7 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
             menu.findItem(4).setVisible(true);
             menu.findItem(5).setVisible(true);
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
+            be.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
         }
         return super.onPrepareOptionsMenu(menu);
     }
@@ -117,7 +118,7 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
             case 3:
                 AntiData antiData = new AntiData();
                 antiData.setIfpost(1);
-                WriteActivity.a(this, com.baidu.tieba.data.g.h(), com.baidu.tieba.data.g.g(), antiData);
+                WriteActivity.a(this, com.baidu.tieba.data.h.h(), com.baidu.tieba.data.h.g(), antiData);
                 break;
             case 4:
                 AboutActivity.a((Context) this);
@@ -138,14 +139,14 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        this.f1809a.k();
-        m();
+        this.f2330a.m();
+        f();
         super.onDestroy();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1809a.e()) {
+        if (view == this.f2330a.g()) {
             if (TiebaApplication.g().s()) {
                 StatService.onEvent(this, "sq_icon_category", "click", 1);
             }
@@ -167,10 +168,10 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
     @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        this.f1809a.a(i);
+        this.f2330a.a(i);
     }
 
-    private void m() {
+    private void f() {
         this.b.cancelLoadData();
     }
 
@@ -178,27 +179,27 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
     public void a(boolean z) {
         boolean z2;
         boolean z3;
-        boolean z4 = true;
-        boolean z5 = false;
+        boolean z4 = false;
         if (this.b != null) {
-            boolean z6 = this.b.a() == null || this.b.a().d();
-            boolean z7 = z;
+            boolean z5 = this.b.a() == null || this.b.a().d();
+            boolean z6 = z;
             if (UtilHelper.b()) {
-                boolean z8 = z6;
-                z2 = z7;
-                z3 = z8;
+                boolean z7 = z5;
+                z2 = z6;
+                z3 = z7;
             } else {
                 this.d = false;
                 z3 = true;
                 z2 = false;
             }
-            if (!this.d) {
-                z4 = z3;
-                z5 = z2;
+            if (this.d) {
+                z3 = true;
+            } else {
+                z4 = z2;
             }
-            if (z4 || z5) {
-                m();
-                if (z5) {
+            if (z3 || z4) {
+                f();
+                if (z4) {
                     this.b.b();
                 } else {
                     this.b.c();
@@ -207,9 +208,9 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
         }
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        if (cVar == null) {
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        if (eVar == null) {
         }
     }
 

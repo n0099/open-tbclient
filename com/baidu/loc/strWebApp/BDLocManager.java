@@ -8,6 +8,7 @@ import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
+import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -127,7 +128,7 @@ public class BDLocManager {
             if (size() < 1) {
                 return null;
             }
-            StringBuffer stringBuffer = new StringBuffer(512);
+            StringBuffer stringBuffer = new StringBuffer((int) ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
             int size = this._WifiList.size();
             int i4 = 0;
             boolean z = true;

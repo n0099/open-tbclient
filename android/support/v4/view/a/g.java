@@ -7,19 +7,19 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final h f316a;
+    private static final h f326a;
     private final Object b;
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            f316a = new i();
+            f326a = new i();
         } else {
-            f316a = new k();
+            f326a = new k();
         }
     }
 
     public g() {
-        this.b = f316a.a(this);
+        this.b = f326a.a(this);
     }
 
     public g(Object obj) {

@@ -6,34 +6,34 @@ import android.widget.ImageView;
 class i implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TbRichTextView f845a;
+    final /* synthetic */ TbRichTextView f974a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(TbRichTextView tbRichTextView) {
-        this.f845a = tbRichTextView;
+        this.f974a = tbRichTextView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         m mVar;
         m mVar2;
-        mVar = this.f845a.s;
+        mVar = this.f974a.t;
         if (mVar != null && (view instanceof ImageView)) {
             String str = null;
             if (view.getTag() != null && (view.getTag() instanceof String)) {
                 str = (String) view.getTag();
             }
-            int childCount = this.f845a.getChildCount();
+            int childCount = this.f974a.getChildCount();
             int i = -1;
             for (int i2 = 0; i2 < childCount; i2++) {
-                if (this.f845a.getChildAt(i2) instanceof ImageView) {
+                if (this.f974a.getChildAt(i2) instanceof ImageView) {
                     i++;
                 }
-                if (view == this.f845a.getChildAt(i2)) {
+                if (view == this.f974a.getChildAt(i2)) {
                     break;
                 }
             }
-            mVar2 = this.f845a.s;
+            mVar2 = this.f974a.t;
             mVar2.onClick(view, str, i);
         }
     }

@@ -1,40 +1,20 @@
 package com.baidu.tieba.pb;
+
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-class cj implements Runnable {
+class cj implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ci f1581a;
-    private final /* synthetic */ com.baidu.tieba.data.bd b;
-    private final /* synthetic */ boolean c;
-    private final /* synthetic */ String d;
+    final /* synthetic */ bt f2097a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(ci ciVar, com.baidu.tieba.data.bd bdVar, boolean z, String str) {
-        this.f1581a = ciVar;
-        this.b = bdVar;
-        this.c = z;
-        this.d = str;
+    public cj(bt btVar) {
+        this.f2097a = btVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        br brVar;
-        cz czVar;
-        br brVar2;
-        db dbVar;
-        br brVar3;
-        cz czVar2;
-        brVar = this.f1581a.f1580a;
-        czVar = brVar.au;
-        if (czVar != null) {
-            brVar3 = this.f1581a.f1580a;
-            czVar2 = brVar3.au;
-            czVar2.a(this.b);
-        }
-        if (this.c) {
-            brVar2 = this.f1581a.f1580a;
-            dbVar = brVar2.E;
-            dbVar.b(this.d);
-        }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        return motionEvent.getAction() == 0;
     }
 }

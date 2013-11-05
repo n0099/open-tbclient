@@ -1,20 +1,37 @@
 package com.baidu.adp.a;
-
-import android.content.Context;
-import android.view.inputmethod.InputMethodManager;
 /* loaded from: classes.dex */
-public class d {
+public abstract class d {
+    public static final int MODE_INVALID = 0;
+    protected int mLoadDataMode = 0;
+    protected g mLoadDataCallBack = null;
+    protected int mErrorCode = 0;
+    protected String mErrorString = null;
 
-    /* renamed from: a  reason: collision with root package name */
-    protected Context f351a;
-    private InputMethodManager b = null;
+    protected abstract boolean LoadData();
 
-    public d(Context context) {
-        this.f351a = null;
-        this.f351a = context;
+    public abstract boolean cancelLoadData();
+
+    public int getLoadDataMode() {
+        return this.mLoadDataMode;
     }
 
-    public Context a() {
-        return this.f351a;
+    public void setLoadDataCallBack(g gVar) {
+        this.mLoadDataCallBack = gVar;
+    }
+
+    public int getErrorCode() {
+        return this.mErrorCode;
+    }
+
+    public void setErrorCode(int i) {
+        this.mErrorCode = i;
+    }
+
+    public String getErrorString() {
+        return this.mErrorString;
+    }
+
+    public void setErrorString(String str) {
+        this.mErrorString = str;
     }
 }

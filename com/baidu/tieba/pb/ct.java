@@ -1,33 +1,38 @@
 package com.baidu.tieba.pb;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ct implements Runnable {
+public class ct implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f1591a;
+    final /* synthetic */ bt f2107a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(cr crVar) {
-        this.f1591a = crVar;
+    public ct(bt btVar) {
+        this.f2107a = btVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        br brVar;
-        db dbVar;
-        br brVar2;
-        db dbVar2;
-        br brVar3;
-        db dbVar3;
-        brVar = this.f1591a.f1589a;
-        dbVar = brVar.E;
-        if (dbVar.l().getVisibility() != 0) {
-            brVar2 = this.f1591a.f1589a;
-            dbVar2 = brVar2.E;
-            if (dbVar2.k().getVisibility() != 0) {
-                brVar3 = this.f1591a.f1589a;
-                dbVar3 = brVar3.E;
-                dbVar3.m();
-            }
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (this.f2107a.b()) {
+            button2 = this.f2107a.l;
+            button2.setEnabled(true);
+            return;
         }
+        button = this.f2107a.l;
+        button.setEnabled(false);
     }
 }

@@ -9,7 +9,7 @@ final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new aa();
 
     /* renamed from: a  reason: collision with root package name */
-    final String f269a;
+    final String f279a;
     final int b;
     final boolean c;
     final int d;
@@ -22,7 +22,7 @@ final class FragmentState implements Parcelable {
     Fragment k;
 
     public FragmentState(Fragment fragment) {
-        this.f269a = fragment.getClass().getName();
+        this.f279a = fragment.getClass().getName();
         this.b = fragment.o;
         this.c = fragment.x;
         this.d = fragment.F;
@@ -34,7 +34,7 @@ final class FragmentState implements Parcelable {
     }
 
     public FragmentState(Parcel parcel) {
-        this.f269a = parcel.readString();
+        this.f279a = parcel.readString();
         this.b = parcel.readInt();
         this.c = parcel.readInt() != 0;
         this.d = parcel.readInt();
@@ -53,7 +53,7 @@ final class FragmentState implements Parcelable {
         if (this.i != null) {
             this.i.setClassLoader(nVar.getClassLoader());
         }
-        this.k = Fragment.a(nVar, this.f269a, this.i);
+        this.k = Fragment.a(nVar, this.f279a, this.i);
         if (this.j != null) {
             this.j.setClassLoader(nVar.getClassLoader());
             this.k.m = this.j;
@@ -67,7 +67,7 @@ final class FragmentState implements Parcelable {
         this.k.K = this.g;
         this.k.J = this.h;
         this.k.B = nVar.mFragments;
-        if (v.f290a) {
+        if (v.f300a) {
             Log.v("FragmentManager", "Instantiated fragment " + this.k);
         }
         return this.k;
@@ -80,7 +80,7 @@ final class FragmentState implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f269a);
+        parcel.writeString(this.f279a);
         parcel.writeInt(this.b);
         parcel.writeInt(this.c ? 1 : 0);
         parcel.writeInt(this.d);

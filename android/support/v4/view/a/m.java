@@ -8,26 +8,26 @@ import java.util.List;
 final class m extends AccessibilityNodeProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f318a;
+    final /* synthetic */ n f328a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(n nVar) {
-        this.f318a = nVar;
+        this.f328a = nVar;
     }
 
     @Override // android.view.accessibility.AccessibilityNodeProvider
     public AccessibilityNodeInfo createAccessibilityNodeInfo(int i) {
-        return (AccessibilityNodeInfo) this.f318a.a(i);
+        return (AccessibilityNodeInfo) this.f328a.a(i);
     }
 
     /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: java.util.List<java.lang.Object>, java.util.List<android.view.accessibility.AccessibilityNodeInfo> */
     @Override // android.view.accessibility.AccessibilityNodeProvider
     public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String str, int i) {
-        return this.f318a.a(str, i);
+        return this.f328a.a(str, i);
     }
 
     @Override // android.view.accessibility.AccessibilityNodeProvider
     public boolean performAction(int i, int i2, Bundle bundle) {
-        return this.f318a.a(i, i2, bundle);
+        return this.f328a.a(i, i2, bundle);
     }
 }

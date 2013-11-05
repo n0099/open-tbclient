@@ -1,34 +1,16 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.util.DatabaseService;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class x implements DialogInterface.OnClickListener {
+class x {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1231a;
+    TextView f1372a;
+    ProgressBar b;
+    final /* synthetic */ v c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.f1231a = wVar;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        SearchActivity searchActivity;
-        int i2;
-        SearchActivity searchActivity2;
-        SearchActivity searchActivity3;
-        searchActivity = this.f1231a.f1230a;
-        i2 = searchActivity.E;
-        if (i2 == 0) {
-            DatabaseService.q();
-            searchActivity3 = this.f1231a.f1230a;
-            searchActivity3.n();
-            return;
-        }
-        DatabaseService.r();
-        searchActivity2 = this.f1231a.f1230a;
-        searchActivity2.p();
+    private x(v vVar) {
+        this.c = vVar;
     }
 }

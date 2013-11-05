@@ -6,11 +6,11 @@ import android.os.Handler;
 class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaService f2049a;
+    final /* synthetic */ MediaService f2588a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(MediaService mediaService) {
-        this.f2049a = mediaService;
+        this.f2588a = mediaService;
     }
 
     @Override // java.lang.Runnable
@@ -22,24 +22,23 @@ class c implements Runnable {
         Handler handler2;
         Runnable runnable;
         int i3;
-        handler = this.f2049a.mHandler;
-        if (handler == null) {
-            return;
+        handler = this.f2588a.mHandler;
+        if (handler != null) {
+            gVar = this.f2588a.mPlayer;
+            int e = gVar.e();
+            i = this.f2588a.mCurBeginSecond;
+            int i4 = e + i;
+            i2 = this.f2588a.mElapsedTime;
+            if (i4 != i2) {
+                this.f2588a.mElapsedTime = i4;
+                Intent intent = new Intent("com.baidu.playElapsedTime");
+                i3 = this.f2588a.mElapsedTime;
+                intent.putExtra("com.baidu.msg.playElapsedTime", i3);
+                this.f2588a.sendBroadcast(intent);
+            }
+            handler2 = this.f2588a.mHandler;
+            runnable = this.f2588a.mPlayTimeThread;
+            handler2.postDelayed(runnable, 100L);
         }
-        gVar = this.f2049a.mPlayer;
-        int e = gVar.e();
-        i = this.f2049a.mCurBeginSecond;
-        int i4 = e + i;
-        i2 = this.f2049a.mElapsedTime;
-        if (i4 != i2) {
-            this.f2049a.mElapsedTime = i4;
-            Intent intent = new Intent("com.baidu.playElapsedTime");
-            i3 = this.f2049a.mElapsedTime;
-            intent.putExtra("com.baidu.msg.playElapsedTime", i3);
-            this.f2049a.sendBroadcast(intent);
-        }
-        handler2 = this.f2049a.mHandler;
-        runnable = this.f2049a.mPlayTimeThread;
-        handler2.postDelayed(runnable, 100L);
     }
 }

@@ -1,4 +1,6 @@
 package com.baidu.loginshare;
+
+import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -43,7 +45,7 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String i() {
-        return "bduss";
+        return SocialConstants.PARAM_BDUSS;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

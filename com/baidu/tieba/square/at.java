@@ -5,28 +5,30 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.SearchPostModel;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ay> {
+public class at extends BdAsyncTask<Object, Integer, SearchPostModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1831a;
+    ArrayList<BasicNameValuePair> f2352a;
     final /* synthetic */ SquareSearchActivity b;
-    private com.baidu.tieba.util.z c = null;
+    private com.baidu.tieba.util.ag c = null;
     private String d;
 
     public at(SquareSearchActivity squareSearchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = squareSearchActivity;
         this.d = null;
-        this.f1831a = null;
+        this.f2352a = null;
         this.d = str;
-        this.f1831a = arrayList;
+        this.f2352a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,13 +54,13 @@ public class at extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ay> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.data.ay a(Object... objArr) {
-        com.baidu.tieba.data.ay ayVar;
+    public SearchPostModel a(Object... objArr) {
+        SearchPostModel searchPostModel;
         Exception e;
         String str;
         try {
-            this.c = new com.baidu.tieba.util.z(this.d);
-            Iterator<BasicNameValuePair> it = this.f1831a.iterator();
+            this.c = new com.baidu.tieba.util.ag(this.d);
+            Iterator<BasicNameValuePair> it = this.f2352a.iterator();
             while (it.hasNext()) {
                 this.c.a(it.next());
             }
@@ -66,19 +68,19 @@ public class at extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ay> {
             if (!this.c.c() || j == null) {
                 return null;
             }
-            ayVar = new com.baidu.tieba.data.ay();
+            searchPostModel = new SearchPostModel();
             try {
-                ayVar.a(j);
+                searchPostModel.parserJson(j);
                 str = this.b.E;
                 DatabaseService.m(str);
-                return ayVar;
+                return searchPostModel;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.av.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return ayVar;
+                be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return searchPostModel;
             }
         } catch (Exception e3) {
-            ayVar = null;
+            searchPostModel = null;
             e = e3;
         }
     }
@@ -86,21 +88,21 @@ public class at extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ay> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.ay ayVar) {
+    public void a(SearchPostModel searchPostModel) {
         ProgressBar progressBar;
-        com.baidu.tieba.home.ao aoVar;
-        com.baidu.tieba.home.ao aoVar2;
-        com.baidu.tieba.home.ao aoVar3;
+        com.baidu.tieba.home.au auVar;
+        com.baidu.tieba.home.au auVar2;
+        com.baidu.tieba.home.au auVar3;
         progressBar = this.b.w;
         progressBar.setVisibility(8);
-        aoVar = this.b.v;
-        aoVar.a(0);
-        aoVar2 = this.b.v;
-        aoVar2.notifyDataSetChanged();
-        if (ayVar != null && this.c != null && this.c.c()) {
-            this.b.B = ayVar;
-            aoVar3 = this.b.v;
-            aoVar3.notifyDataSetChanged();
+        auVar = this.b.v;
+        auVar.a(0);
+        auVar2 = this.b.v;
+        auVar2.notifyDataSetChanged();
+        if (searchPostModel != null && this.c != null && this.c.c()) {
+            this.b.B = searchPostModel;
+            auVar3 = this.b.v;
+            auVar3.notifyDataSetChanged();
             this.b.q();
         } else {
             this.b.a(this.b.getString(R.string.neterror));

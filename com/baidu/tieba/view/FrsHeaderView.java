@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.util.UtilHelper;
@@ -59,7 +60,7 @@ public class FrsHeaderView {
     private boolean C = false;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.bh f1945a = null;
+    com.baidu.tieba.data.bf f2477a = null;
     private float K = 0.0f;
     private float L = 0.0f;
     private boolean M = false;
@@ -69,17 +70,7 @@ public class FrsHeaderView {
     /* loaded from: classes.dex */
     public enum PAGE {
         FRS_LIST,
-        FRS_IMAGE;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static PAGE[] valuesCustom() {
-            PAGE[] valuesCustom = values();
-            int length = valuesCustom.length;
-            PAGE[] pageArr = new PAGE[length];
-            System.arraycopy(valuesCustom, 0, pageArr, 0, length);
-            return pageArr;
-        }
+        FRS_IMAGE
     }
 
     public FrsHeaderView(Activity activity, PAGE page, String str, String str2) {
@@ -158,8 +149,8 @@ public class FrsHeaderView {
         return this.F;
     }
 
-    public com.baidu.tieba.data.bh b() {
-        return this.f1945a;
+    public com.baidu.tieba.data.bf b() {
+        return this.f2477a;
     }
 
     public void a(int i) {
@@ -177,7 +168,7 @@ public class FrsHeaderView {
             this.p.setBackgroundResource(R.drawable.progressbar_blue_1);
             this.q.setBackgroundResource(R.drawable.progressbar_black_1);
             this.k.setBackgroundResource(R.drawable.frs_btn_like_1);
-            com.baidu.tieba.util.as.e(this.S, (int) R.drawable.icon_arrow_right_1);
+            com.baidu.tieba.util.bb.e(this.S, (int) R.drawable.icon_arrow_right_1);
         } else {
             if (this.x >= 0 && this.x < b.length) {
                 this.G.setBackgroundResource(b[this.x]);
@@ -185,32 +176,32 @@ public class FrsHeaderView {
             this.p.setBackgroundResource(R.drawable.progressbar_blue);
             this.q.setBackgroundResource(R.drawable.progressbar_black);
             this.k.setBackgroundResource(R.drawable.frs_btn_like);
-            com.baidu.tieba.util.as.e(this.S, (int) R.drawable.icon_arrow_right);
+            com.baidu.tieba.util.bb.e(this.S, (int) R.drawable.icon_arrow_right);
         }
-        ((FrsActivity) this.s).l().a(i == 1);
-        ((FrsActivity) this.s).l().a(this.r);
+        ((FrsActivity) this.s).m().a(i == 1);
+        ((FrsActivity) this.s).m().a(this.r);
     }
 
     public View c() {
         return this.r;
     }
 
-    public void a(com.baidu.tieba.data.v vVar) {
-        this.t = vVar.b();
-        this.u = vVar.a();
-        this.v = vVar.d();
-        this.w = vVar.c();
-        this.y = vVar.k();
-        this.z = vVar.m();
-        this.A = vVar.l();
-        this.I = vVar.i();
-        this.J = vVar.f();
+    public void a(ForumData forumData) {
+        this.t = forumData.getName();
+        this.u = forumData.getId();
+        this.v = forumData.getMember_num();
+        this.w = forumData.getPost_num();
+        this.y = forumData.getTag_name();
+        this.z = forumData.getTag_color();
+        this.A = forumData.getImage_url();
+        this.I = forumData.getLevelName();
+        this.J = forumData.getUser_level();
         this.r.setVisibility(0);
-        this.f1945a = new com.baidu.tieba.data.bh();
+        this.f2477a = new com.baidu.tieba.data.bf();
         com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
         aiVar.a(3);
         aiVar.a(this.A);
-        this.f1945a.o().add(aiVar);
+        this.f2477a.m().add(aiVar);
         f();
     }
 
@@ -266,7 +257,7 @@ public class FrsHeaderView {
                 this.o.setText("");
             } else {
                 this.n.setText(this.I);
-                this.o.setText(String.valueOf(this.J) + "级");
+                this.o.setText(this.J + "级");
             }
             float width = a2.getWidth() * this.K;
             float f2 = width > 0.001f ? this.L / width : 0.0f;

@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class t extends com.baidu.adp.widget.ListView.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f1854a;
+    private Activity f2376a;
     private com.baidu.tieba.data.av b;
     private com.baidu.tieba.util.a c;
     private com.baidu.tieba.util.a d;
@@ -21,18 +21,18 @@ public class t extends com.baidu.adp.widget.ListView.e {
 
     public t(Activity activity) {
         super(activity);
-        this.f1854a = null;
+        this.f2376a = null;
         this.b = null;
         this.e = new u(this);
-        this.f1854a = activity;
-        int b = UtilHelper.b(this.f1854a, UtilHelper.a((Context) this.f1854a));
-        int a2 = UtilHelper.a(this.f1854a, b - 20);
-        int a3 = UtilHelper.a(this.f1854a, ((b - 20) * 90) / 300);
-        this.c = new com.baidu.tieba.util.a(this.f1854a);
+        this.f2376a = activity;
+        int b = UtilHelper.b(this.f2376a, UtilHelper.a((Context) this.f2376a));
+        int a2 = UtilHelper.a(this.f2376a, b - 20);
+        int a3 = UtilHelper.a(this.f2376a, ((b - 20) * 90) / 300);
+        this.c = new com.baidu.tieba.util.a(this.f2376a);
         this.c.a(a2, a3);
-        int a4 = UtilHelper.a(this.f1854a, (b - 26) / 2);
-        int a5 = UtilHelper.a(this.f1854a, (((b - 26) / 2) * 90) / 147);
-        this.d = new com.baidu.tieba.util.a(this.f1854a);
+        int a4 = UtilHelper.a(this.f2376a, (b - 26) / 2);
+        int a5 = UtilHelper.a(this.f2376a, (((b - 26) / 2) * 90) / 147);
+        this.d = new com.baidu.tieba.util.a(this.f2376a);
         this.d.a(a4, a5);
     }
 
@@ -56,10 +56,10 @@ public class t extends com.baidu.adp.widget.ListView.e {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.square_recommend, (ViewGroup) null);
             w wVar = new w(null);
-            wVar.f1857a = (ImageView) view.findViewById(R.id.banner_big);
+            wVar.f2379a = (ImageView) view.findViewById(R.id.banner_big);
             wVar.b = (ImageView) view.findViewById(R.id.banner_small_left);
             wVar.c = (ImageView) view.findViewById(R.id.banner_small_right);
-            wVar.f1857a.setOnClickListener(this.e);
+            wVar.f2379a.setOnClickListener(this.e);
             wVar.b.setOnClickListener(this.e);
             wVar.c.setOnClickListener(this.e);
             view.setTag(wVar);
@@ -73,10 +73,10 @@ public class t extends com.baidu.adp.widget.ListView.e {
             w wVar = (w) view.getTag();
             com.baidu.tieba.data.aw a2 = this.b.a();
             if (a2 == null || a2.a() == null || a2.a().equals("")) {
-                wVar.f1857a.setVisibility(8);
+                wVar.f2379a.setVisibility(8);
             } else {
-                wVar.f1857a.setVisibility(0);
-                a(this.c, this.b.a(), wVar.f1857a);
+                wVar.f2379a.setVisibility(0);
+                a(this.c, this.b.a(), wVar.f2379a);
             }
             a(this.d, this.b.b(), wVar.b);
             a(this.d, this.b.c(), wVar.c);
@@ -93,12 +93,12 @@ public class t extends com.baidu.adp.widget.ListView.e {
     }
 
     private void a(com.baidu.tieba.util.a aVar, com.baidu.tieba.data.aw awVar, ImageView imageView) {
-        com.baidu.adp.widget.a.c d = aVar.d(awVar.a());
+        com.baidu.adp.widget.ImageView.e d = aVar.d(awVar.a());
         if (d != null) {
             a(imageView, d.f());
             return;
         }
-        com.baidu.adp.widget.a.c a2 = aVar.a(awVar.a(), new v(this, imageView));
+        com.baidu.adp.widget.ImageView.e a2 = aVar.a(awVar.a(), new v(this, imageView));
         if (a2 != null) {
             a(imageView, a2.f());
         }

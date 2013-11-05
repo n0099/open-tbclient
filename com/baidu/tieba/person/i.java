@@ -8,23 +8,24 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ForumData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class i extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1695a;
-    private com.baidu.tieba.model.d b;
+    private Context f2216a;
+    private com.baidu.tieba.model.e b;
     private boolean c = false;
     private View.OnClickListener d = null;
     private boolean e = false;
     private boolean f = true;
     private int g;
 
-    public i(Context context, com.baidu.tieba.model.d dVar, int i) {
+    public i(Context context, com.baidu.tieba.model.e eVar, int i) {
         this.g = 0;
-        this.f1695a = context;
-        this.b = dVar;
+        this.f2216a = context;
+        this.b = eVar;
         this.g = i;
     }
 
@@ -81,79 +82,79 @@ public class i extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         Exception exc;
         View view2;
-        j jVar;
+        k kVar;
         View view3;
-        com.baidu.tieba.data.v vVar;
+        ForumData forumData;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.f1695a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.f2216a).inflate(R.layout.edit_bar_item, (ViewGroup) null);
                 try {
-                    jVar = new j(this, null);
-                    jVar.f1696a = (TextView) view3.findViewById(R.id.name);
-                    jVar.b = new StringBuffer(10);
-                    jVar.c = (TextView) view3.findViewById(R.id.degree);
-                    jVar.d = new StringBuffer(10);
-                    jVar.f = (ImageButton) view3.findViewById(R.id.item_delete);
-                    jVar.e = (TextView) view3.findViewById(R.id.edit_bar_nodata);
-                    view3.setTag(jVar);
+                    kVar = new k(this);
+                    kVar.f2217a = (TextView) view3.findViewById(R.id.name);
+                    kVar.b = new StringBuffer(10);
+                    kVar.c = (TextView) view3.findViewById(R.id.degree);
+                    kVar.d = new StringBuffer(10);
+                    kVar.f = (ImageButton) view3.findViewById(R.id.item_delete);
+                    kVar.e = (TextView) view3.findViewById(R.id.edit_bar_nodata);
+                    view3.setTag(kVar);
                 } catch (Exception e) {
                     view2 = view3;
                     exc = e;
-                    com.baidu.tieba.util.av.b(getClass().getName(), "getView", exc.getMessage());
+                    com.baidu.tieba.util.be.b(getClass().getName(), "getView", exc.getMessage());
                     return view2;
                 }
             } else {
-                jVar = (j) view.getTag();
+                kVar = (k) view.getTag();
                 view3 = view;
             }
             if (this.e) {
-                jVar.c.setVisibility(8);
-                jVar.f.setVisibility(8);
-                jVar.f1696a.setVisibility(8);
+                kVar.c.setVisibility(8);
+                kVar.f.setVisibility(8);
+                kVar.f2217a.setVisibility(8);
                 if (this.f) {
-                    jVar.e.setText(this.f1695a.getString(R.string.not_have_like_bars));
+                    kVar.e.setText(this.f2216a.getString(R.string.not_have_like_bars));
                 } else if (this.g == 2) {
-                    jVar.e.setText(this.f1695a.getString(R.string.she_no_like_forum_other));
+                    kVar.e.setText(this.f2216a.getString(R.string.she_no_like_forum_other));
                 } else if (this.g == 1) {
-                    jVar.e.setText(this.f1695a.getString(R.string.he_no_like_forum_other));
+                    kVar.e.setText(this.f2216a.getString(R.string.he_no_like_forum_other));
                 } else {
-                    jVar.e.setText(this.f1695a.getString(R.string.no_like_forum_other));
+                    kVar.e.setText(this.f2216a.getString(R.string.no_like_forum_other));
                 }
-                jVar.e.setVisibility(0);
+                kVar.e.setVisibility(0);
             } else {
-                jVar.c.setVisibility(0);
-                jVar.f.setVisibility(0);
-                jVar.f1696a.setVisibility(0);
-                jVar.e.setVisibility(8);
+                kVar.c.setVisibility(0);
+                kVar.f.setVisibility(0);
+                kVar.f2217a.setVisibility(0);
+                kVar.e.setVisibility(8);
             }
-            if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size() && (vVar = this.b.a().get(i)) != null) {
-                jVar.b.delete(0, jVar.b.length());
-                jVar.b.append(vVar.b());
-                jVar.b.append(this.f1695a.getString(R.string.bar));
-                jVar.f1696a.setText(jVar.b);
-                jVar.d.delete(0, jVar.d.length());
-                jVar.d.append(this.f1695a.getString(R.string.degree));
-                jVar.d.append(vVar.f());
-                jVar.c.setText(jVar.d);
-                jVar.c.setVisibility(0);
-                jVar.f.setOnClickListener(this.d);
-                jVar.f.setTag(Integer.valueOf(i));
+            if (this.b != null && this.b.a() != null && i >= 0 && i < this.b.a().size() && (forumData = this.b.a().get(i)) != null) {
+                kVar.b.delete(0, kVar.b.length());
+                kVar.b.append(forumData.getName());
+                kVar.b.append(this.f2216a.getString(R.string.bar));
+                kVar.f2217a.setText(kVar.b);
+                kVar.d.delete(0, kVar.d.length());
+                kVar.d.append(this.f2216a.getString(R.string.degree));
+                kVar.d.append(forumData.getUser_level());
+                kVar.c.setText(kVar.d);
+                kVar.c.setVisibility(0);
+                kVar.f.setOnClickListener(this.d);
+                kVar.f.setTag(Integer.valueOf(i));
                 if (this.c) {
-                    jVar.f.setVisibility(0);
+                    kVar.f.setVisibility(0);
                 } else {
-                    jVar.f.setVisibility(8);
+                    kVar.f.setVisibility(8);
                 }
             }
-            if (TiebaApplication.g().ap() == 1) {
-                int a2 = com.baidu.tieba.util.as.a(1);
-                jVar.f1696a.setTextColor(a2);
-                jVar.c.setTextColor(a2);
-                jVar.e.setTextColor(a2);
-                return view3;
+            if (TiebaApplication.g().as() == 1) {
+                int a2 = com.baidu.tieba.util.bb.a(1);
+                kVar.f2217a.setTextColor(a2);
+                kVar.c.setTextColor(a2);
+                kVar.e.setTextColor(a2);
+            } else {
+                kVar.f2217a.setTextColor(-12895429);
+                kVar.c.setTextColor(-12895429);
+                kVar.e.setTextColor(-4276546);
             }
-            jVar.f1696a.setTextColor(-12895429);
-            jVar.c.setTextColor(-12895429);
-            jVar.e.setTextColor(-4276546);
             return view3;
         } catch (Exception e2) {
             exc = e2;

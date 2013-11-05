@@ -1,24 +1,34 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.os.Handler;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements Runnable {
+public class n implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1372a;
-    private final /* synthetic */ int b;
+    final /* synthetic */ j f1869a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(i iVar, int i) {
-        this.f1372a = iVar;
-        this.b = i;
+    public n(j jVar) {
+        this.f1869a = jVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        BdListView bdListView;
-        bdListView = this.f1372a.e;
-        bdListView.setSelection(this.b);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.f1869a.q;
+        runnable = this.f1869a.r;
+        handler.removeCallbacks(runnable);
+        handler2 = this.f1869a.q;
+        runnable2 = this.f1869a.r;
+        handler2.postDelayed(runnable2, 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 }

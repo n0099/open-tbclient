@@ -1,56 +1,55 @@
 package com.baidu.tieba.data;
 
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class q {
-    private boolean b;
-    private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private af f1042a = new af();
+    private String f1174a;
+    private String b;
+    private String c;
+    private boolean d;
+    private ArrayList<p> e = new ArrayList<>();
 
-    public q() {
-        this.b = true;
-        this.b = false;
+    public String a() {
+        return this.f1174a;
     }
 
-    public void a(String str) {
-        if (str == null || str.length() < 1) {
-            this.b = false;
-            return;
-        }
-        try {
-            a(new JSONObject(str));
-            this.b = true;
-        } catch (Exception e) {
-            this.b = false;
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
-        }
+    public String b() {
+        return this.b;
+    }
+
+    public ArrayList<p> c() {
+        return this.e;
+    }
+
+    public boolean d() {
+        return this.d;
+    }
+
+    public void a(boolean z) {
+        this.d = z;
     }
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f1042a.a(jSONObject.optJSONArray("like_forum"));
-            this.c = jSONObject.optLong("time");
-        } catch (Exception e) {
-            this.b = false;
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+            this.b = jSONObject.optString("publish_time");
+            this.f1174a = jSONObject.optString("total");
+            this.c = jSONObject.optString("update_time");
+            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    p pVar = new p();
+                    pVar.a(optJSONArray.getJSONObject(i));
+                    this.e.add(pVar);
+                }
+            }
+        } catch (JSONException e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
         }
-    }
-
-    public af a() {
-        return this.f1042a;
-    }
-
-    public void a(boolean z) {
-        this.b = z;
-    }
-
-    public boolean b() {
-        return this.b;
-    }
-
-    public boolean c() {
-        return System.currentTimeMillis() / g.f.longValue() == (this.c * 1000) / g.f.longValue();
     }
 }

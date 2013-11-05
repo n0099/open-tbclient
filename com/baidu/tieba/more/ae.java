@@ -1,25 +1,26 @@
 package com.baidu.tieba.more;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.tieba.model.MoreModel;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae extends BroadcastReceiver {
+public class ae extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoreActivity f1477a;
-
-    private ae(MoreActivity moreActivity) {
-        this.f1477a = moreActivity;
-    }
+    final /* synthetic */ MoreActivity f1980a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(MoreActivity moreActivity, ae aeVar) {
-        this(moreActivity);
+    public ae(MoreActivity moreActivity) {
+        this.f1980a = moreActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        MoreActivity.a(this.f1477a).g();
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        if (obj != null && (obj instanceof MoreModel.TaskType)) {
+            if (obj == MoreModel.TaskType.DO_CLEAR) {
+                this.f1980a.a(this.f1980a.getString(R.string.image_cash_del_suc));
+            }
+            this.f1980a.j();
+        }
     }
 }

@@ -1,32 +1,68 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class x implements Runnable {
+class x extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f2134a;
+    final /* synthetic */ GuideActivity f2678a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public x(LogoActivity logoActivity) {
-        this.f2134a = logoActivity;
+    private x(GuideActivity guideActivity) {
+        this.f2678a = guideActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ImageView imageView;
-        Bitmap bitmap;
-        ImageView imageView2;
-        AlphaAnimation alphaAnimation;
-        this.f2134a.e = com.baidu.tieba.util.e.a(this.f2134a, (int) R.drawable.logo);
-        imageView = this.f2134a.d;
-        bitmap = this.f2134a.e;
-        imageView.setImageBitmap(bitmap);
-        imageView2 = this.f2134a.d;
-        alphaAnimation = this.f2134a.f;
-        imageView2.startAnimation(alphaAnimation);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ x(GuideActivity guideActivity, s sVar) {
+        this(guideActivity);
+    }
+
+    @Override // android.support.v4.view.ae
+    public int getCount() {
+        int[] iArr;
+        iArr = this.f2678a.c;
+        return iArr.length;
+    }
+
+    @Override // android.support.v4.view.ae
+    public Object instantiateItem(View view, int i) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        ArrayList arrayList5;
+        arrayList = this.f2678a.d;
+        if (i < arrayList.size()) {
+            arrayList2 = this.f2678a.d;
+            ((ViewPager) view).addView((View) arrayList2.get(i), 0);
+            arrayList3 = this.f2678a.d;
+            if (i == arrayList3.size() - 1) {
+                arrayList5 = this.f2678a.d;
+                ((View) arrayList5.get(i)).setOnClickListener(this.f2678a.f983a);
+            }
+            arrayList4 = this.f2678a.d;
+            return arrayList4.get(i);
+        }
+        View view2 = new View(this.f2678a);
+        view2.setBackgroundColor(-1);
+        ((ViewPager) view).addView(view2, 0);
+        return view2;
+    }
+
+    @Override // android.support.v4.view.ae
+    public void destroyItem(View view, int i, Object obj) {
+        ((ViewPager) view).removeView((View) obj);
+    }
+
+    @Override // android.support.v4.view.ae
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.ae
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        super.setPrimaryItem(viewGroup, i, obj);
     }
 }

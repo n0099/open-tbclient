@@ -1,209 +1,81 @@
 package com.baidu.tieba.data;
 
-import com.tencent.mm.sdk.platformtools.LocaleUtil;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class v {
-    private String l;
-    private int m;
-    private String s;
-    private String t;
-    private String u;
-    private int v;
-    private int w;
-    private int x;
-    private int y;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1047a = null;
-    private String b = null;
+    private int f1179a = 0;
+    private long b = 0;
     private String c = null;
     private String d = null;
-    private int e = 0;
-    private int f = 1;
-    private int g = 0;
-    private int h = 0;
-    private int i = 0;
-    private int j = 0;
-    private int k = 0;
-    private int q = 0;
-    private bb n = new bb();
-    private ArrayList<String> o = new ArrayList<>();
-    private ArrayList<aa> p = new ArrayList<>();
-    private String r = null;
+    private String e = null;
+    private String f = null;
+    private String g = null;
+    private String h = null;
+    private MetaData i = new MetaData();
+    private MetaData j = new MetaData();
+    private int k;
+    private String l;
 
-    public v() {
-        c((String) null);
-        b((String) null);
-        this.v = 0;
-        this.w = 0;
-        this.x = 0;
-        this.y = 0;
+    public int a() {
+        return this.f1179a;
     }
 
-    public String a() {
-        return this.f1047a;
-    }
-
-    public String b() {
+    public long b() {
         return this.b;
     }
 
-    public int c() {
+    public String c() {
+        return this.c;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public String e() {
+        return this.e;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
+    public String g() {
+        return this.g;
+    }
+
+    public String h() {
         return this.h;
     }
 
-    public int d() {
+    public MetaData i() {
         return this.i;
     }
 
-    public void a(int i) {
-        this.j = i;
-    }
-
-    public int e() {
-        return this.j;
-    }
-
-    public void b(int i) {
-        this.k = i;
-    }
-
-    public int f() {
-        return this.k;
-    }
-
-    public bb g() {
-        return this.n;
-    }
-
-    public void a(bb bbVar) {
-        this.n = bbVar;
-    }
-
-    public ArrayList<aa> h() {
-        return this.p;
-    }
-
-    public String i() {
-        return this.l;
-    }
-
-    public void a(String str) {
-        this.l = str;
+    public boolean j() {
+        return this.k == 1;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1047a = jSONObject.optString(LocaleUtil.INDONESIAN);
-                this.b = jSONObject.optString("name");
-                this.x = jSONObject.optInt("is_support_local", 0);
-                this.y = jSONObject.optInt("is_local_effect", 0);
-                JSONObject optJSONObject = jSONObject.optJSONObject("tag_info");
-                if (optJSONObject != null) {
-                    this.r = optJSONObject.optString("tag_name", null);
-                    this.t = optJSONObject.optString("tag_id", null);
-                    this.s = optJSONObject.optString("color", null);
-                }
-                this.u = jSONObject.optString("avatar", null);
-                this.v = jSONObject.optInt("cur_score", 0);
-                this.w = jSONObject.optInt("levelup_score", 0);
-                this.c = jSONObject.optString("first_class");
-                this.d = jSONObject.optString("second_class");
-                this.e = jSONObject.optInt("is_exists", 0);
-                this.f = jSONObject.optInt("is_forbidden", 1);
-                this.g = jSONObject.optInt("thread_num", 0);
-                this.h = jSONObject.optInt("post_num", 0);
-                this.i = jSONObject.optInt("member_num", 0);
-                this.j = jSONObject.optInt("is_like", 0);
-                this.k = jSONObject.optInt("level_id", 0);
-                this.l = jSONObject.optString("level_name", null);
-                this.q = jSONObject.optInt("album_open_photo_frs", 0);
-                c(jSONObject.optInt("favo_type", 0));
-                JSONArray optJSONArray = jSONObject.optJSONArray("managers");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        this.o.add(((JSONObject) optJSONArray.opt(i)).optString("name"));
-                    }
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        aa aaVar = new aa();
-                        aaVar.a(optJSONArray2.optJSONObject(i2));
-                        this.p.add(aaVar);
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("sign_in_info");
-                if (optJSONObject2 != null) {
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("user_info");
-                    if (optJSONObject3 != null) {
-                        this.n.b(optJSONObject3.optInt("is_sign_in"));
-                        this.n.c(optJSONObject3.optInt("user_sign_rank"));
-                    }
-                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject("forum_info");
-                    if (optJSONObject4 != null) {
-                        if (optJSONObject4.optInt("is_on") == 0) {
-                            this.n.a(-2);
-                            return;
-                        }
-                        JSONObject optJSONObject5 = optJSONObject4.optJSONObject("current_rank_info");
-                        if (optJSONObject5 != null) {
-                            this.n.a(optJSONObject5.optInt("sign_rank"));
-                            this.n.d(optJSONObject5.optInt("sign_count"));
-                        }
-                    }
-                }
+                this.f1179a = jSONObject.optInt("type", 0);
+                this.c = jSONObject.optString("title");
+                this.b = jSONObject.optLong("time", 0L) * 1000;
+                this.d = jSONObject.optString("fname");
+                this.e = jSONObject.optString("content");
+                this.f = jSONObject.optString("quote_content");
+                this.g = jSONObject.optString("thread_id");
+                this.h = jSONObject.optString("post_id");
+                this.k = jSONObject.optInt("is_floor");
+                this.l = jSONObject.optString("quote_pid");
+                this.i.parserJson(jSONObject.optJSONObject("replyer"));
+                this.j.parserJson(jSONObject.optJSONObject("quote_user"));
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b("ForumData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("FeedData", "parserJson", "error = " + e.getMessage());
             }
         }
-    }
-
-    public void c(int i) {
-        this.m = i;
-    }
-
-    public int j() {
-        return this.m;
-    }
-
-    public String k() {
-        return this.r;
-    }
-
-    public String l() {
-        return this.u;
-    }
-
-    public void b(String str) {
-        this.s = str;
-    }
-
-    public String m() {
-        return this.s;
-    }
-
-    public void c(String str) {
-        this.t = str;
-    }
-
-    public void d(int i) {
-        this.v = i;
-    }
-
-    public int n() {
-        return this.v;
-    }
-
-    public void e(int i) {
-        this.w = i;
-    }
-
-    public int o() {
-        return this.w;
     }
 }

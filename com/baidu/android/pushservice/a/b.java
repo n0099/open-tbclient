@@ -8,6 +8,7 @@ import android.util.Log;
 import com.baidu.android.common.util.Util;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.zeus.Headers;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -34,14 +35,14 @@ public final class b {
                 com.baidu.android.pushservice.d dVar = (com.baidu.android.pushservice.d) it.next();
                 PackageInfo packageInfo = null;
                 try {
-                    packageInfo = packageManager.getPackageInfo(dVar.f612a, 0);
+                    packageInfo = packageManager.getPackageInfo(dVar.f691a, 0);
                 } catch (PackageManager.NameNotFoundException e) {
                     Log.w("ApiUtils", Log.getStackTraceString(e));
                 }
                 if (packageInfo == null) {
                     Intent intent = new Intent(PushConstants.ACTION_METHOD);
                     intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
-                    intent.putExtra("package_name", dVar.f612a);
+                    intent.putExtra("package_name", dVar.f691a);
                     com.baidu.android.pushservice.b.a(context, intent);
                 }
             }
@@ -52,7 +53,7 @@ public final class b {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         list.add(new BasicNameValuePair("timestamp", currentTimeMillis + ""));
         list.add(new BasicNameValuePair(Headers.EXPIRES, (86400 + currentTimeMillis) + ""));
-        list.add(new BasicNameValuePair("v", "1"));
+        list.add(new BasicNameValuePair("v", SocialConstants.TRUE));
         try {
             list.add(new BasicNameValuePair("vcode", Util.toMd5(URLEncoder.encode(currentTimeMillis + "bccs", "UTF-8").getBytes(), false)));
         } catch (UnsupportedEncodingException e) {
@@ -61,7 +62,7 @@ public final class b {
     }
 
     public static void b(Context context) {
-        a(context, com.baidu.android.pushservice.a.a(context).f599a);
+        a(context, com.baidu.android.pushservice.a.a(context).f678a);
         a(context, com.baidu.android.pushservice.a.a(context).b);
     }
 }

@@ -87,7 +87,7 @@ class FrameLoader {
                     if (this.mListener.isSynchronous()) {
                         return handleHTTPLoad();
                     }
-                    WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_WEEK, this).sendToTarget();
+                    WebViewWorker.getHandler().obtainMessage(102, this).sendToTarget();
                     return true;
                 }
             } else {
@@ -110,28 +110,28 @@ class FrameLoader {
                         new FileLoader(str2, loadListener, 1, true).load();
                         return true;
                     }
-                    WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME, new FileLoader(str2, loadListener, 1, true)).sendToTarget();
+                    WebViewWorker.getHandler().obtainMessage(101, new FileLoader(str2, loadListener, 1, true)).sendToTarget();
                     return true;
                 } else if (URLUtil.isResourceUrl(str2)) {
                     if (loadListener.isSynchronous()) {
                         new FileLoader(str2, loadListener, 2, true).load();
                         return true;
                     }
-                    WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME, new FileLoader(str2, loadListener, 2, true)).sendToTarget();
+                    WebViewWorker.getHandler().obtainMessage(101, new FileLoader(str2, loadListener, 2, true)).sendToTarget();
                     return true;
                 } else if (URLUtil.isFileUrl(str2)) {
                     if (loadListener.isSynchronous()) {
                         new FileLoader(str2, loadListener, 3, webSettings.getAllowFileAccess()).load();
                         return true;
                     }
-                    WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME, new FileLoader(str2, loadListener, 3, webSettings.getAllowFileAccess())).sendToTarget();
+                    WebViewWorker.getHandler().obtainMessage(101, new FileLoader(str2, loadListener, 3, webSettings.getAllowFileAccess())).sendToTarget();
                     return true;
                 } else if (URLUtil.isContentUrl(str2)) {
                     if (loadListener.isSynchronous()) {
                         new ContentLoader(loadListener.url(), loadListener).load();
                         return true;
                     }
-                    WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME, new ContentLoader(loadListener.url(), loadListener)).sendToTarget();
+                    WebViewWorker.getHandler().obtainMessage(101, new ContentLoader(loadListener.url(), loadListener)).sendToTarget();
                     return true;
                 } else if (URLUtil.isDataUrl(str2)) {
                     new DataLoader(str2, loadListener).load();
@@ -187,7 +187,7 @@ class FrameLoader {
         if (this.mListener.isSynchronous()) {
             cacheLoader.load();
         } else {
-            WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME, cacheLoader).sendToTarget();
+            WebViewWorker.getHandler().obtainMessage(101, cacheLoader).sendToTarget();
         }
     }
 

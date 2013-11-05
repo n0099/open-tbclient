@@ -2,13 +2,14 @@ package com.baidu.android.pushservice.message;
 
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class j {
     public static PublicMsg a(String str, String str2, byte[] bArr) {
         PublicMsg publicMsg = new PublicMsg();
-        publicMsg.f623a = str;
+        publicMsg.f702a = str;
         publicMsg.b = str2;
         try {
             JSONObject jSONObject = new JSONObject(new String(bArr));
@@ -18,8 +19,8 @@ public final class j {
             if (!jSONObject.isNull("description")) {
                 publicMsg.d = jSONObject.getString("description");
             }
-            if (!jSONObject.isNull("url")) {
-                publicMsg.e = jSONObject.getString("url");
+            if (!jSONObject.isNull(SocialConstants.PARAM_URL)) {
+                publicMsg.e = jSONObject.getString(SocialConstants.PARAM_URL);
             }
             if (!jSONObject.isNull("notification_builder_id")) {
                 publicMsg.j = jSONObject.getInt("notification_builder_id");

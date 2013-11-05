@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 public class e extends ViewGroup.MarginLayoutParams {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f344a;
+    public int f354a;
     float b;
     boolean c;
     boolean d;
@@ -16,31 +16,31 @@ public class e extends ViewGroup.MarginLayoutParams {
     public e(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         int[] iArr;
-        this.f344a = 0;
-        iArr = DrawerLayout.f336a;
+        this.f354a = 0;
+        iArr = DrawerLayout.f346a;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-        this.f344a = obtainStyledAttributes.getInt(0, 0);
+        this.f354a = obtainStyledAttributes.getInt(0, 0);
         obtainStyledAttributes.recycle();
     }
 
     public e(int i, int i2) {
         super(i, i2);
-        this.f344a = 0;
+        this.f354a = 0;
     }
 
     public e(e eVar) {
         super((ViewGroup.MarginLayoutParams) eVar);
-        this.f344a = 0;
-        this.f344a = eVar.f344a;
+        this.f354a = 0;
+        this.f354a = eVar.f354a;
     }
 
     public e(ViewGroup.LayoutParams layoutParams) {
         super(layoutParams);
-        this.f344a = 0;
+        this.f354a = 0;
     }
 
     public e(ViewGroup.MarginLayoutParams marginLayoutParams) {
         super(marginLayoutParams);
-        this.f344a = 0;
+        this.f354a = 0;
     }
 }

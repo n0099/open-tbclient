@@ -15,14 +15,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.as;
+import com.baidu.tieba.util.bb;
 import com.baidu.tieba.view.ab;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    Handler f1870a;
+    Handler f2392a;
     private BdListView b;
     private RelativeLayout c;
     private TextView d;
@@ -37,15 +37,15 @@ public class h {
     private TextView n;
     private Animation p;
     private Animation q;
-    private o r;
+    private p r;
     private int l = 0;
     private boolean o = false;
 
     public h(TopRecActivity topRecActivity) {
         this.r = null;
-        this.f1870a = null;
+        this.f2392a = null;
         this.k = topRecActivity;
-        this.f1870a = new Handler();
+        this.f2392a = new Handler();
         this.k.setContentView(R.layout.top_recommended_activity);
         this.b = (BdListView) this.k.findViewById(R.id.top_list);
         this.c = (RelativeLayout) this.k.findViewById(R.id.title);
@@ -63,11 +63,11 @@ public class h {
         this.q = AnimationUtils.loadAnimation(this.k, R.anim.top_recommended_finish_b);
         this.p.setAnimationListener(new i(this));
         this.q.setAnimationListener(new j(this));
-        this.e.setText(String.valueOf(this.k.getString(R.string.done)) + "(" + this.l + ")");
+        this.e.setText(this.k.getString(R.string.done) + "(" + this.l + ")");
         this.b.setPullRefresh(this.f);
         this.m = (ProgressBar) this.k.findViewById(R.id.loading);
-        if (!o.a()) {
-            this.r = new o(topRecActivity);
+        if (!p.a()) {
+            this.r = new p(topRecActivity);
         }
     }
 
@@ -96,9 +96,9 @@ public class h {
     public void a(int i) {
         this.e.invalidate();
         if (this.l < 100) {
-            this.n.setText(String.valueOf(this.k.getString(R.string.done)) + "(" + this.l + ")");
+            this.n.setText(this.k.getString(R.string.done) + "(" + this.l + ")");
         } else {
-            this.n.setText(String.valueOf(this.k.getString(R.string.done)) + "(99+)");
+            this.n.setText(this.k.getString(R.string.done) + "(99+)");
         }
         this.e.setText(" ");
         this.n.setVisibility(0);
@@ -109,7 +109,7 @@ public class h {
 
     public void d() {
         this.i.setText(this.k.getString(R.string.flist_expand_list));
-        if (TiebaApplication.g().ap() == 1) {
+        if (TiebaApplication.g().as() == 1) {
             this.j.setBackgroundResource(R.drawable.ico_downward_1);
         } else {
             this.j.setBackgroundResource(R.drawable.ico_downward);
@@ -125,13 +125,13 @@ public class h {
     }
 
     public void b(int i) {
-        as.d(this.c, i);
-        as.f(this.d, i);
-        as.b(this.k.findViewById(R.id.container), i);
-        as.g(this.e, i);
-        as.f(this.e, i);
-        as.f(this.n, i);
-        if (TiebaApplication.g().ap() == 1) {
+        bb.d(this.c, i);
+        bb.f(this.d, i);
+        bb.b(this.k.findViewById(R.id.container), i);
+        bb.g(this.e, i);
+        bb.f((TextView) this.e, i);
+        bb.f(this.n, i);
+        if (TiebaApplication.g().as() == 1) {
             this.b.setDivider(new ColorDrawable(-13881543));
         } else {
             this.b.setDivider(new ColorDrawable(-1775893));
@@ -169,8 +169,8 @@ public class h {
     }
 
     public void f() {
-        if (this.r != null && !o.a()) {
-            this.f1870a.postDelayed(new k(this), 300L);
+        if (this.r != null && !p.a()) {
+            this.f2392a.postDelayed(new k(this), 300L);
         }
     }
 }

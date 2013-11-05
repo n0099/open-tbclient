@@ -6,7 +6,7 @@ import java.util.Hashtable;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f648a = true;
+    private static boolean f727a = true;
     private static Hashtable b = new Hashtable();
     private String c;
 
@@ -25,13 +25,13 @@ public class l {
     }
 
     public void b(String str) {
-        if (f648a) {
+        if (f727a) {
             Log.d("[Channel]", "{Thread:" + Thread.currentThread().getName() + "}[" + this.c + ":] " + str);
         }
     }
 
     public void c(String str) {
-        if (f648a) {
+        if (f727a) {
             Log.w("[Channel]", "{Thread:" + Thread.currentThread().getName() + "}[" + this.c + ":] " + str);
         }
     }

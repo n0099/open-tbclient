@@ -1,23 +1,24 @@
 package com.baidu.tieba.view;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class aj implements View.OnClickListener {
+class aj implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbPagerAdapter f1973a;
+    final /* synthetic */ com.baidu.tieba.pb.ah f2506a;
+    final /* synthetic */ ImagePbPagerAdapter b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ImagePbPagerAdapter imagePbPagerAdapter) {
-        this.f1973a = imagePbPagerAdapter;
+    public aj(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar) {
+        this.b = imagePbPagerAdapter;
+        this.f2506a = ahVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        ImagePbPagerAdapter imagePbPagerAdapter = this.f1973a;
-        i = this.f1973a.q;
-        imagePbPagerAdapter.a(i);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        if (this.f2506a != null && this.f2506a.b() && j == this.f2506a.getCount() - 1) {
+            this.b.a(this.f2506a.d(), this.f2506a.e().c(), 10, this.f2506a);
+        }
     }
 }

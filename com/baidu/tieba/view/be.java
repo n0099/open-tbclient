@@ -6,15 +6,15 @@ import java.util.TimerTask;
 public class be extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShakeCutDownView f1989a;
+    final /* synthetic */ ShakeCutDownView f2522a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(ShakeCutDownView shakeCutDownView) {
-        this.f1989a = shakeCutDownView;
+        this.f2522a = shakeCutDownView;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        this.f1989a.f1964a.sendEmptyMessage(0);
+        this.f2522a.f2496a.sendEmptyMessage(0);
     }
 }

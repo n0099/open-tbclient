@@ -1,23 +1,27 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import android.widget.EditText;
+import android.widget.AbsListView;
+import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
+public class ag implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1198a;
+    final /* synthetic */ SearchActivity f1333a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(SearchActivity searchActivity) {
-        this.f1198a = searchActivity;
+        this.f1333a = searchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.f1198a.c;
-        editText.setText("");
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        if (i == 2 || i == 1) {
+            UtilHelper.a(this.f1333a, absListView);
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

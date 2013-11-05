@@ -10,8 +10,8 @@ public class ao {
     private int i;
 
     /* renamed from: a  reason: collision with root package name */
-    private v f1005a = new v();
-    private bh b = new bh();
+    private ForumData f1135a = new ForumData();
+    private bf b = new bf();
     private ArrayList<as> c = new ArrayList<>();
     private an d = new an();
     private AntiData e = new AntiData();
@@ -28,11 +28,11 @@ public class ao {
         return this.c != null && this.c.size() > 0;
     }
 
-    public v b() {
-        return this.f1005a;
+    public ForumData b() {
+        return this.f1135a;
     }
 
-    public bh c() {
+    public bf c() {
         return this.b;
     }
 
@@ -78,7 +78,7 @@ public class ao {
 
     public String h() {
         if (this.b != null) {
-            return this.b.n();
+            return this.b.l();
         }
         return null;
     }
@@ -93,7 +93,7 @@ public class ao {
         try {
             a(new JSONObject(str), context);
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -101,7 +101,7 @@ public class ao {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b("PbData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -113,7 +113,7 @@ public class ao {
         if (jSONObject != null) {
             try {
                 a(jSONObject.optInt("is_new_url", 0));
-                this.f1005a.a(jSONObject.optJSONObject("forum"));
+                this.f1135a.parserJson(jSONObject.optJSONObject("forum"));
                 this.b.a(jSONObject.optJSONObject("thread"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null) {
@@ -129,7 +129,7 @@ public class ao {
                 this.g = jSONObject.optInt("has_floor") == 1;
                 this.h = jSONObject.optJSONObject("user").optInt("is_manager", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b("PbData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

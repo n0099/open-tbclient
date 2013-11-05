@@ -9,24 +9,24 @@ import com.baidu.mobstat.StatService;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.data.SendAloneVoteData;
 import com.baidu.tieba.data.SendPKVoteData;
-import com.baidu.tieba.model.bs;
-import com.baidu.tieba.model.bu;
-import com.baidu.tieba.model.bw;
+import com.baidu.tieba.model.cb;
+import com.baidu.tieba.model.cd;
+import com.baidu.tieba.model.cf;
 import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.al;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.au;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class VoteResultActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private q f1311a;
-    private bs b;
+    private q f1806a;
+    private cb b;
     private boolean c;
     private boolean d;
-    private bu e = new m(this);
-    private bw f = new n(this);
+    private cd e = new m(this);
+    private cf f = new o(this);
 
     public static void a(Context context, String str, String str2, int i) {
         Intent intent = new Intent(context, VoteResultActivity.class);
@@ -69,14 +69,14 @@ public class VoteResultActivity extends com.baidu.tieba.j {
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.f1311a.b.setBackgroundResource(R.drawable.bg_share);
+        this.f1806a.f1822a.setBackgroundResource(R.drawable.bg_share);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.f1311a.b.setBackgroundResource(0);
+        this.f1806a.f1822a.setBackgroundResource(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -87,38 +87,43 @@ public class VoteResultActivity extends com.baidu.tieba.j {
     }
 
     private void b() {
-        this.f1311a = new q(this);
-        this.f1311a.e();
+        this.f1806a = new q(this);
+        this.f1806a.g();
         int a2 = this.b.a(this.b.f());
-        this.f1311a.i().setText(new StringBuilder(String.valueOf(this.b.f())).toString());
-        this.f1311a.j().setText(this.b.e());
-        this.f1311a.k().setText(new StringBuilder(String.valueOf(a2)).toString());
-        this.f1311a.h().setDefaultId(R.drawable.vote_share_default);
+        this.f1806a.k().setText(this.b.f() + "");
+        this.f1806a.l().setText(this.b.e());
+        this.f1806a.m().setText(a2 + "");
+        this.f1806a.j().setDefaultId(R.drawable.vote_share_default);
     }
 
     private void c() {
         SendAloneVoteData a2;
         int a3 = this.b.a(this.b.f());
-        this.f1311a.i().setText(new StringBuilder(String.valueOf(this.b.f())).toString());
-        this.f1311a.j().setText(this.b.e());
-        this.f1311a.k().setText(new StringBuilder(String.valueOf(a3)).toString());
-        this.f1311a.d();
-        this.f1311a.f();
+        this.f1806a.k().setText(this.b.f() + "");
+        this.f1806a.l().setText(this.b.e());
+        this.f1806a.m().setText(a3 + "");
+        this.f1806a.f();
+        this.f1806a.h();
         int d = this.b.d();
+        cb cbVar = this.b;
         if (d == 2) {
             SendPKVoteData b = this.b.b();
             if (b != null) {
                 this.c = true;
                 c(b.getResultPic());
+                return;
             }
-        } else if (d == 1 && (a2 = this.b.a()) != null) {
+            return;
+        }
+        cb cbVar2 = this.b;
+        if (d == 1 && (a2 = this.b.a()) != null) {
             this.d = true;
             c(a2.getResultPic());
         }
     }
 
     private void a(Bundle bundle) {
-        this.b = new bs();
+        this.b = new cb();
         this.b.a(this.e);
         this.b.a(this.f);
         if (bundle != null) {
@@ -136,11 +141,11 @@ public class VoteResultActivity extends com.baidu.tieba.j {
     public void c(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.util.a aVar = new com.baidu.tieba.util.a(this);
-            TbImageView h = this.f1311a.h();
-            aVar.a(h.getWidth(), h.getHeight());
-            if (aVar.a(str, new o(this, str, h)) != null) {
-                h.setTag(str);
-                h.invalidate();
+            TbImageView j = this.f1806a.j();
+            aVar.a(j.getWidth(), j.getHeight());
+            if (aVar.a(str, new n(this, str, j)) != null) {
+                j.setTag(str);
+                j.invalidate();
             }
         }
     }
@@ -149,28 +154,28 @@ public class VoteResultActivity extends com.baidu.tieba.j {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back /* 2131099729 */:
-                g();
+                h();
                 return;
-            case R.id.share_weixin /* 2131100364 */:
+            case R.id.share_weixin /* 2131100310 */:
                 if (e()) {
-                    b(view.getId());
+                    d(view.getId());
                     e(3);
                     return;
                 }
                 return;
-            case R.id.share_qqfriend /* 2131100365 */:
+            case R.id.share_qqfriend /* 2131100311 */:
                 if (e()) {
-                    b(view.getId());
+                    d(view.getId());
                     e(4);
                     return;
                 }
                 return;
-            case R.id.share_qqzone /* 2131100366 */:
-                b(view.getId());
+            case R.id.share_qqzone /* 2131100312 */:
+                d(view.getId());
                 e(2);
                 return;
-            case R.id.share_sina /* 2131100367 */:
-                b(view.getId());
+            case R.id.share_sina /* 2131100313 */:
+                d(view.getId());
                 e(1);
                 return;
             default:
@@ -186,9 +191,9 @@ public class VoteResultActivity extends com.baidu.tieba.j {
         return true;
     }
 
-    private void b(int i) {
+    private void d(int i) {
         switch (i) {
-            case R.id.share_weixin /* 2131100364 */:
+            case R.id.share_weixin /* 2131100310 */:
                 switch (this.b.d()) {
                     case 1:
                         StatService.onEvent(this, "kn_share_alone_weixi", "click");
@@ -199,7 +204,7 @@ public class VoteResultActivity extends com.baidu.tieba.j {
                     default:
                         return;
                 }
-            case R.id.share_qqfriend /* 2131100365 */:
+            case R.id.share_qqfriend /* 2131100311 */:
                 switch (this.b.d()) {
                     case 1:
                         StatService.onEvent(this, "kn_share_alone_qqfre", "click");
@@ -210,7 +215,7 @@ public class VoteResultActivity extends com.baidu.tieba.j {
                     default:
                         return;
                 }
-            case R.id.share_qqzone /* 2131100366 */:
+            case R.id.share_qqzone /* 2131100312 */:
                 switch (this.b.d()) {
                     case 1:
                         StatService.onEvent(this, "kn_share_alone_qzone", "click");
@@ -221,7 +226,7 @@ public class VoteResultActivity extends com.baidu.tieba.j {
                     default:
                         return;
                 }
-            case R.id.share_sina /* 2131100367 */:
+            case R.id.share_sina /* 2131100313 */:
                 switch (this.b.d()) {
                     case 1:
                         StatService.onEvent(this, "kn_share_alone_weibo", "click");
@@ -239,7 +244,7 @@ public class VoteResultActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void g() {
+    public void h() {
         finish();
     }
 
@@ -250,30 +255,30 @@ public class VoteResultActivity extends com.baidu.tieba.j {
             switch (this.b.d()) {
                 case 1:
                     if (!this.d) {
-                        c(R.string.share_no_data);
+                        b(R.string.share_no_data);
                         return;
                     }
                     SendAloneVoteData a2 = this.b.a();
-                    str = al.a(this.b.c(), new StringBuilder(String.valueOf(this.b.f())).toString(), a2.getShareId());
+                    str = au.a(this.b.c(), this.b.f() + "", a2.getShareId());
                     str2 = a2.getShareText();
                     break;
                 case 2:
                     if (!this.c) {
-                        c(R.string.share_no_data);
+                        b(R.string.share_no_data);
                         return;
                     }
                     SendPKVoteData b = this.b.b();
-                    str = al.a(this.b.c(), new StringBuilder(String.valueOf(this.b.f())).toString(), b.getShareId());
+                    str = au.a(this.b.c(), this.b.f() + "", b.getShareId());
                     str2 = b.getShareText();
                     break;
             }
-            if (al.a(this).a(i)) {
-                this.f1311a.b();
-                this.f1311a.g();
-                al.a(this).a(this, str, new p(this, i, str2));
+            if (au.a(this).a(i)) {
+                this.f1806a.a();
+                this.f1806a.i();
+                au.a(this).a(this, str, new p(this, i, str2));
             }
         } catch (Exception e) {
-            av.b(getClass().getName(), "shareClick", e.toString());
+            be.b(getClass().getName(), "shareClick", e.toString());
         }
     }
 }

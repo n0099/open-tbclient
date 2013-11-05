@@ -1,66 +1,35 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
-import com.baidu.tieba.write.AudioIcon;
+import android.widget.CompoundButton;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv implements com.baidu.tieba.voice.o {
+public class bv implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ br f1567a;
+    final /* synthetic */ bt f2083a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(br brVar) {
-        this.f1567a = brVar;
+    public bv(bt btVar) {
+        this.f2083a = btVar;
     }
 
-    @Override // com.baidu.tieba.voice.o
-    public void a() {
-        AudioIcon audioIcon;
-        AudioIcon audioIcon2;
-        Button button;
-        Button button2;
-        AudioIcon audioIcon3;
-        AudioIcon audioIcon4;
-        audioIcon = this.f1567a.n;
-        if (audioIcon != null) {
-            audioIcon4 = this.f1567a.n;
-            audioIcon4.g();
-        }
-        audioIcon2 = this.f1567a.r;
-        if (audioIcon2 != null) {
-            audioIcon3 = this.f1567a.r;
-            audioIcon3.g();
-        }
-        button = this.f1567a.l;
-        if (button != null) {
-            button2 = this.f1567a.l;
-            button2.setEnabled(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.voice.o
-    public void b() {
-        AudioIcon audioIcon;
-        AudioIcon audioIcon2;
-        Button button;
-        Button button2;
-        AudioIcon audioIcon3;
-        AudioIcon audioIcon4;
-        audioIcon = this.f1567a.n;
-        if (audioIcon != null) {
-            audioIcon4 = this.f1567a.n;
-            audioIcon4.h();
-        }
-        audioIcon2 = this.f1567a.r;
-        if (audioIcon2 != null) {
-            audioIcon3 = this.f1567a.r;
-            audioIcon3.h();
-        }
-        button = this.f1567a.l;
-        if (button != null && !this.f1567a.b()) {
-            button2 = this.f1567a.l;
-            button2.setEnabled(false);
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        if (z) {
+            switch (compoundButton.getId()) {
+                case R.id.radio_button_1day /* 2131100050 */:
+                    this.f2083a.ae = 1;
+                    return;
+                case R.id.radio_button_3day /* 2131100051 */:
+                    this.f2083a.ae = 3;
+                    return;
+                case R.id.radio_button_10day /* 2131100052 */:
+                    this.f2083a.ae = 10;
+                    return;
+                default:
+                    return;
+            }
         }
     }
 }

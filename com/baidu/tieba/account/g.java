@@ -1,33 +1,54 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class g implements View.OnFocusChangeListener {
+class g implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f915a;
+    final /* synthetic */ ActivationActivity f1044a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ActivationActivity activationActivity) {
-        this.f915a = activationActivity;
+        this.f1044a = activationActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        ImageView imageView;
-        ImageView imageView2;
-        editText = this.f915a.k;
-        if (view == editText) {
-            if (z) {
-                imageView2 = this.f915a.d;
-                imageView2.setVisibility(0);
-                return;
-            }
-            imageView = this.f915a.d;
-            imageView.setVisibility(8);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        RelativeLayout relativeLayout;
+        int i;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        int i2;
+        int i3;
+        RelativeLayout relativeLayout2;
+        if (editable.length() == 6) {
+            relativeLayout2 = this.f1044a.l;
+            relativeLayout2.setEnabled(true);
+        } else {
+            relativeLayout = this.f1044a.l;
+            relativeLayout.setEnabled(false);
         }
+        i = this.f1044a.A;
+        if (i != 0) {
+            this.f1044a.A = 0;
+            linearLayout = this.f1044a.c;
+            linearLayout.setBackgroundResource(R.drawable.pass_input);
+            linearLayout2 = this.f1044a.c;
+            i2 = this.f1044a.y;
+            i3 = this.f1044a.z;
+            linearLayout2.setPadding(i2, 0, i3, 0);
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.kn.pk.widget.PullAndPull;
-import com.baidu.tieba.util.as;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,7 +19,7 @@ import java.util.Random;
 public class t implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f1292a;
+    protected s f1787a;
     public com.baidu.tieba.kn.pk.widget.b b;
     ImageView c;
     public long d;
@@ -37,6 +37,20 @@ public class t implements View.OnClickListener {
     private long p;
     private long q;
     private LinkedList<Runnable> r = new LinkedList<>();
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ long a(t tVar, long j) {
+        long j2 = tVar.p + j;
+        tVar.p = j2;
+        return j2;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ long b(t tVar, long j) {
+        long j2 = tVar.q + j;
+        tVar.q = j2;
+        return j2;
+    }
 
     public ProgressBar a() {
         return this.g;
@@ -73,10 +87,10 @@ public class t implements View.OnClickListener {
         ((ImageView) this.f.findViewById(R.id.share_qqfriend)).setOnClickListener(this.f);
         ((ImageView) this.f.findViewById(R.id.share_qqzone)).setOnClickListener(this.f);
         ((ImageView) this.f.findViewById(R.id.share_sina)).setOnClickListener(this.f);
-        as.a(this.h, 0);
-        as.a((ImageView) this.f.findViewById(R.id.home), 0);
-        as.d(findViewById, 0);
-        as.f(this.i, 0);
+        bb.a(this.h, 0);
+        bb.a((ImageView) this.f.findViewById(R.id.home), 0);
+        bb.d(findViewById, 0);
+        bb.f(this.i, 0);
         this.c = (ImageView) this.f.findViewById(R.id.cmd_folder);
         this.c.setOnClickListener(this);
     }
@@ -106,8 +120,8 @@ public class t implements View.OnClickListener {
     }
 
     public void a(Handler handler, com.baidu.tieba.util.a aVar, s sVar) {
-        com.baidu.adp.widget.a.c a2;
-        com.baidu.adp.widget.a.c a3;
+        com.baidu.adp.widget.ImageView.e a2;
+        com.baidu.adp.widget.ImageView.e a3;
         this.g.setVisibility(8);
         this.e.c();
         if (sVar == null) {
@@ -117,13 +131,13 @@ public class t implements View.OnClickListener {
         a(handler);
         if (sVar.b()) {
             this.e.setVisibility(0);
-            if (this.f1292a == null) {
+            if (this.f1787a == null) {
                 a(sVar.c());
             }
             this.f.a(sVar.c());
             return;
         }
-        this.f1292a = sVar;
+        this.f1787a = sVar;
         this.n.setData(sVar);
         this.o.setData(sVar);
         if (this.n != null) {
@@ -132,15 +146,15 @@ public class t implements View.OnClickListener {
         if (this.o != null) {
             this.o.a();
         }
-        this.i.setText(this.f1292a.d());
-        this.b.a(this.f1292a.b);
-        this.b.a("PK规则", this.f1292a.c);
-        this.b.a(String.valueOf(sVar.j.e) + this.f.getString(R.string.forum), sVar.j.g, this.f);
-        this.b.b(String.valueOf(sVar.k.e) + this.f.getString(R.string.forum), sVar.k.g, this.f);
+        this.i.setText(this.f1787a.d());
+        this.b.a(this.f1787a.b);
+        this.b.a("PK规则", this.f1787a.c);
+        this.b.a(sVar.j.e + this.f.getString(R.string.forum), sVar.j.g, this.f);
+        this.b.b(sVar.k.e + this.f.getString(R.string.forum), sVar.k.g, this.f);
         this.n.a();
         this.o.a();
-        this.p = this.f1292a.j.h;
-        this.q = this.f1292a.k.h;
+        this.p = this.f1787a.j.h;
+        this.q = this.f1787a.k.h;
         if (sVar.h().isEmpty() && sVar.i().isEmpty()) {
             this.m = false;
             a(this.f.getString(R.string.kn_data_no_vote));
@@ -179,9 +193,9 @@ public class t implements View.OnClickListener {
     }
 
     public void a(Handler handler) {
-        if (this.f1292a != null) {
-            this.f1292a.h().clear();
-            this.f1292a.i().clear();
+        if (this.f1787a != null) {
+            this.f1787a.h().clear();
+            this.f1787a.i().clear();
         }
         Iterator<Runnable> it = this.r.iterator();
         while (it.hasNext()) {
@@ -194,12 +208,12 @@ public class t implements View.OnClickListener {
         this.e.c();
         if (hVar != null) {
             if (!this.m && hVar.d().isEmpty() && hVar.e().isEmpty()) {
-                a("请为您支持的选手投票吧！");
+                a("请为你支持的选手投票吧！");
             } else {
                 this.m = true;
                 a((String) null);
             }
-            hVar.a(this.f1292a.e());
+            hVar.a(this.f1787a.e());
             this.p = hVar.b.h;
             this.q = hVar.c.h;
             if (hVar.d() != null) {
@@ -222,7 +236,7 @@ public class t implements View.OnClickListener {
 
     public void a(LinkedList<y> linkedList, boolean z) {
         int size = linkedList.size() - 10;
-        long e = this.f1292a.e() / 1000;
+        long e = this.f1787a.e() / 1000;
         int i = 0;
         while (i < size && e - linkedList.get(i).c <= 15) {
             i++;
@@ -259,13 +273,13 @@ public class t implements View.OnClickListener {
                 } else if (i > 15000) {
                     i = 15000;
                 }
-                if (yVar.f1309a != null) {
+                if (yVar.f1804a != null) {
                     this.d = Math.max(yVar.c, this.d);
-                    if (i2 == 0 && yVar.f1309a.equalsIgnoreCase(TiebaApplication.G())) {
+                    if (i2 == 0 && yVar.f1804a.equalsIgnoreCase(TiebaApplication.H())) {
                         i = 0;
                     }
-                    if (com.baidu.adp.lib.f.d.a()) {
-                        com.baidu.adp.lib.f.d.c("time to go:" + i + ", time interval:" + min);
+                    if (com.baidu.adp.lib.h.d.a()) {
+                        com.baidu.adp.lib.h.d.d("time to go:" + i + ", time interval:" + min);
                     }
                     w wVar = new w(this, yVar, z);
                     this.r.addLast(wVar);

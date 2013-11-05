@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.zeus.CacheManager;
 import com.baidu.zeus.CookieManager;
 import java.util.ArrayList;
@@ -137,7 +138,7 @@ public class WebViewDatabase {
                     mCacheDatabase.execSQL("PRAGMA read_uncommitted = true;");
                     mCacheDatabase.setLockingEnabled(false);
                     mCacheInserter = new DatabaseUtils.InsertHelper(mCacheDatabase, "cache");
-                    mCacheUrlColIndex = mCacheInserter.getColumnIndex("url");
+                    mCacheUrlColIndex = mCacheInserter.getColumnIndex(SocialConstants.PARAM_URL);
                     mCacheFilePathColIndex = mCacheInserter.getColumnIndex(CACHE_FILE_PATH_COL);
                     mCacheLastModifyColIndex = mCacheInserter.getColumnIndex(CACHE_LAST_MODIFY_COL);
                     mCacheETagColIndex = mCacheInserter.getColumnIndex("etag");
@@ -177,10 +178,10 @@ public class WebViewDatabase {
             copyPasswordData();
         }
         mDatabase.setVersion(11);
-        mDatabase.execSQL("CREATE TABLE " + mTableNames[0] + " (" + ID_COL + " INTEGER PRIMARY KEY, name TEXT, value TEXT, " + COOKIES_DOMAIN_COL + " TEXT, " + COOKIES_PATH_COL + " TEXT, " + Headers.EXPIRES + " INTEGER, " + COOKIES_SECURE_COL + " INTEGER);");
+        mDatabase.execSQL("CREATE TABLE " + mTableNames[0] + " (" + ID_COL + " INTEGER PRIMARY KEY, " + SocialConstants.PARAM_MEDIA_UNAME + " TEXT, value TEXT, " + COOKIES_DOMAIN_COL + " TEXT, " + COOKIES_PATH_COL + " TEXT, " + Headers.EXPIRES + " INTEGER, secure INTEGER);");
         mDatabase.execSQL("CREATE INDEX cookiesIndex ON " + mTableNames[0] + " (path)");
-        mDatabase.execSQL("CREATE TABLE " + mTableNames[2] + " (" + ID_COL + " INTEGER PRIMARY KEY, url TEXT);");
-        mDatabase.execSQL("CREATE TABLE " + mTableNames[3] + " (" + ID_COL + " INTEGER PRIMARY KEY, " + FORMDATA_URLID_COL + " INTEGER, name TEXT, value TEXT, UNIQUE (" + FORMDATA_URLID_COL + ", name, value) ON CONFLICT IGNORE);");
+        mDatabase.execSQL("CREATE TABLE " + mTableNames[2] + " (" + ID_COL + " INTEGER PRIMARY KEY, " + SocialConstants.PARAM_URL + " TEXT);");
+        mDatabase.execSQL("CREATE TABLE " + mTableNames[3] + " (" + ID_COL + " INTEGER PRIMARY KEY, " + FORMDATA_URLID_COL + " INTEGER, " + SocialConstants.PARAM_MEDIA_UNAME + " TEXT, value TEXT, UNIQUE (" + FORMDATA_URLID_COL + ", " + SocialConstants.PARAM_MEDIA_UNAME + ", value) ON CONFLICT IGNORE);");
         mDatabase.execSQL("CREATE TABLE " + mTableNames[4] + " (" + ID_COL + " INTEGER PRIMARY KEY, host TEXT, " + HTTPAUTH_REALM_COL + " TEXT, username TEXT, password TEXT, UNIQUE (host, " + HTTPAUTH_REALM_COL + ") ON CONFLICT REPLACE);");
         if (!z) {
             mDatabase.execSQL("CREATE TABLE " + mTableNames[1] + " (" + ID_COL + " INTEGER PRIMARY KEY, host TEXT, username TEXT, password TEXT, UNIQUE (host, username) ON CONFLICT REPLACE);");
@@ -264,10 +265,10 @@ public class WebViewDatabase {
             return arrayList;
         }
         synchronized (this.mCookieLock) {
-            ?? r1 = COOKIES_SECURE_COL;
+            ?? r1 = "secure";
             try {
                 try {
-                    cursor = mDatabase.query(mTableNames[0], new String[]{ID_COL, COOKIES_DOMAIN_COL, COOKIES_PATH_COL, "name", "value", Headers.EXPIRES, COOKIES_SECURE_COL}, "(domain GLOB '*' || ?)", new String[]{str}, null, null, null);
+                    cursor = mDatabase.query(mTableNames[0], new String[]{ID_COL, COOKIES_DOMAIN_COL, COOKIES_PATH_COL, SocialConstants.PARAM_MEDIA_UNAME, "value", Headers.EXPIRES, "secure"}, "(domain GLOB '*' || ?)", new String[]{str}, null, null, null);
                     try {
                     } catch (IllegalStateException e) {
                         e = e;
@@ -297,10 +298,10 @@ public class WebViewDatabase {
             if (cursor.moveToFirst()) {
                 int columnIndex = cursor.getColumnIndex(COOKIES_DOMAIN_COL);
                 int columnIndex2 = cursor.getColumnIndex(COOKIES_PATH_COL);
-                int columnIndex3 = cursor.getColumnIndex("name");
+                int columnIndex3 = cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME);
                 int columnIndex4 = cursor.getColumnIndex("value");
                 int columnIndex5 = cursor.getColumnIndex(Headers.EXPIRES);
-                int columnIndex6 = cursor.getColumnIndex(COOKIES_SECURE_COL);
+                int columnIndex6 = cursor.getColumnIndex("secure");
                 do {
                     CookieManager.Cookie cookie = new CookieManager.Cookie();
                     cookie.domain = cursor.getString(columnIndex);
@@ -341,12 +342,12 @@ public class WebViewDatabase {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put(COOKIES_DOMAIN_COL, cookie.domain);
                 contentValues.put(COOKIES_PATH_COL, cookie.path);
-                contentValues.put("name", cookie.name);
+                contentValues.put(SocialConstants.PARAM_MEDIA_UNAME, cookie.name);
                 contentValues.put("value", cookie.value);
                 if (cookie.expires != -1) {
                     contentValues.put(Headers.EXPIRES, Long.valueOf(cookie.expires));
                 }
-                contentValues.put(COOKIES_SECURE_COL, Boolean.valueOf(cookie.secure));
+                contentValues.put("secure", Boolean.valueOf(cookie.secure));
                 mDatabase.insert(mTableNames[0], null, contentValues);
             }
         }
@@ -1174,7 +1175,7 @@ public class WebViewDatabase {
                             insert = cursor.getLong(cursor.getColumnIndex(ID_COL));
                         } else {
                             ContentValues contentValues = new ContentValues();
-                            contentValues.put("url", str);
+                            contentValues.put(SocialConstants.PARAM_URL, str);
                             insert = mDatabase.insert(mTableNames[2], null, contentValues);
                         }
                         if (cursor != null) {
@@ -1209,7 +1210,7 @@ public class WebViewDatabase {
                     ContentValues contentValues2 = new ContentValues();
                     contentValues2.put(FORMDATA_URLID_COL, Long.valueOf(j));
                     for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                        contentValues2.put("name", entry.getKey());
+                        contentValues2.put(SocialConstants.PARAM_MEDIA_UNAME, entry.getKey());
                         contentValues2.put("value", entry.getValue());
                         mDatabase.insert(mTableNames[3], null, contentValues2);
                     }

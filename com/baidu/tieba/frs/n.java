@@ -1,35 +1,51 @@
 package com.baidu.tieba.frs;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.os.Handler;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.a.e {
+class n implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1155a;
+    final /* synthetic */ FrsActivity f1290a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.f1155a = frsActivity;
+        this.f1290a = frsActivity;
     }
 
-    @Override // com.baidu.adp.a.e
-    public void a(Object obj) {
-        com.baidu.tieba.model.p pVar;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        handler = this.f1290a.K;
+        runnable = this.f1290a.M;
+        handler.removeCallbacks(runnable);
+        handler2 = this.f1290a.K;
+        runnable2 = this.f1290a.M;
+        handler2.postDelayed(runnable2, 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         ba baVar;
-        com.baidu.tieba.model.p pVar2;
-        String str;
-        pVar = this.f1155a.F;
-        if (pVar.getLoadDataMode() == 1) {
-            if (((Boolean) obj).booleanValue()) {
-                com.baidu.tieba.model.r a2 = com.baidu.tieba.model.r.a();
-                str = this.f1155a.e;
-                a2.b(str);
-                this.f1155a.w();
-            }
-            baVar = this.f1155a.o;
-            bg a3 = baVar.a();
-            boolean booleanValue = ((Boolean) obj).booleanValue();
-            pVar2 = this.f1155a.F;
-            a3.a(booleanValue, pVar2.getErrorString());
+        ba baVar2;
+        ba baVar3;
+        AdapterView.OnItemLongClickListener onItemLongClickListener;
+        ba baVar4;
+        if (i == 0) {
+            baVar3 = this.f1290a.o;
+            onItemLongClickListener = this.f1290a.Q;
+            baVar3.a(onItemLongClickListener);
+            baVar4 = this.f1290a.o;
+            baVar4.f(false);
+            return;
         }
+        baVar = this.f1290a.o;
+        baVar.a((AdapterView.OnItemLongClickListener) null);
+        baVar2 = this.f1290a.o;
+        baVar2.f(true);
     }
 }

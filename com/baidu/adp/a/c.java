@@ -1,37 +1,27 @@
 package com.baidu.adp.a;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public abstract class c {
-    public static final int MODE_INVALID = 0;
-    protected int mLoadDataMode = 0;
-    protected e mLoadDataCallBack = null;
-    protected int mErrorCode = 0;
-    protected String mErrorString = null;
+public class c<T> extends e {
 
-    protected abstract boolean LoadData();
+    /* renamed from: a  reason: collision with root package name */
+    protected View f399a;
 
-    public abstract boolean cancelLoadData();
-
-    public int getLoadDataMode() {
-        return this.mLoadDataMode;
+    public c(Context context, int i) {
+        super(context);
+        this.f399a = null;
+        this.f399a = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
+        this.f399a.setTag(this);
     }
 
-    public void setLoadDataCallBack(e eVar) {
-        this.mLoadDataCallBack = eVar;
+    public View a() {
+        return this.f399a;
     }
 
-    public int getErrorCode() {
-        return this.mErrorCode;
-    }
-
-    public void setErrorCode(int i) {
-        this.mErrorCode = i;
-    }
-
-    public String getErrorString() {
-        return this.mErrorString;
-    }
-
-    public void setErrorString(String str) {
-        this.mErrorString = str;
+    public View a(int i) {
+        return this.f399a.findViewById(i);
     }
 }

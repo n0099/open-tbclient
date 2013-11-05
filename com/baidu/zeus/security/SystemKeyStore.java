@@ -2,6 +2,7 @@ package com.baidu.zeus.security;
 
 import android.os.Environment;
 import android.os.FileUtils;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -30,7 +31,7 @@ public class SystemKeyStore {
         for (byte b : bArr) {
             String num = Integer.toString(b & 255, 16);
             if (num.length() == 1) {
-                num = "0" + num;
+                num = SocialConstants.FALSE + num;
             }
             sb.append(num);
         }

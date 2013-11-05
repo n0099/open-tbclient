@@ -1,12 +1,13 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public class l {
+class l implements f {
+    @Override // com.baidu.adp.lib.cache.f
+    public int a() {
+        return 1;
+    }
 
-    /* renamed from: a  reason: collision with root package name */
-    public String f385a;
-    public String b;
-    public int c;
-    public String d;
-    public int e;
-    public long f;
+    @Override // com.baidu.adp.lib.cache.f
+    public boolean b() {
+        return false;
+    }
 }

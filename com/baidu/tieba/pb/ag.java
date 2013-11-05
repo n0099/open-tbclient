@@ -8,14 +8,14 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class ag extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1526a;
+    final /* synthetic */ ImagePbActivity f2043a;
 
     private ag(ImagePbActivity imagePbActivity) {
-        this.f1526a = imagePbActivity;
+        this.f2043a = imagePbActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(ImagePbActivity imagePbActivity, ag agVar) {
+    public /* synthetic */ ag(ImagePbActivity imagePbActivity, k kVar) {
         this(imagePbActivity);
     }
 
@@ -23,36 +23,36 @@ public class ag extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        String f;
         try {
-            if (this.f1526a.H == null || this.f1526a.H.h() == null || this.f1526a.H.h().get(this.f1526a.K) == null) {
+            if (this.f2043a.H == null || this.f2043a.H.h() == null || this.f2043a.H.h().get(this.f2043a.K) == null) {
                 return null;
             }
-            String str = String.valueOf(this.f1526a.H.h().get(this.f1526a.K).b()) + "_big";
-            if (str != null && str.length() > 0 && this.f1526a.H != null) {
-                if (com.baidu.tieba.util.at.f(str) != null) {
-                    String str2 = String.valueOf(f) + Util.PHOTO_DEFAULT_EXT;
+            String str = this.f2043a.H.h().get(this.f2043a.K).b() + "_big";
+            if (str != null && str.length() > 0 && this.f2043a.H != null) {
+                String f = com.baidu.tieba.util.bc.f(str);
+                if (f != null) {
+                    String str2 = f + Util.PHOTO_DEFAULT_EXT;
                     int i = 0;
-                    while (com.baidu.tieba.util.p.b(str2) && i < 10000) {
+                    while (com.baidu.tieba.util.w.b(str2) && i < 10000) {
                         i++;
-                        str2 = String.valueOf(f) + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + Util.PHOTO_DEFAULT_EXT;
+                        str2 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + Util.PHOTO_DEFAULT_EXT;
                     }
-                    com.baidu.adp.widget.a.c c = com.baidu.tbadk.a.e.a().c(str);
+                    com.baidu.adp.widget.ImageView.e c = com.baidu.tbadk.imageManager.d.a().c(str);
                     if (c != null) {
-                        str2 = com.baidu.tieba.util.p.a(null, str2, c.f(), 80);
+                        str2 = com.baidu.tieba.util.w.a((String) null, str2, c.f(), 80);
                     }
                     if (str2 != null) {
-                        new com.baidu.tieba.util.y(this.f1526a).a(str2);
-                        return this.f1526a.getString(R.string.save_image_to_album);
+                        new com.baidu.tieba.util.af(this.f2043a).a(str2);
+                        return this.f2043a.getString(R.string.save_image_to_album);
                     }
-                    return com.baidu.tieba.util.p.b();
+                    return com.baidu.tieba.util.w.b();
                 }
-                return this.f1526a.getString(R.string.save_error);
+                return this.f2043a.getString(R.string.save_error);
             }
-            return this.f1526a.getString(R.string.save_error);
+            return this.f2043a.getString(R.string.save_error);
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
-            return this.f1526a.getString(R.string.save_error);
+            com.baidu.tieba.util.be.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
+            return this.f2043a.getString(R.string.save_error);
         }
     }
 
@@ -62,14 +62,14 @@ public class ag extends BdAsyncTask<String, Integer, String> {
     public void a(String str) {
         super.a((ag) str);
         if (str != null) {
-            this.f1526a.a(str);
+            this.f2043a.a(str);
         }
-        this.f1526a.y = null;
+        this.f2043a.y = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f1526a.y = null;
+        this.f2043a.y = null;
         super.cancel(true);
     }
 }

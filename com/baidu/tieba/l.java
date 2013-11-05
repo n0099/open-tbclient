@@ -7,19 +7,19 @@ import android.view.inputmethod.InputMethodManager;
 public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1327a;
+    final /* synthetic */ j f1823a;
     private View b;
 
     public l(j jVar, View view) {
-        this.f1327a = jVar;
+        this.f1823a = jVar;
         this.b = null;
         this.b = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (!this.f1327a.isFinishing()) {
-            this.f1327a.b((InputMethodManager) this.f1327a.getSystemService("input_method"), this.b);
+        if (!this.f1823a.isFinishing()) {
+            this.f1823a.b((InputMethodManager) this.f1823a.getSystemService("input_method"), this.b);
         }
     }
 }

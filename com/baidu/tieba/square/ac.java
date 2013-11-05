@@ -6,11 +6,11 @@ import com.slidingmenu.lib.R;
 class ac implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f1814a;
+    final /* synthetic */ SquareSearchActivity f2335a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(SquareSearchActivity squareSearchActivity) {
-        this.f1814a = squareSearchActivity;
+        this.f2335a = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,21 +19,21 @@ class ac implements View.OnClickListener {
         String str2;
         int i;
         String str3;
-        str = this.f1814a.E;
+        str = this.f2335a.E;
         if (str != null) {
-            str2 = this.f1814a.E;
+            str2 = this.f2335a.E;
             if (str2.trim().length() >= 1) {
-                i = this.f1814a.F;
+                i = this.f2335a.F;
                 if (i == 0) {
-                    this.f1814a.e();
+                    this.f2335a.e();
                     return;
                 }
-                SquareSearchActivity squareSearchActivity = this.f1814a;
-                str3 = this.f1814a.E;
+                SquareSearchActivity squareSearchActivity = this.f2335a;
+                str3 = this.f2335a.E;
                 squareSearchActivity.a(1, str3);
                 return;
             }
         }
-        this.f1814a.a(this.f1814a.getResources().getString(R.string.write_keyword));
+        this.f2335a.a(this.f2335a.getResources().getString(R.string.write_keyword));
     }
 }

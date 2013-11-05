@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f355a = null;
+    private static d f405a = null;
     private HashMap<String, c> b;
 
     private d() {
@@ -17,10 +17,10 @@ public class d {
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f355a == null) {
-                f355a = new d();
+            if (f405a == null) {
+                f405a = new d();
             }
-            dVar = f355a;
+            dVar = f405a;
         }
         return dVar;
     }

@@ -1,30 +1,26 @@
 package com.baidu.tieba.home;
 
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class t {
+class t implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f1227a;
-    TextView b;
-    LinearLayout c;
-    TextView d;
-    ImageView e;
-    TextView f;
-    TextView g;
-    ImageView h;
-    ImageButton i;
-    final /* synthetic */ r j;
-
-    private t(r rVar) {
-        this.j = rVar;
-    }
+    final /* synthetic */ ForumTopicActivity f1369a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(r rVar, t tVar) {
-        this(rVar);
+    public t(ForumTopicActivity forumTopicActivity) {
+        this.f1369a = forumTopicActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.forum_topic_title_back /* 2131100139 */:
+                this.f1369a.finish();
+                return;
+            default:
+                return;
+        }
     }
 }

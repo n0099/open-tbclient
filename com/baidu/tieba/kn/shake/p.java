@@ -1,39 +1,39 @@
 package com.baidu.tieba.kn.shake;
 
 import android.graphics.Bitmap;
-import com.baidu.tieba.util.al;
-import com.baidu.tieba.util.ar;
+import com.baidu.tieba.util.au;
+import com.baidu.tieba.util.ba;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements ar {
+public class p implements ba {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoteResultActivity f1326a;
-    private final /* synthetic */ int b;
-    private final /* synthetic */ String c;
+    final /* synthetic */ int f1821a;
+    final /* synthetic */ String b;
+    final /* synthetic */ VoteResultActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(VoteResultActivity voteResultActivity, int i, String str) {
-        this.f1326a = voteResultActivity;
-        this.b = i;
-        this.c = str;
+        this.c = voteResultActivity;
+        this.f1821a = i;
+        this.b = str;
     }
 
-    @Override // com.baidu.tieba.util.ar
+    @Override // com.baidu.tieba.util.ba
     public void a(Bitmap bitmap) {
         q qVar;
         q qVar2;
-        qVar = this.f1326a.f1311a;
-        qVar.c();
-        qVar2 = this.f1326a.f1311a;
-        qVar2.f();
+        qVar = this.c.f1806a;
+        qVar.e();
+        qVar2 = this.c.f1806a;
+        qVar2.h();
         if (bitmap == null) {
-            this.f1326a.c(R.string.neterror);
-        } else if (this.b == 4 || this.b == 3) {
-            al.a(this.f1326a).a(this.b, bitmap);
+            this.c.b(R.string.neterror);
+        } else if (this.f1821a == 4 || this.f1821a == 3) {
+            au.a(this.c).a(this.f1821a, bitmap);
         } else {
-            al.a(this.f1326a).a(this.b, this.c, bitmap, this.f1326a.getString(R.string.share_iamge_title_default));
+            au.a(this.c).a(this.f1821a, this.b, bitmap, this.c.getString(R.string.share_iamge_title_default));
         }
     }
 }

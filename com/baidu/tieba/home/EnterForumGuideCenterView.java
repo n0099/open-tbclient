@@ -13,51 +13,77 @@ import com.slidingmenu.lib.R;
 public class EnterForumGuideCenterView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1187a;
-    private TextView b;
+    private ImageView f1322a;
+    private ImageView b;
     private TextView c;
-    private int d;
+    private TextView d;
+    private int e;
 
     public EnterForumGuideCenterView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1187a = null;
+        this.f1322a = null;
         this.b = null;
         this.c = null;
-        this.d = -1;
+        this.d = null;
+        this.e = -1;
         a(context);
     }
 
     public EnterForumGuideCenterView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1187a = null;
+        this.f1322a = null;
         this.b = null;
         this.c = null;
-        this.d = -1;
+        this.d = null;
+        this.e = -1;
         a(context);
     }
 
     public EnterForumGuideCenterView(Context context) {
         super(context);
-        this.f1187a = null;
+        this.f1322a = null;
         this.b = null;
         this.c = null;
-        this.d = -1;
+        this.d = null;
+        this.e = -1;
         a(context);
     }
 
     public void a(Context context) {
         addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.enter_forum_guide_center, (ViewGroup) null));
-        this.f1187a = (ImageView) findViewById(R.id.img_bg_center);
-        this.b = (TextView) findViewById(R.id.tip_center);
-        this.c = (TextView) findViewById(R.id.tip_no_center);
+        this.f1322a = (ImageView) findViewById(R.id.img_bg_center);
+        this.c = (TextView) findViewById(R.id.tip_center);
+        this.d = (TextView) findViewById(R.id.tip_no_center);
+        this.b = (ImageView) findViewById(R.id.arrows_center);
+    }
+
+    public void setTipText(int i) {
+        if (this.c != null) {
+            this.c.setText(i);
+        }
+    }
+
+    public void setNoCenterTipText(int i) {
+        if (this.d != null) {
+            this.d.setText(i);
+        }
+    }
+
+    public void setArrowDisplay(int i) {
+        if (this.b != null) {
+            this.b.setVisibility(i);
+        }
+        if (this.c != null) {
+            this.c.setVisibility(i);
+        }
     }
 
     private void setSkinType(int i) {
-        this.d = i;
+        this.e = i;
     }
 
     private int getSkinType() {
-        return this.d;
+        return this.e;
     }
 
     private boolean c(int i) {
@@ -71,14 +97,14 @@ public class EnterForumGuideCenterView extends RelativeLayout {
     public void a(int i) {
         if (c(i)) {
             if (i == 1) {
-                this.f1187a.setBackgroundResource(R.drawable.pic_go_ba_1);
-                this.b.setTextColor(-8815226);
+                this.f1322a.setBackgroundResource(R.drawable.pic_go_ba_1);
                 this.c.setTextColor(-8815226);
+                this.d.setTextColor(-8815226);
                 return;
             }
-            this.f1187a.setBackgroundResource(R.drawable.pic_go_ba);
-            this.b.setTextColor(-5065030);
+            this.f1322a.setBackgroundResource(R.drawable.pic_go_ba);
             this.c.setTextColor(-5065030);
+            this.d.setTextColor(-5065030);
         }
     }
 
@@ -91,7 +117,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
     }
 
     public void a() {
-        a(TiebaApplication.g().ap());
+        a(TiebaApplication.g().as());
     }
 
     public void b() {
@@ -99,7 +125,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
     }
 
     public void c() {
-        this.d = -1;
-        this.f1187a.setBackgroundResource(0);
+        this.e = -1;
+        this.f1322a.setBackgroundDrawable(null);
     }
 }

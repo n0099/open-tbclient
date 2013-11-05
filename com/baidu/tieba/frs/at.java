@@ -1,29 +1,46 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class at implements com.baidu.tbadk.a.d {
+public class at extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1130a;
+    final /* synthetic */ FrsImageActivity f1263a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(FrsImageActivity frsImageActivity) {
-        this.f1130a = frsImageActivity;
+        this.f1263a = frsImageActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        com.baidu.tieba.model.ap apVar;
+        com.baidu.tieba.model.ap apVar2;
+        com.baidu.tieba.model.ap apVar3;
+        com.baidu.tieba.model.ap apVar4;
+        com.baidu.tieba.model.ap apVar5;
         ay ayVar;
-        try {
-            ayVar = this.f1130a.m;
-            View findViewWithTag = ayVar.a().a(1).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "imageLoaded", e.getMessage());
+        com.baidu.tieba.model.ap apVar6;
+        long longExtra = intent.getLongExtra("fans", 0L);
+        long longExtra2 = intent.getLongExtra("relay", 0L);
+        long longExtra3 = intent.getLongExtra("at_me", 0L);
+        long longExtra4 = intent.getLongExtra("pletter", 0L);
+        apVar = this.f1263a.o;
+        if (apVar != null) {
+            apVar2 = this.f1263a.o;
+            apVar2.a(longExtra);
+            apVar3 = this.f1263a.o;
+            apVar3.c(longExtra2);
+            apVar4 = this.f1263a.o;
+            apVar4.b(longExtra3);
+            apVar5 = this.f1263a.o;
+            apVar5.d(longExtra4);
+            ayVar = this.f1263a.m;
+            apVar6 = this.f1263a.o;
+            ayVar.a(apVar6);
         }
     }
 }

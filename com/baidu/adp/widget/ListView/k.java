@@ -1,78 +1,42 @@
 package com.baidu.adp.widget.ListView;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements AbsListView.OnScrollListener {
+public class k implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdListView f491a;
+    final /* synthetic */ BdListView f571a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(BdListView bdListView) {
-        this.f491a = bdListView;
+        this.f571a = bdListView;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        AbsListView.OnScrollListener onScrollListener;
-        r rVar;
-        s sVar;
-        int i2;
-        s sVar2;
-        r rVar2;
-        AbsListView.OnScrollListener onScrollListener2;
-        onScrollListener = this.f491a.g;
-        if (onScrollListener != null) {
-            onScrollListener2 = this.f491a.g;
-            onScrollListener2.onScrollStateChanged(absListView, i);
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        e eVar;
+        e eVar2;
+        AdapterView.OnItemLongClickListener onItemLongClickListener;
+        AdapterView.OnItemLongClickListener onItemLongClickListener2;
+        eVar = this.f571a.f561a;
+        int c = eVar.c();
+        if (i < c) {
+            return true;
         }
-        if (i == 0) {
-            rVar = this.f491a.l;
-            if (rVar != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                rVar2 = this.f491a.l;
-                rVar2.a();
-            }
-            sVar = this.f491a.j;
-            if (sVar != null) {
-                int firstVisiblePosition = absListView.getFirstVisiblePosition();
-                i2 = this.f491a.k;
-                if (firstVisiblePosition <= i2) {
-                    sVar2 = this.f491a.j;
-                    sVar2.a();
-                }
-            }
+        int i2 = i - c;
+        eVar2 = this.f571a.f561a;
+        ListAdapter b = eVar2.b();
+        if (b == null || i2 >= b.getCount()) {
+            return true;
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        AbsListView.OnScrollListener onScrollListener;
-        q qVar;
-        long j;
-        Runnable runnable;
-        Runnable runnable2;
-        long j2;
-        AbsListView.OnScrollListener onScrollListener2;
-        this.f491a.p = i;
-        onScrollListener = this.f491a.g;
-        if (onScrollListener != null) {
-            onScrollListener2 = this.f491a.g;
-            onScrollListener2.onScroll(absListView, i, i2, i3);
+        onItemLongClickListener = this.f571a.c;
+        if (onItemLongClickListener != null) {
+            onItemLongClickListener2 = this.f571a.c;
+            return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
         }
-        qVar = this.f491a.h;
-        if (qVar != null) {
-            j = this.f491a.i;
-            if (j > 0) {
-                Handler handler = this.f491a.getHandler();
-                runnable = this.f491a.q;
-                handler.removeCallbacks(runnable);
-                Handler handler2 = this.f491a.getHandler();
-                runnable2 = this.f491a.q;
-                j2 = this.f491a.i;
-                handler2.postDelayed(runnable2, j2);
-            }
-        }
+        return false;
     }
 }

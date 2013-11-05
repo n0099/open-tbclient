@@ -21,7 +21,7 @@ import java.util.Hashtable;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f1919a = new Object();
+    public static final Object f2449a = new Object();
     private static volatile Hashtable<Integer, Bitmap> b = new Hashtable<>();
 
     public static Bitmap a(int i) {
@@ -46,10 +46,10 @@ public class e {
     public static Bitmap a(Context context, int i) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tieba.data.g.m;
+            options.inPreferredConfig = com.baidu.tieba.data.h.m;
             return BitmapFactory.decodeResource(context.getResources(), i, options);
         } catch (Throwable th) {
-            av.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            be.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -58,7 +58,7 @@ public class e {
         try {
             return BitmapFactory.decodeResource(context.getResources(), i, new BitmapFactory.Options());
         } catch (Throwable th) {
-            av.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
+            be.b("BitmapHelper", "getResBitmap", "error = " + th.getMessage());
             return null;
         }
     }
@@ -77,7 +77,7 @@ public class e {
             } else {
                 f = i2 / height;
             }
-            synchronized (f1919a) {
+            synchronized (f2449a) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
@@ -104,7 +104,7 @@ public class e {
             } else {
                 f = i2 / height;
             }
-            synchronized (f1919a) {
+            synchronized (f2449a) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 matrix.postTranslate((i - (width * f)) / 2.0f, (i2 - (height * f)) / 2.0f);
@@ -130,7 +130,7 @@ public class e {
             } else {
                 f = i2 / height;
             }
-            synchronized (f1919a) {
+            synchronized (f2449a) {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f, f);
                 createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
@@ -155,22 +155,22 @@ public class e {
             return null;
         }
         try {
-            synchronized (f1919a) {
+            synchronized (f2449a) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream g = p.g(str);
-                BitmapFactory.decodeStream(g, null, options);
-                options.inPreferredConfig = com.baidu.tieba.data.g.m;
-                g.a(g);
+                InputStream h = w.h(str);
+                BitmapFactory.decodeStream(h, null, options);
+                options.inPreferredConfig = com.baidu.tieba.data.h.m;
+                g.a(h);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream g2 = p.g(str);
-                        decodeStream = BitmapFactory.decodeStream(g2, null, options);
-                        g.a(g2);
+                        InputStream h2 = w.h(str);
+                        decodeStream = BitmapFactory.decodeStream(h2, null, options);
+                        g.a(h2);
                     }
                 }
             }
@@ -192,10 +192,10 @@ public class e {
         }
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = com.baidu.tieba.data.g.m;
+            options.inPreferredConfig = com.baidu.tieba.data.h.m;
             options.inDither = false;
             options.inJustDecodeBounds = true;
-            synchronized (f1919a) {
+            synchronized (f2449a) {
                 BitmapFactory.decodeFileDescriptor(openFileDescriptor.getFileDescriptor(), null, options);
                 while (true) {
                     if (options.outWidth / (i2 + 1) > i || options.outHeight / (i2 + 1) > i) {
@@ -220,7 +220,6 @@ public class e {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [345=4] */
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0057, code lost:
         return r0;
      */
@@ -243,7 +242,7 @@ public class e {
     public static Bitmap a(Bitmap bitmap, float f) {
         Bitmap bitmap2 = null;
         try {
-            synchronized (f1919a) {
+            synchronized (f2449a) {
                 try {
                     Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_4444);
                     try {
@@ -280,7 +279,7 @@ public class e {
         if (bitmap == null) {
             return null;
         }
-        synchronized (f1919a) {
+        synchronized (f2449a) {
             if (bitmap.getHeight() < bitmap.getWidth()) {
                 createBitmap = Bitmap.createBitmap(bitmap, (bitmap.getWidth() - bitmap.getHeight()) >> 1, 0, bitmap.getHeight(), bitmap.getHeight());
             } else {
@@ -295,7 +294,7 @@ public class e {
 
     public static byte[] c(Bitmap bitmap, int i) {
         byte[] byteArray;
-        synchronized (f1919a) {
+        synchronized (f2449a) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();
@@ -303,7 +302,6 @@ public class e {
         return byteArray;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [433=4] */
     public static Bitmap a(byte[] bArr) {
         Bitmap bitmap;
         Throwable th;
@@ -311,9 +309,9 @@ public class e {
             return null;
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = com.baidu.tieba.data.g.m;
+        options.inPreferredConfig = com.baidu.tieba.data.h.m;
         try {
-            synchronized (f1919a) {
+            synchronized (f2449a) {
                 try {
                     Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                     try {
@@ -347,25 +345,54 @@ public class e {
     }
 
     public static Bitmap d(Bitmap bitmap, int i) {
-        Bitmap createBitmap;
+        Bitmap bitmap2;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        synchronized (f1919a) {
+        synchronized (f2449a) {
             Matrix matrix = new Matrix();
             if (i == 0) {
                 matrix.postRotate(-90.0f);
             } else if (i == 1) {
                 matrix.postRotate(90.0f);
             }
-            createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            if (bitmap != createBitmap) {
+            try {
+                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            } catch (OutOfMemoryError e) {
+                bitmap2 = null;
+            }
+            if (bitmap2 == null) {
+                bitmap2 = bitmap;
+            }
+            if (bitmap != bitmap2) {
                 bitmap.recycle();
             }
         }
-        return createBitmap;
+        return bitmap2;
     }
 
     public static Bitmap e(Bitmap bitmap, int i) {
+        Bitmap bitmap2;
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        synchronized (f2449a) {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(i);
+            try {
+                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            } catch (OutOfMemoryError e) {
+                bitmap2 = null;
+            }
+            if (bitmap2 == null) {
+                bitmap2 = bitmap;
+            }
+            if (bitmap != bitmap2) {
+                bitmap.recycle();
+            }
+        }
+        return bitmap2;
+    }
+
+    public static Bitmap f(Bitmap bitmap, int i) {
         Bitmap createBitmap;
         Matrix matrix = new Matrix();
         int width = bitmap.getWidth();
@@ -375,7 +402,7 @@ public class e {
         } else if (i == 3) {
             matrix.setScale(-1.0f, 1.0f);
         }
-        synchronized (f1919a) {
+        synchronized (f2449a) {
             Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
             matrix.setRotate(180.0f);
             createBitmap = Bitmap.createBitmap(createBitmap2, 0, 0, createBitmap2.getWidth(), createBitmap2.getHeight(), matrix, true);
@@ -390,24 +417,24 @@ public class e {
     }
 
     public static int b(int i) {
-        int ap = TiebaApplication.g().ap();
+        int as = TiebaApplication.g().as();
         if (i > 15) {
-            if (ap == 1) {
+            if (as == 1) {
                 return R.drawable.icon_grade_yellow_1;
             }
             return R.drawable.icon_grade_yellow;
         } else if (i > 9) {
-            if (ap == 1) {
+            if (as == 1) {
                 return R.drawable.icon_grade_red_1;
             }
             return R.drawable.icon_grade_red;
         } else if (i > 3) {
-            if (ap == 1) {
+            if (as == 1) {
                 return R.drawable.icon_grade_blue_1;
             }
             return R.drawable.icon_grade_blue;
         } else if (i > 0) {
-            if (ap == 1) {
+            if (as == 1) {
                 return R.drawable.icon_grade_green_1;
             }
             return R.drawable.icon_grade_green;

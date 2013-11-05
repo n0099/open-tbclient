@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 public class c extends com.baidu.android.nebula.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f571a;
+    private ByteBuffer f650a;
     private StringBuilder b;
     private a c;
     private int d = -1;
@@ -59,8 +59,8 @@ public class c extends com.baidu.android.nebula.d.c {
     }
 
     public void a(b bVar) {
-        this.f571a = ByteBuffer.wrap(bVar.toString().getBytes());
-        this.f571a.rewind();
+        this.f650a = ByteBuffer.wrap(bVar.toString().getBytes());
+        this.f650a.rewind();
     }
 
     @Override // com.baidu.android.nebula.d.c
@@ -68,7 +68,7 @@ public class c extends com.baidu.android.nebula.d.c {
         if (this.e) {
             return 0;
         }
-        return a(this.f571a, byteBuffer);
+        return a(this.f650a, byteBuffer);
     }
 
     @Override // com.baidu.android.nebula.d.c
@@ -119,6 +119,6 @@ public class c extends com.baidu.android.nebula.d.c {
         if (this.e) {
             return true;
         }
-        return (this.f571a == null || this.f571a.hasRemaining()) ? false : true;
+        return (this.f650a == null || this.f650a.hasRemaining()) ? false : true;
     }
 }

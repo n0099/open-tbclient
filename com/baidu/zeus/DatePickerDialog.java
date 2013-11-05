@@ -44,9 +44,9 @@ class DatePickerDialog extends AlertDialog implements DialogInterface.OnClickLis
             }
         };
         this.mRes = jsPromptResult;
-        setButton(-1, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_CLEAR, "Clear"), this);
-        setButton(-3, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_SET, "Set"), this);
-        setButton(-2, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_CANCEL, "Cancel"), this);
+        setButton(-1, PickerHelper.getStringById(152, "Clear"), this);
+        setButton(-3, PickerHelper.getStringById(150, "Set"), this);
+        setButton(-2, PickerHelper.getStringById(151, "Cancel"), this);
         setTitle(PickerHelper.getStringById(100, "Set Date"));
         this.mDatePicker = new DatePicker(context);
         PickerHelper.hideCalendarViewIfNeeded(this.mDatePicker);

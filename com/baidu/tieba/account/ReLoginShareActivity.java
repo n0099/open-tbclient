@@ -13,15 +13,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ReLoginShareActivity extends com.baidu.tieba.j {
-    private ap c = null;
+    private aq c = null;
     private Button d = null;
     private Button e = null;
     private ImageView f = null;
@@ -31,17 +33,17 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     private String l = null;
     private String m = null;
     private AccountData n = null;
-    private k o = null;
+    private l o = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f881a = null;
+    LinearLayout f1010a = null;
     LinearLayout b = null;
-    private View.OnClickListener p = new ao(this);
+    private View.OnClickListener p = new ap(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
         intent.putExtra("user_name", str);
-        intent.putExtra("bduss", str2);
+        intent.putExtra(SocialConstants.PARAM_BDUSS, str2);
         intent.putExtra("ptoken", str3);
         intent.putExtra("locate_type", i);
         activity.startActivity(intent);
@@ -60,7 +62,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     private void b() {
         Intent intent = getIntent();
         this.k = intent.getStringExtra("user_name");
-        this.l = intent.getStringExtra("bduss");
+        this.l = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
         this.m = intent.getStringExtra("ptoken");
     }
 
@@ -68,7 +70,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     protected void onRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
         this.k = bundle.getString("user_name");
-        this.l = bundle.getString("bduss");
+        this.l = bundle.getString(SocialConstants.PARAM_BDUSS);
         this.m = bundle.getString("ptoken");
     }
 
@@ -76,7 +78,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putString("user_name", this.k);
-        bundle.putString("bduss", this.l);
+        bundle.putString(SocialConstants.PARAM_BDUSS, this.l);
         bundle.putString("ptoken", this.m);
     }
 
@@ -89,7 +91,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         this.f.setOnClickListener(this.p);
         this.j = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.g = (TextView) findViewById(R.id.relogin_textview);
-        this.f881a = (LinearLayout) findViewById(R.id.container);
+        this.f1010a = (LinearLayout) findViewById(R.id.container);
         this.b = (LinearLayout) findViewById(R.id.title);
     }
 
@@ -98,16 +100,15 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     public void a(int i) {
         super.a(i);
         a(0, this.k);
-        com.baidu.tieba.util.as.a((TextView) this.e, i);
-        com.baidu.tieba.util.as.a(this.f, i);
-        com.baidu.tieba.util.as.a(this.f881a, i);
-        com.baidu.tieba.util.as.d(this.b, i);
-        com.baidu.tieba.util.as.b(this.g, i);
+        bb.a((TextView) this.e, i);
+        bb.a(this.f, i);
+        bb.a(this.f1010a, i);
+        bb.d(this.b, i);
+        bb.b(this.g, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str) {
-        String str2;
         if (str == null) {
             str = "";
         }
@@ -136,8 +137,9 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
                     this.g.setText(string2);
                     return;
                 }
-                SpannableString spannableString2 = new SpannableString(String.valueOf(str2) + str);
-                int length = (String.valueOf(string2) + "\n\n").length();
+                String str2 = string2 + "\n\n";
+                SpannableString spannableString2 = new SpannableString(str2 + str);
+                int length = str2.length();
                 if (this.i == 1) {
                     spannableString2.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
                 }
@@ -174,14 +176,14 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         if (this.c == null && this.l != null && this.m != null) {
-            this.c = new ap(this, null);
+            this.c = new aq(this, null);
             this.c.setPriority(3);
             this.c.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void f() {
         int intExtra = getIntent().getIntExtra("locate_type", -1);
         DatabaseService.a(this.n);
         TiebaApplication.a(this.n, getBaseContext());

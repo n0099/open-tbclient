@@ -28,6 +28,7 @@ public final class c {
     public static final int RefresherView_refresher_content = 4;
     public static final int RefresherView_refresher_head = 3;
     public static final int RefresherView_threshold_height = 2;
+    public static final int TbImageView_isShowGifTag = 0;
     public static final int TbRichTextView_defaultImage = 8;
     public static final int TbRichTextView_faceHeight = 10;
     public static final int TbRichTextView_faceWidth = 9;
@@ -48,10 +49,11 @@ public final class c {
     public static final int VerticalTranslateLayout_topOffset = 3;
     public static final int VerticalTranslateLayout_track = 0;
     public static final int[] AdpPullToRefreshScrollView = {R.attr.adpMode, R.attr.adpHeaderNeedRefreshDelta, R.attr.adpFooterNeedRefreshDelta, R.attr.adpHeaderHeight, R.attr.adpHeaderDurationTime, R.attr.adpFooterDurationTime};
-    public static final int[] BDImageView = {R.attr.radius};
     public static final int[] HorizontalTranslateLayout = {R.attr.leftOffset, R.attr.rightOffset, R.attr.leftWidth, R.attr.rightWidth, R.attr.track, R.attr.tapBack, R.attr.background};
-    public static final int[] IndicatorView = {R.attr.spacing, R.attr.drawable, R.attr.selector, R.attr.autoHide, R.attr.count};
-    public static final int[] RefresherView = {R.attr.direction, R.attr.max_height, R.attr.threshold_height, R.attr.refresher_head, R.attr.refresher_content, R.attr.empty_view};
+    public static final int[] BDImageView = {R.attr.radius};
     public static final int[] TbRichTextView = {R.attr.segmentMargin, R.attr.textPadding, R.attr.textSize, R.attr.textColor, R.attr.linkColor, R.attr.lineSpacing, R.attr.maxImageWidth, R.attr.maxImageHeight, R.attr.defaultImage, R.attr.faceWidth, R.attr.faceHeight, R.attr.videoImage};
     public static final int[] VerticalTranslateLayout = {R.attr.track, R.attr.tapBack, R.attr.background, R.attr.topOffset, R.attr.bottomOffset, R.attr.topHeight, R.attr.bottomHeight};
+    public static final int[] IndicatorView = {R.attr.spacing, R.attr.drawable, R.attr.selector, R.attr.autoHide, R.attr.count};
+    public static final int[] TbImageView = {R.attr.isShowGifTag};
+    public static final int[] RefresherView = {R.attr.direction, R.attr.max_height, R.attr.threshold_height, R.attr.refresher_head, R.attr.refresher_content, R.attr.empty_view};
 }

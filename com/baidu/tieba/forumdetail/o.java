@@ -1,24 +1,42 @@
 package com.baidu.tieba.forumdetail;
 
-import com.baidu.tieba.view.HeadImageView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.flist.ForumListActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o implements com.baidu.tbadk.a.d {
+public class o implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ItemInfoView f1096a;
-    private final /* synthetic */ HeadImageView b;
+    final /* synthetic */ boolean f1227a;
+    final /* synthetic */ String b;
+    final /* synthetic */ String c;
+    final /* synthetic */ String d;
+    final /* synthetic */ String e;
+    final /* synthetic */ com.baidu.tieba.j f;
+    final /* synthetic */ ItemInfoView g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(ItemInfoView itemInfoView, HeadImageView headImageView) {
-        this.f1096a = itemInfoView;
-        this.b = headImageView;
+    public o(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, com.baidu.tieba.j jVar) {
+        this.g = itemInfoView;
+        this.f1227a = z;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.e = str4;
+        this.f = jVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        if (cVar != null) {
-            this.b.setImageBitmap(cVar.f());
-            this.b.invalidate();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (!this.f1227a) {
+            context = this.g.f1214a;
+            ForumListActivity.a(context, this.b, this.d, this.c, this.e);
+            return;
         }
+        ForumListActivity.d = !ForumListActivity.d;
+        ForumListActivity.a(this.b, this.c, this.d, this.e);
+        this.f.finish();
     }
 }

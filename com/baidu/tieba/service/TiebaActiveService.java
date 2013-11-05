@@ -4,7 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.w;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -13,10 +14,17 @@ import java.io.FileWriter;
 public class TiebaActiveService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private k f1779a = null;
+    private l f2300a = null;
     private int b = 0;
     private Handler c = new Handler();
-    private Runnable d = new j(this);
+    private Runnable d = new k(this);
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int b(TiebaActiveService tiebaActiveService) {
+        int i = tiebaActiveService.b;
+        tiebaActiveService.b = i + 1;
+        return i;
+    }
 
     private String a() {
         return com.baidu.tieba.sharedPref.b.a().a("channel_id", (String) null);
@@ -31,16 +39,16 @@ public class TiebaActiveService extends Service {
     private String b() {
         String str = null;
         try {
-            File c = com.baidu.tieba.util.p.c("channel.dat");
-            if (c != null) {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(c));
+            File d = w.d("channel.dat");
+            if (d != null) {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(d));
                 str = bufferedReader.readLine();
                 if (bufferedReader != null) {
                     bufferedReader.close();
                 }
             }
         } catch (Exception e) {
-            av.b(getClass().getName(), "getFromByFile", e.getMessage());
+            be.b(getClass().getName(), "getFromByFile", e.getMessage());
         }
         return str;
     }
@@ -48,15 +56,15 @@ public class TiebaActiveService extends Service {
     private void b(String str) {
         if (str != null && str.length() > 0) {
             try {
-                File e = com.baidu.tieba.util.p.e("channel.dat");
-                if (e != null) {
-                    FileWriter fileWriter = new FileWriter(e);
+                File f = w.f("channel.dat");
+                if (f != null) {
+                    FileWriter fileWriter = new FileWriter(f);
                     fileWriter.append((CharSequence) str);
                     fileWriter.flush();
                     fileWriter.close();
                 }
-            } catch (Exception e2) {
-                av.b(getClass().getName(), "saveFromToFile", e2.getMessage());
+            } catch (Exception e) {
+                be.b(getClass().getName(), "saveFromToFile", e.getMessage());
             }
         }
     }
@@ -79,9 +87,9 @@ public class TiebaActiveService extends Service {
                 b(a2);
             }
         } catch (Exception e) {
-            av.b(getClass().getName(), "getActiveState", e.getMessage());
+            be.b(getClass().getName(), "getActiveState", e.getMessage());
         }
-        av.a(getClass().getName(), "getActiveState", "channel = ");
+        be.a(getClass().getName(), "getActiveState", "channel = ");
         return true;
     }
 
@@ -102,8 +110,8 @@ public class TiebaActiveService extends Service {
 
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.f1779a != null) {
-            this.f1779a.cancel();
+        if (this.f2300a != null) {
+            this.f2300a.cancel();
         }
         this.b = 11;
         this.c.removeCallbacks(this.d);
@@ -112,10 +120,10 @@ public class TiebaActiveService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        if (this.f1779a != null) {
-            this.f1779a.cancel();
+        if (this.f2300a != null) {
+            this.f2300a.cancel();
         }
-        this.f1779a = new k(this, null);
-        this.f1779a.execute(new String[0]);
+        this.f2300a = new l(this, null);
+        this.f2300a.execute(new String[0]);
     }
 }

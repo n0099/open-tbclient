@@ -3,6 +3,7 @@ package com.baidu.tieba.voice.service;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.util.Log;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.LocationClientOption;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.io.RandomAccessFile;
 public class MyAudioRecorder implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f2043a = {44100, 22050, 11025, 8000};
+    private static final int[] f2582a = {44100, 22050, 11025, 8000};
     private static Object b = new Object();
     private static AudioRecord e = null;
     private static MediaRecorder f = null;
@@ -37,17 +38,7 @@ public class MyAudioRecorder implements h {
         READY,
         RECORDING,
         ERROR,
-        STOPPED;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static State[] valuesCustom() {
-            State[] valuesCustom = values();
-            int length = valuesCustom.length;
-            State[] stateArr = new State[length];
-            System.arraycopy(valuesCustom, 0, stateArr, 0, length);
-            return stateArr;
-        }
+        STOPPED
     }
 
     public static MyAudioRecorder a(Boolean bool) {
@@ -58,7 +49,7 @@ public class MyAudioRecorder implements h {
             if (!bool.booleanValue()) {
                 int i = 3;
                 while (true) {
-                    myAudioRecorder = new MyAudioRecorder(true, 1, f2043a[i], 2, 2);
+                    myAudioRecorder = new MyAudioRecorder(true, 1, f2582a[i], 2, 2);
                     int i2 = i - 1;
                     if (!(myAudioRecorder.d() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
@@ -66,7 +57,7 @@ public class MyAudioRecorder implements h {
                     i = i2;
                 }
             } else {
-                myAudioRecorder = new MyAudioRecorder(false, 1, f2043a[3], 2, 2);
+                myAudioRecorder = new MyAudioRecorder(false, 1, f2582a[3], 2, 2);
             }
         }
         return myAudioRecorder;
@@ -95,7 +86,7 @@ public class MyAudioRecorder implements h {
                 this.o = i;
                 this.l = i2;
                 this.p = i4;
-                this.q = (i2 * 120) / LocationClientOption.MIN_SCAN_SPAN;
+                this.q = (i2 * SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE) / LocationClientOption.MIN_SCAN_SPAN;
                 this.n = (((this.q * 2) * this.m) * this.k) / 8;
                 if (this.n < AudioRecord.getMinBufferSize(i2, i3, i4)) {
                     this.n = AudioRecord.getMinBufferSize(i2, i3, i4);

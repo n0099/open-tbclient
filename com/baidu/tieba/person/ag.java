@@ -1,17 +1,24 @@
 package com.baidu.tieba.person;
 
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.view.View;
+import com.baidu.tieba.frs.FrsActivity;
 /* loaded from: classes.dex */
-class ag {
+class ag implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1652a;
-    ProgressBar b;
-    final /* synthetic */ ad c;
+    final /* synthetic */ com.baidu.tieba.model.bk f2170a;
+    final /* synthetic */ af b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(ad adVar) {
-        this.c = adVar;
+    public ag(af afVar, com.baidu.tieba.model.bk bkVar) {
+        this.b = afVar;
+        this.f2170a = bkVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.f2170a.f() != null) {
+            FrsActivity.a(this.b.f2169a, this.f2170a.f(), (String) null);
+        }
     }
 }

@@ -1,27 +1,22 @@
 package com.baidu.tieba.home;
 
-import android.widget.AbsListView;
-import com.baidu.tieba.util.UtilHelper;
+import android.app.AlertDialog;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements AbsListView.OnScrollListener {
+public class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1193a;
+    final /* synthetic */ SearchActivity f1328a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(SearchActivity searchActivity) {
-        this.f1193a = searchActivity;
+        this.f1328a = searchActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 2 || i == 1) {
-            UtilHelper.a(this.f1193a, absListView);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        new AlertDialog.Builder(this.f1328a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new ad(this)).setNegativeButton("取消", new ac(this)).create().show();
     }
 }

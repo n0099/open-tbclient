@@ -1,21 +1,22 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
+import android.webkit.URLUtil;
 /* loaded from: classes.dex */
-class dn implements View.OnClickListener {
+class dn implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f1611a;
+    final /* synthetic */ WebActivity f2127a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dn(WebActivity webActivity) {
-        this.f1611a = webActivity;
+        this.f2127a = webActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.f1611a.f1518a.canGoBack()) {
-            this.f1611a.f1518a.goBack();
+    @Override // java.lang.Runnable
+    public void run() {
+        String guessUrl = URLUtil.guessUrl(this.f2127a.c);
+        if (URLUtil.isNetworkUrl(guessUrl)) {
+            this.f2127a.f2035a.loadUrl(guessUrl);
         }
     }
 }

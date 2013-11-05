@@ -1,23 +1,49 @@
 package com.baidu.adp.lib.asyncTask;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class l<V> extends FutureTask<V> {
+public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private BdAsyncTask<?, ?, ?> f368a;
+    int f418a;
+    int b = 0;
+    int c = 0;
+    int d = 0;
+    int e = 0;
+    final /* synthetic */ g f;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void a();
-
-    public BdAsyncTask<?, ?, ?> b() {
-        return this.f368a;
+    public l(g gVar, LinkedList<k> linkedList) {
+        int i = 0;
+        this.f = gVar;
+        this.f418a = 0;
+        if (linkedList != null) {
+            this.f418a = linkedList.size();
+            while (true) {
+                int i2 = i;
+                if (i2 < this.f418a) {
+                    k kVar = linkedList.get(i2);
+                    if (kVar.g() == BdAsyncTaskType.SERIAL) {
+                        this.b++;
+                    } else if (kVar.g() == BdAsyncTaskType.TWO_PARALLEL) {
+                        this.c++;
+                    } else if (kVar.g() == BdAsyncTaskType.THREE_PARALLEL) {
+                        this.d++;
+                    } else if (kVar.g() == BdAsyncTaskType.FOUR_PARALLEL) {
+                        this.e++;
+                    }
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
     }
 
-    public l(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        super(callable);
-        this.f368a = null;
-        this.f368a = bdAsyncTask;
+    public boolean a(k kVar) {
+        if (kVar == null) {
+            return false;
+        }
+        return kVar.g() == BdAsyncTaskType.SERIAL ? this.b < 1 : kVar.g() == BdAsyncTaskType.TWO_PARALLEL ? this.c < 2 : kVar.g() == BdAsyncTaskType.THREE_PARALLEL ? this.d < 3 : kVar.g() != BdAsyncTaskType.FOUR_PARALLEL || this.e < 4;
     }
 }

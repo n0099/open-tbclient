@@ -17,7 +17,7 @@ public final class a {
     private static a d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f572a = "^http[s]?:\\/\\/[^\\/]+(\\.baidu\\.com|\\.hao123\\.com)(:\\d+)?(\\/.*|)$";
+    private String f651a = "^http[s]?:\\/\\/[^\\/]+(\\.baidu\\.com|\\.hao123\\.com)(:\\d+)?(\\/.*|)$";
     private byte b = 0;
     private Context c;
 
@@ -39,7 +39,7 @@ public final class a {
 
     public boolean a(String str) {
         boolean z = false;
-        if (!TextUtils.isEmpty(str) && Pattern.compile(this.f572a).matcher(str).matches()) {
+        if (!TextUtils.isEmpty(str) && Pattern.compile(this.f651a).matcher(str).matches()) {
             z = true;
         }
         if (this.b == 0) {

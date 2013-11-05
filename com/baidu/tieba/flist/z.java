@@ -1,27 +1,25 @@
 package com.baidu.tieba.flist;
 
-import android.widget.PopupWindow;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
+import android.view.MotionEvent;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements PopupWindow.OnDismissListener {
+public class z implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1077a;
+    final /* synthetic */ x f1208a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(w wVar) {
-        this.f1077a = wVar;
+    public z(x xVar) {
+        this.f1208a = xVar;
     }
 
-    @Override // android.widget.PopupWindow.OnDismissListener
-    public void onDismiss() {
-        this.f1077a.B = false;
-        if (TiebaApplication.g().ap() == 1) {
-            this.f1077a.z.setImageResource(R.drawable.btn_allsproutpop_down_1);
-        } else {
-            this.f1077a.z.setImageResource(R.drawable.btn_allsproutpop_down);
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (this.f1208a.t.isShowing()) {
+            this.f1208a.t.dismiss();
+            return false;
         }
+        return false;
     }
 }

@@ -14,7 +14,7 @@ import com.slidingmenu.lib.R;
 public class SearchBoxView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f1963a;
+    private Activity f2495a;
     private String b;
     private LinearLayout c;
     private LinearLayout d;
@@ -52,7 +52,7 @@ public class SearchBoxView extends FrameLayout {
     }
 
     private void a(Context context) {
-        this.f1963a = (Activity) context;
+        this.f2495a = (Activity) context;
         addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.widget_search_box, (ViewGroup) null));
         requestLayout();
         invalidate();
@@ -67,10 +67,10 @@ public class SearchBoxView extends FrameLayout {
     }
 
     public void a(int i) {
-        if (this.f1963a instanceof com.baidu.tieba.j) {
-            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.f1963a;
-            jVar.l().a(i == 1);
-            jVar.l().a(this);
+        if (this.f2495a instanceof com.baidu.tieba.j) {
+            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.f2495a;
+            jVar.m().a(i == 1);
+            jVar.m().a(this);
         }
         if (i == 1) {
             this.e.setHintTextColor(getResources().getColor(R.color.widget_searchbox_text_1));

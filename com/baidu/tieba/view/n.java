@@ -8,7 +8,7 @@ import android.view.animation.Transformation;
 public class n extends Animation {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f2002a;
+    final /* synthetic */ k f2537a;
     private boolean b = false;
     private boolean c = false;
     private long d;
@@ -19,7 +19,7 @@ public class n extends Animation {
     private long i;
 
     public n(k kVar) {
-        this.f2002a = kVar;
+        this.f2537a = kVar;
     }
 
     public void a(float f, float f2) {
@@ -39,10 +39,10 @@ public class n extends Animation {
         this.h = Math.abs((f * 1000.0f) / 2500.0f);
         this.i = Math.abs((f2 * 1000.0f) / 2500.0f);
         setDuration(Math.max(this.h, this.i));
-        interpolator = this.f2002a.L;
+        interpolator = this.f2537a.L;
         setInterpolator(interpolator);
-        this.f = this.f2002a.getScrollX();
-        this.g = this.f2002a.getScrollY();
+        this.f = this.f2537a.getScrollX();
+        this.g = this.f2537a.getScrollY();
         this.b = true;
     }
 
@@ -90,36 +90,36 @@ public class n extends Animation {
         } else {
             i2 = this.g - ((int) (f9 * (((float) this.e) + ((2500.0f * f9) / 2.0f))));
         }
-        f2 = this.f2002a.f;
-        i3 = this.f2002a.H;
+        f2 = this.f2537a.f;
+        i3 = this.f2537a.H;
         float f10 = f2 + i3;
-        i4 = this.f2002a.I;
-        if (f10 + i4 > this.f2002a.getHeight()) {
-            i6 = this.f2002a.J;
+        i4 = this.f2537a.I;
+        if (f10 + i4 > this.f2537a.getHeight()) {
+            i6 = this.f2537a.J;
             if (i2 < (-i6)) {
-                i11 = this.f2002a.J;
+                i11 = this.f2537a.J;
                 i2 = -i11;
             }
-            f6 = this.f2002a.f;
-            i7 = this.f2002a.I;
+            f6 = this.f2537a.f;
+            i7 = this.f2537a.I;
             float f11 = f6 + i7;
-            i8 = this.f2002a.K;
-            if (this.f2002a.getHeight() + i2 > f11 + i8) {
-                f7 = this.f2002a.f;
-                i9 = this.f2002a.I;
-                float height = (f7 - this.f2002a.getHeight()) + i9;
-                i10 = this.f2002a.K;
+            i8 = this.f2537a.K;
+            if (this.f2537a.getHeight() + i2 > f11 + i8) {
+                f7 = this.f2537a.f;
+                i9 = this.f2537a.I;
+                float height = (f7 - this.f2537a.getHeight()) + i9;
+                i10 = this.f2537a.K;
                 i2 = (int) (height + i10);
             }
         } else {
             i2 = 0;
         }
-        f3 = this.f2002a.e;
-        if (f3 > this.f2002a.getWidth()) {
-            f4 = this.f2002a.e;
-            if (this.f2002a.getWidth() + i > f4) {
-                f5 = this.f2002a.e;
-                i5 = (int) (f5 - this.f2002a.getWidth());
+        f3 = this.f2537a.e;
+        if (f3 > this.f2537a.getWidth()) {
+            f4 = this.f2537a.e;
+            if (this.f2537a.getWidth() + i > f4) {
+                f5 = this.f2537a.e;
+                i5 = (int) (f5 - this.f2537a.getWidth());
             } else {
                 i5 = i;
             }
@@ -127,25 +127,25 @@ public class n extends Animation {
                 i12 = i5;
             }
         }
-        this.f2002a.scrollTo(i12, i2);
-        this.f2002a.invalidate();
+        this.f2537a.scrollTo(i12, i2);
+        this.f2537a.invalidate();
     }
 
     @Override // android.view.animation.Animation
     public boolean getTransformation(long j, Transformation transformation) {
         boolean z;
         if (!this.c) {
-            z = this.f2002a.l;
+            z = this.f2537a.l;
             if (z) {
                 this.b = false;
                 return false;
             }
             try {
-                if (!super.getTransformation(j, transformation)) {
-                    this.b = false;
-                    return false;
+                if (super.getTransformation(j, transformation)) {
+                    return true;
                 }
-                return true;
+                this.b = false;
+                return false;
             } catch (Exception e) {
                 this.b = false;
                 return false;

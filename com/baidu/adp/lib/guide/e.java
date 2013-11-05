@@ -6,11 +6,11 @@ import android.view.animation.Animation;
 public class e implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f443a;
+    final /* synthetic */ d f496a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f443a = dVar;
+        this.f496a = dVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,9 +21,9 @@ public class e implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         h hVar;
         h hVar2;
-        hVar = this.f443a.e;
+        hVar = this.f496a.e;
         if (hVar != null) {
-            hVar2 = this.f443a.e;
+            hVar2 = this.f496a.e;
             hVar2.a();
         }
     }

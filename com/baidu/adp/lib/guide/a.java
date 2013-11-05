@@ -11,7 +11,7 @@ class a {
         j jVar = new j(-2, -2);
         jVar.c = bVar.c();
         jVar.d = bVar.d();
-        jVar.f447a = bVar.a();
+        jVar.f500a = bVar.a();
         jVar.b = bVar.b();
         a2.setLayoutParams(jVar);
         return a2;

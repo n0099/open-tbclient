@@ -10,7 +10,7 @@ import android.graphics.drawable.Drawable;
 class e extends Drawable implements Drawable.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private Drawable f280a;
+    private Drawable f290a;
     private float b;
     private float c;
     private final Rect d;
@@ -26,71 +26,71 @@ class e extends Drawable implements Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        this.f280a.copyBounds(this.d);
+        this.f290a.copyBounds(this.d);
         canvas.save();
         canvas.translate(this.c * this.d.width() * (-this.b), 0.0f);
-        this.f280a.draw(canvas);
+        this.f290a.draw(canvas);
         canvas.restore();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setChangingConfigurations(int i) {
-        this.f280a.setChangingConfigurations(i);
+        this.f290a.setChangingConfigurations(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getChangingConfigurations() {
-        return this.f280a.getChangingConfigurations();
+        return this.f290a.getChangingConfigurations();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setDither(boolean z) {
-        this.f280a.setDither(z);
+        this.f290a.setDither(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
-        this.f280a.setFilterBitmap(z);
+        this.f290a.setFilterBitmap(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.f280a.setAlpha(i);
+        this.f290a.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.f280a.setColorFilter(colorFilter);
+        this.f290a.setColorFilter(colorFilter);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(int i, PorterDuff.Mode mode) {
-        this.f280a.setColorFilter(i, mode);
+        this.f290a.setColorFilter(i, mode);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void clearColorFilter() {
-        this.f280a.clearColorFilter();
+        this.f290a.clearColorFilter();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        return this.f280a.isStateful();
+        return this.f290a.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setState(int[] iArr) {
-        return this.f280a.setState(iArr);
+        return this.f290a.setState(iArr);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int[] getState() {
-        return this.f280a.getState();
+        return this.f290a.getState();
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable getCurrent() {
-        return this.f280a.getCurrent();
+        return this.f290a.getCurrent();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -100,49 +100,49 @@ class e extends Drawable implements Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.f280a.getOpacity();
+        return this.f290a.getOpacity();
     }
 
     @Override // android.graphics.drawable.Drawable
     public Region getTransparentRegion() {
-        return this.f280a.getTransparentRegion();
+        return this.f290a.getTransparentRegion();
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        this.f280a.setState(iArr);
+        this.f290a.setState(iArr);
         return super.onStateChange(iArr);
     }
 
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        this.f280a.setBounds(rect);
+        this.f290a.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.f280a.getIntrinsicWidth();
+        return this.f290a.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.f280a.getIntrinsicHeight();
+        return this.f290a.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getMinimumWidth() {
-        return this.f280a.getMinimumWidth();
+        return this.f290a.getMinimumWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getMinimumHeight() {
-        return this.f280a.getMinimumHeight();
+        return this.f290a.getMinimumHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
-        return this.f280a.getPadding(rect);
+        return this.f290a.getPadding(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -152,21 +152,21 @@ class e extends Drawable implements Drawable.Callback {
 
     @Override // android.graphics.drawable.Drawable.Callback
     public void invalidateDrawable(Drawable drawable) {
-        if (drawable == this.f280a) {
+        if (drawable == this.f290a) {
             invalidateSelf();
         }
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
     public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
-        if (drawable == this.f280a) {
+        if (drawable == this.f290a) {
             scheduleSelf(runnable, j);
         }
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
     public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
-        if (drawable == this.f280a) {
+        if (drawable == this.f290a) {
             unscheduleSelf(runnable);
         }
     }

@@ -3,15 +3,13 @@ package com.baidu.tieba.model;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1393a = false;
-    public boolean b = false;
-    public int c = 0;
-    public String d = "";
-    public long e = 0;
-    public boolean f = false;
-    final /* synthetic */ ac g;
+    public boolean f1890a;
+    public String b;
+    public int c;
+    public String d;
+    final /* synthetic */ ad e;
 
-    public af(ac acVar) {
-        this.g = acVar;
+    public af(ad adVar) {
+        this.e = adVar;
     }
 }

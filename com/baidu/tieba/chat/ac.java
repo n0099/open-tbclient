@@ -1,257 +1,185 @@
 package com.baidu.tieba.chat;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.as;
-import com.baidu.tieba.view.ClickableLayout4Frame;
-import com.baidu.tieba.view.KeyboardEventLayout;
-import com.baidu.tieba.view.ao;
-import com.baidu.tieba.view.bb;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.chat.ChatData;
+import com.baidu.tieba.data.chat.ChatMessageData;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac extends com.baidu.adp.a.d {
-    private ChatActivity b;
-    private ImageView c;
-    private Button d;
-    private Button e;
-    private TextView f;
-    private BdListView g;
-    private ProgressBar h;
-    private ClickableLayout4Frame i;
-    private EditText j;
-    private Dialog k;
-    private Dialog l;
-    private j m;
-    private bb n;
-    private KeyboardEventLayout o;
-    private LinearLayout p;
-    private Button q;
-    private TextWatcher r;
+public class ac extends BdAsyncTask<Object, Integer, ChatData> {
 
-    public ac(Context context) {
-        super(context);
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.p = null;
-        this.q = null;
-        this.r = new ad(this);
-        if (context instanceof ChatActivity) {
-            this.b = (ChatActivity) context;
-            this.o = (KeyboardEventLayout) LayoutInflater.from(this.b).inflate(R.layout.chat_activity, (ViewGroup) null);
-            this.b.addContentView(this.o, new FrameLayout.LayoutParams(-2, -2));
-            this.p = (LinearLayout) this.o.findViewById(R.id.title);
-            this.c = (ImageView) this.o.findViewById(R.id.back);
-            this.f = (TextView) this.o.findViewById(R.id.name);
-            this.e = (Button) this.o.findViewById(R.id.more);
-            this.g = (BdListView) this.o.findViewById(R.id.chat_list);
-            this.h = (ProgressBar) this.o.findViewById(R.id.progress);
-            this.i = (ClickableLayout4Frame) this.o.findViewById(R.id.chat_center);
-            this.d = (Button) this.o.findViewById(R.id.chat_post);
-            this.j = (EditText) this.o.findViewById(R.id.reply_content);
-            this.j.setHint("");
-            this.c.setOnClickListener(this.b);
-            this.f.setOnClickListener(this.b);
-            this.e.setOnClickListener(this.b);
-            this.d.setOnClickListener(this.b);
-            this.j.addTextChangedListener(this.r);
-            this.n = new bb(this.b);
-            this.g.setPullRefresh(this.n);
-            this.m = new j(this.b);
-            this.g.setAdapter((ListAdapter) this.m);
-            this.i.setOnkeyUpListener(new ae(this));
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ab f1088a;
+    private com.baidu.tieba.a.d b = null;
+    private int c;
+
+    public ac(ab abVar, int i) {
+        this.f1088a = abVar;
+        this.c = 0;
+        this.c = i;
+        setPriority(3);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        ad adVar;
+        ad adVar2;
+        super.b();
+        adVar = this.f1088a.k;
+        if (adVar != null) {
+            adVar2 = this.f1088a.k;
+            adVar2.a();
         }
     }
 
-    public View b() {
-        return this.c;
-    }
-
-    public View c() {
-        return this.e;
-    }
-
-    public View d() {
-        return this.d;
-    }
-
-    public int e() {
-        return R.id.photo;
-    }
-
-    public View f() {
-        return this.q;
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.n.a(bVar);
-    }
-
-    public void g() {
-        this.j.setText("");
-    }
-
-    public void h() {
-        int count = this.g.getAdapter().getCount();
-        this.m.notifyDataSetChanged();
-        this.g.setSelection(count - 1);
-    }
-
-    public void i() {
-        this.j.clearFocus();
-    }
-
-    public boolean j() {
-        return this.g.getLastVisiblePosition() >= this.g.getAdapter().getCount() + (-1);
-    }
-
-    public String k() {
-        if (this.j.getText() != null) {
-            return this.j.getText().toString();
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.a();
         }
-        return null;
+        this.f1088a.i = null;
     }
 
-    public void l() {
-        this.h.setVisibility(0);
-    }
-
-    public void m() {
-        this.h.setVisibility(8);
-        this.g.a();
-    }
-
-    public void a(com.baidu.tieba.data.a.c cVar) {
-        String g;
-        this.h.setVisibility(8);
-        this.g.a();
-        if (cVar != null && (g = cVar.g()) != null) {
-            this.f.setText(g);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public ChatData a(Object... objArr) {
+        com.baidu.tieba.data.chat.c cVar;
+        String str;
+        String str2;
+        ChatData chatData;
+        ChatData chatData2;
+        String str3;
+        String str4;
+        String str5;
+        String str6;
+        com.baidu.tieba.data.chat.c cVar2;
+        long j = 0;
+        switch (this.c) {
+            case 0:
+                chatData = this.f1088a.h;
+                ChatMessageData lastMsg = chatData.getLastMsg();
+                if (lastMsg != null) {
+                    j = lastMsg.getMsgId();
+                    break;
+                }
+                break;
+            case 1:
+                chatData2 = this.f1088a.h;
+                ChatMessageData msg = chatData2.getMsg(0);
+                if (msg != null) {
+                    j = msg.getMsgId();
+                    break;
+                }
+                break;
+            case 2:
+                ChatData chatData3 = new ChatData();
+                cVar = this.f1088a.l;
+                str = this.f1088a.b;
+                str2 = this.f1088a.d;
+                chatData3.setChatList((LinkedList) cVar.a(str, str2));
+                return chatData3;
         }
-        this.m.a(cVar);
-        this.m.notifyDataSetChanged();
-    }
-
-    public void a(DialogInterface.OnClickListener onClickListener) {
-        if (this.k == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.b);
-            builder.setTitle(R.string.operation);
-            builder.setItems(new String[]{this.b.getString(R.string.copy)}, onClickListener);
-            this.k = builder.create();
-            this.k.setCanceledOnTouchOutside(true);
+        this.b = new com.baidu.tieba.a.d();
+        com.baidu.tieba.a.d dVar = this.b;
+        int i = this.c;
+        str3 = this.f1088a.b;
+        str4 = this.f1088a.d;
+        String a2 = dVar.a(i, str3, str4, j);
+        ChatData chatData4 = new ChatData();
+        str5 = this.f1088a.d;
+        chatData4.setFriendId(str5);
+        str6 = this.f1088a.b;
+        chatData4.setUserId(str6);
+        chatData4.parserJson(a2);
+        if (this.b.b() && this.b.d() == 0 && this.c == 0) {
+            cVar2 = this.f1088a.l;
+            cVar2.a(chatData4.getChatList());
+            return chatData4;
         }
-        this.k.show();
+        return chatData4;
     }
 
-    public void n() {
-        if (this.l == null) {
-            this.l = new Dialog(this.b, R.style.common_alert_dialog);
-            this.l.setCanceledOnTouchOutside(true);
-            this.l.setCancelable(true);
-            View inflate = this.b.getLayoutInflater().inflate(R.layout.chat_more_layout, (ViewGroup) null);
-            this.l.setContentView(inflate);
-            this.q = (Button) inflate.findViewById(R.id.delete_chat);
-            this.q.setOnClickListener(this.b);
-            WindowManager.LayoutParams attributes = this.l.getWindow().getAttributes();
-            attributes.width = (int) (UtilHelper.a((Context) this.b) * 0.9d);
-            this.l.getWindow().setAttributes(attributes);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(ChatData chatData) {
+        ad adVar;
+        ad adVar2;
+        ad adVar3;
+        ChatData chatData2;
+        ChatData chatData3;
+        ad adVar4;
+        ChatData chatData4;
+        ad adVar5;
+        ChatData chatData5;
+        ChatData chatData6;
+        ChatData chatData7;
+        ad adVar6;
+        ad adVar7;
+        ChatData chatData8;
+        ChatData chatData9;
+        ad adVar8;
+        ChatData chatData10;
+        super.a((ac) chatData);
+        this.f1088a.i = null;
+        if (this.c == 2) {
+            if (chatData == null) {
+                adVar6 = this.f1088a.k;
+                adVar6.a(false, null, false, 0, null, true);
+                return;
+            }
+            int size = chatData.getChatList().size();
+            adVar7 = this.f1088a.k;
+            adVar7.b();
+            chatData8 = this.f1088a.h;
+            chatData8.mergeData(chatData);
+            chatData9 = this.f1088a.h;
+            chatData9.setHasMore(chatData.getHasMore());
+            adVar8 = this.f1088a.k;
+            chatData10 = this.f1088a.h;
+            adVar8.a(true, null, false, size, chatData10, true);
+        } else if (this.b != null && chatData != null) {
+            if (!this.b.b()) {
+                adVar = this.f1088a.k;
+                adVar.a(false, this.b.c(), false, 0, null, false);
+            } else if (this.b.d() != 0) {
+                adVar2 = this.f1088a.k;
+                adVar2.a(false, this.b.e(), false, 0, null, false);
+            } else {
+                int size2 = chatData.getChatList().size();
+                adVar3 = this.f1088a.k;
+                adVar3.b();
+                chatData2 = this.f1088a.h;
+                chatData2.mergeData(chatData);
+                chatData3 = this.f1088a.h;
+                chatData3.setHasMore(chatData.getHasMore());
+                if (chatData.getFriendPortrait() != null && chatData.getFriendPortrait().length() > 0) {
+                    chatData7 = this.f1088a.h;
+                    chatData7.setFriendPortrait(chatData.getFriendPortrait());
+                }
+                if (chatData.getUserPortrait() != null && chatData.getUserPortrait().length() > 0) {
+                    chatData6 = this.f1088a.h;
+                    chatData6.setUserPortrait(chatData.getUserPortrait());
+                }
+                switch (this.c) {
+                    case 0:
+                        adVar5 = this.f1088a.k;
+                        chatData5 = this.f1088a.h;
+                        adVar5.a(true, null, true, size2, chatData5, false);
+                        return;
+                    case 1:
+                        adVar4 = this.f1088a.k;
+                        chatData4 = this.f1088a.h;
+                        adVar4.a(true, null, false, size2, chatData4, false);
+                        return;
+                    default:
+                        return;
+                }
+            }
         }
-        this.l.show();
-    }
-
-    public void o() {
-        this.l.dismiss();
-    }
-
-    public void p() {
-        UtilHelper.a(this.b, this.j);
-    }
-
-    public void a(int i) {
-        as.a(this.c, i);
-        as.g(this.e, i);
-        as.d(this.p, i);
-        this.m.a(i);
-        this.m.notifyDataSetChanged();
-        this.n.a(i);
-        if (i == 1) {
-            this.i.setBackgroundResource(R.drawable.chat_bg_1);
-            as.e((View) this.d, (int) R.drawable.btn_post_dl_selector_1);
-            this.d.setTextColor(this.b.getResources().getColorStateList(R.color.post_image_btn_color_1));
-            return;
-        }
-        this.i.setBackgroundResource(R.drawable.chat_bg);
-        as.e((View) this.d, (int) R.drawable.btn_post_dl_selector);
-        this.d.setTextColor(this.b.getResources().getColorStateList(R.color.post_image_btn_color));
-    }
-
-    public void q() {
-        if (this.k != null) {
-            this.k.dismiss();
-        }
-        if (this.l != null) {
-            this.l.dismiss();
-        }
-        r();
-    }
-
-    public void b(int i) {
-        this.g.setSelection(i - ((com.baidu.adp.widget.ListView.e) this.g.getAdapter()).c());
-    }
-
-    public void a(ao aoVar) {
-        this.o.setOnKeyStateChangedListener(aoVar);
-    }
-
-    public void a(String str, String str2) {
-        com.baidu.tieba.util.a a2 = this.m.a();
-        a(a2, str);
-        a(a2, str2);
-    }
-
-    private void a(com.baidu.tieba.util.a aVar, String str) {
-        if (aVar != null && str != null) {
-            aVar.b(str, new af(this));
-        }
-    }
-
-    public void r() {
-    }
-
-    public ListView s() {
-        return this.g;
-    }
-
-    public int t() {
-        return R.id.text;
     }
 }

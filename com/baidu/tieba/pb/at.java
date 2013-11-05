@@ -1,30 +1,38 @@
 package com.baidu.tieba.pb;
-
-import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class at implements DialogInterface.OnClickListener {
+class at implements bn {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f1539a;
+    final /* synthetic */ NewPbActivity f2056a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(NewPbActivity newPbActivity) {
-        this.f1539a = newPbActivity;
+        this.f2056a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        br brVar;
-        br brVar2;
-        NewPbActivity newPbActivity = this.f1539a;
-        brVar = this.f1539a.t;
-        newPbActivity.u = brVar.ah();
-        brVar2 = this.f1539a.t;
-        brVar2.l();
-        if (i == 0) {
-            com.baidu.tieba.write.bf.a(this.f1539a);
-        } else if (i == 1) {
-            com.baidu.tieba.write.bf.b(this.f1539a);
+    @Override // com.baidu.tieba.pb.bn
+    public void a(boolean z) {
+        com.baidu.tieba.model.bl blVar;
+        com.baidu.tieba.model.bl blVar2;
+        com.baidu.tieba.model.bl blVar3;
+        com.baidu.tieba.model.bl blVar4;
+        com.baidu.tieba.model.bl blVar5;
+        com.baidu.tieba.model.bl blVar6;
+        if (z) {
+            blVar6 = this.f2056a.o;
+            blVar6.b(true);
+            return;
         }
+        blVar = this.f2056a.o;
+        int d = blVar.l().d();
+        blVar2 = this.f2056a.o;
+        if (d < blVar2.l().a()) {
+            blVar4 = this.f2056a.o;
+            blVar5 = this.f2056a.o;
+            blVar4.c(blVar5.l().d() + 1);
+            return;
+        }
+        blVar3 = this.f2056a.o;
+        blVar3.a(true);
     }
 }

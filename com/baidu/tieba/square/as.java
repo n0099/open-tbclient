@@ -5,23 +5,24 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.model.BarSuggestModel;
+import com.baidu.tieba.util.be;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class as extends BdAsyncTask<Object, Integer, BarSuggestModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    BasicNameValuePair f1830a;
+    BasicNameValuePair f2351a;
     final /* synthetic */ SquareSearchActivity b;
-    private com.baidu.tieba.util.z c = null;
+    private com.baidu.tieba.util.ag c = null;
     private String d;
 
     public as(SquareSearchActivity squareSearchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
         this.b = squareSearchActivity;
         this.d = null;
-        this.f1830a = null;
+        this.f2351a = null;
         this.d = str;
-        this.f1830a = basicNameValuePair;
+        this.f2351a = basicNameValuePair;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,15 +45,15 @@ public class as extends BdAsyncTask<Object, Integer, BarSuggestModel> {
     /* renamed from: d */
     public BarSuggestModel a(Object... objArr) {
         try {
-            this.c = new com.baidu.tieba.util.z(this.d);
-            this.c.a(this.f1830a);
+            this.c = new com.baidu.tieba.util.ag(this.d);
+            this.c.a(this.f2351a);
             String j = this.c.j();
             if (j == null) {
                 return null;
             }
             return BarSuggestModel.parserJson(j);
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
             return null;
         }
     }
@@ -67,6 +68,7 @@ public class as extends BdAsyncTask<Object, Integer, BarSuggestModel> {
         if (barSuggestModel != null) {
             this.b.A = barSuggestModel;
             this.b.q();
+        } else if (this.c != null) {
         }
         this.b.C = null;
     }

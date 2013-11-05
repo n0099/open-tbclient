@@ -1,25 +1,23 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public class w<T> implements q<T> {
-    @Override // com.baidu.adp.lib.cache.q
-    public T a(String str) {
-        return null;
+class w implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f439a;
+    final /* synthetic */ Object b;
+    final /* synthetic */ long c;
+    final /* synthetic */ v d;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public w(v vVar, String str, Object obj, long j) {
+        this.d = vVar;
+        this.f439a = str;
+        this.b = obj;
+        this.c = j;
     }
 
-    @Override // com.baidu.adp.lib.cache.q
-    public r<T> b(String str) {
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.cache.q
-    public void a(String str, T t, long j) {
-    }
-
-    @Override // com.baidu.adp.lib.cache.q
-    public void c(String str) {
-    }
-
-    @Override // com.baidu.adp.lib.cache.q
-    public void b(String str, T t, long j) {
+    @Override // java.lang.Runnable
+    public void run() {
+        this.d.a(this.f439a, this.b, this.c);
     }
 }

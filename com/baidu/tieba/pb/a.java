@@ -1,12 +1,11 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.zeus.WebChromeClient;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f1520a;
+    private ArrayList<String> f2037a;
     private String d;
     private String e;
     private String f;
@@ -20,14 +19,14 @@ public class a {
     private c l = null;
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.f1520a = null;
+        this.f2037a = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.k = false;
-        this.f1520a = arrayList;
-        if (this.f1520a == null) {
-            this.f1520a = new ArrayList<>();
+        this.f2037a = arrayList;
+        if (this.f2037a == null) {
+            this.f2037a = new ArrayList<>();
         }
         this.d = str2;
         this.e = str;
@@ -55,7 +54,7 @@ public class a {
 
     private void a(String str, String str2, int i, int i2) {
         if (this.h != null) {
-            if (str2 == null || !str2.equals(this.h.e())) {
+            if (str2 == null || !str2.equals(this.h.d())) {
                 this.h.cancel();
             } else {
                 return;
@@ -72,9 +71,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(com.baidu.tieba.data.ab abVar) {
-        StringBuilder sb = new StringBuilder((int) WebChromeClient.STRING_DLG_BTN_SET);
-        if (abVar.g() * abVar.f() > com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i()) {
-            double sqrt = Math.sqrt((com.baidu.tieba.data.g.i() * com.baidu.tieba.data.g.i()) / (abVar.g() * abVar.f()));
+        StringBuilder sb = new StringBuilder(150);
+        if (abVar.g() * abVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
+            double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (abVar.g() * abVar.f()));
             sb.append("width=");
             sb.append(String.valueOf((int) (abVar.f() * sqrt)));
             sb.append("&height=");
@@ -86,7 +85,7 @@ public class a {
             sb.append(String.valueOf(abVar.g()));
         }
         sb.append("&src=");
-        sb.append(com.baidu.tieba.util.at.d(abVar.b()));
+        sb.append(com.baidu.tieba.util.bc.d(abVar.b()));
         return sb.toString();
     }
 }

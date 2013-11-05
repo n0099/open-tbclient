@@ -7,17 +7,17 @@ import com.baidu.android.nebula.util.BDLocationManager;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static c f576a = null;
+    private static c f655a = null;
     private com.baidu.android.nebula.d.d b = null;
     private Context c;
 
     public static synchronized c a() {
         c cVar;
         synchronized (c.class) {
-            if (f576a == null) {
-                f576a = new c();
+            if (f655a == null) {
+                f655a = new c();
             }
-            cVar = f576a;
+            cVar = f655a;
         }
         return cVar;
     }
@@ -28,9 +28,9 @@ public class c {
 
     public static synchronized void b() {
         synchronized (c.class) {
-            if (f576a != null) {
-                f576a.d();
-                f576a = null;
+            if (f655a != null) {
+                f655a.d();
+                f655a = null;
             }
         }
     }

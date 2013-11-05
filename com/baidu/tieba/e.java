@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,18 +25,20 @@ public class e {
     private static String d = "tb_textColor";
     private static String e = "tb_src";
     private static String f = "tb_style";
-    private Resources i;
-    private boolean g = false;
-    private String h = "_1";
+    private static String g = "tb_button";
+    private static String h = "tb_textColorHint";
+    private Resources k;
+    private boolean i = false;
+    private String j = "_1";
 
     /* renamed from: a  reason: collision with root package name */
-    Map<String, d> f1052a = new HashMap();
+    Map<String, d> f1184a = new HashMap();
 
     public void a(String str, Context context, AttributeSet attributeSet) {
         int[] a2;
         boolean z = false;
         try {
-            this.i = context.getResources();
+            this.k = context.getResources();
             int attributeCount = attributeSet.getAttributeCount();
             d dVar = new d();
             dVar.b(str);
@@ -45,32 +50,46 @@ public class e {
                 } else if (attributeName.equals(c)) {
                     int[] a3 = a(attributeValue);
                     if (a3 != null) {
-                        dVar.a(a3[0]);
-                        dVar.b(a3[1]);
+                        dVar.c(a3[0]);
+                        dVar.d(a3[1]);
+                        z = true;
+                    }
+                } else if (attributeName.equals(g)) {
+                    int[] a4 = a(attributeValue);
+                    if (a4 != null) {
+                        dVar.b(a4[0]);
+                        dVar.a(a4[1]);
+                        z = true;
+                    }
+                } else if (attributeName.equals(h)) {
+                    int[] a5 = a(attributeValue);
+                    if (a5 != null) {
+                        dVar.e(a5[0]);
+                        dVar.f(a5[1]);
                         z = true;
                     }
                 } else if (attributeName.equals(e)) {
-                    int[] a4 = a(attributeValue);
-                    if (a4 != null) {
-                        dVar.e(a4[0]);
-                        dVar.f(a4[1]);
+                    int[] a6 = a(attributeValue);
+                    if (a6 != null) {
+                        dVar.i(a6[0]);
+                        dVar.j(a6[1]);
                         z = true;
                     }
                 } else if (attributeName.equals(d)) {
-                    int[] a5 = a(attributeValue);
-                    if (a5 != null) {
-                        dVar.c(a5[0]);
-                        dVar.d(a5[1]);
+                    int[] a7 = a(attributeValue);
+                    if (a7 != null) {
+                        dVar.g(a7[0]);
+                        dVar.h(a7[1]);
                         z = true;
                     }
                 } else if (attributeName.equals(f) && (a2 = a(attributeValue)) != null) {
-                    dVar.h(a2[0]);
-                    dVar.g(a2[1]);
+                    dVar.l(a2[0]);
+                    dVar.k(a2[1]);
                     z = true;
                 }
             }
-            if (z && !TextUtils.isEmpty(dVar.a()) && this.f1052a != null && !this.f1052a.containsKey(dVar.a())) {
-                this.f1052a.put(dVar.a(), dVar);
+            if (z && !TextUtils.isEmpty(dVar.c()) && this.f1184a != null && !this.f1184a.containsKey(dVar.c())) {
+                this.f1184a.put(dVar.c(), dVar);
             }
         } catch (Resources.NotFoundException e2) {
         } catch (Exception e3) {
@@ -82,42 +101,49 @@ public class e {
         int parseInt;
         String resourceName;
         int identifier;
-        if (!TextUtils.isDigitsOnly(str.substring(1)) || (parseInt = Integer.parseInt(str.substring(1))) == 0 || (resourceName = this.i.getResourceName(parseInt)) == null || (identifier = this.i.getIdentifier(String.valueOf(resourceName) + this.h, null, null)) == 0) {
+        if (!TextUtils.isDigitsOnly(str.substring(1)) || (parseInt = Integer.parseInt(str.substring(1))) == 0 || (resourceName = this.k.getResourceName(parseInt)) == null || (identifier = this.k.getIdentifier(resourceName + this.j, null, null)) == 0) {
             return null;
         }
         return new int[]{parseInt, identifier};
     }
 
+    @SuppressLint({"ResourceAsColor"})
     public void a(View view) {
         Adapter adapter;
         if (view != null) {
             String str = "@" + view.getId();
-            if (this.f1052a != null && this.f1052a.containsKey(str)) {
-                d dVar = this.f1052a.get(str);
+            if (this.f1184a != null && this.f1184a.containsKey(str)) {
+                d dVar = this.f1184a.get(str);
+                if ((view instanceof CheckBox) && dVar.a() != 0) {
+                    ((CheckBox) view).setButtonDrawable(this.i ? dVar.a() : dVar.b());
+                }
+                if ((view instanceof EditText) && dVar.g() != 0) {
+                    ((EditText) view).setHintTextColor(this.i ? this.k.getColor(dVar.g()) : this.k.getColor(dVar.f()));
+                }
                 if (view instanceof TextView) {
-                    if (dVar.e() != 0) {
-                        ((TextView) view).setTextColor(this.i.getColor(this.g ? dVar.e() : dVar.d()));
+                    if (dVar.i() != 0) {
+                        ((TextView) view).setTextColor(this.k.getColorStateList(this.i ? dVar.i() : dVar.h()));
                     }
-                    if (dVar.h() != 0) {
-                        ((TextView) view).setTextAppearance(view.getContext(), this.g ? dVar.h() : dVar.i());
+                    if (dVar.l() != 0) {
+                        ((TextView) view).setTextAppearance(view.getContext(), this.i ? dVar.l() : dVar.m());
                     }
                 } else if (view instanceof ImageButton) {
-                    if (dVar.f() != 0) {
-                        ((ImageButton) view).setImageResource(this.g ? dVar.f() : dVar.g());
+                    if (dVar.j() != 0) {
+                        ((ImageButton) view).setImageResource(this.i ? dVar.j() : dVar.k());
                     }
                 } else if (view instanceof ImageView) {
-                    if (dVar.f() != 0) {
-                        ((ImageView) view).setImageResource(this.g ? dVar.f() : dVar.g());
+                    if (dVar.j() != 0) {
+                        ((ImageView) view).setImageResource(this.i ? dVar.j() : dVar.k());
                     }
                 } else if ((view instanceof AdapterView) && (adapter = ((AdapterView) view).getAdapter()) != null && (adapter instanceof BaseAdapter)) {
                     ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
-                if (dVar.c() != 0) {
+                if (dVar.e() != 0) {
                     int paddingLeft = view.getPaddingLeft();
                     int paddingTop = view.getPaddingTop();
                     int paddingRight = view.getPaddingRight();
                     int paddingBottom = view.getPaddingBottom();
-                    view.setBackgroundResource(this.g ? dVar.c() : dVar.b());
+                    view.setBackgroundResource(this.i ? dVar.e() : dVar.d());
                     view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
                 }
             }
@@ -131,13 +157,13 @@ public class e {
     }
 
     public void a(boolean z) {
-        this.g = z;
+        this.i = z;
     }
 
     public void a() {
-        if (this.f1052a != null) {
-            this.f1052a.clear();
-            this.f1052a = null;
+        if (this.f1184a != null) {
+            this.f1184a.clear();
+            this.f1184a = null;
         }
     }
 }

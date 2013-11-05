@@ -1,62 +1,42 @@
 package com.baidu.tieba.more;
 
-import android.view.View;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.Scroller;
+import android.app.TimePickerDialog;
+import android.widget.TimePicker;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ak {
+class ak implements TimePickerDialog.OnTimeSetListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1481a;
-    private Scroller b;
-    private int c;
-    private int d;
-    private int e;
-    private boolean f;
-    private Runnable g = new al(this);
+    final /* synthetic */ int f1986a;
+    final /* synthetic */ TiebaApplication b;
+    final /* synthetic */ MsgRemindActivity c;
 
-    public ak(View view, int i) {
-        this.f1481a = view;
-        this.b = new Scroller(view.getContext(), new DecelerateInterpolator());
-        this.c = view.getPaddingTop();
-        this.d = -view.getMeasuredHeight();
-        this.e = i;
-        if (view.getVisibility() != 0) {
-            this.f = false;
-        } else {
-            this.f = true;
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(MsgRemindActivity msgRemindActivity, int i, TiebaApplication tiebaApplication) {
+        this.c = msgRemindActivity;
+        this.f1986a = i;
+        this.b = tiebaApplication;
     }
 
-    public void a() {
-        if (!this.f) {
-            this.f = true;
-            int paddingLeft = this.f1481a.getPaddingLeft();
-            int paddingTop = this.f1481a.getPaddingTop() == this.c ? -this.f1481a.getMeasuredHeight() : this.f1481a.getPaddingTop();
-            int paddingRight = this.f1481a.getPaddingRight();
-            int paddingBottom = this.f1481a.getPaddingBottom();
-            this.f1481a.setVisibility(0);
-            this.f1481a.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-            if (!this.b.isFinished()) {
-                this.b.forceFinished(true);
-                this.f1481a.removeCallbacks(this.g);
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+        al alVar;
+        al alVar2;
+        if (this.f1986a == R.id.sign_remind) {
+            this.b.a(i, i2);
+            alVar2 = this.c.f1970a;
+            alVar2.e();
+        } else if (this.f1986a == R.id.no_disturb_end_time || this.f1986a == R.id.no_disturb_start_time) {
+            String str = ((i < 10 ? SocialConstants.FALSE : "") + i) + ":" + ((i2 < 10 ? SocialConstants.FALSE : "") + i2);
+            if (this.f1986a == R.id.no_disturb_start_time) {
+                this.b.o(str);
+            } else {
+                this.b.p(str);
             }
-            int paddingTop2 = this.f1481a.getPaddingTop();
-            this.b.startScroll(paddingTop2, 0, this.c - paddingTop2, 0, this.e);
-            this.f1481a.post(this.g);
-        }
-    }
-
-    public void b() {
-        if (this.f) {
-            this.f = false;
-            if (!this.b.isFinished()) {
-                this.b.forceFinished(true);
-                this.f1481a.removeCallbacks(this.g);
-            }
-            int paddingTop = this.f1481a.getPaddingTop();
-            this.b.startScroll(paddingTop, 0, this.d - paddingTop, 0, this.e);
-            this.f1481a.post(this.g);
+            alVar = this.c.f1970a;
+            alVar.f();
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.person;
 
+import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -7,29 +8,30 @@ import android.widget.ProgressBar;
 public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1733a;
-    private final /* synthetic */ String b;
-    private final /* synthetic */ int c;
+    final /* synthetic */ EditHeadActivity f2253a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(EditHeadActivity editHeadActivity, String str, int i) {
-        this.f1733a = editHeadActivity;
-        this.b = str;
-        this.c = i;
+    public r(EditHeadActivity editHeadActivity) {
+        this.f2253a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ProgressBar progressBar;
-        String str;
-        progressBar = this.f1733a.n;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        progressBar = this.f2253a.q;
         if (progressBar.getVisibility() != 0) {
-            String str2 = this.b;
-            str = this.f1733a.A;
-            if (!str2.equals(str)) {
-                this.f1733a.c(this.b);
-                this.f1733a.d(this.b);
-                this.f1733a.y = this.c;
+            bitmap = this.f2253a.j;
+            if (bitmap == null) {
+                bitmap2 = this.f2253a.z;
+                if (bitmap2 == null) {
+                    return;
+                }
+            }
+            if (view.getTag() != null) {
+                this.f2253a.G = false;
+                this.f2253a.c(view.getTag().toString());
             }
         }
     }

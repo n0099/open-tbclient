@@ -21,13 +21,13 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     private Runnable f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    q f1744a = new c(this);
-    private com.baidu.adp.widget.ListView.r j = new d(this);
-    private com.baidu.adp.widget.ListView.b k = new e(this);
+    q f2264a = new c(this);
+    private com.baidu.adp.widget.ListView.r j = new e(this);
+    private com.baidu.adp.widget.ListView.b k = new g(this);
 
     public void b() {
         this.e = new Handler();
-        this.f = new f(this);
+        this.f = new d(this);
     }
 
     public void c() {
@@ -41,7 +41,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
 
     private void e() {
         this.d = new w(this);
-        this.d.a(new g(this));
+        this.d.a(new f(this));
         a(false, (String) null);
     }
 
@@ -50,10 +50,10 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
         UtilHelper.a((Context) this, str);
     }
 
-    private void m() {
-        this.c = new z(this, this.j, this.f1744a);
+    private void f() {
+        this.c = new z(this, this.j, this.f2264a);
         this.c.a(this.k);
-        this.c.c();
+        this.c.e();
     }
 
     @Override // com.baidu.tieba.j, android.app.Activity
@@ -63,7 +63,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
             this.e.removeCallbacks(this.f);
             this.e.postDelayed(this.f, 300L);
         }
-        this.c.g();
+        this.c.i();
         if (TiebaApplication.g().s()) {
             StatService.onEvent(this, "recommend_feature", "visit", 1);
         }
@@ -72,12 +72,12 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     public void a(boolean z, String str) {
         d();
         if (str == null && z) {
-            StatService.onEvent(this.c.a(), "recommend_pull", "pull");
+            StatService.onEvent(this.c.b(), "recommend_pull", "pull");
             this.d.a();
         } else if (str == null && !z) {
             this.d.b();
         } else if (str != null && z) {
-            this.c.b();
+            this.c.a();
             this.d.a(str);
         }
     }
@@ -100,7 +100,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
         if (this.e != null) {
             this.e.removeCallbacks(this.f);
         }
-        this.c.d();
+        this.c.f();
         d();
         super.onDestroy();
     }
@@ -110,7 +110,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         b();
-        m();
+        f();
         e();
     }
 

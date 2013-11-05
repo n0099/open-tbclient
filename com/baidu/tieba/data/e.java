@@ -3,25 +3,24 @@ package com.baidu.tieba.data;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f1030a;
-    private boolean b;
+    private String f1162a;
+    private long b;
     private int c;
-    private String d;
 
-    public d a() {
-        return this.f1030a;
+    public String a() {
+        return this.f1162a;
     }
 
-    public void a(d dVar) {
-        this.f1030a = dVar;
+    public void a(String str) {
+        this.f1162a = str;
     }
 
-    public boolean b() {
+    public long b() {
         return this.b;
     }
 
-    public void a(boolean z) {
-        this.b = z;
+    public void a(long j) {
+        this.b = j;
     }
 
     public int c() {
@@ -30,13 +29,5 @@ public class e {
 
     public void a(int i) {
         this.c = i;
-    }
-
-    public String d() {
-        return this.d;
-    }
-
-    public void a(String str) {
-        this.d = str;
     }
 }

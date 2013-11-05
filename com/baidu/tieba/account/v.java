@@ -2,23 +2,29 @@ package com.baidu.tieba.account;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import com.baidu.tieba.util.bc;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f929a;
+    final /* synthetic */ LoginActivity f1058a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(LoginActivity loginActivity) {
-        this.f929a = loginActivity;
+        this.f1058a = loginActivity;
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.f929a.r = true;
-        this.f929a.v();
-        this.f929a.w();
+        boolean z;
+        z = this.f1058a.q;
+        if (z) {
+            this.f1058a.s();
+        }
+        this.f1058a.r = true;
+        this.f1058a.v();
+        this.f1058a.w();
     }
 
     @Override // android.text.TextWatcher
@@ -27,6 +33,16 @@ public class v implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.f929a.e();
+        String str;
+        String str2;
+        this.f1058a.e();
+        str = this.f1058a.j;
+        if (!bc.c(str)) {
+            String obj = editable.toString();
+            str2 = this.f1058a.j;
+            if (obj.equals(str2)) {
+                this.f1058a.r();
+            }
+        }
     }
 }

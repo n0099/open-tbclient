@@ -11,30 +11,30 @@ import com.baidu.tieba.switchs.SwitchKey;
 public class g implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ItemFootNavView f1088a;
-    private final /* synthetic */ boolean b;
-    private final /* synthetic */ com.baidu.tieba.j c;
-    private final /* synthetic */ String d;
+    final /* synthetic */ boolean f1220a;
+    final /* synthetic */ com.baidu.tieba.j b;
+    final /* synthetic */ String c;
+    final /* synthetic */ ItemFootNavView d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ItemFootNavView itemFootNavView, boolean z, com.baidu.tieba.j jVar, String str) {
-        this.f1088a = itemFootNavView;
-        this.b = z;
-        this.c = jVar;
-        this.d = str;
+        this.d = itemFootNavView;
+        this.f1220a = z;
+        this.b = jVar;
+        this.c = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         if (TiebaApplication.g().s()) {
-            context = this.f1088a.f1080a;
+            context = this.d.f1211a;
             StatService.onEvent(context, "detail_enter_forum", "click", 1);
         }
-        if (this.b) {
-            this.c.finish();
+        if (this.f1220a) {
+            this.b.finish();
         } else {
-            FrsActivity.a(this.c, this.d, SwitchKey.BAR_DETAIL_DIR);
+            FrsActivity.a(this.b, this.c, SwitchKey.BAR_DETAIL_DIR);
         }
     }
 }

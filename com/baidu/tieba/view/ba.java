@@ -8,10 +8,10 @@ import com.baidu.tieba.util.UtilHelper;
 public class ba extends TbImageView {
     public ba(Context context) {
         super(context);
-        c();
+        b();
     }
 
-    private void c() {
+    private void b() {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View

@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.kn.pk.s;
 import com.baidu.tieba.kn.pk.y;
-import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bc;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,7 +25,7 @@ import java.util.LinkedList;
 public class PullAndPull extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1297a;
+    private int f1792a;
     private int b;
     private int c;
     private float d;
@@ -45,7 +45,7 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context) {
         super(context);
-        this.f1297a = 10;
+        this.f1792a = 10;
         this.f = new LinkedList<>();
         this.l = new ArrayList<>();
         this.m = 600;
@@ -56,7 +56,7 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1297a = 10;
+        this.f1792a = 10;
         this.f = new LinkedList<>();
         this.l = new ArrayList<>();
         this.m = 600;
@@ -67,7 +67,7 @@ public class PullAndPull extends View {
 
     public PullAndPull(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1297a = 10;
+        this.f1792a = 10;
         this.f = new LinkedList<>();
         this.l = new ArrayList<>();
         this.m = 600;
@@ -93,8 +93,8 @@ public class PullAndPull extends View {
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int size = this.f.size();
-        if (size > this.f1297a) {
-            size = this.f1297a;
+        if (size > this.f1792a) {
+            size = this.f1792a;
         }
         this.b = ((size - 1) * this.h) + (this.c * size);
         if (this.b < 0) {
@@ -111,7 +111,7 @@ public class PullAndPull extends View {
             this.d = this.e.getCurrX();
             invalidate();
         } else {
-            while (this.f.size() > this.f1297a) {
+            while (this.f.size() > this.f1792a) {
                 y removeFirst = this.f.removeFirst();
                 if (removeFirst != null) {
                     this.l.add(removeFirst.f);
@@ -130,11 +130,11 @@ public class PullAndPull extends View {
                 TextView textView2 = (TextView) yVar.f.findViewById(R.id.time);
                 TextView textView3 = (TextView) yVar.f.findViewById(R.id.score);
                 TextView textView4 = (TextView) yVar.f.findViewById(R.id.highlight);
-                textView.setText(yVar.f1309a);
-                textView2.setText(at.a(new Date(this.j.e()), new Date(yVar.c * 1000)));
+                textView.setText(yVar.f1804a);
+                textView2.setText(bc.a(new Date(this.j.e()), new Date(yVar.c * 1000)));
                 textView3.setText("+" + String.format(this.k.getString(R.string.pk_ticket_count), Integer.valueOf(yVar.b)));
                 int parseColor = Color.parseColor("#FCFCFC");
-                if (!TextUtils.isEmpty(yVar.f1309a) && yVar.f1309a.equalsIgnoreCase(TiebaApplication.G())) {
+                if (!TextUtils.isEmpty(yVar.f1804a) && yVar.f1804a.equalsIgnoreCase(TiebaApplication.H())) {
                     if (this.i) {
                         int parseColor2 = Color.parseColor("#e3f1ff");
                         textView4.setBackgroundResource(R.drawable.icon_me_blue_line);
@@ -155,7 +155,7 @@ public class PullAndPull extends View {
                 yVar.f.layout(0, 0, getWidth(), this.c);
                 yVar.e = true;
             } else {
-                ((TextView) yVar.f.findViewById(R.id.time)).setText(at.a(new Date(this.j.e()), new Date(yVar.c * 1000)));
+                ((TextView) yVar.f.findViewById(R.id.time)).setText(bc.a(new Date(this.j.e()), new Date(yVar.c * 1000)));
             }
             int paddingLeft = getPaddingLeft();
             int save = canvas.save();
@@ -247,11 +247,11 @@ public class PullAndPull extends View {
     public void a(y yVar, boolean z, boolean z2) {
         this.i = z;
         this.f.add(yVar);
-        if (this.f.size() <= this.f1297a) {
+        if (this.f.size() <= this.f1792a) {
             requestLayout();
         }
         removeCallbacks(this.q);
-        while (this.f.size() > this.f1297a + 1) {
+        while (this.f.size() > this.f1792a + 1) {
             y removeFirst = this.f.removeFirst();
             if (removeFirst != null) {
                 this.l.add(removeFirst.f);

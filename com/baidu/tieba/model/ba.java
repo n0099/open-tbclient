@@ -1,68 +1,45 @@
 package com.baidu.tieba.model;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.model.MoreModel;
-import com.baidu.tieba.util.DatabaseService;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends BdAsyncTask<String, Integer, String> {
+public class ba extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoreModel f1413a;
+    private String f1910a = null;
+    private String b = null;
+    private bc c = null;
+    private String d;
 
-    private ba(MoreModel moreModel) {
-        this.f1413a = moreModel;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ba(MoreModel moreModel, ba baVar) {
-        this(moreModel);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((ba) str);
-        this.f1413a.f1385a = null;
-        eVar = this.f1413a.mLoadDataCallBack;
-        if (eVar != null) {
-            eVar2 = this.f1413a.mLoadDataCallBack;
-            eVar2.a(MoreModel.TaskType.DO_CLEAR);
+        this.d = str;
+    }
+
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a() {
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        DatabaseService.x();
-        com.baidu.tieba.voice.a.e.a();
-        try {
-            File[] listFiles = new File(com.baidu.tieba.util.p.f1926a + "/tieba/image/").listFiles();
-            if (listFiles != null) {
-                for (File file : listFiles) {
-                    if (!file.delete()) {
-                        com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", "list[i].delete error");
-                    }
-                }
-            }
-            File[] listFiles2 = new File(com.baidu.tieba.util.p.f1926a + "/tieba/hotspot/").listFiles();
-            if (listFiles2 != null) {
-                for (File file2 : listFiles2) {
-                    if (!file2.delete()) {
-                        com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", "list[i].delete error");
-                    }
-                }
-                return null;
-            }
-            return null;
-        } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
-            return null;
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
+            this.f1910a = str;
+            this.b = str2;
+            this.c = new bc(this);
+            this.c.setPriority(2);
+            this.c.execute(new Object[0]);
         }
+    }
+
+    public boolean b() {
+        return this.c != null;
     }
 }

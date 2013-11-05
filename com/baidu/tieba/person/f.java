@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 public class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1692a;
+    final /* synthetic */ EditBarActivity f2213a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EditBarActivity editBarActivity) {
-        this.f1692a = editBarActivity;
+        this.f2213a = editBarActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,25 +27,25 @@ public class f implements View.OnClickListener {
         Button button3;
         Button button4;
         i iVar5;
-        iVar = this.f1692a.f;
+        iVar = this.f2213a.f;
         if (!iVar.a()) {
-            iVar4 = this.f1692a.f;
+            iVar4 = this.f2213a.f;
             iVar4.a(true);
-            button3 = this.f1692a.d;
+            button3 = this.f2213a.d;
             button3.setText(R.string.done);
-            button4 = this.f1692a.d;
-            com.baidu.tieba.util.as.h(button4, TiebaApplication.g().ap());
-            iVar5 = this.f1692a.f;
+            button4 = this.f2213a.d;
+            com.baidu.tieba.util.bb.h(button4, TiebaApplication.g().as());
+            iVar5 = this.f2213a.f;
             iVar5.notifyDataSetChanged();
             return;
         }
-        iVar2 = this.f1692a.f;
+        iVar2 = this.f2213a.f;
         iVar2.a(false);
-        button = this.f1692a.d;
+        button = this.f2213a.d;
         button.setText(R.string.edit);
-        button2 = this.f1692a.d;
-        com.baidu.tieba.util.as.g(button2, TiebaApplication.g().ap());
-        iVar3 = this.f1692a.f;
+        button2 = this.f2213a.d;
+        com.baidu.tieba.util.bb.g(button2, TiebaApplication.g().as());
+        iVar3 = this.f2213a.f;
         iVar3.notifyDataSetChanged();
     }
 }

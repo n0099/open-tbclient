@@ -23,7 +23,7 @@ public class MyPostActivity extends ActivityGroup {
     private RadioGroup g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1641a = -1;
+    protected int f2159a = -1;
     private String i = null;
     private int j = 0;
 
@@ -60,11 +60,11 @@ public class MyPostActivity extends ActivityGroup {
             this.f.setText(R.string.my_post);
         }
         this.d = (ImageView) findViewById(R.id.back);
-        this.d.setOnClickListener(new aa(this));
+        this.d.setOnClickListener(new ac(this));
         this.e = (ImageView) findViewById(R.id.refresh);
-        this.e.setOnClickListener(new ab(this));
+        this.e.setOnClickListener(new ad(this));
         this.g = (RadioGroup) findViewById(R.id.posttype_tabs);
-        this.g.setOnCheckedChangeListener(new ac(this));
+        this.g.setOnCheckedChangeListener(new ae(this));
         this.g.check(R.id.all_tab);
         this.g.setVisibility(8);
     }
@@ -72,18 +72,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.g().ap() != this.f1641a) {
-            this.f1641a = TiebaApplication.g().ap();
-            a(this.f1641a);
+        if (TiebaApplication.g().as() != this.f2159a) {
+            this.f2159a = TiebaApplication.g().as();
+            a(this.f2159a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.as.a(this.b, i);
-        com.baidu.tieba.util.as.d(this.c, i);
-        com.baidu.tieba.util.as.f(this.f, i);
-        com.baidu.tieba.util.as.a(this.d, i);
-        com.baidu.tieba.util.as.b(this.e, i);
+        com.baidu.tieba.util.bb.a(this.b, i);
+        com.baidu.tieba.util.bb.d(this.c, i);
+        com.baidu.tieba.util.bb.f(this.f, i);
+        com.baidu.tieba.util.bb.a(this.d, i);
+        com.baidu.tieba.util.bb.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -96,9 +96,10 @@ public class MyPostActivity extends ActivityGroup {
         String currentId = getLocalActivityManager().getCurrentId();
         Activity currentActivity = getLocalActivityManager().getCurrentActivity();
         if (currentId.equals("all")) {
-            ((AllPostActivity) currentActivity).b(0);
-        } else if (!currentId.equals("my_thread")) {
-            currentId.equals("my_reply");
+            ((AllPostActivity) currentActivity).d(0);
+            return;
+        }
+        if (currentId.equals("my_thread") || currentId.equals("my_reply")) {
         }
     }
 }

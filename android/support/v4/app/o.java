@@ -7,25 +7,25 @@ import android.os.Message;
 public class o extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f286a;
+    final /* synthetic */ n f296a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.f286a = nVar;
+        this.f296a = nVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                if (this.f286a.mStopped) {
-                    this.f286a.doReallyStop(false);
+                if (this.f296a.mStopped) {
+                    this.f296a.doReallyStop(false);
                     return;
                 }
                 return;
             case 2:
-                this.f286a.onResumeFragments();
-                this.f286a.mFragments.e();
+                this.f296a.onResumeFragments();
+                this.f296a.mFragments.e();
                 return;
             default:
                 super.handleMessage(message);

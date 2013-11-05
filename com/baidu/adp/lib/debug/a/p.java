@@ -10,19 +10,19 @@ import java.util.List;
 public class p extends a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private ActivityManager f409a;
+    private ActivityManager f459a;
     private String b;
     private int c;
     private q d;
 
     public p(Context context) {
-        this.f409a = null;
+        this.f459a = null;
         this.b = null;
         this.c = 0;
         this.d = null;
         this.b = context.getPackageName();
-        this.f409a = (ActivityManager) context.getSystemService("activity");
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.f409a.getRunningAppProcesses();
+        this.f459a = (ActivityManager) context.getSystemService("activity");
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = this.f459a.getRunningAppProcesses();
         for (int i = 0; i < runningAppProcesses.size(); i++) {
             ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i);
             if (this.b.contains(runningAppProcessInfo.processName)) {
@@ -35,9 +35,9 @@ public class p extends a implements Runnable {
 
     public q d() {
         q qVar = new q(this);
-        qVar.b = a(String.valueOf("/proc/uid_stat/") + this.c + "/tcp_rcv");
-        qVar.c = a(String.valueOf("/proc/uid_stat/") + this.c + "/tcp_snd");
-        qVar.f410a = com.baidu.adp.lib.debug.b.a(qVar.b + qVar.c);
+        qVar.b = a("/proc/uid_stat/" + this.c + "/tcp_rcv");
+        qVar.c = a("/proc/uid_stat/" + this.c + "/tcp_snd");
+        qVar.f460a = com.baidu.adp.lib.debug.b.a(qVar.b + qVar.c);
         return qVar;
     }
 
@@ -45,15 +45,15 @@ public class p extends a implements Runnable {
         q d = d();
         this.d.b = com.baidu.adp.lib.debug.b.a(d.b - com.baidu.adp.lib.debug.b.h().b);
         this.d.c = com.baidu.adp.lib.debug.b.a(d.c - com.baidu.adp.lib.debug.b.h().c);
-        this.d.f410a = com.baidu.adp.lib.debug.b.a(d.f410a - com.baidu.adp.lib.debug.b.h().f410a);
+        this.d.f460a = com.baidu.adp.lib.debug.b.a(d.f460a - com.baidu.adp.lib.debug.b.h().f460a);
         return this.d;
     }
 
     public double a(String str) {
         try {
             return com.baidu.adp.lib.debug.b.a(Long.valueOf(Long.parseLong(new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("cat " + str).getInputStream())).readLine())).longValue() / 1024.0d);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
             return 0.0d;
         }
     }

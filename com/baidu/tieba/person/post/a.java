@@ -11,18 +11,18 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.person.post.PersonPostReplyModel;
 import com.baidu.tieba.person.post.PersonPostThreadModel;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.as;
-import com.baidu.tieba.util.at;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bc;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    private static com.baidu.adp.widget.a.c j;
+    private static com.baidu.adp.widget.ImageView.e j;
     private static String k;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f1711a;
+    public LinearLayout f2231a;
     public HeadImageView b;
     public TextView c;
     public TextView d;
@@ -35,7 +35,7 @@ class a implements View.OnClickListener {
     private com.baidu.tieba.util.a m;
 
     public a(View view) {
-        this.f1711a = (LinearLayout) view.findViewById(R.id.top_line);
+        this.f2231a = (LinearLayout) view.findViewById(R.id.top_line);
         this.b = (HeadImageView) view.findViewById(R.id.portrait);
         this.c = (TextView) view.findViewById(R.id.username);
         this.d = (TextView) view.findViewById(R.id.reply_time);
@@ -61,7 +61,7 @@ class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.forum_name /* 2131100652 */:
+            case R.id.forum_name /* 2131100868 */:
                 FrsActivity.a(view.getContext(), (String) view.getTag(), "");
                 return;
             default:
@@ -77,22 +77,21 @@ class a implements View.OnClickListener {
         this.l = cVar;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00c5 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00c2 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x000a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:38:0x004e */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x004e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x004c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x004c */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0050 A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x008e  */
-    /* JADX WARN: Type inference failed for: r0v15, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v18 */
-    /* JADX WARN: Type inference failed for: r0v22 */
-    /* JADX WARN: Type inference failed for: r0v27 */
-    /* JADX WARN: Type inference failed for: r0v28 */
-    /* JADX WARN: Type inference failed for: r0v29 */
-    /* JADX WARN: Type inference failed for: r0v35 */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    /* JADX WARN: Type inference failed for: r0v5 */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x004e A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x008b  */
+    /* JADX WARN: Type inference failed for: r0v0 */
+    /* JADX WARN: Type inference failed for: r0v16 */
+    /* JADX WARN: Type inference failed for: r0v17 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r3v17 */
+    /* JADX WARN: Type inference failed for: r3v23 */
+    /* JADX WARN: Type inference failed for: r3v5, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r3v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -100,82 +99,84 @@ class a implements View.OnClickListener {
         String str2;
         String str3;
         String str4;
-        String str5;
-        String str6 = null;
+        String str5 = null;
+        String str6 = 1;
+        String str7 = null;
         String[] strArr = new String[3];
         try {
             str2 = obj instanceof PersonPostReplyModel.Post;
-        } catch (Exception e) {
-            str2 = str6;
-            str3 = str6;
-            str4 = str6;
-        }
-        try {
             try {
                 try {
+                    try {
+                    } catch (Exception e) {
+                        str2 = str5;
+                        str6 = str7;
+                        str7 = str5;
+                        str5 = str2;
+                        str2 = str3;
+                        str3 = str4;
+                        if (str6 != 0) {
+                        }
+                    }
                 } catch (Exception e2) {
-                    str2 = str6;
-                    str3 = str6;
-                    str5 = str4;
-                    str4 = str3;
-                    str3 = str2;
-                    str2 = 0;
-                    if (str2 != 0) {
+                    str2 = str5;
+                    str3 = str5;
+                    str6 = str7;
+                    str7 = str5;
+                    str5 = str2;
+                    str2 = str3;
+                    str3 = str4;
+                    if (str6 != 0) {
                     }
                 }
             } catch (Exception e3) {
-                str5 = str4;
-                str4 = str3;
-                str3 = str2;
-                str2 = 0;
-                if (str2 != 0) {
+                str6 = str7;
+                str7 = str5;
+                str5 = str2;
+                str2 = str3;
+                str3 = str4;
+                if (str6 != 0) {
                 }
             }
         } catch (Exception e4) {
-            str2 = str6;
-            str5 = str4;
-            str4 = str3;
-            str3 = str2;
-            str2 = 0;
-            if (str2 != 0) {
-            }
+            str2 = str5;
+            str3 = str5;
+            str4 = str5;
         }
         if (str2 != 0) {
             PersonPostReplyModel.Post post = (PersonPostReplyModel.Post) obj;
-            String str7 = post.user_name;
+            str4 = post.user_name;
             strArr[0] = String.valueOf(post.thread_id);
             strArr[1] = String.valueOf(post.content[0].post_id);
             strArr[2] = String.valueOf(post.content[0].post_type);
-            String g = at.g(new Date(post.create_time * 1000));
+            String f = bc.f(new Date(post.create_time * 1000));
             String str8 = post.forum_name;
-            str6 = String.valueOf(post.reply_num);
-            str5 = str7;
-            str4 = g;
-            str3 = str8;
-            str2 = 1;
+            str7 = String.valueOf(post.reply_num);
+            str5 = str8;
+            str2 = f;
+            str3 = str4;
         } else if (obj instanceof PersonPostThreadModel.PostList) {
             PersonPostThreadModel.PostList postList = (PersonPostThreadModel.PostList) obj;
-            String str9 = postList.user_name;
+            str4 = postList.user_name;
             strArr[0] = String.valueOf(postList.thread_id);
             strArr[1] = String.valueOf(postList.post_id);
-            String g2 = at.g(new Date(postList.create_time * 1000));
-            String str10 = postList.forum_name;
-            str6 = String.valueOf(postList.reply_num);
+            String f2 = bc.f(new Date(postList.create_time * 1000));
+            String str9 = postList.forum_name;
+            str7 = String.valueOf(postList.reply_num);
             str5 = str9;
-            str4 = g2;
-            str3 = str10;
-            str2 = 1;
+            str2 = f2;
+            str3 = str4;
         } else {
-            str2 = 0;
+            str6 = 0;
+            str2 = null;
             str3 = null;
-            str4 = null;
-            str5 = null;
-            if (str2 != 0) {
-                this.c.setText(str5);
-                this.d.setText(str4);
-                this.e.setText(str3);
-                this.e.setTag(str3);
-                this.f.setText(str6);
+            str7 = null;
+            if (str6 != 0) {
+                this.c.setText(str3);
+                this.d.setText(str2);
+                this.e.setText(str5);
+                this.e.setTag(str5);
+                this.f.setText(str7);
                 this.e.setOnClickListener(this);
                 b(str);
                 if (this.g != null) {
@@ -186,7 +187,7 @@ class a implements View.OnClickListener {
             }
             return;
         }
-        if (str2 != 0) {
+        if (str6 != 0) {
         }
     }
 
@@ -206,9 +207,9 @@ class a implements View.OnClickListener {
     }
 
     public void a(int i) {
-        as.c(this.e, i);
-        as.c(this.d, i);
-        if (TiebaApplication.g().ap() == 1) {
+        bb.c(this.e, i);
+        bb.c(this.d, i);
+        if (TiebaApplication.g().as() == 1) {
             a(this.h, R.drawable.bg_list_top_1);
             a(this.g, R.drawable.bg_list_border_1);
             a(this.i, R.drawable.bg_list_bottom_1);

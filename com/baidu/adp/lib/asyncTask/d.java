@@ -1,30 +1,15 @@
 package com.baidu.adp.lib.asyncTask;
-
-import android.os.Handler;
-import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d extends Handler {
-    private d() {
-    }
+public class d<Data> {
+
+    /* renamed from: a  reason: collision with root package name */
+    final BdAsyncTask f412a;
+    final Data[] b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ d(d dVar) {
-        this();
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        c cVar = (c) message.obj;
-        switch (message.what) {
-            case 1:
-                cVar.f361a.d(cVar.b[0]);
-                return;
-            case 2:
-                cVar.f361a.b((Object[]) cVar.b);
-                return;
-            default:
-                return;
-        }
+    public d(BdAsyncTask bdAsyncTask, Data... dataArr) {
+        this.f412a = bdAsyncTask;
+        this.b = dataArr;
     }
 }

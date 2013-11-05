@@ -1,128 +1,46 @@
 package com.baidu.adp.lib.c;
 
-import android.content.Context;
-import android.util.SparseArray;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskType;
-import java.util.Iterator;
-import java.util.Map;
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c {
-    private static c c;
+public class c implements LocationListener {
 
-    /* renamed from: a */
-    private a f372a = null;
-    private SparseArray<g> b = null;
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ a f422a;
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.c.e.a(java.lang.String[]):java.lang.Object] */
-    public static /* synthetic */ a a(c cVar) {
-        return cVar.f372a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(a aVar) {
+        this.f422a = aVar;
     }
 
-    public c a(a aVar) {
-        this.f372a = aVar;
-        return this;
-    }
-
-    public static c a() {
-        if (c == null) {
-            c = new c();
-        }
-        return c;
-    }
-
-    public void a(String str, Context context) {
-        a(str, context, null);
-    }
-
-    public void a(String str, Context context, b bVar) {
-        Map map;
-        int i;
-        Map map2;
-        BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(String.valueOf(str) + context.getClass().getName());
-        if (searchTask != null) {
-            e eVar = (e) searchTask;
-            map = eVar.d;
-            Iterator it = map.entrySet().iterator();
-            int i2 = 0;
-            while (true) {
-                i = i2;
-                if (!it.hasNext()) {
-                    break;
-                }
-                Map.Entry entry = (Map.Entry) it.next();
-                b bVar2 = (b) entry.getKey();
-                f fVar = (f) entry.getValue();
-                i2 = (bVar == null || bVar.b()) ? i : i + 1;
-                if (bVar == null) {
-                    eVar.a(bVar2);
-                }
-            }
-            if (i < 2) {
-                eVar.cancel();
-                return;
-            }
-            map2 = eVar.d;
-            if (map2.containsKey(bVar)) {
-                eVar.a(bVar);
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        f fVar;
+        f fVar2;
+        f fVar3;
+        if (location != null) {
+            fVar = this.f422a.m;
+            if (fVar == null) {
+                this.f422a.m = new f(this.f422a, null);
+                fVar2 = this.f422a.m;
+                fVar2.setSelfExecute(true);
+                fVar3 = this.f422a.m;
+                fVar3.execute(location);
             }
         }
     }
 
-    public Object a(String str, int i, b bVar, Context context, f fVar, BdAsyncTaskType bdAsyncTaskType, int i2) {
-        if (this.f372a == null) {
-            throw new Exception("BdLoaderCreaterAbstractFactory can not be null");
-        }
-        g a2 = a(i);
-        if (a2 == null) {
-            throw new Exception("Can't find the ResourceLoaderProc with type " + i);
-        }
-        Object a3 = a2.a(str, fVar);
-        if (a3 == null) {
-            b dVar = bVar == null ? new d(this) : bVar;
-            BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(String.valueOf(str) + context.getClass().getName());
-            if (searchTask != null && searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-                ((e) searchTask).a(dVar, fVar);
-            } else {
-                e eVar = new e(this, str, i, dVar, fVar);
-                if (bdAsyncTaskType != null) {
-                    eVar.setType(bdAsyncTaskType);
-                }
-                eVar.setPriority(i2);
-                eVar.setKey(String.valueOf(str) + context.getClass().getName());
-                if (context != null) {
-                    eVar.setTag(context.getClass().getName());
-                }
-                eVar.execute(new String[0]);
-            }
-            return null;
-        }
-        return a3;
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
     }
 
-    public Object a(String str, int i, b bVar, Context context, f fVar) {
-        return a(str, i, bVar, context, fVar, null, 1);
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
     }
 
-    public Object a(String str, int i, b bVar, Context context, f fVar, int i2) {
-        return a(str, i, bVar, context, fVar, null, i2);
-    }
-
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.adp.lib.c.e.a(java.lang.String[]):java.lang.Object] */
-    public static /* synthetic */ g a(c cVar, int i) {
-        return cVar.a(i);
-    }
-
-    public g a(int i) {
-        if (this.b == null) {
-            this.b = new SparseArray<>();
-        }
-        g gVar = this.b.get(i);
-        if (gVar == null) {
-            g a2 = this.f372a.a(i);
-            this.b.put(i, a2);
-            return a2;
-        }
-        return gVar;
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i, Bundle bundle) {
     }
 }

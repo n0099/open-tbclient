@@ -1,13 +1,13 @@
 package com.baidu.tieba.voice.service;
 
 import android.media.MediaPlayer;
-import com.baidu.tieba.voice.r;
+import com.baidu.tieba.voice.VoiceManager;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class j extends MediaPlayer implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2053a = new Object();
+    private static Object f2592a = new Object();
     private static j b = null;
     private boolean c = false;
     private boolean d = true;
@@ -18,7 +18,7 @@ public class j extends MediaPlayer implements g {
 
     public static j h() {
         if (b == null) {
-            synchronized (f2053a) {
+            synchronized (f2592a) {
                 if (b == null) {
                     b = new j();
                 }
@@ -39,7 +39,7 @@ public class j extends MediaPlayer implements g {
             reset();
             try {
                 setDataSource(str);
-                b(r.i);
+                b(VoiceManager.i);
                 try {
                     prepare();
                 } catch (IOException e) {

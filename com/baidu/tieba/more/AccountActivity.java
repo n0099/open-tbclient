@@ -9,7 +9,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.as;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -18,13 +17,13 @@ public class AccountActivity extends com.baidu.tieba.j {
     private NavigationBar d;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<AccountData> f1464a = null;
-    private o b = null;
+    private ArrayList<AccountData> f1966a = null;
+    private p b = null;
     private ListView c = null;
     private Button e = null;
     private View.OnClickListener f = null;
-    private l g = null;
-    private i j = null;
+    private m g = null;
+    private j j = null;
 
     public static void a(Activity activity) {
         activity.startActivity(new Intent(activity, AccountActivity.class));
@@ -50,7 +49,7 @@ public class AccountActivity extends com.baidu.tieba.j {
     public void a(int i) {
         super.a(i);
         this.d.b(i);
-        as.a((View) this.c, i);
+        com.baidu.tieba.util.bb.a((View) this.c, i);
         this.b.notifyDataSetChanged();
         if (i == 1) {
             this.c.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
@@ -62,7 +61,7 @@ public class AccountActivity extends com.baidu.tieba.j {
     }
 
     private void b() {
-        this.f1464a = DatabaseService.l();
+        this.f1966a = DatabaseService.l();
     }
 
     private void c() {
@@ -71,11 +70,11 @@ public class AccountActivity extends com.baidu.tieba.j {
         this.d.a(getString(R.string.account_manager));
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e = this.d.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.edit));
-        this.e.setOnClickListener(new g(this));
-        this.b = new o(this, this.f);
-        this.b.a(this.f1464a);
+        this.e.setOnClickListener(new h(this));
+        this.b = new p(this, this.f);
+        this.b.a(this.f1966a);
         this.c = (ListView) findViewById(R.id.list);
         this.c.setAdapter((ListAdapter) this.b);
-        this.c.setOnItemClickListener(new h(this));
+        this.c.setOnItemClickListener(new i(this));
     }
 }

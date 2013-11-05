@@ -1,40 +1,60 @@
 package com.baidu.tieba;
 
-import android.location.Location;
-import android.location.LocationListener;
+import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import com.baidu.tieba.data.CombineDownload;
+import com.baidu.tieba.data.VersionData;
+import com.baidu.tieba.util.UtilHelper;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class am implements LocationListener {
+public class am extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaApplication f939a;
+    public TextView f1067a;
+    public TextView b;
+    public Button c;
+    public Button d;
+    public CheckBox e;
+    private VersionData f;
+    private CombineDownload g;
+    private ap h;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(TiebaApplication tiebaApplication) {
-        this.f939a = tiebaApplication;
+    public am(Context context, int i) {
+        super(context, i);
+        this.g = null;
+        this.h = null;
     }
 
-    @Override // android.location.LocationListener
-    public void onLocationChanged(Location location) {
-        ao aoVar;
-        if (location != null) {
-            this.f939a.B = 0;
-            this.f939a.f859a = System.currentTimeMillis();
-            this.f939a.E = new ao(this.f939a, null);
-            aoVar = this.f939a.E;
-            aoVar.execute(location);
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.update_dialog);
+        this.f1067a = (TextView) findViewById(R.id.newvison);
+        this.b = (TextView) findViewById(R.id.desc);
+        this.d = (Button) findViewById(R.id.update_button);
+        this.c = (Button) findViewById(R.id.update_cancel);
+        this.e = (CheckBox) findViewById(R.id.other_app_checkbox);
+        this.f1067a.setText("新版本：" + this.f.getNew_version());
+        this.b.setText(this.f.getNew_version_desc());
+        this.e.setText(this.g.getAppName());
+        if (!UtilHelper.f(getContext(), this.g.getAppProc()) && !TextUtils.isEmpty(this.g.getAppUrl())) {
+            this.e.setChecked(true);
+        } else {
+            this.e.setChecked(false);
+            this.e.setVisibility(8);
         }
+        this.d.setOnClickListener(new an(this));
+        this.c.setOnClickListener(new ao(this));
     }
 
-    @Override // android.location.LocationListener
-    public void onProviderDisabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderEnabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onStatusChanged(String str, int i, Bundle bundle) {
+    public void a(VersionData versionData, CombineDownload combineDownload, ap apVar) {
+        this.f = versionData;
+        this.g = combineDownload;
+        this.h = apVar;
     }
 }

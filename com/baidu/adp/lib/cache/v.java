@@ -1,53 +1,57 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public class v<T> extends t<T> {
-    public v(String str, p<T> pVar) {
-        super(str, pVar);
+public class v<T> implements u<T> {
+
+    /* renamed from: a  reason: collision with root package name */
+    protected final r<T> f438a;
+    protected final String b;
+
+    public v(String str, r<T> rVar) {
+        this.b = str;
+        this.f438a = rVar;
     }
 
-    @Override // com.baidu.adp.lib.cache.t, com.baidu.adp.lib.cache.q
+    @Override // com.baidu.adp.lib.cache.s
     public T a(String str) {
-        try {
-            return (T) super.a(str);
-        } catch (Throwable th) {
-            if (com.baidu.adp.lib.f.d.a()) {
-                com.baidu.adp.lib.f.d.a(getClass(), "failed to get cache:" + str, th);
-            }
-            return null;
-        }
+        return this.f438a.c(this.b, str);
     }
 
-    @Override // com.baidu.adp.lib.cache.t, com.baidu.adp.lib.cache.q
-    public r<T> b(String str) {
-        try {
-            return super.b(str);
-        } catch (Throwable th) {
-            if (com.baidu.adp.lib.f.d.a()) {
-                com.baidu.adp.lib.f.d.a(getClass(), "failed to get cache:" + str, th);
-            }
-            return null;
-        }
+    @Override // com.baidu.adp.lib.cache.s
+    public t<T> b(String str) {
+        return this.f438a.d(this.b, str);
     }
 
-    @Override // com.baidu.adp.lib.cache.t, com.baidu.adp.lib.cache.q
+    @Override // com.baidu.adp.lib.cache.s
     public void a(String str, T t, long j) {
-        try {
-            super.a(str, t, j);
-        } catch (Throwable th) {
-            if (com.baidu.adp.lib.f.d.a()) {
-                com.baidu.adp.lib.f.d.a(getClass(), "failed to store cache key:" + str + ", value:" + t, th);
-            }
+        long currentTimeMillis = j <= 315532800000L ? j + System.currentTimeMillis() : j;
+        if (currentTimeMillis <= System.currentTimeMillis()) {
+            c(str);
+        } else {
+            this.f438a.a(this.b, str, t, currentTimeMillis);
         }
     }
 
-    @Override // com.baidu.adp.lib.cache.t, com.baidu.adp.lib.cache.q
+    @Override // com.baidu.adp.lib.cache.s
+    public void a(String str, T t) {
+        a(str, t, 315532800000L);
+    }
+
+    @Override // com.baidu.adp.lib.cache.s
     public void c(String str) {
-        try {
-            super.c(str);
-        } catch (Throwable th) {
-            if (com.baidu.adp.lib.f.d.a()) {
-                com.baidu.adp.lib.f.d.a(getClass(), "failed to remove cache:" + str, th);
-            }
-        }
+        this.f438a.e(this.b, str);
+    }
+
+    @Override // com.baidu.adp.lib.cache.s
+    public void b(String str, T t, long j) {
+        com.baidu.adp.lib.f.c.a().a(new w(this, str, t, j));
+    }
+
+    @Override // com.baidu.adp.lib.cache.u
+    public r<T> a() {
+        return this.f438a;
+    }
+
+    public void b() {
+        this.f438a.d(this.b);
     }
 }

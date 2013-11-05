@@ -1,8 +1,8 @@
 package com.baidu.tieba.voice.a;
 
 import com.baidu.tieba.switchs.SwitchKey;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.p;
+import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.w;
 import java.io.File;
 /* loaded from: classes.dex */
 public class e {
@@ -10,14 +10,14 @@ public class e {
         if (str == null) {
             return null;
         }
-        if (p.b(c(str))) {
-            return p.d() + File.separator + SwitchKey.VOICE + File.separator + str;
+        if (w.b(c(str))) {
+            return w.d() + File.separator + SwitchKey.VOICE + File.separator + str;
         }
         return null;
     }
 
     private static String c(String str) {
-        if (!p.a()) {
+        if (!w.a()) {
             return null;
         }
         return SwitchKey.VOICE + File.separator + str;
@@ -28,19 +28,19 @@ public class e {
         if (str == null) {
             dVar.c = 6;
             dVar.d = d.a(dVar.c);
-        } else if (!p.a(String.valueOf(p.d()) + SwitchKey.VOICE)) {
+        } else if (!w.a(w.d() + SwitchKey.VOICE)) {
             dVar.c = 7;
             dVar.d = d.a(dVar.c);
         } else {
-            String a2 = at.a(p.h(str));
+            String a2 = bc.a(w.i(str));
             if (a2 == null) {
                 dVar.c = 5;
                 dVar.d = d.a(dVar.c);
             } else {
-                String str2 = String.valueOf(p.d()) + c(a2);
-                if (p.f(str, str2)) {
+                String str2 = w.d() + c(a2);
+                if (w.f(str, str2)) {
                     dVar.b = str2;
-                    dVar.f2020a = a2;
+                    dVar.f2558a = a2;
                 } else {
                     dVar.c = 1;
                     dVar.d = d.a(dVar.c);
@@ -57,11 +57,11 @@ public class e {
         if (bArr == null || bArr.length == 0) {
             return 6;
         }
-        if (!p.a(String.valueOf(p.d()) + SwitchKey.VOICE)) {
+        if (!w.a(w.d() + SwitchKey.VOICE)) {
             return 7;
         }
-        if (p.a(c(str), bArr) == null) {
-            if (p.e() < bArr.length) {
+        if (w.a(c(str), bArr) == null) {
+            if (w.e() < bArr.length) {
                 return 2;
             }
             return 1;
@@ -70,12 +70,12 @@ public class e {
     }
 
     public static boolean a(String str, String str2) {
-        return p.f(str, String.valueOf(p.d()) + c(str2));
+        return w.f(str, w.d() + c(str2));
     }
 
     public static synchronized void a() {
         synchronized (e.class) {
-            File file = new File(String.valueOf(p.d()) + SwitchKey.VOICE);
+            File file = new File(w.d() + SwitchKey.VOICE);
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

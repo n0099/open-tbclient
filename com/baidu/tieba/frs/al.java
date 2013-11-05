@@ -1,28 +1,29 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tieba.frs.FrsImageActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
+class al implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1122a;
+    final /* synthetic */ FrsImageActivity f1255a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(FrsImageActivity frsImageActivity) {
-        this.f1122a = frsImageActivity;
+        this.f1255a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        FrsImageActivity.FooterType footerType;
-        int i;
-        footerType = this.f1122a.f;
-        if (footerType == FrsImageActivity.FooterType.NEXT) {
-            FrsImageActivity frsImageActivity = this.f1122a;
-            i = this.f1122a.j;
-            frsImageActivity.f(i + 240);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        ay ayVar;
+        try {
+            ayVar = this.f1255a.m;
+            View findViewWithTag = ayVar.a().a(2).findViewWithTag(str);
+            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
+                findViewWithTag.invalidate();
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "imageLoaded", e.getMessage());
         }
     }
 }

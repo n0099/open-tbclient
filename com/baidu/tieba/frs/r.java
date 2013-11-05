@@ -1,20 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class r implements DialogInterface.OnCancelListener {
+class r implements SlidingMenu.OnOpenedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1159a;
+    final /* synthetic */ FrsActivity f1294a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FrsActivity frsActivity) {
-        this.f1159a = frsActivity;
+        this.f1294a = frsActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.f1159a.B();
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        if (TiebaApplication.g().s()) {
+            StatService.onEvent(this.f1294a, "frs_total_more", "frsclick", 1);
+        }
     }
 }

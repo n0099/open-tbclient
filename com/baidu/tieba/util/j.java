@@ -2,11 +2,15 @@ package com.baidu.tieba.util;
 
 import android.widget.Toast;
 /* loaded from: classes.dex */
-class j implements Runnable {
+final class j implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         Toast toast;
-        toast = i.f1922a;
-        toast.cancel();
+        Toast toast2;
+        toast = i.f2452a;
+        if (toast != null) {
+            toast2 = i.f2452a;
+            toast2.cancel();
+        }
     }
 }

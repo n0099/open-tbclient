@@ -1,27 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class am implements View.OnClickListener {
+class am implements SlidingMenu.OnClosedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1123a;
+    final /* synthetic */ FrsImageActivity f1256a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(FrsImageActivity frsImageActivity) {
-        this.f1123a = frsImageActivity;
+        this.f1256a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        int i2;
-        i = this.f1123a.j;
-        if (i > 240) {
-            FrsImageActivity frsImageActivity = this.f1123a;
-            i2 = this.f1123a.j;
-            frsImageActivity.f(i2 - 240);
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        boolean z;
+        z = this.f1256a.q;
+        if (z) {
+            this.f1256a.q = false;
+            this.f1256a.s = null;
+            this.f1256a.f(1);
         }
     }
 }

@@ -4,12 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f704a = i.class.getSimpleName();
+    private static final String f783a = i.class.getSimpleName();
     private static volatile i c = null;
     private final h b;
     private boolean d = false;
@@ -71,27 +72,27 @@ public final class i {
             switch (i) {
                 case 0:
                     bVar = new o();
-                    bVar.a(cursor.getString(cursor.getColumnIndex("name")));
+                    bVar.a(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
                     bVar.b(cursor.getString(cursor.getColumnIndex("value")));
                     bVar.a(cursor.getInt(cursor.getColumnIndex("type")));
                     arrayList.add(bVar);
                     break;
                 case 1:
                     bVar = new n();
-                    bVar.a(cursor.getString(cursor.getColumnIndex("name")));
+                    bVar.a(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
                     bVar.b(cursor.getString(cursor.getColumnIndex("value")));
                     bVar.a(cursor.getInt(cursor.getColumnIndex("type")));
                     arrayList.add(bVar);
                     break;
                 case 2:
                     bVar = new a();
-                    bVar.a(cursor.getString(cursor.getColumnIndex("name")));
+                    bVar.a(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
                     bVar.b(cursor.getString(cursor.getColumnIndex("value")));
                     bVar.a(cursor.getInt(cursor.getColumnIndex("type")));
                     arrayList.add(bVar);
                     break;
                 default:
-                    bVar.a(cursor.getString(cursor.getColumnIndex("name")));
+                    bVar.a(cursor.getString(cursor.getColumnIndex(SocialConstants.PARAM_MEDIA_UNAME)));
                     bVar.b(cursor.getString(cursor.getColumnIndex("value")));
                     bVar.a(cursor.getInt(cursor.getColumnIndex("type")));
                     arrayList.add(bVar);

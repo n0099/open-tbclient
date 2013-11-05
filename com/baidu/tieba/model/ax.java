@@ -1,97 +1,97 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.data.MarkData;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends BdAsyncTask<Boolean, Integer, Boolean> {
+public class ax extends BdAsyncTask<Object, Integer, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aw f1410a;
-    private com.baidu.tieba.util.z b = null;
-    private boolean c;
-    private com.baidu.tieba.data.bg d;
+    final /* synthetic */ au f1907a;
+    private int b;
+    private com.baidu.tieba.util.ag c = null;
 
-    public ax(aw awVar, boolean z) {
-        this.f1410a = awVar;
-        this.c = true;
-        this.d = null;
-        this.c = z;
-        this.d = new com.baidu.tieba.data.bg();
+    public ax(au auVar, int i) {
+        this.f1907a = auVar;
+        this.b = 0;
+        this.b = i;
+        if (this.b < 0) {
+            this.b = 0;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public JSONObject a(Object... objArr) {
+        String str;
+        try {
+            this.c = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/f/frs/photo");
+            StringBuilder sb = new StringBuilder();
+            int size = this.f1907a.c().size();
+            for (int i = this.b; i < size && i < this.b + 30; i++) {
+                sb.append(this.f1907a.c().get(i));
+                sb.append(",");
+            }
+            int length = sb.length();
+            if (length > 1 && sb.charAt(length - 1) == ',') {
+                sb.deleteCharAt(length - 1);
+            }
+            this.c.a("alb_ids", sb.toString());
+            com.baidu.tieba.util.ag agVar = this.c;
+            str = this.f1907a.j;
+            agVar.a("kw", str);
+            return new JSONObject(this.c.j());
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            return null;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(JSONObject jSONObject) {
+        com.baidu.tieba.frs.ax axVar;
+        com.baidu.tieba.frs.ax axVar2;
+        super.a((ax) jSONObject);
+        this.f1907a.l = null;
+        axVar = this.f1907a.n;
+        if (axVar != null) {
+            aw awVar = new aw(this.f1907a);
+            if (this.c != null) {
+                awVar.f1906a = true;
+                awVar.b = this.c.d();
+                awVar.c = this.c.e();
+                awVar.d = this.c.g();
+                awVar.e = this.c.b();
+            }
+            axVar2 = this.f1907a.n;
+            axVar2.a(this.b, jSONObject, awVar);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(Boolean... boolArr) {
-        MarkData markData;
-        MarkData markData2;
-        MarkData markData3;
-        if (this.c) {
-            this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/post/addstore");
-            h hVar = new h();
-            markData3 = this.f1410a.b;
-            hVar.a(markData3);
-            this.b.a("data", hVar.a(0, 1));
-        } else {
-            this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/post/rmstore");
-            com.baidu.tieba.util.z zVar = this.b;
-            markData = this.f1410a.b;
-            zVar.a(PushConstants.EXTRA_USER_ID, markData.getAccount());
-            com.baidu.tieba.util.z zVar2 = this.b;
-            markData2 = this.f1410a.b;
-            zVar2.a("tid", markData2.getId());
+        com.baidu.tieba.frs.ax axVar;
+        com.baidu.tieba.frs.ax axVar2;
+        super.b();
+        axVar = this.f1907a.n;
+        if (axVar != null) {
+            axVar2 = this.f1907a.n;
+            axVar2.a(0);
         }
-        this.d.a(this.b.j());
-        boolean z = this.d.a() == 0;
-        if (this.b.c() && z) {
-            return true;
-        }
-        return false;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        if (this.b != null) {
-            this.b.h();
+        if (this.c != null) {
+            this.c.h();
+            this.c = null;
         }
-        this.f1410a.c = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        ay ayVar;
-        ay ayVar2;
-        ay ayVar3;
-        ay ayVar4;
-        ay ayVar5;
-        if (bool.booleanValue()) {
-            ayVar4 = this.f1410a.d;
-            if (ayVar4 != null) {
-                ayVar5 = this.f1410a.d;
-                ayVar5.a(true, this.c, null);
-            }
-        } else {
-            ayVar = this.f1410a.d;
-            if (ayVar != null) {
-                if (this.b == null || this.b.c()) {
-                    ayVar2 = this.f1410a.d;
-                    ayVar2.a(false, this.c, this.d.b());
-                } else {
-                    ayVar3 = this.f1410a.d;
-                    ayVar3.a(false, this.c, this.b.g());
-                }
-            }
-        }
-        this.f1410a.c = null;
+        this.f1907a.l = null;
     }
 }

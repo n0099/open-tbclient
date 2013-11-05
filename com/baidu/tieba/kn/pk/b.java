@@ -1,20 +1,21 @@
 package com.baidu.tieba.kn.pk;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.at;
-import com.baidu.tieba.util.av;
-import com.baidu.tieba.util.z;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Object, Integer, s> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PKEndActivity f1274a;
-    private z b = null;
+    final /* synthetic */ PKEndActivity f1769a;
+    private ag b = null;
 
     public b(PKEndActivity pKEndActivity) {
-        this.f1274a = pKEndActivity;
+        this.f1769a = pKEndActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,23 +26,23 @@ public class b extends BdAsyncTask<Object, Integer, s> {
         String str;
         s sVar = new s();
         try {
-            this.b = new z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/s/uo/pkdetail");
-            z zVar = this.b;
-            str = this.f1274a.c;
-            zVar.a("pk_id", str);
-            this.b.a("rn", "1");
+            this.b = new ag(com.baidu.tieba.data.h.f1165a + "c/s/uo/pkdetail");
+            ag agVar = this.b;
+            str = this.f1769a.c;
+            agVar.a("pk_id", str);
+            this.b.a("rn", SocialConstants.TRUE);
             String j = this.b.j();
             if (this.b.c()) {
                 sVar.b(j);
-                if (!sVar.b() && at.c(sVar.f1291a)) {
-                    sVar.a(this.f1274a.getString(R.string.kn_data_corrupted));
+                if (!sVar.b() && bc.c(sVar.f1786a)) {
+                    sVar.a(this.f1769a.getString(R.string.kn_data_corrupted));
                 }
             } else {
                 sVar.a(this.b.g());
             }
         } catch (Exception e) {
             sVar.a(e.getMessage());
-            av.b(getClass().getName(), "doInBackground", e.getMessage());
+            be.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return sVar;
     }
@@ -50,7 +51,7 @@ public class b extends BdAsyncTask<Object, Integer, s> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(s sVar) {
-        this.f1274a.a(sVar);
+        this.f1769a.a(sVar);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -60,6 +61,6 @@ public class b extends BdAsyncTask<Object, Integer, s> {
             this.b.h();
             this.b = null;
         }
-        this.f1274a.d();
+        this.f1769a.d();
     }
 }

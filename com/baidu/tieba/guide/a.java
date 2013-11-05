@@ -9,7 +9,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class a extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.guide.a.a f1171a;
+    private com.baidu.tieba.guide.a.a f1306a;
     private int b;
     private int c;
 
@@ -31,25 +31,25 @@ public class a extends View {
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (z || this.f1171a == null) {
-            this.f1171a = new com.baidu.tieba.guide.a.a(getContext(), this.c, this.b);
-            this.f1171a.setBounds(0, 0, getMeasuredWidth() * 3, getMeasuredHeight() + (this.b * 2));
+        if (z || this.f1306a == null) {
+            this.f1306a = new com.baidu.tieba.guide.a.a(getContext(), this.c, this.b);
+            this.f1306a.setBounds(0, 0, getMeasuredWidth() * 3, getMeasuredHeight() + (this.b * 2));
         }
     }
 
     public void a(int i, float f, int i2) {
-        this.f1171a.a(i, f, i2);
+        this.f1306a.a(i, f, i2);
         invalidate();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.f1171a.draw(canvas);
+        this.f1306a.draw(canvas);
     }
 
     public void a() {
-        if (this.f1171a != null) {
-            this.f1171a.c();
+        if (this.f1306a != null) {
+            this.f1306a.c();
         }
     }
 }

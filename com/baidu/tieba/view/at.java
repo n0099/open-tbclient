@@ -6,11 +6,11 @@ import android.view.View;
 public class at implements o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f1981a;
+    final /* synthetic */ MultiImageView f2514a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(MultiImageView multiImageView) {
-        this.f1981a = multiImageView;
+        this.f2514a = multiImageView;
     }
 
     @Override // com.baidu.tieba.view.o
@@ -19,17 +19,17 @@ public class at implements o {
         boolean z;
         GalleryViewPager galleryViewPager2;
         GalleryViewPager galleryViewPager3;
-        galleryViewPager = this.f1981a.e;
+        galleryViewPager = this.f2514a.e;
         if (kVar == galleryViewPager.getCurrentView()) {
-            z = this.f1981a.l;
+            z = this.f2514a.l;
             if (z) {
-                galleryViewPager2 = this.f1981a.e;
+                galleryViewPager2 = this.f2514a.e;
                 int childCount = galleryViewPager2.getChildCount();
                 for (int i = 0; i < childCount; i++) {
-                    galleryViewPager3 = this.f1981a.e;
+                    galleryViewPager3 = this.f2514a.e;
                     View childAt = galleryViewPager3.getChildAt(i);
-                    if (childAt != null && (childAt instanceof bh) && ((bh) childAt).getImageView() != kVar) {
-                        ((bh) childAt).d();
+                    if (childAt != null && (childAt instanceof bk) && ((bk) childAt).getImageView() != kVar) {
+                        ((bk) childAt).d();
                     }
                 }
             }

@@ -9,11 +9,11 @@ import java.util.Iterator;
 public final class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f708a = c();
+    public static final String f787a = c();
     private static m e = null;
-    public static final String b = f708a + "/xcloudboss?r=config/distribute";
+    public static final String b = f787a + "/xcloudboss?r=config/distribute";
     private HashMap d = new HashMap();
-    public String c = f708a + "/xcloudboss?r=log/upload";
+    public String c = f787a + "/xcloudboss?r=log/upload";
 
     private m(Context context) {
         b(context);

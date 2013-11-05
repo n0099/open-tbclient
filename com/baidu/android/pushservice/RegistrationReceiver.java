@@ -38,7 +38,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
         Intent intent = new Intent();
         intent.setAction(PushConstants.ACTION_METHOD);
         intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
-        intent.putExtra("package_name", dVar.f612a);
+        intent.putExtra("package_name", dVar.f691a);
         intent.putExtra(PushConstants.EXTRA_APP_ID, dVar.b);
         intent.putExtra(PushConstants.EXTRA_USER_ID, dVar.c);
         b.a(context, intent);
@@ -58,7 +58,7 @@ public class RegistrationReceiver extends BroadcastReceiver {
         boolean booleanExtra = intent.getBooleanExtra("android.intent.extra.REPLACING", false);
         Log.i("RegistrationReceiver", "start for ACTION_PACKAGE_REMOVED，replacing：" + booleanExtra + " ,packageName: " + schemeSpecificPart);
         d a2 = a.a(context).a(schemeSpecificPart);
-        if (booleanExtra || a2 == null || context.getPackageName().equals(a2.f612a)) {
+        if (booleanExtra || a2 == null || context.getPackageName().equals(a2.f691a)) {
             Log.i("RegistrationReceiver", "replacing or not registered push client : " + schemeSpecificPart);
             b.a(context, intent);
             return;

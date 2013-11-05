@@ -1,25 +1,36 @@
 package com.baidu.tieba.frs;
 
-import com.slidingmenu.lib.SlidingMenu;
+import com.baidu.tieba.view.br;
 /* loaded from: classes.dex */
-class av implements SlidingMenu.OnClosedListener {
+class av implements br {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1132a;
+    final /* synthetic */ FrsImageActivity f1265a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(FrsImageActivity frsImageActivity) {
-        this.f1132a = frsImageActivity;
+        this.f1265a = frsImageActivity;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
-    public void onClosed() {
-        boolean z;
-        z = this.f1132a.q;
-        if (z) {
-            this.f1132a.q = false;
-            this.f1132a.s = null;
-            this.f1132a.f(1);
-        }
+    @Override // com.baidu.tieba.view.br
+    public void a() {
+        int i;
+        FrsImageActivity frsImageActivity = this.f1265a;
+        i = this.f1265a.g;
+        frsImageActivity.g(i);
+    }
+
+    @Override // com.baidu.tieba.view.br
+    public void b() {
+        this.f1265a.e();
+    }
+
+    @Override // com.baidu.tieba.view.br
+    public void c() {
+    }
+
+    @Override // com.baidu.tieba.view.br
+    public void d() {
+        this.f1265a.e();
     }
 }

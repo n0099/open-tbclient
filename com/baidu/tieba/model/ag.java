@@ -1,147 +1,80 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag extends BdAsyncTask<Object, ac, JSONObject> {
+public class ag extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1394a;
-    af b;
-    final /* synthetic */ ac c;
-    private com.baidu.tieba.util.z d = null;
+    final /* synthetic */ ad f1891a;
+    private com.baidu.tieba.util.ag b = null;
+    private String c;
+    private String d;
     private String e;
     private String f;
-    private int g;
+    private String g;
 
-    public ag(ac acVar, String str, ArrayList<BasicNameValuePair> arrayList, int i, String str2) {
-        this.c = acVar;
-        this.e = null;
-        this.f = null;
-        this.g = 3;
-        this.f1394a = null;
-        this.b = new af(acVar);
-        this.e = str;
-        this.f = str2;
-        this.f1394a = arrayList;
-        this.g = i;
-        setSelfExecute(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        com.baidu.tieba.frs.ad adVar;
-        com.baidu.tieba.frs.ad adVar2;
-        adVar = this.c.g;
-        if (adVar != null) {
-            adVar2 = this.c.g;
-            adVar2.a(this.g);
-        }
+    public ag(ad adVar, String str, String str2, String str3, String str4, String str5) {
+        this.f1891a = adVar;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
+        this.g = str5;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public JSONObject a(Object... objArr) {
-        JSONObject jSONObject;
-        Exception e;
-        boolean z;
-        String j;
-        boolean z2;
-        com.baidu.tieba.data.v vVar;
-        com.baidu.tieba.data.v vVar2;
-        try {
-            z = this.c.l;
-            if (z && r.a().a(this.f)) {
-                c((Object[]) new ac[]{r.a().b()});
-            }
-            this.d = new com.baidu.tieba.util.z(this.e);
-            this.d.a(this.f1394a);
-            j = this.d.j();
-            jSONObject = new JSONObject(j);
-        } catch (Exception e2) {
-            jSONObject = null;
-            e = e2;
+    public String a(String... strArr) {
+        this.b = new com.baidu.tieba.util.ag(strArr[0]);
+        this.b.a("day", this.g);
+        this.b.a("un", this.f);
+        this.b.a("fid", this.c);
+        this.b.a("word", this.d);
+        this.b.a("z", this.e);
+        this.b.a("ntn", "banid");
+        this.b.e(true);
+        this.b.j();
+        if (this.b.c()) {
+            return null;
         }
-        try {
-            if (this.d.c()) {
-                this.c.a(j);
-                z2 = this.c.l;
-                if (z2) {
-                    vVar = this.c.f1390a;
-                    if (vVar != null) {
-                        r a2 = r.a();
-                        vVar2 = this.c.f1390a;
-                        a2.a(vVar2.b(), j);
-                    }
-                }
-            }
-        } catch (Exception e3) {
-            e = e3;
-            com.baidu.tieba.util.av.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
-            return jSONObject;
-        }
-        return jSONObject;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: a */
-    public void b(ac... acVarArr) {
-        com.baidu.tieba.frs.ad adVar;
-        com.baidu.tieba.frs.ad adVar2;
-        adVar = this.c.g;
-        if (adVar != null) {
-            adVar2 = this.c.g;
-            adVar2.a(acVarArr.length > 0 ? acVarArr[0] : null);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.ad adVar;
-        com.baidu.tieba.frs.ad adVar2;
-        if (this.d != null) {
-            this.b.f1393a = true;
-            this.b.b = this.d.d();
-            this.b.c = this.d.e();
-            this.b.d = this.d.g();
-            this.b.e = this.d.b();
-        }
-        adVar = this.c.g;
-        if (adVar != null) {
-            adVar2 = this.c.g;
-            adVar2.a(this.g, jSONObject, this.b);
-        }
-        this.c.j = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
+        return this.b.g();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.tieba.frs.ad adVar;
-        com.baidu.tieba.frs.ad adVar2;
+        com.baidu.adp.a.g gVar;
+        if (this.b != null) {
+            this.b.h();
+        }
+        this.f1891a.b = null;
         super.cancel(true);
-        if (this.d != null) {
-            this.d.h();
+        gVar = this.f1891a.mLoadDataCallBack;
+        gVar.a(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((ag) str);
+        this.f1891a.b = null;
+        if (this.b == null) {
+            gVar2 = this.f1891a.mLoadDataCallBack;
+            gVar2.a(null);
+            return;
         }
-        adVar = this.c.g;
-        if (adVar != null) {
-            adVar2 = this.c.g;
-            adVar2.a(this.g, null, null);
+        ah ahVar = new ah(this.f1891a);
+        if (str == null) {
+            ahVar.f1892a = true;
+        } else {
+            ahVar.f1892a = false;
+            ahVar.b = str;
         }
+        gVar = this.f1891a.mLoadDataCallBack;
+        gVar.a(ahVar);
     }
 }

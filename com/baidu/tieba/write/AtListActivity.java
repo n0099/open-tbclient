@@ -21,8 +21,8 @@ import java.util.ArrayList;
 public class AtListActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<MetaData> f2062a = new ArrayList<>();
-    private com.baidu.tieba.ae r;
+    public static ArrayList<MetaData> f2606a = new ArrayList<>();
+    private com.baidu.tieba.ah r;
     private LinearLayout s;
     private LinearLayout t;
     private ImageView u;
@@ -33,7 +33,7 @@ public class AtListActivity extends com.baidu.tieba.j {
     private Handler f = new Handler();
     private i g = null;
     private j j = null;
-    private com.baidu.tieba.model.c k = null;
+    private com.baidu.tieba.model.d k = null;
     private k l = null;
     private String m = null;
     private ProgressBar n = null;
@@ -63,7 +63,7 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.at_list_activity);
-        this.r = new com.baidu.tieba.ae(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
+        this.r = new com.baidu.tieba.ah(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
         a(bundle);
         b();
         c((String) null);
@@ -74,14 +74,14 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void a(int i) {
         super.a(i);
         this.r.a(i);
-        com.baidu.tieba.util.as.a(this.o, i);
-        com.baidu.tieba.util.as.d(this.p, i);
-        com.baidu.tieba.util.as.f(this.q, i);
-        com.baidu.tieba.util.as.a(this.d, i);
+        com.baidu.tieba.util.bb.a(this.o, i);
+        com.baidu.tieba.util.bb.d(this.p, i);
+        com.baidu.tieba.util.bb.f(this.q, i);
+        com.baidu.tieba.util.bb.a(this.d, i);
         this.l.notifyDataSetChanged();
         if (i == 1) {
             this.e.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            com.baidu.tieba.util.as.e(this.s, (int) R.drawable.inputbox_topbg_1);
+            com.baidu.tieba.util.bb.e(this.s, (int) R.drawable.inputbox_topbg_1);
             this.t.setBackgroundResource(R.drawable.inputbox_top_1);
             this.u.setImageResource(R.drawable.icon_head_bar_search_1);
             this.b.setTextColor(-11446171);
@@ -90,7 +90,7 @@ public class AtListActivity extends com.baidu.tieba.j {
             return;
         }
         this.e.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        com.baidu.tieba.util.as.e(this.s, (int) R.drawable.tabbar_bj_tab);
+        com.baidu.tieba.util.bb.e(this.s, (int) R.drawable.tabbar_bj_tab);
         this.t.setBackgroundResource(R.drawable.inputbox_top);
         this.u.setImageResource(R.drawable.icon_head_bar_search);
         this.b.setTextColor(-5921112);
@@ -202,6 +202,6 @@ public class AtListActivity extends com.baidu.tieba.j {
     }
 
     private void a(Bundle bundle) {
-        this.k = new com.baidu.tieba.model.c();
+        this.k = new com.baidu.tieba.model.d();
     }
 }

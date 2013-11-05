@@ -1,24 +1,26 @@
 package com.baidu.tieba.more;
 
-import android.app.TimePickerDialog;
-import android.widget.TimePicker;
+import android.view.View;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class ap implements TimePickerDialog.OnTimeSetListener {
+class ap implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignRemindActivity f1486a;
-    private final /* synthetic */ TiebaApplication b;
+    final /* synthetic */ SignRemindActivity f1991a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(SignRemindActivity signRemindActivity, TiebaApplication tiebaApplication) {
-        this.f1486a = signRemindActivity;
-        this.b = tiebaApplication;
+    public ap(SignRemindActivity signRemindActivity) {
+        this.f1991a = signRemindActivity;
     }
 
-    @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
-        this.b.a(i, i2);
-        this.f1486a.d();
+    @Override // com.baidu.adp.widget.BdSwitchView.c
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        if (switchState == BdSwitchView.SwitchState.ON) {
+            TiebaApplication.g().r(true);
+        } else {
+            TiebaApplication.g().r(false);
+        }
+        this.f1991a.d();
     }
 }

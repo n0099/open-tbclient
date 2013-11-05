@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.FileUtils;
 import android.util.Log;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.zeus.WebView;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.io.File;
@@ -585,7 +586,7 @@ public final class CacheManager {
                 stringBuffer.append("00");
                 break;
             case 7:
-                stringBuffer.append("0");
+                stringBuffer.append(SocialConstants.FALSE);
                 break;
         }
         stringBuffer.append(hexString);
@@ -606,7 +607,7 @@ public final class CacheManager {
                     try {
                         cacheResult.expires = AndroidHttpClient.parseDate(cacheResult.expiresString);
                     } catch (IllegalArgumentException e) {
-                        if ("-1".equals(cacheResult.expiresString) || "0".equals(cacheResult.expiresString)) {
+                        if ("-1".equals(cacheResult.expiresString) || SocialConstants.FALSE.equals(cacheResult.expiresString)) {
                             cacheResult.expires = 0L;
                         } else {
                             Log.e(LOGTAG, "illegal expires: " + cacheResult.expiresString);

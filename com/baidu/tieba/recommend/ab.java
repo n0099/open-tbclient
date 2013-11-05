@@ -6,17 +6,17 @@ import android.view.View;
 public class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ z f1748a;
+    final /* synthetic */ z f2268a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(z zVar) {
-        this.f1748a = zVar;
+        this.f2268a = zVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         DailyRecommendActivity dailyRecommendActivity;
-        dailyRecommendActivity = this.f1748a.b;
+        dailyRecommendActivity = this.f2268a.f2294a;
         dailyRecommendActivity.finish();
     }
 }

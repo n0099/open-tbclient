@@ -1,34 +1,30 @@
 package com.baidu.tieba.person;
 
-import android.os.Handler;
-import android.widget.AbsListView;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp implements AbsListView.OnScrollListener {
+public class bp implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f1685a;
+    final /* synthetic */ PersonListActivity f2204a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(PersonListActivity personListActivity) {
-        this.f1685a = personListActivity;
+        this.f2204a = personListActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.f1685a.f;
-        runnable = this.f1685a.o;
-        handler.removeCallbacks(runnable);
-        handler2 = this.f1685a.f;
-        runnable2 = this.f1685a.o;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f2204a.f2162a = ((Integer) view.getTag()).intValue();
+        String C = TiebaApplication.C();
+        if (C != null && C.length() > 0) {
+            this.f2204a.d();
+        } else {
+            LoginActivity.a((Activity) this.f2204a, this.f2204a.getString(R.string.login_to_chat), true, 11028);
+        }
     }
 }

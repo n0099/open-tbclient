@@ -11,7 +11,7 @@ class WeekPickerDialog extends DatePickerDialog {
 
     public WeekPickerDialog(Context context, int i, String str, String str2, JsPromptResult jsPromptResult) {
         super(context, i, str, str2, jsPromptResult);
-        setTitle(PickerHelper.getStringById(WebChromeClient.STRING_DLG_TITLE_WEEK, "Set Week"));
+        setTitle(PickerHelper.getStringById(102, "Set Week"));
     }
 
     @Override // com.baidu.zeus.DatePickerDialog, android.content.DialogInterface.OnClickListener

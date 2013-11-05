@@ -68,6 +68,8 @@ import android.widget.ZoomButtonsController;
 import android.widget.ZoomControls;
 import com.baidu.browser.core.util.BdUtil;
 import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.cloudsdk.common.imgloader.ImageManager;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClientOption;
@@ -126,6 +128,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     static final int HIDE_FULLSCREEN = 121;
     private static final int HIGHLIGHT_COLOR = 1714664933;
     static final int IMMEDIATE_REPAINT_MSG_ID = 123;
+    static final int INVAL_RECT_MSG_ID = 117;
     private static final int LAST_PACKAGE_MSG_ID = 129;
     private static final int LAST_PRIVATE_MSG_ID = 10;
     static final String LOGTAG = "webviewJava";
@@ -554,8 +557,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private static int SUBJECT_WIDTH_ADJUST = TEMP_SUBJECT_WIDTH_ADJUST;
     private static boolean notifyCient = true;
     private static int mSubjectClickDrawableId = 0;
-    static final int INVAL_RECT_MSG_ID = 117;
-    private static final int SUBJECT_RING_COLOR = Color.argb((int) INVAL_RECT_MSG_ID, 182, 198, 216);
+    private static final int SUBJECT_RING_COLOR = Color.argb(117, 182, 198, 216);
     private static final int SUBJECT_RING_COLOR_CLICK_DAY = Color.argb((int) Util.MASK_8BIT, 182, 198, 216);
     private static final int SUBJECT_RING_COLOR_CLICK_NIGHT = Color.argb(176, 182, 198, 216);
     private static final int SUBJECT_SHADOW_COLOR_NORMAL = Color.argb((int) Util.MASK_8BIT, (int) Util.MASK_8BIT, 202, 0);
@@ -1845,7 +1847,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     public void setNetworkAvailable(boolean z) {
-        this.mWebViewCore.sendMessage(DO_MOTION_UP, z ? 1 : 0, 0);
+        this.mWebViewCore.sendMessage(119, z ? 1 : 0, 0);
     }
 
     public void setNetworkType(String str, String str2) {
@@ -2120,7 +2122,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         stopProgressTimer();
         switchOutDrawHistory();
         if (this.mWebViewCore != null) {
-            this.mWebViewCore.sendMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME);
+            this.mWebViewCore.sendMessage(101);
         }
     }
 
@@ -2179,7 +2181,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     private void goBackOrForward(int i, boolean z) {
         if (i != 0) {
             clearHelpers();
-            this.mWebViewCore.sendMessage(UPDATE_TEXT_ENTRY_MSG_ID, i, z ? 1 : 0);
+            this.mWebViewCore.sendMessage(106, i, z ? 1 : 0);
         }
     }
 
@@ -2422,7 +2424,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
     private void domChangedFocus() {
         if (inEditingMode()) {
-            this.mPrivateHandler.obtainMessage(DOM_FOCUS_CHANGED).sendToTarget();
+            this.mPrivateHandler.obtainMessage(122).sendToTarget();
         }
     }
 
@@ -2436,7 +2438,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         if (this.mNativeClass != 0) {
             String nativeImageURI = nativeImageURI(viewToContentX(((int) this.mLastTouchX) + this.mScrollX), viewToContentY(((int) this.mLastTouchY) + this.mScrollY));
             Bundle data = message.getData();
-            data.putString("url", nativeImageURI);
+            data.putString(SocialConstants.PARAM_URL, nativeImageURI);
             message.setData(data);
             message.sendToTarget();
         }
@@ -2647,12 +2649,12 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         if (this.mWebViewCore != null) {
             calcOurContentVisibleRect(rect);
             if (!rect.equals(this.mLastVisibleRectSent)) {
-                this.mWebViewCore.sendMessage(WEBCORE_INITIALIZED_MSG_ID, nativeMoveGeneration(), 0, new Point(rect.left, rect.top));
+                this.mWebViewCore.sendMessage(107, nativeMoveGeneration(), 0, new Point(rect.left, rect.top));
                 this.mLastVisibleRectSent = rect;
             }
             Rect rect2 = new Rect();
             if (getGlobalVisibleRect(rect2) && !rect2.equals(this.mLastGlobalRect)) {
-                this.mWebViewCore.sendMessage(WEBCORE_NEED_TOUCH_EVENTS, rect2);
+                this.mWebViewCore.sendMessage(116, rect2);
                 this.mLastGlobalRect = rect2;
                 return rect;
             }
@@ -2852,7 +2854,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     public void resumeTimers() {
-        this.mWebViewCore.sendMessage(MOVE_OUT_OF_PLUGIN);
+        this.mWebViewCore.sendMessage(110);
     }
 
     public void PauseMedia(int i) {
@@ -2886,7 +2888,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     }
 
     public void clearCache(boolean z) {
-        this.mWebViewCore.sendMessage(CLEAR_TEXT_ENTRY, z ? 1 : 0, 0);
+        this.mWebViewCore.sendMessage(111, z ? 1 : 0, 0);
     }
 
     public void clearFormData() {
@@ -2897,11 +2899,11 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
     public void clearHistory() {
         this.mCallbackProxy.getBackForwardList().setClearPending();
-        this.mWebViewCore.sendMessage(UPDATE_TEXT_SELECTION_MSG_ID);
+        this.mWebViewCore.sendMessage(112);
     }
 
     public void clearSslPreferences() {
-        this.mWebViewCore.sendMessage(WebChromeClient.STRING_DLG_BTN_SET);
+        this.mWebViewCore.sendMessage(150);
     }
 
     public WebBackForwardList copyBackForwardList() {
@@ -2972,7 +2974,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
     public void documentHasImages(Message message) {
         if (message != null) {
-            this.mWebViewCore.sendMessage(SHOW_FULLSCREEN, message);
+            this.mWebViewCore.sendMessage(120, message);
         }
     }
 
@@ -4414,7 +4416,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
     /* JADX INFO: Access modifiers changed from: package-private */
     public void deleteSelection(int i, int i2) {
         this.mTextGeneration++;
-        this.mWebViewCore.sendMessage(DOM_FOCUS_CHANGED, this.mTextGeneration, 0, new WebViewCore.TextSelectionData(i, i2));
+        this.mWebViewCore.sendMessage(122, this.mTextGeneration, 0, new WebViewCore.TextSelectionData(i, i2));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -4810,7 +4812,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 if (!isOwnEditOn()) {
                     return true;
                 }
-                this.mWebViewCore.sendMessage(REQUEST_KEYBOARD, nativeCursorFramePointer(), nativeCursorNodePointer());
+                this.mWebViewCore.sendMessage(118, nativeCursorFramePointer(), nativeCursorNodePointer());
                 rebuildWebTextView();
                 if (inEditingMode()) {
                     this.mWebTextView.setDefaultSelection();
@@ -4893,7 +4895,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 clearTextEntry(true);
                 nativeSetFollowedLink(true);
                 if (!this.mCallbackProxy.uiOverrideUrlLoading(nativeCursorText())) {
-                    this.mWebViewCore.sendMessage(REQUEST_KEYBOARD, cursorData.mFrame, nativeCursorNodePointer());
+                    this.mWebViewCore.sendMessage(118, cursorData.mFrame, nativeCursorNodePointer());
                 }
                 return true;
             } else {
@@ -5910,7 +5912,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                                         WebViewCore.TouchEventData touchEventData3 = new WebViewCore.TouchEventData();
                                         touchEventData3.mIds = new int[1];
                                         touchEventData3.mIds[0] = motionEvent.getPointerId(0);
-                                        touchEventData3.mAction = 512;
+                                        touchEventData3.mAction = ImageManager.DEFAULT_MAX_CACHEABLE_SIZE;
                                         touchEventData3.mX = viewToContentX;
                                         touchEventData3.mY = viewToContentY;
                                         touchEventData3.mViewX = viewWidth;
@@ -6827,7 +6829,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void centerKeyPressOnTextField() {
-        this.mWebViewCore.sendMessage(REQUEST_KEYBOARD, nativeCursorFramePointer(), nativeCursorNodePointer());
+        this.mWebViewCore.sendMessage(118, nativeCursorFramePointer(), nativeCursorNodePointer());
     }
 
     public boolean isLoading() {
@@ -7265,7 +7267,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
         jSKeyData.mEvent = keyEvent;
         jSKeyData.mCurrentText = str;
         this.mTextGeneration++;
-        this.mWebViewCore.sendMessage(PREVENT_TOUCH_ID, this.mTextGeneration, 0, jSKeyData);
+        this.mWebViewCore.sendMessage(115, this.mTextGeneration, 0, jSKeyData);
         this.mWebViewCore.removeMessages(128);
         this.mWebViewCore.sendMessageDelayed(128, cursorData(), 1000L);
     }
@@ -7616,7 +7618,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                         }
                         WebView.this.mDeferTouchMode = 7;
                         return;
-                    case 512:
+                    case ImageManager.DEFAULT_MAX_CACHEABLE_SIZE /* 512 */:
                         WebView.this.mLastDeferTouchX = touchEventData.mViewX;
                         WebView.this.mLastDeferTouchY = touchEventData.mViewY;
                         WebView.this.mDeferTouchMode = 7;
@@ -7927,7 +7929,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                     default:
                         super.handleMessage(message);
                         return;
-                    case WebChromeClient.STRING_DLG_TITLE_DATETIME /* 101 */:
+                    case 101:
                         if (!WebView.this.setContentScrollTo(message.arg1, message.arg2)) {
                             WebView.this.mUserScroll = false;
                             WebView.this.mWebViewCore.sendMessage(WebView.FOCUSED_INPUT_BOUNDS_CHANGED, message.arg1, message.arg2);
@@ -8025,7 +8027,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                             return;
                         }
                         return;
-                    case WebView.UPDATE_TEXT_ENTRY_MSG_ID /* 106 */:
+                    case 106:
                         WebView.this.selectionDone();
                         if (WebView.this.inEditingMode() && WebView.this.nativeCursorIsTextInput()) {
                             WebView.this.mWebTextView.bringIntoView();
@@ -8033,7 +8035,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                             return;
                         }
                         return;
-                    case WebView.WEBCORE_INITIALIZED_MSG_ID /* 107 */:
+                    case 107:
                         WebView.this.nativeCreate(message.arg1);
                         WebView.this.setNativeBigPluginView();
                         return;
@@ -8058,13 +8060,13 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                         WebViewCore.RestoreState restoreState2 = (WebViewCore.RestoreState) message.obj;
                         WebView.this.updateZoomRange(restoreState2, WebView.this.getViewWidth(), restoreState2.mScrollX, false);
                         return;
-                    case WebView.MOVE_OUT_OF_PLUGIN /* 110 */:
+                    case 110:
                         WebView.this.navHandledKey(message.arg1, 1, false, 0L);
                         return;
-                    case WebView.CLEAR_TEXT_ENTRY /* 111 */:
+                    case 111:
                         WebView.this.clearTextEntry(false);
                         return;
-                    case WebView.UPDATE_TEXT_SELECTION_MSG_ID /* 112 */:
+                    case 112:
                         WebView.this.rebuildWebTextView();
                         WebView.this.updateTextSelectionFromMessage(message.arg1, message.arg2, (WebViewCore.TextSelectionData) message.obj);
                         return;
@@ -8091,7 +8093,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                         WebView.this.mTrackballDown = false;
                         WebView.this.performLongClick();
                         return;
-                    case WebView.PREVENT_TOUCH_ID /* 115 */:
+                    case 115:
                         if (!WebView.this.inFullScreenMode()) {
                             if (message.obj == null) {
                                 if (message.arg1 == 0 && WebView.this.mPreventDefault == 1) {
@@ -8146,7 +8148,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                                         }
                                         WebView.this.mDeferTouchMode = 7;
                                         return;
-                                    case 512:
+                                    case ImageManager.DEFAULT_MAX_CACHEABLE_SIZE /* 512 */:
                                         WebView.this.mLastTouchX = touchEventData3.mViewX;
                                         WebView.this.mLastTouchY = touchEventData3.mViewY;
                                         WebView.this.doDoubleTap();
@@ -8160,10 +8162,10 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                             }
                         }
                         return;
-                    case WebView.WEBCORE_NEED_TOUCH_EVENTS /* 116 */:
+                    case 116:
                         WebView.this.mForwardTouchEvents = message.arg1 != 0;
                         return;
-                    case WebView.INVAL_RECT_MSG_ID /* 117 */:
+                    case 117:
                         Rect rect = (Rect) message.obj;
                         if (rect != null) {
                             WebView.this.viewInvalidate(rect.left, rect.top, rect.right, rect.bottom);
@@ -8172,7 +8174,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                             WebView.this.invalidate();
                             return;
                         }
-                    case WebView.REQUEST_KEYBOARD /* 118 */:
+                    case 118:
                         if (message.arg1 == 0) {
                             WebView.this.hideSoftKeyboard();
                             return;
@@ -8180,10 +8182,10 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                             WebView.this.displaySoftKeyboard(false);
                             return;
                         }
-                    case WebView.DO_MOTION_UP /* 119 */:
+                    case 119:
                         WebView.this.doMotionUp(message.arg1, message.arg2, ((Boolean) message.obj).booleanValue());
                         return;
-                    case WebView.SHOW_FULLSCREEN /* 120 */:
+                    case 120:
                         View view = (View) message.obj;
                         int i2 = message.arg1;
                         int i3 = message.arg2;
@@ -8197,10 +8199,10 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                         WebView.this.mFullScreenHolder.setCanceledOnTouchOutside(false);
                         WebView.this.mFullScreenHolder.show();
                         return;
-                    case WebView.HIDE_FULLSCREEN /* 121 */:
+                    case 121:
                         WebView.this.dismissFullScreenMode();
                         return;
-                    case WebView.DOM_FOCUS_CHANGED /* 122 */:
+                    case 122:
                         if (WebView.this.inEditingMode()) {
                             WebView.this.nativeClearCursor();
                             WebView.this.mDisplaySoftKeyboard = true;
@@ -8209,10 +8211,10 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                             return;
                         }
                         return;
-                    case WebView.IMMEDIATE_REPAINT_MSG_ID /* 123 */:
+                    case 123:
                         WebView.this.invalidate();
                         return;
-                    case WebView.SET_ROOT_LAYER_MSG_ID /* 124 */:
+                    case 124:
                         if (message.arg1 == 0) {
                             WebView.this.mDelayedDeleteRootLayer = true;
                             return;
@@ -8221,7 +8223,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                         WebView.this.nativeSetRootLayer(message.arg1);
                         WebView.this.invalidate();
                         return;
-                    case WebView.RETURN_LABEL /* 125 */:
+                    case 125:
                         if (WebView.this.inEditingMode() && WebView.this.mWebTextView.isSameTextField(message.arg1)) {
                             InputMethodManager peekInstance = InputMethodManager.peekInstance();
                             if (WebView.this.mShowOwnEdit) {
@@ -8937,7 +8939,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 this.mPopupDropList.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.3
                     @Override // android.widget.PopupWindow.OnDismissListener
                     public void onDismiss() {
-                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(WebView.SET_ROOT_LAYER_MSG_ID, InvokeListBox.this.clickId, 0);
+                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(124, InvokeListBox.this.clickId, 0);
                     }
                 });
                 adjustPopupListSize(createListView);
@@ -8962,7 +8964,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
             this.this$0.logE("dismissPopListView() -> id = " + this.clickId);
             this.this$0.removeView(this.mListView);
             this.this$0.requestFocus();
-            this.this$0.mWebViewCore.sendMessage(WebView.SET_ROOT_LAYER_MSG_ID, this.clickId, 0);
+            this.this$0.mWebViewCore.sendMessage(124, this.clickId, 0);
             this.mRemoved = true;
         }
 
@@ -8985,13 +8987,13 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 inverseBackgroundForced.setPositiveButton("OK", new DialogInterface.OnClickListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.4
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(WebView.IMMEDIATE_REPAINT_MSG_ID, myArrayListAdapter.getCount(), 0, listView.getCheckedItemPositions());
+                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(123, myArrayListAdapter.getCount(), 0, listView.getCheckedItemPositions());
                     }
                 });
                 inverseBackgroundForced.setNegativeButton("Cancel", new DialogInterface.OnClickListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.5
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(WebView.SET_ROOT_LAYER_MSG_ID, -2, 0);
+                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(124, -2, 0);
                     }
                 });
             }
@@ -9023,14 +9025,14 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
                 inverseBackgroundForced.setPositiveButton(this.this$0.mCallbackProxy.getStringById(0), new DialogInterface.OnClickListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.7
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
-                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(WebView.SET_ROOT_LAYER_MSG_ID, InvokeListBox.this.clickId, 0);
+                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(124, InvokeListBox.this.clickId, 0);
                         dialogInterface.dismiss();
                     }
                 });
                 inverseBackgroundForced.setNegativeButton(this.this$0.mCallbackProxy.getStringById(6), new DialogInterface.OnClickListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.8
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
-                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(WebView.SET_ROOT_LAYER_MSG_ID, -2, 0);
+                        InvokeListBox.this.this$0.mWebViewCore.sendMessage(124, -2, 0);
                     }
                 });
             }
@@ -9039,7 +9041,7 @@ public class WebView extends AbsoluteLayout implements ViewGroup.OnHierarchyChan
             create.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.zeus.WebView.InvokeListBox.9
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    InvokeListBox.this.this$0.mWebViewCore.sendMessage(WebView.SET_ROOT_LAYER_MSG_ID, -2, 0);
+                    InvokeListBox.this.this$0.mWebViewCore.sendMessage(124, -2, 0);
                 }
             });
             create.show();

@@ -10,6 +10,7 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
+import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -34,7 +35,7 @@ public class e {
     private final long f160new = 3000;
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f775a = 5000;
+    private final long f904a = 5000;
 
     /* renamed from: void  reason: not valid java name */
     private WifiManager f161void = null;
@@ -147,7 +148,7 @@ public class e {
             if (m156new() < 1) {
                 return null;
             }
-            StringBuffer stringBuffer = new StringBuffer(512);
+            StringBuffer stringBuffer = new StringBuffer((int) ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
             String m141char = e.this.m141char();
             int size = this.f162do.size();
             if (size <= i) {
@@ -275,7 +276,7 @@ public class e {
         /* renamed from: case  reason: not valid java name */
         public String m148case() {
             boolean z;
-            StringBuffer stringBuffer = new StringBuffer(512);
+            StringBuffer stringBuffer = new StringBuffer((int) ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
             stringBuffer.append("wifi info:");
             if (m156new() < 1) {
                 return stringBuffer.toString();

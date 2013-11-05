@@ -1,50 +1,37 @@
 package com.baidu.tieba.util;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class q extends Thread {
+public class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1927a;
-    private String b;
-    private Hashtable<String, Integer> c;
+    final /* synthetic */ String f2457a;
+    final /* synthetic */ o b;
 
-    public q(Hashtable<String, Integer> hashtable) {
-        this.f1927a = 3;
-        this.b = null;
-        this.c = null;
-        this.f1927a = 3;
-        this.c = hashtable;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public q(o oVar, String str) {
+        this.b = oVar;
+        this.f2457a = str;
     }
 
-    public q(int i, String str) {
-        this.f1927a = 3;
-        this.b = null;
-        this.c = null;
-        this.f1927a = i;
-        this.b = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
-        ArrayList<String> y;
-        super.run();
+        AtomicBoolean atomicBoolean;
+        AtomicBoolean atomicBoolean2;
         try {
-            if (this.f1927a == 3) {
-                if (this.c != null && (y = DatabaseService.y()) != null) {
-                    int size = y.size();
-                    for (int i = 0; i < size; i++) {
-                        this.c.put(y.get(i), 1);
-                    }
-                }
-            } else if (this.f1927a == 2) {
-                DatabaseService.r(this.b);
-            } else if (this.f1927a == 1) {
-                DatabaseService.q(this.b);
+            try {
+                this.b.c(this.f2457a);
+                atomicBoolean = this.b.f2455a;
+            } catch (Exception e) {
+                com.baidu.adp.lib.h.d.a("DebugLogger", "write error ", e);
+                atomicBoolean = this.b.f2455a;
             }
-        } catch (Exception e) {
-            av.b(getClass().getName(), "run", e.getMessage());
+            atomicBoolean.set(false);
+        } catch (Throwable th) {
+            atomicBoolean2 = this.b.f2455a;
+            atomicBoolean2.set(false);
+            throw th;
         }
     }
 }

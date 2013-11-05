@@ -1,25 +1,27 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import android.view.View;
+import com.baidu.tieba.pb.ImagePbActivity;
 /* loaded from: classes.dex */
-class aw implements com.baidu.adp.widget.ScrollView.n {
+class aw implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1133a;
+    final /* synthetic */ FrsImageActivity f1266a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(FrsImageActivity frsImageActivity) {
-        this.f1133a = frsImageActivity;
+        this.f1266a = frsImageActivity;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.n
-    public void a() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1133a, "frs_pulldown", "frsclick", 1);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        if (view.getTag() != null && (view.getTag() instanceof com.baidu.tieba.data.bg)) {
+            com.baidu.tieba.data.bg bgVar = (com.baidu.tieba.data.bg) view.getTag();
+            FrsImageActivity frsImageActivity = this.f1266a;
+            String d = bgVar.d();
+            str = this.f1266a.b;
+            ImagePbActivity.a(frsImageActivity, d, str, bgVar.c());
         }
-        this.f1133a.s = null;
-        this.f1133a.r = true;
-        this.f1133a.f(1);
     }
 }

@@ -1,26 +1,23 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.tieba.view.KeyboardEventLayout;
+import com.baidu.tieba.voice.RecordVoiceBnt;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cf implements Runnable {
+public class cf implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ce f1577a;
-    private final /* synthetic */ ImageView b;
+    final /* synthetic */ bt f2093a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(ce ceVar, ImageView imageView) {
-        this.f1577a = ceVar;
-        this.b = imageView;
+    public cf(bt btVar) {
+        this.f2093a = btVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        br brVar;
-        KeyboardEventLayout keyboardEventLayout;
-        brVar = this.f1577a.f1576a;
-        keyboardEventLayout = brVar.d;
-        keyboardEventLayout.removeView(this.b);
+        RecordVoiceBnt recordVoiceBnt;
+        this.f2093a.ak();
+        recordVoiceBnt = this.f2093a.ax;
+        recordVoiceBnt.setVisibility(0);
     }
 }

@@ -1,19 +1,25 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-class y implements DialogInterface.OnClickListener {
+class y {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1232a;
+    ImageView f1373a;
+    TextView b;
+    LinearLayout c;
+    TextView d;
+    ImageView e;
+    TextView f;
+    TextView g;
+    ImageView h;
+    ImageButton i;
+    final /* synthetic */ v j;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(w wVar) {
-        this.f1232a = wVar;
-    }
-
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.cancel();
+    private y(v vVar) {
+        this.j = vVar;
     }
 }

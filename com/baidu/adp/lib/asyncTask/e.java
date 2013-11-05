@@ -1,15 +1,30 @@
 package com.baidu.adp.lib.asyncTask;
 
-import java.util.concurrent.Callable;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-abstract class e<Params, Result> implements Callable<Result> {
-    Params[] b;
-
+public class e extends Handler {
     private e() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(e eVar) {
+    public /* synthetic */ e(a aVar) {
         this();
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        d dVar = (d) message.obj;
+        switch (message.what) {
+            case 1:
+                dVar.f412a.d(dVar.b[0]);
+                return;
+            case 2:
+                dVar.f412a.b((Object[]) dVar.b);
+                return;
+            default:
+                return;
+        }
     }
 }

@@ -2,91 +2,221 @@ package com.baidu.tieba.more;
 
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.RelativeLayout;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.view.NavigationBar;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ah implements View.OnClickListener {
+public class ah extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ af f1479a;
+    private com.baidu.tieba.j f1983a;
+    private ac c;
+    private com.baidu.tieba.util.a d;
+    private NavigationBar e;
+    private SettingTextImageView f;
+    private SettingTextTipView g;
+    private SettingTextTipView h;
+    private SettingTextTipView i;
+    private SettingTextVersionView j;
+    private SettingTextTipView k;
+    private SettingTextTipView l;
+    private SettingTextTipView m;
+    private RelativeLayout n;
+    private ImageView o;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(af afVar) {
-        this.f1479a = afVar;
+    public ah(com.baidu.tieba.j jVar, ac acVar) {
+        super(jVar);
+        this.f1983a = jVar;
+        this.c = acVar;
+        this.f1983a.setContentView(R.layout.more_activity);
+        k();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        SettingTextImageView settingTextImageView;
-        SettingTextTipView settingTextTipView;
-        SettingTextTipView settingTextTipView2;
-        SettingTextTipView settingTextTipView3;
-        SettingTextVersionView settingTextVersionView;
-        SettingTextTipView settingTextTipView4;
-        SettingTextTipView settingTextTipView5;
-        TextView textView;
-        aa aaVar;
-        aa aaVar2;
-        aa aaVar3;
-        aa aaVar4;
-        aa aaVar5;
-        aa aaVar6;
-        aa aaVar7;
-        aa aaVar8;
-        aa aaVar9;
-        imageView = this.f1479a.o;
-        if (view == imageView) {
-            aaVar9 = this.f1479a.c;
-            aaVar9.a(0);
+    public void a() {
+        this.g.setFocusable(false);
+        this.g.setClickable(false);
+        this.g.setText(TiebaApplication.H());
+    }
+
+    public void e() {
+        this.g.setFocusable(true);
+        this.g.setClickable(true);
+        this.g.setText(R.string.putin_account);
+    }
+
+    public void f() {
+        this.g.b();
+    }
+
+    public void g() {
+        String C = TiebaApplication.C();
+        if (C == null || C.length() <= 0) {
+            this.f.setVisibility(8);
+        } else {
+            this.f.setVisibility(0);
+        }
+    }
+
+    public void a(String str) {
+        if (str == null || str.length() <= 0) {
+            if (this.f != null) {
+                this.f.a();
+                return;
+            }
             return;
         }
-        settingTextImageView = this.f1479a.f;
-        if (view == settingTextImageView) {
-            aaVar8 = this.f1479a.c;
-            aaVar8.a(1);
+        if (this.d == null) {
+            this.d = new com.baidu.tieba.util.a(this.f1983a);
+        }
+        this.f.b();
+        h();
+        com.baidu.adp.widget.ImageView.e c = this.d.c(str);
+        if (c != null) {
+            this.f.setIcon(c);
             return;
         }
-        settingTextTipView = this.f1479a.g;
-        if (view == settingTextTipView) {
-            aaVar7 = this.f1479a.c;
-            aaVar7.a(2);
-            return;
+        com.baidu.adp.widget.ImageView.e c2 = this.d.c(str, new ai(this));
+        if (c2 != null) {
+            this.f.setIcon(c2);
         }
-        settingTextTipView2 = this.f1479a.h;
-        if (view == settingTextTipView2) {
-            aaVar6 = this.f1479a.c;
-            aaVar6.a(3);
-            return;
+    }
+
+    public void a(com.baidu.adp.widget.ImageView.e eVar) {
+        if (this.f != null) {
+            this.f.setIcon(eVar);
         }
-        settingTextTipView3 = this.f1479a.i;
-        if (view == settingTextTipView3) {
-            aaVar5 = this.f1479a.c;
-            aaVar5.a(4);
-            return;
+    }
+
+    public void h() {
+        if (this.f != null) {
+            this.f.setIcon(R.drawable.person_photo);
         }
-        settingTextVersionView = this.f1479a.j;
-        if (view == settingTextVersionView) {
-            aaVar4 = this.f1479a.c;
-            aaVar4.a(6);
-            return;
+    }
+
+    public void b(String str) {
+        if (this.d != null) {
+            this.d.e(str);
         }
-        settingTextTipView4 = this.f1479a.k;
-        if (view == settingTextTipView4) {
-            aaVar3 = this.f1479a.c;
-            aaVar3.a(7);
-            return;
+    }
+
+    public void i() {
+        if (this.j != null) {
+            this.j.d();
         }
-        settingTextTipView5 = this.f1479a.l;
-        if (view == settingTextTipView5) {
-            aaVar2 = this.f1479a.c;
-            aaVar2.a(8);
-            return;
+    }
+
+    public void j() {
+        this.f.c();
+        this.g.a();
+        this.h.a();
+        this.i.a();
+        this.j.a();
+        this.k.a();
+        this.l.a();
+    }
+
+    public void a(int i) {
+        b(i);
+    }
+
+    public void b(int i) {
+        this.e.b(i);
+        com.baidu.tieba.util.bb.b(this.n, i);
+        this.f.a(i);
+        this.g.a(i);
+        this.h.a(i);
+        this.i.a(i);
+        this.j.a(i);
+        this.k.a(i);
+        this.l.a(i);
+        if (i == 1) {
+            m();
+        } else {
+            l();
         }
-        textView = this.f1479a.m;
-        if (view == textView) {
-            aaVar = this.f1479a.c;
-            aaVar.a(5);
+    }
+
+    private void k() {
+        View.OnClickListener n = n();
+        this.n = (RelativeLayout) this.f1983a.findViewById(R.id.parent);
+        this.e = (NavigationBar) this.f1983a.findViewById(R.id.view_navigation_bar);
+        this.e.a(this.f1983a.getString(R.string.setup));
+        this.o = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f = (SettingTextImageView) this.f1983a.findViewById(R.id.personInfo);
+        this.g = (SettingTextTipView) this.f1983a.findViewById(R.id.accountManager);
+        this.h = (SettingTextTipView) this.f1983a.findViewById(R.id.browseSetting);
+        this.i = (SettingTextTipView) this.f1983a.findViewById(R.id.messageSetting);
+        this.j = (SettingTextVersionView) this.f1983a.findViewById(R.id.versionInfo);
+        this.k = (SettingTextTipView) this.f1983a.findViewById(R.id.feedBack);
+        this.l = (SettingTextTipView) this.f1983a.findViewById(R.id.recommend);
+        if (!TiebaApplication.g().x()) {
+            this.l.setVisibility(8);
+        } else {
+            this.l.setVisibility(0);
         }
+        this.m = (SettingTextTipView) this.f1983a.findViewById(R.id.systemhelpsetting);
+        i();
+        g();
+        this.f.a();
+        b(TiebaApplication.g().as());
+        a(n);
+    }
+
+    private void l() {
+        com.baidu.tieba.util.bb.e(this.f, (int) R.drawable.more_up);
+        if (this.f.getVisibility() == 0) {
+            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_down);
+        } else {
+            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_all);
+        }
+        com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.more_all);
+        com.baidu.tieba.util.bb.e(this.i, (int) R.drawable.more_all);
+        com.baidu.tieba.util.bb.e(this.j, (int) R.drawable.more_up);
+        if (this.l.getVisibility() == 0) {
+            com.baidu.tieba.util.bb.e(this.k, (int) R.drawable.more_middle);
+        } else {
+            com.baidu.tieba.util.bb.e(this.k, (int) R.drawable.more_down);
+        }
+        com.baidu.tieba.util.bb.e(this.l, (int) R.drawable.more_down);
+        this.m.a(0);
+        com.baidu.tieba.util.bb.e(this.m, (int) R.drawable.more_all);
+    }
+
+    private void m() {
+        com.baidu.tieba.util.bb.e(this.f, (int) R.drawable.more_up_1);
+        if (this.f.getVisibility() == 0) {
+            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_down_1);
+        } else {
+            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_all_1);
+        }
+        com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.more_all_1);
+        com.baidu.tieba.util.bb.e(this.i, (int) R.drawable.more_all_1);
+        com.baidu.tieba.util.bb.e(this.j, (int) R.drawable.more_up_1);
+        if (this.l.getVisibility() == 0) {
+            com.baidu.tieba.util.bb.e(this.k, (int) R.drawable.more_middle_1);
+        } else {
+            com.baidu.tieba.util.bb.e(this.k, (int) R.drawable.more_down_1);
+        }
+        com.baidu.tieba.util.bb.e(this.l, (int) R.drawable.more_down_1);
+        this.m.a(1);
+        com.baidu.tieba.util.bb.e(this.m, (int) R.drawable.more_all_1);
+        i();
+    }
+
+    private void a(View.OnClickListener onClickListener) {
+        this.o.setOnClickListener(onClickListener);
+        this.f.setOnClickListener(onClickListener);
+        this.g.setOnClickListener(onClickListener);
+        this.h.setOnClickListener(onClickListener);
+        this.i.setOnClickListener(onClickListener);
+        this.j.setOnClickListener(onClickListener);
+        this.k.setOnClickListener(onClickListener);
+        this.l.setOnClickListener(onClickListener);
+        this.m.setOnClickListener(onClickListener);
+    }
+
+    private View.OnClickListener n() {
+        return new aj(this);
     }
 }

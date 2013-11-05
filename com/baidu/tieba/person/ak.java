@@ -1,25 +1,17 @@
 package com.baidu.tieba.person;
 
-import android.view.MotionEvent;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ak implements View.OnTouchListener {
+class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f1656a;
+    ImageView f2174a;
+    TextView b;
+    final /* synthetic */ af c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(PersonChangeActivity personChangeActivity) {
-        this.f1656a = personChangeActivity;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 1) {
-            this.f1656a.z = true;
-            return false;
-        }
-        return false;
+    public ak(af afVar) {
+        this.c = afVar;
     }
 }

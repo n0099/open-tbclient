@@ -2,29 +2,27 @@ package com.baidu.tieba.topRec;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.ViewGroup;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class q implements com.baidu.adp.lib.guide.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1878a;
+    final /* synthetic */ p f2399a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(o oVar) {
-        this.f1878a = oVar;
+    public q(p pVar) {
+        this.f2399a = pVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        ImageView imageView = new ImageView(this.f1878a.f1876a);
-        imageView.setBackgroundResource(R.drawable.lead_metadata);
-        return imageView;
+        return layoutInflater.inflate(R.layout.top_cover, (ViewGroup) null);
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int a() {
-        return 4;
+        return 5;
     }
 
     @Override // com.baidu.adp.lib.guide.b
@@ -34,11 +32,11 @@ class q implements com.baidu.adp.lib.guide.b {
 
     @Override // com.baidu.adp.lib.guide.b
     public int c() {
-        return -100;
+        return 0;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public int d() {
-        return -30;
+        return 0;
     }
 }

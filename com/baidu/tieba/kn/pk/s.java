@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class s extends com.baidu.tieba.data.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1291a;
+    public String f1786a;
     public String b;
     public String c;
     public String d;
@@ -21,7 +21,7 @@ public class s extends com.baidu.tieba.data.a {
     private long l;
 
     public String d() {
-        return (this.j == null || this.k == null) ? "" : String.valueOf(this.j.b) + " VS " + this.k.b;
+        return (this.j == null || this.k == null) ? "" : this.j.b + " VS " + this.k.b;
     }
 
     public long e() {
@@ -48,7 +48,7 @@ public class s extends com.baidu.tieba.data.a {
     protected void a(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("pk_info");
         if (optJSONObject != null) {
-            this.f1291a = optJSONObject.optString("pk_id");
+            this.f1786a = optJSONObject.optString("pk_id");
             this.b = optJSONObject.optString("title");
             this.c = optJSONObject.optString("abstract");
             this.d = optJSONObject.optString("pk_url");

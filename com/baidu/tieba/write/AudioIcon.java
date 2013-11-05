@@ -25,7 +25,7 @@ public class AudioIcon extends RelativeLayout {
     private static int g = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2063a;
+    private Context f2607a;
     private boolean b;
     private int c;
     private int d;
@@ -33,6 +33,13 @@ public class AudioIcon extends RelativeLayout {
     private int f;
     private AniImageView h;
     private ImageView i;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int i() {
+        int i = g + 1;
+        g = i;
+        return i;
+    }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
@@ -47,8 +54,8 @@ public class AudioIcon extends RelativeLayout {
         this.d = -1;
         this.e = -1;
         this.f = -1;
-        this.f2063a = context;
-        k();
+        this.f2607a = context;
+        l();
         a(attributeSet);
     }
 
@@ -61,7 +68,7 @@ public class AudioIcon extends RelativeLayout {
         com.baidu.tieba.sharedPref.b.a().b("audio_animation_done", true);
     }
 
-    private boolean j() {
+    private boolean k() {
         return com.baidu.tieba.sharedPref.b.a().a("audio_animation_done", false);
     }
 
@@ -73,30 +80,30 @@ public class AudioIcon extends RelativeLayout {
         setVisibility(0);
     }
 
-    private void k() {
-        LayoutInflater.from(this.f2063a).inflate(R.layout.audio_icon, (ViewGroup) this, true);
+    private void l() {
+        LayoutInflater.from(this.f2607a).inflate(R.layout.audio_icon, (ViewGroup) this, true);
         this.h = (AniImageView) findViewById(R.id.audio_icon);
         this.i = (ImageView) findViewById(R.id.new_icon);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, R.id.audio_icon);
-        layoutParams.setMargins(UtilHelper.a(this.f2063a, -12.0f), UtilHelper.a(this.f2063a, -2.0f), 0, 0);
+        layoutParams.setMargins(UtilHelper.a(this.f2607a, -12.0f), UtilHelper.a(this.f2607a, -2.0f), 0, 0);
         this.i.setLayoutParams(layoutParams);
     }
 
     public void d() {
-        if (!j()) {
-            List<Animation> animations = ((AnimationSet) AnimationUtils.loadAnimation(this.f2063a, R.anim.audio_icon_rotate)).getAnimations();
+        if (!k()) {
+            List<Animation> animations = ((AnimationSet) AnimationUtils.loadAnimation(this.f2607a, R.anim.audio_icon_rotate)).getAnimations();
             g = 0;
-            m mVar = new m(this, animations);
+            n nVar = new n(this, animations);
             for (int i = 0; i < animations.size(); i++) {
-                animations.get(i).setAnimationListener(mVar);
+                animations.get(i).setAnimationListener(nVar);
             }
-            new Handler().postDelayed(new n(this, animations), 500L);
+            new Handler().postDelayed(new o(this, animations), 500L);
         }
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f2063a.obtainStyledAttributes(attributeSet, com.baidu.tieba.ag.PbWriteToolView);
+        TypedArray obtainStyledAttributes = this.f2607a.obtainStyledAttributes(attributeSet, com.baidu.tieba.al.PbWriteToolView);
         this.c = obtainStyledAttributes.getResourceId(4, -1);
         this.d = obtainStyledAttributes.getResourceId(5, -1);
         this.e = obtainStyledAttributes.getResourceId(6, -1);
@@ -120,16 +127,16 @@ public class AudioIcon extends RelativeLayout {
         this.i.setImageResource(R.drawable.icon_news_content_prompt);
     }
 
-    private boolean l() {
-        return TiebaApplication.g().ap() == 1;
+    private boolean m() {
+        return TiebaApplication.g().as() == 1;
     }
 
     public void e() {
-        this.h.setImageResource(l() ? this.f : this.e);
+        this.h.setImageResource(m() ? this.f : this.e);
     }
 
     public void f() {
-        this.h.setImageResource(l() ? this.d : this.c);
+        this.h.setImageResource(m() ? this.d : this.c);
     }
 
     public ImageView getView() {

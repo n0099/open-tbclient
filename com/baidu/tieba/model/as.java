@@ -1,45 +1,61 @@
 package com.baidu.tieba.model;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as extends com.baidu.adp.a.c {
+public class as extends BdAsyncTask<Void, Void, com.baidu.tieba.data.ay> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1405a = null;
-    private String b = null;
-    private at c = null;
-    private String d;
+    final /* synthetic */ ar f1903a;
+    private String b;
+    private com.baidu.tieba.a.h c;
 
-    public void a(String str) {
-        this.d = str;
+    public as(ar arVar, String str) {
+        this.f1903a = arVar;
+        setPriority(3);
+        this.b = str;
     }
 
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        return false;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        at atVar;
+        at atVar2;
+        super.b();
+        atVar = this.f1903a.b;
+        if (atVar != null) {
+            atVar2 = this.f1903a.b;
+            atVar2.a();
+        }
     }
 
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void a() {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
         if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+            this.c.a();
         }
     }
 
-    public void a(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
-            this.f1405a = str;
-            this.b = str2;
-            this.c = new at(this, null);
-            this.c.setPriority(2);
-            this.c.execute(new Object[0]);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public com.baidu.tieba.data.ay a(Void... voidArr) {
+        this.c = new com.baidu.tieba.a.h();
+        return new com.baidu.tieba.data.ay().d(this.c.a(this.b));
     }
 
-    public boolean b() {
-        return this.c != null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.ay ayVar) {
+        at atVar;
+        at atVar2;
+        super.a((as) ayVar);
+        atVar = this.f1903a.b;
+        if (atVar != null) {
+            atVar2 = this.f1903a.b;
+            atVar2.a(ayVar);
+        }
     }
 }

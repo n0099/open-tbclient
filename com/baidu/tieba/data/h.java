@@ -1,114 +1,212 @@
 package com.baidu.tieba.data;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.webkit.URLUtil;
+import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.switchs.SwitchModel;
 import com.baidu.tieba.util.UtilHelper;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class h {
-    private HashMap<String, Integer> p;
-    private boolean h = true;
-    private boolean i = true;
-    private int k = 100000;
-    private boolean l = true;
-    private int m = 600;
-    private int n = 10;
-    private int o = 10;
-    private boolean q = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1033a = 0;
-    private int b = 0;
-    private int c = 1;
-    private String d = null;
-    private String e = null;
-    private String f = null;
-    private String g = null;
-    private BannerData j = new BannerData();
+    public static String f1165a = "http://c.tieba.baidu.com/";
+    public static String b = "http://tieba.baidu.com/";
+    public static final Long c = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
+    public static final Long d = 36000000L;
+    public static final Long e = 36000000L;
+    public static final Long f = Long.valueOf((long) Util.MILLSECONDS_OF_DAY);
+    public static final String g = f1165a + "c/s/apprecommend";
+    public static final String h = f1165a + "c/s/recommend/";
+    public static final String i = f1165a + "c/s/classic";
+    public static String j = "http://tb.himg.baidu.com/sys/portrait/item/";
+    public static final String k = f1165a + "c/p/img?";
+    public static int l = 80;
+    public static final Bitmap.Config m = Bitmap.Config.RGB_565;
+    private static String o = null;
+    private static String p = null;
+    private static int q = 300;
+    private static String r = "http://tb.himg.baidu.com/sys/portraitn/item/";
+    private static String s = r;
+    private static int t = 80;
+    private static int u = Util.BYTE_OF_MB;
+    private static int v = 1024;
+    private static int w = 1;
+    private static String x = "贴吧客户端反馈";
+    private static String y = "2631903";
+    private static int z = 640;
+    private static String A = "";
+    public static final Long n = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
 
-    public h() {
-        this.p = null;
-        this.p = new HashMap<>();
+    public static String a() {
+        return o;
     }
 
-    public int a() {
-        return this.k;
+    public static void a(String str) {
+        o = str;
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.j.parserJson(jSONObject.optJSONObject("banner"));
-                this.f1033a = jSONObject.optInt("pb_max_floor_total_num", 0);
-                this.b = jSONObject.optInt("pb_big_image_width", 0);
-                this.d = jSONObject.optString("big_head_image_host");
-                this.e = jSONObject.optString("small_head_image_host");
-                this.f = jSONObject.optString("yijianfankui_fname");
-                this.g = jSONObject.optString("yijianfankui_fid");
-                this.c = jSONObject.optInt("img_chunk_upload_enable", 1);
-                this.m = jSONObject.optInt("kuainan_vote_cd", 600);
-                this.n = jSONObject.optInt("kuainan_vote_max", 10);
-                this.o = jSONObject.optInt("kuainan_vote_rate", 10);
-                int optInt = jSONObject.optInt("app_recommend", -1);
-                int optInt2 = jSONObject.optInt("use_baidu_statis_gbk", 1);
-                JSONArray optJSONArray = jSONObject.optJSONArray("switch");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                        if (jSONObject2 != null) {
-                            this.p.put(jSONObject2.optString("name"), Integer.valueOf(jSONObject2.optInt("type", -1)));
-                        }
-                    }
-                }
-                if (this.p != null && this.p.size() > 0) {
-                    SwitchModel.refreshSwitchManager(this.p);
-                }
-                this.l = jSONObject.optInt("is_pushservice_open", 1) == 1;
-                TiebaApplication.g().f(this.l);
-                TiebaApplication.g().e(jSONObject.optInt("is_moplus_open", 1) == 1);
-                if (!this.l) {
-                    UtilHelper.h(TiebaApplication.g().getApplicationContext());
-                }
-                this.i = jSONObject.optInt("gpu_open", 1) == 1;
-                TiebaApplication.g().d(this.i);
-                this.q = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
-                com.baidu.tieba.voice.r.a(this.q);
-                int optInt3 = jSONObject.optInt("open_abstract", 0);
-                if (!(optInt3 == 0 || TiebaApplication.g().an() != 0)) {
-                    TiebaApplication.g().h(optInt3);
-                }
-                if (optInt == 1) {
-                    TiebaApplication.g().g(true);
-                } else if (optInt == 0) {
-                    TiebaApplication.g().g(false);
-                }
-                TiebaApplication.g().n(this.m);
-                TiebaApplication.g().r(this.n);
-                TiebaApplication.g().s(this.o);
-                this.k = jSONObject.optInt("perform_sample_param", 100000);
-                JSONObject optJSONObject = jSONObject.optJSONObject("keepalive");
-                if (optJSONObject != null) {
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("wifi");
-                    if (optJSONObject2 != null) {
-                        TiebaApplication.g().p(optJSONObject2.optInt("switch"));
-                    }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("nonwifi");
-                    if (optJSONObject3 != null) {
-                        TiebaApplication.g().q(optJSONObject3.optInt("switch"));
-                    }
-                }
-                TiebaApplication.g().c(optInt2 == 1);
-                TiebaApplication.g().s(jSONObject.optInt("open_local_popularize", 0) == 1);
-                g.a(this.f1033a);
-                g.e(this.d);
-                g.d(this.e);
-                g.a(this.f, this.g);
-                g.b(this.c);
-            } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.getMessage());
-            }
+    public static String b() {
+        return p;
+    }
+
+    public static void b(String str) {
+        p = str;
+    }
+
+    public static int c() {
+        return q;
+    }
+
+    public static String d() {
+        return r;
+    }
+
+    public static int e() {
+        return u;
+    }
+
+    public static int f() {
+        return v;
+    }
+
+    public static String g() {
+        return x;
+    }
+
+    public static String h() {
+        return y;
+    }
+
+    public static int i() {
+        return z;
+    }
+
+    public static String j() {
+        return A;
+    }
+
+    public static void c(String str) {
+        A = str;
+    }
+
+    public static void d(String str) {
+        if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
+            r = str;
         }
+    }
+
+    public static int a(Context context) {
+        int i2 = BdWebErrorView.ERROR_CODE_400;
+        int a2 = UtilHelper.a(context, 267.0f);
+        if (a2 <= 400) {
+            i2 = a2;
+        }
+        v = (int) (i2 * i2 * 1.62f * 2.0f);
+        com.baidu.adp.lib.h.d.d("BIG_IMAGE_SIZE = " + v);
+        return v;
+    }
+
+    public static int k() {
+        return v;
+    }
+
+    public static void b(Context context) {
+        u = a(context) * 13;
+        if (u < UtilHelper.c(context) * 0.28d) {
+            u = (int) (UtilHelper.c(context) * 0.28d);
+        }
+        com.baidu.adp.lib.h.d.d("BIG_IMAGE_MAX_USED_MEMORY = " + u);
+    }
+
+    public static void c(Context context) {
+        if (context.getResources().getDisplayMetrics().density < 1.0f) {
+            s = r;
+            t = 80;
+            return;
+        }
+        s = j;
+        t = SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN;
+    }
+
+    public static String l() {
+        return s;
+    }
+
+    public static int m() {
+        return t;
+    }
+
+    public static void e(String str) {
+        if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
+            j = str;
+        }
+    }
+
+    public static void a(int i2) {
+        if (i2 >= 60 && i2 <= 1000) {
+            q = i2;
+        }
+    }
+
+    public static void d(Context context) {
+        int sqrt = (int) Math.sqrt(UtilHelper.a(context) * UtilHelper.b(context));
+        if (sqrt > z) {
+            z = sqrt;
+        }
+        if (Runtime.getRuntime().maxMemory() <= 16777216) {
+            z = (int) (z * 0.8d);
+        }
+    }
+
+    public static void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
+            x = str;
+            y = str2;
+        }
+    }
+
+    public static void b(int i2) {
+        w = i2;
+    }
+
+    public static int n() {
+        return w;
+    }
+
+    public static int o() {
+        switch (TiebaApplication.g().ao()) {
+            case 1:
+                return 18;
+            case 2:
+                return 17;
+            default:
+                return 16;
+        }
+    }
+
+    public static int p() {
+        return o() + 1;
+    }
+
+    public static int q() {
+        return 14;
+    }
+
+    public static int r() {
+        switch (TiebaApplication.g().ao()) {
+            case 1:
+                return 13;
+            case 2:
+                return 12;
+            default:
+                return 11;
+        }
+    }
+
+    public static boolean s() {
+        return com.baidu.adp.a.b.a().b();
     }
 }

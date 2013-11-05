@@ -1,68 +1,81 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import org.json.JSONArray;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ay {
-    private ArrayList<ax> f;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1015a = 0;
-    private int d = 0;
-    private int e = 0;
-    private boolean c = false;
-    private boolean b = false;
+    private String f1145a;
+    private String b;
+    private String c;
+    private int d;
+    private long e;
+    private long f;
+    private int g;
+    private az h;
 
-    public ay() {
-        this.f = null;
-        this.f = new ArrayList<>();
+    public void a(String str) {
+        this.f1145a = str;
     }
 
-    public ArrayList<ax> a() {
-        return this.f;
-    }
-
-    public boolean b() {
+    public String a() {
         return this.b;
     }
 
-    public boolean c() {
-        return this.c;
+    public void b(String str) {
+        this.b = str;
     }
 
-    public int d() {
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public int b() {
         return this.d;
     }
 
-    public void a(String str) {
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public void a(long j) {
+        this.e = j;
+    }
+
+    public void b(long j) {
+        this.f = j;
+    }
+
+    public void b(int i) {
+        this.g = i;
+    }
+
+    public void a(az azVar) {
+        this.h = azVar;
+    }
+
+    public ay d(String str) {
         try {
-            a(new JSONObject(str));
+            return a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
+            e.printStackTrace();
+            return null;
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("page");
-                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-                this.f.clear();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    ax axVar = new ax();
-                    axVar.a(optJSONObject2);
-                    this.f.add(axVar);
-                }
-                this.f1015a = optJSONObject.optInt("total_count");
-                this.e = optJSONObject.optInt("total_page");
-                this.b = optJSONObject.optInt("has_more") != 0;
-                this.c = optJSONObject.optInt("has_prev") != 0;
-                this.d = optJSONObject.optInt("current_page");
-            } catch (Exception e) {
-                com.baidu.tieba.util.av.b("SearchPostModel", "parserJson", "error = " + e.getMessage());
-            }
-        }
+    private ay a(JSONObject jSONObject) {
+        az a2;
+        ay ayVar = new ay();
+        ayVar.a(jSONObject.optString("share_id"));
+        ayVar.b(jSONObject.optString("share_text"));
+        ayVar.c(jSONObject.optString("result_pic"));
+        ayVar.a(jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE));
+        ayVar.a(jSONObject.optLong("time"));
+        ayVar.b(jSONObject.optLong("ctime"));
+        ayVar.b(jSONObject.optInt("logid"));
+        a2 = new az(this).a(jSONObject.optJSONObject("error"));
+        ayVar.a(a2);
+        return ayVar;
     }
 }

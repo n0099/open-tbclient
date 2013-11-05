@@ -1,126 +1,141 @@
 package com.baidu.tieba.person;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.widget.Button;
+import android.widget.ProgressBar;
+import cn.jingling.lib.filters.FilterFactory;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.DatabaseService;
-import com.slidingmenu.lib.R;
-import java.io.File;
+import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.EditHeadImageView;
+import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends BdAsyncTask<String, Integer, String> {
+public class v extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1737a;
-    private com.baidu.tieba.util.z b;
-    private com.baidu.tieba.data.e c;
-    private com.baidu.tieba.util.f d;
+    final /* synthetic */ EditHeadActivity f2257a;
 
     private v(EditHeadActivity editHeadActivity) {
-        this.f1737a = editHeadActivity;
-        this.b = null;
-        this.c = null;
-        this.d = null;
+        this.f2257a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ v(EditHeadActivity editHeadActivity, v vVar) {
+    public /* synthetic */ v(EditHeadActivity editHeadActivity, l lVar) {
         this(editHeadActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        boolean z;
+        HashMap hashMap;
+        String[] strArr;
+        HashMap hashMap2;
+        Bitmap bitmap = null;
+        try {
+            Bitmap c = com.baidu.tieba.util.w.c(null, "tieba_resized_image");
+            try {
+                if (c.getWidth() > 750 || c.getHeight() > 750) {
+                    Bitmap a2 = com.baidu.tieba.util.e.a(c, 750);
+                    try {
+                        c.recycle();
+                        c = a2;
+                    } catch (Exception e) {
+                        e = e;
+                        bitmap = a2;
+                        com.baidu.tieba.util.be.b(getClass().getName(), "GetImageTask", e.toString());
+                        return bitmap;
+                    }
+                }
+                if (isCancelled() && c != null && !c.isRecycled()) {
+                    c.recycle();
+                    return null;
+                }
+                int a3 = UtilHelper.a((Context) this.f2257a, 63.5f);
+                if (Build.VERSION.SDK_INT >= 7) {
+                    z = this.f2257a.D;
+                    if (z) {
+                        Bitmap a4 = com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(c, a3), UtilHelper.a((Context) this.f2257a, 5.0f));
+                        this.f2257a.I = new HashMap();
+                        this.f2257a.J = new HashMap();
+                        hashMap = this.f2257a.I;
+                        hashMap.put("normal", a4);
+                        strArr = EditHeadActivity.f;
+                        for (String str : strArr) {
+                            String substring = str.substring(0, str.indexOf("|"));
+                            if (!substring.equals("normal")) {
+                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f2257a, substring).apply(this.f2257a, a4.copy(a4.getConfig() == null ? com.baidu.tieba.data.h.m : a4.getConfig(), true));
+                                hashMap2 = this.f2257a.I;
+                                hashMap2.put(substring, apply);
+                            }
+                        }
+                    }
+                }
+                return c;
+            } catch (Exception e2) {
+                bitmap = c;
+                e = e2;
+            }
+        } catch (Exception e3) {
+            e = e3;
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f1737a.b(this.f1737a.getString(R.string.upload_head));
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0128 */
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: java.lang.String */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v5, types: [int] */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        String str;
-        Exception e;
-        File c;
-        com.baidu.tieba.data.d dVar;
-        this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/img/portrait");
-        try {
-            c = com.baidu.tieba.util.p.c("tieba_head_image");
-            str = (c.length() > 102400L ? 1 : (c.length() == 102400L ? 0 : -1));
-        } catch (Exception e2) {
-            str = 0;
-            e = e2;
-        }
-        try {
-            if (str <= 0 || (com.baidu.tieba.data.g.n() == 0 && this.b.f() != null && !this.b.f().equals("2"))) {
-                com.baidu.tieba.util.av.e("PostThreadTask", "doInBackground", "image size is less than 100K");
-                String b = this.b.b("tieba_head_image");
-                if (this.b.c()) {
-                    return b;
-                }
-                return null;
-            }
-            com.baidu.tieba.util.av.e("PostThreadTask", "doInBackground", "image size is more than 100K");
-            String a2 = com.baidu.tieba.util.at.a(com.baidu.tieba.util.p.a(c));
-            com.baidu.tieba.data.d o = DatabaseService.o(a2);
-            if (o == null) {
-                com.baidu.tieba.util.av.e("PostThreadTask", "doInBackground", "upload data is null");
-                com.baidu.tieba.data.d dVar2 = new com.baidu.tieba.data.d();
-                dVar2.a(a2);
-                dVar2.a(0);
-                dVar2.a(c.length());
-                dVar = dVar2;
-            } else {
-                dVar = o;
-            }
-            this.d = new com.baidu.tieba.util.f("tieba_head_image", dVar, String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/img/chunkupload");
-            this.c = this.d.b();
-            if (this.c.b()) {
-                this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/img/finupload");
-                this.b.a("md5", dVar.a());
-                String j = this.b.j();
-                if (j == null || !this.b.c()) {
-                    long b2 = dVar.b();
-                    dVar.a((int) (b2 % 102400 == 0 ? b2 / 102400 : (b2 / 102400) + 1));
-                    DatabaseService.a(dVar);
-                    return null;
-                }
-                DatabaseService.n(a2);
-                return j;
-            }
-            return null;
-        } catch (Exception e3) {
-            e = e3;
-            com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
-            return str;
-        }
+        ProgressBar progressBar;
+        Button button;
+        progressBar = this.f2257a.q;
+        progressBar.setVisibility(0);
+        button = this.f2257a.m;
+        button.setEnabled(false);
+        super.b();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f1737a.i();
-        this.f1737a.u = null;
-        if (this.b != null) {
-            this.b.h();
-        }
+        ProgressBar progressBar;
+        Button button;
+        this.f2257a.r = null;
+        progressBar = this.f2257a.q;
+        progressBar.setVisibility(8);
+        button = this.f2257a.m;
+        button.setEnabled(true);
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        this.f1737a.i();
-        if (this.b != null) {
-            if (this.b.c()) {
-                this.f1737a.setResult(-1);
-                this.f1737a.finish();
-                this.f1737a.a(this.f1737a.getString(R.string.upload_head_ok));
-                return;
+    public void a(Bitmap bitmap) {
+        ProgressBar progressBar;
+        Button button;
+        EditHeadImageView editHeadImageView;
+        boolean z;
+        String[] strArr;
+        super.a((v) bitmap);
+        this.f2257a.r = null;
+        this.f2257a.j = bitmap;
+        progressBar = this.f2257a.q;
+        progressBar.setVisibility(8);
+        button = this.f2257a.m;
+        button.setEnabled(true);
+        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
+            editHeadImageView = this.f2257a.g;
+            editHeadImageView.setImageBitmap(bitmap);
+            if (Build.VERSION.SDK_INT >= 7) {
+                z = this.f2257a.D;
+                if (z) {
+                    EditHeadActivity editHeadActivity = this.f2257a;
+                    strArr = EditHeadActivity.f;
+                    editHeadActivity.a(strArr);
+                }
             }
-            this.f1737a.a(this.b.g());
         }
     }
 }

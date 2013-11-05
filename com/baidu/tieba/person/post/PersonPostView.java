@@ -7,13 +7,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.as;
+import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonPostView implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f1706a;
+    public FrameLayout f2226a;
     public ViewPager b;
     public LinearLayout c;
     public TextView d;
@@ -24,7 +24,7 @@ public class PersonPostView implements bq {
 
     public PersonPostView(PersonPostActivity personPostActivity) {
         personPostActivity.setContentView(R.layout.person_post_activity);
-        this.f1706a = (FrameLayout) personPostActivity.findViewById(16908290);
+        this.f2226a = (FrameLayout) personPostActivity.findViewById(16908290);
         this.b = (ViewPager) personPostActivity.findViewById(R.id.pager);
         this.b.setOnPageChangeListener(this);
         this.c = (LinearLayout) personPostActivity.findViewById(R.id.title);
@@ -36,15 +36,11 @@ public class PersonPostView implements bq {
         this.f.setOnClickListener(personPostActivity);
     }
 
-    public void c(int i) {
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        as.d(this.c, i);
-        as.a(this.f, i);
-        as.b(this.f1706a, i);
-        boolean z = TiebaApplication.g().ap() == 1;
+    public void a(int i) {
+        bb.d(this.c, i);
+        bb.a(this.f, i);
+        bb.b(this.f2226a, i);
+        boolean z = TiebaApplication.g().as() == 1;
         switch (this.g) {
             case 1:
                 if (z) {
@@ -54,20 +50,8 @@ public class PersonPostView implements bq {
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.top_msg_num_day));
                     this.e.setTextColor(this.e.getContext().getResources().getColor(R.color.top_msg_num_day));
                 }
-                TextView textView = this.d;
-                if (z) {
-                    i4 = R.drawable.btn_jin_ba_s_1;
-                } else {
-                    i4 = R.drawable.btn_jin_ba_s;
-                }
-                textView.setBackgroundResource(i4);
-                TextView textView2 = this.e;
-                if (z) {
-                    i5 = R.drawable.btn_baidu_n_1;
-                } else {
-                    i5 = R.drawable.btn_baidu_n;
-                }
-                textView2.setBackgroundResource(i5);
+                this.d.setBackgroundResource(z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
+                this.e.setBackgroundResource(z ? R.drawable.btn_baidu_n_1 : R.drawable.btn_baidu_n);
                 return;
             case 2:
                 if (z) {
@@ -77,32 +61,16 @@ public class PersonPostView implements bq {
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.top_msg_num_day));
                     this.e.setTextColor(this.e.getContext().getResources().getColor(R.color.top_msg_num_day));
                 }
-                TextView textView3 = this.d;
-                if (z) {
-                    i2 = R.drawable.btn_jin_ba_n_1;
-                } else {
-                    i2 = R.drawable.btn_jin_ba_n;
-                }
-                textView3.setBackgroundResource(i2);
-                TextView textView4 = this.e;
-                if (z) {
-                    i3 = R.drawable.btn_baidu_s_1;
-                } else {
-                    i3 = R.drawable.btn_baidu_s;
-                }
-                textView4.setBackgroundResource(i3);
+                this.d.setBackgroundResource(z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
+                this.e.setBackgroundResource(z ? R.drawable.btn_baidu_s_1 : R.drawable.btn_baidu_s);
                 return;
             default:
                 return;
         }
     }
 
-    public void d(int i) {
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        boolean z = TiebaApplication.g().ap() == 1;
+    public void b(int i) {
+        boolean z = TiebaApplication.g().as() == 1;
         switch (i) {
             case 1:
                 if (z) {
@@ -112,20 +80,8 @@ public class PersonPostView implements bq {
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.top_msg_num_day));
                     this.e.setTextColor(this.e.getContext().getResources().getColor(R.color.top_msg_num_day));
                 }
-                TextView textView = this.d;
-                if (z) {
-                    i4 = R.drawable.btn_jin_ba_s_1;
-                } else {
-                    i4 = R.drawable.btn_jin_ba_s;
-                }
-                textView.setBackgroundResource(i4);
-                TextView textView2 = this.e;
-                if (z) {
-                    i5 = R.drawable.btn_baidu_n_1;
-                } else {
-                    i5 = R.drawable.btn_baidu_n;
-                }
-                textView2.setBackgroundResource(i5);
+                this.d.setBackgroundResource(z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
+                this.e.setBackgroundResource(z ? R.drawable.btn_baidu_n_1 : R.drawable.btn_baidu_n);
                 return;
             case 2:
                 if (z) {
@@ -135,20 +91,8 @@ public class PersonPostView implements bq {
                     this.d.setTextColor(this.d.getContext().getResources().getColor(R.color.top_msg_num_day));
                     this.e.setTextColor(this.e.getContext().getResources().getColor(R.color.top_msg_num_day));
                 }
-                TextView textView3 = this.e;
-                if (z) {
-                    i2 = R.drawable.btn_baidu_s_1;
-                } else {
-                    i2 = R.drawable.btn_baidu_s;
-                }
-                textView3.setBackgroundResource(i2);
-                TextView textView4 = this.d;
-                if (z) {
-                    i3 = R.drawable.btn_jin_ba_n_1;
-                } else {
-                    i3 = R.drawable.btn_jin_ba_n;
-                }
-                textView4.setBackgroundResource(i3);
+                this.e.setBackgroundResource(z ? R.drawable.btn_baidu_s_1 : R.drawable.btn_baidu_s);
+                this.d.setBackgroundResource(z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
                 return;
             default:
                 return;
@@ -156,21 +100,21 @@ public class PersonPostView implements bq {
     }
 
     @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
     }
 
     @Override // android.support.v4.view.bq
-    public void a_(int i) {
+    public void onPageSelected(int i) {
         this.g = i + 1;
         if (this.g == 1) {
-            d(1);
+            b(1);
         } else if (this.g == 2) {
-            d(2);
+            b(2);
         }
     }
 
     @Override // android.support.v4.view.bq
-    public void b(int i) {
+    public void onPageScrollStateChanged(int i) {
         if (i == 0 && this.h != null) {
             this.h.a(this.g - 1);
         }

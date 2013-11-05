@@ -3,120 +3,67 @@ package com.baidu.tieba.service;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.os.Handler;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.os.Message;
+import com.baidu.location.LocationClientOption;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.av;
-import com.baidu.tieba.util.z;
 import com.slidingmenu.lib.R;
-import java.io.File;
 /* loaded from: classes.dex */
-class t extends BdAsyncTask<String, Integer, Boolean> {
+class t extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaUpdateService f1803a;
-    private VersionData b;
-    private z c = null;
-    private volatile boolean d = false;
+    final /* synthetic */ TiebaUpdateService f2323a;
 
-    public t(TiebaUpdateService tiebaUpdateService, VersionData versionData) {
-        this.f1803a = tiebaUpdateService;
-        this.b = null;
-        this.b = versionData;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(TiebaUpdateService tiebaUpdateService) {
+        this.f2323a = tiebaUpdateService;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        Boolean bool;
-        Exception e;
-        File d;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        String str2;
+        boolean z;
         Handler handler;
-        Boolean bool2 = false;
-        while (!this.d) {
-            try {
-                this.c = new z(this.b.getUrl());
-                handler = this.f1803a.j;
-                bool2 = this.c.a(String.valueOf(this.b.getNew_file()) + ".tmp", handler, 900002);
-                if (bool2.booleanValue()) {
-                    break;
-                } else if (this.c.e() == -2) {
-                    bool = bool2;
-                    break;
-                } else if (!this.c.m()) {
-                    try {
-                        Thread.sleep(10000L);
-                    } catch (Exception e2) {
-                    }
-                }
-            } catch (Exception e3) {
-                bool = bool2;
-                e = e3;
-            }
-        }
-        bool = bool2;
-        try {
-            if (bool.booleanValue()) {
-                com.baidu.tieba.util.p.i(this.b.getNew_file());
-                File c = com.baidu.tieba.util.p.c(String.valueOf(this.b.getNew_file()) + ".tmp");
-                if (c != null && (d = com.baidu.tieba.util.p.d(this.b.getNew_file())) != null && !c.renameTo(d)) {
-                    av.b(getClass().getName(), "doInBackground", "renameTo error");
-                }
-            }
-        } catch (Exception e4) {
-            e = e4;
-            av.b(getClass().getName(), "doInBackground", e.getMessage());
-            return bool;
-        }
-        return bool;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.f1803a.e = null;
-        this.d = true;
-        if (this.c != null) {
-            this.c.h();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
+        Handler handler2;
+        VersionData versionData;
         Notification notification;
         Notification notification2;
         Notification notification3;
         NotificationManager notificationManager;
         Notification notification4;
-        NotificationManager notificationManager2;
-        Handler handler;
-        Handler handler2;
-        super.a((t) bool);
-        this.f1803a.e = null;
-        try {
-        } catch (Exception e) {
-            av.b(getClass().getName(), "onPostExecute", e.getMessage());
+        super.handleMessage(message);
+        if (message.what == 900003) {
+            notification = this.f2323a.d;
+            if (notification != null && message.arg2 > 0) {
+                notification2 = this.f2323a.d;
+                notification2.contentView.setProgressBar(R.id.progress, 100, (int) ((message.arg1 * 100) / message.arg2), false);
+                StringBuffer stringBuffer = new StringBuffer(20);
+                stringBuffer.append(String.valueOf(message.arg1 / LocationClientOption.MIN_SCAN_SPAN));
+                stringBuffer.append("K/");
+                stringBuffer.append(String.valueOf(message.arg2 / LocationClientOption.MIN_SCAN_SPAN));
+                stringBuffer.append("K");
+                notification3 = this.f2323a.d;
+                notification3.contentView.setTextViewText(R.id.schedule, stringBuffer);
+                notificationManager = this.f2323a.b;
+                notification4 = this.f2323a.d;
+                notificationManager.notify(14, notification4);
+            }
+        } else if (message.what == 2) {
+            str = this.f2323a.h;
+            if (str != null) {
+                str2 = this.f2323a.h;
+                if (str2.length() > 0) {
+                    z = this.f2323a.i;
+                    if (z) {
+                        handler = this.f2323a.j;
+                        handler2 = this.f2323a.j;
+                        versionData = this.f2323a.f;
+                        handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
+                        return;
+                    }
+                    this.f2323a.i = true;
+                }
+            }
         }
-        if (bool.booleanValue()) {
-            notificationManager2 = this.f1803a.b;
-            notificationManager2.cancel(10);
-            handler = this.f1803a.j;
-            handler2 = this.f1803a.j;
-            handler.sendMessageDelayed(handler2.obtainMessage(1, this.b), 100L);
-            return;
-        }
-        notification = this.f1803a.c;
-        if (notification != null) {
-            notification2 = this.f1803a.c;
-            notification2.contentView.setTextViewText(R.id.info, this.f1803a.getString(R.string.error_sd_error));
-            notification3 = this.f1803a.c;
-            notification3.flags = 16;
-            notificationManager = this.f1803a.b;
-            notification4 = this.f1803a.c;
-            notificationManager.notify(10, notification4);
-        }
-        this.f1803a.stopSelf();
     }
 }

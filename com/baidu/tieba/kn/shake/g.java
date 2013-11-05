@@ -5,7 +5,7 @@ import android.hardware.SensorEvent;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f1318a = (float) ((2.0d * Math.sqrt(3.0d)) * 9.806650161743164d);
+    private static final float f1813a = (float) ((2.0d * Math.sqrt(3.0d)) * 9.806650161743164d);
     private boolean b = true;
     private float c = 0.0f;
     private float d = 0.0f;
@@ -26,14 +26,14 @@ public class g {
 
     private void a(l lVar) {
         if (this.k) {
-            this.n[0] = lVar.f1322a;
+            this.n[0] = lVar.f1817a;
             this.n[1] = lVar.b;
             this.n[2] = lVar.c;
         }
-        this.n[0] = (this.n[0] * 0.8f) + (lVar.f1322a * 0.19999999f);
+        this.n[0] = (this.n[0] * 0.8f) + (lVar.f1817a * 0.19999999f);
         this.n[1] = (this.n[1] * 0.8f) + (lVar.b * 0.19999999f);
         this.n[2] = (this.n[2] * 0.8f) + (lVar.c * 0.19999999f);
-        lVar.f1322a -= this.n[0];
+        lVar.f1817a -= this.n[0];
         lVar.b -= this.n[1];
         lVar.c -= this.n[2];
         this.k = false;
@@ -49,7 +49,7 @@ public class g {
         this.e = j;
         float a2 = lVar.a();
         float f = a2 - this.c;
-        float f2 = a2 > f1318a ? f1318a : a2;
+        float f2 = a2 > f1813a ? f1813a : a2;
         if (a2 > 0.5d) {
             this.g = ((((float) j2) * f2) / 1000.0f) + this.g;
         }

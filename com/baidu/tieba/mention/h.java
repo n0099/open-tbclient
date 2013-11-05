@@ -1,33 +1,36 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.person.PersonInfoActivity;
 /* loaded from: classes.dex */
-class h {
+class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1366a;
-    ProgressBar b;
-    g c;
-    LinearLayout d;
-    ImageView e;
-    TextView f;
-    TextView g;
-    TextView h;
-    TextView i;
-    TextView j;
-    TextView k;
-    LinearLayout l;
-    final /* synthetic */ f m;
+    final /* synthetic */ f f1863a;
+    private String b;
+    private String c;
 
-    private h(f fVar) {
-        this.m = fVar;
+    public h(f fVar) {
+        this.f1863a = fVar;
+        b(null);
+        a(null);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(f fVar, h hVar) {
-        this(fVar);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        if (this.b != null && this.b.length() > 0) {
+            context = this.f1863a.f1862a;
+            PersonInfoActivity.a(context, this.b, this.c);
+        }
+    }
+
+    public void a(String str) {
+        this.c = str;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 }

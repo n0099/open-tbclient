@@ -1,15 +1,17 @@
 package com.baidu.tieba.recommend;
 
 import android.text.TextUtils;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.util.ag;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ad {
-    private static final String d = String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/forum/threadrecommend";
+    private static final String d = com.baidu.tieba.data.h.f1165a + "c/f/forum/threadrecommend";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1750a = -1;
-    private com.baidu.tieba.util.z b = null;
+    private int f2270a = -1;
+    private ag b = null;
     private boolean c;
 
     public ad(boolean z) {
@@ -17,7 +19,7 @@ public class ad {
     }
 
     public String a(String str) {
-        this.b = new com.baidu.tieba.util.z();
+        this.b = new ag();
         this.b.a(d);
         this.b.c(false);
         if (this.c) {
@@ -29,7 +31,7 @@ public class ad {
         String j = this.b.j();
         if (j != null) {
             try {
-                this.f1750a = new JSONObject(j).optInt("error_code");
+                this.f2270a = new JSONObject(j).optInt(SocialConstants.PARAM_ERROR_CODE);
             } catch (JSONException e) {
             }
         }
@@ -50,6 +52,6 @@ public class ad {
     }
 
     public int c() {
-        return this.f1750a;
+        return this.f2270a;
     }
 }

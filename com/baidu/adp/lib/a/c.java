@@ -6,7 +6,7 @@ import java.security.InvalidParameterException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f354a = "_crashtime";
+    private static String f404a = "_crashtime";
     private static String b = "_crashtype";
     private int c;
     private int d;
@@ -72,21 +72,21 @@ public class c {
 
     private void b(int i) {
         SharedPreferences.Editor edit = com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.e.a()) + b, i);
+        edit.putInt(this.e.a() + b, i);
         edit.commit();
     }
 
     private int d() {
-        return com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + b, this.e.e());
+        return com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).getInt(this.e.a() + b, this.e.e());
     }
 
     private int e() {
-        return com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).getInt(String.valueOf(this.e.a()) + f354a, -1);
+        return com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).getInt(this.e.a() + f404a, -1);
     }
 
     private void c(int i) {
         SharedPreferences.Editor edit = com.baidu.adp.a.b.a().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(String.valueOf(this.e.a()) + f354a, i);
+        edit.putInt(this.e.a() + f404a, i);
         edit.commit();
     }
 

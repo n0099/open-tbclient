@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public BaseWebView f1264a;
+    public BaseWebView f1759a;
     public TextView b;
     public TextView c;
     public ProgressBar d;
@@ -18,7 +18,7 @@ public class u {
 
     public u(View view) {
         this.e = (LinearLayout) view.findViewById(R.id.home_webview_item);
-        this.f1264a = (BaseWebView) view.findViewById(R.id.web);
+        this.f1759a = (BaseWebView) view.findViewById(R.id.web);
         this.c = (TextView) view.findViewById(R.id.webview_fail);
         this.b = (TextView) view.findViewById(R.id.webview_crash_tip);
         this.d = (ProgressBar) view.findViewById(R.id.progress);

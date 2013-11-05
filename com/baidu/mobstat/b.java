@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f812a = "Android";
+    private static String f941a = "Android";
     private static JSONObject q = new JSONObject();
     private static b w = new b();
     private String b;
@@ -261,7 +261,7 @@ public class b {
     public synchronized void b() {
         if (q.length() <= 0) {
             try {
-                q.put("o", f812a == null ? "" : f812a);
+                q.put("o", f941a == null ? "" : f941a);
                 q.put("s", this.b == null ? "" : this.b);
                 q.put("k", this.c == null ? "" : this.c);
                 q.put("v", "2.2");

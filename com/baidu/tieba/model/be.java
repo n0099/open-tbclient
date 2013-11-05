@@ -1,7 +1,23 @@
 package com.baidu.tieba.model;
-/* loaded from: classes.dex */
-public interface be {
-    void a(com.baidu.tieba.data.ao aoVar);
 
-    void a(boolean z, int i, int i2, int i3, com.baidu.tieba.data.ao aoVar, String str);
+import android.text.TextUtils;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class be {
+
+    /* renamed from: a  reason: collision with root package name */
+    private int f1913a;
+    private String b;
+    private String c;
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null && jSONObject != null) {
+            this.f1913a = jSONObject.optInt("offline");
+            this.b = jSONObject.optString("title");
+            this.c = jSONObject.optString("link");
+            if (!TextUtils.isEmpty(this.c)) {
+                this.c = this.c.replaceFirst("webview:", com.baidu.loginshare.e.f);
+            }
+        }
+    }
 }

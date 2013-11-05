@@ -1,53 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements View.OnTouchListener {
+public class bb implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ba f1138a;
+    final /* synthetic */ ba f1271a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(ba baVar) {
-        this.f1138a = baVar;
+        this.f1271a = baVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        int i;
-        ImageView imageView;
-        ImageView imageView2;
-        int i2;
-        ImageView imageView3;
-        ImageView imageView4;
-        if (view.getId() == R.id.refresh_layout) {
-            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                i = this.f1138a.y;
-                if (i == 1) {
-                    imageView2 = this.f1138a.k;
-                    imageView2.setImageResource(R.drawable.pic_fresh_n_1);
-                } else {
-                    imageView = this.f1138a.k;
-                    imageView.setImageResource(R.drawable.pic_fresh_n);
-                }
-            }
-            if (motionEvent.getAction() == 0) {
-                i2 = this.f1138a.y;
-                if (i2 == 1) {
-                    imageView4 = this.f1138a.k;
-                    imageView4.setImageResource(R.drawable.pic_fresh_s_1);
-                    return false;
-                }
-                imageView3 = this.f1138a.k;
-                imageView3.setImageResource(R.drawable.pic_fresh_s);
-                return false;
-            }
-            return false;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.j jVar;
+        com.baidu.tieba.j jVar2;
+        if (i == 0) {
+            jVar2 = this.f1271a.d;
+            com.baidu.tieba.write.bg.a(jVar2);
+        } else if (i == 1) {
+            jVar = this.f1271a.d;
+            com.baidu.tieba.write.bg.b(jVar);
         }
-        return false;
     }
 }

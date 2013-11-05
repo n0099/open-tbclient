@@ -7,15 +7,15 @@ import android.content.Intent;
 class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f533a;
+    final /* synthetic */ a f612a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f533a = aVar;
+        this.f612a = aVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.f533a.a(intent);
+        this.f612a.a(intent);
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -92,7 +92,7 @@ public class SendAloneVoteData implements Serializable {
         try {
             return a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
             return null;
         }
     }
@@ -104,14 +104,14 @@ public class SendAloneVoteData implements Serializable {
             sendAloneVoteData.setShareId(jSONObject.optString("share_id"));
             sendAloneVoteData.setShareText(jSONObject.optString("share_text"));
             sendAloneVoteData.setResultPic(jSONObject.optString("result_pic"));
-            sendAloneVoteData.setErrorCode(jSONObject.optString("error_code"));
-            sendAloneVoteData.setErrorMsg(jSONObject.optString(PushConstants.EXTRA_ERROR_CODE));
+            sendAloneVoteData.setErrorCode(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE));
+            sendAloneVoteData.setErrorMsg(jSONObject.optString("error_msg"));
             sendAloneVoteData.setTime(jSONObject.optLong("time"));
             sendAloneVoteData.setcTime(jSONObject.optLong("ctime"));
             sendAloneVoteData.setLogId(jSONObject.optInt("logid"));
             return sendAloneVoteData;
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
             return null;
         }
     }
@@ -159,7 +159,7 @@ public class SendAloneVoteData implements Serializable {
                 error.setUserMsg(jSONObject.optString("usermsg"));
                 return error;
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
                 return null;
             }
         }

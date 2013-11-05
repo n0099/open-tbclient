@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import com.baidu.adp.lib.voice.Amrnb;
+import com.baidu.tieba.util.be;
 import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,21 +13,37 @@ import java.io.FileInputStream;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f2030a = 0;
+    private static volatile int f2569a = 0;
     private static Object g = new Object();
     private AudioTrack b;
     private String c;
     private Amrnb e;
     private Handler f;
     private int l;
-    private short[] d = {12, 13, 15, 17, 19, 20, 26, 31, 5};
+    private short[] d = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
     private int h = 0;
     private int i = 0;
     private Handler j = new Handler();
     private Runnable k = new d(this);
+    private Runnable m = new e(this);
 
     public int a() {
-        return (int) (((this.b.getPlaybackHeadPosition() * 1.0f) / (this.b.getSampleRate() * 1.0f)) * 1000.0f);
+        if (this.b == null) {
+            return 0;
+        }
+        try {
+            int playbackHeadPosition = this.b.getPlaybackHeadPosition();
+            if (this.b != null) {
+                int sampleRate = this.b.getSampleRate();
+                if (sampleRate != 0) {
+                    return (int) (((playbackHeadPosition * 1.0f) / (sampleRate * 1.0f)) * 1000.0f);
+                }
+                return 0;
+            }
+            return 0;
+        } catch (Throwable th) {
+            return 0;
+        }
     }
 
     public c(Handler handler, int i) {
@@ -50,8 +67,13 @@ public class c implements Runnable {
     }
 
     private void d() {
-        this.b = new AudioTrack(r.i, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, (int) LVBuffer.LENGTH_ALLOC_PER_NEW), 1);
-        f2030a = 1;
+        try {
+            this.b = new AudioTrack(VoiceManager.i, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, (int) LVBuffer.LENGTH_ALLOC_PER_NEW), 1);
+        } catch (IllegalArgumentException e) {
+            this.b = null;
+            be.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
+        }
+        f2569a = 1;
     }
 
     public void b() {
@@ -82,12 +104,19 @@ public class c implements Runnable {
                 this.f.sendMessage(obtainMessage);
             }
         }
-        f2030a = 0;
+        f2569a = 0;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00cb  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0182  */
     @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void run() {
         FileInputStream fileInputStream;
+        boolean z;
+        FileInputStream fileInputStream2;
         Process.setThreadPriority(-19);
         if (this.e == null) {
             if (this.f != null) {
@@ -106,9 +135,8 @@ public class c implements Runnable {
                 }
                 return;
             }
-            FileInputStream fileInputStream2 = null;
             d();
-            if (this.b.getState() == 0) {
+            if (this.b == null || this.b.getState() == 0) {
                 if (this.f != null) {
                     this.f.sendMessage(this.f.obtainMessage(3));
                     return;
@@ -120,58 +148,82 @@ public class c implements Runnable {
                 this.b.setPlaybackHeadPosition(this.l);
             }
             this.b.play();
-            f2030a = 2;
+            f2569a = 2;
             this.j.post(this.k);
             try {
-                fileInputStream = new FileInputStream(file);
-            } catch (Exception e) {
-            }
-            try {
-                Boolean bool = true;
-                byte[] bArr = new byte[32];
-                this.e.decoderInit();
-                short[] sArr = new short[160];
-                while (f2030a == 2) {
-                    if (bool.booleanValue()) {
-                        if (fileInputStream.read(bArr, 0, 6) != 6 || bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82 || bArr[5] != 10) {
+                fileInputStream2 = new FileInputStream(file);
+                try {
+                    Boolean bool = true;
+                    byte[] bArr = new byte[32];
+                    this.e.decoderInit();
+                    short[] sArr = new short[160];
+                    while (f2569a == 2) {
+                        if (bool.booleanValue()) {
+                            if (fileInputStream2.read(bArr, 0, 6) == 6) {
+                                if (bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82) {
+                                    break;
+                                } else if (bArr[5] != 10) {
+                                    z = false;
+                                    break;
+                                } else {
+                                    bool = false;
+                                }
+                            } else {
+                                z = false;
+                                break;
+                            }
+                        }
+                        if (fileInputStream2.read(bArr, 0, 1) <= 0) {
+                            z = true;
                             break;
                         }
-                        bool = false;
-                    }
-                    if (fileInputStream.read(bArr, 0, 1) <= 0) {
-                        break;
-                    }
-                    short s = this.d[(bArr[0] >> 3) & 15];
-                    if (fileInputStream.read(bArr, 1, s) != s) {
-                        break;
-                    }
-                    synchronized (g) {
-                        if (this.b != null && this.b.getPlayState() == 3) {
-                            this.e.decoderDecode(bArr, sArr);
-                            this.b.write(sArr, 0, sArr.length);
+                        short s = this.d[(bArr[0] >> 3) & 15];
+                        if (fileInputStream2.read(bArr, 1, s) != s) {
+                            z = true;
+                            break;
+                        }
+                        synchronized (g) {
+                            if (this.b != null && this.b.getPlayState() == 3) {
+                                this.e.decoderDecode(bArr, sArr);
+                                this.b.write(sArr, 0, sArr.length);
+                            }
                         }
                     }
+                    z = false;
+                } catch (Exception e) {
+                    z = false;
+                    fileInputStream = fileInputStream2;
                 }
-                fileInputStream.close();
-                this.e.decoderDeinit();
-                com.baidu.adp.lib.f.d.b("-----gf : decoderDeinit");
             } catch (Exception e2) {
-                fileInputStream2 = fileInputStream;
+                fileInputStream = null;
+                z = false;
+            }
+            try {
+                fileInputStream2.close();
+                this.e.decoderDeinit();
+                com.baidu.adp.lib.h.d.c("-----gf : decoderDeinit");
+            } catch (Exception e3) {
+                fileInputStream = fileInputStream2;
                 if (this.f != null) {
                     this.f.sendMessage(this.f.obtainMessage(5));
                 }
-                if (fileInputStream2 != null) {
+                if (fileInputStream != null) {
                     try {
-                        fileInputStream2.close();
-                    } catch (Exception e3) {
-                        com.baidu.adp.lib.f.d.b("AudioPlayer", "play", "error = " + e3.getMessage());
+                        fileInputStream.close();
+                    } catch (Exception e4) {
+                        com.baidu.adp.lib.h.d.b("AudioPlayer", "play", "error = " + e4.getMessage());
                     }
                 }
-                f2030a = 3;
+                f2569a = 3;
+                if (!z) {
+                }
+            }
+            f2569a = 3;
+            if (!z) {
+                this.f.postDelayed(this.m, 500L);
+            } else {
                 b();
             }
-            f2030a = 3;
-            b();
         }
     }
 
@@ -180,7 +232,7 @@ public class c implements Runnable {
     }
 
     public void c() {
-        f2030a = 3;
+        f2569a = 3;
         b();
     }
 }

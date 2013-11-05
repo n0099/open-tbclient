@@ -1,30 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.account.LoginActivity;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class bn implements View.OnClickListener {
+class bn implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f1683a;
+    final /* synthetic */ bm f2202a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(PersonListActivity personListActivity) {
-        this.f1683a = personListActivity;
+    public bn(bm bmVar) {
+        this.f2202a = bmVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1683a.f1644a = ((Integer) view.getTag()).intValue();
-        String C = TiebaApplication.C();
-        if (C == null || C.length() <= 0) {
-            LoginActivity.a((Activity) this.f1683a, this.f1683a.getString(R.string.login_to_chat), true, 11028);
-        } else {
-            this.f1683a.d();
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        BdListView bdListView;
+        bdListView = this.f2202a.f2201a.b;
+        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+        if (imageView != null && eVar != null) {
+            eVar.a(imageView);
+            imageView.setTag(null);
         }
     }
 }

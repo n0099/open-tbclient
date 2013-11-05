@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1308a;
+    public String f1803a;
     public String b;
     public String c;
     public String d;
@@ -21,7 +21,7 @@ public class x {
     public LinkedList<y> m;
 
     public x a(JSONObject jSONObject) {
-        this.f1308a = jSONObject.optString("player_id");
+        this.f1803a = jSONObject.optString("player_id");
         this.b = jSONObject.optString("player_name");
         this.c = jSONObject.optString("small_head_url");
         this.d = jSONObject.optString("big_head_url");

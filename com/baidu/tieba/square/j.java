@@ -1,24 +1,24 @@
 package com.baidu.tieba.square;
 
 import android.view.ViewGroup;
-import com.baidu.tieba.util.ba;
-import com.baidu.tieba.util.bf;
+import com.baidu.tieba.util.bj;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.a.d {
+public class j implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1844a;
-    private final /* synthetic */ ViewGroup b;
+    final /* synthetic */ ViewGroup f2366a;
+    final /* synthetic */ h b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar, ViewGroup viewGroup) {
-        this.f1844a = hVar;
-        this.b = viewGroup;
+        this.b = hVar;
+        this.f2366a = viewGroup;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        ba.a(this.b, false, (bf) new k(this, str, cVar));
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        bj.a(this.f2366a, false, (bo) new k(this, str, eVar));
     }
 }

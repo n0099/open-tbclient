@@ -1,27 +1,19 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.TiebaApplication;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class k extends Thread {
+class k implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1495a;
-    private String b;
+    final /* synthetic */ j f2012a;
 
-    public k(AccountActivity accountActivity, String str) {
-        this.f1495a = accountActivity;
-        this.b = null;
-        this.b = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(j jVar) {
+        this.f2012a = jVar;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tieba.util.z zVar = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/s/logout");
-        zVar.c(false);
-        zVar.a(false);
-        zVar.a("BDUSS", this.b);
-        zVar.a("channel_id", TiebaApplication.g().aW());
-        zVar.j();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        this.f2012a.f2011a.i();
     }
 }

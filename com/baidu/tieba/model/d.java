@@ -1,55 +1,24 @@
 package com.baidu.tieba.model;
-
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<com.baidu.tieba.data.v> f1441a = new ArrayList<>();
-    private com.baidu.tieba.data.an b = new com.baidu.tieba.data.an();
-    private Date c = null;
-    private boolean d = true;
+    private com.baidu.tieba.data.y f1944a = null;
+    private com.baidu.tieba.data.bc b = null;
 
-    public ArrayList<com.baidu.tieba.data.v> a() {
-        return this.f1441a;
+    public com.baidu.tieba.data.y a() {
+        return this.f1944a;
     }
 
-    public void a(ArrayList<com.baidu.tieba.data.v> arrayList) {
-        this.f1441a = arrayList;
+    public void a(com.baidu.tieba.data.y yVar) {
+        this.f1944a = yVar;
     }
 
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.tieba.util.av.b("BarlistModel", "parserJson", "error = " + e.getMessage());
-        }
+    public com.baidu.tieba.data.bc b() {
+        return this.b;
     }
 
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tieba.data.v vVar = new com.baidu.tieba.data.v();
-                    vVar.a(optJSONArray.getJSONObject(i));
-                    this.f1441a.add(vVar);
-                }
-            }
-            this.b.a(jSONObject.optJSONObject("page"));
-            long optLong = jSONObject.optLong("ctime", 0L);
-            if (optLong > 0) {
-                this.c = new Date(optLong);
-            } else {
-                this.c = new Date();
-            }
-        } catch (Exception e) {
-            this.d = false;
-            com.baidu.tieba.util.av.b("BarlistModel", "parserJson", "error = " + e.getMessage());
-        }
+    public void a(com.baidu.tieba.data.bc bcVar) {
+        this.b = bcVar;
     }
 }

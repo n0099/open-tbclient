@@ -3,47 +3,47 @@ package com.baidu.tieba;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.util.z f1510a;
+    protected com.baidu.tieba.util.ag f2027a;
     protected com.baidu.tieba.data.ak b = null;
 
     public n() {
-        this.f1510a = null;
-        this.f1510a = new com.baidu.tieba.util.z();
+        this.f2027a = null;
+        this.f2027a = new com.baidu.tieba.util.ag();
     }
 
     public void a() {
-        if (this.f1510a != null) {
-            this.f1510a.h();
+        if (this.f2027a != null) {
+            this.f2027a.h();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(String str) {
-        this.f1510a.a(str);
+        this.f2027a.a(str);
     }
 
     public void a(String str, String str2) {
-        this.f1510a.a(str, str2);
+        this.f2027a.a(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String b() {
-        String j = this.f1510a.j();
+        String j = this.f2027a.j();
         this.b = new com.baidu.tieba.data.ak();
         this.b.a(j);
         return j;
     }
 
     public boolean c() {
-        if (this.f1510a != null) {
-            return this.f1510a.c();
+        if (this.f2027a != null) {
+            return this.f2027a.c();
         }
         return false;
     }
 
     public String d() {
-        if (this.f1510a != null) {
-            return this.f1510a.g();
+        if (this.f2027a != null) {
+            return this.f2027a.g();
         }
         return null;
     }

@@ -1,56 +1,95 @@
 package com.baidu.tieba.service;
 
+import android.os.Build;
 import android.os.Handler;
-import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.NetWorkCore;
+import com.baidu.tieba.util.aq;
+import com.baidu.tieba.util.be;
+import com.tencent.mm.sdk.platformtools.Util;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends Handler {
+public class l extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    long f1795a = TiebaApplication.g().Q();
-    long b = 0;
-    final /* synthetic */ TiebaMessageService c;
+    NetWorkCore f2315a;
+    final /* synthetic */ TiebaActiveService b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(TiebaMessageService tiebaMessageService) {
-        this.c = tiebaMessageService;
+    private l(TiebaActiveService tiebaActiveService) {
+        this.b = tiebaActiveService;
+        this.f2315a = null;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        int i2;
-        Handler handler;
-        Handler handler2;
-        if (message.what == 1) {
-            if (this.f1795a > 0) {
-                this.b = 1800 / this.f1795a;
-                i = this.c.d;
-                if (i % this.b == 0) {
-                    this.c.a(2);
-                } else {
-                    this.c.a(1);
-                }
-                TiebaMessageService tiebaMessageService = this.c;
-                i2 = tiebaMessageService.d;
-                tiebaMessageService.d = i2 + 1;
-                if (TiebaApplication.av()) {
-                    handler2 = this.c.e;
-                    handler2.sendEmptyMessageDelayed(1, this.f1795a * 1000);
-                    return;
-                }
-                handler = this.c.e;
-                handler.removeMessages(1);
-                this.c.stopSelf();
-                return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ l(TiebaActiveService tiebaActiveService, k kVar) {
+        this(tiebaActiveService);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        be.a(getClass().getName(), "doBackGround", "send active...");
+        try {
+            this.f2315a = new NetWorkCore(new aq());
+            this.f2315a.a("http://114.113.149.3:8086/partnersService");
+            this.f2315a.a(this.b.getApplicationContext());
+            this.f2315a.a("apk", TiebaApplication.g().getPackageName());
+            this.f2315a.a("imei", TiebaApplication.g().p());
+            this.f2315a.a("model", Build.MODEL);
+            this.f2315a.a("edition", com.baidu.tieba.data.h.j());
+            this.f2315a.a("system", Build.VERSION.SDK);
+            this.f2315a.d(false);
+            String s = this.f2315a.s();
+            if (this.f2315a.p()) {
+                be.a(getClass().getName(), "task", "data=" + s);
+                return s;
             }
-            this.c.stopSelf();
-        } else if (message.what == 3) {
-            if (this.f1795a <= 0) {
-                this.c.stopSelf();
+        } catch (Exception e) {
+            com.baidu.tieba.sharedPref.b.a().b("active", 1);
+            be.b(getClass().getName(), "doInBackground", e.getMessage());
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.b.f2300a = null;
+        if (this.f2315a != null) {
+            this.f2315a.r();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        int i;
+        Handler handler;
+        Runnable runnable;
+        Handler handler2;
+        Runnable runnable2;
+        super.a((l) str);
+        this.b.f2300a = null;
+        if (str == null) {
+            TiebaActiveService.b(this.b);
+            i = this.b.b;
+            if (i < 10) {
+                handler = this.b.c;
+                runnable = this.b.d;
+                handler.removeCallbacks(runnable);
+                handler2 = this.b.c;
+                runnable2 = this.b.d;
+                handler2.postDelayed(runnable2, Util.MILLSECONDS_OF_MINUTE);
             } else {
-                this.c.a(3);
+                com.baidu.tieba.sharedPref.b.a().b("active", 1);
+                this.b.stopSelf();
             }
         }
+        be.a(getClass().getName(), "onPostExecute", "send active ok");
+        com.baidu.tieba.sharedPref.b.a().b("active", 2);
+        this.b.stopSelf();
     }
 }

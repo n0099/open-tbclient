@@ -5,11 +5,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class p {
+public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    View f1766a;
+    View f2286a;
     LinearLayout b;
     RelativeLayout c;
     TextView d;
@@ -25,7 +26,7 @@ class p {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ p(h hVar, p pVar) {
+    public /* synthetic */ p(h hVar, i iVar) {
         this(hVar);
     }
 }

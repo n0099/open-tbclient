@@ -50,19 +50,19 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     private RadioButton x = null;
     private InputMethodManager y = null;
     private boolean z = false;
-    private com.baidu.tieba.model.bn A = null;
+    private com.baidu.tieba.model.bv A = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected FrameLayout f1642a = null;
-    private com.baidu.adp.widget.a.c B = null;
-    private av C = null;
-    private aw D = null;
+    protected FrameLayout f2160a = null;
+    private com.baidu.adp.widget.ImageView.e B = null;
+    private ax C = null;
+    private ay D = null;
     private ProgressBar E = null;
     private DialogInterface.OnCancelListener F = null;
     private com.baidu.tieba.util.a G = null;
     private Dialog H = null;
     private boolean I = false;
-    private View.OnClickListener J = new aj(this);
+    private View.OnClickListener J = new ao(this);
 
     public static void a(Activity activity, int i, PersonChangeData personChangeData, Boolean bool) {
         Intent intent = new Intent(activity, PersonChangeActivity.class);
@@ -144,7 +144,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         PersonChangeData personChangeData;
-        this.F = new an(this);
+        this.F = new al(this);
         if (bundle != null) {
             personChangeData = (PersonChangeData) bundle.getSerializable("data");
         } else {
@@ -153,7 +153,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         if (personChangeData == null) {
             personChangeData = new PersonChangeData();
         }
-        this.A = new com.baidu.tieba.model.bn(personChangeData);
+        this.A = new com.baidu.tieba.model.bv(personChangeData);
         this.G = new com.baidu.tieba.util.a(this);
     }
 
@@ -161,21 +161,21 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.as.a(this.j, i);
+        com.baidu.tieba.util.bb.a(this.j, i);
         this.e.b(i);
-        this.d.c();
+        this.d.b();
         if (i == 1) {
-            this.k.setTextColor(com.baidu.tieba.util.as.a(i));
-            this.l.setTextColor(com.baidu.tieba.util.as.a(i));
-            this.m.setTextColor(com.baidu.tieba.util.as.a(i));
-            this.w.setTextColor(com.baidu.tieba.util.as.a(i));
-            this.x.setTextColor(com.baidu.tieba.util.as.a(i));
-            this.t.setTextColor(com.baidu.tieba.util.as.a(i));
-            this.s.setTextColor(com.baidu.tieba.util.as.a(i));
+            this.k.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.l.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.m.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.w.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.x.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.t.setTextColor(com.baidu.tieba.util.bb.a(i));
+            this.s.setTextColor(com.baidu.tieba.util.bb.a(i));
             this.n.setImageResource(R.drawable.list_divider_1);
             this.o.setImageResource(R.drawable.list_divider_1);
             this.p.setImageResource(R.drawable.list_divider_1);
-            this.f1642a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n_1));
+            this.f2160a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n_1));
             return;
         }
         this.k.setTextColor(-14277082);
@@ -188,7 +188,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.n.setImageResource(R.drawable.list_divider);
         this.o.setImageResource(R.drawable.list_divider);
         this.p.setImageResource(R.drawable.list_divider);
-        this.f1642a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n));
+        this.f2160a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n));
     }
 
     @Override // android.app.Activity
@@ -201,19 +201,19 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         String[] strArr = {getString(R.string.take_photo), getString(R.string.album)};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.operation));
-        builder.setItems(strArr, new ao(this));
+        builder.setItems(strArr, new ap(this));
         if (this.c == null) {
             this.c = builder.create();
         }
         this.r = (RelativeLayout) findViewById(R.id.info);
-        this.r.setOnClickListener(new ap(this));
+        this.r.setOnClickListener(new aq(this));
         this.d = (HeadImageView) findViewById(R.id.photo);
-        this.f1642a = (FrameLayout) findViewById(R.id.frame_photo);
+        this.f2160a = (FrameLayout) findViewById(R.id.frame_photo);
         this.B = this.G.c(this.A.a().getPortrait());
         if (this.B != null) {
             this.B.a(this.d);
         } else {
-            this.G.c(this.A.a().getPortrait(), new aq(this));
+            this.G.c(this.A.a().getPortrait(), new ar(this));
         }
         this.j = (LinearLayout) findViewById(R.id.parent);
         this.n = (ImageView) findViewById(R.id.divider1);
@@ -225,10 +225,10 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.e.a(getResources().getString(R.string.my_info));
         this.f = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.J);
         this.g = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.save));
-        this.g.setOnClickListener(new ar(this));
+        this.g.setOnClickListener(new as(this));
         this.q = (LinearLayout) findViewById(R.id.intro_click);
-        this.q.setOnClickListener(new as(this));
-        this.q.setOnTouchListener(new at(this));
+        this.q.setOnClickListener(new at(this));
+        this.q.setOnTouchListener(new au(this));
         this.t = (TextView) findViewById(R.id.intro_text);
         this.s = (TextView) findViewById(R.id.intro);
         if (this.A.a().getIntro() != null && this.A.a().getIntro().length() > 0) {
@@ -238,8 +238,8 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         }
         this.u = (EditText) findViewById(R.id.edit);
         this.u.setText(this.A.a().getIntro());
-        this.u.setOnFocusChangeListener(new au(this));
-        this.u.setOnTouchListener(new ak(this));
+        this.u.setOnFocusChangeListener(new av(this));
+        this.u.setOnTouchListener(new aw(this));
         this.v = (RadioGroup) findViewById(R.id.sexgroup);
         this.w = (RadioButton) findViewById(R.id.man);
         this.x = (RadioButton) findViewById(R.id.woman);
@@ -253,8 +253,8 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.E = (ProgressBar) findViewById(R.id.image_progress);
         AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
         builder2.setMessage(getString(R.string.confirm_giveup));
-        builder2.setPositiveButton(getString(R.string.alert_yes_button), new al(this));
-        builder2.setNeutralButton(getString(R.string.cancel), new am(this));
+        builder2.setPositiveButton(getString(R.string.alert_yes_button), new am(this));
+        builder2.setNeutralButton(getString(R.string.cancel), new an(this));
         this.H = builder2.create();
     }
 
@@ -273,11 +273,11 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         if (i2 == -1) {
             switch (i) {
                 case 12001:
-                    EditHeadActivity.a(this, 12001, 12010, null, TiebaApplication.F());
+                    EditHeadActivity.a(this, 12001, 12010, null, TiebaApplication.G());
                     return;
                 case 12002:
                     if (intent != null) {
-                        EditHeadActivity.a(this, 12002, 12009, intent.getData(), TiebaApplication.F());
+                        EditHeadActivity.a(this, 12002, 12009, intent.getData(), TiebaApplication.G());
                         return;
                     }
                     return;
@@ -292,10 +292,10 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    com.baidu.tieba.write.bf.b(this);
+                    com.baidu.tieba.write.bg.b(this);
                     return;
                 case 12010:
-                    com.baidu.tieba.write.bf.a(this);
+                    com.baidu.tieba.write.bg.a(this);
                     return;
                 default:
                     return;
@@ -308,7 +308,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
             this.C.cancel();
         }
         this.B = null;
-        this.C = new av(this, null);
+        this.C = new ax(this, null);
         this.C.execute(new Object[0]);
     }
 }

@@ -1,29 +1,24 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
-import com.baidu.tieba.flist.ForumListActivity;
+import android.view.ViewGroup;
+import com.baidu.tieba.util.bj;
+import com.baidu.tieba.util.bo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
+public class d implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1838a;
+    final /* synthetic */ ViewGroup f2360a;
+    final /* synthetic */ c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar) {
-        this.f1838a = cVar;
+    public d(c cVar, ViewGroup viewGroup) {
+        this.b = cVar;
+        this.f2360a = viewGroup;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        s sVar;
-        Object tag = view.getTag();
-        if ((tag instanceof l) && (sVar = ((l) tag).d) != null) {
-            if (sVar.f1853a == null) {
-                BarFolderFirstDirActivity.a(this.f1838a.b());
-            } else {
-                ForumListActivity.a(this.f1838a.b(), sVar.b, sVar.f1853a, sVar.c);
-            }
-        }
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        bj.a(this.f2360a, false, (bo) new e(this, str, eVar));
     }
 }

@@ -1,74 +1,49 @@
 package com.baidu.tieba.model;
+
+import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
-public class br {
+public class br extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.aq f1427a = new com.baidu.tieba.data.aq();
-    private boolean b = true;
-    private String c = null;
-    private int d;
-
-    public void a(String str) {
-        this.c = str;
-    }
-
-    public String a() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int b() {
-        return this.d;
-    }
+    private bt f1923a = null;
+    private WriteData b = null;
+    private bs c = null;
+    private boolean d = false;
 
     public void a(boolean z) {
-        this.b = z;
+        this.d = z;
     }
 
-    public boolean c() {
+    public void a(bs bsVar) {
+        this.c = bsVar;
+    }
+
+    public void a(WriteData writeData) {
+        this.b = writeData;
+    }
+
+    public WriteData a() {
         return this.b;
     }
 
-    public com.baidu.tieba.data.aq d() {
-        return this.f1427a;
+    public boolean b() {
+        if (this.b == null) {
+            return false;
+        }
+        if (this.f1923a == null) {
+            this.f1923a = new bt(this);
+            this.f1923a.execute(new Integer[0]);
+        }
+        return true;
     }
 
-    public void a(String str, boolean z) {
-        com.baidu.adp.lib.cache.q<String> f;
-        if (str != null && this.c != null) {
-            if (z) {
-                f = com.baidu.tieba.b.a.a().e();
-            } else {
-                f = com.baidu.tieba.b.a.a().f();
-            }
-            if (f != null) {
-                f.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.c, str, 604800000L);
-            }
-        }
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    public com.baidu.tieba.data.aq b(boolean z) {
-        com.baidu.adp.lib.cache.q<String> f;
-        if (this.c == null) {
-            return null;
-        }
-        if (z) {
-            f = com.baidu.tieba.b.a.a().e();
-        } else {
-            f = com.baidu.tieba.b.a.a().f();
-        }
-        if (f != null) {
-            String a2 = f.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.c);
-            if (a2 == null) {
-                return null;
-            }
-            com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq();
-            aqVar.a(a2);
-            return aqVar;
-        }
-        return null;
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
     }
 }

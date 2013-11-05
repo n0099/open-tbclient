@@ -22,6 +22,7 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClientOption;
 import com.tencent.mm.sdk.platformtools.Util;
@@ -87,7 +88,7 @@ public class ViewPager extends ViewGroup {
     private int z;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f312a = {16842931};
+    private static final int[] f322a = {16842931};
     private static final Comparator<bm> c = new bi();
     private static final Interpolator d = new bj();
     private static final bu af = new bu();
@@ -95,15 +96,15 @@ public class ViewPager extends ViewGroup {
     /* loaded from: classes.dex */
     public class SimpleOnPageChangeListener implements bq {
         @Override // android.support.v4.view.bq
-        public void a(int i, float f, int i2) {
+        public void onPageScrolled(int i, float f, int i2) {
         }
 
         @Override // android.support.v4.view.bq
-        public void a_(int i) {
+        public void onPageSelected(int i) {
         }
 
         @Override // android.support.v4.view.bq
-        public void b(int i) {
+        public void onPageScrollStateChanged(int i) {
         }
     }
 
@@ -181,7 +182,7 @@ public class ViewPager extends ViewGroup {
                 b(i != 0);
             }
             if (this.W != null) {
-                this.W.b(i);
+                this.W.onPageScrollStateChanged(i);
             }
         }
     }
@@ -192,7 +193,7 @@ public class ViewPager extends ViewGroup {
             this.h.startUpdate((ViewGroup) this);
             for (int i = 0; i < this.e.size(); i++) {
                 bm bmVar = this.e.get(i);
-                this.h.destroyItem((ViewGroup) this, bmVar.b, bmVar.f325a);
+                this.h.destroyItem((ViewGroup) this, bmVar.b, bmVar.f335a);
             }
             this.h.finishUpdate((ViewGroup) this);
             this.e.clear();
@@ -234,7 +235,7 @@ public class ViewPager extends ViewGroup {
         while (true) {
             int i2 = i;
             if (i2 < getChildCount()) {
-                if (!((bn) getChildAt(i2).getLayoutParams()).f326a) {
+                if (!((bn) getChildAt(i2).getLayoutParams()).f336a) {
                     removeViewAt(i2);
                     i2--;
                 }
@@ -297,10 +298,10 @@ public class ViewPager extends ViewGroup {
             if (this.S) {
                 this.i = i;
                 if (z3 && this.W != null) {
-                    this.W.a_(i);
+                    this.W.onPageSelected(i);
                 }
                 if (z3 && this.Z != null) {
-                    this.Z.a_(i);
+                    this.Z.onPageSelected(i);
                 }
                 requestLayout();
                 return;
@@ -321,19 +322,19 @@ public class ViewPager extends ViewGroup {
         if (z) {
             a(i3, 0, i2);
             if (z2 && this.W != null) {
-                this.W.a_(i);
+                this.W.onPageSelected(i);
             }
             if (z2 && this.Z != null) {
-                this.Z.a_(i);
+                this.Z.onPageSelected(i);
                 return;
             }
             return;
         }
         if (z2 && this.W != null) {
-            this.W.a_(i);
+            this.W.onPageSelected(i);
         }
         if (z2 && this.Z != null) {
-            this.Z.a_(i);
+            this.Z.onPageSelected(i);
         }
         a(false);
         scrollTo(i3, 0);
@@ -467,7 +468,7 @@ public class ViewPager extends ViewGroup {
     bm a(int i, int i2) {
         bm bmVar = new bm();
         bmVar.b = i;
-        bmVar.f325a = this.h.instantiateItem((ViewGroup) this, i);
+        bmVar.f335a = this.h.instantiateItem((ViewGroup) this, i);
         bmVar.d = this.h.getPageWidth(i);
         if (i2 < 0 || i2 >= this.e.size()) {
             this.e.add(bmVar);
@@ -492,7 +493,7 @@ public class ViewPager extends ViewGroup {
         int i4 = 0;
         while (i4 < this.e.size()) {
             bm bmVar = this.e.get(i4);
-            int itemPosition = this.h.getItemPosition(bmVar.f325a);
+            int itemPosition = this.h.getItemPosition(bmVar.f335a);
             if (itemPosition == -1) {
                 i = i4;
                 z = z4;
@@ -505,7 +506,7 @@ public class ViewPager extends ViewGroup {
                     this.h.startUpdate((ViewGroup) this);
                     z4 = true;
                 }
-                this.h.destroyItem((ViewGroup) this, bmVar.b, bmVar.f325a);
+                this.h.destroyItem((ViewGroup) this, bmVar.b, bmVar.f335a);
                 if (this.i == bmVar.b) {
                     i = i5;
                     z = z4;
@@ -545,7 +546,7 @@ public class ViewPager extends ViewGroup {
             int childCount = getChildCount();
             for (int i6 = 0; i6 < childCount; i6++) {
                 bn bnVar = (bn) getChildAt(i6).getLayoutParams();
-                if (!bnVar.f326a) {
+                if (!bnVar.f336a) {
                     bnVar.c = 0.0f;
                 }
             }
@@ -626,7 +627,7 @@ public class ViewPager extends ViewGroup {
                             break;
                         } else if (i10 == bmVar3.b && !bmVar3.c) {
                             this.e.remove(i9);
-                            this.h.destroyItem((ViewGroup) this, i10, bmVar3.f325a);
+                            this.h.destroyItem((ViewGroup) this, i10, bmVar3.f335a);
                             i9--;
                             i8--;
                             bmVar3 = i9 >= 0 ? this.e.get(i9) : null;
@@ -655,7 +656,7 @@ public class ViewPager extends ViewGroup {
                                 break;
                             } else if (i13 == bmVar4.b && !bmVar4.c) {
                                 this.e.remove(i12);
-                                this.h.destroyItem((ViewGroup) this, i13, bmVar4.f325a);
+                                this.h.destroyItem((ViewGroup) this, i13, bmVar4.f335a);
                                 bmVar4 = i12 < this.e.size() ? this.e.get(i12) : null;
                             }
                         } else if (bmVar4 != null && i13 == bmVar4.b) {
@@ -675,14 +676,14 @@ public class ViewPager extends ViewGroup {
                 }
                 a(a3, i8, bmVar);
             }
-            this.h.setPrimaryItem((ViewGroup) this, this.i, a3 != null ? a3.f325a : null);
+            this.h.setPrimaryItem((ViewGroup) this, this.i, a3 != null ? a3.f335a : null);
             this.h.finishUpdate((ViewGroup) this);
             int childCount = getChildCount();
             for (int i14 = 0; i14 < childCount; i14++) {
                 View childAt = getChildAt(i14);
                 bn bnVar = (bn) childAt.getLayoutParams();
                 bnVar.f = i14;
-                if (!bnVar.f326a && bnVar.c == 0.0f && (a2 = a(childAt)) != null) {
+                if (!bnVar.f336a && bnVar.c == 0.0f && (a2 = a(childAt)) != null) {
                     bnVar.c = a2.d;
                     bnVar.e = a2.b;
                 }
@@ -816,7 +817,7 @@ public class ViewPager extends ViewGroup {
         public static final Parcelable.Creator<SavedState> CREATOR = android.support.v4.a.a.a(new bt());
 
         /* renamed from: a  reason: collision with root package name */
-        int f313a;
+        int f323a;
         Parcelable b;
         ClassLoader c;
 
@@ -827,19 +828,19 @@ public class ViewPager extends ViewGroup {
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeInt(this.f313a);
+            parcel.writeInt(this.f323a);
             parcel.writeParcelable(this.b, i);
         }
 
         public String toString() {
-            return "FragmentPager.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " position=" + this.f313a + "}";
+            return "FragmentPager.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " position=" + this.f323a + "}";
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public SavedState(Parcel parcel, ClassLoader classLoader) {
             super(parcel);
             classLoader = classLoader == null ? getClass().getClassLoader() : classLoader;
-            this.f313a = parcel.readInt();
+            this.f323a = parcel.readInt();
             this.b = parcel.readParcelable(classLoader);
             this.c = classLoader;
         }
@@ -848,7 +849,7 @@ public class ViewPager extends ViewGroup {
     @Override // android.view.View
     public Parcelable onSaveInstanceState() {
         SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.f313a = this.i;
+        savedState.f323a = this.i;
         if (this.h != null) {
             savedState.b = this.h.saveState();
         }
@@ -865,10 +866,10 @@ public class ViewPager extends ViewGroup {
         super.onRestoreInstanceState(savedState.getSuperState());
         if (this.h != null) {
             this.h.restoreState(savedState.b, savedState.c);
-            a(savedState.f313a, false, true);
+            a(savedState.f323a, false, true);
             return;
         }
-        this.j = savedState.f313a;
+        this.j = savedState.f323a;
         this.k = savedState.b;
         this.l = savedState.c;
     }
@@ -877,9 +878,9 @@ public class ViewPager extends ViewGroup {
     public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
         ViewGroup.LayoutParams generateLayoutParams = !checkLayoutParams(layoutParams) ? generateLayoutParams(layoutParams) : layoutParams;
         bn bnVar = (bn) generateLayoutParams;
-        bnVar.f326a |= view instanceof bl;
+        bnVar.f336a |= view instanceof bl;
         if (this.w) {
-            if (bnVar != null && bnVar.f326a) {
+            if (bnVar != null && bnVar.f336a) {
                 throw new IllegalStateException("Cannot add pager decor view during layout");
             }
             bnVar.d = true;
@@ -904,7 +905,7 @@ public class ViewPager extends ViewGroup {
             int i2 = i;
             if (i2 < this.e.size()) {
                 bm bmVar = this.e.get(i2);
-                if (!this.h.isViewFromObject(view, bmVar.f325a)) {
+                if (!this.h.isViewFromObject(view, bmVar.f335a)) {
                     i = i2 + 1;
                 } else {
                     return bmVar;
@@ -973,9 +974,9 @@ public class ViewPager extends ViewGroup {
         int childCount = getChildCount();
         for (int i6 = 0; i6 < childCount; i6++) {
             View childAt = getChildAt(i6);
-            if (childAt.getVisibility() != 8 && (bnVar2 = (bn) childAt.getLayoutParams()) != null && bnVar2.f326a) {
+            if (childAt.getVisibility() != 8 && (bnVar2 = (bn) childAt.getLayoutParams()) != null && bnVar2.f336a) {
                 int i7 = bnVar2.b & 7;
-                int i8 = bnVar2.b & 112;
+                int i8 = bnVar2.b & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
                 int i9 = Integer.MIN_VALUE;
                 int i10 = Integer.MIN_VALUE;
                 boolean z = i8 == 48 || i8 == 80;
@@ -1018,7 +1019,7 @@ public class ViewPager extends ViewGroup {
         int childCount2 = getChildCount();
         for (int i11 = 0; i11 < childCount2; i11++) {
             View childAt2 = getChildAt(i11);
-            if (childAt2.getVisibility() != 8 && ((bnVar = (bn) childAt2.getLayoutParams()) == null || !bnVar.f326a)) {
+            if (childAt2.getVisibility() != 8 && ((bnVar = (bn) childAt2.getLayoutParams()) == null || !bnVar.f336a)) {
                 childAt2.measure(View.MeasureSpec.makeMeasureSpec((int) (bnVar.c * paddingLeft), 1073741824), this.v);
             }
         }
@@ -1073,9 +1074,9 @@ public class ViewPager extends ViewGroup {
             View childAt = getChildAt(i13);
             if (childAt.getVisibility() != 8) {
                 bn bnVar = (bn) childAt.getLayoutParams();
-                if (bnVar.f326a) {
+                if (bnVar.f336a) {
                     int i14 = bnVar.b & 7;
-                    int i15 = bnVar.b & 112;
+                    int i15 = bnVar.b & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
                     switch (i14) {
                         case 1:
                             i7 = Math.max((i10 - childAt.getMeasuredWidth()) / 2, paddingLeft);
@@ -1147,7 +1148,7 @@ public class ViewPager extends ViewGroup {
             View childAt2 = getChildAt(i21);
             if (childAt2.getVisibility() != 8) {
                 bn bnVar2 = (bn) childAt2.getLayoutParams();
-                if (!bnVar2.f326a && (a2 = a(childAt2)) != null) {
+                if (!bnVar2.f336a && (a2 = a(childAt2)) != null) {
                     int i22 = ((int) (a2.e * i20)) + paddingLeft;
                     if (bnVar2.d) {
                         bnVar2.d = false;
@@ -1223,7 +1224,7 @@ public class ViewPager extends ViewGroup {
             while (i5 < childCount) {
                 View childAt = getChildAt(i5);
                 bn bnVar = (bn) childAt.getLayoutParams();
-                if (bnVar.f326a) {
+                if (bnVar.f336a) {
                     switch (bnVar.b & 7) {
                         case 1:
                             measuredWidth = Math.max((width - childAt.getMeasuredWidth()) / 2, paddingLeft);
@@ -1269,17 +1270,17 @@ public class ViewPager extends ViewGroup {
             }
         }
         if (this.W != null) {
-            this.W.a(i, f, i2);
+            this.W.onPageScrolled(i, f, i2);
         }
         if (this.Z != null) {
-            this.Z.a(i, f, i2);
+            this.Z.onPageScrolled(i, f, i2);
         }
         if (this.ab != null) {
             int scrollX2 = getScrollX();
             int childCount2 = getChildCount();
             for (int i11 = 0; i11 < childCount2; i11++) {
                 View childAt2 = getChildAt(i11);
-                if (!((bn) childAt2.getLayoutParams()).f326a) {
+                if (!((bn) childAt2.getLayoutParams()).f336a) {
                     this.ab.a(childAt2, (childAt2.getLeft() - scrollX2) / getClientWidth());
                 }
             }

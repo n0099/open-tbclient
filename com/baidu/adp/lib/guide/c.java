@@ -3,7 +3,7 @@ package com.baidu.adp.lib.guide;
 import android.os.Parcel;
 import android.os.Parcelable;
 /* loaded from: classes.dex */
-class c implements Parcelable.Creator<Configuration> {
+final class c implements Parcelable.Creator<Configuration> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
     /* renamed from: a */

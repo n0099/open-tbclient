@@ -17,7 +17,7 @@ import android.widget.TextView;
 public class ListFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    ListAdapter f272a;
+    ListAdapter f282a;
     ListView b;
     View c;
     TextView d;
@@ -31,22 +31,22 @@ public class ListFragment extends Fragment {
 
     @Override // android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        n h = h();
-        FrameLayout frameLayout = new FrameLayout(h);
-        LinearLayout linearLayout = new LinearLayout(h);
+        n i = i();
+        FrameLayout frameLayout = new FrameLayout(i);
+        LinearLayout linearLayout = new LinearLayout(i);
         linearLayout.setId(16711682);
         linearLayout.setOrientation(1);
         linearLayout.setVisibility(8);
         linearLayout.setGravity(17);
-        linearLayout.addView(new ProgressBar(h, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
+        linearLayout.addView(new ProgressBar(i, null, 16842874), new FrameLayout.LayoutParams(-2, -2));
         frameLayout.addView(linearLayout, new FrameLayout.LayoutParams(-1, -1));
-        FrameLayout frameLayout2 = new FrameLayout(h);
+        FrameLayout frameLayout2 = new FrameLayout(i);
         frameLayout2.setId(16711683);
-        TextView textView = new TextView(h());
+        TextView textView = new TextView(i());
         textView.setId(16711681);
         textView.setGravity(17);
         frameLayout2.addView(textView, new FrameLayout.LayoutParams(-1, -1));
-        ListView listView = new ListView(h());
+        ListView listView = new ListView(i());
         listView.setId(16908298);
         listView.setDrawSelectorOnTop(false);
         frameLayout2.addView(listView, new FrameLayout.LayoutParams(-1, -1));
@@ -77,12 +77,12 @@ public class ListFragment extends Fragment {
     }
 
     public void a(ListAdapter listAdapter) {
-        boolean z = this.f272a != null;
-        this.f272a = listAdapter;
+        boolean z = this.f282a != null;
+        this.f282a = listAdapter;
         if (this.b != null) {
             this.b.setAdapter(listAdapter);
             if (!this.h && !z) {
-                a(true, n().getWindowToken() != null);
+                a(true, o().getWindowToken() != null);
             }
         }
     }
@@ -96,8 +96,8 @@ public class ListFragment extends Fragment {
             this.h = z;
             if (z) {
                 if (z2) {
-                    this.e.startAnimation(AnimationUtils.loadAnimation(h(), 17432577));
-                    this.f.startAnimation(AnimationUtils.loadAnimation(h(), 17432576));
+                    this.e.startAnimation(AnimationUtils.loadAnimation(i(), 17432577));
+                    this.f.startAnimation(AnimationUtils.loadAnimation(i(), 17432576));
                 } else {
                     this.e.clearAnimation();
                     this.f.clearAnimation();
@@ -107,8 +107,8 @@ public class ListFragment extends Fragment {
                 return;
             }
             if (z2) {
-                this.e.startAnimation(AnimationUtils.loadAnimation(h(), 17432576));
-                this.f.startAnimation(AnimationUtils.loadAnimation(h(), 17432577));
+                this.e.startAnimation(AnimationUtils.loadAnimation(i(), 17432576));
+                this.f.startAnimation(AnimationUtils.loadAnimation(i(), 17432577));
             } else {
                 this.e.clearAnimation();
                 this.f.clearAnimation();
@@ -120,22 +120,22 @@ public class ListFragment extends Fragment {
 
     private void a() {
         if (this.b == null) {
-            View n = n();
-            if (n == null) {
+            View o = o();
+            if (o == null) {
                 throw new IllegalStateException("Content view not yet created");
             }
-            if (n instanceof ListView) {
-                this.b = (ListView) n;
+            if (o instanceof ListView) {
+                this.b = (ListView) o;
             } else {
-                this.d = (TextView) n.findViewById(16711681);
+                this.d = (TextView) o.findViewById(16711681);
                 if (this.d == null) {
-                    this.c = n.findViewById(16908292);
+                    this.c = o.findViewById(16908292);
                 } else {
                     this.d.setVisibility(8);
                 }
-                this.e = n.findViewById(16711682);
-                this.f = n.findViewById(16711683);
-                View findViewById = n.findViewById(16908298);
+                this.e = o.findViewById(16711682);
+                this.f = o.findViewById(16711683);
+                View findViewById = o.findViewById(16908298);
                 if (!(findViewById instanceof ListView)) {
                     if (findViewById == null) {
                         throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
@@ -152,9 +152,9 @@ public class ListFragment extends Fragment {
             }
             this.h = true;
             this.b.setOnItemClickListener(this.Z);
-            if (this.f272a != null) {
-                ListAdapter listAdapter = this.f272a;
-                this.f272a = null;
+            if (this.f282a != null) {
+                ListAdapter listAdapter = this.f282a;
+                this.f282a = null;
                 a(listAdapter);
             } else if (this.e != null) {
                 a(false, false);

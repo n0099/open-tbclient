@@ -1,26 +1,26 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
+import android.widget.AdapterView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cv implements Runnable {
+public class cv implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cr f1593a;
+    final /* synthetic */ bt f2109a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(cr crVar) {
-        this.f1593a = crVar;
+    public cv(bt btVar) {
+        this.f2109a = btVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        br brVar;
-        db dbVar;
-        br brVar2;
-        db dbVar2;
-        brVar = this.f1593a.f1589a;
-        dbVar = brVar.E;
-        dbVar.f();
-        brVar2 = this.f1593a.f1589a;
-        dbVar2 = brVar2.E;
-        dbVar2.d();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        com.baidu.tieba.write.p pVar;
+        pVar = this.f2109a.N;
+        String a2 = pVar.a(i);
+        if (a2 != null) {
+            this.f2109a.f2081a.getText().insert(this.f2109a.f2081a.getSelectionStart(), a2);
+        }
     }
 }

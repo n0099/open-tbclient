@@ -2,6 +2,7 @@ package com.baidu.tieba.data;
 
 import android.content.Context;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -9,11 +10,11 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ab {
     private as c;
-    private ArrayList<i> d;
+    private ArrayList<j> d;
     private Context l;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f992a = null;
+    private String f1122a = null;
     private String b = null;
     private int e = 0;
     private int f = 0;
@@ -41,7 +42,7 @@ public class ab {
     }
 
     public String c() {
-        return this.f992a;
+        return this.f1122a;
     }
 
     public String d() {
@@ -78,17 +79,17 @@ public class ab {
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.k = jSONObject.optInt("index", -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.f992a = optJSONObject.optString(LocaleUtil.INDONESIAN);
-                this.b = optJSONObject.optString("url");
+                this.f1122a = optJSONObject.optString(LocaleUtil.INDONESIAN);
+                this.b = optJSONObject.optString(SocialConstants.PARAM_URL);
                 this.e = optJSONObject.optInt("width", 0);
                 this.f = optJSONObject.optInt("height", 0);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("descr");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    i iVar = new i();
-                    iVar.a(optJSONArray.optJSONObject(i));
-                    this.d.add(iVar);
+                    j jVar = new j();
+                    jVar.a(optJSONArray.optJSONObject(i));
+                    this.d.add(jVar);
                 }
             }
             this.c.a(this.d);
@@ -96,7 +97,7 @@ public class ab {
                 this.c.c(this.l);
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "paserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

@@ -1,107 +1,286 @@
 package com.baidu.tieba.util;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.RadioButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bb implements bf {
+public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private final /* synthetic */ int f1914a;
-    private final /* synthetic */ boolean b;
+    private static String f2437a = "skinType not support";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(int i, boolean z) {
-        this.f1914a = i;
-        this.b = z;
-    }
-
-    @Override // com.baidu.tieba.util.bf
-    public boolean a(View view) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Object tag = view.getTag();
-        if (tag != null) {
-            if ("skin_text_group".equals(tag)) {
-                ba.b((TextView) view, this.f1914a);
-                return false;
-            } else if ("skin_text_content".equals(tag)) {
-                ba.b((TextView) view, this.f1914a);
-                return false;
-            } else if ("skin_text_num".equals(tag)) {
-                ba.a((TextView) view, this.f1914a);
-                return false;
-            } else if ("skin_check_box".equals(tag)) {
-                ba.a((CheckBox) view, this.f1914a);
-                return false;
-            } else if ("skin_sidebar_content".equals(tag)) {
-                ((TextView) view).setTextAppearance(TiebaApplication.g(), this.b ? R.style.sidebar_content_1 : R.style.sidebar_content);
-                return false;
-            } else if ("skin_more_up".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    RadioButton radioButton = (RadioButton) view;
-                    if (this.b) {
-                        i4 = ba.f1913a;
-                    } else {
-                        i4 = ba.b;
-                    }
-                    radioButton.setTextColor(i4);
-                }
-                as.e(view, this.b ? R.drawable.more_up_1 : R.drawable.more_up);
-                return false;
-            } else if ("skin_more_middle".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    RadioButton radioButton2 = (RadioButton) view;
-                    if (this.b) {
-                        i3 = ba.f1913a;
-                    } else {
-                        i3 = ba.b;
-                    }
-                    radioButton2.setTextColor(i3);
-                }
-                as.e(view, this.b ? R.drawable.more_middle_1 : R.drawable.more_middle);
-                return false;
-            } else if ("skin_more_down".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    RadioButton radioButton3 = (RadioButton) view;
-                    if (this.b) {
-                        i2 = ba.f1913a;
-                    } else {
-                        i2 = ba.b;
-                    }
-                    radioButton3.setTextColor(i2);
-                }
-                as.e(view, this.b ? R.drawable.more_down_1 : R.drawable.more_down);
-                return false;
-            } else if ("skin_more_all".equals(tag)) {
-                if (view instanceof RadioButton) {
-                    RadioButton radioButton4 = (RadioButton) view;
-                    if (this.b) {
-                        i = ba.f1913a;
-                    } else {
-                        i = ba.b;
-                    }
-                    radioButton4.setTextColor(i);
-                }
-                as.e(view, this.b ? R.drawable.more_all_1 : R.drawable.more_all);
-                return false;
-            } else if ("skin_arrow".equals(tag)) {
-                ((ImageView) view).setImageResource(this.b ? R.drawable.icon_arrow_right_1 : R.drawable.icon_arrow_right);
-                return false;
-            } else if ("skin_list_line".equals(tag)) {
-                ba.a(view, this.f1914a);
-                return false;
+    public static void a(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_button_color));
             } else {
-                return false;
+                textView.setTextColor(g.getResources().getColor(R.color.white));
             }
         }
-        return false;
+    }
+
+    public static void b(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_color));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.black));
+            }
+        }
+    }
+
+    public static void c(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_night_1));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.search_text_content));
+            }
+        }
+    }
+
+    public static void d(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_night_2));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_day_2));
+            }
+        }
+    }
+
+    public static void e(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_night_3));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.gray_day_3));
+            }
+        }
+    }
+
+    public static void a(View view, int i) {
+        if (view != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                view.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
+            } else {
+                view.setBackgroundColor(g.getResources().getColor(R.color.backgroundcolor));
+            }
+        }
+    }
+
+    public static void b(View view, int i) {
+        if (view != null) {
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.common_bg_1);
+            } else {
+                view.setBackgroundResource(R.drawable.common_bg);
+            }
+        }
+    }
+
+    public static void c(View view, int i) {
+        if (view != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                view.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
+            } else {
+                view.setBackgroundColor(g.getResources().getColor(R.color.login_bg_color));
+            }
+        }
+    }
+
+    public static void f(TextView textView, int i) {
+        if (textView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                textView.setTextColor(g.getResources().getColor(R.color.skin_1_common_color));
+            } else {
+                textView.setTextColor(g.getResources().getColor(R.color.white));
+            }
+        }
+    }
+
+    public static void d(View view, int i) {
+        if (view != null) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            if (i == 1) {
+                view.setBackgroundResource(R.drawable.titlebar_bg_1);
+            } else {
+                view.setBackgroundResource(R.drawable.titlebar_bg);
+            }
+            view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+        }
+    }
+
+    public static void g(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                e((View) textView, (int) R.drawable.title_comm_1);
+            } else {
+                e((View) textView, (int) R.drawable.title_comm);
+            }
+        }
+        f(textView, i);
+    }
+
+    public static void h(TextView textView, int i) {
+        if (textView != null) {
+            if (i == 1) {
+                e((View) textView, (int) R.drawable.title_comm_hilite_1);
+            } else {
+                e((View) textView, (int) R.drawable.title_comm_hilite);
+            }
+        }
+        f(textView, i);
+    }
+
+    public static void a(ImageView imageView, int i) {
+        if (imageView != null) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            if (i == 1) {
+                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
+                imageView.setImageResource(R.drawable.icon_return_n_1);
+                return;
+            }
+            imageView.setBackgroundResource(R.drawable.title_icon_bg);
+            imageView.setImageResource(R.drawable.icon_return_n);
+        }
+    }
+
+    public static void b(ImageView imageView, int i) {
+        if (imageView != null) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            if (i == 1) {
+                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
+                imageView.setImageResource(R.drawable.icon_refresh_n_1);
+                return;
+            }
+            imageView.setBackgroundResource(R.drawable.title_icon_bg);
+            imageView.setImageResource(R.drawable.icon_refresh_n);
+        }
+    }
+
+    public static void c(ImageView imageView, int i) {
+        if (imageView != null) {
+            imageView.setScaleType(ImageView.ScaleType.CENTER);
+            if (i == 1) {
+                imageView.setBackgroundResource(R.drawable.title_icon_bg_1);
+                imageView.setImageResource(R.drawable.icon_home_n_1);
+                return;
+            }
+            imageView.setBackgroundResource(R.drawable.title_icon_bg);
+            imageView.setImageResource(R.drawable.icon_home_n);
+        }
+    }
+
+    public static int a(int i) {
+        if (i == 1) {
+            return TiebaApplication.g().getResources().getColor(R.color.skin_1_common_color);
+        }
+        throw new IllegalArgumentException(f2437a);
+    }
+
+    public static int b(int i) {
+        if (i == 1) {
+            return TiebaApplication.g().getResources().getColor(R.color.skin_1_second_common_color);
+        }
+        throw new IllegalArgumentException(f2437a);
+    }
+
+    public static int c(int i) {
+        if (i == 1) {
+            return TiebaApplication.g().getResources().getColor(R.color.skin_1_third_common_color);
+        }
+        throw new IllegalArgumentException(f2437a);
+    }
+
+    public static int d(int i) {
+        TiebaApplication g = TiebaApplication.g();
+        return i == 1 ? g.getResources().getColor(R.color.skin_1_common_bg) : g.getResources().getColor(R.color.backgroundcolor);
+    }
+
+    public static void e(View view, int i) {
+        if (view != null) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            view.setBackgroundResource(i);
+            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
+                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    private static final int a(Context context, int i) {
+        String resourceName;
+        if (i != 0 && (resourceName = context.getResources().getResourceName(i)) != null) {
+            int identifier = context.getResources().getIdentifier(resourceName + "_1", null, null);
+            if (identifier == 0) {
+                com.baidu.adp.lib.h.d.a("cannot find res:" + resourceName + "_1");
+                return i;
+            }
+            return identifier;
+        }
+        return i;
+    }
+
+    public static void f(View view, int i) {
+        if (view != null) {
+            int paddingLeft = view.getPaddingLeft();
+            int paddingRight = view.getPaddingRight();
+            int paddingTop = view.getPaddingTop();
+            int paddingBottom = view.getPaddingBottom();
+            if (TiebaApplication.g().as() == 1) {
+                view.setBackgroundResource(a(view.getContext(), i));
+            } else {
+                view.setBackgroundResource(i);
+            }
+            if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
+                view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+            }
+        }
+    }
+
+    public static void a(TextView textView, boolean z) {
+        TiebaApplication g = TiebaApplication.g();
+        if (z) {
+            textView.setTextColor(g.getResources().getColor(R.color.white));
+        } else if (TiebaApplication.g().as() == 1) {
+            textView.setTextColor(g.getResources().getColor(R.color.enter_forum_tab_txt_1));
+        } else {
+            textView.setTextColor(g.getResources().getColor(R.color.enter_forum_tab_txt));
+        }
+    }
+
+    public static void a(ListView listView, int i) {
+        if (listView != null) {
+            TiebaApplication g = TiebaApplication.g();
+            if (i == 1) {
+                listView.setBackgroundColor(g.getResources().getColor(R.color.skin_1_common_bg));
+                listView.setCacheColorHint(g.getResources().getColor(17170445));
+                listView.setDivider(g.getResources().getDrawable(R.drawable.list_divider_1));
+                listView.setSelector(R.drawable.list_selector_1);
+                return;
+            }
+            listView.setBackgroundColor(g.getResources().getColor(R.color.backgroundcolor));
+            listView.setCacheColorHint(g.getResources().getColor(17170445));
+            listView.setDivider(g.getResources().getDrawable(R.drawable.list_divider));
+            listView.setSelector(R.drawable.list_selector);
+        }
     }
 }

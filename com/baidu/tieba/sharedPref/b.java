@@ -6,16 +6,17 @@ import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Process;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.g;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.data.h;
+import com.baidu.tieba.util.be;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f1806a = null;
+    private static b f2327a = null;
     private static ContentResolver b = null;
     private static HashMap<String, String> f = null;
     private String c = null;
@@ -24,7 +25,7 @@ public class b {
 
     private b() {
         f = new HashMap<>();
-        f.put(a.f1805a, "settings");
+        f.put(a.f2326a, "settings");
         f.put(a.b, "remote_settings");
         f.put(a.c, "bdservice_settings");
         b = TiebaApplication.g().getContentResolver();
@@ -33,10 +34,10 @@ public class b {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f1806a == null) {
-                f1806a = new b();
+            if (f2327a == null) {
+                f2327a = new b();
             }
-            bVar = f1806a;
+            bVar = f2327a;
         }
         return bVar;
     }
@@ -48,7 +49,7 @@ public class b {
                 try {
                     return Boolean.parseBoolean(c);
                 } catch (NumberFormatException e) {
-                    av.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
+                    be.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
                     return z;
                 }
             }
@@ -65,7 +66,7 @@ public class b {
                 try {
                     return Integer.parseInt(c);
                 } catch (NumberFormatException e) {
-                    av.b("SharedPrefHelper", "getInt", "Convert error:" + c);
+                    be.b("SharedPrefHelper", "getInt", "Convert error:" + c);
                     return i;
                 }
             }
@@ -82,7 +83,7 @@ public class b {
                 try {
                     return Long.parseLong(c);
                 } catch (NumberFormatException e) {
-                    av.b("SharedPrefHelper", "getLong", "Convert error:" + c);
+                    be.b("SharedPrefHelper", "getLong", "Convert error:" + c);
                     return j;
                 }
             }
@@ -238,13 +239,13 @@ public class b {
                 }
             }
         }
-        return a.f1805a;
+        return a.f2326a;
     }
 
     public void b() {
         SharedPreferences sharedPreferences = TiebaApplication.g().getSharedPreferences("settings", 0);
         String string = sharedPreferences.getString("lase_version", "");
-        String j = g.j();
+        String j = h.j();
         if (string != null && string.length() != 0 && j != null && j.length() != 0 && !string.equals(j) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(j) <= 0) {
             a().b("skin", sharedPreferences.getInt("skin", 0));
             String string2 = sharedPreferences.getString("from_id", null);
@@ -255,13 +256,13 @@ public class b {
             if (string3 != null && string3.length() > 0) {
                 a().b("install_other_app_file_name", string3);
             }
-            String string4 = sharedPreferences.getString("cuid", null);
+            String string4 = sharedPreferences.getString(SocialConstants.PARAM_CUID, null);
             if (string4 != null && string4.length() > 0) {
-                a().b("cuid", string4);
+                a().b(SocialConstants.PARAM_CUID, string4);
             }
-            String string5 = sharedPreferences.getString("client_id", null);
+            String string5 = sharedPreferences.getString(SocialConstants.PARAM_CLIENT_ID, null);
             if (string5 != null && string5.length() > 0) {
-                a().b("client_id", string5);
+                a().b(SocialConstants.PARAM_CLIENT_ID, string5);
             }
         }
     }

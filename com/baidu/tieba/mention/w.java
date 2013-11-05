@@ -1,32 +1,36 @@
 package com.baidu.tieba.mention;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.View;
+import com.baidu.tieba.data.as;
+import com.baidu.tieba.model.bu;
+import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w implements com.baidu.tbadk.a.d {
+public class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1380a;
+    final /* synthetic */ PostActivity f1877a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PostActivity postActivity) {
-        this.f1380a = postActivity;
+        this.f1877a = postActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.f1380a.f1354a;
-        ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
-        while (imageView != null) {
-            imageView.setTag(null);
-            if (imageView != null && cVar != null) {
-                cVar.a(imageView);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        bu buVar;
+        bu buVar2;
+        bu buVar3;
+        buVar = this.f1877a.n;
+        if (buVar != null) {
+            buVar2 = this.f1877a.n;
+            if (buVar2.a() != null) {
+                buVar3 = this.f1877a.n;
+                as asVar = buVar3.a().d().get(0);
+                if (asVar != null) {
+                    PersonInfoActivity.a(this.f1877a, asVar.g().getId(), asVar.g().getName());
+                }
             }
-            linearLayout2 = this.f1380a.f1354a;
-            imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }
 }

@@ -1,102 +1,81 @@
 package com.baidu.tieba.model;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad extends BdAsyncTask<String, Integer, Boolean> {
+public class ad extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ac f1391a;
-    private com.baidu.tieba.util.z b = null;
-    private String c;
-    private String d;
-    private String e;
-    private ae f;
+    private ae f1888a = null;
+    private ag b = null;
+    private ai c = null;
 
-    public ad(ac acVar, String str, String str2, String str3) {
-        this.f1391a = acVar;
-        this.f = new ae(acVar);
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Boolean a(String... strArr) {
-        try {
-            this.b = new com.baidu.tieba.util.z(strArr[0]);
-            this.b.a("fid", this.c);
-            this.b.a("kw", this.d);
-            this.b.a("is_like", this.e);
-            this.b.e(true);
-            String j = this.b.j();
-            if (this.b.d()) {
-                if (this.e.equals("0")) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(j);
-                        JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
-                        if (optJSONObject.optInt("is_success", 0) == 1) {
-                            this.f.d = optJSONObject.optInt("level_id", 0);
-                            this.f.e = optJSONObject.optString("level_name", "");
-                            JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
-                            if (optJSONObject2 != null) {
-                                this.f.f = optJSONObject2.optInt("cur_score", 0);
-                                this.f.g = optJSONObject2.optInt("levelup_score", 0);
-                            }
-                            this.f.b = true;
-                        }
-                        this.f1391a.a(this.f);
-                    } catch (Exception e) {
-                        com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
-                    }
-                }
-                if (this.b.c()) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(j);
-                        this.f.c = jSONObject2.optInt("num");
-                        this.f.f1392a = true;
-                    } catch (Exception e2) {
-                        com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e2.getMessage());
-                    }
-                }
-            }
-            return false;
-        } catch (Exception e3) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "", "AddFanAsyncTask.doInBackground error = " + e3.getMessage());
-            return false;
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        a();
+        return false;
+    }
+
+    public void a() {
+        if (this.f1888a != null) {
+            this.f1888a.cancel();
+            this.f1888a = null;
         }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.cancel();
+            this.b = null;
         }
-        this.f1391a.k = null;
-        this.f1391a.a(false);
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Boolean bool) {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
-        this.f1391a.k = null;
-        this.f1391a.a(false);
-        if (this.b != null) {
-            af afVar = new af(this.f1391a);
-            afVar.d = this.b.g();
-            afVar.c = this.b.e();
-            acVar = this.f1391a.h;
-            if (acVar != null) {
-                acVar2 = this.f1391a.h;
-                acVar2.a(this.f, afVar);
-            }
+    public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
+        if (this.f1888a != null) {
+            this.f1888a.cancel();
+            this.f1888a = null;
         }
+        this.mLoadDataMode = 0;
+        this.f1888a = new ae(this, str, str2, str3, str4, i, i2, z);
+        this.f1888a.setPriority(2);
+        this.f1888a.execute(new String[0]);
+    }
+
+    public boolean b() {
+        return (this.f1888a == null && this.b == null && this.c == null) ? false : true;
+    }
+
+    public void a(String str, String str2, String str3, String str4, int i) {
+        if (this.b != null) {
+            this.b.cancel();
+            this.b = null;
+        }
+        this.mLoadDataMode = 1;
+        this.b = new ag(this, str, str2, str3, str4, String.valueOf(i));
+        this.b.setPriority(2);
+        this.b.execute(com.baidu.tieba.data.h.f1165a + "c/c/bawu/commitprison");
+    }
+
+    public void a(String str, String str2, String str3, int i, String str4) {
+        String str5;
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
+        }
+        this.mLoadDataMode = i;
+        this.c = new ai(this, str, str2, str3, i, str4);
+        this.c.setPriority(2);
+        String str6 = com.baidu.tieba.data.h.f1165a;
+        if (i == 6) {
+            str5 = str6 + "c/c/bawu/goodlist";
+        } else if (i == 2 || i == 3) {
+            str5 = str6 + "c/c/bawu/commitgood";
+        } else {
+            str5 = str6 + "c/c/bawu/committop";
+        }
+        this.c.execute(str5);
     }
 }

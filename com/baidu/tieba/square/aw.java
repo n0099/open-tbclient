@@ -6,7 +6,7 @@ import android.widget.TextView;
 class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1834a;
+    TextView f2355a;
     ImageView b;
     TextView c;
     TextView d;
@@ -18,7 +18,7 @@ class aw {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aw(au auVar, aw awVar) {
+    public /* synthetic */ aw(au auVar, av avVar) {
         this(auVar);
     }
 }

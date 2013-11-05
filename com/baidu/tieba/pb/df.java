@@ -1,38 +1,36 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import com.baidu.tieba.voice.RecordVoiceBnt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class df implements TextWatcher {
+public class df implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ db f1603a;
+    final /* synthetic */ dd f2119a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public df(db dbVar) {
-        this.f1603a = dbVar;
+    public df(dd ddVar) {
+        this.f2119a = ddVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (this.f1603a.u()) {
-            button2 = this.f1603a.D;
-            button2.setEnabled(true);
-            return;
-        }
-        button = this.f1603a.D;
-        button.setEnabled(false);
+    @Override // java.lang.Runnable
+    public void run() {
+        PbWriteToolView pbWriteToolView;
+        RecordVoiceBnt recordVoiceBnt;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        EditText editText;
+        pbWriteToolView = this.f2119a.f;
+        pbWriteToolView.b();
+        recordVoiceBnt = this.f2119a.J;
+        recordVoiceBnt.setVisibility(0);
+        linearLayout = this.f2119a.t;
+        linearLayout.setVisibility(0);
+        linearLayout2 = this.f2119a.q;
+        linearLayout2.setEnabled(false);
+        editText = this.f2119a.E;
+        editText.requestFocus();
     }
 }

@@ -10,23 +10,23 @@ import java.util.concurrent.FutureTask;
 public class l extends FutureTask<Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ModernAsyncTask f308a;
+    final /* synthetic */ ModernAsyncTask f318a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(ModernAsyncTask modernAsyncTask, Callable callable) {
         super(callable);
-        this.f308a = modernAsyncTask;
+        this.f318a = modernAsyncTask;
     }
 
     @Override // java.util.concurrent.FutureTask
     protected void done() {
         try {
-            this.f308a.c(get());
+            this.f318a.c(get());
         } catch (InterruptedException e) {
             Log.w("AsyncTask", e);
         } catch (CancellationException e2) {
-            this.f308a.c(null);
+            this.f318a.c(null);
         } catch (ExecutionException e3) {
             throw new RuntimeException("An error occured while executing doInBackground()", e3.getCause());
         } catch (Throwable th) {

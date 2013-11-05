@@ -1,47 +1,59 @@
 package com.baidu.tieba.flist;
 
-import android.support.v4.view.ae;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.tieba.data.ag;
+import com.baidu.tieba.model.ForumListModel;
+import com.baidu.tieba.model.ba;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class m extends ae {
+class m extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1065a;
+    final /* synthetic */ ForumListModel.Forum[] f1197a;
+    final /* synthetic */ ForumListActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(ForumListActivity forumListActivity) {
-        this.f1065a = forumListActivity;
+    public m(ForumListActivity forumListActivity, ForumListModel.Forum[] forumArr) {
+        this.b = forumListActivity;
+        this.f1197a = forumArr;
     }
 
-    @Override // android.support.v4.view.ae
-    public int getCount() {
-        boolean z;
-        z = this.f1065a.s;
-        return z ? 1 : 2;
-    }
-
-    @Override // android.support.v4.view.ae
-    public boolean isViewFromObject(View view, Object obj) {
-        return view.equals(obj);
-    }
-
-    @Override // android.support.v4.view.ae
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        switch (i) {
-            case 0:
-                viewGroup.addView(this.f1065a.c.h);
-                return this.f1065a.c.h;
-            case 1:
-                viewGroup.addView(this.f1065a.c.i);
-                return this.f1065a.c.i;
-            default:
-                return null;
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        ba baVar;
+        int i;
+        int i2;
+        q qVar;
+        q qVar2;
+        q qVar3;
+        q qVar4;
+        ba baVar2;
+        if (obj != null) {
+            baVar = this.b.r;
+            if (baVar.getErrorCode() != 0) {
+                ForumListActivity forumListActivity = this.b;
+                baVar2 = this.b.r;
+                forumListActivity.a(baVar2.getErrorString());
+            } else if (((ag) obj).b() == 1) {
+                this.b.a(this.b.getString(R.string.like_success));
+                i = this.b.q;
+                if (i != 0) {
+                    i2 = this.b.q;
+                    if (i2 == 1) {
+                        ForumListModel.Forum[] forumArr = this.f1197a;
+                        qVar = this.b.D;
+                        forumArr[qVar.f1201a].is_like = 1;
+                        qVar2 = this.b.D;
+                        qVar2.notifyDataSetChanged();
+                        return;
+                    }
+                    return;
+                }
+                ForumListModel.Forum[] forumArr2 = this.f1197a;
+                qVar3 = this.b.C;
+                forumArr2[qVar3.f1201a].is_like = 1;
+                qVar4 = this.b.C;
+                qVar4.notifyDataSetChanged();
+            }
         }
-    }
-
-    @Override // android.support.v4.view.ae
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView((View) obj);
     }
 }

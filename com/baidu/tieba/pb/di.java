@@ -1,59 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class di implements com.baidu.tieba.voice.o {
+public class di implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ db f1606a;
+    final /* synthetic */ dd f2122a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public di(db dbVar) {
-        this.f1606a = dbVar;
+    public di(dd ddVar) {
+        this.f2122a = ddVar;
     }
 
-    @Override // com.baidu.tieba.voice.o
-    public void a() {
-        PbWriteToolView pbWriteToolView;
-        Button button;
-        Button button2;
-        PbWriteToolView pbWriteToolView2;
-        PbWriteToolView pbWriteToolView3;
-        pbWriteToolView = this.f1606a.f;
-        if (pbWriteToolView != null) {
-            pbWriteToolView2 = this.f1606a.f;
-            if (pbWriteToolView2.getAudioButton() != null) {
-                pbWriteToolView3 = this.f1606a.f;
-                pbWriteToolView3.getAudioButton().g();
-            }
-        }
-        button = this.f1606a.D;
-        if (button != null) {
-            button2 = this.f1606a.D;
-            button2.setEnabled(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.voice.o
-    public void b() {
-        PbWriteToolView pbWriteToolView;
-        Button button;
-        Button button2;
-        PbWriteToolView pbWriteToolView2;
-        PbWriteToolView pbWriteToolView3;
-        pbWriteToolView = this.f1606a.f;
-        if (pbWriteToolView != null) {
-            pbWriteToolView2 = this.f1606a.f;
-            if (pbWriteToolView2.getAudioButton() != null) {
-                pbWriteToolView3 = this.f1606a.f;
-                pbWriteToolView3.getAudioButton().h();
-            }
-        }
-        button = this.f1606a.D;
-        if (button != null && !this.f1606a.u()) {
-            button2 = this.f1606a.D;
-            button2.setEnabled(false);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        com.baidu.tieba.write.p pVar;
+        EditText editText;
+        EditText editText2;
+        pVar = this.f2122a.C;
+        String a2 = pVar.a(i);
+        if (a2 != null) {
+            editText = this.f2122a.E;
+            int selectionStart = editText.getSelectionStart();
+            editText2 = this.f2122a.E;
+            editText2.getText().insert(selectionStart, a2);
         }
     }
 }

@@ -1,75 +1,66 @@
 package com.baidu.adp.lib.cache;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
-public class z extends a<String> {
-    public z(com.baidu.adp.a.f fVar) {
-        super(fVar);
+public class z {
+
+    /* renamed from: a  reason: collision with root package name */
+    private final com.baidu.adp.a.h f440a;
+
+    public z(Context context, com.baidu.adp.a.h hVar) {
+        this.f440a = hVar;
     }
 
-    @Override // com.baidu.adp.lib.cache.a
-    public String a(String str) {
-        String str2 = "cache_kv_t" + Math.abs(str.hashCode());
-        this.f379a.a(this.f379a.a(), "CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-        return str2;
-    }
-
-    @Override // com.baidu.adp.lib.cache.a
-    public void a(String str, String str2, int i, int i2) {
-    }
-
-    @Override // com.baidu.adp.lib.cache.a
-    public int a() {
-        return 1;
-    }
-
-    /* JADX WARN: Type inference failed for: r2v15, types: [T, java.lang.String] */
-    @Override // com.baidu.adp.lib.cache.a
-    protected k<String> b(SQLiteDatabase sQLiteDatabase, String str) {
+    public n a(String str) {
         Cursor cursor;
-        Throwable th;
-        k<String> kVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
+            cursor = this.f440a.a().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
             try {
-                if (cursor.moveToNext()) {
-                    kVar = new k<>();
-                    kVar.f384a = cursor.getString(0);
-                    kVar.d = cursor.getLong(1);
-                    kVar.e = cursor.getLong(2);
-                    kVar.f = cursor.getLong(3);
-                    kVar.b = cursor.getString(4);
-                    com.baidu.adp.lib.d.a.a(cursor);
-                } else {
-                    com.baidu.adp.lib.d.a.a(cursor);
+            } catch (Throwable th) {
+                th = th;
+                try {
+                    this.f440a.a(th);
+                    com.baidu.adp.lib.h.d.b("BdNameSpaceDBManager", str, th.getMessage());
+                    com.baidu.adp.lib.f.a.a(cursor);
+                    return null;
+                } finally {
+                    com.baidu.adp.lib.f.a.a(cursor);
                 }
-                return kVar;
-            } catch (Throwable th2) {
-                th = th2;
-                com.baidu.adp.lib.d.a.a(cursor);
-                throw th;
             }
-        } catch (Throwable th3) {
+        } catch (Throwable th2) {
+            th = th2;
             cursor = null;
-            th = th3;
         }
+        if (cursor.moveToNext()) {
+            n nVar = new n();
+            nVar.f434a = cursor.getString(0);
+            nVar.b = cursor.getString(1);
+            nVar.c = cursor.getInt(2);
+            nVar.d = cursor.getString(3);
+            nVar.e = cursor.getInt(4);
+            nVar.f = cursor.getLong(5);
+            return nVar;
+        }
+        return null;
     }
 
-    @Override // com.baidu.adp.lib.cache.a
-    protected ContentValues a(k<String> kVar) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", kVar.f384a);
-        contentValues.put("m_value", kVar.b);
-        contentValues.put("saveTime", Long.valueOf(kVar.d));
-        contentValues.put("lastHitTime", Long.valueOf(kVar.e));
-        contentValues.put("timeToExpire", Long.valueOf(kVar.f));
-        return contentValues;
-    }
-
-    @Override // com.baidu.adp.lib.cache.a
-    public Cursor a(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.b, new String[0]);
+    public void a(n nVar) {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("nameSpace", nVar.f434a);
+            contentValues.put("tableName", nVar.b);
+            contentValues.put("maxSize", Integer.valueOf(nVar.c));
+            contentValues.put("cacheVersion", Integer.valueOf(nVar.e));
+            contentValues.put("cacheType", nVar.d);
+            contentValues.put("lastActiveTime", Long.valueOf(nVar.f));
+            if (this.f440a.a().update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{nVar.f434a}) == 0) {
+                this.f440a.a().insert("cache_meta_info", null, contentValues);
+            }
+        } catch (Throwable th) {
+            this.f440a.a(th);
+            com.baidu.adp.lib.h.d.a("BdNameSpaceDBManager", "failed to insert " + nVar.f434a + " to db.", th);
+        }
     }
 }

@@ -1,49 +1,53 @@
 package com.baidu.tieba.data;
 
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1025a = null;
-    private String d = null;
-    private String b = null;
+    private String f1155a = null;
+    private int b = 0;
+    private int d = 0;
+    private int e = 0;
     private int c = 0;
-    private bk e = new bk();
 
-    public String a() {
+    public int a() {
         return this.d;
     }
 
-    public bk b() {
+    public int b() {
         return this.e;
     }
 
     public String c() {
+        return this.f1155a;
+    }
+
+    public int d() {
         return this.b;
     }
 
-    public String d() {
-        return this.f1025a;
+    public void a(int i) {
+        this.b = i;
     }
 
     public int e() {
         return this.c;
     }
 
+    public void b(int i) {
+        this.c = i;
+    }
+
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1025a = jSONObject.optString("tid");
-                this.b = jSONObject.optString("title");
-                this.c = jSONObject.optInt("reply_amount", 0);
-                JSONObject optJSONObject = jSONObject.optJSONObject("user");
-                if (optJSONObject != null) {
-                    this.d = optJSONObject.optString("name_show");
-                }
-                this.e.a(jSONObject.optJSONObject("photo"));
+                this.f1155a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.d = jSONObject.optInt("width", 0);
+                this.e = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b("HotspotData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -10,7 +10,7 @@ import java.util.Map;
 public class j extends a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f403a = "logcat ";
+    public static String f453a = "logcat ";
     private static Map<String, com.baidu.adp.lib.debug.a> f = new HashMap();
     private Process b;
     private InputStream c;
@@ -19,7 +19,7 @@ public class j extends a implements Runnable {
 
     public static void a(String str, com.baidu.adp.lib.debug.a aVar) {
         f.put(str, aVar);
-        f403a = String.valueOf(f403a) + " -s " + str;
+        f453a += " -s " + str;
     }
 
     public void a(String str) {
@@ -30,13 +30,12 @@ public class j extends a implements Runnable {
             if (i2 < split.length) {
                 Iterator<Map.Entry<String, com.baidu.adp.lib.debug.a>> it = f.entrySet().iterator();
                 while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Map.Entry<String, com.baidu.adp.lib.debug.a> next = it.next();
-                    if (split[i2].contains(next.getKey().toString())) {
-                        next.getValue().a(split[i2]);
-                        break;
+                    if (it.hasNext()) {
+                        Map.Entry<String, com.baidu.adp.lib.debug.a> next = it.next();
+                        if (split[i2].contains(next.getKey().toString())) {
+                            next.getValue().a(split[i2]);
+                            break;
+                        }
                     }
                 }
                 i = i2 + 1;
@@ -51,7 +50,7 @@ public class j extends a implements Runnable {
         super.b();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.b = Runtime.getRuntime().exec(f403a);
+            this.b = Runtime.getRuntime().exec(f453a);
             this.d = this.b.getOutputStream();
             this.c = this.b.getInputStream();
             d();
@@ -78,8 +77,12 @@ public class j extends a implements Runnable {
             if (this.e != null) {
                 this.e.a();
             }
-            this.c.close();
-            this.d.close();
+            if (this.c != null) {
+                this.c.close();
+            }
+            if (this.d != null) {
+                this.d.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

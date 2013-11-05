@@ -1,33 +1,49 @@
 package com.baidu.tieba.data;
+
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1029a;
-    private long b;
-    private int c;
+    private UserData f1161a;
+    private ArrayList<String> b;
 
-    public String a() {
-        return this.f1029a;
+    public d() {
+        this.f1161a = null;
+        this.b = null;
+        this.f1161a = new UserData();
+        this.b = new ArrayList<>(3);
     }
 
-    public void a(String str) {
-        this.f1029a = str;
+    public UserData a() {
+        return this.f1161a;
     }
 
-    public long b() {
+    public ArrayList<String> b() {
         return this.b;
     }
 
-    public void a(long j) {
-        this.b = j;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
+        }
     }
 
-    public int c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.c = i;
+    public void a(JSONObject jSONObject) {
+        try {
+            this.f1161a.parserJson(jSONObject.optJSONObject("user"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.b.add(optJSONArray.optString(i, null));
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
+        }
     }
 }

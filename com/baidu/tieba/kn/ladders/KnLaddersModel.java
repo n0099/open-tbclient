@@ -6,11 +6,11 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Arrays;
 /* loaded from: classes.dex */
-public class KnLaddersModel extends com.baidu.adp.a.c implements Serializable {
+public class KnLaddersModel extends com.baidu.adp.a.d implements Serializable {
     public static final int LOCAL_CACHE_EXPIRED_TIME = 86400000;
 
     /* renamed from: a  reason: collision with root package name */
-    private static o f1243a = null;
+    private static o f1738a = null;
     static final long serialVersionUID = 323412341;
     @SerializedName("mainbar")
     public MainBar mainbar;
@@ -54,12 +54,12 @@ public class KnLaddersModel extends com.baidu.adp.a.c implements Serializable {
         public Pic[] pics;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
         return false;
     }
@@ -129,18 +129,18 @@ public class KnLaddersModel extends com.baidu.adp.a.c implements Serializable {
 
     public static synchronized void fetch(Context context, q qVar, boolean z) {
         synchronized (KnLaddersModel.class) {
-            if (f1243a == null || f1243a.getStatus() != BdAsyncTask.BdAsyncTaskStatus.RUNNING) {
-                f1243a = new o(context, qVar, z);
-                f1243a.execute(new Void[0]);
+            if (f1738a == null || f1738a.getStatus() != BdAsyncTask.BdAsyncTaskStatus.RUNNING) {
+                f1738a = new o(context, qVar, z);
+                f1738a.execute(new Void[0]);
             }
         }
     }
 
     public static synchronized void cancel() {
         synchronized (KnLaddersModel.class) {
-            if (f1243a != null) {
-                f1243a.cancel();
-                f1243a = null;
+            if (f1738a != null) {
+                f1738a.cancel();
+                f1738a = null;
             }
         }
     }

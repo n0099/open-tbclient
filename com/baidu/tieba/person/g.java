@@ -5,19 +5,19 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
+public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f1693a;
-    private com.baidu.tieba.util.z b;
+    final /* synthetic */ EditBarActivity f2214a;
+    private com.baidu.tieba.util.ag b;
 
     private g(EditBarActivity editBarActivity) {
-        this.f1693a = editBarActivity;
+        this.f2214a = editBarActivity;
         this.b = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(EditBarActivity editBarActivity, g gVar) {
+    public /* synthetic */ g(EditBarActivity editBarActivity, d dVar) {
         this(editBarActivity);
     }
 
@@ -30,56 +30,56 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.model.d a(Object... objArr) {
-        com.baidu.tieba.model.d dVar;
+    public com.baidu.tieba.model.e a(Object... objArr) {
+        com.baidu.tieba.model.e eVar;
         Exception e;
         String str;
         String str2;
         String str3;
         String str4;
-        com.baidu.adp.lib.cache.q<String> i;
+        com.baidu.adp.lib.cache.s<String> j;
         String a2;
         try {
-            str = this.f1693a.o;
-            if (str == null && (i = com.baidu.tieba.b.a.a().i()) != null && (a2 = i.a(TiebaApplication.C())) != null) {
+            str = this.f2214a.o;
+            if (str == null && (j = com.baidu.tieba.b.a.a().j()) != null && (a2 = j.a(TiebaApplication.C())) != null) {
                 c((Object[]) new String[]{a2});
             }
-            this.b = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/forum/like");
-            str2 = this.f1693a.o;
+            this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/f/forum/like");
+            str2 = this.f2214a.o;
             if (str2 != null) {
-                com.baidu.tieba.util.z zVar = this.b;
-                str4 = this.f1693a.o;
-                zVar.a("uid", str4);
+                com.baidu.tieba.util.ag agVar = this.b;
+                str4 = this.f2214a.o;
+                agVar.a("uid", str4);
             }
-            String j = this.b.j();
+            String j2 = this.b.j();
             if (!this.b.c()) {
                 return null;
             }
-            dVar = new com.baidu.tieba.model.d();
+            eVar = new com.baidu.tieba.model.e();
             try {
-                dVar.a(j);
-                str3 = this.f1693a.o;
+                eVar.a(j2);
+                str3 = this.f2214a.o;
                 if (str3 == null) {
-                    a(j);
-                    return dVar;
+                    a(j2);
+                    return eVar;
                 }
-                return dVar;
+                return eVar;
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
-                return dVar;
+                com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                return eVar;
             }
         } catch (Exception e3) {
-            dVar = null;
+            eVar = null;
             e = e3;
         }
     }
 
     private void a(String str) {
-        com.baidu.adp.lib.cache.q<String> i;
+        com.baidu.adp.lib.cache.s<String> j;
         String C = TiebaApplication.C();
-        if (C != null && (i = com.baidu.tieba.b.a.a().i()) != null) {
-            i.a(C, str, 604800000L);
+        if (C != null && (j = com.baidu.tieba.b.a.a().j()) != null) {
+            j.a(C, str, 604800000L);
         }
     }
 
@@ -88,52 +88,51 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void b(String... strArr) {
-        com.baidu.tieba.model.d dVar;
+        com.baidu.tieba.model.e eVar;
         i iVar;
         i iVar2;
         ProgressBar progressBar;
         super.b((Object[]) strArr);
         String str = strArr[0];
-        com.baidu.tieba.model.d dVar2 = new com.baidu.tieba.model.d();
-        dVar2.a(str);
-        dVar = this.f1693a.f1638a;
-        dVar.a(dVar2.a());
-        iVar = this.f1693a.f;
-        if (iVar == null) {
-            return;
+        com.baidu.tieba.model.e eVar2 = new com.baidu.tieba.model.e();
+        eVar2.a(str);
+        eVar = this.f2214a.f2156a;
+        eVar.a(eVar2.a());
+        iVar = this.f2214a.f;
+        if (iVar != null) {
+            this.f2214a.e();
+            iVar2 = this.f2214a.f;
+            iVar2.notifyDataSetChanged();
+            progressBar = this.f2214a.g;
+            progressBar.setVisibility(0);
         }
-        this.f1693a.e();
-        iVar2 = this.f1693a.f;
-        iVar2.notifyDataSetChanged();
-        progressBar = this.f1693a.g;
-        progressBar.setVisibility(0);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.model.d dVar) {
+    public void a(com.baidu.tieba.model.e eVar) {
         ProgressBar progressBar;
-        com.baidu.tieba.model.d dVar2;
+        com.baidu.tieba.model.e eVar2;
         i iVar;
         i iVar2;
-        progressBar = this.f1693a.g;
+        progressBar = this.f2214a.g;
         progressBar.setVisibility(8);
-        this.f1693a.j = null;
+        this.f2214a.j = null;
         if (this.b != null) {
-            if (this.b.c() && dVar != null) {
-                dVar2 = this.f1693a.f1638a;
-                dVar2.a(dVar.a());
-                iVar = this.f1693a.f;
-                if (iVar == null) {
+            if (this.b.c() && eVar != null) {
+                eVar2 = this.f2214a.f2156a;
+                eVar2.a(eVar.a());
+                iVar = this.f2214a.f;
+                if (iVar != null) {
+                    this.f2214a.e();
+                    iVar2 = this.f2214a.f;
+                    iVar2.notifyDataSetChanged();
                     return;
                 }
-                this.f1693a.e();
-                iVar2 = this.f1693a.f;
-                iVar2.notifyDataSetChanged();
                 return;
             }
-            this.f1693a.a(this.b.g());
+            this.f2214a.a(this.b.g());
         }
     }
 
@@ -144,9 +143,9 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.d> {
             this.b.h();
             this.b = null;
         }
-        progressBar = this.f1693a.g;
+        progressBar = this.f2214a.g;
         progressBar.setVisibility(8);
-        this.f1693a.j = null;
+        this.f2214a.j = null;
         super.cancel(true);
     }
 }

@@ -1,21 +1,43 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
-public class q {
-
-    /* renamed from: a  reason: collision with root package name */
-    private int f472a;
-    private boolean b;
-    private String c;
-
-    public int a() {
-        return this.f472a;
+public class q implements k {
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void a() {
     }
 
-    public boolean b() {
-        return this.b;
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void a(int i, String str) {
     }
 
-    public String c() {
-        return this.c;
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void a(String str) {
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void a(byte[] bArr) {
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void b(byte[] bArr) {
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void a(am amVar) {
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void b() {
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void b(am amVar) {
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void c(am amVar) {
+    }
+
+    @Override // com.baidu.adp.lib.webSocket.k
+    public void d(am amVar) {
     }
 }

@@ -1,30 +1,23 @@
 package com.baidu.tieba.more;
 
+import android.app.AlertDialog;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import com.baidu.tieba.data.AccountData;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f1490a;
+    final /* synthetic */ AccountActivity f2007a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AccountActivity accountActivity) {
-        this.f1490a = accountActivity;
+        this.f2007a = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        i iVar;
-        i iVar2;
-        AccountData accountData = (AccountData) view.getTag();
-        if (accountData != null) {
-            this.f1490a.j = new i(this.f1490a, accountData);
-            iVar = this.f1490a.j;
-            iVar.setPriority(3);
-            iVar2 = this.f1490a.j;
-            iVar2.execute(new Object[0]);
-        }
+        new AlertDialog.Builder(this.f2007a).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(true).setItems(R.array.delete_account, new g(this, view)).create().show();
     }
 }

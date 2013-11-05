@@ -1,51 +1,46 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b implements AbsListView.OnScrollListener {
+public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1136a;
+    final /* synthetic */ FrsActivity f1269a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(FrsActivity frsActivity) {
-        this.f1136a = frsActivity;
+        this.f1269a = frsActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.f1136a.L;
-        runnable = this.f1136a.N;
-        handler.removeCallbacks(runnable);
-        handler2 = this.f1136a.L;
-        runnable2 = this.f1136a.N;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        com.baidu.tieba.model.ap apVar;
+        com.baidu.tieba.model.ap apVar2;
+        com.baidu.tieba.model.ap apVar3;
+        com.baidu.tieba.model.ap apVar4;
+        com.baidu.tieba.model.ap apVar5;
         ba baVar;
-        ba baVar2;
-        ba baVar3;
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        ba baVar4;
-        if (i == 0) {
-            baVar3 = this.f1136a.o;
-            onItemLongClickListener = this.f1136a.R;
-            baVar3.a(onItemLongClickListener);
-            baVar4 = this.f1136a.o;
-            baVar4.f(false);
-            return;
+        com.baidu.tieba.model.ap apVar6;
+        long longExtra = intent.getLongExtra("fans", 0L);
+        long longExtra2 = intent.getLongExtra("relay", 0L);
+        long longExtra3 = intent.getLongExtra("at_me", 0L);
+        long longExtra4 = intent.getLongExtra("pletter", 0L);
+        apVar = this.f1269a.E;
+        if (apVar != null) {
+            apVar2 = this.f1269a.E;
+            apVar2.a(longExtra);
+            apVar3 = this.f1269a.E;
+            apVar3.c(longExtra2);
+            apVar4 = this.f1269a.E;
+            apVar4.b(longExtra3);
+            apVar5 = this.f1269a.E;
+            apVar5.d(longExtra4);
+            baVar = this.f1269a.o;
+            apVar6 = this.f1269a.E;
+            baVar.a(apVar6);
         }
-        baVar = this.f1136a.o;
-        baVar.a((AdapterView.OnItemLongClickListener) null);
-        baVar2 = this.f1136a.o;
-        baVar2.f(true);
     }
 }

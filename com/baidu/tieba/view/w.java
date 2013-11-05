@@ -3,11 +3,12 @@ package com.baidu.tieba.view;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f2009a;
+    public LinearLayout f2544a;
     public RelativeLayout b;
     public TextView c;
     public TextView d;
@@ -16,7 +17,7 @@ public class w {
     public TextView g;
     public TextView h;
     public LinearLayout i;
-    public LinearLayout j;
+    public PlayVoiceBnt j;
     public String k;
     public String l;
     public int m;

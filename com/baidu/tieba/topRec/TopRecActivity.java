@@ -7,7 +7,7 @@ import android.view.View;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.model.as;
+import com.baidu.tieba.model.ba;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,17 +15,17 @@ import java.util.List;
 public class TopRecActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private h f1862a;
+    private h f2384a;
     private e b;
     private l c;
-    private as d;
+    private ba d;
     private d e;
     private TRForumListData f;
     private List<d> j;
-    private List<as> k;
+    private List<ba> k;
     private int g = 0;
     private int l = 0;
-    private n m = new a(this);
+    private o m = new a(this);
     private com.baidu.adp.widget.ListView.b n = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,19 +37,19 @@ public class TopRecActivity extends com.baidu.tieba.j {
     }
 
     private void b() {
-        this.f1862a = new h(this);
-        this.f1862a.a(true);
+        this.f2384a = new h(this);
+        this.f2384a.a(true);
     }
 
     private void c() {
         this.b = new e(this);
-        this.f1862a.a(this.b);
+        this.f2384a.a(this.b);
         this.c = new l();
         this.c.a(this.m);
         this.c.LoadData();
         this.j = new LinkedList();
         this.k = new LinkedList();
-        this.f1862a.a(this.n);
+        this.f2384a.a(this.n);
     }
 
     public static void a(Context context) {
@@ -57,24 +57,24 @@ public class TopRecActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(int i, int i2) {
+    public synchronized void b(int i, int i2) {
         if (this.f != null && i < this.f.forum_list.length) {
             this.f.forum_list[i].is_like = 1;
             this.b.notifyDataSetChanged();
             this.g++;
-            this.f1862a.a(this.g);
+            this.f2384a.a(this.g);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void b(int i, int i2) {
+    public synchronized void c(int i, int i2) {
         if (this.f != null && i < this.f.forum_list.length) {
             this.f.forum_list[i].is_like = 0;
             this.b.notifyDataSetChanged();
             if (this.g != 0) {
                 this.g--;
             }
-            this.f1862a.a(this.g);
+            this.f2384a.a(this.g);
         }
     }
 
@@ -117,7 +117,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
             if (c != 0) {
                 this.g += c;
                 this.l = c + this.l;
-                this.f1862a.a(this.g);
+                this.f2384a.a(this.g);
             }
             this.b.notifyDataSetChanged();
         }
@@ -127,7 +127,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        this.f1862a.b(i);
+        this.f2384a.b(i);
         if (i == 1) {
             this.b.a(R.drawable.btn_add_1, R.drawable.btn_add_end_1);
         } else {
@@ -136,7 +136,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int b(int i) {
+    public int d(int i) {
         if (this.f == null) {
             return -1;
         }
@@ -151,14 +151,14 @@ public class TopRecActivity extends com.baidu.tieba.j {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f1862a.a()) {
+        if (view == this.f2384a.a()) {
             this.b.a();
             if (this.b.b()) {
-                this.f1862a.e();
+                this.f2384a.e();
             }
-        } else if (view == this.f1862a.b()) {
+        } else if (view == this.f2384a.b()) {
             if (this.l != 0) {
-                a(String.valueOf(getString(R.string.top_rec_like_finish_a)) + this.l + getString(R.string.top_rec_like_finish_b));
+                a(getString(R.string.top_rec_like_finish_a) + this.l + getString(R.string.top_rec_like_finish_b));
                 if (TiebaApplication.g().s()) {
                     StatService.onEvent(this, "top_rec_have_like", "people_number", 1);
                 }
@@ -170,22 +170,22 @@ public class TopRecActivity extends com.baidu.tieba.j {
         } else if (this.f != null || this.f.forum_list.length != 0) {
             int intValue = ((Integer) view.getTag()).intValue();
             if (this.f.forum_list.length != 0) {
-                int b = b(intValue);
-                if (this.f.forum_list[b].is_like == 1) {
-                    b(b, intValue);
+                int d = d(intValue);
+                if (this.f.forum_list[d].is_like == 1) {
+                    c(d, intValue);
                     this.e = new d(this, null);
                     this.j.add(this.e);
                     this.e.setPriority(2);
                     this.e.execute(Integer.valueOf(intValue));
                     return;
                 }
-                this.d = new as();
+                this.d = new ba();
                 if (!this.d.b()) {
                     this.k.add(this.d);
-                    a(b, intValue);
-                    this.d.setLoadDataCallBack(new c(this, b, intValue));
+                    b(d, intValue);
+                    this.d.setLoadDataCallBack(new c(this, d, intValue));
                     this.d.a("from_topRec");
-                    this.d.a(this.f.forum_list[b].forum_name, String.valueOf(this.f.forum_list[b].forum_id));
+                    this.d.a(this.f.forum_list[d].forum_name, String.valueOf(this.f.forum_list[d].forum_id));
                 }
             }
         }
@@ -195,7 +195,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
     public void onBackPressed() {
         super.onBackPressed();
         if (this.l != 0) {
-            a(String.valueOf(getString(R.string.top_rec_like_finish_a)) + this.l + getString(R.string.top_rec_like_finish_b));
+            a(getString(R.string.top_rec_like_finish_a) + this.l + getString(R.string.top_rec_like_finish_b));
             if (TiebaApplication.g().s()) {
                 StatService.onEvent(this, "top_rec_have_like", "people_number", 1);
             }

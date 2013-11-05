@@ -8,14 +8,15 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bj;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ListView f1807a = null;
+    protected ListView f2328a = null;
     protected ViewGroup b;
     private ProgressBar c;
     private c d;
@@ -48,12 +49,12 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
         this.f = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.f.a(getResources().getString(R.string.bar_first_dir_name));
         this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f1807a = (ListView) findViewById(R.id.list);
+        this.f2328a = (ListView) findViewById(R.id.list);
         this.d = new c(this, new g(), true);
-        this.f1807a.setAdapter((ListAdapter) this.d);
+        this.f2328a.setAdapter((ListAdapter) this.d);
         this.c = (ProgressBar) findViewById(R.id.progress);
         this.b = (ViewGroup) findViewById(R.id.body_container);
-        ba.b(this.b);
+        bj.b(this.b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -67,12 +68,12 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     }
 
     protected void c() {
-        this.f1807a.setOnItemClickListener(new a(this));
+        this.f2328a.setOnItemClickListener(new a(this));
     }
 
     protected void d() {
         this.c.setVisibility(0);
-        this.f1807a.setEnabled(false);
+        this.f2328a.setEnabled(false);
         if (this.e != null) {
             this.e.cancel();
         }
@@ -84,7 +85,7 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(g gVar, boolean z) {
         this.c.setVisibility(8);
-        this.f1807a.setEnabled(true);
+        this.f2328a.setEnabled(true);
         this.e = null;
         if (!z) {
             if (gVar.b()) {
@@ -92,9 +93,9 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
                 return;
             }
             this.d.a(gVar.d());
-            this.f1807a.setVisibility(4);
+            this.f2328a.setVisibility(4);
             this.d.notifyDataSetChanged();
-            this.f1807a.setVisibility(0);
+            this.f2328a.setVisibility(0);
         }
     }
 
@@ -103,12 +104,12 @@ public class BarFolderFirstDirActivity extends com.baidu.tieba.j {
     public void a(int i) {
         super.a(i);
         this.f.b(i);
-        if (this.f1807a != null) {
-            this.f1807a.invalidateViews();
+        if (this.f2328a != null) {
+            this.f2328a.invalidateViews();
         }
         if (this.b != null) {
-            ba.a(this.b, i);
+            bj.a(this.b, i);
         }
-        com.baidu.tieba.util.as.b(findViewById(R.id.root_view), i);
+        bb.b(findViewById(R.id.root_view), i);
     }
 }

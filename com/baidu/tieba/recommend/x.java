@@ -4,16 +4,16 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.n> {
+public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.o> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1773a;
+    final /* synthetic */ w f2293a;
     private ad b;
     private int c;
     private String d;
 
     public x(w wVar, int i, String str) {
-        this.f1773a = wVar;
+        this.f2293a = wVar;
         this.c = i;
         this.d = str;
         setPriority(3);
@@ -25,9 +25,9 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.n> {
         y yVar;
         y yVar2;
         super.b();
-        yVar = this.f1773a.f1772a;
+        yVar = this.f2293a.f2292a;
         if (yVar != null) {
-            yVar2 = this.f1773a.f1772a;
+            yVar2 = this.f2293a.f2292a;
             yVar2.a();
         }
     }
@@ -35,7 +35,7 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.n> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.n a(String... strArr) {
+    public com.baidu.tieba.data.o a(String... strArr) {
         String a2;
         switch (this.c) {
             case 0:
@@ -44,9 +44,9 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.n> {
                 a2 = this.b.a(this.d);
                 break;
             case 1:
-                com.baidu.adp.lib.cache.q<String> aX = TiebaApplication.g().aX();
-                if (aX != null) {
-                    a2 = aX.a("dailyrecommend");
+                com.baidu.adp.lib.cache.s<String> bh = TiebaApplication.g().bh();
+                if (bh != null) {
+                    a2 = bh.a("dailyrecommend");
                     break;
                 }
             default:
@@ -57,7 +57,7 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.n> {
             if (this.c != 1 && this.b != null && this.b.b()) {
                 if (this.b.c() == 0) {
                     if (this.c == 0) {
-                        this.f1773a.b(a2);
+                        this.f2293a.b(a2);
                     }
                     return a(a2);
                 }
@@ -68,68 +68,67 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.n> {
         return null;
     }
 
-    private com.baidu.tieba.data.n a(String str) {
-        com.baidu.tieba.data.n nVar = new com.baidu.tieba.data.n();
-        nVar.a(str);
-        if (this.c == 0 && nVar.b().size() > 0) {
-            nVar.b().get(0).a(true);
+    private com.baidu.tieba.data.o a(String str) {
+        com.baidu.tieba.data.o oVar = new com.baidu.tieba.data.o();
+        oVar.a(str);
+        if (this.c == 0 && oVar.b().size() > 0) {
+            oVar.b().get(0).a(true);
         }
-        return nVar;
+        return oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.n nVar) {
+    public void a(com.baidu.tieba.data.o oVar) {
         y yVar;
         y yVar2;
-        com.baidu.tieba.data.n nVar2;
+        com.baidu.tieba.data.o oVar2;
         y yVar3;
-        com.baidu.tieba.data.n nVar3;
+        com.baidu.tieba.data.o oVar3;
         boolean z;
-        com.baidu.tieba.data.n nVar4;
+        com.baidu.tieba.data.o oVar4;
         y yVar4;
         y yVar5;
-        com.baidu.tieba.data.n nVar5;
-        super.a((x) nVar);
-        if (nVar == null) {
-            yVar = this.f1773a.f1772a;
+        com.baidu.tieba.data.o oVar5;
+        super.a((x) oVar);
+        if (oVar == null) {
+            yVar = this.f2293a.f2292a;
             if (yVar != null) {
                 if (this.c != 1) {
-                    yVar3 = this.f1773a.f1772a;
-                    String sb = new StringBuilder(String.valueOf(this.b.c())).toString();
-                    nVar3 = this.f1773a.b;
-                    yVar3.a(false, sb, nVar3, this.c);
+                    yVar3 = this.f2293a.f2292a;
+                    oVar3 = this.f2293a.b;
+                    yVar3.a(false, this.b.c() + "", oVar3, this.c);
                     return;
                 }
-                yVar2 = this.f1773a.f1772a;
-                nVar2 = this.f1773a.b;
-                yVar2.a(false, "db no data!", nVar2, this.c);
+                yVar2 = this.f2293a.f2292a;
+                oVar2 = this.f2293a.b;
+                yVar2.a(false, "db no data!", oVar2, this.c);
                 return;
             }
             return;
         }
         if (this.c == 1) {
-            this.f1773a.b = nVar;
-            this.f1773a.e = true;
+            this.f2293a.b = oVar;
+            this.f2293a.e = true;
         } else {
-            z = this.f1773a.e;
+            z = this.f2293a.e;
             if (z) {
-                this.f1773a.b = new com.baidu.tieba.data.n();
-                this.f1773a.e = false;
+                this.f2293a.b = new com.baidu.tieba.data.o();
+                this.f2293a.e = false;
             }
             if (this.c == 0) {
-                this.f1773a.b = nVar;
+                this.f2293a.b = oVar;
             } else {
-                nVar4 = this.f1773a.b;
-                nVar4.a(nVar);
+                oVar4 = this.f2293a.b;
+                oVar4.a(oVar);
             }
         }
-        yVar4 = this.f1773a.f1772a;
+        yVar4 = this.f2293a.f2292a;
         if (yVar4 != null) {
-            yVar5 = this.f1773a.f1772a;
-            nVar5 = this.f1773a.b;
-            yVar5.a(true, null, nVar5, this.c);
+            yVar5 = this.f2293a.f2292a;
+            oVar5 = this.f2293a.b;
+            yVar5.a(true, null, oVar5, this.c);
         }
     }
 

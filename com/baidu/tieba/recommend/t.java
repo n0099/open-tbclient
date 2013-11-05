@@ -2,11 +2,12 @@ package com.baidu.tieba.recommend;
 
 import android.widget.ImageView;
 import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t {
+public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1769a;
+    TextView f2289a;
     TextView b;
     ImageView c;
     final /* synthetic */ h d;
@@ -16,7 +17,7 @@ class t {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ t(h hVar, t tVar) {
+    public /* synthetic */ t(h hVar, i iVar) {
         this(hVar);
     }
 }

@@ -287,7 +287,7 @@ public class MediaService extends Service implements MediaPlayer.OnErrorListener
         }
         boolean z = false;
         File file = new File(stringExtra);
-        this.mFilePath = String.valueOf(stringExtra) + File.separator + stringExtra2;
+        this.mFilePath = stringExtra + File.separator + stringExtra2;
         if (file.exists()) {
             if (file.isDirectory() && file.canRead() && file.canWrite()) {
                 z = this.mRecorder.a(this.mFilePath);

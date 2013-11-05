@@ -12,13 +12,20 @@ import java.util.Timer;
 public class ShakeCutDownView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f1964a;
+    public Handler f2496a;
     private bf b;
     private Animation c;
     private Timer d;
     private int e;
     private long f;
     private long g;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ int a(ShakeCutDownView shakeCutDownView) {
+        int i = shakeCutDownView.e;
+        shakeCutDownView.e = i - 1;
+        return i;
+    }
 
     public ShakeCutDownView(Context context) {
         super(context);
@@ -28,7 +35,7 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.f1964a = new Handler(new bd(this));
+        this.f2496a = new Handler(new bd(this));
         c();
     }
 
@@ -40,7 +47,7 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.f1964a = new Handler(new bd(this));
+        this.f2496a = new Handler(new bd(this));
         c();
     }
 
@@ -52,7 +59,7 @@ public class ShakeCutDownView extends TextView {
         this.e = 0;
         this.f = 0L;
         this.g = 0L;
-        this.f1964a = new Handler(new bd(this));
+        this.f2496a = new Handler(new bd(this));
         c();
     }
 
@@ -86,14 +93,14 @@ public class ShakeCutDownView extends TextView {
         this.d.schedule(new be(this), j2, 1000L);
         a(this.e);
         this.f = j;
-        this.f1964a.removeMessages(1);
-        this.f1964a.sendEmptyMessageDelayed(1, j);
+        this.f2496a.removeMessages(1);
+        this.f2496a.sendEmptyMessageDelayed(1, j);
     }
 
     public void a() {
         this.f -= System.currentTimeMillis() - this.g;
-        this.f1964a.removeMessages(1);
-        this.f1964a.removeMessages(0);
+        this.f2496a.removeMessages(1);
+        this.f2496a.removeMessages(0);
         if (this.d != null) {
             this.d.cancel();
         }

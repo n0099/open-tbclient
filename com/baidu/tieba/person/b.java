@@ -1,35 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-public class b implements AdapterView.OnItemClickListener {
+class b implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AllPostActivity f1672a;
+    final /* synthetic */ AllPostActivity f2190a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AllPostActivity allPostActivity) {
-        this.f1672a = allPostActivity;
+        this.f2190a = allPostActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        switch (this.f1672a.e.getItemViewType(i)) {
-            case 0:
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
             case 1:
+                this.f2190a.finish();
+                return false;
             default:
-                return;
-            case 2:
-                if (this.f1672a.f.g()) {
-                    this.f1672a.b(1);
-                    return;
-                } else {
-                    this.f1672a.a(this.f1672a.getString(R.string.no_more_to_load));
-                    return;
-                }
+                return false;
         }
     }
 }

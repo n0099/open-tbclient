@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class ag {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f997a;
+    private int f1127a;
     private int b;
     private int c;
     private int d;
@@ -37,7 +37,7 @@ public class ag {
         try {
             a(new JSONObject(str).optJSONObject("info"));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -52,17 +52,17 @@ public class ag {
                 f(jSONObject.optInt("levelup_score", 0));
                 e(jSONObject.optInt("cur_score", 0));
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("LikeReturnData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void b(int i) {
-        this.f997a = i;
+        this.f1127a = i;
     }
 
     public int b() {
-        return this.f997a;
+        return this.f1127a;
     }
 
     public void c(int i) {

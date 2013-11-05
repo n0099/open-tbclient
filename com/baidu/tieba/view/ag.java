@@ -8,11 +8,11 @@ import android.view.View;
 public class ag implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuidPageView f1970a;
+    final /* synthetic */ GuidPageView f2503a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(GuidPageView guidPageView) {
-        this.f1970a = guidPageView;
+        this.f2503a = guidPageView;
     }
 
     @Override // android.view.View.OnClickListener

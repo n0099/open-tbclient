@@ -4,11 +4,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.kn.TimerTextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h {
+public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1252a;
+    LinearLayout f1747a;
     TextView b;
     TbImageView c;
     TextView d;
@@ -21,7 +22,7 @@ class h {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ h(a aVar, h hVar) {
+    public /* synthetic */ h(a aVar, b bVar) {
         this(aVar);
     }
 }

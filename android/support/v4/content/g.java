@@ -8,20 +8,20 @@ import android.os.Message;
 public class g extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f303a;
+    final /* synthetic */ f f313a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, Looper looper) {
         super(looper);
-        this.f303a = fVar;
+        this.f313a = fVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                this.f303a.a();
+                this.f313a.a();
                 return;
             default:
                 super.handleMessage(message);

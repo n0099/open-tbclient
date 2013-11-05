@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.av;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
 public class TiebaReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -17,13 +17,13 @@ public class TiebaReceiver extends BroadcastReceiver {
             long longExtra3 = intent.getLongExtra("fans", 0L);
             long longExtra4 = intent.getLongExtra("pletter", 0L);
             long longExtra5 = intent.getLongExtra("new_bookmark", 0L);
-            av.a(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d %d %d", Long.valueOf(longExtra), Long.valueOf(longExtra2), Long.valueOf(longExtra3), Long.valueOf(longExtra4), Long.valueOf(longExtra5)));
+            be.a(getClass().getName(), "broadcastNotify ", "receiveData: " + String.format("%d %d %d %d %d", Long.valueOf(longExtra), Long.valueOf(longExtra2), Long.valueOf(longExtra3), Long.valueOf(longExtra4), Long.valueOf(longExtra5)));
             if (C != null && C.length() > 0) {
-                com.baidu.tieba.mention.s.a().a(longExtra, longExtra2, longExtra3, longExtra4, longExtra5);
+                com.baidu.tieba.mention.t.a().a(longExtra, longExtra2, longExtra3, longExtra4, longExtra5);
             }
         } else if (action.equals("com.baidu.tieba.broadcast.sync")) {
-            av.a(getClass().getName(), "broadcastNewVersion ", "receiveData");
-            TiebaApplication.g().u(true);
+            be.a(getClass().getName(), "broadcastNewVersion ", "receiveData");
+            TiebaApplication.g().w(true);
         }
     }
 }

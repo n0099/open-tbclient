@@ -1,38 +1,98 @@
 package com.baidu.tieba.more;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.TiebaApplication;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.view.BaseWebView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements DialogInterface.OnClickListener {
+public class v extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ u f1505a;
+    final /* synthetic */ AppsActivity f2022a;
+    private com.baidu.tieba.util.ag b = null;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public v(u uVar) {
-        this.f1505a = uVar;
+    public v(AppsActivity appsActivity, String str) {
+        this.f2022a = appsActivity;
+        this.c = null;
+        this.c = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        switch (i) {
-            case 0:
-                TiebaApplication.g().r(true);
-                TiebaApplication.g().f(0);
-                break;
-            case 1:
-                TiebaApplication.g().r(true);
-                TiebaApplication.g().f(1);
-                break;
-            case 2:
-                TiebaApplication.g().r(true);
-                TiebaApplication.g().f(2);
-                break;
-            case 3:
-                TiebaApplication.g().r(false);
-                break;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        ProgressBar progressBar;
+        LinearLayout linearLayout;
+        BaseWebView baseWebView;
+        progressBar = this.f2022a.f;
+        progressBar.setVisibility(0);
+        linearLayout = this.f2022a.e;
+        linearLayout.setVisibility(8);
+        baseWebView = this.f2022a.b;
+        baseWebView.setVisibility(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public String a(Object... objArr) {
+        if (this.c == null) {
+            return null;
         }
-        this.f1505a.x();
+        this.b = new com.baidu.tieba.util.ag(this.c);
+        this.b.b(false);
+        this.b.a("client", SocialConstants.ANDROID_CLIENT_TYPE);
+        return this.b.j();
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.b != null) {
+            this.b.h();
+        }
+        progressBar = this.f2022a.f;
+        progressBar.setVisibility(8);
+        this.f2022a.d = null;
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        ProgressBar progressBar;
+        boolean e;
+        BaseWebView baseWebView;
+        BaseWebView baseWebView2;
+        LinearLayout linearLayout;
+        BaseWebView baseWebView3;
+        progressBar = this.f2022a.f;
+        progressBar.setVisibility(8);
+        if (this.b == null || !this.b.d() || str == null || str.length() <= 0) {
+            e = this.f2022a.e();
+            if (!e && str == null) {
+                baseWebView2 = this.f2022a.b;
+                baseWebView2.setVisibility(8);
+                linearLayout = this.f2022a.e;
+                linearLayout.setVisibility(0);
+                this.f2022a.a(this.f2022a.getString(R.string.system_no_service));
+                return;
+            }
+            String string = this.f2022a.getString(R.string.server_404);
+            baseWebView = this.f2022a.b;
+            baseWebView.loadDataWithBaseURL(com.baidu.tieba.data.h.f1165a, string, "text/html", BdUtil.UTF8, "");
+            return;
+        }
+        DatabaseService.a(str, 7);
+        com.baidu.tieba.sharedPref.b.a().b("app_inverval", System.currentTimeMillis());
+        baseWebView3 = this.f2022a.b;
+        baseWebView3.loadDataWithBaseURL(com.baidu.tieba.data.h.f1165a, str, "text/html", BdUtil.UTF8, "");
     }
 }

@@ -11,7 +11,7 @@ public class a {
     private static final Object c;
 
     /* renamed from: a  reason: collision with root package name */
-    final Object f314a = b.a(this);
+    final Object f324a = b.a(this);
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
@@ -26,7 +26,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Object a() {
-        return this.f314a;
+        return this.f324a;
     }
 
     public void a(View view, int i) {

@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.zeus.bouncycastle.DERTags;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -127,7 +128,7 @@ public class n extends Activity {
             return super.onCreateView(str, context, attributeSet);
         }
         String attributeValue = attributeSet.getAttributeValue(null, "class");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q.f288a);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q.f298a);
         if (attributeValue == null) {
             attributeValue = obtainStyledAttributes.getString(0);
         }
@@ -145,7 +146,7 @@ public class n extends Activity {
         if (r1 == 0 && id != -1) {
             r1 = this.mFragments.a(id);
         }
-        if (v.f290a) {
+        if (v.f300a) {
             Log.v(TAG, "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + ((Object) r1));
         }
         if (r1 == 0) {
@@ -244,8 +245,9 @@ public class n extends Activity {
         this.mFragments.n();
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
+    public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         this.mFragments.i();
     }
@@ -315,7 +317,7 @@ public class n extends Activity {
             return null;
         }
         r rVar = new r();
-        rVar.f289a = null;
+        rVar.f299a = null;
         rVar.b = onRetainCustomNonConfigurationInstance;
         rVar.c = null;
         rVar.d = g;
@@ -481,7 +483,7 @@ public class n extends Activity {
             if (id != 0 && resources != null) {
                 switch ((-16777216) & id) {
                     case 16777216:
-                        resourcePackageName = "android";
+                        resourcePackageName = SocialConstants.ANDROID_CLIENT_TYPE;
                         String resourceTypeName = resources.getResourceTypeName(id);
                         String resourceEntryName = resources.getResourceEntryName(id);
                         sb.append(" ");

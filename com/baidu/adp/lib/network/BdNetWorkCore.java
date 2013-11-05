@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class BdNetWorkCore {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f448a = "\r\n";
+    private static String f506a = "\r\n";
     private static String b = "--";
     private static String c = "--------7da3d81520810*";
     private static int d = 2097152;
@@ -25,17 +25,7 @@ public class BdNetWorkCore {
     public enum DataFormat {
         JSON,
         HTML,
-        BINARY;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static DataFormat[] valuesCustom() {
-            DataFormat[] valuesCustom = values();
-            int length = valuesCustom.length;
-            DataFormat[] dataFormatArr = new DataFormat[length];
-            System.arraycopy(valuesCustom, 0, dataFormatArr, 0, length);
-            return dataFormatArr;
-        }
+        BINARY
     }
 
     /* loaded from: classes.dex */
@@ -45,33 +35,13 @@ public class BdNetWorkCore {
         WAP_2G,
         WAP_3G,
         NET_2G,
-        NET_3G;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static DetailedNetworkType[] valuesCustom() {
-            DetailedNetworkType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            DetailedNetworkType[] detailedNetworkTypeArr = new DetailedNetworkType[length];
-            System.arraycopy(valuesCustom, 0, detailedNetworkTypeArr, 0, length);
-            return detailedNetworkTypeArr;
-        }
+        NET_3G
     }
 
     /* loaded from: classes.dex */
     public enum NetworkType {
         UNAVAIL,
         WIFI,
-        MOBILE;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static NetworkType[] valuesCustom() {
-            NetworkType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            NetworkType[] networkTypeArr = new NetworkType[length];
-            System.arraycopy(valuesCustom, 0, networkTypeArr, 0, length);
-            return networkTypeArr;
-        }
+        MOBILE
     }
 }

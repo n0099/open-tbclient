@@ -1,29 +1,34 @@
 package com.baidu.tieba.flist;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import java.util.ArrayList;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
-class h implements AdapterView.OnItemClickListener {
+class h implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1060a;
+    final /* synthetic */ ForumListActivity f1192a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ForumListActivity forumListActivity) {
-        this.f1060a = forumListActivity;
+        this.f1192a = forumListActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1060a, "forumlist_\tcatalog", "catalogclick", 1);
+    @Override // com.baidu.tieba.flist.f
+    public void a(boolean z, int i, com.baidu.tieba.square.s sVar, String str, boolean z2) {
+        be.e("ForumListActivity", "callback", "start");
+        if (!z || i != 0) {
+            be.e("ForumListActivity", "callback", "dir menu not ok");
+            if (!z2) {
+                this.f1192a.c.d();
+                return;
+            }
+            return;
         }
-        this.f1060a.c.t.dismiss();
-        this.f1060a.t = i;
-        ArrayList<com.baidu.tieba.square.s> arrayList = this.f1060a.c.x.a().e;
-        this.f1060a.a(arrayList.get(i).b, arrayList.get(i).c, arrayList.get(i).f1853a);
+        be.e("ForumListActivity", "callback", "dir menu ok");
+        sVar.e.add(0, sVar);
+        if (this.f1192a.c.x != null) {
+            this.f1192a.c.x.a(sVar);
+            this.f1192a.c(String.valueOf(this.f1192a.c.g.getText()));
+            this.f1192a.c.x.notifyDataSetChanged();
+        }
     }
 }

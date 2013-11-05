@@ -1,23 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.KeyboardEventLayout;
 /* loaded from: classes.dex */
-public class ca implements View.OnClickListener {
+class ca implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ br f1572a;
+    final /* synthetic */ bz f2088a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(br brVar) {
-        this.f1572a = brVar;
+    public ca(bz bzVar) {
+        this.f2088a = bzVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        dialog = this.f1572a.ac;
-        dialog.dismiss();
+    @Override // java.lang.Runnable
+    public void run() {
+        KeyboardEventLayout keyboardEventLayout;
+        keyboardEventLayout = this.f2088a.b.d;
+        keyboardEventLayout.removeView(this.f2088a.f2087a);
     }
 }

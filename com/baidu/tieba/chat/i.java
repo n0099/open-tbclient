@@ -3,19 +3,17 @@ package com.baidu.tieba.chat;
 class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f965a;
+    final /* synthetic */ h f1103a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f965a = hVar;
+        this.f1103a = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        ChatActivity chatActivity;
-        ac acVar;
-        chatActivity = this.f965a.f964a;
-        acVar = chatActivity.f951a;
-        acVar.h();
+        ai aiVar;
+        aiVar = this.f1103a.f1102a.f1083a;
+        aiVar.j();
     }
 }

@@ -9,13 +9,13 @@ import com.slidingmenu.lib.R;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    BdListView f1727a;
+    BdListView f2247a;
     TextView b;
     ProgressBar c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(View view) {
-        this.f1727a = (BdListView) view.findViewById(R.id.list);
+        this.f2247a = (BdListView) view.findViewById(R.id.list);
         this.b = (TextView) view.findViewById(R.id.no_post_view);
         this.c = (ProgressBar) view.findViewById(R.id.progress);
     }

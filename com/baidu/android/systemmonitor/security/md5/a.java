@@ -6,15 +6,15 @@ import java.io.InputStream;
 public class a extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private MD5 f735a;
+    private MD5 f814a;
 
     public a(InputStream inputStream) {
         super(inputStream);
-        this.f735a = new MD5();
+        this.f814a = new MD5();
     }
 
     public byte[] a() {
-        return this.f735a.b();
+        return this.f814a.b();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -24,7 +24,7 @@ public class a extends FilterInputStream {
             return -1;
         }
         if ((read & (-256)) == 0) {
-            this.f735a.a(read);
+            this.f814a.a(read);
         }
         return read;
     }
@@ -33,7 +33,7 @@ public class a extends FilterInputStream {
     public int read(byte[] bArr, int i, int i2) {
         int read = this.in.read(bArr, i, i2);
         if (read != -1) {
-            this.f735a.a(bArr, i, read);
+            this.f814a.a(bArr, i, read);
         }
         return read;
     }

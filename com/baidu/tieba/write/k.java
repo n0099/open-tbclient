@@ -23,7 +23,7 @@ public class k extends BaseAdapter {
     private boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2118a = false;
+    boolean f2663a = false;
     private ArrayList<ProgressBar> i = new ArrayList<>();
 
     public void a() {
@@ -35,7 +35,7 @@ public class k extends BaseAdapter {
                     try {
                         this.i.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.util.av.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        com.baidu.tieba.util.be.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -67,7 +67,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2118a) {
+        if (this.f2663a) {
             return 1;
         }
         int i = 0;
@@ -98,91 +98,91 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        l lVar;
+        m mVar;
         View view2;
         if (this.d != null) {
             if (view == null) {
                 LayoutInflater from = LayoutInflater.from(this.e);
-                l lVar2 = new l(this, null);
+                m mVar2 = new m(this);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.at_list_item, (ViewGroup) null);
-                    lVar2.f2119a = (ImageView) inflate.findViewById(R.id.photo);
-                    lVar2.b = (TextView) inflate.findViewById(R.id.name);
-                    lVar2.e = (TextView) inflate.findViewById(R.id.at_list_nodata);
+                    mVar2.f2664a = (ImageView) inflate.findViewById(R.id.photo);
+                    mVar2.b = (TextView) inflate.findViewById(R.id.name);
+                    mVar2.e = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     view2 = inflate;
                 } else {
                     View inflate2 = from.inflate(R.layout.page_item, (ViewGroup) null);
-                    lVar2.b = (TextView) inflate2.findViewById(R.id.page_text);
-                    lVar2.d = (ProgressBar) inflate2.findViewById(R.id.progress);
-                    this.i.add(lVar2.d);
+                    mVar2.b = (TextView) inflate2.findViewById(R.id.page_text);
+                    mVar2.d = (ProgressBar) inflate2.findViewById(R.id.progress);
+                    this.i.add(mVar2.d);
                     view2 = inflate2;
                 }
-                view2.setTag(lVar2);
-                lVar = lVar2;
+                view2.setTag(mVar2);
+                mVar = mVar2;
                 view = view2;
             } else {
-                lVar = (l) view.getTag();
+                mVar = (m) view.getTag();
             }
             try {
                 if (getItemViewType(i) == 0) {
-                    if (this.f2118a) {
-                        lVar.f2119a.setVisibility(8);
-                        lVar.b.setVisibility(8);
-                        lVar.e.setVisibility(0);
+                    if (this.f2663a) {
+                        mVar.f2664a.setVisibility(8);
+                        mVar.b.setVisibility(8);
+                        mVar.e.setVisibility(0);
                         if (this.b) {
                             if (this.c) {
-                                lVar.e.setText(R.string.not_have_attention);
+                                mVar.e.setText(R.string.not_have_attention);
                             } else {
-                                lVar.e.setText(R.string.no_attention_other);
+                                mVar.e.setText(R.string.no_attention_other);
                             }
                         } else if (this.c) {
-                            lVar.e.setText(R.string.not_have_fans);
+                            mVar.e.setText(R.string.not_have_fans);
                         } else {
-                            lVar.e.setText(R.string.no_fan_other);
+                            mVar.e.setText(R.string.no_fan_other);
                         }
                     } else {
-                        lVar.f2119a.setVisibility(0);
-                        lVar.b.setVisibility(0);
-                        lVar.e.setVisibility(8);
+                        mVar.f2664a.setVisibility(0);
+                        mVar.b.setVisibility(0);
+                        mVar.e.setVisibility(8);
                         String portrait = this.d.get(i).getPortrait();
-                        com.baidu.adp.widget.a.c c = this.f.c(portrait);
+                        com.baidu.adp.widget.ImageView.e c = this.f.c(portrait);
                         if (c != null) {
-                            lVar.f2119a.setTag(null);
-                            c.a(lVar.f2119a);
+                            mVar.f2664a.setTag(null);
+                            c.a(mVar.f2664a);
                         } else {
-                            lVar.f2119a.setTag(portrait);
-                            lVar.f2119a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
+                            mVar.f2664a.setTag(portrait);
+                            mVar.f2664a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
                         }
-                        lVar.b.setText(this.d.get(i).getName_show());
+                        mVar.b.setText(this.d.get(i).getName_show());
                     }
                 } else if (this.h) {
-                    lVar.b.setText(this.e.getString(R.string.loading));
-                    lVar.d.setVisibility(0);
+                    mVar.b.setText(this.e.getString(R.string.loading));
+                    mVar.d.setVisibility(0);
                 } else {
-                    lVar.b.setText(this.e.getString(R.string.load_more));
-                    lVar.d.setVisibility(8);
+                    mVar.b.setText(this.e.getString(R.string.load_more));
+                    mVar.d.setVisibility(8);
                 }
-                int ap = TiebaApplication.g().ap();
-                if (ap == 1) {
-                    com.baidu.tieba.util.as.e(view, (int) R.drawable.list_selector_1);
+                int as = TiebaApplication.g().as();
+                if (as == 1) {
+                    com.baidu.tieba.util.bb.e(view, (int) R.drawable.list_selector_1);
                 } else {
-                    com.baidu.tieba.util.as.e(view, (int) R.drawable.list_selector_divider1);
+                    com.baidu.tieba.util.bb.e(view, (int) R.drawable.list_selector_divider1);
                 }
-                if (ap == 1) {
-                    lVar.b.setTextColor(-8682086);
-                    lVar.c.setTextColor(-11446171);
-                    if (lVar.e != null) {
-                        lVar.e.setTextColor(-8682086);
+                if (as == 1) {
+                    mVar.b.setTextColor(-8682086);
+                    mVar.c.setTextColor(-11446171);
+                    if (mVar.e != null) {
+                        mVar.e.setTextColor(-8682086);
                     }
                 } else {
-                    lVar.b.setTextColor(-14277082);
-                    lVar.c.setTextColor(-10066330);
-                    if (lVar.e != null) {
-                        lVar.e.setTextColor(-8682086);
+                    mVar.b.setTextColor(-14277082);
+                    mVar.c.setTextColor(-10066330);
+                    if (mVar.e != null) {
+                        mVar.e.setTextColor(-8682086);
                     }
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.f.d.a(e.getMessage());
+                com.baidu.adp.lib.h.d.a(e.getMessage());
             }
         }
         return view;
@@ -190,7 +190,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f2118a) {
+        if (this.f2663a) {
             return 0;
         }
         return (this.d == null || i >= this.d.size()) ? 1 : 0;
@@ -203,7 +203,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.f2118a) {
+        if (this.f2663a) {
             return false;
         }
         return super.isEnabled(i);

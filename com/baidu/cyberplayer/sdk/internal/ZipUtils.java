@@ -16,7 +16,7 @@ import java.util.zip.ZipInputStream;
 public class ZipUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ZipUtils f748a;
+    private static ZipUtils f877a;
 
     /* renamed from: a  reason: collision with other field name */
     private ZipEntry f19a = null;
@@ -53,10 +53,10 @@ public class ZipUtils {
     }
 
     public static ZipUtils getInstance() {
-        if (f748a == null) {
-            f748a = new ZipUtils();
+        if (f877a == null) {
+            f877a = new ZipUtils();
         }
-        return f748a;
+        return f877a;
     }
 
     private void a(ZipInputStream zipInputStream) {

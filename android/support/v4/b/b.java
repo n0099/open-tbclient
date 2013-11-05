@@ -7,11 +7,11 @@ import java.io.Writer;
 public class b extends Writer {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f294a;
+    private final String f304a;
     private StringBuilder b = new StringBuilder((int) DERTags.TAGGED);
 
     public b(String str) {
-        this.f294a = str;
+        this.f304a = str;
     }
 
     @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -38,7 +38,7 @@ public class b extends Writer {
 
     private void a() {
         if (this.b.length() > 0) {
-            Log.d(this.f294a, this.b.toString());
+            Log.d(this.f304a, this.b.toString());
             this.b.delete(0, this.b.length());
         }
     }

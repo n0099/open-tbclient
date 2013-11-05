@@ -2,7 +2,7 @@ package com.baidu.adp.widget;
 
 import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
-class b implements Interpolator {
+final class b implements Interpolator {
     @Override // android.animation.TimeInterpolator
     public float getInterpolation(float f) {
         float f2 = f - 1.0f;

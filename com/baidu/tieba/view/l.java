@@ -6,15 +6,15 @@ import java.io.ByteArrayInputStream;
 public class l extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f2000a;
+    final /* synthetic */ k f2535a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.f2000a = kVar;
+        this.f2535a = kVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0063 A[Catch: Exception -> 0x0030, TryCatch #0 {Exception -> 0x0030, blocks: (B:3:0x0001, B:14:0x003d, B:16:0x0047, B:27:0x0090, B:19:0x0057, B:21:0x0063, B:22:0x0068, B:24:0x007e, B:26:0x008a, B:18:0x0051, B:8:0x002a, B:13:0x0037, B:4:0x0011), top: B:29:0x0001, inners: #1, #2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x007e A[Catch: Exception -> 0x0030, TryCatch #0 {Exception -> 0x0030, blocks: (B:3:0x0001, B:14:0x003d, B:16:0x0047, B:27:0x0090, B:19:0x0057, B:21:0x0063, B:22:0x0068, B:24:0x007e, B:26:0x008a, B:18:0x0051, B:8:0x002a, B:13:0x0037, B:4:0x0011), top: B:29:0x0001, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0064 A[Catch: Exception -> 0x0031, TryCatch #2 {Exception -> 0x0031, blocks: (B:3:0x0002, B:14:0x003e, B:16:0x0048, B:27:0x0091, B:19:0x0058, B:21:0x0064, B:22:0x0069, B:24:0x007f, B:26:0x008b, B:18:0x0052, B:8:0x002b, B:13:0x0038, B:4:0x0012), top: B:29:0x0002, inners: #3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x007f A[Catch: Exception -> 0x0031, TryCatch #2 {Exception -> 0x0031, blocks: (B:3:0x0002, B:14:0x003e, B:16:0x0048, B:27:0x0091, B:19:0x0058, B:21:0x0064, B:22:0x0069, B:24:0x007f, B:26:0x008b, B:18:0x0052, B:8:0x002b, B:13:0x0038, B:4:0x0012), top: B:29:0x0002, inners: #3 }] */
     /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
     @Override // java.lang.Thread, java.lang.Runnable
     /*
@@ -30,55 +30,53 @@ public class l extends Thread {
         ae aeVar4;
         ae aeVar5;
         try {
-            k kVar = this.f2000a;
-            i = this.f2000a.n;
+            k kVar = this.f2535a;
+            i = this.f2535a.n;
             kVar.B = new ae(i);
             try {
-                try {
-                    aeVar = this.f2000a.B;
-                    bArr = this.f2000a.m;
-                    if (aeVar.a(new ByteArrayInputStream(bArr)) == 0) {
-                        aeVar2 = this.f2000a.B;
-                        if (aeVar2.c != 0) {
-                            aeVar5 = this.f2000a.B;
-                            if (aeVar5.d != 0) {
-                                this.f2000a.A = 1;
-                                aeVar3 = this.f2000a.B;
-                                if (!aeVar3.e()) {
-                                    this.f2000a.postInvalidate();
-                                }
-                                this.f2000a.E = System.currentTimeMillis();
-                                this.f2000a.f1999a = 2;
-                                z = this.f2000a.G;
-                                if (!z) {
-                                    aeVar4 = this.f2000a.B;
-                                    if (!aeVar4.a()) {
-                                        this.f2000a.postInvalidate();
-                                        return;
-                                    }
+                aeVar = this.f2535a.B;
+                bArr = this.f2535a.m;
+                if (aeVar.a(new ByteArrayInputStream(bArr)) == 0) {
+                    aeVar2 = this.f2535a.B;
+                    if (aeVar2.c != 0) {
+                        aeVar5 = this.f2535a.B;
+                        if (aeVar5.d != 0) {
+                            this.f2535a.A = 1;
+                            aeVar3 = this.f2535a.B;
+                            if (!aeVar3.e()) {
+                                this.f2535a.postInvalidate();
+                            }
+                            this.f2535a.E = System.currentTimeMillis();
+                            this.f2535a.f2534a = 2;
+                            z = this.f2535a.G;
+                            if (!z) {
+                                aeVar4 = this.f2535a.B;
+                                if (!aeVar4.a()) {
+                                    this.f2535a.postInvalidate();
                                     return;
                                 }
                                 return;
                             }
-                        }
-                        this.f2000a.A = 0;
-                        aeVar3 = this.f2000a.B;
-                        if (!aeVar3.e()) {
-                        }
-                        this.f2000a.E = System.currentTimeMillis();
-                        this.f2000a.f1999a = 2;
-                        z = this.f2000a.G;
-                        if (!z) {
+                            return;
                         }
                     }
-                } catch (OutOfMemoryError e) {
-                    this.f2000a.c();
+                    this.f2535a.A = 0;
+                    aeVar3 = this.f2535a.B;
+                    if (!aeVar3.e()) {
+                    }
+                    this.f2535a.E = System.currentTimeMillis();
+                    this.f2535a.f2534a = 2;
+                    z = this.f2535a.G;
+                    if (!z) {
+                    }
                 }
-            } catch (Exception e2) {
-                this.f2000a.c();
+            } catch (Exception e) {
+                this.f2535a.c();
+            } catch (OutOfMemoryError e2) {
+                this.f2535a.c();
             }
         } catch (Exception e3) {
-            this.f2000a.f1999a = 0;
+            this.f2535a.f2534a = 0;
         }
     }
 }

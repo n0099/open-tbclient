@@ -1,56 +1,39 @@
 package com.baidu.tieba.home;
 
-import android.text.Selection;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ListView;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.util.DatabaseService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class z implements AdapterView.OnItemClickListener {
+class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1233a;
+    final /* synthetic */ SearchActivity f1374a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(SearchActivity searchActivity) {
-        this.f1233a = searchActivity;
+        this.f1374a = searchActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        int i2;
-        am amVar;
-        am amVar2;
-        EditText editText;
-        EditText editText2;
-        EditText editText3;
-        am amVar3;
-        am amVar4;
-        String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
-        i2 = this.f1233a.E;
-        if (i2 == 0) {
-            DatabaseService.l(str);
-            FrsActivity.a(this.f1233a, str, "tb_searchlist");
-            amVar3 = this.f1233a.r;
-            amVar3.a(i);
-            amVar4 = this.f1233a.r;
-            amVar4.notifyDataSetChanged();
-            this.f1233a.finish();
-        } else if (str != null && str.length() > 0) {
-            amVar = this.f1233a.r;
-            amVar.a(i);
-            amVar2 = this.f1233a.r;
-            amVar2.notifyDataSetChanged();
-            this.f1233a.a(1, str);
-            editText = this.f1233a.c;
-            editText.setText(str);
-            editText2 = this.f1233a.c;
-            editText2.requestFocus();
-            editText3 = this.f1233a.c;
-            Selection.setSelection(editText3.getText(), str.length());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        String str2;
+        int i;
+        String str3;
+        str = this.f1374a.D;
+        if (str != null) {
+            str2 = this.f1374a.D;
+            if (str2.trim().length() >= 1) {
+                i = this.f1374a.E;
+                if (i == 0) {
+                    this.f1374a.e();
+                    return;
+                }
+                SearchActivity searchActivity = this.f1374a;
+                str3 = this.f1374a.D;
+                searchActivity.a(1, str3);
+                return;
+            }
         }
+        this.f1374a.a(this.f1374a.getResources().getString(R.string.write_keyword));
     }
 }

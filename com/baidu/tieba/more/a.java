@@ -1,27 +1,26 @@
 package com.baidu.tieba.more;
 
-import com.baidu.tieba.guide.NewGuideActivity;
+import com.baidu.tieba.GuideActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class a implements aa {
+public class a implements ac {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AboutActivity f1473a;
+    final /* synthetic */ AboutActivity f1976a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AboutActivity aboutActivity) {
-        this.f1473a = aboutActivity;
+        this.f1976a = aboutActivity;
     }
 
-    @Override // com.baidu.tieba.more.aa
+    @Override // com.baidu.tieba.more.ac
     public void a(int i) {
         if (i == 0) {
-            this.f1473a.finish();
-        } else if (i != 1) {
-            if (i == 2) {
-                NewGuideActivity.a(this.f1473a, 0);
-            }
-        } else {
-            this.f1473a.b();
+            this.f1976a.finish();
+        } else if (i == 1) {
+            this.f1976a.b();
+        } else if (i == 2) {
+            GuideActivity.a(this.f1976a, 0);
         }
     }
 }

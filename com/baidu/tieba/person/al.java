@@ -1,38 +1,27 @@
 package com.baidu.tieba.person;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements DialogInterface.OnClickListener {
+public class al implements DialogInterface.OnCancelListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f1657a;
+    final /* synthetic */ PersonChangeActivity f2175a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PersonChangeActivity personChangeActivity) {
-        this.f1657a = personChangeActivity;
+        this.f2175a = personChangeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.model.bn bnVar;
-        Boolean bool;
-        com.baidu.tieba.model.bn bnVar2;
-        com.baidu.tieba.model.bn bnVar3;
-        bnVar = this.f1657a.A;
-        if (bnVar.a().getPhotoChanged()) {
-            Intent intent = new Intent();
-            bool = this.f1657a.b;
-            if (bool.booleanValue()) {
-                bnVar3 = this.f1657a.A;
-                intent.putExtra("person_change_data", bnVar3.a());
-            } else {
-                bnVar2 = this.f1657a.A;
-                intent.putExtra("data", bnVar2.a());
-            }
-            this.f1657a.setResult(-1, intent);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        ay ayVar;
+        ay ayVar2;
+        this.f2175a.i();
+        ayVar = this.f2175a.D;
+        if (ayVar != null) {
+            ayVar2 = this.f2175a.D;
+            ayVar2.cancel();
         }
-        this.f1657a.finish();
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.adp.lib.voice;
 
-import com.baidu.adp.lib.f.d;
+import com.baidu.adp.lib.h.d;
 import java.io.File;
 /* loaded from: classes.dex */
 public class Amrnb {
@@ -30,7 +30,7 @@ public class Amrnb {
         bLoadLibrary = false;
         try {
             if (com.baidu.adp.a.b.a() != null && com.baidu.adp.a.b.a().getApplicationInfo() != null) {
-                String str2 = String.valueOf(com.baidu.adp.a.b.a().getApplicationInfo().dataDir) + File.separator + "lib/libamrnb.so";
+                String str2 = com.baidu.adp.a.b.a().getApplicationInfo().dataDir + File.separator + "lib/libamrnb.so";
                 if (new File(str2).exists()) {
                     str = str2;
                 }
@@ -42,17 +42,23 @@ public class Amrnb {
             }
             bLoadLibrary = true;
         } catch (Throwable th) {
-            d.b("----load amrnb so failed.");
+            d.c("----load amrnb so failed.");
             try {
                 System.loadLibrary("amrnb");
                 bLoadLibrary = true;
             } catch (Throwable th2) {
                 bLoadLibrary = false;
-                d.b("----load amrnb so failed2.");
+                d.c("----load amrnb so failed2.");
             }
         }
         if (bLoadLibrary) {
-            native_init();
+            try {
+                native_init();
+                bLoadLibrary = true;
+            } catch (Throwable th3) {
+                bLoadLibrary = false;
+                d.c("----load amrnb so failed2.");
+            }
         }
     }
 

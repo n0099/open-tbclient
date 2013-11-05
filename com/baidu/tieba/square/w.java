@@ -1,22 +1,23 @@
 package com.baidu.tieba.square;
 
 import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w {
+public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f1857a;
+    public ImageView f2379a;
     public ImageView b;
     public ImageView c;
 
     private w() {
-        this.f1857a = null;
+        this.f2379a = null;
         this.b = null;
         this.c = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ w(w wVar) {
+    public /* synthetic */ w(u uVar) {
         this();
     }
 }

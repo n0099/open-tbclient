@@ -1,11 +1,7 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public interface f extends d {
-    String a(k<?> kVar);
+public interface f {
+    int a();
 
-    String b(k<?> kVar);
-
-    void c();
-
-    void d();
+    boolean b();
 }

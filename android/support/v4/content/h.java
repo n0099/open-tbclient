@@ -6,12 +6,12 @@ import java.util.ArrayList;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    final Intent f304a;
+    final Intent f314a;
     final ArrayList<i> b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Intent intent, ArrayList<i> arrayList) {
-        this.f304a = intent;
+        this.f314a = intent;
         this.b = arrayList;
     }
 }

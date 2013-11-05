@@ -1,7 +1,6 @@
 package com.baidu.tieba.view;
 
 import android.content.Context;
-import android.support.v4.view.bq;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,23 +14,25 @@ import java.util.ArrayList;
 public class MultiImageView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Button f1956a;
+    private Button f2488a;
     private Button b;
     private LinearLayout c;
     private View.OnClickListener d;
     private GalleryViewPager e;
-    private bq f;
-    private bq g;
+    private android.support.v4.view.bq f;
+    private android.support.v4.view.bq g;
     private p h;
     private ImagePagerAdapter i;
     private o j;
     private int k;
     private boolean l;
     private boolean m;
+    private boolean n;
+    private boolean o;
 
     public MultiImageView(Context context) {
         super(context);
-        this.f1956a = null;
+        this.f2488a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -44,6 +45,8 @@ public class MultiImageView extends RelativeLayout {
         this.k = 0;
         this.l = true;
         this.m = false;
+        this.n = false;
+        this.o = false;
         f();
     }
 
@@ -55,7 +58,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1956a = null;
+        this.f2488a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -68,12 +71,14 @@ public class MultiImageView extends RelativeLayout {
         this.k = 0;
         this.l = true;
         this.m = false;
+        this.n = false;
+        this.o = false;
         f();
     }
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1956a = null;
+        this.f2488a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -86,6 +91,8 @@ public class MultiImageView extends RelativeLayout {
         this.k = 0;
         this.l = true;
         this.m = false;
+        this.n = false;
+        this.o = false;
         f();
     }
 
@@ -108,14 +115,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof bh) && ((bh) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((bh) childAt).d();
+                    if (childAt != null && (childAt instanceof bk) && ((bk) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((bk) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof bh)) {
-                ((bh) findViewWithTag).f();
+            if (findViewWithTag != null && (findViewWithTag instanceof bk)) {
+                ((bk) findViewWithTag).a(this.n, this.o);
             }
             this.e.getCurrentView().e();
         }
@@ -132,8 +139,8 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof bh)) {
-                    ((bh) childAt).c();
+                if (childAt != null && (childAt instanceof bk)) {
+                    ((bk) childAt).c();
                 }
             }
         }
@@ -159,20 +166,22 @@ public class MultiImageView extends RelativeLayout {
         this.b.setOnClickListener(this.d);
         this.b.setEnabled(false);
         this.c.addView(this.b);
-        this.f1956a = new Button(getContext());
-        this.f1956a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
-        this.f1956a.setLayoutParams(layoutParams2);
-        this.f1956a.setOnClickListener(this.d);
-        this.f1956a.setEnabled(false);
-        this.c.addView(this.f1956a);
+        this.f2488a = new Button(getContext());
+        this.f2488a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
+        this.f2488a.setLayoutParams(layoutParams2);
+        this.f2488a.setOnClickListener(this.d);
+        this.f2488a.setEnabled(false);
+        this.c.addView(this.f2488a);
         if (this.m) {
             this.c.setVisibility(8);
         }
         this.i = new ImagePagerAdapter(getContext(), null, this.j);
+        this.i.b(this.n);
+        this.i.c(this.o);
         setAdapter(this.i);
     }
 
-    public void setOnPageChangeListener(bq bqVar) {
+    public void setOnPageChangeListener(android.support.v4.view.bq bqVar) {
         this.g = bqVar;
     }
 
@@ -187,9 +196,9 @@ public class MultiImageView extends RelativeLayout {
     public void setZoomButton(k kVar) {
         if (kVar != null) {
             if (kVar.p()) {
-                this.f1956a.setEnabled(true);
+                this.f2488a.setEnabled(true);
             } else {
-                this.f1956a.setEnabled(false);
+                this.f2488a.setEnabled(false);
             }
             if (kVar.q()) {
                 this.b.setEnabled(true);
@@ -200,7 +209,7 @@ public class MultiImageView extends RelativeLayout {
             }
         }
         this.b.setEnabled(false);
-        this.f1956a.setEnabled(false);
+        this.f2488a.setEnabled(false);
     }
 
     public void d() {
@@ -295,5 +304,19 @@ public class MultiImageView extends RelativeLayout {
             return null;
         }
         return (String) selectedView.getTag();
+    }
+
+    public void setLoadFromCDN(boolean z) {
+        this.n = z;
+        if (this.i != null) {
+            this.i.b(z);
+        }
+    }
+
+    public void setAllowLocalUrl(boolean z) {
+        this.o = z;
+        if (this.i != null) {
+            this.i.c(z);
+        }
     }
 }

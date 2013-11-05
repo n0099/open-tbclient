@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 public class ReflectUtilsCyberPlayer {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ClassLoader f745a = null;
+    private static ClassLoader f874a = null;
     private static ClassLoader b = null;
 
     /* loaded from: classes.dex */
@@ -58,10 +58,10 @@ public class ReflectUtilsCyberPlayer {
     private static synchronized ClassLoader a(Context context) {
         ClassLoader classLoader;
         synchronized (ReflectUtilsCyberPlayer.class) {
-            if (f745a == null && context != null && d.m16a(context)) {
-                f745a = new PathClassLoader(d.m15a(context), ReflectUtilsCyberPlayer.class.getClassLoader());
+            if (f874a == null && context != null && d.m16a(context)) {
+                f874a = new PathClassLoader(d.m15a(context), ReflectUtilsCyberPlayer.class.getClassLoader());
             }
-            classLoader = f745a;
+            classLoader = f874a;
         }
         return classLoader;
     }
@@ -69,13 +69,13 @@ public class ReflectUtilsCyberPlayer {
     private static synchronized ClassLoader b(Context context) {
         ClassLoader classLoader;
         synchronized (ReflectUtilsCyberPlayer.class) {
-            if (f745a == null) {
+            if (f874a == null) {
                 String b2 = d.b(context);
                 if (context != null && FileUtils.dirExists(b2)) {
-                    f745a = new DexClassLoader(d.b(context) + CyberPlayerEngineConstants.CYBERPLAYER_JAR_NAME, b2, null, ReflectUtilsCyberPlayer.class.getClassLoader());
+                    f874a = new DexClassLoader(d.b(context) + CyberPlayerEngineConstants.CYBERPLAYER_JAR_NAME, b2, null, ReflectUtilsCyberPlayer.class.getClassLoader());
                 }
             }
-            classLoader = f745a;
+            classLoader = f874a;
         }
         return classLoader;
     }

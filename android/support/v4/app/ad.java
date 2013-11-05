@@ -5,7 +5,7 @@ import android.os.Bundle;
 final class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f275a;
+    private final String f285a;
     private final Class<?> b;
     private final Bundle c;
     private Fragment d;

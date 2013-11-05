@@ -9,8 +9,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.as;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
@@ -18,10 +18,10 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class AppsActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1465a = null;
+    private String f1967a = null;
     private BaseWebView b = null;
     private ImageView c = null;
-    private t d = null;
+    private v d = null;
     private LinearLayout e = null;
     private ProgressBar f = null;
     private ImageView g = null;
@@ -31,7 +31,7 @@ public class AppsActivity extends com.baidu.tieba.j {
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, AppsActivity.class);
-        intent.putExtra("url", str);
+        intent.putExtra(SocialConstants.PARAM_URL, str);
         context.startActivity(intent);
     }
 
@@ -51,9 +51,9 @@ public class AppsActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f1465a = bundle.getString("url");
+            this.f1967a = bundle.getString(SocialConstants.PARAM_URL);
         } else {
-            this.f1465a = getIntent().getStringExtra("url");
+            this.f1967a = getIntent().getStringExtra(SocialConstants.PARAM_URL);
         }
         if (System.currentTimeMillis() - com.baidu.tieba.sharedPref.b.a().a("app_inverval", 0L) > Util.MILLSECONDS_OF_DAY) {
             c();
@@ -67,7 +67,7 @@ public class AppsActivity extends com.baidu.tieba.j {
         if (this.d != null) {
             this.d.cancel();
         }
-        this.d = new t(this, this.f1465a);
+        this.d = new v(this, this.f1967a);
         this.d.setPriority(3);
         this.d.execute(new Object[0]);
     }
@@ -76,12 +76,12 @@ public class AppsActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        as.a(this.j, i);
-        as.a(this.b, i);
-        as.d(this.k, i);
-        as.a(this.c, i);
-        as.f(this.l, i);
-        as.b(this.g, i);
+        com.baidu.tieba.util.bb.a(this.j, i);
+        com.baidu.tieba.util.bb.a(this.b, i);
+        com.baidu.tieba.util.bb.d(this.k, i);
+        com.baidu.tieba.util.bb.a(this.c, i);
+        com.baidu.tieba.util.bb.f(this.l, i);
+        com.baidu.tieba.util.bb.b(this.g, i);
     }
 
     private void d() {
@@ -92,11 +92,11 @@ public class AppsActivity extends com.baidu.tieba.j {
         this.b.setDownloadEnabled(true);
         this.f = (ProgressBar) findViewById(R.id.app_progress);
         this.e = (LinearLayout) findViewById(R.id.webview_fail_imageview);
-        this.e.setOnClickListener(new q(this));
+        this.e.setOnClickListener(new s(this));
         this.g = (ImageView) findViewById(R.id.refresh);
-        this.g.setOnClickListener(new r(this));
+        this.g.setOnClickListener(new t(this));
         this.c = (ImageView) findViewById(R.id.back);
-        this.c.setOnClickListener(new s(this));
+        this.c.setOnClickListener(new u(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -106,7 +106,7 @@ public class AppsActivity extends com.baidu.tieba.j {
             return false;
         }
         this.f.setVisibility(8);
-        this.b.loadDataWithBaseURL(com.baidu.tieba.data.g.f1032a, b, "text/html", BdUtil.UTF8, "");
+        this.b.loadDataWithBaseURL(com.baidu.tieba.data.h.f1165a, b, "text/html", BdUtil.UTF8, "");
         return true;
     }
 }

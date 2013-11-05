@@ -8,19 +8,19 @@ import com.baidu.tieba.util.UtilHelper;
 public class k implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1761a;
-    private final /* synthetic */ com.baidu.tieba.data.o b;
+    final /* synthetic */ com.baidu.tieba.data.p f2281a;
+    final /* synthetic */ h b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(h hVar, com.baidu.tieba.data.o oVar) {
-        this.f1761a = hVar;
-        this.b = oVar;
+    public k(h hVar, com.baidu.tieba.data.p pVar) {
+        this.b = hVar;
+        this.f2281a = pVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
-        activity = this.f1761a.i;
-        UtilHelper.a(activity, this.b.a(), (String) null);
+        activity = this.b.i;
+        UtilHelper.a(activity, this.f2281a.a(), (String) null);
     }
 }

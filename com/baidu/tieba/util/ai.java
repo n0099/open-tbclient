@@ -1,38 +1,24 @@
 package com.baidu.tieba.util;
 
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.tieba.BaiduAccount.BaiduAccount;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai {
-    private static ArrayList<aj> b = new ArrayList<>();
+public class ai implements BaiduAccount.CallbackListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicInteger f1898a = new AtomicInteger(0);
+    final /* synthetic */ ag f2420a;
 
-    public static int a(int i) {
-        return f1898a.getAndSet(i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ai(ag agVar) {
+        this.f2420a = agVar;
     }
 
-    public static int b(int i) {
-        return f1898a.addAndGet(i);
-    }
-
-    public static synchronized void a(aj ajVar) {
-        synchronized (ai.class) {
-            if (ajVar != null) {
-                if (b.size() <= 20) {
-                    b.add(ajVar);
-                }
-            }
-        }
-    }
-
-    public static synchronized aj a() {
-        aj remove;
-        synchronized (ai.class) {
-            int size = b.size();
-            remove = size > 0 ? b.remove(size - 1) : null;
-        }
-        return remove;
+    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
+    public void callback() {
+        z zVar;
+        zVar = this.f2420a.f2418a;
+        zVar.b(TiebaApplication.g().getString(R.string.error_unkown));
     }
 }

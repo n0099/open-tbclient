@@ -1,49 +1,115 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.WriteData;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class bj extends com.baidu.adp.a.c {
+public class bj {
+    private int b = 0;
+    private boolean c = false;
+    private String d = null;
+    private boolean e = false;
+    private int f = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private bl f1420a = null;
-    private WriteData b = null;
-    private bk c = null;
-    private boolean d = false;
+    private ArrayList<bk> f1917a = new ArrayList<>();
 
-    public void a(boolean z) {
-        this.d = z;
+    public void a(String str) {
+        this.d = str;
     }
 
-    public void a(bk bkVar) {
-        this.c = bkVar;
+    public String a() {
+        return this.d;
     }
 
-    public void a(WriteData writeData) {
-        this.b = writeData;
+    public int b() {
+        return this.f;
     }
 
-    public WriteData a() {
+    public void a(int i) {
+        this.f = i;
+    }
+
+    public boolean c() {
+        return this.e;
+    }
+
+    public ArrayList<bk> d() {
+        return this.f1917a;
+    }
+
+    public void e() {
+        this.f1917a.clear();
+        this.b = 0;
+        this.c = false;
+    }
+
+    public int f() {
         return this.b;
     }
 
-    public boolean b() {
-        if (this.b == null) {
-            return false;
-        }
-        if (this.f1420a == null) {
-            this.f1420a = new bl(this);
-            this.f1420a.execute(new Integer[0]);
-        }
-        return true;
+    public boolean g() {
+        return this.c;
     }
 
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        return false;
+    public void b(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+        }
     }
 
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        return false;
+    public void a(JSONObject jSONObject) {
+        try {
+            if (this.d != null) {
+                this.e = jSONObject.optInt("hide_post", 0) == 0;
+            }
+            bk bkVar = null;
+            int size = this.f1917a.size();
+            if (size > 0) {
+                bkVar = this.f1917a.get(size - 1);
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                int i = 0;
+                bk bkVar2 = bkVar;
+                while (i < optJSONArray.length()) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    bk bkVar3 = new bk(this);
+                    bkVar3.b = optJSONObject.optString("time_shaft");
+                    bkVar3.f1918a = optJSONObject.optInt("type", 0);
+                    bkVar3.c = optJSONObject.optString("title");
+                    bkVar3.d = optJSONObject.optString("reply_num");
+                    bkVar3.e = optJSONObject.optString("reply_time");
+                    bkVar3.f = optJSONObject.optString("fname");
+                    bkVar3.g = optJSONObject.optString("tid");
+                    bkVar3.h = optJSONObject.optString("pid");
+                    bkVar3.i = optJSONObject.optInt("is_floor", 0) == 1;
+                    if (bkVar2 != null && bkVar3.b.equals(bkVar2.b)) {
+                        this.f1917a.add(bkVar3);
+                    } else {
+                        bk bkVar4 = new bk(this);
+                        bkVar4.b = bkVar3.b;
+                        bkVar4.f1918a = 0;
+                        this.f1917a.add(bkVar4);
+                        this.f1917a.add(bkVar3);
+                    }
+                    i++;
+                    bkVar2 = bkVar3;
+                }
+                JSONObject jSONObject2 = jSONObject.getJSONObject("page");
+                int optInt = jSONObject2.optInt("current_page", 0);
+                if (optInt > this.b) {
+                    this.b = optInt;
+                    this.c = jSONObject2.optInt("has_more", 0) == 1;
+                    return;
+                }
+                return;
+            }
+            this.c = false;
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b("MyPostModel", "parserJson", "error = " + e.getMessage());
+        }
     }
 }

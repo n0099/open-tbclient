@@ -6,27 +6,28 @@ import android.view.View;
 public class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1489a;
-    private final /* synthetic */ aa b;
+    final /* synthetic */ ac f2006a;
+    final /* synthetic */ d b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, aa aaVar) {
-        this.f1489a = dVar;
-        this.b = aaVar;
+    public e(d dVar, ac acVar) {
+        this.b = dVar;
+        this.f2006a = acVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SettingTextVersionView settingTextVersionView;
         SettingTextTipView settingTextTipView;
-        settingTextVersionView = this.f1489a.i;
-        if (view == settingTextVersionView) {
-            this.b.a(1);
+        settingTextVersionView = this.b.i;
+        if (view != settingTextVersionView) {
+            settingTextTipView = this.b.j;
+            if (view == settingTextTipView) {
+                this.f2006a.a(2);
+                return;
+            }
             return;
         }
-        settingTextTipView = this.f1489a.j;
-        if (view == settingTextTipView) {
-            this.b.a(2);
-        }
+        this.f2006a.a(1);
     }
 }

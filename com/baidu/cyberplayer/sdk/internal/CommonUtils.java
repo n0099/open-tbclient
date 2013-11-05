@@ -1,5 +1,6 @@
 package com.baidu.cyberplayer.sdk.internal;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
@@ -64,7 +65,7 @@ public class CommonUtils {
     private static String a(byte[] bArr, String str) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
-            sb.append((b & 240) > 0 ? Integer.toHexString(b & 255) : "0" + Integer.toHexString(b & 255)).append(str);
+            sb.append((b & 240) > 0 ? Integer.toHexString(b & 255) : SocialConstants.FALSE + Integer.toHexString(b & 255)).append(str);
         }
         return sb.toString();
     }

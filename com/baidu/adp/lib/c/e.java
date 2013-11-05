@@ -1,123 +1,62 @@
 package com.baidu.adp.lib.c;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import java.util.HashMap;
-import java.util.Map;
+import android.location.Address;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import java.util.Locale;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends BdAsyncTask<String, Object, Object> {
+public class e implements BDLocationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f374a;
-    private String b;
-    private int c;
-    private Map<b, f> d = new HashMap();
+    final /* synthetic */ a f423a;
 
-    public f e() {
-        if (this.d.isEmpty()) {
-            return null;
-        }
-        try {
-            return this.d.values().iterator().next();
-        } catch (Exception e) {
-            return null;
-        }
+    private e(a aVar) {
+        this.f423a = aVar;
     }
 
-    public e(c cVar, String str, int i, b bVar, f fVar) {
-        this.f374a = cVar;
-        this.b = str;
-        this.c = i;
-        this.d.put(bVar, fVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ e(a aVar, b bVar) {
+        this(aVar);
     }
 
-    public void a(b bVar, f fVar) {
-        this.d.put(bVar, fVar);
-    }
-
-    public void d(Object... objArr) {
-        c(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(b bVar) {
-        if (bVar != null) {
-            bVar.a(this.b, this.d.get(bVar));
-            bVar.a();
-            bVar.c(this.b, this.d.get(bVar));
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Object a(String... strArr) {
-        g a2;
-        if (c.a(this.f374a) == null || (a2 = c.a(this.f374a, this.c)) == null) {
-            return null;
-        }
-        Object a3 = a2.a(this.b, this);
-        if (a3 == null) {
-            return a2.b(this.b, this);
-        }
-        return a3;
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    protected void a() {
-        for (Map.Entry<b, f> entry : this.d.entrySet()) {
-            b key = entry.getKey();
-            f value = entry.getValue();
-            if (!key.b()) {
-                key.a(this.b, value);
+    @Override // com.baidu.location.BDLocationListener
+    public void onReceiveLocation(BDLocation bDLocation) {
+        Address address;
+        Address address2;
+        Address address3;
+        int i;
+        Address address4;
+        Address address5;
+        if (bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
+            this.f423a.j = 0;
+            this.f423a.d();
+            this.f423a.l = new Address(Locale.getDefault());
+            address = this.f423a.l;
+            address.setLatitude(bDLocation.getLatitude());
+            address2 = this.f423a.l;
+            address2.setLongitude(bDLocation.getLongitude());
+            address3 = this.f423a.l;
+            address3.setLocality(bDLocation.getCity());
+            this.f423a.f420a = System.currentTimeMillis();
+            StringBuffer stringBuffer = new StringBuffer();
+            if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                stringBuffer.append(bDLocation.getCity());
             }
+            stringBuffer.append(bDLocation.getDistrict());
+            stringBuffer.append(bDLocation.getStreet());
+            if (bDLocation.getAddrStr() != null) {
+                address5 = this.f423a.l;
+                address5.setAddressLine(0, stringBuffer.toString());
+            }
+            a aVar = this.f423a;
+            i = this.f423a.j;
+            address4 = this.f423a.l;
+            aVar.a(i, "", address4);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        for (Map.Entry<b, f> entry : this.d.entrySet()) {
-            b key = entry.getKey();
-            f value = entry.getValue();
-            if (!key.b()) {
-                key.b(this.b, value);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Object obj) {
-        for (Map.Entry<b, f> entry : this.d.entrySet()) {
-            b key = entry.getKey();
-            f value = entry.getValue();
-            if (!key.b()) {
-                key.a(obj, this.b, value);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b(Object... objArr) {
-        for (Map.Entry<b, f> entry : this.d.entrySet()) {
-            b key = entry.getKey();
-            entry.getValue();
-            if (!key.b()) {
-                key.a(objArr);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        for (Map.Entry<b, f> entry : this.d.entrySet()) {
-            b key = entry.getKey();
-            f value = entry.getValue();
-            if (!key.b()) {
-                key.c(this.b, value);
-            }
-        }
+    @Override // com.baidu.location.BDLocationListener
+    public void onReceivePoi(BDLocation bDLocation) {
     }
 }

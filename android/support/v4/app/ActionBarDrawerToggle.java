@@ -7,7 +7,7 @@ import android.view.View;
 public class ActionBarDrawerToggle implements android.support.v4.widget.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final b f262a;
+    private static final b f272a;
     private final Activity b;
     private boolean c;
     private e d;
@@ -17,9 +17,9 @@ public class ActionBarDrawerToggle implements android.support.v4.widget.d {
 
     static {
         if (Build.VERSION.SDK_INT >= 11) {
-            f262a = new d();
+            f272a = new d();
         } else {
-            f262a = new c();
+            f272a = new c();
         }
     }
 
@@ -39,7 +39,7 @@ public class ActionBarDrawerToggle implements android.support.v4.widget.d {
     public void a(View view) {
         this.d.a(1.0f);
         if (this.c) {
-            this.g = f262a.a(this.g, this.b, this.e);
+            this.g = f272a.a(this.g, this.b, this.e);
         }
     }
 
@@ -47,7 +47,7 @@ public class ActionBarDrawerToggle implements android.support.v4.widget.d {
     public void b(View view) {
         this.d.a(0.0f);
         if (this.c) {
-            this.g = f262a.a(this.g, this.b, this.f);
+            this.g = f272a.a(this.g, this.b, this.f);
         }
     }
 

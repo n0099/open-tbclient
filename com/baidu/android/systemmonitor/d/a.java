@@ -23,7 +23,7 @@ public final class a {
     private static final String b = a.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f696a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    static final char[] f775a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     private a() {
     }
@@ -227,8 +227,8 @@ public final class a {
     public static String c(byte[] bArr) {
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (int i = 0; i < bArr.length; i++) {
-            sb.append(f696a[(bArr[i] & 240) >>> 4]);
-            sb.append(f696a[bArr[i] & 15]);
+            sb.append(f775a[(bArr[i] & 240) >>> 4]);
+            sb.append(f775a[bArr[i] & 15]);
         }
         return sb.toString();
     }

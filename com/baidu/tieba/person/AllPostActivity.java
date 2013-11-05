@@ -14,17 +14,17 @@ import com.slidingmenu.lib.R;
 public class AllPostActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    FrameLayout f1637a = null;
+    FrameLayout f2155a = null;
     TextView b = null;
     ListView c = null;
     ImageView d = null;
-    ad e = null;
-    com.baidu.tieba.model.bb f = null;
+    af e = null;
+    com.baidu.tieba.model.bj f = null;
     c g = null;
     private ProgressBar j = null;
     private boolean k = false;
     private int l = 0;
-    private Handler m = new Handler(new a(this));
+    private Handler m = new Handler(new b(this));
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
@@ -33,11 +33,11 @@ public class AllPostActivity extends com.baidu.tieba.j {
         setContentView(R.layout.all_post_activity);
         a(bundle);
         b();
-        b(0);
+        d(0);
     }
 
     void b() {
-        this.f1637a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
+        this.f2155a = (FrameLayout) findViewById(R.id.all_post_activity_layout);
         this.b = (TextView) findViewById(R.id.no_post_view);
         int b = this.f.b();
         if (this.f.a() == null) {
@@ -53,14 +53,14 @@ public class AllPostActivity extends com.baidu.tieba.j {
         this.d = (ImageView) findViewById(R.id.time_line);
         this.d.setVisibility(8);
         this.c = (ListView) findViewById(R.id.all_post_list);
-        this.e = new ad(this, this.f);
+        this.e = new af(this, this.f);
         this.c.setAdapter((ListAdapter) this.e);
-        this.c.setOnItemClickListener(new b(this));
+        this.c.setOnItemClickListener(new a(this));
         this.j = (ProgressBar) findViewById(R.id.loading_progress);
     }
 
     void a(Bundle bundle) {
-        this.f = new com.baidu.tieba.model.bb();
+        this.f = new com.baidu.tieba.model.bj();
         if (bundle != null) {
             this.f.a(bundle.getString("user"));
             this.f.a(bundle.getInt("user_sex"));
@@ -79,7 +79,7 @@ public class AllPostActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(int i) {
+    public void d(int i) {
         if (!this.k) {
             this.k = true;
             this.l = i;
@@ -102,9 +102,9 @@ public class AllPostActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.as.a(this.f1637a, i);
+        com.baidu.tieba.util.bb.a(this.f2155a, i);
         if (i == 1) {
-            this.b.setTextColor(com.baidu.tieba.util.as.a(i));
+            this.b.setTextColor(com.baidu.tieba.util.bb.a(i));
             this.d.setBackgroundResource(R.drawable.time_line_skin_1);
             return;
         }

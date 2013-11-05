@@ -1,27 +1,16 @@
 package com.baidu.tieba.model;
+
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class aj extends com.baidu.adp.a.c {
+public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private ak f1397a;
-    private al b;
+    public boolean f1894a;
+    public String b;
+    public ArrayList<com.baidu.tieba.data.aa> c;
+    final /* synthetic */ ad d;
 
-    public void a(al alVar) {
-        this.b = alVar;
-    }
-
-    @Override // com.baidu.adp.a.c
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.c
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void a(String str) {
-        this.f1397a = new ak(this, str);
-        this.f1397a.execute(new Void[0]);
+    public aj(ad adVar) {
+        this.d = adVar;
     }
 }

@@ -17,114 +17,98 @@ import com.slidingmenu.lib.R;
 public class NavigationBar extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1957a;
+    private boolean f2489a;
     private LinearLayout b;
     private LinearLayout c;
-    private Activity d;
-    private LayoutInflater e;
-    private TextView f;
-    private int g;
+    private LinearLayout d;
+    private Activity e;
+    private LayoutInflater f;
+    private TextView g;
     private int h;
-    private View.OnClickListener i;
+    private int i;
+    private View.OnClickListener j;
 
     /* loaded from: classes.dex */
     public enum ControlAlign {
         HORIZONTAL_LEFT,
         HORIZONTAL_CENTER,
-        HORIZONTAL_RIGHT;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static ControlAlign[] valuesCustom() {
-            ControlAlign[] valuesCustom = values();
-            int length = valuesCustom.length;
-            ControlAlign[] controlAlignArr = new ControlAlign[length];
-            System.arraycopy(valuesCustom, 0, controlAlignArr, 0, length);
-            return controlAlignArr;
-        }
+        HORIZONTAL_RIGHT
     }
 
     /* loaded from: classes.dex */
     public enum ControlType {
         BACK_BUTTON,
-        HOME_BUTTON;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static ControlType[] valuesCustom() {
-            ControlType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            ControlType[] controlTypeArr = new ControlType[length];
-            System.arraycopy(valuesCustom, 0, controlTypeArr, 0, length);
-            return controlTypeArr;
-        }
+        HOME_BUTTON
     }
 
     public NavigationBar(Context context) {
         super(context);
-        this.g = 0;
+        this.f2489a = true;
         this.h = 0;
-        this.i = new av(this);
+        this.i = 0;
+        this.j = new av(this);
         a(context);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.g = 0;
+        this.f2489a = true;
         this.h = 0;
-        this.i = new av(this);
+        this.i = 0;
+        this.j = new av(this);
         a(context);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.g = 0;
+        this.f2489a = true;
         this.h = 0;
-        this.i = new av(this);
+        this.i = 0;
+        this.j = new av(this);
         a(context);
     }
 
     private void a(Context context) {
-        this.d = (Activity) context;
-        this.e = (LayoutInflater) context.getSystemService("layout_inflater");
-        View inflate = this.e.inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
-        this.f1957a = (LinearLayout) inflate.findViewById(R.id.leftBox);
-        this.b = (LinearLayout) inflate.findViewById(R.id.centerBox);
-        this.c = (LinearLayout) inflate.findViewById(R.id.rightBox);
+        this.e = (Activity) context;
+        this.f = (LayoutInflater) context.getSystemService("layout_inflater");
+        View inflate = this.f.inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
+        this.b = (LinearLayout) inflate.findViewById(R.id.leftBox);
+        this.c = (LinearLayout) inflate.findViewById(R.id.centerBox);
+        this.d = (LinearLayout) inflate.findViewById(R.id.rightBox);
         setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
         setGravity(48);
         a();
     }
 
     private void a() {
-        setPadding(UtilHelper.a(this.d, getResources().getDimension(R.dimen.navigation_bar_padding_left)), UtilHelper.a(this.d, getResources().getDimension(R.dimen.navigation_bar_padding_top)), UtilHelper.a(this.d, getResources().getDimension(R.dimen.navigation_bar_padding_right)), UtilHelper.a(this.d, getResources().getDimension(R.dimen.navigation_bar_padding_bottom)));
+        setPadding(UtilHelper.a(this.e, getResources().getDimension(R.dimen.navigation_bar_padding_left)), UtilHelper.a(this.e, getResources().getDimension(R.dimen.navigation_bar_padding_top)), UtilHelper.a(this.e, getResources().getDimension(R.dimen.navigation_bar_padding_right)), UtilHelper.a(this.e, getResources().getDimension(R.dimen.navigation_bar_padding_bottom)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.h = View.MeasureSpec.getSize(i);
-        this.g = Math.max(this.f1957a.getMeasuredWidth() + getPaddingLeft(), this.c.getMeasuredWidth() + getPaddingRight());
-        this.b.measure((this.h - this.g) << 1, this.b.getMeasuredHeight());
+        this.i = View.MeasureSpec.getSize(i);
+        this.h = Math.max(this.b.getMeasuredWidth() + getPaddingLeft(), this.d.getMeasuredWidth() + getPaddingRight());
+        this.c.measure((this.i - this.h) << 1, this.c.getMeasuredHeight());
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.b.layout(this.g, this.b.getTop(), this.h - this.g, this.b.getBottom());
+        this.c.layout(this.h, this.c.getTop(), this.i - this.h, this.c.getBottom());
     }
 
     public TextView a(String str) {
-        if (this.f == null) {
-            this.f = (TextView) a(R.layout.widget_nb_item_title);
-            this.b.addView(this.f);
+        if (this.g == null) {
+            this.g = (TextView) a(R.layout.widget_nb_item_title);
+            this.c.addView(this.g);
         }
-        this.f.setText(str);
-        return this.f;
+        this.g.setText(str);
+        return this.g;
     }
 
     public ImageView a(ControlAlign controlAlign, ControlType controlType) {
-        return a(controlAlign, controlType, this.i);
+        return a(controlAlign, controlType, this.j);
     }
 
     public ImageView a(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
@@ -145,6 +129,17 @@ public class NavigationBar extends RelativeLayout {
 
     public Button a(ControlAlign controlAlign, String str) {
         return a(controlAlign, str, (View.OnClickListener) null);
+    }
+
+    public Button b(ControlAlign controlAlign, String str) {
+        Button button = (Button) a(R.layout.widget_nb_item_stepbtn);
+        button.setText(str);
+        a(controlAlign).addView(button);
+        return button;
+    }
+
+    public void setSystemClickable(boolean z) {
+        this.f2489a = z;
     }
 
     public Button a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
@@ -170,14 +165,11 @@ public class NavigationBar extends RelativeLayout {
     }
 
     private ViewGroup a(ControlAlign controlAlign) {
-        if (controlAlign == ControlAlign.HORIZONTAL_LEFT) {
-            return this.f1957a;
-        }
-        return controlAlign == ControlAlign.HORIZONTAL_CENTER ? this.b : this.c;
+        return controlAlign == ControlAlign.HORIZONTAL_LEFT ? this.b : controlAlign == ControlAlign.HORIZONTAL_CENTER ? this.c : this.d;
     }
 
     public View a(int i) {
-        return this.e.inflate(i, (ViewGroup) null);
+        return this.f.inflate(i, (ViewGroup) null);
     }
 
     public void b(int i) {
@@ -187,10 +179,10 @@ public class NavigationBar extends RelativeLayout {
             setBackgroundResource(R.drawable.titlebar_bg);
         }
         a();
-        if (this.d instanceof com.baidu.tieba.j) {
-            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.d;
-            jVar.l().a(i == 1);
-            jVar.l().a(this);
+        if (this.e instanceof com.baidu.tieba.j) {
+            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.e;
+            jVar.m().a(i == 1);
+            jVar.m().a(this);
         }
     }
 }

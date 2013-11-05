@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class a extends LinearLayout implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f499a;
+    private TextView f579a;
     private ProgressBar b;
 
     public a(Context context) {
@@ -19,29 +19,29 @@ public class a extends LinearLayout implements c {
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         inflate(context, com.baidu.adp.f.adp_detault_footer_layout, this);
-        this.f499a = (TextView) findViewById(com.baidu.adp.e.foot_layout_text);
+        this.f579a = (TextView) findViewById(com.baidu.adp.e.foot_layout_text);
         this.b = (ProgressBar) findViewById(com.baidu.adp.e.foot_layout_progress);
     }
 
     @Override // com.baidu.adp.widget.ScrollView.c
     public void a() {
-        this.f499a.setText(getResources().getString(com.baidu.adp.g.adp_pull_up_to_get_more));
+        this.f579a.setText(getResources().getString(com.baidu.adp.g.adp_pull_up_to_get_more));
     }
 
     @Override // com.baidu.adp.widget.ScrollView.c
     public void b() {
-        this.f499a.setText(getResources().getString(com.baidu.adp.g.adp_release_to_get_more));
+        this.f579a.setText(getResources().getString(com.baidu.adp.g.adp_release_to_get_more));
     }
 
     @Override // com.baidu.adp.widget.ScrollView.c
     public void c() {
-        this.f499a.setText(getResources().getString(com.baidu.adp.g.adp_refreshing));
+        this.f579a.setText(getResources().getString(com.baidu.adp.g.adp_refreshing));
         this.b.setVisibility(0);
     }
 
     @Override // com.baidu.adp.widget.ScrollView.c
     public void d() {
-        this.f499a.setText(getResources().getString(com.baidu.adp.g.adp_pull_up_to_get_more));
+        this.f579a.setText(getResources().getString(com.baidu.adp.g.adp_pull_up_to_get_more));
         this.b.setVisibility(8);
     }
 

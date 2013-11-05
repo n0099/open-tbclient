@@ -1,30 +1,31 @@
 package com.baidu.tieba.a;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ap;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.au;
-import com.baidu.tieba.util.z;
+import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.bd;
 /* loaded from: classes.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f869a = String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/pb/page";
-    private z b = null;
+    private static final String f998a = com.baidu.tieba.data.h.f1165a + "c/f/pb/page";
+    private ag b = null;
 
     public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, ap apVar) {
         if (str == null || str.length() == 0) {
             return null;
         }
-        this.b = new z(f869a);
+        this.b = new ag(f998a);
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
-        this.b.a("with_floor", "1");
+        this.b.a("with_floor", SocialConstants.TRUE);
         int a2 = UtilHelper.a(TiebaApplication.g());
         int b = UtilHelper.b(TiebaApplication.g());
         float f = TiebaApplication.g().getResources().getDisplayMetrics().density;
         int i6 = 1;
-        if (au.a().d().equals("80")) {
+        if (bd.a().d().equals("80")) {
             i6 = 2;
         }
         this.b.a("scr_w", String.valueOf(a2));
@@ -32,16 +33,16 @@ public class i {
         this.b.a("scr_dip", String.valueOf(f));
         this.b.a("q_type", String.valueOf(i6));
         if (!z) {
-            this.b.a("r", "1");
+            this.b.a("r", SocialConstants.TRUE);
         }
         if (z2) {
-            this.b.a("lz", "1");
+            this.b.a("lz", SocialConstants.TRUE);
         }
         if (str2 != null) {
             this.b.a("st_type", str2);
         }
         if (z3) {
-            this.b.a("msg_click", "1");
+            this.b.a("msg_click", SocialConstants.TRUE);
             this.b.a("message_id", String.valueOf(j));
         }
         if (apVar != null) {
@@ -49,7 +50,7 @@ public class i {
         }
         switch (i3) {
             case 1:
-                this.b.a("back", "0");
+                this.b.a("back", SocialConstants.FALSE);
                 if (!z4) {
                     if (!z) {
                         if (i > 0) {
@@ -63,12 +64,12 @@ public class i {
                     this.b.a("pid", str3);
                     break;
                 } else if (!z) {
-                    this.b.a("last", "1");
+                    this.b.a("last", SocialConstants.TRUE);
                     break;
                 }
                 break;
             case 2:
-                this.b.a("back", "1");
+                this.b.a("back", SocialConstants.TRUE);
                 if (!z4) {
                     if (z) {
                         if (i > 0) {
@@ -84,11 +85,11 @@ public class i {
                 }
                 break;
             case 3:
-                this.b.a("back", "0");
+                this.b.a("back", SocialConstants.FALSE);
                 if (z) {
-                    this.b.a("pn", "1");
+                    this.b.a("pn", SocialConstants.TRUE);
                 } else {
-                    this.b.a("last", "1");
+                    this.b.a("last", SocialConstants.TRUE);
                 }
                 if (z4) {
                     this.b.a("st_type", "store_thread");
@@ -97,18 +98,18 @@ public class i {
                 break;
             case 4:
                 this.b.a("st_type", "store_thread");
-                this.b.a("mark", "1");
+                this.b.a("mark", SocialConstants.TRUE);
                 this.b.a("pid", str3);
-                this.b.a("back", "0");
+                this.b.a("back", SocialConstants.FALSE);
                 break;
             case 5:
-                this.b.a("back", "0");
+                this.b.a("back", SocialConstants.FALSE);
                 this.b.a("pn", String.valueOf(i4));
                 break;
             case 6:
-                this.b.a("mark", "1");
+                this.b.a("mark", SocialConstants.TRUE);
                 this.b.a("pid", str3);
-                this.b.a("back", "0");
+                this.b.a("back", SocialConstants.FALSE);
                 break;
         }
         return this.b.j();

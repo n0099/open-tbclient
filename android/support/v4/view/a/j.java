@@ -7,23 +7,23 @@ import java.util.List;
 class j implements n {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f317a;
+    final /* synthetic */ g f327a;
     final /* synthetic */ i b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, g gVar) {
         this.b = iVar;
-        this.f317a = gVar;
+        this.f327a = gVar;
     }
 
     @Override // android.support.v4.view.a.n
     public boolean a(int i, int i2, Bundle bundle) {
-        return this.f317a.a(i, i2, bundle);
+        return this.f327a.a(i, i2, bundle);
     }
 
     @Override // android.support.v4.view.a.n
     public List<Object> a(String str, int i) {
-        List<a> a2 = this.f317a.a(str, i);
+        List<a> a2 = this.f327a.a(str, i);
         ArrayList arrayList = new ArrayList();
         int size = a2.size();
         for (int i2 = 0; i2 < size; i2++) {
@@ -34,7 +34,7 @@ class j implements n {
 
     @Override // android.support.v4.view.a.n
     public Object a(int i) {
-        a a2 = this.f317a.a(i);
+        a a2 = this.f327a.a(i);
         if (a2 == null) {
             return null;
         }

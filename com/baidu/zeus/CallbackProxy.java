@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.zeus.ConsoleMessage;
 import com.baidu.zeus.GeolocationPermissions;
 import com.baidu.zeus.WebStorage;
@@ -269,7 +270,7 @@ public class CallbackProxy extends Handler {
                     this.mInStopLoading = true;
                 }
                 if (this.mWebViewClient != null) {
-                    this.mWebViewClient.onPageStarted(this.mWebView, message.getData().getString("url"), (Bitmap) message.obj);
+                    this.mWebViewClient.onPageStarted(this.mWebView, message.getData().getString(SocialConstants.PARAM_URL), (Bitmap) message.obj);
                     return;
                 }
                 return;
@@ -291,7 +292,7 @@ public class CallbackProxy extends Handler {
                 }
                 return;
             case 103:
-                boolean uiOverrideUrlLoading = uiOverrideUrlLoading(message.getData().getString("url"));
+                boolean uiOverrideUrlLoading = uiOverrideUrlLoading(message.getData().getString(SocialConstants.PARAM_URL));
                 ResultTransport resultTransport = (ResultTransport) message.obj;
                 synchronized (this) {
                     resultTransport.setResult(Boolean.valueOf(uiOverrideUrlLoading));
@@ -311,7 +312,7 @@ public class CallbackProxy extends Handler {
                     return;
                 }
                 return;
-            case PROGRESS /* 106 */:
+            case 106:
                 synchronized (this) {
                     if (this.mWebChromeClient != null) {
                         if (this.mWebView != null && !this.mWebView.mStopingLoading) {
@@ -326,7 +327,7 @@ public class CallbackProxy extends Handler {
                     this.mProgressUpdatePending = false;
                 }
                 return;
-            case UPDATE_VISITED /* 107 */:
+            case 107:
                 if (this.mWebViewClient != null) {
                     this.mWebViewClient.doUpdateVisitedHistory(this.mWebView, (String) message.obj, message.arg1 != 0);
                     return;
@@ -349,13 +350,13 @@ public class CallbackProxy extends Handler {
                     return;
                 }
                 return;
-            case CLOSE_WINDOW /* 110 */:
+            case 110:
                 if (this.mWebChromeClient != null) {
                     this.mWebChromeClient.onCloseWindow((WebView) message.obj);
                     return;
                 }
                 return;
-            case SAVE_PASSWORD /* 111 */:
+            case 111:
                 Bundle data = message.getData();
                 if (!this.mWebView.onSavePassword(data.getString("host"), data.getString("username"), data.getString("password"), (Message) message.obj)) {
                     synchronized (this) {
@@ -364,11 +365,11 @@ public class CallbackProxy extends Handler {
                     return;
                 }
                 return;
-            case JS_ALERT /* 112 */:
+            case 112:
                 if (this.mWebChromeClient != null) {
                     final JsResult jsResult = (JsResult) message.obj;
                     String string = message.getData().getString("message");
-                    String string2 = message.getData().getString("url");
+                    String string2 = message.getData().getString(SocialConstants.PARAM_URL);
                     if (!this.mWebChromeClient.onJsAlert(this.mWebView, string2, string, jsResult)) {
                         try {
                             str5 = this.mContext.getResources().getString(this.mContext.getResources().getIdentifier("zeus_js_alert", "string", this.mContext.getPackageName()));
@@ -390,7 +391,7 @@ public class CallbackProxy extends Handler {
                 if (this.mWebChromeClient != null) {
                     final JsResult jsResult2 = (JsResult) message.obj;
                     String string3 = message.getData().getString("message");
-                    String string4 = message.getData().getString("url");
+                    String string4 = message.getData().getString(SocialConstants.PARAM_URL);
                     if (!this.mWebChromeClient.onJsConfirm(this.mWebView, string4, string3, jsResult2)) {
                         try {
                             str3 = this.mContext.getResources().getString(this.mContext.getResources().getIdentifier("zeus_js_confirm_ok", "string", this.mContext.getPackageName()));
@@ -425,7 +426,7 @@ public class CallbackProxy extends Handler {
                     final JsPromptResult jsPromptResult = (JsPromptResult) message.obj;
                     String string5 = message.getData().getString("message");
                     String string6 = message.getData().getString("default");
-                    String string7 = message.getData().getString("url");
+                    String string7 = message.getData().getString(SocialConstants.PARAM_URL);
                     if (!this.mWebChromeClient.onJsPrompt(this.mWebView, string7, string5, string6, jsPromptResult)) {
                         View inflate = LayoutInflater.from(this.mContext).inflate(this.mContext.getResources().getIdentifier("zeus_js_prompt", "layout", this.mContext.getPackageName()), (ViewGroup) null);
                         final EditText editText = (EditText) inflate.findViewById(this.mContext.getResources().getIdentifier("zeus_value", LocaleUtil.INDONESIAN, this.mContext.getPackageName()));
@@ -466,11 +467,11 @@ public class CallbackProxy extends Handler {
                     return;
                 }
                 return;
-            case JS_UNLOAD /* 115 */:
+            case 115:
                 if (this.mWebChromeClient != null) {
                     final JsResult jsResult3 = (JsResult) message.obj;
                     String string8 = message.getData().getString("message");
-                    if (!this.mWebChromeClient.onJsBeforeUnload(this.mWebView, message.getData().getString("url"), string8, jsResult3)) {
+                    if (!this.mWebChromeClient.onJsBeforeUnload(this.mWebView, message.getData().getString(SocialConstants.PARAM_URL), string8, jsResult3)) {
                         new AlertDialog.Builder(this.mContext).setMessage("Navigate away from this page?\n\n" + string8 + "\n\nSelect OK to continue, or Cancel to stay on the current page.").setPositiveButton("OK", new DialogInterface.OnClickListener() { // from class: com.baidu.zeus.CallbackProxy.9
                             @Override // android.content.DialogInterface.OnClickListener
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -487,25 +488,25 @@ public class CallbackProxy extends Handler {
                     return;
                 }
                 return;
-            case ASYNC_KEYEVENTS /* 116 */:
+            case 116:
                 if (this.mWebViewClient != null) {
                     this.mWebViewClient.onUnhandledKeyEvent(this.mWebView, (KeyEvent) message.obj);
                     return;
                 }
                 return;
-            case DOWNLOAD_FILE /* 118 */:
+            case 118:
                 if (this.mDownloadListener != null) {
-                    this.mDownloadListener.onDownloadStart(message.getData().getString("url"), message.getData().getString("userAgent"), message.getData().getString("contentDisposition"), message.getData().getString("mimetype"), Long.valueOf(message.getData().getLong("contentLength")).longValue());
+                    this.mDownloadListener.onDownloadStart(message.getData().getString(SocialConstants.PARAM_URL), message.getData().getString("userAgent"), message.getData().getString("contentDisposition"), message.getData().getString("mimetype"), Long.valueOf(message.getData().getLong("contentLength")).longValue());
                     return;
                 }
                 return;
-            case REPORT_ERROR /* 119 */:
+            case 119:
                 if (this.mWebViewClient != null) {
                     this.mWebViewClient.onReceivedError(this.mWebView, message.arg1, message.getData().getString("description"), message.getData().getString("failingUrl"));
                     return;
                 }
                 return;
-            case RESEND_POST_DATA /* 120 */:
+            case 120:
                 Message message2 = (Message) message.getData().getParcelable("resend");
                 Message message3 = (Message) message.getData().getParcelable("dontResend");
                 if (this.mWebViewClient != null) {
@@ -515,7 +516,7 @@ public class CallbackProxy extends Handler {
                     message3.sendToTarget();
                     return;
                 }
-            case PAGE_FINISHED /* 121 */:
+            case 121:
                 String str6 = (String) message.obj;
                 this.mWebView.onPageFinished(str6);
                 if (this.mWebViewClient != null) {
@@ -527,28 +528,28 @@ public class CallbackProxy extends Handler {
                     return;
                 }
                 return;
-            case REQUEST_FOCUS /* 122 */:
+            case 122:
                 if (this.mWebChromeClient != null) {
                     this.mWebChromeClient.onRequestFocus(this.mWebView);
                     return;
                 }
                 return;
-            case SCALE_CHANGED /* 123 */:
+            case 123:
                 if (this.mWebViewClient != null) {
                     this.mWebViewClient.onScaleChanged(this.mWebView, message.getData().getFloat("old"), message.getData().getFloat("new"));
                     return;
                 }
                 return;
-            case RECEIVED_CERTIFICATE /* 124 */:
+            case 124:
                 this.mWebView.setCertificate((SslCertificate) message.obj);
                 return;
-            case SWITCH_OUT_HISTORY /* 125 */:
+            case 125:
                 this.mWebView.switchOutDrawHistory();
                 return;
             case EXCEEDED_DATABASE_QUOTA /* 126 */:
                 if (this.mWebChromeClient != null) {
                     HashMap hashMap2 = (HashMap) message.obj;
-                    this.mWebChromeClient.onExceededDatabaseQuota((String) hashMap2.get("url"), (String) hashMap2.get("databaseIdentifier"), ((Long) hashMap2.get("currentQuota")).longValue(), ((Long) hashMap2.get("estimatedSize")).longValue(), ((Long) hashMap2.get("totalUsedQuota")).longValue(), (WebStorage.QuotaUpdater) hashMap2.get("quotaUpdater"));
+                    this.mWebChromeClient.onExceededDatabaseQuota((String) hashMap2.get(SocialConstants.PARAM_URL), (String) hashMap2.get("databaseIdentifier"), ((Long) hashMap2.get("currentQuota")).longValue(), ((Long) hashMap2.get("estimatedSize")).longValue(), ((Long) hashMap2.get("totalUsedQuota")).longValue(), (WebStorage.QuotaUpdater) hashMap2.get("quotaUpdater"));
                     return;
                 }
                 return;
@@ -682,7 +683,7 @@ public class CallbackProxy extends Handler {
                 }
                 return;
             case OPEN_FLASH_URL /* 143 */:
-                boolean uiOpenFlashUrl = uiOpenFlashUrl(message.getData().getString("url"));
+                boolean uiOpenFlashUrl = uiOpenFlashUrl(message.getData().getString(SocialConstants.PARAM_URL));
                 ResultTransport resultTransport2 = (ResultTransport) message.obj;
                 synchronized (this) {
                     resultTransport2.setResult(Boolean.valueOf(uiOpenFlashUrl));
@@ -730,7 +731,7 @@ public class CallbackProxy extends Handler {
                 return;
             case NOTIFY_PLAY_VIDEO /* 201 */:
                 if (this.mDownloadListener != null) {
-                    this.mDownloadListener.onPlayVideo(message.getData().getString("url"));
+                    this.mDownloadListener.onPlayVideo(message.getData().getString(SocialConstants.PARAM_URL));
                     return;
                 }
                 return;
@@ -754,7 +755,7 @@ public class CallbackProxy extends Handler {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void switchOutDrawHistory() {
-        sendMessage(obtainMessage(SWITCH_OUT_HISTORY));
+        sendMessage(obtainMessage(125));
     }
 
     private String getJsDialogTitle(String str) {
@@ -773,13 +774,13 @@ public class CallbackProxy extends Handler {
         if (this.mWebViewClient != null) {
             Message obtainMessage = obtainMessage(100);
             obtainMessage.obj = bitmap;
-            obtainMessage.getData().putString("url", str);
+            obtainMessage.getData().putString(SocialConstants.PARAM_URL, str);
             sendMessage(obtainMessage);
         }
     }
 
     public void onPageFinished(String str) {
-        sendMessage(obtainMessage(PAGE_FINISHED, str));
+        sendMessage(obtainMessage(121, str));
     }
 
     public void onFullScreenMode(boolean z, int i, int i2) {
@@ -799,7 +800,7 @@ public class CallbackProxy extends Handler {
 
     public void onReceivedError(int i, String str, String str2) {
         if (this.mWebViewClient != null) {
-            Message obtainMessage = obtainMessage(REPORT_ERROR);
+            Message obtainMessage = obtainMessage(119);
             obtainMessage.arg1 = i;
             obtainMessage.getData().putString("description", str);
             obtainMessage.getData().putString("failingUrl", str2);
@@ -812,7 +813,7 @@ public class CallbackProxy extends Handler {
             message.sendToTarget();
             return;
         }
-        Message obtainMessage = obtainMessage(RESEND_POST_DATA);
+        Message obtainMessage = obtainMessage(120);
         Bundle data = obtainMessage.getData();
         data.putParcelable("resend", message2);
         data.putParcelable("dontResend", message);
@@ -822,7 +823,7 @@ public class CallbackProxy extends Handler {
     public boolean shouldOpenFlash(String str) {
         ResultTransport resultTransport = new ResultTransport(false);
         Message obtainMessage = obtainMessage(OPEN_FLASH_URL);
-        obtainMessage.getData().putString("url", str);
+        obtainMessage.getData().putString(SocialConstants.PARAM_URL, str);
         obtainMessage.obj = resultTransport;
         synchronized (this) {
             sendMessage(obtainMessage);
@@ -839,7 +840,7 @@ public class CallbackProxy extends Handler {
     public boolean shouldOverrideUrlLoading(String str) {
         ResultTransport resultTransport = new ResultTransport(false);
         Message obtainMessage = obtainMessage(103);
-        obtainMessage.getData().putString("url", str);
+        obtainMessage.getData().putString(SocialConstants.PARAM_URL, str);
         obtainMessage.obj = resultTransport;
         synchronized (this) {
             sendMessage(obtainMessage);
@@ -912,13 +913,13 @@ public class CallbackProxy extends Handler {
 
     public void onReceivedCertificate(SslCertificate sslCertificate) {
         if (this.mWebViewClient != null) {
-            sendMessage(obtainMessage(RECEIVED_CERTIFICATE, sslCertificate));
+            sendMessage(obtainMessage(124, sslCertificate));
         }
     }
 
     public void doUpdateVisitedHistory(String str, boolean z) {
         if (this.mWebViewClient != null) {
-            sendMessage(obtainMessage(UPDATE_VISITED, z ? 1 : 0, 0, str));
+            sendMessage(obtainMessage(107, z ? 1 : 0, 0, str));
         }
     }
 
@@ -943,13 +944,13 @@ public class CallbackProxy extends Handler {
 
     public void onUnhandledKeyEvent(KeyEvent keyEvent) {
         if (this.mWebViewClient != null) {
-            sendMessage(obtainMessage(ASYNC_KEYEVENTS, keyEvent));
+            sendMessage(obtainMessage(116, keyEvent));
         }
     }
 
     public void onScaleChanged(float f, float f2) {
         if (this.mWebViewClient != null) {
-            Message obtainMessage = obtainMessage(SCALE_CHANGED);
+            Message obtainMessage = obtainMessage(123);
             Bundle data = obtainMessage.getData();
             data.putFloat("old", f);
             data.putFloat("new", f2);
@@ -961,9 +962,9 @@ public class CallbackProxy extends Handler {
         if (this.mDownloadListener == null) {
             return false;
         }
-        Message obtainMessage = obtainMessage(DOWNLOAD_FILE);
+        Message obtainMessage = obtainMessage(118);
         Bundle data = obtainMessage.getData();
-        data.putString("url", str);
+        data.putString(SocialConstants.PARAM_URL, str);
         data.putString("userAgent", str2);
         data.putString("mimetype", str4);
         data.putLong("contentLength", j);
@@ -977,7 +978,7 @@ public class CallbackProxy extends Handler {
             return false;
         }
         Message obtainMessage = obtainMessage(NOTIFY_PLAY_VIDEO);
-        obtainMessage.getData().putString("url", str);
+        obtainMessage.getData().putString(SocialConstants.PARAM_URL, str);
         sendMessage(obtainMessage);
         return true;
     }
@@ -993,7 +994,7 @@ public class CallbackProxy extends Handler {
     }
 
     public boolean onSavePassword(String str, String str2, String str3, Message message) {
-        Message obtainMessage = obtainMessage(SAVE_PASSWORD, obtainMessage(200));
+        Message obtainMessage = obtainMessage(111, obtainMessage(200));
         Bundle data = obtainMessage.getData();
         data.putString("host", str);
         data.putString("username", str2);
@@ -1024,7 +1025,7 @@ public class CallbackProxy extends Handler {
             if (this.mWebChromeClient != null && this.mLatestProgress != i) {
                 this.mLatestProgress = i;
                 if (!this.mProgressUpdatePending) {
-                    sendEmptyMessage(PROGRESS);
+                    sendEmptyMessage(106);
                     this.mProgressUpdatePending = true;
                 }
             }
@@ -1059,13 +1060,13 @@ public class CallbackProxy extends Handler {
 
     public void onRequestFocus() {
         if (this.mWebChromeClient != null) {
-            sendEmptyMessage(REQUEST_FOCUS);
+            sendEmptyMessage(122);
         }
     }
 
     public void onCloseWindow(WebView webView) {
         if (this.mWebChromeClient != null) {
-            sendMessage(obtainMessage(CLOSE_WINDOW, webView));
+            sendMessage(obtainMessage(110, webView));
         }
     }
 
@@ -1098,9 +1099,9 @@ public class CallbackProxy extends Handler {
 
     public void onJsAlert(String str, String str2) {
         if (this.mWebChromeClient != null) {
-            Message obtainMessage = obtainMessage(JS_ALERT, new JsResult(this, false));
+            Message obtainMessage = obtainMessage(112, new JsResult(this, false));
             obtainMessage.getData().putString("message", str2);
-            obtainMessage.getData().putString("url", str);
+            obtainMessage.getData().putString(SocialConstants.PARAM_URL, str);
             synchronized (this) {
                 sendMessage(obtainMessage);
                 try {
@@ -1120,7 +1121,7 @@ public class CallbackProxy extends Handler {
         JsResult jsResult = new JsResult(this, false);
         Message obtainMessage = obtainMessage(JS_CONFIRM, jsResult);
         obtainMessage.getData().putString("message", str2);
-        obtainMessage.getData().putString("url", str);
+        obtainMessage.getData().putString(SocialConstants.PARAM_URL, str);
         synchronized (this) {
             sendMessage(obtainMessage);
             try {
@@ -1141,7 +1142,7 @@ public class CallbackProxy extends Handler {
         Message obtainMessage = obtainMessage(JS_PROMPT, jsPromptResult);
         obtainMessage.getData().putString("message", str2);
         obtainMessage.getData().putString("default", str3);
-        obtainMessage.getData().putString("url", str);
+        obtainMessage.getData().putString(SocialConstants.PARAM_URL, str);
         synchronized (this) {
             sendMessage(obtainMessage);
             try {
@@ -1176,9 +1177,9 @@ public class CallbackProxy extends Handler {
             return true;
         }
         JsResult jsResult = new JsResult(this, true);
-        Message obtainMessage = obtainMessage(JS_UNLOAD, jsResult);
+        Message obtainMessage = obtainMessage(115, jsResult);
         obtainMessage.getData().putString("message", str2);
-        obtainMessage.getData().putString("url", str);
+        obtainMessage.getData().putString(SocialConstants.PARAM_URL, str);
         synchronized (this) {
             sendMessage(obtainMessage);
             try {
@@ -1199,7 +1200,7 @@ public class CallbackProxy extends Handler {
         Message obtainMessage = obtainMessage(EXCEEDED_DATABASE_QUOTA);
         HashMap hashMap = new HashMap();
         hashMap.put("databaseIdentifier", str2);
-        hashMap.put("url", str);
+        hashMap.put(SocialConstants.PARAM_URL, str);
         hashMap.put("currentQuota", Long.valueOf(j));
         hashMap.put("estimatedSize", Long.valueOf(j2));
         hashMap.put("totalUsedQuota", Long.valueOf(j3));

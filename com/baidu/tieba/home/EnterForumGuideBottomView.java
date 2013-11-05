@@ -13,13 +13,13 @@ import com.slidingmenu.lib.R;
 public class EnterForumGuideBottomView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1186a;
+    private int f1321a;
     private ImageView b;
     private TextView c;
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1186a = -1;
+        this.f1321a = -1;
         this.b = null;
         this.c = null;
         a(context);
@@ -27,7 +27,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1186a = -1;
+        this.f1321a = -1;
         this.b = null;
         this.c = null;
         a(context);
@@ -35,7 +35,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
 
     public EnterForumGuideBottomView(Context context) {
         super(context);
-        this.f1186a = -1;
+        this.f1321a = -1;
         this.b = null;
         this.c = null;
         a(context);
@@ -48,11 +48,11 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     private void setSkinType(int i) {
-        this.f1186a = i;
+        this.f1321a = i;
     }
 
     private int getSkinType() {
-        return this.f1186a;
+        return this.f1321a;
     }
 
     private boolean c(int i) {
@@ -90,7 +90,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void a() {
-        a(TiebaApplication.g().ap());
+        a(TiebaApplication.g().as());
     }
 
     public void b() {
@@ -98,7 +98,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void c() {
-        this.f1186a = -1;
-        this.b.setBackgroundResource(0);
+        this.f1321a = -1;
+        this.b.setBackgroundDrawable(null);
     }
 }

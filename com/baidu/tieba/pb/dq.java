@@ -1,20 +1,21 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dq implements View.OnClickListener {
+class dq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f1614a;
+    final /* synthetic */ WebActivity f2130a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dq(WebActivity webActivity) {
-        this.f1614a = webActivity;
+        this.f2130a = webActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1614a.g();
+        if (this.f2130a.f2035a.canGoForward()) {
+            this.f2130a.f2035a.goForward();
+        }
     }
 }

@@ -14,10 +14,10 @@ import com.slidingmenu.lib.R;
 public class FrsStarImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Matrix f1947a;
+    private Matrix f2479a;
     private Paint b;
     private int c;
-    private com.baidu.adp.widget.a.c d;
+    private com.baidu.adp.widget.ImageView.e d;
     private int e;
 
     public void setImageType(int i) {
@@ -26,7 +26,7 @@ public class FrsStarImageView extends ImageView {
 
     public FrsStarImageView(Context context) {
         super(context);
-        this.f1947a = new Matrix();
+        this.f2479a = new Matrix();
         this.b = new Paint();
         this.c = 0;
         this.d = null;
@@ -35,7 +35,7 @@ public class FrsStarImageView extends ImageView {
 
     public FrsStarImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1947a = new Matrix();
+        this.f2479a = new Matrix();
         this.b = new Paint();
         this.c = 0;
         this.d = null;
@@ -44,7 +44,7 @@ public class FrsStarImageView extends ImageView {
 
     public FrsStarImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1947a = new Matrix();
+        this.f2479a = new Matrix();
         this.b = new Paint();
         this.c = 0;
         this.d = null;
@@ -54,56 +54,56 @@ public class FrsStarImageView extends ImageView {
     private void a(int i) {
         this.e = i;
         if (i == 1) {
-            this.d = new com.baidu.adp.widget.a.c(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.pic_avatar_ba_140_1, null), false, null);
+            this.d = new com.baidu.adp.widget.ImageView.e(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.pic_avatar_ba_140_1, null), false, null);
         } else {
-            this.d = new com.baidu.adp.widget.a.c(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.pic_avatar_ba_140, null), false, null);
+            this.d = new com.baidu.adp.widget.ImageView.e(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.pic_avatar_ba_140, null), false, null);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        com.baidu.adp.widget.a.c cVar;
+        com.baidu.adp.widget.ImageView.e eVar;
         super.onDraw(canvas);
         String str = (String) getTag();
         if (str != null && str != "") {
-            com.baidu.adp.widget.a.c c = com.baidu.tbadk.a.e.a().c(str);
-            int ap = TiebaApplication.g().ap();
+            com.baidu.adp.widget.ImageView.e c = com.baidu.tbadk.imageManager.d.a().c(str);
+            int as = TiebaApplication.g().as();
             if (c == null) {
                 switch (this.c) {
                     case 0:
                         if (this.d == null) {
-                            this.d = new com.baidu.adp.widget.a.c(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.def_star_top_pic, null), false, null);
+                            this.d = new com.baidu.adp.widget.ImageView.e(BitmapFactory.decodeResource(getContext().getResources(), R.drawable.def_star_top_pic, null), false, null);
                         }
-                        cVar = this.d;
+                        eVar = this.d;
                         break;
                     case 1:
                         if (this.d == null) {
-                            a(ap);
-                        } else if (this.e != ap) {
-                            a(ap);
+                            a(as);
+                        } else if (this.e != as) {
+                            a(as);
                         }
-                        cVar = this.d;
+                        eVar = this.d;
                         break;
                     default:
-                        cVar = c;
+                        eVar = c;
                         break;
                 }
             } else {
                 this.d = null;
-                cVar = c;
+                eVar = c;
             }
-            if (cVar != null) {
-                int a2 = cVar.a();
-                int b = cVar.b();
+            if (eVar != null) {
+                int a2 = eVar.a();
+                int b = eVar.b();
                 int width = getWidth();
                 int height = getHeight();
                 if (a2 != 0 && b != 0 && width != 0 && height != 0) {
                     int a3 = this.c == 1 ? UtilHelper.a(getContext(), 3.0f) : 0;
-                    this.f1947a.setScale((width - (a3 * 2)) / a2, (height - (a3 * 2)) / b);
-                    this.f1947a.postTranslate(a3, a3);
+                    this.f2479a.setScale((width - (a3 * 2)) / a2, (height - (a3 * 2)) / b);
+                    this.f2479a.postTranslate(a3, a3);
                     canvas.drawColor(0);
-                    cVar.a(canvas, this.f1947a, this.b);
-                    this.f1947a.reset();
+                    eVar.a(canvas, this.f2479a, this.b);
+                    this.f2479a.reset();
                 }
             }
         }

@@ -1,12 +1,15 @@
 package com.baidu.tieba.square;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.data.bc;
+import com.baidu.tieba.data.ba;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.SearchBoxView;
@@ -15,8 +18,10 @@ import com.baidu.tieba.view.bb;
 import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ax extends com.baidu.adp.a.d {
-    View b;
+public class ax extends com.baidu.adp.a.e {
+
+    /* renamed from: a  reason: collision with root package name */
+    View f2356a;
     bb c;
     private SquareActivity d;
     private BdListView e;
@@ -44,7 +49,7 @@ public class ax extends com.baidu.adp.a.d {
         this.i = (TextView) squareActivity.findViewById(R.id.title_text);
         this.l = (NavigationBar) squareActivity.findViewById(R.id.view_navigation_bar);
         this.l.a(this.d.getResources().getString(R.string.square));
-        this.b = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.square_nb_item_allcat, squareActivity);
+        this.f2356a = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.square_nb_item_allcat, squareActivity);
         this.j = (SearchBoxView) squareActivity.findViewById(R.id.view_searchbox);
         this.e = (BdListView) squareActivity.findViewById(R.id.bar_cat_listview);
         this.e.setOnKeyListener(onKeyListener);
@@ -57,45 +62,45 @@ public class ax extends com.baidu.adp.a.d {
         this.k = (NoNetworkView) squareActivity.findViewById(R.id.view_no_network);
     }
 
-    public void a(bc bcVar) {
-        if (bcVar != null) {
+    public void a(ba baVar) {
+        if (baVar != null) {
             try {
-                this.f.a(bcVar);
+                this.f.a(baVar);
                 this.f.notifyDataSetChanged();
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), Headers.REFRESH, e.getMessage());
+                be.b(getClass().getName(), Headers.REFRESH, e.getMessage());
             }
         }
     }
 
-    public void b() {
+    public void a() {
         this.e.a();
     }
 
     public void a(boolean z, String str) {
-        b();
+        a();
         if (!z && str != null) {
             this.d.a(str);
         }
     }
 
-    public SearchBoxView c() {
+    public SearchBoxView e() {
         return this.j;
     }
 
-    public void d() {
+    public void f() {
         this.e.b();
     }
 
-    public View e() {
-        return this.b;
+    public View g() {
+        return this.f2356a;
     }
 
-    public void f() {
+    public void h() {
         this.k.setVisibility(0);
     }
 
-    public void g() {
+    public void i() {
         this.k.setVisibility(8);
     }
 
@@ -107,28 +112,32 @@ public class ax extends com.baidu.adp.a.d {
         this.k.b(azVar);
     }
 
-    public void h() {
-        this.f.notifyDataSetChanged();
-    }
-
-    public void i() {
-    }
-
     public void j() {
-        com.baidu.tieba.util.av.e("SquareView", "onResume", "onResume");
-        h();
-        this.e.postDelayed(new ay(this), 1000L);
+        this.f.notifyDataSetChanged();
     }
 
     public void k() {
     }
 
+    public void l() {
+        NetworkInfo activeNetworkInfo;
+        be.e("SquareView", "onResume", "onResume");
+        j();
+        this.e.postDelayed(new ay(this), 1000L);
+        if (this.k != null && this.k.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.d.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
+            this.k.setVisible(false);
+        }
+    }
+
+    public void m() {
+    }
+
     public void a(int i) {
-        this.d.l().a(i == 1);
-        this.d.l().a(this.g);
-        com.baidu.tieba.util.as.b(this.g, i);
-        com.baidu.tieba.util.as.d(this.h, i);
-        com.baidu.tieba.util.as.f(this.i, i);
+        this.d.m().a(i == 1);
+        this.d.m().a(this.g);
+        com.baidu.tieba.util.bb.b(this.g, i);
+        com.baidu.tieba.util.bb.d(this.h, i);
+        com.baidu.tieba.util.bb.f(this.i, i);
         this.l.b(i);
         if (i == 1) {
             this.g.setBackgroundColor(-13618114);

@@ -1,33 +1,32 @@
 package com.baidu.tieba.forumdetail;
 
-import android.support.v4.view.bq;
+import android.content.Context;
+import android.view.View;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-class m implements bq {
+class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ItemHotThreadView f1094a;
-
-    private m(ItemHotThreadView itemHotThreadView) {
-        this.f1094a = itemHotThreadView;
-    }
+    final /* synthetic */ String f1225a;
+    final /* synthetic */ l b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(ItemHotThreadView itemHotThreadView, m mVar) {
-        this(itemHotThreadView);
+    public m(l lVar, String str) {
+        this.b = lVar;
+        this.f1225a = str;
     }
 
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
-        if (ItemHotThreadView.a(this.f1094a) != null) {
-            ItemHotThreadView.a(this.f1094a).setPosition(i + f);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        Context context2;
+        if (TiebaApplication.g().s()) {
+            context2 = this.b.c;
+            StatService.onEvent(context2, "detail_hot_thread", "click", 1);
         }
-    }
-
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
-    }
-
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
+        context = this.b.c;
+        NewPbActivity.a(context, this.f1225a, "", "");
     }
 }

@@ -4,18 +4,22 @@ package com.baidu.tieba.util;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1917a;
+    String f2447a;
     int b;
-    com.baidu.tbadk.a.d c;
+    com.baidu.tbadk.imageManager.c c;
     boolean d;
-    final /* synthetic */ a e;
+    boolean e;
+    boolean f;
+    final /* synthetic */ a g;
 
     private c(a aVar) {
-        this.e = aVar;
+        this.g = aVar;
+        this.e = false;
+        this.f = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(a aVar, c cVar) {
+    public /* synthetic */ c(a aVar, b bVar) {
         this(aVar);
     }
 }

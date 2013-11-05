@@ -1,26 +1,36 @@
 package com.baidu.tieba.pb;
 
-import android.util.SparseArray;
-import android.view.View;
-import android.widget.AdapterView;
-import com.slidingmenu.lib.R;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class de implements AdapterView.OnItemClickListener {
+public class de implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ db f1602a;
+    final /* synthetic */ dd f2118a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(db dbVar) {
-        this.f1602a = dbVar;
+    public de(dd ddVar) {
+        this.f2118a = ddVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        String str;
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null && (str = (String) sparseArray.get(R.id.tag_photo_username)) != null) {
-            this.f1602a.b(str);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        PbWriteToolView pbWriteToolView;
+        GridView gridView;
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        EditText editText;
+        pbWriteToolView = this.f2118a.f;
+        pbWriteToolView.b();
+        gridView = this.f2118a.B;
+        gridView.setVisibility(0);
+        linearLayout = this.f2118a.t;
+        linearLayout.setVisibility(0);
+        linearLayout2 = this.f2118a.q;
+        linearLayout2.setEnabled(false);
+        editText = this.f2118a.E;
+        editText.requestFocus();
     }
 }

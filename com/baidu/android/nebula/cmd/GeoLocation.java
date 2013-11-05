@@ -3,6 +3,7 @@ package com.baidu.android.nebula.cmd;
 import android.content.Context;
 import com.baidu.android.moplus.util.NoProGuard;
 import com.baidu.android.nebula.util.BDLocationManager;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cyberplayer.sdk.internal.HttpUtils;
 import java.util.Map;
 import java.util.Timer;
@@ -58,7 +59,7 @@ public class GeoLocation implements NoProGuard, e {
             j = 0;
         }
         try {
-            this.mGpsEnabled = "1".equals(a2.get("gps"));
+            this.mGpsEnabled = SocialConstants.TRUE.equals(a2.get("gps"));
         } catch (NumberFormatException e3) {
             j = j2;
             j2 = j;

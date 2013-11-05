@@ -17,15 +17,15 @@ import org.apache.http.util.EntityUtils;
 public class d extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f694a;
+    ArrayList f773a;
     final /* synthetic */ a b;
     private long c;
 
     public d(a aVar, ArrayList arrayList, long j) {
         this.b = aVar;
-        this.f694a = new ArrayList();
+        this.f773a = new ArrayList();
         this.c = 0L;
-        this.f694a = arrayList;
+        this.f773a = arrayList;
         this.c = j;
         setName("SystemMonitor_SendStaticDataWorker");
     }
@@ -56,13 +56,13 @@ public class d extends Thread {
         ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context3);
         HttpPost httpPost = new HttpPost(a4);
         try {
-            a2 = this.b.a(this.f694a, this.c);
+            a2 = this.b.a(this.f773a, this.c);
             ByteArrayEntity byteArrayEntity = new ByteArrayEntity(a2);
             httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded");
             httpPost.setEntity(byteArrayEntity);
             HttpResponse execute = proxyHttpClient.execute(httpPost);
             if (execute.getStatusLine().getStatusCode() != 200) {
-                Iterator it = this.f694a.iterator();
+                Iterator it = this.f773a.iterator();
                 while (it.hasNext()) {
                     switch ((l) it.next()) {
                         case FREQ_STATISTIC:
@@ -72,7 +72,7 @@ public class d extends Thread {
                     }
                 }
             } else if (!EntityUtils.toString(execute.getEntity()).equals("ok")) {
-                Iterator it2 = this.f694a.iterator();
+                Iterator it2 = this.f773a.iterator();
                 while (it2.hasNext()) {
                     switch ((l) it2.next()) {
                         case FREQ_STATISTIC:
@@ -82,7 +82,7 @@ public class d extends Thread {
                     }
                 }
             } else {
-                Iterator it3 = this.f694a.iterator();
+                Iterator it3 = this.f773a.iterator();
                 while (it3.hasNext()) {
                     switch ((l) it3.next()) {
                         case FREQ_STATISTIC:

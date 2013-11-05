@@ -1,20 +1,23 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import android.app.Dialog;
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
+public class ab implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyPostActivity f1647a;
+    final /* synthetic */ aa f2165a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(MyPostActivity myPostActivity) {
-        this.f1647a = myPostActivity;
+    public ab(aa aaVar) {
+        this.f2165a = aaVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1647a.c();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        Dialog dialog;
+        dialog = this.f2165a.h;
+        dialog.dismiss();
     }
 }

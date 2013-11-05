@@ -5,13 +5,13 @@ import org.json.JSONObject;
 public class av {
 
     /* renamed from: a  reason: collision with root package name */
-    private aw f1012a = null;
+    private aw f1142a = null;
     private aw b = null;
     private aw c = null;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f1012a = a(jSONObject, "banner_big");
+            this.f1142a = a(jSONObject, "banner_big");
             this.b = a(jSONObject, "banner_small_left");
             this.c = a(jSONObject, "banner_small_right");
         }
@@ -29,7 +29,7 @@ public class av {
     }
 
     public aw a() {
-        return this.f1012a;
+        return this.f1142a;
     }
 
     public aw b() {

@@ -1,37 +1,97 @@
 package com.baidu.tieba.service;
 
-import android.net.Uri;
-import android.os.Handler;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.aj;
+import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.be;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements Runnable {
+public class n extends BdAsyncTask<String, Integer, aj> {
+    int b;
+    final /* synthetic */ TiebaMessageService c;
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaPrepareImageService f1797a;
+    ag f2317a = null;
+    private TiebaApplication d = TiebaApplication.g();
+    private String e = TiebaApplication.C();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(TiebaPrepareImageService tiebaPrepareImageService) {
-        this.f1797a = tiebaPrepareImageService;
+    public n(TiebaMessageService tiebaMessageService, int i) {
+        this.c = tiebaMessageService;
+        this.b = 0;
+        this.b = i;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Runnable runnable;
-        int i;
-        Uri uri;
-        o oVar;
-        if (TiebaPrepareImageService.f1781a) {
-            handler = this.f1797a.e;
-            runnable = this.f1797a.g;
-            handler.postDelayed(runnable, 1000L);
-            return;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        super.b();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public aj a(String... strArr) {
+        aj ajVar;
+        Exception e;
+        try {
+        } catch (Exception e2) {
+            ajVar = null;
+            e = e2;
         }
-        TiebaPrepareImageService tiebaPrepareImageService = this.f1797a;
-        TiebaPrepareImageService tiebaPrepareImageService2 = this.f1797a;
-        i = this.f1797a.b;
-        uri = this.f1797a.c;
-        tiebaPrepareImageService.d = new o(tiebaPrepareImageService2, i, uri);
-        oVar = this.f1797a.d;
-        oVar.execute(new Object[0]);
+        if (this.d.af() && this.e != null && this.e.length() > 0) {
+            this.f2317a = new ag(com.baidu.tieba.data.h.f1165a + "c/s/msg");
+            if (this.b == 2) {
+                this.f2317a.a("bookmark", SocialConstants.TRUE);
+            }
+            String j = this.f2317a.j();
+            if (this.f2317a.c()) {
+                ajVar = new aj();
+                try {
+                    ajVar.a(j);
+                } catch (Exception e3) {
+                    e = e3;
+                    be.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return ajVar;
+                }
+            } else {
+                ajVar = null;
+            }
+            return ajVar;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        this.c.f2301a = null;
+        this.c.b = null;
+        if (this.f2317a != null) {
+            this.f2317a.h();
+        }
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(aj ajVar) {
+        try {
+            super.a((n) ajVar);
+            this.c.f2301a = null;
+            this.c.b = null;
+            if (ajVar != null) {
+                this.c.c = ajVar;
+                if (this.b == 2) {
+                    this.d.a((Boolean) false);
+                }
+                if (this.e != null && this.e.length() > 0) {
+                    this.c.b(this.b);
+                }
+            }
+        } catch (Exception e) {
+            be.b(getClass().getName(), "onPostExecute", e.getMessage());
+        }
     }
 }

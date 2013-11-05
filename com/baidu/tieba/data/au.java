@@ -5,14 +5,14 @@ import org.json.JSONObject;
 public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1011a;
+    private long f1141a;
     private String b;
     private String c;
     private String d;
     private String e;
 
     public au() {
-        this.f1011a = -1L;
+        this.f1141a = -1L;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -20,12 +20,12 @@ public class au {
     }
 
     public au(long j, String str, String str2) {
-        this.f1011a = -1L;
+        this.f1141a = -1L;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = "";
-        this.f1011a = j;
+        this.f1141a = j;
         this.b = str;
         this.c = str2;
     }
@@ -38,26 +38,26 @@ public class au {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b("MssageData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("MssageData", "parserJson", "error = " + e.getMessage());
         }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1011a = jSONObject.optLong("message_id");
+                this.f1141a = jSONObject.optLong("message_id");
                 this.b = jSONObject.optString("link");
                 this.c = jSONObject.optString("content");
                 this.d = jSONObject.optString("to");
                 this.e = jSONObject.optString("stat");
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b("MssageData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("MssageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public long b() {
-        return this.f1011a;
+        return this.f1141a;
     }
 
     public String c() {

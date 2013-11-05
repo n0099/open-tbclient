@@ -1,6 +1,7 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.content.Context;
+import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
@@ -8,16 +9,32 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<g> f838a = null;
-    private int b = 0;
-    private ArrayList<c> c = null;
-    private Context d = null;
+    private ArrayList<g> f967a;
+    private int b;
+    private ArrayList<c> c;
+    private Context d;
 
     public a(Context context, String str) {
+        this.f967a = null;
+        this.b = 0;
+        this.c = null;
+        this.d = null;
         a(context, a(str), -1, false);
     }
 
+    public a(Context context, JSONArray jSONArray, int i) {
+        this.f967a = null;
+        this.b = 0;
+        this.c = null;
+        this.d = null;
+        a(context, jSONArray, i, false);
+    }
+
     public a(Context context, JSONArray jSONArray, boolean z) {
+        this.f967a = null;
+        this.b = 0;
+        this.c = null;
+        this.d = null;
         a(context, jSONArray, -1, z);
     }
 
@@ -26,29 +43,38 @@ public class a {
         a(jSONArray, i, z);
     }
 
+    public a(Context context, ArrayList<c> arrayList) {
+        this.f967a = null;
+        this.b = 0;
+        this.c = null;
+        this.d = null;
+        this.d = context;
+        this.c = arrayList;
+    }
+
     private JSONArray a(String str) {
         try {
             return new JSONArray(str);
         } catch (Exception e) {
-            com.baidu.adp.lib.f.d.a(e.getMessage());
+            com.baidu.adp.lib.h.d.a(e.getMessage());
             return null;
         }
     }
 
     private void a(JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.f838a = new ArrayList<>();
+            this.f967a = new ArrayList<>();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 g gVar = new g();
                 gVar.a(jSONArray.optJSONObject(i2));
                 if ((gVar.a() & i) != 0) {
-                    this.f838a.add(gVar);
+                    this.f967a.add(gVar);
                 }
             }
             this.c = new ArrayList<>();
             this.b = 0;
-            Iterator<g> it = this.f838a.iterator();
+            Iterator<g> it = this.f967a.iterator();
             c cVar = null;
             while (it.hasNext()) {
                 g next = it.next();
@@ -78,7 +104,7 @@ public class a {
                         this.c.add(cVar);
                         cVar = null;
                     }
-                    c cVar4 = new c(512);
+                    c cVar4 = new c(ImageManager.DEFAULT_MAX_CACHEABLE_SIZE);
                     cVar4.a(next.c());
                     this.c.add(cVar4);
                 } else {
@@ -94,8 +120,8 @@ public class a {
             if (cVar != null) {
                 this.c.add(cVar);
             }
-            this.f838a.clear();
-            this.f838a = null;
+            this.f967a.clear();
+            this.f967a = null;
         }
     }
 

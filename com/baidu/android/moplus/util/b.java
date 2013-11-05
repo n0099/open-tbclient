@@ -27,7 +27,7 @@ import java.util.List;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f550a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.BROADCAST_STICKY", "android.permission.WRITE_SETTINGS", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.SET_ACTIVITY_WATCHER", "android.permission.GET_TASKS"};
+    private static final String[] f629a = {"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.BROADCAST_STICKY", "android.permission.WRITE_SETTINGS", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.SET_ACTIVITY_WATCHER", "android.permission.GET_TASKS"};
     private static final String[] b = {MoPlusService.class.getName(), MoPlusReceiver.class.getName()};
     private static final String[] c = {"com.baidu.android.moplus.action.START", "android.net.conn.CONNECTIVITY_CHANGE", "com.baidu.android.pushservice.action.BIND_SYNC", "android.intent.action.BOOT_COMPLETED"};
 
@@ -447,7 +447,7 @@ public final class b {
     }
 
     public static boolean i(Context context) {
-        if (!a(context, f550a)) {
+        if (!a(context, f629a)) {
             Log.e("Utility", "*** Short of PERMISSIONS!");
             return false;
         } else if (!b(context, b)) {

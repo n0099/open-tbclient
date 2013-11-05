@@ -1,42 +1,37 @@
 package com.baidu.tieba.topRec;
 
-import android.view.LayoutInflater;
+import android.app.Activity;
 import android.view.View;
-import android.view.ViewGroup;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.be;
 /* loaded from: classes.dex */
-class p implements com.baidu.adp.lib.guide.b {
+public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1877a;
+    Activity f2398a;
+    int b = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar) {
-        this.f1877a = oVar;
+    public p(Activity activity) {
+        this.f2398a = activity;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(R.layout.top_cover, (ViewGroup) null);
+    public static boolean a() {
+        return com.baidu.tieba.sharedPref.b.a().a("toprec_first_in", false);
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 5;
+    public static void b() {
+        com.baidu.tieba.sharedPref.b.a().b("toprec_first_in", true);
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return 0;
+    public void a(View view) {
+        if (!a() && TiebaApplication.g().as() == 0) {
+            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
+            gVar.a(view).a(150).a(true);
+            q qVar = new q(this);
+            gVar.a(qVar).a(new r(this));
+            gVar.a().a(this.f2398a);
+            be.e("TOPRECTipCover", "show", "done");
+            b();
+        }
     }
 }

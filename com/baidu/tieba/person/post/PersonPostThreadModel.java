@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
-public class PersonPostThreadModel extends com.baidu.adp.a.c implements Serializable {
+public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializable {
     public static final int PAGE_SIZE = 20;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1705a = 0;
+    private static int f2225a = 0;
     private static String b = "";
     public static h sFetchThreadAsyncTask;
     @SerializedName("post_list")
@@ -20,12 +20,12 @@ public class PersonPostThreadModel extends com.baidu.adp.a.c implements Serializ
     @SerializedName("hide_post")
     public int hide_post = 0;
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
         return false;
     }
@@ -156,10 +156,10 @@ public class PersonPostThreadModel extends com.baidu.adp.a.c implements Serializ
 
     public static void fetchThread(g gVar, boolean z, String str) {
         if (z || !str.equals(b)) {
-            f1705a = 1;
+            f2225a = 1;
             b = str;
         } else {
-            f1705a++;
+            f2225a++;
         }
         if (sFetchThreadAsyncTask != null && sFetchThreadAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             sFetchThreadAsyncTask.cancel();

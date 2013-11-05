@@ -10,15 +10,15 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.forumdetail.ForumDetailActivity;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.model.as;
-import com.baidu.tieba.model.cf;
+import com.baidu.tieba.model.ba;
+import com.baidu.tieba.model.cp;
 import com.baidu.tieba.switchs.SwitchKey;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ItemFootNavView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1080a;
+    private Context f1211a;
     private ViewGroup b;
     private TextView c;
     private ViewGroup d;
@@ -35,7 +35,7 @@ public class ItemFootNavView extends LinearLayout {
     }
 
     public void a(Context context) {
-        this.f1080a = context;
+        this.f1211a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_foot_nav, (ViewGroup) this, true);
         this.b = (ViewGroup) findViewById(R.id.fn_care_box);
         this.c = (TextView) findViewById(R.id.fn_care_btn);
@@ -57,34 +57,34 @@ public class ItemFootNavView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.j jVar, boolean z) {
-        as asVar = new as();
-        asVar.a(SwitchKey.BAR_DETAIL_DIR);
-        asVar.setLoadDataCallBack(new h(this, asVar, jVar, z));
-        asVar.a(this.e.forumInfo.forumName, String.valueOf(this.e.forumInfo.forumID));
+        ba baVar = new ba();
+        baVar.a(SwitchKey.BAR_DETAIL_DIR);
+        baVar.setLoadDataCallBack(new h(this, baVar, jVar, z));
+        baVar.a(this.e.forumInfo.forumName, String.valueOf(this.e.forumInfo.forumID));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
         if (z) {
-            FrsActivity.f1109a = !FrsActivity.f1109a;
+            FrsActivity.f1243a = !FrsActivity.f1243a;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tieba.j jVar, boolean z) {
-        cf cfVar = new cf();
-        cfVar.a(SwitchKey.BAR_DETAIL_DIR);
-        cfVar.a(new i(this, jVar, z));
-        cfVar.a(this.e.forumInfo.forumName, this.e.forumInfo.forumID);
+        cp cpVar = new cp();
+        cpVar.a(SwitchKey.BAR_DETAIL_DIR);
+        cpVar.a(new i(this, jVar, z));
+        cpVar.a(this.e.forumInfo.forumName, this.e.forumInfo.forumID);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         int i;
         int i2;
-        int ap = TiebaApplication.g().ap();
+        int as = TiebaApplication.g().as();
         if (z) {
-            if (ap == 1) {
+            if (as == 1) {
                 i = R.drawable.icon_brief_cancel_1;
             } else {
                 i = R.drawable.icon_brief_cancel;
@@ -92,7 +92,7 @@ public class ItemFootNavView extends LinearLayout {
             i2 = R.string.forum_detail_fans_cancel;
             this.b.setTag(new Integer(1));
         } else {
-            if (ap == 1) {
+            if (as == 1) {
                 i = R.drawable.icon_brief_attention_1;
             } else {
                 i = R.drawable.icon_brief_attention;
@@ -100,9 +100,9 @@ public class ItemFootNavView extends LinearLayout {
             i2 = R.string.forum_detail_fans;
             this.b.setTag(new Integer(0));
         }
-        BitmapDrawable bitmapDrawable = (BitmapDrawable) this.f1080a.getResources().getDrawable(i);
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) this.f1211a.getResources().getDrawable(i);
         bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
         this.c.setCompoundDrawables(bitmapDrawable, null, null, null);
-        this.c.setText(this.f1080a.getResources().getString(i2));
+        this.c.setText(this.f1211a.getResources().getString(i2));
     }
 }

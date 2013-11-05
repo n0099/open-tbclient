@@ -1,46 +1,24 @@
 package com.baidu.tieba.frs;
-
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class be implements com.baidu.adp.lib.guide.b {
+public class be implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bd f1141a;
+    final /* synthetic */ boolean f1274a;
+    final /* synthetic */ int b;
+    final /* synthetic */ ba c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(bd bdVar) {
-        this.f1141a = bdVar;
+    public be(ba baVar, boolean z, int i) {
+        this.c = baVar;
+        this.f1274a = z;
+        this.b = i;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        ImageView imageView = new ImageView(this.f1141a.f1140a);
-        imageView.setImageResource(R.drawable.pic_frs_abstract_model);
-        return imageView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 4;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 48;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return -UtilHelper.a((Context) this.f1141a.f1140a, 20.0f);
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return 0;
+    @Override // java.lang.Runnable
+    public void run() {
+        bf bfVar;
+        bfVar = this.c.L;
+        bfVar.a(this.f1274a, this.b);
     }
 }

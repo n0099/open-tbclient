@@ -6,14 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes.dex */
 public class k extends SQLiteOpenHelper {
     public k(Context context) {
-        super(context, "baidu_tieba.db", (SQLiteDatabase.CursorFactory) null, 8);
+        super(context, "baidu_tieba.db", (SQLiteDatabase.CursorFactory) null, 9);
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            av.a(3, getClass().getName(), "ExecSQL", str);
+            be.a(3, getClass().getName(), "ExecSQL", str);
         }
     }
 
@@ -24,7 +24,7 @@ public class k extends SQLiteOpenHelper {
 
     public void a(SQLiteDatabase sQLiteDatabase) {
         a(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
-        a(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time)");
+        a(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255))");
         a(sQLiteDatabase, "CREATE TABLE if not exists search_data(key, account, time)");
         a(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
         a(sQLiteDatabase, "CREATE TABLE if not exists mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost int,forumName varchar(30),forumId varchar(30),threadId varchar(30))");
@@ -66,7 +66,7 @@ public class k extends SQLiteOpenHelper {
             try {
                 a(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
             } catch (Exception e) {
-                av.b(k.class.getName(), "onUpgrade", e.getMessage());
+                be.b(k.class.getName(), "onUpgrade", e.getMessage());
                 b(sQLiteDatabase);
                 a(sQLiteDatabase);
                 return;
@@ -95,6 +95,9 @@ public class k extends SQLiteOpenHelper {
             a(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_switch");
             a(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_start_time varchar(30)");
             a(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_end_time varchar(30)");
+        }
+        if (i < 9) {
+            a(sQLiteDatabase, "ALTER TABLE account_data ADD portrait varchar(255)");
         }
     }
 

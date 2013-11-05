@@ -108,10 +108,10 @@ public class PagerTabStrip extends PagerTitleStrip {
                     break;
                 case 1:
                     if (x < this.c.getLeft() - this.k) {
-                        this.f311a.setCurrentItem(this.f311a.getCurrentItem() - 1);
+                        this.f321a.setCurrentItem(this.f321a.getCurrentItem() - 1);
                         break;
                     } else if (x > this.c.getRight() + this.k) {
-                        this.f311a.setCurrentItem(this.f311a.getCurrentItem() + 1);
+                        this.f321a.setCurrentItem(this.f321a.getCurrentItem() + 1);
                         break;
                     }
                     break;

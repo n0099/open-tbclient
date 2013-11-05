@@ -7,19 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ba;
+import com.baidu.tieba.util.bj;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PKEndActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.n {
+public class PKEndActivity extends com.baidu.tieba.j implements View.OnClickListener, com.baidu.adp.widget.ScrollView.o {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f1269a;
+    private c f1764a;
     private b b;
     private String c;
     private boolean d = false;
     private com.baidu.tieba.util.a e;
 
-    @Override // com.baidu.adp.widget.ScrollView.n
+    @Override // com.baidu.adp.widget.ScrollView.o
     public void a() {
         c();
     }
@@ -42,11 +42,11 @@ public class PKEndActivity extends com.baidu.tieba.j implements View.OnClickList
         this.c = getIntent().getStringExtra("pk_id");
         String stringExtra = getIntent().getStringExtra("pk_title");
         setContentView(R.layout.kn_pkend_activity);
-        this.f1269a = new c(this, stringExtra);
-        this.f1269a.b.a(this);
-        if (PKJumpActivity.f1270a != null) {
-            a(PKJumpActivity.f1270a);
-            PKJumpActivity.f1270a = null;
+        this.f1764a = new c(this, stringExtra);
+        this.f1764a.b.a(this);
+        if (PKJumpActivity.f1765a != null) {
+            a(PKJumpActivity.f1765a);
+            PKJumpActivity.f1765a = null;
             return;
         }
         c();
@@ -55,27 +55,27 @@ public class PKEndActivity extends com.baidu.tieba.j implements View.OnClickList
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.f1269a.b.a(R.drawable.pk_bg);
+        this.f1764a.b.a(R.drawable.pk_bg);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.f1269a.b.a(0);
+        this.f1764a.b.a(0);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1269a.b()) {
+        if (view == this.f1764a.b()) {
             b();
         } else if (this.d) {
             if (view.getId() == R.id.pk_left_bar_container) {
-                FrsActivity.a(this, this.f1269a.f1275a.j.e, (String) null);
+                FrsActivity.a(this, this.f1764a.f1770a.j.e, (String) null);
             } else if (view.getId() == R.id.pk_right_bar_container) {
-                FrsActivity.a(this, this.f1269a.f1275a.k.e, (String) null);
+                FrsActivity.a(this, this.f1764a.f1770a.k.e, (String) null);
             } else {
-                ba.a(this, view.getId(), this.f1269a.f1275a.f1291a, new a(this));
+                bj.a(this, view.getId(), this.f1764a.f1770a.f1786a, new a(this));
             }
         }
     }
@@ -85,7 +85,7 @@ public class PKEndActivity extends com.baidu.tieba.j implements View.OnClickList
     }
 
     protected void c() {
-        this.f1269a.a().setVisibility(0);
+        this.f1764a.a().setVisibility(0);
         if (this.b != null) {
             this.b.cancel(true);
         }
@@ -98,7 +98,7 @@ public class PKEndActivity extends com.baidu.tieba.j implements View.OnClickList
     public void a(s sVar) {
         this.b = null;
         try {
-            this.f1269a.a(this.e, sVar);
+            this.f1764a.a(this.e, sVar);
             if (!sVar.b()) {
                 this.d = true;
             }
@@ -113,7 +113,7 @@ public class PKEndActivity extends com.baidu.tieba.j implements View.OnClickList
             this.b.cancel(true);
             this.b = null;
         }
-        this.f1269a.e();
+        this.f1764a.e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

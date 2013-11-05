@@ -1,37 +1,109 @@
 package com.baidu.tieba.util;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import com.slidingmenu.lib.R;
+import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
-class bd implements aq {
+public class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bc f1916a;
-    private final /* synthetic */ be b;
-    private final /* synthetic */ Activity c;
-    private final /* synthetic */ al d;
-    private final /* synthetic */ int e;
-    private final /* synthetic */ Bitmap f;
+    private static bd f2439a = null;
+    private boolean b = false;
+    private boolean c = false;
+    private int d = 600;
+    private String e = String.valueOf(45);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(bc bcVar, be beVar, Activity activity, al alVar, int i, Bitmap bitmap) {
-        this.f1916a = bcVar;
-        this.b = beVar;
-        this.c = activity;
-        this.d = alVar;
-        this.e = i;
-        this.f = bitmap;
+    public static bd a() {
+        if (f2439a == null) {
+            synchronized (bd.class) {
+                f2439a = new bd();
+            }
+        }
+        return f2439a;
     }
 
-    @Override // com.baidu.tieba.util.aq
-    public void a(String str) {
-        this.b.b();
-        if (str == null) {
-            UtilHelper.a((Context) this.c, this.c.getResources().getString(R.string.share_load_img_failed));
-        } else {
-            this.d.a(this.e, str, this.f, this.c.getResources().getString(R.string.share_iamge_title_default));
+    public bd() {
+        h();
+        g();
+    }
+
+    private void g() {
+        i();
+        j();
+        f();
+    }
+
+    public void a(boolean z) {
+        this.c = z;
+    }
+
+    public boolean b() {
+        return this.c;
+    }
+
+    public void b(boolean z) {
+        this.b = z;
+        g();
+    }
+
+    private void h() {
+        this.b = UtilHelper.i(TiebaApplication.g().getApplicationContext()) == UtilHelper.NetworkStateInfo.WIFI;
+    }
+
+    public boolean c() {
+        return this.b;
+    }
+
+    public String d() {
+        return this.e;
+    }
+
+    public int e() {
+        f();
+        return this.d;
+    }
+
+    private void i() {
+        boolean z = true;
+        if (TiebaApplication.g().am() != 0 ? TiebaApplication.g().am() != 1 : !this.b) {
+            z = false;
         }
+        a(z);
+    }
+
+    private void j() {
+        String valueOf = String.valueOf(45);
+        if (TiebaApplication.g().am() == 0) {
+            if (c()) {
+                valueOf = String.valueOf(80);
+            }
+        } else if (TiebaApplication.g().am() == 1) {
+            valueOf = String.valueOf(80);
+        }
+        this.e = valueOf;
+    }
+
+    public void f() {
+        int i = BdWebErrorView.ERROR_CODE_900;
+        switch (TiebaApplication.g().al()) {
+            case 0:
+                if (!c()) {
+                    i = 600;
+                    break;
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                i = 750;
+                break;
+            case 3:
+                i = 600;
+                break;
+            default:
+                i = 750;
+                break;
+        }
+        this.d = i;
     }
 }

@@ -7,13 +7,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class k extends p<Params, Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ModernAsyncTask f307a;
+    final /* synthetic */ ModernAsyncTask f317a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(ModernAsyncTask modernAsyncTask) {
         super(null);
-        this.f307a = modernAsyncTask;
+        this.f317a = modernAsyncTask;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.Object, Result] */
@@ -21,10 +21,10 @@ public class k extends p<Params, Result> {
     public Result call() {
         AtomicBoolean atomicBoolean;
         ?? d;
-        atomicBoolean = this.f307a.i;
+        atomicBoolean = this.f317a.i;
         atomicBoolean.set(true);
         Process.setThreadPriority(10);
-        d = this.f307a.d(this.f307a.a((Object[]) this.b));
+        d = this.f317a.d(this.f317a.a((Object[]) this.b));
         return d;
     }
 }

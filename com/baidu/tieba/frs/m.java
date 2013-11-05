@@ -1,53 +1,53 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ForumData;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class m implements ac {
+class m implements ab {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1154a;
+    final /* synthetic */ FrsActivity f1289a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsActivity frsActivity) {
-        this.f1154a = frsActivity;
+        this.f1289a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ac
-    public void a(com.baidu.tieba.model.ae aeVar, com.baidu.tieba.model.af afVar) {
+    @Override // com.baidu.tieba.frs.ab
+    public void a(com.baidu.tieba.model.am amVar, com.baidu.tieba.model.an anVar) {
         ba baVar;
         ba baVar2;
         ba baVar3;
-        com.baidu.tieba.model.ac acVar;
-        com.baidu.tieba.model.ac acVar2;
+        com.baidu.tieba.model.ak akVar;
+        com.baidu.tieba.model.ak akVar2;
         ba baVar4;
-        com.baidu.tieba.model.ac acVar3;
-        com.baidu.tieba.model.ac acVar4;
-        if (aeVar.f1392a) {
-            baVar3 = this.f1154a.o;
-            baVar3.a(this.f1154a.getString(R.string.add_fan_sucess));
-            acVar = this.f1154a.x;
-            acVar.e().b(1);
-            acVar2 = this.f1154a.x;
-            acVar2.e().c(aeVar.c);
-            baVar4 = this.f1154a.o;
-            acVar3 = this.f1154a.x;
-            com.baidu.tieba.data.v a2 = acVar3.a();
-            acVar4 = this.f1154a.x;
-            baVar4.a(1, a2, acVar4.e());
+        com.baidu.tieba.model.ak akVar3;
+        com.baidu.tieba.model.ak akVar4;
+        if (amVar.f1897a) {
+            baVar3 = this.f1289a.o;
+            baVar3.a(this.f1289a.getString(R.string.add_fan_sucess));
+            akVar = this.f1289a.x;
+            akVar.e().b(1);
+            akVar2 = this.f1289a.x;
+            akVar2.e().c(amVar.c);
+            baVar4 = this.f1289a.o;
+            akVar3 = this.f1289a.x;
+            ForumData a2 = akVar3.a();
+            akVar4 = this.f1289a.x;
+            baVar4.a(1, a2, akVar4.e());
             TiebaApplication.g().h(true);
             return;
         }
-        if (afVar.d == null || afVar.d.length() <= 0) {
-            baVar = this.f1154a.o;
-            baVar.a(this.f1154a.getString(R.string.add_fan_error));
+        if (anVar.d == null || anVar.d.length() <= 0) {
+            baVar = this.f1289a.o;
+            baVar.a(this.f1289a.getString(R.string.add_fan_error));
         } else {
-            baVar2 = this.f1154a.o;
-            baVar2.a(afVar.d);
+            baVar2 = this.f1289a.o;
+            baVar2.a(anVar.d);
         }
-        if (afVar.c != 120002) {
-            return;
+        if (anVar.c == 120002) {
+            this.f1289a.C();
         }
-        this.f1154a.D();
     }
 }

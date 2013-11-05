@@ -4,7 +4,7 @@ import com.google.gson.GsonBuilder;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class BarSuggestModel extends com.baidu.adp.a.c implements Serializable {
+public class BarSuggestModel extends com.baidu.adp.a.d implements Serializable {
     public ArrayList<Forum> forum_list;
 
     /* loaded from: classes.dex */
@@ -21,12 +21,12 @@ public class BarSuggestModel extends com.baidu.adp.a.c implements Serializable {
         return (BarSuggestModel) new GsonBuilder().create().fromJson(str, (Class<Object>) BarSuggestModel.class);
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.a.c
+    @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
         return false;
     }

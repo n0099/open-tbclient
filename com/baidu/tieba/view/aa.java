@@ -17,7 +17,7 @@ public class aa extends TbImageView {
     private ViewGroup.LayoutParams f;
     private Rect g;
 
-    public boolean c() {
+    public boolean b() {
         return this.d;
     }
 
@@ -42,7 +42,7 @@ public class aa extends TbImageView {
         this.e = false;
         this.f = null;
         this.g = null;
-        d();
+        c();
     }
 
     public aa(Context context, int i) {
@@ -54,10 +54,10 @@ public class aa extends TbImageView {
         this.f = null;
         this.g = null;
         this.b = i;
-        d();
+        c();
     }
 
-    private void d() {
+    private void c() {
         setType(this.b);
     }
 
@@ -74,18 +74,18 @@ public class aa extends TbImageView {
         setDefaultScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
-    @Override // com.baidu.adp.widget.a.a
+    @Override // com.baidu.adp.widget.ImageView.a
     public Rect getBitmapRect() {
         return this.g;
     }
 
-    @Override // com.baidu.adp.widget.a.a
-    protected Matrix b(com.baidu.adp.widget.a.c cVar) {
+    @Override // com.baidu.adp.widget.ImageView.a
+    protected Matrix b(com.baidu.adp.widget.ImageView.e eVar) {
         float f;
         int i;
         int i2;
-        int a2 = cVar.a();
-        int b = cVar.b();
+        int a2 = eVar.a();
+        int b = eVar.b();
         int width = getWidth();
         int height = getHeight();
         if (a2 == 0 || b == 0 || width == 0 || height == 0) {
@@ -145,7 +145,7 @@ public class aa extends TbImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.a.a, android.widget.ImageView, android.view.View
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
     }

@@ -1,24 +1,23 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements DialogInterface.OnClickListener {
+public class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1522a;
+    final /* synthetic */ ImagePbActivity f2039a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(ImagePbActivity imagePbActivity) {
-        this.f1522a = imagePbActivity;
+        this.f2039a = imagePbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        if (i == 0) {
-            com.baidu.tieba.write.bf.a(this.f1522a);
-        } else {
-            com.baidu.tieba.write.bf.b(this.f1522a);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        ImagePbActivity imagePbActivity = this.f2039a;
+        i = this.f2039a.x;
+        imagePbActivity.e(i);
     }
 }

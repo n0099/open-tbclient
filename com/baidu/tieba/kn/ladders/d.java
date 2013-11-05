@@ -10,13 +10,13 @@ import com.baidu.tieba.kn.ladders.KnLaddersModel;
 public class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1249a;
-    private final /* synthetic */ KnLaddersModel.PlayerInfo b;
+    final /* synthetic */ KnLaddersModel.PlayerInfo f1744a;
+    final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, KnLaddersModel.PlayerInfo playerInfo) {
-        this.f1249a = aVar;
-        this.b = playerInfo;
+        this.b = aVar;
+        this.f1744a = playerInfo;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,6 +24,6 @@ public class d implements View.OnClickListener {
         if (TiebaApplication.g().s()) {
             StatService.onEvent(view.getContext(), "kn_ladders_portrait", "click", 1);
         }
-        FrsActivity.a(view.getContext(), this.b.forum_name, "KnLadders");
+        FrsActivity.a(view.getContext(), this.f1744a.forum_name, "KnLadders");
     }
 }

@@ -197,9 +197,9 @@ class ColorPickerDialog extends AlertDialog implements DialogInterface.OnClickLi
             i2 = 16777215;
         }
         this.mColor = i2;
-        setButton(-1, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_SET, "Set"), this);
-        setButton(-2, PickerHelper.getStringById(WebChromeClient.STRING_DLG_BTN_CANCEL, "Cancel"), this);
-        setTitle(PickerHelper.getStringById(WebChromeClient.STRING_DLG_TITLE_COLOR, "Set Color"));
+        setButton(-1, PickerHelper.getStringById(150, "Set"), this);
+        setButton(-2, PickerHelper.getStringById(151, "Cancel"), this);
+        setTitle(PickerHelper.getStringById(105, "Set Color"));
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setGravity(1);
         linearLayout.addView(new ColorPickerView(context, this.mListener, i2));

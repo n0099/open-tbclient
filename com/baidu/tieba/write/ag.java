@@ -1,19 +1,25 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
+import android.content.DialogInterface;
+import com.baidu.tieba.data.WriteData;
+import com.baidu.tieba.util.DatabaseService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements Runnable {
+public class ag implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2084a;
+    final /* synthetic */ WriteActivity f2628a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(WriteActivity writeActivity) {
-        this.f2084a = writeActivity;
+        this.f2628a = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.f2084a.a((Bitmap) null);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        writeData = this.f2628a.f2619a;
+        DatabaseService.a(writeData);
+        this.f2628a.finish();
     }
 }

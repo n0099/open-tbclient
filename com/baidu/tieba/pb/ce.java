@@ -1,31 +1,28 @@
 package com.baidu.tieba.pb;
-
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
 /* loaded from: classes.dex */
-class ce implements Animation.AnimationListener {
+class ce implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ br f1576a;
-    private final /* synthetic */ ImageView b;
+    final /* synthetic */ cd f2092a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(br brVar, ImageView imageView) {
-        this.f1576a = brVar;
-        this.b = imageView;
+    public ce(cd cdVar) {
+        this.f2092a = cdVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new cf(this, this.b));
+    @Override // java.lang.Runnable
+    public void run() {
+        db dbVar;
+        dd ddVar;
+        db dbVar2;
+        dbVar = this.f2092a.d.au;
+        if (dbVar != null) {
+            dbVar2 = this.f2092a.d.au;
+            dbVar2.a(this.f2092a.f2091a);
+        }
+        if (this.f2092a.b) {
+            ddVar = this.f2092a.d.E;
+            ddVar.b(this.f2092a.c);
+        }
     }
 }

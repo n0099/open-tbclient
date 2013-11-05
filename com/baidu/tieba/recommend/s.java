@@ -4,11 +4,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s {
+public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    View f1768a;
+    View f2288a;
     TextView b;
     LinearLayout c;
     RelativeLayout d;
@@ -23,7 +24,7 @@ class s {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(h hVar, s sVar) {
+    public /* synthetic */ s(h hVar, i iVar) {
         this(hVar);
     }
 }

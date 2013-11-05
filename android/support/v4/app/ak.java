@@ -10,7 +10,7 @@ import java.lang.reflect.Modifier;
 public final class ak implements android.support.v4.content.e<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    final int f279a;
+    final int f289a;
     final Bundle b;
     ai<Object> c;
     android.support.v4.content.c<Object> d;
@@ -32,18 +32,18 @@ public final class ak implements android.support.v4.content.e<Object> {
             this.h = true;
         } else if (!this.h) {
             this.h = true;
-            if (aj.f278a) {
+            if (aj.f288a) {
                 Log.v("LoaderManager", "  Starting: " + this);
             }
             if (this.d == null && this.c != null) {
-                this.d = this.c.a(this.f279a, this.b);
+                this.d = this.c.a(this.f289a, this.b);
             }
             if (this.d != null) {
                 if (this.d.getClass().isMemberClass() && !Modifier.isStatic(this.d.getClass().getModifiers())) {
                     throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + this.d);
                 }
                 if (!this.m) {
-                    this.d.a(this.f279a, this);
+                    this.d.a(this.f289a, this);
                     this.m = true;
                 }
                 this.d.n();
@@ -53,7 +53,7 @@ public final class ak implements android.support.v4.content.e<Object> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        if (aj.f278a) {
+        if (aj.f288a) {
             Log.v("LoaderManager", "  Retaining: " + this);
         }
         this.i = true;
@@ -65,7 +65,7 @@ public final class ak implements android.support.v4.content.e<Object> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
         if (this.i) {
-            if (aj.f278a) {
+            if (aj.f288a) {
                 Log.v("LoaderManager", "  Finished Retaining: " + this);
             }
             this.i = false;
@@ -90,7 +90,7 @@ public final class ak implements android.support.v4.content.e<Object> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void e() {
-        if (aj.f278a) {
+        if (aj.f288a) {
             Log.v("LoaderManager", "  Stopping: " + this);
         }
         this.h = false;
@@ -104,14 +104,14 @@ public final class ak implements android.support.v4.content.e<Object> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f() {
         String str;
-        if (aj.f278a) {
+        if (aj.f288a) {
             Log.v("LoaderManager", "  Destroying: " + this);
         }
         this.l = true;
         boolean z = this.f;
         this.f = false;
         if (this.c != null && this.d != null && this.e && z) {
-            if (aj.f278a) {
+            if (aj.f288a) {
                 Log.v("LoaderManager", "  Reseting: " + this);
             }
             if (this.o.e != null) {
@@ -146,25 +146,25 @@ public final class ak implements android.support.v4.content.e<Object> {
 
     @Override // android.support.v4.content.e
     public void a(android.support.v4.content.c<Object> cVar, Object obj) {
-        if (aj.f278a) {
+        if (aj.f288a) {
             Log.v("LoaderManager", "onLoadComplete: " + this);
         }
         if (this.l) {
-            if (aj.f278a) {
+            if (aj.f288a) {
                 Log.v("LoaderManager", "  Ignoring load complete -- destroyed");
             }
-        } else if (this.o.b.a(this.f279a) != this) {
-            if (aj.f278a) {
+        } else if (this.o.b.a(this.f289a) != this) {
+            if (aj.f288a) {
                 Log.v("LoaderManager", "  Ignoring load complete -- not active");
             }
         } else {
             ak akVar = this.n;
             if (akVar != null) {
-                if (aj.f278a) {
+                if (aj.f288a) {
                     Log.v("LoaderManager", "  Switching to pending loader: " + akVar);
                 }
                 this.n = null;
-                this.o.b.b(this.f279a, null);
+                this.o.b.b(this.f289a, null);
                 f();
                 this.o.a(akVar);
                 return;
@@ -176,11 +176,11 @@ public final class ak implements android.support.v4.content.e<Object> {
                     b(cVar, obj);
                 }
             }
-            ak a2 = this.o.c.a(this.f279a);
+            ak a2 = this.o.c.a(this.f289a);
             if (a2 != null && a2 != this) {
                 a2.f = false;
                 a2.f();
-                this.o.c.c(this.f279a);
+                this.o.c.c(this.f289a);
             }
             if (this.o.e != null && !this.o.a()) {
                 this.o.e.mFragments.d();
@@ -199,7 +199,7 @@ public final class ak implements android.support.v4.content.e<Object> {
                 str = str2;
             }
             try {
-                if (aj.f278a) {
+                if (aj.f288a) {
                     Log.v("LoaderManager", "  onLoadFinished in " + cVar + ": " + cVar.c(obj));
                 }
                 this.c.a((android.support.v4.content.c<android.support.v4.content.c<Object>>) cVar, (android.support.v4.content.c<Object>) obj);
@@ -217,7 +217,7 @@ public final class ak implements android.support.v4.content.e<Object> {
         sb.append("LoaderInfo{");
         sb.append(Integer.toHexString(System.identityHashCode(this)));
         sb.append(" #");
-        sb.append(this.f279a);
+        sb.append(this.f289a);
         sb.append(" : ");
         android.support.v4.b.a.a(this.d, sb);
         sb.append("}}");
@@ -227,7 +227,7 @@ public final class ak implements android.support.v4.content.e<Object> {
     public void a(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         printWriter.print(str);
         printWriter.print("mId=");
-        printWriter.print(this.f279a);
+        printWriter.print(this.f289a);
         printWriter.print(" mArgs=");
         printWriter.println(this.b);
         printWriter.print(str);

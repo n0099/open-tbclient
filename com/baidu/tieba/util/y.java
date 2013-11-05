@@ -1,35 +1,61 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 /* loaded from: classes.dex */
-public class y implements MediaScannerConnection.MediaScannerConnectionClient {
-
-    /* renamed from: a  reason: collision with root package name */
-    private MediaScannerConnection f1931a;
-    private Context b;
-    private String c;
-    private String d;
-
-    public y(Context context) {
-        this.b = context;
+public class y {
+    public static void a(InputStream inputStream, OutputStream outputStream) {
+        GZIPOutputStream gZIPOutputStream;
+        try {
+            gZIPOutputStream = new GZIPOutputStream(outputStream);
+        } catch (Throwable th) {
+            th = th;
+            gZIPOutputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    gZIPOutputStream.write(bArr, 0, read);
+                } else {
+                    gZIPOutputStream.flush();
+                    g.a((OutputStream) gZIPOutputStream);
+                    return;
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            g.a((OutputStream) gZIPOutputStream);
+            throw th;
+        }
     }
 
-    public void a(String str) {
-        this.c = str;
-        this.d = "image/*";
-        this.f1931a = new MediaScannerConnection(this.b, this);
-        this.f1931a.connect();
-    }
-
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        this.f1931a.scanFile(this.c, this.d);
-    }
-
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        this.f1931a.disconnect();
+    public static void b(InputStream inputStream, OutputStream outputStream) {
+        GZIPInputStream gZIPInputStream;
+        try {
+            gZIPInputStream = new GZIPInputStream(inputStream);
+        } catch (Throwable th) {
+            th = th;
+            gZIPInputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = gZIPInputStream.read(bArr, 0, 1024);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    g.a((InputStream) gZIPInputStream);
+                    return;
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            g.a((InputStream) gZIPInputStream);
+            throw th;
+        }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.cyberplayer.sdk.internal.ReflectUtilsCyberPlayer;
 public class BCyberPlayerFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f737a = null;
+    private static Context f866a = null;
 
     /* renamed from: a  reason: collision with other field name */
     private static IProxyFactoryBridge f0a = null;
@@ -25,11 +25,11 @@ public class BCyberPlayerFactory {
 
     public static void init(Context context) {
         LogUtils.w("BCyberPlayerFactory", "sdk version: " + getSdkVersion(), new Object[0]);
-        f737a = context.getApplicationContext();
+        f866a = context.getApplicationContext();
     }
 
     public static BEngineManager createEngineManager() {
-        return CyberPlayerEngineManager.getInstance(f737a);
+        return CyberPlayerEngineManager.getInstance(f866a);
     }
 
     public static IProxyFactoryBridge getProxyFactory() {

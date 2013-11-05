@@ -7,11 +7,11 @@ import android.widget.AbsListView;
 public class j implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1105a;
+    final /* synthetic */ i f1237a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar) {
-        this.f1105a = hVar;
+    public j(i iVar) {
+        this.f1237a = iVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -29,22 +29,22 @@ public class j implements AbsListView.OnScrollListener {
         Handler handler5;
         Runnable runnable3;
         if (i == 0) {
-            handler3 = this.f1105a.g;
+            handler3 = this.f1237a.g;
             if (handler3 != null) {
-                handler4 = this.f1105a.g;
-                runnable2 = this.f1105a.p;
+                handler4 = this.f1237a.g;
+                runnable2 = this.f1237a.p;
                 handler4.removeCallbacks(runnable2);
-                handler5 = this.f1105a.g;
-                runnable3 = this.f1105a.p;
+                handler5 = this.f1237a.g;
+                runnable3 = this.f1237a.p;
                 handler5.postDelayed(runnable3, 300L);
                 return;
             }
             return;
         }
-        handler = this.f1105a.g;
+        handler = this.f1237a.g;
         if (handler != null) {
-            handler2 = this.f1105a.g;
-            runnable = this.f1105a.p;
+            handler2 = this.f1237a.g;
+            runnable = this.f1237a.p;
             handler2.removeCallbacks(runnable);
         }
     }

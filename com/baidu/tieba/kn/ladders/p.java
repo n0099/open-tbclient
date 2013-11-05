@@ -8,17 +8,17 @@ import com.slidingmenu.lib.R;
 public class p implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1260a;
+    final /* synthetic */ o f1755a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.f1260a = oVar;
+        this.f1755a = oVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        context = this.f1260a.b;
+        context = this.f1755a.b;
         Toast.makeText(context, (int) R.string.neterror, 0).show();
     }
 }

@@ -3,195 +3,78 @@ package com.baidu.adp.lib.cache;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import java.util.LinkedList;
 /* loaded from: classes.dex */
-public abstract class a<T> {
+public class a extends c<byte[]> {
+    private String g;
 
-    /* renamed from: a  reason: collision with root package name */
-    protected final com.baidu.adp.a.f f379a;
-    protected String b;
-    protected f c;
-    protected e d;
-    protected int e;
-    protected LinkedList<String> f = new LinkedList<>();
-    private Object g = new Object();
-
-    public abstract int a();
-
-    protected abstract ContentValues a(k<T> kVar);
-
-    public abstract Cursor a(SQLiteDatabase sQLiteDatabase, String str);
-
-    public abstract String a(String str);
-
-    public abstract void a(String str, String str2, int i, int i2);
-
-    protected abstract k<T> b(SQLiteDatabase sQLiteDatabase, String str);
-
-    public a(com.baidu.adp.a.f fVar) {
-        this.f379a = fVar;
+    public a(com.baidu.adp.a.h hVar, String str) {
+        super(hVar);
+        this.g = str;
     }
 
-    public void a(d dVar, String str) {
-        this.b = str;
-        if (dVar instanceof f) {
-            this.c = (f) dVar;
-        }
-        if (dVar instanceof e) {
-            this.d = (e) dVar;
-        }
+    @Override // com.baidu.adp.lib.cache.c
+    public String a(String str) {
+        this.f428a.a(this.f428a.a(), "CREATE TABLE IF NOT EXISTS " + this.g + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.f428a.a(this.f428a.a(), "CREATE INDEX if not exists idx_mi_ns ON " + this.g + "(m_ns)");
+        return this.g;
     }
 
-    public k<T> b(String str) {
+    @Override // com.baidu.adp.lib.cache.c
+    public void a(String str, String str2, int i, int i2) {
+    }
+
+    @Override // com.baidu.adp.lib.cache.c
+    public int a() {
+        return 1;
+    }
+
+    /* JADX WARN: Type inference failed for: r2v17, types: [T, byte[]] */
+    @Override // com.baidu.adp.lib.cache.c
+    protected m<byte[]> a(SQLiteDatabase sQLiteDatabase, String str) {
+        Cursor cursor;
+        Throwable th;
+        m<byte[]> mVar = null;
         try {
-            return b(this.f379a.a(), str);
-        } catch (Throwable th) {
-            this.f379a.a(th);
-            com.baidu.adp.lib.f.d.a(getClass(), str, th);
-            return null;
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
+        } catch (Throwable th2) {
+            cursor = null;
+            th = th2;
         }
-    }
-
-    public void b(k<T> kVar) {
-        String a2;
         try {
-            synchronized (this.g) {
-                this.f.remove(kVar.f384a);
+            if (cursor.moveToNext()) {
+                mVar = new m<>();
+                mVar.f433a = cursor.getString(0);
+                mVar.c = cursor.getString(1);
+                mVar.d = cursor.getLong(2);
+                mVar.e = cursor.getLong(3);
+                mVar.f = cursor.getLong(4);
+                mVar.b = cursor.getBlob(5);
+                com.baidu.adp.lib.f.a.a(cursor);
+            } else {
+                com.baidu.adp.lib.f.a.a(cursor);
             }
-            ContentValues a3 = a(kVar);
-            if (this.f379a.a().update(this.b, a3, "m_key = ?", new String[]{kVar.f384a}) == 0) {
-                this.f379a.a().insert(this.b, null, a3);
-                if (this.d != null) {
-                    b();
-                }
-            }
-            if (this.c != null && (a2 = this.c.a(kVar)) != null) {
-                c(a2);
-            }
-        } catch (Throwable th) {
-            this.f379a.a(th);
-            com.baidu.adp.lib.f.d.a(getClass(), "failed to insert " + kVar.f384a + " to db.", th);
+            return mVar;
+        } catch (Throwable th3) {
+            th = th3;
+            com.baidu.adp.lib.f.a.a(cursor);
+            throw th;
         }
     }
 
-    protected void b() {
-        if (this.d != null) {
-            this.e++;
-            if (this.e >= ((int) Math.min(this.d.a() * 0.2d, 5.0d))) {
-                this.e = 0;
-                com.baidu.adp.lib.d.b.a().a(new b(this));
-            }
-        }
+    @Override // com.baidu.adp.lib.cache.c
+    protected ContentValues a(m<byte[]> mVar) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("m_key", mVar.f433a);
+        contentValues.put("m_ns", mVar.c);
+        contentValues.put("m_value", mVar.b);
+        contentValues.put("saveTime", Long.valueOf(mVar.d));
+        contentValues.put("lastHitTime", Long.valueOf(mVar.e));
+        contentValues.put("timeToExpire", Long.valueOf(mVar.f));
+        return contentValues;
     }
 
-    public int c(String str) {
-        try {
-            return this.f379a.a().delete(this.b, "m_key = ?", new String[]{str});
-        } catch (Throwable th) {
-            this.f379a.a(th);
-            com.baidu.adp.lib.f.d.a(getClass(), "failed to delete " + str + " from db.", th);
-            return 0;
-        }
-    }
-
-    public synchronized void a(String str, boolean z) {
-        synchronized (this.g) {
-            if (!this.f.contains(str)) {
-                this.f.addLast(str);
-                if (z) {
-                    b();
-                }
-            }
-        }
-    }
-
-    public void d(String str) {
-        if (this.d != null) {
-            Cursor cursor = null;
-            try {
-                this.d.c();
-                cursor = a(this.f379a.a(), str);
-                while (cursor.moveToNext()) {
-                    k<?> kVar = new k<>();
-                    kVar.f384a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    kVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    kVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    kVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String a2 = this.d.a(kVar);
-                    if (a2 != null) {
-                        a(a2, false);
-                    }
-                }
-                c();
-            } catch (Throwable th) {
-                try {
-                    this.f379a.a(th);
-                    com.baidu.adp.lib.f.d.a(getClass(), "performEvict", th);
-                } finally {
-                    com.baidu.adp.lib.d.a.a(cursor);
-                    this.d.d();
-                }
-            }
-        }
-    }
-
-    public void e(String str) {
-        if (this.c != null) {
-            Cursor cursor = null;
-            try {
-                this.c.c();
-                cursor = a(this.f379a.a(), str);
-                while (cursor.moveToNext()) {
-                    k<?> kVar = new k<>();
-                    kVar.f384a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    kVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                    kVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
-                    kVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String b = this.c.b(kVar);
-                    if (b != null) {
-                        a(b, false);
-                    }
-                }
-                c();
-            } catch (Throwable th) {
-                try {
-                    this.f379a.a(th);
-                    com.baidu.adp.lib.f.d.a(getClass(), "performPump", th);
-                } finally {
-                    com.baidu.adp.lib.d.a.a(cursor);
-                    this.c.d();
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
-        String removeFirst;
-        if (!this.f.isEmpty()) {
-            SQLiteDatabase a2 = this.f379a.a();
-            a2.beginTransaction();
-            while (true) {
-                try {
-                    synchronized (this.g) {
-                        if (!this.f.isEmpty()) {
-                            removeFirst = this.f.removeFirst();
-                        } else {
-                            a2.setTransactionSuccessful();
-                            this.e = 0;
-                            return;
-                        }
-                    }
-                    a2.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
-                } catch (Throwable th) {
-                    try {
-                        this.f379a.a(th);
-                        return;
-                    } finally {
-                        a2.endTransaction();
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.adp.lib.cache.c
+    public Cursor b(SQLiteDatabase sQLiteDatabase, String str) {
+        return sQLiteDatabase.rawQuery("select * from " + this.b + " where m_ns = ?", new String[]{str});
     }
 }

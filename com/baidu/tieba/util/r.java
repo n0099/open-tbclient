@@ -1,38 +1,33 @@
 package com.baidu.tieba.util;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r {
-    public static void a(InputStream inputStream, OutputStream outputStream) {
-        GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = gZIPInputStream.read(bArr, 0, 1024);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-            } else {
-                gZIPInputStream.close();
-                return;
-            }
-        }
+public class r implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ o f2458a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(o oVar) {
+        this.f2458a = oVar;
     }
 
-    public static void b(InputStream inputStream, OutputStream outputStream) {
-        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-        byte[] bArr = new byte[1024];
-        while (true) {
-            int read = inputStream.read(bArr, 0, 1024);
-            if (read != -1) {
-                gZIPOutputStream.write(bArr, 0, read);
-            } else {
-                gZIPOutputStream.flush();
-                gZIPOutputStream.finish();
-                gZIPOutputStream.close();
-                return;
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        AtomicBoolean atomicBoolean;
+        String str;
+        String str2;
+        try {
+            o oVar = this.f2458a;
+            str = o.d;
+            oVar.a(str, 0L);
+            o oVar2 = this.f2458a;
+            str2 = o.e;
+            oVar2.a(str2, 0L);
+        } finally {
+            atomicBoolean = this.f2458a.b;
+            atomicBoolean.set(false);
         }
     }
 }

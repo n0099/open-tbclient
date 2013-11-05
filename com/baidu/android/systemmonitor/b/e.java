@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f680a;
+    public String f759a;
     public long b;
     public long c;
     public String d;
@@ -28,7 +28,7 @@ public final class e {
         int columnIndex5 = cursor.getColumnIndex("stoplevel");
         int columnIndex6 = cursor.getColumnIndex("netype");
         int columnIndex7 = cursor.getColumnIndex("flow");
-        this.f680a = cursor.getString(cursor.getColumnIndex("pn"));
+        this.f759a = cursor.getString(cursor.getColumnIndex("pn"));
         this.b = cursor.getLong(columnIndex);
         this.c = cursor.getLong(columnIndex2);
         this.d = cursor.getString(columnIndex3);
@@ -53,10 +53,10 @@ public final class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f680a = str;
+        this.f759a = str;
     }
 
     public String toString() {
-        return "apptrace :  packageName =" + this.f680a + "  startStamp =" + this.b + " stopStamp =" + this.c + " location =" + this.d + " startBtLevel =" + this.e + " stopBtLevel =" + this.f + " netType =" + this.g + " netFlow =" + this.h;
+        return "apptrace :  packageName =" + this.f759a + "  startStamp =" + this.b + " stopStamp =" + this.c + " location =" + this.d + " startBtLevel =" + this.e + " stopBtLevel =" + this.f + " netType =" + this.g + " netFlow =" + this.h;
     }
 }

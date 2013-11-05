@@ -16,15 +16,15 @@ import com.slidingmenu.lib.R;
 public class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1250a;
-    private final /* synthetic */ long b;
-    private final /* synthetic */ KnLaddersModel.PlayerInfo c;
+    final /* synthetic */ long f1745a;
+    final /* synthetic */ KnLaddersModel.PlayerInfo b;
+    final /* synthetic */ a c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, long j, KnLaddersModel.PlayerInfo playerInfo) {
-        this.f1250a = aVar;
-        this.b = j;
-        this.c = playerInfo;
+        this.c = aVar;
+        this.f1745a = j;
+        this.b = playerInfo;
     }
 
     @Override // android.view.View.OnClickListener
@@ -35,22 +35,22 @@ public class e implements View.OnClickListener {
         KnLaddersFragment knLaddersFragment;
         Activity activity4;
         if (!UtilHelper.b()) {
-            activity4 = this.f1250a.k;
+            activity4 = this.c.k;
             UtilHelper.a((Context) activity4, (int) R.string.neterror);
-        } else if (this.b <= 0) {
+        } else if (this.f1745a <= 0) {
             String C = TiebaApplication.C();
             if ((C == null || C.length() <= 0) && DatabaseService.m() <= 0) {
-                activity = this.f1250a.k;
-                activity2 = this.f1250a.k;
+                activity = this.c.k;
+                activity2 = this.c.k;
                 LoginActivity.a(activity, activity2.getString(R.string.login_to_shake), true, 11003);
                 return;
             }
             if (TiebaApplication.g().s()) {
                 StatService.onEvent(view.getContext(), "kn_ladders_support", "click", 1);
             }
-            activity3 = this.f1250a.k;
-            ShakeActivity.a(activity3, String.valueOf(this.c.player_id), this.c.player_name, "KnLadders");
-            knLaddersFragment = this.f1250a.l;
+            activity3 = this.c.k;
+            ShakeActivity.a(activity3, String.valueOf(this.b.player_id), this.b.player_name, "KnLadders");
+            knLaddersFragment = this.c.l;
             knLaddersFragment.a(true);
         }
     }

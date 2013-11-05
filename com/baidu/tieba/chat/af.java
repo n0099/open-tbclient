@@ -1,32 +1,45 @@
 package com.baidu.tieba.chat;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.data.chat.ChatPostData;
 /* loaded from: classes.dex */
-public class af implements com.baidu.tbadk.a.d {
+public class af extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ac f957a;
+    private ChatPostData f1090a = null;
+    private ag b = null;
+    private ah c = null;
+    private com.baidu.tieba.data.chat.c d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ac acVar) {
-        this.f957a = acVar;
+    public af() {
+        this.d = null;
+        this.d = com.baidu.tieba.data.chat.c.a();
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (cVar != null) {
-            bdListView = this.f957a.g;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                cVar.a(imageView);
-                bdListView2 = this.f957a.g;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
+    public void a(ah ahVar) {
+        this.c = ahVar;
+    }
+
+    public void a(ChatPostData chatPostData) {
+        this.f1090a = chatPostData;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.a.d
+    public boolean LoadData() {
+        if (this.f1090a != null && this.b == null) {
+            this.b = new ag(this);
+            this.b.execute(new Object[0]);
+            return true;
         }
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        if (this.b != null) {
+            this.b.cancel();
+            return false;
+        }
+        return false;
     }
 }

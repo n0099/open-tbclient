@@ -9,7 +9,7 @@ public class w {
     private String g;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1048a = 0;
+    private int f1180a = 0;
     private String b = "";
     private String c = "";
     private int d = 0;
@@ -20,7 +20,7 @@ public class w {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+            com.baidu.tieba.util.be.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -29,7 +29,7 @@ public class w {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.f1048a = optJSONObject.optInt("errno", 0);
+                    this.f1180a = optJSONObject.optInt("errno", 0);
                     this.b = optJSONObject.optString("errmsg", "");
                     this.c = optJSONObject.optString("usermsg", "");
                 }
@@ -45,7 +45,7 @@ public class w {
                     a(optJSONArray.length() == 0);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
+                com.baidu.tieba.util.be.b("ForumFeedData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -101,7 +101,7 @@ public class w {
     }
 
     public int f() {
-        return this.f1048a;
+        return this.f1180a;
     }
 
     public String g() {

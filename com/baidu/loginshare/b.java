@@ -1,6 +1,7 @@
 package com.baidu.loginshare;
 
 import android.content.Context;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.share.IShareListener;
 import com.baidu.share.ShareAssistant;
 import com.baidu.share.ShareModel;
@@ -17,7 +18,7 @@ public class b {
     private static final int n = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f798a = null;
+    private Context f927a = null;
     private ShareAssistant b = null;
     private String c = "loginshare";
     private i d = null;
@@ -25,10 +26,10 @@ public class b {
     private c f = null;
     private a g = new a();
     private j h = new j();
-    private String i = "1";
-    private String j = "0";
-    private String k = "1";
-    private String l = "0";
+    private String i = SocialConstants.TRUE;
+    private String j = SocialConstants.FALSE;
+    private String k = SocialConstants.TRUE;
+    private String l = SocialConstants.FALSE;
     private volatile boolean o = false;
     private k p = null;
     private volatile boolean q = false;
@@ -42,23 +43,23 @@ public class b {
         HashMap hashMap2 = new HashMap();
         for (String str : hashMap.keySet()) {
             if (g.f().equals(str)) {
-                token.mUsername = f.b(this.f798a, (String) hashMap.get(str));
+                token.mUsername = f.b(this.f927a, (String) hashMap.get(str));
             } else if (g.g().equals(str)) {
-                token.mEmail = f.b(this.f798a, (String) hashMap.get(str));
+                token.mEmail = f.b(this.f927a, (String) hashMap.get(str));
             } else if (g.h().equals(str)) {
-                token.mPhoneNumber = f.b(this.f798a, (String) hashMap.get(str));
+                token.mPhoneNumber = f.b(this.f927a, (String) hashMap.get(str));
             } else if (g.i().equals(str)) {
                 String str2 = (String) hashMap.get(str);
                 if (!e.a(str2)) {
                     return;
                 }
-                token.mBduss = f.b(this.f798a, str2);
+                token.mBduss = f.b(this.f927a, str2);
             } else if (g.j().equals(str)) {
-                token.mPtoken = f.b(this.f798a, (String) hashMap.get(str));
+                token.mPtoken = f.b(this.f927a, (String) hashMap.get(str));
             } else {
                 String str3 = (String) hashMap.get(str);
                 hashMap2.put(str, str3);
-                token.mExtras.put(str, f.b(this.f798a, str3));
+                token.mExtras.put(str, f.b(this.f927a, str3));
             }
         }
         if (c(token)) {
@@ -91,7 +92,7 @@ public class b {
 
     private boolean a(boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
         if (this.d != null) {
-            this.d.a(g.k(), z ? "1" : "0");
+            this.d.a(g.k(), z ? SocialConstants.TRUE : SocialConstants.FALSE);
             this.d.a(g.f(), str);
             this.d.a(g.g(), str2);
             this.d.a(g.h(), str3);
@@ -107,7 +108,7 @@ public class b {
 
     private boolean a(boolean z, String str, String str2, String str3, String str4, String str5, HashMap hashMap) {
         if (this.d != null) {
-            this.d.a(g.k(), z ? "1" : "0");
+            this.d.a(g.k(), z ? SocialConstants.TRUE : SocialConstants.FALSE);
             this.d.a(g.f(), str);
             this.d.a(g.g(), str2);
             this.d.a(g.h(), str3);
@@ -128,23 +129,23 @@ public class b {
         HashMap hashMap2 = new HashMap();
         for (String str : hashMap.keySet()) {
             if (g.f().equals(str)) {
-                token.mUsername = f.b(this.f798a, (String) hashMap.get(str));
+                token.mUsername = f.b(this.f927a, (String) hashMap.get(str));
             } else if (g.g().equals(str)) {
-                token.mEmail = f.b(this.f798a, (String) hashMap.get(str));
+                token.mEmail = f.b(this.f927a, (String) hashMap.get(str));
             } else if (g.h().equals(str)) {
-                token.mPhoneNumber = f.b(this.f798a, (String) hashMap.get(str));
+                token.mPhoneNumber = f.b(this.f927a, (String) hashMap.get(str));
             } else if (g.i().equals(str)) {
                 String str2 = (String) hashMap.get(str);
                 if (!e.a(str2)) {
                     return;
                 }
-                token.mBduss = f.b(this.f798a, str2);
+                token.mBduss = f.b(this.f927a, str2);
             } else if (g.j().equals(str)) {
-                token.mPtoken = f.b(this.f798a, (String) hashMap.get(str));
+                token.mPtoken = f.b(this.f927a, (String) hashMap.get(str));
             } else {
                 String str3 = (String) hashMap.get(str);
                 hashMap2.put(str, str3);
-                token.mExtras.put(str, f.b(this.f798a, str3));
+                token.mExtras.put(str, f.b(this.f927a, str3));
             }
         }
         if (c(token)) {
@@ -159,17 +160,17 @@ public class b {
     public void c(ShareModel shareModel) {
         String str = shareModel.mFrom;
         if (e.a(this.d.a(g.k()))) {
-            String a2 = f.a(this.f798a, this.d.a(g.i()));
+            String a2 = f.a(this.f927a, this.d.a(g.i()));
             if (e.a(a2)) {
                 ShareModel shareModel2 = new ShareModel();
                 shareModel2.mAction = g.b();
-                shareModel2.mData.put(g.k(), f.a(this.f798a, this.d.a(g.k())));
-                shareModel2.mData.put(g.f(), f.a(this.f798a, this.d.a(g.f())));
-                shareModel2.mData.put(g.g(), f.a(this.f798a, this.d.a(g.g())));
-                shareModel2.mData.put(g.h(), f.a(this.f798a, this.d.a(g.h())));
+                shareModel2.mData.put(g.k(), f.a(this.f927a, this.d.a(g.k())));
+                shareModel2.mData.put(g.f(), f.a(this.f927a, this.d.a(g.f())));
+                shareModel2.mData.put(g.g(), f.a(this.f927a, this.d.a(g.g())));
+                shareModel2.mData.put(g.h(), f.a(this.f927a, this.d.a(g.h())));
                 shareModel2.mData.put(g.i(), a2);
-                shareModel2.mData.put(g.j(), f.a(this.f798a, this.d.a(g.j())));
-                shareModel2.mData.put(g.n(), f.a(this.f798a, this.d.a(g.n())));
+                shareModel2.mData.put(g.j(), f.a(this.f927a, this.d.a(g.j())));
+                shareModel2.mData.put(g.n(), f.a(this.f927a, this.d.a(g.n())));
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
                 this.b.share(shareModel2, arrayList);
@@ -190,13 +191,13 @@ public class b {
         String str4 = (String) hashMap.get(g.j());
         String str5 = (String) hashMap.get(g.n());
         Token token = new Token();
-        String b = f.b(this.f798a, (String) hashMap.get(g.k()));
-        String b2 = f.b(this.f798a, (String) hashMap.get(g.f()));
-        String b3 = f.b(this.f798a, str);
-        String b4 = f.b(this.f798a, str2);
-        String b5 = f.b(this.f798a, str3);
-        String b6 = f.b(this.f798a, str4);
-        String b7 = f.b(this.f798a, str5);
+        String b = f.b(this.f927a, (String) hashMap.get(g.k()));
+        String b2 = f.b(this.f927a, (String) hashMap.get(g.f()));
+        String b3 = f.b(this.f927a, str);
+        String b4 = f.b(this.f927a, str2);
+        String b5 = f.b(this.f927a, str3);
+        String b6 = f.b(this.f927a, str4);
+        String b7 = f.b(this.f927a, str5);
         if (e.a(b) && e.a(b5)) {
             if (e.a(b7)) {
                 HashMap hashMap2 = new HashMap();
@@ -246,11 +247,11 @@ public class b {
         if (context == null || !e.a(str) || !e.a(str2)) {
             throw new IllegalArgumentException("params cannot be null");
         }
-        this.f798a = context;
+        this.f927a = context;
         this.f = new c(str, str2);
-        this.b = ShareAssistant.a(this.f798a);
+        this.b = ShareAssistant.a(this.f927a);
         this.b.registListener(this.s);
-        this.d = new i(this.f798a);
+        this.d = new i(this.f927a);
         String a2 = this.d.a(g.k());
         if (!e.a(a2)) {
             this.d.a(g.k(), this.j);
@@ -311,11 +312,11 @@ public class b {
             String str3 = token.mPhoneNumber;
             String str4 = token.mBduss;
             String str5 = token.mPtoken;
-            String a2 = f.a(this.f798a, str);
-            String a3 = f.a(this.f798a, str2);
-            String a4 = f.a(this.f798a, str3);
-            String a5 = f.a(this.f798a, str4);
-            String a6 = f.a(this.f798a, str5);
+            String a2 = f.a(this.f927a, str);
+            String a3 = f.a(this.f927a, str2);
+            String a4 = f.a(this.f927a, str3);
+            String a5 = f.a(this.f927a, str4);
+            String a6 = f.a(this.f927a, str5);
             HashMap hashMap = new HashMap();
             ShareModel shareModel = new ShareModel();
             shareModel.mAction = g.c();
@@ -325,7 +326,7 @@ public class b {
             shareModel.mData.put(g.i(), a5);
             shareModel.mData.put(g.j(), a6);
             for (String str6 : token.mExtras.keySet()) {
-                String a7 = f.a(this.f798a, (String) token.mExtras.get(str6));
+                String a7 = f.a(this.f927a, (String) token.mExtras.get(str6));
                 hashMap.put(str6, a7);
                 shareModel.mData.put(str6, a7);
             }
@@ -344,7 +345,7 @@ public class b {
             this.b = null;
         }
         this.f = null;
-        this.f798a = null;
+        this.f927a = null;
         this.o = false;
     }
 
@@ -356,11 +357,11 @@ public class b {
             String str3 = token.mPhoneNumber;
             String str4 = token.mBduss;
             String str5 = token.mPtoken;
-            String a2 = f.a(this.f798a, str);
-            String a3 = f.a(this.f798a, str2);
-            String a4 = f.a(this.f798a, str3);
-            String a5 = f.a(this.f798a, str4);
-            String a6 = f.a(this.f798a, str5);
+            String a2 = f.a(this.f927a, str);
+            String a3 = f.a(this.f927a, str2);
+            String a4 = f.a(this.f927a, str3);
+            String a5 = f.a(this.f927a, str4);
+            String a6 = f.a(this.f927a, str5);
             HashMap hashMap = new HashMap();
             ShareModel shareModel = new ShareModel();
             shareModel.mAction = g.d();
@@ -370,7 +371,7 @@ public class b {
             shareModel.mData.put(g.i(), a5);
             shareModel.mData.put(g.j(), a6);
             for (String str6 : token.mExtras.keySet()) {
-                String a7 = f.a(this.f798a, (String) token.mExtras.get(str6));
+                String a7 = f.a(this.f927a, (String) token.mExtras.get(str6));
                 hashMap.put(str6, a7);
                 shareModel.mData.put(str6, a7);
             }

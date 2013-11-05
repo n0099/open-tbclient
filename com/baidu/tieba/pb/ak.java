@@ -4,11 +4,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.view.ImagePbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak {
+public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1530a;
+    TextView f2047a;
     TextView b;
     TextView c;
     LinearLayout d;
@@ -27,7 +28,7 @@ class ak {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ak(ah ahVar, ak akVar) {
+    public /* synthetic */ ak(ah ahVar, ai aiVar) {
         this(ahVar);
     }
 }

@@ -1,27 +1,38 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements DialogInterface.OnCancelListener {
+public class r implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f1628a;
+    final /* synthetic */ ImagePbActivity f2146a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ImagePbActivity imagePbActivity) {
-        this.f1628a = imagePbActivity;
+        this.f2146a = imagePbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        af afVar;
-        af afVar2;
-        this.f1628a.h();
-        afVar = this.f1628a.v;
-        if (afVar != null) {
-            afVar2 = this.f1628a.v;
-            afVar2.cancel();
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (editable == null || editable.length() <= 0) {
+            button = this.f2146a.n;
+            button.setEnabled(false);
+            return;
         }
+        button2 = this.f2146a.n;
+        button2.setEnabled(true);
     }
 }

@@ -17,9 +17,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.WriteData;
-import com.baidu.tieba.data.bj;
+import com.baidu.tieba.data.bh;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
@@ -28,7 +29,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
     private TextView e;
 
     /* renamed from: a  reason: collision with root package name */
-    private WriteData f2064a = null;
+    private WriteData f2608a = null;
     private LinearLayout b = null;
     private ImageView c = null;
     private Button d = null;
@@ -78,9 +79,9 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f2064a = (WriteData) bundle.getSerializable("model");
+            this.f2608a = (WriteData) bundle.getSerializable("model");
         } else {
-            this.f2064a = (WriteData) getIntent().getSerializableExtra("model");
+            this.f2608a = (WriteData) getIntent().getSerializableExtra("model");
         }
         this.r = new Handler() { // from class: com.baidu.tieba.write.NewVcodeActivity.1
             @Override // android.os.Handler
@@ -111,7 +112,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         if (this.m == null) {
             try {
                 this.m = (BaseWebView) findViewById(R.id.new_vcode_webview);
-                com.baidu.tieba.util.as.a(this.m, TiebaApplication.g().ap());
+                com.baidu.tieba.util.bb.a(this.m, TiebaApplication.g().as());
                 this.m.setHorizontalScrollBarEnabled(false);
                 this.m.setHorizontalScrollbarOverlay(false);
                 this.m.setScrollBarStyle(33554432);
@@ -136,8 +137,8 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
                 });
                 return true;
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "", "NewVcodeActivity.initWebView error = " + e.getMessage());
-                TiebaApplication.g().m(TiebaApplication.g().as() + 1);
+                com.baidu.tieba.util.be.b(getClass().getName(), "", "NewVcodeActivity.initWebView error = " + e.getMessage());
+                TiebaApplication.g().m(TiebaApplication.g().av() + 1);
                 return false;
             }
         }
@@ -154,7 +155,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.m != null) {
-            this.m.loadUrl(UtilHelper.a(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/anti/gridcaptcha?version=" + com.baidu.tieba.data.g.j()));
+            this.m.loadUrl(UtilHelper.a(com.baidu.tieba.data.h.f1165a + "c/f/anti/gridcaptcha?version=" + com.baidu.tieba.data.h.j()));
         }
     }
 
@@ -166,7 +167,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m() {
+    public void f() {
         if (this.m != null && this.q && this.o != null && this.o.length() > 0) {
             this.m.loadUrl("javascript:" + this.o + "()");
         }
@@ -197,7 +198,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.f2064a);
+        bundle.putSerializable("model", this.f2608a);
         super.onSaveInstanceState(bundle);
     }
 
@@ -205,12 +206,12 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void a(int i) {
         super.a(i);
-        com.baidu.tieba.util.as.a(this.c, i);
-        com.baidu.tieba.util.as.g(this.d, i);
-        com.baidu.tieba.util.as.d(this.b, i);
-        com.baidu.tieba.util.as.a((View) this.e, i);
+        com.baidu.tieba.util.bb.a(this.c, i);
+        com.baidu.tieba.util.bb.g(this.d, i);
+        com.baidu.tieba.util.bb.d(this.b, i);
+        com.baidu.tieba.util.bb.a((View) this.e, i);
         if (this.m != null) {
-            com.baidu.tieba.util.as.a(this.m, TiebaApplication.g().ap());
+            com.baidu.tieba.util.bb.a(this.m, TiebaApplication.g().as());
         }
     }
 
@@ -229,7 +230,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.NewVcodeActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NewVcodeActivity.this.m();
+                NewVcodeActivity.this.f();
             }
         });
         this.e = (TextView) findViewById(R.id.webview_fail_view);
@@ -246,7 +247,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         this.j = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.write.NewVcodeActivity.6
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                NewVcodeActivity.this.h();
+                NewVcodeActivity.this.i();
                 if (NewVcodeActivity.this.k != null) {
                     NewVcodeActivity.this.k.cancel();
                 }
@@ -260,7 +261,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
             this.l.cancel();
         }
         this.g.setVisibility(0);
-        this.l = new ChangeVcodeTask(this, null);
+        this.l = new ChangeVcodeTask();
         this.l.setPriority(3);
         this.l.execute(new String[0]);
     }
@@ -272,7 +273,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
             if (this.k != null) {
                 this.k.cancel();
             }
-            this.k = new PostThreadTask(this.f2064a);
+            this.k = new PostThreadTask(this.f2608a);
             this.k.setPriority(3);
             this.k.execute(0);
         }
@@ -280,9 +281,9 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class PostThreadTask extends BdAsyncTask<Integer, Integer, bj> {
+    public class PostThreadTask extends BdAsyncTask<Integer, Integer, bh> {
         private WriteData b;
-        private com.baidu.tieba.util.z c = null;
+        private com.baidu.tieba.util.ag c = null;
         private String d = null;
 
         public PostThreadTask(WriteData writeData) {
@@ -293,18 +294,18 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public bj a(Integer... numArr) {
-            Address aK;
-            this.c = new com.baidu.tieba.util.z();
-            this.c.a("anonymous", "0");
+        public bh a(Integer... numArr) {
+            Address aP;
+            this.c = new com.baidu.tieba.util.ag();
+            this.c.a("anonymous", SocialConstants.FALSE);
             this.c.a("fid", this.b.getForumId());
             this.c.a("kw", this.b.getForumName());
             String str = "";
             if (this.b.getBitmapId() != null && this.b.getBitmapId().getPic_id() != null && this.b.getBitmapId().getPic_id().length() > 0) {
                 str = String.format("#(pic,%s,%d,%d)", this.b.getBitmapId().getPic_id(), Integer.valueOf(this.b.getBitmapId().getWidth()), Integer.valueOf(this.b.getBitmapId().getHeight()));
             }
-            this.c.a("new_vcode", "1");
-            this.c.a("content", String.valueOf(this.b.getContent()) + str);
+            this.c.a("new_vcode", SocialConstants.TRUE);
+            this.c.a("content", this.b.getContent() + str);
             this.c.a("vcode_md5", this.b.getVcodeMD5());
             this.c.a("vcode", NewVcodeActivity.this.p);
             this.c.a("vcode_tag", "11");
@@ -314,15 +315,15 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
             }
             this.c.e(true);
             if (this.b.getType() == 0) {
-                this.c.a(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/thread/add");
+                this.c.a(com.baidu.tieba.data.h.f1165a + "c/c/thread/add");
                 this.c.a("title", this.b.getTitle());
-                if (!com.baidu.tieba.data.g.h().equals(NewVcodeActivity.this.getIntent().getStringExtra("forum_id")) && TiebaApplication.g().t() && (aK = TiebaApplication.g().aK()) != null) {
-                    this.c.a("lbs", String.valueOf(String.valueOf(aK.getLatitude())) + "," + String.valueOf(aK.getLongitude()));
+                if (!com.baidu.tieba.data.h.h().equals(NewVcodeActivity.this.getIntent().getStringExtra("forum_id")) && TiebaApplication.g().t() && (aP = TiebaApplication.g().aP()) != null) {
+                    this.c.a("lbs", String.valueOf(aP.getLatitude()) + "," + String.valueOf(aP.getLongitude()));
                 }
             } else {
-                this.c.a(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/post/add");
+                this.c.a(com.baidu.tieba.data.h.f1165a + "c/c/post/add");
                 this.c.a("tid", this.b.getThreadId());
-                this.c.a("is_ad", NewVcodeActivity.this.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
+                this.c.a("is_ad", NewVcodeActivity.this.getIntent().getBooleanExtra("is_ad", false) ? SocialConstants.TRUE : SocialConstants.FALSE);
                 if (this.b.getType() == 2) {
                     this.c.a("quote_id", String.valueOf(this.b.getFloor()));
                     this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
@@ -335,7 +336,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             NewVcodeActivity.this.k = null;
-            NewVcodeActivity.this.i();
+            NewVcodeActivity.this.j();
             if (this.c != null) {
                 this.c.h();
             }
@@ -345,28 +346,28 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void a(bj bjVar) {
-            NewVcodeActivity.this.i();
+        public void a(bh bhVar) {
+            NewVcodeActivity.this.j();
             NewVcodeActivity.this.k = null;
             if (this.c != null) {
                 if (this.c.c()) {
-                    com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
-                    rVar.b(this.d);
-                    if (rVar.b() == null || rVar.b().length() <= 0) {
+                    com.baidu.tieba.data.s sVar = new com.baidu.tieba.data.s();
+                    sVar.b(this.d);
+                    if (sVar.b() == null || sVar.b().length() <= 0) {
                         NewVcodeActivity.this.a(TiebaApplication.g().getString(R.string.send_success));
                     } else {
-                        NewVcodeActivity.this.a(rVar.b());
+                        NewVcodeActivity.this.a(sVar.b());
                     }
                     NewVcodeActivity.this.setResult(-1, NewVcodeActivity.this.getIntent());
                     NewVcodeActivity.this.finish();
                 } else {
                     if (this.c.e() == 5 || this.c.e() == 6) {
-                        bj bjVar2 = new bj();
-                        bjVar2.a(this.d);
-                        if (bjVar2.b() != null) {
-                            NewVcodeActivity.this.f2064a.setVcodeMD5(bjVar2.a());
-                            NewVcodeActivity.this.f2064a.setVcodeUrl(bjVar2.b());
-                            if (bjVar2.c().equals("4")) {
+                        bh bhVar2 = new bh();
+                        bhVar2.a(this.d);
+                        if (bhVar2.b() != null) {
+                            NewVcodeActivity.this.f2608a.setVcodeMD5(bhVar2.a());
+                            NewVcodeActivity.this.f2608a.setVcodeUrl(bhVar2.b());
+                            if (bhVar2.c().equals("4")) {
                                 NewVcodeActivity.this.e();
                             } else {
                                 NewVcodeActivity.this.a(NewVcodeActivity.this.getString(R.string.change_vcode_type));
@@ -377,51 +378,47 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
                     NewVcodeActivity.this.a(this.c.g());
                 }
             }
-            super.a((PostThreadTask) bjVar);
+            super.a((PostThreadTask) bhVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class ChangeVcodeTask extends BdAsyncTask<String, Integer, bj> {
+    public class ChangeVcodeTask extends BdAsyncTask<String, Integer, bh> {
 
         /* renamed from: a  reason: collision with root package name */
-        volatile com.baidu.tieba.util.z f2071a;
-        bj b;
+        volatile com.baidu.tieba.util.ag f2615a;
+        bh b;
 
         private ChangeVcodeTask() {
-            this.f2071a = null;
+            this.f2615a = null;
             this.b = null;
-        }
-
-        /* synthetic */ ChangeVcodeTask(NewVcodeActivity newVcodeActivity, ChangeVcodeTask changeVcodeTask) {
-            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public bj a(String... strArr) {
-            this.f2071a = new com.baidu.tieba.util.z(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/f/anti/vcode");
-            this.f2071a.a("fid", NewVcodeActivity.this.f2064a.getForumId());
-            this.f2071a.a("kw", NewVcodeActivity.this.f2064a.getForumName());
-            this.f2071a.a("new_vcode", "1");
-            this.f2071a.a("content", NewVcodeActivity.this.f2064a.getContent());
-            if (NewVcodeActivity.this.f2064a.getVoice() != null) {
-                this.f2071a.a("voice_md5", NewVcodeActivity.this.f2064a.getVoice());
-                this.f2071a.a("during_time", String.valueOf(NewVcodeActivity.this.f2064a.getVoiceDuringTime()));
+        public bh a(String... strArr) {
+            this.f2615a = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/f/anti/vcode");
+            this.f2615a.a("fid", NewVcodeActivity.this.f2608a.getForumId());
+            this.f2615a.a("kw", NewVcodeActivity.this.f2608a.getForumName());
+            this.f2615a.a("new_vcode", SocialConstants.TRUE);
+            this.f2615a.a("content", NewVcodeActivity.this.f2608a.getContent());
+            if (NewVcodeActivity.this.f2608a.getVoice() != null) {
+                this.f2615a.a("voice_md5", NewVcodeActivity.this.f2608a.getVoice());
+                this.f2615a.a("during_time", String.valueOf(NewVcodeActivity.this.f2608a.getVoiceDuringTime()));
             }
-            if (NewVcodeActivity.this.f2064a.getType() == 0) {
-                this.f2071a.a("title", NewVcodeActivity.this.f2064a.getTitle());
-                this.f2071a.a("pub_type", "1");
+            if (NewVcodeActivity.this.f2608a.getType() == 0) {
+                this.f2615a.a("title", NewVcodeActivity.this.f2608a.getTitle());
+                this.f2615a.a("pub_type", SocialConstants.TRUE);
             } else {
-                this.f2071a.a("pub_type", "2");
-                this.f2071a.a("tid", NewVcodeActivity.this.f2064a.getThreadId());
+                this.f2615a.a("pub_type", "2");
+                this.f2615a.a("tid", NewVcodeActivity.this.f2608a.getThreadId());
             }
-            this.f2071a.a("vcode_tag", "11");
-            String j = this.f2071a.j();
-            if (this.f2071a.c()) {
-                this.b = new bj();
+            this.f2615a.a("vcode_tag", "11");
+            String j = this.f2615a.j();
+            if (this.f2615a.c()) {
+                this.b = new bh();
                 this.b.a(j);
                 return this.b;
             }
@@ -431,29 +428,29 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void a(bj bjVar) {
+        public void a(bh bhVar) {
             NewVcodeActivity.this.l = null;
-            if (bjVar != null) {
-                NewVcodeActivity.this.f2064a.setVcodeMD5(bjVar.a());
-                NewVcodeActivity.this.f2064a.setVcodeUrl(bjVar.b());
-                if (bjVar.c().equals("4")) {
+            if (bhVar != null) {
+                NewVcodeActivity.this.f2608a.setVcodeMD5(bhVar.a());
+                NewVcodeActivity.this.f2608a.setVcodeUrl(bhVar.b());
+                if (bhVar.c().equals("4")) {
                     NewVcodeActivity.this.e();
                 } else {
                     NewVcodeActivity.this.a(NewVcodeActivity.this.getString(R.string.change_vcode_type));
                     NewVcodeActivity.this.finish();
                 }
             } else {
-                NewVcodeActivity.this.a(this.f2071a.g());
+                NewVcodeActivity.this.a(this.f2615a.g());
             }
             NewVcodeActivity.this.g.setVisibility(8);
-            super.a((ChangeVcodeTask) bjVar);
+            super.a((ChangeVcodeTask) bhVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             NewVcodeActivity.this.l = null;
-            if (this.f2071a != null) {
-                this.f2071a.h();
+            if (this.f2615a != null) {
+                this.f2615a.h();
             }
             NewVcodeActivity.this.g.setVisibility(8);
             super.cancel(true);
@@ -467,7 +464,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         }
 
         public String jsGetVcodeImageUrl() {
-            return NewVcodeActivity.this.f2064a.getVcodeUrl();
+            return NewVcodeActivity.this.f2608a.getVcodeUrl();
         }
 
         public void jsSetLoadVcodeFinished(boolean z, String str) {
@@ -506,7 +503,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         }
 
         public String jsGetSkinType() {
-            return String.valueOf(TiebaApplication.g().ap());
+            return String.valueOf(TiebaApplication.g().as());
         }
     }
 }

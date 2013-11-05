@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class SettingTextTipView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1471a;
+    protected Context f1973a;
     protected LinearLayout b;
     protected TextView c;
     protected TextView d;
@@ -24,17 +24,17 @@ public class SettingTextTipView extends FrameLayout {
 
     public SettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1471a = context;
+        this.f1973a = context;
         c();
         a(attributeSet);
-        a(TiebaApplication.g().ap());
+        a(TiebaApplication.g().as());
     }
 
     public SettingTextTipView(Context context) {
         super(context);
-        this.f1471a = context;
+        this.f1973a = context;
         c();
-        a(TiebaApplication.g().ap());
+        a(TiebaApplication.g().as());
     }
 
     public void setTipColor(int i) {
@@ -44,6 +44,8 @@ public class SettingTextTipView extends FrameLayout {
     }
 
     public void setTipStyle(int i) {
+        if (this.d != null) {
+        }
     }
 
     public void a() {
@@ -71,18 +73,18 @@ public class SettingTextTipView extends FrameLayout {
 
     public void a(int i) {
         if (i == 1) {
-            this.c.setTextColor(this.f1471a.getResources().getColor(R.color.skin_1_common_color));
-            this.d.setTextColor(this.f1471a.getResources().getColor(R.color.c_FF515865));
+            this.c.setTextColor(this.f1973a.getResources().getColor(R.color.skin_1_common_color));
+            this.d.setTextColor(this.f1973a.getResources().getColor(R.color.c_FF515865));
             this.e.setImageResource(R.drawable.icon_arrow_right_1);
             return;
         }
-        this.c.setTextColor(this.f1471a.getResources().getColor(R.color.more_color));
+        this.c.setTextColor(this.f1973a.getResources().getColor(R.color.more_color));
         this.e.setImageResource(R.drawable.icon_arrow_right);
-        this.d.setTextColor(this.f1471a.getResources().getColor(R.color.c_FFB2B6BA));
+        this.d.setTextColor(this.f1973a.getResources().getColor(R.color.c_FFB2B6BA));
     }
 
     protected void c() {
-        LayoutInflater.from(this.f1471a).inflate(R.layout.setting_text_tip_view, (ViewGroup) this, true);
+        LayoutInflater.from(this.f1973a).inflate(R.layout.setting_text_tip_view, (ViewGroup) this, true);
         this.b = (LinearLayout) findViewById(R.id.container);
         this.c = (TextView) findViewById(R.id.text);
         this.d = (TextView) findViewById(R.id.tip);
@@ -90,7 +92,7 @@ public class SettingTextTipView extends FrameLayout {
     }
 
     protected void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f1471a.obtainStyledAttributes(attributeSet, com.baidu.tieba.ag.SettingView);
+        TypedArray obtainStyledAttributes = this.f1973a.obtainStyledAttributes(attributeSet, com.baidu.tieba.al.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         String string2 = obtainStyledAttributes.getString(2);

@@ -43,13 +43,13 @@ public class CustomTextView extends TextView {
             a(new SpannableStringBuilder(text), i, i2);
             return;
         }
-        com.baidu.tieba.util.av.e(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
+        com.baidu.tieba.util.be.e(getClass().getName(), "fixOnMeasure", "The text isn't a Spanned");
         b(i, i2);
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         j b = b(spannableStringBuilder, i, i2);
-        if (b.f1998a) {
+        if (b.f2533a) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             b(i, i2);
@@ -75,10 +75,10 @@ public class CustomTextView extends TextView {
                 a((CharSequence) spannableStringBuilder, i, i2);
                 return j.a(arrayList, arrayList2);
             } catch (IndexOutOfBoundsException e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
+                com.baidu.tieba.util.be.b(getClass().getName(), "addSpacesAroundSpansUntilFixed", e.getMessage());
             }
         }
-        com.baidu.tieba.util.av.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
+        com.baidu.tieba.util.be.e(getClass().getName(), "addSpacesAroundSpansUntilFixed", "Could not fix the Spanned by adding spaces around spans");
         return j.a();
     }
 
@@ -120,7 +120,7 @@ public class CustomTextView extends TextView {
     }
 
     private void b(int i, int i2) {
-        com.baidu.tieba.util.av.e(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
+        com.baidu.tieba.util.be.e(getClass().getName(), "fallbackToString", "Fallback to unspanned text");
         a(getText().toString(), i, i2);
     }
 }

@@ -1,67 +1,66 @@
 package com.baidu.tieba.data;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bc {
 
     /* renamed from: a  reason: collision with root package name */
-    private av f1019a;
-    private com.baidu.tieba.square.g b;
-    private boolean c;
-    private long d = 0;
+    private ArrayList<MetaData> f1149a = new ArrayList<>();
 
-    public bc() {
-        this.c = true;
-        this.c = true;
-    }
-
-    public void a(String str) {
-        if (str == null || str.length() < 1) {
-            this.c = false;
-            return;
-        }
+    public void a(JSONObject jSONObject, HashMap<String, String> hashMap) {
+        String str;
         try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.c = false;
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("recommend_info");
-            this.f1019a = new av();
-            this.f1019a.a(optJSONObject);
-            this.b = new com.baidu.tieba.square.g();
-            this.b.b(jSONObject);
-            this.d = jSONObject.optLong("time");
-        } catch (Exception e) {
-            this.c = false;
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
-        }
-    }
-
-    public com.baidu.tieba.square.g a() {
-        return this.b;
-    }
-
-    public av b() {
-        return this.f1019a;
-    }
-
-    public boolean c() {
-        return this.c;
-    }
-
-    public boolean d() {
-        boolean z = false;
-        if (this.c) {
-            if (this.f1019a == null || this.b == null) {
-                z = true;
+            JSONArray optJSONArray = jSONObject.optJSONArray("uname");
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < optJSONArray.length()) {
+                    MetaData metaData = new MetaData();
+                    String optString = optJSONArray.optString(i2);
+                    metaData.setName(optString);
+                    metaData.setName_show(optString);
+                    if (hashMap != null && (str = hashMap.get(metaData.getName())) != null) {
+                        metaData.setPortrait(str);
+                    }
+                    this.f1149a.add(metaData);
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
             }
-            return z;
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
         }
-        return true;
+    }
+
+    public void a(String str, HashMap<String, String> hashMap) {
+        try {
+            a(new JSONObject(str), hashMap);
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b("AtListModel", "parserSuggestJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void a(HashMap<String, String> hashMap) {
+        if (hashMap != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.f1149a.size()) {
+                    MetaData metaData = this.f1149a.get(i2);
+                    metaData.setPortrait(hashMap.get(metaData.getName()));
+                    i = i2 + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public ArrayList<MetaData> a() {
+        return this.f1149a;
     }
 }

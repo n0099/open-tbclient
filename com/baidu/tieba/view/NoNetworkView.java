@@ -20,7 +20,7 @@ import java.util.Iterator;
 public class NoNetworkView extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<NoNetworkView> f1960a = new ArrayList<>();
+    private static ArrayList<NoNetworkView> f2492a = new ArrayList<>();
     private static boolean f;
     private TextView b;
     private ImageView c;
@@ -84,13 +84,13 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
         if (z != f) {
             f = z;
             if (f) {
-                Iterator<NoNetworkView> it = f1960a.iterator();
+                Iterator<NoNetworkView> it = f2492a.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
                 }
                 return;
             }
-            Iterator<NoNetworkView> it2 = f1960a.iterator();
+            Iterator<NoNetworkView> it2 = f2492a.iterator();
             while (it2.hasNext()) {
                 it2.next().setVisible(true);
             }
@@ -135,13 +135,13 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        f1960a.add(this);
+        f2492a.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f1960a.remove(this);
+        f2492a.remove(this);
         this.i.clear();
     }
 

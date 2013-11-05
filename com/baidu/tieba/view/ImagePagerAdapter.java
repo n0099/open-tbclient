@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ImagePagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1950a;
+    private Context f2482a;
     private ArrayList<String> b;
     private o e;
     private View.OnClickListener c = null;
@@ -23,12 +23,14 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     private boolean g = false;
     private String h = null;
     private int i = 0;
+    private boolean j = false;
+    private boolean k = false;
 
     public ImagePagerAdapter(Context context, ArrayList<String> arrayList, o oVar) {
-        this.f1950a = null;
+        this.f2482a = null;
         this.b = null;
         this.e = null;
-        this.f1950a = context;
+        this.f2482a = context;
         this.b = arrayList;
         this.e = oVar;
     }
@@ -88,39 +90,39 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
-        if (obj instanceof bh) {
-            ((bh) obj).c();
+        if (obj instanceof bk) {
+            ((bk) obj).c();
         }
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.f1950a).inflate(R.layout.big_image_next, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f2482a).inflate(R.layout.big_image_next, (ViewGroup) null);
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.h);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.c);
             return inflate;
         }
-        bh bhVar = new bh(this.f1950a);
+        bk bkVar = new bk(this.f2482a);
         String str = i < this.b.size() ? this.b.get(i) : null;
-        bhVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-        bhVar.setImageOnClickListener(this.c);
-        bhVar.setOnSizeChangedListener(this.d);
-        ((ViewPager) viewGroup).addView(bhVar, 0);
-        bhVar.setUrl(str);
-        bhVar.setGifMaxUseableMem(this.f);
-        bhVar.setTag(String.valueOf(i));
-        bhVar.setGifSetListener(this.e);
-        return bhVar;
+        bkVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        bkVar.setImageOnClickListener(this.c);
+        bkVar.setOnSizeChangedListener(this.d);
+        ((ViewPager) viewGroup).addView(bkVar, 0);
+        bkVar.a(str, this.j, this.k);
+        bkVar.setGifMaxUseableMem(this.f);
+        bkVar.setTag(String.valueOf(i));
+        bkVar.setGifSetListener(this.e);
+        return bkVar;
     }
 
     @Override // android.support.v4.view.ae
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj instanceof bh) {
+        if (obj instanceof bk) {
             GalleryViewPager galleryViewPager = (GalleryViewPager) viewGroup;
-            k imageView = ((bh) obj).getImageView();
+            k imageView = ((bk) obj).getImageView();
             if (galleryViewPager.getSelectedView() == null) {
                 galleryViewPager.setSelectedView(imageView);
                 ViewParent parent = galleryViewPager.getParent();
@@ -133,12 +135,20 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
                 if (currentView != null) {
                     currentView.o();
                 }
-                ((bh) obj).f();
+                ((bk) obj).a(this.j, this.k);
                 galleryViewPager.setCurrentView(imageView);
-                if (((bh) obj).getImageType() == 1) {
+                if (((bk) obj).getImageType() == 1) {
                     this.e.a(imageView);
                 }
             }
         }
+    }
+
+    public void b(boolean z) {
+        this.j = z;
+    }
+
+    public void c(boolean z) {
+        this.k = z;
     }
 }

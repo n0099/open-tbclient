@@ -1,21 +1,17 @@
 package com.baidu.tieba.home;
-
-import android.widget.ProgressBar;
-import android.widget.TextView;
 /* loaded from: classes.dex */
-class s {
+class s implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1226a;
-    ProgressBar b;
-    final /* synthetic */ r c;
-
-    private s(r rVar) {
-        this.c = rVar;
-    }
+    final /* synthetic */ ForumTopicActivity f1368a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ s(r rVar, s sVar) {
-        this(rVar);
+    public s(ForumTopicActivity forumTopicActivity) {
+        this.f1368a = forumTopicActivity;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f1368a.c();
     }
 }

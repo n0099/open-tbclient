@@ -18,7 +18,7 @@ public class c<D> {
     public final class d extends ContentObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ c f301a;
+        final /* synthetic */ c f311a;
 
         @Override // android.database.ContentObserver
         public boolean deliverSelfNotifications() {
@@ -27,7 +27,7 @@ public class c<D> {
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
-            this.f301a.s();
+            this.f311a.s();
         }
     }
 

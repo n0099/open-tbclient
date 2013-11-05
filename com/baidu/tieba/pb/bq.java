@@ -1,23 +1,27 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class bq {
+class bq {
 
     /* renamed from: a  reason: collision with root package name */
-    public View f1562a;
-    public HeadImageView b;
+    public HeadImageView f2078a;
+    public TextView b;
     public TextView c;
-    public Button d;
-    public TbRichTextView e;
-    public View f;
-    final /* synthetic */ bp g;
+    public TextView d;
+    public TextView e;
+    public Button f;
+    public Button g;
+    public TbRichTextView h;
+    public LinearLayout i;
+    public LinearLayout j;
+    final /* synthetic */ bo k;
 
-    public bq(bp bpVar) {
-        this.g = bpVar;
+    private bq(bo boVar) {
+        this.k = boVar;
     }
 }

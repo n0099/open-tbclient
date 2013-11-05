@@ -10,13 +10,13 @@ import com.baidu.tieba.util.UtilHelper;
 class k implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ KnLaddersBannerAdapter f1255a;
-    private final /* synthetic */ int b;
+    final /* synthetic */ int f1750a;
+    final /* synthetic */ KnLaddersBannerAdapter b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(KnLaddersBannerAdapter knLaddersBannerAdapter, int i) {
-        this.f1255a = knLaddersBannerAdapter;
-        this.b = i;
+        this.b = knLaddersBannerAdapter;
+        this.f1750a = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,7 +26,7 @@ class k implements View.OnClickListener {
             StatService.onEvent(view.getContext(), "kn_ladders_banner", "click", 1);
         }
         Context context = view.getContext();
-        picArr = this.f1255a.f1241a;
-        UtilHelper.a(context, picArr[this.b].link_url, "");
+        picArr = this.b.f1736a;
+        UtilHelper.a(context, picArr[this.f1750a].link_url, "");
     }
 }

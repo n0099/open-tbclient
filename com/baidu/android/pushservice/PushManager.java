@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.os.Build;
 import android.util.Log;
 import com.baidu.android.pushservice.util.Internal;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -75,7 +76,7 @@ public class PushManager {
             Intent createBdussInent = Internal.createBdussInent(context);
             createBdussInent.putExtra("appid", string);
             String rsaEncrypt = PushConstants.rsaEncrypt(sharedPreferences.getString("com.baidu.android.pushservice.PushManager.BDUSS", ""));
-            createBdussInent.putExtra("bduss", rsaEncrypt);
+            createBdussInent.putExtra(SocialConstants.PARAM_BDUSS, rsaEncrypt);
             if (b.a()) {
                 Log.d(TAG, "RSA Bduss:" + rsaEncrypt);
                 return createBdussInent;
@@ -92,7 +93,7 @@ public class PushManager {
             return createMethodIntent;
         }
         String rsaEncrypt2 = PushConstants.rsaEncrypt(string);
-        createMethodIntent.putExtra(PushConstants.EXTRA_ACCESS_TOKEN, rsaEncrypt2);
+        createMethodIntent.putExtra("access_token", rsaEncrypt2);
         if (b.a()) {
             Log.d(TAG, "RSA Access Token:" + rsaEncrypt2);
             return createMethodIntent;
@@ -235,12 +236,12 @@ public class PushManager {
     private static void insertAppStartInfo(String str, int i, String str2, String str3, String str4) {
         if (mStatisticsMap.size() < INFO_MAX_NUM) {
             com.baidu.android.pushservice.util.l lVar = new com.baidu.android.pushservice.util.l();
-            lVar.f666a = i;
+            lVar.f745a = i;
             lVar.b = str;
             lVar.c = str2;
             lVar.d = str3;
             lVar.e = str4;
-            mStatisticsMap.put(Integer.valueOf(lVar.f666a), lVar);
+            mStatisticsMap.put(Integer.valueOf(lVar.f745a), lVar);
         }
     }
 

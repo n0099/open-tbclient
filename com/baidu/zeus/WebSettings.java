@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import android.util.EventLog;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class WebSettings {
@@ -126,8 +127,8 @@ public class WebSettings {
         SMALLEST(50),
         SMALLER(75),
         NORMAL(100),
-        LARGERLITTLE(125),
-        LARGER(WebChromeClient.STRING_DLG_BTN_SET),
+        LARGERLITTLE(SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE),
+        LARGER(150),
         LARGERMORE(175),
         LARGEST(200);
         
@@ -140,7 +141,7 @@ public class WebSettings {
 
     /* loaded from: classes.dex */
     public enum ZoomDensity {
-        FAR(WebChromeClient.STRING_DLG_BTN_SET),
+        FAR(150),
         MEDIUM(100),
         CLOSE(75);
         

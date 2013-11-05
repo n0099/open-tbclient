@@ -2,6 +2,7 @@ package com.tencent.mm.sdk.contact;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.tencent.mm.sdk.platformtools.LVBuffer;
 import com.tencent.mm.sdk.platformtools.Log;
 import com.tencent.mm.sdk.platformtools.Util;
@@ -202,13 +203,7 @@ public class RContact extends MAutoDBItem {
         } else if (this.field_username != null && !this.field_username.equals("") && isLetter(this.field_username.charAt(0))) {
             c = this.field_username.charAt(0);
         }
-        if (c < 'a' || c > 'z') {
-            if (c < 'A' || c > 'Z') {
-                return 123;
-            }
-            return c;
-        }
-        return (char) (c - ' ');
+        return (c < 'a' || c > 'z') ? (c < 'A' || c > 'Z') ? SocialAPIErrorCodes.ERROR_INVALID_BDUSS : c : (char) (c - ' ');
     }
 
     @Override // com.tencent.mm.sdk.storage.MAutoDBItem, com.tencent.mm.sdk.storage.MDBItem

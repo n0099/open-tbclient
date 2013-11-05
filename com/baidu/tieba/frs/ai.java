@@ -6,16 +6,11 @@ import android.widget.TextView;
 class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1119a;
+    TextView f1252a;
     ImageView b;
-    final /* synthetic */ ah c;
+    final /* synthetic */ ag c;
 
-    private ai(ah ahVar) {
-        this.c = ahVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ai(ah ahVar, ai aiVar) {
-        this(ahVar);
+    private ai(ag agVar) {
+        this.c = agVar;
     }
 }

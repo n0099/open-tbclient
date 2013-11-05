@@ -13,11 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class ac implements com.baidu.tbadk.a.d {
+public class ac implements com.baidu.tbadk.imageManager.c {
     private com.baidu.tieba.util.a A;
     private FrsStarImageView B;
     private FrsStarImageView C;
@@ -92,10 +93,10 @@ public class ac implements com.baidu.tbadk.a.d {
     private int v = 0;
     private String x = "?tag=";
     private com.baidu.tieba.data.z y = null;
-    private com.baidu.tieba.data.bf z = null;
+    private com.baidu.tieba.data.bd z = null;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.bh f1966a = null;
+    com.baidu.tieba.data.bf f2499a = null;
     private float L = 0.0f;
     private float M = 0.0f;
     private boolean N = false;
@@ -268,8 +269,8 @@ public class ac implements com.baidu.tbadk.a.d {
         return this.A;
     }
 
-    public com.baidu.tieba.data.bh b() {
-        return this.f1966a;
+    public com.baidu.tieba.data.bf b() {
+        return this.f2499a;
     }
 
     public void a(int i) {
@@ -407,23 +408,23 @@ public class ac implements com.baidu.tbadk.a.d {
         return this.p;
     }
 
-    public void a(com.baidu.tieba.data.v vVar, com.baidu.tieba.data.z zVar) {
-        this.s = vVar.b();
-        this.t = vVar.a();
-        this.u = vVar.d();
-        this.v = vVar.c();
+    public void a(ForumData forumData, com.baidu.tieba.data.z zVar) {
+        this.s = forumData.getName();
+        this.t = forumData.getId();
+        this.u = forumData.getMember_num();
+        this.v = forumData.getPost_num();
         this.y = zVar;
-        this.f1966a = new com.baidu.tieba.data.bh();
+        this.f2499a = new com.baidu.tieba.data.bf();
         if (this.y != null) {
             this.z = this.y.l();
             com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
             aiVar.a(3);
             aiVar.a(this.y.b());
-            this.f1966a.o().add(aiVar);
+            this.f2499a.m().add(aiVar);
             com.baidu.tieba.data.ai aiVar2 = new com.baidu.tieba.data.ai();
             aiVar2.a(3);
             aiVar2.a(this.y.c());
-            this.f1966a.o().add(aiVar2);
+            this.f2499a.m().add(aiVar2);
         }
         this.p.setVisibility(0);
         f();
@@ -437,7 +438,7 @@ public class ac implements com.baidu.tbadk.a.d {
             this.e.setText(String.valueOf(this.v));
         }
         if (this.h != null) {
-            this.h.setText(String.valueOf(this.s) + "吧");
+            this.h.setText(this.s + "吧");
         }
         this.B.setImageType(0);
         this.C.setImageType(1);
@@ -569,9 +570,9 @@ public class ac implements com.baidu.tbadk.a.d {
             com.baidu.tieba.data.am amVar = this.z.e().get(0);
             if (amVar.b() != null) {
                 this.ad.setText(amVar.b().a());
-                String str = String.valueOf(amVar.b().b()) + this.x + String.valueOf((int) R.id.kn_pk_1_left_image);
+                String str = amVar.b().b() + this.x + String.valueOf((int) R.id.kn_pk_1_left_image);
                 this.ac.setTag(str);
-                com.baidu.adp.widget.a.c d = this.w.d(str);
+                com.baidu.adp.widget.ImageView.e d = this.w.d(str);
                 if (d != null) {
                     d.a(this.ac);
                 } else {
@@ -585,9 +586,9 @@ public class ac implements com.baidu.tbadk.a.d {
             }
             if (amVar.c() != null) {
                 this.af.setText(this.z.e().get(0).c().a());
-                String str2 = String.valueOf(amVar.c().b()) + this.x + String.valueOf((int) R.id.kn_pk_1_right_image);
+                String str2 = amVar.c().b() + this.x + String.valueOf((int) R.id.kn_pk_1_right_image);
                 this.ae.setTag(str2);
-                com.baidu.adp.widget.a.c d2 = this.w.d(str2);
+                com.baidu.adp.widget.ImageView.e d2 = this.w.d(str2);
                 if (d2 != null) {
                     d2.a(this.ae);
                 } else {
@@ -629,9 +630,9 @@ public class ac implements com.baidu.tbadk.a.d {
                 com.baidu.tieba.data.am amVar2 = this.z.e().get(1);
                 if (amVar2.b() != null) {
                     this.ah.setText(this.z.e().get(1).b().a());
-                    String str3 = String.valueOf(amVar2.b().b()) + this.x + String.valueOf((int) R.id.kn_pk_2_left_image);
+                    String str3 = amVar2.b().b() + this.x + String.valueOf((int) R.id.kn_pk_2_left_image);
                     this.ag.setTag(str3);
-                    com.baidu.adp.widget.a.c d3 = this.w.d(str3);
+                    com.baidu.adp.widget.ImageView.e d3 = this.w.d(str3);
                     if (d3 != null) {
                         d3.a(this.ag);
                     } else {
@@ -645,9 +646,9 @@ public class ac implements com.baidu.tbadk.a.d {
                 }
                 if (amVar2.c() != null) {
                     this.aj.setText(this.z.e().get(1).c().a());
-                    String str4 = String.valueOf(amVar2.c().b()) + this.x + String.valueOf((int) R.id.kn_pk_2_right_image);
+                    String str4 = amVar2.c().b() + this.x + String.valueOf((int) R.id.kn_pk_2_right_image);
                     this.ai.setTag(str4);
-                    com.baidu.adp.widget.a.c d4 = this.w.d(str4);
+                    com.baidu.adp.widget.ImageView.e d4 = this.w.d(str4);
                     if (d4 != null) {
                         d4.a(this.ai);
                     } else {
@@ -713,7 +714,7 @@ public class ac implements com.baidu.tbadk.a.d {
                 this.m.setText("");
             } else {
                 this.l.setText(this.J);
-                this.m.setText(String.valueOf(this.K) + "级");
+                this.m.setText(this.K + "级");
             }
             float width = a2.getWidth() * this.L;
             float f2 = width > 0.001f ? this.M / width : 0.0f;
@@ -803,11 +804,11 @@ public class ac implements com.baidu.tbadk.a.d {
         }
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         ImageView imageView;
-        if (cVar != null && (imageView = (ImageView) this.p.findViewWithTag(str)) != null) {
-            cVar.a(imageView);
+        if (eVar != null && (imageView = (ImageView) this.p.findViewWithTag(str)) != null) {
+            eVar.a(imageView);
             imageView.invalidate();
         }
     }

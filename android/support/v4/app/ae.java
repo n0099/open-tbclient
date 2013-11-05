@@ -16,4 +16,8 @@ public abstract class ae {
     public abstract ae b(Fragment fragment);
 
     public abstract ae c(Fragment fragment);
+
+    public abstract ae d(Fragment fragment);
+
+    public abstract ae e(Fragment fragment);
 }

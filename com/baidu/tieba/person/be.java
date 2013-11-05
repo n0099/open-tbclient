@@ -1,43 +1,20 @@
 package com.baidu.tieba.person;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.slidingmenu.lib.R;
+import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements com.baidu.adp.lib.guide.b {
+public class be extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f1677a;
+    final /* synthetic */ bb f2195a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(PersonInfoActivity personInfoActivity) {
-        this.f1677a = personInfoActivity;
+    public be(bb bbVar) {
+        this.f2195a = bbVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        return layoutInflater.inflate(R.layout.tip_person_info_send_message, (ViewGroup) null);
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 5;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return 0;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        this.f2195a.f2192a.runOnUiThread(new bf(this));
     }
 }

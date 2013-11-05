@@ -1,88 +1,127 @@
 package com.baidu.tieba.model;
 
+import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp extends BdAsyncTask<Integer, Integer, String> {
+public class bp extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.bb> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1425a;
-    private com.baidu.tieba.util.z b;
+    final /* synthetic */ bo f1922a;
+    private com.baidu.tieba.a.j b = null;
+    private int c;
 
-    private bp(bo boVar) {
-        this.f1425a = boVar;
-        this.b = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bp(bo boVar, bp bpVar) {
-        this(boVar);
+    public bp(bo boVar, int i) {
+        this.f1922a = boVar;
+        this.c = 0;
+        this.c = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(Integer... numArr) {
+    /* renamed from: d */
+    public com.baidu.tieba.data.bb a(Object... objArr) {
+        com.baidu.tieba.data.bb bbVar;
+        com.baidu.tieba.data.bb bbVar2;
+        com.baidu.tieba.data.bb bbVar3;
+        String str;
+        String str2;
+        String str3;
+        Context context;
+        Context context2;
+        this.b = new com.baidu.tieba.a.j();
         try {
-            int intValue = numArr[0].intValue();
-            if (this.f1425a.c() != null) {
-                this.b = new com.baidu.tieba.util.z();
-                if (intValue == 0) {
-                    this.b.a(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/user/follow");
-                } else {
-                    this.b.a(String.valueOf(com.baidu.tieba.data.g.f1032a) + "c/c/user/unfollow");
+            bbVar = this.f1922a.e;
+            int f = bbVar.f();
+            if (f == 0) {
+                f++;
+            } else if (this.c == 0) {
+                f++;
+            } else if (this.c == 2) {
+                bbVar2 = this.f1922a.e;
+                int size = bbVar2.b().size();
+                bbVar3 = this.f1922a.e;
+                if (size % bbVar3.e() == 0) {
+                    f++;
                 }
-                this.b.a("portrait", this.f1425a.c().getPortrait());
-                this.b.e(true);
-                this.b.j();
-                return null;
+            }
+            com.baidu.tieba.a.j jVar = this.b;
+            str = this.f1922a.f1921a;
+            str2 = this.f1922a.c;
+            int i = this.c;
+            str3 = this.f1922a.b;
+            String a2 = jVar.a(str, str2, i, str3, f);
+            if (this.b.a()) {
+                com.baidu.tieba.data.bb bbVar4 = new com.baidu.tieba.data.bb();
+                context = this.f1922a.d;
+                bbVar4.a(a2, context);
+                for (int i2 = 0; i2 < bbVar4.b().size(); i2++) {
+                    context2 = this.f1922a.d;
+                    bbVar4.b().get(i2).a(context2);
+                }
+                return bbVar4;
             }
             return null;
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.toString());
             return null;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        com.baidu.adp.a.e eVar;
-        com.baidu.adp.a.e eVar2;
-        super.a((bp) str);
-        this.f1425a.n = null;
-        if (this.b != null) {
-            if (!this.b.c()) {
-                this.f1425a.mLoadDataMode = 3;
-                this.f1425a.setErrorString(this.b.g());
-                eVar = this.f1425a.mLoadDataCallBack;
-                eVar.a(false);
-                return;
-            }
-            if (this.f1425a.c() != null) {
-                if (this.f1425a.c().getHave_attention() == 1) {
-                    this.f1425a.c().setHave_attention(0);
-                } else {
-                    this.f1425a.c().setHave_attention(1);
-                }
-            }
-            this.f1425a.mLoadDataMode = 3;
-            eVar2 = this.f1425a.mLoadDataCallBack;
-            eVar2.a(true);
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.adp.a.e eVar;
         super.cancel(true);
+        this.f1922a.f = null;
         if (this.b != null) {
-            this.b.h();
-            this.b = null;
+            this.b.d();
         }
-        this.f1425a.n = null;
-        eVar = this.f1425a.mLoadDataCallBack;
-        eVar.a(false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(com.baidu.tieba.data.bb bbVar) {
+        com.baidu.tieba.data.bb bbVar2;
+        com.baidu.tieba.data.bb bbVar3;
+        bq bqVar;
+        bq bqVar2;
+        com.baidu.tieba.data.bb bbVar4;
+        bq bqVar3;
+        bq bqVar4;
+        this.f1922a.f = null;
+        if (bbVar == null) {
+            bqVar3 = this.f1922a.g;
+            if (bqVar3 != null) {
+                bqVar4 = this.f1922a.g;
+                bqVar4.a(false, this.b.c(), this.b.b(), null);
+                return;
+            }
+            return;
+        }
+        if (bbVar.a() != null) {
+            this.f1922a.b = bbVar.a().d();
+        }
+        if (bbVar.l() != null) {
+            this.f1922a.f1921a = bbVar.l().a();
+        }
+        if (this.c == 1) {
+            this.f1922a.e = bbVar;
+        } else if (this.c == 2) {
+            bbVar3 = this.f1922a.e;
+            bbVar3.a(bbVar, true);
+        } else {
+            bbVar2 = this.f1922a.e;
+            bbVar2.a(bbVar, false);
+        }
+        bqVar = this.f1922a.g;
+        if (bqVar != null) {
+            bqVar2 = this.f1922a.g;
+            int c = this.b.c();
+            String b = this.b.b();
+            bbVar4 = this.f1922a.e;
+            bqVar2.a(true, c, b, bbVar4);
+        }
+        this.b = null;
     }
 }

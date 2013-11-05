@@ -10,13 +10,14 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.widget.PinnedHeaderListView;
-import com.baidu.tieba.util.as;
 import com.baidu.tieba.view.PbListView;
 import com.baidu.tieba.view.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.a.d {
-    private DailyRecommendActivity b;
+public class z extends com.baidu.adp.a.e {
+
+    /* renamed from: a  reason: collision with root package name */
+    private DailyRecommendActivity f2294a;
     private PinnedHeaderListView c;
     private ProgressBar d;
     private View e;
@@ -32,19 +33,19 @@ public class z extends com.baidu.adp.a.d {
 
     public z(DailyRecommendActivity dailyRecommendActivity, com.baidu.adp.widget.ListView.r rVar, q qVar) {
         super(dailyRecommendActivity);
-        this.b = dailyRecommendActivity;
-        this.e = LayoutInflater.from(this.f351a).inflate(R.layout.daily_recommend_view, (ViewGroup) null);
-        this.b.setContentView(this.e);
+        this.f2294a = dailyRecommendActivity;
+        this.e = LayoutInflater.from(this.b).inflate(R.layout.daily_recommend_view, (ViewGroup) null);
+        this.f2294a.setContentView(this.e);
         this.c = (PinnedHeaderListView) this.e.findViewById(R.id.pinnedHeaderListview);
         this.j = new h(dailyRecommendActivity, qVar);
         this.i = (TextView) this.e.findViewById(R.id.text_info);
-        this.f = new bb(this.f351a);
+        this.f = new bb(this.b);
         this.c.setPullRefresh(this.f);
         this.c.setAdapter((ListAdapter) this.j);
         this.c.setOnSrollToBottomListener(rVar);
         this.d = (ProgressBar) this.e.findViewById(R.id.progress);
         this.d.setVisibility(8);
-        this.g = new PbListView(this.b);
+        this.g = new PbListView(this.f2294a);
         this.g.a(new aa(this));
         this.h = this.g.b().findViewById(R.id.pb_more_view);
         this.k = this.e.findViewById(R.id.title);
@@ -54,46 +55,46 @@ public class z extends com.baidu.adp.a.d {
         this.n = (TextView) this.e.findViewById(R.id.title_text);
     }
 
-    public void b() {
+    public void a() {
         this.g.c();
     }
 
-    public void c() {
+    public void e() {
         this.d.setVisibility(0);
     }
 
     public void a(boolean z, String str) {
         this.d.setVisibility(8);
         if (!z && str != null) {
-            this.b.a(str);
+            this.f2294a.a(str);
         }
     }
 
-    public void d() {
+    public void f() {
         this.d.setVisibility(8);
         this.g.d();
     }
 
-    public void a(com.baidu.tieba.data.n nVar) {
+    public void a(com.baidu.tieba.data.o oVar) {
         this.c.a();
         this.g.d();
-        if (nVar != null) {
-            if (nVar.b().size() > 0) {
+        if (oVar != null) {
+            if (oVar.b().size() > 0) {
                 this.c.setNextPage(this.g);
             }
-            this.j.a(nVar);
+            this.j.a(oVar);
             this.j.a();
         }
     }
 
-    public void e() {
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.f351a, R.anim.custom_home_text_info);
+    public void g() {
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.b, R.anim.custom_home_text_info);
         this.i.setVisibility(0);
         loadAnimation.setAnimationListener(new ac(this));
         this.i.startAnimation(loadAnimation);
     }
 
-    public void f() {
+    public void h() {
         int headerViewsCount = this.c.getHeaderViewsCount() + 1;
         int firstVisiblePosition = this.c.getFirstVisiblePosition();
         int lastVisiblePosition = this.c.getLastVisiblePosition();
@@ -105,11 +106,11 @@ public class z extends com.baidu.adp.a.d {
     }
 
     public void a(int i) {
-        as.a(this.l, i);
-        as.a(this.m, i);
-        as.d(this.k, i);
-        as.f(this.n, i);
-        as.b(this.c, i);
+        com.baidu.tieba.util.bb.a(this.l, i);
+        com.baidu.tieba.util.bb.a(this.m, i);
+        com.baidu.tieba.util.bb.d(this.k, i);
+        com.baidu.tieba.util.bb.f(this.n, i);
+        com.baidu.tieba.util.bb.b(this.c, i);
         this.f.a(i);
         if (this.g != null) {
             this.g.a(i);
@@ -119,7 +120,7 @@ public class z extends com.baidu.adp.a.d {
         this.j.a();
     }
 
-    public void g() {
+    public void i() {
     }
 
     public void a(com.baidu.adp.widget.ListView.b bVar) {

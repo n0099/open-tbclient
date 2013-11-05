@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.zeus.ByteArrayBuilder;
 import com.baidu.zeus.CacheManager;
 import com.baidu.zeus.Headers;
@@ -161,13 +162,13 @@ public class LoadListener extends Handler implements EventHandler {
             case 100:
                 handleHeaders((Headers) message.obj);
                 return;
-            case MSG_CONTENT_DATA /* 110 */:
+            case 110:
                 if (this.mNativeLoader != 0 && !ignoreCallbacks()) {
                     commitLoad();
                     return;
                 }
                 return;
-            case MSG_CONTENT_FINISHED /* 120 */:
+            case 120:
                 handleEndData();
                 return;
             case MSG_CONTENT_ERROR /* 130 */:
@@ -178,7 +179,7 @@ public class LoadListener extends Handler implements EventHandler {
                 return;
             case 150:
                 Message obtainMessage = obtainMessage(MSG_LOCATION_CHANGED);
-                this.mBrowserFrame.getCallbackProxy().onFormResubmission(obtainMessage(MSG_CONTENT_FINISHED), obtainMessage);
+                this.mBrowserFrame.getCallbackProxy().onFormResubmission(obtainMessage(120), obtainMessage);
                 return;
             case MSG_STATUS /* 160 */:
                 HashMap hashMap = (HashMap) message.obj;
@@ -235,7 +236,7 @@ public class LoadListener extends Handler implements EventHandler {
         boolean z = true;
         if (!this.mCancelled) {
             if (this.mStatusCode == HTTP_PARTIAL_CONTENT) {
-                WebViewWorker.getHandler().obtainMessage(107, this).sendToTarget();
+                WebViewWorker.getHandler().obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP, this).sendToTarget();
                 return;
             }
             this.mHeaders = headers;
@@ -321,7 +322,7 @@ public class LoadListener extends Handler implements EventHandler {
                 WebViewWorker.CacheEncoding cacheEncoding = new WebViewWorker.CacheEncoding();
                 cacheEncoding.mEncoding = this.mEncoding;
                 cacheEncoding.mListener = this;
-                WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_TIME, cacheEncoding).sendToTarget();
+                WebViewWorker.getHandler().obtainMessage(104, cacheEncoding).sendToTarget();
             }
             commitHeadersCheckRedirect();
         }
@@ -402,7 +403,7 @@ public class LoadListener extends Handler implements EventHandler {
             this.mDataBuilder.append(bArr, 0, i);
         }
         if (isEmpty) {
-            sendMessageInternal(obtainMessage(MSG_CONTENT_DATA));
+            sendMessageInternal(obtainMessage(110));
         }
     }
 
@@ -412,7 +413,7 @@ public class LoadListener extends Handler implements EventHandler {
         this.isContentTypeWML = false;
         this.isWMLUTF8 = false;
         this.isHiAoWAP = false;
-        sendMessageInternal(obtainMessage(MSG_CONTENT_FINISHED));
+        sendMessageInternal(obtainMessage(120));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:11:0x001e  */
@@ -450,7 +451,7 @@ public class LoadListener extends Handler implements EventHandler {
                         if (isSynchronous()) {
                             this.mCacheLoader.load();
                         } else {
-                            WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME, this.mCacheLoader).sendToTarget();
+                            WebViewWorker.getHandler().obtainMessage(101, this.mCacheLoader).sendToTarget();
                         }
                         this.mFromCache = true;
                         return;
@@ -497,7 +498,7 @@ public class LoadListener extends Handler implements EventHandler {
                 if (isSynchronous()) {
                     this.mCacheLoader.load();
                 } else {
-                    WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_DATETIME, this.mCacheLoader).sendToTarget();
+                    WebViewWorker.getHandler().obtainMessage(101, this.mCacheLoader).sendToTarget();
                 }
                 this.mFromCache = true;
                 return true;
@@ -628,7 +629,7 @@ public class LoadListener extends Handler implements EventHandler {
     }
 
     void downloadFile() {
-        WebViewWorker.getHandler().obtainMessage(107, this).sendToTarget();
+        WebViewWorker.getHandler().obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP, this).sendToTarget();
         this.mBrowserFrame.getCallbackProxy().onDownloadStart(url(), this.mBrowserFrame.getUserAgentString(), this.mHeaders.getContentDisposition(), this.mMimeType, this.mContentLength);
         cancel();
     }
@@ -724,7 +725,7 @@ public class LoadListener extends Handler implements EventHandler {
                         WebViewWorker.CacheData cacheData = new WebViewWorker.CacheData();
                         cacheData.mListener = this;
                         cacheData.mChunk = firstChunk2;
-                        WebViewWorker.getHandler().obtainMessage(WebChromeClient.STRING_DLG_TITLE_COLOR, cacheData).sendToTarget();
+                        WebViewWorker.getHandler().obtainMessage(105, cacheData).sendToTarget();
                     } else {
                         firstChunk2.release();
                     }
@@ -742,9 +743,9 @@ public class LoadListener extends Handler implements EventHandler {
             cacheSaveData.mListener = this;
             cacheSaveData.mUrl = this.mUrl;
             cacheSaveData.mPostId = this.mPostIdentifier;
-            WebViewWorker.getHandler().obtainMessage(106, cacheSaveData).sendToTarget();
+            WebViewWorker.getHandler().obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE_ALGORITHM, cacheSaveData).sendToTarget();
         } else {
-            WebViewWorker.getHandler().obtainMessage(107, this).sendToTarget();
+            WebViewWorker.getHandler().obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP, this).sendToTarget();
         }
         if (this.mNativeLoader != 0) {
             PerfChecker perfChecker = new PerfChecker();
@@ -784,7 +785,7 @@ public class LoadListener extends Handler implements EventHandler {
             this.mRequestHandle.cancel();
             this.mRequestHandle = null;
         }
-        WebViewWorker.getHandler().obtainMessage(107, this).sendToTarget();
+        WebViewWorker.getHandler().obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP, this).sendToTarget();
         this.mCancelled = true;
         clearNativeLoader();
     }
@@ -816,9 +817,9 @@ public class LoadListener extends Handler implements EventHandler {
                             cacheSaveData.mListener = this;
                             cacheSaveData.mUrl = this.mUrl;
                             cacheSaveData.mPostId = this.mPostIdentifier;
-                            WebViewWorker.getHandler().obtainMessage(106, cacheSaveData).sendToTarget();
+                            WebViewWorker.getHandler().obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_SIGNATURE_ALGORITHM, cacheSaveData).sendToTarget();
                         } else {
-                            WebViewWorker.getHandler().obtainMessage(107, this).sendToTarget();
+                            WebViewWorker.getHandler().obtainMessage(SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP, this).sendToTarget();
                         }
                         this.mOriginalUrl = nativeRedirectedToUrl;
                         setUrl(nativeRedirectedToUrl);

@@ -14,7 +14,7 @@ import com.slidingmenu.lib.R;
 public class NoNetworkMoreActivity extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f857a;
+    private View f986a;
     private ImageView b;
     private ImageView c;
     private TextView d;
@@ -30,7 +30,7 @@ public class NoNetworkMoreActivity extends j {
     }
 
     protected void b() {
-        this.f857a = findViewById(R.id.title);
+        this.f986a = findViewById(R.id.title);
         this.b = (ImageView) findViewById(R.id.back);
         this.b.setOnClickListener(this);
         this.c = (ImageView) findViewById(R.id.home);
@@ -60,9 +60,9 @@ public class NoNetworkMoreActivity extends j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void a(int i) {
-        com.baidu.tieba.util.as.a(this.b, i);
-        com.baidu.tieba.util.as.a(this.c, i);
-        com.baidu.tieba.util.as.d(this.f857a, i);
-        com.baidu.tieba.util.as.f(this.d, i);
+        com.baidu.tieba.util.bb.a(this.b, i);
+        com.baidu.tieba.util.bb.a(this.c, i);
+        com.baidu.tieba.util.bb.d(this.f986a, i);
+        com.baidu.tieba.util.bb.f(this.d, i);
     }
 }

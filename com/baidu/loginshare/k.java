@@ -1,6 +1,7 @@
 package com.baidu.loginshare;
 
 import android.util.Log;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.share.ShareAssistant;
 import com.baidu.share.ShareModel;
 import java.io.InputStream;
@@ -15,13 +16,13 @@ public class k implements Runnable {
     private static final String c = "appcommunicate";
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f804a;
+    final /* synthetic */ b f933a;
     private String d;
     private boolean e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(b bVar, boolean z, String str) {
-        this.f804a = bVar;
+        this.f933a = bVar;
         this.d = null;
         this.e = true;
         this.e = z;
@@ -62,9 +63,9 @@ public class k implements Runnable {
                     httpURLConnection2.disconnect();
                     String string = new JSONObject(new String(bArr)).getString(c);
                     long currentTimeMillis2 = System.currentTimeMillis();
-                    str3 = this.f804a.c;
+                    str3 = this.f933a.c;
                     Log.d(str3, "net check duration = " + (currentTimeMillis2 - currentTimeMillis));
-                    bool = "0".equals(string) ? new Boolean(false) : new Boolean(true);
+                    bool = SocialConstants.FALSE.equals(string) ? new Boolean(false) : new Boolean(true);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
@@ -73,10 +74,10 @@ public class k implements Runnable {
                 httpURLConnection = httpURLConnection2;
                 e = e;
                 try {
-                    str = this.f804a.c;
+                    str = this.f933a.c;
                     Log.d(str, "net check exception = " + e.toString());
                     long currentTimeMillis3 = System.currentTimeMillis();
-                    str2 = this.f804a.c;
+                    str2 = this.f933a.c;
                     Log.d(str2, "net check duration = " + (currentTimeMillis3 - currentTimeMillis));
                     bool = new Boolean(true);
                     if (httpURLConnection != null) {
@@ -122,34 +123,34 @@ public class k implements Runnable {
         ArrayList arrayList4;
         boolean booleanValue = bool.booleanValue();
         long currentTimeMillis = System.currentTimeMillis();
-        aVar = this.f804a.g;
+        aVar = this.f933a.g;
         aVar.a(booleanValue);
-        aVar2 = this.f804a.g;
+        aVar2 = this.f933a.g;
         aVar2.a(currentTimeMillis);
-        iVar = this.f804a.d;
+        iVar = this.f933a.d;
         iVar.a(g.p(), new StringBuilder(String.valueOf(currentTimeMillis)).toString());
-        iVar2 = this.f804a.d;
-        iVar2.a(g.m(), booleanValue ? this.f804a.k : this.f804a.l);
-        iVar3 = this.f804a.d;
+        iVar2 = this.f933a.d;
+        iVar2.a(g.m(), booleanValue ? this.f933a.k : this.f933a.l);
+        iVar3 = this.f933a.d;
         iVar3.a();
         ShareModel shareModel = null;
-        arrayList = this.f804a.r;
+        arrayList = this.f933a.r;
         synchronized (arrayList) {
-            arrayList2 = this.f804a.r;
+            arrayList2 = this.f933a.r;
             int size = arrayList2.size();
             if (size > 0) {
-                arrayList3 = this.f804a.r;
+                arrayList3 = this.f933a.r;
                 shareModel = (ShareModel) arrayList3.get(size - 1);
-                arrayList4 = this.f804a.r;
+                arrayList4 = this.f933a.r;
                 arrayList4.clear();
             }
         }
         if (shareModel != null) {
-            shareAssistant = this.f804a.b;
+            shareAssistant = this.f933a.b;
             if (shareAssistant != null) {
-                shareAssistant2 = this.f804a.b;
+                shareAssistant2 = this.f933a.b;
                 if (shareAssistant2.share(shareModel) && this.e) {
-                    cVar = this.f804a.f;
+                    cVar = this.f933a.f;
                     cVar.a(1, this.d);
                 }
             }
@@ -158,8 +159,8 @@ public class k implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f804a.q = true;
+        this.f933a.q = true;
         a(a());
-        this.f804a.q = false;
+        this.f933a.q = false;
     }
 }

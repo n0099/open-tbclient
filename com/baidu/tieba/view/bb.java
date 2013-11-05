@@ -19,7 +19,7 @@ public class bb extends com.baidu.adp.widget.ListView.d {
     private static SimpleDateFormat i = new SimpleDateFormat("MM-dd HH:mm");
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1986a;
+    private View f2519a;
     private ImageView b;
     private ProgressBar c;
     private TextView d;
@@ -30,7 +30,7 @@ public class bb extends com.baidu.adp.widget.ListView.d {
 
     public bb(Context context) {
         super(context);
-        this.f1986a = null;
+        this.f2519a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -42,11 +42,11 @@ public class bb extends com.baidu.adp.widget.ListView.d {
 
     @Override // com.baidu.adp.widget.ListView.d
     public View a() {
-        this.f1986a = LayoutInflater.from(e()).inflate(R.layout.pull_view, (ViewGroup) null);
-        this.b = (ImageView) this.f1986a.findViewById(R.id.pull_arrow);
-        this.c = (ProgressBar) this.f1986a.findViewById(R.id.pull_progress);
-        this.d = (TextView) this.f1986a.findViewById(R.id.pull_text);
-        this.e = (TextView) this.f1986a.findViewById(R.id.pull_time);
+        this.f2519a = LayoutInflater.from(e()).inflate(R.layout.pull_view, (ViewGroup) null);
+        this.b = (ImageView) this.f2519a.findViewById(R.id.pull_arrow);
+        this.c = (ProgressBar) this.f2519a.findViewById(R.id.pull_progress);
+        this.d = (TextView) this.f2519a.findViewById(R.id.pull_text);
+        this.e = (TextView) this.f2519a.findViewById(R.id.pull_time);
         a(d());
         this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.f.setInterpolator(new LinearInterpolator());
@@ -56,7 +56,7 @@ public class bb extends com.baidu.adp.widget.ListView.d {
         this.g.setInterpolator(new LinearInterpolator());
         this.g.setDuration(200L);
         this.g.setFillAfter(true);
-        return this.f1986a;
+        return this.f2519a;
     }
 
     @Override // com.baidu.adp.widget.ListView.d
@@ -131,12 +131,14 @@ public class bb extends com.baidu.adp.widget.ListView.d {
     }
 
     public void a(int i2) {
-        if (i2 == 1) {
-            this.d.setTextColor(-8682095);
-            this.e.setTextColor(-8682095);
-            return;
+        if (this.d != null && this.e != null) {
+            if (i2 == 1) {
+                this.d.setTextColor(-8682095);
+                this.e.setTextColor(-8682095);
+                return;
+            }
+            this.d.setTextColor(-14277082);
+            this.e.setTextColor(-14277082);
         }
-        this.d.setTextColor(-14277082);
-        this.e.setTextColor(-14277082);
     }
 }

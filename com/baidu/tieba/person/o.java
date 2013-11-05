@@ -1,50 +1,50 @@
 package com.baidu.tieba.person;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
+import android.graphics.Bitmap;
+import android.view.View;
+import com.baidu.tieba.view.EditHeadImageView;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements CompoundButton.OnCheckedChangeListener {
+public class o implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1701a;
+    final /* synthetic */ EditHeadActivity f2221a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(EditHeadActivity editHeadActivity) {
-        this.f1701a = editHeadActivity;
+        this.f2221a = editHeadActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        if (z) {
-            compoundButton.setTextColor(this.f1701a.getResources().getColor(R.color.white));
-            radioButton = this.f1701a.q;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.f1701a.m;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.f1701a.s;
-                linearLayout2.setVisibility(4);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        EditHeadImageView editHeadImageView;
+        int i2;
+        int i3;
+        boolean a2;
+        String str = "tieba_head_image";
+        i = this.f2221a.k;
+        if (i != 0) {
+            str = "tieba_group_image";
+        }
+        editHeadImageView = this.f2221a.g;
+        i2 = this.f2221a.k;
+        Bitmap a3 = editHeadImageView.a(i2);
+        if (a3 != null) {
+            a2 = this.f2221a.a(str, a3);
+            if (!a2) {
                 return;
             }
-            radioButton2 = this.f1701a.r;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.f1701a.m;
-                horizontalScrollView.setVisibility(4);
-                linearLayout = this.f1701a.s;
-                linearLayout.setVisibility(0);
-                return;
-            }
+        }
+        i3 = this.f2221a.k;
+        if (i3 == 0) {
+            this.f2221a.e();
             return;
         }
-        compoundButton.setTextColor(this.f1701a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
+        com.baidu.tieba.im.model.r rVar = new com.baidu.tieba.im.model.r(com.baidu.tieba.util.w.c("tieba_group_image"), 0, 0, 0, 0);
+        rVar.a(new p(this));
+        rVar.a();
+        this.f2221a.b(this.f2221a.getString(R.string.uploading));
     }
 }

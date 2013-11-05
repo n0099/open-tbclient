@@ -4,11 +4,11 @@ package com.baidu.adp.lib.debug.a;
 public class i implements com.baidu.adp.lib.debug.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f402a;
+    final /* synthetic */ h f452a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f402a = hVar;
+        this.f452a = hVar;
     }
 
     /* JADX WARN: Incorrect condition in loop: B:4:0x0008 */
@@ -20,7 +20,7 @@ public class i implements com.baidu.adp.lib.debug.a {
         String[] strArr;
         String[] strArr2;
         for (int i = 0; i < strArr.length; i++) {
-            strArr2 = this.f402a.b;
+            strArr2 = this.f452a.b;
             if (str.contains(strArr2[i])) {
                 com.baidu.adp.lib.debug.b.b(com.baidu.adp.lib.debug.b.d() + 1);
                 return;

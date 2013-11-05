@@ -13,21 +13,21 @@ import com.slidingmenu.lib.R;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f2010a;
+    private View f2545a;
     private GoodGridView b;
     private Activity c;
 
     public x(Activity activity) {
-        this.f2010a = null;
+        this.f2545a = null;
         this.b = null;
         this.c = null;
         this.c = activity;
-        this.f2010a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.f2010a.findViewById(R.id.good_gridview);
+        this.f2545a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.f2545a.findViewById(R.id.good_gridview);
     }
 
-    public void a(com.baidu.tieba.frs.ah ahVar) {
-        this.b.setAdapter((ListAdapter) ahVar);
+    public void a(com.baidu.tieba.frs.ag agVar) {
+        this.b.setAdapter((ListAdapter) agVar);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
@@ -35,7 +35,7 @@ public class x {
     }
 
     public View a() {
-        return this.f2010a;
+        return this.f2545a;
     }
 
     public void a(int i) {

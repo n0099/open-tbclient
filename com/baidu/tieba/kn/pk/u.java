@@ -1,22 +1,22 @@
 package com.baidu.tieba.kn.pk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.a.d {
+public class u implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1293a;
-    private final /* synthetic */ String b;
+    final /* synthetic */ String f1788a;
+    final /* synthetic */ t b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar, String str) {
-        this.f1293a = tVar;
-        this.b = str;
+        this.b = tVar;
+        this.f1788a = str;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        if (cVar != null && this.b.equalsIgnoreCase(str)) {
-            this.f1293a.b.a(cVar.f());
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        if (eVar != null && this.f1788a.equalsIgnoreCase(str)) {
+            this.b.b.a(eVar.f());
         }
     }
 }

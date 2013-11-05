@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
@@ -29,7 +30,7 @@ public class ChatListActivity extends BaseFragmentActivity {
             switch (i) {
                 case 12011:
                     String stringExtra = intent.getStringExtra(LocaleUtil.INDONESIAN);
-                    String stringExtra2 = intent.getStringExtra("name");
+                    String stringExtra2 = intent.getStringExtra(SocialConstants.PARAM_MEDIA_UNAME);
                     String stringExtra3 = intent.getStringExtra("portrait");
                     if (stringExtra2 != null && stringExtra != null) {
                         ChatActivity.a(this, stringExtra, stringExtra2, stringExtra3, null, null);

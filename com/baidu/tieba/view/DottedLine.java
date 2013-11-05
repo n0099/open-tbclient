@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class DottedLine extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1944a;
+    private Context f2476a;
     private Bitmap b;
     private Rect c;
     private Rect d;
@@ -34,16 +34,16 @@ public class DottedLine extends ImageView {
     }
 
     private void a(Context context) {
-        this.f1944a = context;
+        this.f2476a = context;
         this.c = new Rect();
         this.d = new Rect();
     }
 
     public void setNight(boolean z) {
         if (z) {
-            this.b = BitmapFactory.decodeResource(this.f1944a.getResources(), R.drawable.line_frs_dotted_line_1);
+            this.b = BitmapFactory.decodeResource(this.f2476a.getResources(), R.drawable.line_frs_dotted_line_1);
         } else {
-            this.b = BitmapFactory.decodeResource(this.f1944a.getResources(), R.drawable.line_frs_dotted_line);
+            this.b = BitmapFactory.decodeResource(this.f2476a.getResources(), R.drawable.line_frs_dotted_line);
         }
     }
 

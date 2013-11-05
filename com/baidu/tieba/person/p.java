@@ -1,38 +1,38 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import com.baidu.tieba.im.data.PhotoUrlData;
+import com.baidu.tieba.im.data.UploadPicData2;
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
+class p implements com.baidu.tieba.im.model.u {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f1702a;
+    final /* synthetic */ o f2222a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(EditHeadActivity editHeadActivity) {
-        this.f1702a = editHeadActivity;
+    public p(o oVar) {
+        this.f2222a = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        progressBar = this.f1702a.n;
-        if (progressBar.getVisibility() != 0) {
-            bitmap = this.f1702a.f;
-            if (bitmap == null) {
-                bitmap2 = this.f1702a.v;
-                if (bitmap2 == null) {
-                    return;
+    @Override // com.baidu.tieba.im.model.u
+    public void a(String str, UploadPicData2 uploadPicData2) {
+        this.f2222a.f2221a.j();
+        Intent intent = this.f2222a.f2221a.getIntent();
+        if (uploadPicData2 != null) {
+            PhotoUrlData photoUrlData = new PhotoUrlData();
+            photoUrlData.setPicId(String.valueOf(uploadPicData2.picId));
+            if (uploadPicData2.picInfo != null) {
+                if (uploadPicData2.picInfo.bigPic != null) {
+                    photoUrlData.setBigurl(uploadPicData2.picInfo.bigPic.picUrl);
+                }
+                if (uploadPicData2.picInfo.smallPic != null) {
+                    photoUrlData.setSmallurl(uploadPicData2.picInfo.smallPic.picUrl);
                 }
             }
-            if (view.getTag() != null) {
-                this.f1702a.C = false;
-                this.f1702a.c(view.getTag().toString());
-            }
+            intent.putExtra(EditHeadActivity.f2157a, String.valueOf(uploadPicData2.picId));
+            intent.putExtra(EditHeadActivity.b, photoUrlData);
         }
+        this.f2222a.f2221a.setResult(-1, intent);
+        this.f2222a.f2221a.finish();
     }
 }

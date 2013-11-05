@@ -1,6 +1,6 @@
 package com.baidu.tieba.data;
 
-import com.baidu.android.pushservice.PushConstants;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -101,7 +101,7 @@ public class SendPKVoteData implements Serializable {
         try {
             return a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
             return null;
         }
     }
@@ -114,14 +114,14 @@ public class SendPKVoteData implements Serializable {
             sendPKVoteData.setResultPic(jSONObject.optString("result_pic"));
             sendPKVoteData.setPkInfo(new PKInfo().parserJson(jSONObject.optJSONObject("pk_info")));
             sendPKVoteData.setError(new Error().a(jSONObject.optJSONObject("error")));
-            sendPKVoteData.setErrorCode(jSONObject.optInt("error_code"));
-            sendPKVoteData.setErrorMsg(jSONObject.optString(PushConstants.EXTRA_ERROR_CODE));
+            sendPKVoteData.setErrorCode(jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE));
+            sendPKVoteData.setErrorMsg(jSONObject.optString("error_msg"));
             sendPKVoteData.setTime(jSONObject.optLong("time"));
             sendPKVoteData.setcTime(jSONObject.optLong("ctime"));
             sendPKVoteData.setLogId(jSONObject.optInt("logid"));
             return sendPKVoteData;
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
             return null;
         }
     }
@@ -168,7 +168,7 @@ public class SendPKVoteData implements Serializable {
                 error.setUserMsg(jSONObject.optString("usermsg"));
                 return error;
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
                 return null;
             }
         }
@@ -285,7 +285,7 @@ public class SendPKVoteData implements Serializable {
                 pKInfo.setPlayer2(new Player().parserJson(jSONObject.optJSONObject("player2")));
                 return pKInfo;
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
                 return null;
             }
         }
@@ -352,7 +352,7 @@ public class SendPKVoteData implements Serializable {
                 player.setVoteTimes(jSONObject.optInt("vote_times"));
                 return player;
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "parserJson", e.toString());
+                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
                 return null;
             }
         }

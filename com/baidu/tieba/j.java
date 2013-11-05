@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,46 +15,50 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.home.EnterForumActivity;
 import com.baidu.tieba.pb.NewPbActivity;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bf;
 import com.baidu.tieba.view.GuidPageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.a {
-    private e e;
-    private c f;
+    private com.baidu.tieba.util.i c;
+    private e f;
+    private c g;
     protected ProgressDialog h = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private DialogInterface.OnCancelListener f1235a = null;
+    private DialogInterface.OnCancelListener f1730a = null;
     private AlertDialog b = null;
     protected int i = -1;
-    private GuidPageView c = null;
-    private long d = 0;
+    private GuidPageView d = null;
+    private long e = 0;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
-        this.d = System.currentTimeMillis();
+        this.e = System.currentTimeMillis();
+        this.c = com.baidu.tieba.util.i.a();
         super.onCreate(bundle);
-        this.e = new e();
-        this.f = new c();
-        this.f.a(this.e);
-        getLayoutInflater().setFactory(this.f);
-        if (f()) {
+        this.f = new e();
+        this.g = new c();
+        this.g.a(this.f);
+        getLayoutInflater().setFactory(this.g);
+        if (g()) {
             CompatibleUtile.getInstance().openGpu(this);
         }
         com.baidu.tieba.account.a.a().c();
-        TiebaApplication.t(true);
+        TiebaApplication.v(true);
         TiebaApplication.g().a(getClass().getName());
         if (TiebaApplication.g().s()) {
             try {
-                StatService.setAppChannel(com.baidu.tieba.data.g.a());
+                StatService.setAppChannel(com.baidu.tieba.data.h.a());
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "onCreate", e.getMessage());
+                be.b(getClass().getName(), "onCreate", e.getMessage());
             }
         }
     }
 
-    public boolean f() {
+    public boolean g() {
         return false;
     }
 
@@ -84,19 +87,19 @@ public class j extends com.baidu.adp.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void g() {
+    public void h() {
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onDestroy() {
-        i();
-        if (this.c != null) {
-            this.c.a();
+        j();
+        if (this.d != null) {
+            this.d.a();
         }
-        if (this.e != null) {
-            this.e.a();
+        if (this.f != null) {
+            this.f.a();
         }
         super.onDestroy();
     }
@@ -106,17 +109,17 @@ public class j extends com.baidu.adp.a.a {
     }
 
     public void b(String str) {
-        if (this.f1235a == null) {
-            this.f1235a = new k(this);
+        if (this.f1730a == null) {
+            this.f1730a = new k(this);
         }
         if (str != null) {
-            this.h = ProgressDialog.show(this, "", str, true, false, this.f1235a);
+            this.h = ProgressDialog.show(this, "", str, true, false, this.f1730a);
         } else {
-            this.h = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.f1235a);
+            this.h = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, false, this.f1730a);
         }
     }
 
-    public void h() {
+    public void i() {
         this.h = null;
     }
 
@@ -128,14 +131,14 @@ public class j extends com.baidu.adp.a.a {
         }
     }
 
-    public void i() {
+    public void j() {
         if (this.h != null) {
             try {
                 if (this.h.isShowing()) {
                     this.h.dismiss();
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
+                be.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
             this.h = null;
         }
@@ -143,11 +146,15 @@ public class j extends com.baidu.adp.a.a {
 
     @Override // com.baidu.adp.a.a
     public void a(String str) {
-        UtilHelper.a((Context) this, str);
+        this.c.a(str, 2000);
     }
 
-    public void c(int i) {
-        UtilHelper.a((Context) this, i);
+    public void a(int i, int i2) {
+        this.c.a(i, 2000, i2);
+    }
+
+    public void b(int i) {
+        this.c.a(i, 2000);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -155,7 +162,7 @@ public class j extends com.baidu.adp.a.a {
         try {
             inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 2);
         } catch (Exception e) {
-            com.baidu.tieba.util.av.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
+            be.b(getClass().getName(), "HidenSoftKeyPad", "error = " + e.getMessage());
         }
     }
 
@@ -177,18 +184,19 @@ public class j extends com.baidu.adp.a.a {
     @Override // android.app.Activity
     public void onPause() {
         super.onPause();
-        TiebaApplication.g().aB();
+        this.c.b();
+        TiebaApplication.g().aE();
         if (TiebaApplication.g().s()) {
             try {
                 StatService.onPause(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "onPause", e.getMessage());
+                be.b(getClass().getName(), "onPause", e.getMessage());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void d(int i) {
+    public void c(int i) {
         this.i = i;
     }
 
@@ -196,22 +204,23 @@ public class j extends com.baidu.adp.a.a {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        if (TiebaApplication.g().ap() != this.i) {
-            this.i = TiebaApplication.g().ap();
+        this.c.c();
+        if (TiebaApplication.g().as() != this.i) {
+            this.i = TiebaApplication.g().as();
             a(this.i);
         }
         if (TiebaApplication.g().s()) {
             try {
                 StatService.onResume(this);
             } catch (Exception e) {
-                com.baidu.tieba.util.av.b(getClass().getName(), "onResume", e.getMessage());
+                be.b(getClass().getName(), "onResume", e.getMessage());
             }
         }
-        TiebaApplication.g().aA();
+        TiebaApplication.g().aD();
         TiebaApplication.g().a(getClass().getName());
-        if (this.d > 0) {
-            this.d = System.currentTimeMillis() - this.d;
-            if (this.d < 5000) {
+        if (this.e > 0) {
+            this.e = System.currentTimeMillis() - this.e;
+            if (this.e < 5000) {
                 String str = null;
                 if (this instanceof NewPbActivity) {
                     str = "op_pb_enter";
@@ -221,10 +230,10 @@ public class j extends com.baidu.adp.a.a {
                     str = "op_home_enter";
                 }
                 if (str != null) {
-                    com.baidu.tieba.util.aw.a(str, this.d, 0L);
+                    bf.a(str, this.e, 0L);
                 }
             }
-            this.d = -1L;
+            this.e = -1L;
         }
     }
 
@@ -232,11 +241,11 @@ public class j extends com.baidu.adp.a.a {
     @Override // android.app.Activity
     public void onStop() {
         super.onStop();
-        j();
+        k();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void j() {
+    public void k() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -244,11 +253,11 @@ public class j extends com.baidu.adp.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void k() {
+    public void l() {
         UtilHelper.a((Activity) this);
     }
 
-    public e l() {
-        return this.e;
+    public e m() {
+        return this.f;
     }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class NotificationCompat {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final am f273a;
+    private static final am f283a;
 
     /* loaded from: classes.dex */
     public class BigPictureStyle extends ar {
@@ -20,18 +20,18 @@ public class NotificationCompat {
     public class InboxStyle extends ar {
 
         /* renamed from: a  reason: collision with root package name */
-        ArrayList<CharSequence> f274a = new ArrayList<>();
+        ArrayList<CharSequence> f284a = new ArrayList<>();
     }
 
     static {
         if (Build.VERSION.SDK_INT >= 16) {
-            f273a = new aq();
+            f283a = new aq();
         } else if (Build.VERSION.SDK_INT >= 14) {
-            f273a = new ap();
+            f283a = new ap();
         } else if (Build.VERSION.SDK_INT >= 11) {
-            f273a = new ao();
+            f283a = new ao();
         } else {
-            f273a = new an();
+            f283a = new an();
         }
     }
 }

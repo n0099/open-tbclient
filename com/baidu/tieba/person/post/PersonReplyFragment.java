@@ -17,7 +17,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     private int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1707a;
+    private View f2227a;
     private BdListView b;
     private j c;
     private ProgressBar d;
@@ -28,37 +28,37 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     private boolean e = false;
     private boolean Y = false;
     private boolean aa = true;
-    private m ab = new o(this);
+    private m ab = new p(this);
 
-    @Override // android.support.v4.app.Fragment
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f1707a = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
-        this.b = (BdListView) this.f1707a.findViewById(R.id.listview_reply);
-        this.f = (TextView) this.f1707a.findViewById(R.id.txt_listview_emptyview);
-        this.f.setText(g().getString("key_empty_view_text"));
-        this.d = (ProgressBar) this.f1707a.findViewById(R.id.person_post_progress);
-        return this.f1707a;
+        this.f2227a = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
+        this.b = (BdListView) this.f2227a.findViewById(R.id.listview_reply);
+        this.f = (TextView) this.f2227a.findViewById(R.id.txt_listview_emptyview);
+        this.f.setText(h().getString("key_empty_view_text"));
+        this.d = (ProgressBar) this.f2227a.findViewById(R.id.person_post_progress);
+        return this.f2227a;
     }
 
     @Override // android.support.v4.app.Fragment
     public void a(View view, Bundle bundle) {
-        this.g = new com.baidu.tieba.view.ab(h());
+        this.g = new com.baidu.tieba.view.ab(i());
         this.b.setPullRefresh(this.g);
-        this.g.a(new p(this));
+        this.g.a(new o(this));
         this.b.setOnScrollListener(this);
-        this.h = new PbListView(h());
+        this.h = new PbListView(i());
         this.b.setNextPage(this.h);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void o() {
-        super.o();
+    public void p() {
+        super.p();
         a();
         this.c.notifyDataSetChanged();
     }
 
-    private void C() {
-        this.c = new j(h(), g().getString("key_uid"), g().getString("key_portrait_url"));
+    private void E() {
+        this.c = new j(i(), h().getString("key_uid"), h().getString("key_portrait_url"));
         this.c.a(this.ab);
         this.c.a(true);
         this.b.setAdapter((ListAdapter) this.c);
@@ -66,21 +66,21 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     public void a() {
         if (!this.e) {
-            C();
+            E();
             this.e = true;
         }
     }
 
     @Override // com.baidu.tieba.BaseFragment
-    public void b(int i) {
-        super.b(i);
-        if (k()) {
+    public void c(int i) {
+        super.c(i);
+        if (l()) {
             this.i = this.h.b().findViewById(R.id.pb_more_view);
             TextView textView = (TextView) this.i.findViewById(R.id.pb_more_text);
             if (i == 1) {
-                textView.setTextColor(i().getColor(R.color.person_post_header_uname_1));
+                textView.setTextColor(j().getColor(R.color.person_post_header_uname_1));
             } else {
-                textView.setTextColor(i().getColor(R.color.person_post_header_uname));
+                textView.setTextColor(j().getColor(R.color.person_post_header_uname));
             }
             if (this.h != null) {
                 this.h.a(i);
@@ -89,11 +89,11 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
+    @Override // com.baidu.tieba.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
+    @Override // com.baidu.tieba.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         if (this.Y && i3 > 2 && this.Z != i3 && i + i2 == i3) {
             this.Z = i3;

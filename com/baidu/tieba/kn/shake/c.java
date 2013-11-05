@@ -1,25 +1,19 @@
 package com.baidu.tieba.kn.shake;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.view.bf;
 /* loaded from: classes.dex */
-class c implements DialogInterface.OnClickListener {
+class c implements bf {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShakeActivity f1314a;
+    final /* synthetic */ ShakeActivity f1809a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ShakeActivity shakeActivity) {
-        this.f1314a = shakeActivity;
+        this.f1809a = shakeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        k kVar;
-        if (i == -2) {
-            kVar = this.f1314a.j;
-            kVar.i();
-            return;
-        }
-        this.f1314a.e();
+    @Override // com.baidu.tieba.view.bf
+    public void a() {
+        this.f1809a.e();
     }
 }

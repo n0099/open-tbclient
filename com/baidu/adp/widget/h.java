@@ -1,4 +1,8 @@
 package com.baidu.adp.widget;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-interface h {
+public interface h {
+    void a();
+
+    void b();
 }

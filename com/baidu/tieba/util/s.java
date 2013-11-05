@@ -1,80 +1,77 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.UtilHelper;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface s {
-    Boolean a(String str, Handler handler, int i);
+public class s extends BdAsyncTask<String, Integer, String> {
 
-    void a(Context context);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ o f2459a;
+    private t b = null;
+    private String c;
 
-    void a(Boolean bool);
+    public s(o oVar, String str) {
+        this.f2459a = oVar;
+        this.c = null;
+        this.c = str;
+    }
 
-    void a(String str);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        UtilHelper.NetworkStateInfo networkStateInfo;
+        boolean z;
+        String str;
+        String str2;
+        String str3;
+        this.b = new t(this.f2459a, null);
+        networkStateInfo = this.f2459a.n;
+        if (networkStateInfo != UtilHelper.NetworkStateInfo.WIFI) {
+            o oVar = this.f2459a;
+            str3 = o.d;
+            oVar.d(str3);
+            z = false;
+        } else {
+            z = true;
+        }
+        if (z) {
+            str = o.d;
+            File[] listFiles = new File(str).listFiles();
+            if (listFiles != null) {
+                for (File file : listFiles) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (name.contains(".log") && (TextUtils.isEmpty(this.c) || !this.c.equals(name))) {
+                            t tVar = this.b;
+                            StringBuilder sb = new StringBuilder();
+                            str2 = o.d;
+                            tVar.a(sb.append(str2).append("/").append(name).toString(), "c/s/logupload", true);
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
 
-    void a(String str, String str2);
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.a();
+        }
+        this.f2459a.t = null;
+        super.cancel(true);
+    }
 
-    void a(String str, byte[] bArr);
-
-    void a(ArrayList<BasicNameValuePair> arrayList);
-
-    void a(BasicNameValuePair basicNameValuePair);
-
-    void a(boolean z);
-
-    boolean a();
-
-    long b();
-
-    void b(String str);
-
-    void b(boolean z);
-
-    String c();
-
-    void c(boolean z);
-
-    long d();
-
-    long e();
-
-    long f();
-
-    long g();
-
-    int h();
-
-    long i();
-
-    int j();
-
-    Context k();
-
-    ArrayList<BasicNameValuePair> l();
-
-    int m();
-
-    String n();
-
-    boolean o();
-
-    boolean p();
-
-    String q();
-
-    void r();
-
-    String s();
-
-    void t();
-
-    byte[] u();
-
-    String v();
-
-    String w();
-
-    boolean x();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        super.a((s) str);
+        this.f2459a.t = null;
+    }
 }

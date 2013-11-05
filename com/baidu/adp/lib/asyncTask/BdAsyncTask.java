@@ -7,9 +7,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public abstract class BdAsyncTask<Params, Progress, Result> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final f f356a = f.a();
-    private static d b = new d(null);
-    private static /* synthetic */ int[] l;
+    private static final g f406a = g.a();
+    private static e b = new e(null);
     private volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
     private int f = 1;
     private String g = null;
@@ -17,64 +16,33 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     private BdAsyncTaskType i = BdAsyncTaskType.MAX_PARALLEL;
     private boolean j = false;
     private final AtomicBoolean k = new AtomicBoolean();
-    private final e<Params, Result> c = new a(this);
-    private final l<Result> d = new b(this, this.c, this);
+    private final f<Params, Result> c = new a(this);
+    private final m<Result> d = new b(this, this.c, this);
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskStatus {
         PENDING,
         RUNNING,
-        FINISHED;
-
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static BdAsyncTaskStatus[] valuesCustom() {
-            BdAsyncTaskStatus[] valuesCustom = values();
-            int length = valuesCustom.length;
-            BdAsyncTaskStatus[] bdAsyncTaskStatusArr = new BdAsyncTaskStatus[length];
-            System.arraycopy(valuesCustom, 0, bdAsyncTaskStatusArr, 0, length);
-            return bdAsyncTaskStatusArr;
-        }
+        FINISHED
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract Result a(Params... paramsArr);
 
-    static /* synthetic */ int[] d() {
-        int[] iArr = l;
-        if (iArr == null) {
-            iArr = new int[BdAsyncTaskStatus.valuesCustom().length];
-            try {
-                iArr[BdAsyncTaskStatus.FINISHED.ordinal()] = 3;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[BdAsyncTaskStatus.PENDING.ordinal()] = 1;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[BdAsyncTaskStatus.RUNNING.ordinal()] = 2;
-            } catch (NoSuchFieldError e3) {
-            }
-            l = iArr;
-        }
-        return iArr;
-    }
-
     public static void updateInternalHandler() {
-        b = new d(null);
+        b = new e(null);
     }
 
     public static void removeAllTask(String str) {
-        f356a.a(str);
+        f406a.a(str);
     }
 
     public static void removeAllQueueTask(String str) {
-        f356a.b(str);
+        f406a.b(str);
     }
 
     public static BdAsyncTask<?, ?, ?> searchTask(String str) {
-        return f356a.c(str);
+        return f406a.c(str);
     }
 
     public int setPriority(int i) {
@@ -131,12 +99,13 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     public Result c(Result result) {
         synchronized (this) {
             if (this.k.get()) {
-                return null;
+                result = null;
+            } else {
+                this.k.set(true);
+                b.obtainMessage(1, new d(this, result)).sendToTarget();
             }
-            this.k.set(true);
-            b.obtainMessage(1, new c(this, result)).sendToTarget();
-            return result;
         }
+        return result;
     }
 
     public final BdAsyncTaskStatus getStatus() {
@@ -147,7 +116,8 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
         cancel(true);
     }
 
-    protected void a() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void a() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -176,7 +146,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
     public final boolean cancel(boolean z) {
         if (!this.j) {
-            f356a.a((BdAsyncTask<?, ?, ?>) this);
+            f406a.a((BdAsyncTask<?, ?, ?>) this);
         }
         boolean cancel = this.d.cancel(z);
         a();
@@ -192,15 +162,15 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     }
 
     public final BdAsyncTask<Params, Progress, Result> execute(Params... paramsArr) {
-        return executeOnExecutor(f356a, paramsArr);
+        return executeOnExecutor(f406a, paramsArr);
     }
 
     public final BdAsyncTask<Params, Progress, Result> executeOnExecutor(Executor executor, Params... paramsArr) {
         if (this.e != BdAsyncTaskStatus.PENDING) {
-            switch (d()[this.e.ordinal()]) {
-                case 2:
+            switch (c.f411a[this.e.ordinal()]) {
+                case 1:
                     throw new IllegalStateException("Cannot execute task: the task is already running.");
-                case 3:
+                case 2:
                     throw new IllegalStateException("Cannot execute task: the task has already been executed (a task can be executed only once)");
             }
         }
@@ -214,7 +184,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* JADX INFO: Access modifiers changed from: protected */
     public final void c(Progress... progressArr) {
         if (!isCancelled()) {
-            b.obtainMessage(2, new c(this, progressArr)).sendToTarget();
+            b.obtainMessage(2, new d(this, progressArr)).sendToTarget();
         }
     }
 

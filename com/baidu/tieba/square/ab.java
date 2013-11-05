@@ -3,26 +3,26 @@ package com.baidu.tieba.square;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.tieba.data.bc;
+import com.baidu.tieba.data.ba;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ab extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f1813a;
+    private com.baidu.tieba.j f2334a;
     private ArrayList<BaseAdapter> b;
     private t c;
     private h d;
 
     public ab(com.baidu.tieba.j jVar) {
-        this.f1813a = null;
+        this.f2334a = null;
         this.b = null;
         this.c = null;
-        this.f1813a = jVar;
+        this.f2334a = jVar;
         this.b = new ArrayList<>();
-        this.c = new t(this.f1813a);
-        this.d = new h(this.f1813a);
+        this.c = new t(this.f2334a);
+        this.d = new h(this.f2334a);
         a(this.c);
         a(this.d);
     }
@@ -31,12 +31,12 @@ public class ab extends BaseAdapter {
         this.b.add(baseAdapter);
     }
 
-    public void a(bc bcVar) {
+    public void a(ba baVar) {
         if (this.c != null) {
-            this.c.a(bcVar.b());
+            this.c.a(baVar.b());
         }
         if (this.d != null) {
-            this.d.a(bcVar.a());
+            this.d.a(baVar.a());
         }
         notifyDataSetChanged();
     }

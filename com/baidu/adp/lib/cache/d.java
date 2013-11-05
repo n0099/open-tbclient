@@ -1,7 +1,17 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public interface d {
-    int a();
+class d implements Runnable {
 
-    boolean b();
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ c f429a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(c cVar) {
+        this.f429a = cVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f429a.c();
+    }
 }

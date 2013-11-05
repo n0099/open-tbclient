@@ -1,58 +1,29 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import com.baidu.tieba.util.UtilHelper;
+import android.view.animation.Animation;
+import com.baidu.tieba.view.AniImageView;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends BaseAdapter {
+public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2122a;
+    final /* synthetic */ List f2666a;
+    final /* synthetic */ AudioIcon b;
 
-    public o(Context context) {
-        this.f2122a = null;
-        this.f2122a = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(AudioIcon audioIcon, List list) {
+        this.b = audioIcon;
+        this.f2666a = list;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return com.baidu.tbadk.a.a.a().b();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return com.baidu.tbadk.a.a.a().b(i).f();
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ImageView imageView;
-        if (view == null) {
-            ImageView imageView2 = new ImageView(this.f2122a);
-            imageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            int a2 = UtilHelper.a(this.f2122a, 50.0f);
-            imageView2.setLayoutParams(new AbsListView.LayoutParams(a2, a2));
-            imageView = imageView2;
-            view = imageView2;
-        } else {
-            imageView = (ImageView) view;
-        }
-        imageView.setFocusable(false);
-        imageView.setImageBitmap((Bitmap) getItem(i));
-        return view;
-    }
-
-    public String a(int i) {
-        return com.baidu.tbadk.a.a.a().c(i);
+    @Override // java.lang.Runnable
+    public void run() {
+        AniImageView aniImageView;
+        int i;
+        aniImageView = this.b.h;
+        List list = this.f2666a;
+        i = AudioIcon.g;
+        aniImageView.startAnimation((Animation) list.get(i));
     }
 }

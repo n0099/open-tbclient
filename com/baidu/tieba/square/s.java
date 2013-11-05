@@ -7,18 +7,18 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1853a;
+    public String f2375a;
     public String b;
     public String c;
     public String d;
     public ArrayList<s> e;
 
     public void a(JSONObject jSONObject) {
-        this.f1853a = jSONObject.optString("menu_type");
+        this.f2375a = jSONObject.optString("menu_type");
         this.b = jSONObject.optString("menu_name");
         this.c = jSONObject.optString("menu_id");
         this.d = jSONObject.optString("default_logo_url", null);
-        this.d = this.d != null ? String.valueOf(this.d) + "?v=2" : null;
+        this.d = this.d != null ? this.d + "?v=2" : null;
         if (jSONObject.has("child_menu_list")) {
             ArrayList<s> arrayList = new ArrayList<>();
             JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");

@@ -1,5 +1,5 @@
 package com.baidu.tieba.view;
 /* loaded from: classes.dex */
 public interface bi {
-    void a(String str, byte[] bArr);
+    void a(boolean z);
 }

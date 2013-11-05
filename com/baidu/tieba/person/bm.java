@@ -1,35 +1,46 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.data.UserData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements View.OnClickListener {
+public class bm implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f1682a;
+    final /* synthetic */ PersonListActivity f2201a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(PersonListActivity personListActivity) {
-        this.f1682a = personListActivity;
+        this.f2201a = personListActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        br brVar;
-        br brVar2;
-        br brVar3;
-        int intValue = ((Integer) view.getTag()).intValue();
-        brVar = this.f1682a.e;
-        if (brVar != null) {
-            brVar2 = this.f1682a.e;
-            if (brVar2.getItemViewType(intValue) == 0) {
-                brVar3 = this.f1682a.e;
-                UserData userData = (UserData) brVar3.getItem(intValue);
-                if (userData != null && userData.getId() != null) {
-                    PersonInfoActivity.a(this.f1682a, userData.getId(), userData.getName_show());
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
+        BdListView bdListView2;
+        bt btVar;
+        bt btVar2;
+        bt btVar3;
+        try {
+            bdListView = this.f2201a.b;
+            int firstVisiblePosition = bdListView.getFirstVisiblePosition();
+            bdListView2 = this.f2201a.b;
+            int lastVisiblePosition = bdListView2.getLastVisiblePosition();
+            for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
+                btVar = this.f2201a.e;
+                if (i < btVar.getCount()) {
+                    btVar2 = this.f2201a.e;
+                    UserData userData = (UserData) btVar2.getItem(i);
+                    if (userData != null && userData.getPortrait() != null) {
+                        btVar3 = this.f2201a.e;
+                        btVar3.c().b(userData.getPortrait(), new bn(this));
+                    }
+                } else {
+                    return;
                 }
             }
+        } catch (Exception e) {
+            com.baidu.tieba.util.be.b(getClass().getName(), "mGetImageRunnble.run", e.getMessage());
         }
     }
 }

@@ -1,44 +1,19 @@
 package com.baidu.tieba;
 
-import android.support.v4.view.bq;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.slidingmenu.lib.R;
+import android.view.View;
 /* loaded from: classes.dex */
-class t implements bq {
+class t implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f1861a;
+    final /* synthetic */ GuideActivity f2383a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(GuideActivity guideActivity) {
-        this.f1861a = guideActivity;
+        this.f2383a = guideActivity;
     }
 
-    @Override // android.support.v4.view.bq
-    public void a_(int i) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.f1861a.k;
-        int childCount = linearLayout.getChildCount();
-        if (i < childCount) {
-            for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.f1861a.k;
-                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
-                if (i2 != i) {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
-                } else {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
-                }
-            }
-        }
-    }
-
-    @Override // android.support.v4.view.bq
-    public void b(int i) {
-    }
-
-    @Override // android.support.v4.view.bq
-    public void a(int i, float f, int i2) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f2383a.b();
     }
 }

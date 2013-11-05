@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class j implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1872a;
+    final /* synthetic */ h f2394a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar) {
-        this.f1872a = hVar;
+        this.f2394a = hVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -24,19 +24,21 @@ public class j implements Animation.AnimationListener {
         Button button3;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.f1872a.l;
+        i = this.f2394a.l;
         if (i < 100) {
-            button3 = this.f1872a.e;
-            topRecActivity2 = this.f1872a.k;
-            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getString(R.string.done))).append("(");
-            i2 = this.f1872a.l;
+            button3 = this.f2394a.e;
+            StringBuilder sb = new StringBuilder();
+            topRecActivity2 = this.f2394a.k;
+            StringBuilder append = sb.append(topRecActivity2.getString(R.string.done)).append("(");
+            i2 = this.f2394a.l;
             button3.setText(append.append(i2).append(")").toString());
         } else {
-            button = this.f1872a.e;
-            topRecActivity = this.f1872a.k;
-            button.setText(String.valueOf(topRecActivity.getString(R.string.done)) + "(99+)");
+            button = this.f2394a.e;
+            StringBuilder sb2 = new StringBuilder();
+            topRecActivity = this.f2394a.k;
+            button.setText(sb2.append(topRecActivity.getString(R.string.done)).append("(99+)").toString());
         }
-        button2 = this.f1872a.e;
+        button2 = this.f2394a.e;
         button2.invalidate();
     }
 

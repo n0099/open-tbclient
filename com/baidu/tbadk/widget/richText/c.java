@@ -8,19 +8,19 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f840a;
+    private int f969a;
     private SpannableStringBuilder b = null;
     private e c = null;
     private ArrayList<d> d = null;
     private o e = null;
 
     public c(int i) {
-        this.f840a = 0;
-        this.f840a = i;
+        this.f969a = 0;
+        this.f969a = i;
     }
 
     public int a() {
-        return this.f840a;
+        return this.f969a;
     }
 
     public ArrayList<d> b() {
@@ -53,7 +53,7 @@ public class c {
     }
 
     public void a(CharSequence charSequence) {
-        if (this.f840a == 1 && charSequence != null) {
+        if ((this.f969a == 1 || this.f969a == 768) && charSequence != null) {
             if (this.b == null) {
                 this.b = new SpannableStringBuilder("");
             }
@@ -62,20 +62,20 @@ public class c {
     }
 
     public void a(String str) {
-        if (this.f840a == 32 && str != null) {
+        if (this.f969a == 32 && str != null) {
             this.b = new SpannableStringBuilder(str);
         }
     }
 
     public e c() {
-        if (this.f840a != 8) {
+        if (this.f969a != 8) {
             return null;
         }
         return this.c;
     }
 
     public void a(e eVar) {
-        if (this.f840a == 8) {
+        if (this.f969a == 8) {
             this.c = eVar;
         }
     }
@@ -85,24 +85,24 @@ public class c {
     }
 
     public o e() {
-        if (this.f840a != 512) {
-            return null;
+        if (this.f969a == 512 || this.f969a == 768) {
+            return this.e;
         }
-        return this.e;
+        return null;
     }
 
     public void a(o oVar) {
-        if (this.f840a == 512) {
+        if (this.f969a == 512 || this.f969a == 768) {
             this.e = oVar;
         }
     }
 
     public String toString() {
-        if (this.f840a == 1) {
+        if (this.f969a == 1) {
             if (this.b != null) {
                 return this.b.toString();
             }
-        } else if (this.f840a == 8 && this.c != null) {
+        } else if (this.f969a == 8 && this.c != null) {
             return this.c.e();
         }
         return "";

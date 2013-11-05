@@ -27,7 +27,7 @@ public class a extends Activity implements DialogInterface.OnClickListener, View
     }
 
     public void a(String str) {
-        com.baidu.adp.lib.f.f.a(getApplicationContext(), str);
+        com.baidu.adp.lib.h.f.a(getApplicationContext(), str);
     }
 
     public void a_() {

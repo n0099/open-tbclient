@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.common.security.Base64;
 import com.baidu.browser.core.util.BdUtil;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -21,17 +22,17 @@ public final class i {
     private static String g = "http://m.baidu.com/open/iasdk?";
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f558a;
+    private Context f637a;
     private ExecutorService c;
     private String d;
     private q e = null;
     private r f;
 
     private i(Context context) {
-        this.f558a = null;
+        this.f637a = null;
         this.c = null;
         this.f = null;
-        this.f558a = context;
+        this.f637a = context;
         this.f = new r();
         this.c = Executors.newSingleThreadExecutor();
     }
@@ -98,8 +99,8 @@ public final class i {
         if (jSONObject.has("maxnum")) {
             this.f.b(jSONObject.getInt("maxnum"));
         }
-        if (jSONObject.has("token")) {
-            this.f.a(jSONObject.getLong("token"));
+        if (jSONObject.has(SocialConstants.TOKEN_RESPONSE_TYPE)) {
+            this.f.a(jSONObject.getLong(SocialConstants.TOKEN_RESPONSE_TYPE));
         }
         if (jSONObject.has("retlist")) {
             String string = jSONObject.getString("retlist");
@@ -123,7 +124,7 @@ public final class i {
             }
         }
         if (jSONObject.has("synctimeinterval")) {
-            c.c(this.f558a, Long.valueOf(jSONObject.getLong("synctimeinterval")).longValue());
+            c.c(this.f637a, Long.valueOf(jSONObject.getLong("synctimeinterval")).longValue());
         }
     }
 
@@ -141,6 +142,6 @@ public final class i {
     public void a(String str, q qVar) {
         this.e = qVar;
         String a2 = a(str);
-        this.c.submit(new j(this, com.baidu.android.nebula.util.e.a(this.f558a).a(g), a2));
+        this.c.submit(new j(this, com.baidu.android.nebula.util.e.a(this.f637a).a(g), a2));
     }
 }

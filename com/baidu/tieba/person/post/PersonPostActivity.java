@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class PersonPostActivity extends BaseFragmentActivity implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1703a;
+    private String f2223a;
     private String b;
     private String c;
     private int d;
@@ -33,9 +33,9 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.c = getIntent().getStringExtra("key_portrait_url");
-        this.f1703a = getIntent().getStringExtra("key_uid");
+        this.f2223a = getIntent().getStringExtra("key_uid");
         this.d = getIntent().getIntExtra("key_sex", 0);
-        String str = this.f1703a;
+        String str = this.f2223a;
         TiebaApplication.g();
         if (str.equals(TiebaApplication.C())) {
             this.b = getString(R.string.me);
@@ -54,7 +54,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
             }
         }
         this.f = new PersonPostView(this);
-        if (this.f1703a == null) {
+        if (this.f2223a == null) {
             finish();
             return;
         }
@@ -73,15 +73,15 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
         }
     }
 
-    public String a() {
-        return this.f1703a;
-    }
-
     public String b() {
-        return this.b;
+        return this.f2223a;
     }
 
     public String c() {
+        return this.b;
+    }
+
+    public String d() {
         return this.c;
     }
 
@@ -93,24 +93,24 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
 
     @Override // com.baidu.tieba.BaseFragmentActivity
     protected void a(int i) {
-        this.f.c(i);
+        this.f.a(i);
     }
 
-    private void b(int i) {
+    private void c(int i) {
         switch (i) {
             case 1:
-                this.f.d(i);
+                this.f.b(i);
                 return;
             case 2:
-                this.f.d(i);
+                this.f.b(i);
                 return;
             default:
                 return;
         }
     }
 
-    public String d() {
-        return this.e ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), b());
+    public String e() {
+        return this.e ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), c());
     }
 
     @Override // android.view.View.OnClickListener
@@ -119,18 +119,18 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
             case R.id.back /* 2131099729 */:
                 finish();
                 return;
-            case R.id.reply /* 2131100302 */:
+            case R.id.reply /* 2131100478 */:
                 if (TiebaApplication.g().s()) {
                     StatService.onEvent(this, this.e ? "pp_my_reply" : "pp_his_reply", "click", 1);
                 }
-                b(2);
+                c(2);
                 this.f.b.setCurrentItem(1);
                 return;
-            case R.id.thread /* 2131100647 */:
+            case R.id.thread /* 2131100863 */:
                 if (TiebaApplication.g().s()) {
                     StatService.onEvent(this, this.e ? "pp_my_thread" : "pp_his_thread", "click", 1);
                 }
-                b(1);
+                c(1);
                 this.f.b.setCurrentItem(0);
                 return;
             default:

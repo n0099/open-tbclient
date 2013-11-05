@@ -9,38 +9,16 @@ import android.widget.ImageView;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class GifView extends ImageView implements a {
-    private static /* synthetic */ int[] i;
 
-    /* renamed from: a */
-    private b f436a;
+    /* renamed from: a  reason: collision with root package name */
+    private b f487a;
     private Bitmap b;
     private boolean c;
     private boolean d;
-    private d e;
+    private f e;
     private View f;
     private GifImageType g;
     private Handler h;
-
-    static /* synthetic */ int[] a() {
-        int[] iArr = i;
-        if (iArr == null) {
-            iArr = new int[GifImageType.valuesCustom().length];
-            try {
-                iArr[GifImageType.COVER.ordinal()] = 3;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[GifImageType.SYNC_DECODER.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[GifImageType.WAIT_FINISH.ordinal()] = 1;
-            } catch (NoSuchFieldError e3) {
-            }
-            i = iArr;
-        }
-        return iArr;
-    }
 
     /* loaded from: classes.dex */
     public enum GifImageType {
@@ -50,35 +28,25 @@ public class GifView extends ImageView implements a {
         
         final int nativeInt;
 
-        /* JADX DEBUG: Replace access to removed values field (a) with 'values()' method */
-        /* renamed from: values  reason: to resolve conflict with enum method */
-        public static GifImageType[] valuesCustom() {
-            GifImageType[] valuesCustom = values();
-            int length = valuesCustom.length;
-            GifImageType[] gifImageTypeArr = new GifImageType[length];
-            System.arraycopy(valuesCustom, 0, gifImageTypeArr, 0, length);
-            return gifImageTypeArr;
-        }
-
         GifImageType(int i) {
             this.nativeInt = i;
         }
     }
 
     private void setGifDecoderImage(byte[] bArr) {
-        if (this.f436a == null) {
-            this.f436a = new b(this);
+        if (this.f487a == null) {
+            this.f487a = new b(this);
         }
-        this.f436a.a(bArr);
-        this.f436a.start();
+        this.f487a.a(bArr);
+        this.f487a.start();
     }
 
     private void setGifDecoderImage(InputStream inputStream) {
-        if (this.f436a == null) {
-            this.f436a = new b(this);
+        if (this.f487a == null) {
+            this.f487a = new b(this);
         }
-        this.f436a.a(inputStream);
-        this.f436a.start();
+        this.f487a.a(inputStream);
+        this.f487a.start();
     }
 
     public void setAsBackground(View view) {
@@ -88,8 +56,8 @@ public class GifView extends ImageView implements a {
     @Override // android.view.View
     protected Parcelable onSaveInstanceState() {
         super.onSaveInstanceState();
-        if (this.f436a != null) {
-            this.f436a.a();
+        if (this.f487a != null) {
+            this.f487a.a();
             return null;
         }
         return null;
@@ -103,62 +71,62 @@ public class GifView extends ImageView implements a {
         setGifDecoderImage(inputStream);
     }
 
-    public void setGifImage(int i2) {
-        setGifDecoderImage(getResources().openRawResource(i2));
+    public void setGifImage(int i) {
+        setGifDecoderImage(getResources().openRawResource(i));
     }
 
     public void setGifImageType(GifImageType gifImageType) {
-        if (this.f436a == null) {
+        if (this.f487a == null) {
             this.g = gifImageType;
         }
     }
 
     @Override // com.baidu.adp.lib.gif.a
-    public void a(boolean z, int i2) {
+    public void a(boolean z, int i) {
         if (z) {
-            if (this.f436a != null) {
-                switch (a()[this.g.ordinal()]) {
+            if (this.f487a != null) {
+                switch (e.f492a[this.g.ordinal()]) {
                     case 1:
-                        if (i2 == -1) {
-                            if (this.f436a.b() > 1) {
-                                new d(this, null).start();
+                        if (i == -1) {
+                            if (this.f487a.b() > 1) {
+                                new f(this, null).start();
                                 return;
                             } else {
-                                b();
+                                a();
                                 return;
                             }
                         }
                         return;
                     case 2:
-                        if (i2 == 1) {
-                            this.b = this.f436a.c();
-                            b();
+                        if (i == 1) {
+                            this.b = this.f487a.c();
+                            a();
                             return;
-                        } else if (i2 == -1) {
-                            b();
-                            return;
-                        } else if (this.e == null) {
-                            this.e = new d(this, null);
-                            this.e.start();
-                            return;
-                        } else {
-                            return;
-                        }
-                    case 3:
-                        if (i2 == 1) {
-                            this.b = this.f436a.c();
-                            b();
-                            return;
-                        } else if (i2 == -1) {
-                            if (this.f436a.b() > 1) {
+                        } else if (i == -1) {
+                            if (this.f487a.b() > 1) {
                                 if (this.e == null) {
-                                    this.e = new d(this, null);
+                                    this.e = new f(this, null);
                                     this.e.start();
                                     return;
                                 }
                                 return;
                             }
-                            b();
+                            a();
+                            return;
+                        } else {
+                            return;
+                        }
+                    case 3:
+                        if (i == 1) {
+                            this.b = this.f487a.c();
+                            a();
+                            return;
+                        } else if (i == -1) {
+                            a();
+                            return;
+                        } else if (this.e == null) {
+                            this.e = new f(this, null);
+                            this.e.start();
                             return;
                         } else {
                             return;
@@ -171,9 +139,16 @@ public class GifView extends ImageView implements a {
         }
     }
 
-    public void b() {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
         if (this.h != null) {
             this.h.sendMessage(this.h.obtainMessage());
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        setImageBitmap(this.b);
+        invalidate();
     }
 }

@@ -1,23 +1,28 @@
 package com.baidu.tieba.more;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements com.baidu.tbadk.a.d {
+public class ag extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ af f1478a;
+    final /* synthetic */ MoreActivity f1982a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar) {
-        this.f1478a = afVar;
+    private ag(MoreActivity moreActivity) {
+        this.f1982a = moreActivity;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        SettingTextImageView settingTextImageView;
-        if (cVar == null) {
-            return;
-        }
-        settingTextImageView = this.f1478a.f;
-        settingTextImageView.setIcon(cVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(MoreActivity moreActivity, ad adVar) {
+        this(moreActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        ah ahVar;
+        ahVar = this.f1982a.f1969a;
+        ahVar.i();
     }
 }

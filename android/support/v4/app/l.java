@@ -6,18 +6,18 @@ import android.view.View;
 public class l implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Fragment f285a;
+    final /* synthetic */ Fragment f295a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Fragment fragment) {
-        this.f285a = fragment;
+        this.f295a = fragment;
     }
 
     @Override // android.support.v4.app.s
     public View a(int i) {
-        if (this.f285a.R == null) {
+        if (this.f295a.R == null) {
             throw new IllegalStateException("Fragment does not have a view");
         }
-        return this.f285a.R.findViewById(i);
+        return this.f295a.R.findViewById(i);
     }
 }

@@ -1,32 +1,32 @@
 package com.baidu.tieba.forumdetail;
 
-import com.baidu.tieba.model.cg;
+import com.baidu.tieba.model.cq;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements cg {
+public class i implements cq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ItemFootNavView f1090a;
-    private final /* synthetic */ com.baidu.tieba.j b;
-    private final /* synthetic */ boolean c;
+    final /* synthetic */ com.baidu.tieba.j f1222a;
+    final /* synthetic */ boolean b;
+    final /* synthetic */ ItemFootNavView c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(ItemFootNavView itemFootNavView, com.baidu.tieba.j jVar, boolean z) {
-        this.f1090a = itemFootNavView;
-        this.b = jVar;
-        this.c = z;
+        this.c = itemFootNavView;
+        this.f1222a = jVar;
+        this.b = z;
     }
 
-    @Override // com.baidu.tieba.model.cg
+    @Override // com.baidu.tieba.model.cq
     public void a(String str, long j) {
-        this.b.a(this.b.getString(R.string.unlike_success));
-        this.f1090a.b(false);
-        this.f1090a.a(this.c);
+        this.f1222a.a(this.f1222a.getString(R.string.unlike_success));
+        this.c.b(false);
+        this.c.a(this.b);
     }
 
-    @Override // com.baidu.tieba.model.cg
+    @Override // com.baidu.tieba.model.cq
     public void b(String str, long j) {
-        this.b.a(this.b.getString(R.string.unlike_failure));
+        this.f1222a.a(this.f1222a.getString(R.string.unlike_failure));
     }
 }

@@ -1,70 +1,41 @@
 package com.baidu.tieba.data;
 
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<s> f1045a = new ArrayList<>();
-    private ArrayList<s> b = new ArrayList<>();
-    private an c = new an();
-    private Date d = null;
-    private boolean e = true;
+    private String f1177a = null;
+    private String b = null;
+    private int c = 0;
+    private int d = 0;
+    private int e = 0;
     private int f = 0;
+    private int g = 0;
+    private String h = null;
+    private String i = null;
 
-    public boolean a() {
-        return this.e;
-    }
-
-    public int b() {
-        return this.f;
-    }
-
-    public ArrayList<s> c() {
-        return this.f1045a;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            this.e = false;
-            com.baidu.tieba.util.av.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
-        }
+    public String a() {
+        return this.b;
     }
 
     public void a(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    s sVar = new s();
-                    sVar.a(optJSONArray.getJSONObject(i));
-                    this.f1045a.add(sVar);
-                }
+        if (jSONObject != null) {
+            try {
+                this.f1177a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.b = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
+                this.c = jSONObject.optInt("member_count", 0);
+                this.d = jSONObject.optInt("is_like", 0);
+                this.e = this.d;
+                this.f = jSONObject.optInt("level_id", 1);
+                this.g = jSONObject.optInt("favo_type", 0);
+                this.h = jSONObject.optString("desc");
+                this.i = jSONObject.optString("avatar", "");
+            } catch (Exception e) {
+                com.baidu.tieba.util.be.b("LikeForumData", "parserJson", "error = " + e.getMessage());
             }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("commend_forum_list");
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    s sVar2 = new s();
-                    sVar2.a(optJSONArray2.getJSONObject(i2));
-                    this.b.add(sVar2);
-                }
-            }
-            this.c.a(jSONObject.optJSONObject("page"));
-            long optLong = jSONObject.optLong("ctime", 0L);
-            if (optLong > 0) {
-                this.d = new Date(optLong);
-            } else {
-                this.d = new Date();
-            }
-            this.f = jSONObject.optInt("is_login", 0);
-        } catch (Exception e) {
-            this.e = false;
-            com.baidu.tieba.util.av.b("LikeForumModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

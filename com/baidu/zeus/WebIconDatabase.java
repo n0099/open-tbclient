@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.Browser;
 import android.util.Log;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.HashMap;
 import java.util.Vector;
 /* loaded from: classes.dex */
@@ -101,7 +102,7 @@ public final class WebIconDatabase {
                                 WebIconDatabase.nativeRemoveAllIcons();
                                 return;
                             case 3:
-                                String string = message.getData().getString("url");
+                                String string = message.getData().getString(SocialConstants.PARAM_URL);
                                 EventHandler.this.requestIconAndSendResult(string, (IconListener) message.obj);
                                 return;
                             case 4:
@@ -157,7 +158,7 @@ public final class WebIconDatabase {
             IconListener iconListener = (IconListener) r1.get("listener");
             try {
                 try {
-                    cursor = ((ContentResolver) r1.get("contentResolver")).query(Browser.BOOKMARKS_URI, new String[]{"url"}, (String) r1.get("where"), null, null);
+                    cursor = ((ContentResolver) r1.get("contentResolver")).query(Browser.BOOKMARKS_URI, new String[]{SocialConstants.PARAM_URL}, (String) r1.get("where"), null, null);
                     try {
                         if (cursor.moveToFirst()) {
                             do {
@@ -220,7 +221,7 @@ public final class WebIconDatabase {
     public void requestIconForPageUrl(String str, IconListener iconListener) {
         if (iconListener != null && str != null) {
             Message obtain = Message.obtain(null, 3, iconListener);
-            obtain.getData().putString("url", str);
+            obtain.getData().putString(SocialConstants.PARAM_URL, str);
             this.mEventHandler.postMessage(obtain);
         }
     }

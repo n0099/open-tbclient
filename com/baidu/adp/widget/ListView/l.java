@@ -3,40 +3,47 @@ package com.baidu.adp.widget.ListView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements AdapterView.OnItemLongClickListener {
+class l implements AdapterView.OnItemSelectedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdListView f492a;
+    final /* synthetic */ BdListView f572a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BdListView bdListView) {
-        this.f492a = bdListView;
+        this.f572a = bdListView;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+    @Override // android.widget.AdapterView.OnItemSelectedListener
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
         e eVar;
         e eVar2;
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        AdapterView.OnItemLongClickListener onItemLongClickListener2;
-        eVar = this.f492a.f481a;
+        AdapterView.OnItemSelectedListener onItemSelectedListener;
+        AdapterView.OnItemSelectedListener onItemSelectedListener2;
+        eVar = this.f572a.f561a;
         int c = eVar.c();
-        if (i < c) {
-            return true;
+        if (i >= c) {
+            int i2 = i - c;
+            eVar2 = this.f572a.f561a;
+            ListAdapter b = eVar2.b();
+            if (b != null && i2 < b.getCount()) {
+                onItemSelectedListener = this.f572a.d;
+                if (onItemSelectedListener != null) {
+                    onItemSelectedListener2 = this.f572a.d;
+                    onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
+                }
+            }
         }
-        int i2 = i - c;
-        eVar2 = this.f492a.f481a;
-        ListAdapter b = eVar2.b();
-        if (b == null || i2 >= b.getCount()) {
-            return true;
+    }
+
+    @Override // android.widget.AdapterView.OnItemSelectedListener
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        AdapterView.OnItemSelectedListener onItemSelectedListener;
+        AdapterView.OnItemSelectedListener onItemSelectedListener2;
+        onItemSelectedListener = this.f572a.d;
+        if (onItemSelectedListener != null) {
+            onItemSelectedListener2 = this.f572a.d;
+            onItemSelectedListener2.onNothingSelected(adapterView);
         }
-        onItemLongClickListener = this.f492a.c;
-        if (onItemLongClickListener != null) {
-            onItemLongClickListener2 = this.f492a.c;
-            return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
-        }
-        return false;
     }
 }

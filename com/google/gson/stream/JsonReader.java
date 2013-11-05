@@ -1,7 +1,8 @@
 package com.google.gson.stream;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.BDLocation;
-import com.baidu.zeus.WebChromeClient;
 import com.google.gson.internal.JsonReaderInternalAccess;
 import com.google.gson.internal.bind.JsonTreeReader;
 import java.io.Closeable;
@@ -203,7 +204,7 @@ public class JsonReader implements Closeable {
             throw new IllegalStateException("Expected a double but was " + this.token + " at line " + getLineNumber() + " column " + getColumnNumber());
         }
         double parseDouble = Double.parseDouble(this.value);
-        if (parseDouble >= 1.0d && this.value.startsWith("0")) {
+        if (parseDouble >= 1.0d && this.value.startsWith(SocialConstants.FALSE)) {
             throw new MalformedJsonException("JSON forbids octal prefixes: " + this.value + " at line " + getLineNumber() + " column " + getColumnNumber());
         }
         if (!this.lenient && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
@@ -228,7 +229,7 @@ public class JsonReader implements Closeable {
                 throw new NumberFormatException("Expected a long but was " + this.value + " at line " + getLineNumber() + " column " + getColumnNumber());
             }
         }
-        if (j >= 1 && this.value.startsWith("0")) {
+        if (j >= 1 && this.value.startsWith(SocialConstants.FALSE)) {
             throw new MalformedJsonException("JSON forbids octal prefixes: " + this.value + " at line " + getLineNumber() + " column " + getColumnNumber());
         }
         advance();
@@ -250,7 +251,7 @@ public class JsonReader implements Closeable {
                 throw new NumberFormatException("Expected an int but was " + this.value + " at line " + getLineNumber() + " column " + getColumnNumber());
             }
         }
-        if (i >= 1 && this.value.startsWith("0")) {
+        if (i >= 1 && this.value.startsWith(SocialConstants.FALSE)) {
             throw new MalformedJsonException("JSON forbids octal prefixes: " + this.value + " at line " + getLineNumber() + " column " + getColumnNumber());
         }
         advance();
@@ -344,7 +345,7 @@ public class JsonReader implements Closeable {
     private JsonToken nextInObject(boolean z) {
         if (z) {
             switch (nextNonWhitespace(true)) {
-                case 125:
+                case SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE /* 125 */:
                     this.stackSize--;
                     JsonToken jsonToken = JsonToken.END_OBJECT;
                     this.token = jsonToken;
@@ -358,7 +359,7 @@ public class JsonReader implements Closeable {
                 case 44:
                 case 59:
                     break;
-                case 125:
+                case SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE /* 125 */:
                     this.stackSize--;
                     JsonToken jsonToken2 = JsonToken.END_OBJECT;
                     this.token = jsonToken2;
@@ -423,7 +424,7 @@ public class JsonReader implements Closeable {
                 JsonToken jsonToken = JsonToken.BEGIN_ARRAY;
                 this.token = jsonToken;
                 return jsonToken;
-            case 123:
+            case SocialAPIErrorCodes.ERROR_INVALID_BDUSS /* 123 */:
                 push(JsonScope.EMPTY_OBJECT);
                 JsonToken jsonToken2 = JsonToken.BEGIN_OBJECT;
                 this.token = jsonToken2;
@@ -680,8 +681,8 @@ public class JsonReader implements Closeable {
                     case ':':
                     case '[':
                     case ']':
-                    case '{':
-                    case '}':
+                    case SocialAPIErrorCodes.ERROR_INVALID_BDUSS /* 123 */:
+                    case SocialAPIErrorCodes.ERROR_INVALID_UPLOAD_FILE /* 125 */:
                         break;
                     case '#':
                     case '/':
@@ -742,15 +743,15 @@ public class JsonReader implements Closeable {
         switch (c) {
             case 'b':
                 return '\b';
-            case WebChromeClient.STRING_DLG_TITLE_WEEK /* 102 */:
+            case 'f':
                 return '\f';
-            case 'n':
+            case SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN /* 110 */:
                 return '\n';
             case 'r':
                 return '\r';
-            case 't':
+            case SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE /* 116 */:
                 return '\t';
-            case 'u':
+            case SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE /* 117 */:
                 if (this.pos + 4 > this.limit && !fillBuffer(4)) {
                     throw syntaxError("Unterminated escape sequence");
                 }

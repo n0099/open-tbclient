@@ -1,24 +1,32 @@
 package com.baidu.tieba.square;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.util.ba;
-import com.baidu.tieba.util.bf;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tieba.util.bo;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class e implements com.baidu.tbadk.a.d {
+class e implements bo {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f1839a;
-    private final /* synthetic */ ViewGroup b;
+    final /* synthetic */ String f2361a;
+    final /* synthetic */ com.baidu.adp.widget.ImageView.e b;
+    final /* synthetic */ d c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(c cVar, ViewGroup viewGroup) {
-        this.f1839a = cVar;
-        this.b = viewGroup;
+    public e(d dVar, String str, com.baidu.adp.widget.ImageView.e eVar) {
+        this.c = dVar;
+        this.f2361a = str;
+        this.b = eVar;
     }
 
-    @Override // com.baidu.tbadk.a.d
-    public void a(com.baidu.adp.widget.a.c cVar, String str, boolean z) {
-        ba.a(this.b, false, (bf) new f(this, str, cVar));
+    @Override // com.baidu.tieba.util.bo
+    public boolean a(View view) {
+        if ((view instanceof ImageView) && this.f2361a != null && this.f2361a.equals(view.getTag())) {
+            HeadImageView headImageView = (HeadImageView) view;
+            headImageView.setImageBitmap(this.b.f());
+            headImageView.invalidate();
+            return false;
+        }
+        return false;
     }
 }
