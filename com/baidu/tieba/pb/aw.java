@@ -6,26 +6,24 @@ import com.baidu.tieba.voice.PlayVoiceBnt;
 class aw implements com.baidu.adp.lib.d.c<View> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2059a;
+    final /* synthetic */ NewPbActivity f2080a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(NewPbActivity newPbActivity) {
-        this.f2059a = newPbActivity;
+        this.f2080a = newPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public View a() {
-        return new PlayVoiceBnt(this.f2059a, PlayVoiceBnt.PLAY_TYPE.NORMAL);
+        return new PlayVoiceBnt(this.f2080a, PlayVoiceBnt.PLAY_TYPE.NORMAL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     public void a(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view;
-        playVoiceBnt.setVoiceModel(null);
-        playVoiceBnt.setTag(null);
+        ((PlayVoiceBnt) view).d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,9 +35,7 @@ class aw implements com.baidu.adp.lib.d.c<View> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     public View c(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view;
-        playVoiceBnt.setVoiceModel(null);
-        playVoiceBnt.setTag(null);
+        ((PlayVoiceBnt) view).d();
         return view;
     }
 }

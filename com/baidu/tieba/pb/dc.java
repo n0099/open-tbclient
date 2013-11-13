@@ -1,46 +1,37 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.write.AudioIcon;
+import android.os.Handler;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dc implements View.OnClickListener {
+public class dc implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.more.ac f2116a;
-    final /* synthetic */ PbWriteToolView b;
+    final /* synthetic */ com.baidu.tieba.data.aw f2135a;
+    final /* synthetic */ boolean b;
+    final /* synthetic */ String c;
+    final /* synthetic */ String d;
+    final /* synthetic */ cp e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dc(PbWriteToolView pbWriteToolView, com.baidu.tieba.more.ac acVar) {
-        this.b = pbWriteToolView;
-        this.f2116a = acVar;
+    public dc(cp cpVar, com.baidu.tieba.data.aw awVar, boolean z, String str, String str2) {
+        this.e = cpVar;
+        this.f2135a = awVar;
+        this.b = z;
+        this.c = str;
+        this.d = str2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ImageView imageView;
-        ImageView imageView2;
-        ImageView imageView3;
-        AudioIcon audioIcon;
-        imageView = this.b.c;
-        if (view != imageView) {
-            imageView2 = this.b.d;
-            if (view != imageView2) {
-                imageView3 = this.b.e;
-                if (view != imageView3) {
-                    audioIcon = this.b.f;
-                    if (view == audioIcon.getView()) {
-                        this.f2116a.a(3);
-                        return;
-                    }
-                    return;
-                }
-                this.f2116a.a(2);
-                return;
-            }
-            this.f2116a.a(1);
-            return;
-        }
-        this.f2116a.a(0);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new dd(this));
     }
 }

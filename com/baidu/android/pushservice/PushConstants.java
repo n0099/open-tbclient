@@ -57,6 +57,7 @@ public final class PushConstants {
     public static final String EXTRA_PUSH_MESSAGE_STRING = "message_string";
     public static final String EXTRA_PUSH_SDK_VERSION = "push_sdk_version";
     public static final String EXTRA_TAGS = "tags";
+    public static final String EXTRA_TAGS_LIST = "tags_list";
     public static final String EXTRA_TIMESTAMP = "time_stamp";
     public static final String EXTRA_USER_ID = "user_id";
     public static final int LOGIN_TYPE_ACCESS_TOKEN = 1;
@@ -76,6 +77,7 @@ public final class PushConstants {
     public static final String METHOD_GINFO = "method_ginfo";
     public static final String METHOD_GLIST = "method_glist";
     public static final String METHOD_GUNBIND = "method_gunbind";
+    public static final String METHOD_LISTTAGS = "method_listtags";
     public static final String METHOD_ONLINE = "method_online";
     public static final String METHOD_SEND = "method_send";
     public static final String METHOD_SEND_MSG_TO_SERVER = "method_send_msg_to_server";
@@ -91,7 +93,7 @@ public final class PushConstants {
     }
 
     public static Intent createMethodIntent(Context context) {
-        return com.baidu.android.pushservice.util.n.d(context);
+        return com.baidu.android.pushservice.util.m.d(context);
     }
 
     public static String getErrorMsg(int i) {
@@ -130,7 +132,7 @@ public final class PushConstants {
     }
 
     public static void restartPushService(Context context) {
-        com.baidu.android.pushservice.util.n.g(context, null);
+        com.baidu.android.pushservice.util.m.g(context, null);
     }
 
     public static String rsaEncrypt(String str) {
@@ -146,6 +148,6 @@ public final class PushConstants {
     }
 
     public static void startPushService(Context context) {
-        com.baidu.android.pushservice.util.n.j(context);
+        com.baidu.android.pushservice.util.m.j(context);
     }
 }

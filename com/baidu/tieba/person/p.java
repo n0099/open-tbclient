@@ -7,17 +7,17 @@ import com.baidu.tieba.im.data.UploadPicData2;
 class p implements com.baidu.tieba.im.model.u {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f2222a;
+    final /* synthetic */ o f2258a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.f2222a = oVar;
+        this.f2258a = oVar;
     }
 
     @Override // com.baidu.tieba.im.model.u
     public void a(String str, UploadPicData2 uploadPicData2) {
-        this.f2222a.f2221a.j();
-        Intent intent = this.f2222a.f2221a.getIntent();
+        this.f2258a.f2257a.closeLoadingDialog();
+        Intent intent = this.f2258a.f2257a.getIntent();
         if (uploadPicData2 != null) {
             PhotoUrlData photoUrlData = new PhotoUrlData();
             photoUrlData.setPicId(String.valueOf(uploadPicData2.picId));
@@ -29,10 +29,10 @@ class p implements com.baidu.tieba.im.model.u {
                     photoUrlData.setSmallurl(uploadPicData2.picInfo.smallPic.picUrl);
                 }
             }
-            intent.putExtra(EditHeadActivity.f2157a, String.valueOf(uploadPicData2.picId));
+            intent.putExtra(EditHeadActivity.f2199a, String.valueOf(uploadPicData2.picId));
             intent.putExtra(EditHeadActivity.b, photoUrlData);
         }
-        this.f2222a.f2221a.setResult(-1, intent);
-        this.f2222a.f2221a.finish();
+        this.f2258a.f2257a.setResult(-1, intent);
+        this.f2258a.f2257a.finish();
     }
 }

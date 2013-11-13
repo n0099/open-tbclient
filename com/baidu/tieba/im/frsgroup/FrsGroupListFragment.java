@@ -11,51 +11,52 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.view.bi;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class FrsGroupListFragment extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r {
     private int Y;
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1546a;
+    private FrsGroupActivity f1636a;
     private com.baidu.tieba.im.model.b b;
-    private i c;
+    private g c;
     private BdListView d;
     private Button e;
-    private com.baidu.tieba.view.ab f;
+    private bi f;
     private InitGuideView g;
     private GroupListAdapter h;
     private Handler i;
-    private Runnable Z = new g(this);
-    private com.baidu.tieba.im.messageCenter.h aa = new h(this);
+    private Runnable Z = new e(this);
+    private com.baidu.tieba.im.messageCenter.h aa = new f(this);
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Bundle bundle) {
         super.a(bundle);
-        this.f1546a = (FrsGroupActivity) i();
-        this.b = this.f1546a.b();
-        this.c = this.f1546a.c();
+        this.f1636a = (FrsGroupActivity) i();
+        this.b = this.f1636a.c();
+        this.c = this.f1636a.d();
         this.i = new Handler();
         this.b.a(this.aa);
     }
 
-    private void E() {
+    private void G() {
         this.b.a(this.aa);
         if (!this.b.b(g())) {
-            H();
+            J();
         }
     }
 
-    private void F() {
+    private void H() {
         this.b.b(this.aa);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void b(boolean z) {
         if (z) {
-            F();
+            H();
         } else {
-            E();
+            G();
         }
     }
 
@@ -65,15 +66,15 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         this.g = (InitGuideView) inflate.findViewById(R.id.group_guide);
         this.e = (Button) inflate.findViewById(R.id.guide_create);
         this.d = (BdListView) inflate.findViewById(R.id.group_list);
-        this.f = new com.baidu.tieba.view.ab(this.f1546a);
+        this.f = new bi(this.f1636a);
         this.d.setPullRefresh(this.f);
-        this.h = new GroupListAdapter(this.f1546a);
+        this.h = new GroupListAdapter(this.f1636a);
         this.d.setAdapter((ListAdapter) this.h);
         this.d.setOnScrollListener(this);
         this.d.setOnSrollToBottomListener(this);
-        this.f.a(new d(this));
-        this.d.setOnItemClickListener(new e(this));
-        this.e.setOnClickListener(new f(this));
+        this.f.a(new b(this));
+        this.d.setOnItemClickListener(new c(this));
+        this.e.setOnClickListener(new d(this));
         this.g.setCreateButton(this.e);
         return inflate;
     }
@@ -81,11 +82,11 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     @Override // android.support.v4.app.Fragment
     public void a(View view, Bundle bundle) {
         super.a(view, bundle);
-        I();
+        K();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int G() {
+    public int I() {
         switch (this.b.g()) {
             case 1:
             default:
@@ -98,8 +99,8 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void c() {
-        super.c();
+    public void c_() {
+        super.c_();
         if (this.g.b()) {
             this.g.g();
         }
@@ -112,8 +113,8 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void r() {
-        super.r();
+    public void t() {
+        super.t();
         this.b.b(this.aa);
     }
 
@@ -127,7 +128,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void H() {
+    public void J() {
         this.c.b(false);
         this.b.f();
         this.b.a(true);
@@ -138,7 +139,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         this.d.b();
     }
 
-    private void I() {
+    private void K() {
         this.c.b(false);
         this.b.f();
         this.b.a(false);
@@ -152,10 +153,10 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
 
     @Override // com.baidu.adp.widget.ListView.r
     public void a() {
-        J();
+        L();
     }
 
-    private void J() {
+    private void L() {
         if (this.h.b()) {
             a(true);
         }
@@ -178,7 +179,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void K() {
+    public void M() {
         if (this.b.h()) {
             this.d.a();
         }
@@ -196,14 +197,14 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void L() {
+    public void N() {
         if (this.g.b()) {
             this.g.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void M() {
+    public void O() {
         if (this.i != null) {
             this.i.removeCallbacks(this.Z);
             this.i.postDelayed(this.Z, 0L);
@@ -212,10 +213,10 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(boolean z) {
-        int as = TiebaApplication.g().as();
+        int ap = TiebaApplication.g().ap();
         if (!z) {
             this.d.setDivider(j().getDrawable(17170445));
-        } else if (as == 1) {
+        } else if (ap == 1) {
             this.d.setDivider(j().getDrawable(R.drawable.list_divider_1));
         } else {
             this.d.setDivider(j().getDrawable(R.drawable.list_divider));
@@ -223,7 +224,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void N() {
+    public void P() {
         e(false);
         this.g.g();
         switch (this.b.g()) {

@@ -12,8 +12,8 @@ import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
 import com.baidu.tieba.im.validate.ValidateActivity;
 import com.baidu.tieba.service.DealIntentService;
 import com.baidu.tieba.service.TiebaMessageService;
-import com.baidu.tieba.util.bc;
 import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 import java.lang.reflect.Field;
 import java.util.Calendar;
@@ -27,7 +27,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     private static long l = System.currentTimeMillis();
 
     /* renamed from: a  reason: collision with root package name */
-    NotificationManager f1874a = null;
+    NotificationManager f1871a = null;
     private long c = 0;
     private long d = 0;
     private long e = 0;
@@ -45,7 +45,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     public void b() {
-        this.f1874a = (NotificationManager) this.b.getSystemService("notification");
+        this.f1871a = (NotificationManager) this.b.getSystemService("notification");
     }
 
     private t() {
@@ -61,7 +61,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
 
     public void a(long j2, long j3, long j4, long j5, long j6) {
         if (j2 == this.c && j3 == this.d && j4 == this.e && j5 == this.f && j6 == this.g) {
-            be.b("消息数字都没有变化" + this.c + this.d + this.e + this.f + this.g);
+            bg.b("消息数字都没有变化" + this.c + this.d + this.e + this.f + this.g);
             return;
         }
         int i = 0;
@@ -78,7 +78,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
         if (r() <= 0) {
             i = 2;
         }
-        if (TiebaApplication.C() != null && TiebaApplication.C().length() > 0) {
+        if (TiebaApplication.A() != null && TiebaApplication.A().length() > 0) {
             h();
             a(i, 16);
             a(i, 17);
@@ -113,12 +113,12 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
             }
             j = date;
         }
-        if (g.U()) {
+        if (g.S()) {
             Calendar calendar = Calendar.getInstance();
             int i = calendar.get(12) + (calendar.get(11) * 60);
-            String[] split = g.V().split(":");
+            String[] split = g.T().split(":");
             int parseInt = Integer.parseInt(split[1]) + (Integer.parseInt(split[0]) * 60);
-            String[] split2 = g.W().split(":");
+            String[] split2 = g.U().split(":");
             int parseInt2 = Integer.parseInt(split2[1]) + (Integer.parseInt(split2[0]) * 60);
             if (parseInt < parseInt2) {
                 if (i >= parseInt && i <= parseInt2) {
@@ -137,7 +137,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     private void a(int i, int i2) {
-        if (this.f1874a != null) {
+        if (this.f1871a != null) {
             try {
                 if (i == 1) {
                     StringBuffer stringBuffer = new StringBuffer();
@@ -153,22 +153,22 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                         }
                         stringBuffer.append(this.b.getString(R.string.notify_click));
                         a(11, (String) null, stringBuffer.toString());
-                    } else if (i2 == 16 || !TiebaApplication.g().ae() || TiebaApplication.g().R() > 0) {
+                    } else if (i2 == 16 || !TiebaApplication.g().ac() || TiebaApplication.g().P() > 0) {
                     }
                 } else if (i == 2) {
-                    this.f1874a.cancel(11);
-                    this.f1874a.cancel(16);
-                    this.f1874a.cancel(17);
+                    this.f1871a.cancel(11);
+                    this.f1871a.cancel(16);
+                    this.f1871a.cancel(17);
                 }
             } catch (Exception e) {
-                be.b(getClass().toString(), "showNotification", e.getMessage());
+                bg.b(getClass().toString(), "showNotification", e.getMessage());
             }
         }
     }
 
     private void a(int i, int i2, ae aeVar) {
         boolean z = true;
-        if (this.f1874a != null && aeVar != null) {
+        if (this.f1871a != null && aeVar != null) {
             try {
                 if (i == 1) {
                     StringBuffer stringBuffer = new StringBuffer();
@@ -185,12 +185,12 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                         stringBuffer.append(this.b.getString(R.string.notify_click));
                         a(11, (String) null, stringBuffer.toString());
                     } else if (i2 == 16) {
-                        long b = ((!TiebaApplication.g().ae() || TiebaApplication.g().R() <= 0) ? 0L : aeVar.b() - aeVar.e()) + o();
+                        long b = ((!TiebaApplication.g().ac() || TiebaApplication.g().P() <= 0) ? 0L : aeVar.b() - aeVar.e()) + o();
                         if (b > 1 || o() == 1) {
                             stringBuffer.append(String.format(this.b.getString(R.string.notify_chat), Long.valueOf(b)));
                             a(16, aeVar.i(), stringBuffer.toString());
                         } else if (b == 1) {
-                            if (bc.c(aeVar.h())) {
+                            if (be.c(aeVar.h())) {
                                 stringBuffer.append(String.format(this.b.getString(R.string.notify_chat), Long.valueOf(b)));
                                 a(16, aeVar.i(), stringBuffer.toString());
                                 return;
@@ -198,13 +198,13 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                             com.baidu.adp.lib.h.d.d("getLastSummary():" + aeVar.h());
                             a(16, aeVar.i(), aeVar.h());
                         }
-                    } else if (TiebaApplication.g().ae() && TiebaApplication.g().R() > 0 && aeVar.c() + aeVar.d() > 0) {
-                        if (aeVar.c() <= 0 || UpdatesActivity.f1619a) {
+                    } else if (TiebaApplication.g().ac() && TiebaApplication.g().P() > 0 && aeVar.c() + aeVar.d() > 0) {
+                        if (aeVar.c() <= 0 || UpdatesActivity.f1706a) {
                             z = false;
                         } else {
                             stringBuffer.append(String.format(this.b.getString(R.string.notify_updates), Long.valueOf(aeVar.c())));
                         }
-                        if (aeVar.d() > 0 && !ValidateActivity.f1716a) {
+                        if (aeVar.d() > 0 && !ValidateActivity.f1803a) {
                             if (z) {
                                 stringBuffer.append(String.format(this.b.getString(R.string.notify_validate_1), Long.valueOf(aeVar.d())));
                             } else {
@@ -214,21 +214,25 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                         a(17, (String) null, stringBuffer.toString());
                     }
                 } else if (i == 2) {
-                    this.f1874a.cancel(11);
-                    this.f1874a.cancel(16);
-                    this.f1874a.cancel(17);
+                    this.f1871a.cancel(11);
+                    this.f1871a.cancel(16);
+                    this.f1871a.cancel(17);
                 }
             } catch (Exception e) {
-                be.b(getClass().toString(), "showNotification", e.getMessage());
+                bg.b(getClass().toString(), "showNotification", e.getMessage());
             }
         }
+    }
+
+    private void a(Notification notification) {
+        new Notification(R.drawable.icon, this.b.getString(R.string.notify_text), System.currentTimeMillis());
     }
 
     private void a(int i, String str, String str2) {
         Intent v;
         Notification notification = new Notification(R.drawable.icon_notify, this.b.getString(R.string.notify_text), System.currentTimeMillis());
-        if (this.f1874a != null) {
-            this.f1874a.cancel(i);
+        if (this.f1871a != null) {
+            this.f1871a.cancel(i);
         }
         if (i == 11 && this.e > 0 && this.c == 0 && this.d == 0) {
             v = u();
@@ -244,21 +248,21 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
             i2 = field.getInt(null);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            notification.icon = R.drawable.icon;
+            a(notification);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
-            notification.icon = R.drawable.icon;
+            a(notification);
         } catch (IllegalArgumentException e3) {
             e3.printStackTrace();
-            notification.icon = R.drawable.icon;
+            a(notification);
         } catch (NoSuchFieldException e4) {
             e4.printStackTrace();
-            notification.icon = R.drawable.icon;
+            a(notification);
         } catch (SecurityException e5) {
             e5.printStackTrace();
-            notification.icon = R.drawable.icon;
+            a(notification);
         }
-        if (bc.c(str) || i != 16) {
+        if (be.c(str) || i != 16) {
             notification.setLatestEventInfo(this.b, this.b.getString(R.string.app_name), str2, service);
         } else {
             notification.setLatestEventInfo(this.b, str, str2, service);
@@ -272,28 +276,28 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
             notification.defaults &= -2;
             notification.defaults &= -3;
         } else {
-            if (!this.b.Y()) {
+            if (!this.b.W()) {
                 notification.defaults &= -3;
             }
-            if (!this.b.X()) {
+            if (!this.b.V()) {
                 notification.defaults &= -2;
             } else {
                 notification.audioStreamType = 5;
             }
         }
-        if (this.f1874a != null) {
-            this.f1874a.notify(i, notification);
+        if (this.f1871a != null) {
+            this.f1871a.notify(i, notification);
         }
     }
 
     private Intent u() {
         Intent intent = new Intent(this.b, DealIntentService.class);
         intent.putExtra("class", 10);
-        String C = TiebaApplication.C();
-        String H = TiebaApplication.H();
-        if (!TextUtils.isEmpty(C) && !TextUtils.isEmpty(H)) {
-            intent.putExtra("un", C);
-            intent.putExtra(SocialConstants.PARAM_MEDIA_UNAME, H);
+        String A = TiebaApplication.A();
+        String F = TiebaApplication.F();
+        if (!TextUtils.isEmpty(A) && !TextUtils.isEmpty(F)) {
+            intent.putExtra("un", A);
+            intent.putExtra(SocialConstants.PARAM_MEDIA_UNAME, F);
         }
         return intent;
     }
@@ -312,19 +316,19 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     public void d() {
-        if (this.f1874a != null) {
-            this.f1874a.cancel(11);
-            this.f1874a.cancel(16);
-            this.f1874a.cancel(17);
-            this.f1874a.cancel(15);
-            this.f1874a.cancel(13);
-            this.f1874a.cancel(12);
+        if (this.f1871a != null) {
+            this.f1871a.cancel(11);
+            this.f1871a.cancel(16);
+            this.f1871a.cancel(17);
+            this.f1871a.cancel(15);
+            this.f1871a.cancel(13);
+            this.f1871a.cancel(12);
         }
     }
 
     public void e() {
-        if (this.f1874a != null) {
-            this.f1874a.cancel(16);
+        if (this.f1871a != null) {
+            this.f1871a.cancel(16);
         }
     }
 
@@ -347,8 +351,8 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     public void f() {
-        if (this.f1874a != null) {
-            this.f1874a.cancel(17);
+        if (this.f1871a != null) {
+            this.f1871a.cancel(17);
         }
     }
 
@@ -366,10 +370,10 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     public void g() {
-        if (this.f1874a != null) {
-            this.f1874a.cancel(11);
-            this.f1874a.cancel(16);
-            this.f1874a.cancel(17);
+        if (this.f1871a != null) {
+            this.f1871a.cancel(11);
+            this.f1871a.cancel(16);
+            this.f1871a.cancel(17);
         }
     }
 
@@ -381,7 +385,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
         intent.putExtra("pletter", p());
         intent.putExtra("new_bookmark", q());
         this.b.sendBroadcast(intent);
-        be.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Long.valueOf(l()), Long.valueOf(m()), Long.valueOf(n()), Long.valueOf(q())));
+        bg.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Long.valueOf(l()), Long.valueOf(m()), Long.valueOf(n()), Long.valueOf(q())));
     }
 
     public void a(ae aeVar) {
@@ -393,28 +397,28 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
             intent.putExtra("pletter", o() + aeVar.b());
             intent.putExtra("new_bookmark", q());
             this.b.sendBroadcast(intent);
-            be.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Long.valueOf(l()), Long.valueOf(m()), Long.valueOf(n()), Long.valueOf(q())));
+            bg.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Long.valueOf(l()), Long.valueOf(m()), Long.valueOf(n()), Long.valueOf(q())));
         }
     }
 
     public void i() {
-        if (TiebaApplication.g().af()) {
+        if (TiebaApplication.g().ad()) {
             try {
                 this.b.startService(new Intent(this.b, TiebaMessageService.class));
             } catch (Exception e) {
-                be.b(getClass().getName(), "startMsgReceive", e.toString());
+                bg.b(getClass().getName(), "startMsgReceive", e.toString());
             }
         }
     }
 
     public void j() {
-        if (TiebaApplication.g().af()) {
+        if (TiebaApplication.g().ad()) {
             try {
                 Intent intent = new Intent(this.b, TiebaMessageService.class);
                 intent.putExtra("getMessageAtOnce", true);
                 this.b.startService(intent);
             } catch (Exception e) {
-                be.b(getClass().getName(), "startMsgReceive", e.toString());
+                bg.b(getClass().getName(), "startMsgReceive", e.toString());
             }
         }
     }
@@ -516,12 +520,12 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                 k = System.currentTimeMillis();
             }
             if (aeVar.f()) {
-                if (((!TiebaApplication.g().ae() || TiebaApplication.g().R() <= 0) ? 0L : (aeVar.b() - aeVar.e()) - aeVar.g()) > 0) {
+                if (((!TiebaApplication.g().ac() || TiebaApplication.g().P() <= 0) ? 0L : (aeVar.b() - aeVar.e()) - aeVar.g()) > 0) {
                     a(1, 16, aeVar);
                 }
                 if (aeVar.c() > aeVar.k() || aeVar.d() > aeVar.l()) {
-                    if (aeVar.c() <= aeVar.k() || aeVar.d() != aeVar.l() || !UpdatesActivity.f1619a) {
-                        if (aeVar.c() != aeVar.k() || aeVar.d() <= aeVar.l() || !ValidateActivity.f1716a) {
+                    if (aeVar.c() <= aeVar.k() || aeVar.d() != aeVar.l() || !UpdatesActivity.f1706a) {
+                        if (aeVar.c() != aeVar.k() || aeVar.d() <= aeVar.l() || !ValidateActivity.f1803a) {
                             a(1, 17, aeVar);
                         }
                     }

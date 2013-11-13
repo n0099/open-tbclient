@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static x f1540a;
+    private static x f1631a;
     private volatile String b = "";
     private AtomicBoolean c = new AtomicBoolean(false);
     private ConcurrentHashMap<String, ImMessageCenterPojo> d = new ConcurrentHashMap<>();
@@ -21,16 +21,16 @@ public class x {
     public static synchronized x a() {
         x xVar;
         synchronized (x.class) {
-            if (f1540a == null) {
-                f1540a = new x();
+            if (f1631a == null) {
+                f1631a = new x();
             }
-            xVar = f1540a;
+            xVar = f1631a;
         }
         return xVar;
     }
 
     public void a(com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> aVar) {
-        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.f1634a) {
+        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.f1721a) {
             com.baidu.adp.lib.h.d.a("!!!!!!!!!!!!!!!获取缓存不是在主线程里面执行了！");
             try {
                 throw new RuntimeException();
@@ -54,10 +54,10 @@ public class x {
     }
 
     private synchronized void c() {
-        String C = TiebaApplication.C();
-        if (TextUtils.isEmpty(C) || !C.equals(this.b)) {
+        String A = TiebaApplication.A();
+        if (TextUtils.isEmpty(A) || !A.equals(this.b)) {
             this.d.clear();
-            this.b = C;
+            this.b = A;
             this.c.set(false);
         }
     }

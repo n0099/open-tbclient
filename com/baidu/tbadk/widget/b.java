@@ -1,25 +1,72 @@
 package com.baidu.tbadk.widget;
 
-import java.util.List;
+import android.content.Context;
+import android.graphics.Canvas;
+import com.baidu.adp.widget.ImageView.e;
 /* loaded from: classes.dex */
-class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    public final boolean f965a;
-    public final List<Object> b;
-    public final List<Object> c;
-
-    public static b a(List<Object> list, List<Object> list2) {
-        return new b(true, list, list2);
+public class b extends TbImageView {
+    public b(Context context) {
+        super(context);
     }
 
-    public static b a() {
-        return new b(false, null, null);
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a
+    public e getImage() {
+        return super.getImage();
     }
 
-    private b(boolean z, List<Object> list, List<Object> list2) {
-        this.f965a = z;
-        this.b = list;
-        this.c = list2;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        if (!getIsLoaded() && g()) {
+            e();
+            return;
+        }
+        f();
+        super.onDraw(canvas);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.widget.TbImageView, android.widget.ImageView, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        d();
+    }
+
+    public void d() {
+        setTag(null);
+        a listViewActivity = getListViewActivity();
+        if (listViewActivity != null) {
+            listViewActivity.b(this);
+        }
+    }
+
+    public a getListViewActivity() {
+        Context context = getContext();
+        if (context instanceof a) {
+            return (a) context;
+        }
+        return null;
+    }
+
+    public void e() {
+        a listViewActivity = getListViewActivity();
+        if (listViewActivity != null) {
+            listViewActivity.a(this);
+        }
+    }
+
+    public void f() {
+        a listViewActivity = getListViewActivity();
+        if (listViewActivity != null) {
+            listViewActivity.b(this);
+        }
+    }
+
+    public boolean g() {
+        Context context = getContext();
+        if (!(context instanceof a)) {
+            return false;
+        }
+        return ((a) context).d_();
     }
 }

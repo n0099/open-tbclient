@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public final class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static y f751a;
+    private static y f765a;
     private String b;
     private String c;
     private Thread d = null;
@@ -22,21 +22,21 @@ public final class y {
     public static synchronized y a() {
         y yVar;
         synchronized (y.class) {
-            if (f751a == null) {
-                f751a = new y();
+            if (f765a == null) {
+                f765a = new y();
             }
-            yVar = f751a;
+            yVar = f765a;
         }
         return yVar;
     }
 
     public void a(Context context, boolean z) {
         if (this.d == null || !this.d.isAlive()) {
-            com.baidu.android.pushservice.a.x xVar = new com.baidu.android.pushservice.a.x(context);
+            com.baidu.android.pushservice.a.y yVar = new com.baidu.android.pushservice.a.y(context);
             if (!z) {
-                xVar.a(0);
+                yVar.a(0);
             }
-            this.d = new Thread(xVar);
+            this.d = new Thread(yVar);
             this.d.start();
         }
     }

@@ -1,30 +1,36 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.util.DatabaseService;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-class y extends Handler {
+class y extends BdAsyncTask<String, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f2679a;
+    final /* synthetic */ GuideActivity f2727a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public y(LogoActivity logoActivity) {
-        this.f2679a = logoActivity;
+    private y(GuideActivity guideActivity) {
+        this.f2727a = guideActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.f2679a.c = true;
-        z = this.f2679a.b;
-        if (z) {
-            if (!this.f2679a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(DatabaseService.n(), this.f2679a.getBaseContext());
-            }
-            this.f2679a.a(this.f2679a.getBaseContext());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ y(GuideActivity guideActivity, u uVar) {
+        this(guideActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        boolean c;
+        c = this.f2727a.c();
+        return Boolean.valueOf(c);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        if (!bool.booleanValue()) {
+            this.f2727a.b();
         }
-        super.handleMessage(message);
     }
 }

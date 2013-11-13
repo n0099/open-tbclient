@@ -8,16 +8,16 @@ import com.baidu.cloudsdk.social.share.ui.ShareDialog;
 public class w implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShareDialog f2942a;
+    final /* synthetic */ ShareDialog f2990a;
 
     public w(ShareDialog shareDialog) {
-        this.f2942a = shareDialog;
+        this.f2990a = shareDialog;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.f2942a.e = editable.toString();
-        int length = this.f2942a.mMaxLength - editable.length();
+        this.f2990a.e = editable.toString();
+        int length = this.f2990a.mMaxLength - editable.length();
         ShareDialog.mCounterView.setText(String.valueOf(length));
         if (length <= 10) {
             ShareDialog.mCounterView.setTextColor(-65536);

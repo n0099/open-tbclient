@@ -1,31 +1,24 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class bz implements Animation.AnimationListener {
+public class bz {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageView f2087a;
-    final /* synthetic */ bt b;
+    public View f2107a;
+    public ColumnLayout b;
+    public HeadImageView c;
+    public TextView d;
+    public Button e;
+    public TbRichTextView f;
+    final /* synthetic */ by g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(bt btVar, ImageView imageView) {
-        this.b = btVar;
-        this.f2087a = imageView;
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new ca(this));
+    public bz(by byVar) {
+        this.g = byVar;
     }
 }

@@ -80,16 +80,16 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.f463a).inflate(com.baidu.adp.d.adp_debug_custom_config_items, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(com.baidu.adp.e.adp_debug_custom_config_title);
-        TextView textView2 = (TextView) inflate.findViewById(com.baidu.adp.e.adp_debug_edit_custom_config);
-        ListView listView = (ListView) inflate.findViewById(com.baidu.adp.e.adp_debug_custom_config_defaults_list);
-        Button button = (Button) inflate.findViewById(com.baidu.adp.e.switch_custom_config);
+        View inflate = LayoutInflater.from(this.f463a).inflate(com.baidu.adp.c.adp_debug_custom_config_items, (ViewGroup) null);
+        TextView textView = (TextView) inflate.findViewById(com.baidu.adp.d.adp_debug_custom_config_title);
+        TextView textView2 = (TextView) inflate.findViewById(com.baidu.adp.d.adp_debug_edit_custom_config);
+        ListView listView = (ListView) inflate.findViewById(com.baidu.adp.d.adp_debug_custom_config_defaults_list);
+        Button button = (Button) inflate.findViewById(com.baidu.adp.d.switch_custom_config);
         button.setTag(getItem(i));
         textView2.setTag(Integer.valueOf(i));
         textView.setOnTouchListener(this);
         textView2.setOnFocusChangeListener(this);
-        ((Button) inflate.findViewById(com.baidu.adp.e.delete_custom_config)).setOnTouchListener(this);
+        ((Button) inflate.findViewById(com.baidu.adp.d.delete_custom_config)).setOnTouchListener(this);
         button.setOnTouchListener(this);
         textView2.setInputType(1);
         listView.setOnItemClickListener(this);
@@ -101,7 +101,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
             hashMap.put("default_value", aVar.b()[i2]);
             arrayList.add(hashMap);
         }
-        listView.setAdapter((ListAdapter) new SimpleAdapter(this.f463a, arrayList, com.baidu.adp.d.adp_debug_custom_config_default_value_item, new String[]{"default_value"}, new int[]{com.baidu.adp.e.adp_debug_constom_config_default_value}));
+        listView.setAdapter((ListAdapter) new SimpleAdapter(this.f463a, arrayList, com.baidu.adp.c.adp_debug_custom_config_default_value_item, new String[]{"default_value"}, new int[]{com.baidu.adp.d.adp_debug_constom_config_default_value}));
         a(listView);
         if (!c[i]) {
             listView.setVisibility(8);
@@ -131,7 +131,7 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         Object item = adapterView.getAdapter().getItem(i);
         if (item != null) {
-            ((TextView) ((View) adapterView.getParent()).findViewById(com.baidu.adp.e.adp_debug_edit_custom_config)).setText((String) ((HashMap) item).get("default_value"));
+            ((TextView) ((View) adapterView.getParent()).findViewById(com.baidu.adp.d.adp_debug_edit_custom_config)).setText((String) ((HashMap) item).get("default_value"));
         }
     }
 
@@ -141,13 +141,13 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
         boolean z;
         String str;
         if (motionEvent.getAction() == 0) {
-            if (view.getId() == com.baidu.adp.e.delete_custom_config) {
-                ((TextView) ((View) view.getParent()).findViewById(com.baidu.adp.e.adp_debug_edit_custom_config)).setText("");
-            } else if (view.getId() == com.baidu.adp.e.switch_custom_config && (tag = view.getTag()) != null) {
+            if (view.getId() == com.baidu.adp.d.delete_custom_config) {
+                ((TextView) ((View) view.getParent()).findViewById(com.baidu.adp.d.adp_debug_edit_custom_config)).setText("");
+            } else if (view.getId() == com.baidu.adp.d.switch_custom_config && (tag = view.getTag()) != null) {
                 a aVar = (a) tag;
                 String c2 = aVar.c();
                 String d = aVar.d();
-                String charSequence = ((TextView) ((View) view.getParent()).findViewById(com.baidu.adp.e.adp_debug_edit_custom_config)).getText().toString();
+                String charSequence = ((TextView) ((View) view.getParent()).findViewById(com.baidu.adp.d.adp_debug_edit_custom_config)).getText().toString();
                 try {
                     Class<?> cls = Class.forName(c2);
                     cls.getMethod(d, String.class).invoke(cls, charSequence);
@@ -171,8 +171,8 @@ public class b extends BaseAdapter implements View.OnFocusChangeListener, View.O
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
-        if (view.getId() == com.baidu.adp.e.adp_debug_edit_custom_config && z) {
-            ((View) view.getParent().getParent().getParent()).findViewById(com.baidu.adp.e.adp_debug_custom_config_defaults_list).setVisibility(0);
+        if (view.getId() == com.baidu.adp.d.adp_debug_edit_custom_config && z) {
+            ((View) view.getParent().getParent().getParent()).findViewById(com.baidu.adp.d.adp_debug_custom_config_defaults_list).setVisibility(0);
             Object tag = view.getTag();
             if (tag != null) {
                 c[((Integer) tag).intValue()] = true;

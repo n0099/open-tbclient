@@ -11,18 +11,19 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.view.PbListView;
+import com.baidu.tieba.view.bi;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener {
     private int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private View f2227a;
+    private View f2262a;
     private BdListView b;
     private j c;
     private ProgressBar d;
     private TextView f;
-    private com.baidu.tieba.view.ab g;
+    private bi g;
     private PbListView h;
     private View i;
     private boolean e = false;
@@ -32,32 +33,42 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f2227a = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
-        this.b = (BdListView) this.f2227a.findViewById(R.id.listview_reply);
-        this.f = (TextView) this.f2227a.findViewById(R.id.txt_listview_emptyview);
+        this.f2262a = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
+        this.b = (BdListView) this.f2262a.findViewById(R.id.listview_reply);
+        this.f = (TextView) this.f2262a.findViewById(R.id.txt_listview_emptyview);
         this.f.setText(h().getString("key_empty_view_text"));
-        this.d = (ProgressBar) this.f2227a.findViewById(R.id.person_post_progress);
-        return this.f2227a;
+        this.d = (ProgressBar) this.f2262a.findViewById(R.id.person_post_progress);
+        return this.f2262a;
     }
 
     @Override // android.support.v4.app.Fragment
     public void a(View view, Bundle bundle) {
-        this.g = new com.baidu.tieba.view.ab(i());
+        this.g = new bi(i());
         this.b.setPullRefresh(this.g);
         this.g.a(new o(this));
         this.b.setOnScrollListener(this);
         this.h = new PbListView(i());
         this.b.setNextPage(this.h);
+        this.i = this.h.b().findViewById(R.id.pb_more_view);
+        this.i.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void p() {
-        super.p();
+    public void r() {
+        super.r();
         a();
         this.c.notifyDataSetChanged();
     }
 
-    private void E() {
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void t() {
+        super.t();
+        if (this.c != null) {
+            this.c.a();
+        }
+    }
+
+    private void G() {
         this.c = new j(i(), h().getString("key_uid"), h().getString("key_portrait_url"));
         this.c.a(this.ab);
         this.c.a(true);
@@ -66,7 +77,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     public void a() {
         if (!this.e) {
-            E();
+            G();
             this.e = true;
         }
     }
@@ -74,8 +85,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     @Override // com.baidu.tieba.BaseFragment
     public void c(int i) {
         super.c(i);
-        if (l()) {
-            this.i = this.h.b().findViewById(R.id.pb_more_view);
+        if (n()) {
             TextView textView = (TextView) this.i.findViewById(R.id.pb_more_text);
             if (i == 1) {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname_1));
@@ -83,7 +93,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname));
             }
             if (this.h != null) {
-                this.h.a(i);
+                this.h.b(i);
             }
             this.g.a(i);
         }

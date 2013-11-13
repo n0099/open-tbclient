@@ -13,7 +13,7 @@ public class a {
     private static final a b = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private e f2841a = new e(null);
+    private e f2889a = new e(null);
 
     public BufferPacker a() {
         return new MessagePackBufferPacker(this);
@@ -32,7 +32,7 @@ public class a {
         if (t == null) {
             a2.d();
         } else {
-            this.f2841a.a((Type) t.getClass()).a(a2, t);
+            this.f2889a.a((Type) t.getClass()).a(a2, t);
         }
         return a2.c();
     }
@@ -42,6 +42,6 @@ public class a {
     }
 
     public <T> d<T> a(Class<T> cls) {
-        return this.f2841a.a((Type) cls);
+        return this.f2889a.a((Type) cls);
     }
 }

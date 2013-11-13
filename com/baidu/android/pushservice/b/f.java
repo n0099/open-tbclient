@@ -1,74 +1,91 @@
 package com.baidu.android.pushservice.b;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.common.net.ConnectManager;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.util.j;
-import com.baidu.android.pushservice.y;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f688a;
-    private c b;
+    public static int f696a = -1;
+    public static int b = 0;
+    public static int c = 1;
+    public static int d = 2;
+    public static String e = "01";
+    public static String f = "02";
+    public static String g = "03";
+    private int h;
+    private String i;
+    private long j;
+    private String k;
+    private int l;
+    private String m;
 
-    public f(Context context) {
-        this.f688a = context;
-        this.b = c.a(context);
+    public f() {
+        this.m = SocialConstants.FALSE;
     }
 
-    private void a(Context context) {
-        String c = y.a().c();
-        String d = y.a().d();
-        if (TextUtils.isEmpty(c) || TextUtils.isEmpty(d)) {
-            if (com.baidu.android.pushservice.b.a(this.f688a)) {
-                Log.e("StatisticsInfoManager", "Fail Send Msg result info. Token invalid!");
-                return;
-            }
-            return;
-        }
-        SQLiteDatabase a2 = com.baidu.android.pushservice.util.e.a(context);
-        if (a2 == null) {
-            return;
-        }
-        List a3 = com.baidu.android.pushservice.util.e.a(a2);
-        if (!ConnectManager.isNetworkConnected(this.f688a) || a3.size() <= 0) {
-            return;
-        }
-        JSONArray jSONArray = new JSONArray();
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= a3.size()) {
-                Thread thread = new Thread(new g(this, context, c, d, jSONArray.toString()));
-                thread.setName("PushService-feedback");
-                thread.start();
-                return;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(PushConstants.EXTRA_MSGID, ((j) a3.get(i2)).b);
-                jSONObject.put("appid", ((j) a3.get(i2)).c);
-                jSONObject.put("resultCode", ((j) a3.get(i2)).d);
-                jSONArray.put(jSONObject);
-            } catch (JSONException e) {
-            }
-            i = i2 + 1;
-        }
+    public f(f fVar) {
+        this.m = SocialConstants.FALSE;
+        this.i = fVar.i;
+        this.j = fVar.j;
+        this.l = fVar.l;
+        this.k = fVar.k;
     }
 
-    public void a() {
-        a(this.f688a);
-        if (this.b == null) {
-            this.b = c.a(this.f688a);
-        }
-        this.b.e();
+    public f(String str, long j, String str2, int i, String str3) {
+        this.m = SocialConstants.FALSE;
+        this.i = str;
+        this.j = j;
+        this.k = str2;
+        this.l = i;
+        this.m = str3;
+    }
+
+    public void a(int i) {
+        this.l = i;
+    }
+
+    public void a(long j) {
+        this.j = j;
+    }
+
+    public int c() {
+        return this.h;
+    }
+
+    public void c(String str) {
+        this.i = str;
+    }
+
+    public String d() {
+        return this.i;
+    }
+
+    public void d(String str) {
+        this.k = str;
+    }
+
+    public long e() {
+        return this.j;
+    }
+
+    public void e(String str) {
+        this.m = str;
+    }
+
+    public String f() {
+        return this.k;
+    }
+
+    public int g() {
+        return this.l;
+    }
+
+    public String h() {
+        return this.m;
+    }
+
+    public int i() {
+        return TextUtils.isEmpty(this.i) ? f696a : this.i.startsWith(e) ? b : this.i.startsWith(f) ? c : this.i.startsWith(g) ? d : f696a;
     }
 }

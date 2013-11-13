@@ -82,7 +82,7 @@ public class ListFragment extends Fragment {
         if (this.b != null) {
             this.b.setAdapter(listAdapter);
             if (!this.h && !z) {
-                a(true, o().getWindowToken() != null);
+                a(true, q().getWindowToken() != null);
             }
         }
     }
@@ -120,22 +120,22 @@ public class ListFragment extends Fragment {
 
     private void a() {
         if (this.b == null) {
-            View o = o();
-            if (o == null) {
+            View q = q();
+            if (q == null) {
                 throw new IllegalStateException("Content view not yet created");
             }
-            if (o instanceof ListView) {
-                this.b = (ListView) o;
+            if (q instanceof ListView) {
+                this.b = (ListView) q;
             } else {
-                this.d = (TextView) o.findViewById(16711681);
+                this.d = (TextView) q.findViewById(16711681);
                 if (this.d == null) {
-                    this.c = o.findViewById(16908292);
+                    this.c = q.findViewById(16908292);
                 } else {
                     this.d.setVisibility(8);
                 }
-                this.e = o.findViewById(16711682);
-                this.f = o.findViewById(16711683);
-                View findViewById = o.findViewById(16908298);
+                this.e = q.findViewById(16711682);
+                this.f = q.findViewById(16711683);
+                View findViewById = q.findViewById(16908298);
                 if (!(findViewById instanceof ListView)) {
                     if (findViewById == null) {
                         throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");

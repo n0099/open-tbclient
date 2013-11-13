@@ -7,17 +7,17 @@ import android.view.View;
 public class au implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2184a;
+    final /* synthetic */ PersonChangeActivity f2226a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(PersonChangeActivity personChangeActivity) {
-        this.f2184a = personChangeActivity;
+        this.f2226a = personChangeActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 1) {
-            this.f2184a.z = true;
+            this.f2226a.x = true;
             return false;
         }
         return false;

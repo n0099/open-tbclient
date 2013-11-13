@@ -6,89 +6,78 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import com.baidu.adp.widget.ImageView.e;
-import com.baidu.tbadk.c;
-import com.baidu.tbadk.imageManager.d;
 /* loaded from: classes.dex */
 public class TbImageView extends com.baidu.adp.widget.ImageView.a {
-    private static Bitmap b;
-    private static int d = 0;
-    private int c;
-    private String e;
+    private static Bitmap c;
+    private int d;
     private String f;
-    private Animation g;
-    private int h;
+    private String g;
+    private Animation h;
     private int i;
     private int j;
-    private Paint k;
+    private int k;
     private boolean l;
-    private final RectF m;
-    private boolean n;
-
-    public void setIsShowGifTag(boolean z) {
-        this.n = z;
-    }
-
-    public boolean getIsShowGifTag() {
-        return this.n;
-    }
+    private boolean m;
+    private int[] n;
+    private int[] o;
+    private static final PorterDuffColorFilter b = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
+    private static int e = 0;
 
     public TbImageView(Context context) {
         super(context);
-        this.c = 0;
-        this.e = null;
+        this.d = 0;
         this.f = null;
         this.g = null;
-        this.h = d;
-        this.i = com.baidu.tbadk.b.pic_image_h_not;
-        this.j = com.baidu.tbadk.b.pic_image_h_not_1;
-        this.k = null;
-        this.m = new RectF();
-        this.n = true;
-        b();
+        this.h = null;
+        this.i = -1;
+        this.j = com.baidu.tbadk.c.pic_image_h_not;
+        this.k = com.baidu.tbadk.c.pic_image_h_not_1;
+        this.m = true;
+        d();
     }
 
     public TbImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = 0;
-        this.e = null;
+        this.d = 0;
         this.f = null;
         this.g = null;
-        this.h = d;
-        this.i = com.baidu.tbadk.b.pic_image_h_not;
-        this.j = com.baidu.tbadk.b.pic_image_h_not_1;
-        this.k = null;
-        this.m = new RectF();
-        this.n = true;
-        b();
+        this.h = null;
+        this.i = -1;
+        this.j = com.baidu.tbadk.c.pic_image_h_not;
+        this.k = com.baidu.tbadk.c.pic_image_h_not_1;
+        this.m = true;
+        d();
     }
 
     public TbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.c = 0;
-        this.e = null;
+        this.d = 0;
         this.f = null;
         this.g = null;
-        this.h = d;
-        this.i = com.baidu.tbadk.b.pic_image_h_not;
-        this.j = com.baidu.tbadk.b.pic_image_h_not_1;
-        this.k = null;
-        this.m = new RectF();
-        this.n = true;
-        b();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.TbImageView);
-        this.n = obtainStyledAttributes.getBoolean(0, true);
+        this.h = null;
+        this.i = -1;
+        this.j = com.baidu.tbadk.c.pic_image_h_not;
+        this.k = com.baidu.tbadk.c.pic_image_h_not_1;
+        this.m = true;
+        d();
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tbadk.d.TbImageView);
+        this.m = obtainStyledAttributes.getBoolean(0, true);
         obtainStyledAttributes.recycle();
     }
 
     public static void setSkinMode(int i) {
-        d = i;
+        e = i;
+    }
+
+    public void setGifIconSupport(boolean z) {
+        this.m = z;
     }
 
     @Override // com.baidu.adp.widget.ImageView.a, android.view.View
@@ -98,55 +87,55 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
     }
 
     public void setSuffix(String str) {
-        this.f = str;
+        this.g = str;
     }
 
     public void setImageSearchUrl(String str) {
-        this.e = str;
+        this.f = str;
     }
 
-    private void b() {
-        if (b == null) {
-            b = BitmapFactory.decodeResource(getResources(), com.baidu.tbadk.b.icon_gif);
+    private void d() {
+        if (c == null) {
+            c = BitmapFactory.decodeResource(getResources(), com.baidu.tbadk.c.icon_gif);
         }
-        this.k = new Paint();
-        this.k.setColor(1275068416);
         setDefaultScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        if (d == 1) {
-            setDefaultResource(this.j);
+        if (e == 1) {
+            super.setDefaultResource(this.k);
         } else {
-            setDefaultResource(this.i);
+            super.setDefaultResource(this.j);
         }
     }
 
-    private void c() {
-        if (d == 1) {
-            setDefaultResource(this.j);
+    private void e() {
+        if (e == 1) {
+            super.setDefaultResource(this.k);
         } else {
-            setDefaultResource(this.i);
+            super.setDefaultResource(this.j);
         }
     }
 
-    public void setDefaultId(int i) {
-        this.i = i;
-        if (this.j == 0) {
-            this.j = this.i;
-        }
-        c();
-    }
-
-    public void setNightDefaultId(int i) {
+    @Override // com.baidu.adp.widget.ImageView.a
+    public void setDefaultResource(int i) {
         this.j = i;
-        c();
+        if (this.k == 0) {
+            this.k = this.j;
+        }
+        e();
     }
 
+    public void setNightDefaultResource(int i) {
+        this.k = i;
+        e();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.ImageView, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        a();
+        b();
     }
 
-    public void a() {
+    public void b() {
         if (getAnimation() != null) {
             setAnimation(null);
         }
@@ -158,23 +147,23 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
     }
 
     @Override // com.baidu.adp.widget.ImageView.a
-    protected e getImage() {
+    public e getImage() {
         String str;
-        if (this.e != null) {
-            str = this.e;
+        if (this.f != null) {
+            str = this.f;
         } else {
             str = (String) getTag();
-            if (str != null && this.f != null) {
-                str = str + this.f;
+            if (str != null && this.g != null) {
+                str = str + this.g;
             }
         }
         if (str == null) {
             return null;
         }
-        if (this.c == 0) {
-            return d.a().c(str);
+        if (this.d == 0) {
+            return com.baidu.tbadk.imageManager.d.a().c(str);
         }
-        return d.a().b(str);
+        return com.baidu.tbadk.imageManager.d.a().b(str);
     }
 
     public void setDrawRoundCover(boolean z) {
@@ -184,24 +173,38 @@ public class TbImageView extends com.baidu.adp.widget.ImageView.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        Rect bitmapRect;
-        if (this.h != d) {
-            this.h = d;
-            c();
+        if (this.i != e) {
+            this.i = e;
+            e();
+            if (e == 1) {
+                super.setColorFilterForSkin(b);
+            } else {
+                super.a();
+            }
         }
         super.onDraw(canvas);
-        if (super.getIsLoaded()) {
-            if (super.getIsGif() && this.n) {
-                canvas.drawBitmap(b, 0.0f, 0.0f, (Paint) null);
-            }
-            if (d == 1 && (bitmapRect = getBitmapRect()) != null) {
-                if (this.l) {
-                    this.m.set(getBitmapRect());
-                    canvas.drawRoundRect(this.m, this.f554a, this.f554a, this.k);
-                    return;
-                }
-                canvas.drawRect(bitmapRect, this.k);
-            }
+        if (super.getIsLoaded() && this.m && super.getIsGif() && this.d != 1) {
+            canvas.drawBitmap(c, 0.0f, 0.0f, (Paint) null);
         }
+    }
+
+    public void setRealShowSize(int[] iArr) {
+        this.n = iArr;
+    }
+
+    public int[] getRealShowSize() {
+        return this.n;
+    }
+
+    public void setCurrShowSize(int[] iArr) {
+        this.o = iArr;
+    }
+
+    public int[] getCurrShowSize() {
+        return this.o;
+    }
+
+    public boolean c() {
+        return getImage() != null;
     }
 }

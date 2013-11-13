@@ -26,7 +26,7 @@ public final class ShareContent implements Parcelable {
     private Location j;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f842a = Environment.getExternalStorageDirectory().getPath() + "/baidu/.tmp/";
+    private static final String f856a = Environment.getExternalStorageDirectory().getPath() + "/baidu/.tmp/";
     public static final Parcelable.Creator CREATOR = new ab();
 
     public ShareContent() {
@@ -103,7 +103,7 @@ public final class ShareContent implements Parcelable {
         if (this.h == null || this.i || (compressedImageData = getCompressedImageData()) == null) {
             return;
         }
-        File file = new File(f842a + Utils.md5(compressedImageData) + ".png");
+        File file = new File(f856a + Utils.md5(compressedImageData) + ".png");
         if (file.exists()) {
             this.g = Uri.fromFile(file);
             this.i = true;

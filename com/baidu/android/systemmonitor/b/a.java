@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f755a;
+    public String f769a;
     public long b;
     public int c;
     public String d;
@@ -28,10 +28,10 @@ public final class a {
         int columnIndex6 = cursor.getColumnIndex("vcodeaft");
         int columnIndex7 = cursor.getColumnIndex("vnaft");
         int columnIndex8 = cursor.getColumnIndex("an");
-        this.f755a = cursor.getString(columnIndex);
+        this.f769a = cursor.getString(columnIndex);
         this.h = cursor.getString(columnIndex8);
         try {
-            this.f755a = com.baidu.android.systemmonitor.security.a.b(this.f755a);
+            this.f769a = com.baidu.android.systemmonitor.security.a.b(this.f769a);
             this.h = com.baidu.android.systemmonitor.security.a.b(this.h);
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,10 +52,10 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f755a = str;
+        this.f769a = str;
     }
 
     public String toString() {
-        return "AppChange: packageName =" + this.f755a + " appname =" + this.h + "\u3000eventType =" + this.c + " changeStamp =" + this.b + " versionCode =" + this.e + " versionCodeAfter =" + this.g + " versionName =" + this.d + " versionNameAfter =" + this.f;
+        return "AppChange: packageName =" + this.f769a + " appname =" + this.h + "\u3000eventType =" + this.c + " changeStamp =" + this.b + " versionCode =" + this.e + " versionCodeAfter =" + this.g + " versionName =" + this.d + " versionNameAfter =" + this.f;
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.tieba.model.MoreModel;
 public class ba extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f2002a;
+    final /* synthetic */ ax f1994a;
 
     private ba(ax axVar) {
-        this.f2002a = axVar;
+        this.f1994a = axVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,10 +24,10 @@ public class ba extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((ba) str);
-        this.f2002a.b = null;
-        gVar = this.f2002a.mLoadDataCallBack;
+        this.f1994a.b = null;
+        gVar = this.f1994a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f2002a.mLoadDataCallBack;
+            gVar2 = this.f1994a.mLoadDataCallBack;
             gVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
         com.baidu.tieba.im.db.x.a().b();
@@ -42,9 +42,9 @@ public class ba extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        String C = TiebaApplication.C();
-        if (!TextUtils.isEmpty(C)) {
-            com.baidu.tieba.im.db.m.a(C);
+        String A = TiebaApplication.A();
+        if (!TextUtils.isEmpty(A)) {
+            com.baidu.tieba.im.db.m.a(A);
             return null;
         }
         return null;

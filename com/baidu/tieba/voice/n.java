@@ -1,24 +1,26 @@
 package com.baidu.tieba.voice;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class n implements DialogInterface.OnClickListener {
+class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecordVoiceBnt f2578a;
+    final /* synthetic */ String f2631a;
+    final /* synthetic */ RecordVoiceBnt b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(RecordVoiceBnt recordVoiceBnt) {
-        this.f2578a = recordVoiceBnt;
+    public n(RecordVoiceBnt recordVoiceBnt, String str) {
+        this.b = recordVoiceBnt;
+        this.f2631a = str;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        this.f2578a.f();
-        if (this.f2578a.getVoiceManager() != null && this.f2578a.f2550a != null && this.f2578a.f2550a.voiceId != null) {
-            this.f2578a.getVoiceManager().a(this.f2578a.f2550a.voiceId);
-            this.f2578a.f2550a = null;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        TextView textView;
+        TextView textView2;
+        textView = this.b.u;
+        textView.setVisibility(0);
+        textView2 = this.b.u;
+        textView2.setText(this.f2631a);
     }
 }

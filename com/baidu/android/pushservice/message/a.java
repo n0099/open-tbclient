@@ -7,7 +7,7 @@ import java.io.OutputStream;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected InputStream f703a;
+    protected InputStream f719a;
     protected OutputStream b;
     protected Context c;
     protected com.baidu.android.pushservice.e d;
@@ -18,7 +18,7 @@ public abstract class a {
     }
 
     public a(Context context, com.baidu.android.pushservice.e eVar, InputStream inputStream, OutputStream outputStream) {
-        this.f703a = inputStream;
+        this.f719a = inputStream;
         this.b = outputStream;
         this.c = context;
         this.d = eVar;

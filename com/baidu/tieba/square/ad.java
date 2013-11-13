@@ -1,24 +1,53 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
+public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2336a;
+    private String f2373a = null;
+    private String b = null;
+    private String c = "";
+    private ArrayList<ad> d = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(SquareSearchActivity squareSearchActivity) {
-        this.f2336a = squareSearchActivity;
+    public String a() {
+        return this.f2373a;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.f2336a.c;
-        UtilHelper.i(this.f2336a, editText.getText().toString().trim());
+    public String b() {
+        return this.b;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public void a(String str) {
+        this.c = str;
+    }
+
+    public ArrayList<ad> d() {
+        return this.d;
+    }
+
+    public void a(JSONArray jSONArray) {
+        if (jSONArray != null) {
+            try {
+                if (jSONArray.length() != 0) {
+                    this.d = new ArrayList<>();
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        ad adVar = new ad();
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        adVar.f2373a = jSONObject.optString("title", "");
+                        adVar.b = jSONObject.optString("link", "");
+                        this.d.add(adVar);
+                    }
+                }
+            } catch (Exception e) {
+                com.baidu.tieba.util.bg.b(getClass().getName(), "parseForumListRecommendData", e.toString());
+            }
+        }
     }
 }

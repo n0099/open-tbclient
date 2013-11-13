@@ -8,22 +8,22 @@ public final class Internal implements NoProGuard {
     }
 
     public static Intent createBdussInent(Context context) {
-        return n.e(context);
+        return m.e(context);
     }
 
     public static void disablePushConnection(Context context) {
-        n.b(context, false);
+        m.b(context, false);
     }
 
     public static void disablePushService(Context context) {
-        n.a(context, false);
+        m.a(context, false);
     }
 
     public static void enablePushConnection(Context context) {
-        n.b(context, true);
+        m.b(context, true);
     }
 
     public static void enablePushService(Context context) {
-        n.a(context, true);
+        m.a(context, true);
     }
 }

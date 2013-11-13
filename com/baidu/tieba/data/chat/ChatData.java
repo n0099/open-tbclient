@@ -1,12 +1,13 @@
 package com.baidu.tieba.data.chat;
 
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ChatData implements Serializable {
+    private static final long serialVersionUID = 2998520534610453157L;
     private LinkedList<ChatMessageData> mMessage;
     private String friendId = null;
     private String friendName = null;
@@ -149,7 +150,7 @@ public class ChatData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            be.b(getClass().getName(), "parserJson", e.toString());
+            bg.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -173,7 +174,7 @@ public class ChatData implements Serializable {
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "parserJson", e.toString());
+            bg.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 

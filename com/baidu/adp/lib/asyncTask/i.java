@@ -22,10 +22,10 @@ public class i extends Handler {
         super.handleMessage(message);
         if (message.what == 1) {
             if (message.obj != null && (message.obj instanceof k)) {
-                this.f415a.b((k) message.obj);
+                this.f415a.c((k) message.obj);
             }
         } else if (message.what == 2 && message.obj != null && (message.obj instanceof k)) {
-            this.f415a.a((k) message.obj);
+            this.f415a.b((k) message.obj);
         }
     }
 }

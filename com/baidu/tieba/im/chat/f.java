@@ -7,7 +7,7 @@ import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
 public class f implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupMsgData f1457a;
+    final /* synthetic */ GroupMsgData f1549a;
     final /* synthetic */ String b;
     final /* synthetic */ GroupMsgPojo c;
     final /* synthetic */ int d;
@@ -16,7 +16,7 @@ public class f implements com.baidu.tieba.im.a<Boolean> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar, GroupMsgData groupMsgData, String str, GroupMsgPojo groupMsgPojo, int i) {
         this.e = aVar;
-        this.f1457a = groupMsgData;
+        this.f1549a = groupMsgData;
         this.b = str;
         this.c = groupMsgPojo;
         this.d = i;
@@ -25,6 +25,6 @@ public class f implements com.baidu.tieba.im.a<Boolean> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
-        this.e.a(this.f1457a, this.b, this.c, this.d);
+        this.e.a(this.f1549a, this.b, this.c, this.d);
     }
 }

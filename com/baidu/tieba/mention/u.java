@@ -6,15 +6,15 @@ import android.view.View;
 public class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1875a;
+    final /* synthetic */ PostActivity f1872a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PostActivity postActivity) {
-        this.f1875a = postActivity;
+        this.f1872a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1875a.finish();
+        this.f1872a.finish();
     }
 }

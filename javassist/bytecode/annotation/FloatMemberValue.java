@@ -5,15 +5,15 @@ import javassist.bytecode.y;
 public class FloatMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2735a;
+    int f2783a;
 
     public FloatMemberValue(int i, y yVar) {
         super('F', yVar);
-        this.f2735a = i;
+        this.f2783a = i;
     }
 
     public float a() {
-        return this.c.s(this.f2735a);
+        return this.c.s(this.f2783a);
     }
 
     public String toString() {

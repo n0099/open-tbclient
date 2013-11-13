@@ -5,15 +5,15 @@ import javassist.bytecode.y;
 public class ShortMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2738a;
+    int f2786a;
 
     public ShortMemberValue(int i, y yVar) {
         super('S', yVar);
-        this.f2738a = i;
+        this.f2786a = i;
     }
 
     public short a() {
-        return (short) this.c.r(this.f2738a);
+        return (short) this.c.r(this.f2786a);
     }
 
     public String toString() {

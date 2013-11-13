@@ -7,13 +7,13 @@ import java.util.LinkedList;
 public class d implements com.baidu.tieba.im.a<LinkedList<String>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ z f1455a;
+    final /* synthetic */ y f1547a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar, z zVar) {
+    public d(a aVar, y yVar) {
         this.b = aVar;
-        this.f1455a = zVar;
+        this.f1547a = yVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,6 +26,6 @@ public class d implements com.baidu.tieba.im.a<LinkedList<String>> {
                 arrayList.add(a2);
             }
         }
-        this.f1455a.a(arrayList);
+        this.f1547a.a(arrayList);
     }
 }

@@ -1,22 +1,35 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ColumnLayout;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.view.UserIconBox;
 /* loaded from: classes.dex */
-public class bx implements CompoundButton.OnCheckedChangeListener {
+class bx {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bt f2085a;
+    public View f2105a;
+    public HeadImageView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public ImageView g;
+    public Button h;
+    public Button i;
+    public TbRichTextView j;
+    public ColumnLayout k;
+    public SubPbLayout l;
+    public LinearLayout m;
+    public UserIconBox n;
+    final /* synthetic */ bv o;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bt btVar) {
-        this.f2085a = btVar;
-    }
-
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            this.f2085a.as = (String) compoundButton.getTag();
-        }
+    private bx(bv bvVar) {
+        this.o = bvVar;
     }
 }

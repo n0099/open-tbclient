@@ -1,39 +1,27 @@
 package com.baidu.tieba.im.frsgroup;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.slidingmenu.lib.R;
+import android.view.View;
 /* loaded from: classes.dex */
-class d implements com.baidu.adp.widget.ListView.b {
+class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1559a;
+    final /* synthetic */ FrsGroupListFragment f1647a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(FrsGroupListFragment frsGroupListFragment) {
-        this.f1559a = frsGroupListFragment;
+        this.f1647a = frsGroupListFragment;
     }
 
-    @Override // com.baidu.adp.widget.ListView.b
-    public void a(boolean z) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         com.baidu.tieba.im.model.b bVar;
+        FrsGroupActivity frsGroupActivity;
         com.baidu.tieba.im.model.b bVar2;
-        int i;
-        BdListView bdListView;
-        bVar = this.f1559a.b;
-        if (!bVar.h() || !z) {
-            bVar2 = this.f1559a.b;
-            if (bVar2.i()) {
-                i = this.f1559a.Y;
-                if (i == com.baidu.tieba.im.d.b.a()) {
-                    bdListView = this.f1559a.d;
-                    bdListView.a();
-                    this.f1559a.b(R.string.frsgroup_hot_cannot_refresh_tip);
-                    return;
-                }
-            }
-            this.f1559a.H();
-            return;
+        bVar = this.f1647a.b;
+        if (bVar.d() != null) {
+            frsGroupActivity = this.f1647a.f1636a;
+            bVar2 = this.f1647a.b;
+            frsGroupActivity.a(bVar2.d());
         }
-        this.f1559a.a(false);
     }
 }

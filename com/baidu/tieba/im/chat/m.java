@@ -2,7 +2,6 @@ package com.baidu.tieba.im.chat;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -15,17 +14,17 @@ import com.slidingmenu.lib.R;
 public class m extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1463a;
+    private Context f1555a;
     private int b;
     private int c;
     private int d;
 
     public m(Context context, int i, int i2, int i3) {
-        this.f1463a = null;
+        this.f1555a = null;
         this.b = 0;
         this.c = 0;
         this.d = 0;
-        this.f1463a = context;
+        this.f1555a = context;
         this.b = i;
         this.c = i2;
         this.d = i3;
@@ -38,13 +37,10 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if ((i + 1) / (((this.b * this.d) + this.b) - this.d) == 1) {
-            return ((BitmapDrawable) this.f1463a.getResources().getDrawable(R.drawable.but_face_close_n)).getBitmap();
+        if ((i + 1) / (((this.b * this.d) + this.b) - this.d) == 1 || TbFaceManager.a().b(i) == null) {
+            return null;
         }
-        if (TbFaceManager.a().b(i) != null) {
-            return TbFaceManager.a().b(i).f();
-        }
-        return null;
+        return TbFaceManager.a().b(i).f();
     }
 
     @Override // android.widget.Adapter
@@ -57,9 +53,9 @@ public class m extends BaseAdapter {
         ImageView imageView;
         int i2 = i + this.c;
         if (view == null) {
-            ImageView imageView2 = new ImageView(this.f1463a);
+            ImageView imageView2 = new ImageView(this.f1555a);
             imageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            int a2 = UtilHelper.a(this.f1463a, 50.0f);
+            int a2 = UtilHelper.a(this.f1555a, 50.0f);
             imageView2.setLayoutParams(new AbsListView.LayoutParams(a2, a2));
             imageView = imageView2;
             view = imageView2;
@@ -71,12 +67,19 @@ public class m extends BaseAdapter {
             imageView.setImageBitmap((Bitmap) getItem(i2));
         }
         if ((i2 + 1) / (((this.b * this.d) + this.b) - this.d) == 1) {
-            imageView.setOnTouchListener(new n(this));
+            imageView.setImageResource(R.drawable.but_face_close);
         }
         return view;
     }
 
     public String a(int i) {
         return TbFaceManager.a().c(i);
+    }
+
+    public Bitmap b(int i) {
+        if (TbFaceManager.a().b(i) != null) {
+            return TbFaceManager.a().b(i).f();
+        }
+        return null;
     }
 }

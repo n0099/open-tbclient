@@ -5,14 +5,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f1503a;
+    NavigationBar f1594a;
     View c;
     GroupAddressActivity d;
     Button e;
@@ -27,7 +27,7 @@ public class o extends com.baidu.adp.a.e {
 
     public o(GroupAddressActivity groupAddressActivity) {
         super(groupAddressActivity);
-        this.f1503a = null;
+        this.f1594a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -77,17 +77,17 @@ public class o extends com.baidu.adp.a.e {
         this.f = (BdListView) groupAddressActivity.findViewById(R.id.lv_address);
         this.h = new m(this.d);
         this.f.setAdapter((ListAdapter) this.h);
-        this.f1503a = (NavigationBar) groupAddressActivity.findViewById(R.id.view_navigation_bar);
-        this.f1503a.a(groupAddressActivity.getResources().getString(R.string.group_address));
-        this.e = this.f1503a.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressActivity.getResources().getString(R.string.group_create_step_done_tip));
+        this.f1594a = (NavigationBar) groupAddressActivity.findViewById(R.id.view_navigation_bar);
+        this.f1594a.a(groupAddressActivity.getResources().getString(R.string.group_address));
+        this.e = this.f1594a.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressActivity.getResources().getString(R.string.group_create_step_done_tip));
         this.f.setOnItemClickListener(this.d);
         com.baidu.adp.lib.c.a.a().a(true, this.i);
     }
 
     public void b(int i) {
-        this.d.m().a(i == 1);
-        this.d.m().a(this.c);
-        bb.b(this.c, i);
-        this.f1503a.b(i);
+        this.d.getLayoutMode().a(i == 1);
+        this.d.getLayoutMode().a(this.c);
+        bd.b(this.c, i);
+        this.f1594a.c(i);
     }
 }

@@ -5,15 +5,15 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.aj;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.util.bg;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private n f2301a = null;
+    private n f2334a = null;
     private n b = null;
-    private aj c = null;
+    private ak c = null;
     private int d = 0;
     private Handler e = new m(this);
 
@@ -34,8 +34,8 @@ public class TiebaMessageService extends Service {
         super.onDestroy();
         this.e.removeMessages(1);
         this.e.removeMessages(2);
-        if (this.f2301a != null) {
-            this.f2301a.cancel();
+        if (this.f2334a != null) {
+            this.f2334a.cancel();
         }
         if (this.b != null) {
             this.b.cancel();
@@ -45,7 +45,7 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TiebaApplication.g().af()) {
+        if (!TiebaApplication.g().ad()) {
             stopSelf();
             return;
         }
@@ -69,42 +69,42 @@ public class TiebaMessageService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
         try {
-            if (TiebaApplication.C() != null && TiebaApplication.H() != null) {
+            if (TiebaApplication.A() != null && TiebaApplication.F() != null) {
                 if (i == 1 || i == 3) {
-                    if (this.f2301a != null) {
-                        this.f2301a.cancel();
+                    if (this.f2334a != null) {
+                        this.f2334a.cancel();
                     }
-                    this.f2301a = new n(this, i);
-                    this.f2301a.execute(new String[0]);
+                    this.f2334a = new n(this, i);
+                    this.f2334a.execute(new String[0]);
                 } else if (i == 2) {
                     if (this.b != null) {
                         this.b.cancel();
                     }
-                    if (this.f2301a != null) {
-                        this.f2301a.cancel();
+                    if (this.f2334a != null) {
+                        this.f2334a.cancel();
                     }
                     this.b = new n(this, i);
                     this.b.execute(new String[0]);
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "getMsg", e.getMessage());
+            bg.b(getClass().getName(), "getMsg", e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
         if (this.c != null && this.c.a() >= 0 && this.c.b() >= 0 && this.c.c() >= 0 && this.c.d() >= 0 && this.c.e() >= 0) {
-            if (!TiebaApplication.g().ac()) {
+            if (!TiebaApplication.g().aa()) {
                 this.c.a(0L);
             }
-            if (!TiebaApplication.g().ab()) {
+            if (!TiebaApplication.g().Z()) {
                 this.c.b(0L);
             }
-            if (!TiebaApplication.g().aa()) {
+            if (!TiebaApplication.g().Y()) {
                 this.c.c(0L);
             }
-            if (!TiebaApplication.g().ad()) {
+            if (!TiebaApplication.g().ab()) {
                 this.c.d(0L);
             }
             Intent intent = new Intent("com.baidu.tieba.broadcast.service");
@@ -118,7 +118,7 @@ public class TiebaMessageService extends Service {
                 intent.putExtra("new_bookmark", this.c.e());
             }
             sendBroadcast(intent);
-            be.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Long.valueOf(this.c.a()), Long.valueOf(this.c.b()), Long.valueOf(this.c.c()), Long.valueOf(this.c.e())));
+            bg.a(getClass().getName(), "broadcastMsg", "sendBroadcast: " + String.format("%d %d %d %d", Long.valueOf(this.c.a()), Long.valueOf(this.c.b()), Long.valueOf(this.c.c()), Long.valueOf(this.c.e())));
         }
     }
 }

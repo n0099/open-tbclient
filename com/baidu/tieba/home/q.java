@@ -1,27 +1,41 @@
 package com.baidu.tieba.home;
-
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.account.LoginActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
+public class q implements com.baidu.tieba.im.b.j {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Activity f1366a;
-    final /* synthetic */ int b;
-    final /* synthetic */ String c;
-    final /* synthetic */ p d;
+    final /* synthetic */ o f1461a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(p pVar, Activity activity, int i, String str) {
-        this.d = pVar;
-        this.f1366a = activity;
-        this.b = i;
-        this.c = str;
+    public q(o oVar) {
+        this.f1461a = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        LoginActivity.a(this.f1366a, this.b, this.c, 11003);
+    @Override // com.baidu.tieba.im.b.j
+    public void a() {
+        EnterForumGuideBottomView enterForumGuideBottomView;
+        EnterForumGuideBottomView enterForumGuideBottomView2;
+        this.f1461a.a(0, 1);
+        enterForumGuideBottomView = this.f1461a.s;
+        if (enterForumGuideBottomView != null) {
+            enterForumGuideBottomView2 = this.f1461a.s;
+            if (enterForumGuideBottomView2.getVisibility() == 0) {
+                this.f1461a.a(8);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.im.b.j
+    public void b() {
+        EnterForumGuideBottomView enterForumGuideBottomView;
+        EnterForumGuideBottomView enterForumGuideBottomView2;
+        this.f1461a.a(8, 1);
+        enterForumGuideBottomView = this.f1461a.s;
+        if (enterForumGuideBottomView != null) {
+            enterForumGuideBottomView2 = this.f1461a.s;
+            if (enterForumGuideBottomView2.getVisibility() == 0) {
+                this.f1461a.a(8);
+            }
+        }
     }
 }

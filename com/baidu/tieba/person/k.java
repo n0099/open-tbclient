@@ -6,15 +6,14 @@ import android.widget.TextView;
 class k {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f2217a;
+    TextView f2253a;
     StringBuffer b;
     TextView c;
     StringBuffer d;
-    TextView e;
-    ImageButton f;
-    final /* synthetic */ i g;
+    ImageButton e;
+    final /* synthetic */ i f;
 
     private k(i iVar) {
-        this.g = iVar;
+        this.f = iVar;
     }
 }

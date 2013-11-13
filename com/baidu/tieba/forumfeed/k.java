@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class k implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1238a;
+    final /* synthetic */ i f1295a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.f1238a = iVar;
+        this.f1295a = iVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

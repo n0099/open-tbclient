@@ -15,7 +15,7 @@ import java.net.URL;
 public class ObjectImporter implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Class[] f2817a = {ObjectImporter.class, Integer.TYPE};
+    private static final Class[] f2865a = {ObjectImporter.class, Integer.TYPE};
     private int orgPort;
     private String orgServername;
     private int port;
@@ -86,7 +86,7 @@ public class ObjectImporter implements Serializable {
     }
 
     private Object a(int i, String str) {
-        return Class.forName(str).getConstructor(f2817a).newInstance(this, new Integer(i));
+        return Class.forName(str).getConstructor(f2865a).newInstance(this, new Integer(i));
     }
 
     public Object call(int i, int i2, Object[] objArr) {

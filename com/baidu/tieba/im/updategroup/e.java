@@ -6,14 +6,14 @@ import com.slidingmenu.lib.R;
 public class e extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected TextView f1711a;
+    protected TextView f1798a;
 
     public e(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.f1711a = null;
+        this.f1798a = null;
         c(R.layout.update_group_info_activity);
         d(R.string.group_update_info);
-        this.f1711a = (TextView) this.h.findViewById(R.id.edit_count);
+        this.f1798a = (TextView) this.h.findViewById(R.id.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -21,22 +21,22 @@ public class e extends g {
         int length = this.c.getText().length();
         a(length, length, 15, 300);
         int i = 300 - length;
-        this.f1711a.setText(String.valueOf(i));
+        this.f1798a.setText(String.valueOf(i));
         if (i <= 50) {
-            this.f1711a.setVisibility(0);
+            this.f1798a.setVisibility(0);
         } else {
-            this.f1711a.setVisibility(8);
+            this.f1798a.setVisibility(8);
         }
         if (i == 0) {
-            this.f1711a.setTextColor(this.h.getResources().getColor(R.color.group_create_info_count_color));
+            this.f1798a.setTextColor(this.h.getResources().getColor(R.color.group_create_info_count_color));
         } else {
             o();
         }
     }
 
     private void o() {
-        this.h.m().a(false);
-        this.h.m().a(this.f1711a);
+        this.h.getLayoutMode().a(false);
+        this.h.getLayoutMode().a(this.f1798a);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a

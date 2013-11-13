@@ -4,9 +4,9 @@ import android.app.AlertDialog;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.ao;
-import com.baidu.tieba.model.bu;
-import com.baidu.tieba.util.ag;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.model.bv;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -15,17 +15,17 @@ import org.apache.http.message.BasicNameValuePair;
 public class aa extends BdAsyncTask<Object, Integer, ao> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1853a;
+    ArrayList<BasicNameValuePair> f1850a;
     final /* synthetic */ PostActivity b;
-    private ag c = null;
+    private ap c = null;
     private String d;
 
     public aa(PostActivity postActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = postActivity;
         this.d = null;
-        this.f1853a = null;
+        this.f1850a = null;
         this.d = str;
-        this.f1853a = arrayList;
+        this.f1850a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -43,23 +43,23 @@ public class aa extends BdAsyncTask<Object, Integer, ao> {
     public ao a(Object... objArr) {
         ao aoVar = null;
         try {
-            this.c = new ag(this.d);
-            this.c.a(this.f1853a);
+            this.c = new ap(this.d);
+            this.c.a(this.f1850a);
             String j = this.c.j();
             if (this.c.c()) {
                 ao aoVar2 = new ao();
                 try {
                     aoVar2.b(j);
-                    int size = aoVar2.d().size();
+                    int size = aoVar2.e().size();
                     for (int i = 0; i < size; i++) {
-                        aoVar2.d().get(i).c(this.b);
-                        aoVar2.d().get(i).a((ArrayList<com.baidu.tieba.data.j>) null);
+                        aoVar2.e().get(i).b(this.b);
+                        aoVar2.e().get(i).a((ArrayList<com.baidu.tieba.data.j>) null);
                     }
                     return aoVar2;
                 } catch (Exception e) {
                     aoVar = aoVar2;
                     e = e;
-                    be.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+                    bg.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
                     return aoVar;
                 }
             }
@@ -74,16 +74,16 @@ public class aa extends BdAsyncTask<Object, Integer, ao> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(ao aoVar) {
         ProgressBar progressBar;
-        bu buVar;
+        bv bvVar;
         try {
             progressBar = this.b.f;
             progressBar.setVisibility(8);
             if (aoVar != null) {
-                buVar = this.b.n;
-                buVar.a(aoVar);
+                bvVar = this.b.l;
+                bvVar.a(aoVar);
             } else if (this.c != null) {
                 if (this.c.d()) {
-                    this.b.a(this.c.g());
+                    this.b.showToast(this.c.g());
                     if (this.c.e() == 4 || this.c.e() == 28 || this.c.e() == 29) {
                         this.b.finish();
                         return;
@@ -97,10 +97,10 @@ public class aa extends BdAsyncTask<Object, Integer, ao> {
                     builder.create().show();
                 }
             }
-            this.b.e();
+            this.b.d();
         } catch (Exception e) {
         }
-        this.b.m = null;
+        this.b.k = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

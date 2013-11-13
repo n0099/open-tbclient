@@ -11,10 +11,10 @@ public class j extends com.baidu.tieba.im.messageCenter.a {
     public Message a(Message message, p pVar) {
         if (message != null && (message instanceof ResponseGroupsByUidMessage) && !((ResponseGroupsByUidMessage) message).hasError()) {
             String str = "";
-            if (TiebaApplication.G() != null) {
-                str = TiebaApplication.G().getID();
+            if (TiebaApplication.E() != null) {
+                str = TiebaApplication.E().getID();
             }
-            m.a(com.baidu.tieba.b.a.a().n(), "group_info" + str, pVar);
+            m.a(com.baidu.tieba.b.a.a().o(), "group_info" + str, pVar);
         }
         return null;
     }

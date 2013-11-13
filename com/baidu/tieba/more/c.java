@@ -8,10 +8,10 @@ import android.content.Intent;
 public class c extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AboutActivity f2004a;
+    final /* synthetic */ AboutActivity f1996a;
 
     private c(AboutActivity aboutActivity) {
-        this.f2004a = aboutActivity;
+        this.f1996a = aboutActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,9 +23,9 @@ public class c extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         d dVar;
         d dVar2;
-        dVar = this.f2004a.f1965a;
+        dVar = this.f1996a.f1956a;
         if (dVar != null) {
-            dVar2 = this.f2004a.f1965a;
+            dVar2 = this.f1996a.f1956a;
             dVar2.f();
         }
     }

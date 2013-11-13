@@ -13,19 +13,20 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.PbListView;
+import com.baidu.tieba.view.bi;
 import com.slidingmenu.lib.R;
 import java.util.Timer;
 /* loaded from: classes.dex */
 public class PersonThreadFragment extends BaseFragment implements AbsListView.OnScrollListener, r {
 
     /* renamed from: a  reason: collision with root package name */
-    private v f2228a;
+    private v f2263a;
     private q b;
     private boolean c;
     private String d;
     private PbListView e;
     private View f;
-    private com.baidu.tieba.view.ab g;
+    private bi g;
     private int h;
     private boolean i = false;
     private boolean Y = true;
@@ -33,8 +34,8 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_thread_fragment, viewGroup, false);
-        this.f2228a = new v(inflate);
-        this.f2228a.b.setText(h().getString("key_empty_view_text"));
+        this.f2263a = new v(inflate);
+        this.f2263a.b.setText(h().getString("key_empty_view_text"));
         return inflate;
     }
 
@@ -42,44 +43,52 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
     public void a(View view, Bundle bundle) {
         this.d = h().getString("key_uid");
         this.b = new q(i(), this.d, h().getString("key_portrait_url"));
-        this.f2228a.f2247a.setAdapter((ListAdapter) this.b);
-        this.g = new com.baidu.tieba.view.ab(i());
+        this.f2263a.f2282a.setAdapter((ListAdapter) this.b);
+        this.g = new bi(i());
         this.g.a(new t(this));
-        this.f2228a.f2247a.setPullRefresh(this.g);
+        this.f2263a.f2282a.setPullRefresh(this.g);
         this.b.a(this);
-        this.f2228a.f2247a.setOnScrollListener(this);
+        this.f2263a.f2282a.setOnScrollListener(this);
         this.e = new PbListView(i());
         this.f = this.e.b().findViewById(R.id.pb_more_view);
-        this.f2228a.f2247a.setNextPage(this.e);
+        this.f2263a.f2282a.setNextPage(this.e);
     }
 
     @Override // com.baidu.tieba.BaseFragment
     public void c(int i) {
         super.c(i);
-        if (l()) {
+        if (n()) {
             TextView textView = (TextView) this.f.findViewById(R.id.pb_more_text);
-            if (TiebaApplication.g().as() == 1) {
+            if (TiebaApplication.g().ap() == 1) {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname_1));
             } else {
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname));
             }
             if (this.e != null) {
-                this.e.a(i);
+                this.e.b(i);
             }
             this.g.a(i);
         }
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void p() {
-        super.p();
+    public void r() {
+        super.r();
         a();
         this.b.notifyDataSetChanged();
     }
 
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void t() {
+        if (this.b != null) {
+            this.b.a();
+        }
+        super.t();
+    }
+
     public void a() {
         if (!this.c) {
-            this.f2228a.f2247a.setEmptyView(this.f2228a.c);
+            this.f2263a.f2282a.setEmptyView(this.f2263a.c);
             this.b.a(true);
             this.c = true;
         }
@@ -87,20 +96,23 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
 
     @Override // com.baidu.tieba.person.post.r
     public void a(PersonPostThreadModel personPostThreadModel, boolean z) {
-        if (l()) {
-            this.f2228a.f2247a.setEmptyView(null);
-            this.f2228a.c.setVisibility(8);
+        if (n()) {
+            this.f2263a.f2282a.setEmptyView(null);
+            this.f2263a.c.setVisibility(8);
             if (a(personPostThreadModel)) {
+                if (TiebaApplication.g().ap() == 1) {
+                    this.f2263a.b.setTextColor(j().getColor(R.color.person_post_header_uname_1));
+                } else {
+                    this.f2263a.b.setTextColor(j().getColor(R.color.person_post_header_uname));
+                }
                 if (personPostThreadModel == null || (personPostThreadModel.post_list.size() == 0 && this.Y && (personPostThreadModel.getErrorString() == null || (personPostThreadModel.getErrorString() != null && personPostThreadModel.getErrorString().equals(""))))) {
-                    if (TiebaApplication.g().as() == 1) {
-                        this.f2228a.b.setTextColor(j().getColor(R.color.person_post_header_uname_1));
-                    } else {
-                        this.f2228a.b.setTextColor(j().getColor(R.color.person_post_header_uname));
-                    }
-                    this.f2228a.f2247a.setEmptyView(this.f2228a.b);
+                    this.f2263a.f2282a.setEmptyView(this.f2263a.b);
                     return;
                 }
                 if (personPostThreadModel.getErrorString() != null && !personPostThreadModel.getErrorString().equals("")) {
+                    if (personPostThreadModel.post_list.size() == 0) {
+                        this.f2263a.f2282a.setEmptyView(this.f2263a.b);
+                    }
                     UtilHelper.a((Context) i(), personPostThreadModel.getErrorString());
                 }
                 if (personPostThreadModel.post_list.size() < 20) {
@@ -113,7 +125,7 @@ public class PersonThreadFragment extends BaseFragment implements AbsListView.On
                     }
                 }
                 this.e.d();
-                this.f2228a.f2247a.a();
+                this.f2263a.f2282a.a();
                 if (z) {
                     this.i = true;
                     this.h = 0;

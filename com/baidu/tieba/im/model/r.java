@@ -10,7 +10,7 @@ public class r {
     private static int e = 2230203;
 
     /* renamed from: a  reason: collision with root package name */
-    public ChatMessage f1673a;
+    public ChatMessage f1760a;
     private String g;
     private int i;
     private int j;
@@ -70,6 +70,6 @@ public class r {
     }
 
     public void a(ChatMessage chatMessage) {
-        this.f1673a = chatMessage;
+        this.f1760a = chatMessage;
     }
 }

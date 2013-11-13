@@ -1,38 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.text.InputFilter;
+import android.text.Spanned;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements TextWatcher {
+public class r implements InputFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2146a;
+    final /* synthetic */ ImagePbActivity f2188a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(ImagePbActivity imagePbActivity) {
-        this.f2146a = imagePbActivity;
+        this.f2188a = imagePbActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable == null || editable.length() <= 0) {
-            button = this.f2146a.n;
-            button.setEnabled(false);
-            return;
+    @Override // android.text.InputFilter
+    public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+        boolean g;
+        g = this.f2188a.g();
+        if (g) {
+            if (charSequence.length() <= 0 && spanned.length() > 0) {
+                return spanned.subSequence(i3, i4 - 1);
+            }
+            return "";
         }
-        button2 = this.f2146a.n;
-        button2.setEnabled(true);
+        return null;
     }
 }

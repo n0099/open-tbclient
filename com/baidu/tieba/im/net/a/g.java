@@ -13,7 +13,7 @@ public class g extends com.baidu.tieba.im.messageCenter.d {
             return null;
         }
         RequestFrsGroupsMessage requestFrsGroupsMessage = (RequestFrsGroupsMessage) message;
-        ResponsedMessage a2 = m.a(com.baidu.tieba.b.a.a().d().a(requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId()));
+        ResponsedMessage a2 = m.a(com.baidu.tieba.b.a.a().e().a(requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId()));
         if (a2 == null) {
             a2 = new ResponseFrsGroupsMessage();
         }

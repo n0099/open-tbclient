@@ -1,29 +1,29 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
-import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class an implements View.OnClickListener {
+class an implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2050a;
+    final /* synthetic */ com.baidu.tieba.data.aw f2071a;
+    final /* synthetic */ View b;
+    final /* synthetic */ am c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(NewPbActivity newPbActivity) {
-        this.f2050a = newPbActivity;
+    public an(am amVar, com.baidu.tieba.data.aw awVar, View view) {
+        this.c = amVar;
+        this.f2071a = awVar;
+        this.b = view;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        if (view instanceof HeadImageView) {
-            str = ((HeadImageView) view).getUserId();
-        } else {
-            str = (String) view.getTag();
-        }
-        if (str != null) {
-            PersonInfoActivity.a(this.f2050a, str, null);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        cp cpVar;
+        com.baidu.tieba.model.bm bmVar;
+        cpVar = this.c.f2070a.y;
+        com.baidu.tieba.data.aw awVar = this.f2071a;
+        View view = this.b;
+        bmVar = this.c.f2070a.s;
+        cpVar.a(false, awVar, true, null, null, view, bmVar.l().l());
     }
 }

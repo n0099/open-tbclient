@@ -1,34 +1,73 @@
 package com.baidu.tieba.square;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.flist.ForumListActivity;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
+public class p extends BdAsyncTask<Object, Integer, t> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f2372a;
+    final /* synthetic */ BarFolderSecondDirActivity f2431a;
+    private com.baidu.tieba.util.ap b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public p(o oVar) {
-        this.f2372a = oVar;
+    private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
+        this.f2431a = barFolderSecondDirActivity;
+        this.b = null;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        s sVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ p(BarFolderSecondDirActivity barFolderSecondDirActivity, o oVar) {
+        this(barFolderSecondDirActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public t a(Object... objArr) {
+        q qVar;
         String str;
         String str2;
-        Object tag = view.getTag();
-        if ((tag instanceof q) && (sVar = ((q) tag).b) != null) {
-            Activity b = this.f2372a.b();
-            String str3 = sVar.b;
-            String str4 = sVar.c;
-            String str5 = sVar.f2375a;
-            str = this.f2372a.d;
-            str2 = this.f2372a.e;
-            ForumListActivity.a(b, str3, str4, str5, str, str2);
+        String str3;
+        qVar = this.f2431a.i;
+        t a2 = qVar.a();
+        try {
+            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/f/forum/seconddir");
+            com.baidu.tieba.util.ap apVar = this.b;
+            str = this.f2431a.l;
+            apVar.a("menu_name", str);
+            com.baidu.tieba.util.ap apVar2 = this.b;
+            str2 = this.f2431a.m;
+            apVar2.a("menu_type", str2);
+            com.baidu.tieba.util.ap apVar3 = this.b;
+            str3 = this.f2431a.n;
+            apVar3.a("menu_id", str3);
+            String j = this.b.j();
+            if (this.b.c()) {
+                a2.b(j);
+            } else {
+                a2.a(this.b.g());
+            }
+        } catch (Exception e) {
+            a2.a(e.getMessage());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
         }
+        return a2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(t tVar) {
+        this.f2431a.a(tVar, false);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        if (this.b != null) {
+            this.b.h();
+            this.b = null;
+        }
+        this.f2431a.a(null, true);
     }
 }

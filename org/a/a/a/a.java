@@ -3,7 +3,7 @@ package org.a.a.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object[] f2836a = new Object[0];
+    public static final Object[] f2884a = new Object[0];
     private static final Class<?>[] b = {Object.class};
 
     public static final int a(Object obj) {

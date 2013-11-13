@@ -1,6 +1,8 @@
 package com.baidu.tieba.data;
 
+import android.net.Uri;
 import java.io.Serializable;
+import java.util.List;
 /* loaded from: classes.dex */
 public class WriteData implements Serializable {
     public static final int NEW = 0;
@@ -10,6 +12,8 @@ public class WriteData implements Serializable {
     private static final long serialVersionUID = 3754223209695592335L;
     private boolean isAd;
     private InfoData mBitmapId;
+    private List<InfoData> mBitmapIds;
+    private List<Uri> mBitmapUris;
     private String mContent;
     private int mDuringTime;
     private String mFloor;
@@ -27,6 +31,8 @@ public class WriteData implements Serializable {
     private String mVoiceMd5;
 
     public WriteData() {
+        this.mBitmapUris = null;
+        this.mBitmapIds = null;
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
@@ -46,6 +52,8 @@ public class WriteData implements Serializable {
     }
 
     public WriteData(int i) {
+        this.mBitmapUris = null;
+        this.mBitmapIds = null;
         this.mType = i;
         this.mTitle = null;
         this.mContent = null;
@@ -185,5 +193,21 @@ public class WriteData implements Serializable {
 
     public int getVoiceDuringTime() {
         return this.mDuringTime;
+    }
+
+    public List<Uri> getBitmapUris() {
+        return this.mBitmapUris;
+    }
+
+    public void setBitmapUris(List<Uri> list) {
+        this.mBitmapUris = list;
+    }
+
+    public List<InfoData> getBitmapIds() {
+        return this.mBitmapIds;
+    }
+
+    public void setBitmapIds(List<InfoData> list) {
+        this.mBitmapIds = list;
     }
 }

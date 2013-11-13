@@ -6,11 +6,11 @@ import com.baidu.tieba.im.SingleRunnable;
 public class r extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1534a;
+    final /* synthetic */ n f1625a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(n nVar) {
-        this.f1534a = nVar;
+        this.f1625a = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -1,33 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.KeyboardEventLayout;
 /* loaded from: classes.dex */
-public class cy implements View.OnClickListener {
+class cy implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bt f2112a;
+    final /* synthetic */ cx f2130a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(bt btVar) {
-        this.f2112a = btVar;
+    public cy(cx cxVar) {
+        this.f2130a = cxVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.f2112a.V;
-        if (dialog != null) {
-            dialog2 = this.f2112a.V;
-            dialog2.dismiss();
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.f2112a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        KeyboardEventLayout keyboardEventLayout;
+        keyboardEventLayout = this.f2130a.b.h;
+        keyboardEventLayout.removeView(this.f2130a.f2129a);
     }
 }

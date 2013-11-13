@@ -13,35 +13,34 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.tieba.data.MetaData;
+import com.baidu.tieba.util.bd;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class AtListActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<MetaData> f2606a = new ArrayList<>();
-    private com.baidu.tieba.ah r;
-    private LinearLayout s;
-    private LinearLayout t;
-    private ImageView u;
+    public static ArrayList<MetaData> f2658a = new ArrayList<>();
+    private com.baidu.tieba.aj m;
+    private NavigationBar n;
+    private LinearLayout o;
+    private LinearLayout p;
+    private ImageView q;
     private EditText b = null;
     private Button c = null;
-    private ImageView d = null;
-    private ListView e = null;
-    private Handler f = new Handler();
-    private i g = null;
-    private j j = null;
-    private com.baidu.tieba.model.d k = null;
-    private k l = null;
-    private String m = null;
-    private ProgressBar n = null;
-    private RelativeLayout o = null;
-    private RelativeLayout p = null;
-    private TextView q = null;
-    private Runnable v = new a(this);
-    private Runnable w = new b(this);
+    private ListView d = null;
+    private Handler e = new Handler();
+    private i f = null;
+    private j g = null;
+    private com.baidu.tieba.model.d h = null;
+    private k i = null;
+    private String j = null;
+    private ProgressBar k = null;
+    private RelativeLayout l = null;
+    private Runnable r = new a(this);
+    private Runnable s = new b(this);
 
     public static void a(Activity activity, int i) {
         Intent intent = new Intent(activity, AtListActivity.class);
@@ -63,36 +62,34 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.at_list_activity);
-        this.r = new com.baidu.tieba.ah(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
+        this.m = new com.baidu.tieba.aj(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
         a(bundle);
-        b();
-        c((String) null);
+        a();
+        a((String) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        this.r.a(i);
-        com.baidu.tieba.util.bb.a(this.o, i);
-        com.baidu.tieba.util.bb.d(this.p, i);
-        com.baidu.tieba.util.bb.f(this.q, i);
-        com.baidu.tieba.util.bb.a(this.d, i);
-        this.l.notifyDataSetChanged();
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.m.a(i);
+        bd.a(this.l, i);
+        this.n.c(i);
+        this.i.notifyDataSetChanged();
         if (i == 1) {
-            this.e.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            com.baidu.tieba.util.bb.e(this.s, (int) R.drawable.inputbox_topbg_1);
-            this.t.setBackgroundResource(R.drawable.inputbox_top_1);
-            this.u.setImageResource(R.drawable.icon_head_bar_search_1);
+            this.d.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
+            bd.e(this.o, (int) R.drawable.inputbox_topbg_1);
+            this.p.setBackgroundResource(R.drawable.inputbox_top_1);
+            this.q.setImageResource(R.drawable.icon_head_bar_search_1);
             this.b.setTextColor(-11446171);
             this.b.setHintTextColor(-11446171);
             this.c.setBackgroundResource(R.drawable.search_delete_button_1);
             return;
         }
-        this.e.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        com.baidu.tieba.util.bb.e(this.s, (int) R.drawable.tabbar_bj_tab);
-        this.t.setBackgroundResource(R.drawable.inputbox_top);
-        this.u.setImageResource(R.drawable.icon_head_bar_search);
+        this.d.setDivider(getResources().getDrawable(R.drawable.list_divider));
+        bd.e(this.o, (int) R.drawable.tabbar_bj_tab);
+        this.p.setBackgroundResource(R.drawable.inputbox_top);
+        this.q.setImageResource(R.drawable.icon_head_bar_search);
         this.b.setTextColor(-5921112);
         this.b.setHintTextColor(-5921112);
         this.c.setBackgroundResource(R.drawable.search_delete_button);
@@ -101,67 +98,66 @@ public class AtListActivity extends com.baidu.tieba.j {
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        this.r.a();
+        this.m.a();
     }
 
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.r.b();
+        this.m.b();
     }
 
     public void a(boolean z) {
         if (z) {
-            this.e.setVisibility(8);
-            this.r.b(0);
+            this.d.setVisibility(8);
+            this.m.b(0);
             return;
         }
-        this.e.setVisibility(0);
-        this.r.b(8);
+        this.d.setVisibility(0);
+        this.m.b(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
+        if (this.f != null) {
+            this.f.cancel();
+        }
         if (this.g != null) {
             this.g.cancel();
         }
-        if (this.j != null) {
-            this.j.cancel();
-        }
-        this.f.removeCallbacks(this.v);
-        this.f.removeCallbacks(this.w);
-        if (this.l != null) {
-            this.l.a();
-            if (this.l.b() != null) {
-                this.l.b().b();
+        this.e.removeCallbacks(this.r);
+        this.e.removeCallbacks(this.s);
+        if (this.i != null) {
+            this.i.a();
+            if (this.i.b() != null) {
+                this.i.b().b();
             }
         }
-        if (this.n != null) {
-            this.n.setVisibility(8);
+        if (this.k != null) {
+            this.k.setVisibility(8);
         }
         super.onDestroy();
     }
 
-    private void b() {
-        this.o = (RelativeLayout) findViewById(R.id.parent);
-        this.p = (RelativeLayout) findViewById(R.id.title);
-        this.q = (TextView) findViewById(R.id.title_text);
-        this.n = (ProgressBar) findViewById(R.id.progress);
-        this.s = (LinearLayout) findViewById(R.id.search);
-        this.t = (LinearLayout) findViewById(R.id.search_tap_text_layout);
-        this.u = (ImageView) findViewById(R.id.at_search_logo);
+    private void a() {
+        this.l = (RelativeLayout) findViewById(R.id.parent);
+        this.n = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.n.a(getString(R.string.select_friend));
+        this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
+        this.k = (ProgressBar) findViewById(R.id.progress);
+        this.o = (LinearLayout) findViewById(R.id.search);
+        this.p = (LinearLayout) findViewById(R.id.search_tap_text_layout);
+        this.q = (ImageView) findViewById(R.id.at_search_logo);
         this.b = (EditText) findViewById(R.id.at_search_edit);
-        this.b.addTextChangedListener(new d(this));
-        this.d = (ImageView) findViewById(R.id.back);
-        this.d.setOnClickListener(new e(this));
+        this.b.addTextChangedListener(new e(this));
         this.c = (Button) findViewById(R.id.at_search_del);
         this.c.setOnClickListener(new f(this));
-        this.e = (ListView) findViewById(R.id.list);
-        this.l = new k(this, false, true);
-        this.e.setAdapter((ListAdapter) this.l);
-        this.e.setOnItemClickListener(new g(this));
-        this.e.setOnScrollListener(new h(this));
+        this.d = (ListView) findViewById(R.id.list);
+        this.i = new k(this, false, true);
+        this.d.setAdapter((ListAdapter) this.i);
+        this.d.setOnItemClickListener(new g(this));
+        this.d.setOnScrollListener(new h(this));
         if (!getIntent().getBooleanExtra("keyboard", true) && this.b.getParent() != null) {
             ((View) this.b.getParent()).setFocusable(true);
             ((View) this.b.getParent()).setFocusableInTouchMode(true);
@@ -169,39 +165,39 @@ public class AtListActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(String str) {
+    public void a(String str) {
         if (!isFinishing()) {
-            this.l.a(null);
-            if (this.g != null) {
-                this.g.cancel();
+            this.i.a(null);
+            if (this.f != null) {
+                this.f.cancel();
             }
             if (str == null || str.length() == 0) {
-                if (this.k.a() != null) {
-                    this.l.a(this.k.a().a());
+                if (this.h.a() != null) {
+                    this.i.a(this.h.a().a());
                 } else {
-                    this.l.a(null);
-                    if (this.j == null) {
-                        this.j = new j(this, null);
-                        this.j.setPriority(3);
-                        this.j.execute("");
+                    this.i.a(null);
+                    if (this.g == null) {
+                        this.g = new j(this, null);
+                        this.g.setPriority(3);
+                        this.g.execute("");
                     }
                 }
             } else {
-                this.g = new i(this, null);
-                this.g.setPriority(2);
-                this.g.execute(str);
-                if (this.j == null && this.k.a() == null) {
-                    this.j = new j(this, null);
-                    this.j.setPriority(3);
-                    this.j.execute("");
+                this.f = new i(this, null);
+                this.f.setPriority(2);
+                this.f.execute(str);
+                if (this.g == null && this.h.a() == null) {
+                    this.g = new j(this, null);
+                    this.g.setPriority(3);
+                    this.g.execute("");
                 }
             }
-            this.l.notifyDataSetInvalidated();
-            this.e.setSelection(0);
+            this.i.notifyDataSetInvalidated();
+            this.d.setSelection(0);
         }
     }
 
     private void a(Bundle bundle) {
-        this.k = new com.baidu.tieba.model.d();
+        this.h = new com.baidu.tieba.model.d();
     }
 }

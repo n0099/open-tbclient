@@ -10,24 +10,25 @@ import android.os.IBinder;
 import android.widget.RemoteViews;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.w;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class TiebaUpdateService extends Service {
+    private static boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2304a = null;
+    protected String f2337a = null;
     private NotificationManager b = null;
     private Notification c = null;
     private Notification d = null;
     private u e = null;
     private VersionData f = null;
     private v g = null;
-    private String h = null;
-    private boolean i = false;
-    private Handler j = new s(this);
-    private Handler k = new t(this);
+    private String i = null;
+    private boolean j = false;
+    private Handler k = new s(this);
+    private Handler l = new t(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -58,8 +59,8 @@ public class TiebaUpdateService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.j.removeMessages(900002);
-        this.k.removeMessages(900003);
+        this.k.removeMessages(900002);
+        this.l.removeMessages(900003);
         if (this.e != null) {
             this.e.cancel();
         }
@@ -70,53 +71,57 @@ public class TiebaUpdateService extends Service {
             this.b.cancel(10);
             this.b.cancel(14);
         }
+        h = false;
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         boolean z;
-        be.a(getClass().getName(), "onStart", "onStart");
-        if (intent != null && intent.getBooleanExtra("update", false)) {
-            VersionData versionData = (VersionData) intent.getSerializableExtra("version");
-            this.f = versionData;
-            if (versionData != null) {
-                this.c.contentView.setTextViewText(R.id.info, String.format(getString(R.string.tieba_downloading), this.f.getNew_version()));
-                this.c.contentView.setTextViewText(R.id.schedule, "0/0");
-                if (w.d(this.f.getNew_file()) != null) {
-                    this.j.sendMessageDelayed(this.j.obtainMessage(1, this.f), 100L);
-                } else if (this.e == null) {
-                    this.e = new u(this, this.f);
-                    this.e.execute(new String[0]);
-                    this.c.contentView.setProgressBar(R.id.progress, 100, 0, false);
-                    this.b.notify(10, this.c);
-                }
-                this.h = intent.getStringExtra("other_url");
-                if (this.h == null || this.h.length() == 0) {
-                    this.i = true;
-                    z = false;
-                } else {
-                    z = true;
-                }
-                this.f2304a = a(this.h);
-                if (this.f2304a == null || this.f2304a.length() < 4) {
-                    this.i = true;
-                    z = false;
-                }
-                if (z) {
-                    this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
-                    this.d.contentView.setTextViewText(R.id.schedule, "0/0");
-                    if (w.d(this.f2304a) != null) {
-                        this.k.sendMessageDelayed(this.k.obtainMessage(2, this.f), 100L);
-                    } else if (this.g == null) {
-                        this.g = new v(this, this.h);
-                        this.g.execute(new String[0]);
-                        this.d.contentView.setProgressBar(R.id.progress, 100, 0, false);
-                        this.b.notify(14, this.d);
+        bg.a(getClass().getName(), "onStart", "onStart");
+        if (!h) {
+            h = true;
+            if (intent != null && intent.getBooleanExtra("update", false)) {
+                VersionData versionData = (VersionData) intent.getSerializableExtra("version");
+                this.f = versionData;
+                if (versionData != null) {
+                    this.c.contentView.setTextViewText(R.id.info, String.format(getString(R.string.tieba_downloading), this.f.getNew_version()));
+                    this.c.contentView.setTextViewText(R.id.schedule, "0/0");
+                    if (af.d(this.f.getNew_file()) != null) {
+                        this.k.sendMessageDelayed(this.k.obtainMessage(1, this.f), 100L);
+                    } else if (this.e == null) {
+                        this.e = new u(this, this.f);
+                        this.e.execute(new String[0]);
+                        this.c.contentView.setProgressBar(R.id.progress, 100, 0, false);
+                        this.b.notify(10, this.c);
+                    }
+                    this.i = intent.getStringExtra("other_url");
+                    if (this.i == null || this.i.length() == 0) {
+                        this.j = true;
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    this.f2337a = a(this.i);
+                    if (this.f2337a == null || this.f2337a.length() < 4) {
+                        this.j = true;
+                        z = false;
+                    }
+                    if (z) {
+                        this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
+                        this.d.contentView.setTextViewText(R.id.schedule, "0/0");
+                        if (af.d(this.f2337a) != null) {
+                            this.l.sendMessageDelayed(this.l.obtainMessage(2, this.f), 100L);
+                        } else if (this.g == null) {
+                            this.g = new v(this, this.i);
+                            this.g.execute(new String[0]);
+                            this.d.contentView.setProgressBar(R.id.progress, 100, 0, false);
+                            this.b.notify(14, this.d);
+                        }
                     }
                 }
             }
+            super.onStart(intent, i);
         }
-        super.onStart(intent, i);
     }
 
     private String a(String str) {

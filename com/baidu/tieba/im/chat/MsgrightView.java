@@ -9,7 +9,7 @@ import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class MsgrightView extends al {
+public class MsgrightView extends ak {
     private static final String m = MsgrightView.class.getName();
     private ProgressBar n;
     private ImageButton o;
@@ -22,10 +22,10 @@ public class MsgrightView extends al {
         this.o = (ImageButton) a(R.id.btn_msgitem_resend);
         this.p = (HeadImageView) a(R.id.img_msgitem_photo);
         this.p.setAutoChangeStyle(false);
-        this.p.setOnClickListener(new bw(this));
+        this.p.setOnClickListener(new bv(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.al
+    @Override // com.baidu.tieba.im.chat.ak
     public void a(View view, ChatMessage chatMessage) {
         String str = null;
         super.a(view, chatMessage);
@@ -45,7 +45,7 @@ public class MsgrightView extends al {
             a(chatMessage);
             if (chatMessage.getUserInfo() != null) {
                 this.p.setUserId(chatMessage.getUserInfo().getId());
-                if (TiebaApplication.D()) {
+                if (TiebaApplication.B()) {
                     str = com.baidu.tieba.im.i.b();
                 }
             }
@@ -53,7 +53,7 @@ public class MsgrightView extends al {
             if (c != null) {
                 c.a(this.p);
             } else {
-                this.e.b(str, new bx(this));
+                this.e.b(str, new bw(this));
             }
             this.n.setVisibility(8);
             this.o.setVisibility(8);
@@ -71,7 +71,7 @@ public class MsgrightView extends al {
                 }
             }
             if (this.o.getVisibility() == 0) {
-                this.o.setOnClickListener(new by(this));
+                this.o.setOnClickListener(new bx(this));
             }
             this.j.setVisibility(8);
             c(8);

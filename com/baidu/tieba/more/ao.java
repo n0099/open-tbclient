@@ -5,15 +5,15 @@ import android.view.View;
 class ao implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignRemindActivity f1990a;
+    final /* synthetic */ SignRemindActivity f1982a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(SignRemindActivity signRemindActivity) {
-        this.f1990a = signRemindActivity;
+        this.f1982a = signRemindActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1990a.finish();
+        this.f1982a.finish();
     }
 }

@@ -11,8 +11,6 @@ public abstract class ae {
 
     public abstract int b();
 
-    public abstract ae b(int i, Fragment fragment, String str);
-
     public abstract ae b(Fragment fragment);
 
     public abstract ae c(Fragment fragment);

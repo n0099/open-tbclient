@@ -6,18 +6,18 @@ import org.msgpack.MessageTypeException;
 public class TemplateReference<T> extends AbstractTemplate<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f2883a;
+    private e f2931a;
     private Type b;
     private d<T> c;
 
     public TemplateReference(e eVar, Type type) {
-        this.f2883a = eVar;
+        this.f2931a = eVar;
         this.b = type;
     }
 
     private void a() {
         if (this.c == null) {
-            this.c = (d<T>) this.f2883a.f2902a.get(this.b);
+            this.c = (d<T>) this.f2931a.f2950a.get(this.b);
             if (this.c == null) {
                 throw new MessageTypeException("Actual template have not been created");
             }

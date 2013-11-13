@@ -1,12 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.mobstat.StatService;
+import android.widget.RadioButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag {
-    public static void a(Context context, String str) {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(context, str, "click", 1);
-        }
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f1100a;
+    public BaseFragment b;
+    public boolean c;
+    public RadioButton d;
+    public String e;
+    public int f;
+    public int g;
+
+    private ag() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ag(af afVar) {
+        this();
     }
 }

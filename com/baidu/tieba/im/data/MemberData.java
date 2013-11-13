@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.ae;
+import com.baidu.tieba.util.an;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MemberData implements ae, Serializable {
+public class MemberData implements an, Serializable {
     private static final long serialVersionUID = 6241193622633380508L;
     private String portrait;
     private long userId;
@@ -34,15 +34,20 @@ public class MemberData implements ae, Serializable {
         this.portrait = str;
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.an
     public LinkedList<String> getImageUrl() {
         return null;
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.an
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
         return linkedList;
+    }
+
+    @Override // com.baidu.tieba.util.an
+    public LinkedList<String> getForumPhotoUrl() {
+        return null;
     }
 }

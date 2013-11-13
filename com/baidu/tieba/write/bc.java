@@ -1,67 +1,104 @@
 package com.baidu.tieba.write;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
-import com.tencent.mm.sdk.platformtools.Util;
-import java.util.Date;
+import android.media.ExifInterface;
+import android.net.Uri;
+import com.baidu.tieba.util.bg;
+import com.slidingmenu.lib.R;
+import java.io.File;
 /* loaded from: classes.dex */
-class bc implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2651a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(WriteImageActivity writeImageActivity) {
-        this.f2651a = writeImageActivity;
+public class bc {
+    public static void a(com.baidu.tieba.j jVar) {
+        try {
+            if (!com.baidu.tieba.util.af.a()) {
+                jVar.showToast(com.baidu.tieba.util.af.b());
+            } else {
+                File f = com.baidu.tieba.util.af.f("camera.jpg");
+                if (f != null) {
+                    Uri fromFile = Uri.fromFile(f);
+                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                    intent.putExtra("output", fromFile);
+                    jVar.startActivityForResult(intent, 12001);
+                } else {
+                    jVar.showToast(jVar.getString(R.string.error_sd_error));
+                }
+            }
+        } catch (Exception e) {
+            bg.b("WriteUtil", "takePhoto", "error = " + e.getMessage());
+        }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        ProgressBar progressBar;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean d;
-        z = this.f2651a.A;
-        if (!z) {
-            i = this.f2651a.B;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                progressBar = this.f2651a.j;
-                if (progressBar.getVisibility() != 0) {
-                    z2 = this.f2651a.z;
-                    if (z2) {
-                        bitmap = this.f2651a.r;
-                        if (bitmap != null) {
-                            bitmap2 = this.f2651a.r;
-                            if (!bitmap2.isRecycled()) {
-                                String str = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
-                                d = this.f2651a.d(str);
-                                if (d) {
-                                    intent.putExtra("change", true);
-                                    intent.putExtra("file_name", str);
-                                } else {
-                                    intent.putExtra("change", false);
-                                }
-                                this.f2651a.setResult(-1, intent);
-                            }
-                        }
-                    }
-                    intent.putExtra("change", false);
-                    this.f2651a.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.f2651a.setResult(0, new Intent());
-            }
-        } else {
-            this.f2651a.setResult(0, new Intent());
+    public static void b(com.baidu.tieba.j jVar) {
+        c(jVar);
+    }
+
+    public static void c(com.baidu.tieba.j jVar) {
+        try {
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction("android.intent.action.GET_CONTENT");
+            jVar.startActivityForResult(intent, 12002);
+        } catch (Exception e) {
+            bg.b("WriteUtil", "getAlbumImage", "error = " + e.getMessage());
         }
-        this.f2651a.finish();
+    }
+
+    public static int a(String str) {
+        try {
+            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
+                case 3:
+                    return 180;
+                case 4:
+                case 5:
+                case 7:
+                default:
+                    return 0;
+                case 6:
+                    return 90;
+                case 8:
+                    return 270;
+            }
+        } catch (Exception e) {
+            com.baidu.adp.lib.h.d.a(e.getMessage());
+            return 0;
+        }
+    }
+
+    private static Bitmap a(int i) {
+        Exception e;
+        try {
+            int a2 = a(com.baidu.tieba.util.af.c("camera.jpg"));
+            Bitmap a3 = com.baidu.tieba.util.m.a("camera.jpg", i);
+            if (a2 != 0 && a3 != null) {
+                try {
+                    return com.baidu.tieba.util.m.e(a3, a2);
+                } catch (Exception e2) {
+                    e = e2;
+                    bg.b("WriteUtil", "photoResult", "error = " + e.getMessage());
+                    return null;
+                }
+            }
+            return a3;
+        } catch (Exception e3) {
+            e = e3;
+        }
+    }
+
+    private static Bitmap a(Context context, Uri uri, int i) {
+        try {
+            return com.baidu.tieba.util.m.a(context, uri, i);
+        } catch (Exception e) {
+            bg.b("WriteUtil", "AlbumImageResult", "error = " + e.getMessage());
+            return null;
+        }
+    }
+
+    public static Bitmap a(int i, Context context, Uri uri, int i2) {
+        if (i == 12001) {
+            return a(i2);
+        }
+        return a(context, uri, i2);
     }
 }

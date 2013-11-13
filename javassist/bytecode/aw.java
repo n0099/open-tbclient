@@ -5,12 +5,12 @@ import javassist.bytecode.SignatureAttribute;
 public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    SignatureAttribute.ObjectType f2747a;
+    SignatureAttribute.ObjectType f2795a;
     char b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(SignatureAttribute.ObjectType objectType, char c) {
-        this.f2747a = objectType;
+        this.f2795a = objectType;
         this.b = c;
     }
 
@@ -22,7 +22,7 @@ public class aw {
         if (this.b == '*') {
             return "?";
         }
-        String obj = this.f2747a.toString();
+        String obj = this.f2795a.toString();
         if (this.b != ' ') {
             if (this.b == '+') {
                 return "? extends " + obj;

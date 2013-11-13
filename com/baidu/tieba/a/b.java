@@ -1,23 +1,24 @@
 package com.baidu.tieba.a;
 
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.ap;
 import java.io.File;
 import java.io.RandomAccessFile;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class b {
+public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f993a;
+    final /* synthetic */ a f1007a;
     private String b;
     private String c;
     private com.baidu.tieba.data.e d;
-    private ag e;
+    private ap e;
     private boolean f = false;
     private String g;
 
     public b(a aVar, String str, com.baidu.tieba.data.e eVar, String str2, String str3) {
-        this.f993a = aVar;
+        this.f1007a = aVar;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -46,7 +47,7 @@ class b {
                         byte[] bArr = new byte[i2];
                         int read = randomAccessFile.read(bArr, 0, i2);
                         if (read != -1) {
-                            this.e = new ag(this.c);
+                            this.e = new ap(this.c);
                             this.e.a("voice_chunk", bArr);
                             this.e.a("chunk_md5", this.d.a());
                             this.e.a("length", String.valueOf(read));

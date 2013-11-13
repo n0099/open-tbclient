@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteException;
 import android.os.Build;
 import android.util.Log;
 import com.baidu.android.pushservice.util.Internal;
+import com.baidu.android.pushservice.util.PushDatabase;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -49,7 +50,7 @@ public class PushManager {
         createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_BIND);
         createMethodIntent.putExtra(PushConstants.EXTRA_BIND_NAME, Build.MODEL);
         createMethodIntent.putExtra(PushConstants.EXTRA_BIND_STATUS, i);
-        createMethodIntent.putExtra(PushConstants.EXTRA_PUSH_SDK_VERSION, 11);
+        createMethodIntent.putExtra(PushConstants.EXTRA_PUSH_SDK_VERSION, 13);
         createMethodIntent.setFlags(createMethodIntent.getFlags() | 32);
         context.sendBroadcast(createMethodIntent);
     }
@@ -135,6 +136,20 @@ public class PushManager {
         context.sendBroadcast(createMethodIntent);
     }
 
+    public static void disableLbs(Context context) {
+        if (isNullContext(context)) {
+            return;
+        }
+        PushSettings.a(context, false);
+    }
+
+    public static void enableLbs(Context context) {
+        if (isNullContext(context)) {
+            return;
+        }
+        PushSettings.a(context, true);
+    }
+
     public static void fetchGroupMessages(Context context, String str, int i, int i2) {
         if (isNullContext(context)) {
             return;
@@ -200,48 +215,48 @@ public class PushManager {
         if (isNullContext(context)) {
             return;
         }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 1).edit();
+        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
         edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 1);
         edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
         edit.commit();
         PushSettings.a(context.getApplicationContext());
-        com.baidu.android.pushservice.util.n.j(context);
+        com.baidu.android.pushservice.util.m.j(context);
     }
 
     public static void init(Context context, String str, String str2) {
         if (isNullContext(context)) {
             return;
         }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 1).edit();
+        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
         edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 2);
         edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
         edit.putString("com.baidu.android.pushservice.PushManager.BDUSS", str2);
         edit.commit();
         PushSettings.a(context.getApplicationContext());
-        com.baidu.android.pushservice.util.n.j(context);
+        com.baidu.android.pushservice.util.m.j(context);
     }
 
     public static void initFromAKSK(Context context, String str) {
         if (isNullContext(context)) {
             return;
         }
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 1).edit();
+        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
         edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 0);
         edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
         edit.commit();
         PushSettings.a(context);
-        com.baidu.android.pushservice.util.n.j(context);
+        com.baidu.android.pushservice.util.m.j(context);
     }
 
     private static void insertAppStartInfo(String str, int i, String str2, String str3, String str4) {
         if (mStatisticsMap.size() < INFO_MAX_NUM) {
-            com.baidu.android.pushservice.util.l lVar = new com.baidu.android.pushservice.util.l();
-            lVar.f745a = i;
-            lVar.b = str;
-            lVar.c = str2;
-            lVar.d = str3;
-            lVar.e = str4;
-            mStatisticsMap.put(Integer.valueOf(lVar.f745a), lVar);
+            com.baidu.android.pushservice.util.k kVar = new com.baidu.android.pushservice.util.k();
+            kVar.f759a = i;
+            kVar.b = str;
+            kVar.c = str2;
+            kVar.d = str3;
+            kVar.e = str4;
+            mStatisticsMap.put(Integer.valueOf(kVar.f759a), kVar);
         }
     }
 
@@ -252,38 +267,38 @@ public class PushManager {
         SharedPreferences sharedPreferences = context.getSharedPreferences(context.getPackageName() + "pst", 1);
         String string = sharedPreferences.getString("cache_when_exception", "");
         if (!string.equals("")) {
-            com.baidu.android.pushservice.util.l lVar = new com.baidu.android.pushservice.util.l();
+            com.baidu.android.pushservice.util.k kVar = new com.baidu.android.pushservice.util.k();
             String[] split = string.split("#");
             if (split.length == 5 || split.length == 6) {
-                lVar.b = split[0];
-                lVar.c = split[1];
-                lVar.d = split[2];
-                lVar.e = split[3];
-                lVar.g = split[4];
+                kVar.b = split[0];
+                kVar.c = split[1];
+                kVar.d = split[2];
+                kVar.e = split[3];
+                kVar.g = split[4];
                 if (split.length == 6) {
                     try {
-                        lVar.h = new JSONObject(split[5]);
+                        kVar.h = new JSONObject(split[5]);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
-                com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a(context), lVar);
+                PushDatabase.insertStatisticsInfo(PushDatabase.getDb(context), kVar);
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putString("cache_when_exception", "");
                 edit.commit();
             }
         }
-        com.baidu.android.pushservice.util.l lVar2 = (com.baidu.android.pushservice.util.l) mStatisticsMap.remove(Integer.valueOf(i));
-        if (lVar2 != null) {
-            lVar2.f = str2;
-            lVar2.g = "" + (Long.parseLong(lVar2.f) - Long.parseLong(lVar2.e));
+        com.baidu.android.pushservice.util.k kVar2 = (com.baidu.android.pushservice.util.k) mStatisticsMap.remove(Integer.valueOf(i));
+        if (kVar2 != null) {
+            kVar2.f = str2;
+            kVar2.g = "" + (Long.parseLong(kVar2.f) - Long.parseLong(kVar2.e));
             try {
-                com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a(context), lVar2);
+                PushDatabase.insertStatisticsInfo(PushDatabase.getDb(context), kVar2);
                 Log.i(TAG, "insert into db " + context.getPackageName());
             } catch (SQLiteException e2) {
                 Log.e(TAG, "inset into db exception");
                 SharedPreferences.Editor edit2 = sharedPreferences.edit();
-                edit2.putString("cache_when_exception", lVar2.b + "#" + lVar2.c + "#" + lVar2.d + "#" + lVar2.e + "#" + lVar2.f + "#" + lVar2.g);
+                edit2.putString("cache_when_exception", kVar2.b + "#" + kVar2.c + "#" + kVar2.d + "#" + kVar2.e + "#" + kVar2.f + "#" + kVar2.g);
                 edit2.commit();
             }
         }
@@ -294,7 +309,7 @@ public class PushManager {
             return false;
         }
         boolean z = true;
-        if (!com.baidu.android.pushservice.util.n.o(context) || !PushSettings.b(context)) {
+        if (!com.baidu.android.pushservice.util.m.o(context) || !PushSettings.b(context)) {
             z = false;
         }
         return z;
@@ -309,7 +324,16 @@ public class PushManager {
     }
 
     public static boolean isPushEnabled(Context context) {
-        return (isNullContext(context) || com.baidu.android.pushservice.util.n.c(context)) ? false : true;
+        return (isNullContext(context) || com.baidu.android.pushservice.util.m.c(context)) ? false : true;
+    }
+
+    public static void listTags(Context context) {
+        if (isNullContext(context)) {
+            return;
+        }
+        Intent createMethodIntent = createMethodIntent(context);
+        createMethodIntent.putExtra(PushConstants.EXTRA_METHOD, PushConstants.METHOD_LISTTAGS);
+        context.sendBroadcast(createMethodIntent);
     }
 
     public static void resumeWork(Context context) {
@@ -317,9 +341,9 @@ public class PushManager {
             return;
         }
         b.b(context, true);
-        com.baidu.android.pushservice.util.n.c(context, true);
+        com.baidu.android.pushservice.util.m.c(context, true);
         b.a(context, true);
-        com.baidu.android.pushservice.util.n.j(context);
+        com.baidu.android.pushservice.util.m.j(context);
         bind(context, 0);
     }
 
@@ -432,7 +456,7 @@ public class PushManager {
             return;
         }
         b.b(context, true);
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 1).edit();
+        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
         if (i == 1) {
             edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 1);
             edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
@@ -445,7 +469,7 @@ public class PushManager {
         }
         edit.commit();
         PushSettings.a(context);
-        com.baidu.android.pushservice.util.n.j(context);
+        com.baidu.android.pushservice.util.m.j(context);
         bind(context, 0);
     }
 
@@ -454,13 +478,13 @@ public class PushManager {
             return;
         }
         b.b(context, true);
-        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 1).edit();
+        SharedPreferences.Editor edit = context.getSharedPreferences(context.getPackageName(), 0).edit();
         edit.putInt("com.baidu.android.pushservice.PushManager.LOGIN_TYPE", 2);
         edit.putString("com.baidu.android.pushservice.PushManager.LONGIN_VALUE", str);
         edit.putString("com.baidu.android.pushservice.PushManager.BDUSS", str2);
         edit.commit();
         PushSettings.a(context);
-        com.baidu.android.pushservice.util.n.j(context);
+        com.baidu.android.pushservice.util.m.j(context);
         bind(context, 0);
     }
 
@@ -469,10 +493,10 @@ public class PushManager {
             return;
         }
         b.b(context, false);
-        com.baidu.android.pushservice.util.n.c(context, true);
+        com.baidu.android.pushservice.util.m.c(context, true);
         unbind(context);
         b.a(context, true);
-        com.baidu.android.pushservice.util.n.j(context);
+        com.baidu.android.pushservice.util.m.g(context, context.getPackageName());
     }
 
     public static void tryConnect(Context context) {

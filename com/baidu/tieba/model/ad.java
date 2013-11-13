@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class ad extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ae f1888a = null;
+    private ae f1884a = null;
     private ag b = null;
     private ai c = null;
 
@@ -19,9 +19,9 @@ public class ad extends com.baidu.adp.a.d {
     }
 
     public void a() {
-        if (this.f1888a != null) {
-            this.f1888a.cancel();
-            this.f1888a = null;
+        if (this.f1884a != null) {
+            this.f1884a.cancel();
+            this.f1884a = null;
         }
         if (this.b != null) {
             this.b.cancel();
@@ -34,29 +34,18 @@ public class ad extends com.baidu.adp.a.d {
     }
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        if (this.f1888a != null) {
-            this.f1888a.cancel();
-            this.f1888a = null;
+        if (this.f1884a != null) {
+            this.f1884a.cancel();
+            this.f1884a = null;
         }
         this.mLoadDataMode = 0;
-        this.f1888a = new ae(this, str, str2, str3, str4, i, i2, z);
-        this.f1888a.setPriority(2);
-        this.f1888a.execute(new String[0]);
+        this.f1884a = new ae(this, str, str2, str3, str4, i, i2, z);
+        this.f1884a.setPriority(2);
+        this.f1884a.execute(new String[0]);
     }
 
     public boolean b() {
-        return (this.f1888a == null && this.b == null && this.c == null) ? false : true;
-    }
-
-    public void a(String str, String str2, String str3, String str4, int i) {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
-        }
-        this.mLoadDataMode = 1;
-        this.b = new ag(this, str, str2, str3, str4, String.valueOf(i));
-        this.b.setPriority(2);
-        this.b.execute(com.baidu.tieba.data.h.f1165a + "c/c/bawu/commitprison");
+        return (this.f1884a == null && this.b == null && this.c == null) ? false : true;
     }
 
     public void a(String str, String str2, String str3, int i, String str4) {
@@ -68,7 +57,7 @@ public class ad extends com.baidu.adp.a.d {
         this.mLoadDataMode = i;
         this.c = new ai(this, str, str2, str3, i, str4);
         this.c.setPriority(2);
-        String str6 = com.baidu.tieba.data.h.f1165a;
+        String str6 = com.baidu.tieba.data.h.f1196a;
         if (i == 6) {
             str5 = str6 + "c/c/bawu/goodlist";
         } else if (i == 2 || i == 3) {

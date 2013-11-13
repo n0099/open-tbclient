@@ -3,12 +3,12 @@ package com.baidu.tbadk.imageManager;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f962a = new d();
+    private static d f976a = new d();
     private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> b;
     private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> c;
 
     public static d a() {
-        return f962a;
+        return f976a;
     }
 
     private d() {
@@ -48,7 +48,7 @@ public class d {
     public void a(String str, com.baidu.adp.widget.ImageView.e eVar, boolean z) {
         if (eVar != null && this.c != null) {
             if (com.baidu.adp.lib.h.d.a()) {
-                com.baidu.adp.lib.h.d.d("image joined cache:" + eVar.i() + ", size:" + eVar.d());
+                com.baidu.adp.lib.h.d.d("image joined cache:" + eVar.h() + ", size:" + eVar.d());
             }
             this.c.a(str, eVar);
         }
@@ -67,10 +67,6 @@ public class d {
     }
 
     public com.baidu.adp.widget.ImageView.e c(String str) {
-        return this.c.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) str);
-    }
-
-    public com.baidu.adp.widget.ImageView.e d(String str) {
         return this.c.a((com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e>) str);
     }
 

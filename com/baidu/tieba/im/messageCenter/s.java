@@ -8,12 +8,13 @@ import com.baidu.tieba.im.exception.IMCodecException;
 import com.baidu.tieba.im.exception.IMException;
 import com.baidu.tieba.im.message.AckedMessage;
 import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.util.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements an {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Handler f1654a = new Handler();
+    private static Handler f1741a = new Handler();
     private int b;
     private am c;
     private IMException d;
@@ -95,7 +96,7 @@ public class s implements an {
     }
 
     private void n() {
-        f1654a.removeCallbacks(m());
+        f1741a.removeCallbacks(m());
     }
 
     public void b() {
@@ -105,23 +106,23 @@ public class s implements an {
 
     @Override // com.baidu.adp.lib.webSocket.an
     public void a(am amVar) {
-        com.baidu.tieba.util.o.a(g() != null ? g().getCmd() : 0, (this.e == null || this.e.getMsgTag() == null) ? 0 : this.e.getMsgTag().getSequence(), "socket", "SenderData: start send", null, 0, null, 0L, (this.c == null || this.c.c() == null) ? 0 : this.c.c().length, null);
-        f1654a.removeCallbacks(m());
-        f1654a.postDelayed(m(), this.b);
+        y.a(g() != null ? g().getCmd() : 0, (this.e == null || this.e.getMsgTag() == null) ? 0 : this.e.getMsgTag().getSequence(), "socket", "SenderData: start send", null, 0, null, 0L, (this.c == null || this.c.c() == null) ? 0 : this.c.c().length, null);
+        f1741a.removeCallbacks(m());
+        f1741a.postDelayed(m(), this.b);
         l();
     }
 
     @Override // com.baidu.adp.lib.webSocket.an
     public void b(am amVar) {
-        f1654a.removeCallbacks(m());
+        f1741a.removeCallbacks(m());
         i();
     }
 
     @Override // com.baidu.adp.lib.webSocket.an
     public void c(am amVar) {
-        com.baidu.tieba.util.o.a(g() != null ? g().getCmd() : 0, (this.e == null || this.e.getMsgTag() == null) ? 0 : this.e.getMsgTag().getSequence(), "socket", "SenderData: finish send", null, 0, null, 0L, (this.c == null || this.c.c() == null) ? 0 : this.c.c().length, null);
+        y.a(g() != null ? g().getCmd() : 0, (this.e == null || this.e.getMsgTag() == null) ? 0 : this.e.getMsgTag().getSequence(), "socket", "SenderData: finish send", null, 0, null, 0L, (this.c == null || this.c.c() == null) ? 0 : this.c.c().length, null);
         if (!this.f) {
-            f1654a.removeCallbacks(m());
+            f1741a.removeCallbacks(m());
         }
         k();
     }

@@ -9,11 +9,11 @@ import java.util.List;
 public final class l extends BdAsyncTask<Void, Void, Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f1726a;
+    final /* synthetic */ List f1813a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(List list) {
-        this.f1726a = list;
+        this.f1813a = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,11 +21,11 @@ public final class l extends BdAsyncTask<Void, Void, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void a(Void... voidArr) {
         LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-        int size = this.f1726a.size();
+        int size = this.f1813a.size();
         int i = 0;
         while (true) {
             if (i < size) {
-                ValidateItemData validateItemData = (ValidateItemData) this.f1726a.get(i);
+                ValidateItemData validateItemData = (ValidateItemData) this.f1813a.get(i);
                 if (validateItemData == null) {
                     break;
                 }

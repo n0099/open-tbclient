@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class ByteArrayTemplate extends AbstractTemplate<byte[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ByteArrayTemplate f2856a = new ByteArrayTemplate();
+    static final ByteArrayTemplate f2904a = new ByteArrayTemplate();
 
     private ByteArrayTemplate() {
     }
@@ -24,6 +24,6 @@ public class ByteArrayTemplate extends AbstractTemplate<byte[]> {
     }
 
     public static ByteArrayTemplate a() {
-        return f2856a;
+        return f2904a;
     }
 }

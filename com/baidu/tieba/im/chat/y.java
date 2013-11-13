@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.Message;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public interface y {
-    void a(Message message);
+    void a(ArrayList<String> arrayList);
 }

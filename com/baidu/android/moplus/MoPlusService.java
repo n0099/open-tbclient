@@ -17,7 +17,7 @@ import java.util.Set;
 public class MoPlusService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    static LocalServerSocket f624a;
+    static LocalServerSocket f633a;
     static Set b = new HashSet();
     private Handler c = new Handler();
     private boolean d = false;
@@ -87,14 +87,14 @@ public class MoPlusService extends Service {
             a(true, true, false);
             return;
         }
-        if (f624a == null) {
+        if (f633a == null) {
             try {
-                f624a = new LocalServerSocket(a());
+                f633a = new LocalServerSocket(a());
             } catch (Exception e) {
             }
         }
-        if (f624a != null) {
-            b.add(f624a);
+        if (f633a != null) {
+            b.add(f633a);
         }
         if (b.size() <= 0) {
             a(true, true, false);
@@ -118,9 +118,9 @@ public class MoPlusService extends Service {
     public void onDestroy() {
         super.onDestroy();
         try {
-            if (f624a != null) {
-                f624a.close();
-                f624a = null;
+            if (f633a != null) {
+                f633a.close();
+                f633a = null;
             }
         } catch (IOException e) {
         }

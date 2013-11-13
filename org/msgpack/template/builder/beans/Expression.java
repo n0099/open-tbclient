@@ -3,13 +3,13 @@ package org.msgpack.template.builder.beans;
 public class Expression extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2896a;
+    boolean f2944a;
     Object b;
 
     @Override // org.msgpack.template.builder.beans.g
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (!this.f2896a) {
+        if (!this.f2944a) {
             sb.append("<unbound>");
         } else if (this.b == null) {
             sb.append("null");

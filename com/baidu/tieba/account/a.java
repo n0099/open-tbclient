@@ -8,13 +8,13 @@ import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 /* loaded from: classes.dex */
 public class a {
     private static a b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private c f1012a = null;
+    private c f1024a = null;
     private d c = null;
 
     public static a a() {
@@ -31,22 +31,22 @@ public class a {
         try {
             if (!TiebaApplication.n()) {
                 Token token = new Token();
-                String F = TiebaApplication.F();
-                if (F != null) {
+                String D = TiebaApplication.D();
+                if (D != null) {
                     d();
-                    String[] split = F.split("[|]");
+                    String[] split = D.split("[|]");
                     if (split != null && split.length == 2) {
                         token.mBduss = split[0];
                         token.mPtoken = split[1];
                         if (token.mPtoken != null && token.mPtoken.length() > 0) {
-                            token.mUsername = TiebaApplication.H();
+                            token.mUsername = TiebaApplication.F();
                             LoginShareAssistant.getInstance().valid(token);
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "valid", e.getMessage());
+            bg.b(getClass().getName(), "valid", e.getMessage());
         }
     }
 
@@ -64,7 +64,7 @@ public class a {
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "invalid", e.getMessage());
+            bg.b(getClass().getName(), "invalid", e.getMessage());
         }
     }
 
@@ -75,7 +75,7 @@ public class a {
                     LoginShareAssistant.getInstance().invalid(token);
                 }
             } catch (Exception e) {
-                be.b(getClass().getName(), "invalid", e.getMessage());
+                bg.b(getClass().getName(), "invalid", e.getMessage());
             }
         }
     }
@@ -86,45 +86,45 @@ public class a {
                 LoginShareAssistant.getInstance().onActivityCreate();
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "onActivityCreate", e.getMessage());
+            bg.b(getClass().getName(), "onActivityCreate", e.getMessage());
         }
     }
 
     public void a(Context context) {
-        String aM;
+        String aK;
         try {
-            if (!TiebaApplication.n() && (aM = TiebaApplication.g().aM()) != null) {
-                this.f1012a = new c(this);
-                String[] split = aM.split(":");
+            if (!TiebaApplication.n() && (aK = TiebaApplication.g().aK()) != null) {
+                this.f1024a = new c(this);
+                String[] split = aK.split(":");
                 int length = split.length;
                 if (length >= 1) {
                     if (SocialConstants.TRUE.equals(split[0])) {
-                        this.f1012a.f1040a = true;
+                        this.f1024a.f1061a = true;
                     } else {
-                        this.f1012a.f1040a = false;
+                        this.f1024a.f1061a = false;
                     }
                 }
                 if (length >= 2) {
-                    this.f1012a.b = split[1];
+                    this.f1024a.b = split[1];
                 }
                 if (length >= 3) {
-                    this.f1012a.c = split[2];
+                    this.f1024a.c = split[2];
                 }
                 if (length >= 4) {
                     if (split[3] == null || split[3].equalsIgnoreCase("null")) {
-                        this.f1012a.d = null;
+                        this.f1024a.d = null;
                     } else {
-                        this.f1012a.d = split[3];
+                        this.f1024a.d = split[3];
                     }
                 }
-                if (this.f1012a != null && !this.f1012a.f1040a) {
+                if (this.f1024a != null && !this.f1024a.f1061a) {
                     DatabaseService.k();
                     TiebaApplication.a((AccountData) null, context);
                     d();
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "prepare", e.getMessage());
+            bg.b(getClass().getName(), "prepare", e.getMessage());
         }
     }
 
@@ -146,7 +146,7 @@ public class a {
                 return token;
             } catch (Exception e2) {
                 e = e2;
-                be.b("AccountShareHelper", "parseBDUSS", e.getMessage());
+                bg.b("AccountShareHelper", "parseBDUSS", e.getMessage());
                 return token;
             }
         } catch (Exception e3) {
@@ -156,18 +156,18 @@ public class a {
     }
 
     public void d() {
-        this.f1012a = null;
-        TiebaApplication.g().aL();
+        this.f1024a = null;
+        TiebaApplication.g().aJ();
     }
 
     public void e() {
-        this.f1012a = null;
+        this.f1024a = null;
     }
 
     public void a(Activity activity, int i) {
-        String H;
-        if (this.f1012a != null && this.f1012a.f1040a && TiebaApplication.C() == null && ((H = TiebaApplication.H()) == null || !H.equals(this.f1012a.d))) {
-            ReLoginShareActivity.a(activity, this.f1012a.d, this.f1012a.b, this.f1012a.c, i);
+        String F;
+        if (this.f1024a != null && this.f1024a.f1061a && TiebaApplication.A() == null && ((F = TiebaApplication.F()) == null || !F.equals(this.f1024a.d))) {
+            ReLoginShareActivity.a(activity, this.f1024a.d, this.f1024a.b, this.f1024a.c, i);
         }
         e();
     }
@@ -179,7 +179,7 @@ public class a {
             this.c = new d(this);
             loginShareAssistant.setLoginShareListener(this.c);
         } catch (Error e) {
-            be.b(getClass().getName(), "init", e.getMessage());
+            bg.b(getClass().getName(), "init", e.getMessage());
         }
     }
 

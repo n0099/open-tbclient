@@ -1,23 +1,76 @@
 package com.baidu.tieba.im.chat;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tieba.util.UtilHelper;
+import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
-public class bd implements com.baidu.tieba.im.a<Void> {
+class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1431a;
+    String f1524a;
+    com.baidu.adp.widget.ImageView.e b = null;
+    final /* synthetic */ MsglistActivity c;
 
-    private bd(MsglistActivity msglistActivity) {
-        this.f1431a = msglistActivity;
+    public bd(MsglistActivity msglistActivity, String str) {
+        this.c = msglistActivity;
+        this.f1524a = null;
+        this.f1524a = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bd(MsglistActivity msglistActivity, at atVar) {
-        this(msglistActivity);
+    public void a() {
+        try {
+            if (this.f1524a == null || this.f1524a.length() <= 0) {
+                a(this.c.getString(R.string.save_error));
+            }
+            this.b = new com.baidu.tieba.util.i(this.c).a(this.f1524a, false, true, (com.baidu.tbadk.imageManager.c) new be(this));
+            if (this.b != null) {
+                a(a(this.f1524a, this.b.i()));
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.util.bg.b("SaveImageAsyncTask", "execute", "error" + e.getMessage());
+            a(this.c.getString(R.string.save_error));
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r4) {
-        com.baidu.tieba.im.pushNotify.a.g().b(false, (com.baidu.tieba.im.a<Void>) null);
+    /* JADX INFO: Access modifiers changed from: private */
+    public String a(String str, byte[] bArr) {
+        String str2;
+        try {
+            if (bArr != null) {
+                if (!UtilHelper.a(bArr)) {
+                    str2 = Util.PHOTO_DEFAULT_EXT;
+                } else {
+                    str2 = ".gif";
+                }
+                String f = com.baidu.tieba.util.be.f(str);
+                if (f == null) {
+                    return this.c.getString(R.string.save_error);
+                }
+                String str3 = f + str2;
+                for (int i = 0; com.baidu.tieba.util.af.b(str3) && i < 10000; i++) {
+                    str3 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str2;
+                }
+                String a2 = com.baidu.tieba.util.af.a(str3, bArr);
+                if (a2 != null) {
+                    new com.baidu.tieba.util.ao(this.c).a(a2);
+                    return this.c.getString(R.string.save_image_to_album);
+                }
+                return com.baidu.tieba.util.af.b();
+            }
+            return this.c.getString(R.string.save_error);
+        } catch (Exception e) {
+            com.baidu.tieba.util.bg.b("SaveImageAsyncTask", "saveByte", "error" + e.getMessage());
+            return this.c.getString(R.string.save_error);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public final void a(String str) {
+        this.c.showToast(str);
+        this.c.k = null;
+    }
+
+    public void b() {
+        this.c.k = null;
     }
 }

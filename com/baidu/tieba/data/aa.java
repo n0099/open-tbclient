@@ -1,36 +1,39 @@
 package com.baidu.tieba.data;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1121a = null;
-    private int b = 0;
-
-    public void a(String str) {
-        this.f1121a = str;
-    }
+    public static String f1155a = "meizhi_level";
+    private String b = null;
+    private String c = null;
 
     public String a() {
-        return this.f1121a;
-    }
-
-    public void a(int i) {
-        this.b = i;
-    }
-
-    public int b() {
         return this.b;
+    }
+
+    public String b() {
+        return this.c;
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public void b(String str) {
+        this.c = str;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.b = jSONObject.optInt("class_id", 0);
-                this.f1121a = jSONObject.optString("class_name");
+                this.b = jSONObject.optString("icon");
+                this.c = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("GoodData", "parserJson", "error = " + e.getMessage());
+                bg.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

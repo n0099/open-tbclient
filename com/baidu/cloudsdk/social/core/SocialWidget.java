@@ -9,7 +9,7 @@ import com.baidu.cloudsdk.common.util.Validator;
 public abstract class SocialWidget {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f835a = SocialWidget.class.getName();
+    private static final String f849a = SocialWidget.class.getName();
     protected String mClientId;
     public Context mContext;
 

@@ -3,15 +3,15 @@ package com.baidu.tieba.voice.service;
 class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyAudioRecorder f2591a;
+    final /* synthetic */ MyAudioRecorder f2643a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(MyAudioRecorder myAudioRecorder) {
-        this.f2591a = myAudioRecorder;
+        this.f2643a = myAudioRecorder;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2591a.i();
+        this.f2643a.i();
     }
 }

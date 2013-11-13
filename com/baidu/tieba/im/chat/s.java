@@ -1,31 +1,84 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseReportGroupMessage;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 /* loaded from: classes.dex */
-public class s implements com.baidu.tieba.im.messageCenter.h {
+public class s extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1469a;
+    private String f1561a;
+    private String b;
+    private int c;
+    private RequestRemoveMembersMessage d;
 
-    public s(GroupSettingActivity groupSettingActivity) {
-        this.f1469a = groupSettingActivity;
+    public void a(String str, String str2, int i) {
+        b(str);
+        a(str2);
+        a(i);
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.h
-    public void a(Message message) {
-        if (message != null && message.getCmd() == 103103) {
-            if (!(message instanceof ResponseReportGroupMessage)) {
-                this.f1469a.b(R.string.group_report_fail);
-                return;
-            }
-            ResponseReportGroupMessage responseReportGroupMessage = (ResponseReportGroupMessage) message;
-            if (responseReportGroupMessage.hasError()) {
-                this.f1469a.c(responseReportGroupMessage.getErrMsg());
-            } else {
-                this.f1469a.b(R.string.group_report_success);
-            }
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public String a() {
+        return this.b;
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public void b() {
+        if (this.d != null) {
+            com.baidu.tieba.im.messageCenter.f.a().b(this.d);
+            this.d = null;
         }
+    }
+
+    public void a(boolean z) {
+        new t(this, z).execute(new Void[0]);
+    }
+
+    public void a(com.baidu.tieba.im.a<Boolean> aVar) {
+        com.baidu.tieba.im.m.a(new u(this), aVar);
+    }
+
+    public void a(long j) {
+        this.d = new RequestRemoveMembersMessage();
+        this.d.setGroupId(j);
+        this.d.setUserIds(TiebaApplication.E().getID());
+        com.baidu.tieba.im.messageCenter.f.a().a(this.d);
+    }
+
+    public String c() {
+        return this.f1561a;
+    }
+
+    public long d() {
+        try {
+            return Long.parseLong(this.f1561a);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            return 0L;
+        }
+    }
+
+    public void b(String str) {
+        this.f1561a = str;
+    }
+
+    public int e() {
+        return this.c;
+    }
+
+    public void a(int i) {
+        this.c = i;
     }
 }

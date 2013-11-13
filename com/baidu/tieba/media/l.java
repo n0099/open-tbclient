@@ -7,60 +7,47 @@ import com.baidu.video.download.JNITaskCreateParam;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f1840a = 0;
+    private static int f1836a = 0;
     private static boolean b = false;
     private long c = -1;
 
     public void a() {
-        f1840a++;
+        f1836a++;
         if (!b) {
             b = true;
-            try {
-                JNIP2P jnip2p = JNIP2P.getInstance();
-                TiebaApplication g = TiebaApplication.g();
-                jnip2p.init(g.getFilesDir().getAbsolutePath(), g);
-            } catch (Throwable th) {
-                b = false;
-            }
+            JNIP2P jnip2p = JNIP2P.getInstance();
+            TiebaApplication g = TiebaApplication.g();
+            jnip2p.init(g.getFilesDir().getAbsolutePath(), g);
         }
     }
 
     public void a(String str) {
-        try {
-            JNIP2P jnip2p = JNIP2P.getInstance();
-            b();
-            JNITaskCreateParam jNITaskCreateParam = new JNITaskCreateParam();
-            jNITaskCreateParam.setUrl(str);
-            jNITaskCreateParam.setFlag(4);
-            jNITaskCreateParam.setFileName("p2p");
-            jnip2p.create(jNITaskCreateParam);
-            this.c = jNITaskCreateParam.getHandle();
-            jnip2p.start(this.c);
-        } catch (Throwable th) {
-        }
+        JNIP2P jnip2p = JNIP2P.getInstance();
+        b();
+        JNITaskCreateParam jNITaskCreateParam = new JNITaskCreateParam();
+        jNITaskCreateParam.setUrl(str);
+        jNITaskCreateParam.setFlag(4);
+        jNITaskCreateParam.setFileName("p2p");
+        jnip2p.create(jNITaskCreateParam);
+        this.c = jNITaskCreateParam.getHandle();
+        jnip2p.start(this.c);
     }
 
     public void b() {
-        try {
-            JNIP2P jnip2p = JNIP2P.getInstance();
-            if (this.c != -1) {
-                jnip2p.stop(this.c);
-                jnip2p.delete(this.c);
-                this.c = -1L;
-            }
-        } catch (Throwable th) {
+        JNIP2P jnip2p = JNIP2P.getInstance();
+        if (this.c != -1) {
+            jnip2p.stop(this.c);
+            jnip2p.delete(this.c);
+            this.c = -1L;
         }
     }
 
     public void c() {
-        try {
-            b();
-            f1840a--;
-            if (b && f1840a == 0) {
-                b = false;
-                JNIP2P.getInstance().uninit();
-            }
-        } catch (Throwable th) {
+        b();
+        f1836a--;
+        if (b && f1836a == 0) {
+            b = false;
+            JNIP2P.getInstance().uninit();
         }
     }
 

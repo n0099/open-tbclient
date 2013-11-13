@@ -10,7 +10,7 @@ import java.io.IOException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static short f788a = 1;
+    public static short f802a = 1;
 
     public static long a(Context context, boolean z) {
         try {

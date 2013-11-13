@@ -1,27 +1,25 @@
 package com.baidu.tieba.write;
 
 import android.content.DialogInterface;
+import com.baidu.tieba.data.WriteData;
+import com.baidu.tieba.util.DatabaseService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements DialogInterface.OnCancelListener {
+public class al implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2633a;
+    final /* synthetic */ WriteActivity f2685a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.f2633a = writeActivity;
+        this.f2685a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        au auVar;
-        au auVar2;
-        this.f2633a.i();
-        auVar = this.f2633a.y;
-        if (auVar != null) {
-            auVar2 = this.f2633a.y;
-            auVar2.cancel();
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        WriteData writeData;
+        writeData = this.f2685a.b;
+        DatabaseService.a(writeData);
+        this.f2685a.finish();
     }
 }

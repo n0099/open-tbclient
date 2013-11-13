@@ -10,21 +10,21 @@ import javassist.convert.Transformer;
 public class CodeConverter {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Transformer f2691a = null;
+    protected Transformer f2739a = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(h hVar, an anVar, y yVar) {
         int i = 0;
         CodeAttribute i2 = anVar.i();
-        if (i2 != null && this.f2691a != null) {
-            for (Transformer transformer = this.f2691a; transformer != null; transformer = transformer.c()) {
+        if (i2 != null && this.f2739a != null) {
+            for (Transformer transformer = this.f2739a; transformer != null; transformer = transformer.c()) {
                 transformer.a(yVar, hVar, anVar);
             }
             CodeIterator j = i2.j();
             while (j.e()) {
                 try {
                     int f = j.f();
-                    for (Transformer transformer2 = this.f2691a; transformer2 != null; transformer2 = transformer2.c()) {
+                    for (Transformer transformer2 = this.f2739a; transformer2 != null; transformer2 = transformer2.c()) {
                         f = transformer2.a(hVar, f, j, yVar);
                     }
                 } catch (BadBytecode e) {
@@ -32,7 +32,7 @@ public class CodeConverter {
                 }
             }
             int i3 = 0;
-            Transformer transformer3 = this.f2691a;
+            Transformer transformer3 = this.f2739a;
             while (transformer3 != null) {
                 int b = transformer3.b();
                 if (b <= i3) {
@@ -46,7 +46,7 @@ public class CodeConverter {
                 i = d;
                 i3 = b;
             }
-            for (Transformer transformer4 = this.f2691a; transformer4 != null; transformer4 = transformer4.c()) {
+            for (Transformer transformer4 = this.f2739a; transformer4 != null; transformer4 = transformer4.c()) {
                 transformer4.a();
             }
             if (i3 > 0) {

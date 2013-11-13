@@ -1,36 +1,52 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.ProgressBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.bg;
 /* loaded from: classes.dex */
-public class bb implements View.OnClickListener {
+public class bb extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2650a;
-    final /* synthetic */ int b;
-    final /* synthetic */ WriteImageActivity c;
+    final /* synthetic */ WriteImagePreview f2702a;
+    private String b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(WriteImageActivity writeImageActivity, String str, int i) {
-        this.c = writeImageActivity;
-        this.f2650a = str;
-        this.b = i;
+    public bb(WriteImagePreview writeImagePreview, String str) {
+        this.f2702a = writeImagePreview;
+        this.b = null;
+        this.b = str;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        String str;
-        progressBar = this.c.j;
-        if (progressBar.getVisibility() != 0) {
-            String str2 = this.f2650a;
-            str = this.c.x;
-            if (!str2.equals(str)) {
-                this.c.c(this.f2650a);
-                this.c.e(this.f2650a);
-                this.c.u = this.b;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public Bitmap a(Object... objArr) {
+        if (this.b != null && !this.b.equals("tieba_resized_image")) {
+            com.baidu.tieba.util.af.e("photos/" + this.b, "tieba_resized_image");
         }
+        return com.baidu.tieba.util.af.c(null, "tieba_resized_image_display");
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void c() {
+        super.c();
+        if (this.f2702a.f != null) {
+            this.f2702a.f.a(31, null);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Bitmap bitmap) {
+        super.a((bb) bitmap);
+        bg.a(getClass().getName(), "onPostExecute", "is Null?" + String.valueOf(bitmap == null));
+        this.f2702a.a(bitmap);
     }
 }

@@ -8,7 +8,7 @@ import java.util.Map;
 public class CyberPlayerEngineManager extends BEngineManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static CyberPlayerEngineManager f871a = null;
+    private static CyberPlayerEngineManager f885a = null;
 
     /* renamed from: a  reason: collision with other field name */
     private Context f4a;
@@ -23,10 +23,10 @@ public class CyberPlayerEngineManager extends BEngineManager {
     public static synchronized CyberPlayerEngineManager getInstance(Context context) {
         CyberPlayerEngineManager cyberPlayerEngineManager;
         synchronized (CyberPlayerEngineManager.class) {
-            if (f871a == null && context != null) {
-                f871a = new CyberPlayerEngineManager(context);
+            if (f885a == null && context != null) {
+                f885a = new CyberPlayerEngineManager(context);
             }
-            cyberPlayerEngineManager = f871a;
+            cyberPlayerEngineManager = f885a;
         }
         return cyberPlayerEngineManager;
     }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ImagePagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2482a;
+    private Context f2537a;
     private ArrayList<String> b;
     private o e;
     private View.OnClickListener c = null;
@@ -27,10 +27,10 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     private boolean k = false;
 
     public ImagePagerAdapter(Context context, ArrayList<String> arrayList, o oVar) {
-        this.f2482a = null;
+        this.f2537a = null;
         this.b = null;
         this.e = null;
-        this.f2482a = context;
+        this.f2537a = context;
         this.b = arrayList;
         this.e = oVar;
     }
@@ -90,39 +90,40 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         ((ViewPager) viewGroup).removeView((View) obj);
-        if (obj instanceof bk) {
-            ((bk) obj).c();
+        if (obj instanceof bl) {
+            ((bl) obj).c();
         }
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.f2482a).inflate(R.layout.big_image_next, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f2537a).inflate(R.layout.big_image_next, (ViewGroup) null);
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.h);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.c);
             return inflate;
         }
-        bk bkVar = new bk(this.f2482a);
+        bl blVar = new bl(this.f2537a);
         String str = i < this.b.size() ? this.b.get(i) : null;
-        bkVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-        bkVar.setImageOnClickListener(this.c);
-        bkVar.setOnSizeChangedListener(this.d);
-        ((ViewPager) viewGroup).addView(bkVar, 0);
-        bkVar.a(str, this.j, this.k);
-        bkVar.setGifMaxUseableMem(this.f);
-        bkVar.setTag(String.valueOf(i));
-        bkVar.setGifSetListener(this.e);
-        return bkVar;
+        blVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
+        blVar.setImageOnClickListener(this.c);
+        blVar.setIsCdn(this.j);
+        blVar.setOnSizeChangedListener(this.d);
+        ((ViewPager) viewGroup).addView(blVar, 0);
+        blVar.a(str, this.k);
+        blVar.setGifMaxUseableMem(this.f);
+        blVar.setTag(String.valueOf(i));
+        blVar.setGifSetListener(this.e);
+        return blVar;
     }
 
     @Override // android.support.v4.view.ae
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         super.setPrimaryItem(viewGroup, i, obj);
-        if (obj instanceof bk) {
+        if (obj instanceof bl) {
             GalleryViewPager galleryViewPager = (GalleryViewPager) viewGroup;
-            k imageView = ((bk) obj).getImageView();
+            k imageView = ((bl) obj).getImageView();
             if (galleryViewPager.getSelectedView() == null) {
                 galleryViewPager.setSelectedView(imageView);
                 ViewParent parent = galleryViewPager.getParent();
@@ -135,9 +136,9 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
                 if (currentView != null) {
                     currentView.o();
                 }
-                ((bk) obj).a(this.j, this.k);
+                ((bl) obj).a(this.k);
                 galleryViewPager.setCurrentView(imageView);
-                if (((bk) obj).getImageType() == 1) {
+                if (((bl) obj).getImageType() == 1) {
                     this.e.a(imageView);
                 }
             }
@@ -145,10 +146,10 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     }
 
     public void b(boolean z) {
-        this.j = z;
+        this.k = z;
     }
 
     public void c(boolean z) {
-        this.k = z;
+        this.j = z;
     }
 }

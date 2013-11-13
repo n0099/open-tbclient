@@ -4,7 +4,7 @@ package com.baidu.tieba.guide.a;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    int f1313a;
+    int f1380a;
     int b;
     int c;
     int d;

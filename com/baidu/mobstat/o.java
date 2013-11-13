@@ -8,14 +8,14 @@ import java.lang.ref.WeakReference;
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f954a;
+    final /* synthetic */ m f968a;
     private long b;
     private WeakReference<Context> c;
     private long d;
     private WeakReference<Context> e;
 
     public o(m mVar, long j, Context context, long j2, Context context2) {
-        this.f954a = mVar;
+        this.f968a = mVar;
         this.b = j;
         this.c = new WeakReference<>(context);
         this.d = j2;
@@ -41,8 +41,8 @@ public class o implements Runnable {
             sb.deleteCharAt(0);
         }
         com.baidu.mobstat.a.b.a("stat", "new page view, page name = " + sb.toString() + ",stay time = " + j + "(ms)");
-        kVar = this.f954a.f;
+        kVar = this.f968a.f;
         kVar.a(sb.toString(), j);
-        this.f954a.c(this.c.get(), this.b);
+        this.f968a.c(this.c.get(), this.b);
     }
 }

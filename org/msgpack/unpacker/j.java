@@ -10,7 +10,7 @@ import org.msgpack.MessageTypeException;
 final class j extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2929a;
+    String f2977a;
     private CharsetDecoder b;
 
     public j() {
@@ -22,7 +22,7 @@ final class j extends a {
     @Override // org.msgpack.unpacker.a
     public void a(byte[] bArr) {
         try {
-            this.f2929a = this.b.decode(ByteBuffer.wrap(bArr)).toString();
+            this.f2977a = this.b.decode(ByteBuffer.wrap(bArr)).toString();
         } catch (CharacterCodingException e) {
             throw new MessageTypeException(e);
         }
@@ -31,13 +31,13 @@ final class j extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a() {
-        this.f2929a = "";
+        this.f2977a = "";
     }
 
     @Override // org.msgpack.unpacker.a, org.msgpack.io.b
     public void a(ByteBuffer byteBuffer, boolean z) {
         try {
-            this.f2929a = this.b.decode(byteBuffer).toString();
+            this.f2977a = this.b.decode(byteBuffer).toString();
         } catch (CharacterCodingException e) {
             throw new MessageTypeException(e);
         }

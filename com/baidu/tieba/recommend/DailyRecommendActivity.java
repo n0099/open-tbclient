@@ -21,16 +21,16 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     private Runnable f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    q f2264a = new c(this);
-    private com.baidu.adp.widget.ListView.r j = new e(this);
-    private com.baidu.adp.widget.ListView.b k = new g(this);
+    q f2299a = new c(this);
+    private com.baidu.adp.widget.ListView.r h = new e(this);
+    private com.baidu.adp.widget.ListView.b i = new g(this);
 
-    public void b() {
+    public void a() {
         this.e = new Handler();
         this.f = new d(this);
     }
 
-    public void c() {
+    public void b() {
         try {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
             a(true, simpleDateFormat.format(new Date(simpleDateFormat.parse(this.g).getTime() - Util.MILLSECONDS_OF_DAY)));
@@ -39,20 +39,25 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
         }
     }
 
-    private void e() {
+    private void a(Bundle bundle) {
         this.d = new w(this);
+        if (bundle != null) {
+            this.d.a(bundle);
+        } else {
+            this.d.a(getIntent());
+        }
         this.d.a(new f(this));
         a(false, (String) null);
     }
 
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a
-    public void a(String str) {
+    public void showToast(String str) {
         UtilHelper.a((Context) this, str);
     }
 
-    private void f() {
-        this.c = new z(this, this.j, this.f2264a);
-        this.c.a(this.k);
+    private void d() {
+        this.c = new z(this, this.h, this.f2299a);
+        this.c.a(this.i);
         this.c.e();
     }
 
@@ -70,7 +75,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     }
 
     public void a(boolean z, String str) {
-        d();
+        c();
         if (str == null && z) {
             StatService.onEvent(this.c.b(), "recommend_pull", "pull");
             this.d.a();
@@ -82,7 +87,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
         }
     }
 
-    public void d() {
+    public void c() {
         this.d.cancelLoadData();
     }
 
@@ -101,7 +106,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
             this.e.removeCallbacks(this.f);
         }
         this.c.f();
-        d();
+        c();
         super.onDestroy();
     }
 
@@ -109,18 +114,19 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        b();
-        f();
-        e();
+        a();
+        d();
+        a(bundle);
     }
 
     @Override // com.baidu.tieba.j
-    public void a(int i) {
+    public void onChangeSkinType(int i) {
         this.c.a(i);
     }
 
-    public static void a(Context context) {
+    public static void a(Context context, String str) {
         Intent intent = new Intent(context, DailyRecommendActivity.class);
+        intent.putExtra(w.f2325a, str);
         intent.addFlags(268435456);
         context.startActivity(intent);
     }

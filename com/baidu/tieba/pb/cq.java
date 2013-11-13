@@ -1,27 +1,34 @@
 package com.baidu.tieba.pb;
+
+import android.view.MotionEvent;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cq implements Runnable {
+public class cq implements com.baidu.tieba.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ co f2104a;
+    final /* synthetic */ cp f2122a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(co coVar) {
-        this.f2104a = coVar;
+    public cq(cp cpVar) {
+        this.f2122a = cpVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        dd ddVar;
-        dd ddVar2;
-        dd ddVar3;
-        ddVar = this.f2104a.f2102a.E;
-        if (ddVar.l().getVisibility() != 0) {
-            ddVar2 = this.f2104a.f2102a.E;
-            if (ddVar2.k().getVisibility() != 0) {
-                ddVar3 = this.f2104a.f2102a.E;
-                ddVar3.m();
-            }
-        }
+    @Override // com.baidu.tieba.c.b
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.f2122a.k(false);
+        this.f2122a.b(view);
+        this.f2122a.k(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.c.b
+    public boolean b(View view, MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.c.b
+    public boolean c(View view, MotionEvent motionEvent) {
+        return false;
     }
 }

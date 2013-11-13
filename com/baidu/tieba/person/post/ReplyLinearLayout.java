@@ -16,7 +16,7 @@ public class ReplyLinearLayout extends LinearLayout {
     private static ViewGroup.LayoutParams b;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<TextView> f2229a;
+    private List<TextView> f2264a;
     private View.OnClickListener c;
 
     public ReplyLinearLayout(Context context) {
@@ -26,7 +26,7 @@ public class ReplyLinearLayout extends LinearLayout {
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.c = new w(this);
-        this.f2229a = new ArrayList();
+        this.f2264a = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
@@ -34,15 +34,15 @@ public class ReplyLinearLayout extends LinearLayout {
             b = new LinearLayout.LayoutParams(-1, -2);
         }
         int size = (arrayList.size() * 2) - 1;
-        int size2 = size - this.f2229a.size();
+        int size2 = size - this.f2264a.size();
         for (int i = 0; i < size2; i++) {
             TextView textView = new TextView(getContext());
-            this.f2229a.add(textView);
+            this.f2264a.add(textView);
             addView(textView);
         }
         int i2 = 0;
-        while (i2 < this.f2229a.size()) {
-            TextView textView2 = this.f2229a.get(i2);
+        while (i2 < this.f2264a.size()) {
+            TextView textView2 = this.f2264a.get(i2);
             if (i2 < size) {
                 CharSequence[] charSequenceArr = (String[]) arrayList.get(i2 == 0 ? i2 : (i2 / 2) + (i2 % 2));
                 textView2.setText((i2 == 0 || i2 % 2 == 1) ? charSequenceArr[0] : charSequenceArr[4]);
@@ -68,7 +68,7 @@ public class ReplyLinearLayout extends LinearLayout {
     }
 
     private void a(TextView textView, int i) {
-        if (TiebaApplication.g().as() == 1) {
+        if (TiebaApplication.g().ap() == 1) {
             if (i == 0) {
                 textView.setTextColor(getResources().getColor(R.color.person_post_content_main_1));
                 textView.setPadding(0, UtilHelper.a(getContext(), 10.0f), 0, UtilHelper.a(getContext(), 10.0f));

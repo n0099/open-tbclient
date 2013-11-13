@@ -1,79 +1,77 @@
 package com.baidu.tieba.util;
 
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import com.baidu.tieba.TiebaApplication;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.util.UtilHelper;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab {
-    public static void a(ListView listView, a aVar, int i, int i2) {
+public class ab extends BdAsyncTask<String, Integer, String> {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ y f2476a;
+    private ac b = null;
+    private String c;
+
+    public ab(y yVar, String str) {
+        this.f2476a = yVar;
+        this.c = null;
+        this.c = str;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        UtilHelper.NetworkStateInfo networkStateInfo;
         boolean z;
-        int i3;
-        LinkedList<String> photoUrl;
-        LinkedList<String> imageUrl;
-        if (listView != null && aVar != null) {
-            aVar.a();
-            int firstVisiblePosition = listView.getFirstVisiblePosition();
-            int lastVisiblePosition = listView.getLastVisiblePosition();
-            ListAdapter adapter = listView.getAdapter();
-            if (adapter != null) {
-                ac acVar = new ac(listView);
-                ad adVar = new ad(listView);
-                int i4 = 0;
-                try {
-                    UtilHelper.NetworkStateInfo i5 = UtilHelper.i(TiebaApplication.g());
-                    if (i5 == UtilHelper.NetworkStateInfo.WIFI || i5 == UtilHelper.NetworkStateInfo.ThreeG) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    int i6 = firstVisiblePosition;
-                    int i7 = 0;
-                    while (i6 < adapter.getCount()) {
-                        if (i6 <= lastVisiblePosition || z) {
-                            if (adapter.getItem(i6) instanceof ae) {
-                                ae aeVar = (ae) adapter.getItem(i6);
-                                if (i == 0 && i7 < 13 && (imageUrl = aeVar.getImageUrl()) != null) {
-                                    Iterator<String> it = imageUrl.iterator();
-                                    int i8 = i7;
-                                    while (it.hasNext()) {
-                                        i8++;
-                                        aVar.a(it.next(), acVar);
-                                    }
-                                    i7 = i8;
-                                }
-                                if (i4 < 30 && (photoUrl = aeVar.getPhotoUrl()) != null) {
-                                    Iterator<String> it2 = photoUrl.iterator();
-                                    while (it2.hasNext()) {
-                                        String next = it2.next();
-                                        i4++;
-                                        if (i2 == 0) {
-                                            aVar.d(next, adVar);
-                                        } else if (i2 == 1) {
-                                            com.baidu.adp.lib.h.d.d("loadimg:" + next);
-                                            aVar.b(next, adVar);
-                                        }
-                                    }
-                                }
-                                i3 = i4;
-                                if (z && i7 >= 13 && i3 >= 30) {
-                                    return;
-                                }
-                            } else {
-                                i3 = i4;
-                            }
-                            i6++;
-                            i4 = i3;
-                        } else {
-                            return;
+        String str;
+        String str2;
+        String str3;
+        this.b = new ac(this.f2476a, null);
+        networkStateInfo = this.f2476a.n;
+        if (networkStateInfo != UtilHelper.NetworkStateInfo.WIFI) {
+            y yVar = this.f2476a;
+            str3 = y.d;
+            yVar.d(str3);
+            z = false;
+        } else {
+            z = true;
+        }
+        if (z) {
+            str = y.d;
+            File[] listFiles = new File(str).listFiles();
+            if (listFiles != null) {
+                for (File file : listFiles) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (name.contains(".log") && (TextUtils.isEmpty(this.c) || !this.c.equals(name))) {
+                            ac acVar = this.b;
+                            StringBuilder sb = new StringBuilder();
+                            str2 = y.d;
+                            acVar.a(sb.append(str2).append("/").append(name).toString(), "c/s/logupload", true);
                         }
                     }
-                } catch (Exception e) {
-                    be.b("LoadImageHelper", "loadListView", e.toString());
                 }
             }
         }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.a();
+        }
+        this.f2476a.t = null;
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        super.a((ab) str);
+        this.f2476a.t = null;
     }
 }

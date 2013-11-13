@@ -10,7 +10,7 @@ import com.baidu.cloudsdk.social.share.SocialShare;
 public class ShareUIWidget {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ShareUIWidget f861a;
+    private static ShareUIWidget f875a;
     private Context b;
     private av c;
 
@@ -23,12 +23,12 @@ public class ShareUIWidget {
     }
 
     public static ShareUIWidget getInstance(Context context) {
-        if (f861a == null) {
-            f861a = new ShareUIWidget(context);
+        if (f875a == null) {
+            f875a = new ShareUIWidget(context);
         } else {
-            f861a.a(context);
+            f875a.a(context);
         }
-        return f861a;
+        return f875a;
     }
 
     public void show(View view, ShareContent shareContent, SocialShare.Theme theme, IBaiduListener iBaiduListener, boolean z) {

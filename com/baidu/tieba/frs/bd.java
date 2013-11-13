@@ -1,53 +1,28 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.frs.FrsImageActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd implements View.OnTouchListener {
+public class bd implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ba f1273a;
+    final /* synthetic */ FrsImageActivity f1330a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(ba baVar) {
-        this.f1273a = baVar;
+    public bd(FrsImageActivity frsImageActivity) {
+        this.f1330a = frsImageActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        FrsImageActivity.FooterType footerType;
         int i;
-        ImageView imageView;
-        ImageView imageView2;
-        int i2;
-        ImageView imageView3;
-        ImageView imageView4;
-        if (view.getId() == R.id.refresh_layout) {
-            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                i = this.f1273a.y;
-                if (i == 1) {
-                    imageView2 = this.f1273a.k;
-                    imageView2.setImageResource(R.drawable.pic_fresh_n_1);
-                } else {
-                    imageView = this.f1273a.k;
-                    imageView.setImageResource(R.drawable.pic_fresh_n);
-                }
-            }
-            if (motionEvent.getAction() == 0) {
-                i2 = this.f1273a.y;
-                if (i2 == 1) {
-                    imageView4 = this.f1273a.k;
-                    imageView4.setImageResource(R.drawable.pic_fresh_s_1);
-                    return false;
-                }
-                imageView3 = this.f1273a.k;
-                imageView3.setImageResource(R.drawable.pic_fresh_s);
-                return false;
-            }
-            return false;
+        footerType = this.f1330a.g;
+        if (footerType == FrsImageActivity.FooterType.NEXT) {
+            FrsImageActivity frsImageActivity = this.f1330a;
+            i = this.f1330a.i;
+            frsImageActivity.c(i + 240);
         }
-        return false;
     }
 }

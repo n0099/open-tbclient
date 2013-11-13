@@ -6,19 +6,19 @@ import com.baidu.tbadk.widget.TbImageView;
 public class l implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TbImageView f2282a;
+    final /* synthetic */ TbImageView f2315a;
     final /* synthetic */ h b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(h hVar, TbImageView tbImageView) {
         this.b = hVar;
-        this.f2282a = tbImageView;
+        this.f2315a = tbImageView;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        if (this.f2282a != null) {
-            this.f2282a.invalidate();
+        if (this.f2315a != null) {
+            this.f2315a.invalidate();
         }
     }
 }

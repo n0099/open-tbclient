@@ -14,12 +14,12 @@ import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Random;
 /* loaded from: classes.dex */
-public class f extends com.baidu.tieba.guide.f {
+public class f extends com.baidu.tieba.guide.g {
     private Scroller A;
     private Scroller B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1312a;
+    private int f1379a;
     private float b;
     private float c;
     private float d;
@@ -47,7 +47,7 @@ public class f extends com.baidu.tieba.guide.f {
     private Paint f = new Paint();
 
     public f(Context context, int i) {
-        this.f1312a = i;
+        this.f1379a = i;
         this.f.setAntiAlias(true);
         this.f.setFilterBitmap(true);
         this.g = new Paint();
@@ -75,7 +75,7 @@ public class f extends com.baidu.tieba.guide.f {
         for (int i3 = 0; i3 < i; i3++) {
             g gVar = new g(this);
             this.w[i3] = gVar;
-            gVar.f1313a = this.k.nextInt(this.l - this.n);
+            gVar.f1380a = this.k.nextInt(this.l - this.n);
             gVar.b = this.k.nextInt(this.m - this.o);
             gVar.c = this.k.nextInt(this.n) + (this.n / 2);
             gVar.d = this.k.nextInt(this.o) + (this.o / 2);
@@ -90,7 +90,7 @@ public class f extends com.baidu.tieba.guide.f {
         }
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a() {
         if (!this.r) {
             if (this.A.computeScrollOffset()) {
@@ -108,7 +108,7 @@ public class f extends com.baidu.tieba.guide.f {
             } else {
                 this.B.startScroll(0, 0, 360, 0, 20000);
             }
-            for (int i = 0; i < this.f1312a; i++) {
+            for (int i = 0; i < this.f1379a; i++) {
                 g gVar = this.w[i];
                 if (i % 2 == 0) {
                     gVar.e = this.x;
@@ -119,12 +119,12 @@ public class f extends com.baidu.tieba.guide.f {
         }
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public boolean b() {
         return true;
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a(int i, float f, int i2) {
         float f2 = i + f;
         if (f2 > 0.0f && f2 < 2.0f) {
@@ -155,10 +155,10 @@ public class f extends com.baidu.tieba.guide.f {
             canvas.rotate(this.y, (i + i3) / 2, (i2 + i4) / 2);
             canvas.drawBitmap(this.h, this.p, this.q, this.f);
             canvas.restore();
-            for (int i5 = 0; i5 < this.f1312a; i5++) {
+            for (int i5 = 0; i5 < this.f1379a; i5++) {
                 g gVar = this.w[i5];
                 this.p.set(0, 0, this.n, this.o);
-                int i6 = (int) (gVar.f1313a + this.d);
+                int i6 = (int) (gVar.f1380a + this.d);
                 int i7 = (int) (gVar.b + this.e);
                 this.q.set(i6, i7, gVar.c + i6, gVar.d + i7);
                 this.g.setAlpha(gVar.e);
@@ -168,7 +168,7 @@ public class f extends com.baidu.tieba.guide.f {
         }
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void c() {
         if (this.h != null) {
             this.h.recycle();

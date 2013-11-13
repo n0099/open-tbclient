@@ -8,23 +8,23 @@ import com.slidingmenu.lib.R;
 class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f1096a;
+    final /* synthetic */ ChatActivity f1129a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ChatActivity chatActivity) {
-        this.f1096a = chatActivity;
+        this.f1129a = chatActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        z = this.f1096a.e;
+        z = this.f1129a.e;
         if (!z) {
-            String C = TiebaApplication.C();
-            if (C != null && C.length() > 0) {
-                this.f1096a.p();
+            String A = TiebaApplication.A();
+            if (A != null && A.length() > 0) {
+                this.f1129a.i();
             } else {
-                LoginActivity.a((Activity) this.f1096a, this.f1096a.getString(R.string.login_to_use), true, 11029);
+                LoginActivity.a((Activity) this.f1129a, this.f1129a.getString(R.string.login_to_use), true, 11029);
             }
         }
     }

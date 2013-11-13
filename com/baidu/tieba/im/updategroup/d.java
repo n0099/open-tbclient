@@ -8,10 +8,10 @@ import com.slidingmenu.lib.R;
 public class d implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateGroupActivity f1710a;
+    final /* synthetic */ UpdateGroupActivity f1797a;
 
     public d(UpdateGroupActivity updateGroupActivity) {
-        this.f1710a = updateGroupActivity;
+        this.f1797a = updateGroupActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
@@ -19,23 +19,23 @@ public class d implements com.baidu.tieba.im.messageCenter.h {
         a aVar;
         a aVar2;
         if (message != null && message.getCmd() == 103102) {
-            aVar = this.f1710a.c;
+            aVar = this.f1797a.c;
             aVar.a(false);
             if (!(message instanceof ResponseUpdateGroupMessage)) {
-                this.f1710a.b(R.string.group_update_fail);
+                this.f1797a.showToast(R.string.group_update_fail);
                 return;
             }
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) message;
             if (responseUpdateGroupMessage.hasError()) {
-                this.f1710a.c(responseUpdateGroupMessage.getErrMsg());
+                this.f1797a.a(responseUpdateGroupMessage.getErrMsg(), responseUpdateGroupMessage.getErrNo());
                 return;
             }
-            this.f1710a.b(R.string.group_update_success);
-            Intent intent = this.f1710a.getIntent();
-            aVar2 = this.f1710a.c;
+            this.f1797a.showToast(R.string.group_update_success);
+            Intent intent = this.f1797a.getIntent();
+            aVar2 = this.f1797a.c;
             intent.putExtra("group_text", aVar2.l());
-            this.f1710a.setResult(-1, intent);
-            this.f1710a.finish();
+            this.f1797a.setResult(-1, intent);
+            this.f1797a.finish();
         }
     }
 }

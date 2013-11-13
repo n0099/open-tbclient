@@ -7,7 +7,7 @@ import org.msgpack.MessageTypeException;
 class IntValueImpl extends IntegerValue {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2904a = RContact.MM_CONTACTFLAG_ALL;
+    private static int f2952a = RContact.MM_CONTACTFLAG_ALL;
     private static int b = 32767;
     private static int c = -128;
     private static int d = -32768;
@@ -20,7 +20,7 @@ class IntValueImpl extends IntegerValue {
 
     @Override // org.msgpack.type.IntegerValue
     public byte getByte() {
-        if (this.value > f2904a || this.value < c) {
+        if (this.value > f2952a || this.value < c) {
             throw new MessageTypeException();
         }
         return (byte) this.value;

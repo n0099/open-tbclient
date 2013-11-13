@@ -10,13 +10,13 @@ import org.msgpack.type.r;
 public class l implements Iterator<r> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AbstractUnpacker f2930a;
+    private final AbstractUnpacker f2978a;
     private final Unconverter b;
     private IOException c;
 
     public l(AbstractUnpacker abstractUnpacker) {
-        this.f2930a = abstractUnpacker;
-        this.b = new Unconverter(abstractUnpacker.f2920a);
+        this.f2978a = abstractUnpacker;
+        this.b = new Unconverter(abstractUnpacker.f2968a);
     }
 
     @Override // java.util.Iterator
@@ -25,7 +25,7 @@ public class l implements Iterator<r> {
             return true;
         }
         try {
-            this.f2930a.a(this.b);
+            this.f2978a.a(this.b);
             return this.b.c() != null;
         } catch (EOFException e) {
             return false;

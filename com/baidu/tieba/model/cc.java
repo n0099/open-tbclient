@@ -1,65 +1,36 @@
 package com.baidu.tieba.model;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.data.SendAloneVoteData;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cc extends BdAsyncTask<Void, Void, SendAloneVoteData> {
+public class cc extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cb f1933a;
-    private String b;
-    private int c;
-    private com.baidu.tieba.a.k d;
+    private String f1928a = null;
+    private String b = null;
+    private ce c = null;
 
-    public cc(cb cbVar, String str, int i) {
-        this.f1933a = cbVar;
-        setPriority(3);
-        this.b = str;
-        this.c = i;
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        cd cdVar;
-        cd cdVar2;
-        super.b();
-        cdVar = this.f1933a.c;
-        if (cdVar != null) {
-            cdVar2 = this.f1933a.c;
-            cdVar2.a();
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void a() {
+        if (this.c != null) {
+            this.c.cancel();
+            this.c = null;
         }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.d != null) {
-            this.d.a();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public SendAloneVoteData a(Void... voidArr) {
-        this.d = new com.baidu.tieba.a.k();
-        return new SendAloneVoteData().parserJson(this.d.a(this.b, this.c));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(SendAloneVoteData sendAloneVoteData) {
-        cd cdVar;
-        cd cdVar2;
-        super.a((cc) sendAloneVoteData);
-        this.f1933a.e = sendAloneVoteData;
-        cdVar = this.f1933a.c;
-        if (cdVar != null) {
-            cdVar2 = this.f1933a.c;
-            cdVar2.a(sendAloneVoteData);
+    public void a(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
+            this.f1928a = str;
+            this.b = str2;
+            this.c = new ce(this);
+            this.c.setPriority(2);
+            this.c.execute(new Object[0]);
         }
     }
 }

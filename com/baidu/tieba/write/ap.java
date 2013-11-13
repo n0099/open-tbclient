@@ -1,73 +1,68 @@
 package com.baidu.tieba.write;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.ImageView;
-import com.baidu.tieba.data.WriteData;
-import com.slidingmenu.lib.R;
+import android.widget.ProgressBar;
+import com.tencent.mm.sdk.platformtools.Util;
+import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap implements View.OnFocusChangeListener {
+public class ap implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2637a;
+    final /* synthetic */ WriteImageActivity f2689a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(WriteActivity writeActivity) {
-        this.f2637a = writeActivity;
+    public ap(WriteImageActivity writeImageActivity) {
+        this.f2689a = writeImageActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x0019, code lost:
-        if (r4 == r0) goto L22;
-     */
-    @Override // android.view.View.OnFocusChangeListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        GridView gridView;
-        EditText editText2;
-        WriteData writeData;
-        EditText editText3;
-        WriteData writeData2;
-        EditText editText4;
-        ImageView imageView;
-        Button button;
-        editText = this.f2637a.e;
-        if (view != editText) {
-            imageView = this.f2637a.k;
-            if (view != imageView) {
-                button = this.f2637a.l;
-            }
-        }
-        if (z) {
-            gridView = this.f2637a.u;
-            gridView.setVisibility(8);
-            this.f2637a.f();
-            this.f2637a.W = true;
-            this.f2637a.e();
-            this.f2637a.d(8);
-        }
-        editText2 = this.f2637a.g;
-        if (view == editText2) {
-            if (z) {
-                this.f2637a.W = false;
-                this.f2637a.e();
-                writeData2 = this.f2637a.f2619a;
-                if (writeData2.getType() == 0) {
-                    editText4 = this.f2637a.g;
-                    editText4.setHint((CharSequence) null);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        ProgressBar progressBar;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean b;
+        z = this.f2689a.y;
+        if (!z) {
+            i = this.f2689a.z;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                progressBar = this.f2689a.g;
+                if (progressBar.getVisibility() != 0) {
+                    z2 = this.f2689a.x;
+                    if (z2) {
+                        bitmap = this.f2689a.p;
+                        if (bitmap != null) {
+                            bitmap2 = this.f2689a.p;
+                            if (!bitmap2.isRecycled()) {
+                                String str = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
+                                b = this.f2689a.b(str);
+                                if (b) {
+                                    intent.putExtra("change", true);
+                                    intent.putExtra("file_name", str);
+                                } else {
+                                    intent.putExtra("change", false);
+                                }
+                                this.f2689a.setResult(-1, intent);
+                            }
+                        }
+                    }
+                    intent.putExtra("change", false);
+                    this.f2689a.setResult(-1, intent);
+                } else {
                     return;
                 }
-                return;
+            } else {
+                this.f2689a.setResult(0, new Intent());
             }
-            writeData = this.f2637a.f2619a;
-            if (writeData.getType() == 0) {
-                editText3 = this.f2637a.g;
-                editText3.setHint(R.string.content);
-            }
+        } else {
+            this.f2689a.setResult(0, new Intent());
         }
+        this.f2689a.finish();
     }
 }

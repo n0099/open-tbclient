@@ -67,12 +67,12 @@ public class GroupNewsPojo implements Serializable {
             if (getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) {
                 UpdatesItemData a2 = m.a(this);
                 if (a2 != null) {
-                    String C = TiebaApplication.C();
-                    if (!TextUtils.isEmpty(C)) {
+                    String A = TiebaApplication.A();
+                    if (!TextUtils.isEmpty(A)) {
                         String authorId = a2.getAuthorId();
                         if (!TextUtils.isEmpty(authorId)) {
-                            d.d("curUid:" + C + " uid:" + authorId);
-                            if (C.equals(authorId)) {
+                            d.d("curUid:" + A + " uid:" + authorId);
+                            if (A.equals(authorId)) {
                                 setContent_status(2);
                             } else {
                                 setContent_status(1);

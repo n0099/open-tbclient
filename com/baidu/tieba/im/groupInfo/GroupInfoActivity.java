@@ -20,7 +20,8 @@ import com.baidu.tieba.im.groupCard.GroupCardActivity;
 import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import com.baidu.tieba.person.EditHeadActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
-import com.baidu.tieba.write.bg;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.write.bc;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.json.JSONException;
@@ -29,18 +30,18 @@ import org.json.JSONObject;
 public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClickListener, View.OnLongClickListener, aa, z, com.baidu.tieba.im.pushNotify.m {
     private n f;
     private com.baidu.tieba.im.model.c g;
-    private com.baidu.tieba.im.model.x j;
-    private l k;
+    private com.baidu.tieba.im.model.x h;
+    private l i;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1591a = 1;
+    private final int f1678a = 1;
     private final int b = 2;
     private final int c = 3;
     private final int d = 4;
     private int e = 0;
-    private final DialogInterface.OnClickListener l = new i(this);
-    private DialogInterface.OnClickListener m = new j(this);
-    private y n = new k(this);
+    private final DialogInterface.OnClickListener j = new i(this);
+    private DialogInterface.OnClickListener k = new j(this);
+    private y l = new k(this);
 
     public static void a(Context context, long j, int i) {
         Intent intent = new Intent(context, GroupInfoActivity.class);
@@ -56,27 +57,27 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        b();
+        a();
         a(bundle, (Intent) null);
+        b();
         c();
-        d();
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         a((Bundle) null, intent);
+        b();
         c();
-        d();
     }
 
-    private void b() {
-        this.k = new l(this, null);
-        com.baidu.tieba.im.messageCenter.f.a().a(103004, this.k);
-        com.baidu.tieba.im.messageCenter.f.a().a(-102, this.k);
-        com.baidu.tieba.im.messageCenter.f.a().a(103102, this.k);
-        com.baidu.tieba.im.messageCenter.f.a().a(103112, this.k);
-        com.baidu.tieba.im.messageCenter.f.a().a(103110, this.k);
+    private void a() {
+        this.i = new l(this, null);
+        com.baidu.tieba.im.messageCenter.f.a().a(103004, this.i);
+        com.baidu.tieba.im.messageCenter.f.a().a(-102, this.i);
+        com.baidu.tieba.im.messageCenter.f.a().a(103102, this.i);
+        com.baidu.tieba.im.messageCenter.f.a().a(103112, this.i);
+        com.baidu.tieba.im.messageCenter.f.a().a(103110, this.i);
         com.baidu.tieba.im.pushNotify.n.a().a("kick_out", this);
         com.baidu.tieba.im.pushNotify.n.a().a("apply_join_success", this);
         com.baidu.tieba.im.pushNotify.n.a().a("group_name_change", this);
@@ -100,21 +101,21 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
         super.onDestroy();
         this.g.c();
         com.baidu.tieba.im.pushNotify.n.a().a(this);
-        com.baidu.tieba.im.messageCenter.f.a().a(this.k);
+        com.baidu.tieba.im.messageCenter.f.a().a(this.i);
         com.baidu.tieba.im.pushNotify.n.a().a(this);
         if (this.f != null) {
             this.f.v();
         }
     }
 
-    private void c() {
+    private void b() {
         this.f = new n(this);
-        this.f.a(this.m);
-        this.f.a(this.n);
-        this.f.b(this.l);
+        this.f.a(this.k);
+        this.f.a(this.l);
+        this.f.b(this.j);
     }
 
-    private void d() {
+    private void c() {
         this.f.q();
         this.g.b(this.g.a(), this.g.b());
     }
@@ -130,16 +131,19 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
         } else {
             this.g.a(bundle);
         }
-        this.j = new com.baidu.tieba.im.model.x();
+        this.h = new com.baidu.tieba.im.model.x();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void d() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
+    public void onChangeSkinType(int i) {
+        if (this.f != null) {
+            this.f.a(i);
+        }
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
@@ -149,7 +153,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                 this.f.w();
             }
         } else if (view == this.f.o()) {
-            h();
+            closeActivity();
         } else if (view == this.f.e()) {
             if (this.g.d() != null && this.g.d().getGroup() != null) {
                 FrsGroupActivity.a(this, String.valueOf(this.g.d().getGroup().getForumId()), this.g.d().isHideRecommendGroup() ? false : true);
@@ -162,7 +166,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
             GroupLevelActivity.a(this, this.g.a());
         } else if (view == this.f.k()) {
             com.baidu.adp.lib.h.d.d("botton click");
-            if (TextUtils.isEmpty(TiebaApplication.C())) {
+            if (TextUtils.isEmpty(TiebaApplication.A())) {
                 LoginActivity.a((Activity) this, "", true, 3);
             } else if (this.g.d() != null) {
                 if (this.g.d().isJoin()) {
@@ -170,10 +174,10 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                         MsglistActivity.a(this, (int) this.g.a(), this.g.d().getGroup().getName(), this.g.d().getGroup().getAuthorId());
                     }
                 } else if (this.g.k()) {
-                    b(R.string.has_recent_join);
+                    showToast(R.string.has_recent_join);
                 } else if (this.g.d() != null) {
                     if (this.g.d().getCanJoinGroupNum() <= 0) {
-                        b(R.string.add_group_max);
+                        showToast(R.string.add_group_max);
                     } else {
                         ApplyJoinGroupActivity.a(this, "" + this.g.a(), this.g.d().getJoinGroupNum(), this.g.d().getCanJoinGroupNum());
                     }
@@ -202,7 +206,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void h() {
+    public void closeActivity() {
         finish();
     }
 
@@ -273,7 +277,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                     }
                     return;
                 case 3:
-                    d();
+                    c();
                     return;
                 case 4:
                     if (intent != null) {
@@ -286,11 +290,11 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                     }
                     return;
                 case 12001:
-                    EditHeadActivity.a(this, 12001, 12010, null, TiebaApplication.G(), 2);
+                    EditHeadActivity.a(this, 12001, 12010, null, TiebaApplication.E(), 2);
                     return;
                 case 12002:
                     if (intent != null) {
-                        EditHeadActivity.a(this, 12002, 12009, intent.getData(), TiebaApplication.G(), 2);
+                        EditHeadActivity.a(this, 12002, 12009, intent.getData(), TiebaApplication.E(), 2);
                         return;
                     }
                     return;
@@ -298,7 +302,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
                 case 12010:
                     PhotoUrlData photoUrlData = (PhotoUrlData) intent.getSerializableExtra(EditHeadActivity.b);
                     if (photoUrlData != null) {
-                        com.baidu.tieba.util.a.c.a(photoUrlData.getSmallurl(), com.baidu.tieba.util.w.c("tieba_group_image"), true, false, true);
+                        com.baidu.tieba.util.a.c.a(photoUrlData.getSmallurl(), af.c("tieba_group_image"), true, false, true);
                     }
                     b(photoUrlData);
                     return;
@@ -307,9 +311,9 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                bg.a(this);
+                bc.a(this);
             } else if (i == 12009) {
-                bg.b(this);
+                bc.b(this);
             }
         }
     }
@@ -318,7 +322,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
     public void a(PhotoUrlData photoUrlData) {
         this.e = 2;
         if (photoUrlData != null) {
-            c(this.g.b(photoUrlData));
+            a(this.g.b(photoUrlData));
         }
     }
 
@@ -327,42 +331,43 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
         if (photoUrlData != null) {
             String c = this.g.c(photoUrlData);
             if (!TextUtils.isEmpty(c)) {
-                c(c);
+                a(c);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d(int i) {
+    public void a(int i) {
         this.e = 4;
-        if (this.j != null) {
-            this.j.a(this.g.a());
-            this.j.a(i);
-            this.j.b(5);
+        if (this.h != null) {
+            this.h.a(this.g.a());
+            this.h.a(i);
+            this.h.b(5);
             this.f.q();
         }
     }
 
-    private void c(String str) {
-        if (this.j != null) {
-            this.j.a(this.g.a());
-            this.j.d(str);
-            this.j.b(3);
+    private void a(String str) {
+        if (this.h != null) {
+            this.h.a(this.g.a());
+            this.h.d(str);
+            this.h.b(3);
             this.f.q();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
+        com.baidu.tieba.im.groupCard.b.a();
         this.e = 3;
         if (obj != null && (obj instanceof PhotoUrlData)) {
             PhotoUrlData photoUrlData = (PhotoUrlData) obj;
             this.g.a(photoUrlData);
             String picId = photoUrlData.getPicId();
-            if (this.j != null) {
-                this.j.a(this.g.a());
-                this.j.c(picId);
-                this.j.b(4);
+            if (this.h != null) {
+                this.h.a(this.g.a());
+                this.h.c(picId);
+                this.h.b(4);
                 this.f.q();
             }
         }

@@ -1,26 +1,18 @@
 package com.baidu.tieba.square;
-
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements CompoundButton.OnCheckedChangeListener {
+public class aq implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2349a;
+    final /* synthetic */ SquareActivity f2386a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(SquareSearchActivity squareSearchActivity) {
-        this.f2349a = squareSearchActivity;
+    public aq(SquareActivity squareActivity) {
+        this.f2386a = squareActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        if (z) {
-            this.f2349a.d(0);
-            radioButton = this.f2349a.m;
-            radioButton.setChecked(false);
-        }
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        this.f2386a.a(true);
     }
 }

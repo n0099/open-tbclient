@@ -1,178 +1,176 @@
 package com.baidu.tieba.square;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import com.baidu.browser.core.util.BdUtil;
 import com.baidu.mobstat.StatService;
-import com.baidu.tieba.MainTabActivity;
+import com.baidu.tieba.BaseFragment;
+import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.model.cj;
-import com.baidu.tieba.model.ck;
-import com.baidu.tieba.more.AboutActivity;
-import com.baidu.tieba.more.AccountActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.view.az;
-import com.baidu.tieba.write.WriteActivity;
 import com.slidingmenu.lib.R;
+import java.net.URLEncoder;
 /* loaded from: classes.dex */
-public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
+public class SquareActivity extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ax f2330a = null;
-    private cj b = null;
-    private boolean c = false;
+    public static boolean f2366a = false;
+    private BaseFragmentActivity f;
+    private bw b = null;
+    private ax c = null;
     private boolean d = false;
-    private ck e = new x(this);
-    private az f = new y(this);
-    private View.OnKeyListener g = new z(this);
-    private com.baidu.adp.widget.ListView.b j = new aa(this);
+    private boolean e = false;
+    private Handler g = null;
+    private Runnable h = null;
+    private ay i = new am(this);
+    private com.baidu.tieba.view.az Y = new an(this);
+    private View.OnKeyListener Z = new ap(this);
+    private com.baidu.adp.widget.ListView.b aa = new aq(this);
 
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        b();
-        c();
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void a(Activity activity) {
+        super.a(activity);
+        this.f = (BaseFragmentActivity) activity;
     }
 
-    private void b() {
-        this.f2330a = new ax(this, this.g);
-        this.f2330a.a(this.j);
-        this.f2330a.e().setClickStatKey("sq_tb_search");
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        return a(layoutInflater);
     }
 
-    private void c() {
-        this.b = new cj();
-        this.b.a(this.e);
-        this.d = true;
-        a(this.d);
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void a(Bundle bundle) {
+        super.a(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        this.f2330a.a(this.f);
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void d(Bundle bundle) {
+        super.d(bundle);
+        a();
+        G();
+        H();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        this.f2330a.b(this.f);
+    private View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(R.layout.square_view, (ViewGroup) null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
-    public void onStop() {
-        this.f2330a.k();
-        super.onStop();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.f2330a.l();
-    }
-
-    @Override // android.app.Activity
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public static String a(String str, String str2) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("square_page");
         try {
-            menu.findItem(1).setVisible(true);
-            if (!TiebaApplication.n()) {
-                menu.findItem(2).setVisible(true);
-            }
-            menu.findItem(3).setVisible(true);
-            menu.findItem(4).setVisible(true);
-            menu.findItem(5).setVisible(true);
+            sb.append(URLEncoder.encode("|", BdUtil.UTF8));
         } catch (Exception e) {
-            be.b("HomeActivity", "onPrepareOptionsMenu", "exp: " + e.toString());
+            e.printStackTrace();
+            sb.append("|");
         }
-        return super.onPrepareOptionsMenu(menu);
+        sb.append(str + "_" + str2);
+        return sb.toString();
     }
 
-    @Override // android.app.Activity
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 1, 1, getString(R.string.setup)).setIcon(R.drawable.menu_setup);
-        if (!TiebaApplication.n()) {
-            menu.add(0, 2, 2, getString(R.string.account)).setIcon(R.drawable.menu_account);
-        }
-        menu.add(0, 3, 3, getString(R.string.feedback)).setIcon(R.drawable.menu_feedback);
-        menu.add(0, 4, 4, getString(R.string.about)).setIcon(R.drawable.menu_about);
-        menu.add(0, 5, 5, getString(R.string.quit)).setIcon(R.drawable.menu_quit);
-        return true;
+    private void G() {
+        this.b = new bw(this.f, this, this.Z);
+        this.b.a(this.aa);
+        this.b.f().setClickStatKey("sq_tb_search");
     }
 
-    @Override // android.app.Activity
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case 1:
-                MainTabActivity.a(this, 4);
-                break;
-            case 2:
-                AccountActivity.a(this);
-                break;
-            case 3:
-                AntiData antiData = new AntiData();
-                antiData.setIfpost(1);
-                WriteActivity.a(this, com.baidu.tieba.data.h.h(), com.baidu.tieba.data.h.g(), antiData);
-                break;
-            case 4:
-                AboutActivity.a((Context) this);
-                break;
-            case 5:
-                UtilHelper.a((Activity) this);
-                break;
-        }
-        return super.onOptionsItemSelected(menuItem);
+    private void H() {
+        this.c = new ax();
+        this.c.a(this.i);
+        this.e = true;
+        a(this.e);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
-    public void onPause() {
-        super.onPause();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void I() {
+        this.b.a(this.Y);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
-    public void onDestroy() {
-        this.f2330a.m();
-        f();
-        super.onDestroy();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void J() {
+        this.b.b(this.Y);
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.f2330a.g()) {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this, "sq_icon_category", "click", 1);
+    public void a() {
+        this.g = new Handler();
+        this.h = new ao(this);
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void d() {
+        this.b.k();
+        super.d();
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void r() {
+        super.r();
+        if (F()) {
+            if (f2366a) {
+                a(true);
+                f2366a = false;
             }
-            BarFolderFirstDirActivity.a(this);
+            if (this.g != null && !this.e) {
+                this.g.removeCallbacks(this.h);
+                this.g.postDelayed(this.h, 0L);
+                this.b.l();
+            }
         }
     }
 
-    @Override // com.baidu.adp.a.a, android.view.View.OnLongClickListener
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void s() {
+        super.s();
+        if (this.g != null) {
+            this.g.removeCallbacks(this.h);
+        }
+        this.b.m();
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void t() {
+        if (this.g != null) {
+            this.g.removeCallbacks(this.h);
+        }
+        this.b.n();
+        K();
+        super.t();
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.b.h()) {
+            if (TiebaApplication.g().s()) {
+                StatService.onEvent(this.f, "sq_icon_category", "click", 1);
+            }
+            BarFolderFirstDirActivity.a(this.f, a(bw.f2417a, "all"));
+        }
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         return true;
     }
 
-    @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
+    @Override // com.baidu.tieba.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         super.onItemClick(adapterView, view, i, j);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        this.f2330a.a(i);
+    @Override // com.baidu.tieba.BaseFragment
+    public void c(int i) {
+        super.c(i);
+        this.b.a(i);
     }
 
-    private void f() {
-        this.b.cancelLoadData();
+    private void K() {
+        this.c.cancelLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -180,29 +178,29 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
         boolean z2;
         boolean z3;
         boolean z4 = false;
-        if (this.b != null) {
-            boolean z5 = this.b.a() == null || this.b.a().d();
+        if (this.c != null) {
+            boolean z5 = this.c.a() == null || this.c.a().g();
             boolean z6 = z;
             if (UtilHelper.b()) {
                 boolean z7 = z5;
                 z2 = z6;
                 z3 = z7;
             } else {
-                this.d = false;
+                this.e = false;
                 z3 = true;
                 z2 = false;
             }
-            if (this.d) {
+            if (this.e) {
                 z3 = true;
             } else {
                 z4 = z2;
             }
             if (z3 || z4) {
-                f();
+                K();
                 if (z4) {
-                    this.b.b();
+                    this.c.b();
                 } else {
-                    this.b.c();
+                    this.c.c();
                 }
             }
         }
@@ -214,11 +212,13 @@ public class SquareActivity extends com.baidu.tieba.j implements AbsListView.OnS
         }
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
+    @Override // com.baidu.tieba.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.g.removeCallbacks(this.h);
+        this.g.postDelayed(this.h, 300L);
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
+    @Override // com.baidu.tieba.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

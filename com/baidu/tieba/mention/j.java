@@ -9,11 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ah;
-import com.baidu.tieba.model.bi;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.aj;
+import com.baidu.tieba.model.bj;
 import com.baidu.tieba.pb.NewPbActivity;
-import com.baidu.tieba.util.be;
-import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
@@ -26,18 +25,19 @@ public class j {
     private ViewGroup d = null;
     private BdListView e = null;
     private f f = null;
-    private bi g = null;
+    private bj g = null;
     private int h = 1;
     private r k = null;
     private s l = null;
-    private ah m = null;
+    private aj m = null;
     private String o = null;
+    private com.baidu.tieba.view.q p = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1865a = null;
-    private q p = null;
-    private Handler q = new Handler();
-    private Runnable r = new k(this);
+    AlertDialog f1862a = null;
+    private q q = null;
+    private Handler r = new Handler();
+    private Runnable s = new k(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int e(j jVar) {
@@ -73,8 +73,8 @@ public class j {
         this.o = str;
     }
 
-    public void a(ah ahVar) {
-        this.m = ahVar;
+    public void a(aj ajVar) {
+        this.m = ajVar;
     }
 
     public void a() {
@@ -87,36 +87,41 @@ public class j {
         d();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.baidu.tieba.data.u uVar) {
+        if (uVar != null) {
+            if (uVar.j()) {
+                if (this.i == 2) {
+                    ai.a(this.c, "new_at_me_visit_post");
+                } else if (this.i == 1) {
+                    ai.a(this.c, "new_my_reply_visit_post");
+                }
+                b(uVar);
+                return;
+            }
+            if (this.i == 2) {
+                ai.a(this.c, "new_at_me_visit_pb");
+            } else if (this.i == 1) {
+                ai.a(this.c, "new_my_reply_visit_pb");
+            }
+            NewPbActivity.a(this.c, uVar.g(), uVar.h(), "mention");
+        }
+    }
+
     public void c() {
-        this.p = new q(this);
+        this.q = new q(this);
         this.h = 1;
         this.f = new f(this.c, null);
-        this.f.b(this.i);
-        this.f.c(TiebaApplication.g().ao());
+        this.f.a(this.i);
+        this.f.b(TiebaApplication.g().al());
         this.e.setAdapter((ListAdapter) this.f);
         this.e.setOnItemClickListener(new m(this));
         this.e.setOnScrollListener(new n(this));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.data.v vVar, int i) {
-        CharSequence[] charSequenceArr = {this.b.a(R.string.view_post), this.b.a(R.string.reply), this.b.a(R.string.view_pb)};
-        MentionActivity g = g();
-        if (g != null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(g);
-            builder.setTitle(this.b.a(R.string.operation));
-            builder.setItems(charSequenceArr, this.p);
-            this.f1865a = builder.create();
-            this.f1865a.setCanceledOnTouchOutside(true);
-            this.f1865a.show();
-            this.f.a(i);
-        }
-    }
-
     public void d() {
         boolean z;
-        String a2;
-        ArrayList<com.baidu.tieba.data.v> b;
+        ArrayList<com.baidu.tieba.data.u> b;
         switch (this.n) {
             case 2:
                 z = true;
@@ -137,73 +142,44 @@ public class j {
                 z = false;
                 break;
         }
-        if (!z) {
-            if (this.g != null) {
-                a(this.g, true);
-                return;
-            }
-            String a3 = this.j.a();
-            if (a3 != null && a3.length() > 0) {
-                bi biVar = new bi();
-                biVar.a(a3);
-                if (!biVar.a()) {
-                    be.a("HomeLikeAsyncTask", "doInBackground", "cache data format err");
-                    this.j.b();
-                    b();
-                    return;
-                }
-                be.a("HomeLikeAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a3.length()));
-                a(biVar, true);
-                return;
-            }
-            z = true;
-        } else if (this.n == 2 && (a2 = this.j.a()) != null && a2.length() > 0) {
-            bi biVar2 = new bi();
-            biVar2.a(a2);
-            if (!biVar2.a()) {
-                be.a("HomeLikeAsyncTask", "doInBackground", "cache data format err");
-                this.j.b();
-            } else {
-                be.a("HomeLikeAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a2.length()));
-                a(biVar2, true);
-            }
+        if (!z && this.g != null) {
+            a(this.g, true);
+            return;
         }
-        if (z) {
-            if (this.n != 4) {
-                this.h = 1;
-            }
-            StringBuffer stringBuffer = new StringBuffer(30);
-            stringBuffer.append(com.baidu.tieba.data.h.f1165a);
-            stringBuffer.append(this.o);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new BasicNameValuePair("uid", TiebaApplication.C()));
-            arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.h)));
-            if (this.n == 4 && this.g != null && (b = this.g.b()) != null && b.size() > 0) {
-                com.baidu.tieba.data.v vVar = b.get(b.size() - 1);
-                arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", vVar.g(), vVar.h())));
-            }
-            h();
-            if (this.k != null) {
-                this.k.cancel();
-                this.k = null;
-            }
-            this.k = new r(this, stringBuffer.toString(), arrayList, this.f);
-            this.k.setPriority(3);
-            this.k.execute(stringBuffer.toString(), arrayList);
+        if (this.n != 4) {
+            this.h = 1;
         }
+        StringBuffer stringBuffer = new StringBuffer(30);
+        stringBuffer.append(com.baidu.tieba.data.h.f1196a);
+        stringBuffer.append(this.o);
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new BasicNameValuePair("uid", TiebaApplication.A()));
+        arrayList.add(new BasicNameValuePair("pn", String.valueOf(this.h)));
+        if (this.n == 4 && this.g != null && (b = this.g.b()) != null && b.size() > 0) {
+            com.baidu.tieba.data.u uVar = b.get(b.size() - 1);
+            arrayList.add(new BasicNameValuePair("ids", String.format("%s,%s", uVar.g(), uVar.h())));
+        }
+        g();
+        if (this.k != null) {
+            this.k.cancel();
+            this.k = null;
+        }
+        this.k = new r(this, stringBuffer.toString(), arrayList, this.f);
+        this.k.setPriority(3);
+        this.k.execute(stringBuffer.toString(), arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(bi biVar, boolean z) {
-        if (biVar != null && biVar.b() != null) {
+    public void a(bj bjVar, boolean z) {
+        if (bjVar != null && bjVar.b() != null) {
             if (this.n == 4 && this.g != null) {
-                ArrayList<com.baidu.tieba.data.v> b = this.g.b();
-                b.addAll(biVar.b());
-                biVar.a(b);
+                ArrayList<com.baidu.tieba.data.u> b = this.g.b();
+                b.addAll(bjVar.b());
+                bjVar.a(b);
                 this.g = null;
-                this.g = biVar;
+                this.g = bjVar;
             } else {
-                this.g = biVar;
+                this.g = bjVar;
             }
             if (this.g != null) {
                 if (this.g.c().f() == 1) {
@@ -211,7 +187,7 @@ public class j {
                 } else {
                     this.f.a(false);
                 }
-                ArrayList<com.baidu.tieba.data.v> b2 = this.g.b();
+                ArrayList<com.baidu.tieba.data.u> b2 = this.g.b();
                 if (b2 != null) {
                     int firstVisiblePosition = this.e.getFirstVisiblePosition();
                     this.f.a(b2, z);
@@ -219,59 +195,51 @@ public class j {
                     if (this.n == 2 || this.n == 3) {
                         this.e.setSelectionFromTop(0, 0);
                     } else if (this.n == 4 && Build.VERSION.SDK_INT < 11) {
-                        this.q.postDelayed(new o(this, firstVisiblePosition), 10L);
+                        this.r.postDelayed(new o(this, firstVisiblePosition), 10L);
                     }
                     if (b2.size() == 0) {
                         this.m.b(0);
                     } else {
                         this.m.b(8);
                     }
-                    if (this.b.l()) {
+                    if (this.b.n()) {
                         if (this.b instanceof AtMeFragment) {
-                            ((AtMeFragment) this.b).c(TiebaApplication.g().as());
+                            ((AtMeFragment) this.b).c(TiebaApplication.g().ap());
                         } else if (this.b instanceof ReplyMeFragment) {
-                            ((ReplyMeFragment) this.b).c(TiebaApplication.g().as());
+                            ((ReplyMeFragment) this.b).c(TiebaApplication.g().ap());
                         }
                     }
                 }
             }
-            MentionActivity g = g();
-            if (g != null) {
+            MentionActivity mentionActivity = (MentionActivity) this.b.m();
+            if (mentionActivity != null) {
                 if (this.n == 3 || this.n == 2) {
                     if (z) {
-                        g.a(this.i, false);
+                        mentionActivity.a(this.i, false);
                         return;
                     } else {
-                        g.a(this.i, true);
+                        mentionActivity.a(this.i, true);
                         return;
                     }
                 }
-                g.a(this.i, false);
+                mentionActivity.a(this.i, false);
             }
         }
     }
 
-    private MentionActivity g() {
-        if (this.b == null) {
-            return null;
-        }
-        android.support.v4.app.n i = this.b.i();
-        return (i == null || !(i instanceof MentionActivity)) ? null : (MentionActivity) i;
-    }
-
     public void e() {
-        if (this.f != null && this.f.d() != TiebaApplication.g().ao()) {
-            this.f.c(TiebaApplication.g().ao());
+        if (this.f != null && this.f.d() != TiebaApplication.g().al()) {
+            this.f.b(TiebaApplication.g().al());
             this.f.notifyDataSetChanged();
         }
     }
 
     public void f() {
-        i();
         h();
+        g();
     }
 
-    private void h() {
+    private void g() {
         if (this.k != null) {
             this.k.cancel();
             this.k = null;
@@ -285,14 +253,14 @@ public class j {
         this.f.notifyDataSetChanged();
     }
 
-    private void i() {
-        this.q.removeCallbacks(this.r);
+    private void h() {
+        this.r.removeCallbacks(this.s);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, String str3, int i) {
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.h.f1165a);
+        stringBuffer.append(com.baidu.tieba.data.h.f1196a);
         ArrayList arrayList = new ArrayList();
         if (i == 1) {
             stringBuffer.append("c/f/pb/page");
@@ -307,14 +275,14 @@ public class j {
             arrayList.add(new BasicNameValuePair("spid", str2));
         }
         arrayList.add(new BasicNameValuePair("st_type", "mention"));
-        h();
+        g();
         this.l = new s(this, stringBuffer.toString(), arrayList, i, str3);
         this.l.setPriority(3);
         this.l.execute(stringBuffer.toString(), arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.data.v vVar) {
-        NewPbActivity.b(this.c, vVar.g(), vVar.h(), "mention");
+    public void b(com.baidu.tieba.data.u uVar) {
+        NewPbActivity.b(this.c, uVar.g(), uVar.h(), "mention");
     }
 }

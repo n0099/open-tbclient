@@ -1,46 +1,38 @@
 package com.baidu.tieba.frs;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.account.LoginActivity;
+import com.baidu.tieba.model.ci;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at extends BroadcastReceiver {
+public class at implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1263a;
+    final /* synthetic */ FrsImageActivity f1319a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(FrsImageActivity frsImageActivity) {
-        this.f1263a = frsImageActivity;
+        this.f1319a = frsImageActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        com.baidu.tieba.model.ap apVar;
-        com.baidu.tieba.model.ap apVar2;
-        com.baidu.tieba.model.ap apVar3;
-        com.baidu.tieba.model.ap apVar4;
-        com.baidu.tieba.model.ap apVar5;
-        ay ayVar;
-        com.baidu.tieba.model.ap apVar6;
-        long longExtra = intent.getLongExtra("fans", 0L);
-        long longExtra2 = intent.getLongExtra("relay", 0L);
-        long longExtra3 = intent.getLongExtra("at_me", 0L);
-        long longExtra4 = intent.getLongExtra("pletter", 0L);
-        apVar = this.f1263a.o;
-        if (apVar != null) {
-            apVar2 = this.f1263a.o;
-            apVar2.a(longExtra);
-            apVar3 = this.f1263a.o;
-            apVar3.c(longExtra2);
-            apVar4 = this.f1263a.o;
-            apVar4.b(longExtra3);
-            apVar5 = this.f1263a.o;
-            apVar5.d(longExtra4);
-            ayVar = this.f1263a.m;
-            apVar6 = this.f1263a.o;
-            ayVar.a(apVar6);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        ci ciVar;
+        com.baidu.tieba.model.ar arVar;
+        com.baidu.tieba.model.ar arVar2;
+        dialogInterface.dismiss();
+        String A = TiebaApplication.A();
+        if (A != null && A.length() > 0) {
+            ciVar = this.f1319a.u;
+            arVar = this.f1319a.r;
+            String name = arVar.a().getName();
+            arVar2 = this.f1319a.r;
+            ciVar.a(name, Long.valueOf(arVar2.a().getId()).longValue());
+            return;
         }
+        LoginActivity.a((Activity) this.f1319a, this.f1319a.getString(R.string.login_to_use), true, 11036);
     }
 }

@@ -8,12 +8,12 @@ import org.json.JSONObject;
 class g implements IBaiduListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f2605a;
+    private a f2657a;
     private boolean b = true;
     private f c;
 
     public g(a aVar) {
-        this.f2605a = aVar;
+        this.f2657a = aVar;
     }
 
     public void a(boolean z) {
@@ -26,11 +26,11 @@ class g implements IBaiduListener {
 
     private void a() {
         if (this.b) {
-            this.f2605a.a();
+            this.f2657a.a();
             this.c.a();
             return;
         }
-        this.f2605a.c();
+        this.f2657a.c();
     }
 
     @Override // com.baidu.cloudsdk.IBaiduListener
@@ -50,15 +50,15 @@ class g implements IBaiduListener {
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onCancel() {
-        this.f2605a.b();
+        this.f2657a.b();
     }
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onError(BaiduException baiduException) {
         if (this.b) {
-            this.f2605a.d();
+            this.f2657a.d();
         } else {
-            this.f2605a.d();
+            this.f2657a.d();
         }
     }
 }

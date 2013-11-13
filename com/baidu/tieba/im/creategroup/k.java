@@ -5,19 +5,19 @@ import android.location.Address;
 class k implements com.baidu.adp.lib.c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1499a;
+    final /* synthetic */ j f1590a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f1499a = jVar;
+        this.f1590a = jVar;
     }
 
     @Override // com.baidu.adp.lib.c.d
     public void a(int i, String str, Address address) {
         if (i == 0 && address != null) {
-            this.f1499a.h.setLat(String.valueOf(address.getLatitude()));
-            this.f1499a.h.setLng(String.valueOf(address.getLongitude()));
-            this.f1499a.h.setPosition(address.getAddressLine(0));
+            this.f1590a.h.setLat(String.valueOf(address.getLatitude()));
+            this.f1590a.h.setLng(String.valueOf(address.getLongitude()));
+            this.f1590a.h.setPosition(address.getAddressLine(0));
         }
     }
 }

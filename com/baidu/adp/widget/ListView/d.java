@@ -8,7 +8,7 @@ import java.security.InvalidParameterException;
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f564a;
+    private Context f566a;
     private View b = null;
     private boolean c = true;
     private int d = 0;
@@ -18,27 +18,27 @@ public abstract class d {
 
     public abstract void a(boolean z);
 
-    public abstract void b();
-
     public abstract void b(boolean z);
-
-    public abstract void c();
 
     public abstract void c(boolean z);
 
+    public abstract void e();
+
+    public abstract void f();
+
     public d(Context context) {
-        this.f564a = null;
+        this.f566a = null;
         if (context == null) {
             throw new InvalidParameterException("BdIListPullView context is null");
         }
-        this.f564a = context;
+        this.f566a = context;
     }
 
-    public Context e() {
-        return this.f564a;
+    public Context h() {
+        return this.f566a;
     }
 
-    public final View f() {
+    public final View i() {
         if (this.b == null) {
             this.b = a();
             if (this.b == null) {
@@ -57,7 +57,7 @@ public abstract class d {
         }
     }
 
-    public boolean g() {
+    public boolean j() {
         return this.c;
     }
 
@@ -77,7 +77,7 @@ public abstract class d {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int h() {
+    public int k() {
         return this.d;
     }
 }

@@ -1,20 +1,19 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements View.OnClickListener {
+class ac implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MyPostActivity f2166a;
+    final /* synthetic */ MyPostActivity f2208a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(MyPostActivity myPostActivity) {
-        this.f2166a = myPostActivity;
+        this.f2208a = myPostActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2166a.finish();
+        this.f2208a.finish();
     }
 }

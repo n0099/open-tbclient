@@ -1,24 +1,24 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tieba.im.message.Message;
-import com.baidu.tieba.im.message.ResponseOnlineMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements com.baidu.tieba.im.messageCenter.h {
+public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1386a;
+    final /* synthetic */ d f1482a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar) {
-        this.f1386a = dVar;
+        this.f1482a = dVar;
     }
 
-    @Override // com.baidu.tieba.im.messageCenter.h
-    public void a(Message message) {
-        if (this.f1386a.b != null && (message instanceof ResponseOnlineMessage) && !((ResponseOnlineMessage) message).hasError() && this.f1386a.b != null) {
-            this.f1386a.a();
-            this.f1386a.b.c();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        a aVar;
+        BdListView bdListView = this.f1482a.f1477a;
+        aVar = this.f1482a.j;
+        ak.a(bdListView, aVar.a(), 0, -1);
     }
 }

@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public class SetTemplate<E> extends AbstractTemplate<Set<E>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private d<E> f2879a;
+    private d<E> f2927a;
 
     @Override // org.msgpack.template.d
     public /* bridge */ /* synthetic */ void a(org.msgpack.packer.a aVar, Object obj, boolean z) {
@@ -14,7 +14,7 @@ public class SetTemplate<E> extends AbstractTemplate<Set<E>> {
     }
 
     public SetTemplate(d<E> dVar) {
-        this.f2879a = dVar;
+        this.f2927a = dVar;
     }
 
     public void a(org.msgpack.packer.a aVar, Set<E> set, boolean z) {
@@ -30,7 +30,7 @@ public class SetTemplate<E> extends AbstractTemplate<Set<E>> {
         }
         aVar.c(set.size());
         for (E e : set) {
-            this.f2879a.a(aVar, e);
+            this.f2927a.a(aVar, e);
         }
         aVar.a();
     }

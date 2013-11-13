@@ -1,171 +1,137 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.support.v4.app.Fragment;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import android.widget.TextView;
+import com.baidu.tieba.util.bd;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1564a;
-    private View c;
-    private ImageView d;
-    private Button e;
-    private RadioGroup f;
-    private RadioButton g;
-    private RadioButton h;
-    private RadioButton i;
-    private Fragment[] j;
-    private String[] k;
+    protected NavigationBar f1652a;
+    protected View c;
+    private GroupLevelActivity d;
+    private ImageView e;
+    private ImageView f;
+    private ImageView g;
+    private ImageView h;
+    private TextView i;
+    private ViewGroup j;
+    private TextView k;
     private ProgressBar l;
-    private boolean m;
+    private TextView m;
+    private TextView n;
+    private TextView o;
+    private TextView p;
+    private TextView q;
+    private TextView r;
+    private ProgressBar s;
+    private ImageView[] t;
+    private TextView[] u;
+    private String[] v;
 
-    public i(FrsGroupActivity frsGroupActivity) {
-        super(frsGroupActivity);
-        this.f1564a = frsGroupActivity;
-        frsGroupActivity.setContentView(R.layout.im_frsgroup_activity);
-        a(frsGroupActivity);
-        b(frsGroupActivity);
+    public i(GroupLevelActivity groupLevelActivity) {
+        super(groupLevelActivity);
+        this.t = new ImageView[4];
+        this.u = new TextView[4];
+        this.v = new String[4];
+        this.f1652a = null;
+        this.c = null;
+        this.d = groupLevelActivity;
+        groupLevelActivity.setContentView(R.layout.im_grouplevel_activity);
+        a(groupLevelActivity);
+        b(groupLevelActivity);
     }
 
-    private void a(FrsGroupActivity frsGroupActivity) {
-        this.c = frsGroupActivity.findViewById(R.id.view_root);
-        this.d = (ImageView) frsGroupActivity.findViewById(R.id.title_back);
-        this.e = (Button) frsGroupActivity.findViewById(R.id.btn_create);
-        this.d.setOnClickListener(frsGroupActivity);
-        this.e.setOnClickListener(frsGroupActivity);
+    private void a(GroupLevelActivity groupLevelActivity) {
+        this.c = this.d.findViewById(R.id.parent);
+        this.f1652a = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
+        this.f1652a.a(this.d.getResources().getString(R.string.grouplevel_title));
+        this.e = this.f1652a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e.setOnClickListener(groupLevelActivity);
     }
 
-    private void b(FrsGroupActivity frsGroupActivity) {
-        this.f = (RadioGroup) frsGroupActivity.findViewById(R.id.raidos_change);
-        this.g = (RadioButton) frsGroupActivity.findViewById(R.id.radio_recommend);
-        this.h = (RadioButton) frsGroupActivity.findViewById(R.id.radio_hot);
-        this.i = (RadioButton) frsGroupActivity.findViewById(R.id.radio_official);
-        this.l = (ProgressBar) frsGroupActivity.findViewById(R.id.progress_loading);
-        this.j = new Fragment[3];
-        this.k = new String[3];
-        this.k[0] = "f1";
-        this.k[1] = "f2";
-        this.k[2] = "f3";
-    }
-
-    public String[] a() {
-        return this.k;
+    private void b(GroupLevelActivity groupLevelActivity) {
+        this.s = (ProgressBar) groupLevelActivity.findViewById(R.id.progress_loading);
+        this.f = (ImageView) groupLevelActivity.findViewById(R.id.level_image_1);
+        this.g = (ImageView) groupLevelActivity.findViewById(R.id.level_image_2);
+        this.h = (ImageView) groupLevelActivity.findViewById(R.id.level_image_3);
+        this.i = (TextView) groupLevelActivity.findViewById(R.id.current_level);
+        this.j = (ViewGroup) groupLevelActivity.findViewById(R.id.grouplevel_active);
+        this.k = (TextView) groupLevelActivity.findViewById(R.id.grouplevel_highest);
+        this.l = (ProgressBar) groupLevelActivity.findViewById(R.id.active_progress);
+        this.m = (TextView) groupLevelActivity.findViewById(R.id.active_day_cur);
+        this.n = (TextView) groupLevelActivity.findViewById(R.id.active_day_total);
+        this.o = (TextView) groupLevelActivity.findViewById(R.id.active_condition);
+        this.p = (TextView) groupLevelActivity.findViewById(R.id.group_max1);
+        this.q = (TextView) groupLevelActivity.findViewById(R.id.group_max2);
+        this.r = (TextView) groupLevelActivity.findViewById(R.id.group_max3);
+        this.t[1] = this.f;
+        this.t[2] = this.g;
+        this.t[3] = this.h;
+        this.v[1] = groupLevelActivity.getString(R.string.grouplevel_level_1);
+        this.v[2] = groupLevelActivity.getString(R.string.grouplevel_level_2);
+        this.v[3] = groupLevelActivity.getString(R.string.grouplevel_level_3);
+        this.u[1] = this.p;
+        this.u[2] = this.q;
+        this.u[3] = this.r;
     }
 
     public void a(int i) {
-        switch (i) {
-            case 1:
-                this.g.setChecked(true);
-                return;
-            case 2:
-                this.h.setChecked(true);
-                return;
-            case 3:
-                this.i.setChecked(true);
-                return;
-            default:
-                return;
-        }
+        this.d.getLayoutMode().a(false);
+        this.d.getLayoutMode().a(this.c);
+        this.f1652a.c(0);
+        bd.b(this.c, 0);
     }
 
-    public void e() {
-        this.f.setOnCheckedChangeListener(this.f1564a);
-    }
-
-    public void f() {
-        for (int i = 0; i < 3; i++) {
-            this.j[i] = new FrsGroupListFragment();
-        }
-    }
-
-    public void b(int i) {
-        this.f1564a.a().a(i == 1);
-        this.f1564a.a().a(this.c);
-        if (i == 1) {
-            this.c.setBackgroundColor(this.f1564a.getResources().getColor(R.color.frsgruop_container_bg_1));
-            bb.e(this.f, (int) R.drawable.bg_pop_most_1);
-            this.i.setBackgroundResource(R.drawable.radio_commen_bg_right_1);
-            this.g.setBackgroundResource(R.drawable.radio_commen_bg_left_1);
-            if (this.m) {
-                this.h.setBackgroundResource(R.drawable.radio_commen_bg_middle_1);
-                return;
-            } else {
-                this.h.setBackgroundResource(R.drawable.radio_commen_bg_left_1);
-                return;
-            }
-        }
-        this.c.setBackgroundColor(this.f1564a.getResources().getColor(R.color.frsgroup_container_bg));
-        bb.e(this.f, (int) R.drawable.bg_pop_most);
-        this.i.setBackgroundResource(R.drawable.radio_commen_bg_right);
-        this.g.setBackgroundResource(R.drawable.radio_commen_bg_left);
-        if (this.m) {
-            this.h.setBackgroundResource(R.drawable.radio_commen_bg_middle);
-        } else {
-            this.h.setBackgroundResource(R.drawable.radio_commen_bg_left);
-        }
-    }
-
-    @Override // com.baidu.adp.a.e
-    public void c() {
-        super.c();
-        if (this.j != null) {
-            android.support.v4.app.ae a2 = this.f1564a.getSupportFragmentManager().a();
-            for (int i = 0; i < this.j.length; i++) {
-                a2.a(this.j[i]);
-            }
-            a2.b();
-        }
-    }
-
-    public Fragment[] g() {
-        return this.j;
-    }
-
-    public void a(boolean z) {
-        this.m = z;
-        if (z) {
-            this.f.check(R.id.radio_recommend);
-            return;
-        }
-        this.f.check(R.id.radio_hot);
-        this.h.setBackgroundResource(R.drawable.radio_commen_bg_left);
-    }
-
-    public void b(boolean z) {
-        this.e.setEnabled(z);
-    }
-
-    public void c(boolean z) {
-        this.g.setVisibility(z ? 0 : 8);
-    }
-
-    public ImageView h() {
-        return this.d;
-    }
-
-    public void d(boolean z) {
-        this.l.setVisibility(z ? 0 : 8);
-    }
-
-    public Button i() {
+    public ImageView a() {
         return this.e;
     }
 
-    public void j() {
-        if (TiebaApplication.g().as() != 1) {
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.b(R.id.btn_create).a(150).a(true);
-            j jVar = new j(this);
-            gVar.a(jVar).a(new k(this));
-            gVar.a().a(this.f1564a);
+    public TextView[] e() {
+        return this.u;
+    }
+
+    public void a(boolean z) {
+        this.s.setVisibility(z ? 0 : 8);
+    }
+
+    public void b(int i) {
+        int i2 = 1;
+        if (i <= 1) {
+            i = 1;
+        }
+        while (i2 <= i) {
+            this.t[i2].setImageResource(R.drawable.icon_grade_big_star_s);
+            i2++;
+        }
+        while (i2 <= 3) {
+            this.t[i2].setImageResource(R.drawable.icon_grade_big_star_n);
+            i2++;
+        }
+        this.i.setText(this.v[i]);
+    }
+
+    public TextView f() {
+        return this.o;
+    }
+
+    public void a(int i, int i2, int i3) {
+        if (i >= 1 && i <= 2) {
+            this.j.setVisibility(0);
+            this.k.setVisibility(8);
+            this.l.setProgress((int) ((i2 / i3) * 100.0f));
+            String string = this.d.getString(R.string.grouplevel_active_day_value, new Object[]{String.valueOf(i3)});
+            this.m.setText(String.valueOf(i2));
+            this.n.setText(string);
+        } else if (i >= 3) {
+            this.j.setVisibility(8);
+            this.k.setVisibility(0);
+            this.k.setText(R.string.grouplevel_highest_grade);
         }
     }
 }

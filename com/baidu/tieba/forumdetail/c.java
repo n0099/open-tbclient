@@ -1,9 +1,9 @@
 package com.baidu.tieba.forumdetail;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.ag;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.ap;
 import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import com.google.gson.GsonBuilder;
 import com.tencent.mm.sdk.platformtools.LBSManager;
 import java.lang.ref.WeakReference;
@@ -12,12 +12,12 @@ import java.lang.ref.WeakReference;
 public class c extends BdAsyncTask<String, Object, ForumDetailData> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1217a;
+    private String f1275a;
     private String b;
     private WeakReference<d> c;
 
     public c(String str, String str2, d dVar) {
-        this.f1217a = str;
+        this.f1275a = str;
         this.b = str2;
         this.c = new WeakReference<>(dVar);
         setPriority(3);
@@ -28,16 +28,16 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public ForumDetailData a(String... strArr) {
         String str;
-        str = b.f1216a;
-        ag agVar = new ag(str);
-        agVar.a("forum_id", this.f1217a);
-        agVar.a("need_good_thread", this.b);
-        String j = agVar.j();
-        if (agVar.c()) {
+        str = b.f1274a;
+        ap apVar = new ap(str);
+        apVar.a("forum_id", this.f1275a);
+        apVar.a("need_good_thread", this.b);
+        String j = apVar.j();
+        if (apVar.c()) {
             try {
                 return (ForumDetailData) new GsonBuilder().create().fromJson(j, (Class<Object>) ForumDetailData.class);
             } catch (Exception e) {
-                be.b("ForumDetailModel", "doInBackground", e.getMessage());
+                bg.b("ForumDetailModel", "doInBackground", e.getMessage());
                 ForumDetailData forumDetailData = new ForumDetailData();
                 forumDetailData.errorNo = LBSManager.INVALID_ACC;
                 forumDetailData.errorMsg = "网络异常";
@@ -45,8 +45,8 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
             }
         }
         ForumDetailData forumDetailData2 = new ForumDetailData();
-        forumDetailData2.errorNo = agVar.e();
-        forumDetailData2.errorMsg = agVar.g();
+        forumDetailData2.errorNo = apVar.e();
+        forumDetailData2.errorMsg = apVar.g();
         return forumDetailData2;
     }
 
@@ -57,7 +57,7 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
         super.a((c) forumDetailData);
         d dVar = this.c.get();
         if (dVar != null) {
-            if (bc.c(forumDetailData.errorMsg)) {
+            if (be.c(forumDetailData.errorMsg)) {
                 dVar.a(forumDetailData);
             } else {
                 dVar.b(forumDetailData);

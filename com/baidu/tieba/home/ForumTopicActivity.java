@@ -22,30 +22,28 @@ import com.baidu.loginshare.Token;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.recommend.af f1323a;
-    private String o;
-    private String p;
+    private com.baidu.tieba.recommend.ad f1392a;
+    private String m;
+    private String n;
     private ImageView b = null;
     private RelativeLayout c = null;
     private RelativeLayout d = null;
     private TextView e = null;
     private View.OnClickListener f = null;
     private BaseWebView g = null;
-    private ProgressBar j = null;
-    private LinearLayout k = null;
-    private TextView l = null;
-    private TextView m = null;
-    private boolean n = false;
-    private Handler q = new Handler();
-    private Runnable r = new s(this);
+    private ProgressBar h = null;
+    private LinearLayout i = null;
+    private TextView j = null;
+    private TextView k = null;
+    private boolean l = false;
+    private Handler o = new Handler();
+    private Runnable p = new v(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
@@ -54,65 +52,65 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         setContentView(R.layout.forum_topic_activity);
         Intent intent = getIntent();
         if (bundle != null) {
-            this.p = bundle.getString("forum_topic_title");
-            this.o = bundle.getString("forum_topic_url");
+            this.n = bundle.getString("forum_topic_title");
+            this.m = bundle.getString("forum_topic_url");
         } else {
-            this.p = intent.getStringExtra("forum_topic_title");
-            this.o = intent.getStringExtra("forum_topic_url");
+            this.n = intent.getStringExtra("forum_topic_title");
+            this.m = intent.getStringExtra("forum_topic_url");
         }
-        if (this.o == null) {
+        if (this.m == null) {
             finish();
             return;
         }
-        e();
-        b();
         d();
+        a();
+        c();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putString("forum_topic_title", this.p);
-        bundle.putString("forum_topic_url", this.o);
+        bundle.putString("forum_topic_title", this.n);
+        bundle.putString("forum_topic_url", this.m);
     }
 
-    private void d() {
-        StringBuffer stringBuffer = new StringBuffer(this.o);
-        if (this.o.indexOf("nohead") < 0) {
+    private void c() {
+        StringBuffer stringBuffer = new StringBuffer(this.m);
+        if (this.m.indexOf("nohead") < 0) {
             stringBuffer.append("&nohead=1");
         }
-        if (this.o.indexOf("_client_version") < 0) {
+        if (this.m.indexOf("_client_version") < 0) {
             try {
                 stringBuffer.append("&_client_version=" + getPackageManager().getPackageInfo(getPackageName(), 0).versionName);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
         }
-        this.o = stringBuffer.toString();
-        this.q.postDelayed(this.r, 500L);
+        this.m = stringBuffer.toString();
+        this.o.postDelayed(this.p, 500L);
     }
 
-    private void e() {
+    private void d() {
         this.c = (RelativeLayout) findViewById(R.id.parent);
         this.d = (RelativeLayout) findViewById(R.id.forum_topic_title);
         this.e = (TextView) findViewById(R.id.forum_topic_title_text);
-        this.e.setText(this.p);
+        this.e.setText(this.n);
         this.b = (ImageView) findViewById(R.id.forum_topic_title_back);
-        this.k = (LinearLayout) findViewById(R.id.forum_topic_webview_item);
-        this.l = (TextView) this.k.findViewById(R.id.webview_fail);
-        this.m = (TextView) this.k.findViewById(R.id.webview_crash_tip);
-        this.j = (ProgressBar) findViewById(R.id.forum_topic_progress);
-        this.f = new t(this);
+        this.i = (LinearLayout) findViewById(R.id.forum_topic_webview_item);
+        this.j = (TextView) this.i.findViewById(R.id.webview_fail);
+        this.k = (TextView) this.i.findViewById(R.id.webview_crash_tip);
+        this.h = (ProgressBar) findViewById(R.id.forum_topic_progress);
+        this.f = new w(this);
         this.b.setOnClickListener(this.f);
-        if (f()) {
-            this.m.setVisibility(8);
+        if (e()) {
+            this.k.setVisibility(8);
         } else {
-            this.m.setVisibility(0);
+            this.k.setVisibility(0);
         }
     }
 
-    public void b() {
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.F());
+    public void a() {
+        Token b = com.baidu.tieba.account.a.b(TiebaApplication.D());
         if (b != null) {
             CookieSyncManager.createInstance(this);
             CookieManager cookieManager = CookieManager.getInstance();
@@ -147,7 +145,7 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         boolean z;
         super.onResume();
         String str3 = "";
-        Token b = com.baidu.tieba.account.a.b(TiebaApplication.F());
+        Token b = com.baidu.tieba.account.a.b(TiebaApplication.D());
         if (b != null) {
             if (b.mBduss != null) {
                 str3 = b.mBduss;
@@ -155,59 +153,59 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
             if (b.mPtoken != null) {
                 str = str3;
                 str2 = b.mPtoken;
-                com.baidu.tieba.recommend.af afVar = new com.baidu.tieba.recommend.af(str, str2);
-                if (this.f1323a == null && (this.f1323a == null || !this.f1323a.equals(afVar))) {
+                com.baidu.tieba.recommend.ad adVar = new com.baidu.tieba.recommend.ad(str, str2);
+                if (this.f1392a == null && (this.f1392a == null || !this.f1392a.equals(adVar))) {
                     z = true;
                 } else {
                     z = false;
                 }
-                this.f1323a = afVar;
+                this.f1392a = adVar;
                 if (this.g == null && z) {
-                    b();
-                    this.q.postDelayed(this.r, 150L);
+                    a();
+                    this.o.postDelayed(this.p, 150L);
                     return;
                 }
             }
         }
         str = str3;
         str2 = "";
-        com.baidu.tieba.recommend.af afVar2 = new com.baidu.tieba.recommend.af(str, str2);
-        if (this.f1323a == null) {
+        com.baidu.tieba.recommend.ad adVar2 = new com.baidu.tieba.recommend.ad(str, str2);
+        if (this.f1392a == null) {
         }
         z = false;
-        this.f1323a = afVar2;
+        this.f1392a = adVar2;
         if (this.g == null) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        bb.a(this.c, i);
-        bb.d(this.d, i);
-        bb.f(this.e, i);
-        bb.a(this.b, i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        com.baidu.tieba.util.bd.a(this.c, i);
+        com.baidu.tieba.util.bd.d(this.d, i);
+        com.baidu.tieba.util.bd.e(this.e, i);
+        com.baidu.tieba.util.bd.a(this.b, i);
         if (this.g != null) {
-            bb.a(this.g, i);
+            com.baidu.tieba.util.bd.a(this.g, i);
         }
     }
 
-    public void c() {
-        this.m.setVisibility(8);
-        this.l.setVisibility(8);
-        if (!this.n) {
-            this.n = true;
-            if (this.g != null && URLUtil.isNetworkUrl(this.o)) {
-                this.j.setVisibility(0);
-                this.g.loadUrl(this.o);
+    public void b() {
+        this.k.setVisibility(8);
+        this.j.setVisibility(8);
+        if (!this.l) {
+            this.l = true;
+            if (this.g != null && URLUtil.isNetworkUrl(this.m)) {
+                this.h.setVisibility(0);
+                this.g.loadUrl(this.m);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (!com.baidu.tieba.recommend.ae.a(this, str)) {
+        if (!com.baidu.tieba.recommend.ac.a(this, str)) {
             if (str != null && str.contains("jump_tieba_native=1") && str.contains("jumptologin=1")) {
                 LoginActivity.a((Activity) this, "", true, 0);
             } else if (!TextUtils.isEmpty(str)) {
@@ -217,21 +215,21 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
         return true;
     }
 
-    private boolean f() {
+    private boolean e() {
         if (this.g == null) {
             try {
                 this.g = new BaseWebView(this);
-                bb.a(this.g, TiebaApplication.g().as());
+                com.baidu.tieba.util.bd.a(this.g, TiebaApplication.g().ap());
                 this.g.setOnLoadUrlListener(this);
                 this.g.setHorizontalScrollBarEnabled(false);
                 this.g.setHorizontalScrollbarOverlay(false);
                 this.g.setScrollBarStyle(33554432);
                 this.g.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                this.g.setWebChromeClient(new u(this));
-                this.k.addView(this.g);
+                this.g.setWebChromeClient(new x(this));
+                this.i.addView(this.g);
                 return true;
             } catch (Exception e) {
-                be.b(getClass().getName(), "", "ForumTopicActivity.refreshFrs error = " + e.getMessage());
+                com.baidu.tieba.util.bg.b(getClass().getName(), "", "ForumTopicActivity.refreshFrs error = " + e.getMessage());
                 return false;
             }
         }
@@ -247,8 +245,8 @@ public class ForumTopicActivity extends com.baidu.tieba.j implements com.baidu.t
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
-        this.n = false;
-        this.j.setVisibility(8);
+    public void f() {
+        this.l = false;
+        this.h.setVisibility(8);
     }
 }

@@ -5,15 +5,15 @@ import javassist.bytecode.y;
 public class DoubleMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2733a;
+    int f2781a;
 
     public DoubleMemberValue(int i, y yVar) {
         super('D', yVar);
-        this.f2733a = i;
+        this.f2781a = i;
     }
 
     public double a() {
-        return this.c.u(this.f2733a);
+        return this.c.u(this.f2781a);
     }
 
     public String toString() {

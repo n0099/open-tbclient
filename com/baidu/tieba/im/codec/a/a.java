@@ -7,23 +7,23 @@ import org.msgpack.type.r;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayValue f1475a;
+    private ArrayValue f1566a;
 
     public a(ArrayValue arrayValue) {
-        this.f1475a = null;
-        this.f1475a = arrayValue;
+        this.f1566a = null;
+        this.f1566a = arrayValue;
     }
 
     public int a() {
-        if (this.f1475a != null) {
-            return this.f1475a.size();
+        if (this.f1566a != null) {
+            return this.f1566a.size();
         }
         return 0;
     }
 
     public c a(int i) {
         r rVar;
-        if (this.f1475a == null || i < 0 || i >= a() || (rVar = this.f1475a.get(i)) == null || !(rVar instanceof MapValue)) {
+        if (this.f1566a == null || i < 0 || i >= a() || (rVar = this.f1566a.get(i)) == null || !(rVar instanceof MapValue)) {
             return null;
         }
         return new c((MapValue) rVar);

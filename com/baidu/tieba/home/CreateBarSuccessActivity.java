@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CreateBarSuccessActivity extends com.baidu.tieba.j {
@@ -19,7 +18,7 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
     private TextView f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1319a = null;
+    LinearLayout f1387a = null;
     View b = null;
     TextView c = null;
 
@@ -36,19 +35,19 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_success_activity);
+        a();
         b();
-        c();
     }
 
-    private void b() {
+    private void a() {
         this.d = getIntent().getStringExtra("barname");
         if (this.d == null) {
             this.d = "";
         }
     }
 
-    private void c() {
-        this.f1319a = (LinearLayout) findViewById(R.id.container);
+    private void b() {
+        this.f1387a = (LinearLayout) findViewById(R.id.container);
         this.b = findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.e = (ImageView) findViewById(R.id.back);
@@ -58,11 +57,11 @@ public class CreateBarSuccessActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        bb.a(this.e, i);
-        bb.a(this.f1319a, i);
-        bb.d(this.b, i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        com.baidu.tieba.util.bd.a(this.e, i);
+        com.baidu.tieba.util.bd.a(this.f1387a, i);
+        com.baidu.tieba.util.bd.d(this.b, i);
         String string = getString(R.string.create_bar_info1);
         int length = string.length();
         String str = string + this.d + getString(R.string.create_bar_info2);

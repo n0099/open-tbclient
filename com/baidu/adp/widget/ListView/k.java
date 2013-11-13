@@ -8,11 +8,11 @@ import android.widget.ListAdapter;
 public class k implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdListView f571a;
+    final /* synthetic */ BdListView f573a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(BdListView bdListView) {
-        this.f571a = bdListView;
+        this.f573a = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -21,20 +21,20 @@ public class k implements AdapterView.OnItemLongClickListener {
         e eVar2;
         AdapterView.OnItemLongClickListener onItemLongClickListener;
         AdapterView.OnItemLongClickListener onItemLongClickListener2;
-        eVar = this.f571a.f561a;
+        eVar = this.f573a.f563a;
         int c = eVar.c();
         if (i < c) {
             return true;
         }
         int i2 = i - c;
-        eVar2 = this.f571a.f561a;
+        eVar2 = this.f573a.f563a;
         ListAdapter b = eVar2.b();
         if (b == null || i2 >= b.getCount()) {
             return true;
         }
-        onItemLongClickListener = this.f571a.c;
+        onItemLongClickListener = this.f573a.c;
         if (onItemLongClickListener != null) {
-            onItemLongClickListener2 = this.f571a.c;
+            onItemLongClickListener2 = this.f573a.c;
             return onItemLongClickListener2.onItemLongClick(adapterView, view, i2, j);
         }
         return false;

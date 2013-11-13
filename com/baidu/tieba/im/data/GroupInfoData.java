@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.ae;
+import com.baidu.tieba.util.an;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class GroupInfoData implements ae, Serializable {
+public class GroupInfoData implements an, Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private int authorId;
     private String authorName;
@@ -110,15 +110,20 @@ public class GroupInfoData implements ae, Serializable {
         return "GroupInfoData [isManager=" + this.isGroupManager + ", groupId=" + this.groupId + ", forumId=" + this.forumId + ", name=" + this.name + ", intro=" + this.intro + ", portrait=" + this.portrait + ", maxMemberNum=" + this.maxMemberNum + ", memberNum=" + this.memberNum + ", authorId=" + this.authorId + ", authorName=" + this.authorName + "]";
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.an
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.an
     public LinkedList<String> getPhotoUrl() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.util.an
+    public LinkedList<String> getForumPhotoUrl() {
         return null;
     }
 }

@@ -1,25 +1,25 @@
 package com.baidu.tieba.util;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.Context;
+import android.content.DialogInterface;
+import com.baidu.tieba.account.appeal.AppealActivity;
+import com.baidu.tieba.data.AntiData;
 /* loaded from: classes.dex */
-public class c {
+final class c implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2447a;
-    int b;
-    com.baidu.tbadk.imageManager.c c;
-    boolean d;
-    boolean e;
-    boolean f;
-    final /* synthetic */ a g;
-
-    private c(a aVar) {
-        this.g = aVar;
-        this.e = false;
-        this.f = false;
-    }
+    final /* synthetic */ Context f2507a;
+    final /* synthetic */ AntiData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ c(a aVar, b bVar) {
-        this(aVar);
+    public c(Context context, AntiData antiData) {
+        this.f2507a = context;
+        this.b = antiData;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        AppealActivity.a(this.f2507a, this.b.getBlock_forum_id(), this.b.getUser_id(), this.b.getUser_name());
     }
 }

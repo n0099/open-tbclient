@@ -30,7 +30,7 @@ import java.util.Observer;
 public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserListener, BdExploreViewListener, Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2036a = null;
+    private String f2057a = null;
     private String b = null;
     private String c = null;
     private BdUploadHandler d;
@@ -51,14 +51,13 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
         context.startActivity(intent);
     }
 
-    private void a(Bundle bundle) {
-        Intent intent = getIntent();
-        this.f2036a = intent.getStringExtra(SocialConstants.PARAM_URL);
+    private void a(Intent intent, Bundle bundle) {
+        this.f2057a = intent.getStringExtra(SocialConstants.PARAM_URL);
         this.b = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
         this.c = intent.getStringExtra("ptoken");
     }
 
-    public void b() {
+    public void a() {
         if (this.b != null) {
             BdCookieSyncManager.createInstance(this);
             BdCookieManager.getInstance().setCookie("wappass.baidu.com", "BDUSS=" + this.b + "; domain=.baidu.com;");
@@ -73,18 +72,18 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a(bundle);
-        if (this.f2036a == null) {
+        a(getIntent(), bundle);
+        if (this.f2057a == null) {
             finish();
             return;
         }
-        String guessUrl = URLUtil.guessUrl(this.f2036a);
+        String guessUrl = URLUtil.guessUrl(this.f2057a);
         if (!URLUtil.isNetworkUrl(guessUrl)) {
             finish();
             return;
         }
         try {
-            b();
+            a();
             requestWindowFeature(1);
             BdWebViewManager.getInstance().addObserver(this);
             Browser.getInstance(this).onCreate(bundle);
@@ -103,6 +102,28 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
     public void onPause() {
         super.onPause();
         Browser.getInstance(this).onPause();
+    }
+
+    @Override // android.app.Activity
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        a(intent, null);
+        if (this.f2057a == null) {
+            finish();
+            return;
+        }
+        String guessUrl = URLUtil.guessUrl(this.f2057a);
+        if (!URLUtil.isNetworkUrl(guessUrl)) {
+            finish();
+            return;
+        }
+        try {
+            Browser.getInstance(this).loadUrl(guessUrl);
+            new BdUpdateTask(this).execute(new String[0]);
+            BdPvStatistic.getInstance(this).addLauchCount();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -253,6 +274,6 @@ public class WebBdActivity extends com.baidu.tieba.j implements Browser.BrowserL
 
     @Override // com.baidu.browser.Browser.BrowserListener
     public boolean shouldOverrideUrlLoading(BdWebPoolView bdWebPoolView, String str) {
-        return com.baidu.tieba.recommend.ae.a(this, str);
+        return com.baidu.tieba.recommend.ac.a(this, str);
     }
 }

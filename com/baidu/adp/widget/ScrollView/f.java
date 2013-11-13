@@ -1,45 +1,31 @@
 package com.baidu.adp.widget.ScrollView;
 
-import android.widget.LinearLayout;
+import android.view.View;
+import java.util.Timer;
 /* loaded from: classes.dex */
-class f implements Runnable {
+public class f {
+    private int b;
+    private int c;
+    private i e;
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f583a;
+    private int f589a = 5;
+    private boolean d = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.f583a = eVar;
+    public f(int i, int i2, int i3) {
+        this.b = 10;
+        float abs = Math.abs(i - i2) / this.f589a;
+        this.c = i2;
+        this.b = (int) (i3 / abs);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
-        int i2;
-        boolean z;
-        j jVar;
-        j jVar2;
-        int i3;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f583a.f582a.getLayoutParams();
-        int i4 = layoutParams.bottomMargin;
-        i = this.f583a.c.f581a;
-        layoutParams.bottomMargin = i4 - i;
-        int i5 = layoutParams.bottomMargin;
-        i2 = this.f583a.c.c;
-        if (i5 <= i2) {
-            i3 = this.f583a.c.c;
-            layoutParams.bottomMargin = i3;
-            this.f583a.b.cancel();
-            this.f583a.c.d = true;
-        }
-        this.f583a.f582a.setLayoutParams(layoutParams);
-        z = this.f583a.c.d;
-        if (z) {
-            jVar = this.f583a.c.e;
-            if (jVar != null) {
-                jVar2 = this.f583a.c.e;
-                jVar2.a();
-            }
-        }
+    public void a(i iVar) {
+        this.e = iVar;
+    }
+
+    public void a(View view) {
+        this.d = false;
+        Timer timer = new Timer();
+        timer.schedule(new g(this, view, timer), 0L, this.b);
     }
 }

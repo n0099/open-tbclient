@@ -1,22 +1,22 @@
 package com.baidu.tieba.topRec;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.ag;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.bg;
 import com.google.gson.GsonBuilder;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
 
     /* renamed from: a  reason: collision with root package name */
-    TRForumListData f2397a;
+    TRForumListData f2456a;
     final /* synthetic */ l b;
-    private ag c;
+    private ap c;
 
     private n(l lVar) {
         this.b = lVar;
         this.c = null;
-        this.f2397a = new TRForumListData();
+        this.f2456a = new TRForumListData();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,12 +26,12 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
     public TRForumListData a(Object... objArr) {
         String j;
         try {
-            this.c = new ag(com.baidu.tieba.data.h.f1165a + "c/f/forum/random_recommend_forum");
+            this.c = new ap(com.baidu.tieba.data.h.f1196a + "c/f/forum/random_recommend_forum");
             this.c.a("rn", "100");
             j = this.c.j();
-            be.e("TopRecModel", "doInBackground", j);
+            bg.e("TopRecModel", "doInBackground", j);
         } catch (Exception e) {
-            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            bg.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         if (j == null) {
             return null;
@@ -39,11 +39,11 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
         if (!this.c.c()) {
             this.b.c = false;
         } else {
-            this.f2397a = (TRForumListData) new GsonBuilder().create().fromJson(j, (Class<Object>) TRForumListData.class);
+            this.f2456a = (TRForumListData) new GsonBuilder().create().fromJson(j, (Class<Object>) TRForumListData.class);
             this.b.c = true;
-            be.c(this.f2397a.toString());
+            bg.c(this.f2456a.toString());
         }
-        return this.f2397a;
+        return this.f2456a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
         boolean z2;
         super.a((n) tRForumListData);
         if (tRForumListData != null) {
-            be.c(tRForumListData.toString());
+            bg.c(tRForumListData.toString());
             if (tRForumListData.error_code == 0 && tRForumListData.error != null) {
                 o oVar = this.b.b;
                 z2 = this.b.c;

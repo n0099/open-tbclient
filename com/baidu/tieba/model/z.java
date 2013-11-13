@@ -7,7 +7,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private static z f1964a;
+    private static z f1955a;
     private ak b;
     private com.baidu.adp.lib.cache.s<String> c;
 
@@ -21,17 +21,17 @@ public class z {
     public static synchronized z a() {
         z zVar;
         synchronized (z.class) {
-            if (f1964a == null) {
-                f1964a = new z();
+            if (f1955a == null) {
+                f1955a = new z();
             }
-            zVar = f1964a;
+            zVar = f1955a;
         }
         return zVar;
     }
 
     public boolean a(String str) {
         if (this.c != null && str != null) {
-            String a2 = this.c.a(TiebaApplication.C() + str);
+            String a2 = this.c.a(TiebaApplication.A() + str);
             if (a2 != null && a2.length() > 0) {
                 this.b.a(a2);
                 return true;
@@ -42,13 +42,13 @@ public class z {
 
     public void a(String str, String str2) {
         if (str != null && str.length() > 0) {
-            this.c.a(TiebaApplication.C() + str, str2, 604800000L);
+            this.c.a(TiebaApplication.A() + str, str2, 604800000L);
         }
     }
 
     public void b(String str) {
         if (str != null && str.length() > 0) {
-            this.c.c(TiebaApplication.C() + str);
+            this.c.c(TiebaApplication.A() + str);
         }
     }
 

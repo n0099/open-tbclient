@@ -165,7 +165,7 @@ public class b {
         c[] cVarArr = (c[]) hashMap.values().toArray(new c[hashMap.size()]);
         Arrays.sort(cVarArr);
         ArrayList arrayList = new ArrayList();
-        if (cVarArr.length > 0 && cVarArr[0].f2781a == 0 && cVarArr[0].b != null) {
+        if (cVarArr.length > 0 && cVarArr[0].f2829a == 0 && cVarArr[0].b != null) {
             i = 1;
             a2 = a(cVarArr[0]);
         } else {
@@ -182,19 +182,19 @@ public class b {
                     a2 = a(a2.c + a2.b);
                     arrayList.add(a2);
                 }
-                a2.c = (cVar.f2781a + cVar.e) - a2.b;
+                a2.c = (cVar.f2829a + cVar.e) - a2.b;
                 a2.e = cVar.c;
                 a2.f = cVar.d;
             } else {
                 if (a2.c == 0) {
-                    a2.c = cVar.f2781a - a2.b;
+                    a2.c = cVar.f2829a - a2.b;
                     a3.d++;
                     a2.e = a(a3);
                 } else {
                     int i3 = a2.b;
-                    if (a2.c + i3 < cVar.f2781a) {
+                    if (a2.c + i3 < cVar.f2829a) {
                         BasicBlock a4 = a(a2.c + i3);
-                        a4.c = cVar.f2781a - i3;
+                        a4.c = cVar.f2829a - i3;
                         a4.e = a(a3);
                     }
                 }

@@ -4,65 +4,68 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ai;
+import com.baidu.tieba.data.aj;
+import com.baidu.tieba.data.v;
 import com.baidu.tieba.data.w;
-import com.baidu.tieba.data.x;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bd;
-import com.baidu.tieba.view.q;
+import com.baidu.tieba.util.bf;
+import com.baidu.tieba.view.r;
+import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private w f1234a;
+    private v f1291a;
     private Context b;
-    private q c;
+    private r c;
     private View.OnClickListener d;
-    private com.baidu.tieba.util.a f;
+    private com.baidu.tieba.util.i f;
     private int g;
     private boolean e = false;
     private int h = 200;
     private boolean i = false;
     private float j = 0.4f;
+    private boolean k = false;
 
-    public void a(w wVar) {
-        a(bd.a().b());
+    public void a(v vVar) {
+        b(bf.a().b());
         this.e = true;
-        this.f1234a = wVar;
+        this.f1291a = vVar;
     }
 
     public e(Context context) {
         this.g = 200;
         this.b = context;
-        this.f = new com.baidu.tieba.util.a(context);
+        this.f = new com.baidu.tieba.util.i(context);
         this.g = UtilHelper.a(context);
-        a(bd.a().b());
+        b(bf.a().b());
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        ArrayList<x> a2;
+        ArrayList<w> b;
         if (!this.e) {
             return 1;
         }
-        if (this.f1234a == null || (a2 = this.f1234a.a()) == null) {
+        if (this.f1291a == null || (b = this.f1291a.b()) == null) {
             return 0;
         }
-        return a2.size();
+        return b.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (!this.e || this.f1234a == null || this.f1234a.a() == null) {
+        if (!this.e || this.f1291a == null || this.f1291a.b() == null) {
             return null;
         }
-        ArrayList<x> a2 = this.f1234a.a();
-        if (i < 0 || a2 == null || i >= a2.size()) {
+        ArrayList<w> b = this.f1291a.b();
+        if (i < 0 || b == null || i >= b.size()) {
             return null;
         }
-        return a2.get(i);
+        return b.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -74,27 +77,32 @@ public class e extends BaseAdapter {
         this.d = onClickListener;
     }
 
+    public void a(boolean z) {
+        this.k = z;
+    }
+
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        x xVar;
+        w wVar;
         if (!this.e) {
             return a();
         }
         if (this.c == null) {
-            this.c = new q(this.b);
+            this.c = new r(this.b);
         }
         this.c.a(this.g, this.i, this.j);
+        this.c.a(this.k);
         View a2 = (view == null || view.getTag() == null) ? this.c.a() : view;
-        a2.setPadding(0, i == 0 ? 8 : 0, 0, 0);
-        int as = TiebaApplication.g().as();
-        ForumFeedActivity forumFeedActivity = (ForumFeedActivity) this.b;
-        forumFeedActivity.m().a(as == 1);
-        forumFeedActivity.m().a(a2);
-        ArrayList<x> a3 = this.f1234a.a();
-        if (a3 != null && (xVar = a3.get(i)) != null) {
-            this.c.a(a2, xVar);
-            this.c.a(as, a2);
+        a2.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(R.dimen.forumfeed_first_item_margin_top) : 0, 0, 0);
+        int ap = TiebaApplication.g().ap();
+        ArrayList<w> b = this.f1291a.b();
+        if (b != null && (wVar = b.get(i)) != null) {
+            this.c.a(a2, wVar);
+            this.c.a(ap, a2);
         }
+        BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.b;
+        baseFragmentActivity.a().a(ap == 1);
+        baseFragmentActivity.a().a(a2);
         return a2;
     }
 
@@ -105,11 +113,11 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        x xVar;
-        ArrayList<ai> j;
-        if (this.e && this.f1234a != null) {
-            ArrayList<x> a2 = this.f1234a.a();
-            if (a2 == null || (xVar = a2.get(i)) == null || (j = xVar.j()) == null) {
+        w wVar;
+        ArrayList<aj> j;
+        if (this.e && this.f1291a != null) {
+            ArrayList<w> b = this.f1291a.b();
+            if (b == null || (wVar = b.get(i)) == null || (j = wVar.j()) == null) {
                 return 2;
             }
             int size = j.size();
@@ -130,7 +138,7 @@ public class e extends BaseAdapter {
         return view;
     }
 
-    public void a(boolean z) {
+    public void b(boolean z) {
         this.i = z;
         this.h = this.g;
         if (this.i) {
@@ -153,7 +161,7 @@ public class e extends BaseAdapter {
         this.f.a(this.h, this.h);
     }
 
-    public com.baidu.tieba.util.a b() {
+    public com.baidu.tieba.util.i b() {
         return this.f;
     }
 }

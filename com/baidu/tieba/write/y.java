@@ -1,64 +1,26 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.text.Editable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.Toast;
-import com.slidingmenu.lib.R;
+import com.baidu.tieba.editortool.EditorToolComponetContainer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements AdapterView.OnItemClickListener {
+public class y implements com.baidu.tieba.editortool.o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2676a;
+    final /* synthetic */ WriteActivity f2724a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(WriteActivity writeActivity) {
-        this.f2676a = writeActivity;
+        this.f2724a = writeActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        EditText editText;
-        EditText editText2;
-        p pVar;
-        EditText editText3;
-        p pVar2;
-        EditText editText4;
-        Toast toast;
-        Toast toast2;
-        editText = this.f2676a.g;
-        Editable text = editText.getText();
-        editText2 = this.f2676a.g;
-        if (((ImageSpan[]) text.getSpans(0, editText2.getText().length(), ImageSpan.class)).length >= 10) {
-            toast = this.f2676a.M;
-            if (toast == null) {
-                this.f2676a.M = Toast.makeText(this.f2676a, (int) R.string.too_many_face, 0);
-            }
-            toast2 = this.f2676a.M;
-            toast2.show();
-            return;
-        }
-        pVar = this.f2676a.w;
-        String a2 = pVar.a(i);
-        if (a2 != null) {
-            editText3 = this.f2676a.g;
-            int selectionStart = editText3.getSelectionStart();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(a2);
-            pVar2 = this.f2676a.w;
-            Bitmap bitmap = (Bitmap) pVar2.getItem(i);
-            if (bitmap != null) {
-                com.baidu.tieba.view.au auVar = new com.baidu.tieba.view.au(bitmap);
-                auVar.setBounds(0, 0, bitmap.getWidth() + 1, bitmap.getHeight());
-                auVar.setGravity(3);
-                spannableStringBuilder.setSpan(new ImageSpan(auVar, 0), 0, spannableStringBuilder.length(), 33);
-                editText4 = this.f2676a.g;
-                editText4.getText().insert(selectionStart, spannableStringBuilder);
-            }
-        }
+    @Override // com.baidu.tieba.editortool.o
+    public void a() {
+        EditorToolComponetContainer editorToolComponetContainer;
+        editorToolComponetContainer = this.f2724a.B;
+        editorToolComponetContainer.i();
+    }
+
+    @Override // com.baidu.tieba.editortool.o
+    public void b() {
     }
 }

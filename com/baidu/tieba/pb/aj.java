@@ -1,27 +1,34 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.person.PersonInfoActivity;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import com.baidu.tieba.view.ImagePbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aj implements View.OnClickListener {
+public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2046a;
-    final /* synthetic */ String b;
-    final /* synthetic */ ah c;
+    TextView f2067a;
+    TextView b;
+    TextView c;
+    LinearLayout d;
+    TextView e;
+    ProgressBar f;
+    LinearLayout g;
+    ImagePbImageView h;
+    TextView i;
+    TextView j;
+    TextView k;
+    LinearLayout l;
+    final /* synthetic */ ag m;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(ah ahVar, String str, String str2) {
-        this.c = ahVar;
-        this.f2046a = str;
-        this.b = str2;
+    private aj(ag agVar) {
+        this.m = agVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        context = this.c.c;
-        PersonInfoActivity.a(context, this.f2046a, this.b);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ aj(ag agVar, ah ahVar) {
+        this(agVar);
     }
 }

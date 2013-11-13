@@ -6,7 +6,7 @@ import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.Date;
@@ -54,7 +54,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
 
     public void f() {
         if (this.m != null) {
-            if (this.l.c()) {
+            if (this.l.b()) {
                 this.i.setVisibility(0);
             } else {
                 this.i.setVisibility(8);
@@ -72,7 +72,7 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
             }
             Date date = new Date();
             date.setTime(this.m.getTime());
-            this.h.setText(bc.h(date));
+            this.h.setText(be.e(date));
             if (!TextUtils.isEmpty(this.m.getContent())) {
                 this.f.setText(this.m.getContent());
             }
@@ -83,9 +83,9 @@ public class f extends com.baidu.adp.a.c<UpdatesItemData> {
             int paddingTop = this.j.getPaddingTop();
             int paddingRight = this.j.getPaddingRight();
             int paddingBottom = this.j.getPaddingBottom();
-            boolean z = TiebaApplication.g().as() == 1;
-            this.l.m().a(z);
-            this.l.m().a(this.c);
+            boolean z = TiebaApplication.g().ap() == 1;
+            this.l.getLayoutMode().a(z);
+            this.l.getLayoutMode().a(this.c);
             if (this.m.isSelected()) {
                 this.i.setButtonDrawable(z ? R.drawable.icon_new_list_choose_s_1 : R.drawable.icon_new_list_choose_s);
                 this.j.setBackgroundResource(z ? R.drawable.bg_information_down_s_1 : R.drawable.bg_information_down_s);

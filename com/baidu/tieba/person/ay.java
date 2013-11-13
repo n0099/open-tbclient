@@ -3,6 +3,7 @@ package com.baidu.tieba.person;
 import android.content.DialogInterface;
 import android.content.Intent;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.model.bw;
 import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,19 +11,19 @@ import com.slidingmenu.lib.R;
 public class ay extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2188a;
-    private com.baidu.tieba.util.ag b = null;
-    private com.baidu.tieba.model.bv c;
+    final /* synthetic */ PersonChangeActivity f2230a;
+    private com.baidu.tieba.util.ap b = null;
+    private bw c;
 
-    public ay(PersonChangeActivity personChangeActivity, com.baidu.tieba.model.bv bvVar) {
-        this.f2188a = personChangeActivity;
+    public ay(PersonChangeActivity personChangeActivity, bw bwVar) {
+        this.f2230a = personChangeActivity;
         this.c = null;
-        this.c = bvVar;
+        this.c = bwVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f2188a.D = null;
+        this.f2230a.B = null;
         if (this.b != null) {
             this.b.h();
         }
@@ -34,22 +35,22 @@ public class ay extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         Boolean bool;
-        this.f2188a.D = null;
-        this.f2188a.j();
+        this.f2230a.B = null;
+        this.f2230a.closeLoadingDialog();
         if (this.b != null) {
             if (this.b.c()) {
-                this.f2188a.a(this.f2188a.getString(R.string.success));
+                this.f2230a.showToast(this.f2230a.getString(R.string.success));
                 Intent intent = new Intent();
-                bool = this.f2188a.b;
+                bool = this.f2230a.b;
                 if (bool.booleanValue()) {
                     intent.putExtra("person_change_data", this.c.a());
                 } else {
                     intent.putExtra("data", this.c.a());
                 }
-                this.f2188a.setResult(-1, intent);
-                this.f2188a.finish();
+                this.f2230a.setResult(-1, intent);
+                this.f2230a.finish();
             } else {
-                this.f2188a.a(this.b.g());
+                this.f2230a.showToast(this.b.g());
             }
         }
         super.a((ay) str);
@@ -59,10 +60,10 @@ public class ay extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         DialogInterface.OnCancelListener onCancelListener;
-        PersonChangeActivity personChangeActivity = this.f2188a;
-        String string = this.f2188a.getString(R.string.saving);
-        onCancelListener = this.f2188a.F;
-        personChangeActivity.a(string, onCancelListener);
+        PersonChangeActivity personChangeActivity = this.f2230a;
+        String string = this.f2230a.getString(R.string.saving);
+        onCancelListener = this.f2230a.D;
+        personChangeActivity.showLoadingDialog(string, onCancelListener);
         super.b();
     }
 
@@ -71,7 +72,7 @@ public class ay extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         if (this.c != null) {
-            this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/c/profile/modify");
+            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/c/profile/modify");
             this.b.a("sex", String.valueOf(this.c.a().getSex()));
             this.b.a("intro", this.c.a().getIntro());
             this.b.l();

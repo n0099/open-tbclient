@@ -9,21 +9,21 @@ import java.util.ArrayList;
 public class a implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderFirstDirActivity f2332a;
+    final /* synthetic */ BarFolderFirstDirActivity f2369a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BarFolderFirstDirActivity barFolderFirstDirActivity) {
-        this.f2332a = barFolderFirstDirActivity;
+        this.f2369a = barFolderFirstDirActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         c cVar;
-        s sVar;
-        cVar = this.f2332a.d;
-        ArrayList<s> a2 = cVar.a();
-        if (a2 != null && i < a2.size() && (sVar = a2.get(i)) != null) {
-            ForumListActivity.a(this.f2332a, sVar.b, sVar.f2375a, sVar.c);
+        z zVar;
+        cVar = this.f2369a.e;
+        ArrayList<z> a2 = cVar.a();
+        if (a2 != null && i < a2.size() && (zVar = a2.get(i)) != null) {
+            ForumListActivity.a(this.f2369a, zVar.b, zVar.f2441a, zVar.c);
         }
     }
 }

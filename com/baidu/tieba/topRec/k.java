@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f2395a;
+    final /* synthetic */ h f2454a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(h hVar) {
-        this.f2395a = hVar;
+        this.f2454a = hVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,12 +20,12 @@ public class k implements Runnable {
         BdListView bdListView;
         BdListView bdListView2;
         p pVar;
-        bdListView = this.f2395a.b;
+        bdListView = this.f2454a.c;
         if (bdListView.getChildCount() >= 3) {
-            bdListView2 = this.f2395a.b;
+            bdListView2 = this.f2454a.c;
             View findViewById = bdListView2.getChildAt(2).findViewById(R.id.like);
             if (findViewById != null) {
-                pVar = this.f2395a.r;
+                pVar = this.f2454a.q;
                 pVar.a(findViewById);
             }
         }

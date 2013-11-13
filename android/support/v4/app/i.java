@@ -233,15 +233,6 @@ public final class i extends ae implements Runnable {
     }
 
     @Override // android.support.v4.app.ae
-    public ae b(int i, Fragment fragment, String str) {
-        if (i == 0) {
-            throw new IllegalArgumentException("Must use non-zero containerViewId");
-        }
-        a(i, fragment, str, 2);
-        return this;
-    }
-
-    @Override // android.support.v4.app.ae
     public ae a(Fragment fragment) {
         j jVar = new j();
         jVar.c = 3;

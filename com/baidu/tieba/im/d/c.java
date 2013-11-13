@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static short f1506a = 1;
+    private static short f1597a = 1;
     private static short b = 2;
     private static short c = 3;
 
@@ -51,8 +51,8 @@ public class c {
 
     public static boolean c(ChatMessage chatMessage) {
         try {
-            if (chatMessage.getMsgType() != 11 && TiebaApplication.D()) {
-                return chatMessage.getUserInfo().getId().equals(TiebaApplication.C());
+            if (chatMessage.getMsgType() != 11 && TiebaApplication.B()) {
+                return chatMessage.getUserInfo().getId().equals(TiebaApplication.A());
             }
             return false;
         } catch (Exception e) {
@@ -171,7 +171,7 @@ public class c {
         if (userInfo != null && !TextUtils.isEmpty(userInfo.getName())) {
             str = chatMessage.getUserInfo().getName();
         }
-        if (!TextUtils.isEmpty(userInfo.getId()) && userInfo.getId().equals(TiebaApplication.C())) {
+        if (!TextUtils.isEmpty(userInfo.getId()) && userInfo.getId().equals(TiebaApplication.A())) {
             return f(chatMessage);
         }
         if (chatMessage.getMsgType() == 11) {
@@ -198,7 +198,7 @@ public class c {
                 } else if (optString.equals("105")) {
                     String optString3 = optJSONObject.optString("userId");
                     String optString4 = optJSONObject.optString("userName");
-                    if (optString3.equals(TiebaApplication.C())) {
+                    if (optString3.equals(TiebaApplication.A())) {
                         str2 = TiebaApplication.g().getString(R.string.join_group_myself);
                     } else {
                         str2 = optString4 + TiebaApplication.g().getString(R.string.join_group);
@@ -206,7 +206,7 @@ public class c {
                 } else if (optString.equals("106")) {
                     String optString5 = optJSONObject.optString("userId");
                     optJSONObject.optString("userName");
-                    str2 = optString5.equals(TiebaApplication.C()) ? TiebaApplication.g().getString(R.string.kick_out_myself) : optString2;
+                    str2 = optString5.equals(TiebaApplication.A()) ? TiebaApplication.g().getString(R.string.kick_out_myself) : optString2;
                 } else if (optString.equals("002")) {
                     str2 = TiebaApplication.g().getString(R.string.join_group_myself);
                 }
@@ -239,7 +239,7 @@ public class c {
                 String optString3 = optJSONObject.optString("userId");
                 String optString4 = optJSONObject.optString("userName");
                 SystemMsgData systemMsgData2 = new SystemMsgData();
-                if (optString3.equals(TiebaApplication.C())) {
+                if (optString3.equals(TiebaApplication.A())) {
                     systemMsgData2.setIsSelf(true);
                     systemMsgData2.setContent(TiebaApplication.g().getString(R.string.join_group_myself));
                 } else {
@@ -251,7 +251,7 @@ public class c {
                 String optString5 = optJSONObject.optString("userId");
                 optJSONObject.optString("userName");
                 SystemMsgData systemMsgData3 = new SystemMsgData();
-                if (optString5.equals(TiebaApplication.C())) {
+                if (optString5.equals(TiebaApplication.A())) {
                     systemMsgData3.setIsSelf(true);
                     systemMsgData3.setContent(TiebaApplication.g().getString(R.string.kick_out_myself));
                 } else {

@@ -1,29 +1,29 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import com.baidu.tieba.model.bu;
+import com.baidu.tieba.model.bv;
 import com.baidu.tieba.pb.ImageActivity;
-import com.baidu.tieba.util.bc;
 import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1880a;
+    final /* synthetic */ PostActivity f1877a;
     private ArrayList<com.baidu.tieba.data.j> b;
     private int c;
 
     public z(PostActivity postActivity, ArrayList<com.baidu.tieba.data.j> arrayList, int i) {
-        this.f1880a = postActivity;
+        this.f1877a = postActivity;
         this.b = arrayList;
         this.c = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bu buVar;
+        bv bvVar;
         try {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < this.b.size(); i++) {
@@ -32,16 +32,16 @@ public class z implements View.OnClickListener {
                     stringBuffer.append("size=");
                     stringBuffer.append(com.baidu.tieba.data.h.i());
                     stringBuffer.append("&src=");
-                    stringBuffer.append(bc.d(this.b.get(i).d()));
+                    stringBuffer.append(be.d(this.b.get(i).d()));
                     arrayList.add(stringBuffer.toString());
                 }
             }
-            PostActivity postActivity = this.f1880a;
+            PostActivity postActivity = this.f1877a;
             int i2 = this.c;
-            buVar = this.f1880a.n;
-            ImageActivity.a(postActivity, arrayList, i2, buVar);
+            bvVar = this.f1877a.l;
+            ImageActivity.a(postActivity, arrayList, i2, bvVar);
         } catch (Exception e) {
-            be.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
+            bg.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());
         }
     }
 }

@@ -1,28 +1,29 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-public class ba implements Runnable {
+class ba implements com.baidu.adp.widget.ListView.r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2064a;
+    final /* synthetic */ NewPbActivity f2085a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(NewPbActivity newPbActivity) {
-        this.f2064a = newPbActivity;
+        this.f2085a = newPbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bt btVar;
-        bt btVar2;
-        bt btVar3;
-        btVar = this.f2064a.u;
-        if (!btVar.E()) {
-            btVar3 = this.f2064a.u;
-            btVar3.b(false);
-            return;
+    @Override // com.baidu.adp.widget.ListView.r
+    public void a() {
+        com.baidu.tieba.model.bm bmVar;
+        cp cpVar;
+        bmVar = this.f2085a.s;
+        if (bmVar.a(false)) {
+            cpVar = this.f2085a.y;
+            cpVar.q();
+            if (TiebaApplication.g().s()) {
+                StatService.onEvent(this.f2085a, "pb_more", "pbclick", 1);
+            }
         }
-        btVar2 = this.f2064a.u;
-        btVar2.b(true);
     }
 }

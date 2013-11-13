@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class FloatArrayTemplate extends AbstractTemplate<float[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final FloatArrayTemplate f2865a = new FloatArrayTemplate();
+    static final FloatArrayTemplate f2913a = new FloatArrayTemplate();
 
     private FloatArrayTemplate() {
     }
@@ -28,6 +28,6 @@ public class FloatArrayTemplate extends AbstractTemplate<float[]> {
     }
 
     public static FloatArrayTemplate a() {
-        return f2865a;
+        return f2913a;
     }
 }

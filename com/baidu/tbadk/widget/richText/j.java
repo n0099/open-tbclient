@@ -1,46 +1,44 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.content.Context;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-final class j implements com.baidu.adp.lib.d.c<TextView> {
+class j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f975a;
+    final /* synthetic */ TbRichTextView f989a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(Context context) {
-        this.f975a = context;
+    public j(TbRichTextView tbRichTextView) {
+        this.f989a = tbRichTextView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public TextView a() {
-        com.baidu.adp.lib.h.d.d("pool make TextView");
-        return new com.baidu.tbadk.widget.a(this.f975a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(TextView textView) {
-        textView.setText((CharSequence) null);
-        textView.setTag(null);
-        textView.setBackgroundDrawable(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public TextView b(TextView textView) {
-        return textView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public TextView c(TextView textView) {
-        textView.setText((CharSequence) null);
-        textView.setTag(null);
-        textView.setBackgroundDrawable(null);
-        return textView;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        n nVar;
+        String str;
+        n nVar2;
+        nVar = this.f989a.u;
+        if (nVar != null && (view instanceof ImageView)) {
+            Object tag = view.getTag();
+            if (tag == null || !(tag instanceof String)) {
+                str = null;
+            } else {
+                str = (String) tag;
+            }
+            int childCount = this.f989a.getChildCount();
+            int i = -1;
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.f989a.getChildAt(i2);
+                if (childAt instanceof ImageView) {
+                    i++;
+                }
+                if (view == childAt) {
+                    break;
+                }
+            }
+            nVar2 = this.f989a.u;
+            nVar2.onClick(view, str, i);
+        }
     }
 }

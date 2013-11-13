@@ -17,7 +17,7 @@ public class k implements com.baidu.tieba.im.codec.n<com.baidu.tieba.im.codec.a.
         chatResponsedMessage.setErrorInfo(qVar);
         linkedList.add(chatResponsedMessage);
         if (cVar != null && !chatResponsedMessage.hasError()) {
-            chatResponsedMessage.setMsgId(aa.b(cVar.c("msgId")));
+            chatResponsedMessage.setMsgId(z.b(cVar.c("msgId")));
             chatResponsedMessage.setRecordId(cVar.c("recordId"));
             chatResponsedMessage.setGroupId(cVar.a("groupId"));
         }

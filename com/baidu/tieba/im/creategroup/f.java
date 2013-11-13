@@ -2,15 +2,16 @@ package com.baidu.tieba.im.creategroup;
 
 import android.graphics.Bitmap;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.w;
+import com.baidu.tieba.util.af;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f extends BdAsyncTask<Object, Integer, Bitmap> {
+public class f extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1494a;
+    final /* synthetic */ d f1585a;
 
     private f(d dVar) {
-        this.f1494a = dVar;
+        this.f1585a = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,7 +25,7 @@ class f extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
-        return w.c(null, "tieba_group_image");
+        return af.c(null, "tieba_group_image");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -42,11 +43,13 @@ class f extends BdAsyncTask<Object, Integer, Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Bitmap bitmap) {
+        com.baidu.adp.widget.ImageView.e eVar;
         super.a((f) bitmap);
         if (bitmap != null) {
-            this.f1494a.c.setVisibility(0);
-            d.a(this.f1494a, new com.baidu.adp.widget.ImageView.e(bitmap, false, null));
-            d.a(this.f1494a).a(this.f1494a.c);
+            this.f1585a.c.setVisibility(0);
+            this.f1585a.f = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
+            eVar = this.f1585a.f;
+            eVar.a(this.f1585a.c);
         }
     }
 }

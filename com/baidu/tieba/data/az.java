@@ -1,37 +1,36 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class az {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ay f1146a;
-    private int b;
-    private String c;
-    private String d;
+    private int f1180a = 0;
+    private String b = null;
 
-    public az(ay ayVar) {
-        this.f1146a = ayVar;
+    public int a() {
+        return this.f1180a;
     }
 
-    public void a(int i) {
-        this.b = i;
+    public String b() {
+        return this.b;
     }
 
     public void a(String str) {
-        this.c = str;
+        try {
+            a(new JSONObject(str).optJSONObject("error"));
+        } catch (Exception e) {
+            bg.b(getClass().getName(), "parserJson", e.toString());
+        }
     }
 
-    public void b(String str) {
-        this.d = str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public az a(JSONObject jSONObject) {
-        az azVar = new az(this.f1146a);
-        azVar.a(jSONObject.optInt("errno"));
-        azVar.a(jSONObject.optString("errmsg"));
-        azVar.b(jSONObject.optString("usermsg"));
-        return azVar;
+    public void a(JSONObject jSONObject) {
+        try {
+            this.f1180a = jSONObject.optInt("errno");
+            this.b = jSONObject.optString("usermsg");
+        } catch (Exception e) {
+            bg.b(getClass().getName(), "parserJson", e.toString());
+        }
     }
 }

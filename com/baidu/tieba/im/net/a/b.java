@@ -15,8 +15,8 @@ public class b extends com.baidu.tieba.im.messageCenter.d {
         } else {
             SaveDraftMessage saveDraftMessage = (SaveDraftMessage) message;
             String str = "";
-            if (TiebaApplication.G() != null) {
-                str = TiebaApplication.G().getID();
+            if (TiebaApplication.E() != null) {
+                str = TiebaApplication.E().getID();
             }
             GroupSettingItemData a2 = v.a(str, saveDraftMessage.getGroupId());
             if (a2 != null) {

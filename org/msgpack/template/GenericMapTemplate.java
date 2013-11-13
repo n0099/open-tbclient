@@ -6,12 +6,12 @@ import java.lang.reflect.InvocationTargetException;
 public class GenericMapTemplate implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    Constructor<? extends d> f2868a;
+    Constructor<? extends d> f2916a;
 
     public GenericMapTemplate(e eVar, Class<? extends d> cls) {
         try {
-            this.f2868a = cls.getConstructor(d.class, d.class);
-            this.f2868a.newInstance(new AnyTemplate(eVar), new AnyTemplate(eVar));
+            this.f2916a = cls.getConstructor(d.class, d.class);
+            this.f2916a.newInstance(new AnyTemplate(eVar), new AnyTemplate(eVar));
         } catch (IllegalAccessException e) {
             throw new IllegalArgumentException(e);
         } catch (InstantiationException e2) {
@@ -26,7 +26,7 @@ public class GenericMapTemplate implements c {
     @Override // org.msgpack.template.c
     public d a(d[] dVarArr) {
         try {
-            return this.f2868a.newInstance(dVarArr);
+            return this.f2916a.newInstance(dVarArr);
         } catch (IllegalAccessException e) {
             throw new IllegalArgumentException(e);
         } catch (InstantiationException e2) {

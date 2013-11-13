@@ -14,13 +14,13 @@ import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
 import com.baidu.tieba.im.model.w;
 import com.baidu.tieba.j;
-import com.baidu.tieba.util.ab;
+import com.baidu.tieba.util.ak;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SearchGroupActivity extends j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected w f1697a;
+    protected w f1784a;
     private d b;
     private com.baidu.tieba.im.messageCenter.h c = new a(this);
 
@@ -29,7 +29,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new d(this);
-        this.f1697a = new w();
+        this.f1784a = new w();
         com.baidu.tieba.im.messageCenter.f.a().a(103007, this.c);
     }
 
@@ -42,8 +42,8 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
         this.b.a(i);
     }
 
@@ -59,17 +59,17 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        b();
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        c();
+        b();
     }
 
-    private void c() {
+    private void b() {
         if (this.b != null && this.b.a() != null && this.b.a().a() != null) {
             this.b.a().a().b();
         }
@@ -78,9 +78,9 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.home_bt_search_s /* 2131100341 */:
+            case R.id.home_bt_search_s /* 2131100316 */:
                 if (view.getTag() instanceof String) {
-                    c((String) view.getTag());
+                    a((String) view.getTag());
                     return;
                 }
                 return;
@@ -89,21 +89,21 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
         }
     }
 
-    public void c(String str) {
+    public void a(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
                 this.b.d();
                 this.b.a((ResponseSearchGroupMessage) null);
-                this.f1697a.a(Long.parseLong(str));
+                this.f1784a.a(Long.parseLong(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
                 this.b.b();
-                b(R.string.groupid_error);
+                showToast(R.string.groupid_error);
                 return;
             }
         }
-        b(R.string.please_input_groupid);
+        showToast(R.string.please_input_groupid);
     }
 
     @Override // com.baidu.adp.a.a, android.widget.AdapterView.OnItemClickListener
@@ -118,9 +118,9 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void b() {
+    public void a() {
         if (this.b != null && this.b.a() != null) {
-            ab.a(this.b.f1701a, this.b.a().a(), 0, -1);
+            ak.a(this.b.f1788a, this.b.a().a(), 0, -1);
         }
     }
 }

@@ -5,22 +5,24 @@ import android.widget.TextView;
 class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2579a;
-    final /* synthetic */ RecordVoiceBnt b;
+    final /* synthetic */ RecordVoiceBnt f2632a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(RecordVoiceBnt recordVoiceBnt, String str) {
-        this.b = recordVoiceBnt;
-        this.f2579a = str;
+    public o(RecordVoiceBnt recordVoiceBnt) {
+        this.f2632a = recordVoiceBnt;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         TextView textView;
         TextView textView2;
-        textView = this.b.u;
-        textView.setVisibility(0);
-        textView2 = this.b.u;
-        textView2.setText(this.f2579a);
+        TextView textView3;
+        textView = this.f2632a.s;
+        if (textView != null) {
+            textView2 = this.f2632a.s;
+            textView2.setVisibility(4);
+            textView3 = this.f2632a.s;
+            textView3.setText("");
+        }
     }
 }

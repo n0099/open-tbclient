@@ -10,13 +10,13 @@ import com.slidingmenu.lib.R;
 public class ad extends BdAsyncTask<String, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.ag f1016a;
+    com.baidu.tieba.util.ap f1028a;
     final /* synthetic */ LoginActivity b;
     private volatile boolean c;
 
     private ad(LoginActivity loginActivity) {
         this.b = loginActivity;
-        this.f1016a = null;
+        this.f1028a = null;
         this.c = false;
     }
 
@@ -27,10 +27,10 @@ public class ad extends BdAsyncTask<String, Integer, Bitmap> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.S = null;
-        if (this.f1016a != null) {
-            this.f1016a.h();
-            this.f1016a = null;
+        this.b.O = null;
+        if (this.f1028a != null) {
+            this.f1028a.h();
+            this.f1028a = null;
         }
         this.c = true;
         super.cancel(true);
@@ -40,7 +40,7 @@ public class ad extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ImageView imageView;
-        imageView = this.b.x;
+        imageView = this.b.s;
         imageView.setImageBitmap(null);
     }
 
@@ -52,8 +52,8 @@ public class ad extends BdAsyncTask<String, Integer, Bitmap> {
         if (str == null || str.length() <= 0 || this.c) {
             return null;
         }
-        this.f1016a = new com.baidu.tieba.util.ag(str);
-        return com.baidu.tieba.util.e.a(this.f1016a.i());
+        this.f1028a = new com.baidu.tieba.util.ap(str);
+        return com.baidu.tieba.util.m.a(this.f1028a.i());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,15 +63,15 @@ public class ad extends BdAsyncTask<String, Integer, Bitmap> {
         ImageView imageView;
         ProgressBar progressBar;
         ImageView imageView2;
-        this.b.S = null;
+        this.b.O = null;
         if (bitmap != null) {
-            imageView2 = this.b.x;
+            imageView2 = this.b.s;
             imageView2.setImageBitmap(bitmap);
         } else {
-            imageView = this.b.x;
+            imageView = this.b.s;
             imageView.setImageResource(R.drawable.background);
         }
-        progressBar = this.b.A;
+        progressBar = this.b.v;
         progressBar.setVisibility(8);
         super.a((ad) bitmap);
     }

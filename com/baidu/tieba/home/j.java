@@ -1,39 +1,80 @@
 package com.baidu.tieba.home;
 
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.ListView;
+import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.util.UtilHelper;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j implements View.OnKeyListener {
+public class j implements com.baidu.tieba.model.w {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1359a;
+    final /* synthetic */ EnterForumActivity f1454a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(EnterForumActivity enterForumActivity) {
-        this.f1359a = enterForumActivity;
+        this.f1454a = enterForumActivity;
     }
 
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i, KeyEvent keyEvent) {
-        if (view instanceof ListView) {
-            ListView listView = (ListView) view;
-            if (keyEvent.getAction() == 0) {
-                if (i == 21) {
-                    if (listView.getSelectedView() == null) {
-                        listView.dispatchKeyEvent(new KeyEvent(0, 19));
-                        return true;
-                    }
-                    return false;
-                } else if (i == 22 && listView.getSelectedView() == null) {
-                    listView.dispatchKeyEvent(new KeyEvent(0, 20));
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            return false;
+    @Override // com.baidu.tieba.model.w
+    public void a(com.baidu.tieba.model.u uVar) {
+        BaseFragmentActivity baseFragmentActivity;
+        o oVar;
+        o oVar2;
+        BaseFragmentActivity baseFragmentActivity2;
+        com.baidu.tieba.model.t tVar;
+        o oVar3;
+        BaseFragmentActivity baseFragmentActivity3;
+        o oVar4;
+        com.baidu.tieba.model.t tVar2;
+        o oVar5;
+        Boolean bool;
+        o oVar6;
+        o oVar7;
+        boolean z = false;
+        boolean z2 = true;
+        baseFragmentActivity = this.f1454a.i;
+        UtilHelper.NetworkStateInfo i = UtilHelper.i(baseFragmentActivity);
+        if (i == UtilHelper.NetworkStateInfo.UNAVAIL) {
+            oVar7 = this.f1454a.c;
+            oVar7.o();
         }
-        return false;
+        oVar = this.f1454a.c;
+        oVar.a(true, "");
+        if (uVar.b) {
+            tVar2 = this.f1454a.e;
+            com.baidu.tieba.data.r a2 = tVar2.a();
+            oVar5 = this.f1454a.c;
+            bool = this.f1454a.h;
+            oVar5.a(a2, bool.booleanValue());
+            oVar6 = this.f1454a.c;
+            oVar6.i();
+        } else {
+            oVar2 = this.f1454a.c;
+            oVar2.f();
+            if (uVar.f1951a != null && uVar.f1951a.equals("")) {
+                baseFragmentActivity2 = this.f1454a.i;
+                baseFragmentActivity2.a(uVar.f1951a);
+            }
+        }
+        if (uVar.c == 0 && i != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            oVar4 = this.f1454a.c;
+            oVar4.e();
+        }
+        tVar = this.f1454a.e;
+        com.baidu.tieba.data.r a3 = tVar.a();
+        String str = null;
+        if (a3.a() == 1) {
+            if (a3.g()) {
+                z = true;
+            } else {
+                baseFragmentActivity3 = this.f1454a.i;
+                str = String.format(baseFragmentActivity3.getString(R.string.signallforum_warning), Integer.valueOf(a3.b()));
+            }
+        } else {
+            str = a3.c();
+            z2 = false;
+        }
+        oVar3 = this.f1454a.c;
+        oVar3.a(z2, z, str);
     }
 }

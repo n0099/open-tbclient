@@ -6,11 +6,11 @@ import android.view.View;
 public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f1846a;
+    final /* synthetic */ q f1842a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.f1846a = qVar;
+        this.f1842a = qVar;
     }
 
     @Override // android.view.View.OnClickListener

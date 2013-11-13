@@ -3,14 +3,14 @@ package org.msgpack.type;
 class q extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static q f2919a = new q();
+    private static q f2967a = new q();
 
     private q() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static q b() {
-        return f2919a;
+        return f2967a;
     }
 
     @Override // org.msgpack.type.BooleanValue

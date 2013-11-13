@@ -1,17 +1,46 @@
 package com.baidu.tieba.im.chat;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bt implements Runnable {
+public class bt implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bs f1447a;
+    final /* synthetic */ bg f1540a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bt(bs bsVar) {
-        this.f1447a = bsVar;
+    public bt(bg bgVar) {
+        this.f1540a = bgVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.f1447a.f1446a.T();
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        boolean U;
+        Button button2;
+        Button button3;
+        if (editable == null || editable.length() <= 0) {
+            button = this.f1540a.y;
+            button.setEnabled(false);
+            return;
+        }
+        U = this.f1540a.U();
+        if (U) {
+            button3 = this.f1540a.y;
+            button3.setEnabled(true);
+            return;
+        }
+        button2 = this.f1540a.y;
+        button2.setEnabled(false);
     }
 }

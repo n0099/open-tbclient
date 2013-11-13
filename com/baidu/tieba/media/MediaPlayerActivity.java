@@ -20,7 +20,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     private HandlerThread k;
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1827a = null;
+    private a f1823a = null;
     private q b = null;
     private l c = null;
     private String d = null;
@@ -72,7 +72,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
 
     private void d() {
         this.b = new q(this);
-        this.f1827a = new a(this);
+        this.f1823a = new a(this);
         this.b.a();
     }
 

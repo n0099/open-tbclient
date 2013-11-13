@@ -17,7 +17,7 @@ import com.tencent.mm.sdk.plugin.MMPluginProviderConstants;
 public class Weixin {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f838a = {"_id", "key", "type", "value"};
+    private static final String[] f852a = {"_id", "key", "type", "value"};
     private static boolean e = false;
     private Context b;
     private String c;
@@ -109,7 +109,7 @@ public class Weixin {
             return this.d;
         }
         this.d = 0;
-        Cursor query = this.b.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.plugin.provider/sharedpref"), f838a, "key = ?", new String[]{"_build_info_sdk_int_"}, null);
+        Cursor query = this.b.getContentResolver().query(Uri.parse("content://com.tencent.mm.sdk.plugin.provider/sharedpref"), f852a, "key = ?", new String[]{"_build_info_sdk_int_"}, null);
         if (query == null) {
             return this.d;
         }

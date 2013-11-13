@@ -1,59 +1,25 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
+import android.view.View;
+import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dh implements com.baidu.tieba.voice.q {
+public class dh implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dd f2121a;
+    final /* synthetic */ cp f2140a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(dd ddVar) {
-        this.f2121a = ddVar;
+    public dh(cp cpVar) {
+        this.f2140a = cpVar;
     }
 
-    @Override // com.baidu.tieba.voice.q
-    public void a() {
-        PbWriteToolView pbWriteToolView;
-        Button button;
-        Button button2;
-        PbWriteToolView pbWriteToolView2;
-        PbWriteToolView pbWriteToolView3;
-        pbWriteToolView = this.f2121a.f;
-        if (pbWriteToolView != null) {
-            pbWriteToolView2 = this.f2121a.f;
-            if (pbWriteToolView2.getAudioButton() != null) {
-                pbWriteToolView3 = this.f2121a.f;
-                pbWriteToolView3.getAudioButton().g();
-            }
-        }
-        button = this.f2121a.D;
-        if (button != null) {
-            button2 = this.f2121a.D;
-            button2.setEnabled(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.voice.q
-    public void b() {
-        PbWriteToolView pbWriteToolView;
-        Button button;
-        Button button2;
-        PbWriteToolView pbWriteToolView2;
-        PbWriteToolView pbWriteToolView3;
-        pbWriteToolView = this.f2121a.f;
-        if (pbWriteToolView != null) {
-            pbWriteToolView2 = this.f2121a.f;
-            if (pbWriteToolView2.getAudioButton() != null) {
-                pbWriteToolView3 = this.f2121a.f;
-                pbWriteToolView3.getAudioButton().h();
-            }
-        }
-        button = this.f2121a.D;
-        if (button != null && !this.f2121a.u()) {
-            button2 = this.f2121a.D;
-            button2.setEnabled(false);
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        NewPbActivity newPbActivity;
+        if (!z) {
+            newPbActivity = this.f2140a.g;
+            UtilHelper.a(newPbActivity, view);
         }
     }
 }

@@ -1,24 +1,27 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements Runnable {
+public class be implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f1274a;
-    final /* synthetic */ int b;
-    final /* synthetic */ ba c;
+    final /* synthetic */ FrsImageActivity f1331a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(ba baVar, boolean z, int i) {
-        this.c = baVar;
-        this.f1274a = z;
-        this.b = i;
+    public be(FrsImageActivity frsImageActivity) {
+        this.f1331a = frsImageActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        bf bfVar;
-        bfVar = this.c.L;
-        bfVar.a(this.f1274a, this.b);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        int i2;
+        i = this.f1331a.i;
+        if (i > 240) {
+            FrsImageActivity frsImageActivity = this.f1331a;
+            i2 = this.f1331a.i;
+            frsImageActivity.c(i2 - 240);
+        }
     }
 }

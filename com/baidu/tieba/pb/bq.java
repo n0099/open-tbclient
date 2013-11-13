@@ -1,27 +1,22 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.view.HeadImageView;
+import android.content.DialogInterface;
+import com.baidu.mobstat.StatService;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bq {
+public class bq implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f2078a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public Button f;
-    public Button g;
-    public TbRichTextView h;
-    public LinearLayout i;
-    public LinearLayout j;
-    final /* synthetic */ bo k;
+    final /* synthetic */ NewPbActivity f2101a;
 
-    private bq(bo boVar) {
-        this.k = boVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bq(NewPbActivity newPbActivity) {
+        this.f2101a = newPbActivity;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        StatService.onEvent(this.f2101a, "pb_close_phonedialog", "close");
+        dialogInterface.cancel();
     }
 }

@@ -13,11 +13,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class z extends SingleRunnable<LinkedList<ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ x f1542a;
+    final /* synthetic */ x f1633a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(x xVar) {
-        this.f1542a = xVar;
+        this.f1633a = xVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public class z extends SingleRunnable<LinkedList<ImMessageCenterPojo>> {
     public LinkedList<ImMessageCenterPojo> b() {
         AtomicBoolean atomicBoolean;
         String str;
-        atomicBoolean = this.f1542a.c;
+        atomicBoolean = this.f1633a.c;
         if (atomicBoolean.get()) {
             return null;
         }

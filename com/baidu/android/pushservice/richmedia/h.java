@@ -6,17 +6,18 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
 import android.widget.Toast;
+import com.baidu.android.pushservice.util.PushDatabase;
 import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaListActivity f723a;
+    final /* synthetic */ MediaListActivity f738a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(MediaListActivity mediaListActivity) {
-        this.f723a = mediaListActivity;
+        this.f738a = mediaListActivity;
     }
 
     @Override // com.baidu.android.pushservice.richmedia.s
@@ -36,63 +37,63 @@ public class h implements s {
         int i4;
         RemoteViews remoteViews6;
         String d = bVar.d.d();
-        if (mVar.f728a == mVar.b) {
+        if (mVar.f743a == mVar.b) {
             return;
         }
-        remoteViews = this.f723a.m;
+        remoteViews = this.f738a.m;
         if (remoteViews != null) {
-            int i5 = (int) ((mVar.f728a * 100.0d) / mVar.b);
-            remoteViews2 = this.f723a.m;
-            i = this.f723a.o;
+            int i5 = (int) ((mVar.f743a * 100.0d) / mVar.b);
+            remoteViews2 = this.f738a.m;
+            i = this.f738a.o;
             remoteViews2.setTextViewText(i, i5 + "%");
-            remoteViews3 = this.f723a.m;
-            i2 = this.f723a.p;
+            remoteViews3 = this.f738a.m;
+            i2 = this.f738a.p;
             remoteViews3.setTextViewText(i2, d);
-            remoteViews4 = this.f723a.m;
-            i3 = this.f723a.n;
+            remoteViews4 = this.f738a.m;
+            i3 = this.f738a.n;
             remoteViews4.setProgressBar(i3, 100, i5, false);
-            remoteViews5 = this.f723a.m;
-            i4 = this.f723a.q;
+            remoteViews5 = this.f738a.m;
+            i4 = this.f738a.q;
             remoteViews5.setImageViewResource(i4, 17301633);
             Notification notification = new Notification(17301633, null, System.currentTimeMillis());
-            remoteViews6 = this.f723a.m;
+            remoteViews6 = this.f738a.m;
             notification.contentView = remoteViews6;
-            notification.contentIntent = PendingIntent.getActivity(this.f723a, 0, new Intent(), 0);
+            notification.contentIntent = PendingIntent.getActivity(this.f738a, 0, new Intent(), 0);
             notification.flags |= 32;
             notification.flags |= 2;
-            this.f723a.b.notify(d, 0, notification);
+            this.f738a.b.notify(d, 0, notification);
         }
     }
 
     @Override // com.baidu.android.pushservice.richmedia.s
     public void a(b bVar, r rVar) {
         String d = bVar.d.d();
-        this.f723a.b.cancel(d, 0);
-        com.baidu.android.pushservice.util.i a2 = com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a(this.f723a), d);
-        if (a2 == null || a2.i != b.f) {
+        this.f738a.b.cancel(d, 0);
+        com.baidu.android.pushservice.util.j fileDownloadingInfo = PushDatabase.getFileDownloadingInfo(PushDatabase.getDb(this.f738a), d);
+        if (fileDownloadingInfo == null || fileDownloadingInfo.i != b.f) {
             return;
         }
-        String str = a2.e;
-        String str2 = a2.f;
+        String str = fileDownloadingInfo.e;
+        String str2 = fileDownloadingInfo.f;
         String str3 = str + "/" + str2.substring(0, str2.lastIndexOf(".")) + "/index.html";
         Intent intent = new Intent();
-        intent.setClass(this.f723a, MediaViewActivity.class);
+        intent.setClass(this.f738a, MediaViewActivity.class);
         intent.setData(Uri.fromFile(new File(str3)));
         intent.addFlags(268435456);
-        this.f723a.startActivity(intent);
+        this.f738a.startActivity(intent);
     }
 
     @Override // com.baidu.android.pushservice.richmedia.s
     public void a(b bVar, Throwable th) {
         String d = bVar.d.d();
-        this.f723a.b.cancel(d, 0);
-        Toast makeText = Toast.makeText(this.f723a, "下载富媒体" + Uri.parse(d).getAuthority() + "失败", 1);
+        this.f738a.b.cancel(d, 0);
+        Toast makeText = Toast.makeText(this.f738a, "下载富媒体" + Uri.parse(d).getAuthority() + "失败", 1);
         makeText.setGravity(17, 0, 0);
         makeText.show();
     }
 
     @Override // com.baidu.android.pushservice.richmedia.s
     public void b(b bVar) {
-        this.f723a.b.cancel(bVar.d.d(), 0);
+        this.f738a.b.cancel(bVar.d.d(), 0);
     }
 }

@@ -7,17 +7,17 @@ import javassist.bytecode.z;
 public class CtField extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ad f2693a;
+    protected ad f2741a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public CtField(ad adVar, h hVar) {
         super(hVar);
-        this.f2693a = adVar;
+        this.f2741a = adVar;
     }
 
     @Override // javassist.l
     public String toString() {
-        return c().n() + "." + i() + ":" + this.f2693a.d();
+        return c().n() + "." + i() + ":" + this.f2741a.d();
     }
 
     @Override // javassist.l
@@ -25,11 +25,11 @@ public class CtField extends l {
         stringBuffer.append(' ');
         stringBuffer.append(i());
         stringBuffer.append(' ');
-        stringBuffer.append(this.f2693a.d());
+        stringBuffer.append(this.f2741a.d());
     }
 
     public ad a() {
-        return this.f2693a;
+        return this.f2741a;
     }
 
     @Override // javassist.l
@@ -39,33 +39,33 @@ public class CtField extends l {
 
     @Override // javassist.l
     public String i() {
-        return this.f2693a.b();
+        return this.f2741a.b();
     }
 
     @Override // javassist.l
     public int b() {
-        return javassist.bytecode.a.e(this.f2693a.c());
+        return javassist.bytecode.a.e(this.f2741a.c());
     }
 
     @Override // javassist.l
     public String e() {
-        return this.f2693a.d();
+        return this.f2741a.d();
     }
 
     public h d() {
-        return z.c(this.f2693a.d(), this.c.a());
+        return z.c(this.f2741a.d(), this.c.a());
     }
 
     public Object f() {
-        int e = this.f2693a.e();
+        int e = this.f2741a.e();
         if (e == 0) {
             return null;
         }
-        y a2 = this.f2693a.a();
+        y a2 = this.f2741a.a();
         switch (a2.c(e)) {
             case 3:
                 int r = a2.r(e);
-                if ("Z".equals(this.f2693a.d())) {
+                if ("Z".equals(this.f2741a.d())) {
                     return new Boolean(r != 0);
                 }
                 return new Integer(r);

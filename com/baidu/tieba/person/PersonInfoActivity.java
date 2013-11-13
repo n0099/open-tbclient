@@ -6,30 +6,40 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.mobstat.StatService;
+import com.baidu.tieba.BaseFragment;
+import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.CommonWebviewActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.account.LoginActivity;
 import com.baidu.tieba.account.Register2Activity;
 import com.baidu.tieba.chat.ChatActivity;
+import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.PersonChangeData;
 import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.model.bw;
+import com.baidu.tieba.model.bx;
 import com.baidu.tieba.more.MoreActivity;
 import com.baidu.tieba.person.post.PersonPostActivity;
+import com.baidu.tieba.util.AntiHelper;
 import com.baidu.tieba.util.DatabaseService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class PersonInfoActivity extends com.baidu.tieba.j {
-    private BroadcastReceiver c = null;
+public class PersonInfoActivity extends BaseFragment {
+    private static final String c = com.baidu.tieba.data.h.b + "mo/q/topic_page/135_1";
+    private static boolean h = false;
+    private BaseFragmentActivity g;
+    private BroadcastReceiver d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    bj f2161a = null;
-    bi b = null;
-    private bw d = null;
-    private Boolean e = false;
+    bd f2203a = null;
+    bc b = null;
+    private bx e = null;
+    private Boolean f = false;
 
     public static void a(Context context, String str, String str2) {
         a(context, str, str2, false);
@@ -37,10 +47,10 @@ public class PersonInfoActivity extends com.baidu.tieba.j {
 
     public static void a(Context context, String str, String str2, boolean z) {
         if (str != null && str.length() > 0 && !str.equals(SocialConstants.FALSE)) {
-            Intent intent = new Intent(context, PersonInfoActivity.class);
+            Intent intent = new Intent(context, SinglePersonInfoActivity.class);
             intent.putExtra("un", str);
             intent.putExtra(SocialConstants.PARAM_MEDIA_UNAME, str2);
-            if (TiebaApplication.C() != null && TiebaApplication.C().equals(str)) {
+            if (TiebaApplication.A() != null && TiebaApplication.A().equals(str)) {
                 intent.putExtra("self", true);
             } else {
                 intent.putExtra("self", false);
@@ -53,337 +63,357 @@ public class PersonInfoActivity extends com.baidu.tieba.j {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        a(bundle);
-        this.e = Boolean.valueOf(this.d.b());
-        c();
-        if (this.d.a() != null && this.d.a().length() > 0 && this.e.booleanValue()) {
-            d();
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void a(Activity activity) {
+        super.a(activity);
+        this.g = (BaseFragmentActivity) activity;
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        c(bundle);
+        this.f = Boolean.valueOf(this.e.c());
+        return a(layoutInflater);
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void a(Bundle bundle) {
+        super.a(bundle);
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void d(Bundle bundle) {
+        super.d(bundle);
+        G();
+        if (this.e.b() != null && this.e.b().length() > 0 && this.f.booleanValue()) {
+            H();
         }
         DatabaseService.b((Boolean) true);
-        if (this.d.a() != null && this.d.a().length() > 0) {
-            b();
+        if (this.e.b() != null && this.e.b().length() > 0) {
+            a();
         }
     }
 
-    private void c() {
-        if (this.e.booleanValue()) {
+    private View a(LayoutInflater layoutInflater) {
+        return layoutInflater.inflate(R.layout.person_info_main, (ViewGroup) null);
+    }
+
+    private void G() {
+        if (this.f.booleanValue()) {
             this.b = null;
-            this.f2161a = new bj(this, this.d);
-            this.f2161a.a(new az(this));
+            this.f2203a = new bd(this.g, this, this.e);
+            this.f2203a.a(new az(this));
             return;
         }
-        this.f2161a = null;
-        this.b = new bi(this, this.d);
+        this.f2203a = null;
+        this.b = new bc(this.g, this, this.e);
     }
 
-    private void d() {
-        if (this.c == null) {
-            this.c = new ba(this);
+    private void H() {
+        if (this.d == null) {
+            this.d = new ba(this);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.tieba.broadcast.notify");
-            registerReceiver(this.c, intentFilter);
+            this.g.registerReceiver(this.d, intentFilter);
         }
     }
 
-    private void a(Bundle bundle) {
-        this.d = new bw(this);
+    private void c(Bundle bundle) {
+        this.e = new bx(this.g);
         if (bundle != null) {
-            this.d.a(bundle.getBoolean("self", true));
-            this.d.a(bundle.getString("un"));
-            this.d.b(bundle.getString(SocialConstants.PARAM_MEDIA_UNAME));
-            this.d.b(bundle.getBoolean("tab_page", false));
-            this.d.c(bundle.getBoolean("tab_msg", false));
+            this.e.a(bundle.getBoolean("self", true));
+            this.e.a(bundle.getString("un"));
+            this.e.c(bundle.getString(SocialConstants.PARAM_MEDIA_UNAME));
+            this.e.b(bundle.getBoolean("tab_page", false));
+            this.e.c(bundle.getBoolean("tab_msg", false));
         } else {
-            Intent intent = getIntent();
-            if (intent != null) {
-                this.d.a(intent.getBooleanExtra("self", true));
-                this.d.a(intent.getStringExtra("un"));
-                this.d.b(intent.getStringExtra(SocialConstants.PARAM_MEDIA_UNAME));
-                this.d.b(intent.getBooleanExtra("tab_page", false));
-                this.d.c(intent.getBooleanExtra("tab_msg", false));
+            Bundle h2 = h();
+            if (h2 != null) {
+                this.e.a(h2.getBoolean("self", true));
+                this.e.a(h2.getString("un"));
+                this.e.c(h2.getString(SocialConstants.PARAM_MEDIA_UNAME));
+                this.e.b(h2.getBoolean("tab_page", false));
+                this.e.c(h2.getBoolean("tab_msg", false));
             }
         }
-        this.d.setLoadDataCallBack(new bb(this));
+        this.e.setLoadDataCallBack(new bb(this));
     }
 
-    public void b() {
-        if (this.e.booleanValue()) {
-            if (this.f2161a != null) {
-                this.f2161a.f(this.d);
+    public void a() {
+        if (this.f.booleanValue()) {
+            if (this.f2203a != null) {
+                this.f2203a.e(this.e);
             }
-            this.d.a(true, true);
+            this.e.a(true, true);
             return;
         }
         if (this.b != null) {
-            this.b.f(this.d);
+            this.b.e(this.e);
         }
-        this.d.a(false, true);
+        this.e.a(false, true);
     }
 
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-        bundle.putBoolean("self", this.d.b());
-        bundle.putString("un", this.d.a());
-        bundle.putString(SocialConstants.PARAM_MEDIA_UNAME, this.d.f());
-        bundle.putBoolean("tab_page", this.d.i());
-        bundle.putBoolean("tab_msg", this.d.j());
+    @Override // android.support.v4.app.Fragment
+    public void e(Bundle bundle) {
+        super.e(bundle);
+        if (this.e != null) {
+            bundle.putBoolean("self", this.e.c());
+            bundle.putString("un", this.e.b());
+            bundle.putString(SocialConstants.PARAM_MEDIA_UNAME, this.e.g());
+            bundle.putBoolean("tab_page", this.e.j());
+            bundle.putBoolean("tab_msg", this.e.k());
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
-    public void onResume() {
+    public static void a(boolean z) {
+        h = z;
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void r() {
         boolean z = false;
-        super.onResume();
-        this.e = Boolean.valueOf(this.d.b());
-        if (this.d.a() == null || this.d.a().length() <= 0) {
-            if (TiebaApplication.g().s()) {
-                StatService.onEvent(this, "home_login_show", "loginshow", 1);
-            }
-            if (TiebaApplication.C() != null) {
-                this.d.a(true);
-                this.d.a(TiebaApplication.C());
-                this.d.b(TiebaApplication.H());
-                d();
-                b();
-                if (this.f2161a != null) {
-                    this.f2161a.a(true);
-                } else if (this.b != null) {
-                    this.b.a(true);
+        super.r();
+        if (h) {
+            a();
+            h = false;
+        } else if (F()) {
+            this.f = Boolean.valueOf(this.e.c());
+            if (this.e.b() == null || this.e.b().length() <= 0) {
+                if (TiebaApplication.g().s()) {
+                    StatService.onEvent(this.g, "home_login_show", "loginshow", 1);
                 }
-            } else if (this.f2161a != null) {
-                this.f2161a.a(false);
+                if (TiebaApplication.A() != null) {
+                    this.e.a(true);
+                    this.e.a(TiebaApplication.A());
+                    this.e.c(TiebaApplication.F());
+                    H();
+                    a();
+                    if (this.f2203a != null) {
+                        this.f2203a.a(true);
+                    } else if (this.b != null) {
+                        this.b.a(true);
+                    }
+                } else if (this.f2203a != null) {
+                    this.f2203a.a(false);
+                } else if (this.b != null) {
+                    this.b.a(false);
+                }
+            } else if (this.f.booleanValue()) {
+                if (com.baidu.tieba.mention.t.a().n() != this.e.h()) {
+                    this.e.a(com.baidu.tieba.mention.t.a().n());
+                    z = true;
+                }
+                if (com.baidu.tieba.mention.t.a().q() != this.e.i()) {
+                    this.e.c(com.baidu.tieba.mention.t.a().q());
+                    z = true;
+                }
+                if (this.f2203a != null) {
+                    if (z) {
+                        this.f2203a.d(this.e);
+                    }
+                    this.f2203a.a(true);
+                }
             } else if (this.b != null) {
                 this.b.a(false);
             }
-        } else if (this.e.booleanValue()) {
-            if (com.baidu.tieba.mention.t.a().n() != this.d.g()) {
-                this.d.a(com.baidu.tieba.mention.t.a().n());
-                z = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.BaseFragment
+    public void c(int i) {
+        super.c(i);
+        if (this.f.booleanValue()) {
+            if (this.f2203a != null) {
+                this.f2203a.a(i, this.e);
             }
-            if (com.baidu.tieba.mention.t.a().q() != this.d.h()) {
-                this.d.c(com.baidu.tieba.mention.t.a().q());
-                z = true;
+        } else if (this.b != null) {
+            this.b.a(i, this.e);
+        }
+    }
+
+    public Boolean a(View view, be beVar) {
+        if (view == beVar.n()) {
+            this.g.finish();
+            return true;
+        } else if (view == beVar.o()) {
+            MainTabActivity.a(this.g);
+            return true;
+        } else if (view == beVar.p()) {
+            PersonChangeData personChangeData = new PersonChangeData();
+            if (this.e.d() != null) {
+                personChangeData.setName(this.e.d().getName_show());
+                personChangeData.setIntro(this.e.d().getIntro());
+                personChangeData.setSex(this.e.d().getSex());
+                personChangeData.setPortrait(this.e.d().getPortrait());
             }
-            if (this.f2161a != null) {
-                if (z) {
-                    this.f2161a.d(this.d);
+            MoreActivity.a(this.g, 101, personChangeData);
+            return true;
+        } else if (view == beVar.q()) {
+            LoginActivity.a((Activity) this.g, (String) null, true, 11003);
+            return true;
+        } else if (view == beVar.r()) {
+            Register2Activity.a(this.g, 12007);
+            return true;
+        } else if (view != beVar.s()) {
+            return false;
+        } else {
+            CommonWebviewActivity.a(this.g, this.g.getString(R.string.user_icon_intro), c + "?st_type=person_user_icon", true);
+            return true;
+        }
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.view.View.OnClickListener
+    public void onClick(View view) {
+        AntiData a2;
+        UserData d = this.e.d();
+        if (this.f.booleanValue()) {
+            if (this.f2203a != null && !a(view, this.f2203a).booleanValue()) {
+                if (view == this.f2203a.e()) {
+                    if (TiebaApplication.g().s()) {
+                        StatService.onEvent(this.g, "personal_my_collect", "personclick", 1);
+                    }
+                    EditMarkActivity.a(this.g, 102);
+                } else if (view == this.f2203a.f()) {
+                    new com.baidu.tieba.account.ag("tb_mytieba").start();
+                    EditBarActivity.a(this.g, 103, null, d != null ? d.getSex() : 0);
+                } else if (view == this.f2203a.g()) {
+                    PersonListActivity.a(this.g, true, TiebaApplication.A(), d != null ? d.getSex() : 0);
+                } else if (view == this.f2203a.h()) {
+                    PersonListActivity.a(this.g, false, TiebaApplication.A(), d != null ? d.getSex() : 0);
+                } else if (view == this.f2203a.i()) {
+                    if (TiebaApplication.g().s()) {
+                        StatService.onEvent(this.g, "personal_my_threads", "click", 1);
+                    }
+                    if (this.e != null && this.e.d() != null) {
+                        PersonPostActivity.a(this.g, TiebaApplication.A(), 0, this.e.d().getPortrait());
+                    }
+                } else if (view == this.f2203a.j()) {
+                    PersonChangeData personChangeData = new PersonChangeData();
+                    if (this.e.d() != null) {
+                        personChangeData.setName(this.e.d().getName_show());
+                        personChangeData.setIntro(this.e.d().getIntro());
+                        personChangeData.setSex(this.e.d().getSex());
+                        personChangeData.setPortrait(this.e.d().getPortrait());
+                    }
+                    PersonChangeActivity.a(this.g, 101, personChangeData, true);
+                } else if (view == this.f2203a.k() && (a2 = this.e.a()) != null) {
+                    AntiHelper.a(this.g, a2, AntiHelper.OperationType.ACCOUNT_RESTORE, AntiHelper.PageType.PERSON_INFO);
                 }
-                this.f2161a.a(true);
             }
-        } else if (this.b != null) {
-            this.b.a(false);
+        } else if (this.b != null && !a(view, this.b).booleanValue()) {
+            if (view == this.b.g()) {
+                if (d != null) {
+                    EditBarActivity.a(this.g, 103, d.getId(), d.getSex());
+                }
+            } else if (view == this.b.h()) {
+                if (d != null) {
+                    if (TiebaApplication.g().s()) {
+                        StatService.onEvent(this.g, "personal_his_threads", "click", 1);
+                    }
+                    PersonPostActivity.a(this.g, d.getId(), d.getSex(), this.e.d().getPortrait());
+                }
+            } else if (view == this.b.i()) {
+                if (d != null) {
+                    PersonListActivity.a(this.g, true, d.getId(), d.getSex());
+                }
+            } else if (view == this.b.j()) {
+                if (d != null) {
+                    PersonListActivity.a(this.g, false, d.getId(), d.getSex());
+                }
+            } else if (view == this.b.e()) {
+                if (d != null) {
+                    if (TiebaApplication.A() == null || TiebaApplication.A().length() <= 0) {
+                        LoginActivity.a((Activity) this.g, a(R.string.login_to_attention), true, 11035);
+                    } else {
+                        I();
+                    }
+                }
+            } else if (view == this.b.f() && d != null) {
+                if (TiebaApplication.A() == null || TiebaApplication.A().length() <= 0) {
+                    LoginActivity.a((Activity) this.g, a(R.string.login_to_chat), true, 11028);
+                } else {
+                    J();
+                }
+            }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        if (this.e.booleanValue()) {
-            if (this.f2161a != null) {
-                this.f2161a.a(i, this.d);
-            }
-        } else if (this.b != null) {
-            this.b.a(i, this.d);
-        }
+    private void I() {
+        this.b.a_(this.e);
+        this.e.e();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j
-    public void k() {
-        super.k();
-        c(-1);
-        if (this.e.booleanValue()) {
-            if (this.f2161a != null) {
-                this.f2161a.a();
+    private void J() {
+        if (TiebaApplication.g().s()) {
+            StatService.onEvent(this.g, "enter_chat", "personclick", 1);
+        }
+        ChatActivity.a(this.g, this.e.d().getId(), this.e.d().getName(), this.e.d().getPortrait(), null, null);
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void t() {
+        if (this.e.b() != null && this.e.b().length() > 0 && this.e.c() && this.d != null) {
+            this.g.unregisterReceiver(this.d);
+            this.d = null;
+        }
+        this.e.l();
+        if (this.f.booleanValue()) {
+            if (this.f2203a != null) {
+                this.f2203a.a();
             }
         } else if (this.b != null) {
             this.b.a();
         }
-    }
-
-    public Boolean a(View view, bk bkVar) {
-        if (view == bkVar.m()) {
-            finish();
-            return true;
-        } else if (view == bkVar.n()) {
-            MainTabActivity.a(this);
-            return true;
-        } else if (view == bkVar.o()) {
-            PersonChangeData personChangeData = new PersonChangeData();
-            if (this.d.c() != null) {
-                personChangeData.setName(this.d.c().getName_show());
-                personChangeData.setIntro(this.d.c().getIntro());
-                personChangeData.setSex(this.d.c().getSex());
-                personChangeData.setPortrait(this.d.c().getPortrait());
-            }
-            MoreActivity.a(this, 101, personChangeData);
-            return true;
-        } else if (view == bkVar.p()) {
-            LoginActivity.a((Activity) this, (String) null, true, 11003);
-            return true;
-        } else if (view != bkVar.q()) {
-            return false;
-        } else {
-            Register2Activity.a(this, 12007);
-            return true;
-        }
-    }
-
-    @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
-    public void onClick(View view) {
-        UserData c = this.d.c();
-        if (this.e.booleanValue()) {
-            if (this.f2161a != null && !a(view, this.f2161a).booleanValue()) {
-                if (view == this.f2161a.f()) {
-                    if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this, "personal_my_collect", "personclick", 1);
-                    }
-                    EditMarkActivity.a(this, 102);
-                } else if (view == this.f2161a.g()) {
-                    new com.baidu.tieba.account.ah("tb_mytieba").start();
-                    EditBarActivity.a(this, 103, null, c != null ? c.getSex() : 0);
-                } else if (view == this.f2161a.h()) {
-                    PersonListActivity.a(this, true, TiebaApplication.C(), c != null ? c.getSex() : 0);
-                } else if (view == this.f2161a.i()) {
-                    PersonListActivity.a(this, false, TiebaApplication.C(), c != null ? c.getSex() : 0);
-                } else if (view == this.f2161a.j()) {
-                    if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this, "personal_my_threads", "click", 1);
-                    }
-                    if (this.d != null && this.d.c() != null) {
-                        PersonPostActivity.a(this, TiebaApplication.C(), 0, this.d.c().getPortrait());
-                    }
-                } else if (view == this.f2161a.k()) {
-                    PersonChangeData personChangeData = new PersonChangeData();
-                    if (this.d.c() != null) {
-                        personChangeData.setName(this.d.c().getName_show());
-                        personChangeData.setIntro(this.d.c().getIntro());
-                        personChangeData.setSex(this.d.c().getSex());
-                        personChangeData.setPortrait(this.d.c().getPortrait());
-                    }
-                    PersonChangeActivity.a(this, 101, personChangeData, true);
-                }
-            }
-        } else if (this.b != null && !a(view, this.b).booleanValue()) {
-            if (view == this.b.h()) {
-                if (c != null) {
-                    EditBarActivity.a(this, 103, c.getId(), c.getSex());
-                }
-            } else if (view == this.b.i()) {
-                if (c != null) {
-                    if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this, "personal_his_threads", "click", 1);
-                    }
-                    PersonPostActivity.a(this, c.getId(), c.getSex(), this.d.c().getPortrait());
-                }
-            } else if (view == this.b.j()) {
-                if (c != null) {
-                    PersonListActivity.a(this, true, c.getId(), c.getSex());
-                }
-            } else if (view == this.b.k()) {
-                if (c != null) {
-                    PersonListActivity.a(this, false, c.getId(), c.getSex());
-                }
-            } else if (view == this.b.f()) {
-                this.b.c(this.d);
-                this.d.d();
-            } else if (view == this.b.g() && c != null) {
-                if (this.d.a() == null || this.d.a().length() <= 0) {
-                    LoginActivity.a((Activity) this, getString(R.string.login_to_chat), true, 11028);
-                } else {
-                    e();
-                }
-            }
-        }
-    }
-
-    private void e() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this, "enter_chat", "personclick", 1);
-        }
-        ChatActivity.a(this, this.d.c().getId(), this.d.c().getName(), this.d.c().getPortrait(), null, null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.j, android.app.Activity
-    public void onDestroy() {
-        if (this.d.a() != null && this.d.a().length() > 0 && this.d.b() && this.c != null) {
-            unregisterReceiver(this.c);
-        }
-        this.d.k();
-        if (this.e.booleanValue()) {
-            if (this.f2161a != null) {
-                this.f2161a.e();
-            }
-        } else if (this.b != null) {
-            this.b.e();
-        }
         DatabaseService.b((Boolean) true);
-        super.onDestroy();
+        super.t();
     }
 
-    @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    @Override // android.support.v4.app.Fragment
+    public void a(int i, int i2, Intent intent) {
+        super.a(i, i2, intent);
         if (i2 == -1) {
             if (i == 101) {
                 a(intent);
             } else if (i == 11003 || i == 12007) {
-                if (TiebaApplication.C() != null) {
-                    this.d.a(true);
-                    this.d.a(TiebaApplication.C());
-                    this.d.b(TiebaApplication.H());
-                    d();
-                    b();
+                if (TiebaApplication.A() != null) {
+                    this.e.a(true);
+                    this.e.a(TiebaApplication.A());
+                    this.e.c(TiebaApplication.F());
+                    H();
+                    a();
                 }
             } else if (i == 11028) {
-                e();
+                J();
+            } else if (i == 11035) {
+                I();
             }
         }
     }
 
     private void a(Intent intent) {
         PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("person_change_data");
-        if (personChangeData != null && this.d.c() != null) {
-            this.d.a(personChangeData);
-            if (this.e.booleanValue()) {
-                if (this.f2161a != null) {
-                    this.f2161a.d(this.d);
+        if (personChangeData != null && this.e.d() != null) {
+            this.e.a(personChangeData);
+            if (this.f.booleanValue()) {
+                if (this.f2203a != null) {
+                    this.f2203a.d(this.e);
                 }
             } else if (this.b != null) {
-                this.b.d(this.d);
+                this.b.d(this.e);
             }
             if (personChangeData.getPhotoChanged()) {
-                if (this.e.booleanValue()) {
-                    if (this.f2161a != null) {
-                        this.f2161a.l();
+                if (this.f.booleanValue()) {
+                    if (this.f2203a != null) {
+                        this.f2203a.m();
                     }
                 } else if (this.b != null) {
-                    this.b.l();
+                    this.b.m();
                 }
-                if (this.d.c() != null) {
-                    this.d.e().e(this.d.c().getPortrait());
+                if (this.e.d() != null) {
+                    this.e.f().e(this.e.d().getPortrait());
                 }
-                this.d.a(false, false);
+                this.e.a(false, false);
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (!com.baidu.tieba.sharedPref.b.a().a("key_show_tip_send_message", false)) {
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.b(R.id.guest_btn_send_message).a(150).a(true);
-            bg bgVar = new bg(this);
-            gVar.a(bgVar).a(new bh(this));
-            gVar.a().a(this);
-            com.baidu.tieba.sharedPref.b.a().b("key_show_tip_send_message", true);
         }
     }
 }

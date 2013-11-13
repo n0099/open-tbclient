@@ -7,16 +7,16 @@ import android.os.FileObserver;
 public class j extends FileObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f805a;
+    private Context f819a;
     private com.baidu.android.systemmonitor.devicestatistic.a.a b;
     private String c;
 
     public j(String str, Context context) {
         super(str, 1280);
-        this.f805a = null;
+        this.f819a = null;
         this.b = null;
         this.c = null;
-        this.f805a = context.getApplicationContext();
+        this.f819a = context.getApplicationContext();
         this.c = str;
     }
 
@@ -25,12 +25,12 @@ public class j extends FileObserver {
         switch (i & 4095) {
             case 256:
                 this.b = new com.baidu.android.systemmonitor.devicestatistic.a.a(System.currentTimeMillis(), this.c, str);
-                d.a(this.f805a).a(this.b);
+                d.a(this.f819a).a(this.b);
                 return;
             case 1024:
                 Intent intent = new Intent("com.baidu.moplus.systemmonitor.pathdeleted");
                 intent.putExtra("path", this.c);
-                this.f805a.sendBroadcast(intent);
+                this.f819a.sendBroadcast(intent);
                 return;
             default:
                 return;

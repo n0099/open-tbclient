@@ -7,12 +7,12 @@ import java.util.ArrayList;
 public class s extends BdAsyncTask<o, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1958a;
-    private com.baidu.tieba.util.ag b;
-    private com.baidu.tieba.data.be c;
+    final /* synthetic */ o f1949a;
+    private com.baidu.tieba.util.ap b;
+    private com.baidu.tieba.data.az c;
 
     private s(o oVar) {
-        this.f1958a = oVar;
+        this.f1949a = oVar;
         this.b = null;
         this.c = null;
     }
@@ -20,7 +20,7 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.c = new com.baidu.tieba.data.be();
+        this.c = new com.baidu.tieba.data.az();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
         o oVar = new o();
         try {
             oVar.f();
-            this.b = new com.baidu.tieba.util.ag();
-            this.b.a(com.baidu.tieba.data.h.f1165a + "c/c/post/addstore");
-            int h = this.f1958a.h();
+            this.b = new com.baidu.tieba.util.ap();
+            this.b.a(com.baidu.tieba.data.h.f1196a + "c/c/post/addstore");
+            int h = this.f1949a.h();
             if (oVar.d() - 1 <= h) {
                 h = oVar.d() - 1;
             }
@@ -46,13 +46,13 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
                 }
                 h -= 20;
             }
-            this.f1958a.c(h);
+            this.f1949a.c(h);
             if (h >= 0) {
                 return false;
             }
             return true;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
             return false;
         }
     }
@@ -63,9 +63,9 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1958a.c = null;
-        if (this.f1958a.f1955a != null) {
-            this.f1958a.f1955a.a(1, false, null, false);
+        this.f1949a.c = null;
+        if (this.f1949a.f1946a != null) {
+            this.f1949a.f1946a.a(1, false, null, false);
         }
     }
 
@@ -76,9 +76,9 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
         String str;
         boolean z;
         ArrayList arrayList;
-        this.f1958a.c = null;
+        this.f1949a.c = null;
         if (bool.booleanValue()) {
-            arrayList = this.f1958a.e;
+            arrayList = this.f1949a.e;
             arrayList.clear();
             str = null;
             z = false;
@@ -89,8 +89,8 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
             str = null;
             z = true;
         }
-        if (this.f1958a.f1955a != null) {
-            this.f1958a.f1955a.a(1, bool, str, Boolean.valueOf(z));
+        if (this.f1949a.f1946a != null) {
+            this.f1949a.f1946a.a(1, bool, str, Boolean.valueOf(z));
         }
     }
 }

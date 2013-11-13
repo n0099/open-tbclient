@@ -6,17 +6,17 @@ import java.util.TimerTask;
 public class u extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonThreadFragment f2246a;
+    final /* synthetic */ PersonThreadFragment f2281a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(PersonThreadFragment personThreadFragment) {
-        this.f2246a = personThreadFragment;
+        this.f2281a = personThreadFragment;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        if (this.f2246a.i() != null && !this.f2246a.i().isFinishing()) {
-            this.f2246a.i().finish();
+        if (this.f2281a.i() != null && !this.f2281a.i().isFinishing()) {
+            this.f2281a.i().finish();
         }
     }
 }

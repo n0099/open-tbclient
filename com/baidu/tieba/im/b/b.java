@@ -8,7 +8,7 @@ import com.baidu.tieba.view.HeadImageView;
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1379a;
+    LinearLayout f1475a;
     LinearLayout b;
     HeadImageView c;
     TextView d;
@@ -16,9 +16,8 @@ class b {
     TextView f;
     TextView g;
     TextView h;
-    TextView i;
+    ImageView i;
     ImageView j;
     ImageView k;
-    ImageView l;
-    ImageView[] m;
+    ImageView[] l;
 }

@@ -1,30 +1,45 @@
 package com.baidu.tieba.pb;
-
-import android.view.View;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements View.OnClickListener {
+public class ch implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bt f2095a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2114a;
+    final /* synthetic */ PbEditor b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(bt btVar) {
-        this.f2095a = btVar;
+    public ch(PbEditor pbEditor, com.baidu.tieba.editortool.h hVar) {
+        this.b = pbEditor;
+        this.f2114a = hVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        view2 = this.f2095a.u;
-        View findViewById = view2.findViewById(R.id.manage_bottom_bar);
-        if (findViewById != null) {
-            if (findViewById.getVisibility() == 0) {
-                findViewById.setVisibility(8);
-            } else {
-                findViewById.setVisibility(0);
+    @Override // com.baidu.tieba.editortool.h
+    public void a(int i, Object obj) {
+        if (i == 2) {
+            this.b.c(i);
+        } else if (i == 3) {
+            this.b.l();
+        } else if (i == 5) {
+            this.b.c(i);
+        } else if (i == 6) {
+            this.b.l();
+        } else if (i == 8) {
+            this.b.c(i);
+        } else if (i == 9) {
+            this.b.l();
+        } else if (i != 0) {
+            if (i == 18) {
+                if (this.b.c()) {
+                    this.b.b.f();
+                } else {
+                    this.b.b.g();
+                }
+            } else if (i == 12) {
+                this.f2114a.a(33, obj);
+                this.b.b.l();
+                this.b.c.c(this.b.b.getEditText());
             }
         }
+        this.f2114a.a(i, obj);
     }
 }

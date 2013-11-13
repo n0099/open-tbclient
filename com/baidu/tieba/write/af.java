@@ -1,27 +1,32 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-import android.widget.GridView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class af implements View.OnClickListener {
+class af implements com.baidu.tieba.model.bc {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2627a;
+    final /* synthetic */ WriteActivity f2679a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(WriteActivity writeActivity) {
-        this.f2627a = writeActivity;
+        this.f2679a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        GridView gridView;
-        gridView = this.f2627a.u;
-        if (gridView.getVisibility() == 0) {
-            this.f2627a.d(2);
-        } else {
-            this.f2627a.d(1);
+    @Override // com.baidu.tieba.model.bc
+    public void a(com.baidu.tieba.data.ah ahVar) {
+        LinearLayout linearLayout;
+        linearLayout = this.f2679a.D;
+        ImageView imageView = (ImageView) linearLayout.findViewWithTag(ahVar.d);
+        if (imageView != null) {
+            imageView.setImageBitmap(ahVar.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.model.bc
+    public void a(boolean z, String str) {
+        if (!z) {
+            this.f2679a.showToast(str);
         }
     }
 }

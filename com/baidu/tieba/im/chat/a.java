@@ -23,8 +23,8 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1403a = null;
-    private WeakReference<y> b;
+    private static a f1495a = null;
+    private WeakReference<x> b;
     private j c = null;
     private com.baidu.tieba.im.pushNotify.m d = null;
 
@@ -42,14 +42,14 @@ public class a {
     }
 
     public static a b() {
-        if (f1403a == null) {
-            f1403a = new a();
+        if (f1495a == null) {
+            f1495a = new a();
         }
-        return f1403a;
+        return f1495a;
     }
 
-    public void a(y yVar) {
-        this.b = new WeakReference<>(yVar);
+    public void a(x xVar) {
+        this.b = new WeakReference<>(xVar);
     }
 
     public void c() {
@@ -72,8 +72,8 @@ public class a {
         }
     }
 
-    public void a(String str, z zVar) {
-        com.baidu.tieba.im.db.a.a().a(str, 2, (String) null, LocationClientOption.MIN_SCAN_SPAN, new d(this, zVar));
+    public void a(String str, y yVar) {
+        com.baidu.tieba.im.db.a.a().a(str, 2, (String) null, LocationClientOption.MIN_SCAN_SPAN, new d(this, yVar));
     }
 
     public void a(ChatMessage chatMessage) {
@@ -122,7 +122,7 @@ public class a {
                                     groupMsgPojo.setRead_flag(0);
                                 }
                             }
-                        } else if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getId() != null && chatMessage.getUserInfo().getId().equals(TiebaApplication.C())) {
+                        } else if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getId() != null && chatMessage.getUserInfo().getId().equals(TiebaApplication.A())) {
                             groupMsgPojo.setRead_flag(0);
                         } else {
                             i++;
@@ -131,7 +131,7 @@ public class a {
                         linkedList.add(groupMsgPojo);
                         i = i;
                     }
-                    com.baidu.tieba.im.db.a.a().a(valueOf, linkedList, true, new f(this, groupMsgData, valueOf, linkedList.getLast(), (MsglistActivity.f1401a && valueOf.equals(MsglistActivity.b)) ? 0 : i));
+                    com.baidu.tieba.im.db.a.a().a(valueOf, linkedList, true, new f(this, groupMsgData, valueOf, linkedList.getLast(), (MsglistActivity.f1493a && valueOf.equals(MsglistActivity.b)) ? 0 : i));
                 }
             }
         }

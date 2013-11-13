@@ -6,18 +6,18 @@ import com.baidu.tieba.im.SingleRunnable;
 public class h extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f1948a;
+    final /* synthetic */ g f1939a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f1948a = gVar;
+        this.f1939a = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public Void b() {
-        com.baidu.tieba.im.db.n.a().a(this.f1948a.f1947a, true);
+        com.baidu.tieba.im.db.n.a().a(this.f1939a.f1938a, true);
         return null;
     }
 }

@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -27,8 +27,8 @@ import org.json.JSONException;
 public class m extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1106a;
-    private com.baidu.tieba.util.a h;
+    private Context f1139a;
+    private com.baidu.tieba.util.i h;
     private ChatListFragment b = null;
     private boolean c = false;
     private boolean d = false;
@@ -39,10 +39,10 @@ public class m extends BaseAdapter {
     private ArrayList<ProgressBar> g = new ArrayList<>();
 
     public m(Context context) {
-        this.f1106a = null;
+        this.f1139a = null;
         this.h = null;
-        this.f1106a = context;
-        this.h = new com.baidu.tieba.util.a(this.f1106a);
+        this.f1139a = context;
+        this.h = new com.baidu.tieba.util.i(this.f1139a);
         this.h.d(true);
     }
 
@@ -55,7 +55,7 @@ public class m extends BaseAdapter {
                     try {
                         this.g.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        be.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        bg.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -72,7 +72,7 @@ public class m extends BaseAdapter {
         }
         this.j.clear();
         this.j.addAll(list);
-        if (TiebaApplication.D()) {
+        if (TiebaApplication.B()) {
             com.baidu.adp.lib.h.d.d("mRecentChatData.size():" + this.j.size());
             if (this.j.size() <= 0) {
                 this.b.e(true);
@@ -125,7 +125,7 @@ public class m extends BaseAdapter {
             oVar2 = (o) view.getTag();
         }
         if (oVar2 == null) {
-            view2 = LayoutInflater.from(this.f1106a).inflate(R.layout.chat_list_item, viewGroup, false);
+            view2 = LayoutInflater.from(this.f1139a).inflate(R.layout.chat_list_item, viewGroup, false);
             o a2 = a(view2);
             view2.setTag(a2);
             this.g.add(a2.j);
@@ -134,7 +134,7 @@ public class m extends BaseAdapter {
             oVar = oVar2;
             view2 = view;
         }
-        int as = TiebaApplication.g().as();
+        int ap = TiebaApplication.g().ap();
         long itemId = getItemId(i);
         if (itemId == -1) {
             ((ViewGroup) view2).setBackgroundDrawable(null);
@@ -147,11 +147,11 @@ public class m extends BaseAdapter {
                 oVar.i.setText(R.string.frs_pre);
                 oVar.j.setVisibility(8);
             }
-            if (as == 1) {
-                bb.e((View) oVar.i, (int) R.drawable.btn_w_square_1);
+            if (ap == 1) {
+                bd.e((View) oVar.i, (int) R.drawable.btn_w_square_1);
                 oVar.i.setTextColor(-8682095);
             } else {
-                bb.e((View) oVar.i, (int) R.drawable.btn_w_square);
+                bd.e((View) oVar.i, (int) R.drawable.btn_w_square);
                 oVar.i.setTextColor(-14277082);
             }
         } else if (itemId == -2) {
@@ -165,18 +165,18 @@ public class m extends BaseAdapter {
                 oVar.i.setText(R.string.frs_next);
                 oVar.j.setVisibility(8);
             }
-            if (as == 1) {
-                bb.e((View) oVar.i, (int) R.drawable.btn_w_square_1);
+            if (ap == 1) {
+                bd.e((View) oVar.i, (int) R.drawable.btn_w_square_1);
                 oVar.i.setTextColor(-8682095);
             } else {
-                bb.e((View) oVar.i, (int) R.drawable.btn_w_square);
+                bd.e((View) oVar.i, (int) R.drawable.btn_w_square);
                 oVar.i.setTextColor(-14277082);
             }
         } else {
-            if (as == 1) {
-                bb.e(view2, (int) R.drawable.list_selector_1);
+            if (ap == 1) {
+                bd.e(view2, (int) R.drawable.list_selector_1);
             } else {
-                bb.e(view2, (int) R.drawable.list_selector_divider1);
+                bd.e(view2, (int) R.drawable.list_selector_divider1);
             }
             com.baidu.adp.lib.h.d.d("count:" + getCount());
             oVar.b.setVisibility(0);
@@ -190,11 +190,11 @@ public class m extends BaseAdapter {
                     date.setTime(recentChatFriendData.getServerTime());
                     String str = "";
                     if (recentChatFriendData.getServerTime() != 0) {
-                        str = bc.i(date);
+                        str = be.f(date);
                     }
                     oVar.f.setText(str);
                     c(oVar, recentChatFriendData);
-                    a(oVar, as, recentChatFriendData);
+                    a(oVar, ap, recentChatFriendData);
                     if (String.valueOf(String.valueOf(2)).equals(recentChatFriendData.getOwnerName())) {
                         if (recentChatFriendData.getUnReadCount() >= 30) {
                             if (this.b != null) {
@@ -223,6 +223,11 @@ public class m extends BaseAdapter {
                     oVar.k.setVisibility(8);
                 } else if (!groupSetting.isAcceptNotify()) {
                     oVar.k.setVisibility(0);
+                    if (TiebaApplication.g().ap() == 1) {
+                        oVar.k.setImageResource(R.drawable.icon_news_stop_1);
+                    } else {
+                        oVar.k.setImageResource(R.drawable.icon_news_stop);
+                    }
                 } else {
                     oVar.k.setVisibility(8);
                 }
@@ -236,7 +241,7 @@ public class m extends BaseAdapter {
         if (String.valueOf(2).equals(recentChatFriendData.getOwnerName())) {
             oVar.e.setText(recentChatFriendData.getMsgContent());
         } else if (String.valueOf(3).equals(recentChatFriendData.getOwnerName())) {
-            oVar.d.setText(this.f1106a.getString(R.string.updates_activity_title));
+            oVar.d.setText(this.f1139a.getString(R.string.updates_activity_title));
             oVar.e.setText(recentChatFriendData.getMsgContent());
         } else if (String.valueOf(1).equals(recentChatFriendData.getOwnerName())) {
             oVar.e.setText(recentChatFriendData.getMsgContent());
@@ -262,11 +267,11 @@ public class m extends BaseAdapter {
         if (unReadCount > 0) {
             oVar.g.setVisibility(0);
             String valueOf = unReadCount > 99 ? "..." : String.valueOf(unReadCount);
-            if (!TiebaApplication.g().ae()) {
+            if (!TiebaApplication.g().ac()) {
                 valueOf = "";
                 unReadCount = 0;
             }
-            if (TiebaApplication.g().R() == 0) {
+            if (TiebaApplication.g().P() == 0) {
                 valueOf = "";
                 unReadCount = 0;
             }
@@ -285,32 +290,32 @@ public class m extends BaseAdapter {
             i2 = unReadCount;
         }
         if (i == 1) {
-            oVar.d.setTextColor(-8682086);
-            oVar.e.setTextColor(-11446171);
-            oVar.f.setTextColor(-8682086);
+            oVar.d.setTextColor(-8153171);
+            oVar.e.setTextColor(-10391164);
+            oVar.f.setTextColor(-10391164);
             if (i2 < 10) {
-                oVar.g.setBackgroundResource(R.drawable.icon_news_prompt_1);
+                oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_one_1);
             } else if (i2 < 100) {
-                oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_1);
+                oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_two_1);
             } else {
                 oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_more_1);
                 oVar.g.setText("");
             }
-            oVar.g.setTextColor(-478825);
+            oVar.g.setTextColor(this.f1139a.getResources().getColor(R.color.top_msg_num_night));
             return;
         }
         oVar.d.setTextColor(-14277082);
-        oVar.e.setTextColor(-9013642);
-        oVar.f.setTextColor(-8682086);
+        oVar.e.setTextColor(-7829368);
+        oVar.f.setTextColor(-7829368);
         if (i2 < 10) {
-            oVar.g.setBackgroundResource(R.drawable.icon_news_prompt);
+            oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_one);
         } else if (i2 < 100) {
-            oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt);
+            oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_two);
         } else {
             oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_more);
             oVar.g.setText("");
         }
-        oVar.g.setTextColor(-1);
+        oVar.g.setTextColor(this.f1139a.getResources().getColor(R.color.top_msg_num_day));
     }
 
     private void c(o oVar, RecentChatFriendData recentChatFriendData) {
@@ -319,13 +324,14 @@ public class m extends BaseAdapter {
             oVar.c.setDrawBorder(false);
             oVar.c.setAutoChangeStyle(false);
             oVar.c.setTag(recentChatFriendData.getOwnerName());
-            if (TiebaApplication.g().as() == 1) {
-                oVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.icon_new_test));
+            if (TiebaApplication.g().ap() == 1) {
+                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_test));
             } else {
-                oVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.icon_new_test));
+                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_test));
             }
             oVar.c.setUserName(String.valueOf(2));
             oVar.c.setUserId(recentChatFriendData.getFriendId());
+            oVar.c.setIsRound(false);
             oVar.c.invalidate();
         } else if (String.valueOf(3).equals(recentChatFriendData.getOwnerName())) {
             oVar.c.setDrawBorder(false);
@@ -333,11 +339,12 @@ public class m extends BaseAdapter {
             oVar.c.setTag(recentChatFriendData.getOwnerName());
             oVar.c.setUserName(String.valueOf(3));
             oVar.c.setUserId(recentChatFriendData.getFriendId());
-            if (TiebaApplication.g().as() == 1) {
-                oVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.icon_new_trends));
+            if (TiebaApplication.g().ap() == 1) {
+                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_trends));
             } else {
-                oVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.icon_new_trends));
+                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.icon_new_trends));
             }
+            oVar.c.setIsRound(false);
             oVar.c.invalidate();
         } else if (String.valueOf(1).equals(recentChatFriendData.getOwnerName())) {
             oVar.c.setDrawBorder(true);
@@ -350,16 +357,17 @@ public class m extends BaseAdapter {
                 if (d != null) {
                     d.a(oVar.c);
                 } else {
-                    oVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.avatar_poto_defaul140));
+                    oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.avatar_poto_defaul140));
                 }
             } else if (TextUtils.isEmpty(friendPortrait)) {
-                oVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.avatar_poto_defaul140));
+                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.avatar_poto_defaul140));
             }
             oVar.c.setClickable(false);
             oVar.c.setTag(recentChatFriendData.getFriendPortrait());
             oVar.c.setUserId(recentChatFriendData.getFriendId());
             com.baidu.adp.lib.h.d.d("groupid:" + recentChatFriendData.getFriendId() + " groupHeadUrl:" + recentChatFriendData.getFriendPortrait() + " groupName:" + recentChatFriendData.getFriendName());
             oVar.c.setUserName(String.valueOf(1));
+            oVar.c.setIsRound(false);
             oVar.c.invalidate();
         } else {
             oVar.c.setDrawBorder(true);
@@ -371,22 +379,23 @@ public class m extends BaseAdapter {
                 if (c != null) {
                     c.a(oVar.c);
                 } else {
-                    oVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.person_photo));
+                    oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.person_photo));
                 }
             } else if (TextUtils.isEmpty(friendPortrait2)) {
-                oVar.c.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.person_photo));
+                oVar.c.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.person_photo));
             }
             oVar.c.setTag(recentChatFriendData.getFriendPortrait());
             oVar.c.setUserId(recentChatFriendData.getFriendId());
             oVar.c.setUserName(recentChatFriendData.getFriendName());
             oVar.c.setOnClickListener(this.i);
+            oVar.c.setIsRound(true);
             oVar.c.invalidate();
         }
     }
 
     private o a(View view) {
         o oVar = new o(this);
-        oVar.f1107a = (ViewGroup) view.findViewById(R.id.chat_item);
+        oVar.f1140a = (ViewGroup) view.findViewById(R.id.chat_item);
         oVar.b = (ViewGroup) view.findViewById(R.id.list_content);
         oVar.c = (HeadImageView) view.findViewById(R.id.chat_head);
         oVar.d = (TextView) view.findViewById(R.id.chat_name);
@@ -408,7 +417,7 @@ public class m extends BaseAdapter {
         this.i = onClickListener;
     }
 
-    public com.baidu.tieba.util.a b() {
+    public com.baidu.tieba.util.i b() {
         return this.h;
     }
 

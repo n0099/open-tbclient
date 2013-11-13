@@ -1,37 +1,94 @@
 package com.baidu.android.pushservice.b;
-
-import com.baidu.android.pushservice.PushConstants;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f685a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public JSONObject i;
+    private String f693a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
+    private String f;
+    private String h;
+    private int g = -1;
+    private int i = -1;
 
-    public JSONObject a() {
-        JSONObject jSONObject = new JSONObject();
-        jSONObject.put(PushConstants.EXTRA_APP_ID, this.b);
-        jSONObject.put(PushConstants.EXTRA_USER_ID, this.c);
-        jSONObject.put(PushConstants.EXTRA_OPENTYPE, this.d);
-        jSONObject.put("app_open_time", this.f);
-        jSONObject.put("app_close_time", this.g);
-        jSONObject.put("use_duration", this.h);
-        if (this.e == null) {
-            this.e = "";
-        }
-        jSONObject.put(PushConstants.EXTRA_MSGID, this.e);
-        if (this.i == null) {
-            this.i = new JSONObject();
-        }
-        jSONObject.put("extra", this.i);
-        return jSONObject;
+    public b() {
+    }
+
+    public b(String str) {
+        this.f693a = str;
+    }
+
+    public String a() {
+        return this.f693a;
+    }
+
+    public void a(int i) {
+        this.g = i;
+    }
+
+    public void a(String str) {
+        this.f693a = str;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public void b(int i) {
+        this.i = i;
+    }
+
+    public void b(String str) {
+        this.b = str;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public void c(String str) {
+        this.c = str;
+    }
+
+    public String d() {
+        return this.d;
+    }
+
+    public void d(String str) {
+        this.d = str;
+    }
+
+    public String e() {
+        return this.e;
+    }
+
+    public void e(String str) {
+        this.e = str;
+    }
+
+    public String f() {
+        return this.f;
+    }
+
+    public void f(String str) {
+        this.f = str;
+    }
+
+    public int g() {
+        return this.g;
+    }
+
+    public void g(String str) {
+        this.h = str;
+    }
+
+    public String h() {
+        return this.h;
+    }
+
+    public int i() {
+        return this.i;
     }
 }

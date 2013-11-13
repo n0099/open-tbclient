@@ -8,13 +8,13 @@ import com.slidingmenu.lib.R;
 public class u implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1616a;
+    final /* synthetic */ String f1703a;
     final /* synthetic */ n b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(n nVar, String str) {
         this.b = nVar;
-        this.f1616a = str;
+        this.f1703a = str;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -22,10 +22,10 @@ public class u implements DialogInterface.OnClickListener {
         GroupInfoActivity groupInfoActivity;
         GroupInfoActivity groupInfoActivity2;
         try {
-            groupInfoActivity = this.b.f1609a;
-            ((ClipboardManager) groupInfoActivity.getSystemService("clipboard")).setText(this.f1616a);
-            groupInfoActivity2 = this.b.f1609a;
-            groupInfoActivity2.b(R.string.copy_success);
+            groupInfoActivity = this.b.f1696a;
+            ((ClipboardManager) groupInfoActivity.getSystemService("clipboard")).setText(this.f1703a);
+            groupInfoActivity2 = this.b.f1696a;
+            groupInfoActivity2.showToast(R.string.copy_success);
         } catch (Exception e) {
             com.baidu.adp.lib.h.d.a("copy group number failed");
         }

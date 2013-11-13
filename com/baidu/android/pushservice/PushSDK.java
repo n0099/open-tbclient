@@ -10,11 +10,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.LocalServerSocket;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.common.net.ConnectManager;
 import com.baidu.android.pushservice.util.NoProGuard;
+import com.baidu.android.pushservice.util.PushDatabase;
 import com.baidu.location.LocationClientOption;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -79,7 +79,7 @@ public class PushSDK implements NoProGuard {
                     mPushConnection = null;
                 }
             }
-            com.baidu.android.pushservice.util.e.a();
+            PushDatabase.close();
             this.mIsAlive = false;
             mPushSDK = null;
         }
@@ -101,9 +101,16 @@ public class PushSDK implements NoProGuard {
         if (b.a()) {
             Log.d(TAG, "heartbeat networkConnected :" + isNetworkConnected);
         }
-        if (isNetworkConnected && mPushConnection != null) {
+        if (!isNetworkConnected) {
+            cancelAlarmRepeat();
+            return false;
+        } else if (mPushConnection != null) {
             if (mPushConnection.a()) {
                 mPushConnection.d();
+                Intent intent = new Intent(PushConstants.ACTION_METHOD);
+                intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.SEND_APPSTAT");
+                intent.setClass(mContext, PushService.class);
+                this.mRegistrationService.a(intent);
             } else if (y.a().e()) {
                 scheduleConnect();
             } else {
@@ -113,8 +120,9 @@ public class PushSDK implements NoProGuard {
                 scheduleRegister();
             }
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     public static boolean isAlive() {
@@ -146,15 +154,14 @@ public class PushSDK implements NoProGuard {
         intent.putExtra("AlarmAlert", "OK");
         intent.setClass(mContext, PushService.class);
         PendingIntent service = PendingIntent.getService(mContext.getApplicationContext(), 0, intent, 268435456);
-        long elapsedRealtime = SystemClock.elapsedRealtime();
         AlarmManager alarmManager = (AlarmManager) mContext.getSystemService("alarm");
         alarmManager.cancel(service);
-        alarmManager.setRepeating(0, elapsedRealtime, this.alarmTimeout, service);
+        alarmManager.setRepeating(0, System.currentTimeMillis() + ALARM_TIMEOUT, this.alarmTimeout, service);
     }
 
     private boolean shouldReConnect(Context context) {
         SharedPreferences sharedPreferences;
-        if (com.baidu.android.pushservice.util.n.n(context.getApplicationContext()).size() <= 1) {
+        if (com.baidu.android.pushservice.util.m.n(context.getApplicationContext()).size() <= 1) {
             if (b.a()) {
                 Log.i(TAG, "Only one push app : " + context.getPackageName());
             }
@@ -194,7 +201,7 @@ public class PushSDK implements NoProGuard {
     private boolean shouldStopSelf(Context context) {
         boolean z;
         SharedPreferences sharedPreferences;
-        List n = com.baidu.android.pushservice.util.n.n(context.getApplicationContext());
+        List n = com.baidu.android.pushservice.util.m.n(context.getApplicationContext());
         if (n.size() <= 1) {
             if (b.a()) {
                 Log.i(TAG, "Only one push app : " + context.getPackageName());
@@ -289,7 +296,7 @@ public class PushSDK implements NoProGuard {
                             if (TextUtils.equals(mContext.getPackageName(), intent.getStringExtra(PushConstants.PACKAGE_NAME))) {
                                 return true;
                             }
-                            com.baidu.android.pushservice.util.n.a(mContext, 1000L);
+                            com.baidu.android.pushservice.util.m.a(mContext, 1000L);
                             return false;
                         } else if (this.mRegistrationService.a(intent)) {
                             if (b.a()) {
@@ -309,8 +316,8 @@ public class PushSDK implements NoProGuard {
         if (b.a()) {
             Log.d(TAG, "Create PushSDK from : " + mContext.getPackageName());
         }
-        com.baidu.android.pushservice.util.n.f(mContext.getApplicationContext());
-        if (com.baidu.android.pushservice.util.n.c(mContext.getApplicationContext()) || shouldStopSelf(mContext)) {
+        com.baidu.android.pushservice.util.m.f(mContext.getApplicationContext());
+        if (com.baidu.android.pushservice.util.m.c(mContext.getApplicationContext()) || shouldStopSelf(mContext)) {
             if (b.a()) {
                 Log.d(TAG, "onCreate shouldStopSelf");
                 return false;
@@ -320,10 +327,10 @@ public class PushSDK implements NoProGuard {
         synchronized (mIsAlive_lock) {
             if (mLocalSocket == null) {
                 try {
-                    mLocalSocket = new LocalServerSocket(com.baidu.android.pushservice.util.n.p(mContext));
+                    mLocalSocket = new LocalServerSocket(com.baidu.android.pushservice.util.m.p(mContext));
                 } catch (Exception e) {
                     if (b.a()) {
-                        Log.d(TAG, "--- Socket Adress (" + com.baidu.android.pushservice.util.n.p(mContext) + ") in use --- @ " + mContext.getPackageName());
+                        Log.d(TAG, "--- Socket Adress (" + com.baidu.android.pushservice.util.m.p(mContext) + ") in use --- @ " + mContext.getPackageName());
                     }
                 }
             }
@@ -332,7 +339,7 @@ public class PushSDK implements NoProGuard {
             }
             newPushConnection();
             this.mRegistrationService = new x(mContext);
-            setAlarmRepeat();
+            PushSettings.e(mContext);
             mHandler.postDelayed(this.mStartRunnable, 500L);
             this.mIsAlive = true;
             return true;

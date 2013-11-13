@@ -1,19 +1,31 @@
 package com.baidu.tieba.im.frsgroup;
+
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 /* loaded from: classes.dex */
-class c implements Runnable {
+class c implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1558a;
+    final /* synthetic */ FrsGroupListFragment f1646a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.f1558a = bVar;
+    public c(FrsGroupListFragment frsGroupListFragment) {
+        this.f1646a = frsGroupListFragment;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        i iVar;
-        iVar = this.f1558a.f1557a.f1545a;
-        iVar.j();
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        GroupListAdapter groupListAdapter;
+        FrsGroupActivity frsGroupActivity;
+        int I;
+        groupListAdapter = this.f1646a.h;
+        GroupInfoData groupInfoData = (GroupInfoData) groupListAdapter.getItem(i);
+        if (groupInfoData != null) {
+            frsGroupActivity = this.f1646a.f1636a;
+            I = this.f1646a.I();
+            GroupInfoActivity.a(frsGroupActivity, groupInfoData.getGroupId(), I);
+        }
     }
 }

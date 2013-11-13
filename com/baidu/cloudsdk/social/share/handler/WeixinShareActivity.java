@@ -7,7 +7,7 @@ import com.baidu.cloudsdk.social.core.util.Weixin;
 public class WeixinShareActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f857a = WeixinShareActivity.class.getName();
+    private static final String f871a = WeixinShareActivity.class.getName();
 
     protected void afterHandleIntent() {
         finish();

@@ -33,6 +33,6 @@ class g implements DialogInterface.OnClickListener {
         context2 = this.f468a.f467a.k;
         Context baseContext = ((Activity) context2).getBaseContext();
         context3 = this.f468a.f467a.k;
-        Toast.makeText(baseContext, ((Activity) context3).getText(com.baidu.adp.g.debug_close), 1).show();
+        Toast.makeText(baseContext, ((Activity) context3).getText(com.baidu.adp.f.debug_close), 1).show();
     }
 }

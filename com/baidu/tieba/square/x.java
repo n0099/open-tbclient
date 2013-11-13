@@ -1,57 +1,31 @@
 package com.baidu.tieba.square;
 
-import com.baidu.tieba.data.ba;
-import com.baidu.tieba.model.cj;
-import com.baidu.tieba.model.ck;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.square.CarouselRecommendView;
 import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements ck {
+public class x implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareActivity f2380a;
+    final /* synthetic */ aw f2439a;
+    final /* synthetic */ int b;
+    final /* synthetic */ CarouselRecommendView.CarouselRecommendPagerAdapter c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(SquareActivity squareActivity) {
-        this.f2380a = squareActivity;
+    public x(CarouselRecommendView.CarouselRecommendPagerAdapter carouselRecommendPagerAdapter, aw awVar, int i) {
+        this.c = carouselRecommendPagerAdapter;
+        this.f2439a = awVar;
+        this.b = i;
     }
 
-    @Override // com.baidu.tieba.model.ck
-    public void a(boolean z, String str, ba baVar) {
-        ax axVar;
-        boolean z2;
-        ax axVar2;
-        ax axVar3;
-        boolean z3;
-        ax axVar4;
-        ax axVar5;
-        cj cjVar;
-        axVar = this.f2380a.f2330a;
-        axVar.a(true, "");
-        if (z) {
-            axVar5 = this.f2380a.f2330a;
-            cjVar = this.f2380a.b;
-            axVar5.a(cjVar.a());
-            this.f2380a.c = true;
-            this.f2380a.e();
-        }
-        z2 = this.f2380a.d;
-        if (z2) {
-            this.f2380a.d = false;
-            axVar4 = this.f2380a.f2330a;
-            axVar4.f();
-        }
-        if (!UtilHelper.b()) {
-            axVar3 = this.f2380a.f2330a;
-            axVar3.h();
-            z3 = this.f2380a.c;
-            if (!z3) {
-                this.f2380a.d();
-                return;
-            }
-            return;
-        }
-        this.f2380a.a(str);
-        axVar2 = this.f2380a.f2330a;
-        axVar2.i();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        String b = this.f2439a.b();
+        String a2 = SquareActivity.a("carousel_recommend", String.valueOf(this.b));
+        context = this.c.f;
+        UtilHelper.a(context, b, null, a2);
     }
 }

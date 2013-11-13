@@ -1,31 +1,25 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.util.ak;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements AdapterView.OnItemClickListener {
+public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsGroupListFragment f1560a;
+    final /* synthetic */ FrsGroupListFragment f1648a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsGroupListFragment frsGroupListFragment) {
-        this.f1560a = frsGroupListFragment;
+        this.f1648a = frsGroupListFragment;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    @Override // java.lang.Runnable
+    public void run() {
+        BdListView bdListView;
         GroupListAdapter groupListAdapter;
-        FrsGroupActivity frsGroupActivity;
-        int G;
-        groupListAdapter = this.f1560a.h;
-        GroupInfoData groupInfoData = (GroupInfoData) groupListAdapter.getItem(i);
-        if (groupInfoData != null) {
-            frsGroupActivity = this.f1560a.f1546a;
-            G = this.f1560a.G();
-            GroupInfoActivity.a(frsGroupActivity, groupInfoData.getGroupId(), G);
-        }
+        bdListView = this.f1648a.d;
+        groupListAdapter = this.f1648a.h;
+        ak.a(bdListView, groupListAdapter.a(), 0, -1);
     }
 }

@@ -1,31 +1,28 @@
 package com.baidu.tieba.pb;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bf implements com.baidu.tieba.view.az {
+public class bf implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2069a;
+    final /* synthetic */ NewPbActivity f2090a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(NewPbActivity newPbActivity) {
-        this.f2069a = newPbActivity;
+        this.f2090a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.view.az
-    public void a(boolean z) {
-        boolean z2;
-        com.baidu.tieba.model.bl blVar;
-        com.baidu.tieba.model.bl blVar2;
-        bt btVar;
-        z2 = this.f2069a.c;
-        if (!z2 && z) {
-            blVar = this.f2069a.o;
-            if (!blVar.i()) {
-                blVar2 = this.f2069a.o;
-                if (blVar2.n()) {
-                    btVar = this.f2069a.u;
-                    btVar.x();
-                }
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        cp cpVar;
+        cp cpVar2;
+        cp cpVar3;
+        cpVar = this.f2090a.y;
+        if (!cpVar.x()) {
+            cpVar3 = this.f2090a.y;
+            cpVar3.b(false);
+            return;
         }
+        cpVar2 = this.f2090a.y;
+        cpVar2.b(true);
     }
 }

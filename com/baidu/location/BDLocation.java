@@ -15,7 +15,7 @@ public final class BDLocation {
     public static final int TypeServerError = 167;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f884a;
+    private String f898a;
     private boolean b;
 
     /* renamed from: byte  reason: not valid java name */
@@ -109,7 +109,7 @@ public final class BDLocation {
         this.f36byte = null;
         this.f48void = false;
         this.f37case = false;
-        this.f884a = null;
+        this.f898a = null;
         this.mServerString = null;
         this.e = false;
         this.mAddr = new a();
@@ -133,7 +133,7 @@ public final class BDLocation {
         this.f36byte = null;
         this.f48void = false;
         this.f37case = false;
-        this.f884a = null;
+        this.f898a = null;
         this.mServerString = null;
         this.e = false;
         this.mAddr = new a();
@@ -162,7 +162,7 @@ public final class BDLocation {
         this.f36byte = null;
         this.f48void = false;
         this.f37case = false;
-        this.f884a = null;
+        this.f898a = null;
         this.mServerString = null;
         this.e = false;
         this.mAddr = new a();
@@ -252,7 +252,7 @@ public final class BDLocation {
         this.f36byte = null;
         this.f48void = false;
         this.f37case = false;
-        this.f884a = null;
+        this.f898a = null;
         this.mServerString = null;
         this.e = false;
         this.mAddr = new a();
@@ -261,7 +261,7 @@ public final class BDLocation {
         this.f41for = d2;
         this.f45long = f;
         this.f42goto = str2;
-        this.f884a = str3;
+        this.f898a = str3;
         this.d = j.a();
     }
 
@@ -371,7 +371,7 @@ public final class BDLocation {
     }
 
     public void setAddrStr(String str) {
-        this.f884a = str;
+        this.f898a = str;
         this.f48void = true;
     }
 

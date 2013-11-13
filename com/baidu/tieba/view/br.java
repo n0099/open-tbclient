@@ -1,11 +1,22 @@
 package com.baidu.tieba.view;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public interface br {
-    void a();
+class br implements com.baidu.tbadk.imageManager.c {
 
-    void b();
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ UserIconBox f2581a;
 
-    void c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public br(UserIconBox userIconBox) {
+        this.f2581a = userIconBox;
+    }
 
-    void d();
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        View findViewWithTag = this.f2581a.findViewWithTag(str);
+        if (findViewWithTag != null && eVar != null) {
+            findViewWithTag.invalidate();
+        }
+    }
 }

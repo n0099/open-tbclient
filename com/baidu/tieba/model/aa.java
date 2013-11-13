@@ -4,13 +4,13 @@ import com.baidu.tieba.TiebaApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class aa extends com.baidu.adp.a.d {
-    private com.baidu.tieba.data.w d;
+    private com.baidu.tieba.data.v d;
     private ab e;
     private boolean c = false;
     private int f = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1885a = 0;
+    protected int f1881a = 0;
     protected String b = null;
     private int g = 0;
 
@@ -27,17 +27,17 @@ public class aa extends com.baidu.adp.a.d {
     }
 
     public boolean c() {
-        ArrayList<com.baidu.tieba.data.x> a2;
-        return (this.d == null || (a2 = this.d.a()) == null || a2.size() < 300) ? false : true;
+        ArrayList<com.baidu.tieba.data.w> b;
+        return (this.d == null || (b = this.d.b()) == null || b.size() < 300) ? false : true;
     }
 
     public boolean d() {
-        return this.d != null && (this.d.c() || a());
+        return this.d != null && (this.d.d() || a());
     }
 
     public boolean e() {
-        ArrayList<com.baidu.tieba.data.x> a2;
-        return (this.d == null || (a2 = this.d.a()) == null || a2.size() <= 0) ? false : true;
+        ArrayList<com.baidu.tieba.data.w> b;
+        return (this.d == null || (b = this.d.b()) == null || b.size() <= 0) ? false : true;
     }
 
     public boolean f() {
@@ -59,18 +59,18 @@ public class aa extends com.baidu.adp.a.d {
         this.g = 1;
     }
 
-    public com.baidu.tieba.data.w h() {
-        String C = TiebaApplication.C();
-        if (C == null) {
+    public com.baidu.tieba.data.v h() {
+        String A = TiebaApplication.A();
+        if (A == null) {
             return null;
         }
-        com.baidu.adp.lib.cache.s<String> e = com.baidu.tieba.b.a.a().e();
-        String a2 = e != null ? e.a("home_forumfeed_" + C) : null;
+        com.baidu.adp.lib.cache.s<String> f = com.baidu.tieba.b.a.a().f();
+        String a2 = f != null ? f.a("home_forumfeed_" + A) : null;
         if (a2 != null) {
-            com.baidu.tieba.data.w wVar = new com.baidu.tieba.data.w();
-            wVar.a(a2);
-            this.d = wVar;
-            return wVar;
+            com.baidu.tieba.data.v vVar = new com.baidu.tieba.data.v();
+            vVar.a(a2);
+            this.d = vVar;
+            return vVar;
         }
         return null;
     }
@@ -80,21 +80,21 @@ public class aa extends com.baidu.adp.a.d {
     }
 
     private int k() {
-        ArrayList<com.baidu.tieba.data.x> a2;
-        if (this.d == null || (a2 = this.d.a()) == null) {
+        ArrayList<com.baidu.tieba.data.w> b;
+        if (this.d == null || (b = this.d.b()) == null) {
             return 1;
         }
-        return (a2.size() / 20) + 1;
+        return (b.size() / 20) + 1;
     }
 
     @Override // com.baidu.adp.a.d
     public int getErrorCode() {
-        return this.f1885a;
+        return this.f1881a;
     }
 
     @Override // com.baidu.adp.a.d
     public void setErrorCode(int i) {
-        this.f1885a = i;
+        this.f1881a = i;
     }
 
     @Override // com.baidu.adp.a.d
@@ -107,7 +107,7 @@ public class aa extends com.baidu.adp.a.d {
         this.b = str;
     }
 
-    public com.baidu.tieba.data.w j() {
+    public com.baidu.tieba.data.v j() {
         return this.d;
     }
 

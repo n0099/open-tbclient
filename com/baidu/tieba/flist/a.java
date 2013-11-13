@@ -11,9 +11,9 @@ import com.slidingmenu.lib.R;
 public class a extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    b f1186a;
+    b f1235a;
     Activity b;
-    private com.baidu.tieba.square.s c;
+    private com.baidu.tieba.square.z c;
     private int d = 0;
 
     public a(Activity activity) {
@@ -47,10 +47,10 @@ public class a extends BaseAdapter {
             view = b();
         }
         if (this.c != null) {
-            com.baidu.tieba.square.s sVar = this.c.e.get(i);
-            this.f1186a = (b) view.getTag();
-            if (sVar != null) {
-                a(this.f1186a, sVar, view, i);
+            com.baidu.tieba.square.z zVar = this.c.e.get(i);
+            this.f1235a = (b) view.getTag();
+            if (zVar != null) {
+                a(this.f1235a, zVar, view, i);
             }
         }
         return view;
@@ -61,37 +61,37 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void a(com.baidu.tieba.square.s sVar) {
-        this.c = sVar;
+    public void a(com.baidu.tieba.square.z zVar) {
+        this.c = zVar;
     }
 
-    public com.baidu.tieba.square.s a() {
+    public com.baidu.tieba.square.z a() {
         return this.c;
     }
 
     private View b() {
         View inflate = this.b.getLayoutInflater().inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.f1186a = new b(this);
-        this.f1186a.f1188a = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.f1186a.b = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.f1186a);
+        this.f1235a = new b(this);
+        this.f1235a.f1246a = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.f1235a.b = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.f1235a);
         return inflate;
     }
 
-    private void a(b bVar, com.baidu.tieba.square.s sVar, View view, int i) {
-        if (bVar != null && sVar != null) {
+    private void a(b bVar, com.baidu.tieba.square.z zVar, View view, int i) {
+        if (bVar != null && zVar != null) {
             bVar.b.setText("");
             if (i == 0) {
-                bVar.b.setText(this.b.getString(R.string.forum_list_menu_all) + sVar.b);
+                bVar.b.setText(this.b.getString(R.string.forum_list_menu_all) + zVar.b);
             } else {
-                bVar.b.setText(sVar.b);
+                bVar.b.setText(zVar.b);
             }
             if (i != this.d) {
-                bVar.f1188a.setVisibility(4);
+                bVar.f1246a.setVisibility(4);
                 bVar.b.setTextColor(this.b.getResources().getColor(R.color.forum_list_menu_notselected));
                 return;
             }
-            bVar.f1188a.setVisibility(0);
+            bVar.f1246a.setVisibility(0);
             bVar.b.setTextColor(this.b.getResources().getColor(R.color.forum_list_menu_selected));
         }
     }

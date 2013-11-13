@@ -1,27 +1,29 @@
 package com.baidu.tieba.view;
 
-import android.view.animation.Animation;
+import android.content.Context;
+import android.graphics.Canvas;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class bh implements Animation.AnimationListener {
+public class bh extends com.baidu.tbadk.widget.b {
+    private int b;
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShutDownValidateTipView f2524a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(ShutDownValidateTipView shutDownValidateTipView) {
-        this.f2524a = shutDownValidateTipView;
+    public bh(Context context) {
+        super(context);
+        this.b = -1;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        this.f2524a.setVisibility(8);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.widget.b, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        if (TiebaApplication.g().ap() == 1) {
+            this.b = getResources().getColor(R.color.pb_default_image_bg_1);
+        } else {
+            this.b = getResources().getColor(R.color.pb_default_image_bg);
+        }
+        if (getImage() == null && this.b != -1) {
+            canvas.drawColor(this.b);
+        }
+        super.onDraw(canvas);
     }
 }

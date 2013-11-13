@@ -13,11 +13,11 @@ import com.slidingmenu.lib.R;
 public class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupImageActivity f1599a;
+    final /* synthetic */ GroupImageActivity f1686a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(GroupImageActivity groupImageActivity) {
-        this.f1599a = groupImageActivity;
+        this.f1686a = groupImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -42,38 +42,38 @@ public class d implements View.OnClickListener {
         ProgressBar progressBar;
         LinearLayout linearLayout5;
         int i;
-        button = this.f1599a.f;
+        button = this.f1686a.f;
         if (view == button) {
-            linearLayout5 = this.f1599a.j;
+            linearLayout5 = this.f1686a.h;
             if (linearLayout5.getVisibility() != 8) {
                 Intent intent = new Intent();
-                i = this.f1599a.c;
+                i = this.f1686a.c;
                 intent.putExtra("index", i);
-                this.f1599a.setResult(-1, intent);
-                this.f1599a.finish();
+                this.f1686a.setResult(-1, intent);
+                this.f1686a.finish();
                 return;
             }
             return;
         }
-        button2 = this.f1599a.e;
+        button2 = this.f1686a.e;
         if (view == button2) {
-            linearLayout4 = this.f1599a.j;
+            linearLayout4 = this.f1686a.h;
             if (linearLayout4.getVisibility() != 8) {
                 try {
-                    multiImageView3 = this.f1599a.k;
+                    multiImageView3 = this.f1686a.i;
                     byte[] currentImageData = multiImageView3.getCurrentImageData();
                     if (currentImageData != null) {
-                        multiImageView4 = this.f1599a.k;
+                        multiImageView4 = this.f1686a.i;
                         String currentImageUrl = multiImageView4.getCurrentImageUrl();
-                        this.f1599a.d = new h(this.f1599a, currentImageUrl, currentImageData);
-                        hVar = this.f1599a.d;
+                        this.f1686a.d = new h(this.f1686a, currentImageUrl, currentImageData);
+                        hVar = this.f1686a.d;
                         hVar.execute(new String[0]);
-                        button3 = this.f1599a.e;
+                        button3 = this.f1686a.e;
                         button3.setVisibility(4);
-                        progressBar = this.f1599a.f1590a;
+                        progressBar = this.f1686a.f1677a;
                         progressBar.setVisibility(0);
                     } else {
-                        this.f1599a.a(this.f1599a.getString(R.string.no_data));
+                        this.f1686a.showToast(this.f1686a.getString(R.string.no_data));
                     }
                     return;
                 } catch (Exception e) {
@@ -82,30 +82,30 @@ public class d implements View.OnClickListener {
             }
             return;
         }
-        z = this.f1599a.p;
+        z = this.f1686a.n;
         if (z) {
-            linearLayout = this.f1599a.j;
+            linearLayout = this.f1686a.h;
             if (linearLayout.getVisibility() != 0) {
-                linearLayout3 = this.f1599a.j;
+                linearLayout3 = this.f1686a.h;
                 linearLayout3.setVisibility(0);
-                multiImageView2 = this.f1599a.k;
+                multiImageView2 = this.f1686a.i;
                 multiImageView2.d();
-                this.f1599a.o = new AlphaAnimation(0.0f, 1.0f);
+                this.f1686a.m = new AlphaAnimation(0.0f, 1.0f);
             } else {
-                this.f1599a.o = new AlphaAnimation(1.0f, 0.0f);
-                this.f1599a.q = true;
-                multiImageView = this.f1599a.k;
+                this.f1686a.m = new AlphaAnimation(1.0f, 0.0f);
+                this.f1686a.o = true;
+                multiImageView = this.f1686a.i;
                 multiImageView.e();
             }
-            alphaAnimation = this.f1599a.o;
+            alphaAnimation = this.f1686a.m;
             alphaAnimation.setDuration(300L);
-            alphaAnimation2 = this.f1599a.o;
+            alphaAnimation2 = this.f1686a.m;
             alphaAnimation2.setFillAfter(true);
-            alphaAnimation3 = this.f1599a.o;
+            alphaAnimation3 = this.f1686a.m;
             alphaAnimation3.setAnimationListener(new e(this));
-            this.f1599a.p = false;
-            linearLayout2 = this.f1599a.j;
-            alphaAnimation4 = this.f1599a.o;
+            this.f1686a.n = false;
+            linearLayout2 = this.f1686a.h;
+            alphaAnimation4 = this.f1686a.m;
             linearLayout2.startAnimation(alphaAnimation4);
         }
     }

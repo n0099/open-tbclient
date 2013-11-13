@@ -12,13 +12,13 @@ import java.util.LinkedList;
 public class p extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LinkedList f1532a;
+    final /* synthetic */ LinkedList f1623a;
     final /* synthetic */ n b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar, LinkedList linkedList) {
         this.b = nVar;
-        this.f1532a = linkedList;
+        this.f1623a = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,11 +26,11 @@ public class p extends SingleRunnable<Void> {
     /* renamed from: a */
     public Void b() {
         SQLiteDatabase a2 = m.a();
-        if (a2 != null && this.f1532a != null) {
+        if (a2 != null && this.f1623a != null) {
             try {
-                if (this.f1532a.size() > 0) {
+                if (this.f1623a.size() > 0) {
                     a2.beginTransaction();
-                    Iterator it = this.f1532a.iterator();
+                    Iterator it = this.f1623a.iterator();
                     while (it.hasNext()) {
                         ImMessageCenterPojo imMessageCenterPojo = (ImMessageCenterPojo) it.next();
                         ContentValues contentValues = new ContentValues();

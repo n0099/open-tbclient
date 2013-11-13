@@ -9,14 +9,14 @@ import com.slidingmenu.lib.R;
 class ak implements TimePickerDialog.OnTimeSetListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1986a;
+    final /* synthetic */ int f1978a;
     final /* synthetic */ TiebaApplication b;
     final /* synthetic */ MsgRemindActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(MsgRemindActivity msgRemindActivity, int i, TiebaApplication tiebaApplication) {
         this.c = msgRemindActivity;
-        this.f1986a = i;
+        this.f1978a = i;
         this.b = tiebaApplication;
     }
 
@@ -24,18 +24,18 @@ class ak implements TimePickerDialog.OnTimeSetListener {
     public void onTimeSet(TimePicker timePicker, int i, int i2) {
         al alVar;
         al alVar2;
-        if (this.f1986a == R.id.sign_remind) {
+        if (this.f1978a == R.id.sign_remind) {
             this.b.a(i, i2);
-            alVar2 = this.c.f1970a;
+            alVar2 = this.c.f1961a;
             alVar2.e();
-        } else if (this.f1986a == R.id.no_disturb_end_time || this.f1986a == R.id.no_disturb_start_time) {
+        } else if (this.f1978a == R.id.no_disturb_end_time || this.f1978a == R.id.no_disturb_start_time) {
             String str = ((i < 10 ? SocialConstants.FALSE : "") + i) + ":" + ((i2 < 10 ? SocialConstants.FALSE : "") + i2);
-            if (this.f1986a == R.id.no_disturb_start_time) {
+            if (this.f1978a == R.id.no_disturb_start_time) {
                 this.b.o(str);
             } else {
                 this.b.p(str);
             }
-            alVar = this.c.f1970a;
+            alVar = this.c.f1961a;
             alVar.f();
         }
     }

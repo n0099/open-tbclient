@@ -8,16 +8,16 @@ public class g {
     private static final String[][] e = {new String[]{"java.lang.Class", "new", "java.lang.Boolean", "", "", ""}, new String[]{"java.lang.Class", "new", "java.lang.Byte", "", "", ""}, new String[]{"java.lang.Class", "new", "java.lang.Character", "", "", ""}, new String[]{"java.lang.Class", "new", "java.lang.Double", "", "", ""}, new String[]{"java.lang.Class", "new", "java.lang.Float", "", "", ""}, new String[]{"java.lang.Class", "new", "java.lang.Integer", "", "", ""}, new String[]{"java.lang.Class", "new", "java.lang.Long", "", "", ""}, new String[]{"java.lang.Class", "new", "java.lang.Short", "", "", ""}, new String[]{"java.lang.Class", "new", "java.lang.String", "", "", ""}, new String[]{"java.lang.Class", "forName", "java.lang.String", "", "", ""}, new String[]{"java.lang.Class", "newInstance", "java.lang.Class", "java.lang.Integer", "", ""}, new String[]{"java.lang.reflect.Field", "get", "null", "", "", ""}, new String[]{"java.lang.Class", "forName", "java.lang.String", "", "", ""}};
 
     /* renamed from: a  reason: collision with root package name */
-    private Object f2900a;
+    private Object f2948a;
     private String b;
     private Object[] c;
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (this.f2900a == null) {
+        if (this.f2948a == null) {
             sb.append("null");
         } else {
-            Class<?> cls = this.f2900a.getClass();
+            Class<?> cls = this.f2948a.getClass();
             sb.append(cls == String.class ? "\"\"" : org.a.a.a.a.a(cls));
         }
         sb.append(String.valueOf('.') + this.b + '(');

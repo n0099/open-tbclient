@@ -15,10 +15,10 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class l implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupInfoActivity f1607a;
+    final /* synthetic */ GroupInfoActivity f1694a;
 
     private l(GroupInfoActivity groupInfoActivity) {
-        this.f1607a = groupInfoActivity;
+        this.f1694a = groupInfoActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -75,65 +75,65 @@ public class l implements com.baidu.tieba.im.messageCenter.h {
         com.baidu.tieba.im.model.c cVar28;
         n nVar12;
         if (message == null) {
-            nVar12 = this.f1607a.f;
+            nVar12 = this.f1694a.f;
             nVar12.p();
-            this.f1607a.b(R.string.neterror);
+            this.f1694a.showToast(R.string.neterror);
         } else if (message.getCmd() == -102) {
             if (!(message instanceof ResponseGroupInfoMessage)) {
-                cVar26 = this.f1607a.g;
-                cVar27 = this.f1607a.g;
+                cVar26 = this.f1694a.g;
+                cVar27 = this.f1694a.g;
                 long a2 = cVar27.a();
-                cVar28 = this.f1607a.g;
+                cVar28 = this.f1694a.g;
                 cVar26.a(a2, cVar28.b());
                 return;
             }
             ResponseGroupInfoMessage responseGroupInfoMessage = (ResponseGroupInfoMessage) message;
-            cVar18 = this.f1607a.g;
+            cVar18 = this.f1694a.g;
             if (cVar18.i() == responseGroupInfoMessage.getOrginalMessage()) {
                 if (responseGroupInfoMessage.hasError()) {
-                    cVar23 = this.f1607a.g;
-                    cVar24 = this.f1607a.g;
+                    cVar23 = this.f1694a.g;
+                    cVar24 = this.f1694a.g;
                     long a3 = cVar24.a();
-                    cVar25 = this.f1607a.g;
+                    cVar25 = this.f1694a.g;
                     cVar23.a(a3, cVar25.b());
                     return;
                 }
-                this.f1607a.e();
-                cVar19 = this.f1607a.g;
+                this.f1694a.d();
+                cVar19 = this.f1694a.g;
                 cVar19.a(responseGroupInfoMessage);
-                nVar11 = this.f1607a.f;
+                nVar11 = this.f1694a.f;
                 nVar11.a(responseGroupInfoMessage);
-                cVar20 = this.f1607a.g;
-                cVar21 = this.f1607a.g;
+                cVar20 = this.f1694a.g;
+                cVar21 = this.f1694a.g;
                 long a4 = cVar21.a();
-                cVar22 = this.f1607a.g;
+                cVar22 = this.f1694a.g;
                 cVar20.a(a4, cVar22.b());
             }
         } else if (message.getCmd() == 103004) {
-            nVar9 = this.f1607a.f;
+            nVar9 = this.f1694a.f;
             nVar9.p();
             if (!(message instanceof ResponseGroupInfoMessage)) {
-                this.f1607a.b(R.string.neterror);
+                this.f1694a.showToast(R.string.neterror);
                 return;
             }
             ResponseGroupInfoMessage responseGroupInfoMessage2 = (ResponseGroupInfoMessage) message;
-            cVar15 = this.f1607a.g;
+            cVar15 = this.f1694a.g;
             if (cVar15.j() == responseGroupInfoMessage2.getOrginalMessage()) {
                 if (!responseGroupInfoMessage2.hasError()) {
-                    this.f1607a.e();
-                    cVar16 = this.f1607a.g;
+                    this.f1694a.d();
+                    cVar16 = this.f1694a.g;
                     cVar16.a(responseGroupInfoMessage2);
                     if (responseGroupInfoMessage2 == null || responseGroupInfoMessage2.isJoin()) {
-                        nVar10 = this.f1607a.f;
+                        nVar10 = this.f1694a.f;
                         nVar10.a(responseGroupInfoMessage2, false);
                         return;
                     }
-                    String C = TiebaApplication.C();
-                    cVar17 = this.f1607a.g;
-                    v.a(C, String.valueOf(cVar17.a()), Util.MILLSECONDS_OF_MINUTE, new m(this, responseGroupInfoMessage2));
+                    String A = TiebaApplication.A();
+                    cVar17 = this.f1694a.g;
+                    v.a(A, String.valueOf(cVar17.a()), Util.MILLSECONDS_OF_MINUTE, new m(this, responseGroupInfoMessage2));
                     return;
                 }
-                this.f1607a.b(R.string.neterror);
+                this.f1694a.showToast(R.string.neterror);
             }
         } else if (message.getCmd() == 103110) {
             if (message instanceof ResponseJoinGroupMessage) {
@@ -142,90 +142,90 @@ public class l implements com.baidu.tieba.im.messageCenter.h {
                     RequestJoinGroupMessage requestJoinGroupMessage = (RequestJoinGroupMessage) orginalMessage2;
                     if (requestJoinGroupMessage.getGroupId() != null) {
                         String groupId = requestJoinGroupMessage.getGroupId();
-                        cVar13 = this.f1607a.g;
+                        cVar13 = this.f1694a.g;
                         if (groupId.equals(String.valueOf(cVar13.a()))) {
-                            nVar8 = this.f1607a.f;
+                            nVar8 = this.f1694a.f;
                             nVar8.x();
-                            cVar14 = this.f1607a.g;
+                            cVar14 = this.f1694a.g;
                             cVar14.a(true);
                         }
                     }
                 }
             }
         } else if (message.getCmd() == 103102) {
-            nVar4 = this.f1607a.f;
+            nVar4 = this.f1694a.f;
             nVar4.p();
             if (!(message instanceof ResponseUpdateGroupMessage)) {
-                this.f1607a.b(R.string.neterror);
+                this.f1694a.showToast(R.string.neterror);
                 return;
             }
             ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) message;
             if (responseUpdateGroupMessage.getErrNo() == 0) {
-                i = this.f1607a.e;
+                i = this.f1694a.e;
                 switch (i) {
                     case 1:
-                        cVar11 = this.f1607a.g;
+                        cVar11 = this.f1694a.g;
                         cVar11.g();
                         break;
                     case 2:
-                        cVar10 = this.f1607a.g;
+                        cVar10 = this.f1694a.g;
                         cVar10.f();
                         break;
                     case 3:
-                        cVar9 = this.f1607a.g;
+                        cVar9 = this.f1694a.g;
                         cVar9.h();
                         break;
                     case 4:
-                        xVar = this.f1607a.j;
+                        xVar = this.f1694a.h;
                         if ((xVar.f() & 1) == 1) {
-                            nVar6 = this.f1607a.f;
-                            cVar8 = this.f1607a.g;
+                            nVar6 = this.f1694a.f;
+                            cVar8 = this.f1694a.g;
                             nVar6.b(cVar8.d().isGroupManager());
                         } else {
-                            nVar5 = this.f1607a.f;
-                            cVar6 = this.f1607a.g;
+                            nVar5 = this.f1694a.f;
+                            cVar6 = this.f1694a.g;
                             nVar5.a(cVar6.d().isGroupManager());
                         }
-                        cVar7 = this.f1607a.g;
+                        cVar7 = this.f1694a.g;
                         GroupData group = cVar7.d().getGroup();
-                        xVar2 = this.f1607a.j;
+                        xVar2 = this.f1694a.h;
                         group.setFlag(xVar2.f());
-                        this.f1607a.b(R.string.group_address_success);
+                        this.f1694a.showToast(R.string.group_address_success);
                         break;
                 }
-                nVar7 = this.f1607a.f;
-                cVar12 = this.f1607a.g;
+                nVar7 = this.f1694a.f;
+                cVar12 = this.f1694a.g;
                 nVar7.b(cVar12.d());
                 return;
             }
-            this.f1607a.a(responseUpdateGroupMessage.getErrMsg());
+            this.f1694a.showToast(responseUpdateGroupMessage.getErrMsg());
         } else if (message.getCmd() == 103112 && (message instanceof ResponseRemoveMembersMessage)) {
             ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) message;
             if (!responseRemoveMembersMessage.hasError() && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
                 RequestRemoveMembersMessage requestRemoveMembersMessage = (RequestRemoveMembersMessage) orginalMessage;
                 long groupId2 = requestRemoveMembersMessage.getGroupId();
-                cVar = this.f1607a.g;
+                cVar = this.f1694a.g;
                 if (groupId2 == cVar.a()) {
                     String userIds = requestRemoveMembersMessage.getUserIds();
                     if (!TextUtils.isEmpty(userIds) && (split = userIds.split(",")) != null && split.length != 0) {
-                        String id = TiebaApplication.G().getID();
+                        String id = TiebaApplication.E().getID();
                         if (!TextUtils.isEmpty(id)) {
                             for (String str : split) {
                                 if (id.equals(str)) {
-                                    cVar2 = this.f1607a.g;
+                                    cVar2 = this.f1694a.g;
                                     cVar2.d().setJoin(false);
-                                    cVar3 = this.f1607a.g;
+                                    cVar3 = this.f1694a.g;
                                     cVar3.a(false);
-                                    nVar = this.f1607a.f;
-                                    cVar4 = this.f1607a.g;
+                                    nVar = this.f1694a.f;
+                                    cVar4 = this.f1694a.g;
                                     nVar.a(cVar4.d());
-                                    nVar2 = this.f1607a.f;
+                                    nVar2 = this.f1694a.f;
                                     nVar2.c(str);
                                     return;
                                 }
-                                cVar5 = this.f1607a.g;
+                                cVar5 = this.f1694a.g;
                                 if (cVar5.a(str)) {
-                                    nVar3 = this.f1607a.f;
+                                    nVar3 = this.f1694a.f;
                                     nVar3.c(str);
                                 }
                             }

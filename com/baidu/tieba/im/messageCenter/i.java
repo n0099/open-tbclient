@@ -6,20 +6,20 @@ import com.baidu.tieba.im.SingleRunnable;
 public class i extends SingleRunnable<s> {
 
     /* renamed from: a  reason: collision with root package name */
-    private s f1646a;
+    private s f1733a;
 
     public i(s sVar) {
-        this.f1646a = null;
-        this.f1646a = sVar;
+        this.f1733a = null;
+        this.f1733a = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public s b() {
-        if (this.f1646a != null) {
-            this.f1646a.a();
+        if (this.f1733a != null) {
+            this.f1733a.a();
         }
-        return this.f1646a;
+        return this.f1733a;
     }
 }

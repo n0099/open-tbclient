@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public abstract class g extends com.baidu.adp.a.e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private DialogInterface.OnClickListener f1712a;
+    private DialogInterface.OnClickListener f1799a;
     protected EditText c;
     protected NavigationBar d;
     protected View e;
@@ -34,7 +34,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void a(DialogInterface.OnClickListener onClickListener) {
-        this.f1712a = onClickListener;
+        this.f1799a = onClickListener;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -69,7 +69,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     public g(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.f1712a = null;
+        this.f1799a = null;
         this.p = null;
         this.c = null;
         this.d = null;
@@ -109,7 +109,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public String c_() {
+    public String f_() {
         return this.j;
     }
 
@@ -140,11 +140,11 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     protected void n() {
         if (this.m) {
-            bb.e((View) this.f, (int) R.drawable.btn_step);
+            bd.e((View) this.f, (int) R.drawable.btn_step);
             this.f.setTextColor(this.h.getResources().getColorStateList(R.drawable.btn_step_color));
             return;
         }
-        bb.e((View) this.f, (int) R.drawable.but_head_bar_d);
+        bd.e((View) this.f, (int) R.drawable.but_head_bar_d);
         this.f.setTextColor(this.h.getResources().getColor(R.color.widget_nb_txtbtn_color_n));
     }
 
@@ -161,10 +161,10 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void b(int i) {
-        this.h.m().a(false);
-        this.h.m().a(this.e);
-        this.d.b(0);
-        bb.b(this.e, 0);
+        this.h.getLayoutMode().a(false);
+        this.h.getLayoutMode().a(this.e);
+        this.d.c(0);
+        bd.b(this.e, 0);
         n();
     }
 
@@ -185,7 +185,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void d_() {
+    public void g_() {
         new AlertDialog.Builder(this.h).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.group_update_alert_save).setPositiveButton(R.string.group_update_canel, new j(this)).setNegativeButton(R.string.group_update_done, new i(this)).create().show();
     }
 }

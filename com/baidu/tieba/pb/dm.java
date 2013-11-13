@@ -1,29 +1,20 @@
 package com.baidu.tieba.pb;
 
 import android.view.View;
-import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dm implements AdapterView.OnItemLongClickListener {
+public class dm implements View.OnLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dd f2126a;
+    final /* synthetic */ cp f2145a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dm(dd ddVar) {
-        this.f2126a = ddVar;
+    public dm(cp cpVar) {
+        this.f2145a = cpVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        View.OnLongClickListener onLongClickListener;
-        View.OnLongClickListener onLongClickListener2;
-        onLongClickListener = this.f2126a.I;
-        if (onLongClickListener != null) {
-            onLongClickListener2 = this.f2126a.I;
-            onLongClickListener2.onLongClick(view);
-            return false;
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
         return false;
     }
 }

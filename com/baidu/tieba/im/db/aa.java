@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private static aa f1511a;
+    private static aa f1602a;
     private ag b;
 
     private aa() {
@@ -20,10 +20,10 @@ public class aa {
     public static synchronized aa a() {
         aa aaVar;
         synchronized (aa.class) {
-            if (f1511a == null) {
-                f1511a = new aa();
+            if (f1602a == null) {
+                f1602a = new aa();
             }
-            aaVar = f1511a;
+            aaVar = f1602a;
         }
         return aaVar;
     }

@@ -8,7 +8,7 @@ import javassist.h;
 public final class TransformFieldAccess extends Transformer {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2800a;
+    private String f2848a;
     private String b;
     private String c;
     private h d;
@@ -30,7 +30,7 @@ public final class TransformFieldAccess extends Transformer {
             String a2 = TransformReadField.a(hVar.a(), yVar, this.d, this.c, this.e, codeIterator.d(i + 1));
             if (a2 != null) {
                 if (this.g == 0) {
-                    this.g = yVar.b(yVar.a(this.f2800a), yVar.a(this.b, a2));
+                    this.g = yVar.b(yVar.a(this.f2848a), yVar.a(this.b, a2));
                     this.h = yVar;
                 }
                 codeIterator.b(this.g, i + 1);

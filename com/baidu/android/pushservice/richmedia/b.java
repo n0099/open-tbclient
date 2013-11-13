@@ -3,6 +3,7 @@ package com.baidu.android.pushservice.richmedia;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import com.baidu.android.pushservice.util.PushDatabase;
 import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -25,7 +26,7 @@ import org.apache.http.HttpResponse;
 public class b extends AsyncTask implements Comparable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected s f717a;
+    protected s f732a;
     public WeakReference b;
     public n d;
     private static HashSet h = new HashSet();
@@ -37,7 +38,7 @@ public class b extends AsyncTask implements Comparable {
     protected long c = System.currentTimeMillis();
 
     public b(Context context, s sVar) {
-        this.f717a = sVar;
+        this.f732a = sVar;
         this.b = new WeakReference(context);
     }
 
@@ -53,16 +54,16 @@ public class b extends AsyncTask implements Comparable {
         }
     }
 
-    private com.baidu.android.pushservice.util.i a(Context context, String str) {
-        List b = com.baidu.android.pushservice.util.e.b(com.baidu.android.pushservice.util.e.a(context));
-        if (b != null) {
+    private com.baidu.android.pushservice.util.j a(Context context, String str) {
+        List selectFileDownloadingInfo = PushDatabase.selectFileDownloadingInfo(PushDatabase.getDb(context));
+        if (selectFileDownloadingInfo != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= b.size()) {
+                if (i2 >= selectFileDownloadingInfo.size()) {
                     break;
-                } else if (((com.baidu.android.pushservice.util.i) b.get(i2)).b.equalsIgnoreCase(str)) {
-                    return (com.baidu.android.pushservice.util.i) b.get(i2);
+                } else if (((com.baidu.android.pushservice.util.j) selectFileDownloadingInfo.get(i2)).b.equalsIgnoreCase(str)) {
+                    return (com.baidu.android.pushservice.util.j) selectFileDownloadingInfo.get(i2);
                 } else {
                     i = i2 + 1;
                 }
@@ -159,12 +160,12 @@ public class b extends AsyncTask implements Comparable {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public r doInBackground(n... nVarArr) {
-        com.baidu.android.pushservice.util.i iVar;
+        com.baidu.android.pushservice.util.j jVar;
         r rVar = new r();
         this.d = nVarArr[0];
         rVar.d = this.d;
         if (this.d != null) {
-            rVar.f732a = this.d.b();
+            rVar.f747a = this.d.b();
             if (this.d.b == null) {
                 if (com.baidu.android.pushservice.b.a()) {
                     Log.d("HttpTask", "download file Request error: " + this.d);
@@ -172,56 +173,56 @@ public class b extends AsyncTask implements Comparable {
                 rVar.c = 3;
             } else if (!a(this.d)) {
                 this.g.c("Request url: " + this.d.d() + " failed, already in queue");
-                this.f717a = null;
+                this.f732a = null;
                 this.d = null;
                 return null;
             } else {
-                com.baidu.android.pushservice.util.i a2 = a((Context) this.b.get(), this.d.d());
+                com.baidu.android.pushservice.util.j a2 = a((Context) this.b.get(), this.d.d());
                 if (a2 == null) {
-                    iVar = new com.baidu.android.pushservice.util.i();
-                    iVar.b = this.d.d();
-                    iVar.f742a = this.d.f729a;
-                    iVar.c = this.d.c;
-                    iVar.d = this.d.d;
-                    iVar.g = 0;
-                    iVar.h = a(iVar.b);
-                    iVar.i = e;
-                    iVar.f = iVar.b.substring(iVar.b.lastIndexOf(47) + 1);
-                    iVar.e = this.d.b;
-                    com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a((Context) this.b.get()), iVar);
+                    jVar = new com.baidu.android.pushservice.util.j();
+                    jVar.b = this.d.d();
+                    jVar.f758a = this.d.f744a;
+                    jVar.c = this.d.c;
+                    jVar.d = this.d.d;
+                    jVar.g = 0;
+                    jVar.h = a(jVar.b);
+                    jVar.i = e;
+                    jVar.f = jVar.b.substring(jVar.b.lastIndexOf(47) + 1);
+                    jVar.e = this.d.b;
+                    PushDatabase.insertFileDownloadingInfo(PushDatabase.getDb((Context) this.b.get()), jVar);
                 } else {
                     a2.h = a(a2.b);
-                    iVar = a2;
+                    jVar = a2;
                 }
-                if (iVar.i == f) {
+                if (jVar.i == f) {
                     rVar.c = 0;
                     rVar.d = this.d;
-                    rVar.e = iVar.e + "/" + iVar.f;
+                    rVar.e = jVar.e + "/" + jVar.f;
                     return rVar;
                 }
                 this.g.b("Request url: " + this.d.d() + " success");
-                if (this.f717a != null) {
-                    this.f717a.a(this);
+                if (this.f732a != null) {
+                    this.f732a.a(this);
                 }
                 try {
                     HttpResponse a3 = new a().a(this.d.c(), this.d.d(), this.d.a(), this.d.f);
                     if (a3.getStatusLine().getStatusCode() == 200) {
                         InputStream content = a3.getEntity().getContent();
-                        File file = new File(iVar.e);
+                        File file = new File(jVar.e);
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        File file2 = new File(iVar.e + "/" + iVar.f);
+                        File file2 = new File(jVar.e + "/" + jVar.f);
                         if (!file2.exists()) {
                             file2.createNewFile();
                         }
                         RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
-                        randomAccessFile.seek(iVar.g);
+                        randomAccessFile.seek(jVar.g);
                         byte[] bArr = new byte[102400];
-                        int i = iVar.g;
+                        int i = jVar.g;
                         m mVar = new m();
-                        mVar.b = iVar.h;
-                        mVar.f728a = i;
+                        mVar.b = jVar.h;
+                        mVar.f743a = i;
                         publishProgress(mVar);
                         while (true) {
                             if (this.i) {
@@ -237,28 +238,28 @@ public class b extends AsyncTask implements Comparable {
                             randomAccessFile.write(bArr, 0, read);
                             int i2 = read + i;
                             m mVar2 = new m();
-                            mVar2.b = iVar.h;
-                            mVar2.f728a = i2;
+                            mVar2.b = jVar.h;
+                            mVar2.f743a = i2;
                             publishProgress(mVar2);
-                            if (i2 == iVar.h) {
+                            if (i2 == jVar.h) {
                                 i = i2;
                                 break;
                             }
                             Thread.sleep(500L);
-                            iVar.g = i2;
-                            com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a((Context) this.b.get()), iVar.b, iVar);
+                            jVar.g = i2;
+                            PushDatabase.updateFileDownloadingInfo(PushDatabase.getDb((Context) this.b.get()), jVar.b, jVar);
                             i = i2;
                         }
                         content.close();
                         randomAccessFile.close();
                         if (this.i) {
-                            com.baidu.android.pushservice.util.e.b(com.baidu.android.pushservice.util.e.a((Context) this.b.get()), iVar.b);
+                            PushDatabase.deleteFileDownloadingInfo(PushDatabase.getDb((Context) this.b.get()), jVar.b);
                             rVar.c = 2;
                             file2.delete();
                         } else {
-                            iVar.g = i;
-                            iVar.i = f;
-                            com.baidu.android.pushservice.util.e.a(com.baidu.android.pushservice.util.e.a((Context) this.b.get()), iVar.b, iVar);
+                            jVar.g = i;
+                            jVar.i = f;
+                            PushDatabase.updateFileDownloadingInfo(PushDatabase.getDb((Context) this.b.get()), jVar.b, jVar);
                             rVar.c = 0;
                             rVar.e = file2.getAbsolutePath();
                         }
@@ -283,27 +284,27 @@ public class b extends AsyncTask implements Comparable {
     /* renamed from: a */
     public void onPostExecute(r rVar) {
         try {
-            if (this.f717a == null || rVar == null) {
+            if (this.f732a == null || rVar == null) {
                 return;
             }
             if (rVar.c == 0) {
                 String str = rVar.e;
-                if (rVar.f732a == o.REQ_TYPE_GET_ZIP && str != null) {
+                if (rVar.f747a == o.REQ_TYPE_GET_ZIP && str != null) {
                     String substring = str.substring(0, str.lastIndexOf("."));
                     File file = new File(str);
                     a(file, substring);
                     file.delete();
                     rVar.e = substring;
                 }
-                this.f717a.a(this, rVar);
+                this.f732a.a(this, rVar);
             } else if (rVar.c == 1) {
-                this.f717a.a(this, new Throwable("error: response http error errorCode=" + rVar.b));
+                this.f732a.a(this, new Throwable("error: response http error errorCode=" + rVar.b));
             } else if (rVar.c == 3) {
-                this.f717a.a(this, new Throwable("error: request error,request is null or fileName is null."));
+                this.f732a.a(this, new Throwable("error: request error,request is null or fileName is null."));
             } else if (rVar.c == 2) {
-                this.f717a.b(this);
+                this.f732a.b(this);
             } else if (rVar.c == -1) {
-                this.f717a.a(this, new Throwable("IOException"));
+                this.f732a.a(this, new Throwable("IOException"));
             }
         } finally {
             b(this.d);
@@ -315,15 +316,15 @@ public class b extends AsyncTask implements Comparable {
     @Override // android.os.AsyncTask
     /* renamed from: a */
     public void onProgressUpdate(m... mVarArr) {
-        if (this.f717a != null) {
-            this.f717a.a(this, mVarArr[0]);
+        if (this.f732a != null) {
+            this.f732a.a(this, mVarArr[0]);
         }
     }
 
     @Override // android.os.AsyncTask
     protected void onCancelled() {
-        if (this.f717a != null) {
-            this.f717a.b(this);
+        if (this.f732a != null) {
+            this.f732a.b(this);
         }
         b(this.d);
         this.i = true;

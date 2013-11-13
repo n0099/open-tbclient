@@ -85,8 +85,8 @@ public class GifView extends ImageView implements a {
     public void a(boolean z, int i) {
         if (z) {
             if (this.f487a != null) {
-                switch (e.f492a[this.g.ordinal()]) {
-                    case 1:
+                switch (this.g) {
+                    case WAIT_FINISH:
                         if (i == -1) {
                             if (this.f487a.b() > 1) {
                                 new f(this, null).start();
@@ -97,7 +97,7 @@ public class GifView extends ImageView implements a {
                             }
                         }
                         return;
-                    case 2:
+                    case COVER:
                         if (i == 1) {
                             this.b = this.f487a.c();
                             a();
@@ -116,7 +116,7 @@ public class GifView extends ImageView implements a {
                         } else {
                             return;
                         }
-                    case 3:
+                    case SYNC_DECODER:
                         if (i == 1) {
                             this.b = this.f487a.c();
                             a();

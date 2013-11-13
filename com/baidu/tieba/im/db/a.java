@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1510a = "tb_group_msg_";
+    public static String f1601a = "tb_group_msg_";
     private static a b;
     private AtomicInteger c = new AtomicInteger(0);
 
@@ -35,7 +35,7 @@ public class a {
         int i = 0;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1510a + str;
+                String str2 = f1601a + str;
                 SQLiteDatabase a2 = m.a();
                 Cursor cursor = null;
                 if (a2 != null) {
@@ -44,17 +44,17 @@ public class a {
                         com.baidu.adp.lib.h.d.d("sql:" + str3);
                         cursor = a2.rawQuery(str3, new String[]{String.valueOf(1)});
                         if (cursor == null || !cursor.moveToNext()) {
-                            com.baidu.tieba.util.g.a(cursor);
+                            com.baidu.tieba.util.o.a(cursor);
                         } else {
                             i = cursor.getInt(0);
-                            com.baidu.tieba.util.g.a(cursor);
+                            com.baidu.tieba.util.o.a(cursor);
                         }
                     } catch (SQLiteException e) {
                         e.printStackTrace();
-                        com.baidu.tieba.util.g.a(cursor);
+                        com.baidu.tieba.util.o.a(cursor);
                     } catch (Exception e2) {
                         e2.printStackTrace();
-                        com.baidu.tieba.util.g.a(cursor);
+                        com.baidu.tieba.util.o.a(cursor);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class a {
                 SQLiteDatabase a2 = m.a();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("read_flag", (Integer) 0);
-                a2.update(f1510a + str, contentValues, null, null);
+                a2.update(f1601a + str, contentValues, null, null);
             } catch (Exception e) {
                 e.printStackTrace();
                 d(str);
@@ -81,7 +81,7 @@ public class a {
         GroupMsgPojo groupMsgPojo = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1510a + str;
+                String str2 = f1601a + str;
                 SQLiteDatabase a2 = m.a();
                 try {
                     if (a2 != null) {
@@ -92,7 +92,7 @@ public class a {
                             try {
                                 GroupMsgPojo groupMsgPojo2 = new GroupMsgPojo();
                                 if (cursor == null || !cursor.moveToNext()) {
-                                    com.baidu.tieba.util.g.a(cursor);
+                                    com.baidu.tieba.util.o.a(cursor);
                                 } else {
                                     groupMsgPojo2.setGid(str);
                                     groupMsgPojo2.setContent(cursor.getString(cursor.getColumnIndex("content")));
@@ -103,19 +103,19 @@ public class a {
                                     groupMsgPojo2.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
                                     groupMsgPojo2.setUid(cursor.getString(cursor.getColumnIndex("uid")));
                                     groupMsgPojo2.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
-                                    com.baidu.tieba.util.g.a(cursor);
+                                    com.baidu.tieba.util.o.a(cursor);
                                     groupMsgPojo = groupMsgPojo2;
                                 }
                             } catch (SQLiteException e) {
                                 e = e;
                                 e.printStackTrace();
                                 d(str);
-                                com.baidu.tieba.util.g.a(cursor);
+                                com.baidu.tieba.util.o.a(cursor);
                                 return groupMsgPojo;
                             } catch (Exception e2) {
                                 e = e2;
                                 e.printStackTrace();
-                                com.baidu.tieba.util.g.a(cursor);
+                                com.baidu.tieba.util.o.a(cursor);
                                 return groupMsgPojo;
                             }
                         } catch (SQLiteException e3) {
@@ -127,7 +127,7 @@ public class a {
                         } catch (Throwable th) {
                             cursor = null;
                             th = th;
-                            com.baidu.tieba.util.g.a(cursor);
+                            com.baidu.tieba.util.o.a(cursor);
                             throw th;
                         }
                     }
@@ -159,7 +159,7 @@ public class a {
                     i = 20;
                 }
                 LinkedList<GroupMsgPojo> linkedList2 = new LinkedList<>();
-                ?? r2 = f1510a + str;
+                ?? r2 = f1601a + str;
                 SQLiteDatabase a2 = m.a();
                 try {
                     if (a2 == null) {
@@ -193,19 +193,19 @@ public class a {
                                         e2 = e3;
                                         e2.printStackTrace();
                                         d(str);
-                                        com.baidu.tieba.util.g.a(cursor);
+                                        com.baidu.tieba.util.o.a(cursor);
                                         linkedList = linkedList2;
                                         return linkedList;
                                     } catch (Exception e4) {
                                         e = e4;
                                         e.printStackTrace();
-                                        com.baidu.tieba.util.g.a(cursor);
+                                        com.baidu.tieba.util.o.a(cursor);
                                         linkedList = linkedList2;
                                         return linkedList;
                                     }
                                 }
                             }
-                            com.baidu.tieba.util.g.a(cursor);
+                            com.baidu.tieba.util.o.a(cursor);
                         } catch (SQLiteException e5) {
                             cursor = null;
                             e2 = e5;
@@ -215,7 +215,7 @@ public class a {
                         } catch (Throwable th) {
                             r2 = 0;
                             th = th;
-                            com.baidu.tieba.util.g.a((Cursor) r2);
+                            com.baidu.tieba.util.o.a((Cursor) r2);
                             throw th;
                         }
                         linkedList = linkedList2;
@@ -251,7 +251,7 @@ public class a {
     public synchronized void d(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1510a + str;
+                String str2 = f1601a + str;
                 SQLiteDatabase a2 = m.a();
                 if (a2 != null) {
                     String str3 = "CREATE TABLE IF NOT EXISTS " + str2 + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob,read_flag int);";

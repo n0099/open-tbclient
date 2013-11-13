@@ -7,7 +7,7 @@ import org.msgpack.type.r;
 public abstract class AbstractPacker implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected org.msgpack.a f2849a;
+    protected org.msgpack.a f2897a;
 
     protected abstract void a(byte[] bArr, int i, int i2);
 
@@ -33,7 +33,7 @@ public abstract class AbstractPacker implements a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractPacker(org.msgpack.a aVar) {
-        this.f2849a = aVar;
+        this.f2897a = aVar;
     }
 
     @Override // org.msgpack.packer.a
@@ -133,7 +133,7 @@ public abstract class AbstractPacker implements a {
         if (obj == null) {
             d();
         } else {
-            this.f2849a.a((Class) obj.getClass()).a(this, obj);
+            this.f2897a.a((Class) obj.getClass()).a(this, obj);
         }
         return this;
     }

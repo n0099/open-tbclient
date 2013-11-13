@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.g;
+import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.o;
 import com.tencent.mm.sdk.conversation.RConversation;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList<Integer> f1157a = new LinkedList<>();
+    private LinkedList<Integer> f1188a = new LinkedList<>();
 
     public void a() {
         new b(this).start();
@@ -36,7 +36,7 @@ public class a {
             a2.insert("chat_msgs", null, contentValues);
             return true;
         } catch (Throwable th) {
-            be.b("DatabaseService", "addChatMessage", th.getMessage());
+            bg.b("DatabaseService", "addChatMessage", th.getMessage());
             return false;
         }
     }
@@ -49,11 +49,11 @@ public class a {
             return a(a2, cursor, i);
         } catch (Throwable th) {
             try {
-                be.b("DatabaseService", "listChatMessagesByFriendId", th.getMessage());
-                g.a(cursor);
+                bg.b("DatabaseService", "listChatMessagesByFriendId", th.getMessage());
+                o.a(cursor);
                 return new LinkedList();
             } finally {
-                g.a(cursor);
+                o.a(cursor);
             }
         }
     }
@@ -101,17 +101,17 @@ public class a {
     }
 
     protected void a(int i) {
-        if (!this.f1157a.contains(Integer.valueOf(i))) {
-            this.f1157a.add(Integer.valueOf(i));
+        if (!this.f1188a.contains(Integer.valueOf(i))) {
+            this.f1188a.add(Integer.valueOf(i));
         }
     }
 
     protected void a(SQLiteDatabase sQLiteDatabase) {
-        if (!this.f1157a.isEmpty()) {
+        if (!this.f1188a.isEmpty()) {
             sQLiteDatabase.beginTransaction();
-            while (!this.f1157a.isEmpty()) {
+            while (!this.f1188a.isEmpty()) {
                 try {
-                    sQLiteDatabase.delete("chat_msgs", "pk = ?", new String[]{String.valueOf(this.f1157a.removeFirst().intValue())});
+                    sQLiteDatabase.delete("chat_msgs", "pk = ?", new String[]{String.valueOf(this.f1188a.removeFirst().intValue())});
                 } finally {
                     sQLiteDatabase.endTransaction();
                 }
@@ -130,7 +130,7 @@ public class a {
                 a2.delete("chat_msgs", "ownerId = ?", new String[]{str});
             }
         } catch (Throwable th) {
-            be.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
+            bg.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
         }
     }
 
@@ -158,7 +158,7 @@ public class a {
             a2.setTransactionSuccessful();
             a2.endTransaction();
         } catch (Throwable th) {
-            be.b("DatabaseService", "addAndOverrideRecentChatFriends", th.getMessage());
+            bg.b("DatabaseService", "addAndOverrideRecentChatFriends", th.getMessage());
         }
     }
 
@@ -184,7 +184,7 @@ public class a {
             }
             com.baidu.adp.lib.h.d.d("affectedRows:" + update + " msg.ownerName:" + recentChatFriendData.ownerName + " msg.ownerId:" + recentChatFriendData.ownerId + " unreadCount" + recentChatFriendData.getUnReadCount());
         } catch (Throwable th) {
-            be.b("DatabaseService", "addOrUpdateRecentChatFriend", th.getMessage());
+            bg.b("DatabaseService", "addOrUpdateRecentChatFriend", th.getMessage());
         }
     }
 
@@ -218,11 +218,11 @@ public class a {
             return linkedList;
         } catch (Throwable th) {
             try {
-                be.b("DatabaseService", "listRecentChatFriends", th.getMessage());
-                g.a(cursor);
+                bg.b("DatabaseService", "listRecentChatFriends", th.getMessage());
+                o.a(cursor);
                 return new LinkedList();
             } finally {
-                g.a(cursor);
+                o.a(cursor);
             }
         }
     }
@@ -234,9 +234,9 @@ public class a {
             return null;
         }
         try {
-            cursor = DatabaseService.a().rawQuery("SELECT * FROM chat_recent_friends where ownerId = ? and ownerName = ? and friendId = ? order by serverTime desc", new String[]{TiebaApplication.C(), String.valueOf(i), str});
+            cursor = DatabaseService.a().rawQuery("SELECT * FROM chat_recent_friends where ownerId = ? and ownerName = ? and friendId = ? order by serverTime desc", new String[]{TiebaApplication.A(), String.valueOf(i), str});
             try {
-                com.baidu.adp.lib.h.d.d("query:" + TiebaApplication.C() + "___" + i + " gid:" + str);
+                com.baidu.adp.lib.h.d.d("query:" + TiebaApplication.A() + "___" + i + " gid:" + str);
                 LinkedList<RecentChatFriendData> linkedList = new LinkedList<>();
                 while (cursor.moveToNext()) {
                     RecentChatFriendData recentChatFriendData = new RecentChatFriendData();
@@ -261,10 +261,10 @@ public class a {
             } catch (Throwable th) {
                 th = th;
                 try {
-                    be.b("DatabaseService", "listRecentChatFriends", th.getMessage());
+                    bg.b("DatabaseService", "listRecentChatFriends", th.getMessage());
                     return null;
                 } finally {
-                    g.a(cursor);
+                    o.a(cursor);
                 }
             }
         } catch (Throwable th2) {
@@ -279,7 +279,7 @@ public class a {
         try {
             a2.delete("chat_recent_friends", "ownerId = ? and friendId = ?", new String[]{str, str2});
         } catch (Throwable th) {
-            be.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
+            bg.b("DatabaseService", "deleteChatMessagesByFriendId", th.getMessage());
         }
     }
 }

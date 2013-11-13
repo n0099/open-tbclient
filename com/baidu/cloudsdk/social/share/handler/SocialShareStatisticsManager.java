@@ -14,17 +14,17 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 public class SocialShareStatisticsManager extends WidgetStatisticsManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SocialShareStatisticsManager f854a;
+    private static SocialShareStatisticsManager f868a;
 
     private SocialShareStatisticsManager(Context context) {
         super(context, SocialConfig.getInstance(context).getClientId(MediaType.BAIDU));
     }
 
     public static SocialShareStatisticsManager getInstance(Context context) {
-        if (f854a == null) {
-            f854a = new SocialShareStatisticsManager(context);
+        if (f868a == null) {
+            f868a = new SocialShareStatisticsManager(context);
         }
-        return f854a;
+        return f868a;
     }
 
     public void getBackUrl(String str, String str2, HttpResponseHandler httpResponseHandler) {

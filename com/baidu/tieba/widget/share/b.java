@@ -18,7 +18,7 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.be;
 import com.baidu.zeus.Headers;
 import com.slidingmenu.lib.R;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ import java.util.HashMap;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private LayoutInflater f2601a;
+    private LayoutInflater f2653a;
     private Context b;
     private View c;
     private TextView d;
@@ -47,8 +47,8 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.b = context;
-        this.f2601a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c = this.f2601a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
+        this.f2653a = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.c = this.f2653a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
         this.d = (TextView) this.c.findViewById(R.id.share_dialog_title);
         this.e = this.c.findViewById(R.id.share_dialog_content);
         this.l = (Button) this.c.findViewById(R.id.btnShareCancel);
@@ -109,6 +109,16 @@ public class b implements View.OnClickListener {
         }
     }
 
+    public void a(View view, View.OnClickListener onClickListener) {
+        if (view != null) {
+            this.m.addView(view);
+            if (onClickListener != null) {
+                view.setOnClickListener(onClickListener);
+            }
+            this.m.setVisibility(0);
+        }
+    }
+
     public void a() {
         if (!UtilHelper.b()) {
             UtilHelper.a(this.b, (int) R.string.share_on_no_network);
@@ -141,7 +151,7 @@ public class b implements View.OnClickListener {
                 this.p = true;
                 d dVar = new d(this.b, this.r);
                 switch (view.getId()) {
-                    case R.id.iconWeixinTimeline /* 2131100933 */:
+                    case R.id.iconWeixinTimeline /* 2131100852 */:
                         a("share_to_pyq");
                         b(MediaType.WEIXIN_TIMELINE);
                         ShareContent a2 = a(MediaType.WEIXIN_TIMELINE);
@@ -150,7 +160,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconWeixin /* 2131100934 */:
+                    case R.id.iconWeixin /* 2131100853 */:
                         a("share_to_weixin");
                         b(MediaType.WEIXIN_FRIEND);
                         ShareContent a3 = a(MediaType.WEIXIN_FRIEND);
@@ -159,7 +169,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconQZone /* 2131100935 */:
+                    case R.id.iconQZone /* 2131100854 */:
                         a("share_to_qzone");
                         b(MediaType.QZONE);
                         ShareContent a4 = a(MediaType.QZONE);
@@ -168,7 +178,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconQQWeibo /* 2131100936 */:
+                    case R.id.iconQQWeibo /* 2131100855 */:
                         a("share_to_qweibo");
                         b(MediaType.QQWEIBO);
                         ShareContent a5 = a(MediaType.QQWEIBO);
@@ -177,7 +187,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconSinaWeibo /* 2131100937 */:
+                    case R.id.iconSinaWeibo /* 2131100856 */:
                         a("share_to_sweibo");
                         b(MediaType.SINAWEIBO);
                         ShareContent a6 = a(MediaType.SINAWEIBO);
@@ -186,7 +196,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconRenren /* 2131100938 */:
+                    case R.id.iconRenren /* 2131100857 */:
                         a("share_to_renren");
                         b(MediaType.RENREN);
                         ShareContent a7 = a(MediaType.RENREN);
@@ -195,10 +205,10 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.customViewBox /* 2131100939 */:
+                    case R.id.customViewBox /* 2131100858 */:
                     default:
                         return;
-                    case R.id.btnShareCancel /* 2131100940 */:
+                    case R.id.btnShareCancel /* 2131100859 */:
                         a("share_cancel");
                         this.r.b();
                         return;
@@ -222,7 +232,7 @@ public class b implements View.OnClickListener {
             this.p = true;
             if (this.q != null) {
                 String str = this.q.get(mediaType);
-                if (!bc.c(str)) {
+                if (!be.c(str)) {
                     a(str);
                 }
             }
@@ -243,7 +253,7 @@ public class b implements View.OnClickListener {
         a(this.j, R.drawable.icon_unite_share_sina, R.color.share_to, R.drawable.icon_unite_share_sina_1, R.color.share_to_1);
         a(this.k, R.drawable.icon_unite_share_renren, R.color.share_to, R.drawable.icon_unite_share_renren_1, R.color.share_to_1);
         int paddingLeft = this.d.getPaddingLeft();
-        if (TiebaApplication.g().as() == 1) {
+        if (TiebaApplication.g().ap() == 1) {
             this.e.setBackgroundResource(R.drawable.bg_unite_popup_share_down_1);
             this.d.setBackgroundResource(R.drawable.bg_unite_popup_share_up_1);
             this.d.setTextColor(this.b.getResources().getColor(R.color.share_to_1));
@@ -260,11 +270,11 @@ public class b implements View.OnClickListener {
     }
 
     private void a(TextView textView, int i, int i2, int i3, int i4) {
-        int as = TiebaApplication.g().as();
-        if (as != 1) {
+        int ap = TiebaApplication.g().ap();
+        if (ap != 1) {
             i3 = i;
         }
-        if (as != 1) {
+        if (ap != 1) {
             i4 = i2;
         }
         Drawable drawable = this.b.getResources().getDrawable(i3);

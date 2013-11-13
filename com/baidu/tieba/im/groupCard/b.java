@@ -5,21 +5,26 @@ import android.graphics.Bitmap;
 import com.baidu.adp.widget.ImageView.e;
 import com.baidu.tieba.data.h;
 import com.baidu.tieba.im.chat.LocalViewSize;
+import com.baidu.tieba.util.i;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.a.d {
     private static Long f = 0L;
     private static final Long g = 300000L;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1585a;
+    private long f1672a;
     private GroupCardActivity b;
-    private com.baidu.tieba.util.a c = null;
+    private i c = null;
     private c d = null;
-    private String e = h.f1165a + "c/p/groupShareImg?group_id=";
+    private String e = h.f1196a + "c/p/groupShareImg?group_id=";
+
+    public static void a() {
+        f = 0L;
+    }
 
     public b(long j, GroupCardActivity groupCardActivity) {
-        this.f1585a = j;
-        this.e += this.f1585a;
+        this.f1672a = j;
+        this.e += this.f1672a;
         this.e += "&w=" + LocalViewSize.a().b();
         this.b = groupCardActivity;
     }
@@ -35,7 +40,7 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public e a(Activity activity, int i, int i2, com.baidu.tbadk.imageManager.c cVar) {
-        this.c = new com.baidu.tieba.util.a(activity);
+        this.c = new i(activity);
         if (System.currentTimeMillis() - f.longValue() > g.longValue()) {
             f = Long.valueOf(System.currentTimeMillis());
         }

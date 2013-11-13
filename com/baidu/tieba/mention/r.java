@@ -5,25 +5,39 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.model.bi;
+import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.model.bj;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.ap;
 import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r extends BdAsyncTask<Object, Integer, bi> {
+public class r extends BdAsyncTask<Object, Integer, bj> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1872a;
-    private ag b = null;
+    final /* synthetic */ j f1869a;
     private String c;
     private ArrayList<BasicNameValuePair> d;
     private f e;
+    private ap b = null;
+    private bj f = null;
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void b(Integer... numArr) {
+        super.b((Object[]) numArr);
+        if (this.f != null) {
+            this.f1869a.a(this.f, true);
+        }
+    }
 
     public r(j jVar, String str, ArrayList<BasicNameValuePair> arrayList, f fVar) {
-        this.f1872a = jVar;
+        this.f1869a = jVar;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -42,44 +56,56 @@ public class r extends BdAsyncTask<Object, Integer, bi> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public bi a(Object... objArr) {
-        bi biVar;
-        Exception e;
+    public bj a(Object... objArr) {
+        p pVar;
+        String str;
         Activity activity;
         int i;
-        p pVar;
-        try {
-            this.b = new ag(this.c);
-            this.b.a(this.d);
-            ag agVar = this.b;
-            activity = this.f1872a.c;
-            agVar.a(activity);
-            String j = this.b.j();
-            if (!this.b.c() || j == null) {
-                return null;
+        p pVar2;
+        p pVar3;
+        pVar = this.f1869a.j;
+        String a2 = pVar.a();
+        if (a2 != null && a2.length() > 0) {
+            this.f = new bj();
+            this.f.a(a2);
+            if (!this.f.a()) {
+                bg.e("MentionAsyncTask", "doInBackground", "cache data format err");
+                this.f = null;
+                pVar3 = this.f1869a.j;
+                pVar3.b();
+            } else {
+                bg.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a2.length()));
+                c((Object[]) new Integer[]{0});
             }
-            biVar = new bi();
-            try {
-                biVar.a(j);
-                if (biVar.a()) {
-                    i = this.f1872a.n;
-                    if (i != 4) {
-                        pVar = this.f1872a.j;
-                        pVar.a(j);
-                        return biVar;
-                    }
-                    return biVar;
-                }
-                return null;
-            } catch (Exception e2) {
-                e = e2;
-                be.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
-                return biVar;
-            }
-        } catch (Exception e3) {
-            biVar = null;
-            e = e3;
         }
+        try {
+            str = this.f1869a.o;
+        } catch (Exception e) {
+            bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+        }
+        if (be.c(str)) {
+            return null;
+        }
+        this.b = new ap(this.c);
+        this.b.a(this.d);
+        ap apVar = this.b;
+        activity = this.f1869a.c;
+        apVar.a(activity);
+        String j = this.b.j();
+        if (this.b.c() && j != null) {
+            this.f = new bj();
+            this.f.a(j);
+            if (this.f.a()) {
+                i = this.f1869a.n;
+                if (i != 4) {
+                    pVar2 = this.f1869a.j;
+                    pVar2.a(j);
+                }
+            } else {
+                this.f = null;
+            }
+        }
+        return this.f;
     }
 
     private void a(boolean z) {
@@ -90,14 +116,14 @@ public class r extends BdAsyncTask<Object, Integer, bi> {
         BdListView bdListView3;
         BdListView bdListView4;
         if (z) {
-            i2 = this.f1872a.n;
+            i2 = this.f1869a.n;
             switch (i2) {
                 case 1:
                 case 2:
                 case 3:
-                    bdListView3 = this.f1872a.e;
+                    bdListView3 = this.f1869a.e;
                     if (bdListView3 != null) {
-                        bdListView4 = this.f1872a.e;
+                        bdListView4 = this.f1869a.e;
                         bdListView4.b();
                         return;
                     }
@@ -110,14 +136,14 @@ public class r extends BdAsyncTask<Object, Integer, bi> {
                     return;
             }
         }
-        i = this.f1872a.n;
+        i = this.f1869a.n;
         switch (i) {
             case 1:
             case 2:
             case 3:
-                bdListView = this.f1872a.e;
+                bdListView = this.f1869a.e;
                 if (bdListView != null) {
-                    bdListView2 = this.f1872a.e;
+                    bdListView2 = this.f1869a.e;
                     bdListView2.a();
                     return;
                 }
@@ -134,24 +160,24 @@ public class r extends BdAsyncTask<Object, Integer, bi> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(bi biVar) {
+    public void a(bj bjVar) {
         Fragment fragment;
         int i;
         a(false);
         if (this.b != null) {
-            if (!this.b.d() || biVar == null) {
-                fragment = this.f1872a.b;
+            if (!this.b.d() || bjVar == null) {
+                fragment = this.f1869a.b;
                 android.support.v4.app.n i2 = fragment.i();
-                if (i2 != null && (i2 instanceof MentionActivity)) {
-                    UtilHelper.a((Context) ((MentionActivity) i2), this.b.g());
+                if (i2 != null && (i2 instanceof BaseFragmentActivity)) {
+                    UtilHelper.a((Context) ((BaseFragmentActivity) i2), this.b.g());
                 }
             } else {
-                j jVar = this.f1872a;
-                i = this.f1872a.n;
-                jVar.a(biVar, i == 4);
+                j jVar = this.f1869a;
+                i = this.f1869a.n;
+                jVar.a(bjVar, i == 4);
             }
         }
-        this.f1872a.k = null;
+        this.f1869a.k = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -160,7 +186,7 @@ public class r extends BdAsyncTask<Object, Integer, bi> {
             this.b.h();
         }
         a(false);
-        this.f1872a.k = null;
+        this.f1869a.k = null;
         super.cancel(true);
     }
 }

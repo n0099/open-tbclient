@@ -8,11 +8,11 @@ import com.baidu.tieba.data.chat.RecentChatFriendData;
 public class w implements AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListFragment f1115a;
+    final /* synthetic */ ChatListFragment f1148a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(ChatListFragment chatListFragment) {
-        this.f1115a = chatListFragment;
+        this.f1148a = chatListFragment;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener
@@ -21,17 +21,17 @@ public class w implements AdapterView.OnItemLongClickListener {
         m mVar2;
         RecentChatFriendData recentChatFriendData;
         if (i >= 0) {
-            mVar = this.f1115a.aa;
+            mVar = this.f1148a.aa;
             long itemId = mVar.getItemId(i);
             if (itemId != -1 && itemId != -2) {
-                ChatListFragment chatListFragment = this.f1115a;
-                mVar2 = this.f1115a.aa;
+                ChatListFragment chatListFragment = this.f1148a;
+                mVar2 = this.f1148a.aa;
                 chatListFragment.h = (RecentChatFriendData) mVar2.getItem(i);
-                ChatListFragment chatListFragment2 = this.f1115a;
-                recentChatFriendData = this.f1115a.h;
+                ChatListFragment chatListFragment2 = this.f1148a;
+                recentChatFriendData = this.f1148a.h;
                 chatListFragment2.a(recentChatFriendData);
-                if (this.f1115a.f1084a != null) {
-                    this.f1115a.f1084a.show();
+                if (this.f1148a.f1117a != null) {
+                    this.f1148a.f1117a.show();
                 }
             }
         }

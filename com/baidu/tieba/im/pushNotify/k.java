@@ -6,16 +6,16 @@ import java.util.concurrent.ConcurrentHashMap;
 class k implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1691a;
+    final /* synthetic */ j f1778a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f1691a = jVar;
+        this.f1778a = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        a.b(this.f1691a.f1690a, concurrentHashMap);
+        a.b(this.f1778a.f1777a, concurrentHashMap);
     }
 }

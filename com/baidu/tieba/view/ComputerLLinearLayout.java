@@ -9,10 +9,10 @@ import android.widget.LinearLayout;
 public class ComputerLLinearLayout extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2473a;
+    public int f2529a;
 
     public int getChildLeft() {
-        return this.f2473a;
+        return this.f2529a;
     }
 
     public ComputerLLinearLayout(Context context, AttributeSet attributeSet) {
@@ -27,7 +27,7 @@ public class ComputerLLinearLayout extends LinearLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (getChildAt(1) instanceof ImageView) {
-            this.f2473a = ((ImageView) getChildAt(1)).getLeft();
+            this.f2529a = ((ImageView) getChildAt(1)).getLeft();
         }
     }
 }

@@ -1,23 +1,21 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-class r implements SlidingMenu.OnOpenedListener {
+class r implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1294a;
+    final /* synthetic */ q f1362a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(FrsActivity frsActivity) {
-        this.f1294a = frsActivity;
+    public r(q qVar) {
+        this.f1362a = qVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
-    public void onOpened() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1294a, "frs_total_more", "frsclick", 1);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        if (eVar == null) {
+            this.f1362a.f1361a.x();
+        } else {
+            this.f1362a.f1361a.a(eVar, false);
         }
     }
 }

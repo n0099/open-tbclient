@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class i implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f2393a;
+    final /* synthetic */ h f2452a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f2393a = hVar;
+        this.f2452a = hVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -28,28 +28,28 @@ public class i implements Animation.AnimationListener {
         TextView textView5;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.f2393a.l;
+        i = this.f2452a.k;
         if (i < 100) {
-            textView5 = this.f2393a.n;
+            textView5 = this.f2452a.m;
             StringBuilder sb = new StringBuilder();
-            topRecActivity2 = this.f2393a.k;
+            topRecActivity2 = this.f2452a.j;
             StringBuilder append = sb.append(topRecActivity2.getString(R.string.done)).append("(");
-            i2 = this.f2393a.l;
+            i2 = this.f2452a.k;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
-            textView = this.f2393a.n;
+            textView = this.f2452a.m;
             StringBuilder sb2 = new StringBuilder();
-            topRecActivity = this.f2393a.k;
+            topRecActivity = this.f2452a.j;
             textView.setText(sb2.append(topRecActivity.getString(R.string.done)).append("(99+)").toString());
         }
-        textView2 = this.f2393a.n;
+        textView2 = this.f2452a.m;
         textView2.invalidate();
-        textView3 = this.f2393a.n;
-        animation2 = this.f2393a.q;
+        textView3 = this.f2452a.m;
+        animation2 = this.f2452a.p;
         textView3.setAnimation(animation2);
-        animation3 = this.f2393a.q;
+        animation3 = this.f2452a.p;
         animation3.start();
-        textView4 = this.f2393a.n;
+        textView4 = this.f2452a.m;
         textView4.setVisibility(4);
     }
 

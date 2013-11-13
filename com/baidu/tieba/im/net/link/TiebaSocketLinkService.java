@@ -11,7 +11,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.i;
 import com.baidu.tieba.im.j;
-import com.baidu.tieba.util.o;
+import com.baidu.tieba.util.y;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class TiebaSocketLinkService extends Service {
     private static a b;
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f1679a = new b();
+    private static b f1766a = new b();
     private static final Handler c = new d();
     private static q d = new e();
 
@@ -28,7 +28,7 @@ public class TiebaSocketLinkService extends Service {
     }
 
     private boolean b(String str) {
-        o.a(str, "TiebaSocketLinkService:begin open", (String) null);
+        y.a(str, "TiebaSocketLinkService:begin open", null);
         com.baidu.adp.lib.h.d.d("启动连接");
         c.removeMessages(1);
         c.sendEmptyMessageDelayed(1, j.d);
@@ -39,7 +39,7 @@ public class TiebaSocketLinkService extends Service {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, i.a()));
-        l.a().a(j.f1635a, j.b, null, arrayList);
+        l.a().a(j.f1722a, j.b, null, arrayList);
         l.a().a(d);
     }
 
@@ -50,7 +50,7 @@ public class TiebaSocketLinkService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(int i, String str) {
-        o.a(str, "TiebaSocketLinkService:close", (String) null);
+        y.a(str, "TiebaSocketLinkService:close", null);
         com.baidu.adp.lib.h.d.d("关闭连接");
         c.removeMessages(1);
         l.a().a(i);

@@ -1,20 +1,36 @@
 package com.baidu.tieba.write;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
+class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VcodeActivity f2671a;
+    final /* synthetic */ WriteActivity f2719a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(VcodeActivity vcodeActivity) {
-        this.f2671a = vcodeActivity;
+    public t(WriteActivity writeActivity) {
+        this.f2719a = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f2671a.c((String) null);
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        InputMethodManager inputMethodManager;
+        EditText editText2;
+        InputMethodManager inputMethodManager2;
+        EditText editText3;
+        editText = this.f2719a.f;
+        if (editText.getVisibility() == 0) {
+            WriteActivity writeActivity = this.f2719a;
+            inputMethodManager2 = this.f2719a.e;
+            editText3 = this.f2719a.f;
+            writeActivity.ShowSoftKeyPad(inputMethodManager2, editText3);
+            return;
+        }
+        WriteActivity writeActivity2 = this.f2719a;
+        inputMethodManager = this.f2719a.e;
+        editText2 = this.f2719a.h;
+        writeActivity2.ShowSoftKeyPad(inputMethodManager, editText2);
     }
 }

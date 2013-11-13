@@ -17,13 +17,13 @@ import java.util.List;
 class g extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScanDownloadFile f661a;
+    final /* synthetic */ ScanDownloadFile f670a;
     final /* synthetic */ f b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, ScanDownloadFile scanDownloadFile) {
         this.b = fVar;
-        this.f661a = scanDownloadFile;
+        this.f670a = scanDownloadFile;
     }
 
     @Override // android.content.BroadcastReceiver
@@ -36,37 +36,37 @@ class g extends BroadcastReceiver {
         Context context4;
         Context context5;
         String str4;
-        str = this.b.f660a.mFilePackageName;
+        str = this.b.f669a.mFilePackageName;
         if (TextUtils.equals(str, intent.getData().getSchemeSpecificPart())) {
             try {
-                ScanDownloadFile scanDownloadFile = this.b.f660a;
-                str4 = this.b.f660a.mIntentStr;
+                ScanDownloadFile scanDownloadFile = this.b.f669a;
+                str4 = this.b.f669a.mIntentStr;
                 scanDownloadFile.mIntentStr = URLDecoder.decode(str4, BdUtil.UTF8);
             } catch (UnsupportedEncodingException e) {
             }
-            context2 = this.b.f660a.mContext;
+            context2 = this.b.f669a.mContext;
             PackageManager packageManager = context2.getPackageManager();
             try {
-                str2 = this.b.f660a.mIntentStr;
+                str2 = this.b.f669a.mIntentStr;
                 Intent parseUri = Intent.parseUri(str2, 0);
                 List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(parseUri, 0);
                 List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(parseUri, 0);
                 if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
-                    context5 = this.b.f660a.mContext;
+                    context5 = this.b.f669a.mContext;
                     context5.sendBroadcast(parseUri);
                 } else if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
                     Intent intent2 = new Intent("android.intent.action.VIEW");
-                    str3 = this.b.f660a.mIntentStr;
+                    str3 = this.b.f669a.mIntentStr;
                     intent2.setData(Uri.parse(str3));
                     intent2.addFlags(268435456);
                     try {
-                        context3 = this.b.f660a.mContext;
+                        context3 = this.b.f669a.mContext;
                         context3.startActivity(intent2);
                     } catch (ActivityNotFoundException e2) {
                     }
                 } else {
                     parseUri.addFlags(268435456);
-                    context4 = this.b.f660a.mContext;
+                    context4 = this.b.f669a.mContext;
                     context4.startActivity(parseUri);
                 }
             } catch (URISyntaxException e3) {

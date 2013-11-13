@@ -1,27 +1,35 @@
 package com.baidu.tieba.util;
 
-import java.util.TimerTask;
+import android.content.Context;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 /* loaded from: classes.dex */
-class ao extends TimerTask {
+public class ao implements MediaScannerConnection.MediaScannerConnectionClient {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkCoreByBdHttp f2425a;
+    private MediaScannerConnection f2485a;
+    private Context b;
+    private String c;
+    private String d;
 
-    private ao(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.f2425a = netWorkCoreByBdHttp;
+    public ao(Context context) {
+        this.b = context;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ao(NetWorkCoreByBdHttp netWorkCoreByBdHttp, al alVar) {
-        this(netWorkCoreByBdHttp);
+    public void a(String str) {
+        this.c = str;
+        this.d = "image/*";
+        this.f2485a = new MediaScannerConnection(this.b, this);
+        this.f2485a.connect();
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        try {
-            this.f2425a.r();
-        } catch (Exception e) {
-            be.b(getClass().getName(), "initNetWorkCore", e.getMessage());
-        }
+    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
+    public void onMediaScannerConnected() {
+        this.f2485a.scanFile(this.c, this.d);
+    }
+
+    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
+    public void onScanCompleted(String str, Uri uri) {
+        this.f2485a.disconnect();
     }
 }

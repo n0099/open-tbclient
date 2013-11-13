@@ -1,32 +1,20 @@
 package com.baidu.tieba.frs;
+
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements com.baidu.tieba.view.az {
+public class t implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1296a;
+    final /* synthetic */ FrsActivity f1364a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FrsActivity frsActivity) {
-        this.f1296a = frsActivity;
+        this.f1364a = frsActivity;
     }
 
-    @Override // com.baidu.tieba.view.az
-    public void a(boolean z) {
-        ba baVar;
-        com.baidu.tieba.model.ak akVar;
-        com.baidu.tieba.model.ak akVar2;
-        if (z) {
-            baVar = this.f1296a.o;
-            if (!baVar.g()) {
-                akVar = this.f1296a.x;
-                if (akVar != null) {
-                    akVar2 = this.f1296a.x;
-                    if (akVar2.b().size() != 0) {
-                        return;
-                    }
-                }
-                this.f1296a.C();
-            }
-        }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

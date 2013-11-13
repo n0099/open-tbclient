@@ -9,17 +9,17 @@ import java.util.Set;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private List f2725a = new ArrayList();
+    private List f2773a = new ArrayList();
     private Set b = new HashSet();
     private int c;
 
     public g(int i, int i2) {
         this.c = i;
-        this.f2725a.add(new Integer(i2));
+        this.f2773a.add(new Integer(i2));
     }
 
     public void a(int i) {
-        this.f2725a.add(new Integer(i));
+        this.f2773a.add(new Integer(i));
     }
 
     public void b(int i) {
@@ -35,10 +35,10 @@ public class g {
     }
 
     public Collection b() {
-        return this.f2725a;
+        return this.f2773a;
     }
 
     public String toString() {
-        return "start = " + this.c + " callers = " + this.f2725a.toString();
+        return "start = " + this.c + " callers = " + this.f2773a.toString();
     }
 }

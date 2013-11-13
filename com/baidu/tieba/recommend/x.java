@@ -7,13 +7,13 @@ import com.baidu.tieba.TiebaApplication;
 public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.o> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f2293a;
-    private ad b;
+    final /* synthetic */ w f2326a;
+    private com.baidu.tieba.a.l b;
     private int c;
     private String d;
 
     public x(w wVar, int i, String str) {
-        this.f2293a = wVar;
+        this.f2326a = wVar;
         this.c = i;
         this.d = str;
         setPriority(3);
@@ -25,9 +25,9 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.o> {
         y yVar;
         y yVar2;
         super.b();
-        yVar = this.f2293a.f2292a;
+        yVar = this.f2326a.b;
         if (yVar != null) {
-            yVar2 = this.f2293a.f2292a;
+            yVar2 = this.f2326a.b;
             yVar2.a();
         }
     }
@@ -36,17 +36,21 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.o> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public com.baidu.tieba.data.o a(String... strArr) {
+        String str;
         String a2;
         switch (this.c) {
             case 0:
             case 2:
-                this.b = new ad(this.c == 0);
-                a2 = this.b.a(this.d);
+                this.b = new com.baidu.tieba.a.l(this.c == 0);
+                com.baidu.tieba.a.l lVar = this.b;
+                String str2 = this.d;
+                str = this.f2326a.g;
+                a2 = lVar.a(str2, str);
                 break;
             case 1:
-                com.baidu.adp.lib.cache.s<String> bh = TiebaApplication.g().bh();
-                if (bh != null) {
-                    a2 = bh.a("dailyrecommend");
+                com.baidu.adp.lib.cache.s<String> bb = TiebaApplication.g().bb();
+                if (bb != null) {
+                    a2 = bb.a("dailyrecommend");
                     break;
                 }
             default:
@@ -57,7 +61,7 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.o> {
             if (this.c != 1 && this.b != null && this.b.b()) {
                 if (this.b.c() == 0) {
                     if (this.c == 0) {
-                        this.f2293a.b(a2);
+                        this.f2326a.b(a2);
                     }
                     return a(a2);
                 }
@@ -93,41 +97,41 @@ public class x extends BdAsyncTask<String, Integer, com.baidu.tieba.data.o> {
         com.baidu.tieba.data.o oVar5;
         super.a((x) oVar);
         if (oVar == null) {
-            yVar = this.f2293a.f2292a;
+            yVar = this.f2326a.b;
             if (yVar != null) {
                 if (this.c != 1) {
-                    yVar3 = this.f2293a.f2292a;
-                    oVar3 = this.f2293a.b;
+                    yVar3 = this.f2326a.b;
+                    oVar3 = this.f2326a.c;
                     yVar3.a(false, this.b.c() + "", oVar3, this.c);
                     return;
                 }
-                yVar2 = this.f2293a.f2292a;
-                oVar2 = this.f2293a.b;
+                yVar2 = this.f2326a.b;
+                oVar2 = this.f2326a.c;
                 yVar2.a(false, "db no data!", oVar2, this.c);
                 return;
             }
             return;
         }
         if (this.c == 1) {
-            this.f2293a.b = oVar;
-            this.f2293a.e = true;
+            this.f2326a.c = oVar;
+            this.f2326a.f = true;
         } else {
-            z = this.f2293a.e;
+            z = this.f2326a.f;
             if (z) {
-                this.f2293a.b = new com.baidu.tieba.data.o();
-                this.f2293a.e = false;
+                this.f2326a.c = new com.baidu.tieba.data.o();
+                this.f2326a.f = false;
             }
             if (this.c == 0) {
-                this.f2293a.b = oVar;
+                this.f2326a.c = oVar;
             } else {
-                oVar4 = this.f2293a.b;
+                oVar4 = this.f2326a.c;
                 oVar4.a(oVar);
             }
         }
-        yVar4 = this.f2293a.f2292a;
+        yVar4 = this.f2326a.b;
         if (yVar4 != null) {
-            yVar5 = this.f2293a.f2292a;
-            oVar5 = this.f2293a.b;
+            yVar5 = this.f2326a.b;
+            oVar5 = this.f2326a.c;
             yVar5.a(true, null, oVar5, this.c);
         }
     }

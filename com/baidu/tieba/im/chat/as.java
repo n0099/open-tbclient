@@ -1,23 +1,24 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.SingleRunnable;
+import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class as implements com.baidu.tbadk.imageManager.c {
+public final class as extends SingleRunnable<GroupSettingItemData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgleftView f1419a;
+    final /* synthetic */ int f1512a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(MsgleftView msgleftView) {
-        this.f1419a = msgleftView;
+    public as(int i) {
+        this.f1512a = i;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        HeadImageView headImageView;
-        if (eVar != null) {
-            headImageView = this.f1419a.n;
-            eVar.a(headImageView);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public GroupSettingItemData b() {
+        return com.baidu.tieba.im.groupInfo.v.a(TiebaApplication.A(), String.valueOf(this.f1512a));
     }
 }

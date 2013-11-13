@@ -7,17 +7,17 @@ import org.json.JSONObject;
 public class ProxyActivityListener implements IBaiduListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f817a;
+    private Activity f831a;
     private IBaiduListener b;
 
     public ProxyActivityListener(Activity activity, IBaiduListener iBaiduListener) {
-        this.f817a = activity;
+        this.f831a = activity;
         this.b = iBaiduListener;
     }
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onCancel() {
-        this.f817a.finish();
+        this.f831a.finish();
         if (this.b != null) {
             this.b.onCancel();
         }
@@ -25,7 +25,7 @@ public class ProxyActivityListener implements IBaiduListener {
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onComplete() {
-        this.f817a.finish();
+        this.f831a.finish();
         if (this.b != null) {
             this.b.onComplete();
         }
@@ -33,7 +33,7 @@ public class ProxyActivityListener implements IBaiduListener {
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onComplete(JSONArray jSONArray) {
-        this.f817a.finish();
+        this.f831a.finish();
         if (this.b != null) {
             this.b.onComplete(jSONArray);
         }
@@ -41,7 +41,7 @@ public class ProxyActivityListener implements IBaiduListener {
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onComplete(JSONObject jSONObject) {
-        this.f817a.finish();
+        this.f831a.finish();
         if (this.b != null) {
             this.b.onComplete(jSONObject);
         }
@@ -49,7 +49,7 @@ public class ProxyActivityListener implements IBaiduListener {
 
     @Override // com.baidu.cloudsdk.IBaiduListener
     public void onError(BaiduException baiduException) {
-        this.f817a.finish();
+        this.f831a.finish();
         if (this.b != null) {
             this.b.onError(baiduException);
         }

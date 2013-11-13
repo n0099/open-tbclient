@@ -80,7 +80,7 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             fragment = adVar.d;
             if (fragment != null) {
                 fragment2 = adVar.d;
-                if (!fragment2.m()) {
+                if (!fragment2.o()) {
                     str2 = adVar.f285a;
                     if (str2.equals(currentTabTag)) {
                         this.f = adVar;

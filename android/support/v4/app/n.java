@@ -373,8 +373,9 @@ public class n extends Activity {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         this.mStopped = true;
         this.mHandler.sendEmptyMessage(1);

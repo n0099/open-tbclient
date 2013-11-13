@@ -1,94 +1,26 @@
 package com.baidu.tieba.util;
 
-import java.io.RandomAccessFile;
+import android.content.Context;
+import android.content.DialogInterface;
+import com.baidu.tieba.account.AccountRestoreActivity;
+import com.baidu.tieba.util.AntiHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
+public final class f implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2450a;
-    private String b;
-    private com.baidu.tieba.data.e c;
-    private ag d;
-    private boolean e = false;
+    final /* synthetic */ Context f2508a;
+    final /* synthetic */ AntiHelper.PageType b;
 
-    public f(String str, com.baidu.tieba.data.e eVar, String str2) {
-        this.f2450a = null;
-        this.b = null;
-        this.c = null;
-        this.f2450a = str;
-        this.c = eVar;
-        this.b = str2;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(Context context, AntiHelper.PageType pageType) {
+        this.f2508a = context;
+        this.b = pageType;
     }
 
-    public void a() {
-        if (this.d != null) {
-            this.d.h();
-        }
-        this.e = true;
-    }
-
-    public com.baidu.tieba.data.f b() {
-        com.baidu.tieba.data.f fVar = new com.baidu.tieba.data.f();
-        long b = this.c.b();
-        long j = b % 102400 == 0 ? b / 102400 : (b / 102400) + 1;
-        int c = this.c.c();
-        if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(w.d(this.f2450a), "r");
-            be.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
-            if (randomAccessFile.skipBytes(102400 * c) >= 102400 * c) {
-                while (true) {
-                    int i = c;
-                    if (i < j) {
-                        int i2 = 102400;
-                        if (i == j - 1) {
-                            i2 = (int) (b - (102400 * (j - 1)));
-                        }
-                        byte[] bArr = new byte[i2];
-                        int read = randomAccessFile.read(bArr, 0, i2);
-                        if (read != -1) {
-                            this.d = new ag(this.b);
-                            this.d.a("md5", this.c.a());
-                            this.d.a("total_length", String.valueOf(b));
-                            this.d.a("total_num", String.valueOf(j));
-                            be.e("ChunkUploadHelper", "uploadChunkFile", String.format("total length : %d, chunk_no : %d", Long.valueOf(b), Integer.valueOf(i)));
-                            this.d.a("pic_chunk", bArr);
-                            this.d.a("offset", String.valueOf(102400 * i));
-                            this.d.a("chunk_no", String.valueOf(i + 1));
-                            this.d.a("length", String.valueOf(read));
-                            boolean z = false;
-                            if (this.e) {
-                                z = true;
-                            } else {
-                                String l = this.d.l();
-                                be.e("ChunkUploadHelper", "uploadChunkFile", "ret " + l);
-                                if (l == null || !this.d.c()) {
-                                    this.c.a(i);
-                                    DatabaseService.a(this.c);
-                                    randomAccessFile.close();
-                                    z = true;
-                                }
-                            }
-                            if (z) {
-                                fVar.a(this.d.e());
-                                fVar.a(this.d.g());
-                                fVar.a(this.c);
-                                fVar.a(false);
-                                return fVar;
-                            }
-                        }
-                        c = i + 1;
-                    } else {
-                        randomAccessFile.close();
-                        break;
-                    }
-                }
-            } else {
-                fVar.a(false);
-                randomAccessFile.close();
-                return fVar;
-            }
-        }
-        fVar.a(true);
-        return fVar;
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
+        AccountRestoreActivity.startActivity(this.f2508a, this.b);
     }
 }

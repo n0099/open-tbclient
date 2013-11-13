@@ -16,13 +16,12 @@ public class z extends d {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.a.a
     public void a(List list) {
-        b.a(list);
-        list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "unbindapp"));
-        list.add(new BasicNameValuePair("appid", this.b.f));
+        super.a(list);
+        list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "unbind"));
         if (com.baidu.android.pushservice.b.a()) {
             Iterator it = list.iterator();
             while (it.hasNext()) {
-                Log.d("UnbindApp", "UNBINDAPP param -- " + ((NameValuePair) it.next()).toString());
+                Log.d("Unbind", "UNBIND param -- " + ((NameValuePair) it.next()).toString());
             }
         }
     }

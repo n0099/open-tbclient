@@ -9,9 +9,9 @@ public class v {
             return null;
         }
         String str3 = str + "@" + str2;
-        com.baidu.adp.lib.cache.s<String> o = com.baidu.tieba.b.a.a().o();
+        com.baidu.adp.lib.cache.s<String> p = com.baidu.tieba.b.a.a().p();
         com.baidu.adp.lib.h.d.d("key is:" + str3);
-        String a2 = o.a(str3);
+        String a2 = p.a(str3);
         if (TextUtils.isEmpty(a2)) {
             com.baidu.adp.lib.h.d.d("key is:" + str3 + " value is:" + a2);
             GroupSettingItemData groupSettingItemData = new GroupSettingItemData();
@@ -39,12 +39,12 @@ public class v {
             }
             return;
         }
-        com.baidu.adp.lib.cache.s<String> o = com.baidu.tieba.b.a.a().o();
+        com.baidu.adp.lib.cache.s<String> p = com.baidu.tieba.b.a.a().p();
         String str = uid + "@" + gid;
         com.baidu.adp.lib.h.d.d(" key value is " + str);
         String json = new Gson().toJson(groupSettingItemData);
         com.baidu.adp.lib.h.d.d(" json value is " + json);
-        o.a(str, json, 315532800000L);
+        p.a(str, json, 315532800000L);
     }
 
     public static void a(String str, String str2, boolean z) {

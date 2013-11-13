@@ -1,57 +1,31 @@
 package com.baidu.tieba.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ay implements CompoundButton.OnCheckedChangeListener {
+public class ay extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2646a;
+    final /* synthetic */ WriteImageActivity f2698a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(WriteImageActivity writeImageActivity) {
-        this.f2646a = writeImageActivity;
+    private ay(WriteImageActivity writeImageActivity) {
+        this.f2698a = writeImageActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            compoundButton.setTextColor(this.f2646a.getResources().getColor(R.color.white));
-            radioButton = this.f2646a.m;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.f2646a.g;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.f2646a.o;
-                linearLayout2.setVisibility(4);
-                textView2 = this.f2646a.q;
-                textView2.setText(this.f2646a.getString(R.string.beautify));
-                return;
-            }
-            radioButton2 = this.f2646a.n;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.f2646a.g;
-                horizontalScrollView.setVisibility(4);
-                linearLayout = this.f2646a.o;
-                linearLayout.setVisibility(0);
-                textView = this.f2646a.q;
-                textView.setText(this.f2646a.getString(R.string.rotate));
-                return;
-            }
-            return;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ay(WriteImageActivity writeImageActivity, ao aoVar) {
+        this(writeImageActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.f2698a.releaseResouce();
+        if (intent.getBooleanExtra("result", false)) {
+            this.f2698a.c();
+        } else {
+            this.f2698a.showToast(intent.getStringExtra("error"));
         }
-        compoundButton.setTextColor(this.f2646a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
     }
 }

@@ -1,24 +1,18 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import android.widget.RadioButton;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae {
+class ae implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1064a;
-    public Intent b;
-    public RadioButton c;
-    public String d;
-    public int e;
-    public int f;
-
-    private ae() {
-    }
+    final /* synthetic */ LogoActivity f1098a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ae(ad adVar) {
-        this();
+    public ae(LogoActivity logoActivity) {
+        this.f1098a = logoActivity;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f1098a.releaseResouce();
+        this.f1098a.a(this.f1098a.getBaseContext());
     }
 }

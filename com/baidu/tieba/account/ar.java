@@ -6,16 +6,15 @@ import com.baidu.tieba.data.AccountData;
 public class ar implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f1030a;
+    final /* synthetic */ ap f1053a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ar(aq aqVar) {
-        this.f1030a = aqVar;
+    public ar(ap apVar) {
+        this.f1053a = apVar;
     }
 
     @Override // com.baidu.tieba.account.q
     public void a(AccountData accountData) {
-        this.f1030a.f1029a.n = accountData;
-        this.f1030a.f1029a.f();
+        this.f1053a.f1040a.c();
     }
 }

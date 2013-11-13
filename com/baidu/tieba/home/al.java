@@ -1,23 +1,19 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import android.widget.EditText;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
+class al implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1338a;
+    final /* synthetic */ ak f1405a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(SearchActivity searchActivity) {
-        this.f1338a = searchActivity;
+    public al(ak akVar) {
+        this.f1405a = akVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.f1338a.c;
-        editText.setText("");
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.cancel();
     }
 }

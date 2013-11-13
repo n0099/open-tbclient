@@ -9,15 +9,15 @@ import java.util.List;
 public class e extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private UpdatesActivity f1624a;
+    private UpdatesActivity f1711a;
     private List<UpdatesItemData> b = new ArrayList();
 
     public e(UpdatesActivity updatesActivity) {
-        this.f1624a = updatesActivity;
+        this.f1711a = updatesActivity;
     }
 
     public void a() {
-        this.f1624a = null;
+        this.f1711a = null;
     }
 
     public void a(List<UpdatesItemData> list) {
@@ -42,7 +42,7 @@ public class e extends BaseAdapter {
         if (view != null) {
             fVar = (f) view.getTag();
         }
-        f fVar2 = fVar == null ? new f(this.f1624a) : fVar;
+        f fVar2 = fVar == null ? new f(this.f1711a) : fVar;
         fVar2.a(this.b.get(i));
         return fVar2.a();
     }

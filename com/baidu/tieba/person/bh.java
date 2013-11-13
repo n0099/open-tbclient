@@ -1,45 +1,26 @@
 package com.baidu.tieba.person;
 
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class bh implements com.baidu.adp.lib.guide.b {
+class bh implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2198a;
+    final /* synthetic */ bg f2238a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(PersonInfoActivity personInfoActivity) {
-        this.f2198a = personInfoActivity;
+    public bh(bg bgVar) {
+        this.f2238a = bgVar;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        ImageView imageView = new ImageView(this.f2198a);
-        imageView.setBackgroundResource(R.drawable.tips_center_chat);
-        return imageView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 2;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 16;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return -15;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return 0;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        BdListView bdListView;
+        bdListView = this.f2238a.f2237a.b;
+        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+        if (imageView != null && eVar != null) {
+            eVar.a(imageView);
+            imageView.setTag(null);
+        }
     }
 }

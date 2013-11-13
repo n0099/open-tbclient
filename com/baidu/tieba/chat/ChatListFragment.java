@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -26,15 +27,17 @@ import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.ShutDownValidateTipView;
+import com.baidu.tieba.view.bi;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.im.pushNotify.m {
     private ShutDownValidateTipView ac;
     private DialogInterface.OnClickListener ae;
-    private LinearLayout af;
-    private com.baidu.tieba.ah ag;
-    private com.baidu.tieba.home.p ah;
+    private com.baidu.tieba.view.q af;
+    private LinearLayout ag;
+    private com.baidu.tieba.aj ah;
+    private com.baidu.tieba.home.s ai;
     private com.baidu.tieba.model.f c = null;
     private Activity d = null;
     private int e = 1;
@@ -45,19 +48,19 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
     private RelativeLayout Y = null;
     private BdListView Z = null;
     private m aa = null;
-    private com.baidu.tieba.view.ab ab = null;
+    private bi ab = null;
     private String ad = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1084a = null;
-    private boolean ai = true;
-    private com.baidu.tieba.im.a<Void> aj = new p(this);
+    AlertDialog f1117a = null;
+    private boolean aj = true;
+    private com.baidu.tieba.im.a<Void> ak = new p(this);
     com.baidu.adp.a.g b = new r(this);
-    private View.OnClickListener ak = new t(this);
-    private AdapterView.OnItemClickListener al = new u(this);
-    private AdapterView.OnItemLongClickListener am = new w(this);
-    private com.baidu.adp.widget.ListView.b an = new z(this);
-    private AbsListView.OnScrollListener ao = new aa(this);
+    private View.OnClickListener al = new t(this);
+    private AdapterView.OnItemClickListener am = new u(this);
+    private AdapterView.OnItemLongClickListener an = new w(this);
+    private com.baidu.adp.widget.ListView.b ao = new z(this);
+    private AbsListView.OnScrollListener ap = new aa(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int h(ChatListFragment chatListFragment) {
@@ -84,7 +87,6 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
         com.baidu.tieba.im.pushNotify.n.a().a("group_level_up", this);
         com.baidu.tieba.im.pushNotify.n.a().a("group_name_change", this);
         com.baidu.tieba.im.pushNotify.n.a().a("group_notice_change", this);
-        com.baidu.tieba.im.pushNotify.n.a().a("group_head_change", this);
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
@@ -92,7 +94,7 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
         this.d = i();
         View inflate = layoutInflater.inflate(R.layout.chat_list_activity, viewGroup, false);
         a(inflate);
-        F();
+        H();
         if (TiebaApplication.g().s()) {
             StatService.onEvent(this.d, "enter_chatlist", "chatlistclick", 1);
         }
@@ -110,8 +112,8 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
                 this.aa.b(true);
             }
             com.baidu.tieba.im.pushNotify.n.a().c();
-            H();
-            if (this.c.a(TiebaApplication.C(), String.valueOf(this.e))) {
+            J();
+            if (this.c.a(TiebaApplication.A(), String.valueOf(this.e))) {
             }
         }
     }
@@ -126,59 +128,58 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
             } else if (this.i == 2) {
                 this.aa.b(true);
             }
-            H();
-            if (this.c.a(TiebaApplication.C(), String.valueOf(this.e))) {
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void p() {
-        super.p();
-        if (TiebaApplication.D()) {
-            this.Z.setVisibility(0);
-            this.af.setVisibility(8);
-            if (this.ad == null) {
-                this.ad = TiebaApplication.C();
-            } else if (!this.ad.equals(TiebaApplication.C())) {
-                this.ad = TiebaApplication.C();
-                com.baidu.tieba.im.pushNotify.a.g().e();
-                this.c.b();
-                com.baidu.adp.lib.h.d.d(" change account");
-            }
-            b(this.e, 3);
-            this.g.run();
-            return;
-        }
-        if (this.ah == null) {
-            this.ah = new com.baidu.tieba.home.p(this.d, this.d.getString(R.string.login_msg_tab), this.d.getString(R.string.login_msg_form), 3);
-            this.af.addView(this.ah.e());
-            this.ah.b(TiebaApplication.g().as());
-        } else {
-            ((ViewGroup) this.ah.e().getParent()).removeAllViews();
-            this.af.addView(this.ah.e());
-            this.ah.b(TiebaApplication.g().as());
-        }
-        this.aa.a(this.c.d(TiebaApplication.C()));
-        if (this.aa.getCount() > 0) {
-            e(false);
-        }
-        this.Z.setVisibility(8);
-        this.af.setVisibility(0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void b(String str) {
-        if (str != null) {
-            String trim = str.trim();
-            if (trim.length() != 0 && !trim.contains("网络")) {
-                UtilHelper.a((Context) this.d, trim);
+            J();
+            if (this.c.a(TiebaApplication.A(), String.valueOf(this.e))) {
             }
         }
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
+        super.r();
+        if (TiebaApplication.B()) {
+            this.Z.setVisibility(0);
+            this.ag.setVisibility(8);
+            if (this.ad == null) {
+                this.ad = TiebaApplication.A();
+            } else if (!this.ad.equals(TiebaApplication.A())) {
+                this.ad = TiebaApplication.A();
+                com.baidu.tieba.im.pushNotify.a.g().e();
+                this.c.b();
+                com.baidu.adp.lib.h.d.d(" change account");
+            }
+            b(this.e, 3);
+            this.g.run();
+            try {
+                if (this.af != null) {
+                    this.Z.removeFooterView(this.af);
+                    this.af = null;
+                    return;
+                }
+                return;
+            } catch (Exception e) {
+                return;
+            }
+        }
+        if (this.ai == null) {
+            this.ai = new com.baidu.tieba.home.s(this.d, this.d.getString(R.string.login_msg_tab), this.d.getString(R.string.login_msg_form), 3);
+            this.ag.addView(this.ai.e());
+            this.ai.b(TiebaApplication.g().ap());
+        } else {
+            ((ViewGroup) this.ai.e().getParent()).removeAllViews();
+            this.ag.addView(this.ai.e());
+            this.ai.b(TiebaApplication.g().ap());
+        }
+        this.aa.a(this.c.d(TiebaApplication.A()));
+        if (this.aa.getCount() > 0) {
+            e(false);
+        }
+        this.Z.setVisibility(8);
+        this.ag.setVisibility(0);
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void t() {
         if (this.aa.b() != null) {
             this.aa.b().b();
             this.aa.a();
@@ -187,10 +188,10 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
             this.f.removeCallbacks(this.g);
         }
         com.baidu.tieba.im.pushNotify.n.a().a(this);
-        super.r();
+        super.t();
     }
 
-    private void F() {
+    private void H() {
         this.c = new com.baidu.tieba.model.f();
         this.c.setLoadDataCallBack(this.b);
         f(com.baidu.tieba.sharedPref.b.a().a("is_shut_down_validate", false) ? false : true);
@@ -199,27 +200,27 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
 
     private void a(View view) {
         this.Y = (RelativeLayout) view.findViewById(R.id.chat_list);
-        this.ag = new com.baidu.tieba.ah(view, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
+        this.ah = new com.baidu.tieba.aj(view, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
         this.ac = (ShutDownValidateTipView) view.findViewById(R.id.view_no_validate);
         this.ac.setVisibility(8);
         this.ac.setShutDownClickListener(new s(this));
-        this.af = (LinearLayout) view.findViewById(R.id.bodyNotLogin);
+        this.ag = (LinearLayout) view.findViewById(R.id.bodyNotLogin);
         this.Z = (BdListView) view.findViewById(R.id.chat_list_content);
-        this.Z.setDivider(null);
-        this.ab = new com.baidu.tieba.view.ab(this.d);
-        this.ab.a(this.an);
+        this.ab = new bi(this.d);
+        this.ab.a(this.ao);
         this.Z.setPullRefresh(this.ab);
         this.aa = new m(this.d);
         this.aa.a(this);
         this.Z.setAdapter((ListAdapter) this.aa);
-        this.aa.a(this.ak);
-        this.Z.setOnItemClickListener(this.al);
-        this.Z.setOnScrollListener(this.ao);
-        this.Z.setOnItemLongClickListener(this.am);
+        this.aa.a(this.al);
+        this.Z.setOnItemClickListener(this.am);
+        this.Z.setOnScrollListener(this.ap);
+        this.Z.setOnItemLongClickListener(this.an);
+        new com.baidu.tieba.view.q(this.d).setHeightDip(30);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void G() {
+    public void I() {
         int i;
         String friendPortrait;
         UtilHelper.NetworkStateInfo i2 = UtilHelper.i(this.d);
@@ -264,8 +265,8 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
 
     @Override // com.baidu.tieba.BaseFragment
     public void c(int i) {
-        if (this.ag != null) {
-            this.ag.a(i);
+        if (this.ah != null) {
+            this.ah.a(i);
         }
         if (this.ac != null) {
             this.ac.a(i);
@@ -273,37 +274,38 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
         if (this.ab != null) {
             this.ab.a(i);
         }
-        if (this.ah != null) {
-            this.ah.b(i);
+        if (this.ai != null) {
+            this.ai.b(i);
         }
         if (i == 1) {
-            this.Y.setBackgroundColor(-13618114);
-            if (this.ag.c()) {
+            this.Y.setBackgroundColor(-14538444);
+            if (this.ah.c()) {
                 this.Z.setDivider(this.d.getResources().getDrawable(17170445));
-                return;
             } else {
-                this.Z.setDivider(this.d.getResources().getDrawable(R.drawable.list_divider_1));
-                return;
+                this.Z.setDivider(new ColorDrawable(this.d.getResources().getColor(R.color.night_divider)));
             }
+            this.Z.setDividerHeight(UtilHelper.a((Context) this.d, 1.0f));
+            return;
         }
         this.Y.setBackgroundColor(-197380);
-        if (this.ag.c()) {
+        if (this.ah.c()) {
             this.Z.setDivider(this.d.getResources().getDrawable(17170445));
         } else {
-            this.Z.setDivider(this.d.getResources().getDrawable(R.drawable.list_divider));
+            this.Z.setDivider(new ColorDrawable(this.d.getResources().getColor(R.color.day_divider)));
         }
+        this.Z.setDividerHeight(UtilHelper.a((Context) this.d, 1.0f));
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
-    public void c() {
-        super.c();
-        this.ag.a();
+    public void c_() {
+        super.c_();
+        this.ah.a();
     }
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void d() {
         super.d();
-        this.ag.b();
+        this.ah.b();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -333,13 +335,13 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
         AlertDialog.Builder builder = new AlertDialog.Builder(this.d);
         builder.setTitle(R.string.operation);
         builder.setItems(new String[]{string}, this.ae);
-        this.f1084a = builder.create();
-        this.f1084a.setCanceledOnTouchOutside(true);
+        this.f1117a = builder.create();
+        this.f1117a.setCanceledOnTouchOutside(true);
     }
 
     public void a(boolean z) {
         if (z) {
-            if (E() && this.ac.getVisibility() != 0) {
+            if (G() && this.ac.getVisibility() != 0) {
                 this.ac.setVisibility(0);
             }
         } else if (this.ac.getVisibility() != 8) {
@@ -365,9 +367,9 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
     public void e(boolean z) {
         com.baidu.adp.lib.h.d.d("is show no data:" + z);
         if (z) {
-            this.ag.b(0);
+            this.ah.b(0);
         } else {
-            this.ag.b(8);
+            this.ah.b(8);
         }
     }
 
@@ -378,21 +380,21 @@ public class ChatListFragment extends BaseFragment implements com.baidu.tbadk.im
 
     @Override // com.baidu.tieba.im.pushNotify.m
     public void a(GroupNewsPojo groupNewsPojo) {
-        H();
+        J();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void H() {
+    public void J() {
         if (this.c != null) {
-            this.c.a(this.aj);
+            this.c.a(this.ak);
         }
     }
 
-    public boolean E() {
-        return this.ai;
+    public boolean G() {
+        return this.aj;
     }
 
     public void f(boolean z) {
-        this.ai = z;
+        this.aj = z;
     }
 }

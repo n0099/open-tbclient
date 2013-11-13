@@ -2,30 +2,25 @@ package com.baidu.adp.widget.ScrollView;
 
 import android.view.View;
 import java.util.Timer;
+import java.util.TimerTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d {
-    private int b;
-    private int c;
-    private j e;
+public class d extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f581a = 5;
-    private boolean d = false;
+    final /* synthetic */ View f587a;
+    final /* synthetic */ Timer b;
+    final /* synthetic */ c c;
 
-    public d(int i, int i2, int i3) {
-        this.b = 10;
-        float abs = Math.abs(i - i2) / this.f581a;
-        this.c = i2;
-        this.b = (int) (i3 / abs);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(c cVar, View view, Timer timer) {
+        this.c = cVar;
+        this.f587a = view;
+        this.b = timer;
     }
 
-    public void a(j jVar) {
-        this.e = jVar;
-    }
-
-    public void a(View view) {
-        this.d = false;
-        Timer timer = new Timer();
-        timer.schedule(new e(this, view, timer), 0L, this.b);
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        this.f587a.post(new e(this));
     }
 }

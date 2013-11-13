@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.tieba.im.model.x;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateGroupActivity extends com.baidu.tieba.j {
     private x d;
@@ -16,7 +17,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     private d f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    DialogInterface.OnClickListener f1707a = new b(this);
+    DialogInterface.OnClickListener f1794a = new b(this);
     DialogInterface.OnClickListener b = new c(this);
 
     public static void a(Activity activity, int i, int i2, int i3, String str) {
@@ -28,9 +29,11 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            a(str);
+    public void a(String str, int i) {
+        if (i < 0) {
+            showToast(R.string.neterror);
+        } else if (!TextUtils.isEmpty(str)) {
+            showToast(str);
         }
     }
 
@@ -42,20 +45,20 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
         int intExtra = intent.getIntExtra("edit_type", 1);
         int intExtra2 = intent.getIntExtra("group_id", 0);
         String stringExtra = intent.getStringExtra("group_text");
-        b(intExtra, intExtra2);
+        a(intExtra, intExtra2);
         this.d = new x();
         this.c.a(stringExtra);
         this.c.a(this.b);
-        this.c.b(this.f1707a);
-        b();
+        this.c.b(this.f1794a);
+        a();
     }
 
-    private void b() {
+    private void a() {
         this.f = new d(this);
         com.baidu.tieba.im.messageCenter.f.a().a(103102, this.f);
     }
 
-    private void b(int i, int i2) {
+    private void a(int i, int i2) {
         if (i == 1) {
             this.c = new f(this);
         } else if (i == 2) {
@@ -67,8 +70,8 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
         this.c.b(i);
     }
 
@@ -77,35 +80,35 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
         super.onClick(view);
         if (view == this.c.d()) {
             if (this.c.m() && this.c.j()) {
-                d();
+                c();
             } else {
-                b(this.c.k());
+                showToast(this.c.k());
             }
         } else if (view == this.c.e()) {
             this.c.g();
-        } else if (view == this.c.f() && !c()) {
+        } else if (view == this.c.f() && !b()) {
             finish();
         }
     }
 
     @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && c()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && b()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean c() {
-        if (TextUtils.isEmpty(this.c.l()) || !this.c.j() || this.c.l().equals(this.c.c_())) {
+    private boolean b() {
+        if (TextUtils.isEmpty(this.c.l()) || !this.c.j() || this.c.l().equals(this.c.f_())) {
             return false;
         }
-        this.c.d_();
+        this.c.g_();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
+    public void c() {
         this.c.a(true);
         this.d.a(this.c.i());
         if (this.e == 1) {
@@ -120,7 +123,7 @@ public class UpdateGroupActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        a_();
+        releaseResouce();
         super.onDestroy();
         com.baidu.tieba.im.messageCenter.f.a().a(this.f);
         this.d.g();

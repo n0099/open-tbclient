@@ -9,12 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f986a;
+    private View f1000a;
     private ImageView b;
     private ImageView c;
     private TextView d;
@@ -26,11 +27,11 @@ public class NoNetworkMoreActivity extends j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.no_network_more_view);
-        b();
+        a();
     }
 
-    protected void b() {
-        this.f986a = findViewById(R.id.title);
+    protected void a() {
+        this.f1000a = findViewById(R.id.title);
         this.b = (ImageView) findViewById(R.id.back);
         this.b.setOnClickListener(this);
         this.c = (ImageView) findViewById(R.id.home);
@@ -59,10 +60,10 @@ public class NoNetworkMoreActivity extends j {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        com.baidu.tieba.util.bb.a(this.b, i);
-        com.baidu.tieba.util.bb.a(this.c, i);
-        com.baidu.tieba.util.bb.d(this.f986a, i);
-        com.baidu.tieba.util.bb.f(this.d, i);
+    public void onChangeSkinType(int i) {
+        bd.a(this.b, i);
+        bd.a(this.c, i);
+        bd.d(this.f1000a, i);
+        bd.e(this.d, i);
     }
 }

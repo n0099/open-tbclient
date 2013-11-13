@@ -1,16 +1,124 @@
 package com.baidu.tieba.home;
 
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.data.SearchPostModel;
+import com.baidu.tieba.util.DatabaseService;
+import com.baidu.tieba.util.UtilHelper;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.apache.http.message.BasicNameValuePair;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ay extends az {
+public class ay extends BdAsyncTask<Object, Integer, SearchPostModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1349a;
-    RelativeLayout b;
-    TextView c;
-    TextView d;
-    TextView e;
-    ay f;
+    ArrayList<BasicNameValuePair> f1418a;
+    final /* synthetic */ SearchActivity b;
+    private com.baidu.tieba.util.ap c = null;
+    private String d;
+
+    public ay(SearchActivity searchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
+        this.b = searchActivity;
+        this.d = null;
+        this.f1418a = null;
+        this.d = str;
+        this.f1418a = arrayList;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void b() {
+        TextView textView;
+        EditText editText;
+        ListView listView;
+        ProgressBar progressBar;
+        textView = this.b.v;
+        textView.setVisibility(8);
+        SearchActivity searchActivity = this.b;
+        editText = this.b.c;
+        UtilHelper.a(searchActivity, editText);
+        listView = this.b.p;
+        if (listView.getVisibility() != 0) {
+            progressBar = this.b.s;
+            progressBar.setVisibility(0);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public SearchPostModel a(Object... objArr) {
+        SearchPostModel searchPostModel;
+        Exception e;
+        String str;
+        try {
+            this.c = new com.baidu.tieba.util.ap(this.d);
+            Iterator<BasicNameValuePair> it = this.f1418a.iterator();
+            while (it.hasNext()) {
+                this.c.a(it.next());
+            }
+            String j = this.c.j();
+            if (!this.c.c() || j == null) {
+                return null;
+            }
+            searchPostModel = new SearchPostModel();
+            try {
+                searchPostModel.parserJson(j);
+                str = this.b.A;
+                DatabaseService.n(str);
+                return searchPostModel;
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.util.bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+                return searchPostModel;
+            }
+        } catch (Exception e3) {
+            searchPostModel = null;
+            e = e3;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(SearchPostModel searchPostModel) {
+        ProgressBar progressBar;
+        bd bdVar;
+        bd bdVar2;
+        bd bdVar3;
+        progressBar = this.b.s;
+        progressBar.setVisibility(8);
+        bdVar = this.b.r;
+        bdVar.a(0);
+        bdVar2 = this.b.r;
+        bdVar2.notifyDataSetChanged();
+        if (searchPostModel != null && this.c != null && this.c.c()) {
+            this.b.x = searchPostModel;
+            bdVar3 = this.b.r;
+            bdVar3.notifyDataSetChanged();
+            this.b.i();
+        } else {
+            this.b.showToast(this.b.getString(R.string.neterror));
+        }
+        this.b.z = null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        if (this.c != null) {
+            this.c.h();
+            this.c = null;
+        }
+        progressBar = this.b.s;
+        progressBar.setVisibility(8);
+        this.b.z = null;
+        super.cancel(true);
+    }
 }

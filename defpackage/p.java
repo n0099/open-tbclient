@@ -14,23 +14,23 @@ import org.json.JSONObject;
 public class p extends JsonHttpResponseHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SocialWidget f2935a;
+    final /* synthetic */ SocialWidget f2983a;
 
     public p(SocialWidget socialWidget) {
-        this.f2935a = socialWidget;
+        this.f2983a = socialWidget;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
     public void onFailure(Throwable th, String str) {
         String str2;
-        str2 = SocialWidget.f835a;
+        str2 = SocialWidget.f849a;
         Log.e(str2, "load social tokens from server failed");
     }
 
     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
     protected void onSuccess(JSONArray jSONArray) {
-        SessionManager sessionManager = SessionManager.getInstance(this.f2935a.mContext);
+        SessionManager sessionManager = SessionManager.getInstance(this.f2983a.mContext);
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
                 sessionManager.save(jSONArray.getJSONObject(i));
@@ -47,11 +47,11 @@ public class p extends JsonHttpResponseHandler {
             String string = jSONObject.getString(SocialConstants.PARAM_ERROR_CODE);
             String string2 = jSONObject.getString("error_msg");
             if (Build.DEBUG) {
-                str2 = SocialWidget.f835a;
+                str2 = SocialWidget.f849a;
                 Log.d(str2, "error_code: " + string + ", error_msg: " + string2);
             }
         } catch (JSONException e) {
-            str = SocialWidget.f835a;
+            str = SocialWidget.f849a;
             Log.e(str, "unkown error");
             e.printStackTrace();
         }

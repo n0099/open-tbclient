@@ -1,26 +1,26 @@
 package com.baidu.tieba.a;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tieba.data.ak;
+import com.baidu.tieba.data.NewErrorData;
 import com.baidu.tieba.data.chat.ChatPostData;
-import com.baidu.tieba.util.ag;
+import com.baidu.tieba.util.ap;
 /* loaded from: classes.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f994a = com.baidu.tieba.data.h.f1165a + "c/s/addmsg";
-    private ag b = null;
-    private ak c = null;
+    private static final String f1008a = com.baidu.tieba.data.h.f1196a + "c/s/addmsg";
+    private ap b = null;
+    private NewErrorData c = null;
 
     public String a(ChatPostData chatPostData) {
-        this.b = new ag(f994a);
+        this.b = new ap(f1008a);
         this.b.a(PushConstants.EXTRA_USER_ID, chatPostData.getUserID());
         this.b.a("com_id", chatPostData.getFriendID());
         this.b.a("content", chatPostData.getContent());
         this.b.a("last_msg_id", String.valueOf(chatPostData.getLastMsgID()));
         String j = this.b.j();
-        this.c = new ak();
-        this.c.a(j);
+        this.c = new NewErrorData();
+        this.c.parserJson(j);
         return j;
     }
 
@@ -46,14 +46,14 @@ public class c {
 
     public int d() {
         if (this.c != null) {
-            return this.c.a();
+            return this.c.getErrorNumber();
         }
         return -1;
     }
 
     public String e() {
         if (this.c != null) {
-            return this.c.b();
+            return this.c.getErrorMsg();
         }
         return null;
     }

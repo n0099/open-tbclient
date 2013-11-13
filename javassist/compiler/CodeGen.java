@@ -38,7 +38,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
     private static final int[] p = {0, 144, 143, 142, 141, 0, 140, 139, 138, 137, 0, 136, 135, 134, 133, 0};
 
     /* renamed from: a  reason: collision with root package name */
-    protected Bytecode f2785a;
+    protected Bytecode f2833a;
     protected int i;
     protected int j;
     protected String k;
@@ -69,7 +69,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
     protected abstract void e(ASTree aSTree);
 
     public CodeGen(Bytecode bytecode) {
-        this.f2785a = bytecode;
+        this.f2833a = bytecode;
     }
 
     public void a(TypeChecker typeChecker) {
@@ -86,16 +86,16 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
     }
 
     public int b() {
-        return this.f2785a.g();
+        return this.f2833a.g();
     }
 
     public void a(int i) {
-        this.f2785a.d(i);
+        this.f2833a.d(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(int i) {
-        this.f2785a.e(i);
+        this.f2833a.e(i);
     }
 
     protected int a(Declarator declarator) {
@@ -238,7 +238,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             stmnt.accept(this);
             if (!this.c) {
                 if (z2) {
-                    this.f2785a.g(177);
+                    this.f2833a.g(177);
                     this.c = true;
                     return;
                 }
@@ -280,9 +280,9 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
                 } else {
                     left.accept(this);
                     if (a(this.i, this.j)) {
-                        this.f2785a.g(88);
+                        this.f2833a.g(88);
                     } else if (this.i != 344) {
-                        this.f2785a.g(87);
+                        this.f2833a.g(87);
                     }
                 }
             } else if (operator == 68 || operator == 66) {
@@ -325,8 +325,8 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         Stmnt stmnt2 = (Stmnt) stmnt.tail().head();
         Stmnt stmnt3 = (Stmnt) stmnt.tail().tail().head();
         a(false, head);
-        int h = this.f2785a.h();
-        this.f2785a.j(0);
+        int h = this.f2833a.h();
+        this.f2833a.j(0);
         this.c = false;
         if (stmnt2 != null) {
             stmnt2.accept(this);
@@ -336,15 +336,15 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         if (stmnt3 == null || z2) {
             i = 0;
         } else {
-            this.f2785a.g(BDLocation.TypeServerError);
-            i = this.f2785a.h();
-            this.f2785a.j(0);
+            this.f2833a.g(BDLocation.TypeServerError);
+            i = this.f2833a.h();
+            this.f2833a.j(0);
         }
-        this.f2785a.c(h, (this.f2785a.h() - h) + 1);
+        this.f2833a.c(h, (this.f2833a.h() - h) + 1);
         if (stmnt3 != null) {
             stmnt3.accept(this);
             if (!z2) {
-                this.f2785a.c(i, (this.f2785a.h() - i) + 1);
+                this.f2833a.c(i, (this.f2833a.h() - i) + 1);
             }
             if (z2 && this.c) {
                 z = true;
@@ -362,23 +362,23 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         ASTree head = stmnt.head();
         Stmnt stmnt2 = (Stmnt) stmnt.tail();
         if (z) {
-            this.f2785a.g(BDLocation.TypeServerError);
-            i = this.f2785a.h();
-            this.f2785a.j(0);
+            this.f2833a.g(BDLocation.TypeServerError);
+            i = this.f2833a.h();
+            this.f2833a.j(0);
         } else {
             i = 0;
         }
-        int h = this.f2785a.h();
+        int h = this.f2833a.h();
         if (stmnt2 != null) {
             stmnt2.accept(this);
         }
-        int h2 = this.f2785a.h();
+        int h2 = this.f2833a.h();
         if (z) {
-            this.f2785a.c(i, (h2 - i) + 1);
+            this.f2833a.c(i, (h2 - i) + 1);
         }
         boolean a2 = a(true, head);
-        this.f2785a.j((h - this.f2785a.h()) + 1);
-        a(this.e, this.f2785a.h());
+        this.f2833a.j((h - this.f2833a.h()) + 1);
+        a(this.e, this.f2833a.h());
         a(this.g, h2);
         this.g = arrayList2;
         this.e = arrayList;
@@ -390,7 +390,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         int size = arrayList.size();
         for (int i2 = 0; i2 < size; i2++) {
             int intValue = ((Integer) arrayList.get(i2)).intValue();
-            this.f2785a.c(intValue, (i - intValue) + 1);
+            this.f2833a.c(intValue, (i - intValue) + 1);
         }
     }
 
@@ -409,26 +409,26 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         if (stmnt2 != null) {
             stmnt2.accept(this);
         }
-        int h = this.f2785a.h();
+        int h = this.f2833a.h();
         if (head != null) {
             a(false, head);
-            i = this.f2785a.h();
-            this.f2785a.j(0);
+            i = this.f2833a.h();
+            this.f2833a.j(0);
         } else {
             i = 0;
         }
         if (stmnt4 != null) {
             stmnt4.accept(this);
         }
-        int h2 = this.f2785a.h();
+        int h2 = this.f2833a.h();
         if (stmnt3 != null) {
             stmnt3.accept(this);
         }
-        this.f2785a.g(BDLocation.TypeServerError);
-        this.f2785a.j((h - this.f2785a.h()) + 1);
-        int h3 = this.f2785a.h();
+        this.f2833a.g(BDLocation.TypeServerError);
+        this.f2833a.j((h - this.f2833a.h()) + 1);
+        int h3 = this.f2833a.h();
         if (head != null) {
-            this.f2785a.c(i, (h3 - i) + 1);
+            this.f2833a.c(i, (h3 - i) + 1);
         }
         a(this.e, h3);
         a(this.g, h2);
@@ -441,15 +441,15 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         a(stmnt.head());
         ArrayList arrayList = this.e;
         this.e = new ArrayList();
-        int h = this.f2785a.h();
-        this.f2785a.g(171);
+        int h = this.f2833a.h();
+        this.f2833a.g(171);
         int i = 3 - (h & 3);
         while (true) {
             int i2 = i - 1;
             if (i <= 0) {
                 break;
             }
-            this.f2785a.a(0);
+            this.f2833a.a(0);
             i = i2;
         }
         Stmnt stmnt2 = (Stmnt) stmnt.tail();
@@ -460,10 +460,10 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             stmnt3 = stmnt3.tail();
             i3 = i4;
         }
-        int h2 = this.f2785a.h();
-        this.f2785a.b(4);
-        this.f2785a.f(i3);
-        this.f2785a.b(i3 * 8);
+        int h2 = this.f2833a.h();
+        this.f2833a.b(4);
+        this.f2833a.f(i3);
+        this.f2833a.b(i3 * 8);
         long[] jArr = new long[i3];
         int i5 = 0;
         int i6 = -1;
@@ -471,11 +471,11 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             Stmnt stmnt5 = (Stmnt) stmnt4.head();
             int operator = stmnt5.getOperator();
             if (operator == 310) {
-                i6 = this.f2785a.h();
+                i6 = this.f2833a.h();
             } else if (operator != 304) {
                 a();
             } else {
-                jArr[i5] = (f(stmnt5.head()) << 32) + ((this.f2785a.h() - h) & (-1));
+                jArr[i5] = (f(stmnt5.head()) << 32) + ((this.f2833a.h() - h) & (-1));
                 i5++;
             }
             this.c = false;
@@ -484,18 +484,18 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         Arrays.sort(jArr);
         int i7 = h2 + 8;
         for (int i8 = 0; i8 < i3; i8++) {
-            this.f2785a.d(i7, (int) (jArr[i8] >>> 32));
-            this.f2785a.d(i7 + 4, (int) jArr[i8]);
+            this.f2833a.d(i7, (int) (jArr[i8] >>> 32));
+            this.f2833a.d(i7 + 4, (int) jArr[i8]);
             i7 += 8;
         }
         if (i6 < 0 || this.e.size() > 0) {
             this.c = false;
         }
-        int h3 = this.f2785a.h();
+        int h3 = this.f2833a.h();
         if (i6 < 0) {
             i6 = h3;
         }
-        this.f2785a.d(h2, i6 - h);
+        this.f2833a.d(h2, i6 - h);
         a(this.e, h3);
         this.e = arrayList;
     }
@@ -513,9 +513,9 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         if (stmnt.head() != null) {
             throw new CompileError("sorry, not support labeled break or continue");
         }
-        this.f2785a.g(BDLocation.TypeServerError);
-        Integer num = new Integer(this.f2785a.h());
-        this.f2785a.j(0);
+        this.f2833a.g(BDLocation.TypeServerError);
+        Integer num = new Integer(this.f2833a.h());
+        this.f2833a.j(0);
         if (z) {
             this.e.add(num);
         } else {
@@ -548,12 +548,12 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             }
         }
         for (c cVar = this.h; cVar != null; cVar = cVar.c) {
-            if (cVar.a(this.f2785a, i)) {
+            if (cVar.a(this.f2833a, i)) {
                 this.c = true;
                 return;
             }
         }
-        this.f2785a.g(i);
+        this.f2833a.g(i);
         this.c = true;
     }
 
@@ -562,7 +562,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         if (this.i != 307 || this.j > 0) {
             throw new CompileError("bad throw statement");
         }
-        this.f2785a.g(191);
+        this.f2833a.g(191);
         this.c = true;
     }
 
@@ -578,7 +578,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         if (this.i != 307 && this.j == 0) {
             throw new CompileError("bad type expr for synchronized block");
         }
-        Bytecode bytecode = this.f2785a;
+        Bytecode bytecode = this.f2833a;
         int g = bytecode.g();
         bytecode.e(1);
         bytecode.g(89);
@@ -690,23 +690,23 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         }
         if (z) {
             if (a(type, arrayDim)) {
-                this.f2785a.g(92);
+                this.f2833a.g(92);
             } else {
-                this.f2785a.g(89);
+                this.f2833a.g(89);
             }
         }
         if (arrayDim > 0) {
-            this.f2785a.l(a2);
+            this.f2833a.l(a2);
         } else if (type == 312) {
-            this.f2785a.s(a2);
+            this.f2833a.s(a2);
         } else if (type == 317) {
-            this.f2785a.u(a2);
+            this.f2833a.u(a2);
         } else if (type == 326) {
-            this.f2785a.q(a2);
+            this.f2833a.q(a2);
         } else if (d(type)) {
-            this.f2785a.l(a2);
+            this.f2833a.l(a2);
         } else {
-            this.f2785a.o(a2);
+            this.f2833a.o(a2);
         }
         this.i = type;
         this.j = arrayDim;
@@ -716,8 +716,8 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
     private void a(Expr expr, int i, Expr expr2, ASTree aSTree, boolean z) {
         b(expr2.oprand1(), expr2.oprand2());
         if (i != 61) {
-            this.f2785a.g(92);
-            this.f2785a.g(e(this.i, this.j));
+            this.f2833a.g(92);
+            this.f2833a.g(e(this.i, this.j));
         }
         int i2 = this.i;
         int i3 = this.j;
@@ -725,12 +725,12 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         a(expr, i, aSTree, i2, i3, str);
         if (z) {
             if (a(i2, i3)) {
-                this.f2785a.g(94);
+                this.f2833a.g(94);
             } else {
-                this.f2785a.g(91);
+                this.f2833a.g(91);
             }
         }
-        this.f2785a.g(f(i2, i3));
+        this.f2833a.g(f(i2, i3));
         this.i = i2;
         this.j = i3;
         this.k = str;
@@ -766,7 +766,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         g(i, i2);
         aSTree.accept(this);
         g(this.i, this.j);
-        this.f2785a.e("java.lang.String", "concat", "(Ljava/lang/String;)Ljava/lang/String;");
+        this.f2833a.e("java.lang.String", "concat", "(Ljava/lang/String;)Ljava/lang/String;");
         this.i = 307;
         this.j = 0;
         this.k = "java/lang/String";
@@ -785,19 +785,19 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
     @Override // javassist.compiler.ast.a
     public void a(CondExpr condExpr) {
         b(false, condExpr.condExpr());
-        int h = this.f2785a.h();
-        this.f2785a.j(0);
+        int h = this.f2833a.h();
+        this.f2833a.j(0);
         condExpr.thenExpr().accept(this);
         int i = this.j;
-        this.f2785a.g(BDLocation.TypeServerError);
-        int h2 = this.f2785a.h();
-        this.f2785a.j(0);
-        this.f2785a.c(h, (this.f2785a.h() - h) + 1);
+        this.f2833a.g(BDLocation.TypeServerError);
+        int h2 = this.f2833a.h();
+        this.f2833a.j(0);
+        this.f2833a.c(h, (this.f2833a.h() - h) + 1);
         condExpr.elseExpr().accept(this);
         if (i != this.j) {
             throw new CompileError("type mismatch in ?:");
         }
-        this.f2785a.c(h2, (this.f2785a.h() - h2) + 1);
+        this.f2833a.c(h2, (this.f2833a.h() - h2) + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -838,11 +838,11 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             return;
         }
         b(true, (ASTree) binExpr);
-        this.f2785a.j(7);
-        this.f2785a.m(0);
-        this.f2785a.g(BDLocation.TypeServerError);
-        this.f2785a.j(4);
-        this.f2785a.m(1);
+        this.f2833a.j(7);
+        this.f2833a.m(0);
+        this.f2833a.g(BDLocation.TypeServerError);
+        this.f2833a.j(4);
+        this.f2833a.m(1);
     }
 
     private void a(Expr expr, int i, int i2, int i3) {
@@ -865,7 +865,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             if (f == 3 && this.i != 301) {
                 this.i = 324;
             }
-            this.f2785a.g(i4);
+            this.f2833a.g(i4);
             return;
         }
         b(expr);
@@ -880,17 +880,17 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             g(i3, i4);
         }
         if (a(i, i2)) {
-            this.f2785a.g(91);
-            this.f2785a.g(87);
+            this.f2833a.g(91);
+            this.f2833a.g(87);
         } else {
-            this.f2785a.g(95);
+            this.f2833a.g(95);
         }
         g(i, i2);
-        this.f2785a.g(95);
+        this.f2833a.g(95);
         if (!a2 && !z) {
             g(i3, i4);
         }
-        this.f2785a.e("java.lang.String", "concat", "(Ljava/lang/String;)Ljava/lang/String;");
+        this.f2833a.e("java.lang.String", "concat", "(Ljava/lang/String;)Ljava/lang/String;");
         this.i = 307;
         this.j = 0;
         this.k = "java/lang/String";
@@ -898,21 +898,21 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
 
     private void g(int i, int i2) {
         if (d(i) || i2 > 0) {
-            this.f2785a.d("java.lang.String", "valueOf", "(Ljava/lang/Object;)Ljava/lang/String;");
+            this.f2833a.d("java.lang.String", "valueOf", "(Ljava/lang/Object;)Ljava/lang/String;");
         } else if (i == 312) {
-            this.f2785a.d("java.lang.String", "valueOf", "(D)Ljava/lang/String;");
+            this.f2833a.d("java.lang.String", "valueOf", "(D)Ljava/lang/String;");
         } else if (i == 317) {
-            this.f2785a.d("java.lang.String", "valueOf", "(F)Ljava/lang/String;");
+            this.f2833a.d("java.lang.String", "valueOf", "(F)Ljava/lang/String;");
         } else if (i == 326) {
-            this.f2785a.d("java.lang.String", "valueOf", "(J)Ljava/lang/String;");
+            this.f2833a.d("java.lang.String", "valueOf", "(J)Ljava/lang/String;");
         } else if (i == 301) {
-            this.f2785a.d("java.lang.String", "valueOf", "(Z)Ljava/lang/String;");
+            this.f2833a.d("java.lang.String", "valueOf", "(Z)Ljava/lang/String;");
         } else if (i == 306) {
-            this.f2785a.d("java.lang.String", "valueOf", "(C)Ljava/lang/String;");
+            this.f2833a.d("java.lang.String", "valueOf", "(C)Ljava/lang/String;");
         } else if (i == 344) {
             throw new CompileError("void type expression");
         } else {
-            this.f2785a.d("java.lang.String", "valueOf", "(I)Ljava/lang/String;");
+            this.f2833a.d("java.lang.String", "valueOf", "(I)Ljava/lang/String;");
         }
     }
 
@@ -928,23 +928,23 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             if (z2 || d == 368) {
                 BinExpr binExpr2 = (BinExpr) aSTree;
                 b(z2 ? false : true, binExpr2.oprand1());
-                int h = this.f2785a.h();
-                this.f2785a.j(0);
+                int h = this.f2833a.h();
+                this.f2833a.j(0);
                 b(z2, binExpr2.oprand2());
-                this.f2785a.c(h, (this.f2785a.h() - h) + 3);
+                this.f2833a.c(h, (this.f2833a.h() - h) + 3);
                 if (z != z2) {
-                    this.f2785a.j(6);
-                    this.f2785a.g(BDLocation.TypeServerError);
+                    this.f2833a.j(6);
+                    this.f2833a.g(BDLocation.TypeServerError);
                 }
             } else if (a(aSTree, z)) {
-                this.f2785a.g(BDLocation.TypeServerError);
+                this.f2833a.g(BDLocation.TypeServerError);
                 return true;
             } else {
                 aSTree.accept(this);
                 if (this.i != 301 || this.j != 0) {
                     throw new CompileError("boolean expr is required");
                 }
-                this.f2785a.g(z ? 154 : RContact.MM_CONTACTIMGFLAG_LOCAL_EXIST);
+                this.f2833a.g(z ? 154 : RContact.MM_CONTACTIMGFLAG_LOCAL_EXIST);
             }
         }
         this.i = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
@@ -1002,9 +1002,9 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         int f = f(this.i);
         if (f == -1 || this.j > 0) {
             if (i == 358) {
-                this.f2785a.g(z ? 165 : 166);
+                this.f2833a.g(z ? 165 : 166);
             } else if (i == 350) {
-                this.f2785a.g(z ? 166 : 165);
+                this.f2833a.g(z ? 166 : 165);
             } else {
                 b((Expr) binExpr);
             }
@@ -1012,7 +1012,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             int[] iArr = n;
             for (int i3 = 0; i3 < iArr.length; i3 += 3) {
                 if (iArr[i3] == i) {
-                    this.f2785a.g(iArr[i3 + (z ? 1 : 2)]);
+                    this.f2833a.g(iArr[i3 + (z ? 1 : 2)]);
                     return;
                 }
             }
@@ -1020,25 +1020,25 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         } else {
             if (f == 0) {
                 if (i == 60 || i == 357) {
-                    this.f2785a.g(152);
+                    this.f2833a.g(152);
                 } else {
-                    this.f2785a.g(151);
+                    this.f2833a.g(151);
                 }
             } else if (f == 1) {
                 if (i == 60 || i == 357) {
-                    this.f2785a.g(150);
+                    this.f2833a.g(150);
                 } else {
-                    this.f2785a.g(149);
+                    this.f2833a.g(149);
                 }
             } else if (f == 2) {
-                this.f2785a.g(148);
+                this.f2833a.g(148);
             } else {
                 a();
             }
             int[] iArr2 = o;
             for (int i4 = 0; i4 < iArr2.length; i4 += 3) {
                 if (iArr2[i4] == i) {
-                    this.f2785a.g(iArr2[i4 + (z ? 1 : 2)]);
+                    this.f2833a.g(iArr2[i4 + (z ? 1 : 2)]);
                     return;
                 }
             }
@@ -1101,28 +1101,28 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             if (z) {
                 if (f2 == 0 || f2 == 2) {
                     if (f == 0 || f == 2) {
-                        this.f2785a.g(94);
+                        this.f2833a.g(94);
                     } else {
-                        this.f2785a.g(93);
+                        this.f2833a.g(93);
                     }
-                    this.f2785a.g(88);
-                    this.f2785a.g(i3);
-                    this.f2785a.g(94);
-                    this.f2785a.g(88);
+                    this.f2833a.g(88);
+                    this.f2833a.g(i3);
+                    this.f2833a.g(94);
+                    this.f2833a.g(88);
                 } else if (f2 == 1) {
                     if (f == 2) {
-                        this.f2785a.g(91);
-                        this.f2785a.g(87);
+                        this.f2833a.g(91);
+                        this.f2833a.g(87);
                     } else {
-                        this.f2785a.g(95);
+                        this.f2833a.g(95);
                     }
-                    this.f2785a.g(i3);
-                    this.f2785a.g(95);
+                    this.f2833a.g(i3);
+                    this.f2833a.g(95);
                 } else {
                     a();
                 }
             } else if (i3 != 0) {
-                this.f2785a.g(i3);
+                this.f2833a.g(i3);
             }
         }
     }
@@ -1138,13 +1138,13 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         if (a3 == null) {
             d(i, this.i);
         } else {
-            this.f2785a.a(a3);
+            this.f2833a.a(a3);
         }
     }
 
     @Override // javassist.compiler.ast.a
     public void a(InstanceOfExpr instanceOfExpr) {
-        this.f2785a.b(a(instanceOfExpr, a(instanceOfExpr.getClassName())));
+        this.f2833a.b(a(instanceOfExpr, a(instanceOfExpr.getClassName())));
         this.i = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
         this.j = 0;
     }
@@ -1190,10 +1190,10 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
                 i3 = 145;
             }
             if (i4 != 0) {
-                this.f2785a.g(i4);
+                this.f2833a.g(i4);
             }
             if ((i4 == 0 || i4 == 136 || i4 == 139 || i4 == 142) && i3 != 0) {
-                this.f2785a.g(i3);
+                this.f2833a.g(i3);
             }
         }
     }
@@ -1216,11 +1216,11 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             a(operator, oprand1, expr, true);
         } else if (operator == 33) {
             b(false, (ASTree) expr);
-            this.f2785a.j(7);
-            this.f2785a.m(1);
-            this.f2785a.g(BDLocation.TypeServerError);
-            this.f2785a.j(4);
-            this.f2785a.m(0);
+            this.f2833a.j(7);
+            this.f2833a.m(1);
+            this.f2833a.g(BDLocation.TypeServerError);
+            this.f2833a.j(4);
+            this.f2833a.m(0);
         } else if (operator == 67) {
             a();
         } else {
@@ -1231,25 +1231,25 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
             }
             if (operator == 45) {
                 if (f == 0) {
-                    this.f2785a.g(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
+                    this.f2833a.g(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
                 } else if (f == 1) {
-                    this.f2785a.g(SocialAPIErrorCodes.ERROR_INVALID_REDIRECT_URI);
+                    this.f2833a.g(SocialAPIErrorCodes.ERROR_INVALID_REDIRECT_URI);
                 } else if (f == 2) {
-                    this.f2785a.g(SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE);
+                    this.f2833a.g(SocialAPIErrorCodes.ERROR_INVALID_MEDIA_TYPE);
                 } else if (f == 3) {
-                    this.f2785a.g(SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE);
+                    this.f2833a.g(SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE);
                     this.i = 324;
                 } else {
                     d(expr);
                 }
             } else if (operator == 126) {
                 if (f == 3) {
-                    this.f2785a.m(-1);
-                    this.f2785a.g(130);
+                    this.f2833a.m(-1);
+                    this.f2833a.g(130);
                     this.i = 324;
                 } else if (f == 2) {
-                    this.f2785a.a(-1L);
-                    this.f2785a.g(131);
+                    this.f2833a.a(-1L);
+                    this.f2833a.g(131);
                 } else {
                     d(expr);
                 }
@@ -1304,23 +1304,23 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(String str) {
-        int h = this.f2785a.h();
-        this.f2785a.c(str);
-        this.f2785a.d("java.lang.Class", "forName", "(Ljava/lang/String;)Ljava/lang/Class;");
-        int h2 = this.f2785a.h();
-        this.f2785a.g(BDLocation.TypeServerError);
-        int h3 = this.f2785a.h();
-        this.f2785a.j(0);
-        this.f2785a.a(h, h2, this.f2785a.h(), "java.lang.ClassNotFoundException");
-        this.f2785a.h(1);
-        this.f2785a.d("javassist.runtime.DotClass", "fail", "(Ljava/lang/ClassNotFoundException;)Ljava/lang/NoClassDefFoundError;");
-        this.f2785a.g(191);
-        this.f2785a.c(h3, (this.f2785a.h() - h3) + 1);
+        int h = this.f2833a.h();
+        this.f2833a.c(str);
+        this.f2833a.d("java.lang.Class", "forName", "(Ljava/lang/String;)Ljava/lang/Class;");
+        int h2 = this.f2833a.h();
+        this.f2833a.g(BDLocation.TypeServerError);
+        int h3 = this.f2833a.h();
+        this.f2833a.j(0);
+        this.f2833a.a(h, h2, this.f2833a.h(), "java.lang.ClassNotFoundException");
+        this.f2833a.h(1);
+        this.f2833a.d("javassist.runtime.DotClass", "fail", "(Ljava/lang/ClassNotFoundException;)Ljava/lang/NoClassDefFoundError;");
+        this.f2833a.g(191);
+        this.f2833a.c(h3, (this.f2833a.h() - h3) + 1);
     }
 
     public void a(ASTree aSTree, ASTree aSTree2) {
         b(aSTree, aSTree2);
-        this.f2785a.g(e(this.i, this.j));
+        this.f2833a.g(e(this.i, this.j));
     }
 
     protected void b(ASTree aSTree, ASTree aSTree2) {
@@ -1404,58 +1404,58 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
                 d(expr);
             }
             if (type == 312) {
-                this.f2785a.r(a2);
+                this.f2833a.r(a2);
                 if (z && z2) {
-                    this.f2785a.g(92);
+                    this.f2833a.g(92);
                 }
-                this.f2785a.a(1.0d);
-                this.f2785a.g(i == 362 ? 99 : 103);
+                this.f2833a.a(1.0d);
+                this.f2833a.g(i == 362 ? 99 : 103);
                 if (z && !z2) {
-                    this.f2785a.g(92);
+                    this.f2833a.g(92);
                 }
-                this.f2785a.s(a2);
+                this.f2833a.s(a2);
                 return;
             } else if (type == 326) {
-                this.f2785a.p(a2);
+                this.f2833a.p(a2);
                 if (z && z2) {
-                    this.f2785a.g(92);
+                    this.f2833a.g(92);
                 }
-                this.f2785a.a(1L);
-                this.f2785a.g(i == 362 ? 97 : 101);
+                this.f2833a.a(1L);
+                this.f2833a.g(i == 362 ? 97 : 101);
                 if (z && !z2) {
-                    this.f2785a.g(92);
+                    this.f2833a.g(92);
                 }
-                this.f2785a.q(a2);
+                this.f2833a.q(a2);
                 return;
             } else if (type == 317) {
-                this.f2785a.t(a2);
+                this.f2833a.t(a2);
                 if (z && z2) {
-                    this.f2785a.g(89);
+                    this.f2833a.g(89);
                 }
-                this.f2785a.a(1.0f);
-                this.f2785a.g(i == 362 ? 98 : 102);
+                this.f2833a.a(1.0f);
+                this.f2833a.g(i == 362 ? 98 : 102);
                 if (z && !z2) {
-                    this.f2785a.g(89);
+                    this.f2833a.g(89);
                 }
-                this.f2785a.u(a2);
+                this.f2833a.u(a2);
                 return;
             } else if (type == 303 || type == 306 || type == 334 || type == 324) {
                 if (z && z2) {
-                    this.f2785a.n(a2);
+                    this.f2833a.n(a2);
                 }
                 int i2 = i != 362 ? -1 : 1;
                 if (a2 > 255) {
-                    this.f2785a.g(196);
-                    this.f2785a.g(132);
-                    this.f2785a.j(a2);
-                    this.f2785a.j(i2);
+                    this.f2833a.g(196);
+                    this.f2833a.g(132);
+                    this.f2833a.j(a2);
+                    this.f2833a.j(i2);
                 } else {
-                    this.f2785a.g(132);
-                    this.f2785a.a(a2);
-                    this.f2785a.a(i2);
+                    this.f2833a.g(132);
+                    this.f2833a.a(a2);
+                    this.f2833a.a(i2);
                 }
                 if (z && !z2) {
-                    this.f2785a.n(a2);
+                    this.f2833a.n(a2);
                     return;
                 }
                 return;
@@ -1481,36 +1481,36 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         if (i3 > 0) {
             d(expr);
         }
-        this.f2785a.g(92);
-        this.f2785a.g(e(i2, this.j));
+        this.f2833a.g(92);
+        this.f2833a.g(e(i2, this.j));
         a(a(i2, i3) ? 94 : 91, z2, i, z, expr);
-        this.f2785a.g(f(i2, i3));
+        this.f2833a.g(f(i2, i3));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i, boolean z, int i2, boolean z2, Expr expr) {
         int i3 = this.i;
         if (z && z2) {
-            this.f2785a.g(i);
+            this.f2833a.g(i);
         }
         if (i3 == 324 || i3 == 303 || i3 == 306 || i3 == 334) {
-            this.f2785a.m(1);
-            this.f2785a.g(i2 == 362 ? 96 : 100);
+            this.f2833a.m(1);
+            this.f2833a.g(i2 == 362 ? 96 : 100);
             this.i = 324;
         } else if (i3 == 326) {
-            this.f2785a.a(1L);
-            this.f2785a.g(i2 == 362 ? 97 : 101);
+            this.f2833a.a(1L);
+            this.f2833a.g(i2 == 362 ? 97 : 101);
         } else if (i3 == 317) {
-            this.f2785a.a(1.0f);
-            this.f2785a.g(i2 == 362 ? 98 : 102);
+            this.f2833a.a(1.0f);
+            this.f2833a.g(i2 == 362 ? 98 : 102);
         } else if (i3 == 312) {
-            this.f2785a.a(1.0d);
-            this.f2785a.g(i2 == 362 ? 99 : 103);
+            this.f2833a.a(1.0d);
+            this.f2833a.g(i2 == 362 ? 99 : 103);
         } else {
             d(expr);
         }
         if (z && !z2) {
-            this.f2785a.g(i);
+            this.f2833a.g(i);
         }
     }
 
@@ -1522,24 +1522,24 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         this.k = declarator.getClassName();
         int a2 = a(declarator);
         if (this.j > 0) {
-            this.f2785a.k(a2);
+            this.f2833a.k(a2);
             return;
         }
         switch (this.i) {
             case 307:
-                this.f2785a.k(a2);
+                this.f2833a.k(a2);
                 return;
             case 312:
-                this.f2785a.r(a2);
+                this.f2833a.r(a2);
                 return;
             case 317:
-                this.f2785a.t(a2);
+                this.f2833a.t(a2);
                 return;
             case 326:
-                this.f2785a.p(a2);
+                this.f2833a.p(a2);
                 return;
             default:
-                this.f2785a.n(a2);
+                this.f2833a.n(a2);
                 return;
         }
     }
@@ -1554,7 +1554,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
                 if (this.d) {
                     throw new CompileError("not-available: " + (i == 339 ? "this" : "super"));
                 }
-                this.f2785a.k(0);
+                this.f2833a.k(0);
                 this.i = 307;
                 if (i == 339) {
                     this.k = c();
@@ -1564,15 +1564,15 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
                     return;
                 }
             case BdWebErrorView.ERROR_CODE_410 /* 410 */:
-                this.f2785a.m(1);
+                this.f2833a.m(1);
                 this.i = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
                 return;
             case BdWebErrorView.ERROR_CODE_411 /* 411 */:
-                this.f2785a.m(0);
+                this.f2833a.m(0);
                 this.i = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
                 return;
             case BdWebErrorView.ERROR_CODE_412 /* 412 */:
-                this.f2785a.g(1);
+                this.f2833a.g(1);
                 this.i = BdWebErrorView.ERROR_CODE_412;
                 return;
             default:
@@ -1586,7 +1586,7 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         this.i = 307;
         this.j = 0;
         this.k = "java/lang/String";
-        this.f2785a.c(stringL.get());
+        this.f2833a.c(stringL.get());
     }
 
     @Override // javassist.compiler.ast.a
@@ -1596,11 +1596,11 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         int type = intConst.getType();
         if (type == 402 || type == 401) {
             this.i = type == 402 ? 324 : 306;
-            this.f2785a.m((int) j);
+            this.f2833a.m((int) j);
             return;
         }
         this.i = 326;
-        this.f2785a.a(j);
+        this.f2833a.a(j);
     }
 
     @Override // javassist.compiler.ast.a
@@ -1608,10 +1608,10 @@ public abstract class CodeGen extends javassist.compiler.ast.a implements as, j 
         this.j = 0;
         if (doubleConst.getType() == 405) {
             this.i = 312;
-            this.f2785a.a(doubleConst.get());
+            this.f2833a.a(doubleConst.get());
             return;
         }
         this.i = 317;
-        this.f2785a.a((float) doubleConst.get());
+        this.f2833a.a((float) doubleConst.get());
     }
 }

@@ -7,20 +7,19 @@ import android.net.NetworkInfo;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.NoNetworkMoreActivity;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class NoNetworkView extends FrameLayout implements View.OnClickListener {
+public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<NoNetworkView> f2492a = new ArrayList<>();
+    private static ArrayList<NoNetworkView> f2546a = new ArrayList<>();
     private static boolean f;
     private TextView b;
     private ImageView c;
@@ -50,7 +49,7 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
 
     public void a(Context context) {
         this.g = context;
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.no_network_view, (ViewGroup) null));
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.no_network_view, this);
         this.c = (ImageView) findViewById(R.id.no_network_icon);
         this.d = (TextView) findViewById(R.id.no_network_guide1);
         this.e = (TextView) findViewById(R.id.no_network_guide2);
@@ -84,13 +83,13 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
         if (z != f) {
             f = z;
             if (f) {
-                Iterator<NoNetworkView> it = f2492a.iterator();
+                Iterator<NoNetworkView> it = f2546a.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
                 }
                 return;
             }
-            Iterator<NoNetworkView> it2 = f2492a.iterator();
+            Iterator<NoNetworkView> it2 = f2546a.iterator();
             while (it2.hasNext()) {
                 it2.next().setVisible(true);
             }
@@ -135,20 +134,20 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        f2492a.add(this);
+        f2546a.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f2492a.remove(this);
+        f2546a.remove(this);
         this.i.clear();
     }
 
     public void a(int i) {
         if (i == 1) {
             this.c.setImageResource(R.drawable.icon_error_1);
-            findViewById(R.id.no_network_parent).setBackgroundResource(R.drawable.bg_no_network_1);
+            setBackgroundResource(R.drawable.bg_no_network_1);
             this.b.setBackgroundResource(R.drawable.network_more_1);
             this.d.setTextColor(-10523526);
             this.e.setTextColor(-8682095);
@@ -156,7 +155,7 @@ public class NoNetworkView extends FrameLayout implements View.OnClickListener {
             return;
         }
         this.c.setImageResource(R.drawable.icon_error);
-        findViewById(R.id.no_network_parent).setBackgroundResource(R.drawable.bg_no_network);
+        setBackgroundResource(R.drawable.bg_no_network);
         this.b.setBackgroundResource(R.drawable.network_more);
         this.d.setTextColor(-14277082);
         this.e.setTextColor(-5065030);

@@ -5,11 +5,11 @@ import android.graphics.Bitmap;
 class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public Bitmap f2502a;
+    public Bitmap f2557a;
     public int b;
 
     public af(Bitmap bitmap, int i) {
-        this.f2502a = bitmap;
+        this.f2557a = bitmap;
         this.b = i;
     }
 }

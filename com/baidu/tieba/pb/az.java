@@ -1,29 +1,28 @@
 package com.baidu.tieba.pb;
 
-import android.graphics.Bitmap;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
-class az extends com.baidu.adp.a.g {
+class az implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2062a;
+    final /* synthetic */ NewPbActivity f2083a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(NewPbActivity newPbActivity) {
-        this.f2062a = newPbActivity;
+        this.f2083a = newPbActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        bt btVar;
-        com.baidu.tieba.model.br brVar;
-        if (obj instanceof Bitmap) {
-            Bitmap bitmap = (Bitmap) obj;
-            if (obj != null) {
-                btVar = this.f2062a.u;
-                btVar.a(bitmap);
-                brVar = this.f2062a.q;
-                brVar.a(true);
-            }
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        com.baidu.tieba.model.bm bmVar;
+        cp cpVar;
+        bmVar = this.f2083a.s;
+        if (!bmVar.b(true)) {
+            cpVar = this.f2083a.y;
+            cpVar.s();
+        } else if (TiebaApplication.g().s()) {
+            StatService.onEvent(this.f2083a, "pb_pulldown", "pbclick", 1);
         }
     }
 }

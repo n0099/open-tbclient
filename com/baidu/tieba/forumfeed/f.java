@@ -2,23 +2,24 @@ package com.baidu.tieba.forumfeed;
 
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import com.baidu.tieba.home.p;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.home.s;
+import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class f {
-    public static final View a(com.baidu.tieba.j jVar, String str, int i, View.OnClickListener onClickListener) {
+    public static final View a(BaseFragmentActivity baseFragmentActivity, String str, int i, View.OnClickListener onClickListener) {
         h hVar = new h();
-        View inflate = LinearLayout.inflate(jVar, R.layout.forum_feed_guide, null);
-        hVar.b = (RelativeLayout) inflate.findViewById(R.id.title);
-        hVar.f1235a = (LinearLayout) inflate.findViewById(R.id.forum_feed_login_container);
+        View inflate = LinearLayout.inflate(baseFragmentActivity, R.layout.forum_feed_guide, null);
+        hVar.b = (NavigationBar) inflate.findViewById(R.id.view_navigation_bar);
+        hVar.b.a(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.nb_item_tieba_logo, (View.OnClickListener) null);
+        hVar.f1292a = (LinearLayout) inflate.findViewById(R.id.forum_feed_login_container);
         hVar.d = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        hVar.c = new p(jVar, str, str, 0);
-        hVar.f1235a.addView(hVar.c.e());
+        hVar.c = new s(baseFragmentActivity, str, str, 0);
+        hVar.f1292a.addView(hVar.c.e());
         inflate.setTag(hVar);
-        a(jVar, inflate, i);
+        a(baseFragmentActivity, inflate, i);
         return inflate;
     }
 
@@ -34,13 +35,13 @@ public class f {
         return R.id.btn_go;
     }
 
-    public static void a(com.baidu.tieba.j jVar, View view, int i) {
+    public static void a(BaseFragmentActivity baseFragmentActivity, View view, int i) {
         h hVar = (h) view.getTag();
-        jVar.m().a(i == 1);
-        jVar.m().a(view);
+        baseFragmentActivity.a().a(i == 1);
+        baseFragmentActivity.a().a(view);
         if (hVar != null) {
             hVar.c.b(i);
-            bb.d(hVar.b, i);
+            hVar.b.c(i);
             hVar.d.a(i);
         }
     }

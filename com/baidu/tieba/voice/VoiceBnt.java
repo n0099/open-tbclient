@@ -8,7 +8,7 @@ import android.widget.ImageView;
 public class VoiceBnt extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    af f2552a;
+    ae f2606a;
     private boolean b;
 
     public VoiceBnt(Context context, AttributeSet attributeSet) {
@@ -16,8 +16,8 @@ public class VoiceBnt extends ImageView {
         this.b = false;
     }
 
-    public void setRecorderView(af afVar) {
-        this.f2552a = afVar;
+    public void setRecorderView(ae aeVar) {
+        this.f2606a = aeVar;
     }
 
     @Override // android.view.View
@@ -27,7 +27,7 @@ public class VoiceBnt extends ImageView {
             if (voiceManager == null || !voiceManager.i()) {
                 return false;
             }
-            this.b = voiceManager.a(this.f2552a, -1);
+            this.b = voiceManager.a(this.f2606a, -1);
             setPressed(true);
         } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
             if (this.b && voiceManager != null) {
@@ -40,8 +40,8 @@ public class VoiceBnt extends ImageView {
 
     public VoiceManager getVoiceManager() {
         Context context = getContext();
-        if (context instanceof ag) {
-            return ((ag) context).g_();
+        if (context instanceof af) {
+            return ((af) context).g();
         }
         return null;
     }

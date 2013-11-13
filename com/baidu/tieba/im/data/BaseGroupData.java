@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
-import com.baidu.tieba.util.ae;
+import com.baidu.tieba.util.an;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class BaseGroupData implements ae, Serializable {
+public class BaseGroupData implements an, Serializable {
     private static final long serialVersionUID = 5616188082014345808L;
     private String album;
     private int authorId;
@@ -169,15 +169,20 @@ public class BaseGroupData implements ae, Serializable {
         this.groupType = i;
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.an
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(this.portrait);
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.an
     public LinkedList<String> getPhotoUrl() {
+        return null;
+    }
+
+    @Override // com.baidu.tieba.util.an
+    public LinkedList<String> getForumPhotoUrl() {
         return null;
     }
 }

@@ -1,27 +1,30 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AdapterView;
+import android.widget.GridView;
 /* loaded from: classes.dex */
-public class w implements com.baidu.tbadk.imageManager.c {
+class w implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1299a;
+    final /* synthetic */ FrsActivity f1367a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(FrsActivity frsActivity) {
-        this.f1299a = frsActivity;
+        this.f1367a = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        ba baVar;
-        if (eVar != null) {
-            baVar = this.f1299a.o;
-            View d = baVar.d(str);
-            if (d != null) {
-                d.invalidate();
-            }
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        bn bnVar;
+        if (i >= 0) {
+            bnVar = this.f1367a.n;
+            bnVar.i(i);
+            this.f1367a.u = true;
+            this.f1367a.t = ((com.baidu.tieba.data.z) ((GridView) adapterView).getAdapter().getItem(i)).b();
+            this.f1367a.i = 1;
+            this.f1367a.e = 3;
+            this.f1367a.B();
         }
     }
 }

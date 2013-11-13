@@ -49,6 +49,14 @@ public class g {
         if (this.b) {
             throw new BuildException("Already created, rebuild a new one.");
         }
+        this.f498a.f = z;
+        return this;
+    }
+
+    public g b(boolean z) {
+        if (this.b) {
+            throw new BuildException("Already created, rebuild a new one.");
+        }
         this.f498a.g = z;
         return this;
     }

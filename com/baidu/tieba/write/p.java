@@ -1,59 +1,57 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
-import android.graphics.Bitmap;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.util.UtilHelper;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import com.baidu.tieba.data.WriteData;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class p extends BaseAdapter {
+class p implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2667a;
+    final /* synthetic */ VcodeActivity f2715a;
 
-    public p(Context context) {
-        this.f2667a = null;
-        this.f2667a = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(VcodeActivity vcodeActivity) {
+        this.f2715a = vcodeActivity;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return TbFaceManager.a().b();
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return TbFaceManager.a().b(i).f();
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ImageView imageView;
-        if (view == null) {
-            ImageView imageView2 = new ImageView(this.f2667a);
-            imageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            int a2 = UtilHelper.a(this.f2667a, 50.0f);
-            imageView2.setLayoutParams(new AbsListView.LayoutParams(a2, a2));
-            imageView = imageView2;
-            view = imageView2;
-        } else {
-            imageView = (ImageView) view;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        DialogInterface.OnCancelListener onCancelListener;
+        ProgressDialog progressDialog;
+        s sVar;
+        WriteData writeData;
+        s sVar2;
+        s sVar3;
+        s sVar4;
+        VcodeActivity vcodeActivity = this.f2715a;
+        inputMethodManager = this.f2715a.j;
+        editText = this.f2715a.f;
+        vcodeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        VcodeActivity vcodeActivity2 = this.f2715a;
+        VcodeActivity vcodeActivity3 = this.f2715a;
+        String string = this.f2715a.getString(R.string.sending);
+        onCancelListener = this.f2715a.k;
+        vcodeActivity2.mWaitingDialog = ProgressDialog.show(vcodeActivity3, "", string, true, false, onCancelListener);
+        progressDialog = this.f2715a.mWaitingDialog;
+        progressDialog.setCanceledOnTouchOutside(false);
+        sVar = this.f2715a.h;
+        if (sVar != null) {
+            sVar4 = this.f2715a.h;
+            sVar4.cancel();
         }
-        imageView.setFocusable(false);
-        imageView.setImageBitmap((Bitmap) getItem(i));
-        return view;
-    }
-
-    public String a(int i) {
-        return TbFaceManager.a().c(i);
+        VcodeActivity vcodeActivity4 = this.f2715a;
+        VcodeActivity vcodeActivity5 = this.f2715a;
+        writeData = this.f2715a.b;
+        vcodeActivity4.h = new s(vcodeActivity5, writeData);
+        sVar2 = this.f2715a.h;
+        sVar2.setPriority(3);
+        sVar3 = this.f2715a.h;
+        sVar3.execute(0);
     }
 }

@@ -1,52 +1,54 @@
 package com.baidu.tieba.home;
 
-import com.baidu.tieba.util.UtilHelper;
+import android.view.View;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.im.message.GroupsByUidMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.model.w {
+public class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1357a;
+    final /* synthetic */ EnterForumActivity f1452a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(EnterForumActivity enterForumActivity) {
-        this.f1357a = enterForumActivity;
+        this.f1452a = enterForumActivity;
     }
 
-    @Override // com.baidu.tieba.model.w
-    public void a(com.baidu.tieba.model.u uVar) {
-        n nVar;
-        n nVar2;
-        n nVar3;
-        n nVar4;
-        com.baidu.tieba.model.t tVar;
-        Boolean bool;
-        n nVar5;
-        n nVar6;
-        UtilHelper.NetworkStateInfo i = UtilHelper.i(this.f1357a);
-        if (i == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            nVar6 = this.f1357a.c;
-            nVar6.o();
-        }
-        nVar = this.f1357a.c;
-        nVar.a(true, "");
-        if (uVar.b) {
-            nVar4 = this.f1357a.c;
-            tVar = this.f1357a.e;
-            com.baidu.tieba.data.r a2 = tVar.a();
-            bool = this.f1357a.j;
-            nVar4.a(a2, bool.booleanValue());
-            nVar5 = this.f1357a.c;
-            nVar5.i();
-        } else {
-            nVar2 = this.f1357a.c;
-            nVar2.f();
-            if (uVar.f1960a != null && uVar.f1960a.equals("")) {
-                this.f1357a.a(uVar.f1960a);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        o oVar;
+        o oVar2;
+        o oVar3;
+        o oVar4;
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        BaseFragmentActivity baseFragmentActivity3;
+        oVar = this.f1452a.c;
+        if (oVar != null) {
+            oVar2 = this.f1452a.c;
+            if (oVar2.f1459a != null) {
+                oVar3 = this.f1452a.c;
+                if (oVar3.f1459a.b != null) {
+                    oVar4 = this.f1452a.c;
+                    com.baidu.tieba.im.b.c cVar = oVar4.f1459a.b;
+                    if (!TiebaApplication.B()) {
+                        baseFragmentActivity3 = this.f1452a.i;
+                        baseFragmentActivity3.a("请先登录");
+                    } else if (!EnterForumActivity.b) {
+                        if (TiebaApplication.g().s()) {
+                            baseFragmentActivity2 = this.f1452a.i;
+                            StatService.onEvent(baseFragmentActivity2, "create_group_tab", "click", 1);
+                        }
+                        baseFragmentActivity = this.f1452a.i;
+                        baseFragmentActivity.a(null, new i(this));
+                        com.baidu.tieba.im.messageCenter.f.a().a(new GroupsByUidMessage(cVar.f1476a, cVar.b));
+                        EnterForumActivity.b = true;
+                    }
+                }
             }
-        }
-        if (uVar.c == 0 && i != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            nVar3 = this.f1357a.c;
-            nVar3.e();
         }
     }
 }

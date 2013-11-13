@@ -9,17 +9,17 @@ import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.guide.f {
+public class c extends com.baidu.tieba.guide.g {
     private Paint b;
     private float f;
     private int g;
     private int h;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1309a = 4;
+    private int f1376a = 4;
     private Rect d = new Rect();
     private Rect e = new Rect();
-    private d[] c = new d[this.f1309a];
+    private d[] c = new d[this.f1376a];
 
     public c(Context context) {
         Resources resources = context.getResources();
@@ -31,9 +31,9 @@ public class c extends com.baidu.tieba.guide.f {
         this.f = -(this.f >= 1.0f ? this.f : 1.0f);
         d dVar = new d(this);
         this.c[0] = dVar;
-        dVar.f1310a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud1);
-        dVar.b = dVar.f1310a.getWidth();
-        dVar.c = dVar.f1310a.getHeight();
+        dVar.f1377a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud1);
+        dVar.b = dVar.f1377a.getWidth();
+        dVar.c = dVar.f1377a.getHeight();
         dVar.e = this.h / 3;
         dVar.h = dVar.e;
         dVar.d = this.g - dVar.b;
@@ -45,9 +45,9 @@ public class c extends com.baidu.tieba.guide.f {
         dVar.n = this.g;
         d dVar2 = new d(this);
         this.c[1] = dVar2;
-        dVar2.f1310a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud2);
-        dVar2.b = dVar2.f1310a.getWidth();
-        dVar2.c = dVar2.f1310a.getHeight();
+        dVar2.f1377a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud2);
+        dVar2.b = dVar2.f1377a.getWidth();
+        dVar2.c = dVar2.f1377a.getHeight();
         dVar2.e = (int) (f * 206.0f);
         dVar2.h = dVar2.e;
         dVar2.d = this.g - dVar2.b;
@@ -61,9 +61,9 @@ public class c extends com.baidu.tieba.guide.f {
         dVar2.j = false;
         d dVar3 = new d(this);
         this.c[2] = dVar3;
-        dVar3.f1310a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud3);
-        dVar3.b = dVar3.f1310a.getWidth();
-        dVar3.c = dVar3.f1310a.getHeight();
+        dVar3.f1377a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud3);
+        dVar3.b = dVar3.f1377a.getWidth();
+        dVar3.c = dVar3.f1377a.getHeight();
         dVar3.e = 0;
         dVar3.h = dVar3.e;
         dVar3.d = (-dVar3.b) / 2;
@@ -77,9 +77,9 @@ public class c extends com.baidu.tieba.guide.f {
         dVar3.j = false;
         d dVar4 = new d(this);
         this.c[3] = dVar4;
-        dVar4.f1310a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud3);
-        dVar4.b = dVar4.f1310a.getWidth();
-        dVar4.c = dVar4.f1310a.getHeight();
+        dVar4.f1377a = BitmapFactory.decodeResource(resources, R.drawable.guide_cloud3);
+        dVar4.b = dVar4.f1377a.getWidth();
+        dVar4.c = dVar4.f1377a.getHeight();
         dVar4.e = (this.h * 2) / 3;
         dVar4.h = dVar4.e;
         dVar4.d = this.g - dVar4.b;
@@ -93,9 +93,9 @@ public class c extends com.baidu.tieba.guide.f {
         this.b.setAntiAlias(true);
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a() {
-        for (int i = 0; i < this.f1309a; i++) {
+        for (int i = 0; i < this.f1376a; i++) {
             d dVar = this.c[i];
             if (dVar.j) {
                 dVar.f = (int) (dVar.f + this.f);
@@ -107,12 +107,12 @@ public class c extends com.baidu.tieba.guide.f {
         }
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public boolean b() {
         return true;
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a(int i, float f, int i2) {
         float f2 = i + f;
         if (f2 >= 0.0f && f2 < 1.0f) {
@@ -226,23 +226,23 @@ public class c extends com.baidu.tieba.guide.f {
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         canvas.save();
-        for (int i = 0; i < this.f1309a; i++) {
+        for (int i = 0; i < this.f1376a; i++) {
             d dVar = this.c[i];
             if (!dVar.i) {
                 this.d.set(0, 0, dVar.b, dVar.c);
                 this.e.set(dVar.f, dVar.h, dVar.f + dVar.b, dVar.h + dVar.c);
-                canvas.drawBitmap(dVar.f1310a, this.d, this.e, this.b);
+                canvas.drawBitmap(dVar.f1377a, this.d, this.e, this.b);
             }
         }
         canvas.restore();
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void c() {
-        for (int i = 0; i < this.f1309a; i++) {
+        for (int i = 0; i < this.f1376a; i++) {
             d dVar = this.c[i];
-            dVar.f1310a.recycle();
-            dVar.f1310a = null;
+            dVar.f1377a.recycle();
+            dVar.f1377a = null;
         }
     }
 }

@@ -6,24 +6,24 @@ import java.util.concurrent.ConcurrentHashMap;
 class ac implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1513a;
+    final /* synthetic */ String f1604a;
     final /* synthetic */ ImMessageCenterPojo b;
     final /* synthetic */ aa c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(aa aaVar, String str, ImMessageCenterPojo imMessageCenterPojo) {
         this.c = aaVar;
-        this.f1513a = str;
+        this.f1604a = str;
         this.b = imMessageCenterPojo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.f1513a);
+        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.f1604a);
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
-            imMessageCenterPojo.setGid(this.f1513a);
+            imMessageCenterPojo.setGid(this.f1604a);
         }
         imMessageCenterPojo.setExt(this.b.getExt());
         imMessageCenterPojo.setGroup_ext(this.b.getGroup_ext());

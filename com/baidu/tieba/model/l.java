@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class l extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1952a;
-    private volatile com.baidu.tieba.util.ag b;
+    final /* synthetic */ f f1943a;
+    private volatile com.baidu.tieba.util.ap b;
 
     private l(f fVar) {
-        this.f1952a = fVar;
+        this.f1943a = fVar;
         this.b = null;
     }
 
@@ -34,29 +34,29 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
         String str5;
         String str6;
         try {
-            this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/s/delcom");
+            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/s/delcom");
             this.b.e(true);
-            com.baidu.tieba.util.ag agVar = this.b;
-            str = this.f1952a.d;
-            agVar.a(PushConstants.EXTRA_USER_ID, str);
-            com.baidu.tieba.util.ag agVar2 = this.b;
-            str2 = this.f1952a.e;
-            agVar2.a("com_id", str2);
+            com.baidu.tieba.util.ap apVar = this.b;
+            str = this.f1943a.d;
+            apVar.a(PushConstants.EXTRA_USER_ID, str);
+            com.baidu.tieba.util.ap apVar2 = this.b;
+            str2 = this.f1943a.e;
+            apVar2.a("com_id", str2);
             String j = this.b.j();
             if (this.b.c() && j != null && (jSONObject = new JSONObject(j)) != null && jSONObject.optJSONObject("error").optInt("errno") == 0) {
                 com.baidu.tieba.data.chat.c a2 = com.baidu.tieba.data.chat.c.a();
                 com.baidu.tieba.data.chat.c a3 = com.baidu.tieba.data.chat.c.a();
-                str3 = this.f1952a.d;
-                str4 = this.f1952a.e;
+                str3 = this.f1943a.d;
+                str4 = this.f1943a.e;
                 a3.c(str3, str4);
-                str5 = this.f1952a.d;
-                str6 = this.f1952a.e;
+                str5 = this.f1943a.d;
+                str6 = this.f1943a.e;
                 a2.b(str5, str6);
                 return true;
             }
             return false;
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
             return false;
         }
     }
@@ -66,11 +66,11 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
         com.baidu.adp.a.g gVar;
-        this.f1952a.l = null;
+        this.f1943a.l = null;
         if (!bool.booleanValue()) {
-            this.f1952a.mErrorCode = this.b.e();
-            this.f1952a.mErrorString = this.b.g();
-            gVar = this.f1952a.mLoadDataCallBack;
+            this.f1943a.mErrorCode = this.b.e();
+            this.f1943a.mErrorString = this.b.g();
+            gVar = this.f1943a.mLoadDataCallBack;
             gVar.a(false);
             return;
         }
@@ -85,7 +85,7 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
             this.b.h();
             this.b = null;
         }
-        gVar = this.f1952a.mLoadDataCallBack;
+        gVar = this.f1943a.mLoadDataCallBack;
         gVar.a(false);
     }
 }

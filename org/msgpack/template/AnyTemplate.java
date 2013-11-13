@@ -6,10 +6,10 @@ import org.msgpack.MessageTypeException;
 public class AnyTemplate<T> extends AbstractTemplate<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f2851a;
+    private e f2899a;
 
     public AnyTemplate(e eVar) {
-        this.f2851a = eVar;
+        this.f2899a = eVar;
     }
 
     @Override // org.msgpack.template.d
@@ -21,6 +21,6 @@ public class AnyTemplate<T> extends AbstractTemplate<T> {
             aVar.d();
             return;
         }
-        this.f2851a.a((Type) t.getClass()).a(aVar, t);
+        this.f2899a.a((Type) t.getClass()).a(aVar, t);
     }
 }

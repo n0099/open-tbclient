@@ -1,399 +1,60 @@
 package com.baidu.tieba.util;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.text.format.DateFormat;
-import com.baidu.browser.explorer.WebStorageSizeManager;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.UUID;
-import java.util.concurrent.atomic.AtomicBoolean;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class o {
-    private static Hashtable<Integer, String> c;
-    private static final String d;
-    private static final String e;
-    private static o q;
-    private static boolean r;
-    private static boolean u;
-    private StringBuffer f;
-
-    /* renamed from: a  reason: collision with root package name */
-    private AtomicBoolean f2455a = new AtomicBoolean(false);
-    private AtomicBoolean b = new AtomicBoolean(false);
-    private int g = 0;
-    private int h = 0;
-    private File i = null;
-    private String j = "yyyy-MM-dd kk:mm:ss";
-    private String k = "yyyyMMddkkmmss";
-    private FileWriter l = null;
-    private BufferedWriter m = null;
-    private UtilHelper.NetworkStateInfo n = UtilHelper.NetworkStateInfo.UNAVAIL;
-    private String o = "";
-    private String p = null;
-    private u s = null;
-    private s t = null;
-
-    static {
-        c = null;
-        if (c == null) {
-            c = new Hashtable<>();
-            c.put(1001, "上线");
-            c.put(1002, "GROUP_UPDATE");
-            c.put(1003, "PING");
-            c.put(202003, "MESSAGE_SYNC");
-            c.put(202001, "GROUP_CHAT_MSG");
-            c.put(202006, "PUSH_NOTIFY");
-            c.put(103002, "吧的群组列表界面网络请求");
-            c.put(103004, "群资料页界面网络请求");
-            c.put(103005, "根据群的ID获取群的成员列表");
-            c.put(103112, "移除群的成员");
-            c.put(103006, "根据群的id获取群的等级信息");
-            c.put(103110, "加群申请");
-            c.put(103111, "往群增加成员");
-            c.put(103003, "进群页面接口");
-            c.put(103007, "搜群");
-            c.put(202004, "删系统群消息");
-            c.put(103008, "建群权限获取");
-            c.put(103101, "添加群组");
-            c.put(103103, "举报群组");
-            c.put(103102, "更新群组");
-            c.put(202101, "反推计数上传");
-        }
-        d = w.f2463a + "/tieba/log";
-        e = w.f2463a + "/tieba/logbak";
-        r = false;
-        u = false;
-    }
-
-    public static void a(boolean z) {
-        u = z;
-        com.baidu.tieba.sharedPref.b.a().b("debug_switcher", z);
-    }
-
-    public static boolean a() {
-        if (Build.VERSION.SDK_INT < 16) {
-            return false;
-        }
-        if (!r) {
-            u = com.baidu.tieba.sharedPref.b.a().a("debug_switcher", false);
-            r = true;
-        }
-        return u;
-    }
-
-    public static void a(String str, String str2, String str3) {
-        if (a()) {
-            f().b(0, 0, str, str2, str3, 0, null, 0L, 0, null);
-        }
-    }
-
-    public static void a(String str, String str2, String str3, int i, String str4) {
-        if (a()) {
-            f().b(0, 0, str, str2, str3, i, str4, 0L, 0, null);
-        }
-    }
-
-    public static void a(int i, int i2, String str, String str2, String str3, int i3, String str4) {
-        if (a()) {
-            f().b(i, i2, str, str2, str3, i3, str4, 0L, 0, null);
-        }
-    }
-
-    public static void a(int i, int i2, String str, String str2, String str3, int i3, String str4, long j) {
-        if (a()) {
-            f().b(i, i2, str, str2, str3, i3, str4, j, 0, null);
-        }
-    }
-
-    public static void a(int i, int i2, String str, String str2, String str3, int i3, String str4, long j, int i4, String str5) {
-        if (a()) {
-            f().b(i, i2, str, str2, str3, i3, str4, j, i4, str5);
-        }
-    }
-
-    public static void a(UtilHelper.NetworkStateInfo networkStateInfo) {
-        if (a()) {
-            f().b(networkStateInfo);
-        }
-    }
-
-    public static void b() {
-        if (a()) {
-            f().b(true);
-            r = false;
-        }
-    }
-
-    public static void c() {
-        f().j();
-    }
-
-    private static synchronized o f() {
-        o oVar;
-        synchronized (o.class) {
-            if (q == null) {
-                q = new o();
-            }
-            oVar = q;
-        }
-        return oVar;
-    }
-
-    private o() {
-        try {
-            this.f = new StringBuffer();
-            b(UtilHelper.i(TiebaApplication.g().getApplicationContext()));
-        } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.a("DebugLogger", "初始化日志组建失败 ", e2);
-        }
-    }
-
-    private void b(UtilHelper.NetworkStateInfo networkStateInfo) {
-        try {
-            this.n = networkStateInfo;
-            this.o = com.baidu.adp.lib.g.a.a().c();
-            if (a() && this.t == null) {
-                this.t = new s(this, c(false));
-                this.t.execute(new String[0]);
-            }
-        } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.a("DebugLogger", "network", e2);
-        }
-    }
-
-    private Hashtable<String, String> g() {
-        new Hashtable();
-        Hashtable<String, String> hashtable = new Hashtable<>();
-        String C = TiebaApplication.C();
-        String j = com.baidu.tieba.data.h.j();
-        String charSequence = DateFormat.format(this.j, System.currentTimeMillis()).toString();
-        String a2 = com.baidu.tieba.im.i.a();
-        if (TextUtils.isEmpty(charSequence)) {
-            charSequence = "";
-        }
-        hashtable.put("time", charSequence);
-        hashtable.put(SocialConstants.PARAM_CUID, TextUtils.isEmpty(a2) ? "" : a2);
-        String str = Build.MODEL;
-        if (TextUtils.isEmpty(str)) {
-            str = "";
-        }
-        hashtable.put("model", str);
-        hashtable.put("network", TextUtils.isEmpty(this.o) ? "" : this.o);
-        hashtable.put("uid", TextUtils.isEmpty(C) ? "" : C);
-        hashtable.put("version", TextUtils.isEmpty(j) ? "" : j);
-        return hashtable;
-    }
-
-    private void b(int i, int i2, String str, String str2, String str3, int i3, String str4, long j, int i4, String str5) {
-        Hashtable<String, String> g = g();
-        g.put("cmd", String.valueOf(i));
-        String str6 = "";
-        if (c != null && c.containsKey(Integer.valueOf(i))) {
-            str6 = c.get(Integer.valueOf(i));
-        }
-        if (TextUtils.isEmpty(str6)) {
-            str6 = "";
-        }
-        g.put("cmdRemark", str6);
-        g.put("seqID", String.valueOf(i2));
-        if (TextUtils.isEmpty(str)) {
-            str = "";
-        }
-        g.put("reason", str);
-        if (TextUtils.isEmpty(str2)) {
-            str2 = "";
-        }
-        g.put("action", str2);
-        if (TextUtils.isEmpty(str3)) {
-            str3 = "";
-        }
-        g.put("result", str3);
-        g.put("errorCode", String.valueOf(i3));
-        if (TextUtils.isEmpty(str4)) {
-            str4 = "";
-        }
-        g.put("errorMsg", str4);
-        g.put("costTime", String.valueOf(j));
-        g.put("size", String.valueOf(i4));
-        if (TextUtils.isEmpty(str5)) {
-            str5 = "";
-        }
-        g.put("comment", str5);
-        a(g);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(boolean z) {
-        if (!this.f2455a.get()) {
-            this.g++;
-        } else if (z) {
-            com.baidu.adp.lib.f.c.a().a(new p(this));
-        }
-        if (this.g >= 20 || z) {
-            String stringBuffer = this.f.toString();
-            this.f = new StringBuffer(stringBuffer.length());
-            this.g = 0;
-            a(stringBuffer);
-        }
-    }
-
-    private synchronized void a(Hashtable<String, String> hashtable) {
-        try {
-            this.f.append(b(hashtable));
-            b(false);
-        } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.a("DebugLogger", "hashTableToMemoryList error ", e2);
-        }
-    }
-
-    public void a(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.f2455a.set(true);
-            com.baidu.adp.lib.f.c.a().a(new q(this, str));
-        }
-    }
-
-    private String b(Hashtable<String, String> hashtable) {
-        if (hashtable == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        int i = 0;
-        Iterator<String> it = hashtable.keySet().iterator();
-        while (true) {
-            int i2 = i;
-            if (it.hasNext()) {
-                String next = it.next();
-                sb.append((i2 > 0 ? "\t" : "") + next + "=" + hashtable.get(next));
-                i = i2 + 1;
-            } else {
-                sb.append("\n");
-                return sb.toString();
-            }
-        }
-    }
-
-    private String c(boolean z) {
-        if (this.p == null || z) {
-            this.p = h();
-        }
-        return this.p;
-    }
-
-    private String h() {
-        return DateFormat.format(this.k, System.currentTimeMillis()).toString() + "-" + String.valueOf(UUID.randomUUID()) + ".log";
-    }
-
-    private boolean b(String str) {
-        if (w.a("log", str) > WebStorageSizeManager.QUOTA_INCREASE_STEP) {
-            if (this.n == UtilHelper.NetworkStateInfo.WIFI) {
-                this.s = new u(this, d + "/" + str);
-                this.s.execute(new String[0]);
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(String str) {
-        if (this.h >= 6) {
-            u = false;
-            return;
-        }
-        try {
+    public static void a(InputStream inputStream) {
+        if (inputStream != null) {
             try {
-                boolean b = b(c(false));
-                if (this.i == null) {
-                    this.i = new File(d + "/" + c(b));
-                }
-                if (!this.i.exists()) {
-                    w.k(d);
-                    this.i.createNewFile();
-                    if (this.n != UtilHelper.NetworkStateInfo.WIFI) {
-                        d(d);
-                    }
-                }
-                if (this.l == null) {
-                    this.l = new FileWriter(this.i, true);
-                }
-                if (this.m == null) {
-                    this.m = new BufferedWriter(this.l);
-                }
-                this.m.write(str);
-                this.m.flush();
-                this.l.flush();
-                this.h = 0;
-            } catch (Exception e2) {
-                this.h++;
-                com.baidu.adp.lib.h.d.a("DebugLogger", "write() ", e2);
+                inputStream.close();
+            } catch (IOException e) {
+                bg.b("CloseUtil", "error on close the inputstream.", e.getMessage());
             }
-        } finally {
-            i();
         }
     }
 
-    private void i() {
-        try {
-            if (this.l != null) {
-                this.l.close();
-                this.l = null;
+    public static void a(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+                bg.b("CloseUtil", "error on close the Closeable.", th.getMessage());
             }
-            if (this.m != null) {
-                this.m.close();
-                this.m = null;
-            }
-            if (this.i != null) {
-                this.i = null;
-            }
-        } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.a("DebugLogger", "close() error  ", e2);
         }
     }
 
-    private void j() {
-        if (!this.b.get()) {
-            this.b.set(true);
-            com.baidu.adp.lib.f.c.a().a(new r(this));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, long j) {
-        try {
-            File[] listFiles = new File(str).listFiles();
-            if (listFiles != null) {
-                long j2 = 0;
-                for (File file : listFiles) {
-                    if (file.isFile()) {
-                        long b = w.b(file);
-                        if (w.c(file)) {
-                            j2 += b;
-                            if (j2 >= j && j > 0) {
-                                return;
-                            }
-                        } else {
-                            continue;
-                        }
-                    }
-                }
+    public static void a(OutputStream outputStream) {
+        if (outputStream != null) {
+            try {
+                outputStream.close();
+            } catch (IOException e) {
+                bg.b("CloseUtil", "error on close the outputstream.", e.getMessage());
             }
-        } catch (Exception e2) {
-            com.baidu.adp.lib.h.d.a("DebugLogger", "check file error ", e2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(String str) {
-        if (w.a(str, true) > 52428800) {
-            a(str, 10485760L);
+    public static void a(Cursor cursor) {
+        if (cursor != null) {
+            try {
+                cursor.close();
+            } catch (Exception e) {
+                bg.b("CloseUtil", "error on close android.database.Cursor.", e.getMessage());
+            }
+        }
+    }
+
+    public static void a(SQLiteDatabase sQLiteDatabase) {
+        if (sQLiteDatabase != null) {
+            try {
+                sQLiteDatabase.close();
+            } catch (Exception e) {
+                bg.b("CloseUtil", "error on close android.database.SQLiteDatabase.", e.getMessage());
+            }
         }
     }
 }

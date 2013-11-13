@@ -9,32 +9,32 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bj;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
+    private Activity b;
+    private ArrayList<z> c;
+    private com.baidu.tieba.util.i d;
+    private float e = 0.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f2359a = new f(this);
-    private Activity b;
-    private ArrayList<s> c;
-    private com.baidu.tieba.util.a d;
+    View.OnClickListener f2418a = new f(this);
 
-    public c(Activity activity, g gVar, boolean z) {
+    public c(Activity activity, h hVar, boolean z) {
         this.b = activity;
-        this.c = gVar.d();
-        this.d = new com.baidu.tieba.util.a(activity);
+        this.c = hVar.d();
+        this.d = new com.baidu.tieba.util.i(activity);
         int a2 = UtilHelper.a((Context) activity, 45.0f);
         this.d.a(a2, a2);
     }
 
-    public ArrayList<s> a() {
+    public ArrayList<z> a() {
         return this.c;
     }
 
-    public void a(ArrayList<s> arrayList) {
+    public void a(ArrayList<z> arrayList) {
         this.c = arrayList;
     }
 
@@ -51,19 +51,19 @@ public class c extends BaseAdapter {
         int itemViewType = getItemViewType(i);
         if (view == null) {
             view = a(viewGroup, itemViewType);
-            bj.b(view);
+            com.baidu.tieba.util.bl.b(view);
         }
-        bj.a(view);
+        com.baidu.tieba.util.bl.a(view);
         if (itemViewType != 3) {
-            int as = TiebaApplication.g().as();
+            int ap = TiebaApplication.g().ap();
             View findViewById = view.findViewById(R.id.container);
-            bj.a(findViewById, 1, as);
+            com.baidu.tieba.util.bl.a(findViewById, 1, ap);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
                 }
             } else if (itemViewType == 1) {
-                a(viewGroup, (l) view.getTag(), i);
+                a(viewGroup, (g) view.getTag(), i);
             }
         }
         return view;
@@ -78,38 +78,45 @@ public class c extends BaseAdapter {
             return from.inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f2359a);
-        l lVar = new l();
-        lVar.f2368a = (HeadImageView) inflate.findViewById(R.id.portrait);
-        lVar.b = (TextView) inflate.findViewById(R.id.name);
-        lVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
-        inflate.setTag(lVar);
+        inflate.setOnClickListener(this.f2418a);
+        g gVar = new g();
+        gVar.f2422a = (HeadImageView) inflate.findViewById(R.id.portrait);
+        gVar.b = (TextView) inflate.findViewById(R.id.name);
+        gVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        inflate.setTag(gVar);
         return inflate;
     }
 
-    private void a(ViewGroup viewGroup, l lVar, int i) {
-        s sVar = this.c.get(i / 2);
-        lVar.d = sVar;
-        lVar.b.setText(sVar.b);
-        if (sVar.e != null) {
-            String[] strArr = new String[sVar.e.size()];
-            for (int i2 = 0; i2 < sVar.e.size(); i2++) {
-                strArr[i2] = sVar.e.get(i2).b;
+    private void a(ViewGroup viewGroup, g gVar, int i) {
+        int i2 = 0;
+        z zVar = this.c.get(i / 2);
+        gVar.d = zVar;
+        gVar.b.setText(zVar.b);
+        if (zVar.e != null) {
+            gVar.c.setVisibility(0);
+            String[] strArr = new String[zVar.e.size()];
+            while (true) {
+                int i3 = i2;
+                if (i3 >= zVar.e.size()) {
+                    break;
+                }
+                strArr[i3] = zVar.e.get(i3).b;
+                i2 = i3 + 1;
             }
-            lVar.c.setTextArray(strArr);
-            lVar.c.setVisibility(0);
+            gVar.c.setTextArray(strArr);
         } else {
-            lVar.c.setVisibility(8);
+            gVar.c.setVisibility(8);
         }
-        if (sVar.d != null) {
-            lVar.f2368a.setTag(sVar.d);
-            com.baidu.adp.widget.ImageView.e d = this.d.d(sVar.d);
+        if (zVar.d != null) {
+            gVar.f2422a.setImageBitmap(null);
+            gVar.f2422a.setTag(zVar.d);
+            com.baidu.adp.widget.ImageView.e d = this.d.d(zVar.d);
             if (d != null) {
-                lVar.f2368a.setImageBitmap(d.f());
-                lVar.f2368a.invalidate();
+                gVar.f2422a.setImageBitmap(d.f());
+                gVar.f2422a.invalidate();
                 return;
             }
-            this.d.a(sVar.d, new d(this, viewGroup));
+            this.d.a(zVar.d, new d(this, viewGroup));
         }
     }
 

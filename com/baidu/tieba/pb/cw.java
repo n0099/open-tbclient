@@ -1,66 +1,36 @@
 package com.baidu.tieba.pb;
 
-import android.widget.Button;
-import com.baidu.tieba.write.AudioIcon;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cw implements com.baidu.tieba.voice.q {
+public class cw implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bt f2110a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2128a;
+    final /* synthetic */ cp b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cw(bt btVar) {
-        this.f2110a = btVar;
+    public cw(cp cpVar, com.baidu.tieba.editortool.h hVar) {
+        this.b = cpVar;
+        this.f2128a = hVar;
     }
 
-    @Override // com.baidu.tieba.voice.q
-    public void a() {
-        AudioIcon audioIcon;
-        AudioIcon audioIcon2;
-        Button button;
-        Button button2;
-        AudioIcon audioIcon3;
-        AudioIcon audioIcon4;
-        audioIcon = this.f2110a.n;
-        if (audioIcon != null) {
-            audioIcon4 = this.f2110a.n;
-            audioIcon4.g();
+    @Override // com.baidu.tieba.editortool.h
+    public void a(int i, Object obj) {
+        PbEditor pbEditor;
+        PbEditor pbEditor2;
+        NewPbActivity newPbActivity;
+        if (i == 33) {
+            pbEditor = this.b.an;
+            if (!pbEditor.i()) {
+                pbEditor2 = this.b.an;
+                if (!pbEditor2.k() && TiebaApplication.g().s()) {
+                    newPbActivity = this.b.g;
+                    StatService.onEvent(newPbActivity, "pb_reply", "pbclick", 1);
+                }
+            }
         }
-        audioIcon2 = this.f2110a.r;
-        if (audioIcon2 != null) {
-            audioIcon3 = this.f2110a.r;
-            audioIcon3.g();
-        }
-        button = this.f2110a.l;
-        if (button != null) {
-            button2 = this.f2110a.l;
-            button2.setEnabled(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.voice.q
-    public void b() {
-        AudioIcon audioIcon;
-        AudioIcon audioIcon2;
-        Button button;
-        Button button2;
-        AudioIcon audioIcon3;
-        AudioIcon audioIcon4;
-        audioIcon = this.f2110a.n;
-        if (audioIcon != null) {
-            audioIcon4 = this.f2110a.n;
-            audioIcon4.h();
-        }
-        audioIcon2 = this.f2110a.r;
-        if (audioIcon2 != null) {
-            audioIcon3 = this.f2110a.r;
-            audioIcon3.h();
-        }
-        button = this.f2110a.l;
-        if (button != null && !this.f2110a.b()) {
-            button2 = this.f2110a.l;
-            button2.setEnabled(false);
-        }
+        this.f2128a.a(i, obj);
     }
 }

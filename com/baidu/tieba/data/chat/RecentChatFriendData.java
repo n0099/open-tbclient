@@ -4,6 +4,7 @@ import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class RecentChatFriendData implements Serializable {
+    private static final long serialVersionUID = 3133087680118197014L;
     protected String friendId;
     protected String friendName;
     protected String friendPortrait;

@@ -18,8 +18,8 @@ public class a extends com.baidu.tieba.im.messageCenter.d {
         }
         LoadDraftMessage loadDraftMessage = (LoadDraftMessage) message;
         String str = "";
-        if (TiebaApplication.G() != null) {
-            str = TiebaApplication.G().getID();
+        if (TiebaApplication.E() != null) {
+            str = TiebaApplication.E().getID();
         }
         GroupSettingItemData a2 = v.a(str, loadDraftMessage.getGroupId());
         if (a2 == null) {

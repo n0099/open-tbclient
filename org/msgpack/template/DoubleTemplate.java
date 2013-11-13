@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class DoubleTemplate extends AbstractTemplate<Double> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final DoubleTemplate f2863a = new DoubleTemplate();
+    static final DoubleTemplate f2911a = new DoubleTemplate();
 
     private DoubleTemplate() {
     }
@@ -24,6 +24,6 @@ public class DoubleTemplate extends AbstractTemplate<Double> {
     }
 
     public static DoubleTemplate a() {
-        return f2863a;
+        return f2911a;
     }
 }

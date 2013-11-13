@@ -7,11 +7,11 @@ import android.os.Message;
 public class e extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1382a;
+    final /* synthetic */ d f1478a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f1382a = dVar;
+        this.f1478a = dVar;
     }
 
     @Override // android.os.Handler
@@ -19,10 +19,10 @@ public class e extends Handler {
         Handler handler;
         switch (message.what) {
             case 1:
-                handler = this.f1382a.j;
+                handler = this.f1478a.l;
                 handler.removeMessages(1);
-                if (this.f1382a.f1381a != null) {
-                    this.f1382a.f1381a.a();
+                if (this.f1478a.f1477a != null) {
+                    this.f1478a.f1477a.a();
                     return;
                 }
                 return;

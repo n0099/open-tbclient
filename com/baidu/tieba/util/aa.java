@@ -1,33 +1,37 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.tieba.pb.NewPbActivity;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends ClickableSpan {
+public class aa implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2414a;
+    final /* synthetic */ String f2475a;
+    final /* synthetic */ y b;
 
-    public aa(Context context) {
-        this.f2414a = null;
-        this.f2414a = context;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public aa(y yVar, String str) {
+        this.b = yVar;
+        this.f2475a = str;
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-    }
-
-    public Context a() {
-        return this.f2414a;
-    }
-
-    public void a(String str) {
-        UtilHelper.c(this.f2414a, str);
-    }
-
-    public void b(String str) {
-        NewPbActivity.a(this.f2414a, str, null, null);
+    @Override // java.lang.Runnable
+    public void run() {
+        AtomicBoolean atomicBoolean;
+        AtomicBoolean atomicBoolean2;
+        try {
+            try {
+                this.b.c(this.f2475a);
+                atomicBoolean = this.b.f2520a;
+            } catch (Exception e) {
+                com.baidu.adp.lib.h.d.a("DebugLogger", "write error ", e);
+                atomicBoolean = this.b.f2520a;
+            }
+            atomicBoolean.set(false);
+        } catch (Throwable th) {
+            atomicBoolean2 = this.b.f2520a;
+            atomicBoolean2.set(false);
+            throw th;
+        }
     }
 }

@@ -7,6 +7,7 @@ import com.baidu.tieba.im.message.AckedMessage;
 import com.baidu.tieba.im.message.Message;
 import com.baidu.tieba.im.message.ResponsedMessage;
 import com.baidu.tieba.im.net.link.TiebaSocketLinkService;
+import com.baidu.tieba.util.y;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
 public class k implements com.baidu.tieba.im.net.link.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.im.a<s> f1647a;
+    private com.baidu.tieba.im.a<s> f1734a;
     private com.baidu.tieba.im.a<q> b;
     private com.baidu.tieba.im.a<List<Message>> c;
     private f h;
@@ -29,13 +30,13 @@ public class k implements com.baidu.tieba.im.net.link.a {
     private boolean l = false;
 
     public k(f fVar) {
-        this.f1647a = null;
+        this.f1734a = null;
         this.b = null;
         this.c = null;
         this.h = null;
         this.h = fVar;
         TiebaSocketLinkService.a(this);
-        this.f1647a = new l(this);
+        this.f1734a = new l(this);
         this.b = new m(this);
         this.c = new n(this);
     }
@@ -68,14 +69,14 @@ public class k implements com.baidu.tieba.im.net.link.a {
             int b = z ? b(message) : 0;
             s sVar = new s(message, z, i, b, i2, this, i3);
             if (d(message)) {
-                com.baidu.tieba.util.o.a(message.getCmd(), b, "duplicate remove", "MessageQueue: Message throwed", null, 0, null);
+                y.a(message.getCmd(), b, "duplicate remove", "MessageQueue: Message throwed", null, 0, null);
                 return;
             }
             if (TiebaApplication.g().s()) {
                 StatService.onEvent(TiebaApplication.g().getApplicationContext(), "send_msg_time", "send", 1);
             }
             j.b(sVar, this.e);
-            com.baidu.tieba.im.m.a(new i(sVar), this.f1647a);
+            com.baidu.tieba.im.m.a(new i(sVar), this.f1734a);
         }
     }
 
@@ -83,7 +84,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
         if (message != null && (message instanceof IDuplicateProcess)) {
             int cmd = message.getCmd();
             IDuplicateProcess iDuplicateProcess = (IDuplicateProcess) message;
-            switch (o.f1651a[iDuplicateProcess.getDuplicateRemoveType().ordinal()]) {
+            switch (o.f1738a[iDuplicateProcess.getDuplicateRemoveType().ordinal()]) {
                 case 1:
                     j.b(this.g, iDuplicateProcess, cmd);
                     j.b(this.d, iDuplicateProcess, cmd);
@@ -111,22 +112,22 @@ public class k implements com.baidu.tieba.im.net.link.a {
             int sequence = (sVar.c() == null || sVar.c().getMsgTag() == null) ? 0 : sVar.c().getMsgTag().getSequence();
             if (sVar.e() != null) {
                 String a2 = com.baidu.tieba.im.k.a(sVar.e().getErrorCode());
-                com.baidu.tieba.util.o.a(cmd, sequence, "pack error", "MessageQueue: Message throwed", null, sVar.e().getErrorCode(), a2);
+                y.a(cmd, sequence, "pack error", "MessageQueue: Message throwed", null, sVar.e().getErrorCode(), a2);
                 a(sVar, sVar.e().getErrorCode(), a2);
             } else if (sVar.d() != null) {
-                com.baidu.tieba.util.o.a(cmd, sequence, null, "MessageQueue: send Message", null, 0, null, 0L, sVar.d().c() != null ? sVar.d().c().length : 0, null);
+                y.a(cmd, sequence, null, "MessageQueue: send Message", null, 0, null, 0L, sVar.d().c() != null ? sVar.d().c().length : 0, null);
                 j.a(sVar, this.g);
                 if (this.k && sVar.g() != null && sVar.g().getCmd() != 1001 && sVar.g().getCmd() != 1003) {
                     com.baidu.adp.lib.h.d.a("offline state message active");
-                    com.baidu.tieba.util.o.a(cmd, sequence, "message active to online", "MessageQueue: online", null, 0, null);
+                    y.a(cmd, sequence, "message active to online", "MessageQueue: online", null, 0, null);
                     b(-111);
                 }
                 if (this.l && cmd != 1003 && cmd != 1001) {
-                    com.baidu.tieba.util.o.a(cmd, sequence, "vary state", "MessageQueue: dispatchMessage need ping", null, 0, null);
+                    y.a(cmd, sequence, "vary state", "MessageQueue: dispatchMessage need ping", null, 0, null);
                     b(-12);
                 }
             } else {
-                com.baidu.tieba.util.o.a(cmd, sequence, "pack error cont codec", "MessageQueue: Message throwed", null, 0, null);
+                y.a(cmd, sequence, "pack error cont codec", "MessageQueue: Message throwed", null, 0, null);
                 a(sVar, com.baidu.tieba.im.k.l, com.baidu.tieba.im.k.a(com.baidu.tieba.im.k.l));
             }
         }
@@ -171,19 +172,19 @@ public class k implements com.baidu.tieba.im.net.link.a {
                 i2 = 0;
                 ackedMessage = null;
             }
-            com.baidu.tieba.util.o.a(i2, i, "unpack succ", "MessageQueue: receive message", null, 0, null);
+            y.a(i2, i, "unpack succ", "MessageQueue: receive message", null, 0, null);
             if (ackedMessage != null) {
                 Object obj = a2.size() > 0 ? (Message) a2.get(0) : null;
                 if (obj != null && (obj instanceof ResponsedMessage)) {
                     responsedMessage = (ResponsedMessage) obj;
                     if (responsedMessage.getErrNo() == 110004) {
                         com.baidu.adp.lib.h.d.a("is offline state force online");
-                        com.baidu.tieba.util.o.a(i2, i, "server kick off", "MessageQueue: on line", null, 0, null);
+                        y.a(i2, i, "server kick off", "MessageQueue: on line", null, 0, null);
                         b(-112);
                     }
                     if (ackedMessage != null && ackedMessage.getMsgTag() != null) {
                         a3 = j.a(ackedMessage.getMsgTag().getSequence(), this.f);
-                        com.baidu.tieba.util.o.a(i2, i, null, "MessageQueue: receive ack message", null, 0, null);
+                        y.a(i2, i, null, "MessageQueue: receive ack message", null, 0, null);
                         if (a3 == null) {
                             if (a3.c() != null && responsedMessage != null) {
                                 responsedMessage.setOrginalMessage(a3.c().getData());
@@ -191,7 +192,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
                             a3.b();
                             j.c(a3, this.f);
                         } else if (responsedMessage != null) {
-                            com.baidu.tieba.util.o.a(i2, i, "original message removed", "MessageQueue: not dispatchMessage", null, 0, null);
+                            y.a(i2, i, "original message removed", "MessageQueue: not dispatchMessage", null, 0, null);
                             a2.remove(responsedMessage);
                         }
                     }
@@ -201,7 +202,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
             responsedMessage = null;
             if (ackedMessage != null) {
                 a3 = j.a(ackedMessage.getMsgTag().getSequence(), this.f);
-                com.baidu.tieba.util.o.a(i2, i, null, "MessageQueue: receive ack message", null, 0, null);
+                y.a(i2, i, null, "MessageQueue: receive ack message", null, 0, null);
                 if (a3 == null) {
                 }
             }
@@ -250,7 +251,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
                 i3 = sVar.c().getMsgTag().getSequence();
             }
         }
-        com.baidu.tieba.util.o.a(i2, i3, "message send  error", "MessageQueue: onMessageSendFail", null, i, str);
+        y.a(i2, i3, "message send  error", "MessageQueue: onMessageSendFail", null, i, str);
         if (sVar != null && sVar.g() != null) {
             a(sVar.g(), i, str);
         }
@@ -330,7 +331,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
 
     @Override // com.baidu.tieba.im.net.link.a
     public void a(int i, String str) {
-        com.baidu.tieba.util.o.a(0, 0, null, "MessageQueue: message Queue onClose", null, i, str);
+        y.a(0, 0, null, "MessageQueue: message Queue onClose", null, i, str);
         if (i == 7) {
             b();
         } else {
@@ -343,7 +344,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
 
     @Override // com.baidu.tieba.im.net.link.a
     public void c() {
-        com.baidu.tieba.util.o.a(0, 0, null, "MessageQueue: message Queue onConnected", null, 0, null);
+        y.a(0, 0, null, "MessageQueue: message Queue onConnected", null, 0, null);
         if (this.j != null) {
             this.j.c();
         }
@@ -352,7 +353,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
     @Override // com.baidu.tieba.im.net.link.a
     public void a(byte[] bArr) {
         if (bArr != null) {
-            com.baidu.tieba.util.o.a(0, 0, "socket", "MessageQueue: onBinaryMesssage", null, 0, null, 0L, bArr.length, null);
+            y.a(0, 0, "socket", "MessageQueue: onBinaryMesssage", null, 0, null, 0L, bArr.length, null);
         }
         com.baidu.tieba.im.m.a(new p(bArr), this.b);
         if (this.j != null) {

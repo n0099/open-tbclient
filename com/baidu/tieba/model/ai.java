@@ -9,10 +9,10 @@ import org.json.JSONObject;
 public class ai extends BdAsyncTask<String, String, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<com.baidu.tieba.data.aa> f1893a;
+    ArrayList<com.baidu.tieba.data.z> f1889a;
     String b;
     final /* synthetic */ ad c;
-    private com.baidu.tieba.util.ag d = null;
+    private com.baidu.tieba.util.ap d = null;
     private String e;
     private String f;
     private String g;
@@ -20,21 +20,21 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
 
     public ai(ad adVar, String str, String str2, String str3, int i, String str4) {
         this.c = adVar;
-        this.f1893a = null;
+        this.f1889a = null;
         this.b = null;
         this.e = str;
         this.f = str2;
         this.g = str3;
         this.h = i;
         this.b = str4;
-        this.f1893a = new ArrayList<>();
+        this.f1889a = new ArrayList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Boolean a(String... strArr) {
-        this.d = new com.baidu.tieba.util.ag(strArr[0]);
+        this.d = new com.baidu.tieba.util.ap(strArr[0]);
         this.d.a("word", this.f);
         if (this.h != 6) {
             this.d.a("fid", this.e);
@@ -57,12 +57,12 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
                 try {
                     JSONArray optJSONArray = new JSONObject(j).optJSONArray("cates");
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
-                        aaVar.a(optJSONArray.optJSONObject(i));
-                        this.f1893a.add(aaVar);
+                        com.baidu.tieba.data.z zVar = new com.baidu.tieba.data.z();
+                        zVar.a(optJSONArray.optJSONObject(i));
+                        this.f1889a.add(zVar);
                     }
                 } catch (Exception e) {
-                    com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+                    com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
                     return false;
                 }
             }
@@ -85,10 +85,10 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
             return;
         }
         aj ajVar = new aj(this.c);
-        ajVar.f1894a = bool.booleanValue();
+        ajVar.f1890a = bool.booleanValue();
         if (bool.booleanValue()) {
             if (this.h == 6) {
-                ajVar.c = this.f1893a;
+                ajVar.c = this.f1889a;
             }
         } else {
             ajVar.b = this.d.g();

@@ -3,41 +3,43 @@ package com.baidu.tieba.more;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Handler;
 import android.text.SpannableString;
 import android.text.style.AbsoluteSizeSpan;
 import android.util.TypedValue;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private BrowseSettingActivity f2023a;
-    private RelativeLayout c;
-    private NavigationBar d;
-    private SettingTextSwitchView e;
-    private SettingTextTipView f;
-    private SettingTextTipView g;
+    Handler f2015a;
+    private BrowseSettingActivity c;
+    private RelativeLayout d;
+    private NavigationBar e;
+    private SettingTextSwitchView f;
+    private SettingTextSwitchView g;
     private SettingTextTipView h;
     private SettingTextTipView i;
     private SettingTextTipView j;
-    private AlertDialog k;
+    private SettingTextTipView k;
     private AlertDialog l;
     private AlertDialog m;
     private AlertDialog n;
     private AlertDialog o;
-    private final DialogInterface.OnClickListener p;
-    private final DialogInterface.OnClickListener q;
+    private AlertDialog p;
+    private com.baidu.adp.widget.BdSwitchView.c q;
     private final DialogInterface.OnClickListener r;
     private final DialogInterface.OnClickListener s;
     private final DialogInterface.OnClickListener t;
+    private final DialogInterface.OnClickListener u;
 
     public w(BrowseSettingActivity browseSettingActivity) {
         super(browseSettingActivity);
-        this.f2023a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -51,265 +53,257 @@ public class w extends com.baidu.adp.a.e {
         this.m = null;
         this.n = null;
         this.o = null;
-        this.p = new x(this);
-        this.q = new y(this);
-        this.r = new z(this);
-        this.s = new aa(this);
-        this.t = new ab(this);
-        this.f2023a = browseSettingActivity;
-        s();
+        this.p = null;
+        this.q = new x(this);
+        this.r = new y(this);
+        this.s = new z(this);
+        this.t = new aa(this);
+        this.u = new ab(this);
+        this.f2015a = new Handler();
+        this.c = browseSettingActivity;
+        u();
         n();
-        t();
+        v();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(int i) {
-        com.baidu.tieba.util.bb.b(this.c, i);
-        this.d.b(i);
-        this.e.a(i);
+        this.e.c(i);
         this.f.a(i);
         this.g.a(i);
         this.h.a(i);
         this.i.a(i);
         this.j.a(i);
+        this.k.a(i);
         if (i == 1) {
-            com.baidu.tieba.util.bb.e(this.f, (int) R.drawable.more_up_1);
-            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_down_1);
-            com.baidu.tieba.util.bb.e(this.e, (int) R.drawable.more_all_1);
-            com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.more_all_1);
-            com.baidu.tieba.util.bb.e(this.i, (int) R.drawable.more_all_1);
-            com.baidu.tieba.util.bb.e(this.j, (int) R.drawable.more_all_1);
+            this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting_1));
+            bd.e(this.f, (int) R.drawable.more_all_1);
+            bd.e(this.g, (int) R.drawable.more_up_1);
+            bd.e(this.h, (int) R.drawable.more_middle_1);
+            bd.e(this.i, (int) R.drawable.more_middle_1);
+            bd.e(this.j, (int) R.drawable.more_down_1);
+            bd.e(this.k, (int) R.drawable.more_all_1);
             return;
         }
-        com.baidu.tieba.util.bb.e(this.f, (int) R.drawable.more_up);
-        com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_down);
-        com.baidu.tieba.util.bb.e(this.e, (int) R.drawable.more_all);
-        com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.more_all);
-        com.baidu.tieba.util.bb.e(this.i, (int) R.drawable.more_all);
-        com.baidu.tieba.util.bb.e(this.j, (int) R.drawable.more_all);
+        this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting));
+        bd.e(this.f, (int) R.drawable.more_all);
+        bd.e(this.g, (int) R.drawable.more_up);
+        bd.e(this.h, (int) R.drawable.more_middle);
+        bd.e(this.i, (int) R.drawable.more_middle);
+        bd.e(this.j, (int) R.drawable.more_down);
+        bd.e(this.k, (int) R.drawable.more_all);
     }
 
     public SettingTextTipView a() {
-        return this.g;
-    }
-
-    public SettingTextTipView e() {
-        return this.f;
-    }
-
-    public SettingTextTipView f() {
-        return this.h;
-    }
-
-    public SettingTextTipView g() {
         return this.i;
     }
 
-    public SettingTextTipView h() {
+    public SettingTextTipView e() {
+        return this.h;
+    }
+
+    public SettingTextTipView f() {
+        return null;
+    }
+
+    public SettingTextTipView g() {
         return this.j;
     }
 
-    public void i() {
-        v();
-        this.k.setCanceledOnTouchOutside(true);
-        this.k.show();
+    public SettingTextTipView h() {
+        return this.k;
     }
 
-    public void j() {
-        u();
+    public void i() {
+        x();
         this.l.setCanceledOnTouchOutside(true);
         this.l.show();
     }
 
-    public void k() {
+    public void j() {
         w();
         this.m.setCanceledOnTouchOutside(true);
         this.m.show();
     }
 
-    public void l() {
-        x();
+    public void k() {
+        y();
         this.n.setCanceledOnTouchOutside(true);
         this.n.show();
     }
 
-    public void m() {
-        y();
+    public void l() {
+        z();
         this.o.setCanceledOnTouchOutside(true);
         this.o.show();
     }
 
-    private void s() {
-        this.f2023a.setContentView(R.layout.browse_setting_activity);
-        this.d = (NavigationBar) this.f2023a.findViewById(R.id.view_navigation_bar);
-        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.a(this.f2023a.getString(R.string.browse_setting));
-        this.e = (SettingTextSwitchView) this.f2023a.findViewById(R.id.eyeshield_mode);
-        this.f = (SettingTextTipView) this.f2023a.findViewById(R.id.img_browser);
-        this.g = (SettingTextTipView) this.f2023a.findViewById(R.id.img_upload);
-        this.h = (SettingTextTipView) this.f2023a.findViewById(R.id.abstract_mode);
-        this.i = (SettingTextTipView) this.f2023a.findViewById(R.id.show_image);
-        this.j = (SettingTextTipView) this.f2023a.findViewById(R.id.font_size);
-        this.c = (RelativeLayout) this.f2023a.findViewById(R.id.parent);
-    }
-
-    private void t() {
-        this.f.setOnClickListener(this.f2023a);
-        this.g.setOnClickListener(this.f2023a);
-        this.e.setSwitchStateChangeListener(this.f2023a);
-        this.h.setOnClickListener(this.f2023a);
-        this.i.setOnClickListener(this.f2023a);
-        this.j.setOnClickListener(this.f2023a);
+    public void m() {
+        A();
+        this.p.setCanceledOnTouchOutside(true);
+        this.p.show();
     }
 
     private void u() {
-        if (this.l == null) {
-            SpannableString spannableString = new SpannableString(this.f2023a.getString(R.string.view_image_quality_auto_menu));
-            spannableString.setSpan(new AbsoluteSizeSpan(UtilHelper.a(this.b, 12.0f)), 4, spannableString.length(), 18);
+        this.c.setContentView(R.layout.browse_setting_activity);
+        this.e = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
+        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.e.a(this.c.getString(R.string.browse_setting));
+        this.f = (SettingTextSwitchView) this.c.findViewById(R.id.eyeshield_mode);
+        this.g = (SettingTextSwitchView) this.c.findViewById(R.id.img_thrift_setting);
+        this.h = (SettingTextTipView) this.c.findViewById(R.id.img_browser);
+        this.i = (SettingTextTipView) this.c.findViewById(R.id.img_upload);
+        this.j = (SettingTextTipView) this.c.findViewById(R.id.show_image);
+        this.k = (SettingTextTipView) this.c.findViewById(R.id.font_size);
+        this.d = (RelativeLayout) this.c.findViewById(R.id.parent);
+    }
+
+    private void v() {
+        this.h.setOnClickListener(this.c);
+        this.i.setOnClickListener(this.c);
+        this.f.setSwitchStateChangeListener(this.c);
+        this.j.setOnClickListener(this.c);
+        this.k.setOnClickListener(this.c);
+    }
+
+    private void w() {
+        if (this.m == null) {
+            SpannableString spannableString = new SpannableString(this.c.getString(R.string.view_image_quality_auto_menu));
+            spannableString.setSpan(new AbsoluteSizeSpan(UtilHelper.a(this.b, 12.0f)), 5, spannableString.length(), 18);
             SpannableString spannableString2 = new SpannableString(this.b.getString(R.string.view_image_quality_high_menu));
             spannableString2.setSpan(new AbsoluteSizeSpan(UtilHelper.a(this.b, 12.0f)), 1, spannableString2.length(), 18);
             SpannableString spannableString3 = new SpannableString(this.b.getString(R.string.view_image_quality_low_menu));
             spannableString3.setSpan(new AbsoluteSizeSpan(UtilHelper.a(this.b, 12.0f)), 1, spannableString3.length(), 18);
             SpannableString spannableString4 = new SpannableString(this.b.getString(R.string.view_image_quality_close_menu));
             spannableString4.setSpan(new AbsoluteSizeSpan(UtilHelper.a(this.b, 12.0f)), 2, spannableString4.length(), 18);
-            this.l = new AlertDialog.Builder(this.f2023a).setTitle(R.string.browser_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.p).create();
-        }
-    }
-
-    private void v() {
-        if (this.k == null) {
-            SpannableString spannableString = new SpannableString(this.f2023a.getString(R.string.image_quality_auto_menu));
-            spannableString.setSpan(new AbsoluteSizeSpan(UtilHelper.a(this.b, 12.0f)), 4, spannableString.length(), 18);
-            SpannableString spannableString2 = new SpannableString(this.f2023a.getString(R.string.image_quality_high_menu));
-            spannableString2.setSpan(new AbsoluteSizeSpan(UtilHelper.a((Context) this.f2023a, 12.0f)), 1, spannableString2.length(), 18);
-            SpannableString spannableString3 = new SpannableString(this.f2023a.getString(R.string.image_quality_mid_menu));
-            SpannableString spannableString4 = new SpannableString(this.f2023a.getString(R.string.image_quality_low_menu));
-            spannableString4.setSpan(new AbsoluteSizeSpan(UtilHelper.a((Context) this.f2023a, 12.0f)), 1, spannableString4.length(), 18);
-            this.k = new AlertDialog.Builder(this.f2023a).setTitle(R.string.upload_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.q).create();
-        }
-    }
-
-    private void w() {
-        if (this.m == null) {
-            int applyDimension = (int) TypedValue.applyDimension(2, 14.0f, this.b.getResources().getDisplayMetrics());
-            SpannableString spannableString = new SpannableString(this.f2023a.getString(R.string.is_flowmode_close));
-            spannableString.setSpan(new AbsoluteSizeSpan(applyDimension), 3, spannableString.length(), 33);
-            SpannableString spannableString2 = new SpannableString(this.f2023a.getString(R.string.is_flowmode_2g3gopen));
-            spannableString2.setSpan(new AbsoluteSizeSpan(applyDimension), 12, spannableString2.length(), 33);
-            SpannableString spannableString3 = new SpannableString(this.f2023a.getString(R.string.is_flowmode_alwaysopen));
-            spannableString3.setSpan(new AbsoluteSizeSpan(applyDimension), 4, spannableString3.length(), 33);
-            this.m = new AlertDialog.Builder(this.f2023a).setTitle(R.string.flow_mode_title).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3}, this.r).create();
+            this.m = new AlertDialog.Builder(this.c).setTitle(R.string.browser_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.r).create();
         }
     }
 
     private void x() {
-        if (this.n == null) {
-            this.n = new AlertDialog.Builder(this.f2023a).setTitle(R.string.show_photo).setItems(new CharSequence[]{new SpannableString(this.f2023a.getString(R.string.is_alwaysopen)), new SpannableString(this.f2023a.getString(R.string.is_wifiopen)), new SpannableString(this.f2023a.getString(R.string.is_close))}, this.s).create();
+        if (this.l == null) {
+            SpannableString spannableString = new SpannableString(this.c.getString(R.string.image_quality_auto_menu));
+            spannableString.setSpan(new AbsoluteSizeSpan(UtilHelper.a(this.b, 12.0f)), 5, spannableString.length(), 18);
+            SpannableString spannableString2 = new SpannableString(this.c.getString(R.string.image_quality_high_menu));
+            spannableString2.setSpan(new AbsoluteSizeSpan(UtilHelper.a((Context) this.c, 12.0f)), 1, spannableString2.length(), 18);
+            SpannableString spannableString3 = new SpannableString(this.c.getString(R.string.image_quality_mid_menu));
+            SpannableString spannableString4 = new SpannableString(this.c.getString(R.string.image_quality_low_menu));
+            spannableString4.setSpan(new AbsoluteSizeSpan(UtilHelper.a((Context) this.c, 12.0f)), 1, spannableString4.length(), 18);
+            this.l = new AlertDialog.Builder(this.c).setTitle(R.string.upload_image_quality).setItems(new CharSequence[]{spannableString, spannableString2, spannableString3, spannableString4}, this.s).create();
         }
     }
 
     private void y() {
+        if (this.n == null) {
+            int applyDimension = (int) TypedValue.applyDimension(2, 14.0f, this.b.getResources().getDisplayMetrics());
+            SpannableString spannableString = new SpannableString(this.c.getString(R.string.is_flowmode_close));
+            spannableString.setSpan(new AbsoluteSizeSpan(applyDimension), 3, spannableString.length(), 33);
+            SpannableString spannableString2 = new SpannableString(this.c.getString(R.string.is_flowmode_2g3gopen));
+            spannableString2.setSpan(new AbsoluteSizeSpan(applyDimension), 12, spannableString2.length(), 33);
+            SpannableString spannableString3 = new SpannableString(this.c.getString(R.string.is_flowmode_alwaysopen));
+            spannableString3.setSpan(new AbsoluteSizeSpan(applyDimension), 4, spannableString3.length(), 33);
+        }
+    }
+
+    private void z() {
         if (this.o == null) {
-            this.o = new AlertDialog.Builder(this.f2023a).setTitle(R.string.font_size).setItems(new CharSequence[]{new SpannableString(this.f2023a.getString(R.string.font_size_big)), new SpannableString(this.f2023a.getString(R.string.font_size_mid)), new SpannableString(this.f2023a.getString(R.string.font_size_small))}, this.t).create();
+            SpannableString spannableString = new SpannableString(this.c.getString(R.string.is_wifiopen_dialog));
+            spannableString.setSpan(new AbsoluteSizeSpan(UtilHelper.a(this.b, 12.0f)), 5, spannableString.length(), 18);
+            this.o = new AlertDialog.Builder(this.c).setTitle(R.string.show_photo).setItems(new CharSequence[]{spannableString, new SpannableString(this.c.getString(R.string.is_alwaysopen)), new SpannableString(this.c.getString(R.string.is_close))}, this.t).create();
+        }
+    }
+
+    private void A() {
+        if (this.p == null) {
+            this.p = new AlertDialog.Builder(this.c).setTitle(R.string.font_size).setItems(new CharSequence[]{new SpannableString(this.c.getString(R.string.font_size_big)), new SpannableString(this.c.getString(R.string.font_size_mid)), new SpannableString(this.c.getString(R.string.font_size_small))}, this.u).create();
         }
     }
 
     public void b(int i) {
         if (i == 1) {
-            if (TiebaApplication.g().as() != 1) {
-                TiebaApplication.g().i(i);
+            if (TiebaApplication.g().ap() != 1) {
+                TiebaApplication.g().f(i);
                 a(i);
-                new com.baidu.tieba.account.ah("eyeshield").start();
+                new com.baidu.tieba.account.ag("eyeshield").start();
             } else {
                 return;
             }
         } else if (i == 0) {
-            if (TiebaApplication.g().as() != 0) {
-                TiebaApplication.g().i(i);
+            if (TiebaApplication.g().ap() != 0) {
+                TiebaApplication.g().f(i);
                 a(i);
             } else {
                 return;
             }
         }
-        com.baidu.tieba.util.e.a();
+        com.baidu.tieba.util.m.a();
     }
 
     public void n() {
-        o();
-        z();
-        A();
         p();
+        B();
+        C();
         r();
-        q();
+        t();
+        s();
+        a(false);
     }
 
     public void o() {
-        if (TiebaApplication.g().as() == 1) {
-            this.e.b();
-        } else {
-            this.e.a();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void z() {
-        if (!TiebaApplication.g().an()) {
-            this.f.setTip(this.b.getString(R.string.view_close));
-        } else if (TiebaApplication.g().am() == 1) {
-            this.f.setTip(this.b.getString(R.string.view_high));
-        } else if (TiebaApplication.g().am() == 2) {
-            this.f.setTip(this.b.getString(R.string.view_low));
-        } else {
-            this.f.setTip(this.b.getString(R.string.view_auto));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void A() {
-        switch (TiebaApplication.g().al()) {
-            case 0:
-                this.g.setTip(this.b.getString(R.string.view_auto));
-                return;
-            case 1:
-                this.g.setTip(this.b.getString(R.string.view_high));
-                return;
-            case 2:
-                this.g.setTip(this.b.getString(R.string.view_mid));
-                return;
-            case 3:
-                this.g.setTip(this.b.getString(R.string.view_low));
-                return;
-            default:
-                return;
-        }
+        B();
+        C();
+        s();
     }
 
     public void p() {
-        switch (TiebaApplication.g().aq()) {
-            case 0:
-                this.h.setTip(this.b.getString(R.string.is_2g3gopen));
-                return;
-            case 1:
-                this.h.setTip(this.b.getString(R.string.is_close));
-                return;
-            case 2:
-                this.h.setTip(this.b.getString(R.string.is_alwaysopen));
-                return;
-            default:
-                return;
+        if (TiebaApplication.g().ap() == 1) {
+            this.f.b();
+        } else {
+            this.f.a();
         }
     }
 
+    public void a(boolean z) {
+        this.g.setSwitchStateChangeListener(null);
+        if (com.baidu.tieba.d.a.a().h()) {
+            this.g.b(z);
+        } else {
+            this.g.a(z);
+        }
+        this.g.setSwitchStateChangeListener(this.q);
+    }
+
     public void q() {
-        switch (TiebaApplication.g().A()) {
+        a(true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void B() {
+        if (!com.baidu.tieba.d.a.a().f()) {
+            this.h.setTip(this.b.getString(R.string.view_close));
+        } else if (com.baidu.tieba.d.a.a().g() == 1) {
+            this.h.setTip(this.b.getString(R.string.view_high));
+        } else if (com.baidu.tieba.d.a.a().g() == 2) {
+            this.h.setTip(this.b.getString(R.string.view_low));
+        } else {
+            this.h.setTip(this.b.getString(R.string.view_auto));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void C() {
+        switch (com.baidu.tieba.d.a.a().e()) {
             case 0:
-                this.i.setTip(this.b.getString(R.string.is_wifiopen));
+                this.i.setTip(this.b.getString(R.string.view_auto));
                 return;
             case 1:
-                this.i.setTip(this.b.getString(R.string.is_alwaysopen));
+                this.i.setTip(this.b.getString(R.string.view_high));
                 return;
             case 2:
-                this.i.setTip(this.b.getString(R.string.is_close));
+                this.i.setTip(this.b.getString(R.string.view_mid));
+                return;
+            case 3:
+                this.i.setTip(this.b.getString(R.string.view_low));
                 return;
             default:
                 return;
@@ -317,12 +311,31 @@ public class w extends com.baidu.adp.a.e {
     }
 
     public void r() {
-        if (TiebaApplication.g().ao() == 1) {
-            this.j.setTip(this.b.getString(R.string.font_size_big));
-        } else if (TiebaApplication.g().ao() == 2) {
-            this.j.setTip(this.b.getString(R.string.font_size_mid));
+    }
+
+    public void s() {
+        switch (com.baidu.tieba.d.a.a().c()) {
+            case 0:
+                this.j.setTip(this.b.getString(R.string.is_wifiopen));
+                return;
+            case 1:
+                this.j.setTip(this.b.getString(R.string.is_alwaysopen));
+                return;
+            case 2:
+                this.j.setTip(this.b.getString(R.string.is_close));
+                return;
+            default:
+                return;
+        }
+    }
+
+    public void t() {
+        if (TiebaApplication.g().al() == 1) {
+            this.k.setTip(this.b.getString(R.string.font_size_big));
+        } else if (TiebaApplication.g().al() == 2) {
+            this.k.setTip(this.b.getString(R.string.font_size_mid));
         } else {
-            this.j.setTip(this.b.getString(R.string.font_size_small));
+            this.k.setTip(this.b.getString(R.string.font_size_small));
         }
     }
 }

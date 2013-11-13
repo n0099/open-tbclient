@@ -1,15 +1,16 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements DialogInterface.OnClickListener {
+public class f implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PublicMsg f706a;
+    final /* synthetic */ PublicMsg f722a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PublicMsg publicMsg) {
-        this.f706a = publicMsg;
+        this.f722a = publicMsg;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

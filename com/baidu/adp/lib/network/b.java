@@ -32,9 +32,10 @@ public class b {
     public static boolean f511a = true;
     public static String b = "";
     public static String c = "";
-    private static String d = "\r\n";
-    private static String e = "--";
-    private static String f = "--------7da3d81520810*";
+    public static String d = "";
+    private static String e = "\r\n";
+    private static String f = "--";
+    private static String g = "--------7da3d81520810*";
 
     public static HttpURLConnection a(String str) {
         HttpURLConnection httpURLConnection;
@@ -52,6 +53,9 @@ public class b {
                     }
                     if (!TextUtils.isEmpty(c)) {
                         httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, c);
+                    }
+                    if (!TextUtils.isEmpty(d)) {
+                        httpURLConnection2.setRequestProperty("client_user_token", d);
                         return httpURLConnection2;
                     }
                     return httpURLConnection2;
@@ -91,6 +95,9 @@ public class b {
                 }
                 if (!TextUtils.isEmpty(c)) {
                     httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, c);
+                }
+                if (!TextUtils.isEmpty(d)) {
+                    httpURLConnection.setRequestProperty("client_user_token", d);
                     return httpURLConnection;
                 }
                 return httpURLConnection;
@@ -700,7 +707,7 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1206=4, 1209=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1271=4, 1274=5] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0022  */
     /* JADX WARN: Removed duplicated region for block: B:181:0x001d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0027  */
@@ -750,7 +757,7 @@ public class b {
                 }
             }
             httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + f);
+            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + g);
             httpURLConnection.setRequestProperty("Charset", "UTF-8");
             if (f511a) {
                 httpURLConnection.setRequestProperty("Post-Encoding", "gzip");
@@ -786,15 +793,15 @@ public class b {
                                 if (next != null) {
                                     String name = next.getName();
                                     String value = next.getValue();
-                                    byteArrayOutputStream.write((e + f + d).getBytes());
-                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"" + d).getBytes());
-                                    byteArrayOutputStream.write(d.getBytes());
+                                    byteArrayOutputStream.write((f + g + e).getBytes());
+                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + name + "\"" + e).getBytes());
+                                    byteArrayOutputStream.write(e.getBytes());
                                     if (value == null) {
                                         byteArrayOutputStream.write("null".getBytes("UTF-8"));
                                     } else {
                                         byteArrayOutputStream.write(value.getBytes("UTF-8"));
                                     }
-                                    byteArrayOutputStream.write(d.getBytes());
+                                    byteArrayOutputStream.write(e.getBytes());
                                 }
                             }
                         }
@@ -803,12 +810,12 @@ public class b {
                                 String key = entry.getKey();
                                 byte[] value2 = entry.getValue();
                                 if (value2 != null) {
-                                    byteArrayOutputStream.write((e + f + d).getBytes());
-                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + d).getBytes());
-                                    byteArrayOutputStream.write(d.getBytes());
+                                    byteArrayOutputStream.write((f + g + e).getBytes());
+                                    byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + e).getBytes());
+                                    byteArrayOutputStream.write(e.getBytes());
                                     byteArrayOutputStream.write(value2);
-                                    byteArrayOutputStream.write(d.getBytes());
-                                    byteArrayOutputStream.write((e + f + e + d).getBytes());
+                                    byteArrayOutputStream.write(e.getBytes());
+                                    byteArrayOutputStream.write((f + g + f + e).getBytes());
                                 }
                             }
                         }
@@ -849,15 +856,15 @@ public class b {
                                     if (next2 != null) {
                                         String name2 = next2.getName();
                                         String value3 = next2.getValue();
-                                        dataOutputStream3.writeBytes(e + f + d);
-                                        dataOutputStream3.writeBytes("Content-Disposition: form-data; name=\"" + name2 + "\"" + d);
-                                        dataOutputStream3.writeBytes(d);
+                                        dataOutputStream3.writeBytes(f + g + e);
+                                        dataOutputStream3.writeBytes("Content-Disposition: form-data; name=\"" + name2 + "\"" + e);
+                                        dataOutputStream3.writeBytes(e);
                                         if (value3 == null) {
                                             dataOutputStream3.write("null".getBytes("UTF-8"));
                                         } else {
                                             dataOutputStream3.write(value3.getBytes("UTF-8"));
                                         }
-                                        dataOutputStream3.writeBytes(d);
+                                        dataOutputStream3.writeBytes(e);
                                     }
                                 }
                             } catch (Exception e4) {
@@ -882,12 +889,12 @@ public class b {
                                 String key2 = entry2.getKey();
                                 byte[] value4 = entry2.getValue();
                                 if (value4 != null) {
-                                    dataOutputStream3.writeBytes(e + f + d);
-                                    dataOutputStream3.writeBytes("Content-Disposition: form-data; name=\"" + key2 + "\"; filename=\"file\"" + d);
-                                    dataOutputStream3.writeBytes(d);
+                                    dataOutputStream3.writeBytes(f + g + e);
+                                    dataOutputStream3.writeBytes("Content-Disposition: form-data; name=\"" + key2 + "\"; filename=\"file\"" + e);
+                                    dataOutputStream3.writeBytes(e);
                                     dataOutputStream3.write(value4);
-                                    dataOutputStream3.writeBytes(d);
-                                    dataOutputStream3.writeBytes(e + f + e + d);
+                                    dataOutputStream3.writeBytes(e);
+                                    dataOutputStream3.writeBytes(f + g + f + e);
                                 }
                             }
                         }
@@ -992,34 +999,37 @@ public class b {
             String headerField2 = httpURLConnection.getHeaderField("Content-Range");
             if (headerField2 != null) {
                 int indexOf = headerField2.indexOf("/");
-                i = indexOf != -1 ? Integer.valueOf(headerField2.substring(indexOf + 1)).intValue() : 0;
+                int intValue = indexOf != -1 ? Integer.valueOf(headerField2.substring(indexOf + 1)).intValue() : 0;
                 int indexOf2 = headerField2.indexOf("-");
-                if (indexOf2 != -1 && indexOf2 > 6) {
-                    i2 = Integer.valueOf(headerField2.substring(6, indexOf2)).intValue();
+                if (indexOf2 == -1 || indexOf2 <= 6) {
+                    i = 0;
+                    i2 = intValue;
+                } else {
+                    i = Integer.valueOf(headerField2.substring(6, indexOf2)).intValue();
+                    i2 = intValue;
                 }
             } else {
                 i = 0;
             }
-            if (i == 0 && httpURLConnection.getResponseCode() == 200 && (headerField = httpURLConnection.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_LENGTH)) != null) {
-                i = Integer.valueOf(headerField).intValue();
-            }
+            int intValue2 = (i2 == 0 && httpURLConnection.getResponseCode() == 200 && (headerField = httpURLConnection.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_LENGTH)) != null) ? Integer.valueOf(headerField).intValue() : i2;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             if (cVar != null) {
-                cVar.a(i, httpURLConnection);
+                cVar.a(intValue2, httpURLConnection, byteArrayOutputStream);
             }
             InputStream inputStream2 = httpURLConnection.getInputStream();
             if (aVar != null && aVar.c()) {
                 throw new BdHttpCancelException();
             }
-            if (inputStream2 != null) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            if (inputStream2 != null && byteArrayOutputStream != null) {
                 byte[] bArr = new byte[LVBuffer.LENGTH_ALLOC_PER_NEW];
+                int size = byteArrayOutputStream.size() + i;
                 do {
                     read = inputStream2.read(bArr);
-                    i2 += read;
+                    size += read;
                     if (read > 0) {
                         byteArrayOutputStream.write(bArr, 0, read);
                         if (cVar != null) {
-                            cVar.a(i2, i, httpURLConnection);
+                            cVar.a(size, intValue2, httpURLConnection);
                         }
                     }
                     if (aVar != null && aVar.c()) {
@@ -1027,7 +1037,7 @@ public class b {
                     }
                 } while (read > 0);
                 if (fVar != null) {
-                    fVar.b = i2;
+                    fVar.b = size;
                 }
                 String contentEncoding = httpURLConnection.getContentEncoding();
                 if (contentEncoding != null && contentEncoding.contains("gzip")) {

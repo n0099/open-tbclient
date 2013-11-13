@@ -9,10 +9,10 @@ import org.apache.http.protocol.HttpContext;
 public class x implements HttpRequestInterceptor {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AsyncHttpClient f2943a;
+    final /* synthetic */ AsyncHttpClient f2991a;
 
     public x(AsyncHttpClient asyncHttpClient) {
-        this.f2943a = asyncHttpClient;
+        this.f2991a = asyncHttpClient;
     }
 
     public void process(HttpRequest httpRequest, HttpContext httpContext) {

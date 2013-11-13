@@ -5,19 +5,19 @@ import javassist.bytecode.y;
 public class ArrayMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    d f2728a;
+    d f2776a;
     d[] b;
 
     public ArrayMemberValue(y yVar) {
         super('[', yVar);
-        this.f2728a = null;
+        this.f2776a = null;
         this.b = null;
     }
 
     public void a(d[] dVarArr) {
         this.b = dVarArr;
         if (dVarArr != null && dVarArr.length > 0) {
-            this.f2728a = dVarArr[0];
+            this.f2776a = dVarArr[0];
         }
     }
 

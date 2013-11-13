@@ -6,25 +6,25 @@ import com.baidu.adp.widget.ListView.BdListView;
 class l implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f1867a;
+    final /* synthetic */ k f1864a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.f1867a = kVar;
+        this.f1864a = kVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         BdListView bdListView;
         BdListView bdListView2;
-        bdListView = this.f1867a.f1866a.e;
+        bdListView = this.f1864a.f1863a.e;
         ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
         while (imageView != null) {
             imageView.setTag(null);
             if (imageView != null && eVar != null) {
                 eVar.a(imageView);
             }
-            bdListView2 = this.f1867a.f1866a.e;
+            bdListView2 = this.f1864a.f1863a.e;
             imageView = (ImageView) bdListView2.findViewWithTag(str);
         }
     }

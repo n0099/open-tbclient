@@ -1,57 +1,37 @@
 package com.baidu.tieba.recommend;
-
-import android.text.TextUtils;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.ag;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ad {
-    private static final String d = com.baidu.tieba.data.h.f1165a + "c/f/forum/threadrecommend";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2270a = -1;
-    private ag b = null;
-    private boolean c;
+    public String f2304a;
+    public String b;
 
-    public ad(boolean z) {
-        this.c = z;
+    public ad(String str, String str2) {
+        this.f2304a = "";
+        this.b = "";
+        this.f2304a = str;
+        this.b = str2;
     }
 
-    public String a(String str) {
-        this.b = new ag();
-        this.b.a(d);
-        this.b.c(false);
-        if (this.c) {
-            this.b.a("type", "banner");
+    public int hashCode() {
+        return (((this.f2304a == null ? 0 : this.f2304a.hashCode()) + 31) * 31) + (this.b != null ? this.b.hashCode() : 0);
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        if (!TextUtils.isEmpty(str)) {
-            this.b.a("date", str);
-        }
-        String j = this.b.j();
-        if (j != null) {
-            try {
-                this.f2270a = new JSONObject(j).optInt(SocialConstants.PARAM_ERROR_CODE);
-            } catch (JSONException e) {
+        if (obj != null && getClass() == obj.getClass()) {
+            ad adVar = (ad) obj;
+            if (this.f2304a == null) {
+                if (adVar.f2304a != null) {
+                    return false;
+                }
+            } else if (!this.f2304a.equals(adVar.f2304a)) {
+                return false;
             }
-        }
-        return j;
-    }
-
-    public void a() {
-        if (this.b != null) {
-            this.b.h();
-        }
-    }
-
-    public boolean b() {
-        if (this.b != null) {
-            return this.b.c();
+            return this.b == null ? adVar.b == null : this.b.equals(adVar.b);
         }
         return false;
-    }
-
-    public int c() {
-        return this.f2270a;
     }
 }

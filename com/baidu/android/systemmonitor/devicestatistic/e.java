@@ -8,11 +8,11 @@ import android.os.SystemClock;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f800a;
+    final /* synthetic */ d f814a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f800a = dVar;
+        this.f814a = dVar;
     }
 
     @Override // java.lang.Runnable
@@ -34,48 +34,48 @@ public class e implements Runnable {
         Context context15;
         Context context16;
         Process.setThreadPriority(10);
-        context = this.f800a.c;
+        context = this.f814a.c;
         long i = com.baidu.android.systemmonitor.d.b.i(context);
         com.baidu.android.systemmonitor.devicestatistic.a.f fVar = new com.baidu.android.systemmonitor.devicestatistic.a.f(System.currentTimeMillis());
-        context2 = this.f800a.c;
+        context2 = this.f814a.c;
         if (com.baidu.android.systemmonitor.d.c.q(context2) == 1) {
-            context16 = this.f800a.c;
-            fVar.f796a = com.baidu.android.systemmonitor.d.c.k(context16);
+            context16 = this.f814a.c;
+            fVar.f810a = com.baidu.android.systemmonitor.d.c.k(context16);
         }
-        context3 = this.f800a.c;
+        context3 = this.f814a.c;
         fVar.b = com.baidu.android.systemmonitor.d.c.l(context3);
-        context4 = this.f800a.c;
+        context4 = this.f814a.c;
         if (com.baidu.android.systemmonitor.d.c.s(context4) == 1) {
-            d dVar = this.f800a;
-            context15 = this.f800a.c;
+            d dVar = this.f814a;
+            context15 = this.f814a.c;
             dVar.a(context15, i, fVar);
         }
-        context5 = this.f800a.c;
+        context5 = this.f814a.c;
         if (com.baidu.android.systemmonitor.d.c.r(context5) == 1) {
-            d dVar2 = this.f800a;
-            context14 = this.f800a.c;
+            d dVar2 = this.f814a;
+            context14 = this.f814a.c;
             dVar2.b(context14, i, fVar);
         }
         fVar.i = com.baidu.android.systemmonitor.d.c.c() + "@" + com.baidu.android.systemmonitor.d.c.b();
         fVar.j = com.baidu.android.systemmonitor.d.c.e() + "@" + com.baidu.android.systemmonitor.d.c.f();
-        context6 = this.f800a.c;
+        context6 = this.f814a.c;
         fVar.k = com.baidu.android.systemmonitor.d.c.f(context6);
-        context7 = this.f800a.c;
+        context7 = this.f814a.c;
         fVar.l = com.baidu.android.systemmonitor.d.c.g(context7);
-        context8 = this.f800a.c;
+        context8 = this.f814a.c;
         fVar.m = com.baidu.android.systemmonitor.d.c.i(context8);
-        context9 = this.f800a.c;
+        context9 = this.f814a.c;
         fVar.n = com.baidu.android.systemmonitor.d.c.h(context9);
-        context10 = this.f800a.c;
+        context10 = this.f814a.c;
         fVar.o = com.baidu.android.systemmonitor.d.c.j(context10);
-        this.f800a.a(fVar);
-        context11 = this.f800a.c;
+        this.f814a.a(fVar);
+        context11 = this.f814a.c;
         com.baidu.android.systemmonitor.d.b.b(context11, System.currentTimeMillis());
-        d dVar3 = this.f800a;
-        context12 = this.f800a.c;
+        d dVar3 = this.f814a;
+        context12 = this.f814a.c;
         dVar3.b(context12);
-        d dVar4 = this.f800a;
-        context13 = this.f800a.c;
+        d dVar4 = this.f814a;
+        context13 = this.f814a.c;
         dVar4.a(context13, SystemClock.elapsedRealtime());
     }
 }

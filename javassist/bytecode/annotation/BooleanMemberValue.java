@@ -5,15 +5,15 @@ import javassist.bytecode.y;
 public class BooleanMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2729a;
+    int f2777a;
 
     public BooleanMemberValue(int i, y yVar) {
         super('Z', yVar);
-        this.f2729a = i;
+        this.f2777a = i;
     }
 
     public boolean a() {
-        return this.c.r(this.f2729a) != 0;
+        return this.c.r(this.f2777a) != 0;
     }
 
     public String toString() {

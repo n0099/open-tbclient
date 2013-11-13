@@ -3,31 +3,33 @@ package com.baidu.tieba.recommend;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.v4.view.ae;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.ah;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae {
+public class DailyRecommendBannerPagerAdapter extends ae implements ah {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<View> f2265a = new ArrayList<>();
+    ArrayList<View> f2300a = new ArrayList<>();
     public int b;
     public int c;
     Activity d;
     Resources e;
     ArrayList<com.baidu.tieba.data.n> f;
-    private com.baidu.tieba.util.a g;
+    private com.baidu.tieba.util.i g;
 
     public DailyRecommendBannerPagerAdapter(Activity activity, ArrayList<com.baidu.tieba.data.n> arrayList) {
         this.d = activity;
         this.e = activity.getResources();
         this.b = (int) (UtilHelper.a((Context) activity) - (2.0f * this.e.getDimension(R.dimen.daily_recommend_banner_X_DIS)));
         this.c = (int) ((this.b * this.e.getDimension(R.dimen.daily_recommend_banner_height)) / this.e.getDimension(R.dimen.daily_recommend_banner_width));
-        this.g = new com.baidu.tieba.util.a(activity);
+        this.g = new com.baidu.tieba.util.i(activity);
         this.g.a(this.b, this.c);
         this.e = activity.getResources();
         a(arrayList);
@@ -35,17 +37,17 @@ public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae
 
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.f2265a.get(i));
+        viewGroup.removeView(this.f2300a.get(i));
     }
 
     private void a(ArrayList<com.baidu.tieba.data.n> arrayList) {
         this.f = arrayList;
         if (arrayList != null && arrayList.size() > 0) {
-            this.f2265a.add(a(arrayList.get(arrayList.size() - 1)));
+            this.f2300a.add(a(arrayList.get(arrayList.size() - 1)));
             for (int i = 0; i < arrayList.size(); i++) {
-                this.f2265a.add(a(arrayList.get(i)));
+                this.f2300a.add(a(arrayList.get(i)));
             }
-            this.f2265a.add(a(arrayList.get(0)));
+            this.f2300a.add(a(arrayList.get(0)));
             notifyDataSetChanged();
         }
     }
@@ -65,13 +67,13 @@ public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.f2265a.get(i));
-        return this.f2265a.get(i);
+        viewGroup.addView(this.f2300a.get(i));
+        return this.f2300a.get(i);
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        return this.f2265a.size();
+        return this.f2300a.size();
     }
 
     @Override // android.support.v4.view.ae
@@ -79,6 +81,14 @@ public class DailyRecommendBannerPagerAdapter extends android.support.v4.view.ae
         return view == obj;
     }
 
+    @Override // com.baidu.tieba.view.ah
+    public void d() {
+        if (this.g != null) {
+            this.g.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.view.ah
     public void a(View view, int i, int i2) {
         if (this.g != null && this.f != null) {
             int i3 = 0;

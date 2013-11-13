@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 class ax implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NoNetworkView f2516a;
+    final /* synthetic */ NoNetworkView f2569a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(NoNetworkView noNetworkView) {
-        this.f2516a = noNetworkView;
+        this.f2569a = noNetworkView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener

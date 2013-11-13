@@ -1,37 +1,30 @@
 package com.baidu.tieba;
 
 import android.os.Handler;
+import android.os.Message;
 import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-class aa extends Thread {
+class aa extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1003a;
+    final /* synthetic */ LogoActivity f1015a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(LogoActivity logoActivity) {
-        this.f1003a = logoActivity;
+        this.f1015a = logoActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.f1003a.getApplication();
-            tiebaApplication.b(tiebaApplication.I() + 1);
-            if (tiebaApplication.N()) {
-                DatabaseService.x();
-                tiebaApplication.b(0);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        boolean z;
+        this.f1015a.c = true;
+        z = this.f1015a.b;
+        if (z) {
+            if (!this.f1015a.getDatabasePath("baidu_tieba.db").exists()) {
+                TiebaApplication.a(DatabaseService.n(), this.f1015a.getBaseContext());
             }
-            DatabaseService.t();
-            DatabaseService.w();
-            this.f1003a.a(this.f1003a.getCacheDir());
-        } catch (Exception e) {
+            this.f1015a.a(this.f1015a.getBaseContext());
         }
-        handler = this.f1003a.k;
-        handler2 = this.f1003a.k;
-        handler.sendMessage(handler2.obtainMessage());
+        super.handleMessage(message);
     }
 }

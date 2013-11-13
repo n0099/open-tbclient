@@ -7,14 +7,14 @@ import com.baidu.tieba.person.PersonInfoActivity;
 class ai implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2045a;
+    final /* synthetic */ String f2066a;
     final /* synthetic */ String b;
-    final /* synthetic */ ah c;
+    final /* synthetic */ ag c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ah ahVar, String str, String str2) {
-        this.c = ahVar;
-        this.f2045a = str;
+    public ai(ag agVar, String str, String str2) {
+        this.c = agVar;
+        this.f2066a = str;
         this.b = str2;
     }
 
@@ -22,6 +22,6 @@ class ai implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         context = this.c.c;
-        PersonInfoActivity.a(context, String.valueOf(this.f2045a), this.b);
+        PersonInfoActivity.a(context, this.f2066a, this.b);
     }
 }

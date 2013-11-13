@@ -1,5 +1,6 @@
 package com.baidu.adp.lib.network;
 
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public interface c {
@@ -7,7 +8,7 @@ public interface c {
 
     void a(int i, int i2, HttpURLConnection httpURLConnection);
 
-    void a(int i, HttpURLConnection httpURLConnection);
+    void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream);
 
     void a(e eVar);
 }

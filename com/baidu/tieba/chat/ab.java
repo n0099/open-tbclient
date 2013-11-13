@@ -9,7 +9,7 @@ import com.baidu.tieba.data.chat.ChatData;
 public class ab extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1087a;
+    private String f1120a;
     private String b;
     private ChatData h;
     private com.baidu.tieba.data.chat.c l;
@@ -49,14 +49,14 @@ public class ab extends com.baidu.adp.a.d {
     }
 
     public ab() {
-        this.f1087a = null;
+        this.f1120a = null;
         this.b = null;
         this.h = null;
         this.l = null;
-        AccountData G = TiebaApplication.G();
-        if (G != null) {
-            this.b = G.getID();
-            this.f1087a = G.getAccount();
+        AccountData E = TiebaApplication.E();
+        if (E != null) {
+            this.b = E.getID();
+            this.f1120a = E.getAccount();
         }
         this.h = new ChatData();
         this.l = com.baidu.tieba.data.chat.c.a();

@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AntiData;
 import com.baidu.tieba.data.ao;
 import com.baidu.tieba.data.as;
-import com.baidu.tieba.data.bb;
-import com.baidu.tieba.model.cm;
+import com.baidu.tieba.data.aw;
+import com.baidu.tieba.model.cf;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ag;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.bg;
 import com.baidu.tieba.write.WriteActivity;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
@@ -19,9 +19,9 @@ import org.apache.http.message.BasicNameValuePair;
 public class s extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1873a;
+    ArrayList<BasicNameValuePair> f1870a;
     final /* synthetic */ j b;
-    private ag c = null;
+    private ap c = null;
     private String d;
     private String e;
     private int f;
@@ -30,9 +30,9 @@ public class s extends BdAsyncTask<Object, Integer, String> {
         this.b = jVar;
         this.d = null;
         this.e = null;
-        this.f1873a = null;
+        this.f1870a = null;
         this.d = str;
-        this.f1873a = arrayList;
+        this.f1870a = arrayList;
         this.f = i;
         this.e = str2;
     }
@@ -49,11 +49,11 @@ public class s extends BdAsyncTask<Object, Integer, String> {
     /* renamed from: d */
     public String a(Object... objArr) {
         try {
-            this.c = new ag(this.d);
-            this.c.a(this.f1873a);
+            this.c = new ap(this.d);
+            this.c.a(this.f1870a);
             return this.c.j();
         } catch (Exception e) {
-            be.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
+            bg.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
             return null;
         }
     }
@@ -71,25 +71,25 @@ public class s extends BdAsyncTask<Object, Integer, String> {
                 if (this.f == 1) {
                     ao aoVar = new ao();
                     aoVar.b(str);
-                    as asVar = aoVar.d().get(0);
+                    as asVar = aoVar.e().get(0);
                     if (asVar != null) {
                         activity4 = this.b.c;
-                        WriteActivity.a(activity4, aoVar.b().getId(), aoVar.b().getName(), aoVar.c().a(), asVar.d(), asVar.e(), this.e, aoVar.f(), aoVar.i());
+                        WriteActivity.a(activity4, aoVar.c().getId(), aoVar.c().getName(), aoVar.d().a(), asVar.d(), asVar.e(), this.e, aoVar.g(), aoVar.k());
                     } else {
                         return;
                     }
                 }
                 if (this.f == 2) {
                     activity2 = this.b.c;
-                    bb a2 = new cm(activity2, str).a();
-                    String id = a2.g().getId();
-                    String name = a2.g().getName();
-                    String a3 = a2.l().a();
-                    AntiData h = a2.h();
+                    aw a2 = new cf(activity2, str).a();
+                    String id = a2.h().getId();
+                    String name = a2.h().getName();
+                    String a3 = a2.m().a();
+                    AntiData i = a2.i();
                     String d = a2.a().d();
                     int e = a2.a().e();
                     activity3 = this.b.c;
-                    WriteActivity.a(activity3, id, name, a3, d, e, this.e, h, true);
+                    WriteActivity.a(activity3, id, name, a3, d, e, this.e, i, true);
                 }
             } else if (this.c != null) {
                 activity = this.b.c;

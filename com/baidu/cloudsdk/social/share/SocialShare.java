@@ -16,7 +16,7 @@ import com.baidu.cloudsdk.social.share.ui.ShareUIWidget;
 public class SocialShare extends SocialWidget {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SocialShare f843a;
+    private static SocialShare f857a;
     private Theme b;
     private View c;
 
@@ -33,12 +33,12 @@ public class SocialShare extends SocialWidget {
     }
 
     public static SocialShare getInstance(Context context) {
-        if (f843a == null) {
-            f843a = new SocialShare(context);
+        if (f857a == null) {
+            f857a = new SocialShare(context);
         } else {
-            f843a.setContext(context);
+            f857a.setContext(context);
         }
-        return f843a;
+        return f857a;
     }
 
     public View getParentView() {

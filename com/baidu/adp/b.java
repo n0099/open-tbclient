@@ -1,6 +1,7 @@
 package com.baidu.adp;
 /* loaded from: classes.dex */
 public final class b {
-    public static final int adp_down_to_up = 2130968576;
-    public static final int adp_up_to_down = 2130968577;
+    public static final int adp_foot_need_refresh_delta = 2131230721;
+    public static final int adp_head_need_refresh_delta = 2131230720;
+    public static final int adp_head_view_height = 2131230722;
 }

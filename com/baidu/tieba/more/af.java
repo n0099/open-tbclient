@@ -6,10 +6,10 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 class af extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoreActivity f1981a;
+    final /* synthetic */ MoreActivity f1973a;
 
     private af(MoreActivity moreActivity) {
-        this.f1981a = moreActivity;
+        this.f1973a = moreActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,7 +28,7 @@ class af extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
-        return com.baidu.tieba.util.w.c(null, "tieba_head_image");
+        return com.baidu.tieba.util.af.c(null, "tieba_head_image");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -51,9 +51,9 @@ class af extends BdAsyncTask<Object, Integer, Bitmap> {
         super.a((af) bitmap);
         if (bitmap != null) {
             com.baidu.adp.widget.ImageView.e eVar = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
-            ahVar = this.f1981a.f1969a;
+            ahVar = this.f1973a.f1960a;
             if (ahVar != null) {
-                ahVar2 = this.f1981a.f1969a;
+                ahVar2 = this.f1973a.f1960a;
                 ahVar2.a(eVar);
             }
         }

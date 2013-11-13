@@ -1,71 +1,47 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1130a = 0;
-    private long b = 0;
-    private long c = 0;
-    private long d = 0;
-    private long e = 0;
+    private int f1164a = -1;
+    private String b = null;
+    private String c = null;
 
-    public void a(long j) {
-        this.f1130a = j;
+    public int a() {
+        return this.f1164a;
     }
 
-    public long a() {
-        return this.f1130a;
-    }
-
-    public void b(long j) {
-        this.b = j;
-    }
-
-    public long b() {
+    public String b() {
         return this.b;
     }
 
-    public void c(long j) {
-        this.c = j;
-    }
-
-    public long c() {
+    public String c() {
         return this.c;
     }
 
-    public long d() {
-        return this.d;
-    }
-
-    public void d(long j) {
-        this.d = j;
-    }
-
-    public long e() {
-        return this.e;
+    public void a(int i) {
+        this.f1164a = i;
     }
 
     public void a(String str) {
-        try {
-            a(new JSONObject(str).optJSONObject("message"));
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b("MessageData", "parserJson", "error = " + e.getMessage());
-        }
+        this.b = str;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1130a = jSONObject.optLong("replyme", 0L);
-                this.b = jSONObject.optLong("atme", 0L);
-                this.c = jSONObject.optLong("fans", 0L);
-                this.d = jSONObject.optLong("pletter", 0L);
-                this.e = jSONObject.optLong("bookmark", 0L);
-                this.d = jSONObject.optLong("pletter", 0L);
+                this.f1164a = jSONObject.optInt("type");
+                if (this.f1164a == 3) {
+                    this.b = jSONObject.optString("big_pic");
+                } else if (this.f1164a == 5) {
+                    this.b = jSONObject.optString("vpic");
+                    this.c = jSONObject.optString("vsrc");
+                }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("MessageData", "parserJson", "error = " + e.getMessage());
+                bg.b(getClass().getName(), "parserJson", "error=" + e.toString());
             }
         }
     }

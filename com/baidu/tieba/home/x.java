@@ -1,16 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x {
+public class x extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1372a;
-    ProgressBar b;
-    final /* synthetic */ v c;
+    final /* synthetic */ ForumTopicActivity f1468a;
 
-    private x(v vVar) {
-        this.c = vVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(ForumTopicActivity forumTopicActivity) {
+        this.f1468a = forumTopicActivity;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
+        super.onProgressChanged(webView, i);
+        if (i == 100) {
+            this.f1468a.f();
+        }
     }
 }

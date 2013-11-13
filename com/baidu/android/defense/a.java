@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f608a = null;
+    private static a f617a = null;
     private Context b;
     private BroadcastReceiver c = null;
 
@@ -32,19 +32,19 @@ public final class a {
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f608a == null) {
-                f608a = new a(context);
+            if (f617a == null) {
+                f617a = new a(context);
             }
-            aVar = f608a;
+            aVar = f617a;
         }
         return aVar;
     }
 
     public static synchronized void a() {
         synchronized (a.class) {
-            if (f608a != null) {
-                f608a.d();
-                f608a = null;
+            if (f617a != null) {
+                f617a.d();
+                f617a = null;
             }
         }
     }

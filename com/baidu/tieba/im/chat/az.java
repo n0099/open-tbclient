@@ -1,29 +1,24 @@
 package com.baidu.tieba.im.chat;
 
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements bv {
+public class az implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1426a;
+    final /* synthetic */ String f1519a;
+    final /* synthetic */ MsglistActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(MsglistActivity msglistActivity) {
-        this.f1426a = msglistActivity;
+    public az(MsglistActivity msglistActivity, String str) {
+        this.b = msglistActivity;
+        this.f1519a = str;
     }
 
-    @Override // com.baidu.tieba.im.chat.bv
-    public void a(VoiceManager.VoiceModel voiceModel) {
+    @Override // java.lang.Runnable
+    public void run() {
         MsglistModel msglistModel;
-        if (voiceModel != null) {
-            msglistModel = this.f1426a.g;
-            msglistModel.a(voiceModel.voiceId, voiceModel.duration);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.bv
-    public void a() {
+        msglistModel = this.b.g;
+        msglistModel.c(this.f1519a);
     }
 }

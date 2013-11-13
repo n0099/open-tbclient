@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import com.baidu.adp.lib.voice.Amrnb;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import com.tencent.mm.sdk.platformtools.LVBuffer;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f2569a = 0;
+    private static volatile int f2622a = 0;
     private static Object g = new Object();
     private AudioTrack b;
     private String c;
@@ -71,13 +71,14 @@ public class c implements Runnable {
             this.b = new AudioTrack(VoiceManager.i, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, (int) LVBuffer.LENGTH_ALLOC_PER_NEW), 1);
         } catch (IllegalArgumentException e) {
             this.b = null;
-            be.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
+            bg.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
         }
-        f2569a = 1;
+        f2622a = 1;
     }
 
     public void b() {
         int i;
+        this.f.removeCallbacks(this.m);
         synchronized (g) {
             if (this.b != null) {
                 try {
@@ -104,7 +105,7 @@ public class c implements Runnable {
                 this.f.sendMessage(obtainMessage);
             }
         }
-        f2569a = 0;
+        f2622a = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x00cb  */
@@ -148,7 +149,7 @@ public class c implements Runnable {
                 this.b.setPlaybackHeadPosition(this.l);
             }
             this.b.play();
-            f2569a = 2;
+            f2622a = 2;
             this.j.post(this.k);
             try {
                 fileInputStream2 = new FileInputStream(file);
@@ -157,7 +158,7 @@ public class c implements Runnable {
                     byte[] bArr = new byte[32];
                     this.e.decoderInit();
                     short[] sArr = new short[160];
-                    while (f2569a == 2) {
+                    while (f2622a == 2) {
                         if (bool.booleanValue()) {
                             if (fileInputStream2.read(bArr, 0, 6) == 6) {
                                 if (bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82) {
@@ -214,11 +215,11 @@ public class c implements Runnable {
                         com.baidu.adp.lib.h.d.b("AudioPlayer", "play", "error = " + e4.getMessage());
                     }
                 }
-                f2569a = 3;
+                f2622a = 3;
                 if (!z) {
                 }
             }
-            f2569a = 3;
+            f2622a = 3;
             if (!z) {
                 this.f.postDelayed(this.m, 500L);
             } else {
@@ -232,7 +233,7 @@ public class c implements Runnable {
     }
 
     public void c() {
-        f2569a = 3;
+        f2622a = 3;
         b();
     }
 }

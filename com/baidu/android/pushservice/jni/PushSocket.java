@@ -3,12 +3,12 @@ package com.baidu.android.pushservice.jni;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.pushservice.b;
 import com.baidu.android.pushservice.message.a;
-import com.baidu.android.pushservice.util.n;
+import com.baidu.android.pushservice.util.m;
 /* loaded from: classes.dex */
 public class PushSocket {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f698a;
+    public static boolean f714a;
     private static byte[] b = null;
     private static int c = 0;
     private static String d = "socket";
@@ -16,12 +16,17 @@ public class PushSocket {
     private static int f = 32;
 
     static {
-        f698a = false;
+        f714a = false;
         try {
-            System.loadLibrary("push-socket");
-            f698a = true;
+            System.loadLibrary("bdpush_V1_0");
+            f714a = true;
         } catch (UnsatisfiedLinkError e2) {
-            Log.d(d, "native library not found!");
+            try {
+                System.loadLibrary("push-socket");
+                f714a = true;
+            } catch (UnsatisfiedLinkError e3) {
+                Log.d(d, "native library not found!");
+            }
         }
     }
 
@@ -82,7 +87,7 @@ public class PushSocket {
         System.arraycopy(b, c, bArr2, 0, bArr2.length);
         if (b.a() && a2 == 6) {
             Log.i(d, "MSG_ID_TINY_HEARTBEAT_SERVER");
-            n.a("MSG_ID_TINY_HEARTBEAT_SERVER");
+            m.a("MSG_ID_TINY_HEARTBEAT_SERVER");
         }
         c += 2;
         return bArr2;

@@ -9,12 +9,12 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f958a;
+    private Context f972a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context) {
-        this.f958a = null;
-        this.f958a = context;
+        this.f972a = null;
+        this.f972a = context;
     }
 
     private static boolean a(Context context, String str, String str2, String str3, long j, HashMap hashMap) {
@@ -46,7 +46,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.f958a = null;
+        this.f972a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -58,7 +58,7 @@ public class b {
     public boolean a(ShareModel shareModel, ArrayList arrayList) {
         if (b(shareModel)) {
             String str = shareModel.mAction;
-            String packageName = this.f958a.getPackageName();
+            String packageName = this.f972a.getPackageName();
             long currentTimeMillis = System.currentTimeMillis();
             String str2 = null;
             if (arrayList != null) {
@@ -70,7 +70,7 @@ public class b {
                     str2 = str2.substring(0, str2.length() - 1);
                 }
             }
-            return a(this.f958a, str, packageName, str2, currentTimeMillis, shareModel.mData);
+            return a(this.f972a, str, packageName, str2, currentTimeMillis, shareModel.mData);
         }
         return false;
     }

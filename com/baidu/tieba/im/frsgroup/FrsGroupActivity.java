@@ -16,14 +16,11 @@ import com.baidu.tieba.im.creategroup.CreateGroupMainActivity;
 import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.baidu.tieba.im.data.GroupPermData;
 import com.slidingmenu.lib.R;
-import java.util.Timer;
 /* loaded from: classes.dex */
 public class FrsGroupActivity extends BaseFragmentActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private i f1545a;
-    private com.baidu.tieba.im.model.b b;
-    private com.baidu.tieba.im.messageCenter.h c = new a(this);
+    private g b;
+    private com.baidu.tieba.im.model.b c;
+    private com.baidu.tieba.im.messageCenter.h d = new a(this);
 
     public static void a(Context context, String str, boolean z) {
         Intent intent = new Intent(context, FrsGroupActivity.class);
@@ -36,8 +33,8 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        a(bundle, null);
-        d();
+        a(bundle, (Intent) null);
+        e();
         a(bundle);
         a(false);
     }
@@ -46,13 +43,13 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     @Override // android.support.v4.app.n, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.f1545a != null) {
-            this.f1545a.c();
-            this.f1545a = null;
+        if (this.b != null) {
+            this.b.c();
+            this.b = null;
         }
-        a(null, intent);
+        a((Bundle) null, intent);
         a(intent != null ? intent.getExtras() : null);
-        a(TiebaApplication.g().as());
+        a(TiebaApplication.g().ap());
         a(true);
     }
 
@@ -60,97 +57,90 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (g()) {
-            k();
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.b.d(this.c);
+        this.c.d(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.n, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
-        this.b.b(bundle);
+        this.c.b(bundle);
     }
 
     private void a(Bundle bundle) {
-        this.f1545a = new i(this);
-        this.f1545a.f();
-        this.f1545a.c(this.b.a());
-        this.f1545a.a(this.b.a());
+        this.b = new g(this);
+        this.b.f();
+        this.b.c(this.c.a());
+        this.b.a(this.c.a());
         if (bundle != null) {
-            this.f1545a.a(this.b.g());
+            this.b.a(this.c.g());
         }
-        this.f1545a.e();
+        this.b.e();
     }
 
-    public com.baidu.tieba.im.model.b b() {
+    public com.baidu.tieba.im.model.b c() {
+        return this.c;
+    }
+
+    public g d() {
         return this.b;
     }
 
-    public i c() {
-        return this.f1545a;
-    }
-
     public void a(Bundle bundle, Intent intent) {
-        this.b = new com.baidu.tieba.im.model.b();
+        this.c = new com.baidu.tieba.im.model.b();
         if (bundle == null) {
-            com.baidu.tieba.im.model.b bVar = this.b;
+            com.baidu.tieba.im.model.b bVar = this.c;
             if (intent == null) {
                 intent = getIntent();
             }
             bVar.a(intent);
         } else {
-            this.b.a(bundle);
+            this.c.a(bundle);
         }
-        this.b.a(this);
+        this.c.a(this);
     }
 
-    protected void d() {
-        this.b.c(this.c);
+    protected void e() {
+        this.c.c(this.d);
     }
 
     @Override // com.baidu.tieba.BaseFragmentActivity
     protected void a(int i) {
-        this.f1545a.b(i);
+        this.b.b(i);
     }
 
     private void a(boolean z) {
-        Fragment a2 = getSupportFragmentManager().a(this.f1545a.a()[e()]);
+        Fragment a2 = getSupportFragmentManager().a(this.b.a()[f()]);
         if (z || a2 == null) {
-            getSupportFragmentManager().a().a(R.id.fragment, this.f1545a.g()[e()], this.f1545a.a()[e()]).a();
+            getSupportFragmentManager().a().a(R.id.fragment, this.b.g()[f()], this.b.a()[f()]).a();
         } else {
-            getSupportFragmentManager().a().c(this.f1545a.g()[e()]).a();
+            getSupportFragmentManager().a().c(this.b.g()[f()]).a();
         }
     }
 
-    private void f() {
-        if (getSupportFragmentManager().a(this.f1545a.a()[e()]) != null) {
-            getSupportFragmentManager().a().b(this.f1545a.g()[e()]).a();
+    private void g() {
+        if (getSupportFragmentManager().a(this.b.a()[f()]) != null) {
+            getSupportFragmentManager().a().b(this.b.g()[f()]).a();
         }
     }
 
-    public int e() {
-        return this.b.g() - 1;
+    public int f() {
+        return this.c.g() - 1;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1545a.h()) {
+        if (view == this.b.h()) {
             h();
-        } else if (view == this.f1545a.i()) {
+        } else if (view == this.b.i()) {
             StatService.onEvent(this, "create_g_in_frsgroup", "click");
             j();
         }
-    }
-
-    private boolean g() {
-        return com.baidu.tieba.im.l.b().c();
     }
 
     private void h() {
@@ -158,13 +148,13 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     }
 
     private void i() {
-        this.f1545a.d(true);
-        this.f1545a.b(false);
-        this.b.c(this.b.m());
+        this.b.d(true);
+        this.b.b(false);
+        this.c.c(this.c.m());
     }
 
     private void j() {
-        if (TextUtils.isEmpty(TiebaApplication.C())) {
+        if (TextUtils.isEmpty(TiebaApplication.A())) {
             LoginActivity.a((Activity) this, "", true, 0);
         } else {
             i();
@@ -177,11 +167,11 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
                 a(groupPermData.getCreateNormalTip());
                 return;
             } else {
-                CreateGroupStepActivity.a(this, 3, b(this.b.m()));
+                CreateGroupStepActivity.a(this, 3, b(this.c.m()));
                 return;
             }
         }
-        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.b.m()));
+        CreateGroupMainActivity.a(this, groupPermData.isCreateOfficial(), groupPermData.isCreateNormal(), groupPermData.getCreateOfficialTip(), groupPermData.getCreateNormalTip(), b(this.c.m()));
     }
 
     private int b(String str) {
@@ -193,22 +183,18 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
         }
     }
 
-    private void k() {
-        new Timer().schedule(new b(this), 300L);
-    }
-
     @Override // android.widget.RadioGroup.OnCheckedChangeListener
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        f();
+        g();
         switch (i) {
-            case R.id.radio_recommend /* 2131100390 */:
-                this.b.a(1);
+            case R.id.radio_recommend /* 2131100360 */:
+                this.c.a(1);
                 break;
-            case R.id.radio_hot /* 2131100391 */:
-                this.b.a(2);
+            case R.id.radio_hot /* 2131100361 */:
+                this.c.a(2);
                 break;
-            case R.id.radio_official /* 2131100392 */:
-                this.b.a(3);
+            case R.id.radio_official /* 2131100362 */:
+                this.c.a(3);
                 break;
         }
         a(false);

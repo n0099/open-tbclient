@@ -1,22 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.webkit.URLUtil;
+import android.util.SparseArray;
+import android.view.View;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dn implements Runnable {
+public class dn implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f2127a;
+    final /* synthetic */ cp f2146a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dn(WebActivity webActivity) {
-        this.f2127a = webActivity;
+    public dn(cp cpVar) {
+        this.f2146a = cpVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String guessUrl = URLUtil.guessUrl(this.f2127a.c);
-        if (URLUtil.isNetworkUrl(guessUrl)) {
-            this.f2127a.f2035a.loadUrl(guessUrl);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            if (!"".equals(sparseArray.get(R.id.tag_forbid_user_name)) && !"".equals(sparseArray.get(R.id.tag_del_post_id))) {
+                this.f2146a.a(view);
+            } else {
+                this.f2146a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+            }
         }
     }
 }

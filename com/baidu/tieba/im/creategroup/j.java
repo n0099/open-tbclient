@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.im.data.GroupAddressData;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoSwipeableViewPager;
 import com.slidingmenu.lib.R;
@@ -17,7 +17,7 @@ import com.slidingmenu.lib.R;
 public class j extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1498a;
+    CreateGroupStepActivity f1589a;
     CreateGroupStepAdapter c;
     ProgressBar d;
     int e;
@@ -107,7 +107,7 @@ public class j extends com.baidu.adp.a.e {
         super(createGroupStepActivity);
         this.m = true;
         this.n = false;
-        this.f1498a = null;
+        this.f1589a = null;
         this.c = null;
         this.d = null;
         this.o = 1;
@@ -136,12 +136,12 @@ public class j extends com.baidu.adp.a.e {
     }
 
     private void A() {
-        this.r.setOnClickListener(this.f1498a);
-        this.s.setOnClickListener(this.f1498a);
-        this.i.d().addTextChangedListener(this.f1498a);
-        this.j.d().addTextChangedListener(this.f1498a);
-        this.k.h().setOnClickListener(this.f1498a);
-        this.k.e().setOnClickListener(this.f1498a);
+        this.r.setOnClickListener(this.f1589a);
+        this.s.setOnClickListener(this.f1589a);
+        this.i.d().addTextChangedListener(this.f1589a);
+        this.j.d().addTextChangedListener(this.f1589a);
+        this.k.h().setOnClickListener(this.f1589a);
+        this.k.e().setOnClickListener(this.f1589a);
     }
 
     public void a(boolean z) {
@@ -150,22 +150,22 @@ public class j extends com.baidu.adp.a.e {
     }
 
     private void a(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1498a = createGroupStepActivity;
+        this.f1589a = createGroupStepActivity;
         createGroupStepActivity.setContentView(R.layout.create_group_step_activity);
         this.q = createGroupStepActivity.findViewById(R.id.parent);
         this.d = (ProgressBar) createGroupStepActivity.findViewById(R.id.progress);
         this.u = (NoSwipeableViewPager) createGroupStepActivity.findViewById(R.id.pagercontent);
-        this.c = new CreateGroupStepAdapter(this.f1498a);
+        this.c = new CreateGroupStepAdapter(this.f1589a);
         CreateGroupStepAdapter createGroupStepAdapter = this.c;
-        c cVar = new c(this.f1498a);
+        c cVar = new c(this.f1589a);
         this.i = cVar;
         createGroupStepAdapter.a(cVar);
         CreateGroupStepAdapter createGroupStepAdapter2 = this.c;
-        a aVar = new a(this.f1498a);
+        a aVar = new a(this.f1589a);
         this.j = aVar;
         createGroupStepAdapter2.a(aVar);
         CreateGroupStepAdapter createGroupStepAdapter3 = this.c;
-        d dVar = new d(this.f1498a);
+        d dVar = new d(this.f1589a);
         this.k = dVar;
         createGroupStepAdapter3.a(dVar);
         this.u.setAdapter(this.c);
@@ -188,20 +188,20 @@ public class j extends com.baidu.adp.a.e {
     }
 
     private void B() {
-        if (TiebaApplication.g().as() == 1) {
+        if (TiebaApplication.g().ap() == 1) {
             if (this.m) {
-                bb.e((View) this.s, (int) R.drawable.btn_step_1);
-                this.s.setTextColor(this.f1498a.getResources().getColorStateList(R.drawable.btn_step_color_1));
+                bd.e((View) this.s, (int) R.drawable.btn_step_1);
+                this.s.setTextColor(this.f1589a.getResources().getColorStateList(R.drawable.btn_step_color_1));
                 return;
             }
-            this.s.setTextColor(this.f1498a.getResources().getColor(R.color.widget_nb_txtbtn_color_n_1));
-            bb.e((View) this.s, (int) R.drawable.but_head_bar_d_1);
+            this.s.setTextColor(this.f1589a.getResources().getColor(R.color.widget_nb_txtbtn_color_n_1));
+            bd.e((View) this.s, (int) R.drawable.but_head_bar_d_1);
         } else if (this.m) {
-            bb.e((View) this.s, (int) R.drawable.btn_step);
-            this.s.setTextColor(this.f1498a.getResources().getColorStateList(R.drawable.btn_step_color));
+            bd.e((View) this.s, (int) R.drawable.btn_step);
+            this.s.setTextColor(this.f1589a.getResources().getColorStateList(R.drawable.btn_step_color));
         } else {
-            bb.e((View) this.s, (int) R.drawable.but_head_bar_d);
-            this.s.setTextColor(this.f1498a.getResources().getColor(R.color.widget_nb_txtbtn_color_n));
+            bd.e((View) this.s, (int) R.drawable.but_head_bar_d);
+            this.s.setTextColor(this.f1589a.getResources().getColor(R.color.widget_nb_txtbtn_color_n));
         }
     }
 
@@ -236,9 +236,9 @@ public class j extends com.baidu.adp.a.e {
     }
 
     public void w() {
-        String[] strArr = {this.f1498a.getResources().getString(R.string.take_photo), this.f1498a.getResources().getString(R.string.album)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1498a);
-        builder.setTitle(this.f1498a.getResources().getString(R.string.operation));
+        String[] strArr = {this.f1589a.getResources().getString(R.string.take_photo), this.f1589a.getResources().getString(R.string.album)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1589a);
+        builder.setTitle(this.f1589a.getResources().getString(R.string.operation));
         builder.setItems(strArr, new l(this));
         if (this.t == null) {
             this.t = builder.create();
@@ -253,7 +253,7 @@ public class j extends com.baidu.adp.a.e {
     }
 
     private void C() {
-        this.p.a(this.f1498a.getResources().getString(this.c.a(this.o - 1).c()));
+        this.p.a(this.f1589a.getResources().getString(this.c.a(this.o - 1).c()));
     }
 
     public void x() {
@@ -284,7 +284,7 @@ public class j extends com.baidu.adp.a.e {
                 this.j.e().setVisibility(8);
             }
             if (i == 0) {
-                this.j.e().setTextColor(this.f1498a.getResources().getColor(R.color.group_create_info_count_color));
+                this.j.e().setTextColor(this.f1589a.getResources().getColor(R.color.group_create_info_count_color));
             } else {
                 this.j.h();
             }
@@ -315,14 +315,14 @@ public class j extends com.baidu.adp.a.e {
     }
 
     public void b(int i) {
-        this.f1498a.m().a(i == 1);
-        this.f1498a.m().a(this.q);
-        bb.a(this.q, i);
-        this.p.b(i);
+        this.f1589a.getLayoutMode().a(i == 1);
+        this.f1589a.getLayoutMode().a(this.q);
+        bd.a(this.q, i);
+        this.p.c(i);
         B();
     }
 
     public void a(EditText editText) {
-        ((InputMethodManager) this.f1498a.getSystemService("input_method")).hideSoftInputFromWindow(editText.getWindowToken(), 0);
+        ((InputMethodManager) this.f1589a.getSystemService("input_method")).hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 }

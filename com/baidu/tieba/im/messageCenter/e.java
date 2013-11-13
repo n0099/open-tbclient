@@ -9,14 +9,14 @@ import java.util.List;
 public class e extends SingleRunnable<List<Message>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<Message> f1643a;
+    private List<Message> f1730a;
     private com.baidu.tieba.im.codec.p b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(List<Message> list, com.baidu.tieba.im.codec.p pVar) {
-        this.f1643a = null;
+        this.f1730a = null;
         this.b = null;
-        this.f1643a = list;
+        this.f1730a = list;
         this.b = pVar;
     }
 
@@ -25,16 +25,16 @@ public class e extends SingleRunnable<List<Message>> {
     /* renamed from: a */
     public List<Message> b() {
         a a2;
-        if (this.f1643a == null) {
+        if (this.f1730a == null) {
             return null;
         }
-        int size = this.f1643a.size();
+        int size = this.f1730a.size();
         for (int i = 0; i < size; i++) {
-            Message message = this.f1643a.get(i);
+            Message message = this.f1730a.get(i);
             if (!(message instanceof AckedMessage) && (a2 = f.a().a(message.getCmd())) != null) {
                 a2.a(message, this.b);
             }
         }
-        return this.f1643a;
+        return this.f1730a;
     }
 }

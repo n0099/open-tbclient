@@ -10,17 +10,17 @@ import com.baidu.tieba.LogoActivity;
 import com.baidu.tieba.MainTabActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bf;
+import com.baidu.tieba.util.bh;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 class c extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DealIntentService f2307a;
+    final /* synthetic */ DealIntentService f2340a;
     private Intent b;
 
     public c(DealIntentService dealIntentService, Intent intent) {
-        this.f2307a = dealIntentService;
+        this.f2340a = dealIntentService;
         this.b = null;
         this.b = intent;
     }
@@ -41,13 +41,13 @@ class c extends BdAsyncTask<String, Integer, String> {
                 if (TiebaApplication.g().s()) {
                     StatService.onEvent(TiebaApplication.g().getApplicationContext(), "cl_push_noti:" + string, "msgID:" + j);
                 }
-                bf.a(j, 2, stringExtra);
+                bh.a(j, 2, stringExtra);
             }
             Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) TiebaApplication.g().getSystemService("activity")).getRunningTasks(BdWebErrorView.ERROR_CODE_500).iterator();
             while (true) {
                 if (it.hasNext()) {
                     ActivityManager.RunningTaskInfo next = it.next();
-                    if (next.baseActivity.getClassName().startsWith(this.f2307a.getPackageName())) {
+                    if (next.baseActivity.getClassName().startsWith(this.f2340a.getPackageName())) {
                         if (5 == this.b.getIntExtra("class", -1)) {
                             if (!next.topActivity.getClassName().equalsIgnoreCase(MainTabActivity.class.getName())) {
                                 this.b.putExtra("class", 11);
@@ -56,13 +56,13 @@ class c extends BdAsyncTask<String, Integer, String> {
                             this.b.putExtra("class", 12);
                         }
                         this.b.addFlags(268435456);
-                        UtilHelper.a(this.f2307a.getBaseContext(), this.b);
+                        UtilHelper.a(this.f2340a.getBaseContext(), this.b);
                     }
                 } else {
                     if (this.b.getExtras().getBoolean("is_notify", false)) {
                         a(i);
                     }
-                    LogoActivity.a(this.f2307a, this.b);
+                    LogoActivity.a(this.f2340a, this.b);
                 }
             }
         }
@@ -98,13 +98,13 @@ class c extends BdAsyncTask<String, Integer, String> {
     private void b(int i) {
         switch (i) {
             case 6:
-                StatService.onEvent(this.f2307a.getBaseContext(), "notify_to_pk_before", "click");
+                StatService.onEvent(this.f2340a.getBaseContext(), "notify_to_pk_before", "click");
                 return;
             case 7:
-                StatService.onEvent(this.f2307a.getBaseContext(), "notify_to_pk_end", "click");
+                StatService.onEvent(this.f2340a.getBaseContext(), "notify_to_pk_end", "click");
                 return;
             case 8:
-                StatService.onEvent(this.f2307a.getBaseContext(), "notify_to_vote_list", "click");
+                StatService.onEvent(this.f2340a.getBaseContext(), "notify_to_vote_list", "click");
                 return;
             default:
                 return;
@@ -120,6 +120,6 @@ class c extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        this.f2307a.stopSelf();
+        this.f2340a.stopSelf();
     }
 }

@@ -4,47 +4,46 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.person.post.PersonPostReplyModel;
 import com.baidu.tieba.person.post.PersonPostThreadModel;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.be;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
-import java.util.Date;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
     private static com.baidu.adp.widget.ImageView.e j;
     private static String k;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f2231a;
+    public LinearLayout f2266a;
     public HeadImageView b;
     public TextView c;
     public TextView d;
     public TextView e;
     public TextView f;
     private final LinearLayout g;
-    private final RelativeLayout h;
-    private final RelativeLayout i;
+    private final ColumnLayout h;
+    private final ColumnLayout i;
     private c l;
-    private com.baidu.tieba.util.a m;
+    private com.baidu.tieba.util.i m;
 
     public a(View view) {
-        this.f2231a = (LinearLayout) view.findViewById(R.id.top_line);
+        this.f2266a = (LinearLayout) view.findViewById(R.id.top_line);
         this.b = (HeadImageView) view.findViewById(R.id.portrait);
         this.c = (TextView) view.findViewById(R.id.username);
         this.d = (TextView) view.findViewById(R.id.reply_time);
         this.e = (TextView) view.findViewById(R.id.forum_name);
         this.f = (TextView) view.findViewById(R.id.reply_count);
         this.g = (LinearLayout) view.findViewById(R.id.item_content);
-        this.h = (RelativeLayout) view.findViewById(R.id.item_header);
-        this.i = (RelativeLayout) view.findViewById(R.id.item_footer);
-        this.m = new com.baidu.tieba.util.a(view.getContext());
+        this.h = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.i = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.m = new com.baidu.tieba.util.i(view.getContext());
         int a2 = UtilHelper.a(view.getContext(), 42.0f);
         this.m.a(a2, a2);
         if (this.g != null) {
@@ -61,7 +60,7 @@ class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.forum_name /* 2131100868 */:
+            case R.id.forum_name /* 2131100800 */:
                 FrsActivity.a(view.getContext(), (String) view.getTag(), "");
                 return;
             default:
@@ -77,21 +76,21 @@ class a implements View.OnClickListener {
         this.l = cVar;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00c2 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00b8 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0047 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x000a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x004c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x004c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0047 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:12:0x004e A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x008b  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0049 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0081  */
     /* JADX WARN: Type inference failed for: r0v0 */
     /* JADX WARN: Type inference failed for: r0v16 */
     /* JADX WARN: Type inference failed for: r0v17 */
     /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r3v17 */
-    /* JADX WARN: Type inference failed for: r3v23 */
+    /* JADX WARN: Type inference failed for: r3v18 */
+    /* JADX WARN: Type inference failed for: r3v25 */
     /* JADX WARN: Type inference failed for: r3v5, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r3v6 */
+    /* JADX WARN: Type inference failed for: r3v8 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -105,22 +104,15 @@ class a implements View.OnClickListener {
         String[] strArr = new String[3];
         try {
             str2 = obj instanceof PersonPostReplyModel.Post;
+        } catch (Exception e) {
+            str2 = str5;
+            str3 = str5;
+            str4 = str5;
+        }
+        try {
             try {
                 try {
-                    try {
-                    } catch (Exception e) {
-                        str2 = str5;
-                        str6 = str7;
-                        str7 = str5;
-                        str5 = str2;
-                        str2 = str3;
-                        str3 = str4;
-                        if (str6 != 0) {
-                        }
-                    }
                 } catch (Exception e2) {
-                    str2 = str5;
-                    str3 = str5;
                     str6 = str7;
                     str7 = str5;
                     str5 = str2;
@@ -130,6 +122,7 @@ class a implements View.OnClickListener {
                     }
                 }
             } catch (Exception e3) {
+                str2 = str5;
                 str6 = str7;
                 str7 = str5;
                 str5 = str2;
@@ -141,7 +134,13 @@ class a implements View.OnClickListener {
         } catch (Exception e4) {
             str2 = str5;
             str3 = str5;
-            str4 = str5;
+            str6 = str7;
+            str7 = str5;
+            str5 = str2;
+            str2 = str3;
+            str3 = str4;
+            if (str6 != 0) {
+            }
         }
         if (str2 != 0) {
             PersonPostReplyModel.Post post = (PersonPostReplyModel.Post) obj;
@@ -149,22 +148,22 @@ class a implements View.OnClickListener {
             strArr[0] = String.valueOf(post.thread_id);
             strArr[1] = String.valueOf(post.content[0].post_id);
             strArr[2] = String.valueOf(post.content[0].post_type);
-            String f = bc.f(new Date(post.create_time * 1000));
+            String b = be.b(post.create_time * 1000);
             String str8 = post.forum_name;
             str7 = String.valueOf(post.reply_num);
             str5 = str8;
-            str2 = f;
+            str2 = b;
             str3 = str4;
         } else if (obj instanceof PersonPostThreadModel.PostList) {
             PersonPostThreadModel.PostList postList = (PersonPostThreadModel.PostList) obj;
             str4 = postList.user_name;
             strArr[0] = String.valueOf(postList.thread_id);
             strArr[1] = String.valueOf(postList.post_id);
-            String f2 = bc.f(new Date(postList.create_time * 1000));
+            String b2 = be.b(postList.create_time * 1000);
             String str9 = postList.forum_name;
             str7 = String.valueOf(postList.reply_num);
             str5 = str9;
-            str2 = f2;
+            str2 = b2;
             str3 = str4;
         } else {
             str6 = 0;
@@ -207,9 +206,9 @@ class a implements View.OnClickListener {
     }
 
     public void a(int i) {
-        bb.c(this.e, i);
-        bb.c(this.d, i);
-        if (TiebaApplication.g().as() == 1) {
+        bd.c(this.e, i);
+        bd.c(this.d, i);
+        if (TiebaApplication.g().ap() == 1) {
             a(this.h, R.drawable.bg_list_top_1);
             a(this.g, R.drawable.bg_list_border_1);
             a(this.i, R.drawable.bg_list_bottom_1);

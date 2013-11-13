@@ -12,89 +12,90 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1165a = "http://c.tieba.baidu.com/";
+    public static String f1196a = "http://c.tieba.baidu.com/";
     public static String b = "http://tieba.baidu.com/";
-    public static final Long c = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
-    public static final Long d = 36000000L;
+    public static String c = "http://static.tieba.baidu.com/";
+    public static final Long d = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
     public static final Long e = 36000000L;
-    public static final Long f = Long.valueOf((long) Util.MILLSECONDS_OF_DAY);
-    public static final String g = f1165a + "c/s/apprecommend";
-    public static final String h = f1165a + "c/s/recommend/";
-    public static final String i = f1165a + "c/s/classic";
-    public static String j = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String k = f1165a + "c/p/img?";
-    public static int l = 80;
-    public static final Bitmap.Config m = Bitmap.Config.RGB_565;
-    private static String o = null;
+    public static final Long f = 36000000L;
+    public static final Long g = Long.valueOf((long) Util.MILLSECONDS_OF_DAY);
+    public static final String h = f1196a + "c/s/apprecommend";
+    public static final String i = f1196a + "c/s/recommend/";
+    public static final String j = f1196a + "c/s/classic";
+    public static String k = "http://tb.himg.baidu.com/sys/portrait/item/";
+    public static final String l = f1196a + "c/p/img?";
+    public static int m = 80;
+    public static final Bitmap.Config n = Bitmap.Config.RGB_565;
     private static String p = null;
-    private static int q = 300;
-    private static String r = "http://tb.himg.baidu.com/sys/portraitn/item/";
-    private static String s = r;
-    private static int t = 80;
-    private static int u = Util.BYTE_OF_MB;
-    private static int v = 1024;
-    private static int w = 1;
-    private static String x = "贴吧客户端反馈";
-    private static String y = "2631903";
-    private static int z = 640;
-    private static String A = "";
-    public static final Long n = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
+    private static String q = null;
+    private static int r = 300;
+    private static String s = "http://tb.himg.baidu.com/sys/portraitn/item/";
+    private static String t = s;
+    private static int u = 80;
+    private static int v = Util.BYTE_OF_MB;
+    private static int w = 1024;
+    private static int x = 1;
+    private static String y = "贴吧客户端反馈";
+    private static String z = "2631903";
+    private static int A = 640;
+    private static String B = "";
+    public static final Long o = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
 
     public static String a() {
-        return o;
-    }
-
-    public static void a(String str) {
-        o = str;
-    }
-
-    public static String b() {
         return p;
     }
 
-    public static void b(String str) {
+    public static void a(String str) {
         p = str;
     }
 
-    public static int c() {
+    public static String b() {
         return q;
     }
 
-    public static String d() {
+    public static void b(String str) {
+        q = str;
+    }
+
+    public static int c() {
         return r;
     }
 
-    public static int e() {
-        return u;
+    public static String d() {
+        return s;
     }
 
-    public static int f() {
+    public static int e() {
         return v;
     }
 
-    public static String g() {
-        return x;
+    public static int f() {
+        return w;
     }
 
-    public static String h() {
+    public static String g() {
         return y;
     }
 
-    public static int i() {
+    public static String h() {
         return z;
     }
 
-    public static String j() {
+    public static int i() {
         return A;
     }
 
+    public static String j() {
+        return B;
+    }
+
     public static void c(String str) {
-        A = str;
+        B = str;
     }
 
     public static void d(String str) {
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            r = str;
+            s = str;
         }
     }
 
@@ -104,80 +105,80 @@ public class h {
         if (a2 <= 400) {
             i2 = a2;
         }
-        v = (int) (i2 * i2 * 1.62f * 2.0f);
-        com.baidu.adp.lib.h.d.d("BIG_IMAGE_SIZE = " + v);
-        return v;
+        w = (int) (i2 * i2 * 1.62f * 2.0f);
+        com.baidu.adp.lib.h.d.d("BIG_IMAGE_SIZE = " + w);
+        return w;
     }
 
     public static int k() {
-        return v;
+        return w;
     }
 
     public static void b(Context context) {
-        u = a(context) * 13;
-        if (u < UtilHelper.c(context) * 0.28d) {
-            u = (int) (UtilHelper.c(context) * 0.28d);
+        v = a(context) * 13;
+        if (v < UtilHelper.c(context) * 0.28d) {
+            v = (int) (UtilHelper.c(context) * 0.28d);
         }
-        com.baidu.adp.lib.h.d.d("BIG_IMAGE_MAX_USED_MEMORY = " + u);
+        com.baidu.adp.lib.h.d.d("BIG_IMAGE_MAX_USED_MEMORY = " + v);
     }
 
     public static void c(Context context) {
         if (context.getResources().getDisplayMetrics().density < 1.0f) {
-            s = r;
-            t = 80;
+            t = s;
+            u = 80;
             return;
         }
-        s = j;
-        t = SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN;
+        t = k;
+        u = SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN;
     }
 
     public static String l() {
-        return s;
+        return t;
     }
 
     public static int m() {
-        return t;
+        return u;
     }
 
     public static void e(String str) {
         if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            j = str;
+            k = str;
         }
     }
 
     public static void a(int i2) {
         if (i2 >= 60 && i2 <= 1000) {
-            q = i2;
+            r = i2;
         }
     }
 
     public static void d(Context context) {
         int sqrt = (int) Math.sqrt(UtilHelper.a(context) * UtilHelper.b(context));
-        if (sqrt > z) {
-            z = sqrt;
+        if (sqrt > A) {
+            A = sqrt;
         }
         if (Runtime.getRuntime().maxMemory() <= 16777216) {
-            z = (int) (z * 0.8d);
+            A = (int) (A * 0.8d);
         }
     }
 
     public static void a(String str, String str2) {
         if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
-            x = str;
-            y = str2;
+            y = str;
+            z = str2;
         }
     }
 
     public static void b(int i2) {
-        w = i2;
+        x = i2;
     }
 
     public static int n() {
-        return w;
+        return x;
     }
 
     public static int o() {
-        switch (TiebaApplication.g().ao()) {
+        switch (TiebaApplication.g().al()) {
             case 1:
                 return 18;
             case 2:
@@ -196,7 +197,7 @@ public class h {
     }
 
     public static int r() {
-        switch (TiebaApplication.g().ao()) {
+        switch (TiebaApplication.g().al()) {
             case 1:
                 return 13;
             case 2:

@@ -8,19 +8,19 @@ import org.json.JSONObject;
 public class a implements Comparable {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f630a;
+    private b f639a;
     private String b;
     private String c;
     private long d;
     private int e;
 
     public a() {
-        this.f630a = b.UNKNOWN;
+        this.f639a = b.UNKNOWN;
         this.d = -1L;
     }
 
     public a(JSONObject jSONObject) {
-        this.f630a = b.UNKNOWN;
+        this.f639a = b.UNKNOWN;
         this.d = -1L;
         try {
             this.c = jSONObject.getString("PackageName");
@@ -52,7 +52,7 @@ public class a implements Comparable {
     }
 
     public b a() {
-        return this.f630a;
+        return this.f639a;
     }
 
     public void a(int i) {
@@ -64,7 +64,7 @@ public class a implements Comparable {
     }
 
     public void a(b bVar) {
-        this.f630a = bVar;
+        this.f639a = bVar;
     }
 
     public void a(String str) {
@@ -104,7 +104,7 @@ public class a implements Comparable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[").append("[key=").append(this.b).append("]packagename=").append(this.c).append("]mOperationCode=").append(this.f630a).append("]versioncode=").append(this.e).append("]signmd5=").append(this.d).append("]]");
+        sb.append("[").append("[key=").append(this.b).append("]packagename=").append(this.c).append("]mOperationCode=").append(this.f639a).append("]versioncode=").append(this.e).append("]signmd5=").append(this.d).append("]]");
         return sb.toString();
     }
 }

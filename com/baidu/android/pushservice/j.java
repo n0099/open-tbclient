@@ -12,11 +12,11 @@ import java.util.LinkedList;
 public class j extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f697a;
+    final /* synthetic */ e f713a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(e eVar) {
-        this.f697a = eVar;
+        this.f713a = eVar;
         setName("PushService-PushConnection-SendThread");
     }
 
@@ -39,26 +39,26 @@ public class j extends Thread {
         Runnable runnable2;
         LinkedList linkedList5;
         while (!z) {
-            linkedList = this.f697a.j;
+            linkedList = this.f713a.j;
             synchronized (linkedList) {
-                linkedList2 = this.f697a.j;
+                linkedList2 = this.f713a.j;
                 if (linkedList2.size() == 0) {
                     try {
-                        linkedList3 = this.f697a.j;
+                        linkedList3 = this.f713a.j;
                         linkedList3.wait();
                     } catch (InterruptedException e) {
                         Log.e("PushConnection", "SendThread wait exception: " + e);
                     }
                 }
-                linkedList4 = this.f697a.j;
+                linkedList4 = this.f713a.j;
                 if (linkedList4.size() > 0) {
-                    linkedList5 = this.f697a.j;
+                    linkedList5 = this.f713a.j;
                     bVar = (com.baidu.android.pushservice.message.b) linkedList5.removeFirst();
                 } else {
                     bVar = null;
                 }
             }
-            z2 = this.f697a.f;
+            z2 = this.f713a.f;
             if (z2) {
                 return;
             }
@@ -68,30 +68,30 @@ public class j extends Thread {
                 }
                 if (bVar.d) {
                     if (bVar.a()) {
-                        this.f697a.r = true;
+                        this.f713a.r = true;
                     } else {
-                        this.f697a.r = false;
+                        this.f713a.r = false;
                     }
-                    Handler handler = this.f697a.b;
-                    runnable = this.f697a.t;
+                    Handler handler = this.f713a.b;
+                    runnable = this.f713a.t;
                     handler.removeCallbacks(runnable);
-                    Handler handler2 = this.f697a.b;
-                    runnable2 = this.f697a.t;
+                    Handler handler2 = this.f713a.b;
+                    runnable2 = this.f713a.t;
                     handler2.postDelayed(runnable2, Util.MILLSECONDS_OF_MINUTE);
                 }
-                if (!PushSocket.f698a) {
+                if (!PushSocket.f714a) {
                     try {
-                        outputStream = this.f697a.i;
+                        outputStream = this.f713a.i;
                         outputStream.write(bVar.c);
-                        outputStream2 = this.f697a.i;
+                        outputStream2 = this.f713a.i;
                         outputStream2.flush();
                     } catch (IOException e2) {
                         Log.e("PushConnection", "SendThread exception: " + e2);
-                        this.f697a.f();
+                        this.f713a.g();
                     }
-                } else if (PushSocket.sendMsg(e.f692a, bVar.c, bVar.c.length) == -1) {
+                } else if (PushSocket.sendMsg(e.f708a, bVar.c, bVar.c.length) == -1) {
                     Log.e("PushConnection", "sendMsg err, errno:" + PushSocket.getLastSocketError());
-                    this.f697a.f();
+                    this.f713a.g();
                 }
             }
         }

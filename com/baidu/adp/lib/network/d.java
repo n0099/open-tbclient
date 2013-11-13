@@ -39,6 +39,10 @@ public class d {
         b.c = str;
     }
 
+    public void c(String str) {
+        b.d = str;
+    }
+
     public e a(String str, boolean z, int i, c cVar, a aVar) {
         e a2 = b.a(str, z, i, cVar, aVar);
         if (a2 != null && a2.f513a == 206) {

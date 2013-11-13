@@ -12,9 +12,9 @@ public class bj extends bh {
         int i5;
         int i6 = this.c;
         this.c = (i6 == 0 ? 0 : 1) + i6 + i2;
-        if (this.f2757a == this.c) {
+        if (this.f2805a == this.c) {
             i5 = i2 - this.b;
-        } else if (this.f2757a == i6) {
+        } else if (this.f2805a == i6) {
             i5 = this.b + i2;
         } else {
             return;
@@ -54,9 +54,9 @@ public class bj extends bh {
         int i3;
         int i4 = this.c;
         this.c = (i4 == 0 ? 0 : 1) + i4 + i2;
-        if (this.f2757a == this.c) {
+        if (this.f2805a == this.c) {
             i3 = i2 - this.b;
-        } else if (this.f2757a == i4) {
+        } else if (this.f2805a == i4) {
             i3 = this.b + i2;
         } else {
             return;

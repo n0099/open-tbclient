@@ -1,34 +1,31 @@
 package com.baidu.tieba.im.chat;
 
-import android.content.DialogInterface;
+import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.im.message.ResponseReportGroupMessage;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class r implements DialogInterface.OnClickListener {
+public class r implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1468a;
+    final /* synthetic */ GroupSettingActivity f1560a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public r(GroupSettingActivity groupSettingActivity) {
-        this.f1468a = groupSettingActivity;
+        this.f1560a = groupSettingActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.v vVar;
-        com.baidu.tieba.im.model.v vVar2;
-        t tVar;
-        com.baidu.tieba.im.model.v vVar3;
-        com.baidu.tieba.im.model.v vVar4;
-        vVar = this.f1468a.d;
-        if (vVar == null) {
-            this.f1468a.d = new com.baidu.tieba.im.model.v();
+    @Override // com.baidu.tieba.im.messageCenter.h
+    public void a(Message message) {
+        if (message != null && message.getCmd() == 103103) {
+            if (!(message instanceof ResponseReportGroupMessage)) {
+                this.f1560a.showToast(R.string.group_report_fail);
+                return;
+            }
+            ResponseReportGroupMessage responseReportGroupMessage = (ResponseReportGroupMessage) message;
+            if (responseReportGroupMessage.hasError()) {
+                this.f1560a.a(responseReportGroupMessage.getErrMsg(), responseReportGroupMessage.getErrNo());
+            } else {
+                this.f1560a.showToast(R.string.group_report_success);
+            }
         }
-        vVar2 = this.f1468a.d;
-        tVar = this.f1468a.b;
-        vVar2.a(Integer.parseInt(tVar.c()));
-        vVar3 = this.f1468a.d;
-        vVar3.b(i);
-        vVar4 = this.f1468a.d;
-        vVar4.a();
     }
 }

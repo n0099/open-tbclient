@@ -9,6 +9,7 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
     /* renamed from: a  reason: collision with root package name */
     private static final g f406a = g.a();
     private static e b = new e(null);
+    private boolean l;
     private volatile BdAsyncTaskStatus e = BdAsyncTaskStatus.PENDING;
     private int f = 1;
     private String g = null;
@@ -43,6 +44,14 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
 
     public static BdAsyncTask<?, ?, ?> searchTask(String str) {
         return f406a.c(str);
+    }
+
+    public static BdAsyncTask<?, ?, ?> searchWaitingTask(String str) {
+        return f406a.d(str);
+    }
+
+    public static BdAsyncTask<?, ?, ?> searchActivTask(String str) {
+        return f406a.e(str);
     }
 
     public int setPriority(int i) {
@@ -207,5 +216,13 @@ public abstract class BdAsyncTask<Params, Progress, Result> {
             throw new IllegalStateException("the task is already running");
         }
         this.j = z;
+    }
+
+    public void setImmediatelyExecut(boolean z) {
+        this.l = z;
+    }
+
+    public boolean isImmediatelyExecut() {
+        return this.l;
     }
 }

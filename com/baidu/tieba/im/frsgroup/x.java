@@ -1,35 +1,38 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.CompoundButton;
+import java.util.Set;
 /* loaded from: classes.dex */
-public class x implements DialogInterface.OnClickListener {
+class x implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MembersActivity f1579a;
+    final /* synthetic */ w f1667a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(MembersActivity membersActivity) {
-        this.f1579a = membersActivity;
+    public x(w wVar) {
+        this.f1667a = wVar;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.im.model.h hVar;
-        ae aeVar;
-        int i2 = 0;
-        switch (i) {
-            case 1:
-                i2 = 1;
-                break;
-            case 2:
-                i2 = 2;
-                break;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        Set set;
+        y yVar;
+        y yVar2;
+        Set set2;
+        Set set3;
+        Long l = (Long) compoundButton.getTag();
+        if (z) {
+            set3 = this.f1667a.g;
+            set3.add(l);
+        } else {
+            set = this.f1667a.g;
+            set.remove(l);
         }
-        hVar = this.f1579a.b;
-        hVar.a(i2);
-        aeVar = this.f1579a.f1551a;
-        aeVar.b(i);
-        this.f1579a.n();
+        yVar = this.f1667a.b;
+        if (yVar != null) {
+            yVar2 = this.f1667a.b;
+            set2 = this.f1667a.g;
+            yVar2.a(set2.size());
+        }
     }
 }

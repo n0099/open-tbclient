@@ -9,7 +9,6 @@ import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,82 +19,83 @@ import com.baidu.tieba.im.data.MemberData;
 import com.baidu.tieba.im.message.ResponseGroupInfoMessage;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.HeadImageView;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.e {
-    private TextView A;
-    private RelativeLayout B;
-    private LinearLayout C;
-    private Dialog D;
-    private LinearLayout E;
-    private Dialog F;
-    private y G;
-    private Button H;
-    private String I;
-    private ImageView J;
-    private RelativeLayout K;
-    private TextView L;
-    private ImageView M;
+    private RelativeLayout A;
+    private LinearLayout B;
+    private Dialog C;
+    private LinearLayout D;
+    private Dialog E;
+    private y F;
+    private TextView G;
+    private String H;
+    private ImageView I;
+    private RelativeLayout J;
+    private TextView K;
+    private ImageView L;
+    private RelativeLayout M;
     private RelativeLayout N;
-    private RelativeLayout O;
+    private ImageView O;
     private ImageView P;
-    private ImageView Q;
-    private TextView R;
-    private boolean S;
-    private LinearLayout T;
+    private TextView Q;
+    private boolean R;
+    private LinearLayout S;
+    private NavigationBar T;
 
     /* renamed from: a  reason: collision with root package name */
-    private GroupInfoActivity f1609a;
+    private GroupInfoActivity f1696a;
     private ImageView c;
     private ProgressBar d;
     private TextView e;
     private TextView f;
     private EllipsizingTextView g;
     private TextView h;
-    private TextView i;
-    private RelativeLayout j;
-    private PhotoWallView k;
-    private DialogInterface.OnClickListener l;
-    private Dialog m;
-    private TextView n;
+    private RelativeLayout i;
+    private PhotoWallView j;
+    private DialogInterface.OnClickListener k;
+    private Dialog l;
+    private TextView m;
+    private RelativeLayout n;
     private RelativeLayout o;
-    private RelativeLayout p;
-    private LinearLayout q;
-    private HeadImageView r;
-    private TextView s;
-    private RelativeLayout t;
-    private AlertDialog u;
-    private DialogInterface.OnClickListener v;
-    private RelativeLayout w;
-    private com.baidu.tieba.util.a x;
+    private LinearLayout p;
+    private HeadImageView q;
+    private TextView r;
+    private RelativeLayout s;
+    private AlertDialog t;
+    private DialogInterface.OnClickListener u;
+    private RelativeLayout v;
+    private com.baidu.tieba.util.i w;
+    private LinearLayout x;
     private LinearLayout y;
-    private LinearLayout z;
+    private TextView z;
 
     public n(GroupInfoActivity groupInfoActivity) {
         super(groupInfoActivity);
+        this.k = null;
         this.l = null;
-        this.m = null;
+        this.t = null;
         this.u = null;
-        this.v = null;
-        this.I = null;
-        this.S = true;
-        this.f1609a = groupInfoActivity;
+        this.H = null;
+        this.R = true;
+        this.f1696a = groupInfoActivity;
         groupInfoActivity.setContentView(R.layout.im_group_info_activity);
-        this.x = new com.baidu.tieba.util.a(groupInfoActivity);
-        this.x.d(false);
+        this.w = new com.baidu.tieba.util.i(groupInfoActivity);
+        this.w.d(false);
         a(groupInfoActivity);
         b(groupInfoActivity);
         c(groupInfoActivity);
     }
 
     public void a(String str) {
-        this.L.setText(str);
+        this.K.setText(str);
         f(str);
     }
 
     private void f(String str) {
-        this.h.setText(com.baidu.adp.lib.h.f.a(this.h.getPaint(), str, com.baidu.adp.lib.h.f.a(this.f1609a) - com.baidu.adp.lib.h.f.a(this.b, 184)));
+        this.T.a(com.baidu.adp.lib.h.f.a(this.T.a(str).getPaint(), str, com.baidu.adp.lib.h.f.a(this.f1696a) - com.baidu.adp.lib.h.f.a(this.b, 184)));
     }
 
     public void b(String str) {
@@ -103,116 +103,115 @@ public class n extends com.baidu.adp.a.e {
     }
 
     private void a(GroupInfoActivity groupInfoActivity) {
-        this.c = (ImageView) groupInfoActivity.findViewById(R.id.title_back);
-        this.c.setOnClickListener(groupInfoActivity);
-        this.H = (Button) groupInfoActivity.findViewById(R.id.btn_setting);
-        this.H.setOnClickListener(groupInfoActivity);
+        this.T = (NavigationBar) groupInfoActivity.findViewById(R.id.view_navigation_bar);
+        this.c = this.T.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, groupInfoActivity);
+        this.G = this.T.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupInfoActivity.getString(R.string.setup));
+        this.G.setOnClickListener(groupInfoActivity);
     }
 
     private void b(GroupInfoActivity groupInfoActivity) {
-        this.w = (RelativeLayout) groupInfoActivity.findViewById(R.id.address_layout);
-        this.w.setOnClickListener(groupInfoActivity);
-        this.h = (TextView) groupInfoActivity.findViewById(R.id.title_name);
-        this.E = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_body);
-        this.J = (ImageView) groupInfoActivity.findViewById(R.id.img_group_type_icon);
+        this.v = (RelativeLayout) groupInfoActivity.findViewById(R.id.address_layout);
+        this.v.setOnClickListener(groupInfoActivity);
+        this.D = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_body);
+        this.I = (ImageView) groupInfoActivity.findViewById(R.id.img_group_type_icon);
         this.e = (TextView) groupInfoActivity.findViewById(R.id.txt_group_number);
         this.f = (TextView) groupInfoActivity.findViewById(R.id.txt_group_place);
-        this.P = (ImageView) groupInfoActivity.findViewById(R.id.img_group_place);
+        this.O = (ImageView) groupInfoActivity.findViewById(R.id.img_group_place);
         this.g = (EllipsizingTextView) groupInfoActivity.findViewById(R.id.txt_group_intro);
         this.g.setMaxLines(20);
         this.g.a(new o(this));
-        this.j = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_forum);
-        this.i = (TextView) groupInfoActivity.findViewById(R.id.txt_group_forum);
-        this.j.setOnClickListener(groupInfoActivity);
-        this.r = (HeadImageView) groupInfoActivity.findViewById(R.id.img_group_author);
-        this.r.setAutoChangeStyle(false);
-        this.n = (TextView) groupInfoActivity.findViewById(R.id.txt_group_author);
-        this.o = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_author);
+        this.i = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_forum);
+        this.h = (TextView) groupInfoActivity.findViewById(R.id.txt_group_forum);
+        this.i.setOnClickListener(groupInfoActivity);
+        this.q = (HeadImageView) groupInfoActivity.findViewById(R.id.img_group_author);
+        this.q.setAutoChangeStyle(false);
+        this.m = (TextView) groupInfoActivity.findViewById(R.id.txt_group_author);
+        this.n = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_author);
+        this.n.setOnClickListener(groupInfoActivity);
+        this.p = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_grade_star);
+        this.i.setOnClickListener(groupInfoActivity);
+        this.o = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_grade);
         this.o.setOnClickListener(groupInfoActivity);
-        this.q = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_grade_star);
-        this.j.setOnClickListener(groupInfoActivity);
-        this.p = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_grade);
-        this.p.setOnClickListener(groupInfoActivity);
-        this.s = (TextView) groupInfoActivity.findViewById(R.id.txt_group_member_count);
-        this.t = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_member);
-        this.t.setOnClickListener(groupInfoActivity);
-        this.y = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_member_photo);
-        this.y.setOnClickListener(groupInfoActivity);
+        this.r = (TextView) groupInfoActivity.findViewById(R.id.txt_group_member_count);
+        this.s = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_member);
+        this.s.setOnClickListener(groupInfoActivity);
+        this.x = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_member_photo);
+        this.x.setOnClickListener(groupInfoActivity);
         ((HorizontalScrollView) groupInfoActivity.findViewById(R.id.scr_group_member_photo)).setHorizontalScrollBarEnabled(false);
-        this.z = (LinearLayout) groupInfoActivity.findViewById(R.id.bottom_bar);
-        this.T = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_bottom_button);
-        this.A = (TextView) groupInfoActivity.findViewById(R.id.txt_join);
-        this.T.setOnClickListener(this.f1609a);
-        this.B = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_share);
-        this.B.setOnClickListener(groupInfoActivity);
-        this.C = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_notice_share);
-        this.K = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_name);
-        this.K.setOnClickListener(groupInfoActivity);
-        this.L = (TextView) groupInfoActivity.findViewById(R.id.txt_group_name);
-        this.M = (ImageView) groupInfoActivity.findViewById(R.id.img_group_intro_arrow);
-        this.Q = (ImageView) groupInfoActivity.findViewById(R.id.img_group_author_arrow);
-        this.N = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_intro);
-        this.N.setOnClickListener(groupInfoActivity);
-        this.N.setOnClickListener(groupInfoActivity);
-        this.N.setLongClickable(true);
+        this.y = (LinearLayout) groupInfoActivity.findViewById(R.id.bottom_bar);
+        this.S = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_bottom_button);
+        this.z = (TextView) groupInfoActivity.findViewById(R.id.txt_join);
+        this.S.setOnClickListener(this.f1696a);
+        this.A = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_share);
+        this.A.setOnClickListener(groupInfoActivity);
+        this.B = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_notice_share);
+        this.J = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_name);
+        this.J.setOnClickListener(groupInfoActivity);
+        this.K = (TextView) groupInfoActivity.findViewById(R.id.txt_group_name);
+        this.L = (ImageView) groupInfoActivity.findViewById(R.id.img_group_intro_arrow);
+        this.P = (ImageView) groupInfoActivity.findViewById(R.id.img_group_author_arrow);
+        this.M = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_intro);
+        this.M.setOnClickListener(groupInfoActivity);
+        this.M.setOnClickListener(groupInfoActivity);
+        this.M.setLongClickable(true);
+        this.M.setOnLongClickListener(groupInfoActivity);
+        this.Q = (TextView) groupInfoActivity.findViewById(R.id.txt_group_intro_more);
+        this.Q.setClickable(true);
+        this.Q.setOnClickListener(new p(this));
+        this.N = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_number);
         this.N.setOnLongClickListener(groupInfoActivity);
-        this.R = (TextView) groupInfoActivity.findViewById(R.id.txt_group_intro_more);
-        this.R.setClickable(true);
-        this.R.setOnClickListener(new p(this));
-        this.O = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_number);
-        this.O.setOnLongClickListener(groupInfoActivity);
         this.d = (ProgressBar) groupInfoActivity.findViewById(R.id.progress_loading);
     }
 
     private void c(GroupInfoActivity groupInfoActivity) {
-        this.k = (PhotoWallView) groupInfoActivity.findViewById(R.id.photo_wall);
-        this.k.setPhotoClickListener(groupInfoActivity);
-        this.k.setPhotoLongClickListener(groupInfoActivity);
-        this.k.setVisibility(8);
+        this.j = (PhotoWallView) groupInfoActivity.findViewById(R.id.photo_wall);
+        this.j.setPhotoClickListener(groupInfoActivity);
+        this.j.setPhotoLongClickListener(groupInfoActivity);
+        this.j.setVisibility(8);
     }
 
     public RelativeLayout a() {
-        return this.O;
-    }
-
-    public RelativeLayout e() {
-        return this.j;
-    }
-
-    public LinearLayout f() {
-        return this.y;
-    }
-
-    public RelativeLayout g() {
-        return this.B;
-    }
-
-    public RelativeLayout h() {
         return this.N;
     }
 
-    public RelativeLayout i() {
-        return this.K;
+    public RelativeLayout e() {
+        return this.i;
     }
 
-    public Button j() {
-        return this.H;
+    public LinearLayout f() {
+        return this.x;
+    }
+
+    public RelativeLayout g() {
+        return this.A;
+    }
+
+    public RelativeLayout h() {
+        return this.M;
+    }
+
+    public RelativeLayout i() {
+        return this.J;
+    }
+
+    public TextView j() {
+        return this.G;
     }
 
     public LinearLayout k() {
-        return this.T;
+        return this.S;
     }
 
     public RelativeLayout l() {
-        return this.o;
+        return this.n;
     }
 
     public RelativeLayout m() {
-        return this.p;
+        return this.o;
     }
 
     public RelativeLayout n() {
-        return this.t;
+        return this.s;
     }
 
     public ImageView o() {
@@ -229,24 +228,24 @@ public class n extends com.baidu.adp.a.e {
 
     public void a(boolean z) {
         if (z) {
-            this.f.setText(this.I);
-            this.w.setVisibility(0);
+            this.f.setText(this.H);
+            this.v.setVisibility(0);
             return;
         }
-        this.f.setText(this.I);
-        this.w.setVisibility(0);
+        this.f.setText(this.H);
+        this.v.setVisibility(0);
     }
 
     public void b(boolean z) {
         if (z) {
             this.f.setText("");
         } else {
-            this.w.setVisibility(8);
+            this.v.setVisibility(8);
         }
     }
 
     public RelativeLayout r() {
-        return this.w;
+        return this.v;
     }
 
     public void a(ResponseGroupInfoMessage responseGroupInfoMessage) {
@@ -255,156 +254,156 @@ public class n extends com.baidu.adp.a.e {
 
     public void a(ResponseGroupInfoMessage responseGroupInfoMessage, boolean z) {
         if (responseGroupInfoMessage != null) {
-            this.E.setVisibility(0);
-            this.z.setVisibility(0);
+            this.D.setVisibility(0);
+            this.y.setVisibility(0);
             if (responseGroupInfoMessage.getGroup() != null) {
                 f(responseGroupInfoMessage.getGroup().getName());
                 this.e.setText(String.valueOf(responseGroupInfoMessage.getGroup().getGroupId()));
                 if (responseGroupInfoMessage.getGroup().getGroupType() == 4) {
-                    this.J.setVisibility(0);
-                    this.r.setVisibility(8);
-                    this.Q.setVisibility(8);
-                    this.n.setText(R.string.group_info_forum_author);
-                    this.o.setEnabled(false);
+                    this.I.setVisibility(0);
+                    this.q.setVisibility(8);
+                    this.P.setVisibility(8);
+                    this.m.setText(R.string.group_info_forum_author);
+                    this.n.setEnabled(false);
                 } else {
-                    this.J.setVisibility(8);
-                    this.r.setVisibility(0);
-                    this.Q.setVisibility(0);
-                    this.n.setText(responseGroupInfoMessage.getGroup().getAuthorName());
-                    this.o.setEnabled(true);
+                    this.I.setVisibility(8);
+                    this.q.setVisibility(0);
+                    this.P.setVisibility(0);
+                    this.m.setText(responseGroupInfoMessage.getGroup().getAuthorName());
+                    this.n.setEnabled(true);
                 }
-                this.I = responseGroupInfoMessage.getGroup().getPosition();
-                this.f.setText(this.I);
+                this.H = responseGroupInfoMessage.getGroup().getPosition();
+                this.f.setText(this.H);
                 this.g.setText(responseGroupInfoMessage.getGroup().getIntro());
-                this.s.setText("(" + responseGroupInfoMessage.getGroup().getMemberNum() + "/" + responseGroupInfoMessage.getGroup().getMaxMemberNum() + ")");
+                this.r.setText("(" + responseGroupInfoMessage.getGroup().getMemberNum() + "/" + responseGroupInfoMessage.getGroup().getMaxMemberNum() + ")");
                 if (!TextUtils.isEmpty(responseGroupInfoMessage.getGroup().getAuthorPortrait())) {
-                    com.baidu.adp.widget.ImageView.e c = this.x.c(responseGroupInfoMessage.getGroup().getAuthorPortrait());
+                    com.baidu.adp.widget.ImageView.e c = this.w.c(responseGroupInfoMessage.getGroup().getAuthorPortrait());
                     if (c != null) {
-                        c.a(this.r);
+                        c.a(this.q);
                     } else {
-                        this.x.b(responseGroupInfoMessage.getGroup().getAuthorPortrait(), new q(this));
+                        this.w.b(responseGroupInfoMessage.getGroup().getAuthorPortrait(), new q(this));
                     }
                 }
                 if (responseGroupInfoMessage.getGroup().getForumName() != null && responseGroupInfoMessage.getGroup().getForumName().length() > 0) {
-                    this.j.setVisibility(0);
-                    this.i.setText(responseGroupInfoMessage.getGroup().getForumName() + this.f1609a.getString(R.string.bar));
+                    this.i.setVisibility(0);
+                    this.h.setText(responseGroupInfoMessage.getGroup().getForumName() + this.f1696a.getString(R.string.bar));
                 } else {
-                    this.j.setVisibility(8);
+                    this.i.setVisibility(8);
                 }
-                this.q.removeAllViews();
+                this.p.removeAllViews();
                 if (responseGroupInfoMessage.getGroup().getGrade() > 0) {
                     for (int i = 0; i < responseGroupInfoMessage.getGroup().getGrade(); i++) {
-                        ImageView imageView = new ImageView(this.f1609a);
+                        ImageView imageView = new ImageView(this.f1696a);
                         imageView.setImageResource(R.drawable.icon_grade_middle_star_s);
-                        this.q.addView(imageView);
+                        this.p.addView(imageView);
                     }
                 } else {
-                    ImageView imageView2 = new ImageView(this.f1609a);
+                    ImageView imageView2 = new ImageView(this.f1696a);
                     imageView2.setImageResource(R.drawable.icon_grade_middle_star_n);
-                    this.q.addView(imageView2);
+                    this.p.addView(imageView2);
                 }
             }
-            this.y.removeAllViews();
+            this.x.removeAllViews();
             if (responseGroupInfoMessage.getMembers() != null && responseGroupInfoMessage.getMembers().size() > 0) {
                 List<MemberData> members = responseGroupInfoMessage.getMembers();
                 int size = members.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     MemberData memberData = members.get(i2);
-                    HeadImageView headImageView = new HeadImageView(this.f1609a);
+                    HeadImageView headImageView = new HeadImageView(this.f1696a);
                     headImageView.setAutoChangeStyle(false);
                     headImageView.setTag(String.valueOf(memberData.getUserId()));
-                    int a2 = UtilHelper.a((Context) this.f1609a, 35.0f);
+                    int a2 = UtilHelper.a((Context) this.f1696a, 35.0f);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a2, a2);
-                    layoutParams.rightMargin = UtilHelper.a((Context) this.f1609a, 5.0f);
-                    this.y.addView(headImageView, layoutParams);
+                    layoutParams.rightMargin = UtilHelper.a((Context) this.f1696a, 5.0f);
+                    this.x.addView(headImageView, layoutParams);
                     if (!TextUtils.isEmpty(memberData.getPortrait())) {
-                        com.baidu.adp.widget.ImageView.e c2 = this.x.c(memberData.getPortrait());
+                        com.baidu.adp.widget.ImageView.e c2 = this.w.c(memberData.getPortrait());
                         if (c2 != null) {
                             c2.a(headImageView);
                         } else {
-                            this.x.b(memberData.getPortrait(), new r(this, headImageView));
+                            this.w.b(memberData.getPortrait(), new r(this, headImageView));
                         }
                     }
                 }
             }
             if (responseGroupInfoMessage.isGroupManager()) {
-                this.w.setEnabled(true);
-                this.N.setEnabled(true);
-                this.K.setVisibility(0);
-                this.P.setVisibility(0);
-                this.M.setVisibility(0);
+                this.v.setEnabled(true);
+                this.M.setEnabled(true);
+                this.J.setVisibility(0);
+                this.O.setVisibility(0);
+                this.L.setVisibility(0);
                 if (responseGroupInfoMessage.getGroup() != null) {
-                    this.L.setText(responseGroupInfoMessage.getGroup().getName());
+                    this.K.setText(responseGroupInfoMessage.getGroup().getName());
                 }
-                this.g.setPadding(0, 0, UtilHelper.a((Context) this.f1609a, 16.0f), 0);
+                this.g.setPadding(0, 0, UtilHelper.a((Context) this.f1696a, 16.0f), 0);
             } else {
-                this.w.setEnabled(false);
-                this.N.setEnabled(true);
-                this.M.setVisibility(8);
-                this.P.setVisibility(8);
+                this.v.setEnabled(false);
+                this.M.setEnabled(true);
+                this.L.setVisibility(8);
+                this.O.setVisibility(8);
                 this.g.setPadding(0, 0, 0, 0);
             }
             if (responseGroupInfoMessage.isJoin()) {
-                this.C.setVisibility(0);
-                this.H.setVisibility(0);
-                if (!this.S) {
-                    this.B.setVisibility(8);
+                this.B.setVisibility(0);
+                this.G.setVisibility(0);
+                if (!this.R) {
+                    this.A.setVisibility(8);
                 }
-                if (this.t.getParent() != this.C) {
+                if (this.s.getParent() != this.B) {
                     if (responseGroupInfoMessage.isGroupManager()) {
-                        if (this.S) {
-                            this.t.setBackgroundResource(R.drawable.more_middle);
+                        if (this.R) {
+                            this.s.setBackgroundResource(R.drawable.more_middle);
                         } else {
-                            this.t.setBackgroundResource(R.drawable.more_down);
+                            this.s.setBackgroundResource(R.drawable.more_down);
                         }
-                    } else if (this.S) {
-                        this.t.setBackgroundResource(R.drawable.more_up);
+                    } else if (this.R) {
+                        this.s.setBackgroundResource(R.drawable.more_up);
                     } else {
-                        this.t.setBackgroundResource(R.drawable.more_all);
+                        this.s.setBackgroundResource(R.drawable.more_all);
                     }
-                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1609a, 90.0f));
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1696a, 90.0f));
                     layoutParams2.rightMargin = 0;
                     layoutParams2.leftMargin = 0;
                     layoutParams2.topMargin = 0;
                     layoutParams2.bottomMargin = 0;
-                    int a3 = UtilHelper.a((Context) this.f1609a, 13.0f);
-                    int a4 = UtilHelper.a((Context) this.f1609a, 10.0f);
-                    this.t.setPadding(a4, a3, a4, 0);
-                    this.E.removeView(this.t);
-                    this.C.addView(this.t, 1, layoutParams2);
+                    int a3 = UtilHelper.a((Context) this.f1696a, 13.0f);
+                    int a4 = UtilHelper.a((Context) this.f1696a, 10.0f);
+                    this.s.setPadding(a4, a3, a4, 0);
+                    this.D.removeView(this.s);
+                    this.B.addView(this.s, 1, layoutParams2);
                 }
                 s();
             } else {
-                this.C.setVisibility(8);
-                this.H.setVisibility(8);
-                if (this.t.getParent() != this.E) {
-                    this.t.setBackgroundResource(R.drawable.more_all);
-                    LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1609a, 87.0f));
-                    layoutParams3.rightMargin = UtilHelper.a((Context) this.f1609a, 10.0f);
-                    layoutParams3.leftMargin = UtilHelper.a((Context) this.f1609a, 10.0f);
+                this.B.setVisibility(8);
+                this.G.setVisibility(8);
+                if (this.s.getParent() != this.D) {
+                    this.s.setBackgroundResource(R.drawable.more_all);
+                    LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1696a, 87.0f));
+                    layoutParams3.rightMargin = UtilHelper.a((Context) this.f1696a, 10.0f);
+                    layoutParams3.leftMargin = UtilHelper.a((Context) this.f1696a, 10.0f);
                     layoutParams3.topMargin = 0;
-                    layoutParams3.bottomMargin = UtilHelper.a((Context) this.f1609a, 10.0f);
-                    int a5 = UtilHelper.a((Context) this.f1609a, 13.0f);
-                    int a6 = UtilHelper.a((Context) this.f1609a, 10.0f);
-                    this.t.setPadding(a6, a5, a6, 0);
-                    this.C.removeView(this.t);
-                    this.E.addView(this.t, 3, layoutParams3);
+                    layoutParams3.bottomMargin = UtilHelper.a((Context) this.f1696a, 10.0f);
+                    int a5 = UtilHelper.a((Context) this.f1696a, 13.0f);
+                    int a6 = UtilHelper.a((Context) this.f1696a, 10.0f);
+                    this.s.setPadding(a6, a5, a6, 0);
+                    this.B.removeView(this.s);
+                    this.D.addView(this.s, 3, layoutParams3);
                 }
-                if (a(responseGroupInfoMessage.getGroup().getFlag())) {
+                if (b(responseGroupInfoMessage.getGroup().getFlag())) {
                     c(z);
                 } else {
                     y();
                 }
             }
             if (responseGroupInfoMessage.getGroup().getGroupType() == 4 || responseGroupInfoMessage.getGroup().getGroupType() == 5) {
-                this.p.setVisibility(8);
-                this.o.setBackgroundResource(R.drawable.more_all);
-                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1609a, 54.0f));
-                int a7 = UtilHelper.a((Context) this.f1609a, 10.0f);
-                this.o.setPadding(a7, 0, a7, 0);
-                this.o.setLayoutParams(layoutParams4);
+                this.o.setVisibility(8);
+                this.n.setBackgroundResource(R.drawable.more_all);
+                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1696a, 54.0f));
+                int a7 = UtilHelper.a((Context) this.f1696a, 10.0f);
+                this.n.setPadding(a7, 0, a7, 0);
+                this.n.setLayoutParams(layoutParams4);
             } else {
-                this.p.setVisibility(0);
+                this.o.setVisibility(0);
             }
             b(responseGroupInfoMessage);
             if (responseGroupInfoMessage.getGroup().getIsHidePosition() == 1) {
@@ -413,51 +412,51 @@ public class n extends com.baidu.adp.a.e {
                 a(responseGroupInfoMessage.isGroupManager());
             }
             if (TextUtils.isEmpty(responseGroupInfoMessage.getGroup().getPosition())) {
-                this.w.setVisibility(8);
+                this.v.setVisibility(8);
             }
         }
     }
 
     public void s() {
-        this.A.setCompoundDrawablesWithIntrinsicBounds(this.f1609a.getResources().getDrawable(R.drawable.icon_brief_jinba), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.A.setText(this.f1609a.getString(R.string.group_info_enter_chat));
-        this.A.setTextColor(this.f1609a.getResources().getColorStateList(R.color.white));
-        this.T.setBackgroundResource(R.drawable.group_info_foot_selector);
-        this.T.setEnabled(true);
+        this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1696a.getResources().getDrawable(R.drawable.icon_brief_jinba), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.z.setText(this.f1696a.getString(R.string.group_info_enter_chat));
+        this.z.setTextColor(this.f1696a.getResources().getColorStateList(R.color.white));
+        this.S.setBackgroundResource(R.drawable.group_info_foot_selector);
+        this.S.setEnabled(true);
     }
 
     private void c(boolean z) {
-        this.A.setText(this.f1609a.getString(R.string.group_info_join));
+        this.z.setText(this.f1696a.getString(R.string.group_info_join));
         if (z) {
-            this.A.setCompoundDrawablesWithIntrinsicBounds(this.f1609a.getResources().getDrawable(R.drawable.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.A.setTextColor(this.f1609a.getResources().getColorStateList(R.color.white));
+            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1696a.getResources().getDrawable(R.drawable.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.z.setTextColor(this.f1696a.getResources().getColorStateList(R.color.white));
         } else {
-            this.A.setCompoundDrawablesWithIntrinsicBounds(this.f1609a.getResources().getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.A.setTextColor(this.f1609a.getResources().getColorStateList(R.color.group_info_join_disable_color));
+            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1696a.getResources().getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.z.setTextColor(this.f1696a.getResources().getColorStateList(R.color.group_info_join_disable_color));
         }
-        this.T.setBackgroundResource(R.drawable.group_info_foot_selector);
-        this.T.setEnabled(true);
+        this.S.setBackgroundResource(R.drawable.group_info_foot_selector);
+        this.S.setEnabled(true);
     }
 
-    private boolean a(int i) {
+    private boolean b(int i) {
         return ((i & 2) >> 1) != 1;
     }
 
     private void y() {
-        this.A.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.A.setText(this.f1609a.getString(R.string.group_info_refuse_join));
-        this.A.setTextColor(this.f1609a.getResources().getColorStateList(R.color.group_info_join_resuse_color));
-        this.T.setBackgroundColor(0);
-        this.T.setEnabled(false);
+        this.z.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.z.setText(this.f1696a.getString(R.string.group_info_refuse_join));
+        this.z.setTextColor(this.f1696a.getResources().getColorStateList(R.color.group_info_join_resuse_color));
+        this.S.setBackgroundColor(0);
+        this.S.setEnabled(false);
     }
 
     public void c(String str) {
         int childCount;
-        if (!TextUtils.isEmpty(str) && (childCount = this.y.getChildCount()) != 0) {
+        if (!TextUtils.isEmpty(str) && (childCount = this.x.getChildCount()) != 0) {
             for (int i = 0; i < childCount; i++) {
-                View childAt = this.y.getChildAt(i);
+                View childAt = this.x.getChildAt(i);
                 if (childAt != null && (childAt instanceof HeadImageView) && childAt.getTag() != null && str.equals(childAt.getTag())) {
-                    this.y.removeViewAt(i);
+                    this.x.removeViewAt(i);
                     return;
                 }
             }
@@ -466,94 +465,94 @@ public class n extends com.baidu.adp.a.e {
 
     public void b(ResponseGroupInfoMessage responseGroupInfoMessage) {
         if (responseGroupInfoMessage != null) {
-            this.k.setIsManager(responseGroupInfoMessage.isGroupManager());
+            this.j.setIsManager(responseGroupInfoMessage.isGroupManager());
             if (responseGroupInfoMessage.isGroupManager()) {
-                this.k.setVisibility(0);
+                this.j.setVisibility(0);
                 if (responseGroupInfoMessage.getPhotos() != null && responseGroupInfoMessage.getPhotos().size() == 1 && TextUtils.isEmpty(responseGroupInfoMessage.getPhotos().get(0).getPicId())) {
-                    this.k.setData(null);
+                    this.j.setData(null);
                 } else {
-                    this.k.setData(responseGroupInfoMessage.getPhotos());
+                    this.j.setData(responseGroupInfoMessage.getPhotos());
                 }
             } else if (responseGroupInfoMessage.getPhotos() != null && responseGroupInfoMessage.getPhotos().size() > 0) {
                 if (responseGroupInfoMessage.getPhotos().size() == 1 && TextUtils.isEmpty(responseGroupInfoMessage.getPhotos().get(0).getPicId())) {
-                    this.k.setVisibility(8);
+                    this.j.setVisibility(8);
                     return;
                 }
-                this.k.setVisibility(0);
-                this.k.setData(responseGroupInfoMessage.getPhotos());
+                this.j.setVisibility(0);
+                this.j.setData(responseGroupInfoMessage.getPhotos());
             } else {
-                this.k.setVisibility(8);
+                this.j.setVisibility(8);
             }
         }
     }
 
     public void a(DialogInterface.OnClickListener onClickListener) {
-        this.l = onClickListener;
+        this.k = onClickListener;
     }
 
     public void a(y yVar) {
-        this.G = yVar;
+        this.F = yVar;
     }
 
     public void t() {
-        if (this.m == null) {
+        if (this.l == null) {
             z();
         }
-        this.m.show();
+        this.l.show();
     }
 
     private void z() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1609a);
-        builder.setTitle(this.f1609a.getResources().getString(R.string.operation));
-        builder.setItems(new String[]{this.f1609a.getResources().getString(R.string.take_photo), this.f1609a.getResources().getString(R.string.album)}, this.l);
-        this.m = builder.create();
-        this.m.setCanceledOnTouchOutside(true);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1696a);
+        builder.setTitle(this.f1696a.getResources().getString(R.string.operation));
+        builder.setItems(new String[]{this.f1696a.getResources().getString(R.string.take_photo), this.f1696a.getResources().getString(R.string.album)}, this.k);
+        this.l = builder.create();
+        this.l.setCanceledOnTouchOutside(true);
     }
 
     public void a(Object obj, int i) {
-        if (this.F != null) {
-            this.F.dismiss();
-            this.F = null;
+        if (this.E != null) {
+            this.E.dismiss();
+            this.E = null;
         }
         b(obj, i);
-        this.F.show();
+        this.E.show();
     }
 
     public void u() {
-        this.F.dismiss();
+        this.E.dismiss();
     }
 
     private void b(Object obj, int i) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1609a);
-        builder.setTitle(this.f1609a.getResources().getString(R.string.operation));
-        builder.setItems(new String[]{this.f1609a.getResources().getString(R.string.group_info_set_portrait), this.f1609a.getResources().getString(R.string.delete), this.f1609a.getResources().getString(R.string.cancel)}, new s(this, obj, i));
-        this.F = builder.create();
-        this.F.setCanceledOnTouchOutside(true);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1696a);
+        builder.setTitle(this.f1696a.getResources().getString(R.string.operation));
+        builder.setItems(new String[]{this.f1696a.getResources().getString(R.string.group_info_set_portrait), this.f1696a.getResources().getString(R.string.delete), this.f1696a.getResources().getString(R.string.cancel)}, new s(this, obj, i));
+        this.E = builder.create();
+        this.E.setCanceledOnTouchOutside(true);
     }
 
     public void v() {
-        if (this.k != null) {
-            this.k.a();
+        if (this.j != null) {
+            this.j.a();
         }
     }
 
     public void b(DialogInterface.OnClickListener onClickListener) {
-        this.v = onClickListener;
+        this.u = onClickListener;
     }
 
     public void w() {
-        if (this.u == null) {
-            this.u = new AlertDialog.Builder(this.f1609a).setTitle(R.string.group_address_option).setItems(new CharSequence[]{new SpannableString(this.f1609a.getString(R.string.group_address_show)), new SpannableString(this.f1609a.getString(R.string.group_address_hide))}, this.v).create();
+        if (this.t == null) {
+            this.t = new AlertDialog.Builder(this.f1696a).setTitle(R.string.group_address_option).setItems(new CharSequence[]{new SpannableString(this.f1696a.getString(R.string.group_address_show)), new SpannableString(this.f1696a.getString(R.string.group_address_hide))}, this.u).create();
         }
-        this.u.setCanceledOnTouchOutside(true);
-        this.u.show();
+        this.t.setCanceledOnTouchOutside(true);
+        this.t.show();
     }
 
     public void d(String str) {
         if (!TextUtils.isEmpty(str)) {
-            CharSequence[] charSequenceArr = {this.f1609a.getString(R.string.copy_group_introduction)};
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1609a);
-            builder.setTitle(this.f1609a.getString(R.string.operation));
+            CharSequence[] charSequenceArr = {this.f1696a.getString(R.string.copy_group_introduction)};
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1696a);
+            builder.setTitle(this.f1696a.getString(R.string.operation));
             builder.setItems(charSequenceArr, new t(this, str));
             AlertDialog create = builder.create();
             create.setCanceledOnTouchOutside(true);
@@ -562,28 +561,32 @@ public class n extends com.baidu.adp.a.e {
     }
 
     public void e(String str) {
-        if (this.D == null) {
+        if (this.C == null) {
             g(str);
         }
-        this.D.show();
+        this.C.show();
     }
 
     private void g(String str) {
-        if (this.D == null) {
-            CharSequence[] charSequenceArr = {this.f1609a.getString(R.string.copy_group_number)};
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1609a);
-            builder.setTitle(this.f1609a.getString(R.string.operation));
+        if (this.C == null) {
+            CharSequence[] charSequenceArr = {this.f1696a.getString(R.string.copy_group_number)};
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1696a);
+            builder.setTitle(this.f1696a.getString(R.string.operation));
             builder.setItems(charSequenceArr, new u(this, str));
-            this.D = builder.create();
-            this.D.setCanceledOnTouchOutside(true);
+            this.C = builder.create();
+            this.C.setCanceledOnTouchOutside(true);
         }
     }
 
     public void x() {
-        ColorStateList colorStateList = this.f1609a.getResources().getColorStateList(R.color.group_info_join_disable_color);
+        ColorStateList colorStateList = this.f1696a.getResources().getColorStateList(R.color.group_info_join_disable_color);
         if (colorStateList != null) {
-            this.A.setCompoundDrawablesWithIntrinsicBounds(this.f1609a.getResources().getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.A.setTextColor(colorStateList);
+            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1696a.getResources().getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.z.setTextColor(colorStateList);
         }
+    }
+
+    public void a(int i) {
+        this.T.c(0);
     }
 }

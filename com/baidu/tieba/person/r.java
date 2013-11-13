@@ -8,11 +8,11 @@ import android.widget.ProgressBar;
 public class r implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2253a;
+    final /* synthetic */ EditHeadActivity f2288a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(EditHeadActivity editHeadActivity) {
-        this.f2253a = editHeadActivity;
+        this.f2288a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,18 +20,18 @@ public class r implements View.OnClickListener {
         ProgressBar progressBar;
         Bitmap bitmap;
         Bitmap bitmap2;
-        progressBar = this.f2253a.q;
+        progressBar = this.f2288a.o;
         if (progressBar.getVisibility() != 0) {
-            bitmap = this.f2253a.j;
+            bitmap = this.f2288a.h;
             if (bitmap == null) {
-                bitmap2 = this.f2253a.z;
+                bitmap2 = this.f2288a.x;
                 if (bitmap2 == null) {
                     return;
                 }
             }
             if (view.getTag() != null) {
-                this.f2253a.G = false;
-                this.f2253a.c(view.getTag().toString());
+                this.f2288a.E = false;
+                this.f2288a.a(view.getTag().toString());
             }
         }
     }

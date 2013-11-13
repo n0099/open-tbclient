@@ -3,7 +3,7 @@ package org.msgpack.unpacker;
 final class e extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    double f2925a;
+    double f2973a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e() {
@@ -13,12 +13,12 @@ final class e extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(float f) {
-        this.f2925a = f;
+        this.f2973a = f;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(double d) {
-        this.f2925a = d;
+        this.f2973a = d;
     }
 }

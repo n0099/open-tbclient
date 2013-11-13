@@ -4,6 +4,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.switchs.SwitchModel;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.bg;
 import com.baidu.tieba.voice.VoiceManager;
 import java.util.HashMap;
 import org.json.JSONArray;
@@ -21,7 +22,7 @@ public class i {
     private boolean q = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1166a = 0;
+    private int f1197a = 0;
     private int b = 0;
     private int c = 1;
     private String d = null;
@@ -43,7 +44,7 @@ public class i {
         if (jSONObject != null) {
             try {
                 this.j.parserJson(jSONObject.optJSONObject("banner"));
-                this.f1166a = jSONObject.optInt("pb_max_floor_total_num", 0);
+                this.f1197a = jSONObject.optInt("pb_max_floor_total_num", 0);
                 this.b = jSONObject.optInt("pb_big_image_width", 0);
                 this.d = jSONObject.optString("big_head_image_host");
                 this.e = jSONObject.optString("small_head_image_host");
@@ -63,7 +64,7 @@ public class i {
                             String optString = jSONObject2.optString(SocialConstants.PARAM_MEDIA_UNAME);
                             Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", -1));
                             if ("netlib_type".equals(optString)) {
-                                TiebaApplication.g().o(jSONObject2.optInt("type", 1) == 0 ? 1 : 0);
+                                TiebaApplication.g().l(jSONObject2.optInt("type", 1) == 0 ? 1 : 0);
                             }
                             this.p.put(optString, valueOf);
                         }
@@ -82,28 +83,31 @@ public class i {
                 TiebaApplication.g().d(this.i);
                 this.q = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
                 VoiceManager.a(this.q);
-                int optInt3 = jSONObject.optInt("open_abstract", 0);
-                if (!(optInt3 == 0 || TiebaApplication.g().aq() != 0)) {
-                    TiebaApplication.g().h(optInt3);
+                if (TiebaApplication.g().aH()) {
+                    int optInt3 = jSONObject.optInt("open_abstract", 0);
+                    if (!(optInt3 == 0 || TiebaApplication.g().an() != 0)) {
+                        TiebaApplication.g().e(optInt3);
+                    }
+                    TiebaApplication.g().v(false);
                 }
                 if (optInt == 1) {
                     TiebaApplication.g().g(true);
                 } else if (optInt == 0) {
                     TiebaApplication.g().g(false);
                 }
-                TiebaApplication.g().n(this.m);
-                TiebaApplication.g().r(this.n);
-                TiebaApplication.g().s(this.o);
+                TiebaApplication.g().k(this.m);
+                TiebaApplication.g().o(this.n);
+                TiebaApplication.g().p(this.o);
                 this.k = jSONObject.optInt("perform_sample_param", 100000);
                 JSONObject optJSONObject = jSONObject.optJSONObject("keepalive");
                 if (optJSONObject != null) {
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject("wifi");
                     if (optJSONObject2 != null) {
-                        TiebaApplication.g().p(optJSONObject2.optInt("switch"));
+                        TiebaApplication.g().m(optJSONObject2.optInt("switch"));
                     }
                     JSONObject optJSONObject3 = optJSONObject.optJSONObject("nonwifi");
                     if (optJSONObject3 != null) {
-                        TiebaApplication.g().q(optJSONObject3.optInt("switch"));
+                        TiebaApplication.g().n(optJSONObject3.optInt("switch"));
                     }
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("lcsReconStrategy");
@@ -156,14 +160,14 @@ public class i {
                 }
                 com.baidu.tieba.im.c.a.a().b();
                 TiebaApplication.g().c(optInt2 == 1);
-                TiebaApplication.g().u(jSONObject.optInt("open_local_popularize", 0) == 1);
-                h.a(this.f1166a);
+                TiebaApplication.g().t(jSONObject.optInt("open_local_popularize", 0) == 1);
+                h.a(this.f1197a);
                 h.e(this.d);
                 h.d(this.e);
                 h.a(this.f, this.g);
                 h.b(this.c);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.getMessage());
+                bg.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

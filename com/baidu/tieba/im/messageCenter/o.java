@@ -5,19 +5,19 @@ import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 /* synthetic */ class o {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f1651a = new int[IDuplicateProcess.RemoveState.values().length];
+    static final /* synthetic */ int[] f1738a = new int[IDuplicateProcess.RemoveState.values().length];
 
     static {
         try {
-            f1651a[IDuplicateProcess.RemoveState.REMOVE_ALL.ordinal()] = 1;
+            f1738a[IDuplicateProcess.RemoveState.REMOVE_ALL.ordinal()] = 1;
         } catch (NoSuchFieldError e) {
         }
         try {
-            f1651a[IDuplicateProcess.RemoveState.REMOVE_WAITINGS.ordinal()] = 2;
+            f1738a[IDuplicateProcess.RemoveState.REMOVE_WAITINGS.ordinal()] = 2;
         } catch (NoSuchFieldError e2) {
         }
         try {
-            f1651a[IDuplicateProcess.RemoveState.REMOVE_ME.ordinal()] = 3;
+            f1738a[IDuplicateProcess.RemoveState.REMOVE_ME.ordinal()] = 3;
         } catch (NoSuchFieldError e3) {
         }
     }

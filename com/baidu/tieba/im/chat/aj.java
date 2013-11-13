@@ -1,92 +1,36 @@
 package com.baidu.tieba.im.chat;
 
-import android.widget.Button;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.UtilHelper;
+import android.content.Context;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
+import android.widget.TextView;
+import com.baidu.tieba.im.message.ChatMessage;
 import com.slidingmenu.lib.R;
-import com.tencent.mm.sdk.platformtools.Util;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj extends BdAsyncTask<String, Integer, String> {
+public class aj extends com.baidu.adp.a.c<ChatMessage> {
+    private TextView c;
 
-    /* renamed from: a  reason: collision with root package name */
-    String f1412a;
-    byte[] b;
-    final /* synthetic */ MsgImageActivity c;
-
-    public aj(MsgImageActivity msgImageActivity, String str, byte[] bArr) {
-        this.c = msgImageActivity;
-        this.f1412a = null;
-        this.b = null;
-        this.f1412a = str;
-        this.b = bArr;
+    public aj(Context context) {
+        super(context, R.layout.msg_msgmid_view);
+        this.c = null;
+        e();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        String str;
-        try {
-            if (this.f1412a != null && this.f1412a.length() > 0 && this.b != null) {
-                if (!UtilHelper.a(this.b)) {
-                    str = Util.PHOTO_DEFAULT_EXT;
-                } else {
-                    str = ".gif";
-                }
-                String f = com.baidu.tieba.util.bc.f(this.f1412a);
-                if (f == null) {
-                    return this.c.getString(R.string.save_error);
-                }
-                String str2 = f + str;
-                for (int i = 0; com.baidu.tieba.util.w.b(str2) && i < 10000; i++) {
-                    str2 = f + String.valueOf(Math.round(Math.random() * 9.9999999E7d)) + str;
-                }
-                String a2 = com.baidu.tieba.util.w.a(str2, this.b);
-                if (a2 != null) {
-                    new com.baidu.tieba.util.af(this.c).a(a2);
-                    return this.c.getString(R.string.save_image_to_album);
-                }
-                return com.baidu.tieba.util.w.b();
-            }
-            return this.c.getString(R.string.save_error);
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b("SaveImageAsyncTask", "doInBackground", "error" + e.getMessage());
-            return this.c.getString(R.string.save_error);
+    private void e() {
+        this.c = (TextView) a(R.id.tex_msgcontent);
+        this.c.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    public void a(ChatMessage chatMessage) {
+        if (chatMessage == null) {
+            this.c.setText((CharSequence) null);
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        Button button;
-        ProgressBar progressBar;
-        super.a((aj) str);
-        this.c.d = null;
-        button = this.c.e;
-        button.setVisibility(0);
-        progressBar = this.c.f1400a;
-        progressBar.setVisibility(8);
-        this.c.a(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void c() {
-        super.c();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        Button button;
-        ProgressBar progressBar;
-        this.c.d = null;
-        button = this.c.e;
-        button.setVisibility(0);
-        progressBar = this.c.f1400a;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+        String f = com.baidu.tieba.im.d.c.f(chatMessage);
+        if (!TextUtils.isEmpty(f)) {
+            this.c.setText(f);
+        } else {
+            this.c.setText((CharSequence) null);
+        }
     }
 }

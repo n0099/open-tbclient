@@ -7,16 +7,16 @@ import javassist.bytecode.y;
 public class ClassMemberValue extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2732a;
+    int f2780a;
 
     public ClassMemberValue(int i, y yVar) {
         super('c', yVar);
-        this.f2732a = i;
+        this.f2780a = i;
     }
 
     public String a() {
         try {
-            return SignatureAttribute.a(this.c.w(this.f2732a)).toString();
+            return SignatureAttribute.a(this.c.w(this.f2780a)).toString();
         } catch (BadBytecode e) {
             throw new RuntimeException(e);
         }

@@ -1,246 +1,87 @@
 package com.baidu.adp.widget;
 
-import android.os.SystemClock;
-import android.util.Log;
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.cyberplayer.sdk.internal.VersionUtils;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class u {
+public class u extends BitmapDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    float f607a;
-    float b;
-    float c;
-    float d;
-    long e;
-    long f;
-    boolean g;
-    final /* synthetic */ VerticalTranslateLayout h;
+    private int f613a;
+    private int b;
+    private int c;
+    private final Paint d;
+    private RectF e;
+    private BitmapShader f;
+    private ImageView g;
+    private float h;
 
-    private void e() {
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.f607a = ((((float) (uptimeMillis - this.e)) / 1000.0f) * this.b) + this.f607a;
-        this.e = uptimeMillis;
-        this.f += 16;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a() {
-        t tVar;
-        y yVar;
-        e();
-        if (this.f607a <= this.c) {
-            yVar = this.h.x;
-            if (yVar != null) {
-                yVar.b();
-            }
-            this.g = false;
-            this.h.m = VersionUtils.CUR_DEVELOPMENT;
-            this.h.a();
-            return;
+    public u(Resources resources, Matrix matrix, ImageView imageView, Bitmap bitmap, int i, ColorFilter colorFilter) {
+        super(resources, bitmap);
+        this.f613a = 0;
+        this.b = 0;
+        this.e = new RectF();
+        this.g = imageView;
+        this.c = Math.max(0, i);
+        this.d = new Paint();
+        this.d.setAntiAlias(true);
+        this.d.setFilterBitmap(true);
+        if (colorFilter != null) {
+            this.d.setColorFilter(colorFilter);
         }
-        this.h.h = (int) (a.a(this.c, this.f607a, false) + this.d);
-        this.h.invalidate();
-        tVar = this.h.u;
-        tVar.sendEmptyMessageAtTime(-100, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b() {
-        t tVar;
-        v vVar;
-        e();
-        if (this.f607a >= this.c) {
-            vVar = this.h.y;
-            if (vVar != null) {
-                vVar.b();
+        try {
+            this.f = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+            if (matrix != null) {
+                this.f.setLocalMatrix(matrix);
             }
-            this.g = false;
-            this.h.m = PushConstants.ERROR_NETWORK_ERROR;
-            this.h.a();
-            return;
+            this.d.setShader(this.f);
+        } catch (OutOfMemoryError e) {
+            this.f = null;
         }
-        this.h.h = (int) (a.a(this.c, this.f607a, false) + this.d);
-        this.h.invalidate();
-        tVar = this.h.u;
-        tVar.sendEmptyMessageAtTime(-101, this.f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        t tVar;
-        List<x> list;
-        e();
-        if (this.f607a >= this.c) {
-            list = this.h.z;
-            for (x xVar : list) {
-                if (xVar != null) {
-                    xVar.b();
-                }
-            }
-            this.g = false;
-            this.h.m = 10004;
-            this.h.a();
-            return;
-        }
-        this.h.h = (int) (a.a(this.c, this.f607a, false) + this.d);
-        this.h.invalidate();
-        tVar = this.h.u;
-        tVar.sendEmptyMessageAtTime(-104, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void d() {
-        t tVar;
-        List<x> list;
-        e();
-        if (this.f607a <= this.c) {
-            list = this.h.z;
-            for (x xVar : list) {
-                if (xVar != null) {
-                    xVar.b();
-                }
-            }
-            this.g = false;
-            this.h.m = 10004;
-            this.h.a();
-            return;
-        }
-        this.h.h = (int) (a.a(this.c, this.f607a, false) + this.d);
-        this.h.invalidate();
-        tVar = this.h.u;
-        tVar.sendEmptyMessageAtTime(-105, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(float f) {
-        List<x> list;
-        int i;
-        int i2;
-        t tVar;
-        t tVar2;
-        list = this.h.z;
-        for (x xVar : list) {
-            if (xVar != null) {
-                xVar.a();
-            }
-        }
-        this.g = true;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.e = uptimeMillis;
-        this.f = uptimeMillis + 16;
-        this.b = f;
-        this.f607a = 0.0f;
-        i = this.h.h;
-        this.c = 0 - i;
-        i2 = this.h.h;
-        this.d = i2;
-        tVar = this.h.u;
-        tVar.removeMessages(-104);
-        Log.d("Animator", "@animateTopOpen " + this.c);
-        Log.d("Animator", "@animateTopOpen " + f);
-        tVar2 = this.h.u;
-        tVar2.sendEmptyMessageAtTime(-104, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(float f) {
-        List<x> list;
-        int i;
-        int i2;
-        t tVar;
-        t tVar2;
-        list = this.h.z;
-        for (x xVar : list) {
-            if (xVar != null) {
-                xVar.a();
-            }
-        }
-        this.g = true;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.e = uptimeMillis;
-        this.f = uptimeMillis + 16;
-        this.b = f;
-        this.f607a = 0.0f;
-        i = this.h.h;
-        this.c = 0 - i;
-        i2 = this.h.h;
-        this.d = i2;
-        Log.d("Animator", "@animateBottomOpen " + this.c);
-        Log.d("Animator", "@animateBottomOpen " + f);
-        tVar = this.h.u;
-        tVar.removeMessages(-105);
-        tVar2 = this.h.u;
-        tVar2.sendEmptyMessageAtTime(-105, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(float f) {
-        y yVar;
-        int i;
+    @Override // android.graphics.drawable.Drawable
+    public void setBounds(int i, int i2, int i3, int i4) {
+        float f;
         float f2;
-        int i2;
-        int i3;
-        t tVar;
-        t tVar2;
-        yVar = this.h.x;
-        if (yVar != null) {
-            yVar.a();
+        super.setBounds(i, i2, i3, i4);
+        int i5 = i3 - i;
+        int i6 = i4 - i2;
+        this.f613a = this.g.getMeasuredWidth();
+        this.b = this.g.getMeasuredHeight();
+        if (this.b * i5 > this.f613a * i6) {
+            this.h = i6 / this.b;
+            f2 = (i5 - (this.f613a * this.h)) * 0.5f;
+            f = 0.0f;
+        } else {
+            this.h = i5 / this.f613a;
+            f = (i6 - (this.b * this.h)) * 0.5f;
+            f2 = 0.0f;
         }
-        this.g = true;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.e = uptimeMillis;
-        this.f = uptimeMillis + 16;
-        this.b = f;
-        this.f607a = 0.0f;
-        i = this.h.c;
-        f2 = this.h.d;
-        float f3 = (-i) + f2;
-        i2 = this.h.h;
-        this.c = f3 - i2;
-        i3 = this.h.h;
-        this.d = i3;
-        Log.d("Animator", "@animateTop " + this.c);
-        Log.d("Animator", "@animateTop " + f);
-        tVar = this.h.u;
-        tVar.removeMessages(-100);
-        tVar2 = this.h.u;
-        tVar2.sendEmptyMessageAtTime(-100, this.f);
+        this.e.set(0.0f, 0.0f, this.f613a * this.h, this.b * this.h);
+        this.e.offset(f2, f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void d(float f) {
-        v vVar;
-        int i;
-        float f2;
-        int i2;
-        int i3;
-        t tVar;
-        t tVar2;
-        vVar = this.h.y;
-        if (vVar != null) {
-            vVar.a();
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        if (this.f613a != 0 && this.b != 0) {
+            canvas.drawRoundRect(this.e, (int) ((this.c * this.h) + 0.5f), (int) ((this.c * this.h) + 0.5f), this.d);
         }
-        this.g = true;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        this.e = uptimeMillis;
-        this.f = uptimeMillis + 16;
-        this.b = f;
-        this.f607a = 0.0f;
-        i = this.h.c;
-        f2 = this.h.f;
-        float f3 = i - f2;
-        i2 = this.h.h;
-        this.c = f3 - i2;
-        i3 = this.h.h;
-        this.d = i3;
-        Log.d("Animator", "@animateBottom " + this.c);
-        Log.d("Animator", "@animateBottom " + f);
-        tVar = this.h.u;
-        tVar.removeMessages(-101);
-        tVar2 = this.h.u;
-        tVar2.sendEmptyMessageAtTime(-101, this.f);
+    }
+
+    public void a(ColorFilter colorFilter) {
+        this.d.setColorFilter(colorFilter);
+    }
+
+    public void a(int i) {
+        this.c = i;
     }
 }

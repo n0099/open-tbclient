@@ -1,26 +1,112 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.mobstat.StatService;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class an implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ am f1068a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar) {
-        this.f1068a = amVar;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ap apVar;
-        boolean isChecked = this.f1068a.e.isChecked();
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1068a.getContext(), "upgrade_channel", isChecked ? "withOtherApp" : "withoutOtherApp", 1);
-        }
-        apVar = this.f1068a.h;
-        apVar.a(isChecked);
-    }
+public final class an {
+    public static final int AdpPullToRefreshScrollView_adpFooterDurationTime = 5;
+    public static final int AdpPullToRefreshScrollView_adpFooterNeedRefreshDelta = 2;
+    public static final int AdpPullToRefreshScrollView_adpHeaderDurationTime = 4;
+    public static final int AdpPullToRefreshScrollView_adpHeaderHeight = 3;
+    public static final int AdpPullToRefreshScrollView_adpHeaderNeedRefreshDelta = 1;
+    public static final int AdpPullToRefreshScrollView_adpMode = 0;
+    public static final int BDImageView_radius = 0;
+    public static final int ChatVoiceView_is_left = 0;
+    public static final int ColumnLayout_Layout_layout_column = 0;
+    public static final int ColumnLayout_columnOrientation = 0;
+    public static final int ColumnLayout_spacingLeft = 1;
+    public static final int ColumnLayout_spacingRight = 2;
+    public static final int FloatingLayout_Layout_layout_clear = 0;
+    public static final int HeadImageView_isRadius = 1;
+    public static final int HeadImageView_percent = 0;
+    public static final int HeadImageView_showGifTag = 2;
+    public static final int HorizontalTranslateLayout_background = 6;
+    public static final int HorizontalTranslateLayout_leftOffset = 0;
+    public static final int HorizontalTranslateLayout_leftWidth = 2;
+    public static final int HorizontalTranslateLayout_rightOffset = 1;
+    public static final int HorizontalTranslateLayout_rightWidth = 3;
+    public static final int HorizontalTranslateLayout_tapBack = 5;
+    public static final int HorizontalTranslateLayout_track = 4;
+    public static final int IndicatorView_autoHide = 3;
+    public static final int IndicatorView_count = 4;
+    public static final int IndicatorView_drawable = 1;
+    public static final int IndicatorView_selector = 2;
+    public static final int IndicatorView_spacing = 0;
+    public static final int ModeAttr_tb_background = 0;
+    public static final int ModeAttr_tb_button = 4;
+    public static final int ModeAttr_tb_src = 2;
+    public static final int ModeAttr_tb_style = 3;
+    public static final int ModeAttr_tb_textColor = 1;
+    public static final int ModeAttr_tb_textColorHint = 5;
+    public static final int PbWriteToolView_audioDayBackground = 4;
+    public static final int PbWriteToolView_audioDayKeyBoard = 6;
+    public static final int PbWriteToolView_audioHeight = 9;
+    public static final int PbWriteToolView_audioNightBackground = 5;
+    public static final int PbWriteToolView_audioNightKeyBoard = 7;
+    public static final int PbWriteToolView_audioWidth = 8;
+    public static final int PbWriteToolView_hideAt = 3;
+    public static final int PbWriteToolView_hideAudio = 1;
+    public static final int PbWriteToolView_hideCamera = 0;
+    public static final int PbWriteToolView_hideFace = 2;
+    public static final int RefresherView_direction = 0;
+    public static final int RefresherView_empty_view = 5;
+    public static final int RefresherView_max_height = 1;
+    public static final int RefresherView_refresher_content = 4;
+    public static final int RefresherView_refresher_head = 3;
+    public static final int RefresherView_threshold_height = 2;
+    public static final int SettingView_settingText = 0;
+    public static final int SettingView_settingTextColor = 1;
+    public static final int SettingView_settingTip = 2;
+    public static final int SettingView_settingTipColor = 3;
+    public static final int TbImageView_isShowGifTag = 0;
+    public static final int TbRichTextView_defaultImage = 8;
+    public static final int TbRichTextView_faceHeight = 10;
+    public static final int TbRichTextView_faceWidth = 9;
+    public static final int TbRichTextView_lineSpacing = 5;
+    public static final int TbRichTextView_linkColor = 4;
+    public static final int TbRichTextView_maxImageHeight = 7;
+    public static final int TbRichTextView_maxImageWidth = 6;
+    public static final int TbRichTextView_segmentMargin = 0;
+    public static final int TbRichTextView_textColor = 3;
+    public static final int TbRichTextView_textPadding = 1;
+    public static final int TbRichTextView_textSize = 2;
+    public static final int TbRichTextView_videoImage = 11;
+    public static final int TopBar_color_dark = 3;
+    public static final int TopBar_left = 0;
+    public static final int TopBar_leftText = 4;
+    public static final int TopBar_mid = 1;
+    public static final int TopBar_right = 2;
+    public static final int TopBar_rightText = 5;
+    public static final int TopBar_titleDrawable = 7;
+    public static final int TopBar_titleText = 6;
+    public static final int VerticalTranslateLayout_background = 2;
+    public static final int VerticalTranslateLayout_bottomHeight = 6;
+    public static final int VerticalTranslateLayout_bottomOffset = 4;
+    public static final int VerticalTranslateLayout_tapBack = 1;
+    public static final int VerticalTranslateLayout_topHeight = 5;
+    public static final int VerticalTranslateLayout_topOffset = 3;
+    public static final int VerticalTranslateLayout_track = 0;
+    public static final int Voice_play_type_play_type = 0;
+    public static final int custom_state_custom_state_focused = 1;
+    public static final int custom_state_custom_state_skin = 0;
+    public static final int fixtextview_measuretext = 0;
+    public static final int[] AdpPullToRefreshScrollView = {R.attr.adpMode, R.attr.adpHeaderNeedRefreshDelta, R.attr.adpFooterNeedRefreshDelta, R.attr.adpHeaderHeight, R.attr.adpHeaderDurationTime, R.attr.adpFooterDurationTime};
+    public static final int[] BDImageView = {R.attr.radius};
+    public static final int[] ChatVoiceView = {R.attr.is_left};
+    public static final int[] ColumnLayout = {R.attr.columnOrientation, R.attr.spacingLeft, R.attr.spacingRight};
+    public static final int[] ColumnLayout_Layout = {R.attr.layout_column};
+    public static final int[] FloatingLayout_Layout = {R.attr.layout_clear};
+    public static final int[] HeadImageView = {R.attr.percent, R.attr.isRadius, R.attr.showGifTag};
+    public static final int[] HorizontalTranslateLayout = {R.attr.leftOffset, R.attr.rightOffset, R.attr.leftWidth, R.attr.rightWidth, R.attr.track, R.attr.tapBack, R.attr.background};
+    public static final int[] IndicatorView = {R.attr.spacing, R.attr.drawable, R.attr.selector, R.attr.autoHide, R.attr.count};
+    public static final int[] ModeAttr = {R.attr.tb_background, R.attr.tb_textColor, R.attr.tb_src, R.attr.tb_style, R.attr.tb_button, R.attr.tb_textColorHint};
+    public static final int[] PbWriteToolView = {R.attr.hideCamera, R.attr.hideAudio, R.attr.hideFace, R.attr.hideAt, R.attr.audioDayBackground, R.attr.audioNightBackground, R.attr.audioDayKeyBoard, R.attr.audioNightKeyBoard, R.attr.audioWidth, R.attr.audioHeight};
+    public static final int[] RefresherView = {R.attr.direction, R.attr.max_height, R.attr.threshold_height, R.attr.refresher_head, R.attr.refresher_content, R.attr.empty_view};
+    public static final int[] SettingView = {R.attr.settingText, R.attr.settingTextColor, R.attr.settingTip, R.attr.settingTipColor};
+    public static final int[] TbImageView = {R.attr.isShowGifTag};
+    public static final int[] TbRichTextView = {R.attr.segmentMargin, R.attr.textPadding, R.attr.textSize, R.attr.textColor, R.attr.linkColor, R.attr.lineSpacing, R.attr.maxImageWidth, R.attr.maxImageHeight, R.attr.defaultImage, R.attr.faceWidth, R.attr.faceHeight, R.attr.videoImage};
+    public static final int[] TopBar = {R.attr.left, R.attr.mid, R.attr.right, R.attr.color_dark, R.attr.leftText, R.attr.rightText, R.attr.titleText, R.attr.titleDrawable};
+    public static final int[] VerticalTranslateLayout = {R.attr.track, R.attr.tapBack, R.attr.background, R.attr.topOffset, R.attr.bottomOffset, R.attr.topHeight, R.attr.bottomHeight};
+    public static final int[] Voice_play_type = {R.attr.play_type};
+    public static final int[] custom_state = {R.attr.custom_state_skin, R.attr.custom_state_focused};
+    public static final int[] fixtextview = {R.attr.measuretext};
 }

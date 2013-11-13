@@ -2,7 +2,7 @@ package com.baidu.tieba.im.c;
 
 import com.baidu.browser.core.util.BdLog;
 import com.baidu.tieba.data.UserData;
-import com.baidu.tieba.im.chat.aa;
+import com.baidu.tieba.im.chat.z;
 import com.baidu.tieba.im.codec.n;
 import com.baidu.tieba.im.codec.q;
 import com.baidu.tieba.im.data.GroupIdTypeData;
@@ -52,7 +52,7 @@ public class h implements n<com.baidu.tieba.im.codec.a.c> {
                         try {
                             com.baidu.tieba.im.codec.a.c a5 = d2.a(i3);
                             ChatMessage chatMessage = new ChatMessage();
-                            chatMessage.setMsgId(aa.b(a5.c("msgId")));
+                            chatMessage.setMsgId(z.b(a5.c("msgId")));
                             chatMessage.setRecordId(a5.c("recordId"));
                             chatMessage.setGroupId(a5.a("groupId"));
                             chatMessage.setMsgType(a5.b(RConversation.COL_MSGTYPE));

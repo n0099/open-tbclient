@@ -1,31 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.view.BaseViewPager;
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import com.baidu.tieba.im.creategroup.CreateGroupStepActivity;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class s implements com.baidu.tieba.view.a {
+public class s extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f2295a;
+    public LinearLayout f2328a;
+    public Button b;
+    public Context c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public s(GuideActivity guideActivity) {
-        this.f2295a = guideActivity;
+    public s(Context context, int i) {
+        super(context, i);
+        this.f2328a = null;
+        this.b = null;
+        this.c = null;
+        this.c = context;
     }
 
-    @Override // com.baidu.tieba.view.a
-    public void a_(int i) {
-        BaseViewPager baseViewPager;
-        BaseViewPager baseViewPager2;
-        if (i == 0) {
-            baseViewPager = this.f2295a.f;
-            if (baseViewPager != null) {
-                baseViewPager2 = this.f2295a.f;
-                baseViewPager2.setOnScrollOutListener(null);
-            }
-            this.f2295a.b();
-            CompatibleUtile.setAnim(this.f2295a, 0, R.anim.left);
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        setContentView(R.layout.create_private_group_tip_dialog);
+        this.f2328a = (LinearLayout) findViewById(R.id.dialogparent);
+        this.b = (Button) findViewById(R.id.isee);
+        this.b.setOnClickListener(new t(this));
+    }
+
+    public void a(int i) {
+        if (this.c instanceof CreateGroupStepActivity) {
+            CreateGroupStepActivity createGroupStepActivity = (CreateGroupStepActivity) this.c;
+            createGroupStepActivity.getLayoutMode().a(i == 1);
+            createGroupStepActivity.getLayoutMode().a(this.f2328a);
         }
     }
 }

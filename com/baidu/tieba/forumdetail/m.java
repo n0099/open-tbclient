@@ -2,31 +2,41 @@ package com.baidu.tieba.forumdetail;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.flist.ForumListActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements View.OnClickListener {
+public class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1225a;
-    final /* synthetic */ l b;
+    final /* synthetic */ boolean f1284a;
+    final /* synthetic */ String b;
+    final /* synthetic */ String c;
+    final /* synthetic */ String d;
+    final /* synthetic */ String e;
+    final /* synthetic */ com.baidu.tieba.j f;
+    final /* synthetic */ ItemInfoView g;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar, String str) {
-        this.b = lVar;
-        this.f1225a = str;
+    public m(ItemInfoView itemInfoView, boolean z, String str, String str2, String str3, String str4, com.baidu.tieba.j jVar) {
+        this.g = itemInfoView;
+        this.f1284a = z;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.e = str4;
+        this.f = jVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        Context context2;
-        if (TiebaApplication.g().s()) {
-            context2 = this.b.c;
-            StatService.onEvent(context2, "detail_hot_thread", "click", 1);
+        if (!this.f1284a) {
+            context = this.g.f1272a;
+            ForumListActivity.a(context, this.b, this.d, this.c, this.e);
+            return;
         }
-        context = this.b.c;
-        NewPbActivity.a(context, this.f1225a, "", "");
+        ForumListActivity.d = !ForumListActivity.d;
+        ForumListActivity.a(this.b, this.c, this.d, this.e);
+        this.f.finish();
     }
 }

@@ -15,7 +15,7 @@ public class o {
     private int g = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.m f1955a = null;
+    protected com.baidu.tieba.m f1946a = null;
     private ArrayList<MarkData> e = new ArrayList<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -101,7 +101,7 @@ public class o {
                 i5--;
                 i4 = i3;
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b(getClass().getName(), "toJson", e.toString());
+                com.baidu.tieba.util.bg.b(getClass().getName(), "toJson", e.toString());
                 jSONArray = null;
             }
         }
@@ -116,7 +116,7 @@ public class o {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -127,7 +127,7 @@ public class o {
         try {
             jSONObject = new JSONObject(str);
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.toString());
             arrayList = null;
         }
         if (jSONObject.optJSONObject("error").optString("errno").equals(SocialConstants.FALSE)) {
@@ -153,7 +153,7 @@ public class o {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "parserJson", e.toString());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -207,6 +207,6 @@ public class o {
     }
 
     public void a(com.baidu.tieba.m mVar) {
-        this.f1955a = mVar;
+        this.f1946a = mVar;
     }
 }

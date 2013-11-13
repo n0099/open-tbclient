@@ -5,9 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import com.baidu.tieba.util.m;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tieba.guide.f {
+public class a extends com.baidu.tieba.guide.g {
     private final int c;
     private final int d;
     private final Bitmap e;
@@ -16,28 +17,28 @@ public class a extends com.baidu.tieba.guide.f {
     private final Rect b = new Rect();
 
     /* renamed from: a  reason: collision with root package name */
-    private final Paint f1307a = new Paint();
+    private final Paint f1374a = new Paint();
 
     public a(Context context, int i, int i2) {
         this.c = i2;
         this.d = i;
-        this.f1307a.setDither(true);
-        this.f1307a.setAntiAlias(true);
+        this.f1374a.setDither(true);
+        this.f1374a.setAntiAlias(true);
         this.f = 0;
         this.g = this.c * 2;
-        this.e = com.baidu.tieba.util.e.b(context, (int) R.drawable.intro);
+        this.e = m.b(context, (int) R.drawable.intro);
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a() {
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public boolean b() {
         return true;
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a(int i, float f, int i2) {
         this.g = (int) ((this.c * 2) - ((i + f) * this.c));
         this.f = (int) (this.d * (i + f));
@@ -56,12 +57,12 @@ public class a extends com.baidu.tieba.guide.f {
         if (this.e != null) {
             canvas.save();
             canvas.translate(-this.f, -this.g);
-            canvas.drawBitmap(this.e, (Rect) null, this.b, this.f1307a);
+            canvas.drawBitmap(this.e, (Rect) null, this.b, this.f1374a);
             canvas.restore();
         }
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void c() {
         if (this.e != null) {
             this.e.recycle();

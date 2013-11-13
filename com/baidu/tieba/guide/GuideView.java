@@ -11,7 +11,7 @@ import com.baidu.adp.widget.IndicatorView;
 public class GuideView extends FrameLayout implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f1303a;
+    private b f1371a;
     private a b;
     private ViewPager c;
     private TextPagerAdapter d;
@@ -23,11 +23,11 @@ public class GuideView extends FrameLayout implements bq {
 
     public GuideView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1303a = new b(context);
+        this.f1371a = new b(context);
         this.b = new a(context);
         this.c = new ViewPager(context);
         addView(this.b);
-        addView(this.f1303a);
+        addView(this.f1371a);
         addView(this.c);
         this.c.setOnPageChangeListener(this);
         this.d = new TextPagerAdapter();
@@ -39,7 +39,7 @@ public class GuideView extends FrameLayout implements bq {
     }
 
     public b getForegroundView() {
-        return this.f1303a;
+        return this.f1371a;
     }
 
     public a getBackgroundView() {
@@ -52,7 +52,7 @@ public class GuideView extends FrameLayout implements bq {
 
     @Override // android.support.v4.view.bq
     public void onPageScrolled(int i, float f, int i2) {
-        this.f1303a.a(i, f, i2);
+        this.f1371a.a(i, f, i2);
         this.b.a(i, f, i2);
         if (this.e != null) {
             this.e.setPosition(i + f);

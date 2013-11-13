@@ -1,47 +1,59 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.baidu.tieba.util.bc;
+import android.view.View;
+import android.widget.Button;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements TextWatcher {
+public class v implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f1058a;
+    final /* synthetic */ LoginActivity f1092a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(LoginActivity loginActivity) {
-        this.f1058a = loginActivity;
+        this.f1092a = loginActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        z = this.f1058a.q;
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        Button button;
+        Button button2;
+        Button button3;
+        Button button4;
+        Button button5;
+        Button button6;
+        Button button7;
+        Button button8;
+        Button button9;
         if (z) {
-            this.f1058a.s();
-        }
-        this.f1058a.r = true;
-        this.f1058a.v();
-        this.f1058a.w();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        String str2;
-        this.f1058a.e();
-        str = this.f1058a.j;
-        if (!bc.c(str)) {
-            String obj = editable.toString();
-            str2 = this.f1058a.j;
-            if (obj.equals(str2)) {
-                this.f1058a.r();
+            switch (view.getId()) {
+                case R.id.login_edit_account /* 2131099739 */:
+                    button7 = this.f1092a.D;
+                    button7.setVisibility(8);
+                    button8 = this.f1092a.C;
+                    button8.setVisibility(0);
+                    button9 = this.f1092a.E;
+                    button9.setVisibility(8);
+                    return;
+                case R.id.login_edit_password /* 2131099743 */:
+                    button = this.f1092a.D;
+                    button.setVisibility(0);
+                    button2 = this.f1092a.C;
+                    button2.setVisibility(8);
+                    button3 = this.f1092a.E;
+                    button3.setVisibility(8);
+                    return;
+                case R.id.edit_vcode /* 2131099746 */:
+                    button4 = this.f1092a.D;
+                    button4.setVisibility(8);
+                    button5 = this.f1092a.C;
+                    button5.setVisibility(8);
+                    button6 = this.f1092a.E;
+                    button6.setVisibility(0);
+                    return;
+                default:
+                    return;
             }
         }
     }

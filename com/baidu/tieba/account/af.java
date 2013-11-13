@@ -1,19 +1,32 @@
 package com.baidu.tieba.account;
-
-import android.view.View;
 /* loaded from: classes.dex */
-class af implements View.OnClickListener {
+public class af extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ProtocolActivity f1018a;
+    private int f1030a;
+    private int b;
+    private String c = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ProtocolActivity protocolActivity) {
-        this.f1018a = protocolActivity;
+    public af(int i, int i2) {
+        this.f1030a = 0;
+        this.b = 0;
+        this.f1030a = i;
+        this.b = i2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1018a.finish();
+    public void a(String str) {
+        this.c = str;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        com.baidu.tieba.util.ap apVar = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/s/pv");
+        apVar.a("img_num", String.valueOf(this.f1030a));
+        apVar.a("img_total", String.valueOf(this.b));
+        if (this.c != null) {
+            apVar.a("img_type", this.c);
+        }
+        apVar.j();
     }
 }

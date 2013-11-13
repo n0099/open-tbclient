@@ -1,20 +1,22 @@
 package com.baidu.tieba.voice;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements Runnable {
+public class y implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2598a;
-    final /* synthetic */ w b;
+    final /* synthetic */ VoiceManager f2650a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(w wVar, String str) {
-        this.b = wVar;
-        this.f2598a = str;
+    public y(VoiceManager voiceManager) {
+        this.f2650a = voiceManager;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.c.H = 1;
-        this.b.c.f2553a.a(this.f2598a, this.b.b);
+        ad m;
+        m = this.f2650a.m();
+        if (m != null) {
+            this.f2650a.b(m);
+        }
     }
 }

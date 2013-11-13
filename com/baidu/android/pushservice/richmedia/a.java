@@ -17,7 +17,7 @@ import org.apache.http.params.HttpProtocolParams;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    DefaultHttpClient f716a;
+    DefaultHttpClient f731a;
     private l b = l.a(a.class.getName());
 
     public a() {
@@ -27,8 +27,8 @@ public class a {
         HttpProtocolParams.setUseExpectContinue(basicHttpParams, false);
         HttpConnectionParams.setConnectionTimeout(basicHttpParams, 15000);
         HttpConnectionParams.setSoTimeout(basicHttpParams, 15000);
-        this.f716a = new DefaultHttpClient(basicHttpParams);
-        this.f716a.setHttpRequestRetryHandler(new DefaultHttpRequestRetryHandler(3, false));
+        this.f731a = new DefaultHttpClient(basicHttpParams);
+        this.f731a.setHttpRequestRetryHandler(new DefaultHttpRequestRetryHandler(3, false));
     }
 
     public HttpResponse a(String str, String str2, Map map, List list) {
@@ -48,6 +48,6 @@ public class a {
                 httpPost.setHeader((String) entry.getKey(), (String) entry.getValue());
             }
         }
-        return this.f716a.execute(httpPost);
+        return this.f731a.execute(httpPost);
     }
 }

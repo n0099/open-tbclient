@@ -11,7 +11,7 @@ import java.io.RandomAccessFile;
 public class a implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2586a = 8000;
+    public static int f2638a = 8000;
     public static int b = 2;
     public static int c = 2;
     public static int d = 1;
@@ -71,7 +71,7 @@ public class a implements h {
 
     @Override // com.baidu.tieba.voice.service.h
     public boolean a(String str) {
-        return a(d, f2586a, b, c, str);
+        return a(d, f2638a, b, c, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

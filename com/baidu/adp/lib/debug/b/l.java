@@ -17,14 +17,14 @@ class l implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (this.f473a.w && motionEvent.getAction() == 0) {
-            ((ImageButton) view).setBackgroundDrawable(this.f473a.getResources().getDrawable(com.baidu.adp.d.adp_debug_switch_bk));
+            ((ImageButton) view).setBackgroundDrawable(this.f473a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch_bk));
             this.f473a.m.setVisibility(8);
             this.f473a.m.setClickable(false);
             this.f473a.b.setVisibility(8);
             this.f473a.w = false;
             this.f473a.c.setVisibility(0);
         } else if (motionEvent.getAction() == 0) {
-            ((ImageButton) view).setBackgroundDrawable(this.f473a.getResources().getDrawable(com.baidu.adp.d.adp_debug_switch));
+            ((ImageButton) view).setBackgroundDrawable(this.f473a.getResources().getDrawable(com.baidu.adp.c.adp_debug_switch));
             this.f473a.m.setVisibility(0);
             this.f473a.m.setClickable(true);
             this.f473a.b.setVisibility(0);

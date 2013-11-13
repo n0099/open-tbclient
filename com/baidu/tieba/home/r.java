@@ -1,23 +1,31 @@
 package com.baidu.tieba.home;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.tieba.account.Register2Activity;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class r implements View.OnClickListener {
+public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Activity f1367a;
-    final /* synthetic */ p b;
+    private int f1462a = -1;
+    private String b = null;
+    private String c = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public r(p pVar, Activity activity) {
-        this.b = pVar;
-        this.f1367a = activity;
+    public int a() {
+        return this.f1462a;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Register2Activity.a(this.f1367a, 12007);
+    public String b() {
+        return this.c;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.f1462a = jSONObject.optInt("errno");
+                this.b = jSONObject.optString("errmsg");
+                this.c = jSONObject.optString("usermsg");
+            } catch (Exception e) {
+                com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.getMessage());
+            }
+        }
     }
 }

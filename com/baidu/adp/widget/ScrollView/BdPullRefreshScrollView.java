@@ -15,7 +15,7 @@ import android.widget.ScrollView;
 public class BdPullRefreshScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    protected FrameLayout f576a;
+    protected View f582a;
     private int b;
     private State c;
     private Mode d;
@@ -28,13 +28,13 @@ public class BdPullRefreshScrollView extends ScrollView {
     private FrameLayout k;
     private float l;
     private float m;
-    private c n;
-    private c o;
+    private b n;
+    private b o;
     private int p;
-    private q q;
-    private r r;
-    private p s;
-    private o t;
+    private p q;
+    private q r;
+    private o s;
+    private n t;
     private boolean u;
     private boolean v;
     private boolean w;
@@ -51,7 +51,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.v = false;
         this.w = false;
         this.x = false;
-        a(context, null, new b(context), new a(context));
+        a(context, null, new r(context), new a(context));
     }
 
     public BdPullRefreshScrollView(Context context, AttributeSet attributeSet) {
@@ -65,7 +65,7 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.v = false;
         this.w = false;
         this.x = false;
-        a(context, attributeSet, new b(context), new a(context));
+        a(context, attributeSet, new r(context), new a(context));
     }
 
     public BdPullRefreshScrollView(Context context, Mode mode) {
@@ -80,10 +80,10 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.w = false;
         this.x = false;
         this.e = mode;
-        a(context, null, new b(context), new a(context));
+        a(context, null, new r(context), new a(context));
     }
 
-    public BdPullRefreshScrollView(Context context, Mode mode, c cVar, c cVar2) {
+    public BdPullRefreshScrollView(Context context, Mode mode, b bVar, b bVar2) {
         super(context);
         this.c = State.RESET;
         this.e = Mode.getDefault();
@@ -95,65 +95,68 @@ public class BdPullRefreshScrollView extends ScrollView {
         this.w = false;
         this.x = false;
         this.e = mode;
-        a(context, null, cVar, cVar2);
+        a(context, null, bVar, bVar2);
     }
 
-    private void a(Context context, AttributeSet attributeSet, c cVar, c cVar2) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.h.AdpPullToRefreshScrollView);
+    private void a(Context context, AttributeSet attributeSet, b bVar, b bVar2) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.g.AdpPullToRefreshScrollView);
         if (obtainStyledAttributes.hasValue(0)) {
             this.e = Mode.mapIntToValue(obtainStyledAttributes.getInteger(0, 0));
         }
         this.b = ViewConfiguration.get(context).getScaledTouchSlop();
         this.f = obtainStyledAttributes.getInteger(4, 200);
         this.g = obtainStyledAttributes.getInteger(5, 200);
-        LayoutInflater.from(context).inflate(com.baidu.adp.f.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
-        this.f576a = (FrameLayout) findViewById(com.baidu.adp.e.content_ly);
-        this.j = (FrameLayout) findViewById(com.baidu.adp.e.head_ly);
-        this.k = (FrameLayout) findViewById(com.baidu.adp.e.foot_ly);
-        setCustomHeaderView(cVar);
-        setCustomFooterView(cVar2);
+        LayoutInflater.from(context).inflate(com.baidu.adp.e.adp_pull_refresh_scroll_view, (ViewGroup) this, true);
+        this.j = (FrameLayout) findViewById(com.baidu.adp.d.head_ly);
+        this.k = (FrameLayout) findViewById(com.baidu.adp.d.foot_ly);
+        setCustomHeaderView(bVar);
+        setCustomFooterView(bVar2);
         if (obtainStyledAttributes.hasValue(1)) {
             this.l = obtainStyledAttributes.getDimension(1, 0.0f);
         } else {
-            this.l = getResources().getDimension(com.baidu.adp.c.adp_head_need_refresh_delta);
+            this.l = getResources().getDimension(com.baidu.adp.b.adp_head_need_refresh_delta);
         }
         if (obtainStyledAttributes.hasValue(2)) {
             this.m = obtainStyledAttributes.getDimension(2, 0.0f);
         } else {
-            this.m = getResources().getDimension(com.baidu.adp.c.adp_foot_need_refresh_delta);
+            this.m = getResources().getDimension(com.baidu.adp.b.adp_foot_need_refresh_delta);
         }
         if (obtainStyledAttributes.hasValue(3)) {
             this.p = -obtainStyledAttributes.getDimensionPixelSize(3, 0);
         } else {
-            this.p = -getResources().getDimensionPixelSize(com.baidu.adp.c.adp_head_view_height);
+            this.p = -getResources().getDimensionPixelSize(com.baidu.adp.b.adp_head_view_height);
         }
         setFadingEdgeLength(0);
         a();
     }
 
-    public void setCustomHeaderView(c cVar) {
-        if (this.n != null) {
-            this.j.removeView((View) this.n);
+    public void setCustomHeaderView(b bVar) {
+        if (bVar != null && bVar.getRealView() != null) {
+            if (this.n != null) {
+                this.j.removeView(this.n.getRealView());
+            }
+            this.n = bVar;
+            this.j.addView(this.n.getRealView());
+            this.n.b_();
         }
-        this.n = cVar;
-        this.j.addView((View) this.n);
-        this.n.d();
     }
 
-    public void setCustomFooterView(c cVar) {
-        if (this.o != null) {
-            this.k.removeView((View) this.o);
+    public void setCustomFooterView(b bVar) {
+        if (bVar != null && bVar.getRealView() != null) {
+            if (this.o != null) {
+                this.k.removeView(this.o.getRealView());
+            }
+            this.o = bVar;
+            this.k.addView(this.o.getRealView());
+            this.o.b_();
         }
-        this.o = cVar;
-        this.k.addView((View) this.o);
-        this.o.d();
     }
 
-    public c getHeadLoadingView() {
+    public b getHeadLoadingView() {
         return this.n;
     }
 
-    public c getmFootLoadingView() {
+    public b getmFootLoadingView() {
         return this.o;
     }
 
@@ -205,24 +208,28 @@ public class BdPullRefreshScrollView extends ScrollView {
         super.addView(view, i, layoutParams);
     }
 
-    public void setOnPullUpListener(p pVar) {
-        this.s = pVar;
+    public void setOnPullUpListener(o oVar) {
+        this.s = oVar;
     }
 
-    public void setOnPullDownListener(o oVar) {
-        this.t = oVar;
+    public void setOnPullDownListener(n nVar) {
+        this.t = nVar;
     }
 
-    public void setOnStopListener(r rVar) {
-        this.r = rVar;
+    public void setOnStopListener(q qVar) {
+        this.r = qVar;
     }
 
-    public void setOnScrollUpDownListener(q qVar) {
-        this.q = qVar;
+    public void setOnScrollUpDownListener(p pVar) {
+        this.q = pVar;
     }
 
     public void setContentView(View view) {
-        this.f576a.addView(view);
+        View childAt = getChildAt(0);
+        if (childAt != null) {
+            this.f582a = view;
+            ((LinearLayout) childAt).addView(view, 1);
+        }
     }
 
     public final void setMode(Mode mode) {
@@ -261,9 +268,9 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     protected void d() {
-        g gVar = new g(0, this.p, 300);
-        gVar.a(this.j);
-        gVar.a(new k(this));
+        f fVar = new f(0, this.p, 300);
+        fVar.a(this.j);
+        fVar.a(new j(this));
     }
 
     protected void e() {
@@ -301,7 +308,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean g() {
-        switch (n.f590a[this.e.ordinal()]) {
+        switch (m.f595a[this.e.ordinal()]) {
             case 1:
                 return h();
             case 2:
@@ -314,7 +321,7 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean h() {
-        switch (n.f590a[this.e.ordinal()]) {
+        switch (m.f595a[this.e.ordinal()]) {
             case 1:
                 return getScrollY() <= 0;
             case 2:
@@ -327,14 +334,14 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private boolean i() {
-        switch (n.f590a[this.e.ordinal()]) {
+        switch (m.f595a[this.e.ordinal()]) {
             case 1:
             default:
                 return false;
             case 2:
-                return getScrollY() + getHeight() >= this.f576a.getHeight() + this.k.getHeight();
+                return getScrollY() + getHeight() >= this.f582a.getHeight() + this.k.getHeight();
             case 3:
-                if (getScrollY() + getHeight() < this.f576a.getHeight() + this.k.getHeight() || getHeadViewTopMargin() != this.p) {
+                if (getScrollY() + getHeight() < this.f582a.getHeight() + this.k.getHeight() || getHeadViewTopMargin() != this.p) {
                     r0 = false;
                 }
                 return r0;
@@ -481,24 +488,24 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(State state, c cVar) {
+    public void a(State state, b bVar) {
         if (this.c != state) {
             this.c = state;
-            switch (n.b[state.ordinal()]) {
+            switch (m.b[state.ordinal()]) {
                 case 1:
-                    cVar.a();
+                    bVar.a_();
                     return;
                 case 2:
-                    cVar.b();
+                    bVar.e();
                     return;
                 case 3:
-                    cVar.c();
+                    bVar.f();
                     return;
                 case 4:
-                    cVar.d();
+                    bVar.b_();
                     return;
                 case 5:
-                    cVar.c();
+                    bVar.f();
                     return;
                 default:
                     return;
@@ -549,9 +556,9 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private void a(int i, int i2) {
-        g gVar = new g(i, i2, this.f);
-        gVar.a(this.j);
-        gVar.a(new l(this));
+        f fVar = new f(i, i2, this.f);
+        fVar.a(this.j);
+        fVar.a(new k(this));
     }
 
     private void s() {
@@ -563,9 +570,9 @@ public class BdPullRefreshScrollView extends ScrollView {
     }
 
     private void b(int i, int i2) {
-        d dVar = new d(i, i2, this.g);
-        dVar.a(this.k);
-        dVar.a(new m(this));
+        c cVar = new c(i, i2, this.g);
+        cVar.a(this.k);
+        cVar.a(new l(this));
     }
 
     /* loaded from: classes.dex */

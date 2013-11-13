@@ -7,7 +7,7 @@ import java.io.IOException;
 public class j extends MediaPlayer implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2592a = new Object();
+    private static Object f2644a = new Object();
     private static j b = null;
     private boolean c = false;
     private boolean d = true;
@@ -18,7 +18,7 @@ public class j extends MediaPlayer implements g {
 
     public static j h() {
         if (b == null) {
-            synchronized (f2592a) {
+            synchronized (f2644a) {
                 if (b == null) {
                     b = new j();
                 }

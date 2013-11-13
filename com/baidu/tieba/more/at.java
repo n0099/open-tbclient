@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 class at implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SystemHelpSettingActivity f1995a;
+    final /* synthetic */ SystemHelpSettingActivity f1987a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.f1995a = systemHelpSettingActivity;
+        this.f1987a = systemHelpSettingActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

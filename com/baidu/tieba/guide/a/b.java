@@ -7,16 +7,17 @@ import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
+import com.baidu.tieba.util.m;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Random;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tieba.guide.f {
+public class b extends com.baidu.tieba.guide.g {
     private Context i;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1308a = 12;
+    private int f1375a = 12;
     private int b = 10;
     private float c = 1.0f;
     private float d = -20.0f;
@@ -66,13 +67,13 @@ public class b extends com.baidu.tieba.guide.f {
     }
 
     private void e() {
-        this.k = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.rachel);
-        this.l = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.chandler);
-        this.m = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.ross);
-        this.j = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.ballons);
-        this.n = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.guide_sun_sparkle);
-        this.o = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.ballons_sparkle1);
-        this.p = com.baidu.tieba.util.e.b(this.i, (int) R.drawable.ballons_sparkle2);
+        this.k = m.b(this.i, (int) R.drawable.rachel);
+        this.l = m.b(this.i, (int) R.drawable.chandler);
+        this.m = m.b(this.i, (int) R.drawable.ross);
+        this.j = m.b(this.i, (int) R.drawable.ballons);
+        this.n = m.b(this.i, (int) R.drawable.guide_sun_sparkle);
+        this.o = m.b(this.i, (int) R.drawable.ballons_sparkle1);
+        this.p = m.b(this.i, (int) R.drawable.ballons_sparkle2);
         if (this.k == null || this.l == null || this.m == null || this.j == null || this.n == null || this.o == null || this.p == null) {
             this.Q = false;
             return;
@@ -157,21 +158,21 @@ public class b extends com.baidu.tieba.guide.f {
         canvas.drawBitmap(this.m, this.v, null);
     }
 
-    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.g, android.graphics.drawable.Drawable
     public void setAlpha(int i) {
         this.z.setAlpha(i);
     }
 
-    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.g, android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
     }
 
-    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.g, android.graphics.drawable.Drawable
     public int getOpacity() {
         return 0;
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a() {
         int i = Util.MASK_8BIT;
         if (this.Q && this.C != 0) {
@@ -187,11 +188,11 @@ public class b extends com.baidu.tieba.guide.f {
             this.t.postTranslate(this.I, this.F);
             this.u.postTranslate(this.J, this.G);
             this.v.postTranslate(this.K, this.H);
-            this.f += this.f1308a;
+            this.f += this.f1375a;
             if (this.f > 255 || this.f < 0) {
                 this.f = this.f > 255 ? 255 : this.f;
                 this.f = this.f < 0 ? 0 : this.f;
-                this.f1308a = -this.f1308a;
+                this.f1375a = -this.f1375a;
             }
             this.g += this.b;
             if (this.g > 255 || this.g < 0) {
@@ -205,19 +206,19 @@ public class b extends com.baidu.tieba.guide.f {
         }
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public boolean b() {
         return this.C != 0;
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a(int i, float f, int i2) {
         this.C = i;
         this.D = f;
         this.E = i2;
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void c() {
         this.P = true;
         try {
@@ -229,7 +230,7 @@ public class b extends com.baidu.tieba.guide.f {
             this.o.recycle();
             this.p.recycle();
         } catch (Exception e) {
-            be.b(getClass().getName(), "releaseResource", e.toString());
+            bg.b(getClass().getName(), "releaseResource", e.toString());
         }
     }
 }

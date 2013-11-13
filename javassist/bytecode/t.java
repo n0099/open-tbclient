@@ -3,7 +3,7 @@ package javassist.bytecode;
 class t {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2782a;
+    int f2830a;
     int b;
     int c;
     ab d;
@@ -15,7 +15,7 @@ class t {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(int i, int i2, int i3, ab abVar, CodeAttribute codeAttribute) {
-        this.f2782a = i;
+        this.f2830a = i;
         this.c = i2;
         this.b = i3;
         this.d = abVar;
@@ -28,8 +28,8 @@ class t {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, int i2, boolean z) {
-        if (i < this.f2782a || (i == this.f2782a && z)) {
-            this.f2782a += i2;
+        if (i < this.f2830a || (i == this.f2830a && z)) {
+            this.f2830a += i2;
         }
         if (i < this.c || (i == this.c && z)) {
             this.c += i2;

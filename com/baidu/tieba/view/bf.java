@@ -1,5 +1,5 @@
 package com.baidu.tieba.view;
 /* loaded from: classes.dex */
 public interface bf {
-    void a();
+    void a(boolean z);
 }

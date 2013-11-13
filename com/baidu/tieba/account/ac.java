@@ -4,7 +4,7 @@ package com.baidu.tieba.account;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1015a;
+    String f1027a;
     String b;
     String c;
     String d;

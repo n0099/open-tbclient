@@ -30,8 +30,9 @@ public class f extends d {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.a.a
-    protected void a(Intent intent) {
+    public void a(Intent intent) {
         intent.putExtra(PushConstants.EXTRA_BIND_STATUS, this.f);
     }
 
@@ -62,9 +63,9 @@ public class f extends d {
             e.printStackTrace();
         }
         if (!TextUtils.isEmpty(this.b.e)) {
-            com.baidu.android.pushservice.a.a(this.f679a).e(this.b.e);
+            com.baidu.android.pushservice.a.a(this.f688a).f(this.b.e);
             if (!TextUtils.isEmpty(this.b.i)) {
-                com.baidu.android.pushservice.a.a(this.f679a).a(this.b.e, new g(this.b.i, b));
+                com.baidu.android.pushservice.a.a(this.f688a).a(this.b.e, new g(this.b.i, b));
                 if (!TextUtils.isEmpty(str2)) {
                     PushSettings.a(str2, 0, this.b.i);
                 }

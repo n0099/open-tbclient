@@ -23,7 +23,7 @@ import org.msgpack.type.r;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    Map<Type, d<Type>> f2902a;
+    Map<Type, d<Type>> f2950a;
     private e b;
     private g c;
     private Map<Type, c> d;
@@ -33,9 +33,9 @@ public class e {
         this.b = null;
         this.c = a();
         this.d = new HashMap();
-        this.f2902a = new HashMap();
+        this.f2950a = new HashMap();
         c();
-        this.f2902a = Collections.unmodifiableMap(this.f2902a);
+        this.f2950a = Collections.unmodifiableMap(this.f2950a);
     }
 
     public e(e eVar) {
@@ -46,7 +46,7 @@ public class e {
             this.b = new e();
         }
         this.c = a();
-        this.f2902a = new HashMap();
+        this.f2950a = new HashMap();
         this.d = new HashMap();
         b();
     }
@@ -105,9 +105,9 @@ public class e {
             throw new NullPointerException("Template object is null");
         }
         if (type instanceof ParameterizedType) {
-            this.f2902a.put(((ParameterizedType) type).getRawType(), dVar);
+            this.f2950a.put(((ParameterizedType) type).getRawType(), dVar);
         } else {
-            this.f2902a.put(type, dVar);
+            this.f2950a.put(type, dVar);
         }
     }
 
@@ -327,7 +327,7 @@ public class e {
     }
 
     private d<Type> c(Type type) {
-        d<Type> dVar = this.f2902a.get(type);
+        d<Type> dVar = this.f2950a.get(type);
         if (dVar == null) {
             try {
                 return this.b.c(type);
@@ -361,7 +361,7 @@ public class e {
                 break;
             }
             Class<?> cls2 = interfaces[i];
-            dVar = this.f2902a.get(cls2);
+            dVar = this.f2950a.get(cls2);
             if (dVar != null) {
                 a(cls, dVar);
                 break;
@@ -389,7 +389,7 @@ public class e {
                 if (superclass == Object.class) {
                     break;
                 }
-                dVar = this.f2902a.get(superclass);
+                dVar = this.f2950a.get(superclass);
                 if (dVar != null) {
                     a(cls, dVar);
                     break;
@@ -449,23 +449,23 @@ public class e {
             try {
                 try {
                     try {
-                        dVar2 = this.f2902a.containsKey(cls) ? this.f2902a.get(cls) : null;
+                        dVar2 = this.f2950a.containsKey(cls) ? this.f2950a.get(cls) : null;
                         try {
                             try {
-                                this.f2902a.put(cls, new TemplateReference(this, cls));
+                                this.f2950a.put(cls, new TemplateReference(this, cls));
                                 if (fVar == null) {
                                     fVar = this.c.a(cls, z);
                                 }
                                 a2 = aVar != null ? fVar.a(cls, aVar) : fVar.a(cls);
                                 if (a2 != null) {
-                                    this.f2902a.put(cls, a2);
+                                    this.f2950a.put(cls, a2);
                                 }
                             } catch (Exception e) {
                                 e = e;
                                 if (dVar2 != null) {
-                                    this.f2902a.put(cls, dVar2);
+                                    this.f2950a.put(cls, dVar2);
                                 } else {
-                                    this.f2902a.remove(cls);
+                                    this.f2950a.remove(cls);
                                 }
                                 if (e instanceof MessageTypeException) {
                                     throw ((MessageTypeException) e);
@@ -482,7 +482,7 @@ public class e {
                 } catch (Throwable th) {
                     th = th;
                     if (dVar3 != null) {
-                        this.f2902a.put(cls, dVar3);
+                        this.f2950a.put(cls, dVar3);
                     }
                     throw th;
                 }

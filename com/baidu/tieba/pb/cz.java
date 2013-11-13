@@ -1,33 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.app.Dialog;
-import android.util.SparseArray;
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cz implements View.OnClickListener {
+public class cz implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bt f2113a;
+    final /* synthetic */ ImageView f2131a;
+    final /* synthetic */ cp b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cz(bt btVar) {
-        this.f2113a = btVar;
+    public cz(cp cpVar, ImageView imageView) {
+        this.b = cpVar;
+        this.f2131a = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        dialog = this.f2113a.V;
-        if (dialog != null) {
-            dialog2 = this.f2113a.V;
-            dialog2.dismiss();
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.f2113a.a((String) sparseArray.get(R.id.tag_forbid_user_name), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue());
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new da(this));
     }
 }

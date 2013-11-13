@@ -1,12 +1,27 @@
 package com.baidu.adp;
 /* loaded from: classes.dex */
 public final class f {
-    public static final int adp_debug_activity_main = 2130903050;
-    public static final int adp_debug_config_activity = 2130903051;
-    public static final int adp_debug_monitor_view = 2130903052;
-    public static final int adp_default_header_layout = 2130903053;
-    public static final int adp_detault_footer_layout = 2130903054;
-    public static final int adp_pull_refresh_scroll_view = 2130903055;
-    public static final int bd_switch_view = 2130903072;
-    public static final int pull_view = 2130903281;
+    public static final int adp_loading = 2131296278;
+    public static final int adp_pull_to_refresh = 2131296271;
+    public static final int adp_pull_up_to_get_more = 2131296273;
+    public static final int adp_pull_view_date_tip = 2131296274;
+    public static final int adp_refreshed = 2131296276;
+    public static final int adp_refreshing = 2131296272;
+    public static final int adp_release_to_get_more = 2131296275;
+    public static final int adp_release_to_refresh = 2131296277;
+    public static final int app_name = 2131296256;
+    public static final int debug_app_name = 2131296257;
+    public static final int debug_close = 2131296267;
+    public static final int debug_opened = 2131296264;
+    public static final int dialog_cancel = 2131296266;
+    public static final int dialog_ok = 2131296265;
+    public static final int item_close = 2131296263;
+    public static final int item_open = 2131296262;
+    public static final int prompt = 2131296268;
+    public static final int prompt_close_debug = 2131296269;
+    public static final int prompt_switch = 2131296270;
+    public static final int switch_debug = 2131296260;
+    public static final int switch_ok = 2131296261;
+    public static final int tiebaDebug = 2131296259;
+    public static final int title_activity_main = 2131296258;
 }

@@ -10,20 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.AccountData;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class p extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2017a;
+    private Context f2009a;
     private View.OnClickListener d;
     private ArrayList<AccountData> c = null;
     private boolean b = false;
 
     public p(Context context, View.OnClickListener onClickListener) {
-        this.f2017a = context;
+        this.f2009a = context;
         this.d = onClickListener;
     }
 
@@ -65,12 +66,12 @@ public class p extends BaseAdapter {
         r rVar2;
         try {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.f2017a);
+                LayoutInflater from = LayoutInflater.from(this.f2009a);
                 try {
                     if (getItemViewType(i) == 0) {
                         View inflate = from.inflate(R.layout.account_item, (ViewGroup) null);
                         r rVar3 = new r(this);
-                        rVar3.f2018a = (TextView) inflate.findViewById(R.id.account);
+                        rVar3.f2010a = (TextView) inflate.findViewById(R.id.account);
                         rVar3.c = (ImageView) inflate.findViewById(R.id.active);
                         rVar3.d = (Button) inflate.findViewById(R.id.delete);
                         rVar3.d.setOnClickListener(this.d);
@@ -89,7 +90,7 @@ public class p extends BaseAdapter {
                 } catch (Exception e) {
                     exc = e;
                     view2 = rVar;
-                    be.b(getClass().getName(), "getView", exc.getMessage());
+                    bg.b(getClass().getName(), "getView", exc.getMessage());
                     return view2;
                 }
             } else {
@@ -102,17 +103,17 @@ public class p extends BaseAdapter {
         }
         try {
             if (getItemViewType(i) == 0) {
-                if (TiebaApplication.g().as() == 1) {
-                    rVar.f2018a.setTextColor(com.baidu.tieba.util.bb.a(1));
+                if (TiebaApplication.g().ap() == 1) {
+                    rVar.f2010a.setTextColor(bd.a(1));
                 } else {
-                    rVar.f2018a.setTextColor(-12895429);
+                    rVar.f2010a.setTextColor(-12895429);
                 }
                 AccountData accountData = (AccountData) getItem(i);
                 rVar.c.setVisibility(8);
                 rVar.d.setVisibility(8);
                 rVar.d.setTag(accountData);
                 if (accountData != null) {
-                    rVar.f2018a.setText(accountData.getAccount());
+                    rVar.f2010a.setText(accountData.getAccount());
                     if (accountData.getIsActive() == 1) {
                         rVar.c.setVisibility(0);
                     }
@@ -120,8 +121,8 @@ public class p extends BaseAdapter {
                         rVar.d.setVisibility(0);
                     }
                 }
-            } else if (TiebaApplication.g().as() == 1) {
-                rVar.b.setTextColor(com.baidu.tieba.util.bb.a(1));
+            } else if (TiebaApplication.g().ap() == 1) {
+                rVar.b.setTextColor(bd.a(1));
             } else {
                 rVar.b.setTextColor(-12895429);
             }
@@ -129,7 +130,7 @@ public class p extends BaseAdapter {
         } catch (Exception e3) {
             view2 = view3;
             exc = e3;
-            be.b(getClass().getName(), "getView", exc.getMessage());
+            bg.b(getClass().getName(), "getView", exc.getMessage());
             return view2;
         }
     }

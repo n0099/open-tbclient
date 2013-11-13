@@ -10,7 +10,7 @@ import java.util.List;
 public class b extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<f> f1314a;
+    private final List<g> f1381a;
 
     public b(Context context) {
         this(context, null, 0);
@@ -18,34 +18,34 @@ public class b extends View {
 
     public b(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1314a = new ArrayList(9);
+        this.f1381a = new ArrayList(9);
     }
 
     public void a(int i, float f, int i2) {
-        for (f fVar : this.f1314a) {
-            fVar.a(i, f, i2);
+        for (g gVar : this.f1381a) {
+            gVar.a(i, f, i2);
         }
         invalidate();
     }
 
-    public void a(f fVar) {
-        this.f1314a.add(fVar);
-        fVar.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
+    public void a(g gVar) {
+        this.f1381a.add(gVar);
+        gVar.setBounds(0, 0, getMeasuredWidth(), getMeasuredHeight());
     }
 
     public void a() {
-        for (f fVar : this.f1314a) {
-            fVar.c();
+        for (g gVar : this.f1381a) {
+            gVar.c();
         }
-        this.f1314a.clear();
+        this.f1381a.clear();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        for (f fVar : this.f1314a) {
-            if (fVar != null) {
-                fVar.draw(canvas);
+        for (g gVar : this.f1381a) {
+            if (gVar != null) {
+                gVar.draw(canvas);
             }
         }
     }

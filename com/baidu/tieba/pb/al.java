@@ -1,46 +1,29 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
+import com.baidu.tieba.account.forbid.ForbidActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements com.baidu.adp.lib.d.c<ImageView> {
+public class al implements bt {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2048a;
+    final /* synthetic */ NewPbActivity f2069a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(NewPbActivity newPbActivity) {
-        this.f2048a = newPbActivity;
+        this.f2069a = newPbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    /* renamed from: b */
-    public ImageView a() {
-        return new com.baidu.tieba.view.ba(this.f2048a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public void a(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public ImageView b(ImageView imageView) {
-        return imageView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.d.c
-    public ImageView c(ImageView imageView) {
-        imageView.setBackgroundDrawable(null);
-        imageView.setImageDrawable(null);
-        imageView.setTag(null);
-        imageView.setOnClickListener(null);
-        return imageView;
+    @Override // com.baidu.tieba.pb.bt
+    public void a(Object obj) {
+        com.baidu.tieba.model.bm bmVar;
+        com.baidu.tieba.model.bm bmVar2;
+        com.baidu.tieba.model.bm bmVar3;
+        NewPbActivity newPbActivity = this.f2069a;
+        bmVar = this.f2069a.s;
+        String id = bmVar.l().c().getId();
+        bmVar2 = this.f2069a.s;
+        String name = bmVar2.l().c().getName();
+        bmVar3 = this.f2069a.s;
+        ForbidActivity.a(newPbActivity, id, name, bmVar3.l().d().a(), String.valueOf(obj));
     }
 }

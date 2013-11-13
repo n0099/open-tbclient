@@ -1,8 +1,8 @@
 package com.baidu.tieba.person;
 
 import android.graphics.Bitmap;
-import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import cn.jingling.lib.filters.FilterFactory;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
@@ -12,14 +12,14 @@ import com.baidu.tieba.view.EditHeadImageView;
 public class u extends BdAsyncTask<String, Void, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2256a;
+    final /* synthetic */ EditHeadActivity f2291a;
     private String b;
     private Bitmap c;
     private Boolean d;
     private Boolean e;
 
     private u(EditHeadActivity editHeadActivity) {
-        this.f2256a = editHeadActivity;
+        this.f2291a = editHeadActivity;
         this.d = false;
         this.e = false;
     }
@@ -33,11 +33,11 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        Button button;
-        progressBar = this.f2256a.q;
+        TextView textView;
+        progressBar = this.f2291a.o;
         progressBar.setVisibility(0);
-        button = this.f2256a.m;
-        button.setClickable(false);
+        textView = this.f2291a.k;
+        textView.setClickable(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,9 +54,9 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap8;
         Bitmap bitmap9;
         this.b = strArr[0];
-        bitmap = this.f2256a.j;
+        bitmap = this.f2291a.h;
         if (bitmap == null) {
-            bitmap9 = this.f2256a.z;
+            bitmap9 = this.f2291a.x;
             if (bitmap9 == null) {
                 return null;
             }
@@ -67,27 +67,27 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
             this.e = true;
         }
         if (this.d.booleanValue() || this.e.booleanValue()) {
-            bitmap2 = this.f2256a.z;
+            bitmap2 = this.f2291a.x;
             if (bitmap2 != null) {
-                bitmap5 = this.f2256a.z;
-                bitmap6 = this.f2256a.z;
+                bitmap5 = this.f2291a.x;
+                bitmap6 = this.f2291a.x;
                 this.c = bitmap5.copy(bitmap6.getConfig(), true);
             } else {
-                bitmap3 = this.f2256a.j;
-                bitmap4 = this.f2256a.j;
+                bitmap3 = this.f2291a.h;
+                bitmap4 = this.f2291a.h;
                 this.c = bitmap3.copy(bitmap4.getConfig(), true);
             }
         } else {
-            bitmap7 = this.f2256a.j;
-            bitmap8 = this.f2256a.j;
+            bitmap7 = this.f2291a.h;
+            bitmap8 = this.f2291a.h;
             this.c = bitmap7.copy(bitmap8.getConfig(), true);
         }
         if (this.d.booleanValue()) {
-            this.c = com.baidu.tieba.util.e.d(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.util.m.d(this.c, Integer.parseInt(this.b));
         } else if (this.e.booleanValue()) {
-            this.c = com.baidu.tieba.util.e.f(this.c, Integer.parseInt(this.b));
+            this.c = com.baidu.tieba.util.m.f(this.c, Integer.parseInt(this.b));
         } else {
-            this.c = FilterFactory.createOneKeyFilter(this.f2256a, this.b).apply(this.f2256a, this.c);
+            this.c = FilterFactory.createOneKeyFilter(this.f2291a, this.b).apply(this.f2291a, this.c);
         }
         return this.c;
     }
@@ -95,19 +95,19 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        Button button;
+        TextView textView;
         Bitmap bitmap;
         if (this.c != null && !this.c.isRecycled()) {
-            bitmap = this.f2256a.z;
+            bitmap = this.f2291a.x;
             if (bitmap != this.c) {
                 this.c.recycle();
             }
         }
         this.c = null;
-        progressBar = this.f2256a.q;
+        progressBar = this.f2291a.o;
         progressBar.setVisibility(8);
-        button = this.f2256a.m;
-        button.setClickable(true);
+        textView = this.f2291a.k;
+        textView.setClickable(true);
         super.cancel(true);
     }
 
@@ -122,8 +122,8 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
     */
     public void a(Bitmap bitmap) {
         ProgressBar progressBar;
-        Button button;
-        Button button2;
+        TextView textView;
+        TextView textView2;
         EditHeadImageView editHeadImageView;
         Bitmap bitmap2;
         Bitmap bitmap3;
@@ -134,46 +134,46 @@ public class u extends BdAsyncTask<String, Void, Bitmap> {
         Bitmap bitmap8;
         Bitmap bitmap9;
         EditHeadImageView editHeadImageView2;
-        progressBar = this.f2256a.q;
+        progressBar = this.f2291a.o;
         progressBar.setVisibility(8);
-        button = this.f2256a.m;
-        button.setClickable(true);
-        button2 = this.f2256a.m;
-        button2.setEnabled(true);
+        textView = this.f2291a.k;
+        textView.setClickable(true);
+        textView2 = this.f2291a.k;
+        textView2.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled()) {
-            this.f2256a.G = true;
+            this.f2291a.E = true;
             if (this.d.booleanValue() || this.e.booleanValue()) {
-                editHeadImageView = this.f2256a.g;
+                editHeadImageView = this.f2291a.g;
                 editHeadImageView.setImageBitmap(bitmap);
-                bitmap2 = this.f2256a.j;
+                bitmap2 = this.f2291a.h;
                 if (bitmap2.getWidth() <= 750) {
-                    bitmap6 = this.f2256a.j;
+                    bitmap6 = this.f2291a.h;
                 }
-                EditHeadActivity editHeadActivity = this.f2256a;
-                bitmap3 = this.f2256a.j;
-                editHeadActivity.j = com.baidu.tieba.util.e.a(bitmap3, 750);
+                EditHeadActivity editHeadActivity = this.f2291a;
+                bitmap3 = this.f2291a.h;
+                editHeadActivity.h = com.baidu.tieba.util.m.a(bitmap3, 750);
                 if (this.d.booleanValue()) {
-                    EditHeadActivity editHeadActivity2 = this.f2256a;
-                    bitmap5 = this.f2256a.j;
-                    editHeadActivity2.j = com.baidu.tieba.util.e.d(bitmap5, Integer.parseInt(this.b));
+                    EditHeadActivity editHeadActivity2 = this.f2291a;
+                    bitmap5 = this.f2291a.h;
+                    editHeadActivity2.h = com.baidu.tieba.util.m.d(bitmap5, Integer.parseInt(this.b));
                 } else if (this.e.booleanValue()) {
-                    EditHeadActivity editHeadActivity3 = this.f2256a;
-                    bitmap4 = this.f2256a.j;
-                    editHeadActivity3.j = com.baidu.tieba.util.e.f(bitmap4, Integer.parseInt(this.b));
+                    EditHeadActivity editHeadActivity3 = this.f2291a;
+                    bitmap4 = this.f2291a.h;
+                    editHeadActivity3.h = com.baidu.tieba.util.m.f(bitmap4, Integer.parseInt(this.b));
                 }
             } else {
-                editHeadImageView2 = this.f2256a.g;
+                editHeadImageView2 = this.f2291a.g;
                 editHeadImageView2.a(bitmap);
             }
-            bitmap7 = this.f2256a.z;
+            bitmap7 = this.f2291a.x;
             if (bitmap7 != null) {
-                bitmap8 = this.f2256a.z;
+                bitmap8 = this.f2291a.x;
                 if (!bitmap8.isRecycled()) {
-                    bitmap9 = this.f2256a.z;
+                    bitmap9 = this.f2291a.x;
                     bitmap9.recycle();
                 }
             }
-            this.f2256a.z = bitmap;
+            this.f2291a.x = bitmap;
         }
     }
 }

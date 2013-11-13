@@ -1,6 +1,7 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
+import com.baidu.tieba.util.bg;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,14 +9,14 @@ import org.json.JSONObject;
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1124a;
+    private int f1158a;
     private int b;
     private AntiData c;
     private Context d;
     private ArrayList<as> e;
 
     public ad() {
-        this.f1124a = 0;
+        this.f1158a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -24,7 +25,7 @@ public class ad {
     }
 
     public ad(Context context) {
-        this.f1124a = 0;
+        this.f1158a = 0;
         this.b = 0;
         this.d = null;
         this.e = null;
@@ -38,7 +39,7 @@ public class ad {
     }
 
     public int b() {
-        return this.f1124a;
+        return this.f1158a;
     }
 
     public int c() {
@@ -57,7 +58,7 @@ public class ad {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "paserJson", e.toString());
+            bg.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 
@@ -71,7 +72,7 @@ public class ad {
                     as asVar = new as();
                     asVar.a(jSONObject2);
                     if (this.d != null) {
-                        asVar.c(this.d);
+                        asVar.b(this.d);
                     }
                     if (size < this.e.size()) {
                         this.e.remove(size);
@@ -81,12 +82,12 @@ public class ad {
                     }
                     size++;
                 }
-                this.f1124a = this.e.size();
+                this.f1158a = this.e.size();
             }
             this.b = jSONObject.optInt("comment_amount", 0);
             this.c.setTbs(jSONObject.getJSONObject("tbs").optString("common"));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "paserJson", e.toString());
+            bg.b(getClass().getName(), "paserJson", e.toString());
         }
     }
 }

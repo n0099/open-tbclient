@@ -7,104 +7,137 @@ import com.slidingmenu.lib.R;
 final class g implements Handler.Callback {
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        s sVar;
-        s sVar2;
-        s sVar3;
-        s sVar4;
-        s sVar5;
-        s sVar6;
-        s sVar7;
-        s sVar8;
-        s sVar9;
-        s sVar10;
-        s sVar11;
-        s sVar12;
-        s sVar13;
-        s sVar14;
-        s sVar15;
+        r rVar;
+        r rVar2;
+        r rVar3;
+        r rVar4;
+        r rVar5;
+        r rVar6;
+        r rVar7;
+        r rVar8;
+        r rVar9;
+        r rVar10;
+        r rVar11;
+        r rVar12;
+        r rVar13;
+        r rVar14;
+        r rVar15;
+        r rVar16;
+        r rVar17;
+        r rVar18;
+        r rVar19;
+        r rVar20;
+        r rVar21;
         String str;
-        s sVar16;
-        s sVar17;
+        r rVar22;
+        r rVar23;
         switch (message.what) {
             case 0:
-                sVar14 = f.d;
-                if (sVar14 != null) {
-                    sVar15 = f.d;
+                rVar20 = f.d;
+                if (rVar20 != null) {
+                    rVar21 = f.d;
                     str = f.c;
-                    sVar15.a(str, message.arg1);
-                    s unused = f.d = null;
+                    rVar21.a(str, message.arg1);
+                    r unused = f.d = null;
                     break;
                 }
                 break;
             case 1:
             case 3:
-                sVar3 = f.d;
-                if (sVar3 != null) {
+                rVar9 = f.d;
+                if (rVar9 != null) {
                     if (com.baidu.adp.lib.h.b.b()) {
-                        sVar5 = f.d;
-                        sVar5.a(message.what, al.a(R.string.voice_err_create_file_fail));
+                        rVar11 = f.d;
+                        rVar11.a(message.what, ak.a(R.string.voice_err_create_file_fail));
                     } else {
-                        sVar4 = f.d;
-                        sVar4.a(message.what, al.a(R.string.voice_err_sdcard_nospace));
+                        rVar10 = f.d;
+                        rVar10.a(message.what, ak.a(R.string.voice_err_sdcard_nospace));
                     }
-                    s unused2 = f.d = null;
+                    r unused2 = f.d = null;
+                    break;
+                }
+                break;
+            case 2:
+                rVar3 = f.d;
+                if (rVar3 != null) {
+                    rVar4 = f.d;
+                    rVar4.a(message.what, ak.a(R.string.voice_err_file_fail));
+                    r unused3 = f.d = null;
                     break;
                 }
                 break;
             case 4:
-                sVar12 = f.d;
-                if (sVar12 != null) {
-                    sVar13 = f.d;
-                    sVar13.a(message.arg1);
+                rVar18 = f.d;
+                if (rVar18 != null) {
+                    rVar19 = f.d;
+                    rVar19.a(message.arg1);
+                    break;
+                }
+                break;
+            case 5:
+                rVar5 = f.d;
+                if (rVar5 != null) {
+                    rVar6 = f.d;
+                    rVar6.a(message.what, ak.a(R.string.voice_err_load_lib_fail));
+                    r unused4 = f.d = null;
+                    break;
+                }
+                break;
+            case 6:
+                rVar = f.d;
+                if (rVar != null) {
+                    rVar2 = f.d;
+                    rVar2.a(message.what, ak.a(R.string.voice_err_init_fail));
+                    r unused5 = f.d = null;
                     break;
                 }
                 break;
             case 7:
-                sVar8 = f.d;
-                if (sVar8 != null) {
-                    sVar9 = f.d;
-                    sVar9.a(message.what, al.a(R.string.voice_record_timeout_tip));
-                    s unused3 = f.d = null;
+                rVar14 = f.d;
+                if (rVar14 != null) {
+                    rVar15 = f.d;
+                    rVar15.a(message.what, ak.a(R.string.voice_record_timeout_tip));
+                    r unused6 = f.d = null;
                     break;
                 }
                 break;
             case 8:
-                sVar6 = f.d;
-                if (sVar6 != null) {
-                    sVar7 = f.d;
-                    sVar7.a(message.what, al.a(R.string.voice_record_short_tip));
-                    s unused4 = f.d = null;
+                rVar12 = f.d;
+                if (rVar12 != null) {
+                    rVar13 = f.d;
+                    rVar13.a(message.what, ak.a(R.string.voice_record_short_tip));
+                    r unused7 = f.d = null;
                     com.baidu.adp.lib.h.d.c("----record too short......");
                     break;
                 }
                 break;
             case 9:
-                sVar10 = f.d;
-                if (sVar10 != null) {
-                    sVar11 = f.d;
-                    sVar11.b(message.arg1);
+                rVar16 = f.d;
+                if (rVar16 != null) {
+                    rVar17 = f.d;
+                    rVar17.b(message.arg1);
                     break;
                 }
                 break;
             case 100:
-                sVar = f.d;
-                if (sVar != null) {
-                    sVar2 = f.d;
-                    sVar2.a();
+                rVar7 = f.d;
+                if (rVar7 != null) {
+                    rVar8 = f.d;
+                    rVar8.a();
                     break;
                 }
                 break;
             default:
-                sVar16 = f.d;
-                if (sVar16 != null) {
-                    sVar17 = f.d;
-                    sVar17.a(message.what, al.a(R.string.voice_err_other));
-                    s unused5 = f.d = null;
+                rVar22 = f.d;
+                if (rVar22 != null) {
+                    rVar23 = f.d;
+                    rVar23.a(message.what, ak.a(R.string.voice_err_other));
+                    r unused8 = f.d = null;
                     break;
                 }
                 break;
         }
-        int unused6 = f.f2572a = 0;
+        int unused9 = f.f2625a = 0;
         return false;
     }
 }

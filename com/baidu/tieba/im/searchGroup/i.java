@@ -8,11 +8,11 @@ import android.widget.TextView;
 public class i implements TextView.OnEditorActionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1706a;
+    final /* synthetic */ d f1793a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar) {
-        this.f1706a = dVar;
+        this.f1793a = dVar;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
@@ -20,9 +20,9 @@ public class i implements TextView.OnEditorActionListener {
         SearchGroupActivity searchGroupActivity;
         EditText editText;
         if (i == 2) {
-            searchGroupActivity = this.f1706a.b;
-            editText = this.f1706a.e;
-            searchGroupActivity.c(editText.getText().toString());
+            searchGroupActivity = this.f1793a.b;
+            editText = this.f1793a.e;
+            searchGroupActivity.a(editText.getText().toString());
             return true;
         }
         return false;

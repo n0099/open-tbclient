@@ -15,30 +15,30 @@ import java.util.List;
 public class g implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CreateGroupStepActivity f1495a;
+    final /* synthetic */ CreateGroupStepActivity f1586a;
 
     public g(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1495a = createGroupStepActivity;
+        this.f1586a = createGroupStepActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
     public void a(Message message) {
         boolean z;
         if (message != null && message.getCmd() == 103101) {
-            this.f1495a.a(false);
+            this.f1586a.a(false);
             if (!(message instanceof ResponseAddGroupMessage)) {
-                this.f1495a.b(R.string.group_create_fail);
+                this.f1586a.showToast(R.string.group_create_fail);
                 return;
             }
             ResponseAddGroupMessage responseAddGroupMessage = (ResponseAddGroupMessage) message;
             if (responseAddGroupMessage.hasError()) {
-                this.f1495a.c(responseAddGroupMessage.getErrMsg());
+                this.f1586a.a(responseAddGroupMessage.getErrMsg(), responseAddGroupMessage.getErrNo());
                 return;
             }
             RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
             AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
             if (addGroupInfo == null) {
-                this.f1495a.b(R.string.group_create_fail);
+                this.f1586a.showToast(R.string.group_create_fail);
                 return;
             }
             int groupId = addGroupInfo.getGroupId();
@@ -74,9 +74,9 @@ public class g implements com.baidu.tieba.im.messageCenter.h {
 
     private void a(AddGroupInfoData addGroupInfoData) {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f1495a.getResources().getString(R.string.group_create_name) + ":" + addGroupInfoData.getName() + "\n");
-        sb.append(this.f1495a.getResources().getString(R.string.group_create_number) + ":" + addGroupInfoData.getGroupId() + "\n");
-        sb.append(this.f1495a.getResources().getString(R.string.group_create_share));
-        new AlertDialog.Builder(this.f1495a).setTitle(R.string.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(R.string.group_create_step_done_tip, new i(this)).setNegativeButton(R.string.group_create_step_share_tip, new h(this, addGroupInfoData)).create().show();
+        sb.append(this.f1586a.getResources().getString(R.string.group_create_name) + ":" + addGroupInfoData.getName() + "\n");
+        sb.append(this.f1586a.getResources().getString(R.string.group_create_number) + ":" + addGroupInfoData.getGroupId() + "\n");
+        sb.append(this.f1586a.getResources().getString(R.string.group_create_share));
+        new AlertDialog.Builder(this.f1586a).setTitle(R.string.group_create_success).setIcon((Drawable) null).setCancelable(false).setMessage(sb.toString()).setPositiveButton(R.string.group_create_step_done_tip, new i(this)).setNegativeButton(R.string.group_create_step_share_tip, new h(this, addGroupInfoData)).create().show();
     }
 }

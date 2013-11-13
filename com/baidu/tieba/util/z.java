@@ -1,80 +1,38 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface z {
-    Boolean a(String str, Handler handler, int i);
+public class z implements Runnable {
 
-    void a(Context context);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ y f2521a;
 
-    void a(Boolean bool);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public z(y yVar) {
+        this.f2521a = yVar;
+    }
 
-    void a(String str);
-
-    void a(String str, String str2);
-
-    void a(String str, byte[] bArr);
-
-    void a(ArrayList<BasicNameValuePair> arrayList);
-
-    void a(BasicNameValuePair basicNameValuePair);
-
-    void a(boolean z);
-
-    boolean a();
-
-    long b();
-
-    void b(String str);
-
-    void b(boolean z);
-
-    String c();
-
-    void c(boolean z);
-
-    long d();
-
-    long e();
-
-    long f();
-
-    long g();
-
-    int h();
-
-    long i();
-
-    int j();
-
-    Context k();
-
-    ArrayList<BasicNameValuePair> l();
-
-    int m();
-
-    String n();
-
-    boolean o();
-
-    boolean p();
-
-    String q();
-
-    void r();
-
-    String s();
-
-    void t();
-
-    byte[] u();
-
-    String v();
-
-    String w();
-
-    boolean x();
+    @Override // java.lang.Runnable
+    public void run() {
+        AtomicBoolean atomicBoolean;
+        AtomicBoolean atomicBoolean2;
+        for (int i = 0; i < 60; i++) {
+            atomicBoolean2 = this.f2521a.f2520a;
+            if (!atomicBoolean2.get()) {
+                break;
+            }
+            try {
+                synchronized (this) {
+                    wait(3000L);
+                }
+            } catch (Exception e) {
+                com.baidu.adp.lib.h.d.a("DebugLogger", "write error ", e);
+            }
+        }
+        atomicBoolean = this.f2521a.f2520a;
+        if (!atomicBoolean.get()) {
+            this.f2521a.b(true);
+        }
+    }
 }

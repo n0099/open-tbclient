@@ -6,19 +6,19 @@ import android.widget.CompoundButton;
 public class l implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1630a;
+    final /* synthetic */ f f1717a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(f fVar) {
-        this.f1630a = fVar;
+        this.f1717a = fVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         UpdatesActivity updatesActivity;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.f1630a.l;
-        updatesItemData = this.f1630a.m;
+        updatesActivity = this.f1717a.l;
+        updatesItemData = this.f1717a.m;
         updatesActivity.a(compoundButton, z, updatesItemData);
     }
 }

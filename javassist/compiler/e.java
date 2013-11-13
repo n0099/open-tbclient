@@ -7,14 +7,14 @@ import javassist.bytecode.Bytecode;
 class e extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList f2794a;
+    ArrayList f2842a;
     CodeGen b;
     int d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(CodeGen codeGen) {
         super(codeGen);
-        this.f2794a = new ArrayList();
+        this.f2842a = new ArrayList();
         this.b = codeGen;
         this.d = -1;
     }
@@ -29,7 +29,7 @@ class e extends c {
 
     private void a(Bytecode bytecode) {
         bytecode.g(BDLocation.TypeServerError);
-        this.f2794a.add(new int[]{bytecode.h(), this.d});
+        this.f2842a.add(new int[]{bytecode.h(), this.d});
         bytecode.j(0);
     }
 

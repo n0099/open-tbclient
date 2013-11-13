@@ -6,11 +6,11 @@ import com.baidu.tieba.TiebaApplication;
 public class o extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f2016a;
+    final /* synthetic */ AccountActivity f2008a;
     private String b;
 
     public o(AccountActivity accountActivity, String str) {
-        this.f2016a = accountActivity;
+        this.f2008a = accountActivity;
         this.b = null;
         this.b = str;
     }
@@ -18,12 +18,12 @@ public class o extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tieba.util.ag agVar = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/m/register");
-        agVar.c(false);
-        agVar.a(false);
-        agVar.a("BDUSS", this.b);
-        agVar.a("channel_id", TiebaApplication.g().bg());
-        agVar.a("channel_uid", TiebaApplication.g().bf());
-        agVar.j();
+        com.baidu.tieba.util.ap apVar = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/m/register");
+        apVar.c(false);
+        apVar.a(false);
+        apVar.a("BDUSS", this.b);
+        apVar.a("channel_id", TiebaApplication.g().ba());
+        apVar.a("channel_uid", TiebaApplication.g().aZ());
+        apVar.j();
     }
 }

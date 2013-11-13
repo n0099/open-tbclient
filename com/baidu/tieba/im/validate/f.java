@@ -40,11 +40,11 @@ public class f extends com.baidu.adp.a.c<ValidateItemData> {
         if (this.j != null) {
             String portrait = this.j.getPortrait();
             this.d.setTag(portrait);
-            com.baidu.adp.widget.ImageView.e c = this.i.b().c(portrait);
+            com.baidu.adp.widget.ImageView.e c = this.i.a().c(portrait);
             if (c != null) {
                 c.a(this.d);
             } else {
-                this.i.b().d(portrait, new j(this));
+                this.i.a().d(portrait, new j(this));
             }
             if (!TextUtils.isEmpty(this.j.getUserName())) {
                 this.e.setText(this.j.getUserName());
@@ -62,11 +62,11 @@ public class f extends com.baidu.adp.a.c<ValidateItemData> {
                 this.h.setEnabled(true);
                 this.h.setText(this.i.getString(R.string.validate_im_btn_pass));
             }
-            this.i.m().a(TiebaApplication.g().as() == 1);
-            this.i.m().a(this.c);
+            this.i.getLayoutMode().a(TiebaApplication.g().ap() == 1);
+            this.i.getLayoutMode().a(this.c);
             com.baidu.adp.lib.h.d.d("isShown:" + this.j.isShown());
             if (!this.j.isShown()) {
-                if (TiebaApplication.g().as() == 1) {
+                if (TiebaApplication.g().ap() == 1) {
                     this.c.setBackgroundResource(R.color.validate_item_background_sean_1);
                 } else {
                     this.c.setBackgroundResource(R.color.validate_item_background_sean);

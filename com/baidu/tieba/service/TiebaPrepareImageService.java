@@ -11,7 +11,7 @@ import com.baidu.tieba.TiebaApplication;
 public class TiebaPrepareImageService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f2302a = false;
+    public static volatile boolean f2335a = false;
     private int f;
     private int g;
     private int b = 0;
@@ -74,7 +74,7 @@ public class TiebaPrepareImageService extends Service {
         this.f = intent.getIntExtra("max_size", 750);
         this.g = intent.getIntExtra("display_size", 0);
         TiebaApplication.g().a((com.baidu.tieba.j) null);
-        if (!f2302a) {
+        if (!f2335a) {
             this.d = new p(this, this.b, this.c);
             this.d.execute(new Object[0]);
             return;

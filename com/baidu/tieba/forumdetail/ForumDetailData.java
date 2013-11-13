@@ -5,6 +5,7 @@ import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ForumDetailData implements Serializable {
+    private static final long serialVersionUID = -7426602976779355011L;
     @SerializedName("errno")
     public int errorNo = 0;
     @SerializedName("errmsg")
@@ -94,6 +95,8 @@ public class ForumDetailData implements Serializable {
         public long replyNum = 0;
         @SerializedName("view_num")
         public long viewNum = 0;
+        public String forumName = "";
+        public String postAuthor = "";
         @SerializedName("last_time")
         public String lastTime = "";
         @SerializedName("last_time_int")

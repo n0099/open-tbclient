@@ -1,45 +1,51 @@
 package com.baidu.tieba.util;
 
-import android.content.Context;
-import android.media.MediaScannerConnection;
-import android.net.Uri;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
-public class av implements MediaScannerConnection.MediaScannerConnectionClient {
+class av implements com.baidu.adp.lib.network.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ au f2432a;
+    int f2491a = 0;
+    int b = 0;
+    int c = 0;
+    final /* synthetic */ Handler d;
+    final /* synthetic */ int e;
+    final /* synthetic */ NetWorkCoreByBdHttp f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(au auVar) {
-        this.f2432a = auVar;
+    public av(NetWorkCoreByBdHttp netWorkCoreByBdHttp, Handler handler, int i) {
+        this.f = netWorkCoreByBdHttp;
+        this.d = handler;
+        this.e = i;
     }
 
-    @Override // android.media.MediaScannerConnection.OnScanCompletedListener
-    public void onScanCompleted(String str, Uri uri) {
-        Context context;
-        int i;
-        String str2;
-        MediaScannerConnection mediaScannerConnection;
-        be.b(getClass().getName(), "MediaScannerConnectionClient", "onScanCompleted");
-        au auVar = this.f2432a;
-        context = au.e;
-        i = this.f2432a.c;
-        str2 = this.f2432a.d;
-        auVar.a(context, i, str2, uri);
-        mediaScannerConnection = this.f2432a.h;
-        mediaScannerConnection.disconnect();
-        this.f2432a.h = null;
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
+        if (httpURLConnection != null && i > 0) {
+            this.f2491a = i / 50;
+        }
     }
 
-    @Override // android.media.MediaScannerConnection.MediaScannerConnectionClient
-    public void onMediaScannerConnected() {
-        MediaScannerConnection mediaScannerConnection;
-        File file;
-        be.b(getClass().getName(), "MediaScannerConnectionClient", "onMediaScannerConnected");
-        mediaScannerConnection = this.f2432a.h;
-        file = this.f2432a.b;
-        mediaScannerConnection.scanFile(file.getPath(), "image/*");
+    @Override // com.baidu.adp.lib.network.c
+    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
+        this.b += i - this.c;
+        this.c = i;
+        if (this.d != null) {
+            if (this.b > this.f2491a || i == i2) {
+                this.b = 0;
+                this.d.sendMessage(this.d.obtainMessage(this.e, i, i2));
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a(com.baidu.adp.lib.network.e eVar) {
+        bg.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(eVar.b));
+    }
+
+    @Override // com.baidu.adp.lib.network.c
+    public void a() {
     }
 }

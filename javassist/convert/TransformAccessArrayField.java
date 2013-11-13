@@ -16,7 +16,7 @@ import javassist.h;
 public final class TransformAccessArrayField extends Transformer {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f2798a;
+    private final String f2846a;
     private final f b;
     private c[] c;
     private int d;
@@ -96,8 +96,8 @@ public final class TransformAccessArrayField extends Transformer {
             }
             codeIterator.a(0, i);
             n a2 = codeIterator.a(i, str2 != null ? 5 : 2, false);
-            int i3 = a2.f2770a;
-            int b2 = yVar.b(yVar.a(this.f2798a), c, str);
+            int i3 = a2.f2818a;
+            int b2 = yVar.b(yVar.a(this.f2846a), c, str);
             codeIterator.a(184, i3);
             codeIterator.b(b2, i3 + 1);
             if (str2 != null) {

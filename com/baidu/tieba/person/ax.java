@@ -1,8 +1,8 @@
 package com.baidu.tieba.person;
 
 import android.graphics.Bitmap;
-import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.view.HeadImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,10 +10,10 @@ import com.baidu.tieba.view.HeadImageView;
 public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2187a;
+    final /* synthetic */ PersonChangeActivity f2229a;
 
     private ax(PersonChangeActivity personChangeActivity) {
-        this.f2187a = personChangeActivity;
+        this.f2229a = personChangeActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,15 +25,15 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        Button button;
+        TextView textView;
         HeadImageView headImageView;
-        progressBar = this.f2187a.E;
+        progressBar = this.f2229a.C;
         progressBar.setVisibility(0);
-        button = this.f2187a.g;
-        button.setEnabled(false);
-        headImageView = this.f2187a.d;
+        textView = this.f2229a.g;
+        textView.setEnabled(false);
+        headImageView = this.f2229a.d;
         headImageView.setImageBitmap(null);
-        this.f2187a.B = null;
+        this.f2229a.z = null;
         super.b();
     }
 
@@ -42,18 +42,18 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
-        return com.baidu.tieba.util.w.c(null, "tieba_head_image");
+        return com.baidu.tieba.util.af.c(null, "tieba_head_image");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        Button button;
-        this.f2187a.C = null;
-        progressBar = this.f2187a.E;
+        TextView textView;
+        this.f2229a.A = null;
+        progressBar = this.f2229a.C;
         progressBar.setVisibility(8);
-        button = this.f2187a.g;
-        button.setEnabled(true);
+        textView = this.f2229a.g;
+        textView.setEnabled(true);
         super.cancel(true);
     }
 
@@ -67,20 +67,20 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Bitmap bitmap) {
-        Button button;
+        TextView textView;
         ProgressBar progressBar;
         com.baidu.adp.widget.ImageView.e eVar;
         HeadImageView headImageView;
         super.a((ax) bitmap);
-        this.f2187a.C = null;
-        button = this.f2187a.g;
-        button.setEnabled(true);
-        progressBar = this.f2187a.E;
+        this.f2229a.A = null;
+        textView = this.f2229a.g;
+        textView.setEnabled(true);
+        progressBar = this.f2229a.C;
         progressBar.setVisibility(8);
         if (bitmap != null) {
-            this.f2187a.B = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
-            eVar = this.f2187a.B;
-            headImageView = this.f2187a.d;
+            this.f2229a.z = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
+            eVar = this.f2229a.z;
+            headImageView = this.f2229a.d;
             eVar.a(headImageView);
         }
     }

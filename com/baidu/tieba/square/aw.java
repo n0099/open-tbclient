@@ -1,24 +1,24 @@
 package com.baidu.tieba.square;
-
-import android.widget.ImageView;
-import android.widget.TextView;
 /* loaded from: classes.dex */
-class aw {
+public class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f2355a;
-    ImageView b;
-    TextView c;
-    TextView d;
-    TextView e;
-    final /* synthetic */ au f;
+    protected String f2391a = null;
+    protected String b = null;
 
-    private aw(au auVar) {
-        this.f = auVar;
+    public String a() {
+        return this.f2391a;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aw(au auVar, av avVar) {
-        this(auVar);
+    public void a(String str) {
+        this.f2391a = str;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 }

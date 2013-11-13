@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class c implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1492a;
+    CreateGroupStepActivity f1583a;
     View b;
     ImageView c;
     EditText d;
@@ -25,11 +25,11 @@ public class c implements q {
     }
 
     public c(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1492a = null;
+        this.f1583a = null;
         this.b = null;
         this.c = null;
         this.d = null;
-        this.f1492a = createGroupStepActivity;
+        this.f1583a = createGroupStepActivity;
         this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step1_view, (ViewGroup) null);
         this.d = (EditText) this.b.findViewById(R.id.step1_group_name);
         this.c = (ImageView) this.b.findViewById(R.id.step1_img_bg);
@@ -53,7 +53,7 @@ public class c implements q {
     @Override // com.baidu.tieba.im.creategroup.q
     public View f() {
         if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1492a, "create_g_name", "pv", 1);
+            StatService.onEvent(this.f1583a, "create_g_name", "pv", 1);
         }
         return this.b;
     }
@@ -65,7 +65,7 @@ public class c implements q {
 
     @Override // com.baidu.tieba.im.creategroup.q
     public void i() {
-        this.f1492a.m().a(TiebaApplication.g().as() == 1);
-        this.f1492a.m().a(this.b);
+        this.f1583a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
+        this.f1583a.getLayoutMode().a(this.b);
     }
 }

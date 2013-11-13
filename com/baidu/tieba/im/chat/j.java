@@ -9,10 +9,10 @@ import java.lang.ref.WeakReference;
 public class j implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1461a;
+    final /* synthetic */ a f1553a;
 
     private j(a aVar) {
-        this.f1461a = aVar;
+        this.f1553a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,28 +31,28 @@ public class j implements com.baidu.tieba.im.messageCenter.h {
         if (message == null) {
             com.baidu.adp.lib.h.d.a("msg == null");
         } else if (message.getCmd() == -100) {
-            this.f1461a.a(message);
+            this.f1553a.a(message);
         } else if (message.getCmd() == 202001) {
-            this.f1461a.b(message);
+            this.f1553a.b(message);
         } else if (message.getCmd() == -103) {
             if (message instanceof LoadDraftResponsedMessage) {
-                weakReference4 = this.f1461a.b;
+                weakReference4 = this.f1553a.b;
                 if (weakReference4 != null) {
-                    weakReference5 = this.f1461a.b;
+                    weakReference5 = this.f1553a.b;
                     if (weakReference5.get() != null) {
-                        weakReference6 = this.f1461a.b;
-                        ((y) weakReference6.get()).a(message);
+                        weakReference6 = this.f1553a.b;
+                        ((x) weakReference6.get()).a(message);
                     }
                 }
             }
         } else if (message.getCmd() == -105) {
             if (message instanceof LoadHistoryResponsedMessage) {
-                weakReference = this.f1461a.b;
+                weakReference = this.f1553a.b;
                 if (weakReference != null) {
-                    weakReference2 = this.f1461a.b;
+                    weakReference2 = this.f1553a.b;
                     if (weakReference2.get() != null) {
-                        weakReference3 = this.f1461a.b;
-                        ((y) weakReference3.get()).a(message);
+                        weakReference3 = this.f1553a.b;
+                        ((x) weakReference3.get()).a(message);
                     }
                 }
             }

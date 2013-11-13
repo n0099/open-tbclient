@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.validate;
 
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.util.ae;
+import com.baidu.tieba.util.an;
 import com.google.gson.Gson;
 import java.io.Serializable;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ValidateItemData implements ae, Serializable {
+public class ValidateItemData implements an, Serializable {
     private static final long serialVersionUID = 3854743775726463617L;
     private String UserId;
     private String applyReason;
@@ -107,17 +107,22 @@ public class ValidateItemData implements ae, Serializable {
         this.UserId = str;
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.an
     public LinkedList<String> getImageUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getPortrait());
         return linkedList;
     }
 
-    @Override // com.baidu.tieba.util.ae
+    @Override // com.baidu.tieba.util.an
     public LinkedList<String> getPhotoUrl() {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add(getPortrait());
         return linkedList;
+    }
+
+    @Override // com.baidu.tieba.util.an
+    public LinkedList<String> getForumPhotoUrl() {
+        return null;
     }
 }

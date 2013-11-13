@@ -1,66 +1,83 @@
 package com.baidu.tieba.model;
 
-import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.UserData;
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd {
-    private ArrayList<String> c;
-    private int d = 0;
+public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    private UserData f1912a = new UserData();
-    private AntiData b = new AntiData();
+    final /* synthetic */ ba f1907a;
 
-    public bd() {
-        this.c = null;
-        this.c = new ArrayList<>();
-        a(0);
+    private bd(ba baVar) {
+        this.f1907a = baVar;
     }
 
-    public UserData a() {
-        return this.f1912a;
-    }
-
-    public AntiData b() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        try {
-            a(new JSONObject(str));
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b("LoginModel", "parserJson", "error = " + e.getMessage());
-        }
-    }
-
-    public void a(JSONObject jSONObject) {
-        try {
-            this.f1912a.parserJson(jSONObject.optJSONObject("user"));
-            this.b.parserJson(jSONObject.optJSONObject("anti"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.c.add(optJSONArray.optString(i, null));
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Boolean a(String... strArr) {
+        ArrayList arrayList;
+        Context context;
+        Context context2;
+        com.baidu.tieba.util.bf a2 = com.baidu.tieba.util.bf.a();
+        arrayList = this.f1907a.b;
+        Iterator it = arrayList.iterator();
+        boolean z = true;
+        while (it.hasNext()) {
+            com.baidu.tieba.data.ah ahVar = (com.baidu.tieba.data.ah) it.next();
+            if (ahVar != null && ahVar.d != null) {
+                try {
+                    context = this.f1907a.c;
+                    com.baidu.tieba.motu_gallery.b.a(context, ahVar.d, a2.e(), a2.e());
+                    context2 = this.f1907a.c;
+                    Bitmap a3 = com.baidu.tieba.motu_gallery.b.a(context2, ahVar.d, 150, 150);
+                    if (a3 != null) {
+                        ahVar.e = a3;
+                    }
+                } catch (Exception e) {
+                    z = false;
                 }
             }
-            a(jSONObject.optInt("retrytime"));
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b("LoginModel", "parserJson", "error = " + e.getMessage());
+            c((Object[]) new com.baidu.tieba.data.ah[]{ahVar});
+        }
+        return Boolean.valueOf(z);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel(true);
+        this.f1907a.f1906a = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Boolean bool) {
+        bc bcVar;
+        bc bcVar2;
+        this.f1907a.f1906a = null;
+        bcVar = this.f1907a.d;
+        if (bcVar != null) {
+            bcVar2 = this.f1907a.d;
+            bcVar2.a(bool.booleanValue(), "载入失败");
         }
     }
 
-    public ArrayList<String> c() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int d() {
-        return this.d;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void b(com.baidu.tieba.data.ah... ahVarArr) {
+        bc bcVar;
+        bc bcVar2;
+        bcVar = this.f1907a.d;
+        if (bcVar != null) {
+            bcVar2 = this.f1907a.d;
+            bcVar2.a(ahVarArr[0]);
+        }
     }
 }

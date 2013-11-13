@@ -53,7 +53,7 @@ public class e {
     private Class p = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2823a = null;
+    public String f2871a = null;
     private boolean q = b;
     private boolean r = c;
 
@@ -135,8 +135,8 @@ public class e {
         g();
         try {
             javassist.bytecode.i e2 = e();
-            if (this.f2823a != null) {
-                a.a(e2, this.f2823a);
+            if (this.f2871a != null) {
+                a.a(e2, this.f2871a);
             }
             this.p = a.a(e2, classLoader, c());
             a("_filter_signature", this.l);
@@ -323,7 +323,7 @@ public class e {
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             j jVar = (j) it.next();
-            a(bytecode, jVar.f2825a, jVar.b, jVar.d, jVar.c, 1, 0);
+            a(bytecode, jVar.f2873a, jVar.b, jVar.d, jVar.c, 1, 0);
         }
         bytecode.k(0);
         bytecode.g(str, "_methods_", "[Ljava/lang/reflect/Method;");

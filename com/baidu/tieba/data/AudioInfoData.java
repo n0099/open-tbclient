@@ -1,5 +1,6 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -16,7 +17,7 @@ public class AudioInfoData extends b implements Serializable {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("InfoData", "parserJson", "error = " + e.getMessage());
+                bg.b("InfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
@@ -36,7 +37,7 @@ public class AudioInfoData extends b implements Serializable {
                     this.voiceId = optJSONObject2.optString("voice_md5", null);
                 }
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("InfoData", "parserJson", "error = " + e.getMessage());
+                bg.b("InfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

@@ -1,32 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class di implements AdapterView.OnItemClickListener {
+public class di implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dd f2122a;
+    final /* synthetic */ cp f2141a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public di(dd ddVar) {
-        this.f2122a = ddVar;
+    public di(cp cpVar) {
+        this.f2141a = cpVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.write.p pVar;
-        EditText editText;
-        EditText editText2;
-        pVar = this.f2122a.C;
-        String a2 = pVar.a(i);
-        if (a2 != null) {
-            editText = this.f2122a.E;
-            int selectionStart = editText.getSelectionStart();
-            editText2 = this.f2122a.E;
-            editText2.getText().insert(selectionStart, a2);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (eVar != null) {
+            bdListView = this.f2141a.i;
+            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(eVar.f());
+                bdListView2 = this.f2141a.i;
+                imageView = (ImageView) bdListView2.findViewWithTag(str);
+            }
         }
     }
 }

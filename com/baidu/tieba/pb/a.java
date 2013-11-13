@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<String> f2037a;
+    private ArrayList<String> f2058a;
     private String d;
     private String e;
     private String f;
@@ -19,14 +19,14 @@ public class a {
     private c l = null;
 
     public a(ArrayList<String> arrayList, String str, String str2, String str3) {
-        this.f2037a = null;
+        this.f2058a = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.k = false;
-        this.f2037a = arrayList;
-        if (this.f2037a == null) {
-            this.f2037a = new ArrayList<>();
+        this.f2058a = arrayList;
+        if (this.f2058a == null) {
+            this.f2058a = new ArrayList<>();
         }
         this.d = str2;
         this.e = str;
@@ -71,6 +71,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(com.baidu.tieba.data.ab abVar) {
+        if (abVar.j() != null && abVar.j().length() > 0) {
+            return abVar.j();
+        }
         StringBuilder sb = new StringBuilder(150);
         if (abVar.g() * abVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
             double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (abVar.g() * abVar.f()));
@@ -85,7 +88,7 @@ public class a {
             sb.append(String.valueOf(abVar.g()));
         }
         sb.append("&src=");
-        sb.append(com.baidu.tieba.util.bc.d(abVar.b()));
+        sb.append(com.baidu.tieba.util.be.d(abVar.b()));
         return sb.toString();
     }
 }

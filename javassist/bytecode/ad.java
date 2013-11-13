@@ -8,7 +8,7 @@ import java.util.Map;
 public final class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    y f2708a;
+    y f2756a;
     int b;
     int c;
     String d;
@@ -16,7 +16,7 @@ public final class ad {
     ArrayList f;
 
     private ad(y yVar) {
-        this.f2708a = yVar;
+        this.f2756a = yVar;
         this.b = 0;
         this.f = null;
     }
@@ -43,7 +43,7 @@ public final class ad {
         this.c = yVar.c(b());
         this.e = yVar.c(d());
         this.f = e.a(this.f, yVar);
-        this.f2708a = yVar;
+        this.f2756a = yVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -63,21 +63,21 @@ public final class ad {
         }
         int e = e();
         if (e != 0) {
-            arrayList.add(new ConstantAttribute(yVar, this.f2708a.a(e, yVar, (Map) null)));
+            arrayList.add(new ConstantAttribute(yVar, this.f2756a.a(e, yVar, (Map) null)));
         }
         this.f = arrayList;
         this.c = yVar.c(b());
         this.e = yVar.c(d());
-        this.f2708a = yVar;
+        this.f2756a = yVar;
     }
 
     public y a() {
-        return this.f2708a;
+        return this.f2756a;
     }
 
     public String b() {
         if (this.d == null) {
-            this.d = this.f2708a.w(this.c);
+            this.d = this.f2756a.w(this.c);
         }
         return this.d;
     }
@@ -91,7 +91,7 @@ public final class ad {
     }
 
     public String d() {
-        return this.f2708a.w(this.e);
+        return this.f2756a.w(this.e);
     }
 
     public int e() {
@@ -113,7 +113,7 @@ public final class ad {
         int readUnsignedShort = dataInputStream.readUnsignedShort();
         this.f = new ArrayList();
         for (int i = 0; i < readUnsignedShort; i++) {
-            this.f.add(e.a(this.f2708a, dataInputStream));
+            this.f.add(e.a(this.f2756a, dataInputStream));
         }
     }
 

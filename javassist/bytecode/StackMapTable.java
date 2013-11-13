@@ -19,7 +19,7 @@ public class StackMapTable extends e {
     @Override // javassist.bytecode.e
     public e a(y yVar, Map map) {
         try {
-            return new StackMapTable(yVar, new be(this.f2763a, this.c, yVar, map).a());
+            return new StackMapTable(yVar, new be(this.f2811a, this.c, yVar, map).a());
         } catch (BadBytecode e) {
             throw new RuntimeCopyException("bad bytecode. fatal?");
         }
@@ -32,8 +32,9 @@ public class StackMapTable extends e {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.e
-    void a(DataOutputStream dataOutputStream) {
+    public void a(DataOutputStream dataOutputStream) {
         super.a(dataOutputStream);
     }
 

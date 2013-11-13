@@ -1,20 +1,16 @@
 package com.baidu.tieba.frs;
-
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements DialogInterface.OnDismissListener {
+class e implements com.baidu.adp.widget.ListView.r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1281a;
+    final /* synthetic */ FrsActivity f1349a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsActivity frsActivity) {
-        this.f1281a = frsActivity;
+        this.f1349a = frsActivity;
     }
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.f1281a.A();
+    @Override // com.baidu.adp.widget.ListView.r
+    public void a() {
     }
 }

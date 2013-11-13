@@ -12,21 +12,21 @@ import org.json.JSONObject;
 class k extends JsonHttpResponseHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShareContent f2832a;
+    final /* synthetic */ ShareContent f2880a;
     final /* synthetic */ IBaiduListener b;
     final /* synthetic */ aq c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(aq aqVar, ShareContent shareContent, IBaiduListener iBaiduListener) {
         this.c = aqVar;
-        this.f2832a = shareContent;
+        this.f2880a = shareContent;
         this.b = iBaiduListener;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
     public void onFailure(Throwable th, String str) {
-        this.c.a(this.f2832a, this.b);
+        this.c.a(this.f2880a, this.b);
     }
 
     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
@@ -34,10 +34,10 @@ class k extends JsonHttpResponseHandler {
         try {
             String string = jSONObject.getString(SocialConstants.PARAM_URL);
             if (!TextUtils.isEmpty(string)) {
-                this.f2832a.setLinkUrl(string);
+                this.f2880a.setLinkUrl(string);
             }
         } catch (JSONException e) {
         }
-        this.c.a(this.f2832a, this.b);
+        this.c.a(this.f2880a, this.b);
     }
 }

@@ -23,7 +23,7 @@ public class MyPostActivity extends ActivityGroup {
     private RadioGroup g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f2159a = -1;
+    protected int f2201a = -1;
     private String i = null;
     private int j = 0;
 
@@ -72,18 +72,18 @@ public class MyPostActivity extends ActivityGroup {
     @Override // android.app.ActivityGroup, android.app.Activity
     protected void onResume() {
         super.onResume();
-        if (TiebaApplication.g().as() != this.f2159a) {
-            this.f2159a = TiebaApplication.g().as();
-            a(this.f2159a);
+        if (TiebaApplication.g().ap() != this.f2201a) {
+            this.f2201a = TiebaApplication.g().ap();
+            a(this.f2201a);
         }
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.bb.a(this.b, i);
-        com.baidu.tieba.util.bb.d(this.c, i);
-        com.baidu.tieba.util.bb.f(this.f, i);
-        com.baidu.tieba.util.bb.a(this.d, i);
-        com.baidu.tieba.util.bb.b(this.e, i);
+        com.baidu.tieba.util.bd.a(this.b, i);
+        com.baidu.tieba.util.bd.d(this.c, i);
+        com.baidu.tieba.util.bd.e(this.f, i);
+        com.baidu.tieba.util.bd.a(this.d, i);
+        com.baidu.tieba.util.bd.b(this.e, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -96,7 +96,7 @@ public class MyPostActivity extends ActivityGroup {
         String currentId = getLocalActivityManager().getCurrentId();
         Activity currentActivity = getLocalActivityManager().getCurrentActivity();
         if (currentId.equals("all")) {
-            ((AllPostActivity) currentActivity).d(0);
+            ((AllPostActivity) currentActivity).a(0);
             return;
         }
         if (currentId.equals("my_thread") || currentId.equals("my_reply")) {

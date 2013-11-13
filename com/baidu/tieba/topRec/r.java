@@ -8,16 +8,16 @@ import com.slidingmenu.lib.R;
 class r implements com.baidu.adp.lib.guide.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f2400a;
+    final /* synthetic */ p f2459a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.f2400a = pVar;
+        this.f2459a = pVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        ImageView imageView = new ImageView(this.f2400a.f2398a);
+        ImageView imageView = new ImageView(this.f2459a.f2457a);
         imageView.setBackgroundResource(R.drawable.lead_metadata);
         return imageView;
     }

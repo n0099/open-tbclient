@@ -3,8 +3,8 @@ package com.baidu.tieba.person;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build;
-import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import cn.jingling.lib.filters.FilterFactory;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.util.UtilHelper;
@@ -15,10 +15,10 @@ import java.util.HashMap;
 public class v extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2257a;
+    final /* synthetic */ EditHeadActivity f2292a;
 
     private v(EditHeadActivity editHeadActivity) {
-        this.f2257a = editHeadActivity;
+        this.f2292a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,17 +37,17 @@ public class v extends BdAsyncTask<Object, Integer, Bitmap> {
         HashMap hashMap2;
         Bitmap bitmap = null;
         try {
-            Bitmap c = com.baidu.tieba.util.w.c(null, "tieba_resized_image");
+            Bitmap c = com.baidu.tieba.util.af.c(null, "tieba_resized_image");
             try {
                 if (c.getWidth() > 750 || c.getHeight() > 750) {
-                    Bitmap a2 = com.baidu.tieba.util.e.a(c, 750);
+                    Bitmap a2 = com.baidu.tieba.util.m.a(c, 750);
                     try {
                         c.recycle();
                         c = a2;
                     } catch (Exception e) {
                         e = e;
                         bitmap = a2;
-                        com.baidu.tieba.util.be.b(getClass().getName(), "GetImageTask", e.toString());
+                        com.baidu.tieba.util.bg.b(getClass().getName(), "GetImageTask", e.toString());
                         return bitmap;
                     }
                 }
@@ -55,21 +55,21 @@ public class v extends BdAsyncTask<Object, Integer, Bitmap> {
                     c.recycle();
                     return null;
                 }
-                int a3 = UtilHelper.a((Context) this.f2257a, 63.5f);
+                int a3 = UtilHelper.a((Context) this.f2292a, 63.5f);
                 if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.f2257a.D;
+                    z = this.f2292a.B;
                     if (z) {
-                        Bitmap a4 = com.baidu.tieba.util.e.a(com.baidu.tieba.util.e.b(c, a3), UtilHelper.a((Context) this.f2257a, 5.0f));
-                        this.f2257a.I = new HashMap();
-                        this.f2257a.J = new HashMap();
-                        hashMap = this.f2257a.I;
+                        Bitmap a4 = com.baidu.tieba.util.m.a(com.baidu.tieba.util.m.b(c, a3), UtilHelper.a((Context) this.f2292a, 5.0f));
+                        this.f2292a.G = new HashMap();
+                        this.f2292a.H = new HashMap();
+                        hashMap = this.f2292a.G;
                         hashMap.put("normal", a4);
                         strArr = EditHeadActivity.f;
                         for (String str : strArr) {
                             String substring = str.substring(0, str.indexOf("|"));
                             if (!substring.equals("normal")) {
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f2257a, substring).apply(this.f2257a, a4.copy(a4.getConfig() == null ? com.baidu.tieba.data.h.m : a4.getConfig(), true));
-                                hashMap2 = this.f2257a.I;
+                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f2292a, substring).apply(this.f2292a, a4.copy(a4.getConfig() == null ? com.baidu.tieba.data.h.n : a4.getConfig(), true));
+                                hashMap2 = this.f2292a.G;
                                 hashMap2.put(substring, apply);
                             }
                         }
@@ -89,23 +89,23 @@ public class v extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         ProgressBar progressBar;
-        Button button;
-        progressBar = this.f2257a.q;
+        TextView textView;
+        progressBar = this.f2292a.o;
         progressBar.setVisibility(0);
-        button = this.f2257a.m;
-        button.setEnabled(false);
+        textView = this.f2292a.k;
+        textView.setEnabled(false);
         super.b();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
-        Button button;
-        this.f2257a.r = null;
-        progressBar = this.f2257a.q;
+        TextView textView;
+        this.f2292a.p = null;
+        progressBar = this.f2292a.o;
         progressBar.setVisibility(8);
-        button = this.f2257a.m;
-        button.setEnabled(true);
+        textView = this.f2292a.k;
+        textView.setEnabled(true);
         super.cancel(true);
     }
 
@@ -114,24 +114,24 @@ public class v extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Bitmap bitmap) {
         ProgressBar progressBar;
-        Button button;
+        TextView textView;
         EditHeadImageView editHeadImageView;
         boolean z;
         String[] strArr;
         super.a((v) bitmap);
-        this.f2257a.r = null;
-        this.f2257a.j = bitmap;
-        progressBar = this.f2257a.q;
+        this.f2292a.p = null;
+        this.f2292a.h = bitmap;
+        progressBar = this.f2292a.o;
         progressBar.setVisibility(8);
-        button = this.f2257a.m;
-        button.setEnabled(true);
+        textView = this.f2292a.k;
+        textView.setEnabled(true);
         if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            editHeadImageView = this.f2257a.g;
+            editHeadImageView = this.f2292a.g;
             editHeadImageView.setImageBitmap(bitmap);
             if (Build.VERSION.SDK_INT >= 7) {
-                z = this.f2257a.D;
+                z = this.f2292a.B;
                 if (z) {
-                    EditHeadActivity editHeadActivity = this.f2257a;
+                    EditHeadActivity editHeadActivity = this.f2292a;
                     strArr = EditHeadActivity.f;
                     editHeadActivity.a(strArr);
                 }

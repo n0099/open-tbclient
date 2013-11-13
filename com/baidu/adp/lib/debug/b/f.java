@@ -33,14 +33,14 @@ public class f implements View.OnClickListener {
             context = this.f467a.k;
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             context2 = this.f467a.k;
-            builder.setTitle(((Activity) context2).getText(com.baidu.adp.g.prompt));
+            builder.setTitle(((Activity) context2).getText(com.baidu.adp.f.prompt));
             context3 = this.f467a.k;
-            builder.setMessage(((Activity) context3).getText(com.baidu.adp.g.prompt_close_debug));
+            builder.setMessage(((Activity) context3).getText(com.baidu.adp.f.prompt_close_debug));
             g gVar = new g(this);
             context4 = this.f467a.k;
-            builder.setPositiveButton(((Activity) context4).getText(com.baidu.adp.g.dialog_ok), gVar);
+            builder.setPositiveButton(((Activity) context4).getText(com.baidu.adp.f.dialog_ok), gVar);
             context5 = this.f467a.k;
-            builder.setNegativeButton(((Activity) context5).getText(com.baidu.adp.g.dialog_cancel), gVar);
+            builder.setNegativeButton(((Activity) context5).getText(com.baidu.adp.f.dialog_cancel), gVar);
             this.f467a.l = builder.create();
         }
         dialog2 = this.f467a.l;

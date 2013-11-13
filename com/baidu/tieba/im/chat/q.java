@@ -1,19 +1,34 @@
 package com.baidu.tieba.im.chat;
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class q implements com.baidu.tieba.im.a<Void> {
+class q implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1467a;
+    final /* synthetic */ GroupSettingActivity f1559a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(GroupSettingActivity groupSettingActivity) {
-        this.f1467a = groupSettingActivity;
+        this.f1559a = groupSettingActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.a
-    public void a(Void r4) {
-        com.baidu.tieba.im.pushNotify.a.g().b(false, (com.baidu.tieba.im.a<Void>) null);
-        this.f1467a.finish();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        com.baidu.tieba.im.model.v vVar;
+        com.baidu.tieba.im.model.v vVar2;
+        s sVar;
+        com.baidu.tieba.im.model.v vVar3;
+        com.baidu.tieba.im.model.v vVar4;
+        vVar = this.f1559a.d;
+        if (vVar == null) {
+            this.f1559a.d = new com.baidu.tieba.im.model.v();
+        }
+        vVar2 = this.f1559a.d;
+        sVar = this.f1559a.b;
+        vVar2.a(Integer.parseInt(sVar.c()));
+        vVar3 = this.f1559a.d;
+        vVar3.b(i);
+        vVar4 = this.f1559a.d;
+        vVar4.a();
     }
 }

@@ -1,64 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bg implements com.baidu.adp.lib.guide.b {
+public class bg extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1276a;
-    final /* synthetic */ boolean b;
-    final /* synthetic */ bf c;
+    final /* synthetic */ FrsImageActivity f1333a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(bf bfVar, int i, boolean z) {
-        this.c = bfVar;
-        this.f1276a = i;
-        this.b = z;
+    public bg(FrsImageActivity frsImageActivity) {
+        this.f1333a = frsImageActivity;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        View inflate = layoutInflater.inflate(R.layout.frs_im_group_cover, (ViewGroup) null);
-        ((com.baidu.tieba.j) this.c.f1275a).m().a(inflate);
-        TextView textView = (TextView) inflate.findViewById(R.id.frs_chat_group_text_num_cover);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.frs_chat_group_text2_cover);
-        if (textView != null && textView2 != null) {
-            if (this.f1276a > 0) {
-                textView.setText(String.valueOf(this.f1276a));
-                textView.setVisibility(0);
-                textView2.setVisibility(0);
-            } else {
-                textView.setText(SocialConstants.FALSE);
-                textView.setVisibility(8);
-                textView2.setVisibility(8);
-            }
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        com.baidu.tieba.model.ar arVar;
+        bl blVar;
+        if (obj != null && (obj instanceof com.baidu.tieba.data.ag)) {
+            arVar = this.f1333a.r;
+            arVar.a().setLike(1);
+            blVar = this.f1333a.l;
+            blVar.f().c(true);
+            this.f1333a.showToast(this.f1333a.getString(R.string.like_success));
+            return;
         }
-        return inflate;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 2;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 16;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return this.b ? 351 : 250;
+        this.f1333a.showToast(this.f1333a.getString(R.string.had_liked_forum));
     }
 }

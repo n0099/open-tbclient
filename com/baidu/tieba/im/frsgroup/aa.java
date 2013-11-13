@@ -1,260 +1,136 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tieba.im.data.UserData;
-import com.baidu.tieba.util.bc;
-import com.baidu.tieba.view.HeadImageView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 /* loaded from: classes.dex */
-public class aa extends BaseAdapter {
+public class aa extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private MembersActivity f1553a;
-    private ac b;
-    private boolean c;
-    private boolean d;
-    private boolean e;
-    private com.baidu.tieba.util.a f;
-    private Set<Long> g = new HashSet();
-    private List<UserData> h = new ArrayList();
+    private MembersActivity f1643a;
+    private w c;
+    private Button d;
+    private NavigationBar e;
+    private BdListView f;
+    private InitGuideView g;
+    private ViewGroup h;
+    private ViewGroup i;
+    private ViewGroup j;
+    private Button k;
+    private Button l;
+    private ProgressBar m;
 
-    public void a(ac acVar) {
-        this.b = acVar;
+    public aa(MembersActivity membersActivity) {
+        super(membersActivity);
+        this.f1643a = membersActivity;
+        membersActivity.setContentView(R.layout.im_members_activity);
+        a(membersActivity);
+        b(membersActivity);
+        c(membersActivity);
     }
 
-    public void a(List<UserData> list) {
-        this.h.addAll(list);
+    private void a(MembersActivity membersActivity) {
+        this.e = (NavigationBar) this.f1643a.findViewById(R.id.view_navigation_bar);
+        this.e.a(this.f1643a.getString(R.string.members_title));
+        this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ab(this));
+        this.d = this.e.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1643a.getString(R.string.members_order));
+        this.d.setOnClickListener(membersActivity);
     }
 
-    public void b(List<Long> list) {
-        if (list != null && list.size() > 0) {
-            for (Long l : list) {
-                long longValue = l.longValue();
-                Iterator<UserData> it = this.h.iterator();
-                while (it.hasNext()) {
-                    if (it.next().getUserId() == longValue) {
-                        it.remove();
-                    }
-                }
-            }
-        }
+    private void b(MembersActivity membersActivity) {
+        this.f = (BdListView) membersActivity.findViewById(R.id.members_list);
+        this.g = (InitGuideView) membersActivity.findViewById(R.id.members_guide);
+        this.c = new w(this.f1643a);
+        this.f.setAdapter((ListAdapter) this.c);
     }
 
-    public void a() {
-        this.g.clear();
-    }
-
-    public Set<Long> b() {
-        return this.g;
-    }
-
-    public void a(Long l) {
-        if (this.g.contains(l)) {
-            this.g.remove(l);
-        } else {
-            this.g.add(l);
-        }
-        notifyDataSetChanged();
+    private void c(MembersActivity membersActivity) {
+        this.h = (ViewGroup) membersActivity.findViewById(R.id.bottom_manager);
+        this.i = (ViewGroup) membersActivity.findViewById(R.id.bottom_edit);
+        this.j = (ViewGroup) membersActivity.findViewById(R.id.bottom_send_edit);
+        this.k = (Button) membersActivity.findViewById(R.id.edit_cancel);
+        this.l = (Button) membersActivity.findViewById(R.id.edit_num);
+        this.m = (ProgressBar) membersActivity.findViewById(R.id.progress_loading);
+        b(0);
     }
 
     public void a(boolean z) {
-        if (z) {
-            this.h.clear();
-        }
-        this.d = false;
-        this.c = true;
+        this.m.setVisibility(z ? 0 : 8);
     }
 
-    public aa(MembersActivity membersActivity) {
-        this.f1553a = membersActivity;
-        this.f = new com.baidu.tieba.util.a(membersActivity);
-        this.f.d(false);
-        this.d = false;
+    public ViewGroup a() {
+        return this.i;
+    }
+
+    public void a(int i) {
+        this.e.c(0);
+    }
+
+    public Button e() {
+        return this.k;
+    }
+
+    public Button f() {
+        return this.l;
+    }
+
+    public void b(int i) {
+        this.l.setText(this.f1643a.getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 
     public void b(boolean z) {
-        this.c = z;
-    }
-
-    public boolean c() {
-        return this.c;
+        if (z) {
+            this.h.setVisibility(0);
+            this.i.setVisibility(0);
+            this.j.setVisibility(8);
+            return;
+        }
+        this.h.setVisibility(8);
     }
 
     public void c(boolean z) {
-        this.d = z;
+        if (z) {
+            this.i.setVisibility(8);
+            this.j.setVisibility(0);
+            return;
+        }
+        this.i.setVisibility(0);
+        this.j.setVisibility(8);
     }
 
-    public boolean d() {
-        return this.e;
+    public void g() {
+        this.f.a();
+    }
+
+    public InitGuideView h() {
+        return this.g;
+    }
+
+    public w i() {
+        return this.c;
+    }
+
+    public void j() {
+        this.c.notifyDataSetChanged();
+    }
+
+    public Button k() {
+        return this.d;
     }
 
     public void d(boolean z) {
-        this.e = z;
+        this.d.setEnabled(z);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.h != null) {
-            int size = this.h.size();
-            if (this.d) {
-                return size + 1;
-            }
-            return size;
-        }
-        return 0;
+    public void c(int i) {
+        this.d.setText(this.f1643a.getResources().getStringArray(R.array.members_order_by_short)[i]);
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        int itemId = (int) getItemId(i);
-        if (itemId < 0 || itemId >= this.h.size()) {
-            return null;
-        }
-        return this.h.get(itemId);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        if (this.d && i == getCount() - 1) {
-            i = -2;
-        }
-        return i;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        return getItemId(i) >= 0 ? 0 : 1;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        return 2;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        ad adVar;
-        View view2;
-        if (this.h != null) {
-            if (view == null) {
-                ad adVar2 = new ad();
-                if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.f1553a).inflate(R.layout.im_members_list_foot, viewGroup, false);
-                    adVar2.f1555a = (LinearLayout) inflate.findViewById(R.id.list_more);
-                    adVar2.c = (TextView) inflate.findViewById(R.id.more_title);
-                    adVar2.d = (ProgressBar) inflate.findViewById(R.id.more_progress);
-                    view2 = inflate;
-                } else {
-                    View inflate2 = LayoutInflater.from(this.f1553a).inflate(R.layout.im_members_list_item, viewGroup, false);
-                    adVar2.b = (LinearLayout) inflate2.findViewById(R.id.list_content);
-                    adVar2.f = (HeadImageView) inflate2.findViewById(R.id.item_head);
-                    adVar2.f.setAutoChangeStyle(false);
-                    adVar2.g = (TextView) inflate2.findViewById(R.id.item_name);
-                    adVar2.h = (ImageView) inflate2.findViewById(R.id.item_sex);
-                    adVar2.i = (TextView) inflate2.findViewById(R.id.item_time);
-                    adVar2.j = (TextView) inflate2.findViewById(R.id.item_address);
-                    adVar2.e = (CheckBox) inflate2.findViewById(R.id.item_check);
-                    view2 = inflate2;
-                }
-                view2.setTag(adVar2);
-                adVar = adVar2;
-                view = view2;
-            } else {
-                adVar = (ad) view.getTag();
-            }
-            if (getItemViewType(i) == 1) {
-                if (this.c) {
-                    adVar.c.setText(R.string.members_load_more_person);
-                    adVar.d.setVisibility(0);
-                } else {
-                    adVar.c.setText(R.string.members_no_more_person);
-                    adVar.d.setVisibility(8);
-                }
-            } else {
-                UserData userData = (UserData) getItem(i);
-                adVar.f.setTag(null);
-                String portrait = userData.getPortrait();
-                if (!TextUtils.isEmpty(portrait)) {
-                    com.baidu.adp.widget.ImageView.e c = this.f.c(portrait);
-                    if (c != null) {
-                        adVar.f.setImageBitmap(c.f());
-                    } else {
-                        adVar.f.setTag(portrait);
-                        adVar.f.setImageResource(R.drawable.photo);
-                    }
-                }
-                adVar.g.setText(userData.getUserName());
-                switch (userData.getSex()) {
-                    case 1:
-                        adVar.h.setVisibility(0);
-                        adVar.h.setImageResource(R.drawable.icon_man);
-                        break;
-                    case 2:
-                        adVar.h.setVisibility(0);
-                        adVar.h.setImageResource(R.drawable.icon_woman);
-                        break;
-                    default:
-                        adVar.h.setVisibility(8);
-                        break;
-                }
-                adVar.i.setText(a(userData));
-                adVar.j.setText(userData.getPosition());
-                if (this.e) {
-                    adVar.e.setVisibility(userData.getPermission().isController() ? 4 : 0);
-                    Long valueOf = Long.valueOf(userData.getUserId());
-                    adVar.e.setTag(valueOf);
-                    adVar.e.setChecked(this.g.contains(valueOf));
-                    adVar.e.setOnCheckedChangeListener(new ab(this));
-                } else {
-                    adVar.e.setVisibility(8);
-                }
-            }
-        }
-        return view;
-    }
-
-    private String a(UserData userData) {
-        long lastReplyTime;
-        com.baidu.tieba.im.model.h b = this.f1553a.b();
-        switch (b.b()) {
-            case 0:
-                lastReplyTime = userData.getLoginTime();
-                break;
-            case 1:
-                lastReplyTime = userData.getLastReplyTime();
-                break;
-            case 2:
-                lastReplyTime = userData.getInTime();
-                break;
-            default:
-                lastReplyTime = 0;
-                break;
-        }
-        if (lastReplyTime <= 0) {
-            if (b.b() == 1) {
-                return this.f1553a.getString(R.string.members_no_speak);
-            }
-            return "";
-        }
-        return bc.h(new Date(lastReplyTime * 1000));
-    }
-
-    public com.baidu.tieba.util.a e() {
+    public BdListView l() {
         return this.f;
     }
 }

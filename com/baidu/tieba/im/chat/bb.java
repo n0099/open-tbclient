@@ -5,18 +5,18 @@ import android.content.DialogInterface;
 class bb implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1429a;
+    final /* synthetic */ int f1522a;
     final /* synthetic */ MsglistActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(MsglistActivity msglistActivity, int i) {
         this.b = msglistActivity;
-        this.f1429a = i;
+        this.f1522a = i;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
-        this.b.d(this.f1429a);
+        this.b.b(this.f1522a);
     }
 }

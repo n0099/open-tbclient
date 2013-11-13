@@ -9,13 +9,13 @@ import java.io.File;
 public class x extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2259a;
-    private com.baidu.tieba.util.ag b;
+    final /* synthetic */ EditHeadActivity f2294a;
+    private com.baidu.tieba.util.ap b;
     private com.baidu.tieba.data.f c;
-    private com.baidu.tieba.util.f d;
+    private com.baidu.tieba.util.n d;
 
     private x(EditHeadActivity editHeadActivity) {
-        this.f2259a = editHeadActivity;
+        this.f2294a = editHeadActivity;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -29,7 +29,7 @@ public class x extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f2259a.b(this.f2259a.getString(R.string.upload_head));
+        this.f2294a.showLoadingDialog(this.f2294a.getString(R.string.upload_head));
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0128 */
@@ -45,9 +45,9 @@ public class x extends BdAsyncTask<String, Integer, String> {
         Exception e;
         File d;
         com.baidu.tieba.data.e eVar;
-        this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/c/img/portrait");
+        this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/c/img/portrait");
         try {
-            d = com.baidu.tieba.util.w.d("tieba_head_image");
+            d = com.baidu.tieba.util.af.d("tieba_head_image");
             str = (d.length() > 102400L ? 1 : (d.length() == 102400L ? 0 : -1));
         } catch (Exception e2) {
             str = 0;
@@ -55,30 +55,30 @@ public class x extends BdAsyncTask<String, Integer, String> {
         }
         try {
             if (str <= 0 || (com.baidu.tieba.data.h.n() == 0 && this.b.f() != null && !this.b.f().equals("2"))) {
-                com.baidu.tieba.util.be.e("PostThreadTask", "doInBackground", "image size is less than 100K");
+                com.baidu.tieba.util.bg.e("PostThreadTask", "doInBackground", "image size is less than 100K");
                 String b = this.b.b("tieba_head_image");
                 if (this.b.c()) {
                     return b;
                 }
                 return null;
             }
-            com.baidu.tieba.util.be.e("PostThreadTask", "doInBackground", "image size is more than 100K");
-            String a2 = com.baidu.tieba.util.bc.a(com.baidu.tieba.util.w.a(d));
-            com.baidu.tieba.data.e o = DatabaseService.o(a2);
-            if (o == null) {
-                com.baidu.tieba.util.be.e("PostThreadTask", "doInBackground", "upload data is null");
+            com.baidu.tieba.util.bg.e("PostThreadTask", "doInBackground", "image size is more than 100K");
+            String a2 = com.baidu.tieba.util.be.a(com.baidu.tieba.util.af.a(d));
+            com.baidu.tieba.data.e p = DatabaseService.p(a2);
+            if (p == null) {
+                com.baidu.tieba.util.bg.e("PostThreadTask", "doInBackground", "upload data is null");
                 com.baidu.tieba.data.e eVar2 = new com.baidu.tieba.data.e();
                 eVar2.a(a2);
                 eVar2.a(0);
                 eVar2.a(d.length());
                 eVar = eVar2;
             } else {
-                eVar = o;
+                eVar = p;
             }
-            this.d = new com.baidu.tieba.util.f("tieba_head_image", eVar, com.baidu.tieba.data.h.f1165a + "c/c/img/chunkupload");
+            this.d = new com.baidu.tieba.util.n("tieba_head_image", eVar, com.baidu.tieba.data.h.f1196a + "c/c/img/chunkupload");
             this.c = this.d.b();
             if (this.c.b()) {
-                this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/c/img/finupload");
+                this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/c/img/finupload");
                 this.b.a("md5", eVar.a());
                 String j = this.b.j();
                 if (j == null || !this.b.c()) {
@@ -87,21 +87,21 @@ public class x extends BdAsyncTask<String, Integer, String> {
                     DatabaseService.a(eVar);
                     return null;
                 }
-                DatabaseService.n(a2);
+                DatabaseService.o(a2);
                 return j;
             }
             return null;
         } catch (Exception e3) {
             e = e3;
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
             return str;
         }
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f2259a.j();
-        this.f2259a.x = null;
+        this.f2294a.closeLoadingDialog();
+        this.f2294a.v = null;
         if (this.b != null) {
             this.b.h();
         }
@@ -112,15 +112,15 @@ public class x extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        this.f2259a.j();
+        this.f2294a.closeLoadingDialog();
         if (this.b != null) {
             if (this.b.c()) {
-                this.f2259a.setResult(-1);
-                this.f2259a.finish();
-                this.f2259a.a(this.f2259a.getString(R.string.upload_head_ok));
+                this.f2294a.setResult(-1);
+                this.f2294a.finish();
+                this.f2294a.showToast(this.f2294a.getString(R.string.upload_head_ok));
                 return;
             }
-            this.f2259a.a(this.b.g());
+            this.f2294a.showToast(this.b.g());
         }
     }
 }

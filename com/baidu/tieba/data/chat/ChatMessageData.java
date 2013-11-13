@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -15,6 +15,7 @@ public class ChatMessageData implements Serializable {
     public static final int STATUS_SENT = 0;
     public static final int TYPE_MSG = 0;
     public static final int TYPE_NEW_CHAT_FLAG = 99;
+    private static final long serialVersionUID = -3482133650101812568L;
     protected String friendId;
     protected long localTime;
     private com.baidu.tbadk.widget.richText.a mRichText = null;
@@ -34,7 +35,7 @@ public class ChatMessageData implements Serializable {
     public static ChatMessageData newMessage() {
         ChatMessageData chatMessageData = new ChatMessageData();
         chatMessageData.msgType = 0;
-        chatMessageData.setOwnerId(TiebaApplication.C());
+        chatMessageData.setOwnerId(TiebaApplication.A());
         return chatMessageData;
     }
 
@@ -113,7 +114,7 @@ public class ChatMessageData implements Serializable {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            be.b(getClass().getName(), "parserJson", e.toString());
+            bg.b(getClass().getName(), "parserJson", e.toString());
         }
     }
 
@@ -131,7 +132,7 @@ public class ChatMessageData implements Serializable {
             } catch (Exception e) {
             }
         } catch (Exception e2) {
-            be.b(getClass().getName(), "parserJson", e2.toString());
+            bg.b(getClass().getName(), "parserJson", e2.toString());
         }
     }
 
@@ -152,7 +153,7 @@ public class ChatMessageData implements Serializable {
         }
         clipboardManager.setText(sb);
         if (clipboardManager.getText() != null) {
-            be.e("ChatMessageActivity", "clip_text", clipboardManager.getText().toString());
+            bg.e("ChatMessageActivity", "clip_text", clipboardManager.getText().toString());
         }
     }
 }

@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.adp.d;
 import com.baidu.adp.e;
-import com.baidu.adp.f;
 /* loaded from: classes.dex */
 public class BdSwitchView extends FrameLayout {
 
@@ -68,9 +67,9 @@ public class BdSwitchView extends FrameLayout {
     }
 
     private void a(Context context) {
-        LayoutInflater.from(context).inflate(f.bd_switch_view, (ViewGroup) this, true);
-        this.f546a = (FrameLayout) findViewById(e.layout);
-        this.b = (ImageView) findViewById(e.switch_image);
+        LayoutInflater.from(context).inflate(e.bd_switch_view, (ViewGroup) this, true);
+        this.f546a = (FrameLayout) findViewById(d.layout);
+        this.b = (ImageView) findViewById(d.switch_image);
         d();
         e();
         this.j = new a(this);
@@ -120,7 +119,7 @@ public class BdSwitchView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(boolean z) {
+    public void c(boolean z) {
         if (!this.f) {
             if (this.d == SwitchState.ON) {
                 this.d = SwitchState.OFF;
@@ -129,7 +128,7 @@ public class BdSwitchView extends FrameLayout {
                         this.i.setDuration(200L);
                         this.b.startAnimation(this.i);
                     } else {
-                        b(false);
+                        d(false);
                     }
                 }
             } else {
@@ -139,7 +138,7 @@ public class BdSwitchView extends FrameLayout {
                         this.h.setDuration(200L);
                         this.b.startAnimation(this.h);
                     } else {
-                        b(true);
+                        d(true);
                     }
                 }
             }
@@ -161,26 +160,34 @@ public class BdSwitchView extends FrameLayout {
 
     public void setSwitchStyle(SwitchStyle switchStyle) {
         if (switchStyle == SwitchStyle.DAY) {
-            setSwitchFrame(d.btn_switch_masking);
-            setSwitchImage(d.btn_switch);
+            setSwitchFrame(com.baidu.adp.c.btn_switch_masking);
+            setSwitchImage(com.baidu.adp.c.btn_switch);
         } else if (switchStyle == SwitchStyle.NIGHT) {
-            setSwitchFrame(d.btn_switch_masking_1);
-            setSwitchImage(d.btn_switch_1);
+            setSwitchFrame(com.baidu.adp.c.btn_switch_masking_1);
+            setSwitchImage(com.baidu.adp.c.btn_switch_1);
         } else if (switchStyle == SwitchStyle.SIDE_BAR) {
-            setSwitchFrame(d.btn_switch_masking_sidebar);
-            setSwitchImage(d.btn_switch_1);
+            setSwitchFrame(com.baidu.adp.c.btn_switch_masking_sidebar);
+            setSwitchImage(com.baidu.adp.c.btn_switch_1);
         }
     }
 
     public void a() {
+        a(false);
+    }
+
+    public void a(boolean z) {
         if (this.d != SwitchState.ON) {
-            a(false);
+            c(z);
         }
     }
 
     public void b() {
+        b(false);
+    }
+
+    public void b(boolean z) {
         if (this.d != SwitchState.OFF) {
-            a(false);
+            c(z);
         }
     }
 
@@ -188,7 +195,7 @@ public class BdSwitchView extends FrameLayout {
         return this.d == SwitchState.ON;
     }
 
-    private void b(boolean z) {
+    private void d(boolean z) {
         if (!this.f) {
             this.f = true;
             float translateDis = getTranslateDis();

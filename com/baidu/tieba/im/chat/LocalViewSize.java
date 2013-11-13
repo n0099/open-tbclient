@@ -6,14 +6,14 @@ import java.io.Serializable;
 public class LocalViewSize {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LocalViewSize f1399a = null;
+    private static LocalViewSize f1491a = null;
     private Context b = null;
 
     public static LocalViewSize a() {
-        if (f1399a == null) {
-            f1399a = new LocalViewSize();
+        if (f1491a == null) {
+            f1491a = new LocalViewSize();
         }
-        return f1399a;
+        return f1491a;
     }
 
     private LocalViewSize() {

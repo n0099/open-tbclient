@@ -5,7 +5,7 @@ import android.content.Context;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1900a;
+    private long f1896a;
     private long b;
     private long c;
     private long d;
@@ -17,7 +17,7 @@ public class ap {
     }
 
     public void a(long j) {
-        this.f1900a = j;
+        this.f1896a = j;
     }
 
     public void b(long j) {

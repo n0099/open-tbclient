@@ -6,11 +6,11 @@ import com.baidu.tieba.im.message.ChatMessage;
 class e implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkDebugActivity f1543a;
+    final /* synthetic */ NetWorkDebugActivity f1634a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NetWorkDebugActivity netWorkDebugActivity) {
-        this.f1543a = netWorkDebugActivity;
+        this.f1634a = netWorkDebugActivity;
     }
 
     @Override // android.view.View.OnClickListener

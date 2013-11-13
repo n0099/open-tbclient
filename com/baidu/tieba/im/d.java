@@ -5,11 +5,11 @@ import android.view.View;
 class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkDebugActivity f1505a;
+    final /* synthetic */ NetWorkDebugActivity f1596a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NetWorkDebugActivity netWorkDebugActivity) {
-        this.f1505a = netWorkDebugActivity;
+        this.f1596a = netWorkDebugActivity;
     }
 
     @Override // android.view.View.OnClickListener

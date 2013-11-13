@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class FrsWaterFallItem extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextPaint f2480a;
+    private TextPaint f2535a;
     private String b;
     private String c;
     private String d;
@@ -24,12 +24,16 @@ public class FrsWaterFallItem extends LinearLayout {
     private int i;
     private int j;
     private int k;
-    private Paint l;
+    private int l;
     private int m;
+    private int n;
+    private int o;
+    private Paint p;
+    private int q;
 
     public FrsWaterFallItem(Context context) {
         super(context);
-        this.f2480a = null;
+        this.f2535a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -40,14 +44,18 @@ public class FrsWaterFallItem extends LinearLayout {
         this.i = 0;
         this.j = 0;
         this.k = 0;
-        this.l = null;
+        this.l = 0;
         this.m = 0;
+        this.n = 0;
+        this.o = 0;
+        this.p = null;
+        this.q = 0;
         a();
     }
 
     public FrsWaterFallItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2480a = null;
+        this.f2535a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -58,98 +66,111 @@ public class FrsWaterFallItem extends LinearLayout {
         this.i = 0;
         this.j = 0;
         this.k = 0;
-        this.l = null;
+        this.l = 0;
         this.m = 0;
+        this.n = 0;
+        this.o = 0;
+        this.p = null;
+        this.q = 0;
         a();
     }
 
-    public void a(int i, int i2, int i3) {
+    public void a(int i, int i2, int i3, int i4) {
         this.g = i;
         this.h = i2;
         this.i = i3;
+        this.l = i4;
     }
 
     private void a() {
-        this.f2480a = new TextPaint(1);
-        this.l = new Paint();
-        this.l.setAntiAlias(true);
+        this.f2535a = new TextPaint(1);
+        this.p = new Paint();
+        this.p.setAntiAlias(true);
         this.j = UtilHelper.a(getContext(), 5.0f);
         this.k = UtilHelper.a(getContext(), 2.0f);
+        this.m = getContext().getResources().getDimensionPixelSize(R.dimen.default_gap_14);
+        this.n = getContext().getResources().getDimensionPixelSize(R.dimen.default_gap_10);
+        this.o = getContext().getResources().getDimensionPixelSize(R.dimen.default_gap_8);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
         Bitmap a2;
-        Bitmap a3;
         super.onDraw(canvas);
         try {
-            canvas.drawColor(16777215);
-            com.baidu.tieba.data.bg bgVar = (com.baidu.tieba.data.bg) getTag();
-            int height = ((getHeight() - getPaddingBottom()) - this.h) - this.j;
-            int width = (getWidth() - getPaddingRight()) - this.j;
-            this.f2480a.setTextSize(this.h);
-            if (this.m == 1) {
-                this.f2480a.setColor(-11446171);
-            } else {
-                this.f2480a.setColor(-5065030);
-            }
-            int ceil = (int) Math.ceil(this.f2480a.getFontMetrics().ascent);
-            if (bgVar.e() > 0) {
-                if (this.d == null) {
-                    if (bgVar.e() > 999) {
-                        this.d = "999+";
-                    } else {
-                        this.d = String.valueOf(bgVar.e());
-                    }
-                }
-                if (this.e == -1) {
-                    this.e = (width - ((int) Math.ceil(UtilHelper.a((Paint) this.f2480a, this.d)))) - this.j;
-                }
-                canvas.drawText(this.d, this.e, height - ceil, this.f2480a);
-                width = this.e;
-            }
-            if (this.e != -1) {
-                if (this.m == 1) {
-                    a3 = com.baidu.tieba.util.e.a((int) R.drawable.icon_little_comment_1);
+            com.baidu.tieba.data.bb bbVar = (com.baidu.tieba.data.bb) getTag();
+            if (bbVar != null) {
+                int height = ((getHeight() - getPaddingBottom()) - this.l) + this.n;
+                int width = (getWidth() - getPaddingRight()) - this.j;
+                this.f2535a.setTextSize(this.h);
+                if (this.q == 1) {
+                    this.f2535a.setColor(getContext().getResources().getColor(R.color.listview_item_num_text_1));
                 } else {
-                    a3 = com.baidu.tieba.util.e.a((int) R.drawable.icon_little_comment);
+                    this.f2535a.setColor(getContext().getResources().getColor(R.color.listview_item_num_text));
                 }
-                this.f = this.e - a3.getWidth();
-                width = this.f - this.i;
-                canvas.drawBitmap(a3, width, ((this.h - a3.getHeight()) / 2) + height, this.l);
+                int ceil = (int) Math.ceil(this.f2535a.getFontMetrics().ascent);
+                int e = bbVar.e();
+                if (e > 0) {
+                    if (this.d == null) {
+                        if (e > 999) {
+                            this.d = "999+";
+                        } else {
+                            this.d = String.valueOf(e);
+                        }
+                    }
+                    if (this.e == -1) {
+                        this.e = (width - ((int) Math.ceil(UtilHelper.a((Paint) this.f2535a, this.d)))) - this.j;
+                    }
+                    canvas.drawText(this.d, this.e, height - ceil, this.f2535a);
+                    width = this.e;
+                }
+                if (this.e != -1) {
+                    if (this.q == 1) {
+                        a2 = com.baidu.tieba.util.m.a((int) R.drawable.icon_little_comment_s_1);
+                    } else {
+                        a2 = com.baidu.tieba.util.m.a((int) R.drawable.icon_little_comment_s);
+                    }
+                    this.f = this.e - a2.getWidth();
+                    width = this.f - this.i;
+                    canvas.drawBitmap(a2, width, ((this.h - a2.getHeight()) / 2) + height, this.p);
+                }
+                if (this.q == 1) {
+                    this.f2535a.setColor(getContext().getResources().getColor(R.color.listview_item_author_time_text_1));
+                } else {
+                    this.f2535a.setColor(getContext().getResources().getColor(R.color.listview_item_author_time_text));
+                }
+                this.c = UtilHelper.a(this.f2535a, bbVar.a(), width - (this.j * 2));
+                canvas.drawText(this.c, this.k + this.j, height - ceil, this.f2535a);
+                if (this.q == 1) {
+                    this.f2535a.setColor(getContext().getResources().getColor(R.color.frs_header_divider_bg_1));
+                } else {
+                    this.f2535a.setColor(getContext().getResources().getColor(R.color.frs_header_divider_bg));
+                }
+                int height2 = (getHeight() - getPaddingBottom()) - this.l;
+                canvas.drawRect(this.o, height2, getWidth() - this.o, height2 + 2, this.f2535a);
+                this.f2535a.setTextSize(this.g);
+                if (this.q == 1) {
+                    this.f2535a.setColor(getContext().getResources().getColor(R.color.listview_item_title_text_1));
+                } else {
+                    this.f2535a.setColor(getContext().getResources().getColor(R.color.listview_item_title_text));
+                }
+                int ceil2 = (int) Math.ceil(this.f2535a.getFontMetrics().ascent);
+                if (this.b == null) {
+                    this.b = UtilHelper.a(this.f2535a, bbVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - (this.j * 2));
+                }
+                canvas.drawText(this.b, this.k + this.j, (((getHeight() - getPaddingBottom()) - (this.l * 2)) + this.m) - ceil2, this.f2535a);
             }
-            int i = width;
-            if (this.m == 1) {
-                a2 = com.baidu.tieba.util.e.a((int) R.drawable.icon_little_people_1);
-            } else {
-                a2 = com.baidu.tieba.util.e.a((int) R.drawable.icon_little_people);
-            }
-            this.c = UtilHelper.a(this.f2480a, bgVar.a(), (i - a2.getWidth()) - (this.j * 2));
-            int paddingLeft = getPaddingLeft() + this.j;
-            canvas.drawBitmap(a2, paddingLeft, ((this.h - a2.getHeight()) / 2) + height, this.l);
-            canvas.drawText(this.c, a2.getWidth() + paddingLeft + this.j, height - ceil, this.f2480a);
-            this.f2480a.setTextSize(this.g);
-            if (this.m == 1) {
-                this.f2480a.setColor(-8682086);
-            } else {
-                this.f2480a.setColor(-14277082);
-            }
-            int ceil2 = (int) Math.ceil(this.f2480a.getFontMetrics().ascent);
-            if (this.b == null) {
-                this.b = UtilHelper.a(this.f2480a, bgVar.c(), ((getWidth() - getPaddingLeft()) - getPaddingRight()) - this.j);
-            }
-            canvas.drawText(this.b, this.k + this.j, (height - ((this.i + this.g) + UtilHelper.a(getContext(), 3.0f))) - ceil2, this.f2480a);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
     public void a(int i) {
-        this.m = i;
+        this.q = i;
         if (i == 1) {
-            setBackgroundResource(R.drawable.bg_list_bottom_1);
+            setBackgroundResource(R.drawable.bg_frs_image_item_1);
         } else {
-            setBackgroundResource(R.drawable.waterfall_bg);
+            setBackgroundResource(R.drawable.bg_frs_image_item);
         }
     }
 }

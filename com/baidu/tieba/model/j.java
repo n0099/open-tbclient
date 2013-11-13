@@ -8,13 +8,13 @@ import java.util.List;
 public class j implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.im.a f1950a;
+    final /* synthetic */ com.baidu.tieba.im.a f1941a;
     final /* synthetic */ f b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(f fVar, com.baidu.tieba.im.a aVar) {
         this.b = fVar;
-        this.f1950a = aVar;
+        this.f1941a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,9 +28,9 @@ public class j implements com.baidu.tieba.im.a<Void> {
             list.clear();
             list2 = this.b.b;
             list2.addAll(j);
-            this.b.e();
-            if (this.f1950a != null) {
-                this.f1950a.a(null);
+            this.b.f();
+            if (this.f1941a != null) {
+                this.f1941a.a(null);
             }
         }
     }

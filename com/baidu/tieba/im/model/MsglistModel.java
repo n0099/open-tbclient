@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.aa;
 import com.baidu.tieba.im.data.GroupData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.data.VoiceMsgData;
+import com.baidu.tieba.im.db.aa;
 import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
 import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.im.message.ChatResponsedMessage;
@@ -36,7 +36,7 @@ public class MsglistModel extends com.baidu.adp.a.d {
     private static final String b = MsglistModel.class.getName();
     private String h;
     private MsgPageData i;
-    private com.baidu.tieba.im.chat.y j;
+    private com.baidu.tieba.im.chat.x j;
     private q n;
     private MsglistActivity o;
     private final int c = 1800;
@@ -46,7 +46,7 @@ public class MsglistModel extends com.baidu.adp.a.d {
     private boolean g = true;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.adp.a.g f1656a = new k(this);
+    com.baidu.adp.a.g f1743a = new k(this);
     private final HashMap<String, r> k = new HashMap<>();
     private final u m = new i(this);
     private final y l = new y();
@@ -65,7 +65,7 @@ public class MsglistModel extends com.baidu.adp.a.d {
         this.o = msglistActivity;
         this.i = new MsgPageData();
         this.j = new p(this, null);
-        this.l.setLoadDataCallBack(this.f1656a);
+        this.l.setLoadDataCallBack(this.f1743a);
         k();
     }
 
@@ -211,17 +211,17 @@ public class MsglistModel extends com.baidu.adp.a.d {
         chatMessage.setMsgType(s);
         chatMessage.setContent(str);
         chatMessage.setGroupId(String.valueOf(this.e.getGroupId()));
-        long a2 = aa.a(i());
+        long a2 = com.baidu.tieba.im.chat.z.a(i());
         chatMessage.setMsgId(a2);
         chatMessage.setRecordId(a2);
         chatMessage.setTime(System.currentTimeMillis() / 1000);
         UserData userData = new UserData();
-        userData.setName(TiebaApplication.H());
-        userData.setId(TiebaApplication.C());
+        userData.setName(TiebaApplication.F());
+        userData.setId(TiebaApplication.A());
         userData.setPortrait(com.baidu.tieba.im.i.b());
         chatMessage.setUserInfo(userData);
         try {
-            j = Long.valueOf(TiebaApplication.C()).longValue();
+            j = Long.valueOf(TiebaApplication.A()).longValue();
         } catch (Exception e) {
             com.baidu.adp.lib.h.d.a("transform error" + e.getMessage());
             j = 0;
@@ -428,7 +428,7 @@ public class MsglistModel extends com.baidu.adp.a.d {
                 if (requestRemoveMembersMessage.getGroupId() == this.e.getGroupId()) {
                     String userIds = requestRemoveMembersMessage.getUserIds();
                     if (!TextUtils.isEmpty(userIds) && (split = userIds.split(",")) != null && split.length != 0) {
-                        String id = TiebaApplication.G().getID();
+                        String id = TiebaApplication.E().getID();
                         if (!TextUtils.isEmpty(id)) {
                             for (String str : split) {
                                 if (id.equals(str)) {
@@ -523,12 +523,12 @@ public class MsglistModel extends com.baidu.adp.a.d {
                 ArrayList arrayList = new ArrayList();
                 for (int i = size - 1; i >= 0 && i >= 0; i--) {
                     ChatMessage chatMessage = list.get(i);
-                    if (chatMessage != null && chatMessage.getUserInfo() != null && !TextUtils.isEmpty(chatMessage.getUserInfo().getId()) && chatMessage.getUserInfo().getId().equals(TiebaApplication.C()) && chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus().shortValue() != 3) {
+                    if (chatMessage != null && chatMessage.getUserInfo() != null && !TextUtils.isEmpty(chatMessage.getUserInfo().getId()) && chatMessage.getUserInfo().getId().equals(TiebaApplication.A()) && chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus().shortValue() != 3) {
                         int i2 = size2 - 1;
                         while (true) {
                             if (i2 >= 0 && i2 >= 0) {
                                 ChatMessage chatMessage2 = list2.get(i2);
-                                if (chatMessage2 != null && chatMessage2.getUserInfo() != null && !TextUtils.isEmpty(chatMessage2.getUserInfo().getId()) && chatMessage2.getUserInfo().getId().equals(TiebaApplication.C()) && chatMessage2.getRecordId() == chatMessage.getRecordId()) {
+                                if (chatMessage2 != null && chatMessage2.getUserInfo() != null && !TextUtils.isEmpty(chatMessage2.getUserInfo().getId()) && chatMessage2.getUserInfo().getId().equals(TiebaApplication.A()) && chatMessage2.getRecordId() == chatMessage.getRecordId()) {
                                     arrayList.add(chatMessage);
                                     break;
                                 }
@@ -638,7 +638,7 @@ public class MsglistModel extends com.baidu.adp.a.d {
     }
 
     public void a(com.baidu.tieba.im.a<Void> aVar) {
-        com.baidu.tieba.im.db.aa.a().a(String.valueOf(this.e.getGroupId()), aVar);
+        aa.a().a(String.valueOf(this.e.getGroupId()), aVar);
         RequestMarkReadedMessage requestMarkReadedMessage = new RequestMarkReadedMessage();
         requestMarkReadedMessage.setGroupId(String.valueOf(this.e.getGroupId()));
         com.baidu.tieba.im.messageCenter.f.a().a(requestMarkReadedMessage);

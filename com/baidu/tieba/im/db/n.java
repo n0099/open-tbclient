@@ -11,15 +11,15 @@ import java.util.LinkedList;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private static n f1530a;
+    private static n f1621a;
 
     public static synchronized n a() {
         n nVar;
         synchronized (n.class) {
-            if (f1530a == null) {
-                f1530a = new n();
+            if (f1621a == null) {
+                f1621a = new n();
             }
-            nVar = f1530a;
+            nVar = f1621a;
         }
         return nVar;
     }
@@ -107,17 +107,17 @@ public class n {
                         } catch (Exception e) {
                             e = e;
                             e.printStackTrace();
-                            com.baidu.tieba.util.g.a(cursor);
+                            com.baidu.tieba.util.o.a(cursor);
                             return null;
                         }
                     } catch (Throwable th2) {
                         th = th2;
-                        com.baidu.tieba.util.g.a(cursor);
+                        com.baidu.tieba.util.o.a(cursor);
                         throw th;
                     }
                 }
             }
-            com.baidu.tieba.util.g.a(cursor);
+            com.baidu.tieba.util.o.a(cursor);
             return linkedList;
         } catch (Exception e2) {
             e = e2;
@@ -125,7 +125,7 @@ public class n {
         } catch (Throwable th3) {
             cursor = null;
             th = th3;
-            com.baidu.tieba.util.g.a(cursor);
+            com.baidu.tieba.util.o.a(cursor);
             throw th;
         }
     }

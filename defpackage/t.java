@@ -7,14 +7,14 @@ import com.baidu.cloudsdk.social.share.ui.ShareDialog;
 public class t implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShareDialog f2939a;
+    final /* synthetic */ ShareDialog f2987a;
 
     public t(ShareDialog shareDialog) {
-        this.f2939a = shareDialog;
+        this.f2987a = shareDialog;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2939a.dismiss();
+        this.f2987a.dismiss();
     }
 }

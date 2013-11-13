@@ -1,13 +1,21 @@
 package com.baidu.tieba.voice;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface s {
-    void a();
+public class s implements Runnable {
 
-    void a(int i);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ String f2634a;
+    final /* synthetic */ VoiceManager b;
 
-    void a(int i, String str);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(VoiceManager voiceManager, String str) {
+        this.b = voiceManager;
+        this.f2634a = str;
+    }
 
-    void a(String str, int i);
-
-    void b(int i);
+    @Override // java.lang.Runnable
+    public void run() {
+        if (aj.d(aj.b(this.f2634a))) {
+        }
+    }
 }

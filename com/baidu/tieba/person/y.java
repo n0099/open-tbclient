@@ -21,7 +21,6 @@ class y extends com.baidu.tieba.m {
         com.baidu.tieba.model.o oVar3;
         aa aaVar4;
         aa aaVar5;
-        aa aaVar6;
         com.baidu.tieba.model.o oVar4;
         com.baidu.tieba.model.o oVar5;
         try {
@@ -29,20 +28,18 @@ class y extends com.baidu.tieba.m {
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r1 = (String) objArr[1];
                 }
-                aaVar6 = this.b.b;
-                oVar4 = this.b.f2158a;
-                aaVar6.a(r1, oVar4, (Boolean) objArr[2]);
+                aaVar5 = this.b.b;
+                oVar4 = this.b.f2200a;
+                aaVar5.a(r1, oVar4, (Boolean) objArr[2]);
                 EditMarkActivity editMarkActivity = this.b;
-                oVar5 = this.b.f2158a;
+                oVar5 = this.b.f2200a;
                 editMarkActivity.d = oVar5.c();
             } else if (((Integer) objArr[0]).intValue() == 3) {
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r1 = (String) objArr[1];
                 }
                 aaVar4 = this.b.b;
-                aaVar4.e();
-                aaVar5 = this.b.b;
-                aaVar5.a(r1);
+                aaVar4.a(r1, (com.baidu.tieba.model.o) null, (Boolean) false);
             } else if (((Integer) objArr[0]).intValue() == 1) {
                 boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 r1 = objArr[2] != null ? (String) objArr[2] : null;
@@ -51,16 +48,16 @@ class y extends com.baidu.tieba.m {
                 aaVar2.a(booleanValue2, r1, booleanValue);
                 if (booleanValue2) {
                     aaVar3 = this.b.b;
-                    oVar2 = this.b.f2158a;
+                    oVar2 = this.b.f2200a;
                     aaVar3.a(oVar2.a());
-                    oVar3 = this.b.f2158a;
+                    oVar3 = this.b.f2200a;
                     oVar3.a((Boolean) true);
                 }
             } else if (((Integer) objArr[0]).intValue() == 2) {
                 booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 String str = objArr[2] != null ? (String) objArr[2] : null;
                 aaVar = this.b.b;
-                oVar = this.b.f2158a;
+                oVar = this.b.f2200a;
                 aaVar.a(booleanValue, str, oVar.c());
             }
         } catch (Exception e) {

@@ -1,25 +1,44 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tieba.data.ak;
-import com.baidu.tieba.util.ag;
+import android.text.TextUtils;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.recommend.w;
+import com.baidu.tieba.util.ap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l {
+    private static final String d = com.baidu.tieba.data.h.f1196a + "c/f/forum/threadrecommend";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1001a = com.baidu.tieba.data.h.f1165a + "c/s/uo/add_pk_vote_client";
-    private ag b;
-    private ak c;
+    private int f1014a = -1;
+    private ap b = null;
+    private boolean c;
 
-    public String a(String str, String str2, int i) {
-        this.b = new ag();
-        this.b.a("player_id", String.valueOf(str2));
-        this.b.a("shake_number", String.valueOf(i));
-        this.b.a("pk_id", String.valueOf(str));
-        this.b.e(true);
-        this.b.a(f1001a);
+    public l(boolean z) {
+        this.c = z;
+    }
+
+    public String a(String str, String str2) {
+        this.b = new ap();
+        this.b.a(d);
+        this.b.c(false);
+        if (this.c) {
+            this.b.a("type", "banner");
+        }
+        if (!TextUtils.isEmpty(str)) {
+            this.b.a("date", str);
+        }
+        if (str2 != null) {
+            this.b.a(w.f2325a, str2);
+        }
         String j = this.b.j();
-        this.c = new ak();
-        this.c.a(j);
+        if (j != null) {
+            try {
+                this.f1014a = new JSONObject(j).optInt(SocialConstants.PARAM_ERROR_CODE);
+            } catch (JSONException e) {
+            }
+        }
         return j;
     }
 
@@ -27,5 +46,16 @@ public class l {
         if (this.b != null) {
             this.b.h();
         }
+    }
+
+    public boolean b() {
+        if (this.b != null) {
+            return this.b.c();
+        }
+        return false;
+    }
+
+    public int c() {
+        return this.f1014a;
     }
 }

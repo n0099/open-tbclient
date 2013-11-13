@@ -11,22 +11,24 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2489a;
+    private boolean f2543a;
     private LinearLayout b;
     private LinearLayout c;
     private LinearLayout d;
-    private Activity e;
-    private LayoutInflater f;
-    private TextView g;
-    private int h;
+    private TextView e;
+    private Activity f;
+    private LayoutInflater g;
+    private TextView h;
     private int i;
-    private View.OnClickListener j;
+    private int j;
+    private View.OnClickListener k;
 
     /* loaded from: classes.dex */
     public enum ControlAlign {
@@ -38,85 +40,106 @@ public class NavigationBar extends RelativeLayout {
     /* loaded from: classes.dex */
     public enum ControlType {
         BACK_BUTTON,
-        HOME_BUTTON
+        HOME_BUTTON,
+        ADD_CHAT,
+        EDIT_BUTTON,
+        MORE_BUTTON,
+        CAMERA_BUTTON
     }
 
     public NavigationBar(Context context) {
         super(context);
-        this.f2489a = true;
-        this.h = 0;
+        this.f2543a = true;
         this.i = 0;
-        this.j = new av(this);
+        this.j = 0;
+        this.k = new av(this);
         a(context);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2489a = true;
-        this.h = 0;
+        this.f2543a = true;
         this.i = 0;
-        this.j = new av(this);
+        this.j = 0;
+        this.k = new av(this);
         a(context);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2489a = true;
-        this.h = 0;
+        this.f2543a = true;
         this.i = 0;
-        this.j = new av(this);
+        this.j = 0;
+        this.k = new av(this);
         a(context);
     }
 
     private void a(Context context) {
-        this.e = (Activity) context;
-        this.f = (LayoutInflater) context.getSystemService("layout_inflater");
-        View inflate = this.f.inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
+        this.f = (Activity) context;
+        this.g = (LayoutInflater) context.getSystemService("layout_inflater");
+        View inflate = this.g.inflate(R.layout.widget_navigation_bar, (ViewGroup) this, true);
         this.b = (LinearLayout) inflate.findViewById(R.id.leftBox);
         this.c = (LinearLayout) inflate.findViewById(R.id.centerBox);
         this.d = (LinearLayout) inflate.findViewById(R.id.rightBox);
-        setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
+        this.e = (TextView) inflate.findViewById(R.id.navBottomLine);
+        setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         setGravity(48);
         a();
     }
 
     private void a() {
-        setPadding(UtilHelper.a(this.e, getResources().getDimension(R.dimen.navigation_bar_padding_left)), UtilHelper.a(this.e, getResources().getDimension(R.dimen.navigation_bar_padding_top)), UtilHelper.a(this.e, getResources().getDimension(R.dimen.navigation_bar_padding_right)), UtilHelper.a(this.e, getResources().getDimension(R.dimen.navigation_bar_padding_bottom)));
+        setPadding(UtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_left)), UtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_top)), UtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_right)), UtilHelper.a(this.f, getResources().getDimension(R.dimen.navi_padding_bottom)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        this.i = View.MeasureSpec.getSize(i);
-        this.h = Math.max(this.b.getMeasuredWidth() + getPaddingLeft(), this.d.getMeasuredWidth() + getPaddingRight());
-        this.c.measure((this.i - this.h) << 1, this.c.getMeasuredHeight());
+        this.j = View.MeasureSpec.getSize(i);
+        this.i = Math.max(this.b.getMeasuredWidth() + getPaddingLeft(), this.d.getMeasuredWidth() + getPaddingRight());
+        this.c.measure((this.j - (this.i * 2)) + 1073741824, this.c.getMeasuredHeight() + 1073741824);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.c.layout(this.h, this.c.getTop(), this.i - this.h, this.c.getBottom());
+        this.c.layout(this.i, this.c.getTop(), this.j - this.i, this.c.getBottom());
     }
 
     public TextView a(String str) {
-        if (this.g == null) {
-            this.g = (TextView) a(R.layout.widget_nb_item_title);
-            this.c.addView(this.g);
+        if (this.h == null) {
+            this.h = (TextView) b(R.layout.widget_nb_item_title);
+            this.c.addView(this.h);
         }
-        this.g.setText(str);
-        return this.g;
+        this.h.setText(str);
+        return this.h;
+    }
+
+    public TextView a(int i) {
+        return a(this.f.getString(i));
+    }
+
+    public View a(int i, View.OnClickListener onClickListener) {
+        return a(ControlAlign.HORIZONTAL_CENTER, b(i), onClickListener);
     }
 
     public ImageView a(ControlAlign controlAlign, ControlType controlType) {
-        return a(controlAlign, controlType, this.j);
+        return a(controlAlign, controlType, this.k);
     }
 
     public ImageView a(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
         ImageView imageView = null;
         if (controlType == ControlType.BACK_BUTTON) {
-            imageView = (ImageView) a(R.layout.widget_nb_item_back);
+            imageView = (ImageView) b(R.layout.widget_nb_item_back);
         } else if (controlType == ControlType.HOME_BUTTON) {
-            imageView = (ImageView) a(R.layout.widget_nb_item_home);
+            imageView = (ImageView) b(R.layout.widget_nb_item_home);
+        } else if (controlType == ControlType.ADD_CHAT) {
+            imageView = (ImageView) b(R.layout.widget_nb_item_addchat);
+        } else if (controlType == ControlType.EDIT_BUTTON) {
+            imageView = (ImageView) b(R.layout.widget_nb_item_edit);
+        } else if (controlType == ControlType.MORE_BUTTON) {
+            imageView = (ImageView) b(R.layout.widget_nb_item_more);
+        } else if (controlType == ControlType.CAMERA_BUTTON) {
+            imageView = (ImageView) b(R.layout.widget_nb_item_pb_camera);
         }
         if (imageView != null) {
             a(controlAlign).addView(imageView);
@@ -127,29 +150,35 @@ public class NavigationBar extends RelativeLayout {
         return imageView;
     }
 
-    public Button a(ControlAlign controlAlign, String str) {
+    public TextView a(ControlAlign controlAlign, String str) {
         return a(controlAlign, str, (View.OnClickListener) null);
     }
 
     public Button b(ControlAlign controlAlign, String str) {
-        Button button = (Button) a(R.layout.widget_nb_item_stepbtn);
+        Button button = (Button) b(R.layout.widget_nb_item_stepbtn);
         button.setText(str);
         a(controlAlign).addView(button);
         return button;
     }
 
     public void setSystemClickable(boolean z) {
-        this.f2489a = z;
+        this.f2543a = z;
     }
 
-    public Button a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
-        Button button = (Button) a(R.layout.widget_nb_item_textbtn);
-        button.setText(str);
-        a(controlAlign).addView(button);
-        if (onClickListener != null) {
-            button.setOnClickListener(onClickListener);
+    public TextView a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
+        TextView textView = (TextView) b(R.layout.widget_nb_item_textbtn);
+        textView.setText(str);
+        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) getResources().getDimension(R.dimen.navi_btn_margin_right);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            textView.setLayoutParams(layoutParams);
         }
-        return button;
+        a(controlAlign).addView(textView);
+        if (onClickListener != null) {
+            textView.setOnClickListener(onClickListener);
+        }
+        return textView;
     }
 
     public View a(ControlAlign controlAlign, View view, View.OnClickListener onClickListener) {
@@ -161,28 +190,34 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public View a(ControlAlign controlAlign, int i, View.OnClickListener onClickListener) {
-        return a(controlAlign, a(i), onClickListener);
+        return a(controlAlign, b(i), onClickListener);
     }
 
     private ViewGroup a(ControlAlign controlAlign) {
         return controlAlign == ControlAlign.HORIZONTAL_LEFT ? this.b : controlAlign == ControlAlign.HORIZONTAL_CENTER ? this.c : this.d;
     }
 
-    public View a(int i) {
-        return this.f.inflate(i, (ViewGroup) null);
+    public View b(int i) {
+        return this.g.inflate(i, (ViewGroup) this, false);
     }
 
-    public void b(int i) {
+    public void c(int i) {
         if (i == 1) {
-            setBackgroundResource(R.drawable.titlebar_bg_1);
+            setBackgroundColor(getResources().getColor(R.color.navi_bg_1));
+            this.e.setBackgroundColor(getResources().getColor(R.color.navi_line_1));
         } else {
-            setBackgroundResource(R.drawable.titlebar_bg);
+            setBackgroundColor(getResources().getColor(R.color.navi_bg));
+            this.e.setBackgroundColor(getResources().getColor(R.color.navi_line));
         }
         a();
-        if (this.e instanceof com.baidu.tieba.j) {
-            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.e;
-            jVar.m().a(i == 1);
-            jVar.m().a(this);
+        if (this.f instanceof com.baidu.tieba.j) {
+            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.f;
+            jVar.getLayoutMode().a(i == 1);
+            jVar.getLayoutMode().a(this);
+        } else if (this.f instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.f;
+            baseFragmentActivity.a().a(i == 1);
+            baseFragmentActivity.a().a(this);
         }
     }
 }

@@ -9,27 +9,29 @@ import java.util.Properties;
 public final class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f749a;
+    public static final String f763a;
     public static final String b;
     public static final int c;
     public static final String d;
     public static final String e;
     public static final String f;
     public static final String g;
-    private static String h = "http://channel.api.duapp.com";
-    private static String i = "agentchannel.api.duapp.com";
-    private static int j = 5287;
-    private static String k = "http://m.baidu.com";
+    public static String h;
+    private static String i = "http://channel.api.duapp.com";
+    private static String j = "agentchannel.api.duapp.com";
+    private static int k = 5287;
+    private static String l = "http://m.baidu.com";
 
     static {
         a();
-        f749a = h;
-        b = i;
-        c = j;
-        d = k;
-        e = f749a + "/rest/2.0/channel/channel";
-        f = f749a + "/rest/2.0/channel/";
+        f763a = i;
+        b = j;
+        c = k;
+        d = l;
+        e = f763a + "/rest/2.0/channel/channel";
+        f = f763a + "/rest/2.0/channel/";
         g = d + "/searchbox?action=publicsrv&type=issuedcode";
+        h = "http://lbsonline.pushct.baidu.com/lbsupload";
     }
 
     /* JADX WARN: Removed duplicated region for block: B:59:0x008e A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -50,19 +52,19 @@ public final class w {
                     properties.load(fileInputStream);
                     String property = properties.getProperty("http_server");
                     if (property != null && property.length() > 0) {
-                        h = property;
+                        i = property;
                     }
                     String property2 = properties.getProperty("socket_server");
                     if (property2 != null && property2.length() > 0) {
-                        i = property2;
+                        j = property2;
                     }
                     String property3 = properties.getProperty("socket_server_port");
                     if (property3 != null && property3.length() > 0) {
-                        j = Integer.parseInt(property3);
+                        k = Integer.parseInt(property3);
                     }
                     String property4 = properties.getProperty("config_server");
                     if (property4 != null && property4.length() > 0) {
-                        k = property4;
+                        l = property4;
                     }
                     if (fileInputStream != null) {
                         try {

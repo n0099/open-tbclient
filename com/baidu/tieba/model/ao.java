@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class ao extends BdAsyncTask<Object, ak, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1899a;
+    ArrayList<BasicNameValuePair> f1895a;
     an b;
     final /* synthetic */ ak c;
-    private com.baidu.tieba.util.ag d = null;
+    private com.baidu.tieba.util.ap d = null;
     private String e;
     private String f;
     private int g;
@@ -23,11 +23,11 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
         this.e = null;
         this.f = null;
         this.g = 3;
-        this.f1899a = null;
+        this.f1895a = null;
         this.b = new an(this.c);
         this.e = str;
         this.f = str2;
-        this.f1899a = arrayList;
+        this.f1895a = arrayList;
         this.g = i;
         setSelfExecute(true);
     }
@@ -35,12 +35,12 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
-        acVar = this.c.h;
-        if (acVar != null) {
-            acVar2 = this.c.h;
-            acVar2.a(this.g);
+        com.baidu.tieba.frs.ag agVar;
+        com.baidu.tieba.frs.ag agVar2;
+        agVar = this.c.i;
+        if (agVar != null) {
+            agVar2 = this.c.i;
+            agVar2.a(this.g);
         }
     }
 
@@ -56,30 +56,30 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
         ForumData forumData;
         ForumData forumData2;
         try {
-            z = this.c.m;
+            z = this.c.n;
             if (z && z.a().a(this.f)) {
                 c((Object[]) new ak[]{z.a().b()});
             }
-            this.d = new com.baidu.tieba.util.ag(this.e);
-            this.d.a(this.f1899a);
+            this.d = new com.baidu.tieba.util.ap(this.e);
+            this.d.a(this.f1895a);
             String j = this.d.j();
             jSONObject = new JSONObject(j);
             try {
                 if (this.d.c()) {
                     this.c.a(j);
-                    z2 = this.c.m;
+                    z2 = this.c.n;
                     if (z2) {
-                        forumData = this.c.f1895a;
+                        forumData = this.c.f1891a;
                         if (forumData != null) {
                             z a2 = z.a();
-                            forumData2 = this.c.f1895a;
+                            forumData2 = this.c.f1891a;
                             a2.a(forumData2.getName(), j);
                         }
                     }
                 }
             } catch (Exception e2) {
                 e = e2;
-                com.baidu.tieba.util.be.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
+                com.baidu.tieba.util.bg.b(getClass().getName(), "", "FrsAsyncTask.doInBackground error = " + e.getMessage());
                 return jSONObject;
             }
         } catch (Exception e3) {
@@ -94,12 +94,12 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
     public void b(ak... akVarArr) {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
-        acVar = this.c.h;
-        if (acVar != null) {
-            acVar2 = this.c.h;
-            acVar2.a(akVarArr.length > 0 ? akVarArr[0] : null);
+        com.baidu.tieba.frs.ag agVar;
+        com.baidu.tieba.frs.ag agVar2;
+        agVar = this.c.i;
+        if (agVar != null) {
+            agVar2 = this.c.i;
+            agVar2.a(akVarArr.length > 0 ? akVarArr[0] : null);
         }
     }
 
@@ -107,21 +107,21 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(JSONObject jSONObject) {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
+        com.baidu.tieba.frs.ag agVar;
+        com.baidu.tieba.frs.ag agVar2;
         if (this.d != null) {
-            this.b.f1898a = true;
+            this.b.f1894a = true;
             this.b.b = this.d.d();
             this.b.c = this.d.e();
             this.b.d = this.d.g();
             this.b.e = this.d.b();
         }
-        acVar = this.c.h;
-        if (acVar != null) {
-            acVar2 = this.c.h;
-            acVar2.a(this.g, jSONObject, this.b);
+        agVar = this.c.i;
+        if (agVar != null) {
+            agVar2 = this.c.i;
+            agVar2.a(this.g, jSONObject, this.b);
         }
-        this.c.k = null;
+        this.c.l = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -132,16 +132,16 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        com.baidu.tieba.frs.ac acVar;
-        com.baidu.tieba.frs.ac acVar2;
+        com.baidu.tieba.frs.ag agVar;
+        com.baidu.tieba.frs.ag agVar2;
         super.cancel(true);
         if (this.d != null) {
             this.d.h();
         }
-        acVar = this.c.h;
-        if (acVar != null) {
-            acVar2 = this.c.h;
-            acVar2.a(this.g, null, null);
+        agVar = this.c.i;
+        if (agVar != null) {
+            agVar2 = this.c.i;
+            agVar2.a(this.g, null, null);
         }
     }
 }

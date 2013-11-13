@@ -17,7 +17,7 @@ import java.util.List;
 public class PhotoWallView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1592a;
+    private final int f1679a;
     private final int b;
     private final int c;
     private BDImageView2[] d;
@@ -27,7 +27,7 @@ public class PhotoWallView extends FrameLayout {
     private LinearLayout h;
     private TextView i;
     private int j;
-    private com.baidu.tieba.util.a k;
+    private com.baidu.tieba.util.i k;
     private z l;
     private aa m;
     private boolean n;
@@ -35,7 +35,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1592a = 8;
+        this.f1679a = 8;
         this.b = 20;
         this.c = 2;
         this.d = new BDImageView2[8];
@@ -50,7 +50,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1592a = 8;
+        this.f1679a = 8;
         this.b = 20;
         this.c = 2;
         this.d = new BDImageView2[8];
@@ -65,7 +65,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context) {
         super(context);
-        this.f1592a = 8;
+        this.f1679a = 8;
         this.b = 20;
         this.c = 2;
         this.d = new BDImageView2[8];
@@ -87,7 +87,7 @@ public class PhotoWallView extends FrameLayout {
         this.h = (LinearLayout) findViewById(R.id.lay_hint_text);
         this.i = (TextView) findViewById(R.id.hint_text);
         this.j = com.baidu.adp.lib.h.f.a(this.e);
-        this.k = new com.baidu.tieba.util.a(this.e);
+        this.k = new com.baidu.tieba.util.i(this.e);
     }
 
     public void setData(List<PhotoUrlData> list) {
@@ -185,7 +185,7 @@ public class PhotoWallView extends FrameLayout {
 
     private void a(BDImageView2 bDImageView2, String str) {
         if (this.k == null) {
-            this.k = new com.baidu.tieba.util.a(this.e);
+            this.k = new com.baidu.tieba.util.i(this.e);
         }
         bDImageView2.setBackgroundDrawable(null);
         bDImageView2.setImageBitmap(null);

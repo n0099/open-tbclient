@@ -14,102 +14,106 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class SettingTextTipView extends FrameLayout {
-
-    /* renamed from: a  reason: collision with root package name */
-    protected Context f1973a;
-    protected LinearLayout b;
-    protected TextView c;
+    protected Context b;
+    protected LinearLayout c;
     protected TextView d;
-    protected ImageView e;
+    protected TextView e;
+    protected ImageView f;
 
     public SettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1973a = context;
-        c();
+        this.b = context;
+        e();
         a(attributeSet);
-        a(TiebaApplication.g().as());
+        a(TiebaApplication.g().ap());
     }
 
     public SettingTextTipView(Context context) {
         super(context);
-        this.f1973a = context;
-        c();
-        a(TiebaApplication.g().as());
+        this.b = context;
+        e();
+        a(TiebaApplication.g().ap());
+    }
+
+    public void b() {
+        if (this.e != null) {
+            this.e.setVisibility(8);
+        }
     }
 
     public void setTipColor(int i) {
-        if (this.d != null) {
-            this.d.setTextColor(i);
+        if (this.e != null) {
+            this.e.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.d != null) {
+        if (this.e != null) {
         }
     }
 
-    public void a() {
+    public void c() {
     }
 
-    public void b() {
-        this.e.setVisibility(8);
+    public void d() {
+        this.f.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.c.setText(str);
-    }
-
-    public void setText(int i) {
-        this.c.setText(i);
-    }
-
-    public void setTip(String str) {
         this.d.setText(str);
     }
 
+    public void setText(int i) {
+        this.d.setText(i);
+    }
+
+    public void setTip(String str) {
+        this.e.setText(str);
+    }
+
     public void setTipBackground(Drawable drawable) {
-        this.d.setBackgroundDrawable(drawable);
+        this.e.setBackgroundDrawable(drawable);
     }
 
     public void a(int i) {
         if (i == 1) {
-            this.c.setTextColor(this.f1973a.getResources().getColor(R.color.skin_1_common_color));
-            this.d.setTextColor(this.f1973a.getResources().getColor(R.color.c_FF515865));
-            this.e.setImageResource(R.drawable.icon_arrow_right_1);
+            this.d.setTextColor(this.b.getResources().getColor(R.color.skin_1_common_color));
+            this.e.setTextColor(this.b.getResources().getColor(R.color.c_FF515865));
+            this.f.setImageResource(R.drawable.icon_arrow_right_1);
             return;
         }
-        this.c.setTextColor(this.f1973a.getResources().getColor(R.color.more_color));
-        this.e.setImageResource(R.drawable.icon_arrow_right);
-        this.d.setTextColor(this.f1973a.getResources().getColor(R.color.c_FFB2B6BA));
+        this.d.setTextColor(this.b.getResources().getColor(R.color.more_color));
+        this.f.setImageResource(R.drawable.icon_arrow_right);
+        this.e.setTextColor(this.b.getResources().getColor(R.color.c_FFB2B6BA));
     }
 
-    protected void c() {
-        LayoutInflater.from(this.f1973a).inflate(R.layout.setting_text_tip_view, (ViewGroup) this, true);
-        this.b = (LinearLayout) findViewById(R.id.container);
-        this.c = (TextView) findViewById(R.id.text);
-        this.d = (TextView) findViewById(R.id.tip);
-        this.e = (ImageView) findViewById(R.id.arrow2);
+    protected void e() {
+        LayoutInflater.from(this.b).inflate(R.layout.setting_text_tip_view, (ViewGroup) this, true);
+        this.c = (LinearLayout) findViewById(R.id.container);
+        this.d = (TextView) findViewById(R.id.text);
+        this.e = (TextView) findViewById(R.id.tip);
+        this.f = (ImageView) findViewById(R.id.arrow2);
     }
 
     protected void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f1973a.obtainStyledAttributes(attributeSet, com.baidu.tieba.al.SettingView);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.an.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         String string2 = obtainStyledAttributes.getString(2);
         int color2 = obtainStyledAttributes.getColor(3, -1);
         if (string != null) {
-            this.c.setText(string);
+            this.d.setText(string);
         }
         if (color > -1) {
-            this.c.setTextColor(color);
+            this.d.setTextColor(color);
         }
         if (string2 != null) {
-            this.d.setText(string2);
+            this.e.setText(string2);
         }
         if (color2 > -1) {
-            this.d.setTextColor(color2);
+            this.e.setTextColor(color2);
         }
-        this.b.setClickable(false);
-        this.b.setFocusable(false);
+        this.c.setClickable(false);
+        this.c.setFocusable(false);
     }
 }

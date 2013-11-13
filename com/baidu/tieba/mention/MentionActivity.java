@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.bq;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.mobstat.StatService;
@@ -16,106 +18,115 @@ import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.chat.ChatActivity;
-import com.baidu.tieba.chat.ChatListFragment;
-import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
-public class MentionActivity extends BaseFragmentActivity {
-    public static boolean e;
-    private BaseFragment[] f;
-    private TextView[] g;
-    private TextView[] h;
-    private boolean n;
-    private android.support.v4.app.ae o;
-    private android.support.v4.app.t p;
-    private int i = -1;
-    private ImageView j = null;
-    private View.OnClickListener k = null;
+public class MentionActivity extends BaseFragment implements bq {
+    public static boolean b;
+    private android.support.v4.app.t ac;
+    private MentionPagerAdapter ad;
+    private boolean af;
+    private BaseFragmentActivity ag;
+    private TextView[] c;
+    private TextView[] d;
+    private int g;
+    private NavigationBar i;
+    private int e = -1;
+    private int f = -1;
+    private View.OnClickListener h = null;
+    private ImageView Y = null;
+    private ImageView Z = null;
+    private View aa = null;
+    private ViewPager ab = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1849a = null;
-    ViewGroup b = null;
-    TextView c = null;
-    private ImageView l = null;
-    protected int d = -1;
-    private boolean m = false;
-    private e q = null;
+    protected int f1845a = -1;
+    private boolean ae = false;
+    private e ah = null;
 
     public static void a(Activity activity, int i) {
-        Intent intent = new Intent(activity, MentionActivity.class);
+        Intent intent = new Intent(activity, SingleMentionActivity.class);
         intent.putExtra("showBack", true);
-        e = true;
+        b = true;
         activity.startActivityForResult(intent, i);
     }
 
     public static void a(Context context) {
-        Intent intent = new Intent(context, MentionActivity.class);
+        Intent intent = new Intent(context, SingleMentionActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("showBack", true);
-        e = true;
+        b = true;
         context.startActivity(intent);
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        if (b()) {
-            CompatibleUtile.getInstance().openGpu(this);
-        }
-        if (getIntent() != null) {
-            this.n = getIntent().getBooleanExtra("showBack", false);
-        }
-        setContentView(R.layout.mention_activity);
-        d();
-        a(bundle);
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void a(Activity activity) {
+        super.a(activity);
+        this.ag = (BaseFragmentActivity) activity;
     }
 
-    public boolean b() {
-        return false;
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        return layoutInflater.inflate(R.layout.mention_activity, (ViewGroup) null);
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
-    protected void onResume() {
-        this.d = TiebaApplication.g().as();
-        super.onResume();
-        if (this.m) {
-            this.m = false;
-            c(0);
-        } else if (e) {
-            e = false;
-            if (t.a().p() > 0) {
-                c(0);
-            } else if (t.a().l() > 0) {
-                c(1);
-            } else if (t.a().m() > 0) {
-                c(2);
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void a(Bundle bundle) {
+        super.a(bundle);
+        if (h() != null) {
+            this.af = h().getBoolean("showBack", false);
+        }
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void d(Bundle bundle) {
+        super.d(bundle);
+        G();
+        c(bundle);
+    }
+
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void r() {
+        this.f1845a = TiebaApplication.g().ap();
+        super.r();
+        if (F()) {
+            if (this.ae) {
+                this.ae = false;
+                d(0);
+            } else if (b) {
+                b = false;
+                if (t.a().p() > 0) {
+                    d(0);
+                } else if (t.a().l() > 0) {
+                    d(1);
+                } else if (t.a().m() > 0) {
+                    d(2);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
-    protected void onDestroy() {
-        super.onDestroy();
-        e();
+    @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
+    public void t() {
+        super.t();
+        H();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        if (this.i != -1) {
-            bundle.putInt("type", this.i);
+    @Override // android.support.v4.app.Fragment
+    public void e(Bundle bundle) {
+        if (this.e != -1) {
+            bundle.putInt("type", this.e);
         } else {
             bundle.putInt("type", 0);
         }
-        super.onSaveInstanceState(bundle);
+        super.e(bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.support.v4.app.n, android.app.Activity
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
+    @Override // android.support.v4.app.Fragment
+    public void a(int i, int i2, Intent intent) {
+        super.a(i, i2, intent);
         if (i2 == -1) {
             switch (i) {
                 case 12011:
@@ -124,8 +135,8 @@ public class MentionActivity extends BaseFragmentActivity {
                     String string2 = extras.getString(SocialConstants.PARAM_MEDIA_UNAME);
                     String string3 = extras.getString("portrait");
                     if (string2 != null && string != null) {
-                        this.m = true;
-                        ChatActivity.a(this, string, string2, string3, null, null);
+                        this.ae = true;
+                        ChatActivity.a(this.ag, string, string2, string3, null, null);
                         return;
                     }
                     return;
@@ -135,140 +146,144 @@ public class MentionActivity extends BaseFragmentActivity {
         }
     }
 
-    private void a(Bundle bundle) {
-        int intExtra;
-        this.k = new b(this);
-        this.j = (ImageView) findViewById(R.id.add_chat);
-        this.j.setOnClickListener(this.k);
-        this.f1849a = (LinearLayout) findViewById(R.id.container);
-        this.b = (ViewGroup) findViewById(R.id.title);
-        this.c = (TextView) findViewById(R.id.title_text);
-        this.l = (ImageView) findViewById(R.id.back);
-        if (this.n) {
-            this.l.setOnClickListener(new c(this));
-            this.l.setVisibility(0);
+    private void c(Bundle bundle) {
+        int i = 0;
+        this.h = new b(this);
+        View q = q();
+        this.i = (NavigationBar) q.findViewById(R.id.view_navigation_bar);
+        this.Z = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.ADD_CHAT, this.h);
+        this.aa = this.i.a(R.layout.nb_item_msg_titleview, (View.OnClickListener) null);
+        this.Y = this.i.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, (View.OnClickListener) null);
+        if (this.af) {
+            this.Y.setOnClickListener(new c(this));
+            this.Y.setVisibility(0);
         } else {
-            this.l.setVisibility(4);
+            this.Y.setVisibility(8);
         }
-        this.p = getSupportFragmentManager();
-        this.f = new BaseFragment[]{new ChatListFragment(), new ReplyMeFragment(), new AtMeFragment()};
-        this.g = new TextView[]{(TextView) findViewById(R.id.chatme_tab), (TextView) findViewById(R.id.replyme_tab), (TextView) findViewById(R.id.atme_tab)};
-        this.h = new TextView[]{(TextView) findViewById(R.id.chatme_msg_num), (TextView) findViewById(R.id.replyme_msg_num), (TextView) findViewById(R.id.atme_msg_num)};
+        this.ac = l();
+        this.ad = new MentionPagerAdapter(this.ac);
+        this.ab = (ViewPager) q.findViewById(R.id.content);
+        this.ab.setOnPageChangeListener(this);
+        this.ab.setAdapter(this.ad);
+        this.c = new TextView[]{(TextView) this.aa.findViewById(R.id.chatme_tab), (TextView) this.aa.findViewById(R.id.replyme_tab), (TextView) this.aa.findViewById(R.id.atme_tab)};
+        this.g = this.c.length;
+        this.d = new TextView[]{(TextView) this.aa.findViewById(R.id.chatme_msg_num), (TextView) this.aa.findViewById(R.id.replyme_msg_num), (TextView) this.aa.findViewById(R.id.atme_msg_num)};
         d dVar = new d(this);
-        for (TextView textView : this.g) {
-            textView.setOnClickListener(dVar);
+        for (int i2 = 0; i2 < this.c.length; i2++) {
+            this.c[i2].setOnClickListener(dVar);
         }
         if (bundle != null) {
-            intExtra = bundle.getInt("type", 0);
+            i = bundle.getInt("type", 0);
         } else {
-            Intent intent = getIntent();
-            intExtra = intent != null ? intent.getIntExtra("type", 0) : 0;
+            Bundle h = h();
+            if (h != null) {
+                i = h.getInt("type", 0);
+            }
         }
-        c(intExtra);
+        d(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view) {
-        for (int i = 0; i < this.g.length; i++) {
-            if (this.g[i] == view) {
-                c(i);
+        for (int i = 0; i < this.c.length; i++) {
+            if (this.c[i] == view) {
+                d(i);
                 return;
             }
         }
     }
 
-    protected void c(int i) {
-        if (i >= 0 && i <= this.f.length) {
-            if (this.i != i) {
-                this.i = i;
-                a("view" + i, this.f[i]);
-                String str = null;
-                if (i == 0) {
-                    str = "msg_chat_tab_click";
-                } else if (i == 1) {
-                    str = "msg_reply_tab_click";
-                } else if (i == 2) {
-                    str = "msg_atme_tab_click";
-                }
-                if (str != null && TiebaApplication.g().s()) {
-                    StatService.onEvent(this, str, "click", 1);
-                }
+    protected void d(int i) {
+        if (i >= 0 && i < this.g && this.e != i) {
+            this.f = this.e;
+            this.e = i;
+            this.ab.setCurrentItem(i);
+            String str = null;
+            if (i == 0) {
+                str = "msg_chat_tab_click";
+            } else if (i == 1) {
+                str = "msg_reply_tab_click";
+            } else if (i == 2) {
+                str = "msg_atme_tab_click";
             }
-            c();
+            if (str != null && TiebaApplication.g().s()) {
+                StatService.onEvent(this.ag, str, "click", 1);
+            }
+            a();
             a(i, false);
         }
     }
 
-    @Override // com.baidu.tieba.BaseFragmentActivity
-    protected void a(int i) {
+    @Override // com.baidu.tieba.BaseFragment
+    public void c(int i) {
         int i2 = 0;
-        bb.a(this.l, i);
-        bb.a(this.f1849a, i);
-        bb.d(this.b, i);
-        bb.f(this.c, i);
         if (i == 1) {
-            this.j.setBackgroundResource(R.drawable.title_icon_bg_1);
-            this.j.setImageResource(R.drawable.icon_write_news_1);
-            TextView[] textViewArr = this.h;
-            int length = textViewArr.length;
-            while (i2 < length) {
-                textViewArr[i2].setTextColor(getResources().getColor(R.color.top_msg_num_night));
-                i2++;
+            this.ab.setBackgroundColor(-14538444);
+        } else {
+            this.ab.setBackgroundColor(this.ag.getResources().getColor(R.color.backgroundcolor));
+        }
+        bd.a(this.Y, i);
+        this.i.c(i);
+        if (i == 1) {
+            for (TextView textView : this.d) {
+                textView.setTextColor(j().getColor(R.color.top_msg_num_night));
             }
         } else {
-            this.j.setBackgroundResource(R.drawable.title_icon_bg);
-            this.j.setImageResource(R.drawable.icon_write_news);
-            TextView[] textViewArr2 = this.h;
-            int length2 = textViewArr2.length;
-            while (i2 < length2) {
-                textViewArr2[i2].setTextColor(getResources().getColor(R.color.top_msg_num_day));
-                i2++;
+            for (TextView textView2 : this.d) {
+                textView2.setTextColor(j().getColor(R.color.top_msg_num_day));
             }
         }
-        c();
+        boolean z = this.f1845a == 1;
+        while (true) {
+            int i3 = i2;
+            if (i3 < this.c.length) {
+                TextView textView3 = this.c[i3];
+                if (i3 == 0) {
+                    bd.e((View) textView3, z ? R.drawable.multiview_left_drawable_1 : R.drawable.multiview_left_drawable);
+                } else if (i3 == this.c.length - 1) {
+                    bd.e((View) textView3, z ? R.drawable.multiview_right_drawable_1 : R.drawable.multiview_right_drawable);
+                } else {
+                    bd.e((View) textView3, z ? R.drawable.multiview_center_drawable_1 : R.drawable.multiview_center_drawable);
+                }
+                i2 = i3 + 1;
+            } else {
+                a();
+                return;
+            }
+        }
     }
 
-    private void c() {
-        boolean z = this.d == 1;
-        for (int i = 0; i < this.g.length; i++) {
-            TextView textView = this.g[i];
-            if (i == this.i) {
-                textView.setTextColor(getResources().getColor(R.color.white));
-                if (i == 0) {
-                    bb.e((View) textView, z ? R.drawable.btn_jin_ba_s_1 : R.drawable.btn_jin_ba_s);
-                } else if (i == this.g.length - 1) {
-                    bb.e((View) textView, z ? R.drawable.btn_baidu_s_1 : R.drawable.btn_baidu_s);
-                } else {
-                    bb.e((View) textView, z ? R.drawable.btn_search_ba_s_1 : R.drawable.btn_search_ba_s);
-                }
-            } else {
-                textView.setTextColor(getResources().getColor(z ? R.color.gray_night_4 : R.color.white));
-                if (i == 0) {
-                    bb.e((View) textView, z ? R.drawable.btn_jin_ba_n_1 : R.drawable.btn_jin_ba_n);
-                } else if (i == this.g.length - 1) {
-                    bb.e((View) textView, z ? R.drawable.btn_baidu_n_1 : R.drawable.btn_baidu_n);
-                } else {
-                    bb.e((View) textView, z ? R.drawable.btn_search_ba_n_1 : R.drawable.btn_search_ba_n);
-                }
+    private void a() {
+        boolean z = TiebaApplication.g().ap() == 1;
+        for (int i = 0; i < this.c.length; i++) {
+            TextView textView = this.c[i];
+            if (i == this.e) {
+                textView.setTextColor(j().getColor(z ? R.color.navi_multiview_text_s_1 : R.color.navi_multiview_text_s));
+                textView.setSelected(true);
+            } else if (i == this.f || this.f == -1) {
+                textView.setTextColor(j().getColor(z ? R.color.navi_multiview_text_n_1 : R.color.navi_multiview_text_n));
+                textView.setSelected(false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long[] jArr) {
-        boolean z = this.d == 1;
+        boolean z = this.f1845a == 1;
         for (int i = 0; i < jArr.length; i++) {
-            TextView textView = this.h[i];
+            TextView textView = this.d[i];
             long j = jArr[i];
-            if (j <= 0) {
+            if (!e(i)) {
+                textView.setVisibility(8);
+            } else if (j <= 0) {
                 textView.setVisibility(8);
             } else if (j < 10) {
                 textView.setText(String.valueOf(j));
-                textView.setBackgroundResource(z ? R.drawable.icon_news_prompt_1 : R.drawable.icon_news_prompt);
+                textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
                 textView.setVisibility(0);
             } else if (j < 100) {
                 textView.setText(String.valueOf(j));
-                textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_1 : R.drawable.icon_news_head_prompt);
+                textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
                 textView.setVisibility(0);
             } else {
                 textView.setText("   ");
@@ -278,11 +293,27 @@ public class MentionActivity extends BaseFragmentActivity {
         }
     }
 
-    public void a(String str, BaseFragment baseFragment) {
-        if (baseFragment != null) {
-            this.o = this.p.a();
-            this.o.b(R.id.content, baseFragment, str);
-            this.o.b();
+    /* JADX WARN: Removed duplicated region for block: B:16:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:4:0x0004 A[ORIG_RETURN, RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private boolean e(int i) {
+        switch (i) {
+            case 0:
+                return TiebaApplication.g().ab();
+            case 1:
+                if (!TiebaApplication.g().aa()) {
+                    return false;
+                }
+                if (TiebaApplication.g().Z()) {
+                    return false;
+                }
+                break;
+            case 2:
+                if (TiebaApplication.g().Z()) {
+                }
+                break;
         }
     }
 
@@ -302,16 +333,46 @@ public class MentionActivity extends BaseFragmentActivity {
         }
     }
 
-    private void d() {
-        this.q = new e(this, null);
+    private void G() {
+        this.ah = new e(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.notify");
-        registerReceiver(this.q, intentFilter);
+        this.ag.registerReceiver(this.ah, intentFilter);
     }
 
-    private void e() {
-        if (this.q != null) {
-            unregisterReceiver(this.q);
+    private void H() {
+        if (this.ah != null) {
+            this.ag.unregisterReceiver(this.ah);
+            this.ah = null;
         }
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageSelected(int i) {
+        if (i >= 0 && i < this.g && i != this.e) {
+            this.f = this.e;
+            this.e = i;
+            String str = null;
+            if (i == 0) {
+                str = "msg_chat_tab_click";
+            } else if (i == 1) {
+                str = "msg_reply_tab_click";
+            } else if (i == 2) {
+                str = "msg_atme_tab_click";
+            }
+            if (str != null && TiebaApplication.g().s()) {
+                StatService.onEvent(this.ag, str, "click", 1);
+            }
+            a();
+            a(i, false);
+        }
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrollStateChanged(int i) {
     }
 }

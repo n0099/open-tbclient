@@ -4,19 +4,21 @@ import android.content.Context;
 import android.text.TextPaint;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.person.PersonInfoActivity;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at extends ClickableSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ as f1140a;
+    final /* synthetic */ as f1174a;
     private String b;
     private String c;
     private Context d;
 
     public at(as asVar, Context context, String str, String str2) {
-        this.f1140a = asVar;
+        this.f1174a = asVar;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -27,7 +29,13 @@ public class at extends ClickableSpan {
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
     public void updateDrawState(TextPaint textPaint) {
-        textPaint.setColor(-9989158);
+        if (this.d != null) {
+            if (TiebaApplication.g().ap() == 1) {
+                textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text_1));
+            } else {
+                textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text));
+            }
+        }
         textPaint.setUnderlineText(false);
         textPaint.setFakeBoldText(false);
     }

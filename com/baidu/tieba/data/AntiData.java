@@ -1,21 +1,31 @@
 package com.baidu.tieba.data;
 
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.bg;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class AntiData implements Serializable {
     private static final long serialVersionUID = 2355009973517935888L;
+    private String block_forum_id;
+    private String block_forum_name;
+    private int block_stat;
     private int forbid_flag;
     private String forbid_info;
+    private int hide_stat;
     private int ifpost;
     private int ifposta;
-    private int ifvoice = 1;
     private int need_vcode;
     private String tbs;
+    private String user_id;
+    private String user_name;
     private String vcode_md5;
     private String vcode_pic_url;
+    private int vcode_stat;
     private String voice_message;
+    private boolean has_chance = true;
+    private int days_tofree = 0;
+    private int ifvoice = 1;
 
     public boolean isIfvoice() {
         return this.ifvoice == 1;
@@ -85,11 +95,63 @@ public class AntiData implements Serializable {
         this.vcode_pic_url = str;
     }
 
+    public int getVcode_stat() {
+        return this.vcode_stat;
+    }
+
+    public int getHide_stat() {
+        return this.hide_stat;
+    }
+
+    public int getBlock_stat() {
+        return this.block_stat;
+    }
+
+    public boolean isHas_chance() {
+        return this.has_chance;
+    }
+
+    public int getDays_tofree() {
+        return this.days_tofree;
+    }
+
+    public String getBlock_forum_name() {
+        return this.block_forum_name;
+    }
+
+    public String getBlock_forum_id() {
+        return this.block_forum_id;
+    }
+
+    public String getUser_id() {
+        return this.user_id;
+    }
+
+    public String getUser_name() {
+        return this.user_name;
+    }
+
+    public void setUser_id(String str) {
+        this.user_id = str;
+    }
+
+    public void setUser_name(String str) {
+        this.user_name = str;
+    }
+
+    public void setBlock_forum_id(String str) {
+        this.block_forum_id = str;
+    }
+
+    public void setBlock_forum_name(String str) {
+        this.block_forum_name = str;
+    }
+
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("AntiData", "parserJson", "error = " + e.getMessage());
+            bg.b("AntiData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -109,19 +171,24 @@ public class AntiData implements Serializable {
                 this.forbid_info = jSONObject.optString("forbid_info");
                 this.ifvoice = jSONObject.optInt("ifvoice", 1);
                 this.voice_message = jSONObject.optString("voice_message");
+                this.block_stat = jSONObject.optInt("block_stat", 0);
+                this.hide_stat = jSONObject.optInt("hide_stat", 0);
+                this.vcode_stat = jSONObject.optInt("vcode_stat", 0);
+                this.days_tofree = jSONObject.optInt("days_tofree", 1);
+                this.has_chance = jSONObject.optInt("has_chance", 1) == 1;
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("AntiData", "parserJson", "error = " + e.getMessage());
+                bg.b("AntiData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
     public void logPrint() {
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "tbs = " + this.tbs);
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
-        com.baidu.tieba.util.be.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
+        bg.d("AntiData", "logPrint", "ifpost = " + String.valueOf(this.ifpost));
+        bg.d("AntiData", "logPrint", "ifposta = " + String.valueOf(this.ifposta));
+        bg.d("AntiData", "logPrint", "forbid_flag = " + String.valueOf(this.forbid_flag));
+        bg.d("AntiData", "logPrint", "tbs = " + this.tbs);
+        bg.d("AntiData", "logPrint", "need_vcode = " + String.valueOf(this.need_vcode));
+        bg.d("AntiData", "logPrint", "vcode_md5 = " + this.vcode_md5);
     }
 
     public void setForbid_info(String str) {

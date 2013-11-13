@@ -5,13 +5,13 @@ import com.baidu.adp.lib.e.g;
 public class e implements com.baidu.adp.lib.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f2413a = null;
+    private static e f2474a = null;
 
     public static e a() {
-        if (f2413a == null) {
-            f2413a = new e();
+        if (f2474a == null) {
+            f2474a = new e();
         }
-        return f2413a;
+        return f2474a;
     }
 
     private e() {

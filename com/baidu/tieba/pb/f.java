@@ -1,28 +1,28 @@
 package com.baidu.tieba.pb;
 
 import android.view.animation.Animation;
-import android.widget.LinearLayout;
+import com.baidu.tieba.view.NavigationBar;
 /* loaded from: classes.dex */
 class f implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2134a;
+    final /* synthetic */ e f2176a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f2134a = eVar;
+        this.f2176a = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         boolean z;
-        LinearLayout linearLayout;
-        this.f2134a.f2133a.t = true;
-        z = this.f2134a.f2133a.u;
+        NavigationBar navigationBar;
+        this.f2176a.f2156a.r = true;
+        z = this.f2176a.f2156a.s;
         if (z) {
-            this.f2134a.f2133a.u = false;
-            linearLayout = this.f2134a.f2133a.n;
-            linearLayout.setVisibility(8);
+            this.f2176a.f2156a.s = false;
+            navigationBar = this.f2176a.f2156a.l;
+            navigationBar.setVisibility(8);
         }
     }
 

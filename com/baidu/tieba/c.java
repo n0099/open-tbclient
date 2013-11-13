@@ -8,18 +8,18 @@ import android.view.View;
 public class c implements LayoutInflater.Factory {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f1082a;
+    private e f1114a;
 
     public void a(e eVar) {
-        this.f1082a = eVar;
+        this.f1114a = eVar;
     }
 
     @Override // android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        if (this.f1082a == null) {
-            this.f1082a = new e();
+        if (this.f1114a == null) {
+            this.f1114a = new e();
         }
-        this.f1082a.a(str, context, attributeSet);
+        this.f1114a.a(str, context, attributeSet);
         return null;
     }
 }

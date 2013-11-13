@@ -1,31 +1,22 @@
 package com.baidu.tieba.pb;
-
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cb implements Animation.AnimationListener {
+public class cb implements com.baidu.tieba.editortool.o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageView f2089a;
-    final /* synthetic */ bt b;
+    final /* synthetic */ PbEditor f2108a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(bt btVar, ImageView imageView) {
-        this.b = btVar;
-        this.f2089a = imageView;
+    public cb(PbEditor pbEditor) {
+        this.f2108a = pbEditor;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+    @Override // com.baidu.tieba.editortool.o
+    public void a() {
+        this.f2108a.f();
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new cc(this));
+    @Override // com.baidu.tieba.editortool.o
+    public void b() {
     }
 }

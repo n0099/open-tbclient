@@ -1,41 +1,47 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.os.Message;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class bh implements Handler.Callback {
+class bh implements com.baidu.adp.lib.d.c<LinearLayout> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2071a;
+    final /* synthetic */ NewPbActivity f2092a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(NewPbActivity newPbActivity) {
-        this.f2071a = newPbActivity;
+        this.f2092a = newPbActivity;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        com.baidu.tieba.model.bl blVar;
-        bt btVar;
-        bt btVar2;
-        switch (message.what) {
-            case 0:
-                btVar2 = this.f2071a.u;
-                btVar2.af();
-                return false;
-            case 1:
-                btVar = this.f2071a.u;
-                btVar.ae();
-                return false;
-            case 2:
-                blVar = this.f2071a.o;
-                if (blVar.s()) {
-                    this.f2071a.u();
-                    return false;
-                }
-                return false;
-            default:
-                return false;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    /* renamed from: b */
+    public LinearLayout a() {
+        LinearLayout linearLayout = new LinearLayout(this.f2092a);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        linearLayout.setLayoutParams(layoutParams);
+        linearLayout.setGravity(16);
+        linearLayout.setBaselineAligned(true);
+        linearLayout.setOrientation(0);
+        linearLayout.setLayoutParams(layoutParams);
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public void a(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public LinearLayout b(LinearLayout linearLayout) {
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.d.c
+    public LinearLayout c(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+        return linearLayout;
     }
 }

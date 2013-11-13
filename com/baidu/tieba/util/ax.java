@@ -1,22 +1,27 @@
 package com.baidu.tieba.util;
 
-import java.io.File;
-import java.io.FilenameFilter;
+import java.util.TimerTask;
 /* loaded from: classes.dex */
-class ax implements FilenameFilter {
+class ax extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2434a;
-    final /* synthetic */ au b;
+    final /* synthetic */ NetWorkCoreByBdHttp f2493a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(au auVar, String str) {
-        this.b = auVar;
-        this.f2434a = str;
+    private ax(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
+        this.f2493a = netWorkCoreByBdHttp;
     }
 
-    @Override // java.io.FilenameFilter
-    public boolean accept(File file, String str) {
-        return str.contains(new StringBuilder().append(this.f2434a).append("_").toString());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ax(NetWorkCoreByBdHttp netWorkCoreByBdHttp, au auVar) {
+        this(netWorkCoreByBdHttp);
+    }
+
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        try {
+            this.f2493a.t();
+        } catch (Exception e) {
+            bg.b(getClass().getName(), "initNetWorkCore", e.getMessage());
+        }
     }
 }

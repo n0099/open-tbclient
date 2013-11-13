@@ -3,7 +3,6 @@ package com.baidu.tieba.home;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -13,13 +12,13 @@ import com.slidingmenu.lib.R;
 public class EnterForumGuideBottomView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1321a;
+    private int f1389a;
     private ImageView b;
     private TextView c;
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1321a = -1;
+        this.f1389a = -1;
         this.b = null;
         this.c = null;
         a(context);
@@ -27,7 +26,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1321a = -1;
+        this.f1389a = -1;
         this.b = null;
         this.c = null;
         a(context);
@@ -35,24 +34,24 @@ public class EnterForumGuideBottomView extends RelativeLayout {
 
     public EnterForumGuideBottomView(Context context) {
         super(context);
-        this.f1321a = -1;
+        this.f1389a = -1;
         this.b = null;
         this.c = null;
         a(context);
     }
 
     public void a(Context context) {
-        addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.enter_forum_guide_bottom, (ViewGroup) null));
+        ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.enter_forum_guide_bottom, this);
         this.b = (ImageView) findViewById(R.id.img_bg_bottom);
         this.c = (TextView) findViewById(R.id.tip_bottom);
     }
 
     private void setSkinType(int i) {
-        this.f1321a = i;
+        this.f1389a = i;
     }
 
     private int getSkinType() {
-        return this.f1321a;
+        return this.f1389a;
     }
 
     private boolean c(int i) {
@@ -90,7 +89,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void a() {
-        a(TiebaApplication.g().as());
+        a(TiebaApplication.g().ap());
     }
 
     public void b() {
@@ -98,7 +97,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void c() {
-        this.f1321a = -1;
+        this.f1389a = -1;
         this.b.setBackgroundDrawable(null);
     }
 }

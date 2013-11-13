@@ -1,22 +1,76 @@
 package com.baidu.tieba.home;
 
-import android.app.AlertDialog;
-import android.view.View;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
+public class ab extends BdAsyncTask<Object, Integer, y> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1328a;
+    final /* synthetic */ aa f1397a;
+    private ad b = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(SearchActivity searchActivity) {
-        this.f1328a = searchActivity;
+    public ab(aa aaVar) {
+        this.f1397a = aaVar;
+        setPriority(3);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        new AlertDialog.Builder(this.f1328a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new ad(this)).setNegativeButton("取消", new ac(this)).create().show();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public y a(Object... objArr) {
+        y yVar;
+        this.b = new ad();
+        if (UtilHelper.i(TiebaApplication.g().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
+            this.f1397a.b = d();
+            yVar = this.f1397a.b;
+            return yVar;
+        }
+        return null;
+    }
+
+    private y d() {
+        String a2 = this.b.a();
+        if (this.b.c()) {
+            y yVar = new y();
+            yVar.a(a2);
+            return yVar;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        this.b.b();
+        this.b = null;
+        this.f1397a.f1396a = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(y yVar) {
+        ac acVar;
+        y yVar2;
+        ac acVar2;
+        ac acVar3;
+        y yVar3;
+        this.f1397a.f1396a = null;
+        acVar = this.f1397a.c;
+        if (acVar != null) {
+            yVar2 = this.f1397a.b;
+            if (yVar2 != null) {
+                acVar3 = this.f1397a.c;
+                yVar3 = this.f1397a.b;
+                acVar3.a(yVar3);
+                return;
+            }
+            String d = this.b != null ? this.b.d() : null;
+            acVar2 = this.f1397a.c;
+            acVar2.a(d);
+        }
     }
 }

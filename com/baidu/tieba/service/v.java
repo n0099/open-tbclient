@@ -5,22 +5,22 @@ import android.app.NotificationManager;
 import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.VersionData;
-import com.baidu.tieba.util.ag;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.w;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 import java.io.File;
 /* loaded from: classes.dex */
 class v extends BdAsyncTask<String, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TiebaUpdateService f2325a;
+    final /* synthetic */ TiebaUpdateService f2358a;
     private String b;
-    private ag c = null;
+    private ap c = null;
     private volatile boolean d = false;
 
     public v(TiebaUpdateService tiebaUpdateService, String str) {
-        this.f2325a = tiebaUpdateService;
+        this.f2358a = tiebaUpdateService;
         this.b = null;
         this.b = str;
     }
@@ -36,9 +36,9 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
         Boolean bool2 = false;
         while (!this.d) {
             try {
-                this.c = new ag(this.b);
-                handler = this.f2325a.k;
-                bool2 = this.c.a(this.f2325a.f2304a + ".tmp", handler, 900003);
+                this.c = new ap(this.b);
+                handler = this.f2358a.l;
+                bool2 = this.c.a(this.f2358a.f2337a + ".tmp", handler, 900003);
                 if (bool2.booleanValue()) {
                     break;
                 } else if (this.c.e() == -2) {
@@ -58,15 +58,15 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
         bool = bool2;
         try {
             if (bool.booleanValue()) {
-                w.j(this.f2325a.f2304a);
-                File d = w.d(this.f2325a.f2304a + ".tmp");
-                if (d != null && (e2 = w.e(this.f2325a.f2304a)) != null && !d.renameTo(e2)) {
-                    be.b(getClass().getName(), "doInBackground", "renameTo error");
+                af.j(this.f2358a.f2337a);
+                File d = af.d(this.f2358a.f2337a + ".tmp");
+                if (d != null && (e2 = af.e(this.f2358a.f2337a)) != null && !d.renameTo(e2)) {
+                    bg.b(getClass().getName(), "doInBackground", "renameTo error");
                 }
             }
         } catch (Exception e5) {
             e = e5;
-            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            bg.b(getClass().getName(), "doInBackground", e.getMessage());
             return bool;
         }
         return bool;
@@ -75,7 +75,7 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.f2325a.g = null;
+        this.f2358a.g = null;
         this.d = true;
         if (this.c != null) {
             this.c.h();
@@ -97,34 +97,34 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
         Notification notification4;
         NotificationManager notificationManager2;
         super.a((v) bool);
-        this.f2325a.g = null;
+        this.f2358a.g = null;
         try {
             if (bool.booleanValue()) {
-                notificationManager2 = this.f2325a.b;
+                notificationManager2 = this.f2358a.b;
                 notificationManager2.cancel(14);
             } else {
-                notification = this.f2325a.d;
+                notification = this.f2358a.d;
                 if (notification != null) {
-                    notification2 = this.f2325a.d;
-                    notification2.contentView.setTextViewText(R.id.info, this.f2325a.getString(R.string.error_sd_error));
-                    notification3 = this.f2325a.d;
+                    notification2 = this.f2358a.d;
+                    notification2.contentView.setTextViewText(R.id.info, this.f2358a.getString(R.string.error_sd_error));
+                    notification3 = this.f2358a.d;
                     notification3.flags = 16;
-                    notificationManager = this.f2325a.b;
-                    notification4 = this.f2325a.d;
+                    notificationManager = this.f2358a.b;
+                    notification4 = this.f2358a.d;
                     notificationManager.notify(14, notification4);
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "onPostExecute", e.getMessage());
+            bg.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
-        z = this.f2325a.i;
+        z = this.f2358a.j;
         if (z) {
-            handler = this.f2325a.j;
-            handler2 = this.f2325a.j;
-            versionData = this.f2325a.f;
+            handler = this.f2358a.k;
+            handler2 = this.f2358a.k;
+            versionData = this.f2358a.f;
             handler.sendMessageDelayed(handler2.obtainMessage(1, versionData), 100L);
             return;
         }
-        this.f2325a.i = true;
+        this.f2358a.j = true;
     }
 }

@@ -8,7 +8,7 @@ import android.widget.TextView;
 public class BestStringsFitTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private String[] f2329a;
+    private String[] f2362a;
     private String b;
     private float c;
     private String d;
@@ -41,12 +41,13 @@ public class BestStringsFitTextView extends TextView {
     protected void a() {
         this.c = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.f2329a.length; i++) {
+        for (int i = 0; i < this.f2362a.length; i++) {
             if (i > 0) {
                 sb.append(this.b);
             }
-            sb.append(this.f2329a[i]);
+            sb.append(this.f2362a[i]);
             String sb2 = sb.toString();
+            com.baidu.tieba.util.bg.b(sb2);
             if (this.c < getPaint().measureText(sb2)) {
                 break;
             }
@@ -59,13 +60,13 @@ public class BestStringsFitTextView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.f2329a != null && !this.e) {
+        if (this.f2362a != null && !this.e) {
             a();
         }
     }
 
     public void setTextArray(String[] strArr) {
-        this.f2329a = strArr;
+        this.f2362a = strArr;
         a();
     }
 

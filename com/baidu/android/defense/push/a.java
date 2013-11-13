@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected JSONObject f619a;
+    protected JSONObject f628a;
     protected boolean b;
     protected Context c;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Context context) {
-        this.f619a = null;
+        this.f628a = null;
         this.b = true;
         this.c = null;
         if (TextUtils.isEmpty(str)) {
@@ -23,7 +23,7 @@ public abstract class a {
         }
         this.c = context.getApplicationContext();
         try {
-            this.f619a = new JSONObject(str);
+            this.f628a = new JSONObject(str);
         } catch (JSONException e) {
             this.b = false;
         }

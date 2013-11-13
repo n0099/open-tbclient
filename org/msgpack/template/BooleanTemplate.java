@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class BooleanTemplate extends AbstractTemplate<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final BooleanTemplate f2855a = new BooleanTemplate();
+    static final BooleanTemplate f2903a = new BooleanTemplate();
 
     private BooleanTemplate() {
     }
@@ -24,6 +24,6 @@ public class BooleanTemplate extends AbstractTemplate<Boolean> {
     }
 
     public static BooleanTemplate a() {
-        return f2855a;
+        return f2903a;
     }
 }

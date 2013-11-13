@@ -15,10 +15,10 @@ public class i extends com.baidu.tieba.im.messageCenter.d {
             return null;
         }
         String str = "";
-        if (TiebaApplication.G() != null) {
-            str = TiebaApplication.G().getID();
+        if (TiebaApplication.E() != null) {
+            str = TiebaApplication.E().getID();
         }
-        byte[] a2 = com.baidu.tieba.b.a.a().n().a("group_info" + str);
+        byte[] a2 = com.baidu.tieba.b.a.a().o().a("group_info" + str);
         ResponseGroupsByUidMessage responseGroupsByUidMessage2 = new ResponseGroupsByUidMessage();
         if (a2 != null) {
             try {

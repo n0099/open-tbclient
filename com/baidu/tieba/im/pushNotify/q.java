@@ -7,17 +7,17 @@ import java.util.LinkedList;
 public class q implements com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f1695a;
+    final /* synthetic */ n f1782a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(n nVar) {
-        this.f1695a = nVar;
+        this.f1782a = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(LinkedList<GroupNewsPojo> linkedList) {
-        this.f1695a.a(linkedList);
-        this.f1695a.b(linkedList);
+        this.f1782a.a(linkedList);
+        this.f1782a.b(linkedList);
     }
 }

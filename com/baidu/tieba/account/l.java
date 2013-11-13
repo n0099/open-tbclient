@@ -19,7 +19,7 @@ public class l {
     private com.baidu.tieba.j j;
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1049a = null;
+    private View f1083a = null;
     private Dialog b = null;
     private EditText c = null;
     private RadioGroup d = null;
@@ -64,27 +64,27 @@ public class l {
 
     public void a() {
         if (this.b == null) {
-            this.f1049a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
-            this.c = (EditText) this.f1049a.findViewById(R.id.account);
+            this.f1083a = this.j.getLayoutInflater().inflate(R.layout.main_input_username, (ViewGroup) null);
+            this.c = (EditText) this.f1083a.findViewById(R.id.account);
             this.c.setHint(this.j.getString(R.string.input_name) + ":");
-            this.i = (Button) this.f1049a.findViewById(R.id.back);
+            this.i = (Button) this.f1083a.findViewById(R.id.back);
             this.i.setOnClickListener(new m(this));
-            this.k = (Button) this.f1049a.findViewById(R.id.check_username);
+            this.k = (Button) this.f1083a.findViewById(R.id.check_username);
             this.k.setOnClickListener(new n(this));
-            this.p = (ProgressBar) this.f1049a.findViewById(R.id.check_progress);
-            this.o = (Button) this.f1049a.findViewById(R.id.confirm);
+            this.p = (ProgressBar) this.f1083a.findViewById(R.id.check_progress);
+            this.o = (Button) this.f1083a.findViewById(R.id.confirm);
             this.o.setOnClickListener(new o(this));
-            this.q = (ProgressBar) this.f1049a.findViewById(R.id.confirm_progress);
-            this.n = (TextView) this.f1049a.findViewById(R.id.error_info);
-            this.d = (RadioGroup) this.f1049a.findViewById(R.id.names_group);
-            this.f = (RadioButton) this.f1049a.findViewById(R.id.name1);
-            this.g = (RadioButton) this.f1049a.findViewById(R.id.name2);
-            this.h = (RadioButton) this.f1049a.findViewById(R.id.name3);
+            this.q = (ProgressBar) this.f1083a.findViewById(R.id.confirm_progress);
+            this.n = (TextView) this.f1083a.findViewById(R.id.error_info);
+            this.d = (RadioGroup) this.f1083a.findViewById(R.id.names_group);
+            this.f = (RadioButton) this.f1083a.findViewById(R.id.name1);
+            this.g = (RadioButton) this.f1083a.findViewById(R.id.name2);
+            this.h = (RadioButton) this.f1083a.findViewById(R.id.name3);
             this.e = new p(this);
             this.f.setOnCheckedChangeListener(this.e);
             this.g.setOnCheckedChangeListener(this.e);
             this.h.setOnCheckedChangeListener(this.e);
-            this.r = (TextView) this.f1049a.findViewById(R.id.phone_info);
+            this.r = (TextView) this.f1083a.findViewById(R.id.phone_info);
             d();
             this.b = new Dialog(this.j, R.style.input_username_dialog);
             this.b.setCanceledOnTouchOutside(false);
@@ -102,7 +102,7 @@ public class l {
                 this.r.setText("Hi," + this.s);
             }
             this.b.show();
-            this.b.setContentView(this.f1049a);
+            this.b.setContentView(this.f1083a);
             WindowManager.LayoutParams attributes = this.b.getWindow().getAttributes();
             attributes.gravity = 51;
             attributes.x = 0;
@@ -110,7 +110,7 @@ public class l {
             attributes.width = -1;
             attributes.height = -1;
             this.b.getWindow().setAttributes(attributes);
-            this.j.a(this.c, 150);
+            this.j.ShowSoftKeyPadDelay(this.c, 150);
             this.c.requestFocus();
         }
     }

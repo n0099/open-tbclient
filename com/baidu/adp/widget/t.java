@@ -1,45 +1,53 @@
 package com.baidu.adp.widget;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.database.DataSetObservable;
+import android.database.DataSetObserver;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
 /* loaded from: classes.dex */
-public class t extends Handler {
+public abstract class t implements ListAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VerticalTranslateLayout f606a;
+    private final DataSetObservable f612a = new DataSetObservable();
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        u uVar;
-        u uVar2;
-        u uVar3;
-        u uVar4;
-        u uVar5;
-        uVar = this.f606a.v;
-        if (uVar.g) {
-            switch (message.what) {
-                case -105:
-                    uVar5 = this.f606a.v;
-                    uVar5.d();
-                    return;
-                case -104:
-                    uVar2 = this.f606a.v;
-                    uVar2.c();
-                    return;
-                case -103:
-                case -102:
-                default:
-                    return;
-                case -101:
-                    uVar3 = this.f606a.v;
-                    uVar3.b();
-                    return;
-                case -100:
-                    uVar4 = this.f606a.v;
-                    uVar4.a();
-                    return;
-            }
-        }
+    public abstract void a(View view, AdapterView adapterView, int i);
+
+    public abstract int b();
+
+    public abstract View c();
+
+    @Override // android.widget.Adapter
+    public boolean hasStableIds() {
+        return true;
+    }
+
+    @Override // android.widget.Adapter
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        this.f612a.registerObserver(dataSetObserver);
+    }
+
+    @Override // android.widget.Adapter
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
+        this.f612a.unregisterObserver(dataSetObserver);
+    }
+
+    public void a() {
+        this.f612a.notifyChanged();
+    }
+
+    @Override // android.widget.ListAdapter
+    public boolean areAllItemsEnabled() {
+        return true;
+    }
+
+    @Override // android.widget.ListAdapter
+    public boolean isEnabled(int i) {
+        return true;
+    }
+
+    @Override // android.widget.Adapter
+    public boolean isEmpty() {
+        return getCount() == 0;
     }
 }

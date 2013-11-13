@@ -3,7 +3,7 @@ package com.baidu.tieba.person;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -16,17 +16,19 @@ public class EditBarActivity extends com.baidu.tieba.j {
     private NavigationBar c;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.model.e f2156a = null;
+    private com.baidu.tieba.model.e f2198a = null;
     private ListView b = null;
-    private Button d = null;
+    private TextView d = null;
     private TextView e = null;
     private i f = null;
     private ProgressBar g = null;
-    private g j = null;
-    private int k = -1;
-    private String l = null;
-    private h m = null;
-    private RelativeLayout n = null;
+    private g h = null;
+    private int i = -1;
+    private String j = null;
+    private h k = null;
+    private RelativeLayout l = null;
+    private FrameLayout m = null;
+    private TextView n = null;
     private String o = null;
     private int p = 0;
 
@@ -44,19 +46,19 @@ public class EditBarActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.edit_bar_activity);
-        c();
-        d();
         b();
+        c();
+        a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
-        if (this.j != null) {
-            this.j.cancel();
+        if (this.h != null) {
+            this.h.cancel();
         }
-        if (this.m != null) {
-            this.m.cancel();
+        if (this.k != null) {
+            this.k.cancel();
         }
         if (this.g != null) {
             this.g.setVisibility(8);
@@ -64,45 +66,49 @@ public class EditBarActivity extends com.baidu.tieba.j {
         super.onDestroy();
     }
 
-    private void b() {
-        if (this.j != null) {
-            this.j.cancel();
+    private void a() {
+        if (this.h != null) {
+            this.h.cancel();
         }
-        this.j = new g(this, null);
-        this.j.setPriority(3);
-        this.j.execute(new Object[0]);
+        this.h = new g(this, null);
+        this.h.setPriority(3);
+        this.h.execute(new Object[0]);
     }
 
-    private void c() {
-        this.f2156a = new com.baidu.tieba.model.e();
+    private void b() {
+        this.f2198a = new com.baidu.tieba.model.e();
         this.o = getIntent().getStringExtra("view_user_id");
         this.p = getIntent().getIntExtra("user_sex", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        this.c.b(i);
-        com.baidu.tieba.util.bb.a(this.n, i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.c.c(i);
+        com.baidu.tieba.util.bd.a(this.l, i);
         this.f.notifyDataSetChanged();
         if (i == 1) {
             this.b.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
             this.b.setSelector(R.drawable.list_selector_1);
+            this.n.setTextColor(getResources().getColor(R.color.person_post_header_uname_1));
             return;
         }
         this.b.setDivider(getResources().getDrawable(R.drawable.list_divider));
         this.b.setSelector(R.drawable.list_selector);
+        this.n.setTextColor(getResources().getColor(R.color.person_post_header_uname));
     }
 
-    private void d() {
-        this.n = (RelativeLayout) findViewById(R.id.parent);
+    private void c() {
+        this.l = (RelativeLayout) findViewById(R.id.parent);
         this.c = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.e = this.c.a("");
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d = this.c.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.edit));
+        this.m = (FrameLayout) findViewById(R.id.empty_textview_container);
+        this.n = (TextView) findViewById(R.id.empty_textview);
         this.g = (ProgressBar) findViewById(R.id.progress);
-        this.f = new i(this, this.f2156a, this.p);
+        this.f = new i(this, this.f2198a);
         this.f.a(new d(this));
         this.b = (ListView) findViewById(R.id.list);
         this.b.setAdapter((ListAdapter) this.f);
@@ -112,27 +118,35 @@ public class EditBarActivity extends com.baidu.tieba.j {
             this.d.setVisibility(4);
             if (this.p == 2) {
                 this.e.setText(getString(R.string.her_attention_forums));
+                this.n.setText(getString(R.string.she_no_like_forum_other));
+                return;
             } else if (this.p == 1) {
                 this.e.setText(getString(R.string.his_attention_forums));
+                this.n.setText(getString(R.string.he_no_like_forum_other));
+                return;
             } else {
                 this.e.setText(getString(R.string.ta_attention_forums));
+                this.n.setText(getString(R.string.no_like_forum_other));
+                return;
             }
-            this.f.b(false);
-            return;
         }
+        this.n.setText(getString(R.string.not_have_like_bars));
         this.e.setText(getString(R.string.my_bar));
-        this.f.b(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
+    public void a(boolean z) {
         if (this.f != null) {
             this.f.b();
             if (this.f.c()) {
-                this.d.setVisibility(4);
-                this.f.a(false);
+                if (z) {
+                    this.d.setVisibility(4);
+                    this.f.a(false);
+                    this.m.setVisibility(0);
+                }
             } else if (this.o == null) {
                 this.d.setVisibility(0);
+                this.m.setVisibility(8);
             }
         }
     }

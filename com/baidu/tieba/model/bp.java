@@ -1,127 +1,148 @@
 package com.baidu.tieba.model;
 
 import android.content.Context;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
-public class bp extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.bb> {
+public class bp extends com.baidu.adp.a.d {
+    protected Context e;
+    protected com.baidu.tieba.data.aw f;
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bo f1922a;
-    private com.baidu.tieba.a.j b = null;
-    private int c;
+    protected int f1917a = 0;
+    protected String b = null;
+    protected String c = null;
+    protected String d = null;
+    protected bq g = null;
+    protected br h = null;
 
-    public bp(bo boVar, int i) {
-        this.f1922a = boVar;
-        this.c = 0;
-        this.c = i;
+    public void a(Intent intent) {
+        this.b = intent.getStringExtra("thread_id");
+        this.c = intent.getStringExtra("post_id");
+        this.d = intent.getStringExtra("st_type");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public com.baidu.tieba.data.bb a(Object... objArr) {
-        com.baidu.tieba.data.bb bbVar;
-        com.baidu.tieba.data.bb bbVar2;
-        com.baidu.tieba.data.bb bbVar3;
-        String str;
-        String str2;
-        String str3;
-        Context context;
-        Context context2;
-        this.b = new com.baidu.tieba.a.j();
-        try {
-            bbVar = this.f1922a.e;
-            int f = bbVar.f();
-            if (f == 0) {
-                f++;
-            } else if (this.c == 0) {
-                f++;
-            } else if (this.c == 2) {
-                bbVar2 = this.f1922a.e;
-                int size = bbVar2.b().size();
-                bbVar3 = this.f1922a.e;
-                if (size % bbVar3.e() == 0) {
-                    f++;
-                }
-            }
-            com.baidu.tieba.a.j jVar = this.b;
-            str = this.f1922a.f1921a;
-            str2 = this.f1922a.c;
-            int i = this.c;
-            str3 = this.f1922a.b;
-            String a2 = jVar.a(str, str2, i, str3, f);
-            if (this.b.a()) {
-                com.baidu.tieba.data.bb bbVar4 = new com.baidu.tieba.data.bb();
-                context = this.f1922a.d;
-                bbVar4.a(a2, context);
-                for (int i2 = 0; i2 < bbVar4.b().size(); i2++) {
-                    context2 = this.f1922a.d;
-                    bbVar4.b().get(i2).a(context2);
-                }
-                return bbVar4;
-            }
+    public void a(Bundle bundle) {
+        this.b = bundle.getString("thread_id");
+        this.c = bundle.getString("post_id");
+        this.d = bundle.getString("st_type");
+    }
+
+    public void b(Bundle bundle) {
+        bundle.putString("thread_id", this.b);
+        bundle.putString("post_id", this.c);
+        bundle.putString("st_type", this.d);
+    }
+
+    public bp(Context context) {
+        this.e = null;
+        this.f = null;
+        this.e = context;
+        this.f = new com.baidu.tieba.data.aw();
+    }
+
+    public void a(String str) {
+        this.b = str;
+    }
+
+    public String a() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        this.c = str;
+    }
+
+    public String b() {
+        return this.c;
+    }
+
+    public String c() {
+        return this.d;
+    }
+
+    public void d() {
+        this.f = new com.baidu.tieba.data.aw();
+    }
+
+    public com.baidu.tieba.data.aw e() {
+        return this.f;
+    }
+
+    public WriteData f() {
+        if (this.f == null || this.f.h() == null || this.f.m() == null || this.f.a() == null) {
             return null;
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.toString());
-            return null;
         }
+        WriteData writeData = new WriteData();
+        writeData.setForumName(this.f.h().getName());
+        writeData.setForumId(this.f.h().getId());
+        writeData.setFloor(this.f.a().d());
+        writeData.setType(2);
+        writeData.setThreadId(this.f.m().a());
+        writeData.setFloorNum(0);
+        return writeData;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        this.f1922a.f = null;
-        if (this.b != null) {
-            this.b.d();
-        }
+    public void a(br brVar) {
+        this.h = brVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.bb bbVar) {
-        com.baidu.tieba.data.bb bbVar2;
-        com.baidu.tieba.data.bb bbVar3;
-        bq bqVar;
-        bq bqVar2;
-        com.baidu.tieba.data.bb bbVar4;
-        bq bqVar3;
-        bq bqVar4;
-        this.f1922a.f = null;
-        if (bbVar == null) {
-            bqVar3 = this.f1922a.g;
-            if (bqVar3 != null) {
-                bqVar4 = this.f1922a.g;
-                bqVar4.a(false, this.b.c(), this.b.b(), null);
-                return;
-            }
-            return;
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    public int g() {
+        return this.f1917a;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        if (this.g != null) {
+            this.g.cancel();
+            return true;
         }
-        if (bbVar.a() != null) {
-            this.f1922a.b = bbVar.a().d();
+        return true;
+    }
+
+    public boolean h() {
+        cancelLoadData();
+        if (this.b == null || this.c == null || this.g != null) {
+            return false;
         }
-        if (bbVar.l() != null) {
-            this.f1922a.f1921a = bbVar.l().a();
+        this.f1917a = 0;
+        a(0);
+        return true;
+    }
+
+    public boolean i() {
+        cancelLoadData();
+        if (this.b == null || this.c == null || this.f.l() || this.g != null) {
+            return false;
         }
-        if (this.c == 1) {
-            this.f1922a.e = bbVar;
-        } else if (this.c == 2) {
-            bbVar3 = this.f1922a.e;
-            bbVar3.a(bbVar, true);
-        } else {
-            bbVar2 = this.f1922a.e;
-            bbVar2.a(bbVar, false);
-        }
-        bqVar = this.f1922a.g;
-        if (bqVar != null) {
-            bqVar2 = this.f1922a.g;
-            int c = this.b.c();
-            String b = this.b.b();
-            bbVar4 = this.f1922a.e;
-            bqVar2.a(true, c, b, bbVar4);
-        }
-        this.b = null;
+        this.f1917a = 2;
+        a(2);
+        return true;
+    }
+
+    public boolean j() {
+        cancelLoadData();
+        this.f1917a = 1;
+        a(1);
+        return true;
+    }
+
+    public boolean k() {
+        cancelLoadData();
+        this.f1917a = 3;
+        a(3);
+        return true;
+    }
+
+    protected void a(int i) {
+        this.g = new bq(this, i);
+        this.g.setPriority(3);
+        this.g.execute(new Object[0]);
     }
 }

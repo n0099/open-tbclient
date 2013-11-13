@@ -7,20 +7,16 @@ import java.util.Iterator;
 import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class u extends e {
-    protected String e;
+public class u extends d {
     protected String f;
-    protected String g;
 
-    public u(l lVar, Context context, String str, String str2, String str3) {
+    public u(l lVar, Context context, String str) {
         super(lVar, context);
-        this.e = null;
         this.f = null;
-        this.g = null;
-        this.e = str;
-        this.f = str2;
-        this.g = str3;
+        this.f = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,18 +24,24 @@ public class u extends e {
     public void a(List list) {
         super.a(list);
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "sendmsgtoserver"));
-        list.add(new BasicNameValuePair("appid", this.e));
-        if (this.g == null || this.f == null) {
-            return;
-        }
-        list.add(new BasicNameValuePair(PushConstants.EXTRA_CB_URL, this.f));
-        Log.d("SendMsgToServer", "cb_url:" + this.f);
-        list.add(new BasicNameValuePair("cb_data", this.g));
-        Log.d("SendMsgToServer", "cb_data:" + this.g);
-        if (com.baidu.android.pushservice.b.a()) {
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                Log.d("SendMsgToServer", "SendMsgToServer param -- " + ((NameValuePair) it.next()).toString());
+        if (this.f != null) {
+            try {
+                JSONObject jSONObject = new JSONObject(this.f);
+                if (jSONObject.has("to")) {
+                    list.add(new BasicNameValuePair(PushConstants.EXTRA_CB_URL, jSONObject.getString("to")));
+                    Log.d("Send", jSONObject.getString("to"));
+                }
+                if (jSONObject.has("data")) {
+                    list.add(new BasicNameValuePair("cb_data", jSONObject.getString("data")));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (com.baidu.android.pushservice.b.a()) {
+                Iterator it = list.iterator();
+                while (it.hasNext()) {
+                    Log.d("Send", "send param -- " + ((NameValuePair) it.next()).toString());
+                }
             }
         }
     }

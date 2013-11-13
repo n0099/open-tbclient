@@ -3,29 +3,32 @@ package com.baidu.adp.widget.ImageView;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.widget.ImageView;
-import com.baidu.adp.widget.r;
+import com.baidu.adp.widget.u;
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f558a = new Object();
+    public static final Object f560a = new Object();
     private String b;
     private Bitmap c;
     private boolean d;
-    private r f;
+    private u f;
     private int g;
     private Paint h;
     private RectF i;
     private int j;
     private boolean e = true;
-    private AtomicBoolean k = new AtomicBoolean(false);
+    private int k = -1;
+    private int l = -1;
+    private AtomicBoolean m = new AtomicBoolean(false);
 
     public e(Bitmap bitmap, boolean z) {
         this.c = null;
@@ -58,26 +61,29 @@ public class e {
 
     public void a(Canvas canvas, Matrix matrix, Paint paint) {
         if (this.c != null) {
-            this.k.set(true);
+            this.m.set(true);
             canvas.drawBitmap(this.c, matrix, paint);
-            this.k.set(false);
+            this.m.set(false);
         }
     }
 
     public void a(Canvas canvas, float f, float f2, Paint paint) {
         if (this.c != null) {
-            this.k.set(true);
+            this.m.set(true);
             canvas.drawBitmap(this.c, f, f2, paint);
-            this.k.set(false);
+            this.m.set(false);
         }
     }
 
-    public void a(Canvas canvas, Matrix matrix, Resources resources, ImageView imageView, int i) {
+    public void a(Canvas canvas, Matrix matrix, Resources resources, ImageView imageView, int i, ColorFilter colorFilter) {
         if (this.c != null) {
-            this.k.set(true);
+            if (this.k != imageView.getMeasuredWidth() || this.l != imageView.getMeasuredHeight()) {
+                this.f = null;
+            }
+            this.m.set(true);
             if (this.f == null || this.g != i) {
                 this.g = i;
-                this.f = new r(resources, matrix, imageView, this.c, this.g);
+                this.f = new u(resources, matrix, imageView, this.c, this.g, colorFilter);
                 this.f.setBounds(0, 0, imageView.getMeasuredWidth(), imageView.getMeasuredHeight());
                 this.i = new RectF();
                 this.j = (int) ((resources.getDisplayMetrics().density * 1.0f) + 0.5d);
@@ -88,10 +94,16 @@ public class e {
                 this.h.setAntiAlias(true);
                 this.h.setColor(637534208);
                 this.h.setStrokeWidth(this.j);
+                if (colorFilter != null) {
+                    this.h.setColorFilter(colorFilter);
+                }
+            } else {
+                this.f.a(colorFilter);
+                this.h.setColorFilter(colorFilter);
             }
             this.f.draw(canvas);
             canvas.drawRoundRect(this.i, this.g, this.g, this.h);
-            this.k.set(false);
+            this.m.set(false);
         }
     }
 
@@ -114,7 +126,7 @@ public class e {
     }
 
     public boolean e() {
-        if (this.e || this.k.get()) {
+        if (this.e || this.m.get()) {
             return false;
         }
         if (this.c != null) {
@@ -138,20 +150,20 @@ public class e {
         return new f(this, this.c);
     }
 
-    public byte[] h() {
+    public String h() {
+        return this.b;
+    }
+
+    public byte[] i() {
         byte[] byteArray;
         if (this.c == null) {
             return null;
         }
-        synchronized (f558a) {
+        synchronized (f560a) {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             this.c.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byteArray = byteArrayOutputStream.toByteArray();
         }
         return byteArray;
-    }
-
-    public String i() {
-        return this.b;
     }
 }

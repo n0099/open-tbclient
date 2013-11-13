@@ -3,18 +3,18 @@ package com.baidu.android.systemmonitor.security.md5;
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    int[] f815a;
+    int[] f829a;
     long b;
     byte[] c;
 
     public b() {
         this.c = new byte[64];
         this.b = 0L;
-        this.f815a = new int[4];
-        this.f815a[0] = 1732584193;
-        this.f815a[1] = -271733879;
-        this.f815a[2] = -1732584194;
-        this.f815a[3] = 271733878;
+        this.f829a = new int[4];
+        this.f829a[0] = 1732584193;
+        this.f829a[1] = -271733879;
+        this.f829a[2] = -1732584194;
+        this.f829a[3] = 271733878;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -23,8 +23,8 @@ class b {
         for (int i = 0; i < this.c.length; i++) {
             this.c[i] = bVar.c[i];
         }
-        for (int i2 = 0; i2 < this.f815a.length; i2++) {
-            this.f815a[i2] = bVar.f815a[i2];
+        for (int i2 = 0; i2 < this.f829a.length; i2++) {
+            this.f829a[i2] = bVar.f829a[i2];
         }
         this.b = bVar.b;
     }

@@ -15,23 +15,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.h.h;
 import com.baidu.browser.core.util.BdLog;
-import com.baidu.tieba.al;
+import com.baidu.tieba.an;
 import com.baidu.tieba.im.d.c;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.db.pojo.GroupMsgPojo;
 import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.voice.VoiceManager;
-import com.baidu.tieba.voice.ae;
-import com.baidu.tieba.voice.ag;
+import com.baidu.tieba.voice.ad;
+import com.baidu.tieba.voice.af;
 import com.google.gson.Gson;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class ChatVoiceView extends LinearLayout implements View.OnClickListener, ae {
+public class ChatVoiceView extends LinearLayout implements View.OnClickListener, ad {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1728a;
+    private ImageView f1816a;
     private ImageView b;
     private TextView c;
     private ImageView d;
@@ -42,7 +42,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     public ChatVoiceView(Context context) {
         super(context);
-        this.f1728a = null;
+        this.f1816a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -52,11 +52,11 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     public ChatVoiceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1728a = null;
+        this.f1816a = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, al.ChatVoiceView, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, an.ChatVoiceView, 0, 0);
         if (obtainStyledAttributes != null ? obtainStyledAttributes.getBoolean(0, true) : true) {
             LayoutInflater.from(context).inflate(R.layout.widget_left_voice_view, (ViewGroup) this, true);
         } else {
@@ -67,7 +67,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     private void c() {
         this.h = (RelativeLayout) findViewById(R.id.lay_bubble);
-        this.f1728a = (ImageView) findViewById(R.id.img_voice_status);
+        this.f1816a = (ImageView) findViewById(R.id.img_voice_status);
         this.b = (ImageView) findViewById(R.id.img_voice_status_anim);
         this.c = (TextView) findViewById(R.id.tex_voice_duration);
         this.d = (ImageView) findViewById(R.id.img_voice_readed);
@@ -75,7 +75,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     }
 
     private void d() {
-        this.f1728a.setVisibility(8);
+        this.f1816a.setVisibility(8);
         this.b.setVisibility(0);
         ((AnimationDrawable) this.b.getBackground()).start();
     }
@@ -83,7 +83,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     private void e() {
         ((AnimationDrawable) this.b.getBackground()).stop();
         this.b.clearAnimation();
-        this.f1728a.setVisibility(0);
+        this.f1816a.setVisibility(0);
         this.b.setVisibility(8);
     }
 
@@ -101,8 +101,8 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     public void b(int i) {
         if (i == 3) {
-            if (this.f1728a != null) {
-                this.f1728a.setVisibility(0);
+            if (this.f1816a != null) {
+                this.f1816a.setVisibility(0);
             }
             this.e.setVisibility(4);
             d();
@@ -119,13 +119,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         }
         e();
         if (i == 1) {
-            if (this.f1728a != null) {
-                this.f1728a.setVisibility(0);
+            if (this.f1816a != null) {
+                this.f1816a.setVisibility(0);
             }
             this.e.setVisibility(4);
         } else if (i == 2) {
-            if (this.f1728a != null) {
-                this.f1728a.setVisibility(4);
+            if (this.f1816a != null) {
+                this.f1816a.setVisibility(4);
             }
             this.e.setVisibility(0);
         }
@@ -142,8 +142,8 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
 
     public VoiceManager getVoiceManager() {
         Context context = getContext();
-        if (context instanceof ag) {
-            return ((ag) context).g_();
+        if (context instanceof af) {
+            return ((af) context).g();
         }
         return null;
     }
@@ -208,18 +208,18 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         }
     }
 
-    @Override // com.baidu.tieba.voice.ae
+    @Override // com.baidu.tieba.voice.ad
     public void b() {
     }
 
-    @Override // com.baidu.tieba.voice.ae
+    @Override // com.baidu.tieba.voice.ad
     public void a(VoiceManager.VoiceModel voiceModel) {
         if (voiceModel != null) {
             b(voiceModel.voice_status.intValue());
         }
     }
 
-    @Override // com.baidu.tieba.voice.ae
+    @Override // com.baidu.tieba.voice.ad
     public void c(int i) {
         a(i);
         if (this.f != null) {
@@ -227,22 +227,22 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         }
     }
 
-    @Override // com.baidu.tieba.voice.ae
+    @Override // com.baidu.tieba.voice.ad
     public void b(int i, String str) {
         if (!h.a(str)) {
             Toast.makeText(getContext(), str, 1).show();
         }
     }
 
-    @Override // com.baidu.tieba.voice.ae
+    @Override // com.baidu.tieba.voice.ad
     public VoiceManager.VoiceModel getVoiceModel() {
         return this.f;
     }
 
-    @Override // com.baidu.tieba.voice.ae
-    public ae getRealView() {
+    @Override // com.baidu.tieba.voice.ad
+    public ad getRealView() {
         Context context = getContext();
-        ae a2 = context instanceof ag ? ((ag) context).a(this.f) : this;
+        ad a2 = context instanceof af ? ((af) context).a(this.f) : this;
         return a2 == null ? this : a2;
     }
 }

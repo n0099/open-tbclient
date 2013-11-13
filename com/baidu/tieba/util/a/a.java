@@ -2,28 +2,30 @@ package com.baidu.tieba.util.a;
 
 import com.baidu.adp.lib.e.f;
 import com.baidu.adp.lib.e.g;
+import com.baidu.tieba.util.i;
+import com.baidu.tieba.util.l;
 /* loaded from: classes.dex */
 public abstract class a implements g {
-    protected abstract Object a(String str, com.baidu.adp.lib.e.e eVar, com.baidu.tieba.util.a aVar, com.baidu.tieba.util.d dVar);
+    protected abstract Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar);
 
-    protected abstract Object a(String str, com.baidu.tieba.util.a aVar);
+    protected abstract Object a(String str, i iVar);
 
-    protected abstract Object b(String str, com.baidu.adp.lib.e.e eVar, com.baidu.tieba.util.a aVar, com.baidu.tieba.util.d dVar);
+    protected abstract Object b(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar);
 
     @Override // com.baidu.adp.lib.e.g
     public Object a(String str, f fVar) {
         if (fVar == null) {
             return null;
         }
-        com.baidu.tieba.util.a aVar = (com.baidu.tieba.util.a) fVar.a("AsyncImageLoader");
-        com.baidu.tieba.util.d dVar = (com.baidu.tieba.util.d) fVar.a("ImageAsyncTaskInfo");
-        if (aVar == null || dVar == null) {
+        i iVar = (i) fVar.a("AsyncImageLoader");
+        l lVar = (l) fVar.a("ImageAsyncTaskInfo");
+        if (iVar == null || lVar == null) {
             return null;
         }
-        if (dVar.j) {
+        if (lVar.j) {
             return null;
         }
-        return a(str, aVar);
+        return a(str, iVar);
     }
 
     @Override // com.baidu.adp.lib.e.g
@@ -32,13 +34,13 @@ public abstract class a implements g {
         if (d == null) {
             return null;
         }
-        com.baidu.tieba.util.a aVar = (com.baidu.tieba.util.a) d.a("AsyncImageLoader");
-        com.baidu.tieba.util.d dVar = (com.baidu.tieba.util.d) d.a("ImageAsyncTaskInfo");
-        if (aVar == null || dVar == null) {
+        i iVar = (i) d.a("AsyncImageLoader");
+        l lVar = (l) d.a("ImageAsyncTaskInfo");
+        if (iVar == null || lVar == null) {
             return null;
         }
-        if (dVar.g && !dVar.j) {
-            return a(str, eVar, aVar, dVar);
+        if (lVar.g && !lVar.j) {
+            return a(str, eVar, iVar, lVar);
         }
         return null;
     }
@@ -49,14 +51,14 @@ public abstract class a implements g {
         if (d == null) {
             return null;
         }
-        com.baidu.tieba.util.a aVar = (com.baidu.tieba.util.a) d.a("AsyncImageLoader");
-        com.baidu.tieba.util.d dVar = (com.baidu.tieba.util.d) d.a("ImageAsyncTaskInfo");
-        if (aVar == null || dVar == null) {
+        i iVar = (i) d.a("AsyncImageLoader");
+        l lVar = (l) d.a("ImageAsyncTaskInfo");
+        if (iVar == null || lVar == null) {
             return null;
         }
-        if (dVar.j) {
+        if (lVar.j) {
             return null;
         }
-        return b(str, eVar, aVar, dVar);
+        return b(str, eVar, iVar, lVar);
     }
 }

@@ -461,7 +461,7 @@ public final class v extends t {
                             if (f300a) {
                                 Log.v("FragmentManager", "moveto STARTED: " + fragment);
                             }
-                            fragment.v();
+                            fragment.x();
                         }
                     case 4:
                         if (i > 4) {
@@ -469,7 +469,7 @@ public final class v extends t {
                                 Log.v("FragmentManager", "moveto RESUMED: " + fragment);
                             }
                             fragment.w = true;
-                            fragment.w();
+                            fragment.y();
                             fragment.m = null;
                             fragment.n = null;
                             break;
@@ -497,7 +497,7 @@ public final class v extends t {
                                 Log.v("FragmentManager", "movefrom CREATED: " + fragment);
                             }
                             if (!fragment.L) {
-                                fragment.C();
+                                fragment.E();
                             }
                             fragment.O = false;
                             fragment.b();
@@ -525,7 +525,7 @@ public final class v extends t {
                         if (fragment.R != null && !this.o.isFinishing() && fragment.n == null) {
                             e(fragment);
                         }
-                        fragment.B();
+                        fragment.D();
                         if (fragment.R != null && fragment.Q != null) {
                             Animation a3 = (this.n <= 0 || this.t) ? null : a(fragment, i2, false, i3);
                             if (a3 != null) {
@@ -548,7 +548,7 @@ public final class v extends t {
                         if (f300a) {
                             Log.v("FragmentManager", "movefrom STOPPED: " + fragment);
                         }
-                        fragment.A();
+                        fragment.C();
                     }
                     if (i < 2) {
                     }
@@ -560,7 +560,7 @@ public final class v extends t {
                         if (f300a) {
                             Log.v("FragmentManager", "movefrom STARTED: " + fragment);
                         }
-                        fragment.z();
+                        fragment.B();
                     }
                     if (i < 3) {
                     }
@@ -574,7 +574,7 @@ public final class v extends t {
                         if (f300a) {
                             Log.v("FragmentManager", "movefrom RESUMED: " + fragment);
                         }
-                        fragment.y();
+                        fragment.A();
                         fragment.w = false;
                     }
                     if (i < 4) {
@@ -680,7 +680,7 @@ public final class v extends t {
             }
             this.h.add(Integer.valueOf(fragment.o));
             this.o.invalidateSupportFragment(fragment.p);
-            fragment.s();
+            fragment.u();
         }
     }
 
@@ -1436,7 +1436,7 @@ public final class v extends t {
                 if (i2 < this.g.size()) {
                     Fragment fragment = this.g.get(i2);
                     if (fragment != null) {
-                        fragment.x();
+                        fragment.z();
                     }
                     i = i2 + 1;
                 } else {
@@ -1471,7 +1471,7 @@ public final class v extends t {
             for (int i2 = 0; i2 < this.j.size(); i2++) {
                 Fragment fragment2 = this.j.get(i2);
                 if (arrayList == null || !arrayList.contains(fragment2)) {
-                    fragment2.t();
+                    fragment2.v();
                 }
             }
         }

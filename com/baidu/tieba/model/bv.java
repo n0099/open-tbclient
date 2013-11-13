@@ -1,31 +1,34 @@
 package com.baidu.tieba.model;
-
-import com.baidu.tieba.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class bv extends com.baidu.adp.a.d {
+public class bv {
 
     /* renamed from: a  reason: collision with root package name */
-    PersonChangeData f1926a;
+    private com.baidu.tieba.data.ao f1921a = null;
+    private boolean d = true;
+    private boolean c = true;
+    private boolean e = false;
+    private boolean g = false;
+    private boolean h = false;
+    private boolean i = false;
+    private boolean j = false;
+    private String b = null;
+    private boolean f = false;
+    private String k = null;
+    private String l = null;
+    private String m = null;
+    private int n = 1;
+    private int o = 1;
+    private boolean p = false;
 
-    public bv(PersonChangeData personChangeData) {
-        this.f1926a = null;
-        this.f1926a = personChangeData;
-        if (this.f1926a == null) {
-            this.f1926a = new PersonChangeData();
-        }
+    public void a(com.baidu.tieba.data.ao aoVar) {
+        this.f1921a = aoVar;
     }
 
-    public PersonChangeData a() {
-        return this.f1926a;
+    public com.baidu.tieba.data.ao a() {
+        return this.f1921a;
     }
 
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        return false;
+    public boolean b() {
+        return this.d;
     }
 }

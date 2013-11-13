@@ -9,7 +9,7 @@ import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class MsgleftView extends al {
+public class MsgleftView extends ak {
     private static final String m = MsgleftView.class.getName();
     private HeadImageView n;
     private TextView o;
@@ -22,12 +22,12 @@ public class MsgleftView extends al {
         this.p = (ImageView) a(R.id.iv_sex);
         this.n = (HeadImageView) a(R.id.img_msgitem_photo);
         this.n.setAutoChangeStyle(false);
-        this.n.setOnClickListener(new aq(this));
+        this.n.setOnClickListener(new ap(this));
         this.n.setLongClickable(true);
-        this.n.setOnLongClickListener(new ar(this));
+        this.n.setOnLongClickListener(new aq(this));
     }
 
-    @Override // com.baidu.tieba.im.chat.al
+    @Override // com.baidu.tieba.im.chat.ak
     public void a(View view, ChatMessage chatMessage) {
         String str = null;
         super.a(view, chatMessage);
@@ -53,7 +53,7 @@ public class MsgleftView extends al {
             if (c != null) {
                 c.a(this.n);
             } else {
-                this.e.b(str, new as(this));
+                this.e.b(str, new ar(this));
             }
             this.j.setVisibility(8);
             c(8);

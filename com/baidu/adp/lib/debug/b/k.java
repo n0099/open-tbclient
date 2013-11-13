@@ -16,12 +16,12 @@ class k implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            view.setBackgroundResource(com.baidu.adp.d.adp_debug_refresh_press);
+            view.setBackgroundResource(com.baidu.adp.c.adp_debug_refresh_press);
             com.baidu.adp.lib.debug.b.b(0);
             com.baidu.adp.lib.debug.b.c(0);
             com.baidu.adp.lib.debug.b.g();
         } else if (motionEvent.getAction() == 1) {
-            view.setBackgroundResource(com.baidu.adp.d.adp_debug_refresh);
+            view.setBackgroundResource(com.baidu.adp.c.adp_debug_refresh);
         }
         return false;
     }

@@ -1,75 +1,57 @@
 package com.baidu.tieba.util;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import java.util.HashSet;
 /* loaded from: classes.dex */
 public class l {
+    public HashSet<com.baidu.tbadk.imageManager.c> b;
+    public String c;
+    public volatile int d;
+    public volatile Bitmap e;
+    public boolean g;
+    public volatile com.baidu.adp.widget.ImageView.e i;
+    public boolean k;
+    public boolean l;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2453a;
-    private boolean b = false;
-    private m e = null;
-    private String c = "tieba_database.db";
-    private String d = w.f2463a + "/tieba/" + this.c;
+    public volatile ap f2512a = null;
+    public boolean f = true;
+    public volatile boolean h = false;
+    public boolean j = false;
 
-    public l() {
-        this.f2453a = 1;
-        this.f2453a = 9;
+    public l(String str, int i, com.baidu.tbadk.imageManager.c cVar, boolean z, boolean z2, boolean z3) {
+        this.b = null;
+        this.c = null;
+        this.d = 0;
+        this.e = null;
+        this.g = false;
+        this.k = false;
+        this.l = false;
+        this.c = str;
+        this.d = i;
+        this.b = new HashSet<>();
+        this.b.add(cVar);
+        this.e = null;
+        this.g = z;
+        this.l = z2;
+        this.k = z3;
     }
 
-    private void a(SQLiteDatabase sQLiteDatabase, String str) {
-        try {
-            sQLiteDatabase.execSQL(str);
-        } catch (Exception e) {
-            be.a(3, getClass().getName(), "ExecSQL", str);
+    public void a(com.baidu.tbadk.imageManager.c cVar) {
+        if (this.b == null) {
+            this.b = new HashSet<>();
+        }
+        this.b.add(cVar);
+    }
+
+    public void a() {
+        this.j = true;
+        if (this.f2512a != null) {
+            this.f2512a.h();
         }
     }
 
-    public SQLiteDatabase a() {
-        SQLiteDatabase sQLiteDatabase = null;
-        if (w.c()) {
-            this.b = w.b(this.c);
-            sQLiteDatabase = SQLiteDatabase.openOrCreateDatabase(this.d, (SQLiteDatabase.CursorFactory) null);
-            if (sQLiteDatabase != null) {
-                if (!this.b) {
-                    a(sQLiteDatabase);
-                    sQLiteDatabase.setVersion(this.f2453a);
-                } else {
-                    int version = sQLiteDatabase.getVersion();
-                    if (version != this.f2453a) {
-                        a(sQLiteDatabase, version, this.f2453a);
-                        sQLiteDatabase.setVersion(this.f2453a);
-                    }
-                }
-            }
-        }
-        return sQLiteDatabase;
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase) {
-        if (sQLiteDatabase != null) {
-            a(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
-            a(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer)");
-            a(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
-        }
-        b();
-    }
-
-    private void a(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        b();
-    }
-
-    private void b() {
-        if (this.e != null) {
-            try {
-                this.e.a();
-            } catch (Exception e) {
-                be.b(getClass().getName(), "onCreateDatabase", e.getMessage());
-            }
-        }
-    }
-
-    public void a(m mVar) {
-        this.e = mVar;
+    public String b() {
+        return this.c;
     }
 }

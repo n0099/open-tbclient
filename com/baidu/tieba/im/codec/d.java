@@ -11,7 +11,7 @@ import java.util.Map;
 public class d implements n<com.baidu.tieba.im.codec.a.c> {
 
     /* renamed from: a  reason: collision with root package name */
-    Map<String, e> f1479a = new HashMap();
+    Map<String, e> f1570a = new HashMap();
     private final Class<? extends Message> b;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.util.LinkedList, java.lang.Object, com.baidu.tieba.im.codec.q, int] */
@@ -40,9 +40,9 @@ public class d implements n<com.baidu.tieba.im.codec.a.c> {
                         str = Character.toLowerCase(substring.charAt(0)) + substring.substring(1);
                     }
                     e eVar = new e();
-                    eVar.f1480a = method;
+                    eVar.f1571a = method;
                     eVar.b = a2;
-                    this.f1479a.put(str, eVar);
+                    this.f1570a.put(str, eVar);
                 }
             }
         }
@@ -61,11 +61,11 @@ public class d implements n<com.baidu.tieba.im.codec.a.c> {
             }
         }
         if (cVar != null) {
-            for (Map.Entry<String, e> entry : this.f1479a.entrySet()) {
+            for (Map.Entry<String, e> entry : this.f1570a.entrySet()) {
                 e value = entry.getValue();
                 String a2 = cVar.a(entry.getKey());
                 if (a2 != null) {
-                    value.f1480a.invoke(newInstance, value.b.a(a2));
+                    value.f1571a.invoke(newInstance, value.b.a(a2));
                 }
             }
         }

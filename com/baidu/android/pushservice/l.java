@@ -4,15 +4,15 @@ package com.baidu.android.pushservice;
 public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PushSDK f700a;
+    final /* synthetic */ PushSDK f716a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PushSDK pushSDK) {
-        this.f700a = pushSDK;
+        this.f716a = pushSDK;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f700a.sendRequestTokenIntent();
+        this.f716a.sendRequestTokenIntent();
     }
 }

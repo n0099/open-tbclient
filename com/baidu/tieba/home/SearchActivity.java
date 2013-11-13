@@ -17,173 +17,171 @@ import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.SearchPostModel;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.model.cn;
+import com.baidu.tieba.model.cg;
 import com.baidu.tieba.util.DatabaseService;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class SearchActivity extends com.baidu.tieba.j {
+    private NavigationBar l;
     private EditText c = null;
     private Button d = null;
     private Button e = null;
     private LinearLayout f = null;
-    private LinearLayout g = null;
-    private FrameLayout j = null;
+    private FrameLayout g = null;
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f1324a = null;
-    private LinearLayout k = null;
-    private RadioButton l = null;
-    private RadioButton m = null;
-    private Button n = null;
-    private ImageView o = null;
-    private FrameLayout p = null;
-    private ListView q = null;
-    private ar r = null;
-    private ListView s = null;
-    private ar t = null;
-    private au u = null;
-    private ProgressBar v = null;
-    private Button w = null;
-    private View x = null;
-    private TextView y = null;
-    private cn z = null;
-    private SearchPostModel A = null;
-    private aq B = null;
-    private ap C = null;
-    private String D = null;
-    private int E = 0;
-    final View.OnClickListener b = new z(this);
-    private Handler F = new Handler();
-    private Runnable G = new ah(this);
+    ImageView f1393a = null;
+    private LinearLayout h = null;
+    private RadioButton i = null;
+    private RadioButton j = null;
+    private Button k = null;
+    private FrameLayout m = null;
+    private ListView n = null;
+    private ba o = null;
+    private ListView p = null;
+    private ba q = null;
+    private bd r = null;
+    private ProgressBar s = null;
+    private Button t = null;
+    private View u = null;
+    private TextView v = null;
+    private cg w = null;
+    private SearchPostModel x = null;
+    private az y = null;
+    private ay z = null;
+    private String A = null;
+    private int B = 0;
+    final View.OnClickListener b = new aj(this);
+    private Handler C = new Handler();
+    private Runnable D = new aq(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.home_dialog_search);
-        c();
+        b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.E == 0) {
+        if (this.B == 0) {
             TiebaApplication.g().b(true);
         } else {
             TiebaApplication.g().b(false);
         }
-        d();
-        b();
+        c();
+        a();
+    }
+
+    public void a() {
+        this.C.removeCallbacks(this.D);
+        if (this.y != null) {
+            this.y.cancel();
+            this.y = null;
+        }
+        if (this.z != null) {
+            this.z.cancel();
+            this.z = null;
+        }
     }
 
     public void b() {
-        this.F.removeCallbacks(this.G);
-        if (this.B != null) {
-            this.B.cancel();
-            this.B = null;
-        }
-        if (this.C != null) {
-            this.C.cancel();
-            this.C = null;
-        }
-    }
-
-    public void c() {
-        this.x = getLayoutInflater().inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
-        this.y = (TextView) findViewById(R.id.text_no_data);
+        this.l = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        View a2 = this.l.a(R.layout.nb_item_search_dialog, (View.OnClickListener) null);
+        this.u = getLayoutInflater().inflate(R.layout.home_dialog_search_footer, (ViewGroup) null);
+        this.v = (TextView) findViewById(R.id.text_no_data);
         this.c = (EditText) findViewById(R.id.home_et_search);
-        this.c.setOnFocusChangeListener(new ai(this));
-        this.f1324a = (ImageView) findViewById(R.id.search_bar_icon);
-        this.o = (ImageView) findViewById(R.id.back);
-        this.o.setOnClickListener(new aj(this));
+        this.c.setOnFocusChangeListener(new ar(this));
+        this.f1393a = (ImageView) findViewById(R.id.search_bar_icon);
         this.e = (Button) findViewById(R.id.home_bt_search_s);
         this.e.setOnClickListener(this.b);
         this.f = (LinearLayout) findViewById(R.id.search_tap_text_layout);
-        this.g = (LinearLayout) findViewById(R.id.search_tap_layout);
-        this.j = (FrameLayout) findViewById(R.id.frame_layout);
-        this.c.setOnEditorActionListener(new ak(this));
+        this.g = (FrameLayout) findViewById(R.id.frame_layout);
+        this.c.setOnEditorActionListener(new as(this));
         this.d = (Button) findViewById(R.id.home_bt_search_del);
-        this.d.setOnClickListener(new al(this));
-        this.c.addTextChangedListener(new am(this));
-        this.k = (LinearLayout) findViewById(R.id.search_tab_bg);
-        this.l = (RadioButton) findViewById(R.id.search_forum_btn);
-        this.m = (RadioButton) findViewById(R.id.search_post_btn);
-        this.n = (Button) findViewById(R.id.search_in_baidu_btn);
-        this.l.setOnCheckedChangeListener(new an(this));
-        this.m.setOnCheckedChangeListener(new ao(this));
-        this.n.setOnClickListener(new aa(this));
-        this.p = (FrameLayout) findViewById(R.id.home_search_list);
-        this.q = (ListView) findViewById(R.id.home_lv_search);
-        this.w = (Button) this.x.findViewById(R.id.home_bt_search_footer);
-        this.w.setOnClickListener(new ab(this));
-        this.q.addFooterView(this.x, null, true);
-        this.r = new ar(this, null);
-        this.q.setAdapter((ListAdapter) this.r);
-        this.q.setOnItemClickListener(new ae(this));
-        this.s = (ListView) findViewById(R.id.home_lv_suggest);
-        this.t = new ar(this, null);
-        this.u = new au(this);
-        this.s.setAdapter((ListAdapter) this.t);
-        this.s.setOnItemClickListener(new af(this));
-        ag agVar = new ag(this);
-        this.s.setOnScrollListener(agVar);
-        this.q.setOnScrollListener(agVar);
-        this.v = (ProgressBar) findViewById(R.id.home_progress_search);
-        this.v.setVisibility(8);
+        this.d.setOnClickListener(new at(this));
+        this.c.addTextChangedListener(new au(this));
+        this.h = (LinearLayout) findViewById(R.id.search_tab_bg);
+        this.i = (RadioButton) a2.findViewById(R.id.search_forum_btn);
+        this.j = (RadioButton) a2.findViewById(R.id.search_post_btn);
+        this.k = (Button) a2.findViewById(R.id.search_in_baidu_btn);
+        this.i.setOnCheckedChangeListener(new av(this));
+        this.j.setOnCheckedChangeListener(new aw(this));
+        this.k.setOnClickListener(new ax(this));
+        this.m = (FrameLayout) findViewById(R.id.home_search_list);
+        this.n = (ListView) findViewById(R.id.home_lv_search);
+        this.t = (Button) this.u.findViewById(R.id.home_bt_search_footer);
+        this.t.setOnClickListener(new ak(this));
+        this.n.addFooterView(this.u, null, true);
+        this.o = new ba(this, null);
+        this.n.setAdapter((ListAdapter) this.o);
+        this.n.setOnItemClickListener(new an(this));
+        this.p = (ListView) findViewById(R.id.home_lv_suggest);
+        this.q = new ba(this, null);
+        this.r = new bd(this);
+        this.p.setAdapter((ListAdapter) this.q);
+        this.p.setOnItemClickListener(new ao(this));
+        ap apVar = new ap(this);
+        this.p.setOnScrollListener(apVar);
+        this.n.setOnScrollListener(apVar);
+        this.s = (ProgressBar) findViewById(R.id.home_progress_search);
+        this.s.setVisibility(8);
         this.c.setText("");
         this.c.requestFocus();
-        n();
-        a(this.c, 150);
+        f();
+        ShowSoftKeyPadDelay(this.c, 150);
         if (TiebaApplication.g().r()) {
-            this.l.setChecked(true);
-            d(0);
+            this.i.setChecked(true);
+            a(0);
             return;
         }
-        this.m.setChecked(true);
-        d(1);
+        this.j.setChecked(true);
+        a(1);
     }
 
-    public void d() {
-        if (this.v != null) {
-            this.v.setVisibility(8);
+    public void c() {
+        if (this.s != null) {
+            this.s.setVisibility(8);
         }
-        if (this.u != null) {
-            this.u.a();
+        if (this.r != null) {
+            this.r.a();
         }
     }
 
-    public void d(int i) {
+    public void a(int i) {
         switch (i) {
             case 0:
-                if (this.E != 0) {
-                    this.E = 0;
+                if (this.B != 0) {
+                    this.B = 0;
                     this.c.setHint(R.string.search_bar);
-                    b();
-                    if (this.D.trim().length() > 0) {
-                        o();
+                    a();
+                    if (this.A.trim().length() > 0) {
+                        g();
                         return;
                     } else {
-                        n();
+                        f();
                         return;
                     }
                 }
                 return;
             case 1:
-                if (this.E != 1) {
-                    this.E = 1;
+                if (this.B != 1) {
+                    this.B = 1;
                     this.c.setHint(R.string.search_post_hint);
-                    b();
-                    if (this.D.trim().length() > 0) {
-                        this.s.setVisibility(8);
-                        a(1, this.D);
+                    a();
+                    if (this.A.trim().length() > 0) {
+                        this.p.setVisibility(8);
+                        a(1, this.A);
                         return;
                     }
-                    p();
+                    h();
                     return;
                 }
                 return;
@@ -192,181 +190,180 @@ public class SearchActivity extends com.baidu.tieba.j {
         }
     }
 
-    public void e() {
+    public void d() {
         String trim = this.c.getText().toString().trim();
         FrsActivity.a(this, trim, "tb_searchlist", 1);
         if (trim != null && trim.length() != 0) {
-            f();
+            e();
         }
     }
 
-    public void f() {
+    public void e() {
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n() {
-        this.s.setVisibility(8);
+    public void f() {
+        this.p.setVisibility(8);
         ArrayList<String> o = DatabaseService.o();
         if (o != null && o.size() > 0) {
-            this.p.setVisibility(0);
-            this.q.setVisibility(0);
-            this.s.setVisibility(8);
-            this.y.setVisibility(8);
-            this.r.a(o);
-            this.r.a(true);
-            this.r.notifyDataSetInvalidated();
+            this.m.setVisibility(0);
+            this.n.setVisibility(0);
+            this.p.setVisibility(8);
+            this.v.setVisibility(8);
+            this.o.a(o);
+            this.o.a(true);
+            this.o.notifyDataSetInvalidated();
             return;
         }
-        this.p.setVisibility(8);
-        this.y.setVisibility(0);
-        this.y.setText(R.string.text_no_search_record);
+        this.m.setVisibility(8);
+        this.v.setVisibility(0);
+        this.v.setText(R.string.text_no_search_record);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o() {
-        this.p.setVisibility(8);
-        this.F.removeCallbacks(this.G);
-        this.F.postDelayed(this.G, 500L);
+    public void g() {
+        this.m.setVisibility(8);
+        this.C.removeCallbacks(this.D);
+        this.C.postDelayed(this.D, 500L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str) {
-        this.q.setVisibility(8);
+        this.n.setVisibility(8);
         if (str != null) {
             try {
                 if (str.trim().length() > 0) {
                     StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tieba.data.h.f1165a);
+                    stringBuffer.append(com.baidu.tieba.data.h.f1196a);
                     stringBuffer.append("c/s/searchpost");
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new BasicNameValuePair("word", str));
                     arrayList.add(new BasicNameValuePair("pn", String.valueOf(i)));
                     arrayList.add(new BasicNameValuePair("rn", String.valueOf(50)));
                     arrayList.add(new BasicNameValuePair("st_type", "search_post"));
-                    b();
-                    this.C = new ap(this, stringBuffer.toString(), arrayList);
-                    this.C.setPriority(3);
-                    this.C.execute(new Object[0]);
+                    a();
+                    this.z = new ay(this, stringBuffer.toString(), arrayList);
+                    this.z.setPriority(3);
+                    this.z.execute(new Object[0]);
                 }
             } catch (Exception e) {
-                be.b(getClass().getName(), "startSearchPost.run", "error = " + e.getMessage());
+                com.baidu.tieba.util.bg.b(getClass().getName(), "startSearchPost.run", "error = " + e.getMessage());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void p() {
-        this.s.setVisibility(8);
+    public void h() {
+        this.p.setVisibility(8);
         ArrayList<String> p = DatabaseService.p();
         if (p != null && p.size() > 0) {
-            this.p.setVisibility(0);
-            this.q.setVisibility(0);
-            this.s.setVisibility(8);
-            this.y.setVisibility(8);
-            this.r.a(p);
-            this.r.a(false);
-            this.r.notifyDataSetInvalidated();
+            this.m.setVisibility(0);
+            this.n.setVisibility(0);
+            this.p.setVisibility(8);
+            this.v.setVisibility(8);
+            this.o.a(p);
+            this.o.a(false);
+            this.o.notifyDataSetInvalidated();
             return;
         }
-        this.p.setVisibility(8);
-        this.y.setVisibility(0);
-        this.y.setText(R.string.text_no_search_record);
+        this.m.setVisibility(8);
+        this.v.setVisibility(0);
+        this.v.setText(R.string.text_no_search_record);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void q() {
+    public void i() {
         try {
-            if (this.E == 0) {
-                if (this.z != null) {
-                    ArrayList<String> a2 = this.z.a();
+            if (this.B == 0) {
+                if (this.w != null) {
+                    ArrayList<String> a2 = this.w.a();
                     if (a2 != null && a2.size() > 0) {
+                        this.m.setVisibility(0);
+                        this.n.setVisibility(8);
                         this.p.setVisibility(0);
-                        this.q.setVisibility(8);
-                        this.s.setVisibility(0);
-                        this.s.setAdapter((ListAdapter) this.t);
-                        this.t.a(a2);
-                        this.t.notifyDataSetInvalidated();
+                        this.p.setAdapter((ListAdapter) this.q);
+                        this.q.a(a2);
+                        this.q.notifyDataSetInvalidated();
                     } else {
-                        this.p.setVisibility(8);
-                        this.y.setVisibility(0);
-                        this.y.setText(R.string.text_no_suggest);
+                        this.m.setVisibility(8);
+                        this.v.setVisibility(0);
+                        this.v.setText(R.string.text_no_suggest);
                     }
                 }
-            } else if (this.A != null) {
-                ArrayList<com.baidu.tieba.data.ax> data = this.A.getData();
+            } else if (this.x != null) {
+                ArrayList<com.baidu.tieba.data.av> data = this.x.getData();
                 if (data != null && data.size() > 0) {
+                    this.m.setVisibility(0);
+                    this.n.setVisibility(8);
                     this.p.setVisibility(0);
-                    this.q.setVisibility(8);
-                    this.s.setVisibility(0);
-                    this.s.setAdapter((ListAdapter) this.u);
-                    this.u.a(this.A);
-                    this.u.notifyDataSetInvalidated();
-                    if (this.A.hasPre()) {
-                        this.s.setSelection(1);
+                    this.p.setAdapter((ListAdapter) this.r);
+                    this.r.a(this.x);
+                    this.r.notifyDataSetInvalidated();
+                    if (this.x.hasPre()) {
+                        this.p.setSelection(1);
                     }
                 } else {
-                    this.p.setVisibility(8);
-                    this.y.setVisibility(0);
-                    this.y.setText(R.string.text_no_suggest);
+                    this.m.setVisibility(8);
+                    this.v.setVisibility(0);
+                    this.v.setText(R.string.text_no_suggest);
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "", "HomeActivity.refresh error = " + e.getMessage());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "", "HomeActivity.refresh error = " + e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        bb.a(this.o, i);
-        bb.d(this.g, i);
-        bb.a(this.q, i);
-        bb.a(this.s, i);
-        bb.a(this.j, i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.l.c(i);
+        com.baidu.tieba.util.bd.a(this.n, i);
+        com.baidu.tieba.util.bd.a(this.p, i);
+        com.baidu.tieba.util.bd.a(this.g, i);
         if (i == 1) {
             this.c.setTextColor(-11446171);
             this.c.setHintTextColor(-11446171);
-            this.w.setTextColor(getResources().getColor(R.color.search_text_content_night));
-            this.f1324a.setImageResource(R.drawable.icon_head_bar_search_1);
-            bb.e((View) this.w, (int) R.drawable.btn_w_square_1);
-            bb.e(this.f, (int) R.drawable.inputbox_top_1);
-            bb.e(this.k, (int) R.drawable.inputbox_topbg_1);
-            this.n.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
-            this.l.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
-            this.m.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
-            bb.e((View) this.n, (int) R.drawable.search_baidu_btn_drawable_1);
-            bb.e((View) this.l, (int) R.drawable.search_forum_btn_drawable_1);
-            bb.e((View) this.m, (int) R.drawable.search_post_btn_drawable_1);
-            this.y.setTextColor(-11446171);
-            this.y.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless_1, 0, 0);
-            bb.e((View) this.d, (int) R.drawable.search_delete_button_1);
+            this.t.setTextColor(getResources().getColor(R.color.search_text_content_night));
+            this.f1393a.setImageResource(R.drawable.icon_head_bar_search_1);
+            com.baidu.tieba.util.bd.e((View) this.t, (int) R.drawable.btn_w_square_1);
+            com.baidu.tieba.util.bd.e(this.f, (int) R.drawable.inputbox_top_1);
+            this.h.setBackgroundColor(getResources().getColor(R.color.navi_bg_1));
+            this.k.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
+            this.i.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
+            this.j.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color_1));
+            com.baidu.tieba.util.bd.e((View) this.k, (int) R.drawable.search_baidu_btn_drawable_1);
+            com.baidu.tieba.util.bd.e((View) this.i, (int) R.drawable.search_forum_btn_drawable_1);
+            com.baidu.tieba.util.bd.e((View) this.j, (int) R.drawable.search_post_btn_drawable_1);
+            this.v.setTextColor(-11446171);
+            this.v.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless_1, 0, 0);
+            com.baidu.tieba.util.bd.e((View) this.d, (int) R.drawable.search_delete_button_1);
             return;
         }
-        bb.e((View) this.d, (int) R.drawable.search_delete_button);
-        this.f1324a.setImageResource(R.drawable.icon_head_bar_search);
-        this.n.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
-        this.l.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
-        this.m.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
+        com.baidu.tieba.util.bd.e((View) this.d, (int) R.drawable.search_delete_button);
+        this.f1393a.setImageResource(R.drawable.icon_head_bar_search);
+        this.k.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
+        this.i.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
+        this.j.setTextColor(getResources().getColorStateList(R.color.search_tab_btn_color));
         this.c.setTextColor(-10066329);
         this.c.setHintTextColor(-4144186);
-        this.w.setTextColor(getResources().getColor(R.color.reg_font_color));
-        bb.e((View) this.w, (int) R.drawable.btn_w_square);
-        bb.e(this.f, (int) R.drawable.inputbox_top);
-        bb.e(this.k, (int) R.drawable.inputbox_topbg);
-        bb.e((View) this.n, (int) R.drawable.search_baidu_btn_drawable);
-        bb.e((View) this.l, (int) R.drawable.search_forum_btn_drawable);
-        bb.e((View) this.m, (int) R.drawable.search_post_btn_drawable);
-        this.y.setTextColor(-3618616);
-        this.y.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
+        this.t.setTextColor(getResources().getColor(R.color.reg_font_color));
+        com.baidu.tieba.util.bd.e((View) this.t, (int) R.drawable.btn_w_square);
+        com.baidu.tieba.util.bd.e(this.f, (int) R.drawable.inputbox_top);
+        this.h.setBackgroundColor(getResources().getColor(R.color.navi_bg));
+        com.baidu.tieba.util.bd.e((View) this.k, (int) R.drawable.search_baidu_btn_drawable);
+        com.baidu.tieba.util.bd.e((View) this.i, (int) R.drawable.search_forum_btn_drawable);
+        com.baidu.tieba.util.bd.e((View) this.j, (int) R.drawable.search_post_btn_drawable);
+        this.v.setTextColor(-3618616);
+        this.v.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void k() {
-        super.k();
-        c(-1);
-        this.y.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+    public void onResourceRecycle() {
+        super.onResourceRecycle();
+        setSkinType(-1);
+        this.v.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
     }
 }

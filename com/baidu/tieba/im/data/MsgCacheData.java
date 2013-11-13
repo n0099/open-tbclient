@@ -7,7 +7,7 @@ public class MsgCacheData implements Serializable {
     private static final long serialVersionUID = -100392737471140589L;
 
     /* renamed from: a  reason: collision with root package name */
-    private transient VoiceManager.VoiceModel f1508a;
+    private transient VoiceManager.VoiceModel f1599a;
     private transient com.baidu.tbadk.widget.richText.a b;
     private int is_left;
     private int is_show_time;
@@ -18,11 +18,11 @@ public class MsgCacheData implements Serializable {
     }
 
     public VoiceManager.VoiceModel getVoice_model() {
-        return this.f1508a;
+        return this.f1599a;
     }
 
     public void setVoice_model(VoiceManager.VoiceModel voiceModel) {
-        this.f1508a = voiceModel;
+        this.f1599a = voiceModel;
     }
 
     public void setIs_left(int i) {

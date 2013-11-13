@@ -64,14 +64,14 @@ public class MemberCodeGen extends CodeGen {
 
     @Override // javassist.compiler.CodeGen
     protected void e() {
-        this.f2785a.k(0);
-        this.f2785a.c(MemberResolver.a(this.u), MethodDecl.initName, "()V");
+        this.f2833a.k(0);
+        this.f2833a.c(MemberResolver.a(this.u), MethodDecl.initName, "()V");
     }
 
     @Override // javassist.compiler.CodeGen
     protected void c(Stmnt stmnt) {
         boolean z;
-        Bytecode bytecode = this.f2785a;
+        Bytecode bytecode = this.f2833a;
         Stmnt stmnt2 = (Stmnt) stmnt.getLeft();
         if (stmnt2 != null) {
             ASTList aSTList = (ASTList) stmnt.getRight().getLeft();
@@ -133,7 +133,7 @@ public class MemberCodeGen extends CodeGen {
                     bytecode.k(b);
                     bytecode.g(191);
                 }
-                a(eVar.f2794a, stmnt3);
+                a(eVar.f2842a, stmnt3);
             }
             a(arrayList, bytecode.h());
             this.c = !z2;
@@ -144,7 +144,7 @@ public class MemberCodeGen extends CodeGen {
     }
 
     private void a(ArrayList arrayList, Stmnt stmnt) {
-        Bytecode bytecode = this.f2785a;
+        Bytecode bytecode = this.f2833a;
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
             int[] iArr = (int[]) arrayList.get(i);
@@ -169,8 +169,8 @@ public class MemberCodeGen extends CodeGen {
         javassist.h a2 = this.t.a(newExpr.getClassName());
         String n = a2.n();
         ASTList arguments = newExpr.getArguments();
-        this.f2785a.d(n);
-        this.f2785a.g(89);
+        this.f2833a.d(n);
+        this.f2833a.g(89);
         a(a2, MethodDecl.initName, arguments, false, true, -1, (g) null);
         this.i = 307;
         this.j = 0;
@@ -201,13 +201,13 @@ public class MemberCodeGen extends CodeGen {
             }
             aSTree.accept(this);
         } else if (aSTree == null) {
-            this.f2785a.m(arrayInit.length());
+            this.f2833a.m(arrayInit.length());
         } else {
             throw new CompileError("unnecessary array size specified for new");
         }
         if (i == 307) {
             String a2 = a(str);
-            this.f2785a.e(MemberResolver.d(a2));
+            this.f2833a.e(MemberResolver.d(a2));
             str2 = a2;
         } else {
             str2 = null;
@@ -241,21 +241,21 @@ public class MemberCodeGen extends CodeGen {
                     f();
                     break;
             }
-            this.f2785a.g(188);
-            this.f2785a.a(i2);
+            this.f2833a.g(188);
+            this.f2833a.a(i2);
         }
         if (arrayInit != null) {
             int length = arrayInit.length();
             int i3 = 0;
             ArrayInit arrayInit2 = arrayInit;
             while (i3 < length) {
-                this.f2785a.g(89);
-                this.f2785a.m(i3);
+                this.f2833a.g(89);
+                this.f2833a.m(i3);
                 arrayInit2.head().accept(this);
                 if (!d(i)) {
                     d(this.i, i);
                 }
-                this.f2785a.g(f(i, 0));
+                this.f2833a.g(f(i, 0));
                 i3++;
                 arrayInit2 = arrayInit2.tail();
             }
@@ -305,7 +305,7 @@ public class MemberCodeGen extends CodeGen {
         } else {
             b = b(i, length);
         }
-        this.f2785a.a(b, i2);
+        this.f2833a.a(b, i2);
     }
 
     @Override // javassist.compiler.ast.a
@@ -328,8 +328,8 @@ public class MemberCodeGen extends CodeGen {
                 str = str2;
                 z = false;
             } else {
-                i = this.f2785a.h();
-                this.f2785a.k(0);
+                i = this.f2833a.h();
+                this.f2833a.k(0);
                 z3 = false;
                 str = str2;
                 z = false;
@@ -339,7 +339,7 @@ public class MemberCodeGen extends CodeGen {
             if (this.d) {
                 throw new CompileError("a constructor cannot be static");
             }
-            this.f2785a.k(0);
+            this.f2833a.k(0);
             if (((Keyword) oprand1).get() != 336) {
                 i = -1;
                 z3 = false;
@@ -413,12 +413,12 @@ public class MemberCodeGen extends CodeGen {
         int[] iArr2 = new int[d];
         String[] strArr = new String[d];
         if (!z && gVar != null && gVar.a()) {
-            this.f2785a.g(87);
+            this.f2833a.g(87);
             z = true;
         }
-        int i2 = this.f2785a.i();
+        int i2 = this.f2833a.i();
         a(aSTList, iArr, iArr2, strArr);
-        int i3 = (this.f2785a.i() - i2) + 1;
+        int i3 = (this.f2833a.i() - i2) + 1;
         g a2 = gVar == null ? this.t.a(hVar, this.u, this.v, str, iArr, iArr2, strArr) : gVar;
         if (a2 == null) {
             if (str.equals(MethodDecl.initName)) {
@@ -435,7 +435,7 @@ public class MemberCodeGen extends CodeGen {
         String b;
         int b2;
         boolean z3;
-        javassist.h hVar2 = gVar.f2796a;
+        javassist.h hVar2 = gVar.f2844a;
         an anVar = gVar.b;
         String g = anVar.g();
         int f = anVar.f();
@@ -446,7 +446,7 @@ public class MemberCodeGen extends CodeGen {
             }
             if (hVar2 != this.u && javassist.bytecode.a.c(f)) {
                 String a2 = a(g, hVar2, anVar);
-                this.f2785a.g(1);
+                this.f2833a.g(1);
                 b = a2;
                 z3 = z;
                 b2 = f;
@@ -478,24 +478,24 @@ public class MemberCodeGen extends CodeGen {
             if (!z3) {
                 z3 = true;
                 if (i >= 0) {
-                    this.f2785a.a(i, 0);
+                    this.f2833a.a(i, 0);
                 } else {
                     z4 = true;
                 }
             }
-            this.f2785a.d(hVar2, str, b);
+            this.f2833a.d(hVar2, str, b);
         } else if (z2) {
-            this.f2785a.c(hVar2, str, b);
+            this.f2833a.c(hVar2, str, b);
         } else {
             if (!v.a(hVar2.c()) || hVar2.q() != hVar.q()) {
                 hVar2 = hVar;
             }
             if (hVar2.q()) {
-                this.f2785a.a(hVar2, str, b, i2);
+                this.f2833a.a(hVar2, str, b, i2);
             } else if (z3) {
                 throw new CompileError(str + " is not static");
             } else {
-                this.f2785a.e(hVar2, str, b);
+                this.f2833a.e(hVar2, str, b);
             }
         }
         a(b, z3, z4);
@@ -574,14 +574,14 @@ public class MemberCodeGen extends CodeGen {
         int i3 = this.i;
         if (z && z2) {
             if (a(i3, i2)) {
-                this.f2785a.g(93);
-                this.f2785a.g(88);
-                this.f2785a.g(87);
+                this.f2833a.g(93);
+                this.f2833a.g(88);
+                this.f2833a.g(87);
             } else if (i3 == 344) {
-                this.f2785a.g(87);
+                this.f2833a.g(87);
             } else {
-                this.f2785a.g(95);
-                this.f2785a.g(87);
+                this.f2833a.g(95);
+                this.f2833a.g(87);
             }
         }
     }
@@ -595,7 +595,7 @@ public class MemberCodeGen extends CodeGen {
         CtField a3 = a(aSTree, false);
         boolean z2 = this.w;
         if (i != 61 && !z2) {
-            this.f2785a.g(89);
+            this.f2833a.g(89);
         }
         if (i == 61) {
             ad a4 = a3.a();
@@ -620,7 +620,7 @@ public class MemberCodeGen extends CodeGen {
             } else {
                 i2 = a5 ? 93 : 90;
             }
-            this.f2785a.g(i2);
+            this.f2833a.g(i2);
         }
         a(a3, z2, a2, a5);
         this.i = i4;
@@ -631,18 +631,18 @@ public class MemberCodeGen extends CodeGen {
     private void a(CtField ctField, boolean z, int i, boolean z2) {
         if (i != 0) {
             if (z) {
-                this.f2785a.a(179);
-                this.f2785a.h(z2 ? -2 : -1);
+                this.f2833a.a(179);
+                this.f2833a.h(z2 ? -2 : -1);
             } else {
-                this.f2785a.a(181);
-                this.f2785a.h(z2 ? -3 : -2);
+                this.f2833a.a(181);
+                this.f2833a.h(z2 ? -3 : -2);
             }
-            this.f2785a.j(i);
+            this.f2833a.j(i);
             return;
         }
         javassist.h c = ctField.c();
         an b = c.i().b(ctField.a(), z);
-        this.f2785a.d(c, b.a(), b.g());
+        this.f2833a.d(c, b.a(), b.g());
     }
 
     @Override // javassist.compiler.ast.a
@@ -671,7 +671,7 @@ public class MemberCodeGen extends CodeGen {
         if (this.j == 0) {
             throw new CompileError(".length applied to a non array");
         }
-        this.f2785a.g(190);
+        this.f2833a.g(190);
         this.i = 324;
         this.j = 0;
     }
@@ -682,18 +682,18 @@ public class MemberCodeGen extends CodeGen {
         a a4 = a(ctField, a2);
         if (a4 != null) {
             an a5 = a4.a(a2, z);
-            this.f2785a.d(ctField.c(), a5.a(), a5.g());
+            this.f2833a.d(ctField.c(), a5.a(), a5.g());
             return 0;
         }
         int b = b(ctField, a2);
         if (z) {
-            this.f2785a.a(178);
-            this.f2785a.h(a3 ? 2 : 1);
+            this.f2833a.a(178);
+            this.f2833a.h(a3 ? 2 : 1);
         } else {
-            this.f2785a.a(180);
-            this.f2785a.h(a3 ? 1 : 0);
+            this.f2833a.a(180);
+            this.f2833a.h(a3 ? 1 : 0);
         }
-        this.f2785a.j(b);
+        this.f2833a.j(b);
         return b;
     }
 
@@ -733,7 +733,7 @@ public class MemberCodeGen extends CodeGen {
     }
 
     private int b(CtField ctField, ad adVar) {
-        y c = this.f2785a.c();
+        y c = this.f2833a.c();
         return c.a(c.a(ctField.c().n()), adVar.b(), adVar.d());
     }
 
@@ -743,7 +743,7 @@ public class MemberCodeGen extends CodeGen {
         if (g() < 49) {
             super.b(str);
         } else {
-            this.f2785a.v(this.f2785a.c().a(str));
+            this.f2833a.v(this.f2833a.c().a(str));
         }
     }
 
@@ -753,7 +753,7 @@ public class MemberCodeGen extends CodeGen {
         CtField a2 = a(aSTree, false);
         boolean z3 = this.w;
         if (!z3) {
-            this.f2785a.g(89);
+            this.f2833a.g(89);
         }
         int a3 = a(a2, z3);
         boolean a4 = a(this.i, this.j);
@@ -782,7 +782,7 @@ public class MemberCodeGen extends CodeGen {
                     if (this.d) {
                         throw new CompileError("not available in a static method: " + str);
                     }
-                    this.f2785a.k(0);
+                    this.f2833a.k(0);
                 }
                 this.w = d;
                 return a2;
@@ -810,7 +810,7 @@ public class MemberCodeGen extends CodeGen {
                     }
                     boolean d2 = v.d(ctField.b());
                     if (d2) {
-                        this.f2785a.g(87);
+                        this.f2833a.g(87);
                     }
                     this.w = d2;
                     r0 = ctField;

@@ -7,17 +7,17 @@ import com.baidu.tieba.media.MediaDownloadHelper;
 public class k implements BEngineManager.OnEngineListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaDownloadHelper f1839a;
+    final /* synthetic */ MediaDownloadHelper f1835a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(MediaDownloadHelper mediaDownloadHelper) {
-        this.f1839a = mediaDownloadHelper;
+        this.f1835a = mediaDownloadHelper;
     }
 
     @Override // com.baidu.cyberplayer.sdk.BEngineManager.OnEngineListener
     public boolean onPrepare() {
         MediaDownloadHelper.DOWNLOAD_STAT download_stat;
-        download_stat = this.f1839a.g;
+        download_stat = this.f1835a.g;
         return download_stat == MediaDownloadHelper.DOWNLOAD_STAT.DOWNLOADING;
     }
 
@@ -25,9 +25,9 @@ public class k implements BEngineManager.OnEngineListener {
     public int onDownload(int i, int i2) {
         MediaDownloadHelper.DOWNLOAD_STAT download_stat;
         if (i != 0) {
-            this.f1839a.a(i, i2);
+            this.f1835a.a(i, i2);
         }
-        download_stat = this.f1839a.g;
+        download_stat = this.f1835a.g;
         return download_stat == MediaDownloadHelper.DOWNLOAD_STAT.DOWNLOADING ? 0 : 1;
     }
 
@@ -35,18 +35,18 @@ public class k implements BEngineManager.OnEngineListener {
     public int onPreInstall() {
         a aVar;
         MediaDownloadHelper.DOWNLOAD_STAT download_stat;
-        aVar = this.f1839a.f1825a;
+        aVar = this.f1835a.f1821a;
         aVar.h();
-        download_stat = this.f1839a.g;
-        this.f1839a.g = MediaDownloadHelper.DOWNLOAD_STAT.STOP;
+        download_stat = this.f1835a.g;
+        this.f1835a.g = MediaDownloadHelper.DOWNLOAD_STAT.STOP;
         return download_stat == MediaDownloadHelper.DOWNLOAD_STAT.DOWNLOADING ? 0 : 1;
     }
 
     @Override // com.baidu.cyberplayer.sdk.BEngineManager.OnEngineListener
     public void onInstalled(int i) {
         String[] strArr;
-        this.f1839a.g = MediaDownloadHelper.DOWNLOAD_STAT.STOP;
-        this.f1839a.a(i);
+        this.f1835a.g = MediaDownloadHelper.DOWNLOAD_STAT.STOP;
+        this.f1835a.a(i);
         strArr = MediaDownloadHelper.l;
         com.baidu.adp.lib.h.d.a(strArr[i]);
     }

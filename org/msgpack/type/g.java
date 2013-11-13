@@ -9,12 +9,12 @@ import org.msgpack.MessageTypeException;
 class g extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f2910a = new g(new byte[0], true);
+    private static g f2958a = new g(new byte[0], true);
     private static final ThreadLocal<CharsetDecoder> b = new h();
     private byte[] c;
 
     public static RawValue a() {
-        return f2910a;
+        return f2958a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

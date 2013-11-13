@@ -17,7 +17,7 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f1524a;
+    private static g f1615a;
 
     private g() {
     }
@@ -25,10 +25,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f1524a == null) {
-                f1524a = new g();
+            if (f1615a == null) {
+                f1615a = new g();
             }
-            gVar = f1524a;
+            gVar = f1615a;
         }
         return gVar;
     }
@@ -62,14 +62,14 @@ public class g {
                         } else {
                             i2 = -1;
                         }
-                        com.baidu.tieba.util.g.a(cursor);
+                        com.baidu.tieba.util.o.a(cursor);
                     } catch (Exception e) {
                         e.printStackTrace();
-                        com.baidu.tieba.util.g.a(cursor);
+                        com.baidu.tieba.util.o.a(cursor);
                     }
                 } catch (SQLiteException e2) {
                     e2.printStackTrace();
-                    com.baidu.tieba.util.g.a(cursor);
+                    com.baidu.tieba.util.o.a(cursor);
                 }
             }
         }
@@ -171,10 +171,10 @@ public class g {
                             linkedList.add(groupNewsPojo);
                         }
                     }
-                    com.baidu.tieba.util.g.a(cursor);
+                    com.baidu.tieba.util.o.a(cursor);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    com.baidu.tieba.util.g.a(cursor);
+                    com.baidu.tieba.util.o.a(cursor);
                 }
                 linkedList = b(linkedList);
             }
@@ -240,18 +240,18 @@ public class g {
                                         groupNewsPojo = groupNewsPojo3;
                                         try {
                                             e.printStackTrace();
-                                            com.baidu.tieba.util.g.a(cursor2);
+                                            com.baidu.tieba.util.o.a(cursor2);
                                             return groupNewsPojo;
                                         } catch (Throwable th2) {
                                             th = th2;
                                             cursor = cursor2;
-                                            com.baidu.tieba.util.g.a(cursor);
+                                            com.baidu.tieba.util.o.a(cursor);
                                             throw th;
                                         }
                                     }
                                 } catch (Throwable th3) {
                                     th = th3;
-                                    com.baidu.tieba.util.g.a(cursor);
+                                    com.baidu.tieba.util.o.a(cursor);
                                     throw th;
                                 }
                             } catch (Exception e2) {
@@ -262,7 +262,7 @@ public class g {
                         }
                         groupNewsPojo = groupNewsPojo2;
                     }
-                    com.baidu.tieba.util.g.a(cursor);
+                    com.baidu.tieba.util.o.a(cursor);
                 } catch (Exception e3) {
                     e = e3;
                     cursor2 = null;

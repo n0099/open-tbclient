@@ -3,7 +3,6 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
@@ -18,7 +17,6 @@ public class EditHeadImageView extends k {
     private int e;
     private float f;
     private int g;
-    private Matrix h;
 
     public EditHeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -63,8 +61,7 @@ public class EditHeadImageView extends k {
         this.g = getResources().getColor(R.color.editimage_bg);
         setDrawingCacheEnabled(true);
         setImageMode(1);
-        this.h = new Matrix();
-        CompatibleUtile.getInstance().closeViewGpu(this);
+        CompatibleUtile.getInstance().noneViewGpu(this);
     }
 
     @Override // com.baidu.tieba.view.k, android.widget.ImageView
@@ -86,7 +83,7 @@ public class EditHeadImageView extends k {
     public void onDraw(Canvas canvas) {
         canvas.drawColor(this.g);
         super.onDraw(canvas);
-        canvas.setMatrix(this.h);
+        canvas.restore();
         canvas.drawRect(0.0f, 0.0f, getWidth(), this.d, this.b);
         canvas.drawRect(0.0f, getHeight() - this.e, getWidth(), getHeight(), this.b);
         canvas.drawRect(0.0f, this.d, getWidth() - 1, getHeight() - this.e, this.c);
@@ -104,7 +101,7 @@ public class EditHeadImageView extends k {
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "getVisableBitmap", e.toString());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "getVisableBitmap", e.toString());
         }
         return bitmap;
     }

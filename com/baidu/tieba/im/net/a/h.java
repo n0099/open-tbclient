@@ -16,7 +16,7 @@ public class h extends com.baidu.tieba.im.messageCenter.a {
         Message orginalMessage = responseFrsGroupsMessage.getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestFrsGroupsMessage) && !responseFrsGroupsMessage.hasError()) {
             RequestFrsGroupsMessage requestFrsGroupsMessage = (RequestFrsGroupsMessage) orginalMessage;
-            m.a(com.baidu.tieba.b.a.a().d(), requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId(), pVar);
+            m.a(com.baidu.tieba.b.a.a().e(), requestFrsGroupsMessage.getType() + "_" + requestFrsGroupsMessage.getForumId(), pVar);
             return message;
         }
         return message;

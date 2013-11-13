@@ -212,7 +212,11 @@ public class i extends ViewGroup {
         canvas.drawRect(this.b, this.d);
         canvas.restore();
         for (int i = 0; i < getChildCount(); i++) {
-            drawChild(canvas, getChildAt(i), drawingTime);
+            try {
+                drawChild(canvas, getChildAt(i), drawingTime);
+            } catch (NullPointerException e) {
+                return;
+            }
         }
     }
 }

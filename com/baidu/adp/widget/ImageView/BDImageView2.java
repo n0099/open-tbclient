@@ -11,7 +11,7 @@ import android.widget.ImageView;
 public class BDImageView2 extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f553a;
+    private int f555a;
     private Paint b;
     private Matrix c;
     private Matrix d;
@@ -20,7 +20,7 @@ public class BDImageView2 extends ImageView {
 
     public BDImageView2(Context context) {
         super(context);
-        this.f553a = 0;
+        this.f555a = 0;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -31,7 +31,7 @@ public class BDImageView2 extends ImageView {
 
     public BDImageView2(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f553a = 0;
+        this.f555a = 0;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -42,7 +42,7 @@ public class BDImageView2 extends ImageView {
 
     public BDImageView2(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f553a = 0;
+        this.f555a = 0;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -76,7 +76,7 @@ public class BDImageView2 extends ImageView {
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f553a = i;
+        this.f555a = i;
     }
 
     public void a() {
@@ -105,7 +105,7 @@ public class BDImageView2 extends ImageView {
         int width = (getWidth() - paddingLeft) - paddingRight;
         float f4 = width / a2;
         float f5 = height / b;
-        switch (d.f557a[scaleType.ordinal()]) {
+        switch (d.f559a[scaleType.ordinal()]) {
             case 1:
                 r0 = f5;
                 f2 = f4;
@@ -190,7 +190,7 @@ public class BDImageView2 extends ImageView {
             }
             matrix = this.d;
         } else {
-            image = new e(com.baidu.adp.lib.h.a.a().a(this.f553a), false, null);
+            image = new e(com.baidu.adp.lib.h.a.a().a(this.f555a), false, null);
             if (this.c == null) {
                 this.c = a(image);
             }

@@ -1,36 +1,30 @@
 package com.baidu.tieba.write;
 
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import android.text.Editable;
+import android.text.TextWatcher;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements Runnable {
+public class w implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2674a;
+    final /* synthetic */ WriteActivity f2722a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(WriteActivity writeActivity) {
-        this.f2674a = writeActivity;
+        this.f2722a = writeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditText editText;
-        InputMethodManager inputMethodManager;
-        EditText editText2;
-        InputMethodManager inputMethodManager2;
-        EditText editText3;
-        editText = this.f2674a.e;
-        if (editText.getVisibility() == 0) {
-            WriteActivity writeActivity = this.f2674a;
-            inputMethodManager2 = this.f2674a.d;
-            editText3 = this.f2674a.e;
-            writeActivity.b(inputMethodManager2, editText3);
-            return;
-        }
-        WriteActivity writeActivity2 = this.f2674a;
-        inputMethodManager = this.f2674a.d;
-        editText2 = this.f2674a.g;
-        writeActivity2.b(inputMethodManager, editText2);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.f2722a.t();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.f2722a.d = true;
     }
 }

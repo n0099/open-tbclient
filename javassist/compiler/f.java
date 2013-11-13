@@ -6,14 +6,14 @@ import javassist.bytecode.Bytecode;
 class f extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2795a;
+    int f2843a;
     int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(CodeGen codeGen, int[] iArr) {
         super(codeGen);
         this.b = iArr[0];
-        this.f2795a = iArr[1];
+        this.f2843a = iArr[1];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,19 +21,19 @@ class f extends c {
     public boolean a(Bytecode bytecode, int i) {
         switch (i) {
             case 172:
-                bytecode.o(this.f2795a);
+                bytecode.o(this.f2843a);
                 break;
             case 173:
-                bytecode.q(this.f2795a);
+                bytecode.q(this.f2843a);
                 break;
             case 174:
-                bytecode.u(this.f2795a);
+                bytecode.u(this.f2843a);
                 break;
             case 175:
-                bytecode.s(this.f2795a);
+                bytecode.s(this.f2843a);
                 break;
             case 176:
-                bytecode.l(this.f2795a);
+                bytecode.l(this.f2843a);
                 break;
             case 177:
                 break;

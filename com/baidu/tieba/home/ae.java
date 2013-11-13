@@ -1,56 +1,46 @@
 package com.baidu.tieba.home;
 
-import android.text.Selection;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ListView;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.util.DatabaseService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-public class ae implements AdapterView.OnItemClickListener {
+public class ae {
+    private static final String b = com.baidu.tieba.data.h.f1196a + "c/c/forum/msign";
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1331a;
+    private com.baidu.tieba.util.ap f1399a = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(SearchActivity searchActivity) {
-        this.f1331a = searchActivity;
+    public String a(String str) {
+        AccountData E = TiebaApplication.E();
+        String str2 = null;
+        if (E != null) {
+            str2 = E.getID();
+        }
+        this.f1399a = new com.baidu.tieba.util.ap(b);
+        this.f1399a.a(PushConstants.EXTRA_USER_ID, str2);
+        this.f1399a.a("forum_ids", str);
+        this.f1399a.c(true);
+        this.f1399a.e(true);
+        return this.f1399a.j();
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        int i2;
-        ar arVar;
-        ar arVar2;
-        EditText editText;
-        EditText editText2;
-        EditText editText3;
-        ar arVar3;
-        ar arVar4;
-        String str = (String) ((ListView) adapterView).getAdapter().getItem(i);
-        i2 = this.f1331a.E;
-        if (i2 == 0) {
-            DatabaseService.l(str);
-            FrsActivity.a(this.f1331a, str, "tb_searchlist");
-            arVar3 = this.f1331a.r;
-            arVar3.a(i);
-            arVar4 = this.f1331a.r;
-            arVar4.notifyDataSetChanged();
-            this.f1331a.finish();
-        } else if (str != null && str.length() > 0) {
-            arVar = this.f1331a.r;
-            arVar.a(i);
-            arVar2 = this.f1331a.r;
-            arVar2.notifyDataSetChanged();
-            this.f1331a.a(1, str);
-            editText = this.f1331a.c;
-            editText.setText(str);
-            editText2 = this.f1331a.c;
-            editText2.requestFocus();
-            editText3 = this.f1331a.c;
-            Selection.setSelection(editText3.getText(), str.length());
+    public void a() {
+        if (this.f1399a != null) {
+            this.f1399a.h();
         }
+    }
+
+    public boolean b() {
+        if (this.f1399a != null) {
+            return this.f1399a.c();
+        }
+        return false;
+    }
+
+    public String c() {
+        if (this.f1399a != null) {
+            return this.f1399a.g();
+        }
+        return null;
     }
 }

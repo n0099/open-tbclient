@@ -20,12 +20,12 @@ import org.json.JSONException;
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f638a;
+    final /* synthetic */ i f647a;
     private final CharSequence b;
     private String c;
 
     public j(i iVar, CharSequence charSequence, String str) {
-        this.f638a = iVar;
+        this.f647a = iVar;
         this.c = null;
         this.b = charSequence;
         this.c = str;
@@ -52,7 +52,7 @@ public class j implements Runnable {
         Context context;
         InputStream a2;
         Process.setThreadPriority(10);
-        context = this.f638a.f637a;
+        context = this.f647a.f646a;
         ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context);
         HttpPost httpPost = new HttpPost(this.b.toString());
         try {
@@ -63,13 +63,13 @@ public class j implements Runnable {
                 HttpResponse execute = proxyHttpClient.execute(httpPost);
                 if (execute.getStatusLine().getStatusCode() == 200) {
                     HttpEntity entity = execute.getEntity();
-                    a2 = this.f638a.a(entity);
+                    a2 = this.f647a.a(entity);
                     if (a2 == null) {
                         a2 = entity.getContent();
                     }
                     try {
-                        this.f638a.a(a2);
-                        this.f638a.b();
+                        this.f647a.a(a2);
+                        this.f647a.b();
                     } catch (IOException e) {
                     } catch (JSONException e2) {
                     }

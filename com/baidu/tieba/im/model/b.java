@@ -14,7 +14,7 @@ import java.util.Map;
 public class b extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1658a;
+    private String f1745a;
     private boolean b;
     private int c;
     private int d;
@@ -112,7 +112,7 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public String m() {
-        return this.f1658a;
+        return this.f1745a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -126,13 +126,13 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.f1658a = intent.getStringExtra("forum_id");
+        this.f1745a = intent.getStringExtra("forum_id");
         this.b = intent.getBooleanExtra("show_recommend", true);
         this.c = this.b ? 1 : 2;
     }
 
     public void a(Bundle bundle) {
-        this.f1658a = bundle.getString("forum_id");
+        this.f1745a = bundle.getString("forum_id");
         this.b = bundle.getBoolean("show_recommend");
         this.c = bundle.getInt("card_type");
         this.d = bundle.getInt("start_position");
@@ -195,7 +195,7 @@ public class b extends com.baidu.adp.a.d {
     }
 
     public void b(Bundle bundle) {
-        bundle.putString("forum_id", this.f1658a);
+        bundle.putString("forum_id", this.f1745a);
         bundle.putBoolean("show_recommend", this.b);
         bundle.putInt("card_type", this.c);
         bundle.putInt("start_position", this.d);

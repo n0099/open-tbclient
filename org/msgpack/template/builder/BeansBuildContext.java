@@ -8,7 +8,7 @@ import org.msgpack.template.builder.JavassistTemplateBuilder;
 public class BeansBuildContext extends b<BeansFieldEntry> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected BeansFieldEntry[] f2888a;
+    protected BeansFieldEntry[] f2936a;
     protected Class<?> b;
     protected String c;
     protected org.msgpack.template.d<?>[] d;
@@ -31,7 +31,7 @@ public class BeansBuildContext extends b<BeansFieldEntry> {
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public org.msgpack.template.d a2(Class<?> cls, BeansFieldEntry[] beansFieldEntryArr, org.msgpack.template.d[] dVarArr) {
-        this.f2888a = beansFieldEntryArr;
+        this.f2936a = beansFieldEntryArr;
         this.d = dVarArr;
         this.b = cls;
         this.c = this.b.getName();
@@ -69,9 +69,9 @@ public class BeansBuildContext extends b<BeansFieldEntry> {
         b("  return;");
         b("}");
         a("%s _$$_t = (%s)$2;", this.c, this.c);
-        a("$1.writeArrayBegin(%d);", Integer.valueOf(this.f2888a.length));
-        for (int i = 0; i < this.f2888a.length; i++) {
-            BeansFieldEntry beansFieldEntry = this.f2888a[i];
+        a("$1.writeArrayBegin(%d);", Integer.valueOf(this.f2936a.length));
+        for (int i = 0; i < this.f2936a.length; i++) {
+            BeansFieldEntry beansFieldEntry = this.f2936a[i];
             if (!beansFieldEntry.g()) {
                 b("$1.writeNil();");
             } else {
@@ -110,8 +110,8 @@ public class BeansBuildContext extends b<BeansFieldEntry> {
         a("  _$$_t = (%s)$2;", this.c);
         b("}");
         b("$1.readArrayBegin();");
-        for (int i = 0; i < this.f2888a.length; i++) {
-            BeansFieldEntry beansFieldEntry = this.f2888a[i];
+        for (int i = 0; i < this.f2936a.length; i++) {
+            BeansFieldEntry beansFieldEntry = this.f2936a[i];
             if (!beansFieldEntry.g()) {
                 b("$1.skip();");
             } else {

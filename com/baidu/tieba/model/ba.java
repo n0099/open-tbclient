@@ -1,45 +1,37 @@
 package com.baidu.tieba.model;
+
+import android.content.Context;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ba extends com.baidu.adp.a.d {
+    private Context c;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1910a = null;
-    private String b = null;
-    private bc c = null;
-    private String d;
+    private bd f1906a = null;
+    private ArrayList<com.baidu.tieba.data.ah> b = null;
+    private bc d = null;
 
-    public void a(String str) {
-        this.d = str;
+    public ba(Context context) {
+        this.c = null;
+        this.c = context;
+    }
+
+    public void a(bc bcVar) {
+        this.d = bcVar;
     }
 
     @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
+        if (this.f1906a == null) {
+            this.f1906a = new bd(this);
+            this.f1906a.execute(new String[0]);
+            return true;
+        }
         return false;
     }
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
         return false;
-    }
-
-    public void a() {
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
-        }
-    }
-
-    public void a(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
-            this.f1910a = str;
-            this.b = str2;
-            this.c = new bc(this);
-            this.c.setPriority(2);
-            this.c.execute(new Object[0]);
-        }
-    }
-
-    public boolean b() {
-        return this.c != null;
     }
 }

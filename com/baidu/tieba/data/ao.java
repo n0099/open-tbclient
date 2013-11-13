@@ -1,8 +1,10 @@
 package com.baidu.tieba.data;
 
 import android.content.Context;
+import com.baidu.tieba.util.bg;
 import com.baidu.zeus.Headers;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -10,14 +12,15 @@ public class ao {
     private int i;
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumData f1135a = new ForumData();
-    private bf b = new bf();
+    private ForumData f1169a = new ForumData();
+    private ba b = new ba();
     private ArrayList<as> c = new ArrayList<>();
     private an d = new an();
     private AntiData e = new AntiData();
-    private ah f = new ah();
+    private ai f = new ai();
     private int h = 0;
     private boolean g = false;
+    private UserData j = new UserData();
 
     public ao() {
         this.i = 0;
@@ -28,19 +31,33 @@ public class ao {
         return this.c != null && this.c.size() > 0;
     }
 
-    public ForumData b() {
-        return this.f1135a;
+    public String[] b() {
+        String str = null;
+        String str2 = "";
+        if (a()) {
+            as asVar = this.c.get(0);
+            LinkedList<String> imageUrl = asVar.getImageUrl();
+            if (imageUrl != null && imageUrl.size() > 0) {
+                str = imageUrl.get(0);
+            }
+            str2 = asVar.k();
+        }
+        return new String[]{str, str2};
     }
 
-    public bf c() {
+    public ForumData c() {
+        return this.f1169a;
+    }
+
+    public ba d() {
         return this.b;
     }
 
-    public ArrayList<as> d() {
+    public ArrayList<as> e() {
         return this.c;
     }
 
-    public an e() {
+    public an f() {
         return this.d;
     }
 
@@ -58,12 +75,16 @@ public class ao {
         }
     }
 
-    public AntiData f() {
+    public AntiData g() {
         return this.e;
     }
 
-    public boolean g() {
-        return this.b.k() != 0;
+    public UserData h() {
+        return this.j;
+    }
+
+    public boolean i() {
+        return this.b.n() != 0;
     }
 
     public void a(boolean z) {
@@ -76,16 +97,16 @@ public class ao {
         }
     }
 
-    public String h() {
+    public String j() {
         if (this.b != null) {
-            return this.b.l();
+            return this.b.o();
         }
         return null;
     }
 
     public void a(String str) {
         if (this.b != null) {
-            this.b.a(str);
+            this.b.d(str);
         }
     }
 
@@ -93,7 +114,7 @@ public class ao {
         try {
             a(new JSONObject(str), context);
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
+            bg.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -101,7 +122,7 @@ public class ao {
         try {
             a(new JSONObject(str));
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
+            bg.b("PbData", "parserJson", "error = " + e.getMessage());
         }
     }
 
@@ -113,7 +134,7 @@ public class ao {
         if (jSONObject != null) {
             try {
                 a(jSONObject.optInt("is_new_url", 0));
-                this.f1135a.parserJson(jSONObject.optJSONObject("forum"));
+                this.f1169a.parserJson(jSONObject.optJSONObject("forum"));
                 this.b.a(jSONObject.optJSONObject("thread"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null) {
@@ -128,21 +149,22 @@ public class ao {
                 this.f.a(jSONObject.optJSONObject(Headers.LOCATION));
                 this.g = jSONObject.optInt("has_floor") == 1;
                 this.h = jSONObject.optJSONObject("user").optInt("is_manager", 0);
+                this.j.parserJson(jSONObject.optJSONObject("user"));
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("PbData", "parserJson", "error = " + e.getMessage());
+                bg.b("PbData", "parserJson", "error = " + e.getMessage());
             }
         }
     }
 
-    public boolean i() {
+    public boolean k() {
         return this.g;
     }
 
-    public int j() {
+    public int l() {
         return this.h;
     }
 
-    public int k() {
+    public int m() {
         return this.i;
     }
 

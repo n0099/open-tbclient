@@ -1,33 +1,31 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnClickListener {
+public class z implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f1062a;
+    final /* synthetic */ LoginActivity f1096a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(LoginActivity loginActivity) {
-        this.f1062a = loginActivity;
+        this.f1096a = loginActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        EditText editText2;
-        this.f1062a.w();
-        LoginActivity loginActivity = this.f1062a;
-        InputMethodManager inputMethodManager = this.f1062a.d;
-        editText = this.f1062a.s;
-        loginActivity.a(inputMethodManager, editText);
-        LoginActivity loginActivity2 = this.f1062a;
-        InputMethodManager inputMethodManager2 = this.f1062a.d;
-        editText2 = this.f1062a.t;
-        loginActivity2.a(inputMethodManager2, editText2);
-        Register2Activity.a(this.f1062a, 12007);
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        this.f1096a.n = true;
+        this.f1096a.n();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.f1096a.d();
     }
 }

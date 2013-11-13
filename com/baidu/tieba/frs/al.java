@@ -1,29 +1,36 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tieba.view.CommonImageLayout;
+import com.baidu.tieba.view.DottedLine;
+import com.baidu.tieba.view.UserIconBox;
+import com.baidu.tieba.voice.PlayVoiceBnt;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements com.baidu.tbadk.imageManager.c {
+public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1255a;
+    LinearLayout f1312a;
+    LinearLayout b;
+    RelativeLayout c;
+    TextView d;
+    PlayVoiceBnt e;
+    CommonImageLayout f;
+    TextView g;
+    TextView h;
+    TextView i;
+    TextView j;
+    ImageView k;
+    ViewGroup l;
+    DottedLine m;
+    UserIconBox n;
+    final /* synthetic */ ah o;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(FrsImageActivity frsImageActivity) {
-        this.f1255a = frsImageActivity;
-    }
-
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        ay ayVar;
-        try {
-            ayVar = this.f1255a.m;
-            View findViewWithTag = ayVar.a().a(2).findViewWithTag(str);
-            if (findViewWithTag != null && (findViewWithTag instanceof TbImageView)) {
-                findViewWithTag.invalidate();
-            }
-        } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "imageLoaded", e.getMessage());
-        }
+    private al(ah ahVar) {
+        this.o = ahVar;
     }
 }

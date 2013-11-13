@@ -1,25 +1,35 @@
 package com.baidu.adp.widget;
 
-import com.baidu.adp.widget.HorizontalTranslateLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 /* loaded from: classes.dex */
-public /* synthetic */ class d {
+public class d extends FrameLayout.LayoutParams {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f596a = new int[HorizontalTranslateLayout.TrackDirection.values().length];
+    public int f602a;
 
-    static {
-        try {
-            f596a[HorizontalTranslateLayout.TrackDirection.left.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+    public d(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f602a = 1;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.g.ColumnLayout_Layout);
+        this.f602a = obtainStyledAttributes.getInt(0, 1);
+        obtainStyledAttributes.recycle();
+        if (this.gravity == -1) {
+            this.gravity = 51;
         }
-        try {
-            f596a[HorizontalTranslateLayout.TrackDirection.right.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            f596a[HorizontalTranslateLayout.TrackDirection.horizontal.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
+    }
+
+    public d(int i, int i2, int i3, int i4) {
+        super(i, i2, i3);
+        this.f602a = 1;
+        this.f602a = i4;
+    }
+
+    public d(ViewGroup.LayoutParams layoutParams) {
+        super(layoutParams);
+        this.f602a = 1;
     }
 }

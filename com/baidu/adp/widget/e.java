@@ -1,45 +1,41 @@
 package com.baidu.adp.widget;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class e extends Handler {
+public class e extends LinearLayout.LayoutParams {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ HorizontalTranslateLayout f597a;
+    private int f603a;
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        f fVar;
-        f fVar2;
-        f fVar3;
-        f fVar4;
-        f fVar5;
-        fVar = this.f597a.t;
-        if (fVar.g) {
-            switch (message.what) {
-                case -105:
-                    fVar5 = this.f597a.t;
-                    fVar5.d();
-                    return;
-                case -104:
-                    fVar2 = this.f597a.t;
-                    fVar2.c();
-                    return;
-                case -103:
-                case -102:
-                default:
-                    return;
-                case -101:
-                    fVar3 = this.f597a.t;
-                    fVar3.b();
-                    return;
-                case -100:
-                    fVar4 = this.f597a.t;
-                    fVar4.a();
-                    return;
+    public e(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f603a = 0;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.adp.g.FloatingLayout_Layout);
+        String string = obtainStyledAttributes.getString(0);
+        if (string != null) {
+            if ("before".equals(string)) {
+                this.f603a = 1;
+            } else if ("after".equals(string)) {
+                this.f603a = 2;
+            } else if ("both".equals(string)) {
+                this.f603a = 3;
             }
         }
+        obtainStyledAttributes.recycle();
+    }
+
+    public e(int i, int i2, int i3) {
+        super(i, i2);
+        this.f603a = 0;
+        this.f603a = i3;
+    }
+
+    public e(ViewGroup.LayoutParams layoutParams) {
+        super(layoutParams);
+        this.f603a = 0;
     }
 }

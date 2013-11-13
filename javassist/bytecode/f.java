@@ -3,11 +3,11 @@ package javassist.bytecode;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2764a;
+    public int f2812a;
     public int[] b;
 
     public f(int i, int[] iArr) {
-        this.f2764a = i;
+        this.f2812a = i;
         this.b = iArr;
     }
 }

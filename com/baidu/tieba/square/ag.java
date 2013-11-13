@@ -1,28 +1,30 @@
 package com.baidu.tieba.square;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.util.DatabaseService;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements DialogInterface.OnClickListener {
+public class ag implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ae f2339a;
+    final /* synthetic */ aw f2376a;
+    final /* synthetic */ int b;
+    final /* synthetic */ af c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(ae aeVar) {
-        this.f2339a = aeVar;
+    public ag(af afVar, aw awVar, int i) {
+        this.c = afVar;
+        this.f2376a = awVar;
+        this.b = i;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        i2 = this.f2339a.f2337a.F;
-        if (i2 == 0) {
-            DatabaseService.q();
-            this.f2339a.f2337a.n();
-            return;
-        }
-        DatabaseService.r();
-        this.f2339a.f2337a.p();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        String b = this.f2376a.b();
+        String a2 = SquareActivity.a("forum_topics_recommend", String.valueOf(this.b));
+        context = this.c.f2375a;
+        UtilHelper.a(context, b, null, a2);
     }
 }

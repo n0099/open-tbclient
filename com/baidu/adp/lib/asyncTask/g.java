@@ -2,6 +2,7 @@ package com.baidu.adp.lib.asyncTask;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.tencent.mm.sdk.platformtools.Util;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
@@ -44,6 +45,8 @@ public class g implements Executor {
             j jVar = new j(this, (m) runnable);
             if (jVar.h()) {
                 new Thread(jVar).start();
+            } else if (jVar.i()) {
+                a(jVar);
             } else {
                 int size = this.f.size();
                 int i = 0;
@@ -51,24 +54,30 @@ public class g implements Executor {
                     i++;
                 }
                 this.f.add(i, jVar);
-                a((k) null);
+                b((k) null);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void b(k kVar) {
+    public synchronized void c(k kVar) {
         k poll;
         this.g.remove(kVar);
         this.h.add(kVar);
         if (this.h.size() > 246 && (poll = this.h.poll()) != null) {
             poll.b();
         }
-        a((k) null);
+        b((k) null);
+    }
+
+    protected synchronized void a(k kVar) {
+        this.g.add(kVar);
+        f413a.execute(kVar);
+        this.i.sendMessageDelayed(this.i.obtainMessage(1, kVar), Util.MILLSECONDS_OF_MINUTE);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void a(k kVar) {
+    public synchronized void b(k kVar) {
         if (kVar != null) {
             this.g.remove(kVar);
             this.h.remove(kVar);
@@ -169,6 +178,14 @@ public class g implements Executor {
             a2 = a(this.g, str);
         }
         return a2;
+    }
+
+    public synchronized BdAsyncTask<?, ?, ?> d(String str) {
+        return a(this.f, str);
+    }
+
+    public synchronized BdAsyncTask<?, ?, ?> e(String str) {
+        return a(this.g, str);
     }
 
     public BdAsyncTask<?, ?, ?> a(LinkedList<k> linkedList, String str) {

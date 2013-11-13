@@ -14,7 +14,7 @@ import org.json.JSONArray;
 public class k extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    h f665a;
+    h f674a;
     final /* synthetic */ ScanDownloadFile b;
     private CharSequence c;
 
@@ -45,8 +45,8 @@ public class k extends Thread {
             if (execute.getStatusLine().getStatusCode() == 200) {
                 String entityUtils = EntityUtils.toString(execute.getEntity(), BdUtil.UTF8);
                 if (!isInterrupted()) {
-                    this.f665a = new h(this.b, new JSONArray(entityUtils));
-                    this.f665a.start();
+                    this.f674a = new h(this.b, new JSONArray(entityUtils));
+                    this.f674a.start();
                 }
             } else {
                 Log.d("ScanDownloadFile", "request failed  " + execute.getStatusLine());

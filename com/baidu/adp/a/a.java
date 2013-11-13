@@ -26,11 +26,11 @@ public class a extends Activity implements DialogInterface.OnClickListener, View
         return true;
     }
 
-    public void a(String str) {
+    public void showToast(String str) {
         com.baidu.adp.lib.h.f.a(getApplicationContext(), str);
     }
 
-    public void a_() {
+    public void releaseResouce() {
     }
 
     @Override // android.content.DialogInterface.OnClickListener

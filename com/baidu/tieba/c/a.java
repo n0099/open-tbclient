@@ -1,29 +1,79 @@
 package com.baidu.tieba.c;
 
-import com.baidu.adp.lib.a.d;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.switchs.SwitchKey;
-import com.slidingmenu.lib.R;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class a {
-    private static boolean a(String str) {
-        String[] stringArray = TiebaApplication.g().getResources().getStringArray(R.array.voice_black_frs_list);
-        String string = TiebaApplication.g().getResources().getString(R.string.forum);
-        int length = stringArray.length;
-        for (int i = 0; i < length; i++) {
-            if (stringArray[i].equals(str) || str.equals(stringArray[i] + string)) {
-                return true;
-            }
+public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    private GestureDetector f1115a = new GestureDetector(this);
+    private b b;
+    private View c;
+
+    public a(b bVar) {
+        this.b = bVar;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        this.c = view;
+        if (this.f1115a != null) {
+            return this.f1115a.onTouchEvent(motionEvent);
+        }
+        return true;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onShowPress(MotionEvent motionEvent) {
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTap(MotionEvent motionEvent) {
+        Log.d("testGestureDetector", "onDoubleTap---->处理双击事件");
+        if (this.b != null) {
+            return this.b.a(this.c, motionEvent);
         }
         return false;
     }
 
-    public static boolean a(String str, Boolean bool) {
-        if (d.a().b(SwitchKey.VOICE) == 0) {
-            if ((str == null || !a(str)) && bool != null) {
-                return bool.booleanValue();
-            }
-            return false;
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
+        if (this.b != null) {
+            return this.b.b(this.c, motionEvent);
+        }
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnDoubleTapListener
+    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
+        if (this.b != null) {
+            return this.b.c(this.c, motionEvent);
         }
         return false;
     }

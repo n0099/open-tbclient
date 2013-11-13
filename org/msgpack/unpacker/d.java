@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 final class d extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    byte[] f2924a;
+    byte[] f2972a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d() {
@@ -15,18 +15,18 @@ final class d extends a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a(byte[] bArr) {
-        this.f2924a = bArr;
+        this.f2972a = bArr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // org.msgpack.unpacker.a
     public void a() {
-        this.f2924a = new byte[0];
+        this.f2972a = new byte[0];
     }
 
     @Override // org.msgpack.unpacker.a, org.msgpack.io.b
     public void a(ByteBuffer byteBuffer, boolean z) {
-        this.f2924a = new byte[byteBuffer.remaining()];
-        byteBuffer.get(this.f2924a);
+        this.f2972a = new byte[byteBuffer.remaining()];
+        byteBuffer.get(this.f2972a);
     }
 }

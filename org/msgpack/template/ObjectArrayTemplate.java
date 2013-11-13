@@ -5,11 +5,11 @@ import org.msgpack.MessageTypeException;
 public class ObjectArrayTemplate extends AbstractTemplate {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Class f2877a;
+    protected Class f2925a;
     protected d b;
 
     public ObjectArrayTemplate(Class cls, d dVar) {
-        this.f2877a = cls;
+        this.f2925a = cls;
         this.b = dVar;
     }
 
@@ -20,7 +20,7 @@ public class ObjectArrayTemplate extends AbstractTemplate {
                 throw new MessageTypeException("Attempted to write null");
             }
             aVar.d();
-        } else if (!(obj instanceof Object[]) || !this.f2877a.isAssignableFrom(obj.getClass().getComponentType())) {
+        } else if (!(obj instanceof Object[]) || !this.f2925a.isAssignableFrom(obj.getClass().getComponentType())) {
             throw new MessageTypeException();
         } else {
             Object[] objArr = (Object[]) obj;

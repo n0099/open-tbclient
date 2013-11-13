@@ -7,26 +7,26 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class PersonPostAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    PersonThreadFragment f2224a;
+    PersonThreadFragment f2259a;
     PersonReplyFragment b;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
         Bundle bundle = new Bundle();
-        bundle.putString("key_uid", personPostActivity.b());
-        bundle.putString("key_portrait_url", personPostActivity.d());
-        bundle.putString("key_empty_view_text", personPostActivity.e());
+        bundle.putString("key_uid", personPostActivity.c());
+        bundle.putString("key_portrait_url", personPostActivity.e());
+        bundle.putString("key_empty_view_text", personPostActivity.f());
         this.b = new PersonReplyFragment();
         this.b.g(bundle);
-        this.f2224a = new PersonThreadFragment();
-        this.f2224a.g(bundle);
+        this.f2259a = new PersonThreadFragment();
+        this.f2259a.g(bundle);
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment a(int i) {
         switch (i) {
             case 0:
-                return this.f2224a;
+                return this.f2259a;
             case 1:
                 return this.b;
             default:

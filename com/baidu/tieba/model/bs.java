@@ -2,6 +2,48 @@ package com.baidu.tieba.model;
 
 import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
-public interface bs {
-    void a(boolean z, String str, com.baidu.tieba.data.bh bhVar, WriteData writeData);
+public class bs extends com.baidu.adp.a.d {
+
+    /* renamed from: a  reason: collision with root package name */
+    private bu f1919a = null;
+    private WriteData b = null;
+    private bt c = null;
+    private boolean d = false;
+
+    public void a(boolean z) {
+        this.d = z;
+    }
+
+    public void a(bt btVar) {
+        this.c = btVar;
+    }
+
+    public void a(WriteData writeData) {
+        this.b = writeData;
+    }
+
+    public WriteData a() {
+        return this.b;
+    }
+
+    public boolean b() {
+        if (this.b == null) {
+            return false;
+        }
+        if (this.f1919a == null) {
+            this.f1919a = new bu(this);
+            this.f1919a.execute(new Integer[0]);
+        }
+        return true;
+    }
+
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        return false;
+    }
 }

@@ -14,7 +14,7 @@ public final class CtMethod extends CtBehavior {
 
     public CtMethod(h hVar, String str, h[] hVarArr, h hVar2) {
         this(null, hVar2);
-        this.f2692a = new an(hVar2.h().c(), str, z.a(hVar, hVarArr));
+        this.f2740a = new an(hVar2.h().c(), str, z.a(hVar, hVarArr));
         a(1025);
     }
 
@@ -24,7 +24,7 @@ public final class CtMethod extends CtBehavior {
 
     final String g() {
         if (this.d == null) {
-            this.d = this.f2692a.a() + z.e(this.f2692a.g());
+            this.d = this.f2740a.a() + z.e(this.f2740a.g());
         }
         return this.d;
     }
@@ -35,7 +35,7 @@ public final class CtMethod extends CtBehavior {
 
     @Override // javassist.l
     public String i() {
-        return this.f2692a.a();
+        return this.f2740a.a();
     }
 
     public h h() {

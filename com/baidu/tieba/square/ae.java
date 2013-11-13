@@ -1,22 +1,58 @@
 package com.baidu.tieba.square;
 
-import android.app.AlertDialog;
+import android.content.Context;
 import android.view.View;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
+public class ae extends BaseAdapter implements com.baidu.tieba.view.ah {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2337a;
+    private af f2374a;
+    private ArrayList<aw> b = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(SquareSearchActivity squareSearchActivity) {
-        this.f2337a = squareSearchActivity;
+    public ae(Context context) {
+        this.f2374a = null;
+        this.f2374a = new af(context);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        new AlertDialog.Builder(this.f2337a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new ag(this)).setNegativeButton("取消", new af(this)).create().show();
+    public void a(ArrayList<aw> arrayList) {
+        this.b = arrayList;
+        this.f2374a.a(arrayList);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return (this.b == null || this.b.size() <= 1) ? 0 : 1;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return Integer.valueOf(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return this.f2374a;
+    }
+
+    @Override // com.baidu.tieba.view.ah
+    public void d() {
+        if (this.f2374a != null) {
+            this.f2374a.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.view.ah
+    public void a(View view, int i, int i2) {
+        if (this.f2374a != null) {
+            this.f2374a.a(this.f2374a, 0, 0);
+        }
     }
 }

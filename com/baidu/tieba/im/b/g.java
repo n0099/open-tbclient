@@ -1,23 +1,24 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.tieba.home.EnterForumActivity;
-import java.util.TimerTask;
+import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.im.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends TimerTask {
+public class g implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1384a;
+    final /* synthetic */ d f1480a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.f1384a = dVar;
+        this.f1480a = dVar;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        EnterForumActivity enterForumActivity;
-        enterForumActivity = this.f1384a.d;
-        enterForumActivity.runOnUiThread(new h(this));
+    @Override // com.baidu.tieba.im.messageCenter.h
+    public void a(Message message) {
+        if (this.f1480a.b != null && (message instanceof ResponseOnlineMessage) && !((ResponseOnlineMessage) message).hasError() && this.f1480a.b != null) {
+            this.f1480a.a();
+            this.f1480a.b.c();
+        }
     }
 }

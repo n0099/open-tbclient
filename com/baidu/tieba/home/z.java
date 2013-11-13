@@ -1,39 +1,146 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import com.slidingmenu.lib.R;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-class z implements View.OnClickListener {
+public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1374a;
+    private int f1470a;
+    private String b;
+    private String c;
+    private int d;
+    private int e;
+    private int f;
+    private int g;
+    private int h;
+    private boolean i;
+    private boolean j;
+    private boolean k;
+    private boolean l;
+    private boolean m;
+    private int n;
+    private String o;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public z(SearchActivity searchActivity) {
-        this.f1374a = searchActivity;
+    public int a() {
+        return this.f1470a;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        String str2;
-        int i;
-        String str3;
-        str = this.f1374a.D;
-        if (str != null) {
-            str2 = this.f1374a.D;
-            if (str2.trim().length() >= 1) {
-                i = this.f1374a.E;
-                if (i == 0) {
-                    this.f1374a.e();
-                    return;
+    public String b() {
+        return this.b;
+    }
+
+    public String c() {
+        return this.c;
+    }
+
+    public int d() {
+        return this.d;
+    }
+
+    public int e() {
+        return this.e;
+    }
+
+    public int f() {
+        return this.f;
+    }
+
+    public int g() {
+        return this.g;
+    }
+
+    public int h() {
+        return this.h;
+    }
+
+    public void a(int i) {
+        this.d = i;
+    }
+
+    public void b(int i) {
+        this.e = i;
+    }
+
+    public void c(int i) {
+        this.f = i;
+    }
+
+    public boolean i() {
+        return this.i;
+    }
+
+    public void a(boolean z) {
+        this.i = z;
+        this.d = 1;
+    }
+
+    public boolean j() {
+        return this.k;
+    }
+
+    public void b(boolean z) {
+        this.k = z;
+        this.d = 0;
+    }
+
+    public boolean k() {
+        return this.l;
+    }
+
+    public void c(boolean z) {
+        this.l = z;
+    }
+
+    public boolean l() {
+        return this.m;
+    }
+
+    public void d(boolean z) {
+        this.m = z;
+    }
+
+    public int m() {
+        return this.n;
+    }
+
+    public void d(int i) {
+        this.n = i;
+    }
+
+    public String n() {
+        return this.o;
+    }
+
+    public void a(String str) {
+        this.o = str;
+    }
+
+    public boolean o() {
+        return this.j;
+    }
+
+    public void e(boolean z) {
+        this.j = z;
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.f1470a = jSONObject.optInt("forum_id");
+                this.b = jSONObject.optString("forum_name");
+                this.c = jSONObject.optString("avatar");
+                this.d = jSONObject.optInt("is_sign_in");
+                this.e = jSONObject.optInt("cont_sign_num");
+                this.f = jSONObject.optInt("user_level");
+                this.g = jSONObject.optInt("user_exp");
+                this.h = jSONObject.optInt("need_exp");
+                if (this.d != 0) {
+                    this.i = true;
+                    this.k = false;
                 }
-                SearchActivity searchActivity = this.f1374a;
-                str3 = this.f1374a.D;
-                searchActivity.a(1, str3);
-                return;
+            } catch (Exception e) {
+                com.baidu.tieba.util.bg.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
-        this.f1374a.a(this.f1374a.getResources().getString(R.string.write_keyword));
     }
 }

@@ -1,16 +1,87 @@
 package com.baidu.tieba.util;
 
-import android.widget.Toast;
+import java.util.Iterator;
+import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class j implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        Toast toast;
-        Toast toast2;
-        toast = i.f2452a;
-        if (toast != null) {
-            toast2 = i.f2452a;
-            toast2.cancel();
+public class j extends com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.e> {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ l f2510a;
+    final /* synthetic */ i b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public j(i iVar, l lVar) {
+        this.b = iVar;
+        this.f2510a = lVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.e.b
+    public void a(String str, com.baidu.adp.lib.e.f fVar) {
+        super.a(str, fVar);
+        this.f2510a.a();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.e.b
+    public void c(String str, com.baidu.adp.lib.e.f fVar) {
+        LinkedList linkedList;
+        LinkedList linkedList2;
+        LinkedList linkedList3;
+        super.c(str, fVar);
+        linkedList = this.b.k;
+        linkedList.remove(this.f2510a);
+        if (this.b.d) {
+            linkedList2 = this.b.l;
+            if (linkedList2.size() > 0) {
+                linkedList3 = this.b.l;
+                k kVar = (k) linkedList3.remove(0);
+                if (kVar != null) {
+                    this.b.a(kVar.f2511a, kVar.c, Integer.valueOf(kVar.b), kVar.d, false, kVar.e, kVar.f);
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.e.b
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, com.baidu.adp.lib.e.f fVar) {
+        LinkedList linkedList;
+        LinkedList linkedList2;
+        LinkedList linkedList3;
+        super.a((j) eVar, str, fVar);
+        linkedList = this.b.k;
+        linkedList.remove(this.f2510a);
+        if (this.f2510a.k && this.f2510a.b != null) {
+            Iterator<com.baidu.tbadk.imageManager.c> it = this.f2510a.b.iterator();
+            while (it.hasNext()) {
+                it.next().a(this.f2510a.i, this.f2510a.c, this.f2510a.f);
+            }
+        }
+        if (this.b.d) {
+            linkedList2 = this.b.l;
+            if (linkedList2.size() > 0) {
+                linkedList3 = this.b.l;
+                k kVar = (k) linkedList3.remove(0);
+                this.b.a(kVar.f2511a, kVar.c, Integer.valueOf(kVar.b), kVar.d, false, kVar.e, kVar.f);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.e.b
+    public void a(Object... objArr) {
+        super.a(objArr);
+        if (this.f2510a.k || this.f2510a.i != null) {
+            this.f2510a.k = false;
+            if (this.f2510a.b != null) {
+                Iterator<com.baidu.tbadk.imageManager.c> it = this.f2510a.b.iterator();
+                while (it.hasNext()) {
+                    it.next().a(this.f2510a.i, this.f2510a.c, this.f2510a.f);
+                }
+            }
         }
     }
 }

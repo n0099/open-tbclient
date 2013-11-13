@@ -1,68 +1,77 @@
 package com.baidu.tieba.square;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.UtilHelper;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.tieba.square.CarouselRecommendView;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
+public class u extends BaseAdapter implements com.baidu.tieba.view.ah {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f2377a;
+    private Context f2436a;
+    private CarouselRecommendView.CarouselRecommendPagerAdapter b = null;
+    private ArrayList<aw> c = new ArrayList<>();
+    private CarouselRecommendView d;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public u(t tVar) {
-        this.f2377a = tVar;
+    public u(Context context) {
+        this.f2436a = null;
+        this.d = null;
+        this.f2436a = context;
+        this.d = new CarouselRecommendView(context);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.data.av avVar;
-        com.baidu.tieba.data.av avVar2;
-        com.baidu.tieba.data.av avVar3;
-        com.baidu.tieba.data.av avVar4;
-        Activity activity;
-        Activity activity2;
-        com.baidu.tieba.data.av avVar5;
-        com.baidu.tieba.data.av avVar6;
-        String str = "";
-        String str2 = "";
-        if (view.getId() == R.id.banner_big) {
-            str = "sq_banner_big";
-            avVar5 = this.f2377a.b;
-            if (avVar5 != null) {
-                avVar6 = this.f2377a.b;
-                str2 = avVar6.a().b();
-            } else {
-                str2 = "";
-            }
-        } else if (view.getId() == R.id.banner_small_left) {
-            str = "sq_banner_left";
-            avVar3 = this.f2377a.b;
-            if (avVar3 != null) {
-                avVar4 = this.f2377a.b;
-                str2 = avVar4.b().b();
-            } else {
-                str2 = "";
-            }
-        } else if (view.getId() == R.id.banner_small_right) {
-            str = "sq_banner_right";
-            avVar = this.f2377a.b;
-            if (avVar != null) {
-                avVar2 = this.f2377a.b;
-                str2 = avVar2.c().b();
-            } else {
-                str2 = "";
-            }
+    public void a(ArrayList<aw> arrayList) {
+        this.c = arrayList;
+        this.d.a(arrayList);
+        this.b = this.d.getPagerAdapter();
+        notifyDataSetChanged();
+    }
+
+    public void a() {
+        if (this.d != null) {
+            this.d.a();
         }
-        if (TiebaApplication.g().s()) {
-            activity2 = this.f2377a.f2376a;
-            StatService.onEvent(activity2, str, "click", 1);
+    }
+
+    public void b() {
+        if (this.d != null) {
+            this.d.b();
         }
-        activity = this.f2377a.f2376a;
-        UtilHelper.a(activity, str2, (String) null);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return (this.c != null ? this.c.size() + 0 : 0) > 0 ? 1 : 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return Integer.valueOf(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return this.d;
+    }
+
+    @Override // com.baidu.tieba.view.ah
+    public void d() {
+        if (this.b != null) {
+            this.b.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.view.ah
+    public void a(View view, int i, int i2) {
+        if (this.b != null) {
+            this.b.a(this.d, 0, 0);
+        }
     }
 }

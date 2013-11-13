@@ -11,17 +11,17 @@ import java.util.HashMap;
 public class al extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbPagerAdapter f2508a;
-    private com.baidu.tieba.util.ag b = null;
+    final /* synthetic */ ImagePbPagerAdapter f2561a;
+    private com.baidu.tieba.util.ap b = null;
     private int c;
     private int d;
     private String e;
     private String f;
-    private com.baidu.tieba.pb.ah g;
+    private com.baidu.tieba.pb.ag g;
     private String h;
 
-    public al(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ah ahVar, int i, int i2, String str, String str2) {
-        this.f2508a = imagePbPagerAdapter;
+    public al(ImagePbPagerAdapter imagePbPagerAdapter, com.baidu.tieba.pb.ag agVar, int i, int i2, String str, String str2) {
+        this.f2561a = imagePbPagerAdapter;
         this.c = 0;
         this.d = 10;
         this.e = null;
@@ -32,8 +32,8 @@ public class al extends BdAsyncTask<String, Integer, String> {
         this.d = i2;
         this.e = str;
         this.f = str2;
-        this.g = ahVar;
-        this.h = ahVar.e().d();
+        this.g = agVar;
+        this.h = agVar.e().d();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,10 +50,10 @@ public class al extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         String str;
-        this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/f/pb/piccomment");
-        com.baidu.tieba.util.ag agVar = this.b;
-        str = this.f2508a.e;
-        agVar.a("kw", str);
+        this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/f/pb/piccomment");
+        com.baidu.tieba.util.ap apVar = this.b;
+        str = this.f2561a.e;
+        apVar.a("kw", str);
         this.b.a("pic_id", this.f);
         this.b.a("tid", this.e);
         this.b.a("pn", String.valueOf(this.c));
@@ -98,18 +98,18 @@ public class al extends BdAsyncTask<String, Integer, String> {
             }
             if (this.b != null) {
                 if (!this.b.c() || this.g == null) {
-                    context = this.f2508a.b;
-                    context2 = this.f2508a.b;
-                    ((com.baidu.tieba.j) context).a(context2.getString(R.string.image_pb_comment_fail));
+                    context = this.f2561a.b;
+                    context2 = this.f2561a.b;
+                    ((com.baidu.tieba.j) context).showToast(context2.getString(R.string.image_pb_comment_fail));
                     return;
                 }
                 if (this.g != null) {
                     this.g.a((com.baidu.tieba.data.ad) null);
                     this.g.notifyDataSetChanged();
                 }
-                hashMap = this.f2508a.h;
+                hashMap = this.f2561a.h;
                 if (hashMap.get(this.g.e().d()) != null) {
-                    hashMap2 = this.f2508a.h;
+                    hashMap2 = this.f2561a.h;
                     adVar = (com.baidu.tieba.data.ad) hashMap2.get(this.g.e().d());
                     adVar.a(str);
                 }
@@ -119,18 +119,18 @@ public class al extends BdAsyncTask<String, Integer, String> {
                     this.g = null;
                 }
                 for (int i = 0; i < arrayList.size(); i++) {
-                    arrayList2 = this.f2508a.s;
-                    if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ah) {
-                        arrayList3 = this.f2508a.s;
-                        com.baidu.tieba.pb.ah ahVar = (com.baidu.tieba.pb.ah) ((View) arrayList3.get(i)).getTag();
-                        if (ahVar.e() != null && this.h.equals(ahVar.e().d())) {
-                            ahVar.notifyDataSetChanged();
+                    arrayList2 = this.f2561a.s;
+                    if (((View) arrayList2.get(i)).getTag() instanceof com.baidu.tieba.pb.ag) {
+                        arrayList3 = this.f2561a.s;
+                        com.baidu.tieba.pb.ag agVar = (com.baidu.tieba.pb.ag) ((View) arrayList3.get(i)).getTag();
+                        if (agVar.e() != null && this.h.equals(agVar.e().d())) {
+                            agVar.notifyDataSetChanged();
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "onPostExecute", e.getMessage());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

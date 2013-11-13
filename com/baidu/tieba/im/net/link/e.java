@@ -4,7 +4,7 @@ import android.os.Handler;
 import com.baidu.adp.lib.webSocket.am;
 import com.baidu.adp.lib.webSocket.q;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.o;
+import com.baidu.tieba.util.y;
 /* loaded from: classes.dex */
 final class e extends q {
     @Override // com.baidu.adp.lib.webSocket.q, com.baidu.adp.lib.webSocket.k
@@ -46,10 +46,10 @@ final class e extends q {
         b bVar;
         a aVar;
         a aVar2;
-        o.a("onOpen", "TiebaSocketLinkService:onOpen", "onOpen");
+        y.a("onOpen", "TiebaSocketLinkService:onOpen", "onOpen");
         handler = TiebaSocketLinkService.c;
         handler.removeMessages(1);
-        bVar = TiebaSocketLinkService.f1679a;
+        bVar = TiebaSocketLinkService.f1766a;
         bVar.b("ConnectiononOpen");
         aVar = TiebaSocketLinkService.b;
         if (aVar != null) {
@@ -64,7 +64,7 @@ final class e extends q {
         a aVar;
         b bVar;
         a aVar2;
-        o.a("onClose", "TiebaSocketLinkService:onClose", "onClose", i, str);
+        y.a("onClose", "TiebaSocketLinkService:onClose", "onClose", i, str);
         handler = TiebaSocketLinkService.c;
         handler.removeMessages(1);
         aVar = TiebaSocketLinkService.b;
@@ -76,7 +76,7 @@ final class e extends q {
             aVar2.a(i, str);
         }
         if (i != 1 && UtilHelper.b()) {
-            bVar = TiebaSocketLinkService.f1679a;
+            bVar = TiebaSocketLinkService.f1766a;
             bVar.a("onClose:" + i + ":" + str);
         }
     }

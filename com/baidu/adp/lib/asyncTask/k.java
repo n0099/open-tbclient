@@ -77,4 +77,12 @@ public abstract class k implements Runnable {
             return false;
         }
     }
+
+    public boolean i() {
+        try {
+            return this.f417a.b().isImmediatelyExecut();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

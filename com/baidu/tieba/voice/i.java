@@ -6,11 +6,11 @@ import android.os.Handler;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f2574a;
+    final /* synthetic */ h f2627a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f2574a = hVar;
+        this.f2627a = hVar;
     }
 
     @Override // java.lang.Runnable
@@ -19,10 +19,10 @@ public class i implements Runnable {
         Handler handler;
         Runnable runnable;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.f2574a.g;
-        this.f2574a.a((int) (currentTimeMillis - j));
-        handler = this.f2574a.i;
-        runnable = this.f2574a.j;
+        j = this.f2627a.g;
+        this.f2627a.a((int) (currentTimeMillis - j));
+        handler = this.f2627a.i;
+        runnable = this.f2627a.j;
         handler.postDelayed(runnable, 200L);
     }
 }

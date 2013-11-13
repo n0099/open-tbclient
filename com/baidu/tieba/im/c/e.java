@@ -8,7 +8,7 @@ import com.baidu.tieba.im.message.ResponseOnlineMessage;
 import com.baidu.tieba.im.message.ResponsedMessage;
 import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 import com.baidu.tieba.im.pushNotify.n;
-import com.baidu.tieba.util.o;
+import com.baidu.tieba.util.y;
 import java.util.LinkedList;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,10 +16,10 @@ import java.util.Map;
 public class e implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1396a;
+    final /* synthetic */ a f1488a;
 
     private e(a aVar) {
-        this.f1396a = aVar;
+        this.f1488a = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -47,45 +47,45 @@ public class e implements com.baidu.tieba.im.messageCenter.h {
         if (message != null) {
             if (message.getCmd() == 1003) {
                 if (!(message instanceof ResponsedMessage)) {
-                    this.f1396a.a(1003, -1);
+                    this.f1488a.a(1003, -1);
                     return;
                 }
                 ResponsedMessage responsedMessage = (ResponsedMessage) message;
                 if (responsedMessage.hasError()) {
-                    this.f1396a.a(1003, responsedMessage.getErrNo());
+                    this.f1488a.a(1003, responsedMessage.getErrNo());
                     return;
                 }
                 StringBuilder append = new StringBuilder().append("----ping succ， cost-");
                 long currentTimeMillis = System.currentTimeMillis();
-                j4 = this.f1396a.t;
+                j4 = this.f1488a.t;
                 com.baidu.adp.lib.h.d.c(append.append(currentTimeMillis - j4).toString());
                 int errNo = responsedMessage.getErrNo();
                 String errMsg = responsedMessage.getErrMsg();
                 long currentTimeMillis2 = System.currentTimeMillis();
-                j5 = this.f1396a.t;
-                o.a(1003, 0, "receive ping", "MessageSync-receive-ping", "succ", errNo, errMsg, currentTimeMillis2 - j5, 0, "");
-                this.f1396a.q();
-                z = this.f1396a.m;
+                j5 = this.f1488a.t;
+                y.a(1003, 0, "receive ping", "MessageSync-receive-ping", "succ", errNo, errMsg, currentTimeMillis2 - j5, 0, "");
+                this.f1488a.q();
+                z = this.f1488a.m;
                 if (!z) {
-                    z2 = this.f1396a.n;
+                    z2 = this.f1488a.n;
                     if (!z2) {
-                        this.f1396a.a(false);
+                        this.f1488a.a(false);
                     }
                 }
             } else if (message.getCmd() == 202003) {
-                a2 = this.f1396a.a(message);
+                a2 = this.f1488a.a(message);
                 if (a2 == null || a2.size() <= 0) {
-                    this.f1396a.n();
+                    this.f1488a.n();
                 } else {
-                    this.f1396a.a(a2);
+                    this.f1488a.a(a2);
                 }
             } else if (message.getCmd() == 1001) {
                 String str = "";
-                i2 = this.f1396a.x;
+                i2 = this.f1488a.x;
                 if (i2 != 3) {
-                    i3 = this.f1396a.x;
+                    i3 = this.f1488a.x;
                     if (i3 != 2) {
-                        i4 = this.f1396a.x;
+                        i4 = this.f1488a.x;
                         if (i4 == 1) {
                             str = "LOCAL_REQUEST";
                         }
@@ -97,11 +97,11 @@ public class e implements com.baidu.tieba.im.messageCenter.h {
                 }
                 if (!(message instanceof ResponseOnlineMessage)) {
                     long currentTimeMillis3 = System.currentTimeMillis();
-                    j3 = this.f1396a.s;
+                    j3 = this.f1488a.s;
                     StringBuilder append2 = new StringBuilder().append("OnlineFailCount-");
-                    i7 = this.f1396a.l;
-                    o.a(1001, 0, str, "MessageSync-online", "fail", -30, "ERR_DATA_INVALID", currentTimeMillis3 - j3, 0, append2.append(i7).toString());
-                    this.f1396a.a(message.getCmd(), -1);
+                    i7 = this.f1488a.l;
+                    y.a(1001, 0, str, "MessageSync-online", "fail", -30, "ERR_DATA_INVALID", currentTimeMillis3 - j3, 0, append2.append(i7).toString());
+                    this.f1488a.a(message.getCmd(), -1);
                     return;
                 }
                 ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) message;
@@ -109,12 +109,12 @@ public class e implements com.baidu.tieba.im.messageCenter.h {
                     int errNo2 = responseOnlineMessage.getErrNo();
                     String errMsg2 = responseOnlineMessage.getErrMsg();
                     long currentTimeMillis4 = System.currentTimeMillis();
-                    j2 = this.f1396a.s;
+                    j2 = this.f1488a.s;
                     StringBuilder append3 = new StringBuilder().append("OnlineFailCount-");
-                    i6 = this.f1396a.l;
-                    o.a(1001, 0, str, "MessageSync-online", "fail", errNo2, errMsg2, currentTimeMillis4 - j2, 0, append3.append(i6).toString());
+                    i6 = this.f1488a.l;
+                    y.a(1001, 0, str, "MessageSync-online", "fail", errNo2, errMsg2, currentTimeMillis4 - j2, 0, append3.append(i6).toString());
                     com.baidu.adp.lib.h.d.c("----online error. errno-" + responseOnlineMessage.getErrNo() + "--errmsg-" + responseOnlineMessage.getErrMsg());
-                    this.f1396a.a(message.getCmd(), responseOnlineMessage.getErrNo());
+                    this.f1488a.a(message.getCmd(), responseOnlineMessage.getErrNo());
                     return;
                 }
                 LinkedList linkedList = new LinkedList();
@@ -128,8 +128,8 @@ public class e implements com.baidu.tieba.im.messageCenter.h {
                 int errNo3 = responseOnlineMessage.getErrNo();
                 String errMsg3 = responseOnlineMessage.getErrMsg();
                 long currentTimeMillis5 = System.currentTimeMillis();
-                j = this.f1396a.s;
-                o.a(1001, 0, str, "MessageSync-online", "succ", errNo3, errMsg3, currentTimeMillis5 - j, 0, "groupsize-" + String.valueOf(i5));
+                j = this.f1488a.s;
+                y.a(1001, 0, str, "MessageSync-online", "succ", errNo3, errMsg3, currentTimeMillis5 - j, 0, "groupsize-" + String.valueOf(i5));
                 if (responseOnlineMessage.getGroupInfos() != null) {
                     com.baidu.tieba.im.pushNotify.a.g().a(responseOnlineMessage.getGroupInfos());
                     for (GroupUpdateMessage groupUpdateMessage : responseOnlineMessage.getGroupInfos()) {
@@ -145,22 +145,22 @@ public class e implements com.baidu.tieba.im.messageCenter.h {
                 }
                 x.a().a(new f(this, responseOnlineMessage, linkedList3, linkedList));
             } else if (message.getCmd() == -111) {
-                this.f1396a.x = 1;
-                this.f1396a.i();
+                this.f1488a.x = 1;
+                this.f1488a.i();
             } else if (message.getCmd() == -112) {
-                this.f1396a.x = 2;
-                this.f1396a.j();
+                this.f1488a.x = 2;
+                this.f1488a.j();
             } else if (message.getCmd() == -11) {
                 if (message instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) message).isBackground()) {
-                        this.f1396a.g();
+                        this.f1488a.g();
                     } else {
-                        this.f1396a.f();
+                        this.f1488a.f();
                     }
                 }
             } else if (message.getCmd() == -12) {
-                this.f1396a.o();
-                a aVar = this.f1396a;
+                this.f1488a.o();
+                a aVar = this.f1488a;
                 IDuplicateProcess.RemoveState removeState = IDuplicateProcess.RemoveState.REMOVE_ALL;
                 i = a.p;
                 aVar.a(removeState, i);

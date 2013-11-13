@@ -28,20 +28,20 @@ public final class Parser implements j {
     private static final int[] b = {0, 0, 0, 0, 1, 6, 0, 0, 0, 1, 2, 0, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0};
 
     /* renamed from: a  reason: collision with root package name */
-    private Lex f2789a;
+    private Lex f2837a;
 
     public Parser(Lex lex) {
-        this.f2789a = lex;
+        this.f2837a = lex;
     }
 
     public boolean a() {
-        return this.f2789a.b() >= 0;
+        return this.f2837a.b() >= 0;
     }
 
     private Declarator c(SymbolTable symbolTable) {
-        int b2 = this.f2789a.b();
+        int b2 = this.f2837a.b();
         if (a(b2) || b2 == 344) {
-            this.f2789a.a();
+            this.f2837a.a();
             return new Declarator(b2, d());
         }
         return new Declarator(A(symbolTable), d());
@@ -53,10 +53,10 @@ public final class Parser implements j {
 
     private Declarator d(SymbolTable symbolTable) {
         Declarator c = c(symbolTable);
-        if (this.f2789a.a() != 400) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 400) {
+            throw new SyntaxError(this.f2837a);
         }
-        String c2 = this.f2789a.c();
+        String c2 = this.f2837a.c();
         c.setVariable(new Symbol(c2));
         c.addArrayDim(d());
         symbolTable.append(c2, c);
@@ -64,17 +64,17 @@ public final class Parser implements j {
     }
 
     public Stmnt a(SymbolTable symbolTable) {
-        int b2 = this.f2789a.b();
+        int b2 = this.f2837a.b();
         if (b2 == 123) {
             return e(symbolTable);
         }
         if (b2 == 59) {
-            this.f2789a.a();
+            this.f2837a.a();
             return new Stmnt(66);
-        } else if (b2 == 400 && this.f2789a.a(1) == 58) {
-            this.f2789a.a();
-            String c = this.f2789a.c();
-            this.f2789a.a();
+        } else if (b2 == 400 && this.f2837a.a(1) == 58) {
+            this.f2837a.a();
+            String c = this.f2837a.c();
+            this.f2837a.a();
             return Stmnt.make(76, new Symbol(c), a(symbolTable));
         } else if (b2 == 320) {
             return f(symbolTable);
@@ -114,18 +114,18 @@ public final class Parser implements j {
     }
 
     private Stmnt e(SymbolTable symbolTable) {
-        if (this.f2789a.a() != 123) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 123) {
+            throw new SyntaxError(this.f2837a);
         }
         Stmnt stmnt = null;
         SymbolTable symbolTable2 = new SymbolTable(symbolTable);
-        while (this.f2789a.b() != 125) {
+        while (this.f2837a.b() != 125) {
             Stmnt a2 = a(symbolTable2);
             if (a2 != null) {
                 stmnt = (Stmnt) ASTList.concat(stmnt, new Stmnt(66, a2));
             }
         }
-        this.f2789a.a();
+        this.f2837a.a();
         if (stmnt == null) {
             return new Stmnt(66);
         }
@@ -134,11 +134,11 @@ public final class Parser implements j {
 
     private Stmnt f(SymbolTable symbolTable) {
         Stmnt stmnt;
-        int a2 = this.f2789a.a();
+        int a2 = this.f2837a.a();
         ASTree v = v(symbolTable);
         Stmnt a3 = a(symbolTable);
-        if (this.f2789a.b() == 313) {
-            this.f2789a.a();
+        if (this.f2837a.b() == 313) {
+            this.f2837a.a();
             stmnt = a(symbolTable);
         } else {
             stmnt = null;
@@ -147,68 +147,68 @@ public final class Parser implements j {
     }
 
     private Stmnt g(SymbolTable symbolTable) {
-        return new Stmnt(this.f2789a.a(), v(symbolTable), a(symbolTable));
+        return new Stmnt(this.f2837a.a(), v(symbolTable), a(symbolTable));
     }
 
     private Stmnt h(SymbolTable symbolTable) {
-        int a2 = this.f2789a.a();
+        int a2 = this.f2837a.a();
         Stmnt a3 = a(symbolTable);
-        if (this.f2789a.a() != 346 || this.f2789a.a() != 40) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 346 || this.f2837a.a() != 40) {
+            throw new SyntaxError(this.f2837a);
         }
         ASTree b2 = b(symbolTable);
-        if (this.f2789a.a() != 41 || this.f2789a.a() != 59) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 41 || this.f2837a.a() != 59) {
+            throw new SyntaxError(this.f2837a);
         }
         return new Stmnt(a2, b2, a3);
     }
 
     private Stmnt i(SymbolTable symbolTable) {
         Stmnt a2;
-        int a3 = this.f2789a.a();
+        int a3 = this.f2837a.a();
         SymbolTable symbolTable2 = new SymbolTable(symbolTable);
-        if (this.f2789a.a() != 40) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 40) {
+            throw new SyntaxError(this.f2837a);
         }
-        if (this.f2789a.b() == 59) {
-            this.f2789a.a();
+        if (this.f2837a.b() == 59) {
+            this.f2837a.a();
             a2 = null;
         } else {
             a2 = a(symbolTable2, true);
         }
-        ASTree b2 = this.f2789a.b() == 59 ? null : b(symbolTable2);
-        if (this.f2789a.a() != 59) {
-            throw new CompileError("; is missing", this.f2789a);
+        ASTree b2 = this.f2837a.b() == 59 ? null : b(symbolTable2);
+        if (this.f2837a.a() != 59) {
+            throw new CompileError("; is missing", this.f2837a);
         }
-        Stmnt s = this.f2789a.b() != 41 ? s(symbolTable2) : null;
-        if (this.f2789a.a() != 41) {
-            throw new CompileError(") is missing", this.f2789a);
+        Stmnt s = this.f2837a.b() != 41 ? s(symbolTable2) : null;
+        if (this.f2837a.a() != 41) {
+            throw new CompileError(") is missing", this.f2837a);
         }
         return new Stmnt(a3, a2, new ASTList(b2, new ASTList(s, a(symbolTable2))));
     }
 
     private Stmnt j(SymbolTable symbolTable) {
-        return new Stmnt(this.f2789a.a(), v(symbolTable), k(symbolTable));
+        return new Stmnt(this.f2837a.a(), v(symbolTable), k(symbolTable));
     }
 
     private Stmnt k(SymbolTable symbolTable) {
-        if (this.f2789a.a() != 123) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 123) {
+            throw new SyntaxError(this.f2837a);
         }
         SymbolTable symbolTable2 = new SymbolTable(symbolTable);
         Stmnt l = l(symbolTable2);
         if (l == null) {
-            throw new CompileError("empty switch block", this.f2789a);
+            throw new CompileError("empty switch block", this.f2837a);
         }
         int operator = l.getOperator();
         if (operator != 304 && operator != 310) {
-            throw new CompileError("no case or default in a switch block", this.f2789a);
+            throw new CompileError("no case or default in a switch block", this.f2837a);
         }
         Stmnt stmnt = new Stmnt(66, l);
         while (true) {
             Stmnt stmnt2 = stmnt;
             Stmnt stmnt3 = l;
-            if (this.f2789a.b() != 125) {
+            if (this.f2837a.b() != 125) {
                 Stmnt l2 = l(symbolTable2);
                 if (l2 != null) {
                     int operator2 = l2.getOperator();
@@ -224,7 +224,7 @@ public final class Parser implements j {
                     stmnt = stmnt2;
                 }
             } else {
-                this.f2789a.a();
+                this.f2837a.a();
                 return stmnt2;
             }
         }
@@ -232,77 +232,77 @@ public final class Parser implements j {
 
     private Stmnt l(SymbolTable symbolTable) {
         Stmnt stmnt;
-        int b2 = this.f2789a.b();
+        int b2 = this.f2837a.b();
         if (b2 != 304 && b2 != 310) {
             return a(symbolTable);
         }
-        this.f2789a.a();
+        this.f2837a.a();
         if (b2 == 304) {
             stmnt = new Stmnt(b2, b(symbolTable));
         } else {
             stmnt = new Stmnt(310);
         }
-        if (this.f2789a.a() != 58) {
-            throw new CompileError(": is missing", this.f2789a);
+        if (this.f2837a.a() != 58) {
+            throw new CompileError(": is missing", this.f2837a);
         }
         return stmnt;
     }
 
     private Stmnt m(SymbolTable symbolTable) {
-        int a2 = this.f2789a.a();
-        if (this.f2789a.a() != 40) {
-            throw new SyntaxError(this.f2789a);
+        int a2 = this.f2837a.a();
+        if (this.f2837a.a() != 40) {
+            throw new SyntaxError(this.f2837a);
         }
         ASTree b2 = b(symbolTable);
-        if (this.f2789a.a() != 41) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 41) {
+            throw new SyntaxError(this.f2837a);
         }
         return new Stmnt(a2, b2, e(symbolTable));
     }
 
     private Stmnt n(SymbolTable symbolTable) {
         Stmnt stmnt = null;
-        this.f2789a.a();
+        this.f2837a.a();
         Stmnt e = e(symbolTable);
         ASTList aSTList = null;
-        while (this.f2789a.b() == 305) {
-            this.f2789a.a();
-            if (this.f2789a.a() != 40) {
-                throw new SyntaxError(this.f2789a);
+        while (this.f2837a.b() == 305) {
+            this.f2837a.a();
+            if (this.f2837a.a() != 40) {
+                throw new SyntaxError(this.f2837a);
             }
             SymbolTable symbolTable2 = new SymbolTable(symbolTable);
             Declarator d = d(symbolTable2);
             if (d.getArrayDim() > 0 || d.getType() != 307) {
-                throw new SyntaxError(this.f2789a);
+                throw new SyntaxError(this.f2837a);
             }
-            if (this.f2789a.a() != 41) {
-                throw new SyntaxError(this.f2789a);
+            if (this.f2837a.a() != 41) {
+                throw new SyntaxError(this.f2837a);
             }
             aSTList = ASTList.append(aSTList, new Pair(d, e(symbolTable2)));
         }
-        if (this.f2789a.b() == 316) {
-            this.f2789a.a();
+        if (this.f2837a.b() == 316) {
+            this.f2837a.a();
             stmnt = e(symbolTable);
         }
         return Stmnt.make(343, e, aSTList, stmnt);
     }
 
     private Stmnt o(SymbolTable symbolTable) {
-        Stmnt stmnt = new Stmnt(this.f2789a.a());
-        if (this.f2789a.b() != 59) {
+        Stmnt stmnt = new Stmnt(this.f2837a.a());
+        if (this.f2837a.b() != 59) {
             stmnt.setLeft(b(symbolTable));
         }
-        if (this.f2789a.a() != 59) {
-            throw new CompileError("; is missing", this.f2789a);
+        if (this.f2837a.a() != 59) {
+            throw new CompileError("; is missing", this.f2837a);
         }
         return stmnt;
     }
 
     private Stmnt p(SymbolTable symbolTable) {
-        int a2 = this.f2789a.a();
+        int a2 = this.f2837a.a();
         ASTree b2 = b(symbolTable);
-        if (this.f2789a.a() != 59) {
-            throw new CompileError("; is missing", this.f2789a);
+        if (this.f2837a.a() != 59) {
+            throw new CompileError("; is missing", this.f2837a);
         }
         return new Stmnt(a2, b2);
     }
@@ -312,14 +312,14 @@ public final class Parser implements j {
     }
 
     private Stmnt r(SymbolTable symbolTable) {
-        Stmnt stmnt = new Stmnt(this.f2789a.a());
-        int a2 = this.f2789a.a();
+        Stmnt stmnt = new Stmnt(this.f2837a.a());
+        int a2 = this.f2837a.a();
         if (a2 == 400) {
-            stmnt.setLeft(new Symbol(this.f2789a.c()));
-            a2 = this.f2789a.a();
+            stmnt.setLeft(new Symbol(this.f2837a.c()));
+            a2 = this.f2837a.a();
         }
         if (a2 != 59) {
-            throw new CompileError("; is missing", this.f2789a);
+            throw new CompileError("; is missing", this.f2837a);
         }
         return stmnt;
     }
@@ -327,15 +327,15 @@ public final class Parser implements j {
     private Stmnt a(SymbolTable symbolTable, boolean z) {
         Stmnt stmnt;
         int d;
-        int b2 = this.f2789a.b();
+        int b2 = this.f2837a.b();
         while (b2 == 315) {
-            this.f2789a.a();
-            b2 = this.f2789a.b();
+            this.f2837a.a();
+            b2 = this.f2837a.b();
         }
         if (a(b2)) {
-            return a(symbolTable, new Declarator(this.f2789a.a(), d()));
+            return a(symbolTable, new Declarator(this.f2837a.a(), d()));
         }
-        if (b2 == 400 && (d = d(0)) >= 0 && this.f2789a.a(d) == 400) {
+        if (b2 == 400 && (d = d(0)) >= 0 && this.f2837a.a(d) == 400) {
             return a(symbolTable, new Declarator(A(symbolTable), d()));
         }
         if (z) {
@@ -343,8 +343,8 @@ public final class Parser implements j {
         } else {
             stmnt = new Stmnt(69, b(symbolTable));
         }
-        if (this.f2789a.a() != 59) {
-            throw new CompileError("; is missing", this.f2789a);
+        if (this.f2837a.a() != 59) {
+            throw new CompileError("; is missing", this.f2837a);
         }
         return stmnt;
     }
@@ -353,8 +353,8 @@ public final class Parser implements j {
         Stmnt stmnt = null;
         while (true) {
             stmnt = (Stmnt) ASTList.concat(stmnt, new Stmnt(66, new Stmnt(69, b(symbolTable))));
-            if (this.f2789a.b() == 44) {
-                this.f2789a.a();
+            if (this.f2837a.b() == 44) {
+                this.f2837a.a();
             } else {
                 return stmnt;
             }
@@ -366,24 +366,24 @@ public final class Parser implements j {
         Stmnt stmnt = null;
         do {
             stmnt = (Stmnt) ASTList.concat(stmnt, new Stmnt(68, b(symbolTable, declarator)));
-            a2 = this.f2789a.a();
+            a2 = this.f2837a.a();
             if (a2 == 59) {
                 return stmnt;
             }
         } while (a2 == 44);
-        throw new CompileError("; is missing", this.f2789a);
+        throw new CompileError("; is missing", this.f2837a);
     }
 
     private Declarator b(SymbolTable symbolTable, Declarator declarator) {
-        if (this.f2789a.a() != 400 || declarator.getType() == 344) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 400 || declarator.getType() == 344) {
+            throw new SyntaxError(this.f2837a);
         }
-        String c = this.f2789a.c();
+        String c = this.f2837a.c();
         Symbol symbol = new Symbol(c);
         int d = d();
         ASTree aSTree = null;
-        if (this.f2789a.b() == 61) {
-            this.f2789a.a();
+        if (this.f2837a.b() == 61) {
+            this.f2837a.a();
             aSTree = t(symbolTable);
         }
         Declarator make = declarator.make(symbol, d, aSTree);
@@ -392,36 +392,36 @@ public final class Parser implements j {
     }
 
     private ASTree t(SymbolTable symbolTable) {
-        return this.f2789a.b() == 123 ? u(symbolTable) : b(symbolTable);
+        return this.f2837a.b() == 123 ? u(symbolTable) : b(symbolTable);
     }
 
     private ArrayInit u(SymbolTable symbolTable) {
-        this.f2789a.a();
+        this.f2837a.a();
         ArrayInit arrayInit = new ArrayInit(b(symbolTable));
-        while (this.f2789a.b() == 44) {
-            this.f2789a.a();
+        while (this.f2837a.b() == 44) {
+            this.f2837a.a();
             ASTList.append(arrayInit, b(symbolTable));
         }
-        if (this.f2789a.a() != 125) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 125) {
+            throw new SyntaxError(this.f2837a);
         }
         return arrayInit;
     }
 
     private ASTree v(SymbolTable symbolTable) {
-        if (this.f2789a.a() != 40) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 40) {
+            throw new SyntaxError(this.f2837a);
         }
         ASTree b2 = b(symbolTable);
-        if (this.f2789a.a() != 41) {
-            throw new SyntaxError(this.f2789a);
+        if (this.f2837a.a() != 41) {
+            throw new SyntaxError(this.f2837a);
         }
         return b2;
     }
 
     public ASTree b(SymbolTable symbolTable) {
         ASTree w = w(symbolTable);
-        return !b(this.f2789a.b()) ? w : AssignExpr.makeAssign(this.f2789a.a(), w, b(symbolTable));
+        return !b(this.f2837a.b()) ? w : AssignExpr.makeAssign(this.f2837a.a(), w, b(symbolTable));
     }
 
     private static boolean b(int i) {
@@ -430,11 +430,11 @@ public final class Parser implements j {
 
     private ASTree w(SymbolTable symbolTable) {
         ASTree x = x(symbolTable);
-        if (this.f2789a.b() == 63) {
-            this.f2789a.a();
+        if (this.f2837a.b() == 63) {
+            this.f2837a.a();
             ASTree b2 = b(symbolTable);
-            if (this.f2789a.a() != 58) {
-                throw new CompileError(": is missing", this.f2789a);
+            if (this.f2837a.a() != 58) {
+                throw new CompileError(": is missing", this.f2837a);
             }
             return new CondExpr(x, b2, b(symbolTable));
         }
@@ -444,7 +444,7 @@ public final class Parser implements j {
     private ASTree x(SymbolTable symbolTable) {
         ASTree y = y(symbolTable);
         while (true) {
-            int c = c(this.f2789a.b());
+            int c = c(this.f2837a.b());
             if (c == 0) {
                 return y;
             }
@@ -453,22 +453,22 @@ public final class Parser implements j {
     }
 
     private ASTree a(SymbolTable symbolTable, ASTree aSTree) {
-        int b2 = this.f2789a.b();
+        int b2 = this.f2837a.b();
         if (a(b2)) {
-            this.f2789a.a();
+            this.f2837a.a();
             return new InstanceOfExpr(b2, d(), aSTree);
         }
         return new InstanceOfExpr(A(symbolTable), d(), aSTree);
     }
 
     private ASTree a(SymbolTable symbolTable, ASTree aSTree, int i) {
-        int a2 = this.f2789a.a();
+        int a2 = this.f2837a.a();
         if (a2 == 323) {
             return a(symbolTable, aSTree);
         }
         ASTree y = y(symbolTable);
         while (true) {
-            int c = c(this.f2789a.b());
+            int c = c(this.f2837a.b());
             if (c == 0 || i <= c) {
                 break;
             }
@@ -506,26 +506,26 @@ public final class Parser implements j {
     }
 
     private ASTree y(SymbolTable symbolTable) {
-        switch (this.f2789a.b()) {
+        switch (this.f2837a.b()) {
             case 33:
             case 43:
             case 45:
             case 126:
             case 362:
             case 363:
-                int a2 = this.f2789a.a();
+                int a2 = this.f2837a.a();
                 if (a2 == 45) {
-                    int b2 = this.f2789a.b();
+                    int b2 = this.f2837a.b();
                     switch (b2) {
                         case BdWebErrorView.ERROR_CODE_401 /* 401 */:
                         case 402:
                         case BdWebErrorView.ERROR_CODE_403 /* 403 */:
-                            this.f2789a.a();
-                            return new IntConst(-this.f2789a.d(), b2);
+                            this.f2837a.a();
+                            return new IntConst(-this.f2837a.d(), b2);
                         case BdWebErrorView.ERROR_CODE_404 /* 404 */:
                         case BdWebErrorView.ERROR_CODE_405 /* 405 */:
-                            this.f2789a.a();
-                            return new DoubleConst(-this.f2789a.e(), b2);
+                            this.f2837a.a();
+                            return new DoubleConst(-this.f2837a.e(), b2);
                     }
                 }
                 return Expr.make(a2, y(symbolTable));
@@ -537,21 +537,21 @@ public final class Parser implements j {
     }
 
     private ASTree z(SymbolTable symbolTable) {
-        int a2 = this.f2789a.a(1);
+        int a2 = this.f2837a.a(1);
         if (a(a2) && b()) {
-            this.f2789a.a();
-            this.f2789a.a();
+            this.f2837a.a();
+            this.f2837a.a();
             int d = d();
-            if (this.f2789a.a() != 41) {
-                throw new CompileError(") is missing", this.f2789a);
+            if (this.f2837a.a() != 41) {
+                throw new CompileError(") is missing", this.f2837a);
             }
             return new CastExpr(a2, d, y(symbolTable));
         } else if (a2 == 400 && c()) {
-            this.f2789a.a();
+            this.f2837a.a();
             ASTList A = A(symbolTable);
             int d2 = d();
-            if (this.f2789a.a() != 41) {
-                throw new CompileError(") is missing", this.f2789a);
+            if (this.f2837a.a() != 41) {
+                throw new CompileError(") is missing", this.f2837a);
             }
             return new CastExpr(A, d2, y(symbolTable));
         } else {
@@ -564,18 +564,18 @@ public final class Parser implements j {
         int i2 = 2;
         do {
             i = i2 + 1;
-            if (this.f2789a.a(i2) != 91) {
-                return this.f2789a.a(i + (-1)) == 41;
+            if (this.f2837a.a(i2) != 91) {
+                return this.f2837a.a(i + (-1)) == 41;
             }
             i2 = i + 1;
-        } while (this.f2789a.a(i) == 93);
+        } while (this.f2837a.a(i) == 93);
         return false;
     }
 
     private boolean c() {
         int d = d(1);
-        if (d >= 0 && this.f2789a.a(d) == 41) {
-            int a2 = this.f2789a.a(d + 1);
+        if (d >= 0 && this.f2837a.a(d) == 41) {
+            int a2 = this.f2837a.a(d + 1);
             return a2 == 40 || a2 == 412 || a2 == 406 || a2 == 400 || a2 == 339 || a2 == 336 || a2 == 328 || a2 == 410 || a2 == 411 || a2 == 403 || a2 == 402 || a2 == 401 || a2 == 405 || a2 == 404;
         }
         return false;
@@ -585,28 +585,28 @@ public final class Parser implements j {
         int i2;
         do {
             int i3 = i + 1;
-            if (this.f2789a.a(i3) != 46) {
+            if (this.f2837a.a(i3) != 46) {
                 do {
                     i2 = i3 + 1;
-                    if (this.f2789a.a(i3) != 91) {
+                    if (this.f2837a.a(i3) != 91) {
                         return i2 - 1;
                     }
                     i3 = i2 + 1;
-                } while (this.f2789a.a(i2) == 93);
+                } while (this.f2837a.a(i2) == 93);
                 return -1;
             }
             i = i3 + 1;
-        } while (this.f2789a.a(i) == 400);
+        } while (this.f2837a.a(i) == 400);
         return -1;
     }
 
     private int d() {
         int i = 0;
-        while (this.f2789a.b() == 91) {
+        while (this.f2837a.b() == 91) {
             i++;
-            this.f2789a.a();
-            if (this.f2789a.a() != 93) {
-                throw new CompileError("] is missing", this.f2789a);
+            this.f2837a.a();
+            if (this.f2837a.a() != 93) {
+                throw new CompileError("] is missing", this.f2837a);
             }
         }
         return i;
@@ -614,72 +614,72 @@ public final class Parser implements j {
 
     private ASTList A(SymbolTable symbolTable) {
         ASTList aSTList = null;
-        while (this.f2789a.a() == 400) {
-            aSTList = ASTList.append(aSTList, new Symbol(this.f2789a.c()));
-            if (this.f2789a.b() == 46) {
-                this.f2789a.a();
+        while (this.f2837a.a() == 400) {
+            aSTList = ASTList.append(aSTList, new Symbol(this.f2837a.c()));
+            if (this.f2837a.b() == 46) {
+                this.f2837a.a();
             } else {
                 return aSTList;
             }
         }
-        throw new SyntaxError(this.f2789a);
+        throw new SyntaxError(this.f2837a);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x006a, code lost:
-        throw new javassist.compiler.SyntaxError(r7.f2789a);
+        throw new javassist.compiler.SyntaxError(r7.f2837a);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private ASTree B(SymbolTable symbolTable) {
-        int b2 = this.f2789a.b();
+        int b2 = this.f2837a.b();
         switch (b2) {
             case BdWebErrorView.ERROR_CODE_401 /* 401 */:
             case 402:
             case BdWebErrorView.ERROR_CODE_403 /* 403 */:
-                this.f2789a.a();
-                return new IntConst(this.f2789a.d(), b2);
+                this.f2837a.a();
+                return new IntConst(this.f2837a.d(), b2);
             case BdWebErrorView.ERROR_CODE_404 /* 404 */:
             case BdWebErrorView.ERROR_CODE_405 /* 405 */:
-                this.f2789a.a();
-                return new DoubleConst(this.f2789a.e(), b2);
+                this.f2837a.a();
+                return new DoubleConst(this.f2837a.e(), b2);
             default:
                 ASTree C = C(symbolTable);
                 while (true) {
-                    switch (this.f2789a.b()) {
+                    switch (this.f2837a.b()) {
                         case 35:
-                            this.f2789a.a();
-                            if (this.f2789a.a() != 400) {
-                                throw new CompileError("missing static member name", this.f2789a);
+                            this.f2837a.a();
+                            if (this.f2837a.a() != 400) {
+                                throw new CompileError("missing static member name", this.f2837a);
                             }
-                            C = Expr.make(35, new Symbol(a(C)), new Member(this.f2789a.c()));
+                            C = Expr.make(35, new Symbol(a(C)), new Member(this.f2837a.c()));
                             break;
                         case 40:
                             C = b(symbolTable, C);
                             break;
                         case 46:
-                            this.f2789a.a();
-                            int a2 = this.f2789a.a();
+                            this.f2837a.a();
+                            int a2 = this.f2837a.a();
                             if (a2 == 307) {
                                 C = a(C, 0);
                                 break;
                             } else if (a2 == 400) {
-                                C = Expr.make(46, C, new Member(this.f2789a.c()));
+                                C = Expr.make(46, C, new Member(this.f2837a.c()));
                                 break;
                             } else {
-                                throw new CompileError("missing member name", this.f2789a);
+                                throw new CompileError("missing member name", this.f2837a);
                             }
                         case 91:
-                            if (this.f2789a.a(1) == 93) {
+                            if (this.f2837a.a(1) == 93) {
                                 int d = d();
-                                if (this.f2789a.a() == 46 && this.f2789a.a() == 307) {
+                                if (this.f2837a.a() == 46 && this.f2837a.a() == 307) {
                                     C = a(C, d);
                                     break;
                                 }
                             } else {
                                 ASTree F = F(symbolTable);
                                 if (F == null) {
-                                    throw new SyntaxError(this.f2789a);
+                                    throw new SyntaxError(this.f2837a);
                                 }
                                 C = Expr.make(65, C, F);
                                 break;
@@ -687,7 +687,7 @@ public final class Parser implements j {
                             break;
                         case 362:
                         case 363:
-                            C = Expr.make(this.f2789a.a(), (ASTree) null, C);
+                            C = Expr.make(this.f2837a.a(), (ASTree) null, C);
                             break;
                         default:
                             return C;
@@ -759,10 +759,10 @@ public final class Parser implements j {
         if (aSTree instanceof Keyword) {
             int i = ((Keyword) aSTree).get();
             if (i != 339 && i != 336) {
-                throw new SyntaxError(this.f2789a);
+                throw new SyntaxError(this.f2837a);
             }
         } else if (!(aSTree instanceof Symbol) && (aSTree instanceof Expr) && (operator = ((Expr) aSTree).getOperator()) != 46 && operator != 35) {
-            throw new SyntaxError(this.f2789a);
+            throw new SyntaxError(this.f2837a);
         }
         return CallExpr.makeCall(aSTree, G(symbolTable));
     }
@@ -787,16 +787,16 @@ public final class Parser implements j {
                 return;
             }
         }
-        throw new CompileError("bad static member access", this.f2789a);
+        throw new CompileError("bad static member access", this.f2837a);
     }
 
     private ASTree C(SymbolTable symbolTable) {
-        int a2 = this.f2789a.a();
+        int a2 = this.f2837a.a();
         switch (a2) {
             case 40:
                 ASTree b2 = b(symbolTable);
-                if (this.f2789a.a() != 41) {
-                    throw new CompileError(") is missing", this.f2789a);
+                if (this.f2837a.a() != 41) {
+                    throw new CompileError(") is missing", this.f2837a);
                 }
                 return b2;
             case 328:
@@ -808,90 +808,90 @@ public final class Parser implements j {
             case BdWebErrorView.ERROR_CODE_412 /* 412 */:
                 return new Keyword(a2);
             case BdWebErrorView.ERROR_CODE_400 /* 400 */:
-                String c = this.f2789a.c();
+                String c = this.f2837a.c();
                 Declarator lookup = symbolTable.lookup(c);
                 if (lookup == null) {
                     return new Member(c);
                 }
                 return new Variable(c, lookup);
             case BdWebErrorView.ERROR_CODE_406 /* 406 */:
-                return new StringL(this.f2789a.c());
+                return new StringL(this.f2837a.c());
             default:
                 if (a(a2) || a2 == 344) {
                     int d = d();
-                    if (this.f2789a.a() == 46 && this.f2789a.a() == 307) {
+                    if (this.f2837a.a() == 46 && this.f2837a.a() == 307) {
                         return a(a2, d);
                     }
                 }
-                throw new SyntaxError(this.f2789a);
+                throw new SyntaxError(this.f2837a);
         }
     }
 
     private NewExpr D(SymbolTable symbolTable) {
         ArrayInit arrayInit = null;
-        int b2 = this.f2789a.b();
+        int b2 = this.f2837a.b();
         if (a(b2)) {
-            this.f2789a.a();
+            this.f2837a.a();
             ASTList E = E(symbolTable);
-            if (this.f2789a.b() == 123) {
+            if (this.f2837a.b() == 123) {
                 arrayInit = u(symbolTable);
             }
             return new NewExpr(b2, E, arrayInit);
         }
         if (b2 == 400) {
             ASTList A = A(symbolTable);
-            int b3 = this.f2789a.b();
+            int b3 = this.f2837a.b();
             if (b3 == 40) {
                 return new NewExpr(A, G(symbolTable));
             }
             if (b3 == 91) {
                 ASTList E2 = E(symbolTable);
-                if (this.f2789a.b() == 123) {
+                if (this.f2837a.b() == 123) {
                     arrayInit = u(symbolTable);
                 }
                 return NewExpr.makeObjectArray(A, E2, arrayInit);
             }
         }
-        throw new SyntaxError(this.f2789a);
+        throw new SyntaxError(this.f2837a);
     }
 
     private ASTList E(SymbolTable symbolTable) {
         ASTList aSTList = null;
-        while (this.f2789a.b() == 91) {
+        while (this.f2837a.b() == 91) {
             aSTList = ASTList.append(aSTList, F(symbolTable));
         }
         return aSTList;
     }
 
     private ASTree F(SymbolTable symbolTable) {
-        this.f2789a.a();
-        if (this.f2789a.b() == 93) {
-            this.f2789a.a();
+        this.f2837a.a();
+        if (this.f2837a.b() == 93) {
+            this.f2837a.a();
             return null;
         }
         ASTree b2 = b(symbolTable);
-        if (this.f2789a.a() != 93) {
-            throw new CompileError("] is missing", this.f2789a);
+        if (this.f2837a.a() != 93) {
+            throw new CompileError("] is missing", this.f2837a);
         }
         return b2;
     }
 
     private ASTList G(SymbolTable symbolTable) {
-        if (this.f2789a.a() != 40) {
-            throw new CompileError("( is missing", this.f2789a);
+        if (this.f2837a.a() != 40) {
+            throw new CompileError("( is missing", this.f2837a);
         }
         ASTList aSTList = null;
-        if (this.f2789a.b() != 41) {
+        if (this.f2837a.b() != 41) {
             while (true) {
                 aSTList = ASTList.append(aSTList, b(symbolTable));
-                if (this.f2789a.b() != 44) {
+                if (this.f2837a.b() != 44) {
                     break;
                 }
-                this.f2789a.a();
+                this.f2837a.a();
             }
         }
-        if (this.f2789a.a() != 41) {
-            throw new CompileError(") is missing", this.f2789a);
+        if (this.f2837a.a() != 41) {
+            throw new CompileError(") is missing", this.f2837a);
         }
         return aSTList;
     }

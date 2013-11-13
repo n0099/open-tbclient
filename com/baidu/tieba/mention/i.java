@@ -8,21 +8,20 @@ import android.widget.TextView;
 class i {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1864a;
+    TextView f1861a;
     ProgressBar b;
     h c;
-    LinearLayout d;
-    ImageView e;
+    ImageView d;
+    TextView e;
     TextView f;
     TextView g;
     TextView h;
     TextView i;
     TextView j;
-    TextView k;
-    LinearLayout l;
-    final /* synthetic */ f m;
+    LinearLayout k;
+    final /* synthetic */ f l;
 
     private i(f fVar) {
-        this.m = fVar;
+        this.l = fVar;
     }
 }

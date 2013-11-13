@@ -4,18 +4,18 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.chat.ChatData;
 import com.baidu.tieba.data.chat.ChatMessageData;
 import com.baidu.tieba.data.chat.ChatPostData;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends BdAsyncTask<Object, Integer, ChatData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ af f1091a;
+    final /* synthetic */ af f1124a;
     private com.baidu.tieba.a.c b = null;
 
     public ag(af afVar) {
-        this.f1091a = afVar;
+        this.f1124a = afVar;
         setPriority(3);
     }
 
@@ -25,9 +25,9 @@ public class ag extends BdAsyncTask<Object, Integer, ChatData> {
         ah ahVar;
         ah ahVar2;
         super.b();
-        ahVar = this.f1091a.c;
+        ahVar = this.f1124a.c;
         if (ahVar != null) {
-            ahVar2 = this.f1091a.c;
+            ahVar2 = this.f1124a.c;
             ahVar2.a();
         }
     }
@@ -45,19 +45,19 @@ public class ag extends BdAsyncTask<Object, Integer, ChatData> {
         com.baidu.tieba.data.chat.c cVar;
         this.b = new com.baidu.tieba.a.c();
         com.baidu.tieba.a.c cVar2 = this.b;
-        chatPostData = this.f1091a.f1090a;
+        chatPostData = this.f1124a.f1123a;
         String a2 = cVar2.a(chatPostData);
-        be.a(getClass().getName(), "postData", a2);
+        bg.a(getClass().getName(), "postData", a2);
         ChatData chatData = new ChatData();
-        chatPostData2 = this.f1091a.f1090a;
+        chatPostData2 = this.f1124a.f1123a;
         chatData.setFriendId(chatPostData2.getFriendID());
-        chatPostData3 = this.f1091a.f1090a;
+        chatPostData3 = this.f1124a.f1123a;
         chatData.setUserId(chatPostData3.getUserID());
         try {
             ChatMessageData newMessage = ChatMessageData.newMessage();
-            chatPostData4 = this.f1091a.f1090a;
+            chatPostData4 = this.f1124a.f1123a;
             newMessage.setFriendId(chatPostData4.getFriendID());
-            chatPostData5 = this.f1091a.f1090a;
+            chatPostData5 = this.f1124a.f1123a;
             newMessage.setOwnerId(chatPostData5.getUserID());
             JSONObject jSONObject = new JSONObject(a2);
             newMessage.parserJson(jSONObject.optJSONObject("message"));
@@ -69,10 +69,10 @@ public class ag extends BdAsyncTask<Object, Integer, ChatData> {
             } else {
                 chatData.addChatData(newMessage);
             }
-            cVar = this.f1091a.d;
+            cVar = this.f1124a.d;
             cVar.a(chatData.getChatList());
         } catch (Exception e) {
-            be.b(getClass().getName(), "doInBackground", e.toString());
+            bg.b(getClass().getName(), "doInBackground", e.toString());
         }
         return chatData;
     }
@@ -83,7 +83,7 @@ public class ag extends BdAsyncTask<Object, Integer, ChatData> {
         if (this.b != null) {
             this.b.a();
         }
-        this.f1091a.b = null;
+        this.f1124a.b = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -99,25 +99,25 @@ public class ag extends BdAsyncTask<Object, Integer, ChatData> {
         super.a((ag) chatData);
         if (this.b != null) {
             if (!this.b.b()) {
-                ahVar = this.f1091a.c;
+                ahVar = this.f1124a.c;
                 if (ahVar != null) {
-                    ahVar2 = this.f1091a.c;
+                    ahVar2 = this.f1124a.c;
                     ahVar2.a(false, this.b.c(), null);
                 }
             } else if (this.b.d() == 0) {
-                ahVar5 = this.f1091a.c;
+                ahVar5 = this.f1124a.c;
                 if (ahVar5 != null) {
-                    ahVar6 = this.f1091a.c;
+                    ahVar6 = this.f1124a.c;
                     ahVar6.a(true, null, chatData);
                 }
             } else {
-                ahVar3 = this.f1091a.c;
+                ahVar3 = this.f1124a.c;
                 if (ahVar3 != null) {
-                    ahVar4 = this.f1091a.c;
+                    ahVar4 = this.f1124a.c;
                     ahVar4.a(false, this.b.e(), null);
                 }
             }
         }
-        this.f1091a.b = null;
+        this.f1124a.b = null;
     }
 }

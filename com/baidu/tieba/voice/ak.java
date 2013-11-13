@@ -1,41 +1,51 @@
 package com.baidu.tieba.voice;
 
-import com.baidu.tieba.util.be;
-import java.io.File;
+import android.os.Build;
+import com.baidu.tieba.TiebaApplication;
 /* loaded from: classes.dex */
 public class ak {
-    public static String a() {
-        return com.baidu.adp.lib.h.g.a();
+
+    /* renamed from: a  reason: collision with root package name */
+    private static final String[] f2621a = new String[0];
+    private static final String[] b = {"meizu"};
+
+    public static String a(int i) {
+        TiebaApplication g = TiebaApplication.g();
+        return g == null ? "" : g.getString(i);
     }
 
-    public static String a(String str) {
-        if (com.baidu.adp.lib.h.h.a(str)) {
-            return null;
-        }
-        return "tb/voice/" + str;
-    }
-
-    public static String b(String str) {
-        return com.baidu.tieba.voice.a.e.a(str);
-    }
-
-    public static String c(String str) {
-        return com.baidu.adp.lib.h.b.b(a(str));
-    }
-
-    public static boolean d(String str) {
-        if (com.baidu.adp.lib.h.h.a(str)) {
+    public static final boolean a() {
+        String str = Build.MODEL;
+        if (str == null) {
             return false;
         }
-        File file = new File(str);
-        try {
-            if (file.exists()) {
-                return file.delete();
+        return str.toLowerCase().startsWith("mi");
+    }
+
+    public static boolean b() {
+        String str = Build.BRAND;
+        if (str == null) {
+            return false;
+        }
+        String lowerCase = str.toLowerCase();
+        for (int i = 0; i < b.length; i++) {
+            if (b[i].equals(lowerCase)) {
+                return true;
             }
-            return false;
-        } catch (Throwable th) {
-            be.b("FileHelper", "DelFile", "error = " + th.getMessage());
-            return false;
         }
+        return false;
+    }
+
+    public static boolean c() {
+        String str = Build.MODEL;
+        if (str == null) {
+            return true;
+        }
+        for (int i = 0; i < f2621a.length; i++) {
+            if (f2621a[i].equals(str)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

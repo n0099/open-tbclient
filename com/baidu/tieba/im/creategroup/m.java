@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<Address> f1501a = null;
+    private List<Address> f1592a = null;
     private int b = -1;
     private com.baidu.tieba.j c;
 
@@ -27,22 +27,22 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1501a == null) {
+        if (this.f1592a == null) {
             return 0;
         }
-        return this.f1501a.size();
+        return this.f1592a.size();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f1501a == null || this.f1501a.size() == 0) {
+        if (this.f1592a == null || this.f1592a.size() == 0) {
             return 0;
         }
-        if (this.f1501a.size() != 1) {
-            if (this.f1501a.size() > 1 && i == 0) {
+        if (this.f1592a.size() != 1) {
+            if (this.f1592a.size() > 1 && i == 0) {
                 return 2;
             }
-            if (this.f1501a.size() > 1 && i + 1 < this.f1501a.size()) {
+            if (this.f1592a.size() > 1 && i + 1 < this.f1592a.size()) {
                 return 3;
             }
             return 4;
@@ -57,7 +57,7 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f1501a.get(i);
+        return this.f1592a.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,8 +66,8 @@ public class m extends BaseAdapter {
     }
 
     public Address a() {
-        if (this.b >= 0 && this.f1501a.size() >= this.b + 1) {
-            return this.f1501a.get(this.b);
+        if (this.b >= 0 && this.f1592a.size() >= this.b + 1) {
+            return this.f1592a.get(this.b);
         }
         return null;
     }
@@ -88,7 +88,7 @@ public class m extends BaseAdapter {
         if (view == null) {
             View inflate = LayoutInflater.from(this.c).inflate(R.layout.address_lbs_item, (ViewGroup) null);
             n nVar2 = new n(this);
-            nVar2.f1502a = (LinearLayout) inflate;
+            nVar2.f1593a = (LinearLayout) inflate;
             nVar2.b = (TextView) inflate.findViewById(R.id.text);
             nVar2.c = (ImageView) inflate.findViewById(R.id.arrow2);
             inflate.setTag(nVar2);
@@ -98,46 +98,46 @@ public class m extends BaseAdapter {
             view2 = view;
         }
         n nVar3 = nVar == null ? (n) view2.getTag() : nVar;
-        int as = TiebaApplication.g().as();
+        int ap = TiebaApplication.g().ap();
         if (itemViewType == 1) {
-            if (as == 1) {
-                bb.e(nVar3.f1502a, (int) R.drawable.more_all_1);
+            if (ap == 1) {
+                bd.e(nVar3.f1593a, (int) R.drawable.more_all_1);
             } else {
-                bb.e(nVar3.f1502a, (int) R.drawable.more_all);
+                bd.e(nVar3.f1593a, (int) R.drawable.more_all);
             }
         } else if (itemViewType == 2) {
-            if (as == 1) {
-                bb.e(nVar3.f1502a, (int) R.drawable.more_up_1);
+            if (ap == 1) {
+                bd.e(nVar3.f1593a, (int) R.drawable.more_up_1);
             } else {
-                bb.e(nVar3.f1502a, (int) R.drawable.more_up);
+                bd.e(nVar3.f1593a, (int) R.drawable.more_up);
             }
         } else if (itemViewType == 3) {
-            if (as == 1) {
-                bb.e(nVar3.f1502a, (int) R.drawable.more_middle_1);
+            if (ap == 1) {
+                bd.e(nVar3.f1593a, (int) R.drawable.more_middle_1);
             } else {
-                bb.e(nVar3.f1502a, (int) R.drawable.more_middle);
+                bd.e(nVar3.f1593a, (int) R.drawable.more_middle);
             }
         } else if (itemViewType == 4) {
-            if (as == 1) {
-                bb.e(nVar3.f1502a, (int) R.drawable.more_down_1);
+            if (ap == 1) {
+                bd.e(nVar3.f1593a, (int) R.drawable.more_down_1);
             } else {
-                bb.e(nVar3.f1502a, (int) R.drawable.more_down);
+                bd.e(nVar3.f1593a, (int) R.drawable.more_down);
             }
         }
-        if (as == 1) {
+        if (ap == 1) {
             nVar3.b.setTextColor(this.c.getResources().getColor(R.color.skin_1_common_color));
-            bb.e(nVar3.c, (int) R.drawable.icon_found_list_address_1);
+            bd.e(nVar3.c, (int) R.drawable.icon_found_list_address_1);
         } else {
             nVar3.b.setTextColor(this.c.getResources().getColor(R.color.more_color));
-            bb.e(nVar3.c, (int) R.drawable.icon_found_list_address);
+            bd.e(nVar3.c, (int) R.drawable.icon_found_list_address);
         }
         if (this.b == i) {
             nVar3.c.setVisibility(0);
         } else {
             nVar3.c.setVisibility(8);
         }
-        if (this.f1501a.size() >= i + 1) {
-            nVar3.b.setText(this.f1501a.get(i).getAddressLine(0));
+        if (this.f1592a.size() >= i + 1) {
+            nVar3.b.setText(this.f1592a.get(i).getAddressLine(0));
         }
         return view2;
     }

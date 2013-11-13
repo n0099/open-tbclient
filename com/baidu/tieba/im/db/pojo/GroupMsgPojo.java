@@ -43,7 +43,7 @@ public class GroupMsgPojo implements Serializable {
             this.content = chatMessage.getContent();
             this.rid = chatMessage.getRecordId();
             if (!TextUtils.isEmpty(this.uid)) {
-                this.isSelf = this.uid.equals(TiebaApplication.C());
+                this.isSelf = this.uid.equals(TiebaApplication.A());
             }
         }
     }

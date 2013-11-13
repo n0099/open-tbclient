@@ -1,36 +1,31 @@
 package com.baidu.tieba.pb;
 
-import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.LinearLayout;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class de implements Runnable {
+public class de implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dd f2118a;
+    final /* synthetic */ cp f2137a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(dd ddVar) {
-        this.f2118a = ddVar;
+    public de(cp cpVar) {
+        this.f2137a = cpVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        PbWriteToolView pbWriteToolView;
-        GridView gridView;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        EditText editText;
-        pbWriteToolView = this.f2118a.f;
-        pbWriteToolView.b();
-        gridView = this.f2118a.B;
-        gridView.setVisibility(0);
-        linearLayout = this.f2118a.t;
-        linearLayout.setVisibility(0);
-        linearLayout2 = this.f2118a.q;
-        linearLayout2.setEnabled(false);
-        editText = this.f2118a.E;
-        editText.requestFocus();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        view2 = this.f2137a.k;
+        View findViewById = view2.findViewById(R.id.manage_bottom_bar);
+        if (findViewById != null) {
+            if (findViewById.getVisibility() == 0) {
+                findViewById.setVisibility(8);
+            } else {
+                findViewById.setVisibility(0);
+            }
+            this.f2137a.ai();
+        }
     }
 }

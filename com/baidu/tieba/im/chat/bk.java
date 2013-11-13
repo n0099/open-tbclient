@@ -1,22 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bk implements View.OnClickListener {
+public class bk implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bh f1438a;
+    final /* synthetic */ bg f1531a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(bh bhVar) {
-        this.f1438a = bhVar;
+    public bk(bg bgVar) {
+        this.f1531a = bgVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f1438a.M();
-        this.f1438a.O();
-        this.f1438a.R();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        this.f1531a.L();
+        this.f1531a.M();
+        this.f1531a.N();
     }
 }

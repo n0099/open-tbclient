@@ -6,13 +6,13 @@ import com.baidu.tieba.view.HeadImageView;
 public class b implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2235a;
+    final /* synthetic */ String f2270a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, String str) {
         this.b = aVar;
-        this.f2235a = str;
+        this.f2270a = str;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
@@ -20,7 +20,7 @@ public class b implements com.baidu.tbadk.imageManager.c {
         com.baidu.adp.widget.ImageView.e eVar2;
         if (eVar != null) {
             com.baidu.adp.widget.ImageView.e unused = a.j = eVar;
-            String unused2 = a.k = this.f2235a;
+            String unused2 = a.k = this.f2270a;
             HeadImageView headImageView = this.b.b;
             eVar2 = a.j;
             headImageView.setImageBitmap(eVar2.f());

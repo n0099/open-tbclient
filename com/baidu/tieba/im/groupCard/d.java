@@ -7,31 +7,32 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.a.e;
 import com.baidu.adp.lib.h.f;
+import com.baidu.tieba.util.bd;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    private GroupCardActivity f1587a;
-    private LinearLayout c;
-    private LinearLayout d;
+    protected NavigationBar f1674a;
+    protected View c;
+    private GroupCardActivity d;
     private LinearLayout e;
     private LinearLayout f;
     private LinearLayout g;
-    private ImageView h;
-    private ProgressBar i;
-    private AlertDialog j;
-    private View k;
-    private ImageView l;
+    private LinearLayout h;
+    private ImageView i;
+    private ProgressBar j;
+    private AlertDialog k;
+    private View l;
     private ImageView m;
     private ImageView n;
     private ImageView o;
     private ImageView p;
+    private ImageView q;
 
     public d(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity);
-        this.c = null;
-        this.d = null;
         this.e = null;
         this.f = null;
         this.g = null;
@@ -44,71 +45,83 @@ public class d extends e {
         this.n = null;
         this.o = null;
         this.p = null;
-        this.f1587a = groupCardActivity;
+        this.q = null;
+        this.f1674a = null;
+        this.c = null;
+        this.d = groupCardActivity;
         l();
     }
 
     private void l() {
-        this.f1587a.setContentView(R.layout.group_card_activity);
-        this.c = (LinearLayout) this.f1587a.findViewById(R.id.groud_card_save);
-        this.c.setOnClickListener(this.f1587a);
-        this.d = (LinearLayout) this.f1587a.findViewById(R.id.group_card_share);
-        this.d.setOnClickListener(this.f1587a);
-        this.e = (LinearLayout) this.f1587a.findViewById(R.id.group_card_image);
-        this.f = (LinearLayout) this.f1587a.findViewById(R.id.title_bar);
-        this.g = (LinearLayout) this.f1587a.findViewById(R.id.group_card_setting);
-        this.h = (ImageView) this.f1587a.findViewById(R.id.title_back);
-        this.h.setOnClickListener(this.f1587a);
-        this.i = (ProgressBar) this.f1587a.findViewById(R.id.progress);
-        this.l = (ImageView) this.f1587a.findViewById(R.id.group_card_inner_image);
+        this.d.setContentView(R.layout.group_card_activity);
+        this.c = this.d.findViewById(R.id.parent);
+        this.f1674a = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
+        this.f1674a.a(this.d.getResources().getString(R.string.group_card_name));
+        this.i = this.f1674a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.i.setOnClickListener(this.d);
+        this.e = (LinearLayout) this.d.findViewById(R.id.groud_card_save);
+        this.e.setOnClickListener(this.d);
+        this.f = (LinearLayout) this.d.findViewById(R.id.group_card_share);
+        this.f.setOnClickListener(this.d);
+        this.g = (LinearLayout) this.d.findViewById(R.id.group_card_image);
+        this.h = (LinearLayout) this.d.findViewById(R.id.group_card_setting);
+        this.j = (ProgressBar) this.d.findViewById(R.id.progress);
+        this.m = (ImageView) this.d.findViewById(R.id.group_card_inner_image);
+    }
+
+    public void a(int i) {
+        this.d.getLayoutMode().a(false);
+        this.d.getLayoutMode().a(this.c);
+        this.f1674a.c(0);
+        bd.b(this.c, 0);
     }
 
     public void a(com.baidu.adp.widget.ImageView.e eVar) {
         if (eVar != null) {
-            eVar.a(this.l);
+            eVar.a(this.m);
         }
     }
 
     public void a(int i, String str) {
         if (str != null) {
-            f.a(this.f1587a, str);
+            f.a(this.d, str);
             return;
         }
         String a2 = com.baidu.tieba.im.d.e.a(i);
         if (a2 != null && a2.length() > 0) {
-            f.a(this.f1587a, a2);
+            f.a(this.d, a2);
         }
     }
 
     public void a() {
-        this.i.setVisibility(0);
+        this.j.setVisibility(0);
     }
 
     public void e() {
-        this.i.setVisibility(8);
+        this.j.setVisibility(8);
     }
 
     public void f() {
-        this.l.setVisibility(0);
+        this.m.setVisibility(0);
     }
 
     public View g() {
-        return this.c;
+        return this.e;
     }
 
     public View h() {
-        return this.d;
-    }
-
-    public ImageView i() {
-        return this.h;
-    }
-
-    public LinearLayout j() {
         return this.f;
     }
 
+    public ImageView i() {
+        return this.i;
+    }
+
+    public View j() {
+        return this.f1674a;
+    }
+
     public LinearLayout k() {
-        return this.g;
+        return this.h;
     }
 }

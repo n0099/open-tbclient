@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
@@ -35,7 +36,7 @@ public class k extends ImageView {
     private Interpolator L;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f2534a;
+    public volatile int f2590a;
     private Matrix b;
     private int c;
     private int d;
@@ -80,7 +81,7 @@ public class k extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f2534a = 0;
+        this.f2590a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -114,7 +115,7 @@ public class k extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f2534a = 0;
+        this.f2590a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -148,7 +149,7 @@ public class k extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f2534a = 0;
+        this.f2590a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -353,7 +354,7 @@ public class k extends ImageView {
         c();
         this.D = 0;
         if (this.m != null) {
-            this.f2534a = 1;
+            this.f2590a = 1;
             invalidate();
             new l(this).start();
         }
@@ -400,7 +401,7 @@ public class k extends ImageView {
             }
             canvas.clipRect(i, i2, width + i, height + i2);
             canvas.drawColor(-1);
-            if (this.f2534a == 2 && this.A == 1 && this.G && this.B != null) {
+            if (this.f2590a == 2 && this.A == 1 && this.G && this.B != null) {
                 if (this.E + this.B.a(this.D) < System.currentTimeMillis()) {
                     this.E += this.B.a(this.D);
                     t();
@@ -433,7 +434,7 @@ public class k extends ImageView {
 
     public void e() {
         if (this.w == 1) {
-            if (this.f2534a == 0) {
+            if (this.f2590a == 0) {
                 d();
             } else {
                 this.E = System.currentTimeMillis();
@@ -445,7 +446,7 @@ public class k extends ImageView {
 
     public void f() {
         if (this.w == 1) {
-            com.baidu.tieba.util.be.e(getClass().getName(), "pause", null);
+            com.baidu.tieba.util.bg.e(getClass().getName(), "pause", null);
             this.G = false;
             invalidate();
         }
@@ -456,7 +457,7 @@ public class k extends ImageView {
             super.setImageBitmap(null);
             this.G = false;
             c();
-            this.f2534a = 0;
+            this.f2590a = 0;
             this.D = 0;
             invalidate();
         }
@@ -571,7 +572,7 @@ public class k extends ImageView {
         c();
         r();
         this.w = 1;
-        this.f2534a = 0;
+        this.f2590a = 0;
         this.C = bitmap;
         this.m = bArr;
         if (this.s != null) {
@@ -586,7 +587,7 @@ public class k extends ImageView {
         super.setImageBitmap(null);
         c();
         this.m = null;
-        this.f2534a = 0;
+        this.f2590a = 0;
         this.C = null;
         this.G = false;
     }
@@ -597,7 +598,7 @@ public class k extends ImageView {
         }
         super.setImageBitmap(null);
         c();
-        this.f2534a = 0;
+        this.f2590a = 0;
         this.C = null;
         this.G = false;
     }
@@ -606,7 +607,11 @@ public class k extends ImageView {
         if (this.t.a()) {
             this.t.b();
         }
-        super.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.image_failed));
+        if (TiebaApplication.g().ap() == 1) {
+            super.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.pic_baidu_logo_d_1));
+        } else {
+            super.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.pic_baidu_logo_d));
+        }
         this.w = 2;
         r();
     }
@@ -734,7 +739,7 @@ public class k extends ImageView {
                 scrollTo(scrollX, scrollY);
                 setImageMatrix(this.b);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("DragImageView", "resizeBitmap", "error = " + e.getMessage());
+                com.baidu.tieba.util.bg.b("DragImageView", "resizeBitmap", "error = " + e.getMessage());
             }
         }
     }

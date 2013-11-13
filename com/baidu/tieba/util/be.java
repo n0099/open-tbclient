@@ -1,325 +1,416 @@
 package com.baidu.tieba.util;
 
-import android.util.Log;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import android.graphics.Color;
+import com.baidu.browser.core.util.BdUtil;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.R;
+import com.tencent.mm.sdk.platformtools.Util;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.lang.Character;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2440a = 0;
-    private static int b = 0;
-    private static int c = 0;
-    private static int d = 0;
+    private static SimpleDateFormat f2500a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
+    private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
+    private static SimpleDateFormat d = new SimpleDateFormat("M月d日");
+    private static SimpleDateFormat e = new SimpleDateFormat("M月d日 HH:mm");
+    private static SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
+    private static SimpleDateFormat g = new SimpleDateFormat("yy-M-d");
+    private static SimpleDateFormat h = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    private static SimpleDateFormat i = new SimpleDateFormat("yyyy-MM-dd");
+    private static long j = Util.MILLSECONDS_OF_DAY;
+    private static long k = Util.MILLSECONDS_OF_HOUR;
+    private static long l = Util.MILLSECONDS_OF_MINUTE;
+    private static long m = 1000;
+    private static String n = TiebaApplication.g().getString(R.string.time_hour_before);
+    private static String o = TiebaApplication.g().getString(R.string.time_min_before);
+    private static String p = TiebaApplication.g().getString(R.string.time_sec_before);
+    private static Date q = new Date();
+    private static final Pattern r = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
+    private static final char[] s;
+    private static final char[] t;
+    private static byte[] u;
 
-    public static int a(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.s()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            return Log.i("TiebaLog", sb.toString());
+    static {
+        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
+        if (timeZone != null) {
+            f2500a.setTimeZone(timeZone);
+            b.setTimeZone(timeZone);
+            c.setTimeZone(timeZone);
+            d.setTimeZone(timeZone);
+            e.setTimeZone(timeZone);
+            f.setTimeZone(timeZone);
+            g.setTimeZone(timeZone);
+            h.setTimeZone(timeZone);
+            i.setTimeZone(timeZone);
         }
-        return 0;
+        s = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        t = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
+        u = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x008c A[Catch: Exception -> 0x0090, TRY_LEAVE, TryCatch #0 {Exception -> 0x0090, blocks: (B:26:0x0087, B:28:0x008c), top: B:45:0x0087 }] */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0087 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static void d(String str) {
-        BufferedWriter bufferedWriter;
-        FileWriter fileWriter;
-        String str2;
-        String message;
-        FileWriter fileWriter2 = null;
-        long currentTimeMillis = System.currentTimeMillis();
-        File g = w.g("log_" + bc.d(new Date()));
-        if (g != null) {
-            try {
-                fileWriter = new FileWriter(g, true);
-                try {
-                    bufferedWriter = new BufferedWriter(fileWriter);
-                    try {
-                        bufferedWriter.write(bc.a(currentTimeMillis) + "\t\t" + str);
-                        bufferedWriter.newLine();
-                        bufferedWriter.flush();
-                    } catch (Exception e) {
-                        e = e;
-                        fileWriter2 = fileWriter;
-                        try {
-                            Log.d("tieba", e.getMessage());
-                            if (fileWriter2 != null) {
-                                try {
-                                    fileWriter2.close();
-                                } catch (Exception e2) {
-                                    str2 = "tieba";
-                                    message = e2.getMessage();
-                                    Log.d(str2, message);
-                                    return;
-                                }
-                            }
-                            if (bufferedWriter != null) {
-                                bufferedWriter.close();
-                                return;
-                            }
-                            return;
-                        } catch (Throwable th) {
-                            th = th;
-                            fileWriter = fileWriter2;
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (Exception e3) {
-                                    Log.d("tieba", e3.getMessage());
-                                    throw th;
-                                }
-                            }
-                            if (bufferedWriter != null) {
-                                bufferedWriter.close();
-                            }
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (fileWriter != null) {
-                        }
-                        if (bufferedWriter != null) {
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    bufferedWriter = null;
-                    fileWriter2 = fileWriter;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedWriter = null;
-                }
-            } catch (Exception e5) {
-                e = e5;
-                bufferedWriter = null;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedWriter = null;
-                fileWriter = null;
+    public static String a(Date date) {
+        String format;
+        synchronized (e) {
+            format = e.format(date);
+        }
+        return format;
+    }
+
+    public static String b(Date date) {
+        String format;
+        synchronized (c) {
+            format = c.format(date);
+        }
+        return format;
+    }
+
+    public static String c(Date date) {
+        String format;
+        synchronized (d) {
+            format = d.format(date);
+        }
+        return format;
+    }
+
+    public static String d(Date date) {
+        String format;
+        synchronized (f) {
+            format = f.format(date);
+        }
+        return format;
+    }
+
+    public static String a(long j2) {
+        String format;
+        Date date = new Date(j2);
+        synchronized (f2500a) {
+            format = f2500a.format(date);
+        }
+        return format;
+    }
+
+    public static String a() {
+        String format;
+        Date date = new Date();
+        synchronized (h) {
+            format = h.format(date);
+        }
+        return format;
+    }
+
+    public static String e(Date date) {
+        return date == null ? "" : a(new Date(), date);
+    }
+
+    public static String a(Date date, Date date2) {
+        if (date2 == null) {
+            return "";
+        }
+        int day = date.getDay() - date2.getDay();
+        long time = date.getTime() - date2.getTime();
+        if (time < 0) {
+            if (time > -120000) {
+                return "刚刚";
             }
+            return d(date2);
+        } else if (time >= 30000) {
+            long j2 = 30000 * 2;
+            if (time < j2) {
+                return "半分钟前";
+            }
+            long j3 = j2 * 60;
+            if (time < j3) {
+                return String.valueOf((time * 60) / j3) + "分钟前";
+            }
+            long j4 = j3 * 24;
+            if (time < j4) {
+                if (day == 0) {
+                    return b(date2);
+                }
+                return "1天前";
+            }
+            long j5 = j4 * 31;
+            if (time < j5) {
+                return String.valueOf((time * 31) / j5) + "天前";
+            }
+            if (time < j5 + Util.MILLSECONDS_OF_DAY) {
+                return "1个月前";
+            }
+            return d(date2);
         } else {
-            bufferedWriter = null;
-            fileWriter = null;
+            return "刚刚";
         }
-        if (fileWriter != null) {
+    }
+
+    public static String f(Date date) {
+        return b(new Date(), date);
+    }
+
+    public static String b(Date date, Date date2) {
+        String format;
+        String format2;
+        if (date2 == null) {
+            return "";
+        }
+        int day = date.getDay() - date2.getDay();
+        long time = date.getTime() - date2.getTime();
+        if (time < 0) {
+            if (time > -120000) {
+                return "刚刚";
+            }
+            return d(date2);
+        } else if (time >= 30000) {
+            long j2 = 30000 * 2;
+            if (time < j2) {
+                return "半分钟前";
+            }
+            long j3 = j2 * 60;
+            if (time < j3) {
+                return String.valueOf((time * 60) / j3) + "分钟前";
+            }
+            long j4 = j3 * 24;
+            if (time < j4) {
+                if (day == 0) {
+                    return b(date2);
+                }
+                return "1天前";
+            }
+            long j5 = j4 * 31;
+            if (time < j5) {
+                return String.valueOf((time * 31) / j5) + "天前";
+            }
+            if (time < j5 + Util.MILLSECONDS_OF_DAY) {
+                return "1个月前";
+            }
+            if (date.getYear() == date2.getYear()) {
+                synchronized (i) {
+                    format2 = i.format(date2);
+                }
+                return format2;
+            }
+            synchronized (f) {
+                format = f.format(date2);
+            }
+            return format;
+        } else {
+            return "刚刚";
+        }
+    }
+
+    public static String a(byte[] bArr) {
+        if (bArr == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder(bArr.length * 2);
+        for (int i2 = 0; i2 < bArr.length; i2++) {
+            sb.append(s[(bArr[i2] & 240) >>> 4]);
+            sb.append(s[bArr[i2] & 15]);
+        }
+        return sb.toString();
+    }
+
+    public static String a(InputStream inputStream) {
+        String str = null;
+        if (inputStream != null) {
             try {
-                fileWriter.close();
-            } catch (Exception e6) {
-                str2 = "tieba";
-                message = e6.getMessage();
-                Log.d(str2, message);
-                return;
+                try {
+                    byte[] bArr = new byte[1024];
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    str = a(messageDigest.digest());
+                } catch (Exception e2) {
+                    bg.a("StringHelper", "ToMd5", e2.toString());
+                }
+            } finally {
+                o.a(inputStream);
             }
         }
-        if (bufferedWriter != null) {
-            bufferedWriter.close();
+        return str;
+    }
+
+    public static String a(String str) {
+        try {
+            return a(new ByteArrayInputStream(str.getBytes("UTF-8")));
+        } catch (Exception e2) {
+            return null;
         }
     }
 
-    public static int b(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.s()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            d(sb.toString());
-            return Log.e("TiebaLog", sb.toString());
-        }
-        return 0;
+    public static boolean a(char c2) {
+        Character.UnicodeBlock of = Character.UnicodeBlock.of(c2);
+        return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
     }
 
-    public static int c(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.s()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            return Log.w("TiebaLog", sb.toString());
-        }
-        return 0;
+    public static boolean b(String str) {
+        return str != null && str.length() > 0;
     }
 
-    public static int d(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.s()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            return Log.v("TiebaLog", sb.toString());
-        }
-        return 0;
+    public static boolean c(String str) {
+        return str == null || str.length() == 0 || str.equals("null");
     }
 
-    public static int e(String str, String str2, String str3) {
-        if (com.baidu.tieba.data.h.s()) {
-            StringBuilder sb = new StringBuilder(100);
-            sb.append(str);
-            sb.append(":");
-            sb.append(str2);
-            sb.append(":");
-            sb.append(str3);
-            return Log.d("TiebaLog", sb.toString());
-        }
-        return 0;
-    }
-
-    public static int a(int i, String str) {
-        if (com.baidu.tieba.data.h.s()) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace.length < 5) {
-                return -1;
-            }
-            StackTraceElement stackTraceElement = stackTrace[4];
-            String methodName = stackTraceElement.getMethodName();
-            String className = stackTraceElement.getClassName();
-            if (i == 0) {
-                b(className, methodName, str);
-            } else if (i == 1) {
-                c(className, methodName, str);
-            } else if (i == 2) {
-                a(className, methodName, str);
-            } else if (i == 3) {
-                e(className, methodName, str);
-            } else {
-                d(className, methodName, str);
-            }
-            return 0;
-        }
-        return -1;
-    }
-
-    public static int a(String str) {
-        return a(0, str);
-    }
-
-    public static int b(String str) {
-        return a(2, str);
-    }
-
-    public static int c(String str) {
-        return a(3, str);
-    }
-
-    public static void a(int i, String str, String str2, String str3) {
-        FileWriter fileWriter;
-        Throwable th;
-        boolean z = false;
-        FileWriter fileWriter2 = null;
-        switch (i) {
-            case 1:
-                if (f2440a < 10) {
-                    f2440a++;
-                    z = true;
-                    break;
-                }
-                break;
-            case 2:
-                if (b < 10) {
-                    b++;
-                    z = true;
-                    break;
-                }
-                break;
-            case 3:
-                if (c < 10) {
-                    c++;
-                    z = true;
-                    break;
-                }
-                break;
-            case 4:
-                if (d < 10) {
-                    d++;
-                    z = true;
-                    break;
-                }
-                break;
+    public static String d(String str) {
+        if (str == null) {
+            return null;
         }
         try {
-            if (com.baidu.tieba.data.h.s() || z) {
-                StringBuilder sb = new StringBuilder(100);
-                sb.append(new Date().getTime() / 1000);
-                sb.append("\t");
-                sb.append(i);
-                sb.append("\t");
-                sb.append(str2);
-                if (str3 != null) {
-                    sb.append(":");
-                    sb.append(str3.replace("\n", " ").replace("\t", " "));
-                }
-                sb.append("\t");
-                sb.append(str);
-                sb.append("\t");
-                sb.append(0);
-                sb.append("\n");
-                String sb2 = sb.toString();
-                if (com.baidu.tieba.data.h.s()) {
-                    Log.e("TiebaLog", sb2);
-                }
-                if (z) {
-                    File g = w.g("log_error.log");
-                    if (sb2 != null && g != null && g.length() < 204800) {
-                        fileWriter = new FileWriter(g, true);
-                        try {
-                            fileWriter.append((CharSequence) sb2);
-                            fileWriter.flush();
-                            fileWriter2 = fileWriter;
-                        } catch (Exception e) {
-                            fileWriter2 = fileWriter;
-                            if (fileWriter2 != null) {
-                                try {
-                                    fileWriter2.close();
-                                    return;
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    e.printStackTrace();
-                                }
-                            }
-                            return;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            if (fileWriter != null) {
-                                try {
-                                    fileWriter.close();
-                                } catch (Exception e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            throw th;
-                        }
-                    }
-                }
-            }
-            if (fileWriter2 != null) {
-                try {
-                    fileWriter2.close();
-                } catch (Exception e4) {
-                    e = e4;
-                    e.printStackTrace();
-                }
-            }
-        } catch (Exception e5) {
-        } catch (Throwable th3) {
-            fileWriter = null;
-            th = th3;
+            return URLEncoder.encode(str, BdUtil.UTF8);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return "";
         }
+    }
+
+    public static String e(String str) {
+        try {
+            return URLDecoder.decode(str, BdUtil.UTF8);
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String a(String str, int i2) {
+        if (str == null || i2 <= 0) {
+            return String.valueOf("");
+        }
+        int length = str.length();
+        int i3 = 0;
+        int i4 = 0;
+        while (i3 < length) {
+            if (a(str.charAt(i3))) {
+                i4 += 2;
+            } else {
+                i4++;
+            }
+            if (i4 >= i2) {
+                break;
+            }
+            i3++;
+        }
+        if (i3 < length) {
+            return str.substring(0, i3 + 1) + "...";
+        }
+        return str;
+    }
+
+    public static String b(byte[] bArr) {
+        int length = bArr.length;
+        int i2 = 0;
+        StringBuilder sb = new StringBuilder(length / 2);
+        while (true) {
+            if (i2 >= length) {
+                break;
+            }
+            int i3 = i2 + 1;
+            int i4 = bArr[i2] & 255;
+            if (i3 == length) {
+                sb.append(t[i4 >>> 2]);
+                sb.append(t[(i4 & 3) << 4]);
+                sb.append("==");
+                break;
+            }
+            int i5 = i3 + 1;
+            int i6 = bArr[i3] & 255;
+            if (i5 == length) {
+                sb.append(t[i4 >>> 2]);
+                sb.append(t[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
+                sb.append(t[(i6 & 15) << 2]);
+                sb.append("=");
+                break;
+            }
+            i2 = i5 + 1;
+            int i7 = bArr[i5] & 255;
+            sb.append(t[i4 >>> 2]);
+            sb.append(t[((i4 & 3) << 4) | ((i6 & 240) >>> 4)]);
+            sb.append(t[((i6 & 15) << 2) | ((i7 & 192) >>> 6)]);
+            sb.append(t[i7 & 63]);
+        }
+        return sb.toString();
+    }
+
+    public static String f(String str) {
+        return a(str);
+    }
+
+    public static String a(String str, Color color) {
+        String str2;
+        Exception exc;
+        if (str == null) {
+            return "";
+        }
+        try {
+            String replaceAll = str.replaceAll("<em>", "<font color='#007bd1'>");
+            try {
+                return replaceAll.replaceAll("</em>", "</font>");
+            } catch (Exception e2) {
+                str2 = replaceAll;
+                exc = e2;
+                bg.a("StringHelper", "getHighLightString", exc.toString());
+                return str2;
+            }
+        } catch (Exception e3) {
+            str2 = null;
+            exc = e3;
+        }
+    }
+
+    public static String b(long j2) {
+        String g2;
+        synchronized (q) {
+            q.setTime(j2);
+            g2 = g(q);
+        }
+        return g2;
+    }
+
+    private static String g(Date date) {
+        if (date == null) {
+            return "";
+        }
+        long time = new Date().getTime() - date.getTime();
+        if (time < j && time > 0) {
+            if (time < k) {
+                if (time < l) {
+                    return String.valueOf(time / m) + p;
+                }
+                return String.valueOf(time / l) + o;
+            }
+            return String.valueOf(time / k) + n;
+        }
+        return d(date);
+    }
+
+    public static int g(String str) {
+        int i2 = 0;
+        if (str != null && str.length() != 0) {
+            ae aeVar = new ae();
+            Matcher matcher = r.matcher(str);
+            while (matcher.find()) {
+                if (aeVar.b(matcher.group()) != 0) {
+                    i2++;
+                }
+            }
+        }
+        return i2;
     }
 }

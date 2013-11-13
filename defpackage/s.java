@@ -11,21 +11,21 @@ import org.json.JSONObject;
 public class s extends JsonHttpResponseHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RequestParams f2938a;
+    final /* synthetic */ RequestParams f2986a;
     final /* synthetic */ m b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(m mVar, RequestParams requestParams) {
         this.b = mVar;
-        this.f2938a = requestParams;
+        this.f2986a = requestParams;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
     public void onFailure(Throwable th, String str) {
         String str2;
-        str2 = m.f2833a;
-        Log.e(str2, "get city|street failed, url: http://loc.map.baidu.com/wloc?" + this.f2938a.getQueryString() + ", errmsg: " + th.getMessage());
+        str2 = m.f2881a;
+        Log.e(str2, "get city|street failed, url: http://loc.map.baidu.com/wloc?" + this.f2986a.getQueryString() + ", errmsg: " + th.getMessage());
         this.b.d();
     }
 
@@ -40,8 +40,8 @@ public class s extends JsonHttpResponseHandler {
                 return;
             }
         }
-        str = m.f2833a;
-        Log.e(str, "get city|street failed, url: http://loc.map.baidu.com/wloc?" + this.f2938a.getQueryString());
+        str = m.f2881a;
+        Log.e(str, "get city|street failed, url: http://loc.map.baidu.com/wloc?" + this.f2986a.getQueryString());
         this.b.d();
     }
 }

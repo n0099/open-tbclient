@@ -5,16 +5,16 @@ import com.baidu.tieba.util.DatabaseService;
 final class h extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1317a;
+    final /* synthetic */ String f1385a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(String str) {
-        this.f1317a = str;
+        this.f1385a = str;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        DatabaseService.p(this.f1317a);
+        DatabaseService.q(this.f1385a);
     }
 }

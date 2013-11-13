@@ -1,28 +1,44 @@
 package com.baidu.tieba.home;
 
-import android.content.DialogInterface;
-import com.baidu.tieba.util.DatabaseService;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
 /* loaded from: classes.dex */
-class ad implements DialogInterface.OnClickListener {
+public class ad {
+    private static final String b = com.baidu.tieba.data.h.f1196a + "c/f/forum/getforumlist";
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ab f1330a;
+    private com.baidu.tieba.util.ap f1398a = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ab abVar) {
-        this.f1330a = abVar;
+    public String a() {
+        AccountData E = TiebaApplication.E();
+        String str = null;
+        if (E != null) {
+            str = E.getID();
+        }
+        this.f1398a = new com.baidu.tieba.util.ap(b);
+        this.f1398a.a(PushConstants.EXTRA_USER_ID, str);
+        this.f1398a.c(true);
+        return this.f1398a.j();
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        i2 = this.f1330a.f1328a.E;
-        if (i2 == 0) {
-            DatabaseService.q();
-            this.f1330a.f1328a.n();
-            return;
+    public void b() {
+        if (this.f1398a != null) {
+            this.f1398a.h();
         }
-        DatabaseService.r();
-        this.f1330a.f1328a.p();
+    }
+
+    public boolean c() {
+        if (this.f1398a != null) {
+            return this.f1398a.c();
+        }
+        return false;
+    }
+
+    public String d() {
+        if (this.f1398a != null) {
+            return this.f1398a.g();
+        }
+        return null;
     }
 }

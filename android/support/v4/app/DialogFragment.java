@@ -117,12 +117,12 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         Bundle bundle2;
         super.d(bundle);
         if (this.d) {
-            View o = o();
-            if (o != null) {
-                if (o.getParent() != null) {
+            View q = q();
+            if (q != null) {
+                if (q.getParent() != null) {
                     throw new IllegalStateException("DialogFragment can not be attached to a container view");
                 }
-                this.f.setContentView(o);
+                this.f.setContentView(q);
             }
             this.f.setOwnerActivity(i());
             this.f.setCancelable(this.c);
@@ -135,8 +135,8 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
     }
 
     @Override // android.support.v4.app.Fragment
-    public void c() {
-        super.c();
+    public void c_() {
+        super.c_();
         if (this.f != null) {
             this.g = false;
             this.f.show();

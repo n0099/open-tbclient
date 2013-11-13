@@ -8,10 +8,10 @@ import android.content.Intent;
 public class e extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MentionActivity f1861a;
+    final /* synthetic */ MentionActivity f1858a;
 
     private e(MentionActivity mentionActivity) {
-        this.f1861a = mentionActivity;
+        this.f1858a = mentionActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,6 +23,6 @@ public class e extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         long longExtra = intent.getLongExtra("relay", 0L);
         long longExtra2 = intent.getLongExtra("at_me", 0L);
-        this.f1861a.a(new long[]{intent.getLongExtra("pletter", 0L), longExtra, longExtra2});
+        this.f1858a.a(new long[]{intent.getLongExtra("pletter", 0L), longExtra, longExtra2});
     }
 }

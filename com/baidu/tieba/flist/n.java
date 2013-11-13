@@ -1,47 +1,31 @@
 package com.baidu.tieba.flist;
 
-import android.support.v4.view.ae;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-class n extends ae {
+class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1198a;
+    final /* synthetic */ ForumListActivity f1256a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(ForumListActivity forumListActivity) {
-        this.f1198a = forumListActivity;
+        this.f1256a = forumListActivity;
     }
 
-    @Override // android.support.v4.view.ae
-    public int getCount() {
-        boolean z;
-        z = this.f1198a.s;
-        return z ? 1 : 2;
-    }
-
-    @Override // android.support.v4.view.ae
-    public boolean isViewFromObject(View view, Object obj) {
-        return view.equals(obj);
-    }
-
-    @Override // android.support.v4.view.ae
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        switch (i) {
-            case 0:
-                viewGroup.addView(this.f1198a.c.h);
-                return this.f1198a.c.h;
-            case 1:
-                viewGroup.addView(this.f1198a.c.i);
-                return this.f1198a.c.i;
-            default:
-                return null;
+    @Override // java.lang.Runnable
+    public void run() {
+        int i;
+        com.baidu.tieba.util.i iVar;
+        com.baidu.tieba.util.i iVar2;
+        i = this.f1256a.z;
+        if (i == 0) {
+            BdListView bdListView = this.f1256a.c.g;
+            iVar2 = this.f1256a.r;
+            com.baidu.tieba.util.ak.a(bdListView, iVar2, 1, -1);
+            return;
         }
-    }
-
-    @Override // android.support.v4.view.ae
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView((View) obj);
+        BdListView bdListView2 = this.f1256a.c.h;
+        iVar = this.f1256a.r;
+        com.baidu.tieba.util.ak.a(bdListView2, iVar, 1, -1);
     }
 }

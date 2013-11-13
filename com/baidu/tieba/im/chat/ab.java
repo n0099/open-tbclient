@@ -1,131 +1,82 @@
 package com.baidu.tieba.im.chat;
 
 import android.app.Activity;
-import android.graphics.drawable.ColorDrawable;
-import android.support.v4.view.ViewPager;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.Editable;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.slidingmenu.lib.R;
-import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab {
+public class ab implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f1404a;
-    private EditText b;
-    private int c = 1;
-    private double d = 0.0d;
-    private int e = 0;
-    private m f = null;
-    private ArrayList<View> g = null;
-    private ArrayList<ImageView> h = null;
-    private RelativeLayout i = null;
-    private ViewPager j = null;
-    private LinearLayout k = null;
+    final /* synthetic */ aa f1497a;
 
-    public ab(Activity activity, EditText editText) {
-        this.b = null;
-        this.f1404a = activity;
-        this.b = editText;
-        b();
-        c();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(aa aaVar) {
+        this.f1497a = aaVar;
     }
 
-    private void b() {
-        this.i = (RelativeLayout) this.f1404a.findViewById(R.id.face_view);
-        this.j = (ViewPager) this.f1404a.findViewById(R.id.face_im_contains);
-        this.g = new ArrayList<>();
-        this.d = TbFaceManager.a().b();
-        int ceil = (int) Math.ceil(this.d / 27.0d);
-        View view = new View(this.f1404a);
-        view.setBackgroundColor(0);
-        this.g.add(view);
-        ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < ceil; i++) {
-            GridView gridView = new GridView(this.f1404a);
-            this.e = i * 28;
-            this.f = new m(this.f1404a, 28, this.e - i, i);
-            gridView.setAdapter((ListAdapter) this.f);
-            arrayList.add(this.f);
-            gridView.setNumColumns(7);
-            gridView.setBackgroundColor(0);
-            gridView.setHorizontalSpacing(5);
-            gridView.setVerticalSpacing(5);
-            gridView.setStretchMode(2);
-            gridView.setSelector(new ColorDrawable(0));
-            gridView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            gridView.setGravity(17);
-            this.g.add(gridView);
-            gridView.setOnItemClickListener(new ac(this));
-        }
-        View view2 = new View(this.f1404a);
-        view2.setBackgroundColor(0);
-        this.g.add(view2);
-        this.j.setAdapter(new ViewPagerAdapter(this.g));
-        b(1);
-        this.j.setOnPageChangeListener(new ad(this));
-    }
-
-    private void c() {
-        this.k = (LinearLayout) this.f1404a.findViewById(R.id.iv_image);
-        this.h = new ArrayList<>();
-        for (int i = 0; i < this.g.size(); i++) {
-            ImageView imageView = new ImageView(this.f1404a);
-            imageView.setBackgroundResource(R.drawable.face_im_dot_corners);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            layoutParams.leftMargin = 10;
-            layoutParams.rightMargin = 10;
-            layoutParams.width = 8;
-            layoutParams.height = 8;
-            this.k.addView(imageView, layoutParams);
-            if (i == 0 || i == this.g.size() - 1) {
-                imageView.setVisibility(8);
-            }
-            if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.face_im_dot_corners_selected);
-            }
-            this.h.add(imageView);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(int i) {
-        int i2 = 1;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.h.size()) {
-                if (i == i3) {
-                    this.h.get(i3).setBackgroundResource(R.drawable.face_im_dot_corners_selected);
-                } else {
-                    this.h.get(i3).setBackgroundResource(R.drawable.face_im_dot_corners);
-                }
-                i2 = i3 + 1;
-            } else {
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        m mVar;
+        int i2;
+        int i3;
+        EditText editText;
+        EditText editText2;
+        EditText editText3;
+        Activity activity;
+        EditText editText4;
+        EditText editText5;
+        EditText editText6;
+        EditText editText7;
+        EditText editText8;
+        EditText editText9;
+        EditText editText10;
+        EditText editText11;
+        if (i % 27 != 0 || i == 0) {
+            mVar = this.f1497a.f;
+            i2 = this.f1497a.c;
+            i3 = this.f1497a.c;
+            String a2 = mVar.a(((((i2 - 1) * 28) + i) - i3) + 1);
+            if (a2 != null) {
+                editText = this.f1497a.b;
+                int selectionStart = editText.getSelectionStart();
+                editText2 = this.f1497a.b;
+                editText2.getText().insert(selectionStart, a2);
                 return;
             }
+            return;
         }
-    }
-
-    public void a(int i) {
-        if (i == 0 || 8 == i || 4 == i) {
-            this.i.setVisibility(i);
-        }
-    }
-
-    public int a() {
-        return this.i.getVisibility();
-    }
-
-    public void b(int i) {
-        if (i >= 0) {
-            this.j.setCurrentItem(i);
+        editText3 = this.f1497a.b;
+        if (editText3.getSelectionStart() > 0) {
+            activity = this.f1497a.f1496a;
+            ((ImageView) view).setImageBitmap(((BitmapDrawable) activity.getResources().getDrawable(R.drawable.but_face_close_n)).getBitmap());
+            editText4 = this.f1497a.b;
+            String obj = editText4.getText().toString();
+            editText5 = this.f1497a.b;
+            String substring = obj.substring(0, editText5.getSelectionStart());
+            Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
+            if (!matcher.find()) {
+                editText6 = this.f1497a.b;
+                Editable text = editText6.getText();
+                editText7 = this.f1497a.b;
+                editText8 = this.f1497a.b;
+                text.delete(editText7.getSelectionStart() - 1, editText8.getSelectionStart());
+                return;
+            }
+            int length = substring.length() - matcher.replaceFirst("").length();
+            editText9 = this.f1497a.b;
+            Editable text2 = editText9.getText();
+            editText10 = this.f1497a.b;
+            int selectionStart2 = editText10.getSelectionStart() - length;
+            editText11 = this.f1497a.b;
+            text2.delete(selectionStart2, editText11.getSelectionStart());
         }
     }
 }

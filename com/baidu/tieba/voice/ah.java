@@ -1,103 +1,81 @@
 package com.baidu.tieba.voice;
 
-import android.os.Handler;
-import com.baidu.tieba.voice.VoiceManager;
+import com.baidu.location.LocationClientOption;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements j {
+public class ah implements r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoiceManager f2565a;
+    final /* synthetic */ VoiceManager f2619a;
 
     private ah(VoiceManager voiceManager) {
-        this.f2565a = voiceManager;
+        this.f2619a = voiceManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ah(VoiceManager voiceManager, t tVar) {
+    public /* synthetic */ ah(VoiceManager voiceManager, s sVar) {
         this(voiceManager);
     }
 
-    @Override // com.baidu.adp.lib.voice.b
+    @Override // com.baidu.tieba.voice.r
     public void a(String str, int i) {
-        ae aeVar;
-        VoiceManager.VoiceModel voiceModel;
-        boolean z;
-        ae m;
-        boolean z2;
-        Handler handler;
-        Handler handler2;
-        Handler handler3;
-        VoiceManager.VoiceModel voiceModel2;
-        com.baidu.adp.lib.h.d.a("VoiceManager", "Voice-Play-Succ", "");
-        aeVar = this.f2565a.y;
-        if (aeVar != null) {
-            voiceModel = this.f2565a.v;
-            if (voiceModel != null) {
-                z = this.f2565a.M;
-                if (!z) {
-                    VoiceManager voiceManager = this.f2565a;
-                    voiceModel2 = this.f2565a.v;
-                    voiceManager.b(voiceModel2);
-                    this.f2565a.y = null;
-                }
-                this.f2565a.v = null;
-                m = this.f2565a.m();
-                z2 = this.f2565a.M;
-                if (!z2 || m == null) {
-                    this.f2565a.q();
-                    return;
-                }
-                VoiceManager.VoiceModel voiceModel3 = m.getVoiceModel();
-                if (voiceModel3 != null && i >= 0) {
-                    voiceModel3.curr_time = i;
-                }
-                handler = this.f2565a.p;
-                if (handler != null) {
-                    handler2 = this.f2565a.p;
-                    handler2.removeCallbacks(this.f2565a.j);
-                    handler3 = this.f2565a.p;
-                    handler3.postDelayed(this.f2565a.j, 10L);
-                }
+        this.f2619a.q();
+        this.f2619a.H = 1;
+        if (this.f2619a.b == null || str == null) {
+            com.baidu.adp.lib.h.d.b("VoiceManager", "RecoreCallback.succ", "data err:" + str + " d:" + i);
+        } else if (this.f2619a.f2607a != null) {
+            if (i <= 1000) {
+                this.f2619a.f2607a.b(2, ak.a(R.string.voice_record_short_tip));
+                com.baidu.adp.lib.h.d.b("VoiceManager", "RecoreCallback.succ", "voice too short f:" + str + " d:" + i);
+            } else if (!str.endsWith(this.f2619a.b)) {
+                com.baidu.adp.lib.h.d.b("VoiceManager", "RecoreCallback.succ", "filename error f:" + str + " v:" + this.f2619a.b);
+            } else {
+                com.baidu.adp.lib.h.d.c("========start submit voice f:" + str + " d:" + i);
+                this.f2619a.a(this.f2619a.b, (int) Math.round((i * 1.0d) / 1000.0d));
+                this.f2619a.b = null;
             }
         }
     }
 
-    @Override // com.baidu.adp.lib.voice.b
+    @Override // com.baidu.tieba.voice.r
     public void a(int i, String str) {
-        ae aeVar;
-        ae aeVar2;
-        VoiceManager.VoiceModel voiceModel;
-        VoiceManager.VoiceModel voiceModel2;
-        com.baidu.adp.lib.h.d.b("VoiceManager", "Voice-Play-Fail", " " + i + " " + str);
-        aeVar = this.f2565a.y;
-        if (aeVar != null) {
-            aeVar2 = this.f2565a.y;
-            aeVar2.b(i, str);
-            voiceModel = this.f2565a.v;
-            if (voiceModel != null) {
-                VoiceManager voiceManager = this.f2565a;
-                voiceModel2 = this.f2565a.v;
-                voiceManager.b(voiceModel2);
-                this.f2565a.v = null;
+        this.f2619a.q();
+        com.baidu.adp.lib.h.d.b(getClass().getName(), "RecoreCallback.error", "error: " + str);
+        if (this.f2619a.f2607a == null) {
+            this.f2619a.H = 1;
+        } else if (i != 7) {
+            this.f2619a.H = 1;
+            if (i == 8) {
+                i = 2;
             }
-            this.f2565a.q();
+            this.f2619a.f2607a.b(i, str);
+            com.baidu.adp.lib.h.d.b("VoiceManager", "RecoreCallback.error", "err:" + i + " " + str);
+        } else if (this.f2619a.b != null) {
+            this.f2619a.a(this.f2619a.b, com.baidu.adp.lib.voice.a.f517a / LocationClientOption.MIN_SCAN_SPAN);
+            this.f2619a.b = null;
+            this.f2619a.f2607a.b(3, this.f2619a.d.getString(R.string.voice_record_timeout_tip));
+        } else {
+            com.baidu.adp.lib.h.d.b("VoiceManager", "RecoreCallback.error", "data err");
         }
     }
 
-    @Override // com.baidu.tieba.voice.j
+    @Override // com.baidu.tieba.voice.r
     public void a(int i) {
-        ae m;
-        VoiceManager.VoiceModel voiceModel;
-        VoiceManager.VoiceModel voiceModel2;
-        m = this.f2565a.m();
-        if (m != null) {
-            m.c(i);
+        if (this.f2619a.f2607a != null) {
+            this.f2619a.f2607a.e(i);
         }
-        voiceModel = this.f2565a.v;
-        if (voiceModel != null) {
-            voiceModel2 = this.f2565a.v;
-            voiceModel2.elapse = i;
+    }
+
+    @Override // com.baidu.tieba.voice.r
+    public void b(int i) {
+        if (this.f2619a.f2607a != null) {
+            this.f2619a.f2607a.d(i / LocationClientOption.MIN_SCAN_SPAN);
         }
+    }
+
+    @Override // com.baidu.tieba.voice.r
+    public void a() {
+        this.f2619a.H = 1;
     }
 }

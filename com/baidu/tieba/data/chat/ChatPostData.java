@@ -3,6 +3,7 @@ package com.baidu.tieba.data.chat;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class ChatPostData implements Serializable {
+    private static final long serialVersionUID = -7096608987896994585L;
     private String mContent = null;
     private String mFriendID = null;
     private String mUserID = null;

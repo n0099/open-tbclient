@@ -1,29 +1,19 @@
 package com.baidu.tieba.write;
 
-import android.view.animation.Animation;
-import com.baidu.tieba.view.AniImageView;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class o implements Runnable {
+class o implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f2666a;
-    final /* synthetic */ AudioIcon b;
+    final /* synthetic */ VcodeActivity f2714a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(AudioIcon audioIcon, List list) {
-        this.b = audioIcon;
-        this.f2666a = list;
+    public o(VcodeActivity vcodeActivity) {
+        this.f2714a = vcodeActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        AniImageView aniImageView;
-        int i;
-        aniImageView = this.b.h;
-        List list = this.f2666a;
-        i = AudioIcon.g;
-        aniImageView.startAnimation((Animation) list.get(i));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f2714a.finish();
     }
 }

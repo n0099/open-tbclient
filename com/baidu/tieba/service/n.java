@@ -3,19 +3,19 @@ package com.baidu.tieba.service;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.aj;
-import com.baidu.tieba.util.ag;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.data.ak;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.bg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends BdAsyncTask<String, Integer, aj> {
+public class n extends BdAsyncTask<String, Integer, ak> {
     int b;
     final /* synthetic */ TiebaMessageService c;
 
     /* renamed from: a  reason: collision with root package name */
-    ag f2317a = null;
+    ap f2350a = null;
     private TiebaApplication d = TiebaApplication.g();
-    private String e = TiebaApplication.C();
+    private String e = TiebaApplication.A();
 
     public n(TiebaMessageService tiebaMessageService, int i) {
         this.c = tiebaMessageService;
@@ -32,43 +32,43 @@ public class n extends BdAsyncTask<String, Integer, aj> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public aj a(String... strArr) {
-        aj ajVar;
+    public ak a(String... strArr) {
+        ak akVar;
         Exception e;
         try {
         } catch (Exception e2) {
-            ajVar = null;
+            akVar = null;
             e = e2;
         }
-        if (this.d.af() && this.e != null && this.e.length() > 0) {
-            this.f2317a = new ag(com.baidu.tieba.data.h.f1165a + "c/s/msg");
+        if (this.d.ad() && this.e != null && this.e.length() > 0) {
+            this.f2350a = new ap(com.baidu.tieba.data.h.f1196a + "c/s/msg");
             if (this.b == 2) {
-                this.f2317a.a("bookmark", SocialConstants.TRUE);
+                this.f2350a.a("bookmark", SocialConstants.TRUE);
             }
-            String j = this.f2317a.j();
-            if (this.f2317a.c()) {
-                ajVar = new aj();
+            String j = this.f2350a.j();
+            if (this.f2350a.c()) {
+                akVar = new ak();
                 try {
-                    ajVar.a(j);
+                    akVar.a(j);
                 } catch (Exception e3) {
                     e = e3;
-                    be.b(getClass().getName(), "doInBackground", e.getMessage());
-                    return ajVar;
+                    bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return akVar;
                 }
             } else {
-                ajVar = null;
+                akVar = null;
             }
-            return ajVar;
+            return akVar;
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.c.f2301a = null;
+        this.c.f2334a = null;
         this.c.b = null;
-        if (this.f2317a != null) {
-            this.f2317a.h();
+        if (this.f2350a != null) {
+            this.f2350a.h();
         }
         super.cancel(true);
     }
@@ -76,13 +76,13 @@ public class n extends BdAsyncTask<String, Integer, aj> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(aj ajVar) {
+    public void a(ak akVar) {
         try {
-            super.a((n) ajVar);
-            this.c.f2301a = null;
+            super.a((n) akVar);
+            this.c.f2334a = null;
             this.c.b = null;
-            if (ajVar != null) {
-                this.c.c = ajVar;
+            if (akVar != null) {
+                this.c.c = akVar;
                 if (this.b == 2) {
                     this.d.a((Boolean) false);
                 }
@@ -91,7 +91,7 @@ public class n extends BdAsyncTask<String, Integer, aj> {
                 }
             }
         } catch (Exception e) {
-            be.b(getClass().getName(), "onPostExecute", e.getMessage());
+            bg.b(getClass().getName(), "onPostExecute", e.getMessage());
         }
     }
 }

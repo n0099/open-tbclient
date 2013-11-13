@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class d extends SingleRunnable<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1521a;
+    final /* synthetic */ String f1612a;
     final /* synthetic */ LinkedList b;
     final /* synthetic */ boolean c;
     final /* synthetic */ a e;
@@ -22,7 +22,7 @@ public class d extends SingleRunnable<Boolean> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, String str, LinkedList linkedList, boolean z) {
         this.e = aVar;
-        this.f1521a = str;
+        this.f1612a = str;
         this.b = linkedList;
         this.c = z;
     }
@@ -35,10 +35,10 @@ public class d extends SingleRunnable<Boolean> {
         Cursor cursor;
         AtomicInteger atomicInteger;
         AtomicInteger atomicInteger2;
-        if (TextUtils.isEmpty(this.f1521a) || this.b == null || this.b.size() == 0) {
+        if (TextUtils.isEmpty(this.f1612a) || this.b == null || this.b.size() == 0) {
             return false;
         }
-        String str = a.f1510a + this.f1521a;
+        String str = a.f1601a + this.f1612a;
         SQLiteDatabase a2 = m.a();
         if (a2 == null) {
             return false;
@@ -51,7 +51,7 @@ public class d extends SingleRunnable<Boolean> {
                 try {
                     try {
                         String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("mid")) : null;
-                        com.baidu.tieba.util.g.a(cursor);
+                        com.baidu.tieba.util.o.a(cursor);
                         if (string != null) {
                             a2.delete(str, "mid<?", new String[]{string});
                         }
@@ -61,13 +61,13 @@ public class d extends SingleRunnable<Boolean> {
                         e = e;
                         e.printStackTrace();
                         Boolean.valueOf(false);
-                        com.baidu.tieba.util.g.a(cursor);
+                        com.baidu.tieba.util.o.a(cursor);
                         a2.endTransaction();
                         return true;
                     }
                 } catch (Throwable th) {
                     th = th;
-                    com.baidu.tieba.util.g.a(cursor);
+                    com.baidu.tieba.util.o.a(cursor);
                     a2.endTransaction();
                     throw th;
                 }
@@ -95,7 +95,7 @@ public class d extends SingleRunnable<Boolean> {
                 }
             }
             a2.setTransactionSuccessful();
-            com.baidu.tieba.util.g.a(cursor);
+            com.baidu.tieba.util.o.a(cursor);
             a2.endTransaction();
         } catch (Exception e2) {
             e = e2;
@@ -103,7 +103,7 @@ public class d extends SingleRunnable<Boolean> {
         } catch (Throwable th2) {
             th = th2;
             cursor = null;
-            com.baidu.tieba.util.g.a(cursor);
+            com.baidu.tieba.util.o.a(cursor);
             a2.endTransaction();
             throw th;
         }

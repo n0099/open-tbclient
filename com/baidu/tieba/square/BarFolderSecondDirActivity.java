@@ -7,92 +7,91 @@ import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.MainTabActivity;
-import com.baidu.tieba.util.bb;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class BarFolderSecondDirActivity extends com.baidu.tieba.a {
-    private ProgressBar j;
-    private o k;
-    private n l;
-    private ImageView m = null;
+    private ProgressBar h;
+    private q i;
+    private p j;
+    private ImageView k = null;
+    private String l;
+    private String m;
     private String n;
-    private String o;
-    private String p;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.bar_folder_dir_activity);
-        this.n = getIntent().getStringExtra("menuName");
-        this.o = getIntent().getStringExtra("menuType");
-        this.p = getIntent().getStringExtra("menuId");
-        d();
-        f();
+        this.l = getIntent().getStringExtra("menuName");
+        this.m = getIntent().getStringExtra("menuType");
+        this.n = getIntent().getStringExtra("menuId");
+        c();
         e();
+        d();
         StatService.onEvent(this, "category_2", "enter");
     }
 
-    protected void d() {
-        this.k = new o(this, new r(), this.n, this.p);
-        this.e.setAdapter((ListAdapter) this.k);
-        this.d.setText(this.n);
-        this.j = (ProgressBar) findViewById(R.id.progress);
-        this.m = (ImageView) findViewById(R.id.home);
+    protected void c() {
+        this.i = new q(this, new t(), this.l, this.n);
+        this.e.setAdapter((ListAdapter) this.i);
+        this.d.setText(this.l);
+        this.h = (ProgressBar) findViewById(R.id.progress);
+        this.k = (ImageView) findViewById(R.id.home);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.a, com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        bb.c(this.m, i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        com.baidu.tieba.util.bd.c(this.k, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.a
-    public void c() {
-        if (this.l != null) {
-            this.l.cancel();
+    public void b() {
+        if (this.j != null) {
+            this.j.cancel();
         }
-        a((r) null, true);
-        super.c();
+        a(null, true);
+        super.b();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.m) {
+        if (view == this.k) {
             MainTabActivity.a(this);
         }
     }
 
-    protected void e() {
-        this.e.setOnItemClickListener(new m(this));
-        this.m.setOnClickListener(this);
+    protected void d() {
+        this.e.setOnItemClickListener(new o(this));
+        this.k.setOnClickListener(this);
     }
 
-    protected void f() {
-        this.j.setVisibility(0);
+    protected void e() {
+        this.h.setVisibility(0);
         this.e.setEnabled(false);
-        if (this.l != null) {
-            this.l.cancel();
+        if (this.j != null) {
+            this.j.cancel();
         }
-        this.l = new n(this, null);
-        this.l.setPriority(3);
-        this.l.execute("");
+        this.j = new p(this, null);
+        this.j.setPriority(3);
+        this.j.execute("");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void a(r rVar, boolean z) {
-        this.j.setVisibility(8);
+    public void a(t tVar, boolean z) {
+        this.h.setVisibility(8);
         this.e.setEnabled(true);
-        this.l = null;
+        this.j = null;
         if (!z) {
-            if (rVar.b()) {
-                a(rVar.c());
+            if (tVar.b()) {
+                showToast(tVar.c());
                 return;
             }
             this.e.setVisibility(4);
-            this.k.notifyDataSetChanged();
+            this.i.notifyDataSetChanged();
             this.e.setVisibility(0);
         }
     }

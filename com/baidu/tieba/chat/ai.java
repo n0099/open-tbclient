@@ -21,19 +21,21 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.data.chat.ChatData;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.ClickableLayout4Frame;
 import com.baidu.tieba.view.KeyboardEventLayout;
+import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.ao;
-import com.baidu.tieba.view.bb;
+import com.baidu.tieba.view.bi;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ai extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private ChatActivity f1092a;
+    private ChatActivity f1125a;
     private ImageView c;
     private Button d;
-    private Button e;
+    private TextView e;
     private TextView f;
     private BdListView g;
     private ProgressBar h;
@@ -42,15 +44,16 @@ public class ai extends com.baidu.adp.a.e {
     private Dialog k;
     private Dialog l;
     private j m;
-    private bb n;
+    private bi n;
     private KeyboardEventLayout o;
     private LinearLayout p;
     private Button q;
-    private TextWatcher r;
+    private NavigationBar r;
+    private TextWatcher s;
 
     public ai(Context context) {
         super(context);
-        this.f1092a = null;
+        this.f1125a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -66,29 +69,28 @@ public class ai extends com.baidu.adp.a.e {
         this.o = null;
         this.p = null;
         this.q = null;
-        this.r = new ak(this);
+        this.s = new ak(this);
         if (context instanceof ChatActivity) {
-            this.f1092a = (ChatActivity) context;
-            this.o = (KeyboardEventLayout) LayoutInflater.from(this.f1092a).inflate(R.layout.chat_activity, (ViewGroup) null);
-            this.f1092a.addContentView(this.o, new FrameLayout.LayoutParams(-2, -2));
-            this.p = (LinearLayout) this.o.findViewById(R.id.title);
-            this.c = (ImageView) this.o.findViewById(R.id.back);
-            this.f = (TextView) this.o.findViewById(R.id.name);
-            this.e = (Button) this.o.findViewById(R.id.more);
+            this.f1125a = (ChatActivity) context;
+            this.o = (KeyboardEventLayout) LayoutInflater.from(this.f1125a).inflate(R.layout.chat_activity, (ViewGroup) null);
+            this.f1125a.addContentView(this.o, new FrameLayout.LayoutParams(-1, -1));
+            this.r = (NavigationBar) this.o.findViewById(R.id.navigation_bar);
+            this.c = this.r.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f1125a);
+            this.f = this.r.a("");
+            this.e = this.r.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1125a.getString(R.string.more), this.f1125a);
             this.g = (BdListView) this.o.findViewById(R.id.chat_list);
             this.h = (ProgressBar) this.o.findViewById(R.id.progress);
             this.i = (ClickableLayout4Frame) this.o.findViewById(R.id.chat_center);
             this.d = (Button) this.o.findViewById(R.id.chat_post);
             this.j = (EditText) this.o.findViewById(R.id.reply_content);
             this.j.setHint("");
-            this.c.setOnClickListener(this.f1092a);
-            this.f.setOnClickListener(this.f1092a);
-            this.e.setOnClickListener(this.f1092a);
-            this.d.setOnClickListener(this.f1092a);
-            this.j.addTextChangedListener(this.r);
-            this.n = new bb(this.f1092a);
+            this.f.setOnClickListener(this.f1125a);
+            this.e.setOnClickListener(this.f1125a);
+            this.d.setOnClickListener(this.f1125a);
+            this.j.addTextChangedListener(this.s);
+            this.n = new bi(this.f1125a);
             this.g.setPullRefresh(this.n);
-            this.m = new j(this.f1092a);
+            this.m = new j(this.f1125a);
             this.g.setAdapter((ListAdapter) this.m);
             this.i.setOnkeyUpListener(new aj(this));
         }
@@ -165,9 +167,9 @@ public class ai extends com.baidu.adp.a.e {
 
     public void a(DialogInterface.OnClickListener onClickListener) {
         if (this.k == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1092a);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1125a);
             builder.setTitle(R.string.operation);
-            builder.setItems(new String[]{this.f1092a.getString(R.string.copy)}, onClickListener);
+            builder.setItems(new String[]{this.f1125a.getString(R.string.copy)}, onClickListener);
             this.k = builder.create();
             this.k.setCanceledOnTouchOutside(true);
         }
@@ -176,15 +178,15 @@ public class ai extends com.baidu.adp.a.e {
 
     public void p() {
         if (this.l == null) {
-            this.l = new Dialog(this.f1092a, R.style.common_alert_dialog);
+            this.l = new Dialog(this.f1125a, R.style.common_alert_dialog);
             this.l.setCanceledOnTouchOutside(true);
             this.l.setCancelable(true);
-            View inflate = this.f1092a.getLayoutInflater().inflate(R.layout.chat_more_layout, (ViewGroup) null);
+            View inflate = this.f1125a.getLayoutInflater().inflate(R.layout.chat_more_layout, (ViewGroup) null);
             this.l.setContentView(inflate);
             this.q = (Button) inflate.findViewById(R.id.delete_chat);
-            this.q.setOnClickListener(this.f1092a);
+            this.q.setOnClickListener(this.f1125a);
             WindowManager.LayoutParams attributes = this.l.getWindow().getAttributes();
-            attributes.width = (int) (UtilHelper.a((Context) this.f1092a) * 0.9d);
+            attributes.width = (int) (UtilHelper.a((Context) this.f1125a) * 0.9d);
             this.l.getWindow().setAttributes(attributes);
         }
         this.l.show();
@@ -195,25 +197,26 @@ public class ai extends com.baidu.adp.a.e {
     }
 
     public void r() {
-        UtilHelper.a(this.f1092a, this.j);
+        UtilHelper.a(this.f1125a, this.j);
     }
 
     public void a(int i) {
-        com.baidu.tieba.util.bb.a(this.c, i);
-        com.baidu.tieba.util.bb.g(this.e, i);
-        com.baidu.tieba.util.bb.d(this.p, i);
+        bd.a(this.c, i);
+        bd.f(this.e, i);
+        bd.d(this.p, i);
         this.m.a(i);
         this.m.notifyDataSetChanged();
         this.n.a(i);
         if (i == 1) {
             this.i.setBackgroundResource(R.drawable.chat_bg_1);
-            com.baidu.tieba.util.bb.e((View) this.d, (int) R.drawable.btn_post_dl_selector_1);
-            this.d.setTextColor(this.f1092a.getResources().getColorStateList(R.color.post_image_btn_color_1));
-            return;
+            bd.e((View) this.d, (int) R.drawable.btn_post_dl_selector_1);
+            this.d.setTextColor(this.f1125a.getResources().getColorStateList(R.color.post_image_btn_color_1));
+        } else {
+            this.i.setBackgroundResource(R.drawable.chat_bg);
+            bd.e((View) this.d, (int) R.drawable.btn_post_dl_selector);
+            this.d.setTextColor(this.f1125a.getResources().getColorStateList(R.color.post_image_btn_color));
         }
-        this.i.setBackgroundResource(R.drawable.chat_bg);
-        com.baidu.tieba.util.bb.e((View) this.d, (int) R.drawable.btn_post_dl_selector);
-        this.d.setTextColor(this.f1092a.getResources().getColorStateList(R.color.post_image_btn_color));
+        this.r.c(i);
     }
 
     public void s() {
@@ -235,14 +238,14 @@ public class ai extends com.baidu.adp.a.e {
     }
 
     public void a(String str, String str2) {
-        com.baidu.tieba.util.a a2 = this.m.a();
+        com.baidu.tieba.util.i a2 = this.m.a();
         a(a2, str);
         a(a2, str2);
     }
 
-    private void a(com.baidu.tieba.util.a aVar, String str) {
-        if (aVar != null && str != null) {
-            aVar.b(str, new al(this));
+    private void a(com.baidu.tieba.util.i iVar, String str) {
+        if (iVar != null && str != null) {
+            iVar.b(str, new al(this));
         }
     }
 

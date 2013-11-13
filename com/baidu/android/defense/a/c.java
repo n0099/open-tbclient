@@ -7,7 +7,7 @@ public final class c {
     private static c b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f610a = Executors.newFixedThreadPool(3, new com.baidu.android.moplus.util.a("Defense_DownloadThreadPool"));
+    private ExecutorService f619a = Executors.newFixedThreadPool(3, new com.baidu.android.moplus.util.a("Defense_DownloadThreadPool"));
 
     private c() {
     }
@@ -34,13 +34,13 @@ public final class c {
 
     private void c() {
         try {
-            this.f610a.shutdown();
+            this.f619a.shutdown();
         } catch (SecurityException e) {
         }
-        this.f610a = null;
+        this.f619a = null;
     }
 
     public void a(d dVar) {
-        this.f610a.submit(dVar);
+        this.f619a.submit(dVar);
     }
 }

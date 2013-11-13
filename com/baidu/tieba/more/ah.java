@@ -4,15 +4,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class ah extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f1983a;
+    private com.baidu.tieba.j f1975a;
     private ac c;
-    private com.baidu.tieba.util.a d;
+    private com.baidu.tieba.util.i d;
     private NavigationBar e;
     private SettingTextImageView f;
     private SettingTextTipView g;
@@ -27,16 +28,16 @@ public class ah extends com.baidu.adp.a.e {
 
     public ah(com.baidu.tieba.j jVar, ac acVar) {
         super(jVar);
-        this.f1983a = jVar;
+        this.f1975a = jVar;
         this.c = acVar;
-        this.f1983a.setContentView(R.layout.more_activity);
+        this.f1975a.setContentView(R.layout.more_activity);
         k();
     }
 
     public void a() {
         this.g.setFocusable(false);
         this.g.setClickable(false);
-        this.g.setText(TiebaApplication.H());
+        this.g.setText(TiebaApplication.F());
     }
 
     public void e() {
@@ -46,12 +47,12 @@ public class ah extends com.baidu.adp.a.e {
     }
 
     public void f() {
-        this.g.b();
+        this.g.d();
     }
 
     public void g() {
-        String C = TiebaApplication.C();
-        if (C == null || C.length() <= 0) {
+        String A = TiebaApplication.A();
+        if (A == null || A.length() <= 0) {
             this.f.setVisibility(8);
         } else {
             this.f.setVisibility(0);
@@ -67,7 +68,7 @@ public class ah extends com.baidu.adp.a.e {
             return;
         }
         if (this.d == null) {
-            this.d = new com.baidu.tieba.util.a(this.f1983a);
+            this.d = new com.baidu.tieba.util.i(this.f1975a);
         }
         this.f.b();
         h();
@@ -102,18 +103,18 @@ public class ah extends com.baidu.adp.a.e {
 
     public void i() {
         if (this.j != null) {
-            this.j.d();
+            this.j.a();
         }
     }
 
     public void j() {
         this.f.c();
-        this.g.a();
-        this.h.a();
-        this.i.a();
-        this.j.a();
-        this.k.a();
-        this.l.a();
+        this.g.c();
+        this.h.c();
+        this.i.c();
+        this.j.c();
+        this.k.c();
+        this.l.c();
     }
 
     public void a(int i) {
@@ -121,8 +122,7 @@ public class ah extends com.baidu.adp.a.e {
     }
 
     public void b(int i) {
-        this.e.b(i);
-        com.baidu.tieba.util.bb.b(this.n, i);
+        this.e.c(i);
         this.f.a(i);
         this.g.a(i);
         this.h.a(i);
@@ -131,76 +131,78 @@ public class ah extends com.baidu.adp.a.e {
         this.k.a(i);
         this.l.a(i);
         if (i == 1) {
+            this.n.setBackgroundColor(this.f1975a.getResources().getColor(R.color.bg_page_setting_1));
             m();
-        } else {
-            l();
+            return;
         }
+        this.n.setBackgroundColor(this.f1975a.getResources().getColor(R.color.bg_page_setting));
+        l();
     }
 
     private void k() {
         View.OnClickListener n = n();
-        this.n = (RelativeLayout) this.f1983a.findViewById(R.id.parent);
-        this.e = (NavigationBar) this.f1983a.findViewById(R.id.view_navigation_bar);
-        this.e.a(this.f1983a.getString(R.string.setup));
+        this.n = (RelativeLayout) this.f1975a.findViewById(R.id.parent);
+        this.e = (NavigationBar) this.f1975a.findViewById(R.id.view_navigation_bar);
+        this.e.a(this.f1975a.getString(R.string.setup));
         this.o = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (SettingTextImageView) this.f1983a.findViewById(R.id.personInfo);
-        this.g = (SettingTextTipView) this.f1983a.findViewById(R.id.accountManager);
-        this.h = (SettingTextTipView) this.f1983a.findViewById(R.id.browseSetting);
-        this.i = (SettingTextTipView) this.f1983a.findViewById(R.id.messageSetting);
-        this.j = (SettingTextVersionView) this.f1983a.findViewById(R.id.versionInfo);
-        this.k = (SettingTextTipView) this.f1983a.findViewById(R.id.feedBack);
-        this.l = (SettingTextTipView) this.f1983a.findViewById(R.id.recommend);
+        this.f = (SettingTextImageView) this.f1975a.findViewById(R.id.personInfo);
+        this.g = (SettingTextTipView) this.f1975a.findViewById(R.id.accountManager);
+        this.h = (SettingTextTipView) this.f1975a.findViewById(R.id.browseSetting);
+        this.i = (SettingTextTipView) this.f1975a.findViewById(R.id.messageSetting);
+        this.j = (SettingTextVersionView) this.f1975a.findViewById(R.id.versionInfo);
+        this.k = (SettingTextTipView) this.f1975a.findViewById(R.id.feedBack);
+        this.l = (SettingTextTipView) this.f1975a.findViewById(R.id.recommend);
         if (!TiebaApplication.g().x()) {
             this.l.setVisibility(8);
         } else {
             this.l.setVisibility(0);
         }
-        this.m = (SettingTextTipView) this.f1983a.findViewById(R.id.systemhelpsetting);
+        this.m = (SettingTextTipView) this.f1975a.findViewById(R.id.systemhelpsetting);
         i();
         g();
         this.f.a();
-        b(TiebaApplication.g().as());
+        b(TiebaApplication.g().ap());
         a(n);
     }
 
     private void l() {
-        com.baidu.tieba.util.bb.e(this.f, (int) R.drawable.more_up);
+        bd.e(this.f, (int) R.drawable.more_up);
         if (this.f.getVisibility() == 0) {
-            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_down);
+            bd.e(this.g, (int) R.drawable.more_down);
         } else {
-            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_all);
+            bd.e(this.g, (int) R.drawable.more_all);
         }
-        com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.more_all);
-        com.baidu.tieba.util.bb.e(this.i, (int) R.drawable.more_all);
-        com.baidu.tieba.util.bb.e(this.j, (int) R.drawable.more_up);
+        bd.e(this.h, (int) R.drawable.more_all);
+        bd.e(this.i, (int) R.drawable.more_all);
+        bd.e(this.j, (int) R.drawable.more_up);
         if (this.l.getVisibility() == 0) {
-            com.baidu.tieba.util.bb.e(this.k, (int) R.drawable.more_middle);
+            bd.e(this.k, (int) R.drawable.more_middle);
         } else {
-            com.baidu.tieba.util.bb.e(this.k, (int) R.drawable.more_down);
+            bd.e(this.k, (int) R.drawable.more_down);
         }
-        com.baidu.tieba.util.bb.e(this.l, (int) R.drawable.more_down);
+        bd.e(this.l, (int) R.drawable.more_down);
         this.m.a(0);
-        com.baidu.tieba.util.bb.e(this.m, (int) R.drawable.more_all);
+        bd.e(this.m, (int) R.drawable.more_all);
     }
 
     private void m() {
-        com.baidu.tieba.util.bb.e(this.f, (int) R.drawable.more_up_1);
+        bd.e(this.f, (int) R.drawable.more_up_1);
         if (this.f.getVisibility() == 0) {
-            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_down_1);
+            bd.e(this.g, (int) R.drawable.more_down_1);
         } else {
-            com.baidu.tieba.util.bb.e(this.g, (int) R.drawable.more_all_1);
+            bd.e(this.g, (int) R.drawable.more_all_1);
         }
-        com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.more_all_1);
-        com.baidu.tieba.util.bb.e(this.i, (int) R.drawable.more_all_1);
-        com.baidu.tieba.util.bb.e(this.j, (int) R.drawable.more_up_1);
+        bd.e(this.h, (int) R.drawable.more_all_1);
+        bd.e(this.i, (int) R.drawable.more_all_1);
+        bd.e(this.j, (int) R.drawable.more_up_1);
         if (this.l.getVisibility() == 0) {
-            com.baidu.tieba.util.bb.e(this.k, (int) R.drawable.more_middle_1);
+            bd.e(this.k, (int) R.drawable.more_middle_1);
         } else {
-            com.baidu.tieba.util.bb.e(this.k, (int) R.drawable.more_down_1);
+            bd.e(this.k, (int) R.drawable.more_down_1);
         }
-        com.baidu.tieba.util.bb.e(this.l, (int) R.drawable.more_down_1);
+        bd.e(this.l, (int) R.drawable.more_down_1);
         this.m.a(1);
-        com.baidu.tieba.util.bb.e(this.m, (int) R.drawable.more_all_1);
+        bd.e(this.m, (int) R.drawable.more_all_1);
         i();
     }
 

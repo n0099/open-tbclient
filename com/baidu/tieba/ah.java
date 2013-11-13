@@ -1,75 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah {
+public class ah extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1066a;
-    private ImageView b;
-    private TextView c;
-    private int d;
-    private int e;
-    private int f = -1;
+    final /* synthetic */ MainTabActivity f1101a;
 
-    public ah(View view, int i, int i2) {
-        this.d = i;
-        this.e = i2;
-        if (view != null) {
-            this.f1066a = (LinearLayout) view.findViewById(R.id.no_data_container);
-            this.b = (ImageView) view.findViewById(R.id.no_data_image);
-            this.c = (TextView) view.findViewById(R.id.no_data_image_text);
+    private ah(MainTabActivity mainTabActivity) {
+        this.f1101a = mainTabActivity;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ah(MainTabActivity mainTabActivity, af afVar) {
+        this(mainTabActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String action = intent.getAction();
+        if (action.equals("com.baidu.tieba.broadcast.notify")) {
+            this.f1101a.h = intent.getLongExtra("relay", 0L);
+            this.f1101a.i = intent.getLongExtra("at_me", 0L);
+            this.f1101a.j = intent.getLongExtra("fans", 0L);
+            this.f1101a.k = intent.getLongExtra("pletter", 0L);
+            this.f1101a.l = intent.getLongExtra("new_bookmark", 0L);
+            this.f1101a.p();
+        } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
+            this.f1101a.q();
+        } else if (action.equals("com.baidu.tieba.broadcast.newrecommends")) {
+            this.f1101a.e();
         }
-    }
-
-    public ah(Activity activity, int i, int i2) {
-        this.d = i;
-        this.e = i2;
-        this.f1066a = (LinearLayout) activity.findViewById(R.id.no_data_container);
-        this.b = (ImageView) activity.findViewById(R.id.no_data_image);
-        this.c = (TextView) activity.findViewById(R.id.no_data_image_text);
-    }
-
-    public void a(int i) {
-        if (i != this.f) {
-            this.f = i;
-            if (i == 1) {
-                this.b.setImageResource(this.e);
-                this.c.setTextColor(com.baidu.tieba.util.bb.a(i));
-                return;
-            }
-            this.b.setImageResource(this.d);
-            this.c.setTextColor(-5065030);
-        }
-    }
-
-    public void a() {
-        a(TiebaApplication.g().as());
-    }
-
-    public void b() {
-        this.b.setImageDrawable(null);
-        this.f = -1;
-    }
-
-    public void b(int i) {
-        this.f1066a.setVisibility(i);
-        if (i == 8) {
-            this.b.setImageDrawable(null);
-            this.b.setVisibility(8);
-            this.f = -1;
-            return;
-        }
-        this.b.setVisibility(0);
-        a(TiebaApplication.g().as());
-    }
-
-    public boolean c() {
-        return this.f1066a.getVisibility() != 8;
     }
 }

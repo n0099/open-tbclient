@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class MultiImageView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Button f2488a;
+    private Button f2542a;
     private Button b;
     private LinearLayout c;
     private View.OnClickListener d;
@@ -32,7 +32,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context) {
         super(context);
-        this.f2488a = null;
+        this.f2542a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -58,7 +58,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2488a = null;
+        this.f2542a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -78,7 +78,7 @@ public class MultiImageView extends RelativeLayout {
 
     public MultiImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2488a = null;
+        this.f2542a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -115,14 +115,14 @@ public class MultiImageView extends RelativeLayout {
                 int childCount = this.e.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.e.getChildAt(i);
-                    if (childAt != null && (childAt instanceof bk) && ((bk) childAt).getImageView() != this.e.getCurrentView()) {
-                        ((bk) childAt).d();
+                    if (childAt != null && (childAt instanceof bl) && ((bl) childAt).getImageView() != this.e.getCurrentView()) {
+                        ((bl) childAt).d();
                     }
                 }
             }
             View findViewWithTag = this.e.findViewWithTag(String.valueOf(this.e.getCurrentItem()));
-            if (findViewWithTag != null && (findViewWithTag instanceof bk)) {
-                ((bk) findViewWithTag).a(this.n, this.o);
+            if (findViewWithTag != null && (findViewWithTag instanceof bl)) {
+                ((bl) findViewWithTag).a(this.o);
             }
             this.e.getCurrentView().e();
         }
@@ -139,8 +139,8 @@ public class MultiImageView extends RelativeLayout {
             int childCount = this.e.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View childAt = this.e.getChildAt(i);
-                if (childAt != null && (childAt instanceof bk)) {
-                    ((bk) childAt).c();
+                if (childAt != null && (childAt instanceof bl)) {
+                    ((bl) childAt).c();
                 }
             }
         }
@@ -166,18 +166,16 @@ public class MultiImageView extends RelativeLayout {
         this.b.setOnClickListener(this.d);
         this.b.setEnabled(false);
         this.c.addView(this.b);
-        this.f2488a = new Button(getContext());
-        this.f2488a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
-        this.f2488a.setLayoutParams(layoutParams2);
-        this.f2488a.setOnClickListener(this.d);
-        this.f2488a.setEnabled(false);
-        this.c.addView(this.f2488a);
+        this.f2542a = new Button(getContext());
+        this.f2542a.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.image_zoomin));
+        this.f2542a.setLayoutParams(layoutParams2);
+        this.f2542a.setOnClickListener(this.d);
+        this.f2542a.setEnabled(false);
+        this.c.addView(this.f2542a);
         if (this.m) {
             this.c.setVisibility(8);
         }
         this.i = new ImagePagerAdapter(getContext(), null, this.j);
-        this.i.b(this.n);
-        this.i.c(this.o);
         setAdapter(this.i);
     }
 
@@ -196,9 +194,9 @@ public class MultiImageView extends RelativeLayout {
     public void setZoomButton(k kVar) {
         if (kVar != null) {
             if (kVar.p()) {
-                this.f2488a.setEnabled(true);
+                this.f2542a.setEnabled(true);
             } else {
-                this.f2488a.setEnabled(false);
+                this.f2542a.setEnabled(false);
             }
             if (kVar.q()) {
                 this.b.setEnabled(true);
@@ -209,7 +207,7 @@ public class MultiImageView extends RelativeLayout {
             }
         }
         this.b.setEnabled(false);
-        this.f2488a.setEnabled(false);
+        this.f2542a.setEnabled(false);
     }
 
     public void d() {
@@ -306,15 +304,15 @@ public class MultiImageView extends RelativeLayout {
         return (String) selectedView.getTag();
     }
 
-    public void setLoadFromCDN(boolean z) {
-        this.n = z;
+    public void setAllowLocalUrl(boolean z) {
+        this.o = z;
         if (this.i != null) {
             this.i.b(z);
         }
     }
 
-    public void setAllowLocalUrl(boolean z) {
-        this.o = z;
+    public void setIsFromCDN(boolean z) {
+        this.n = z;
         if (this.i != null) {
             this.i.c(z);
         }

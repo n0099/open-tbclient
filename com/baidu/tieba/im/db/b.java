@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class b extends SingleRunnable<LinkedList<String>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1519a;
+    final /* synthetic */ String f1610a;
     final /* synthetic */ int b;
     final /* synthetic */ String c;
     final /* synthetic */ int e;
@@ -20,7 +20,7 @@ public class b extends SingleRunnable<LinkedList<String>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, String str, int i, String str2, int i2) {
         this.f = aVar;
-        this.f1519a = str;
+        this.f1610a = str;
         this.b = i;
         this.c = str2;
         this.e = i2;
@@ -31,7 +31,7 @@ public class b extends SingleRunnable<LinkedList<String>> {
     /* renamed from: a */
     public LinkedList<String> b() {
         Cursor cursor = null;
-        if (TextUtils.isEmpty(this.f1519a)) {
+        if (TextUtils.isEmpty(this.f1610a)) {
             return null;
         }
         int i = this.b;
@@ -39,16 +39,16 @@ public class b extends SingleRunnable<LinkedList<String>> {
             i = 20;
         }
         LinkedList<String> linkedList = new LinkedList<>();
-        String str = a.f1510a + this.f1519a;
+        String str = a.f1601a + this.f1610a;
         SQLiteDatabase a2 = m.a();
         try {
         } catch (SQLiteException e) {
             e.printStackTrace();
-            this.f.d(this.f1519a);
+            this.f.d(this.f1610a);
         } catch (Exception e2) {
             e2.printStackTrace();
         } finally {
-            com.baidu.tieba.util.g.a(cursor);
+            com.baidu.tieba.util.o.a(cursor);
         }
         if (a2 == null) {
             return linkedList;

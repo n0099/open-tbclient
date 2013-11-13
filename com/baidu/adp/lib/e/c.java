@@ -75,19 +75,37 @@ public class c {
     }
 
     public Object a(String str, int i, b bVar, Context context, f fVar, BdAsyncTaskType bdAsyncTaskType, int i2) {
+        boolean z;
+        BdAsyncTask<?, ?, ?> bdAsyncTask;
+        Object a2;
         if (this.f479a == null) {
             throw new Exception("BdLoaderCreaterAbstractFactory can not be null");
         }
-        g a2 = a(i);
-        if (a2 == null) {
+        g a3 = a(i);
+        if (a3 == null) {
             throw new Exception("Can't find the ResourceLoaderProc with type " + i);
         }
-        Object a3 = a2.a(str, fVar);
-        if (a3 == null) {
+        Object a4 = a3.a(str, fVar);
+        if (a4 == null) {
             b dVar = bVar == null ? new d(this) : bVar;
-            BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(str + context.getClass().getName());
-            if (searchTask != null && searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
-                ((e) searchTask).a(dVar, fVar);
+            String str2 = str + context.getClass().getName();
+            BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask(str2);
+            if (fVar == null || (a2 = fVar.a("param_immediatelyExecut")) == null || !(a2 instanceof Boolean)) {
+                z = false;
+            } else {
+                z = ((Boolean) a2).booleanValue();
+            }
+            if (!z || searchTask == null || searchTask.getStatus() == BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+                bdAsyncTask = searchTask;
+            } else {
+                bdAsyncTask = BdAsyncTask.searchWaitingTask(str2);
+                if (bdAsyncTask != null && bdAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+                    bdAsyncTask.cancel();
+                    bdAsyncTask = null;
+                }
+            }
+            if (bdAsyncTask != null && bdAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
+                ((e) bdAsyncTask).a(dVar, fVar);
             } else {
                 e eVar = new e(this, str, i, dVar, fVar);
                 if (bdAsyncTaskType != null) {
@@ -98,11 +116,12 @@ public class c {
                 if (context != null) {
                     eVar.setTag(context.getClass().getName());
                 }
+                eVar.setImmediatelyExecut(z);
                 eVar.execute(new String[0]);
             }
             return null;
         }
-        return a3;
+        return a4;
     }
 
     public Object a(String str, int i, b bVar, Context context, f fVar) {

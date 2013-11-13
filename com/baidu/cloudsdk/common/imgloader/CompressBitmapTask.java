@@ -8,7 +8,7 @@ import java.io.ByteArrayOutputStream;
 public class CompressBitmapTask extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f821a;
+    private int f835a;
     private int b;
     private ICompressBitmapListener c;
 
@@ -18,13 +18,13 @@ public class CompressBitmapTask extends AsyncTask {
     }
 
     public CompressBitmapTask(int i, int i2, ICompressBitmapListener iCompressBitmapListener) {
-        this.f821a = i;
+        this.f835a = i;
         this.b = i2;
         this.c = iCompressBitmapListener;
     }
 
     public CompressBitmapTask(ICompressBitmapListener iCompressBitmapListener) {
-        this.f821a = LVBuffer.LENGTH_ALLOC_PER_NEW;
+        this.f835a = LVBuffer.LENGTH_ALLOC_PER_NEW;
         this.b = 1024;
         this.c = iCompressBitmapListener;
     }
@@ -49,7 +49,7 @@ public class CompressBitmapTask extends AsyncTask {
     @Override // android.os.AsyncTask
     public ByteArrayOutputStream doInBackground(Bitmap... bitmapArr) {
         Bitmap bitmap = bitmapArr[0];
-        if (((bitmap.getHeight() * bitmap.getWidth()) * 4) / 1024 > this.f821a) {
+        if (((bitmap.getHeight() * bitmap.getWidth()) * 4) / 1024 > this.f835a) {
             bitmap = a(bitmap);
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

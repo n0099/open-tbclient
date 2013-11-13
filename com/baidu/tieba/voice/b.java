@@ -30,7 +30,7 @@ final class b implements Handler.Callback {
                 jVar3 = a.d;
                 if (jVar3 != null) {
                     jVar4 = a.d;
-                    jVar4.a(message.what, al.a(R.string.voice_err_no_file));
+                    jVar4.a(message.what, ak.a(R.string.voice_err_no_file));
                     break;
                 }
                 break;
@@ -45,12 +45,12 @@ final class b implements Handler.Callback {
                 jVar7 = a.d;
                 if (jVar7 != null) {
                     jVar8 = a.d;
-                    jVar8.a(message.what, al.a(R.string.voice_err_play));
+                    jVar8.a(message.what, ak.a(R.string.voice_err_play));
                     break;
                 }
                 break;
         }
-        int unused = a.f2555a = 0;
+        int unused = a.f2609a = 0;
         j unused2 = a.d = null;
         return false;
     }

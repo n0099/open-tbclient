@@ -35,14 +35,14 @@ public final class b {
                 com.baidu.android.pushservice.d dVar = (com.baidu.android.pushservice.d) it.next();
                 PackageInfo packageInfo = null;
                 try {
-                    packageInfo = packageManager.getPackageInfo(dVar.f691a, 0);
+                    packageInfo = packageManager.getPackageInfo(dVar.f707a, 0);
                 } catch (PackageManager.NameNotFoundException e) {
                     Log.w("ApiUtils", Log.getStackTraceString(e));
                 }
                 if (packageInfo == null) {
                     Intent intent = new Intent(PushConstants.ACTION_METHOD);
                     intent.putExtra(PushConstants.EXTRA_METHOD, "com.baidu.android.pushservice.action.UNBINDAPP");
-                    intent.putExtra("package_name", dVar.f691a);
+                    intent.putExtra("package_name", dVar.f707a);
                     com.baidu.android.pushservice.b.a(context, intent);
                 }
             }
@@ -62,7 +62,7 @@ public final class b {
     }
 
     public static void b(Context context) {
-        a(context, com.baidu.android.pushservice.a.a(context).f678a);
+        a(context, com.baidu.android.pushservice.a.a(context).f687a);
         a(context, com.baidu.android.pushservice.a.a(context).b);
     }
 }

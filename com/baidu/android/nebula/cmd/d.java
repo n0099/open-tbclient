@@ -5,11 +5,11 @@ import java.util.Timer;
 class d implements com.baidu.android.nebula.util.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f659a;
+    final /* synthetic */ c f668a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f659a = cVar;
+        this.f668a = cVar;
     }
 
     @Override // com.baidu.android.nebula.util.d
@@ -17,20 +17,20 @@ class d implements com.baidu.android.nebula.util.d {
         com.baidu.android.nebula.util.c cVar2;
         Timer timer;
         Timer timer2;
-        synchronized (this.f659a.f658a) {
-            this.f659a.f658a.mLocInfo = cVar;
-            cVar2 = this.f659a.f658a.mLocInfo;
+        synchronized (this.f668a.f667a) {
+            this.f668a.f667a.mLocInfo = cVar;
+            cVar2 = this.f668a.f667a.mLocInfo;
             if (cVar2 == null) {
-                this.f659a.f658a.mErrcode = 2;
+                this.f668a.f667a.mErrcode = 2;
             } else {
-                this.f659a.f658a.mErrcode = 0;
+                this.f668a.f667a.mErrcode = 0;
             }
-            timer = this.f659a.f658a.mTimeoutTm;
+            timer = this.f668a.f667a.mTimeoutTm;
             if (timer != null) {
-                timer2 = this.f659a.f658a.mTimeoutTm;
+                timer2 = this.f668a.f667a.mTimeoutTm;
                 timer2.cancel();
             }
-            this.f659a.f658a.notifyAll();
+            this.f668a.f667a.notifyAll();
         }
     }
 }

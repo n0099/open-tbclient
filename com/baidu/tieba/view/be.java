@@ -1,20 +1,27 @@
 package com.baidu.tieba.view;
 
-import java.util.TimerTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.animation.Animation;
 /* loaded from: classes.dex */
-public class be extends TimerTask {
+class be implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShakeCutDownView f2522a;
+    final /* synthetic */ ShutDownValidateTipView f2575a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public be(ShakeCutDownView shakeCutDownView) {
-        this.f2522a = shakeCutDownView;
+    public be(ShutDownValidateTipView shutDownValidateTipView) {
+        this.f2575a = shutDownValidateTipView;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        this.f2522a.f2496a.sendEmptyMessage(0);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        this.f2575a.setVisibility(8);
     }
 }

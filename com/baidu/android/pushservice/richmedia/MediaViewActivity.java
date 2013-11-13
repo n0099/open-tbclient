@@ -16,7 +16,7 @@ import com.baidu.browser.core.util.BdUtil;
 public class MediaViewActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    public WebView f715a;
+    public WebView f730a;
     private RelativeLayout b;
     private WebChromeClient c = new j(this);
     private WebViewClient d = new k(this);
@@ -35,10 +35,10 @@ public class MediaViewActivity extends Activity {
         this.b = new RelativeLayout(this);
         this.b.setLayoutParams(layoutParams);
         this.b.setGravity(1);
-        this.f715a = new WebView(this);
-        this.f715a.requestFocusFromTouch();
-        this.f715a.setLongClickable(true);
-        WebSettings settings = this.f715a.getSettings();
+        this.f730a = new WebView(this);
+        this.f730a.requestFocusFromTouch();
+        this.f730a.setLongClickable(true);
+        WebSettings settings = this.f730a.getSettings();
         settings.setCacheMode(1);
         settings.setDatabaseEnabled(true);
         settings.setDomStorageEnabled(true);
@@ -47,15 +47,15 @@ public class MediaViewActivity extends Activity {
         settings.setJavaScriptEnabled(true);
         settings.setLightTouchEnabled(true);
         settings.setDefaultTextEncodingName(BdUtil.UTF8);
-        this.f715a.setWebChromeClient(this.c);
-        this.f715a.setWebViewClient(this.d);
+        this.f730a.setWebChromeClient(this.c);
+        this.f730a.setWebViewClient(this.d);
         if (com.baidu.android.pushservice.b.a()) {
             Log.d("MediaViewActivity", "uri=" + intent.getData().toString());
         }
-        this.f715a.loadUrl(intent.getData().toString());
-        this.b.addView(this.f715a);
+        this.f730a.loadUrl(intent.getData().toString());
+        this.b.addView(this.f730a);
         setContentView(this.b);
-        if (this.b == null || this.f715a == null) {
+        if (this.b == null || this.f730a == null) {
             Log.e("MediaViewActivity", "Set up Layout error.");
             finish();
         }
@@ -68,7 +68,7 @@ public class MediaViewActivity extends Activity {
         if (com.baidu.android.pushservice.b.a()) {
             Log.d("MediaViewActivity", "uri=" + intent.getData().toString());
         }
-        this.f715a.loadUrl(intent.getData().toString());
+        this.f730a.loadUrl(intent.getData().toString());
     }
 
     @Override // android.app.Activity

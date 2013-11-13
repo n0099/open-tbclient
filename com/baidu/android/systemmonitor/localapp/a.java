@@ -10,7 +10,7 @@ import java.io.IOException;
 public class a implements Comparable {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f811a = a.class.getSimpleName();
+    public static final String f825a = a.class.getSimpleName();
     public String b;
     public String d;
     public long e;

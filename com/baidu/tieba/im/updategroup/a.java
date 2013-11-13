@@ -18,17 +18,17 @@ public interface a {
 
     void b(DialogInterface.OnClickListener onClickListener);
 
-    String c_();
-
     View d();
-
-    void d_();
 
     View e();
 
     View f();
 
+    String f_();
+
     void g();
+
+    void g_();
 
     void h();
 

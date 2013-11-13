@@ -9,14 +9,14 @@ import android.os.Process;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.h;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f2327a = null;
+    private static b f2360a = null;
     private static ContentResolver b = null;
     private static HashMap<String, String> f = null;
     private String c = null;
@@ -25,7 +25,7 @@ public class b {
 
     private b() {
         f = new HashMap<>();
-        f.put(a.f2326a, "settings");
+        f.put(a.f2359a, "settings");
         f.put(a.b, "remote_settings");
         f.put(a.c, "bdservice_settings");
         b = TiebaApplication.g().getContentResolver();
@@ -34,10 +34,10 @@ public class b {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f2327a == null) {
-                f2327a = new b();
+            if (f2360a == null) {
+                f2360a = new b();
             }
-            bVar = f2327a;
+            bVar = f2360a;
         }
         return bVar;
     }
@@ -49,7 +49,7 @@ public class b {
                 try {
                     return Boolean.parseBoolean(c);
                 } catch (NumberFormatException e) {
-                    be.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
+                    bg.b("SharedPrefHelper", "getBoolean", "Convert error:" + c);
                     return z;
                 }
             }
@@ -66,7 +66,7 @@ public class b {
                 try {
                     return Integer.parseInt(c);
                 } catch (NumberFormatException e) {
-                    be.b("SharedPrefHelper", "getInt", "Convert error:" + c);
+                    bg.b("SharedPrefHelper", "getInt", "Convert error:" + c);
                     return i;
                 }
             }
@@ -83,7 +83,7 @@ public class b {
                 try {
                     return Long.parseLong(c);
                 } catch (NumberFormatException e) {
-                    be.b("SharedPrefHelper", "getLong", "Convert error:" + c);
+                    bg.b("SharedPrefHelper", "getLong", "Convert error:" + c);
                     return j;
                 }
             }
@@ -239,7 +239,7 @@ public class b {
                 }
             }
         }
-        return a.f2326a;
+        return a.f2359a;
     }
 
     public void b() {

@@ -9,29 +9,29 @@ import java.util.Map;
 public class am extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2715a;
+    int f2763a;
     int c;
 
     public am(int i, int i2, int i3) {
         super(i3);
-        this.f2715a = i;
+        this.f2763a = i;
         this.c = i2;
     }
 
     public am(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2715a = dataInputStream.readUnsignedByte();
+        this.f2763a = dataInputStream.readUnsignedByte();
         this.c = dataInputStream.readUnsignedShort();
     }
 
     public int hashCode() {
-        return (this.f2715a << 16) ^ this.c;
+        return (this.f2763a << 16) ^ this.c;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof am) {
             am amVar = (am) obj;
-            return amVar.f2715a == this.f2715a && amVar.c == this.c;
+            return amVar.f2763a == this.f2763a && amVar.c == this.c;
         }
         return false;
     }
@@ -43,20 +43,20 @@ public class am extends w {
 
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
-        return yVar2.e(this.f2715a, yVar.b(this.c).a(yVar, yVar2, map));
+        return yVar2.e(this.f2763a, yVar.b(this.c).a(yVar, yVar2, map));
     }
 
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(15);
-        dataOutputStream.writeByte(this.f2715a);
+        dataOutputStream.writeByte(this.f2763a);
         dataOutputStream.writeShort(this.c);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("MethodHandle #");
-        printWriter.print(this.f2715a);
+        printWriter.print(this.f2763a);
         printWriter.print(", index #");
         printWriter.println(this.c);
     }

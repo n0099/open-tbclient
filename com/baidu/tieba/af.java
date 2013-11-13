@@ -1,37 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af extends BroadcastReceiver {
+public class af implements DialogInterface.OnDismissListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MainTabActivity f1065a;
+    final /* synthetic */ MainTabActivity f1099a;
 
-    private af(MainTabActivity mainTabActivity) {
-        this.f1065a = mainTabActivity;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ af(MainTabActivity mainTabActivity, ad adVar) {
-        this(mainTabActivity);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("com.baidu.tieba.broadcast.notify")) {
-            this.f1065a.h = intent.getLongExtra("relay", 0L);
-            this.f1065a.i = intent.getLongExtra("at_me", 0L);
-            this.f1065a.j = intent.getLongExtra("fans", 0L);
-            this.f1065a.k = intent.getLongExtra("pletter", 0L);
-            this.f1065a.l = intent.getLongExtra("new_bookmark", 0L);
-            this.f1065a.m();
-        } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
-            this.f1065a.n();
-        } else if (action.equals("com.baidu.tieba.broadcast.newrecommends")) {
-            this.f1065a.c();
-        }
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.f1099a.h();
     }
 }

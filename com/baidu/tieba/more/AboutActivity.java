@@ -6,16 +6,17 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.model.co;
+import com.baidu.tieba.model.ch;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f1965a;
+    private d f1956a;
     private com.baidu.tieba.model.a b;
     private c c = null;
+    private String d = com.baidu.tieba.data.h.b + "mo/q/topic_page/110_1";
 
     public static void a(Context context) {
         context.startActivity(new Intent(context, AboutActivity.class));
@@ -25,82 +26,91 @@ public class AboutActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1965a = new d(this, new a(this));
-        this.f1965a.f();
-        c();
+        this.f1956a = new d(this, new a(this));
+        this.f1956a.f();
+        b();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.j, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        if (this.f1956a != null) {
+            this.f1956a.f();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d();
+        c();
         if (this.b != null) {
             this.b.cancelLoadData();
         }
-        if (this.f1965a != null) {
-            this.f1965a.e();
+        if (this.f1956a != null) {
+            this.f1956a.e();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        if (this.f1965a != null) {
-            this.f1965a.a(i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        if (this.f1956a != null) {
+            this.f1956a.a(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
+    public void a() {
         if (this.b == null) {
             this.b = new com.baidu.tieba.model.a(this, new b(this));
         } else {
             this.b.cancelLoadData();
         }
         this.b.a();
-        if (this.f1965a != null) {
-            this.f1965a.a();
+        if (this.f1956a != null) {
+            this.f1956a.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
-        if (this.f1965a != null) {
-            this.f1965a.e();
+        if (this.f1956a != null) {
+            this.f1956a.e();
         }
-        co coVar = obj != null ? (co) obj : null;
-        if (coVar != null) {
-            TiebaApplication.g().a(coVar.c());
+        ch chVar = obj != null ? (ch) obj : null;
+        if (chVar != null) {
+            TiebaApplication.g().a(chVar.c());
             TiebaApplication.g().w(false);
-            if (coVar.c().getHas_new_ver() == 1) {
-                if (coVar.c().getForce_update() == 1) {
-                    UpdateDialog.a(TiebaApplication.g(), coVar.c(), coVar.b());
+            if (chVar.c().getHas_new_ver() == 1) {
+                if (chVar.c().getForce_update() == 1) {
+                    UpdateDialog.a(TiebaApplication.g(), chVar.c(), chVar.b());
                 } else {
                     TiebaApplication.g().a(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(TiebaApplication.g(), coVar.c(), coVar.b());
+                    UpdateDialog.a(TiebaApplication.g(), chVar.c(), chVar.b());
                 }
             } else {
-                a(getResources().getString(R.string.neednot_update));
+                showToast(getResources().getString(R.string.neednot_update));
             }
-            if (this.f1965a != null) {
-                this.f1965a.f();
+            if (this.f1956a != null) {
+                this.f1956a.f();
                 return;
             }
             return;
         }
-        a(getResources().getString(R.string.neterror));
+        showToast(getResources().getString(R.string.neterror));
     }
 
-    private void c() {
+    private void b() {
         this.c = new c(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.newversion");
         registerReceiver(this.c, intentFilter);
     }
 
-    private void d() {
+    private void c() {
         if (this.c != null) {
             unregisterReceiver(this.c);
         }

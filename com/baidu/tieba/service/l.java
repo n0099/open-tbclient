@@ -5,20 +5,20 @@ import android.os.Handler;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.NetWorkCore;
-import com.baidu.tieba.util.aq;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.az;
+import com.baidu.tieba.util.bg;
 import com.tencent.mm.sdk.platformtools.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    NetWorkCore f2315a;
+    NetWorkCore f2348a;
     final /* synthetic */ TiebaActiveService b;
 
     private l(TiebaActiveService tiebaActiveService) {
         this.b = tiebaActiveService;
-        this.f2315a = null;
+        this.f2348a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,34 +30,34 @@ public class l extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
-        be.a(getClass().getName(), "doBackGround", "send active...");
+        bg.a(getClass().getName(), "doBackGround", "send active...");
         try {
-            this.f2315a = new NetWorkCore(new aq());
-            this.f2315a.a("http://114.113.149.3:8086/partnersService");
-            this.f2315a.a(this.b.getApplicationContext());
-            this.f2315a.a("apk", TiebaApplication.g().getPackageName());
-            this.f2315a.a("imei", TiebaApplication.g().p());
-            this.f2315a.a("model", Build.MODEL);
-            this.f2315a.a("edition", com.baidu.tieba.data.h.j());
-            this.f2315a.a("system", Build.VERSION.SDK);
-            this.f2315a.d(false);
-            String s = this.f2315a.s();
-            if (this.f2315a.p()) {
-                be.a(getClass().getName(), "task", "data=" + s);
-                return s;
+            this.f2348a = new NetWorkCore(new az());
+            this.f2348a.b("http://114.113.149.3:8086/partnersService");
+            this.f2348a.a(this.b.getApplicationContext());
+            this.f2348a.a("apk", TiebaApplication.g().getPackageName());
+            this.f2348a.a("imei", TiebaApplication.g().p());
+            this.f2348a.a("model", Build.MODEL);
+            this.f2348a.a("edition", com.baidu.tieba.data.h.j());
+            this.f2348a.a("system", Build.VERSION.SDK);
+            this.f2348a.e(false);
+            String u = this.f2348a.u();
+            if (this.f2348a.r()) {
+                bg.a(getClass().getName(), "task", "data=" + u);
+                return u;
             }
         } catch (Exception e) {
             com.baidu.tieba.sharedPref.b.a().b("active", 1);
-            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            bg.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f2300a = null;
-        if (this.f2315a != null) {
-            this.f2315a.r();
+        this.b.f2333a = null;
+        if (this.f2348a != null) {
+            this.f2348a.t();
         }
         super.cancel(true);
     }
@@ -72,7 +72,7 @@ public class l extends BdAsyncTask<String, Integer, String> {
         Handler handler2;
         Runnable runnable2;
         super.a((l) str);
-        this.b.f2300a = null;
+        this.b.f2333a = null;
         if (str == null) {
             TiebaActiveService.b(this.b);
             i = this.b.b;
@@ -88,7 +88,7 @@ public class l extends BdAsyncTask<String, Integer, String> {
                 this.b.stopSelf();
             }
         }
-        be.a(getClass().getName(), "onPostExecute", "send active ok");
+        bg.a(getClass().getName(), "onPostExecute", "send active ok");
         com.baidu.tieba.sharedPref.b.a().b("active", 2);
         this.b.stopSelf();
     }

@@ -9,7 +9,7 @@ import javassist.h;
 public class TransformReadField extends Transformer {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2803a;
+    protected String f2851a;
     protected h b;
     protected boolean c;
     protected String d;
@@ -46,7 +46,7 @@ public class TransformReadField extends Transformer {
     public int a(h hVar, int i, CodeIterator codeIterator, y yVar) {
         int c = codeIterator.c(i);
         if (c == 180 || c == 178) {
-            String a2 = a(hVar.a(), yVar, this.b, this.f2803a, this.c, codeIterator.d(i + 1));
+            String a2 = a(hVar.a(), yVar, this.b, this.f2851a, this.c, codeIterator.d(i + 1));
             if (a2 != null) {
                 if (c == 178) {
                     codeIterator.a(i);

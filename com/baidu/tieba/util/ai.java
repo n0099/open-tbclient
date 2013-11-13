@@ -1,24 +1,90 @@
 package com.baidu.tieba.util;
 
-import com.baidu.tieba.BaiduAccount.BaiduAccount;
-import com.baidu.tieba.TiebaApplication;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.os.Handler;
+import java.util.ArrayList;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
-public class ai implements BaiduAccount.CallbackListener {
+public interface ai {
+    Boolean a(String str, Handler handler, int i);
 
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ag f2420a;
+    void a(int i);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(ag agVar) {
-        this.f2420a = agVar;
-    }
+    void a(Context context);
 
-    @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
-    public void callback() {
-        z zVar;
-        zVar = this.f2420a.f2418a;
-        zVar.b(TiebaApplication.g().getString(R.string.error_unkown));
-    }
+    void a(Boolean bool);
+
+    void a(String str);
+
+    void a(String str, String str2);
+
+    void a(String str, byte[] bArr);
+
+    void a(ArrayList<BasicNameValuePair> arrayList);
+
+    void a(BasicNameValuePair basicNameValuePair);
+
+    void a(boolean z);
+
+    boolean a();
+
+    int b();
+
+    void b(String str);
+
+    void b(boolean z);
+
+    String c();
+
+    void c(String str);
+
+    void c(boolean z);
+
+    long d();
+
+    void d(boolean z);
+
+    String e();
+
+    long f();
+
+    long g();
+
+    long h();
+
+    long i();
+
+    int j();
+
+    long k();
+
+    int l();
+
+    Context m();
+
+    ArrayList<BasicNameValuePair> n();
+
+    int o();
+
+    String p();
+
+    boolean q();
+
+    boolean r();
+
+    String s();
+
+    void t();
+
+    String u();
+
+    void v();
+
+    byte[] w();
+
+    String x();
+
+    String y();
+
+    boolean z();
 }

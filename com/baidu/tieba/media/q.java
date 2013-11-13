@@ -12,7 +12,7 @@ import java.security.InvalidParameterException;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private MediaPlayerActivity f1845a;
+    private MediaPlayerActivity f1841a;
     private RelativeLayout b = null;
     private LinearLayout c = null;
     private BVideoView d = null;
@@ -22,32 +22,32 @@ public class q {
     private View.OnClickListener h = new s(this);
 
     public q(MediaPlayerActivity mediaPlayerActivity) {
-        this.f1845a = null;
+        this.f1841a = null;
         if (mediaPlayerActivity == null) {
             throw new InvalidParameterException("MediaPlayerView context is null");
         }
-        this.f1845a = mediaPlayerActivity;
+        this.f1841a = mediaPlayerActivity;
     }
 
     public void a() {
-        BCyberPlayerFactory.init(this.f1845a);
+        BCyberPlayerFactory.init(this.f1841a);
         BCyberPlayerFactory.createEngineManager().initCyberPlayerEngine("WNgtxLzDe7RmrFRmNnAwWIPz", "gXWM6eodGykwKabj");
-        this.f1845a.setContentView(R.layout.media_player_activity);
-        this.b = (RelativeLayout) this.f1845a.findViewById(R.id.view_holder);
-        this.c = (LinearLayout) this.f1845a.findViewById(R.id.controller_holder);
-        this.d = new BVideoView(this.f1845a);
-        this.e = new BMediaController(this.f1845a);
+        this.f1841a.setContentView(R.layout.media_player_activity);
+        this.b = (RelativeLayout) this.f1841a.findViewById(R.id.view_holder);
+        this.c = (LinearLayout) this.f1841a.findViewById(R.id.controller_holder);
+        this.d = new BVideoView(this.f1841a);
+        this.e = new BMediaController(this.f1841a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         this.b.addView(this.d, layoutParams);
         this.c.addView(this.e, layoutParams);
-        this.d.setOnPreparedListener(this.f1845a);
-        this.d.setOnCompletionListener(this.f1845a);
-        this.d.setOnErrorListener(this.f1845a);
-        this.d.setOnInfoListener(this.f1845a);
-        this.d.setOnPlayingBufferCacheListener(this.f1845a);
+        this.d.setOnPreparedListener(this.f1841a);
+        this.d.setOnCompletionListener(this.f1841a);
+        this.d.setOnErrorListener(this.f1841a);
+        this.d.setOnInfoListener(this.f1841a);
+        this.d.setOnPlayingBufferCacheListener(this.f1841a);
         this.e.setPreNextListener(this.g, this.h);
         this.d.setMediaController(this.e);
-        this.f = this.f1845a.getIntent().getBooleanExtra("isHW", false);
+        this.f = this.f1841a.getIntent().getBooleanExtra("isHW", false);
         if (this.f) {
             this.d.setDecodeMode(0);
         } else {

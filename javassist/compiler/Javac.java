@@ -14,7 +14,7 @@ import javassist.v;
 public class Javac {
 
     /* renamed from: a  reason: collision with root package name */
-    JvstCodeGen f2786a;
+    JvstCodeGen f2834a;
     SymbolTable b;
     private Bytecode c;
 
@@ -27,7 +27,7 @@ public class Javac {
     }
 
     public Javac(Bytecode bytecode, javassist.h hVar) {
-        this.f2786a = new JvstCodeGen(bytecode, hVar, hVar.a());
+        this.f2834a = new JvstCodeGen(bytecode, hVar, hVar.a());
         this.b = new SymbolTable();
         this.c = bytecode;
     }
@@ -36,9 +36,9 @@ public class Javac {
         javassist.h hVar;
         boolean z;
         try {
-            a(ctBehavior.h_(), v.d(ctBehavior.b()));
+            a(ctBehavior.i_(), v.d(ctBehavior.b()));
             if (ctBehavior instanceof CtMethod) {
-                this.f2786a.a((CtMethod) ctBehavior);
+                this.f2834a.a((CtMethod) ctBehavior);
                 hVar = ((CtMethod) ctBehavior).h();
             } else {
                 hVar = javassist.h.l;
@@ -58,7 +58,7 @@ public class Javac {
                 } else {
                     z = false;
                 }
-                this.f2786a.a(a2, z, z2);
+                this.f2834a.a(a2, z, z2);
             }
             return this.c;
         } catch (NotFoundException e) {
@@ -93,15 +93,15 @@ public class Javac {
     }
 
     public int a(javassist.h[] hVarArr, boolean z) {
-        return this.f2786a.a(hVarArr, z, RContact.FAVOUR_CONTACT_SHOW_HEAD_CHAR, "$args", "$$", this.b);
+        return this.f2834a.a(hVarArr, z, RContact.FAVOUR_CONTACT_SHOW_HEAD_CHAR, "$args", "$$", this.b);
     }
 
     public int a(javassist.h hVar, boolean z) {
-        this.f2786a.a(hVar);
-        return this.f2786a.a(hVar, "$r", z ? "$_" : null, this.b);
+        this.f2834a.a(hVar);
+        return this.f2834a.a(hVar, "$r", z ? "$_" : null, this.b);
     }
 
     public void a(String str, String str2) {
-        this.f2786a.a(new d(this, str2, new Parser(new Lex(str)).b(this.b)), "$proceed");
+        this.f2834a.a(new d(this, str2, new Parser(new Lex(str)).b(this.b)), "$proceed");
     }
 }

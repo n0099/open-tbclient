@@ -8,30 +8,27 @@ import com.baidu.adp.widget.ListView.BdListView;
 public class m implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1868a;
+    final /* synthetic */ j f1865a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
-        this.f1868a = jVar;
+        this.f1865a = jVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        q qVar;
         f fVar = (f) ((BdListView) adapterView).getWrappedAdapter();
         long itemId = fVar.getItemId(i);
         if (itemId == -1) {
-            this.f1868a.b();
+            this.f1865a.b();
         } else if (itemId == -2) {
-            j.e(this.f1868a);
-            this.f1868a.n = 4;
-            this.f1868a.d();
+            j.e(this.f1865a);
+            this.f1865a.n = 4;
+            this.f1865a.d();
         } else {
-            com.baidu.tieba.data.v vVar = (com.baidu.tieba.data.v) fVar.getItem(i);
-            if (vVar != null) {
-                qVar = this.f1868a.p;
-                qVar.a(vVar);
-                this.f1868a.a(vVar, i);
+            com.baidu.tieba.data.u uVar = (com.baidu.tieba.data.u) fVar.getItem(i);
+            if (uVar != null) {
+                this.f1865a.a(uVar);
             }
         }
     }

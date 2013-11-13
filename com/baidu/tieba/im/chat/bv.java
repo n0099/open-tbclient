@@ -1,9 +1,19 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.voice.VoiceManager;
+import android.view.View;
 /* loaded from: classes.dex */
-public interface bv {
-    void a();
+class bv implements View.OnClickListener {
 
-    void a(VoiceManager.VoiceModel voiceModel);
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ MsgrightView f1541a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bv(MsgrightView msgrightView) {
+        this.f1541a = msgrightView;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1541a.c.a(view, 6, this.f1541a.f, 0L);
+    }
 }

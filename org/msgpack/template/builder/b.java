@@ -11,7 +11,7 @@ import org.msgpack.unpacker.k;
 public abstract class b<T extends c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Logger f2895a = Logger.getLogger(b.class.getName());
+    private static Logger f2943a = Logger.getLogger(b.class.getName());
     protected JavassistTemplateBuilder e;
     protected h f;
     protected StringBuilder g = null;
@@ -40,18 +40,18 @@ public abstract class b<T extends c> {
     public org.msgpack.template.d a(String str) {
         try {
             a(str, false);
-            f2895a.fine(String.format("started generating template class %s for original class %s", this.f.n(), str));
+            f2943a.fine(String.format("started generating template class %s for original class %s", this.f.n(), str));
             f();
             b();
             c();
             g();
             h();
-            f2895a.fine(String.format("finished generating template class %s for original class %s", this.f.n(), str));
+            f2943a.fine(String.format("finished generating template class %s for original class %s", this.f.n(), str));
             return a(i());
         } catch (Exception e) {
             String k = k();
             if (k != null) {
-                f2895a.severe("builder: " + k);
+                f2943a.severe("builder: " + k);
                 throw new TemplateBuildException("Cannot compile: " + k, e);
             }
             throw new TemplateBuildException(e);
@@ -77,25 +77,25 @@ public abstract class b<T extends c> {
     }
 
     protected void g() {
-        f2895a.fine(String.format("started generating write method in template class %s", this.f.n()));
+        f2943a.fine(String.format("started generating write method in template class %s", this.f.n()));
         String d = d();
         h hVar = h.l;
         h[] hVarArr = {this.e.b(org.msgpack.packer.a.class.getName()), this.e.b(Object.class.getName()), h.d};
         h[] hVarArr2 = {this.e.b(IOException.class.getName())};
-        f2895a.fine(String.format("compiling write method body: %s", d));
+        f2943a.fine(String.format("compiling write method body: %s", d));
         this.f.a(q.a(1, hVar, "write", hVarArr, hVarArr2, d, this.f));
-        f2895a.fine(String.format("finished generating write method in template class %s", this.f.n()));
+        f2943a.fine(String.format("finished generating write method in template class %s", this.f.n()));
     }
 
     protected void h() {
-        f2895a.fine(String.format("started generating read method in template class %s", this.f.n()));
+        f2943a.fine(String.format("started generating read method in template class %s", this.f.n()));
         String e = e();
         h b = this.e.b(Object.class.getName());
         h[] hVarArr = {this.e.b(k.class.getName()), this.e.b(Object.class.getName()), h.d};
         h[] hVarArr2 = {this.e.b(MessageTypeException.class.getName())};
-        f2895a.fine(String.format("compiling read method body: %s", e));
+        f2943a.fine(String.format("compiling read method body: %s", e));
         this.f.a(q.a(1, b, "read", hVarArr, hVarArr2, e, this.f));
-        f2895a.fine(String.format("finished generating read method in template class %s", this.f.n()));
+        f2943a.fine(String.format("finished generating read method in template class %s", this.f.n()));
     }
 
     protected Class<?> i() {
@@ -168,7 +168,7 @@ public abstract class b<T extends c> {
         } catch (Exception e2) {
             String k = k();
             if (k != null) {
-                f2895a.severe("builder: " + k);
+                f2943a.severe("builder: " + k);
                 throw new TemplateBuildException("Cannot compile: " + k, e2);
             }
             throw new TemplateBuildException(e2);

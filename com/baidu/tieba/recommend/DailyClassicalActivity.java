@@ -14,36 +14,36 @@ import android.widget.TextView;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bb;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.BaseWebView;
 import com.slidingmenu.lib.R;
 import java.net.URLDecoder;
 @Deprecated
 /* loaded from: classes.dex */
 public class DailyClassicalActivity extends com.baidu.tieba.j implements com.baidu.tieba.view.d {
-    private static boolean q = false;
-    private static long r = 0;
+    private static boolean o = false;
+    private static long p = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f2263a = null;
+    private ImageView f2298a = null;
     private RelativeLayout b = null;
     private RelativeLayout c = null;
     private TextView d = null;
     private View.OnClickListener e = null;
     private BaseWebView f = null;
     private ProgressBar g = null;
-    private LinearLayout j = null;
-    private b k = null;
-    private boolean l = false;
-    private boolean m = true;
-    private TextView n = null;
-    private TextView o = null;
-    private boolean p = false;
-    private String s = SocialConstants.TRUE;
+    private LinearLayout h = null;
+    private b i = null;
+    private boolean j = false;
+    private boolean k = true;
+    private TextView l = null;
+    private TextView m = null;
+    private boolean n = false;
+    private String q = SocialConstants.TRUE;
 
     @Override // com.baidu.tieba.j
-    public boolean g() {
+    public boolean getGpuSwitch() {
         return TiebaApplication.g().u();
     }
 
@@ -52,26 +52,26 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.day_classical_activity);
-        e();
+        d();
     }
 
-    private void e() {
+    private void d() {
         this.b = (RelativeLayout) findViewById(R.id.parent);
         this.c = (RelativeLayout) findViewById(R.id.title);
         this.d = (TextView) findViewById(R.id.title_text);
-        this.j = (LinearLayout) findViewById(R.id.tag_webview_item);
-        this.f2263a = (ImageView) findViewById(R.id.back);
-        this.n = (TextView) this.j.findViewById(R.id.webview_fail);
-        this.o = (TextView) this.j.findViewById(R.id.webview_crash_tip);
+        this.h = (LinearLayout) findViewById(R.id.tag_webview_item);
+        this.f2298a = (ImageView) findViewById(R.id.back);
+        this.l = (TextView) this.h.findViewById(R.id.webview_fail);
+        this.m = (TextView) this.h.findViewById(R.id.webview_crash_tip);
         this.g = (ProgressBar) findViewById(R.id.tag_progress);
         this.e = new a(this);
-        this.f2263a.setOnClickListener(this.e);
-        if (n()) {
-            this.o.setVisibility(8);
-            b();
+        this.f2298a.setOnClickListener(this.e);
+        if (f()) {
+            this.m.setVisibility(8);
+            a();
             return;
         }
-        this.o.setVisibility(0);
+        this.m.setVisibility(0);
     }
 
     public static void a(Context context) {
@@ -80,15 +80,15 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
-        bb.a(this.b, i);
-        bb.d(this.c, i);
-        bb.f(this.d, i);
-        bb.a(this.f2263a, i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        bd.a(this.b, i);
+        bd.d(this.c, i);
+        bd.e(this.d, i);
+        bd.a(this.f2298a, i);
         if (this.f != null) {
-            bb.a(this.f, i);
-            b();
+            bd.a(this.f, i);
+            a();
         }
     }
 
@@ -98,48 +98,48 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
         super.onResume();
     }
 
-    public void b() {
-        if (TiebaApplication.g().at() == 0 && !n()) {
-            this.o.setVisibility(0);
+    public void a() {
+        if (TiebaApplication.g().aq() == 0 && !f()) {
+            this.m.setVisibility(0);
             return;
         }
-        this.o.setVisibility(8);
-        if (!this.p) {
-            this.p = true;
+        this.m.setVisibility(8);
+        if (!this.n) {
+            this.n = true;
             this.g.setVisibility(0);
-            this.l = false;
-            this.m = true;
-            o();
-            this.k = new b(this, null);
-            this.k.setPriority(3);
-            this.k.execute(new Object[0]);
+            this.j = false;
+            this.k = true;
+            g();
+            this.i = new b(this, null);
+            this.i.setPriority(3);
+            this.i.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        if (this.l) {
-            if (!this.m) {
-                a(getResources().getString(R.string.neterror));
+    public void e() {
+        if (this.j) {
+            if (!this.k) {
+                showToast(getResources().getString(R.string.neterror));
             }
-            this.p = false;
+            this.n = false;
             this.g.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.view.d
     public boolean a(WebView webView, String str) {
-        if (!ae.a(this, str)) {
+        if (!ac.a(this, str)) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
                     String a2 = a(str, "pn=");
                     if (a2 != null && a2.length() >= 0) {
-                        this.s = a2;
+                        this.q = a2;
                     }
                 } else {
-                    this.s = SocialConstants.TRUE;
+                    this.q = SocialConstants.TRUE;
                 }
-                b();
+                a();
             } else {
                 UtilHelper.d(this, str + "&_client_version=" + com.baidu.tieba.data.h.j());
             }
@@ -160,35 +160,35 @@ public class DailyClassicalActivity extends com.baidu.tieba.j implements com.bai
         return "";
     }
 
-    private boolean n() {
+    private boolean f() {
         boolean z = false;
         if (this.f == null) {
             try {
                 if (UtilHelper.f(this)) {
-                    super.a(getString(R.string.web_view_corrupted));
+                    super.showToast(getString(R.string.web_view_corrupted));
                 } else {
                     this.f = new BaseWebView(this);
-                    bb.a(this.f, TiebaApplication.g().as());
+                    bd.a(this.f, TiebaApplication.g().ap());
                     this.f.setOnLoadUrlListener(this);
                     this.f.setHorizontalScrollBarEnabled(false);
                     this.f.setHorizontalScrollbarOverlay(false);
                     this.f.setScrollBarStyle(33554432);
                     this.f.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                    this.j.addView(this.f);
+                    this.h.addView(this.f);
                     z = true;
                 }
                 return z;
             } catch (Exception e) {
-                be.b(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
+                bg.b(getClass().getName(), "", "TabContentActivity.refreshFrs error = " + e.getMessage());
                 return z;
             }
         }
         return true;
     }
 
-    private void o() {
-        if (this.k != null) {
-            this.k.cancel();
+    private void g() {
+        if (this.i != null) {
+            this.i.cancel();
         }
     }
 }

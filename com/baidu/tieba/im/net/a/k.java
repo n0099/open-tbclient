@@ -13,10 +13,10 @@ public class k extends com.baidu.tieba.im.messageCenter.a {
     public Message a(Message message, p pVar) {
         if (message instanceof SettingsSyncMessage) {
             SettingsSyncMessage settingsSyncMessage = (SettingsSyncMessage) message;
-            AccountData G = TiebaApplication.G();
-            if (G != null && !TextUtils.isEmpty(settingsSyncMessage.getPortrait())) {
-                DatabaseService.c(G.getAccount(), settingsSyncMessage.getPortrait());
-                G.setPortrait(settingsSyncMessage.getPortrait());
+            AccountData E = TiebaApplication.E();
+            if (E != null && !TextUtils.isEmpty(settingsSyncMessage.getPortrait())) {
+                DatabaseService.c(E.getAccount(), settingsSyncMessage.getPortrait());
+                E.setPortrait(settingsSyncMessage.getPortrait());
             }
         }
         return null;

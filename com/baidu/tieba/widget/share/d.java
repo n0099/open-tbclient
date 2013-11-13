@@ -12,20 +12,20 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.cloudsdk.social.oauth.SocialOAuthActivity;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShare;
-import com.baidu.tieba.util.bc;
+import com.baidu.tieba.util.be;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private SocialShare f2603a;
+    private SocialShare f2655a;
     private Context b;
     private String c;
     private g d;
 
     public d(Context context, a aVar) {
         this.b = context;
-        this.f2603a = SocialShare.getInstance(context);
+        this.f2655a = SocialShare.getInstance(context);
         this.c = SocialConfig.getInstance(context).getClientId(MediaType.BAIDU);
         this.d = new g(aVar);
     }
@@ -74,7 +74,7 @@ public class d {
             return;
         }
         this.d.a(false);
-        this.f2603a.share(shareContent, str, (IBaiduListener) this.d, true);
+        this.f2655a.share(shareContent, str, (IBaiduListener) this.d, true);
     }
 
     private String a(String str, int i, int i2) {
@@ -97,12 +97,12 @@ public class d {
         if (shareContent.getImageUri() != null) {
             shareContent.setImageUri(Uri.parse(a(shareContent.getImageUri().toString(), "sfc=" + str)));
         }
-        shareContent.setLinkUrl(a(bc.c(shareContent.getLinkUrl()) ? "http://tieba.baidu.com" : shareContent.getLinkUrl(), "sfc=" + str));
+        shareContent.setLinkUrl(a(be.c(shareContent.getLinkUrl()) ? "http://tieba.baidu.com" : shareContent.getLinkUrl(), "sfc=" + str));
         return shareContent;
     }
 
     private String a(String str, String str2) {
-        if (bc.c(Uri.parse(str).getQuery())) {
+        if (be.c(Uri.parse(str).getQuery())) {
             str = str + "?";
         }
         return str + "&" + str2;

@@ -3,14 +3,14 @@ package com.baidu.tieba.im.creategroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f1491a;
+    NavigationBar f1582a;
     View c;
     Button d;
     Button e;
@@ -33,7 +33,7 @@ public class b extends com.baidu.adp.a.e {
 
     public b(CreateGroupMainActivity createGroupMainActivity) {
         super(createGroupMainActivity);
-        this.f1491a = null;
+        this.f1582a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -66,15 +66,15 @@ public class b extends com.baidu.adp.a.e {
         this.e = (Button) createGroupMainActivity.findViewById(R.id.create_group2);
         this.f = (TextView) createGroupMainActivity.findViewById(R.id.create_group1_text);
         this.g = (TextView) createGroupMainActivity.findViewById(R.id.create_group2_text);
-        this.f1491a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
-        this.f1491a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
-        this.f1491a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f1582a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
+        this.f1582a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
+        this.f1582a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public void a(int i) {
-        this.h.m().a(i == 1);
-        this.h.m().a(this.c);
-        bb.a(this.c, i);
-        this.f1491a.b(i);
+        this.h.getLayoutMode().a(i == 1);
+        this.h.getLayoutMode().a(this.c);
+        bd.a(this.c, i);
+        this.f1582a.c(i);
     }
 }

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.im.data.BaseGroupData;
 import com.baidu.tieba.im.message.ResponseSearchGroupMessage;
-import com.baidu.tieba.util.bb;
+import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.LinkedList;
@@ -18,7 +18,7 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f1701a;
+    public BdListView f1788a;
     private SearchGroupActivity b;
     private View c;
     private NavigationBar d = null;
@@ -51,18 +51,18 @@ public class d {
         this.f = (Button) this.b.findViewById(R.id.home_bt_search_del);
         this.f.setOnClickListener(new f(this));
         this.e.addTextChangedListener(new g(this));
-        this.f1701a = (BdListView) this.b.findViewById(R.id.home_lv_search);
-        this.f1701a.a(new h(this), 300L);
+        this.f1788a = (BdListView) this.b.findViewById(R.id.home_lv_search);
+        this.f1788a.a(new h(this), 300L);
         this.j = new b(this.b);
-        this.f1701a.setOnItemClickListener(this.b);
-        this.f1701a.setAdapter((ListAdapter) this.j);
+        this.f1788a.setOnItemClickListener(this.b);
+        this.f1788a.setAdapter((ListAdapter) this.j);
         this.i = (ProgressBar) this.b.findViewById(R.id.home_progress_search);
         this.i.setVisibility(8);
         this.e.setText("");
         this.e.setInputType(2);
         this.e.requestFocus();
         this.e.setOnEditorActionListener(new i(this));
-        this.b.a(this.e, 150);
+        this.b.ShowSoftKeyPadDelay(this.e, 150);
     }
 
     private void f() {
@@ -73,10 +73,10 @@ public class d {
     }
 
     public void a(int i) {
-        this.b.m().a(false);
-        this.b.m().a(this.c);
-        bb.a(this.c, 0);
-        this.d.b(0);
+        this.b.getLayoutMode().a(false);
+        this.b.getLayoutMode().a(this.c);
+        bd.a(this.c, 0);
+        this.d.c(0);
         this.h.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.pic_search_fruitless, 0, 0);
     }
 

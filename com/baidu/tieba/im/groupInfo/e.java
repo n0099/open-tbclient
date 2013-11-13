@@ -6,22 +6,22 @@ import android.widget.LinearLayout;
 class e implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1600a;
+    final /* synthetic */ d f1687a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f1600a = dVar;
+        this.f1687a = dVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         boolean z;
         LinearLayout linearLayout;
-        this.f1600a.f1599a.p = true;
-        z = this.f1600a.f1599a.q;
+        this.f1687a.f1686a.n = true;
+        z = this.f1687a.f1686a.o;
         if (z) {
-            this.f1600a.f1599a.q = false;
-            linearLayout = this.f1600a.f1599a.j;
+            this.f1687a.f1686a.o = false;
+            linearLayout = this.f1687a.f1686a.h;
             linearLayout.setVisibility(8);
         }
     }

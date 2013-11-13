@@ -16,7 +16,7 @@ import java.util.List;
 public class c extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1659a;
+    private long f1746a;
     private int b;
     private ResponseGroupInfoMessage c;
     private RequestGroupInfoMessage d;
@@ -29,7 +29,7 @@ public class c extends com.baidu.adp.a.d {
     }
 
     public long a() {
-        return this.f1659a;
+        return this.f1746a;
     }
 
     public int b() {
@@ -47,12 +47,12 @@ public class c extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.f1659a = intent.getLongExtra("group_id", 0L);
+        this.f1746a = intent.getLongExtra("group_id", 0L);
         this.b = intent.getIntExtra("activity_from", 0);
     }
 
     public void a(Bundle bundle) {
-        this.f1659a = bundle.getLong("group_id", 0L);
+        this.f1746a = bundle.getLong("group_id", 0L);
         this.b = bundle.getInt("activity_from", 0);
     }
 
@@ -97,7 +97,7 @@ public class c extends com.baidu.adp.a.d {
     }
 
     public void b(Bundle bundle) {
-        bundle.putLong("group_id", this.f1659a);
+        bundle.putLong("group_id", this.f1746a);
         bundle.putInt("activity_from", this.b);
     }
 

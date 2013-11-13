@@ -4,7 +4,7 @@ package javassist;
 public class m extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    private l f2810a;
+    private l f2858a;
     private l d;
     private l e;
 
@@ -30,7 +30,7 @@ public class m extends l {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(j jVar) {
         super(jVar);
-        this.f2810a = this;
+        this.f2858a = this;
         this.d = this;
         this.e = this;
         this.e.b = this;
@@ -43,12 +43,12 @@ public class m extends l {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l d() {
-        return this.f2810a;
+        return this.f2858a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l f() {
-        return this.f2810a;
+        return this.f2858a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -68,15 +68,15 @@ public class m extends l {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(l lVar) {
-        lVar.b = this.f2810a.b;
-        this.f2810a.b = lVar;
-        if (this.f2810a == this.d) {
+        lVar.b = this.f2858a.b;
+        this.f2858a.b = lVar;
+        if (this.f2858a == this.d) {
             this.d = lVar;
-            if (this.f2810a == this.e) {
+            if (this.f2858a == this.e) {
                 this.e = lVar;
             }
         }
-        this.f2810a = lVar;
+        this.f2858a = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

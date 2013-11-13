@@ -11,7 +11,7 @@ import android.hardware.SensorManager;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.widget.Toast;
-import com.baidu.adp.g;
+import com.baidu.adp.f;
 import com.baidu.adp.lib.debug.DebugConfigActivity;
 import com.baidu.adp.lib.debug.b;
 import com.baidu.browser.explorer.BdWebErrorView;
@@ -48,7 +48,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
         this.r = (ActivityManager) getSystemService("activity");
         if (a()) {
             super.onCreate();
-            Toast.makeText(getBaseContext(), getText(g.switch_debug).toString(), 1).show();
+            Toast.makeText(getBaseContext(), getText(f.switch_debug).toString(), 1).show();
             this.g = (SensorManager) getSystemService("sensor");
             this.h = (Vibrator) getSystemService("vibrator");
             this.p = true;
@@ -117,7 +117,7 @@ public class SwitchDebugService extends Service implements SensorEventListener {
                         this.i = currentTimeMillis;
                         this.h.vibrate(100L);
                         if (b.c) {
-                            Toast.makeText(getBaseContext(), getResources().getString(g.debug_opened), 1).show();
+                            Toast.makeText(getBaseContext(), getResources().getString(f.debug_opened), 1).show();
                             return;
                         }
                         Intent intent = new Intent(getApplicationContext(), DebugConfigActivity.class);

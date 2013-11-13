@@ -7,20 +7,20 @@ import android.content.DialogInterface;
 public class an implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2177a;
+    final /* synthetic */ PersonChangeActivity f2219a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PersonChangeActivity personChangeActivity) {
-        this.f2177a = personChangeActivity;
+        this.f2219a = personChangeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         Dialog dialog;
         Dialog dialog2;
-        dialog = this.f2177a.H;
+        dialog = this.f2219a.F;
         if (dialog != null) {
-            dialog2 = this.f2177a.H;
+            dialog2 = this.f2219a.F;
             dialog2.dismiss();
         }
     }

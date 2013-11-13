@@ -4,11 +4,11 @@ package com.baidu.mobstat;
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ m f953a;
+    final /* synthetic */ m f967a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.f953a = mVar;
+        this.f967a = mVar;
     }
 
     @Override // java.lang.Runnable

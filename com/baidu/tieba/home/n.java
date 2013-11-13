@@ -1,372 +1,251 @@
 package com.baidu.tieba.home;
 
-import android.app.AlertDialog;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.RelativeLayout;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.view.NoNetworkView;
-import com.baidu.tieba.view.SearchBoxView;
-import com.baidu.tieba.view.bb;
-import com.baidu.zeus.Headers;
+import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class n extends com.baidu.adp.a.e {
+public class n extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public SearchBoxView f1363a;
-    public View c;
-    protected com.baidu.tieba.im.b.d d;
-    TextView e;
-    TextView f;
-    boolean g;
-    private EnterForumActivity h;
-    private BdListView i;
-    private m j;
-    private AlertDialog k;
-    private AlertDialog l;
-    private AlertDialog m;
-    private RelativeLayout n;
-    private RelativeLayout o;
-    private TextView p;
-    private bb q;
-    private EnterForumGuideCenterView r;
-    private EnterForumGuideBottomView s;
-    private NoNetworkView t;
-    private ImageView u;
-    private com.baidu.tieba.im.b.n v;
+    private BaseFragmentActivity f1458a;
+    private View.OnClickListener i;
+    private View.OnLongClickListener j;
+    private Boolean b = false;
+    private com.baidu.tieba.data.af c = null;
+    private int d = 0;
+    private int e = 0;
+    private int f = 0;
+    private int g = 0;
+    private int h = 0;
+    private boolean k = false;
+
+    public n(BaseFragmentActivity baseFragmentActivity) {
+        this.f1458a = null;
+        this.f1458a = baseFragmentActivity;
+        a();
+    }
 
     public void a() {
-        if (!com.baidu.tieba.im.l.b().d() && TiebaApplication.D()) {
-            this.u.setVisibility(0);
+        this.d = UtilHelper.a((Context) this.f1458a, 3.0f);
+        this.e = UtilHelper.a((Context) this.f1458a, 6.0f);
+        this.g = UtilHelper.a((Context) this.f1458a, 8.0f);
+        this.f = UtilHelper.a((Context) this.f1458a, 10.0f);
+        this.h = UtilHelper.a((Context) this.f1458a, 12.0f);
+    }
+
+    public void a(com.baidu.tieba.data.af afVar) {
+        this.c = afVar;
+        c();
+        notifyDataSetChanged();
+    }
+
+    private void c() {
+        if (this.c != null && this.c.a() != null && this.c.a().size() > 6) {
+            this.k = false;
         } else {
-            this.u.setVisibility(8);
+            this.k = true;
         }
-        switch (EnterForumActivity.f1320a) {
-            case 0:
-                g();
-                if (this.s != null && this.s.getVisibility() == 0) {
-                    a(8);
-                }
-                com.baidu.tieba.util.bb.f((View) this.f, (int) R.drawable.btn_jin_ba_s);
-                com.baidu.tieba.util.bb.a(this.f, true);
-                com.baidu.tieba.util.bb.a(this.e, false);
-                this.d.e();
-                this.i.setVisibility(0);
-                this.f1363a.setText(this.h.getString(R.string.search_bar_post));
-                return;
-            case 1:
-                this.u.setVisibility(8);
-                a(8);
-                if (this.d != null && this.d.c() != null) {
-                    if (this.d.c().getCount() > 0) {
-                        this.d.c().notifyDataSetChanged();
-                        a(8, 1);
-                    } else {
-                        a(0, 1);
+    }
+
+    public void a(Boolean bool) {
+        this.b = bool;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        int size;
+        if (this.c == null) {
+            return 0;
+        }
+        if (this.b.booleanValue()) {
+            if (this.c.a() == null || (size = this.c.a().size()) <= 0) {
+                return 0;
+            }
+            if (size > 500) {
+                return 250;
+            }
+            return (size + 1) / 2;
+        }
+        return 1;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return this.c.a().get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        s sVar = null;
+        int ap = TiebaApplication.g().ap();
+        int itemViewType = getItemViewType(i);
+        if (itemViewType == 1) {
+            if (view == null) {
+                view = a((cd) null);
+            }
+            cd cdVar = 0 == 0 ? (cd) view.getTag() : null;
+            if (cdVar != null && this.c != null && this.c.a() != null) {
+                this.f1458a.a().a(ap == 1);
+                this.f1458a.a().a(view);
+                b(ap, cdVar);
+                a(i, cdVar);
+                if (i >= 0) {
+                    if (i * 2 < this.c.a().size()) {
+                        a(this.c.a().get(i * 2), cdVar);
                     }
-                    com.baidu.tieba.util.bb.f((View) this.f, (int) R.drawable.btn_jin_ba_n);
-                    com.baidu.tieba.util.bb.a(this.f, false);
-                    com.baidu.tieba.util.bb.a(this.e, true);
-                    this.d.d();
-                    this.i.setVisibility(8);
-                    this.f1363a.setText(this.h.getString(R.string.search_group_text));
-                    this.d.h();
-                    return;
-                }
-                return;
-            default:
-                return;
-        }
-    }
-
-    public n(EnterForumActivity enterForumActivity, View.OnKeyListener onKeyListener) {
-        super(enterForumActivity);
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.p = null;
-        this.q = null;
-        this.r = null;
-        this.s = null;
-        this.t = null;
-        this.g = false;
-        this.v = new o(this);
-        this.h = enterForumActivity;
-        enterForumActivity.setContentView(R.layout.enter_forum_view);
-        this.c = enterForumActivity.findViewById(R.id.container);
-        this.t = (NoNetworkView) enterForumActivity.findViewById(R.id.view_no_network);
-        this.p = (TextView) enterForumActivity.findViewById(R.id.titel_text);
-        this.d = new com.baidu.tieba.im.b.d(enterForumActivity, this.v);
-        this.e = (TextView) enterForumActivity.findViewById(R.id.enter_group);
-        this.e.setOnClickListener(this.h);
-        this.f = (TextView) enterForumActivity.findViewById(R.id.enter_forum);
-        this.f.setOnClickListener(this.h);
-        this.u = (ImageView) this.h.findViewById(R.id.enter_group_new);
-        this.n = (RelativeLayout) enterForumActivity.findViewById(R.id.container);
-        this.o = (RelativeLayout) enterForumActivity.findViewById(R.id.title);
-        this.f1363a = (SearchBoxView) enterForumActivity.findViewById(R.id.view_searchbox);
-        this.f1363a.setText(R.string.search_bar_post);
-        this.f1363a.setOnClickListener(this.h);
-        this.i = (BdListView) enterForumActivity.findViewById(R.id.enter_forum_lv_forum);
-        this.j = new m(enterForumActivity);
-        this.j.a((View.OnClickListener) enterForumActivity);
-        this.j.a((View.OnLongClickListener) enterForumActivity);
-        this.i.setAdapter((ListAdapter) this.j);
-        this.i.setOnKeyListener(onKeyListener);
-        this.i.setOnItemClickListener(enterForumActivity);
-        this.i.setOnScrollListener(enterForumActivity);
-        this.q = new bb(enterForumActivity);
-        this.i.setPullRefresh(this.q);
-        CharSequence[] charSequenceArr = {enterForumActivity.getString(R.string.enter_forum), enterForumActivity.getString(R.string.delete)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(enterForumActivity);
-        builder.setTitle(enterForumActivity.getString(R.string.operation));
-        builder.setItems(charSequenceArr, enterForumActivity);
-        this.l = builder.create();
-        this.l.setCanceledOnTouchOutside(true);
-        CharSequence[] charSequenceArr2 = {enterForumActivity.getString(R.string.enter_forum), enterForumActivity.getString(R.string.delete)};
-        AlertDialog.Builder builder2 = new AlertDialog.Builder(enterForumActivity);
-        builder2.setTitle(enterForumActivity.getString(R.string.operation));
-        builder2.setItems(charSequenceArr2, enterForumActivity);
-        this.m = builder2.create();
-        this.m.setCanceledOnTouchOutside(true);
-    }
-
-    public void e() {
-        if (this.g) {
-            this.g = false;
-            this.i.setPullRefresh(this.q);
-            this.j.a((com.baidu.tieba.data.af) null);
-            w();
-            a(0, 0);
-        }
-        this.i.b();
-    }
-
-    public void f() {
-        this.i.a();
-    }
-
-    public void a(com.baidu.tieba.data.r rVar, boolean z) {
-        f();
-        if (rVar != null) {
-            try {
-                this.j.a(Boolean.valueOf(z));
-                this.j.a(rVar);
-            } catch (Exception e) {
-                be.b(getClass().getName(), Headers.REFRESH, e.getMessage());
-                return;
-            }
-        }
-        g();
-    }
-
-    private void w() {
-        if (this.r == null) {
-            this.r = (EnterForumGuideCenterView) this.h.findViewById(R.id.lv_guid_center_root);
-            this.r.a();
-        }
-    }
-
-    private void x() {
-        if (this.s == null) {
-            this.s = (EnterForumGuideBottomView) this.h.findViewById(R.id.lv_guide_bottom);
-            this.s.a();
-        }
-    }
-
-    public void a(int i, int i2) {
-        if (i2 == EnterForumActivity.f1320a) {
-            if (this.s == null) {
-                w();
-            }
-            this.r.b(i);
-            if (i == 0) {
-                switch (EnterForumActivity.f1320a) {
-                    case 0:
-                        this.r.setNoCenterTipText(R.string.forum_not_like_tip);
-                        this.r.setArrowDisplay(0);
-                        return;
-                    case 1:
-                        this.r.setNoCenterTipText(R.string.group_no_data_tip);
-                        this.r.setArrowDisplay(8);
-                        return;
-                    default:
-                        return;
+                    if ((i * 2) + 1 < this.c.a().size()) {
+                        cdVar.f.b.setVisibility(0);
+                        a(this.c.a().get((i * 2) + 1), cdVar.f);
+                    } else {
+                        cdVar.f.b.setVisibility(4);
+                    }
                 }
             }
+        } else if (itemViewType == 0) {
+            if (view == null) {
+                sVar = new s(this.f1458a, this.f1458a.getString(R.string.login_block_tip), this.f1458a.getResources().getString(R.string.login_home_tab), 1);
+                view = sVar.e();
+                view.setTag(sVar);
+            }
+            if (sVar == null) {
+                sVar = (s) view.getTag();
+            }
+            sVar.b(ap);
         }
+        return view;
+    }
+
+    private void a(int i, cd cdVar) {
+        if (i == 0) {
+            cdVar.f1446a.setPadding(this.f, this.h, this.f, 0);
+        } else {
+            cdVar.f1446a.setPadding(this.f, this.g, this.f, 0);
+        }
+    }
+
+    private View a(cd cdVar) {
+        View inflate = LayoutInflater.from(this.f1458a).inflate(R.layout.home_like_item, (ViewGroup) null);
+        cd cdVar2 = new cd();
+        cdVar2.f1446a = (LinearLayout) inflate;
+        cdVar2.e = (TextView) inflate.findViewById(R.id.forum_icon_sign1);
+        cdVar2.b = (LinearLayout) inflate.findViewById(R.id.first);
+        cdVar2.b.setOnClickListener(this.i);
+        cdVar2.b.setOnLongClickListener(this.j);
+        cdVar2.c = (TextView) inflate.findViewById(R.id.home_lv_like_forum1);
+        cdVar2.d = (TextView) inflate.findViewById(R.id.forum_lv_like_grade1);
+        cdVar2.f = new cd();
+        cdVar2.f.e = (TextView) inflate.findViewById(R.id.forum_icon_sign2);
+        cdVar2.f.b = (LinearLayout) inflate.findViewById(R.id.second);
+        cdVar2.f.b.setOnClickListener(this.i);
+        cdVar2.f.b.setOnLongClickListener(this.j);
+        cdVar2.f.c = (TextView) inflate.findViewById(R.id.home_lv_like_forum2);
+        cdVar2.f.d = (TextView) inflate.findViewById(R.id.forum_lv_like_grade2);
+        inflate.setTag(cdVar2);
+        return inflate;
     }
 
     public void a(int i) {
-        if (this.s != null) {
-            this.s.b(i);
+        notifyDataSetChanged();
+    }
+
+    private void b(int i, cd cdVar) {
+        if (cdVar != null && cdVar.b(i)) {
+            if (i == 1) {
+                com.baidu.tieba.util.bd.e(cdVar.b, (int) R.drawable.home_like_item_bg_1);
+                com.baidu.tieba.util.bd.e(cdVar.f.b, (int) R.drawable.home_like_item_bg_1);
+                return;
+            }
+            com.baidu.tieba.util.bd.e(cdVar.b, (int) R.drawable.home_like_item_bg);
+            com.baidu.tieba.util.bd.e(cdVar.f.b, (int) R.drawable.home_like_item_bg);
         }
     }
 
-    public void g() {
-        int b = this.j.b();
-        if (EnterForumActivity.f1320a == 0) {
-            if (b == 3) {
-                x();
-                a(8, 0);
-                a(0);
-            } else if (b == 2) {
-                w();
-                a(0, 0);
-                a(8);
+    public int b() {
+        if (!this.b.booleanValue()) {
+            return 0;
+        }
+        if (this.c == null || this.c.a() == null || this.c.a().size() == 0) {
+            return 2;
+        }
+        if (this.c.a().size() <= 6 && this.k) {
+            return 3;
+        }
+        return 1;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        return !this.b.booleanValue() ? 0 : 1;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return 2;
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        this.i = onClickListener;
+    }
+
+    public void a(View.OnLongClickListener onLongClickListener) {
+        this.j = onLongClickListener;
+    }
+
+    private void a(com.baidu.tieba.data.ae aeVar, cd cdVar) {
+        if (aeVar != null && cdVar != null) {
+            int d = aeVar.d();
+            cdVar.b.setTag(aeVar);
+            cdVar.c.setText(a(aeVar));
+            if (aeVar.c() == 0) {
+                cdVar.e.setVisibility(4);
             } else {
-                if (b == 0) {
-                    this.i.setPullRefresh(null);
-                    this.g = true;
-                }
-                a(8, 0);
-                a(8);
+                cdVar.e.setVisibility(0);
             }
-            if (this.g && b != 0) {
-                this.i.setPullRefresh(this.q);
-                this.g = false;
+            if (d == 0) {
+                cdVar.d.setVisibility(4);
+                return;
+            }
+            cdVar.d.setVisibility(0);
+            cdVar.d.setBackgroundResource(com.baidu.tieba.util.m.b(d));
+            cdVar.d.setText(String.valueOf(aeVar.d()));
+        }
+    }
+
+    private String a(com.baidu.tieba.data.ae aeVar) {
+        String b = aeVar.b();
+        double d = 0.0d;
+        String str = "";
+        for (int i = 0; i < b.length(); i++) {
+            char charAt = b.charAt(i);
+            if ((charAt >= 'a' && charAt <= 'z') || ((charAt >= 'A' && charAt <= 'Z') || (charAt >= '0' && charAt <= '9'))) {
+                d += 0.5d;
+            } else {
+                d += 1.0d;
+            }
+            if (d <= 4.0d) {
+                str = str + charAt;
+            } else {
+                return str + "...";
             }
         }
+        return str;
     }
 
-    public void a(boolean z, String str) {
-        if (!z && str != null) {
-            this.h.a(str);
-        }
-    }
-
-    public SearchBoxView h() {
-        return this.f1363a;
-    }
-
-    public void i() {
-        this.j.notifyDataSetChanged();
-    }
-
-    public void j() {
-        if (this.s != null) {
-            this.s.b();
-        }
-        if (this.r != null) {
-            this.r.b();
-        }
-    }
-
-    public void k() {
-        if (this.s != null) {
-            this.s.c();
-        }
-        if (this.r != null) {
-            this.r.c();
-        }
-    }
-
-    public void l() {
-        NetworkInfo activeNetworkInfo;
-        a();
-        if (this.t != null && this.t.getVisibility() == 0 && (activeNetworkInfo = ((ConnectivityManager) this.h.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-            this.t.setVisible(false);
-        }
-    }
-
-    public void m() {
-        if (this.d != null) {
-            this.d.b();
-        }
-    }
-
-    public void n() {
-        if (this.l != null) {
-            this.l.dismiss();
-        }
-        if (this.m != null) {
-            this.m.dismiss();
-        }
-    }
-
-    public void o() {
-        if (this.t != null) {
-            this.t.setVisible(true);
-        }
-    }
-
-    public void b(int i) {
-        this.h.m().a(i == 1);
-        this.h.m().a(this.n);
-        com.baidu.tieba.util.bb.d(this.o, i);
-        com.baidu.tieba.util.bb.f(this.p, i);
-        if (i == 1) {
-            this.n.setBackgroundColor(-13618114);
-        } else {
-            this.n.setBackgroundColor(-197380);
-        }
-        if (this.s != null) {
-            this.s.a(i);
-        }
-        if (this.r != null) {
-            this.r.a(i);
-        }
-        if (this.t != null) {
-            this.t.a(i);
-        }
-        this.j.a(i);
-        this.q.a(i);
-        this.f1363a.a(i);
-        if (this.d != null) {
-            this.d.a(i);
-        }
-    }
-
-    public int p() {
-        return R.id.first;
-    }
-
-    public int q() {
-        return R.id.second;
-    }
-
-    public void r() {
-        this.l.show();
-    }
-
-    public void s() {
-        this.m.show();
-    }
-
-    public void t() {
-        if (this.k == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.h.getParent());
-            builder.setTitle(R.string.alerm_title);
-            builder.setIcon(R.drawable.dialogue_quit);
-            builder.setMessage(R.string.delete_like_info);
-            builder.setPositiveButton(this.h.getString(R.string.confirm), this.h);
-            builder.setNegativeButton(this.h.getString(R.string.cancel), this.h);
-            this.k = builder.create();
-        }
-        this.k.show();
-    }
-
-    public AlertDialog u() {
-        return this.l;
-    }
-
-    public AlertDialog v() {
-        return this.m;
-    }
-
-    public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.q.a(bVar);
+    public void a(com.baidu.tieba.data.r rVar) {
+        a(this.b);
+        a(rVar.d());
     }
 }

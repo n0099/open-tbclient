@@ -3,6 +3,7 @@ package com.baidu.tieba.im.messageCenter;
 import com.baidu.tieba.im.codec.NetworkMessage;
 import com.baidu.tieba.im.message.AckedMessage;
 import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.util.y;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -123,7 +124,7 @@ public class j {
                 s next = it.next();
                 if (next != null && (g = next.g()) != null && g.getCmd() == i && iDuplicateProcess.onDuplicateProcess(g)) {
                     it.remove();
-                    com.baidu.tieba.util.o.a(i, (next.c() == null || next.c().getMsgTag() == null) ? 0 : next.c().getMsgTag().getSequence(), "duplicate remove from queue", "MessageQueue: Message throwed", null, 0, null);
+                    y.a(i, (next.c() == null || next.c().getMsgTag() == null) ? 0 : next.c().getMsgTag().getSequence(), "duplicate remove from queue", "MessageQueue: Message throwed", null, 0, null);
                 }
             }
         }

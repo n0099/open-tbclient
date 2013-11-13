@@ -13,12 +13,12 @@ import com.slidingmenu.lib.R;
 public class v extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AppsActivity f2022a;
-    private com.baidu.tieba.util.ag b = null;
+    final /* synthetic */ AppsActivity f2014a;
+    private com.baidu.tieba.util.ap b = null;
     private String c;
 
     public v(AppsActivity appsActivity, String str) {
-        this.f2022a = appsActivity;
+        this.f2014a = appsActivity;
         this.c = null;
         this.c = str;
     }
@@ -29,11 +29,11 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         ProgressBar progressBar;
         LinearLayout linearLayout;
         BaseWebView baseWebView;
-        progressBar = this.f2022a.f;
+        progressBar = this.f2014a.f;
         progressBar.setVisibility(0);
-        linearLayout = this.f2022a.e;
+        linearLayout = this.f2014a.e;
         linearLayout.setVisibility(8);
-        baseWebView = this.f2022a.b;
+        baseWebView = this.f2014a.b;
         baseWebView.setVisibility(0);
     }
 
@@ -45,7 +45,7 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         if (this.c == null) {
             return null;
         }
-        this.b = new com.baidu.tieba.util.ag(this.c);
+        this.b = new com.baidu.tieba.util.ap(this.c);
         this.b.b(false);
         this.b.a("client", SocialConstants.ANDROID_CLIENT_TYPE);
         return this.b.j();
@@ -57,9 +57,9 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         if (this.b != null) {
             this.b.h();
         }
-        progressBar = this.f2022a.f;
+        progressBar = this.f2014a.f;
         progressBar.setVisibility(8);
-        this.f2022a.d = null;
+        this.f2014a.d = null;
         super.cancel(true);
     }
 
@@ -68,31 +68,31 @@ public class v extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         ProgressBar progressBar;
-        boolean e;
+        boolean d;
         BaseWebView baseWebView;
         BaseWebView baseWebView2;
         LinearLayout linearLayout;
         BaseWebView baseWebView3;
-        progressBar = this.f2022a.f;
+        progressBar = this.f2014a.f;
         progressBar.setVisibility(8);
         if (this.b == null || !this.b.d() || str == null || str.length() <= 0) {
-            e = this.f2022a.e();
-            if (!e && str == null) {
-                baseWebView2 = this.f2022a.b;
+            d = this.f2014a.d();
+            if (!d && str == null) {
+                baseWebView2 = this.f2014a.b;
                 baseWebView2.setVisibility(8);
-                linearLayout = this.f2022a.e;
+                linearLayout = this.f2014a.e;
                 linearLayout.setVisibility(0);
-                this.f2022a.a(this.f2022a.getString(R.string.system_no_service));
+                this.f2014a.showToast(this.f2014a.getString(R.string.system_no_service));
                 return;
             }
-            String string = this.f2022a.getString(R.string.server_404);
-            baseWebView = this.f2022a.b;
-            baseWebView.loadDataWithBaseURL(com.baidu.tieba.data.h.f1165a, string, "text/html", BdUtil.UTF8, "");
+            String string = this.f2014a.getString(R.string.server_404);
+            baseWebView = this.f2014a.b;
+            baseWebView.loadDataWithBaseURL(com.baidu.tieba.data.h.f1196a, string, "text/html", BdUtil.UTF8, "");
             return;
         }
         DatabaseService.a(str, 7);
         com.baidu.tieba.sharedPref.b.a().b("app_inverval", System.currentTimeMillis());
-        baseWebView3 = this.f2022a.b;
-        baseWebView3.loadDataWithBaseURL(com.baidu.tieba.data.h.f1165a, str, "text/html", BdUtil.UTF8, "");
+        baseWebView3 = this.f2014a.b;
+        baseWebView3.loadDataWithBaseURL(com.baidu.tieba.data.h.f1196a, str, "text/html", BdUtil.UTF8, "");
     }
 }

@@ -10,15 +10,14 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements com.baidu.tieba.im.messageCenter.h {
+class ag implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1517a;
+    final /* synthetic */ aa f1608a;
 
     private ag(aa aaVar) {
-        this.f1517a = aaVar;
+        this.f1608a = aaVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,11 +36,11 @@ public class ag implements com.baidu.tieba.im.messageCenter.h {
                     if (!responseRemoveMembersMessage.hasError() && (orginalMessage = responseRemoveMembersMessage.getOrginalMessage()) != null && (orginalMessage instanceof RequestRemoveMembersMessage)) {
                         String userIds = ((RequestRemoveMembersMessage) orginalMessage).getUserIds();
                         if (!TextUtils.isEmpty(userIds) && (split = userIds.split(",")) != null && split.length != 0) {
-                            String id = TiebaApplication.G().getID();
+                            String id = TiebaApplication.E().getID();
                             if (!TextUtils.isEmpty(id)) {
                                 for (String str : split) {
                                     if (id.equals(str)) {
-                                        this.f1517a.a(responseRemoveMembersMessage.getGroupId());
+                                        this.f1608a.a(responseRemoveMembersMessage.getGroupId());
                                         com.baidu.tieba.im.m.a(new ah(this, responseRemoveMembersMessage), null);
                                         aa.a().a(responseRemoveMembersMessage.getGroupId());
                                         return;

@@ -10,6 +10,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.MetaData;
+import com.baidu.tieba.util.bd;
+import com.baidu.tieba.util.bg;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -17,13 +19,13 @@ public class k extends BaseAdapter {
     boolean b;
     boolean c;
     private Context e;
-    private com.baidu.tieba.util.a f;
+    private com.baidu.tieba.util.i f;
     private ArrayList<MetaData> d = null;
     private boolean g = false;
     private boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2663a = false;
+    boolean f2711a = false;
     private ArrayList<ProgressBar> i = new ArrayList<>();
 
     public void a() {
@@ -35,7 +37,7 @@ public class k extends BaseAdapter {
                     try {
                         this.i.get(i2).setVisibility(8);
                     } catch (Exception e) {
-                        com.baidu.tieba.util.be.b(getClass().getName(), "releaseProgressBar", e.getMessage());
+                        bg.b(getClass().getName(), "releaseProgressBar", e.getMessage());
                     }
                     i = i2 + 1;
                 } else {
@@ -52,12 +54,12 @@ public class k extends BaseAdapter {
         this.b = false;
         this.c = true;
         this.e = context;
-        this.f = new com.baidu.tieba.util.a(this.e);
+        this.f = new com.baidu.tieba.util.i(this.e);
         this.b = z;
         this.c = z2;
     }
 
-    public com.baidu.tieba.util.a b() {
+    public com.baidu.tieba.util.i b() {
         return this.f;
     }
 
@@ -67,7 +69,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2663a) {
+        if (this.f2711a) {
             return 1;
         }
         int i = 0;
@@ -106,7 +108,7 @@ public class k extends BaseAdapter {
                 m mVar2 = new m(this);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.at_list_item, (ViewGroup) null);
-                    mVar2.f2664a = (ImageView) inflate.findViewById(R.id.photo);
+                    mVar2.f2712a = (ImageView) inflate.findViewById(R.id.photo);
                     mVar2.b = (TextView) inflate.findViewById(R.id.name);
                     mVar2.e = (TextView) inflate.findViewById(R.id.at_list_nodata);
                     view2 = inflate;
@@ -125,8 +127,8 @@ public class k extends BaseAdapter {
             }
             try {
                 if (getItemViewType(i) == 0) {
-                    if (this.f2663a) {
-                        mVar.f2664a.setVisibility(8);
+                    if (this.f2711a) {
+                        mVar.f2712a.setVisibility(8);
                         mVar.b.setVisibility(8);
                         mVar.e.setVisibility(0);
                         if (this.b) {
@@ -141,17 +143,17 @@ public class k extends BaseAdapter {
                             mVar.e.setText(R.string.no_fan_other);
                         }
                     } else {
-                        mVar.f2664a.setVisibility(0);
+                        mVar.f2712a.setVisibility(0);
                         mVar.b.setVisibility(0);
                         mVar.e.setVisibility(8);
                         String portrait = this.d.get(i).getPortrait();
                         com.baidu.adp.widget.ImageView.e c = this.f.c(portrait);
                         if (c != null) {
-                            mVar.f2664a.setTag(null);
-                            c.a(mVar.f2664a);
+                            mVar.f2712a.setTag(null);
+                            c.a(mVar.f2712a);
                         } else {
-                            mVar.f2664a.setTag(portrait);
-                            mVar.f2664a.setImageBitmap(com.baidu.tieba.util.e.a((int) R.drawable.photo));
+                            mVar.f2712a.setTag(portrait);
+                            mVar.f2712a.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
                         }
                         mVar.b.setText(this.d.get(i).getName_show());
                     }
@@ -162,14 +164,14 @@ public class k extends BaseAdapter {
                     mVar.b.setText(this.e.getString(R.string.load_more));
                     mVar.d.setVisibility(8);
                 }
-                int as = TiebaApplication.g().as();
-                if (as == 1) {
-                    com.baidu.tieba.util.bb.e(view, (int) R.drawable.list_selector_1);
+                int ap = TiebaApplication.g().ap();
+                if (ap == 1) {
+                    bd.e(view, (int) R.drawable.list_selector_1);
                 } else {
-                    com.baidu.tieba.util.bb.e(view, (int) R.drawable.list_selector_divider1);
+                    bd.e(view, (int) R.drawable.list_selector_divider1);
                 }
-                if (as == 1) {
-                    mVar.b.setTextColor(-8682086);
+                if (ap == 1) {
+                    mVar.b.setTextColor(-8153171);
                     mVar.c.setTextColor(-11446171);
                     if (mVar.e != null) {
                         mVar.e.setTextColor(-8682086);
@@ -190,7 +192,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f2663a) {
+        if (this.f2711a) {
             return 0;
         }
         return (this.d == null || i >= this.d.size()) ? 1 : 0;
@@ -203,7 +205,7 @@ public class k extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.f2663a) {
+        if (this.f2711a) {
             return false;
         }
         return super.isEnabled(i);

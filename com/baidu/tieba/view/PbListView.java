@@ -4,23 +4,23 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2493a;
+    private Context f2547a;
     private TextView b;
     private ProgressBar c;
-    private ImageView d;
-    private View.OnClickListener e;
-    private View f;
-    private String g;
-    private LinearLayout h;
+    private View.OnClickListener d;
+    private View e;
+    private String f;
+    private LinearLayout g;
+    private int h;
     private IconType i;
 
     /* loaded from: classes.dex */
@@ -30,16 +30,16 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     }
 
     public PbListView(Context context) {
-        this.f2493a = null;
+        this.f2547a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
         this.f = null;
         this.g = null;
-        this.h = null;
+        this.h = 0;
         this.i = IconType.ICON_DOWN_WARD;
-        this.f2493a = context;
+        this.f2547a = context;
     }
 
     public PbListView(Context context, IconType iconType) {
@@ -49,63 +49,67 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.f = LayoutInflater.from(this.f2493a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-        this.h = (LinearLayout) this.f.findViewById(R.id.pb_more_view);
-        this.b = (TextView) this.f.findViewById(R.id.pb_more_text);
-        this.d = (ImageView) this.f.findViewById(R.id.image);
-        this.c = (ProgressBar) this.f.findViewById(R.id.progress);
-        return this.f;
+        this.e = LayoutInflater.from(this.f2547a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        this.g = (LinearLayout) this.e.findViewById(R.id.pb_more_view);
+        this.b = (TextView) this.e.findViewById(R.id.pb_more_text);
+        this.c = (ProgressBar) this.e.findViewById(R.id.progress);
+        return this.e;
     }
 
     public void c() {
         this.c.setVisibility(0);
-        this.d.setVisibility(8);
-        this.b.setText(this.f2493a.getText(R.string.loading));
+        this.b.setText(this.f2547a.getText(R.string.loading));
+        b(TiebaApplication.g().ap());
     }
 
     public void d() {
         this.c.setVisibility(8);
-        this.d.setVisibility(0);
-        if (this.g != null) {
-            this.b.setText(this.g);
+        if (this.f != null) {
+            this.b.setText(this.f);
         } else {
-            this.b.setText(this.f2493a.getText(R.string.load_more));
+            this.b.setText(this.f2547a.getText(R.string.pb_load_more));
         }
+        b(TiebaApplication.g().ap());
     }
 
     public void a(String str) {
-        this.g = str;
+        this.f = str;
         this.b.setText(str);
+        b(TiebaApplication.g().ap());
+    }
+
+    public void a(int i) {
+        this.b.setTextColor(this.f2547a.getResources().getColor(i));
     }
 
     public void a(View.OnClickListener onClickListener) {
-        this.e = onClickListener;
+        this.d = onClickListener;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void onClick() {
-        if (this.e != null) {
-            this.e.onClick(this.f);
+        if (this.d != null) {
+            this.d.onClick(this.e);
         }
     }
 
-    public void a(int i) {
-        if (this.f != null) {
+    public void b(int i) {
+        String charSequence = this.b.getText().toString();
+        if (this.e != null && charSequence != null) {
             if (i == 1) {
-                com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.bg_list_all_1);
-                if (this.i == IconType.ICON_DOWN_WARD) {
-                    this.d.setBackgroundResource(R.drawable.ico_downward_1);
-                    return;
-                } else {
-                    this.d.setBackgroundResource(R.drawable.ico_upward_1);
-                    return;
+                if (charSequence.equals(this.f2547a.getText(R.string.pb_load_more))) {
+                    a(R.color.pb_more_txt_1);
+                } else if (charSequence.equals(this.f2547a.getText(R.string.loading))) {
+                    a(R.color.pb_more_txt_1);
+                } else if (charSequence.equals(this.f2547a.getText(R.string.no_more_to_load))) {
+                    a(R.color.pb_list_morebutton_nomore_text_1);
                 }
-            }
-            com.baidu.tieba.util.bb.e(this.h, (int) R.drawable.bg_list_all);
-            if (this.i == IconType.ICON_DOWN_WARD) {
-                this.d.setBackgroundResource(R.drawable.ico_downward);
-            } else {
-                this.d.setBackgroundResource(R.drawable.ico_upward);
+            } else if (charSequence.equals(this.f2547a.getText(R.string.pb_load_more))) {
+                a(R.color.pb_more_txt);
+            } else if (charSequence.equals(this.f2547a.getText(R.string.loading))) {
+                a(R.color.pb_more_txt);
+            } else if (charSequence.equals(this.f2547a.getText(R.string.no_more_to_load))) {
+                a(R.color.pb_list_morebutton_nomore_text);
             }
         }
     }

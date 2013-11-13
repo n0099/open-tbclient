@@ -1,22 +1,23 @@
 package com.baidu.tieba.im.chat;
-
-import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bc implements DialogInterface.OnClickListener {
+public class bc implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1430a;
-    final /* synthetic */ MsglistActivity b;
+    final /* synthetic */ MsglistActivity f1523a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(MsglistActivity msglistActivity, int i) {
-        this.b = msglistActivity;
-        this.f1430a = i;
+    private bc(MsglistActivity msglistActivity) {
+        this.f1523a = msglistActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        dialogInterface.dismiss();
-        this.b.e(this.f1430a);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ bc(MsglistActivity msglistActivity, as asVar) {
+        this(msglistActivity);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.a
+    public void a(Void r4) {
+        com.baidu.tieba.im.pushNotify.a.g().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 }

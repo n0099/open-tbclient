@@ -13,7 +13,7 @@ import com.baidu.tieba.mention.t;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f1634a;
+    public static long f1721a;
     private static i b = new i();
 
     private i() {
@@ -31,8 +31,8 @@ public class i {
         aa.a().b();
         TiebaSocketLinkService.a();
         TiebaSocketLinkService.a(false, "TiebaImApplication init");
-        f1634a = Thread.currentThread().getId();
-        com.baidu.adp.lib.h.d.d("=====uid:" + TiebaApplication.C() + " cuid:" + a());
+        f1721a = Thread.currentThread().getId();
+        com.baidu.adp.lib.h.d.d("=====uid:" + TiebaApplication.A() + " cuid:" + a());
     }
 
     public static void a(AccountData accountData, Context context) {
@@ -49,10 +49,10 @@ public class i {
     }
 
     public static String b() {
-        AccountData G = TiebaApplication.G();
-        if (G == null) {
+        AccountData E = TiebaApplication.E();
+        if (E == null) {
             return null;
         }
-        return G.getPortrait();
+        return E.getPortrait();
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tieba.compatible;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.hardware.Camera;
 import android.os.Build;
 import android.provider.Settings;
 import android.view.MotionEvent;
@@ -21,6 +22,7 @@ public class CompatibleUtile {
     private static Object5 mObject5 = null;
     private static Object7 mObject7 = null;
     private static Object8 mObject8 = null;
+    private static Object9 mObject9 = null;
     private static Object11 mObject11 = null;
     private static Object14 mObject14 = null;
 
@@ -50,6 +52,13 @@ public class CompatibleUtile {
             mObject8 = new Object8(this, null);
         }
         return mObject8;
+    }
+
+    private Object9 getObject9() {
+        if (Build.VERSION.SDK_INT >= 9 && mObject9 == null) {
+            mObject9 = new Object9(this, null);
+        }
+        return mObject9;
     }
 
     private Object11 getObject11() {
@@ -113,6 +122,16 @@ public class CompatibleUtile {
         return -1.0f;
     }
 
+    public Camera getBackCamera() {
+        return getObject9() != null ? getObject9().getBackCamera() : Camera.open();
+    }
+
+    public void setCameraDisplayOrientation(Camera camera, int i) {
+        if (getObject8() != null) {
+            getObject8().setCameraDisplayOrientation(camera, i);
+        }
+    }
+
     public void WebViewNoDataBase(WebSettings webSettings) {
         if (getObject5() != null) {
             getObject5().WebViewNoDataBase(webSettings);
@@ -138,9 +157,35 @@ public class CompatibleUtile {
         }
     }
 
+    public boolean isUseHw(View view) {
+        if (getObject11() != null) {
+            return getObject11().isUseHw(view);
+        }
+        return false;
+    }
+
+    public int getViewLayer(View view) {
+        if (getObject11() != null) {
+            return getObject11().getViewLayer(view);
+        }
+        return 0;
+    }
+
+    public void noneViewGpu(View view) {
+        if (getObject11() != null) {
+            getObject11().noneViewGpu(view);
+        }
+    }
+
     public void closeViewGpu(View view) {
         if (getObject11() != null) {
             getObject11().closeViewGpu(view);
+        }
+    }
+
+    public void openViewGpu(View view) {
+        if (getObject11() != null) {
+            getObject11().openViewGpu(view);
         }
     }
 
@@ -300,6 +345,43 @@ public class CompatibleUtile {
                 return false;
             }
         }
+
+        public void setCameraDisplayOrientation(Camera camera, int i) {
+            if (camera != null) {
+                camera.setDisplayOrientation(i);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class Object9 {
+        private Object9() {
+        }
+
+        /* synthetic */ Object9(CompatibleUtile compatibleUtile, Object9 object9) {
+            this();
+        }
+
+        public Camera getBackCamera() {
+            int numberOfCameras = Camera.getNumberOfCameras();
+            if (numberOfCameras == 0) {
+                return null;
+            }
+            int i = 0;
+            while (i < numberOfCameras) {
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfo);
+                if (cameraInfo.facing == 0) {
+                    break;
+                }
+                i++;
+            }
+            if (i < numberOfCameras) {
+                return Camera.open(i);
+            }
+            return Camera.open(0);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -316,9 +398,32 @@ public class CompatibleUtile {
             activity.getWindow().setFlags(16777216, 16777216);
         }
 
-        public void closeViewGpu(View view) {
+        public boolean isUseHw(View view) {
+            return view != null && view.isHardwareAccelerated();
+        }
+
+        public int getViewLayer(View view) {
+            if (view != null) {
+                return view.getLayerType();
+            }
+            return 0;
+        }
+
+        public void noneViewGpu(View view) {
             if (view != null) {
                 view.setLayerType(0, null);
+            }
+        }
+
+        public void closeViewGpu(View view) {
+            if (view != null && view.isHardwareAccelerated()) {
+                view.setLayerType(1, null);
+            }
+        }
+
+        public void openViewGpu(View view) {
+            if (view != null) {
+                view.setLayerType(2, null);
             }
         }
 

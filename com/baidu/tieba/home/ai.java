@@ -1,23 +1,24 @@
 package com.baidu.tieba.home;
 
-import android.view.View;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 /* loaded from: classes.dex */
-public class ai implements View.OnFocusChangeListener {
+class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1335a;
+    ImageView f1402a;
+    TextView b;
+    LinearLayout c;
+    TextView d;
+    ImageView e;
+    TextView f;
+    ImageView g;
+    ImageButton h;
+    final /* synthetic */ af i;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(SearchActivity searchActivity) {
-        this.f1335a = searchActivity;
-    }
-
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            UtilHelper.a(this.f1335a, view);
-        }
+    private ai(af afVar) {
+        this.i = afVar;
     }
 }

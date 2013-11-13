@@ -23,6 +23,10 @@ public class PersonPostReplyModel extends com.baidu.adp.a.d implements Serializa
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
+        if (sFetchReplyAsyncTask != null) {
+            sFetchReplyAsyncTask.cancel();
+            return false;
+        }
         return false;
     }
 

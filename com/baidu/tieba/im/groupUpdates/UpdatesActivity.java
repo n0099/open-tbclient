@@ -24,16 +24,16 @@ import java.util.LinkedList;
 public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.tieba.im.messageCenter.h, com.baidu.tieba.im.pushNotify.m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1619a = false;
+    public static boolean f1706a = false;
     private n b;
     private AlertDialog c;
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> d;
     private com.baidu.tieba.im.a<Boolean> e;
     private Runnable f;
-    private com.baidu.tieba.util.a g;
-    private boolean j = false;
-    private UpdatesItemData k;
-    private m l;
+    private com.baidu.tieba.util.i g;
+    private boolean h = false;
+    private UpdatesItemData i;
+    private m j;
 
     public static void a(Context context) {
         if (context != null) {
@@ -45,10 +45,10 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.l = new m();
+        this.j = new m();
         this.b = new n(this);
-        d();
-        this.g = new com.baidu.tieba.util.a(this);
+        c();
+        this.g = new com.baidu.tieba.util.i(this);
         this.g.d(true);
         LinkedList linkedList = new LinkedList();
         for (int i = 0; i < 100; i++) {
@@ -81,7 +81,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        f1619a = true;
+        f1706a = true;
         t.a().a(2);
     }
 
@@ -89,29 +89,29 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        f1619a = false;
+        f1706a = false;
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        f1619a = true;
+        f1706a = true;
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        f1619a = true;
+        f1706a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        f1619a = false;
+        f1706a = false;
     }
 
-    private void d() {
+    private void c() {
         this.e = new a(this);
         this.d = new b(this);
     }
@@ -123,10 +123,10 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
         if (this.b != null) {
             this.b.c();
         }
-        if (this.l != null) {
-            this.l.c();
+        if (this.j != null) {
+            this.j.c();
         }
-        this.k = null;
+        this.i = null;
         com.baidu.tieba.im.pushNotify.n.a().a(this);
     }
 
@@ -141,13 +141,13 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
             } else if (view.equals(this.b.k())) {
                 a(false);
                 this.b.f();
-                this.l.b();
+                this.j.b();
                 m.b(this.d);
             } else if (view.equals(this.b.l())) {
                 this.b.a(true);
-                String a2 = this.l.a();
+                String a2 = this.j.a();
                 if (!TextUtils.isEmpty(a2)) {
-                    c(a2);
+                    a(a2);
                 } else {
                     this.b.a(false);
                 }
@@ -160,10 +160,10 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
         if (keyEvent == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (4 == i && keyEvent.getAction() == 0 && this.j) {
+        if (4 == i && keyEvent.getAction() == 0 && this.h) {
             a(false);
-            this.l.b();
-            this.b.a(this.l.d());
+            this.j.b();
+            this.b.a(this.j.d());
             this.b.f();
             return true;
         }
@@ -173,7 +173,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UpdatesItemData updatesItemData) {
         if (!UtilHelper.b()) {
-            b(R.string.neterror);
+            showToast(R.string.neterror);
         } else if (updatesItemData != null && !TextUtils.isEmpty(com.baidu.tieba.im.pushNotify.n.a().d()) && TextUtils.isDigitsOnly(com.baidu.tieba.im.pushNotify.n.a().d()) && !TextUtils.isEmpty(updatesItemData.getNotice_id()) && TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             try {
                 this.b.a(true);
@@ -189,9 +189,9 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
         }
     }
 
-    private void c(String str) {
+    private void a(String str) {
         if (!UtilHelper.b()) {
-            b(R.string.neterror);
+            showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {
             String d = com.baidu.tieba.im.pushNotify.n.a().d();
             if (!TextUtils.isEmpty(d) && TextUtils.isDigitsOnly(d)) {
@@ -207,8 +207,8 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
         if (this.b != null) {
             this.b.b(i);
         }
@@ -220,7 +220,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     }
 
     public void a(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
-        if (updatesItemData != null && 101 == i && !c()) {
+        if (updatesItemData != null && 101 == i && !b()) {
             String groupId = updatesItemData.getGroupId();
             com.baidu.adp.lib.h.d.d("go to level gid:" + groupId);
             String updatesType = updatesItemData.getUpdatesType();
@@ -242,33 +242,33 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     public void a(CompoundButton compoundButton, boolean z, UpdatesItemData updatesItemData) {
         if (updatesItemData != null) {
             if (z) {
-                this.l.a(updatesItemData);
+                this.j.a(updatesItemData);
                 updatesItemData.setSelected(true);
-                if (this.l.d() > 100) {
-                    this.l.b(updatesItemData);
+                if (this.j.d() > 100) {
+                    this.j.b(updatesItemData);
                     updatesItemData.setSelected(false);
-                    b(R.string.updates_activity_del_limit);
+                    showToast(R.string.updates_activity_del_limit);
                 }
             } else {
-                this.l.b(updatesItemData);
+                this.j.b(updatesItemData);
                 updatesItemData.setSelected(false);
             }
-            this.b.a(this.l.d());
+            this.b.a(this.j.d());
             this.b.g();
         }
     }
 
     public void b(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
-        if (view != null && updatesItemData != null && 200 == i && !c()) {
+        if (view != null && updatesItemData != null && 200 == i && !b()) {
             if (this.c == null) {
-                this.k = updatesItemData;
-                e();
+                this.i = updatesItemData;
+                d();
             }
             this.c.show();
         }
     }
 
-    private void e() {
+    private void d() {
         String string = getString(R.string.delete_user_chat);
         c cVar = new c(this);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -279,15 +279,15 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
+    public void e() {
         if (this.b.i() != null) {
-            n();
+            f();
             this.b.i().removeCallbacks(this.f);
             this.b.i().post(this.f);
         }
     }
 
-    private void n() {
+    private void f() {
         if (this.f == null) {
             this.f = new d(this);
         }
@@ -300,20 +300,20 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 0) {
-            f();
+            e();
         }
     }
 
-    public com.baidu.tieba.util.a b() {
+    public com.baidu.tieba.util.i a() {
         return this.g;
     }
 
-    public boolean c() {
-        return this.j;
+    public boolean b() {
+        return this.h;
     }
 
     public void a(boolean z) {
-        this.j = z;
+        this.h = z;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
@@ -327,12 +327,12 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
                 return;
             }
             com.baidu.adp.lib.h.d.d("del group info: gid" + requestDelSystemMessage.getGroupId() + " msgid:" + requestDelSystemMessage.getMsgIds());
-            if (this.k != null) {
-                m.a(this.k, this.e);
-                this.k = null;
+            if (this.i != null) {
+                m.a(this.i, this.e);
+                this.i = null;
             }
-            if (this.l != null && this.l.d() > 0) {
-                this.l.a(this.e);
+            if (this.j != null && this.j.d() > 0) {
+                this.j.a(this.e);
             }
             com.baidu.tieba.im.validate.k.a(this.d);
             com.baidu.tieba.im.pushNotify.a.a(false, (com.baidu.tieba.im.a<Void>) null);

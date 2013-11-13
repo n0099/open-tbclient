@@ -34,10 +34,10 @@ public class SignAlertReceiver extends BroadcastReceiver {
                     notification.defaults &= -2;
                     notification.defaults &= -3;
                 } else {
-                    if (!TiebaApplication.g().Y()) {
+                    if (!TiebaApplication.g().W()) {
                         notification.defaults &= -3;
                     }
-                    if (!TiebaApplication.g().X()) {
+                    if (!TiebaApplication.g().V()) {
                         notification.defaults &= -2;
                     } else {
                         notification.audioStreamType = 5;
@@ -53,11 +53,11 @@ public class SignAlertReceiver extends BroadcastReceiver {
                     }
                     g = TiebaApplication.g();
                 } catch (Throwable th2) {
-                    TiebaApplication.g().aj();
+                    TiebaApplication.g().ah();
                     throw th2;
                 }
             }
-            g.aj();
+            g.ah();
         }
     }
 }

@@ -6,17 +6,17 @@ import android.widget.ListView;
 class c implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2655a;
+    final /* synthetic */ b f2703a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f2655a = bVar;
+        this.f2703a = bVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         ListView listView;
-        listView = this.f2655a.f2648a.e;
+        listView = this.f2703a.f2700a.d;
         ImageView imageView = (ImageView) listView.findViewWithTag(str);
         if (imageView != null && eVar != null) {
             eVar.a(imageView);

@@ -20,7 +20,7 @@ import javassist.bytecode.annotation.StringMemberValue;
 public class c extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    y f2762a;
+    y f2810a;
     javassist.bytecode.annotation.a[][] b;
     javassist.bytecode.annotation.a[] c;
     javassist.bytecode.annotation.a d;
@@ -29,7 +29,7 @@ public class c extends d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(byte[] bArr, y yVar) {
         super(bArr);
-        this.f2762a = yVar;
+        this.f2810a = yVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,7 +76,7 @@ public class c extends d {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.d
     public int a(int i, int i2, int i3) {
-        this.d = new javassist.bytecode.annotation.a(i2, this.f2762a);
+        this.d = new javassist.bytecode.annotation.a(i2, this.f2810a);
         return super.a(i, i2, i3);
     }
 
@@ -92,7 +92,7 @@ public class c extends d {
     @Override // javassist.bytecode.d
     public void d(int i, int i2) {
         javassist.bytecode.annotation.d stringMemberValue;
-        y yVar = this.f2762a;
+        y yVar = this.f2810a;
         switch (i) {
             case BDLocation.TypeOffLineLocation /* 66 */:
                 stringMemberValue = new ByteMemberValue(i2, yVar);
@@ -131,14 +131,14 @@ public class c extends d {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.d
     public void b(int i, int i2, int i3) {
-        this.e = new EnumMemberValue(i2, i3, this.f2762a);
+        this.e = new EnumMemberValue(i2, i3, this.f2810a);
         super.b(i, i2, i3);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.d
     public void e(int i, int i2) {
-        this.e = new ClassMemberValue(i2, this.f2762a);
+        this.e = new ClassMemberValue(i2, this.f2810a);
         super.e(i, i2);
     }
 
@@ -147,7 +147,7 @@ public class c extends d {
     public int a(int i) {
         javassist.bytecode.annotation.a aVar = this.d;
         int a2 = super.a(i);
-        this.e = new AnnotationMemberValue(this.d, this.f2762a);
+        this.e = new AnnotationMemberValue(this.d, this.f2810a);
         this.d = aVar;
         return a2;
     }
@@ -155,7 +155,7 @@ public class c extends d {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // javassist.bytecode.d
     public int f(int i, int i2) {
-        ArrayMemberValue arrayMemberValue = new ArrayMemberValue(this.f2762a);
+        ArrayMemberValue arrayMemberValue = new ArrayMemberValue(this.f2810a);
         javassist.bytecode.annotation.d[] dVarArr = new javassist.bytecode.annotation.d[i2];
         for (int i3 = 0; i3 < i2; i3++) {
             i = g(i);

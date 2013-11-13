@@ -9,7 +9,7 @@ import com.baidu.android.common.logging.Log;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f683a = 600;
+    public static int f692a = 600;
     public static int b = 30;
     public static int c = 3;
 
@@ -22,7 +22,7 @@ public final class b {
     }
 
     public static void a(Context context, boolean z) {
-        int i = z ? 0 : 11;
+        int i = z ? 0 : 13;
         SharedPreferences.Editor edit = context.getSharedPreferences("pst", 0).edit();
         edit.putInt("nd_restart", i);
         edit.commit();
@@ -49,7 +49,7 @@ public final class b {
     }
 
     public static boolean b(Context context) {
-        return 11 > context.getSharedPreferences("pst", 0).getInt("nd_restart", 0);
+        return 13 > context.getSharedPreferences("pst", 0).getInt("nd_restart", 0);
     }
 
     public static String c(Context context) {

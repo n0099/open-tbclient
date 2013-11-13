@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.util.be;
+import com.baidu.tieba.util.bg;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class l extends SQLiteOpenHelper {
         try {
             sQLiteDatabase.execSQL(str);
         } catch (Exception e) {
-            be.a(3, getClass().getName(), "ExecSQL", str);
+            bg.a(3, getClass().getName(), "ExecSQL", str);
         }
     }
 
@@ -62,7 +62,7 @@ public class l extends SQLiteOpenHelper {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    com.baidu.tieba.util.g.a(cursor);
+                    com.baidu.tieba.util.o.a(cursor);
                 }
             }
             com.baidu.adp.lib.h.d.d("haveTables:" + linkedList);
@@ -71,7 +71,7 @@ public class l extends SQLiteOpenHelper {
                 String str = (String) it.next();
                 if (TextUtils.isEmpty(str)) {
                     com.baidu.adp.lib.h.d.a("gid is null");
-                } else if (str.startsWith(a.f1510a)) {
+                } else if (str.startsWith(a.f1601a)) {
                     try {
                         sQLiteDatabase.execSQL("ALTER TABLE " + str + " ADD read_flag int;");
                     } catch (Exception e2) {

@@ -1,20 +1,33 @@
 package com.baidu.tieba.util;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.tieba.pb.NewPbActivity;
 /* loaded from: classes.dex */
-public final class aj extends Handler {
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        try {
-            NetWorkCore netWorkCore = (NetWorkCore) message.obj;
-            if (netWorkCore != null) {
-                netWorkCore.r();
-            }
-        } catch (Exception e) {
-            be.b(getClass().getName(), "initNetWorkCore", e.getMessage());
-        }
+public class aj extends ClickableSpan {
+
+    /* renamed from: a  reason: collision with root package name */
+    private Context f2482a;
+
+    public aj(Context context) {
+        this.f2482a = null;
+        this.f2482a = context;
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+    }
+
+    public Context a() {
+        return this.f2482a;
+    }
+
+    public void a(String str) {
+        UtilHelper.c(this.f2482a, str);
+    }
+
+    public void b(String str) {
+        NewPbActivity.a(this.f2482a, str, null, null);
     }
 }

@@ -7,15 +7,15 @@ import android.widget.Button;
 public class aq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MultiImageView f2511a;
+    final /* synthetic */ MultiImageView f2564a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(MultiImageView multiImageView) {
-        this.f2511a = multiImageView;
+        this.f2564a = multiImageView;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
-        r0 = r1.f2511a.getCurrentImageView();
+        r0 = r1.f2564a.getCurrentImageView();
      */
     @Override // android.view.View.OnClickListener
     /*
@@ -26,16 +26,16 @@ public class aq implements View.OnClickListener {
         Button button2;
         k currentImageView;
         k currentImageView2;
-        button = this.f2511a.f2488a;
+        button = this.f2564a.f2542a;
         if (view == button) {
-            currentImageView2 = this.f2511a.getCurrentImageView();
+            currentImageView2 = this.f2564a.getCurrentImageView();
             if (currentImageView2 != null) {
                 currentImageView2.m();
                 return;
             }
             return;
         }
-        button2 = this.f2511a.b;
+        button2 = this.f2564a.b;
         if (view == button2 && currentImageView != null) {
             currentImageView.n();
         }

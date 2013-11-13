@@ -9,7 +9,7 @@ import com.baidu.tieba.view.HeadImageView;
 class o {
 
     /* renamed from: a  reason: collision with root package name */
-    ViewGroup f1107a;
+    ViewGroup f1140a;
     ViewGroup b;
     HeadImageView c;
     TextView d;
@@ -24,7 +24,7 @@ class o {
 
     private o(m mVar) {
         this.l = mVar;
-        this.f1107a = null;
+        this.f1140a = null;
         this.b = null;
         this.c = null;
         this.d = null;

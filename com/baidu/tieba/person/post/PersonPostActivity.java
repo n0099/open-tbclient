@@ -10,15 +10,13 @@ import com.baidu.tieba.TiebaApplication;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class PersonPostActivity extends BaseFragmentActivity implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    private String f2223a;
     private String b;
     private String c;
-    private int d;
-    private boolean e = false;
-    private PersonPostView f;
-    private PersonPostAdapter g;
+    private String d;
+    private int e;
+    private boolean f = false;
+    private PersonPostView g;
+    private PersonPostAdapter h;
 
     public static void a(Context context, String str, int i, String str2) {
         Intent intent = new Intent(context, PersonPostActivity.class);
@@ -32,49 +30,45 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.c = getIntent().getStringExtra("key_portrait_url");
-        this.f2223a = getIntent().getStringExtra("key_uid");
-        this.d = getIntent().getIntExtra("key_sex", 0);
-        String str = this.f2223a;
+        this.d = getIntent().getStringExtra("key_portrait_url");
+        this.b = getIntent().getStringExtra("key_uid");
+        this.e = getIntent().getIntExtra("key_sex", 0);
+        String str = this.b;
         TiebaApplication.g();
-        if (str.equals(TiebaApplication.C())) {
-            this.b = getString(R.string.me);
-            this.e = true;
+        if (str.equals(TiebaApplication.A())) {
+            this.c = getString(R.string.me);
+            this.f = true;
         } else {
             switch (getIntent().getIntExtra("key_sex", 0)) {
                 case 1:
-                    this.b = getString(R.string.he);
+                    this.c = getString(R.string.he);
                     break;
                 case 2:
-                    this.b = getString(R.string.she);
+                    this.c = getString(R.string.she);
                     break;
                 default:
-                    this.b = getString(R.string.ta);
+                    this.c = getString(R.string.ta);
                     break;
             }
         }
-        this.f = new PersonPostView(this);
-        if (this.f2223a == null) {
+        this.g = new PersonPostView(this);
+        if (this.b == null) {
             finish();
             return;
         }
-        this.f.d.setText(String.format(getString(R.string.person_post_thread), this.b));
-        this.f.e.setText(String.format(getString(R.string.person_post_reply), this.b));
+        this.g.c.setText(String.format(getString(R.string.person_post_thread), this.c));
+        this.g.d.setText(String.format(getString(R.string.person_post_reply), this.c));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.BaseFragmentActivity, android.support.v4.app.n, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.g == null) {
-            this.g = new PersonPostAdapter(this);
-            this.f.a(new d(this));
-            this.f.b.setAdapter(this.g);
+        if (this.h == null) {
+            this.h = new PersonPostAdapter(this);
+            this.g.a(new d(this));
+            this.g.b.setAdapter(this.h);
         }
-    }
-
-    public String b() {
-        return this.f2223a;
     }
 
     public String c() {
@@ -85,6 +79,10 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
         return this.c;
     }
 
+    public String e() {
+        return this.d;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.support.v4.app.n, android.app.Activity
     public void onStart() {
@@ -93,45 +91,42 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
 
     @Override // com.baidu.tieba.BaseFragmentActivity
     protected void a(int i) {
-        this.f.a(i);
+        this.g.a(i);
     }
 
     private void c(int i) {
         switch (i) {
             case 1:
-                this.f.b(i);
+                this.g.b(i);
                 return;
             case 2:
-                this.f.b(i);
+                this.g.b(i);
                 return;
             default:
                 return;
         }
     }
 
-    public String e() {
-        return this.e ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), c());
+    public String f() {
+        return this.f ? getString(R.string.person_post_lv_empty_host) : String.format(getString(R.string.person_post_lv_empty_guest), d());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.back /* 2131099729 */:
-                finish();
-                return;
-            case R.id.reply /* 2131100478 */:
+            case R.id.reply /* 2131100447 */:
                 if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this, this.e ? "pp_my_reply" : "pp_his_reply", "click", 1);
+                    StatService.onEvent(this, this.f ? "pp_my_reply" : "pp_his_reply", "click", 1);
                 }
                 c(2);
-                this.f.b.setCurrentItem(1);
+                this.g.b.setCurrentItem(1);
                 return;
-            case R.id.thread /* 2131100863 */:
+            case R.id.thread /* 2131100618 */:
                 if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this, this.e ? "pp_my_thread" : "pp_his_thread", "click", 1);
+                    StatService.onEvent(this, this.f ? "pp_my_thread" : "pp_his_thread", "click", 1);
                 }
                 c(1);
-                this.f.b.setCurrentItem(0);
+                this.g.b.setCurrentItem(0);
                 return;
             default:
                 return;

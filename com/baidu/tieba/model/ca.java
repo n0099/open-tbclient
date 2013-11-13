@@ -1,64 +1,158 @@
 package com.baidu.tieba.model;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.AccountData;
+import com.baidu.tieba.util.DatabaseService;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ca {
+public class ca extends BdAsyncTask<Boolean, bx, bx> {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.aq f1931a = new com.baidu.tieba.data.aq();
-    private boolean b = true;
-    private String c = null;
-    private int d;
+    final /* synthetic */ bx f1926a;
+    private com.baidu.tieba.util.ap b;
+    private volatile boolean c;
+    private boolean d;
 
-    public void a(String str) {
-        this.c = str;
+    private ca(bx bxVar) {
+        this.f1926a = bxVar;
+        this.b = null;
+        this.c = false;
+        this.d = false;
     }
 
-    public String a() {
-        return this.c;
-    }
-
-    public void a(int i) {
-        this.d = i;
-    }
-
-    public int b() {
-        return this.d;
-    }
-
-    public void a(boolean z) {
-        this.b = z;
-    }
-
-    public boolean c() {
-        return this.b;
-    }
-
-    public com.baidu.tieba.data.aq d() {
-        return this.f1931a;
-    }
-
-    public void a(String str, boolean z) {
-        if (str != null && this.c != null) {
-            com.baidu.adp.lib.cache.s<String> f = z ? com.baidu.tieba.b.a.a().f() : com.baidu.tieba.b.a.a().g();
-            if (f != null) {
-                f.a((z ? "personal_followme" : "personal_myfollow") + "_" + this.c, str, 604800000L);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public bx a(Boolean... boolArr) {
+        Exception e;
+        bx bxVar;
+        bx bxVar2;
+        Context context;
+        String e2;
+        Context context2;
+        boolean booleanValue = boolArr[0].booleanValue();
+        this.d = boolArr[1].booleanValue();
+        try {
+            if (this.f1926a.c() && booleanValue && (e2 = DatabaseService.e()) != null) {
+                context2 = this.f1926a.p;
+                bxVar2 = new bx(context2);
+                try {
+                    bxVar2.b(e2);
+                    c((Object[]) new bx[]{bxVar2});
+                    this.d = false;
+                } catch (Exception e3) {
+                    bxVar = bxVar2;
+                    e = e3;
+                    com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                    return bxVar;
+                }
+            } else {
+                bxVar2 = null;
             }
+            if (!this.c && this.f1926a.b() != null) {
+                this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/u/user/profile");
+                this.b.a("uid", this.f1926a.b());
+                this.b.a("need_post_count", SocialConstants.TRUE);
+                String j = this.b.j();
+                if (this.b.c()) {
+                    context = this.f1926a.p;
+                    bxVar = new bx(context);
+                    try {
+                        bxVar.b(j);
+                        if (this.f1926a.c()) {
+                            DatabaseService.j(j);
+                            AccountData E = TiebaApplication.E();
+                            if (E == null) {
+                                return null;
+                            }
+                            if (bxVar.d() != null && !TextUtils.isEmpty(bxVar.d().getPortrait())) {
+                                DatabaseService.c(E.getAccount(), bxVar.d().getPortrait());
+                                E.setPortrait(bxVar.d().getPortrait());
+                                return bxVar;
+                            }
+                            return bxVar;
+                        }
+                        return bxVar;
+                    } catch (Exception e4) {
+                        e = e4;
+                        com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
+                        return bxVar;
+                    }
+                }
+            }
+            return bxVar2;
+        } catch (Exception e5) {
+            e = e5;
+            bxVar = null;
         }
     }
 
-    public com.baidu.tieba.data.aq b(boolean z) {
-        if (this.c == null) {
-            return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: a */
+    public void b(bx... bxVarArr) {
+        com.baidu.adp.a.g gVar;
+        boolean z = false;
+        super.b((Object[]) bxVarArr);
+        bx bxVar = bxVarArr[0];
+        if (bxVar != null) {
+            this.f1926a.a(bxVar.d());
+            this.f1926a.a(bxVar.a());
+            z = true;
         }
-        com.baidu.adp.lib.cache.s<String> f = z ? com.baidu.tieba.b.a.a().f() : com.baidu.tieba.b.a.a().g();
-        if (f != null) {
-            String a2 = f.a((z ? "personal_followme" : "personal_myfollow") + "_" + this.c);
-            if (a2 == null) {
-                return null;
-            }
-            com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq();
-            aqVar.a(a2);
-            return aqVar;
+        this.f1926a.mLoadDataMode = 2;
+        this.f1926a.setErrorString(null);
+        gVar = this.f1926a.mLoadDataCallBack;
+        gVar.a(Boolean.valueOf(z));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(bx bxVar) {
+        Context context;
+        com.baidu.adp.a.g gVar;
+        com.baidu.adp.a.g gVar2;
+        super.a((ca) bxVar);
+        this.f1926a.n = null;
+        if (bxVar != null) {
+            this.f1926a.a(bxVar.d());
+            this.f1926a.a(bxVar.a());
+            this.f1926a.f().e(bxVar.d().getPortrait());
+            this.f1926a.mLoadDataMode = 1;
+            gVar2 = this.f1926a.mLoadDataCallBack;
+            gVar2.a(true);
+            return;
         }
-        return null;
+        if (this.b != null && this.d) {
+            this.f1926a.setErrorString(this.b.g());
+        } else {
+            bx bxVar2 = this.f1926a;
+            context = this.f1926a.p;
+            bxVar2.setErrorString(context.getString(R.string.neterror));
+        }
+        this.f1926a.mLoadDataMode = 1;
+        gVar = this.f1926a.mLoadDataCallBack;
+        gVar.a(false);
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        com.baidu.adp.a.g gVar;
+        super.cancel(true);
+        this.c = true;
+        if (this.b != null) {
+            this.b.h();
+            this.b = null;
+        }
+        this.f1926a.n = null;
+        gVar = this.f1926a.mLoadDataCallBack;
+        gVar.a(false);
     }
 }

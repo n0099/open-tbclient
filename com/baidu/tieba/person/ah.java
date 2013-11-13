@@ -8,26 +8,26 @@ import com.baidu.tieba.pb.NewPbActivity;
 class ah implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.model.bk f2171a;
+    final /* synthetic */ com.baidu.tieba.model.bl f2213a;
     final /* synthetic */ af b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(af afVar, com.baidu.tieba.model.bk bkVar) {
+    public ah(af afVar, com.baidu.tieba.model.bl blVar) {
         this.b = afVar;
-        this.f2171a = bkVar;
+        this.f2213a = blVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f2171a.a() == 2) {
-            NewPbActivity.a(this.b.f2169a, this.f2171a.g(), null, "");
-        } else if (this.f2171a.i()) {
-            NewPbActivity.b(this.b.f2169a, this.f2171a.g(), this.f2171a.h(), "");
+        if (this.f2213a.a() == 2) {
+            NewPbActivity.a(this.b.f2211a, this.f2213a.g(), null, "");
+        } else if (this.f2213a.i()) {
+            NewPbActivity.b(this.b.f2211a, this.f2213a.g(), this.f2213a.h(), "");
         } else {
-            NewPbActivity.a(this.b.f2169a, this.f2171a.g(), this.f2171a.h(), "");
+            NewPbActivity.a(this.b.f2211a, this.f2213a.g(), this.f2213a.h(), "");
         }
         if (this.b.b.a() != null && TiebaApplication.g().s()) {
-            StatService.onEvent(this.b.f2169a, "his_threads_item", "click", 1);
+            StatService.onEvent(this.b.f2211a, "his_threads_item", "click", 1);
         }
     }
 }

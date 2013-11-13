@@ -5,19 +5,17 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.data.bh;
-import com.baidu.tieba.util.be;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CreateBarActivity f1353a;
-    private com.baidu.tieba.util.ag b;
+    final /* synthetic */ CreateBarActivity f1448a;
+    private com.baidu.tieba.util.ap b;
     private volatile boolean c;
 
     private d(CreateBarActivity createBarActivity) {
-        this.f1353a = createBarActivity;
+        this.f1448a = createBarActivity;
         this.b = null;
         this.c = false;
     }
@@ -35,9 +33,9 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         if (this.b != null) {
             this.b.h();
         }
-        progressBar = this.f1353a.p;
+        progressBar = this.f1448a.n;
         progressBar.setVisibility(8);
-        this.f1353a.r = null;
+        this.f1448a.p = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,28 +43,28 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
         try {
-            this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/f/anti/vcode");
+            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/f/anti/vcode");
             this.b.a("fid", SocialConstants.FALSE);
             this.b.a("pub_type", SocialConstants.FALSE);
             this.b.a("fname", "");
             this.b.a("tid", SocialConstants.FALSE);
             String j = this.b.j();
             if (this.b.c()) {
-                bh bhVar = new bh();
-                bhVar.a(j);
-                if (bhVar.b() == null || bhVar.b().length() <= 0) {
+                com.baidu.tieba.data.be beVar = new com.baidu.tieba.data.be();
+                beVar.a(j);
+                if (beVar.b() == null || beVar.b().length() <= 0) {
                     return null;
                 }
-                this.f1353a.u = bhVar.a();
+                this.f1448a.s = beVar.a();
                 if (this.c) {
                     return null;
                 }
-                this.b = new com.baidu.tieba.util.ag(bhVar.b());
-                return com.baidu.tieba.util.e.a(this.b.i());
+                this.b = new com.baidu.tieba.util.ap(beVar.b());
+                return com.baidu.tieba.util.m.a(this.b.i());
             }
             return null;
         } catch (Exception e) {
-            be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
         }
     }
@@ -78,11 +76,11 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.a((d) bitmap);
-        progressBar = this.f1353a.p;
+        progressBar = this.f1448a.n;
         progressBar.setVisibility(8);
-        this.f1353a.r = null;
+        this.f1448a.p = null;
         if (bitmap != null) {
-            imageView = this.f1353a.n;
+            imageView = this.f1448a.l;
             imageView.setImageBitmap(bitmap);
         }
     }
@@ -93,10 +91,10 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         ImageView imageView;
         super.b();
-        this.f1353a.u = null;
-        progressBar = this.f1353a.p;
+        this.f1448a.s = null;
+        progressBar = this.f1448a.n;
         progressBar.setVisibility(0);
-        imageView = this.f1353a.n;
+        imageView = this.f1448a.l;
         imageView.setImageBitmap(null);
     }
 }

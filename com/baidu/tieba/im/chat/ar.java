@@ -1,20 +1,23 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-class ar implements View.OnLongClickListener {
+class ar implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgleftView f1418a;
+    final /* synthetic */ MsgleftView f1511a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(MsgleftView msgleftView) {
-        this.f1418a = msgleftView;
+        this.f1511a = msgleftView;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.f1418a.d.b(view, 2, this.f1418a.f, 0L);
-        return true;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        HeadImageView headImageView;
+        if (eVar != null) {
+            headImageView = this.f1511a.n;
+            eVar.a(headImageView);
+        }
     }
 }

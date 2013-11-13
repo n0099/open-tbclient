@@ -23,7 +23,7 @@ import java.util.Iterator;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f674a = e.class.getSimpleName();
+    private static final String f683a = e.class.getSimpleName();
     private static e b;
     private Context c;
     private long e;

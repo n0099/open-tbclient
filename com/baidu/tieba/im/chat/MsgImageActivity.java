@@ -21,28 +21,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class MsgImageActivity extends com.baidu.tieba.j {
-    private int r;
-    private String s;
-    private String t;
+    private int p;
+    private String q;
+    private String r;
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f1400a = null;
+    private ProgressBar f1492a = null;
     private ArrayList<String> b = null;
     private int c = 0;
-    private aj d = null;
+    private ai d = null;
     private Button e = null;
     private Button f = null;
     private TextView g = null;
-    private LinearLayout j = null;
-    private MultiImageView k = null;
-    private View.OnClickListener l = null;
-    private com.baidu.tieba.view.a m = null;
-    private android.support.v4.view.bq n = null;
-    private AlphaAnimation o = null;
-    private boolean p = true;
-    private boolean q = false;
-    private long u = 0;
-    private HashMap<String, Boolean> v = null;
+    private LinearLayout h = null;
+    private MultiImageView i = null;
+    private View.OnClickListener j = null;
+    private com.baidu.tieba.view.a k = null;
+    private android.support.v4.view.bq l = null;
+    private AlphaAnimation m = null;
+    private boolean n = true;
+    private boolean o = false;
+    private long s = 0;
+    private HashMap<String, Boolean> t = null;
 
     public static void a(Context context, String str, long j) {
         if (j != 0 && context != null) {
@@ -60,26 +60,26 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         TiebaApplication.g().a((com.baidu.tieba.j) this);
         setContentView(R.layout.image_activity);
         a(bundle);
-        b();
-        e();
+        a();
+        d();
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        b();
-        e();
+        a();
+        d();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
-    public void a(int i) {
-        super.a(i);
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
         if (i == 1) {
-            this.k.setBackgroundColor(com.baidu.tieba.util.bb.d(i));
+            this.i.setBackgroundColor(com.baidu.tieba.util.bd.d(i));
         } else {
-            this.k.setBackgroundColor(-16777216);
+            this.i.setBackgroundColor(-16777216);
         }
     }
 
@@ -87,33 +87,33 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.k.b();
+        this.i.b();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.k.a();
+        this.i.a();
     }
 
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a
-    public void a_() {
-        this.k.c();
+    public void releaseResouce() {
+        this.i.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        b(this.c, this.c);
-        this.k.c();
+        a(this.c, this.c);
+        this.i.c();
         if (this.d != null) {
             this.d.cancel();
             this.d = null;
         }
-        if (this.f1400a != null) {
-            this.f1400a.setVisibility(8);
+        if (this.f1492a != null) {
+            this.f1492a.setVisibility(8);
         }
     }
 
@@ -136,40 +136,40 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void b() {
-        this.l = new ae(this);
-        this.n = new ag(this);
-        this.m = new ah(this);
-        this.j = (LinearLayout) findViewById(R.id.title);
-        this.f1400a = (ProgressBar) findViewById(R.id.progress);
+    private void a() {
+        this.j = new ad(this);
+        this.l = new af(this);
+        this.k = new ag(this);
+        this.h = (LinearLayout) findViewById(R.id.title);
+        this.f1492a = (ProgressBar) findViewById(R.id.progress);
         this.e = (Button) findViewById(R.id.save);
-        this.e.setOnClickListener(this.l);
+        this.e.setOnClickListener(this.j);
         this.f = (Button) findViewById(R.id.back);
-        this.f.setOnClickListener(this.l);
+        this.f.setOnClickListener(this.j);
         this.g = (TextView) findViewById(R.id.titel_text);
-        this.k = (MultiImageView) findViewById(R.id.viewpager);
-        this.k.setPageMargin(UtilHelper.a((Context) this, 8.0f));
-        this.k.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());
-        this.k.setOnPageChangeListener(this.n);
-        this.k.setItemOnclickListener(this.l);
-        this.k.a(d(), false);
-        this.k.setOnScrollOutListener(this.m);
-        this.k.setHasNext(false);
-        this.k.setNextTitle("mNextTitle");
-        this.k.setLoadFromCDN(true);
-        this.k.setAllowLocalUrl(true);
-        b(this.c, this.c);
+        this.i = (MultiImageView) findViewById(R.id.viewpager);
+        this.i.setPageMargin(UtilHelper.a((Context) this, 8.0f));
+        this.i.a(2, com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i());
+        this.i.setOnPageChangeListener(this.l);
+        this.i.setItemOnclickListener(this.j);
+        this.i.a(c(), false);
+        this.i.setOnScrollOutListener(this.k);
+        this.i.setHasNext(false);
+        this.i.setNextTitle("mNextTitle");
+        this.i.setIsFromCDN(true);
+        this.i.setAllowLocalUrl(true);
+        a(this.c, this.c);
         this.g.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
+    public void b() {
         if (this.b != null) {
             String valueOf = String.valueOf(this.c + 1);
-            if (this.r > 0) {
-                valueOf = (valueOf + "/") + this.r;
+            if (this.p > 0) {
+                valueOf = (valueOf + "/") + this.p;
             }
-            if (this.k.getHasNext() && this.c == this.k.getItemNum() - 1) {
+            if (this.i.getHasNext() && this.c == this.i.getItemNum() - 1) {
                 this.g.setText(getString(R.string.image_recommend));
                 this.e.setVisibility(4);
                 return;
@@ -179,7 +179,7 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         }
     }
 
-    private int d() {
+    private int c() {
         if (this.b != null && this.b.size() > 0) {
             int size = this.b.size();
             if (this.c >= size) {
@@ -197,28 +197,28 @@ public class MsgImageActivity extends com.baidu.tieba.j {
     private void a(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.s = intent.getStringExtra("curImgUrl");
-            this.t = intent.getStringExtra("groupId");
+            this.q = intent.getStringExtra("curImgUrl");
+            this.r = intent.getStringExtra("groupId");
             this.b = new ArrayList<>();
-            this.b.add(this.s);
+            this.b.add(this.q);
             this.c = 0;
-            com.baidu.adp.lib.h.d.d("curImgUrl:" + this.s + " groupId:" + this.t);
+            com.baidu.adp.lib.h.d.d("curImgUrl:" + this.q + " groupId:" + this.r);
         } else if (bundle != null) {
             com.baidu.adp.lib.h.d.d(" have savedInstanceState");
             this.b = bundle.getStringArrayList(SocialConstants.PARAM_URL);
             this.c = bundle.getInt("index", -1);
-            this.t = bundle.getString("groupId");
+            this.r = bundle.getString("groupId");
         } else {
             com.baidu.adp.lib.h.d.d(" not have savedInstanceState");
         }
-        this.v = new HashMap<>();
+        this.t = new HashMap<>();
     }
 
-    private void e() {
-        if (TextUtils.isEmpty(this.t)) {
+    private void d() {
+        if (TextUtils.isEmpty(this.r)) {
             finish();
         }
-        a.b().a(this.t, new ai(this));
+        a.b().a(this.r, new ah(this));
     }
 
     @Override // android.app.Activity
@@ -226,22 +226,22 @@ public class MsgImageActivity extends com.baidu.tieba.j {
         super.onSaveInstanceState(bundle);
         bundle.putStringArrayList(SocialConstants.PARAM_URL, this.b);
         bundle.putInt("index", this.c);
-        bundle.putString("groupId", this.t);
+        bundle.putString("groupId", this.r);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.k.a(this.c, true);
+        this.i.a(this.c, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i, int i2) {
-        synchronized (this.v) {
-            if (System.nanoTime() - this.u > 300000000 && this.b != null && i < this.b.size()) {
-                this.v.put(this.b.get(i), true);
+    public void a(int i, int i2) {
+        synchronized (this.t) {
+            if (System.nanoTime() - this.s > 300000000 && this.b != null && i < this.b.size()) {
+                this.t.put(this.b.get(i), true);
             }
-            this.u = System.nanoTime();
+            this.s = System.nanoTime();
         }
     }
 }

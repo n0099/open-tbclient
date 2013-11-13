@@ -6,13 +6,14 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1632a;
+    private View f1719a;
     private ImageView c;
     private UpdatesActivity d;
     private BdListView e;
@@ -21,6 +22,7 @@ public class n extends com.baidu.adp.a.e {
     private Button h;
     private Button i;
     private Button j;
+    private NavigationBar k;
 
     public n(UpdatesActivity updatesActivity) {
         super(updatesActivity);
@@ -32,18 +34,23 @@ public class n extends com.baidu.adp.a.e {
     }
 
     void a() {
-        this.f1632a = View.inflate(this.d, R.layout.updates_activity, null);
-        this.d.setContentView(this.f1632a);
-        this.c = (ImageView) this.f1632a.findViewById(R.id.back);
+        this.f1719a = View.inflate(this.d, R.layout.updates_activity, null);
+        this.d.setContentView(this.f1719a);
+        this.k = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
+        this.k.a(this.d.getString(R.string.updates_activity_title));
+        View a2 = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.updates_activity_nav_left, (View.OnClickListener) null);
+        View a3 = this.k.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.updates_activity_nav_right, (View.OnClickListener) null);
+        this.c = (ImageView) a2.findViewById(R.id.back);
         this.c.setOnClickListener(this.d);
-        this.e = (BdListView) this.f1632a.findViewById(R.id.updates_list);
-        this.g = (ProgressBar) this.f1632a.findViewById(R.id.pro_load);
-        this.h = (Button) this.f1632a.findViewById(R.id.btn_edit);
+        this.e = (BdListView) this.f1719a.findViewById(R.id.updates_list);
+        this.g = (ProgressBar) this.f1719a.findViewById(R.id.pro_load);
+        this.h = (Button) a3.findViewById(R.id.btn_edit);
         this.h.setOnClickListener(this.d);
-        this.i = (Button) this.f1632a.findViewById(R.id.btn_cancel);
+        this.i = (Button) a3.findViewById(R.id.btn_cancel);
         this.i.setOnClickListener(this.d);
-        this.j = (Button) this.f1632a.findViewById(R.id.btn_delete);
+        this.j = (Button) a2.findViewById(R.id.btn_delete);
         this.j.setOnClickListener(this.d);
+        a(0);
         a(false);
     }
 
@@ -100,8 +107,9 @@ public class n extends com.baidu.adp.a.e {
     }
 
     public void b(int i) {
-        this.d.m().a(i == 1);
-        this.d.m().a(this.f1632a);
+        this.d.getLayoutMode().a(i == 1);
+        this.d.getLayoutMode().a(this.f1719a);
+        this.k.c(i);
     }
 
     public ImageView h() {

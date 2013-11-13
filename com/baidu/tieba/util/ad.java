@@ -1,29 +1,44 @@
 package com.baidu.tieba.util;
 
-import android.widget.ImageView;
-import android.widget.ListView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-final class ad implements com.baidu.tbadk.imageManager.c {
+public class ad extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ListView f2416a;
+    final /* synthetic */ y f2478a;
+    private ac b = null;
+    private String c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ListView listView) {
-        this.f2416a = listView;
+    public ad(y yVar, String str) {
+        this.f2478a = yVar;
+        this.c = "";
+        this.c = str;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        com.baidu.adp.lib.h.d.d("loadimg:" + str + " bitmap:" + (eVar == null));
-        if (eVar != null) {
-            ImageView imageView = (ImageView) this.f2416a.findViewWithTag(str);
-            while (imageView != null) {
-                com.baidu.adp.lib.h.d.d("--loadimg:" + str + " bitmap:" + (eVar == null));
-                imageView.setTag(null);
-                imageView.setImageBitmap(eVar.f());
-                imageView = (ImageView) this.f2416a.findViewWithTag(str);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String a(String... strArr) {
+        this.b = new ac(this.f2478a, null);
+        this.b.a(this.c, "c/s/logupload", true);
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        if (this.b != null) {
+            this.b.a();
         }
+        this.f2478a.s = null;
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(String str) {
+        super.a((ad) str);
+        this.f2478a.s = null;
     }
 }

@@ -1,25 +1,42 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.TiebaApplication;
+import android.view.LayoutInflater;
+import android.view.View;
 /* loaded from: classes.dex */
-class an implements com.baidu.adp.widget.ScrollView.o {
+class an implements com.baidu.adp.lib.guide.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1257a;
+    final /* synthetic */ View f1314a;
+    final /* synthetic */ am b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(FrsImageActivity frsImageActivity) {
-        this.f1257a = frsImageActivity;
+    public an(am amVar, View view) {
+        this.b = amVar;
+        this.f1314a = view;
     }
 
-    @Override // com.baidu.adp.widget.ScrollView.o
-    public void a() {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1257a, "frs_pulldown", "frsclick", 1);
-        }
-        this.f1257a.s = null;
-        this.f1257a.r = true;
-        this.f1257a.f(1);
+    @Override // com.baidu.adp.lib.guide.b
+    public View a(LayoutInflater layoutInflater) {
+        return this.f1314a;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int a() {
+        return 5;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int b() {
+        return 32;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int c() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.guide.b
+    public int d() {
+        return 0;
     }
 }

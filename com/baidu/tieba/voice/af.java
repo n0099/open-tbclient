@@ -1,17 +1,9 @@
 package com.baidu.tieba.voice;
+
+import com.baidu.tieba.voice.VoiceManager;
 /* loaded from: classes.dex */
 public interface af {
-    void C();
+    ad a(VoiceManager.VoiceModel voiceModel);
 
-    void a(String str, int i);
-
-    void b(int i, String str);
-
-    void b(String str);
-
-    void b(boolean z);
-
-    void d(int i);
-
-    void e(int i);
+    VoiceManager g();
 }

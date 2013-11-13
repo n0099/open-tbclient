@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.chat.RecentChatFriendData;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.aa;
+import com.baidu.tieba.im.chat.z;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.db.x;
@@ -30,7 +30,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1682a;
+    private static a f1769a;
     private static Handler l = new Handler();
     private String c;
     private String d;
@@ -75,12 +75,12 @@ public class a {
                 e.printStackTrace();
             }
             if (!TextUtils.isEmpty(str)) {
-                if (!v.c(TiebaApplication.C(), str)) {
+                if (!v.c(TiebaApplication.A(), str)) {
                     com.baidu.adp.lib.h.d.d("not in return");
                     return;
                 }
-                v.a(TiebaApplication.C(), str, false);
-                v.c(TiebaApplication.C(), str, false);
+                v.a(TiebaApplication.A(), str, false);
+                v.c(TiebaApplication.A(), str, false);
                 l.post(new b(str));
                 com.baidu.adp.lib.h.d.d("save kick data: " + groupNewsPojo.toString());
             }
@@ -113,7 +113,7 @@ public class a {
                 String optString = optJSONObject.optString("groupImage");
                 String optString2 = optJSONObject.optString("groupName");
                 long optLong = optJSONObject.optLong("lastMsgId");
-                v.c(TiebaApplication.C(), str, true);
+                v.c(TiebaApplication.A(), str, true);
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGid(str);
                 imMessageCenterPojo.setGroup_head(optString);
@@ -122,8 +122,8 @@ public class a {
                 imMessageCenterPojo.setLast_content_time(groupNewsPojo.getTime());
                 imMessageCenterPojo.setIs_hidden(0);
                 imMessageCenterPojo.setUnread_count(0);
-                imMessageCenterPojo.setLast_msgId(aa.b(optLong));
-                imMessageCenterPojo.setPulled_msgId(aa.b(optLong));
+                imMessageCenterPojo.setLast_msgId(z.b(optLong));
+                imMessageCenterPojo.setPulled_msgId(z.b(optLong));
                 com.baidu.tieba.im.db.n.a().a(imMessageCenterPojo, new d(imMessageCenterPojo));
             } catch (Exception e3) {
                 e = e3;
@@ -169,7 +169,7 @@ public class a {
         recentChatFriendData.setFriendName(TiebaApplication.g().getApplicationContext().getString(R.string.group_updates));
         recentChatFriendData.setMsgContent(updatesItemData.getContent());
         recentChatFriendData.setOwnerName(String.valueOf(3));
-        recentChatFriendData.setOwnerId(TiebaApplication.C());
+        recentChatFriendData.setOwnerId(TiebaApplication.A());
         recentChatFriendData.setServerTime(updatesItemData.getTime());
         String updatesType = updatesItemData.getUpdatesType();
         g().c(updatesItemData.getContent());
@@ -206,9 +206,9 @@ public class a {
         if (recentChatFriendData != null) {
             String friendId = recentChatFriendData.getFriendId();
             if (!TextUtils.isEmpty(friendId)) {
-                if ((!MsglistActivity.f1401a || !friendId.equals(MsglistActivity.b)) && !TextUtils.isEmpty(recentChatFriendData.getMsgContent())) {
+                if ((!MsglistActivity.f1493a || !friendId.equals(MsglistActivity.b)) && !TextUtils.isEmpty(recentChatFriendData.getMsgContent())) {
                     HashMap<String, String> j = aeVar.j();
-                    boolean b = v.b(TiebaApplication.C(), friendId);
+                    boolean b = v.b(TiebaApplication.A(), friendId);
                     com.baidu.adp.lib.h.d.d("isNofity:" + b + " gid:" + friendId + "count:" + recentChatFriendData.getUnReadCount());
                     if (!b) {
                         aeVar.d(aeVar.e() + recentChatFriendData.getUnReadCount());
@@ -272,7 +272,7 @@ public class a {
                         aeVar.a(false);
                     }
                     com.baidu.adp.lib.h.d.d("=======unReadGroupMsg:" + aeVar.b() + "  gidAndNameSize:" + size2 + " self unCount:" + aeVar.g() + " notNotify:" + aeVar.e() + " isShowNotify:" + aeVar.f());
-                    if (!TiebaApplication.g().ae() || TiebaApplication.g().R() <= 0) {
+                    if (!TiebaApplication.g().ac() || TiebaApplication.g().P() <= 0) {
                         aeVar.a(0L);
                         aeVar.a(false);
                     }
@@ -284,7 +284,7 @@ public class a {
 
     public void a(RecentChatFriendData recentChatFriendData) {
         if (recentChatFriendData != null) {
-            GroupSettingItemData a2 = v.a(TiebaApplication.C(), recentChatFriendData.getFriendId());
+            GroupSettingItemData a2 = v.a(TiebaApplication.A(), recentChatFriendData.getFriendId());
             if (a2 != null) {
                 recentChatFriendData.setGroupSetting(a2);
             }
@@ -393,7 +393,7 @@ public class a {
                 return null;
             }
             recentChatFriendData.setFriendId(imMessageCenterPojo.getGid());
-            recentChatFriendData.setOwnerId(TiebaApplication.C());
+            recentChatFriendData.setOwnerId(TiebaApplication.A());
             recentChatFriendData.setFriendName(imMessageCenterPojo.getGroup_name());
             recentChatFriendData.setFriendPortrait(imMessageCenterPojo.getGroup_head());
             recentChatFriendData.setOwnerName(String.valueOf(1));
@@ -451,7 +451,7 @@ public class a {
         recentChatFriendData.setFriendName(TiebaApplication.g().getApplicationContext().getString(R.string.valicate));
         recentChatFriendData.setMsgContent(str);
         recentChatFriendData.setOwnerName(String.valueOf(2));
-        recentChatFriendData.setOwnerId(TiebaApplication.C());
+        recentChatFriendData.setOwnerId(TiebaApplication.A());
         recentChatFriendData.setServerTime(validateItemData.getApplyTime());
         g().d(str);
         com.baidu.tieba.sharedPref.b.a().b("is_show_validate", true);
@@ -493,14 +493,14 @@ public class a {
     }
 
     public static a g() {
-        if (f1682a == null) {
+        if (f1769a == null) {
             synchronized (a.class) {
-                if (f1682a == null) {
-                    f1682a = new a();
+                if (f1769a == null) {
+                    f1769a = new a();
                 }
             }
         }
-        return f1682a;
+        return f1769a;
     }
 
     public void b(long j) {

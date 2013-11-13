@@ -7,7 +7,7 @@ public class CodeIterator implements as {
     private static final int[] g = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 3, 2, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 0, 0, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 5, 5, 3, 2, 3, 1, 1, 3, 3, 1, 1, 0, 4, 3, 3, 5, 5};
 
     /* renamed from: a  reason: collision with root package name */
-    protected CodeAttribute f2699a;
+    protected CodeAttribute f2747a;
     protected byte[] b;
     protected int c;
     protected int d;
@@ -15,7 +15,7 @@ public class CodeIterator implements as {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public CodeIterator(CodeAttribute codeAttribute) {
-        this.f2699a = codeAttribute;
+        this.f2747a = codeAttribute;
         this.b = codeAttribute.i();
         a();
     }
@@ -39,7 +39,7 @@ public class CodeIterator implements as {
     }
 
     public CodeAttribute c() {
-        return this.f2699a;
+        return this.f2747a;
     }
 
     public int d() {
@@ -94,8 +94,8 @@ public class CodeIterator implements as {
 
     private int h(int i) {
         a();
-        y c = this.f2699a.c();
-        String a2 = this.f2699a.a();
+        y c = this.f2747a.c();
+        String a2 = this.f2747a.a();
         int i2 = 0;
         while (true) {
             if (!e()) {
@@ -134,7 +134,7 @@ public class CodeIterator implements as {
     private int a(int i, byte[] bArr, boolean z) {
         int length = bArr.length;
         if (length > 0) {
-            i = a(i, length, z).f2770a;
+            i = a(i, length, z).f2818a;
             int i2 = 0;
             int i3 = i;
             while (i2 < length) {
@@ -147,24 +147,24 @@ public class CodeIterator implements as {
     }
 
     public int g(int i) {
-        return a(this.d, i, false).f2770a;
+        return a(this.d, i, false).f2818a;
     }
 
     public n a(int i, int i2, boolean z) {
         byte[] a2;
         n nVar = new n();
         if (i2 <= 0) {
-            nVar.f2770a = i;
+            nVar.f2818a = i;
             nVar.b = 0;
         } else {
             if (this.b.length + i2 > 32767) {
-                a2 = a(this.b, i, i2, z, c().k(), this.f2699a, nVar);
-                i = nVar.f2770a;
+                a2 = a(this.b, i, i2, z, c().k(), this.f2747a, nVar);
+                i = nVar.f2818a;
             } else {
                 int i3 = this.d;
-                a2 = a(this.b, i, i2, z, c().k(), this.f2699a);
+                a2 = a(this.b, i, i2, z, c().k(), this.f2747a);
                 i2 = a2.length - this.b.length;
-                nVar.f2770a = i;
+                nVar.f2818a = i;
                 nVar.b = i2;
                 if (i3 >= i) {
                     this.d = i3 + i2;
@@ -173,7 +173,7 @@ public class CodeIterator implements as {
                     this.e += i2;
                 }
             }
-            this.f2699a.b(a2);
+            this.f2747a.b(a2);
             this.b = a2;
             this.c = d();
             c(i, i2);
@@ -185,7 +185,7 @@ public class CodeIterator implements as {
     }
 
     public void a(ab abVar, int i) {
-        this.f2699a.k().a(0, abVar, i);
+        this.f2747a.k().a(0, abVar, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -395,7 +395,7 @@ public class CodeIterator implements as {
         ArrayList a2 = a(bArr, bArr.length, tVar);
         while (kVar != null) {
             a(kVar, a2);
-            kVar = kVar.f2768a;
+            kVar = kVar.f2816a;
         }
         return a(bArr, 0, 0, false, a2, tVar);
     }
@@ -417,7 +417,7 @@ public class CodeIterator implements as {
         if (i2 > 0) {
             t tVar = new t(this.d, this.e, i, abVar, codeAttribute);
             bArr = a(bArr, i, i2, z, a(bArr, bArr.length, tVar), tVar);
-            this.d = tVar.f2782a;
+            this.d = tVar.f2830a;
             this.e = tVar.c;
             int i3 = tVar.b;
             if (i3 == this.d && !z) {
@@ -426,7 +426,7 @@ public class CodeIterator implements as {
             if (z) {
                 i3 -= i2;
             }
-            nVar.f2770a = i3;
+            nVar.f2818a = i3;
             nVar.b = i2;
         }
         return bArr;
@@ -450,7 +450,7 @@ public class CodeIterator implements as {
                 while (i4 < size) {
                     l lVar = (l) arrayList.get(i4);
                     if (lVar.a()) {
-                        int i5 = lVar.f2769a;
+                        int i5 = lVar.f2817a;
                         int c = lVar.c();
                         tVar.a(i5, c, false);
                         for (int i6 = 0; i6 < size; i6++) {
@@ -469,7 +469,7 @@ public class CodeIterator implements as {
                     l lVar2 = (l) arrayList.get(i7);
                     int b = lVar2.b();
                     if (b > 0) {
-                        int i8 = lVar2.f2769a;
+                        int i8 = lVar2.f2817a;
                         tVar.a(i8, b, false);
                         for (int i9 = 0; i9 < size; i9++) {
                             ((l) arrayList.get(i9)).a(i8, b, false);

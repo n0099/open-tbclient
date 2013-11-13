@@ -7,7 +7,7 @@ public class k {
     private static short[] h = {2, 16, 12, 3};
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2575a;
+    private int f2628a;
     private short b;
     private short c;
     private int d = -2;
@@ -42,7 +42,7 @@ public class k {
         /*
             r18 = this;
             r0 = r18
-            int r1 = r0.f2575a
+            int r1 = r0.f2628a
             if (r1 <= 0) goto L29
             r0 = r18
             short r1 = r0.b
@@ -53,7 +53,7 @@ public class k {
             android.media.AudioRecord r1 = new android.media.AudioRecord
             r2 = 1
             r0 = r18
-            int r3 = r0.f2575a
+            int r3 = r0.f2628a
             r0 = r18
             short r4 = r0.c
             r0 = r18
@@ -122,7 +122,7 @@ public class k {
             r2 = 1
             if (r1 != r2) goto L9c
             r0 = r18
-            r0.f2575a = r3     // Catch: java.lang.Throwable -> Ld4
+            r0.f2628a = r3     // Catch: java.lang.Throwable -> Ld4
             r0 = r18
             r0.b = r5     // Catch: java.lang.Throwable -> Ld4
             r0 = r18
@@ -151,7 +151,7 @@ public class k {
             r6 = 1
             if (r2 != r6) goto L109
             r0 = r18
-            r0.f2575a = r3     // Catch: java.lang.Throwable -> L11f
+            r0.f2628a = r3     // Catch: java.lang.Throwable -> L11f
             r0 = r18
             r0.b = r5     // Catch: java.lang.Throwable -> L11f
             r0 = r18

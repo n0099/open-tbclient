@@ -5,11 +5,11 @@ import android.view.View;
 class g implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1625a;
+    final /* synthetic */ f f1712a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f1625a = fVar;
+        this.f1712a = fVar;
     }
 
     @Override // android.view.View.OnClickListener

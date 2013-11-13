@@ -13,10 +13,10 @@ public class f extends com.baidu.tieba.im.messageCenter.a {
             ResponseGroupInfoMessage responseGroupInfoMessage = (ResponseGroupInfoMessage) message;
             if (responseGroupInfoMessage.getGroup() != null && !responseGroupInfoMessage.hasError()) {
                 String str = "";
-                if (TiebaApplication.G() != null) {
-                    str = TiebaApplication.G().getID();
+                if (TiebaApplication.E() != null) {
+                    str = TiebaApplication.E().getID();
                 }
-                m.a(com.baidu.tieba.b.a.a().m(), "group_info" + str + responseGroupInfoMessage.getGroup().getGroupId(), pVar);
+                m.a(com.baidu.tieba.b.a.a().n(), "group_info" + str + responseGroupInfoMessage.getGroup().getGroupId(), pVar);
             }
         }
         return null;

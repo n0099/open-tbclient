@@ -12,6 +12,7 @@ import com.baidu.tieba.im.db.x;
 import com.baidu.tieba.im.groupUpdates.UpdatesItemData;
 import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.im.message.Message;
+import com.baidu.tieba.util.y;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,19 +25,19 @@ import org.json.JSONObject;
 public class n implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static n f1692a = null;
+    private static n f1779a = null;
     private Map<String, LinkedList<WeakReference<m>>> b = new HashMap();
     private String c;
 
     public static n a() {
-        if (f1692a == null) {
+        if (f1779a == null) {
             synchronized (n.class) {
-                if (f1692a == null) {
-                    f1692a = new n();
+                if (f1779a == null) {
+                    f1779a = new n();
                 }
             }
         }
-        return f1692a;
+        return f1779a;
     }
 
     public void b() {
@@ -102,7 +103,7 @@ public class n implements com.baidu.tieba.im.messageCenter.h {
         if (pushNotifyMessage != null) {
             com.baidu.adp.lib.h.d.d("cmd: " + pushNotifyMessage.getCmd() + "groupId: " + pushNotifyMessage.getGroupId());
             String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
-            com.baidu.tieba.util.o.a(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf);
+            y.a(202006, 0, "server push new", "PushNotifyManager-push_notify", "succ", 0, "", 0L, 0, "gid:" + valueOf);
             if (!TextUtils.isEmpty(valueOf)) {
                 com.baidu.tieba.im.c.a.a().a(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
             }
@@ -138,8 +139,8 @@ public class n implements com.baidu.tieba.im.messageCenter.h {
                 if (h != null && !h.getIsSelf()) {
                     z = false;
                 }
-                if (TiebaApplication.D()) {
-                    if (chatMessage.getUserInfo().getId().equals(TiebaApplication.C()) && chatMessage.getMsgType() != 11) {
+                if (TiebaApplication.B()) {
+                    if (chatMessage.getUserInfo().getId().equals(TiebaApplication.A()) && chatMessage.getMsgType() != 11) {
                         z = false;
                     }
                 }
@@ -148,7 +149,7 @@ public class n implements com.baidu.tieba.im.messageCenter.h {
                 z = false;
             }
             String gid = groupMsgPojo.getGid();
-            boolean z2 = MsglistActivity.f1401a;
+            boolean z2 = MsglistActivity.f1493a;
             if (!TextUtils.isEmpty(gid) && z2 && gid.equals(MsglistActivity.b)) {
                 z = false;
             }

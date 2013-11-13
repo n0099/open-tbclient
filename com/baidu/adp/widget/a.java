@@ -5,13 +5,13 @@ import android.view.animation.Interpolator;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Interpolator f593a = new b();
+    public static final Interpolator f599a = new b();
     public static final Interpolator b = new c();
 
     public static int a(float f, float f2, boolean z) {
         if (z) {
-            return (int) (f - (f593a.getInterpolation(f2 / (f2 - f)) * f));
+            return (int) (f - (f599a.getInterpolation(f2 / (f2 - f)) * f));
         }
-        return (int) (f593a.getInterpolation(f2 / f) * f);
+        return (int) (f599a.getInterpolation(f2 / f) * f);
     }
 }

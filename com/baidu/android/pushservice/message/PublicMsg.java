@@ -13,18 +13,20 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.b.j;
+import com.baidu.android.pushservice.b.s;
+import com.baidu.android.pushservice.util.m;
 import com.baidu.android.pushservice.y;
 import java.net.URISyntaxException;
 import java.util.Iterator;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PublicMsg implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new i();
+    public static final Parcelable.Creator CREATOR = new h();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f702a;
+    public String f718a;
     public String b;
     public String c;
     public String d;
@@ -61,7 +63,7 @@ public class PublicMsg implements Parcelable {
         this.l = 0;
         this.m = 7;
         this.p = true;
-        this.f702a = parcel.readString();
+        this.f718a = parcel.readString();
         this.b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
@@ -74,6 +76,30 @@ public class PublicMsg implements Parcelable {
         this.l = parcel.readInt();
         this.n = parcel.readString();
         this.h = parcel.readString();
+    }
+
+    private String a(Context context, String str) {
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.MAIN");
+        intent.addCategory("android.intent.category.LAUNCHER");
+        intent.setPackage(str);
+        for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 0)) {
+            if (resolveInfo.activityInfo != null) {
+                return resolveInfo.activityInfo.name;
+            }
+        }
+        return null;
+    }
+
+    private void a(Context context, com.baidu.android.pushservice.d dVar, j jVar, com.baidu.android.pushservice.b.b bVar) {
+        if (dVar != null) {
+            bVar.d(dVar.f707a);
+            bVar.c(m.b(dVar.c));
+            bVar.b(dVar.c);
+            com.baidu.android.pushservice.b.b a2 = m.a(bVar, context, dVar.f707a);
+            s.a(context, jVar);
+            s.a(context, a2);
+        }
     }
 
     private void a(Intent intent) {
@@ -92,50 +118,20 @@ public class PublicMsg implements Parcelable {
         }
     }
 
-    private String b(Context context, String str) {
-        Intent intent = new Intent();
-        intent.setAction("android.intent.action.MAIN");
-        intent.addCategory("android.intent.category.LAUNCHER");
-        intent.setPackage(str);
-        for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 0)) {
-            if (resolveInfo.activityInfo != null) {
-                return resolveInfo.activityInfo.name;
-            }
-        }
-        return null;
-    }
-
-    private void b(Context context, String str, String str2) {
+    private void c(Context context, String str, String str2) {
         try {
             Intent parseUri = this.h != null ? Intent.parseUri(this.h, 0) : new Intent();
-            String b = b(context, str);
-            if (b != null) {
-                parseUri.setClassName(str, b);
+            String a2 = a(context, str);
+            if (a2 != null) {
+                parseUri.setClassName(str, a2);
                 parseUri.setFlags(parseUri.getFlags() | 268435456);
                 parseUri.putExtra(PushConstants.EXTRA_OPENTYPE, 1);
                 parseUri.putExtra(PushConstants.EXTRA_MSGID, str2);
                 context.startActivity(parseUri);
             }
-        } catch (Exception e) {
-            if (com.baidu.android.pushservice.b.a()) {
-                Log.e("PublicMsg", "startApplicationLauncher fail. \r\n" + e.getMessage());
-            }
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
         }
-    }
-
-    public void a(Context context, String str) {
-        if (com.baidu.android.pushservice.b.a()) {
-            Log.d("PublicMsg", "=== Handle rich media notification: " + str + " title = " + this.c);
-        }
-        if ("com.baidu.android.pushservice.action.media.DELETE".equals(str)) {
-            a(context, this.f702a, this.b, 2);
-            return;
-        }
-        Intent intent = new Intent("com.baidu.android.pushservice.action.media.CLICK");
-        intent.setPackage(this.f);
-        intent.putExtra("public_msg", this);
-        context.sendBroadcast(intent);
-        a(context, this.f702a, this.b, 1);
     }
 
     void a(Context context, String str, int i) {
@@ -231,36 +227,6 @@ public class PublicMsg implements Parcelable {
         a(context, str2, i2);
     }
 
-    void a(Context context, String str, String str2, int i) {
-        String c = y.a().c();
-        String d = y.a().d();
-        if (TextUtils.isEmpty(c) || TextUtils.isEmpty(d)) {
-            if (com.baidu.android.pushservice.b.a()) {
-                Log.e("PublicMsg", "Fail Send Private Notification msg result. Token invalid!");
-                return;
-            }
-            return;
-        }
-        if (com.baidu.android.pushservice.b.a()) {
-            Log.d("PublicMsg", "Send feedback, msgId = " + str + ", resultCode = " + i);
-        }
-        JSONArray jSONArray = new JSONArray();
-        JSONObject jSONObject = new JSONObject();
-        jSONArray.put(jSONObject);
-        try {
-            jSONObject.put(PushConstants.EXTRA_MSGID, str);
-            jSONObject.put("appid", str2);
-            jSONObject.put("resultCode", i);
-        } catch (JSONException e) {
-            if (com.baidu.android.pushservice.b.a()) {
-                Log.d("PublicMsg", e.getMessage());
-            }
-        }
-        Thread thread = new Thread(new h(this, context, c, d, jSONArray.toString(), str2, str, i));
-        thread.setName("PushService-feedback");
-        thread.start();
-    }
-
     public void a(Context context, String str, String str2, String str3) {
         if (com.baidu.android.pushservice.b.a()) {
             Log.d("PublicMsg", "=== Handle private notification: " + str);
@@ -269,69 +235,119 @@ public class PublicMsg implements Parcelable {
             if (com.baidu.android.pushservice.b.a()) {
                 Log.d("PublicMsg", "private notification deleted by user, title = " + this.c);
             }
-            a(context, str2, str3, 2);
+            j jVar = new j();
+            jVar.c("010202");
+            jVar.a(str2);
+            jVar.a(System.currentTimeMillis());
+            jVar.d(com.baidu.android.pushservice.b.m.d(context));
+            jVar.c(5);
+            jVar.e(str3);
+            com.baidu.android.pushservice.d b = com.baidu.android.pushservice.a.a(context).b(str3);
+            com.baidu.android.pushservice.b.b bVar = new com.baidu.android.pushservice.b.b(str3);
+            bVar.c(m.b(b.c));
+            bVar.b(b.c);
+            bVar.d(b.f707a);
+            a(context, b, jVar, bVar);
             return;
         }
         PackageManager packageManager = context.getPackageManager();
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(this.f, 0);
             int i = packageInfo.versionCode;
-            if (i >= this.g) {
-                Intent intent = new Intent(PushConstants.ACTION_RECEIVER_NOTIFICATION_CLICK);
-                intent.setPackage(this.f);
-                intent.putExtra(PushConstants.EXTRA_NOTIFICATION_TITLE, this.c);
-                intent.putExtra(PushConstants.EXTRA_NOTIFICATION_CONTENT, this.d);
-                a(intent);
-                context.sendBroadcast(intent);
-                if (this.k != 1 || this.e == null) {
-                    if (this.k == 2) {
-                        if (this.h != null) {
-                            Intent parseUri = Intent.parseUri(this.h, 0);
-                            parseUri.setPackage(this.f);
-                            if (packageManager.queryBroadcastReceivers(parseUri, 0).size() > 0) {
-                                if (com.baidu.android.pushservice.b.a()) {
-                                    Log.d("PublicMsg", "Intent broadcasted to app! ===> " + parseUri.toURI());
-                                }
-                                context.sendBroadcast(parseUri);
-                            } else if (packageManager.queryIntentActivities(parseUri, 0).size() > 0) {
-                                if (com.baidu.android.pushservice.b.a()) {
-                                    Log.d("PublicMsg", "Intent sent to actvity! ===> " + parseUri.toURI());
-                                }
-                                parseUri.addFlags(268435456);
-                                parseUri.putExtra(PushConstants.EXTRA_OPENTYPE, 1);
-                                parseUri.putExtra(PushConstants.EXTRA_MSGID, str2);
-                                context.startActivity(parseUri);
-                            }
-                        } else {
-                            b(context, this.f, str2);
-                        }
-                    }
-                } else if (this.l == 1) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("提示");
-                    builder.setMessage(((Object) packageInfo.applicationInfo.loadLabel(packageManager)) + "请求访问:" + this.e + " ?");
-                    builder.setPositiveButton("允许", new e(this, context));
-                    builder.setNeutralButton("拒绝", new f(this));
-                    AlertDialog create = builder.create();
-                    create.getWindow().setType(2003);
-                    create.setCanceledOnTouchOutside(false);
-                    create.show();
-                } else {
+            if (i < this.g) {
+                if (com.baidu.android.pushservice.b.a()) {
+                    Log.d("PublicMsg", "Version code is too low! ===> app ver: " + i + ", request ver:" + this.g);
+                    return;
+                }
+                return;
+            }
+            Intent intent = new Intent(PushConstants.ACTION_RECEIVER_NOTIFICATION_CLICK);
+            intent.setPackage(this.f);
+            intent.putExtra(PushConstants.EXTRA_NOTIFICATION_TITLE, this.c);
+            intent.putExtra(PushConstants.EXTRA_NOTIFICATION_CONTENT, this.d);
+            a(intent);
+            context.sendBroadcast(intent);
+            j jVar2 = new j();
+            jVar2.c("010201");
+            jVar2.a(str2);
+            jVar2.a(System.currentTimeMillis());
+            jVar2.d(com.baidu.android.pushservice.b.m.d(context));
+            s.a(context, jVar2);
+            if (this.k == 1 && this.e != null) {
+                if (this.l != 1) {
                     Intent intent2 = new Intent();
                     intent2.setAction("android.intent.action.VIEW");
                     intent2.setData(Uri.parse(this.e));
                     intent2.addFlags(268435456);
                     context.startActivity(intent2);
+                    return;
                 }
-            } else if (com.baidu.android.pushservice.b.a()) {
-                Log.d("PublicMsg", "Version code is too low! ===> app ver: " + i + ", request ver:" + this.g);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("提示");
+                builder.setMessage(((Object) packageInfo.applicationInfo.loadLabel(packageManager)) + "请求访问:" + this.e + " ?");
+                builder.setPositiveButton("允许", new e(this, context));
+                builder.setNeutralButton("拒绝", new f(this));
+                AlertDialog create = builder.create();
+                create.getWindow().setType(2003);
+                create.setCanceledOnTouchOutside(false);
+                create.show();
+            } else if (this.k == 2) {
+                if (this.h == null) {
+                    c(context, this.f, str2);
+                    return;
+                }
+                Intent parseUri = Intent.parseUri(this.h, 0);
+                parseUri.setPackage(this.f);
+                if (packageManager.queryBroadcastReceivers(parseUri, 0).size() > 0) {
+                    if (com.baidu.android.pushservice.b.a()) {
+                        Log.d("PublicMsg", "Intent broadcasted to app! ===> " + parseUri.toURI());
+                    }
+                    context.sendBroadcast(parseUri);
+                } else if (packageManager.queryIntentActivities(parseUri, 0).size() > 0) {
+                    if (com.baidu.android.pushservice.b.a()) {
+                        Log.d("PublicMsg", "Intent sent to actvity! ===> " + parseUri.toURI());
+                    }
+                    parseUri.addFlags(268435456);
+                    parseUri.putExtra(PushConstants.EXTRA_OPENTYPE, 1);
+                    parseUri.putExtra(PushConstants.EXTRA_MSGID, str2);
+                    context.startActivity(parseUri);
+                }
             }
-        } catch (Exception e) {
+        } catch (PackageManager.NameNotFoundException e) {
             if (com.baidu.android.pushservice.b.a()) {
-                Log.e("PublicMsg", "handlePrivateNotification fail. \r\n" + e.getMessage());
+                Log.e("PublicMsg", "package not exist \r\n" + e.getMessage());
+            }
+        } catch (URISyntaxException e2) {
+            if (com.baidu.android.pushservice.b.a()) {
+                Log.e("PublicMsg", "uri to intent fail \r\n" + e2.getMessage());
             }
         }
-        a(context, str2, str3, 1);
+    }
+
+    public void b(Context context, String str, String str2) {
+        if (com.baidu.android.pushservice.b.a()) {
+            Log.d("PublicMsg", "=== Handle rich media notification: " + str + " title = " + this.c);
+        }
+        if (!"com.baidu.android.pushservice.action.media.DELETE".equals(str)) {
+            Intent intent = new Intent("com.baidu.android.pushservice.action.media.CLICK");
+            intent.setPackage(this.f);
+            intent.putExtra("public_msg", this);
+            context.sendBroadcast(intent);
+        } else if ("com.baidu.android.pushservice.action.media.DELETE".equals(str)) {
+            j jVar = new j();
+            jVar.c("010402");
+            jVar.a(this.f718a);
+            jVar.a(System.currentTimeMillis());
+            jVar.a(0);
+            jVar.d(com.baidu.android.pushservice.b.m.d(context));
+            jVar.e(str2);
+            com.baidu.android.pushservice.d b = com.baidu.android.pushservice.a.a(context).b(str2);
+            com.baidu.android.pushservice.b.b bVar = new com.baidu.android.pushservice.b.b(str2);
+            bVar.c(m.b(b.c));
+            bVar.b(b.c);
+            bVar.d(b.f707a);
+            a(context, b, jVar, bVar);
+        }
     }
 
     @Override // android.os.Parcelable
@@ -340,12 +356,12 @@ public class PublicMsg implements Parcelable {
     }
 
     public String toString() {
-        return "\r\n mMsgId = " + this.f702a + "\r\n mAppId = " + this.b + "\r\n mTitle = " + this.c + "\r\n mDescription = " + this.d + "\r\n mUrl = " + this.e + "\r\n mNetType = " + this.i + "\r\n mSupportAppname = " + this.o + "\r\n mIsSupportApp = " + this.p + "\r\n mPkgName = " + this.f + "\r\n mPlgVercode = " + this.g + "\r\n mNotificationBuilder = " + this.j + "\r\n mNotificationBasicStyle = " + this.m + "\r\n mOpenType = " + this.k + "\r\n mUserConfirm = " + this.l + "\r\n mCustomContent = " + this.n + "\r\n mIntent = " + this.h;
+        return "\r\n mMsgId = " + this.f718a + "\r\n mAppId = " + this.b + "\r\n mTitle = " + this.c + "\r\n mDescription = " + this.d + "\r\n mUrl = " + this.e + "\r\n mNetType = " + this.i + "\r\n mSupportAppname = " + this.o + "\r\n mIsSupportApp = " + this.p + "\r\n mPkgName = " + this.f + "\r\n mPlgVercode = " + this.g + "\r\n mNotificationBuilder = " + this.j + "\r\n mNotificationBasicStyle = " + this.m + "\r\n mOpenType = " + this.k + "\r\n mUserConfirm = " + this.l + "\r\n mCustomContent = " + this.n + "\r\n mIntent = " + this.h;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f702a);
+        parcel.writeString(this.f718a);
         parcel.writeString(this.b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);

@@ -27,14 +27,14 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     private com.baidu.tieba.voice.a.a E;
 
     /* renamed from: a  reason: collision with root package name */
-    af f2553a;
+    ae f2607a;
     Activity d;
     AudioManager g;
     private Handler p;
     private Boolean r;
     private boolean s;
-    private ae x;
-    private ae y;
+    private ad x;
+    private ad y;
     private static boolean m = false;
     private static boolean n = false;
     private static boolean o = false;
@@ -44,26 +44,26 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     String b = null;
     private long q = 0;
     private boolean t = false;
-    private Runnable u = new u(this);
+    private Runnable u = new t(this);
     private VoiceModel v = null;
     private VoiceModel w = null;
-    private ah z = null;
-    private aj A = null;
-    Runnable c = new v(this);
+    private ag z = null;
+    private ai A = null;
+    Runnable c = new u(this);
     SensorManager e = null;
     Sensor f = null;
     private boolean F = true;
     PowerManager.WakeLock h = null;
     private Handler G = new Handler();
     private int H = 1;
-    private s I = null;
+    private r I = null;
     private boolean M = false;
-    Runnable j = new z(this);
-    Runnable k = new aa(this);
+    Runnable j = new y(this);
+    Runnable k = new z(this);
     private boolean N = true;
-    private Runnable O = new ab(this);
+    private Runnable O = new aa(this);
     boolean l = false;
-    private BroadcastReceiver P = new ac(this);
+    private BroadcastReceiver P = new ab(this);
 
     /* loaded from: classes.dex */
     public enum PlayMode {
@@ -74,7 +74,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public static synchronized void a() {
         synchronized (VoiceManager.class) {
             if (!n) {
-                o = com.baidu.tieba.sharedPref.b.a().a("voice_use_soft_decoder", al.b());
+                o = com.baidu.tieba.sharedPref.b.a().a("voice_use_soft_decoder", ak.b());
             }
         }
     }
@@ -119,30 +119,30 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         }
     }
 
-    public boolean a(af afVar, int i2) {
-        if (afVar == null) {
+    public boolean a(ae aeVar, int i2) {
+        if (aeVar == null) {
             return false;
         }
-        this.f2553a = afVar;
-        if (!com.baidu.tieba.util.w.a()) {
-            String b = com.baidu.tieba.util.w.b();
+        this.f2607a = aeVar;
+        if (!com.baidu.tieba.util.af.a()) {
+            String b = com.baidu.tieba.util.af.b();
             if (b == null) {
                 b = this.d.getString(R.string.voice_error_sdcard);
             }
-            this.f2553a.b(0, b);
+            this.f2607a.b(0, b);
             return false;
         }
         g();
-        this.b = ak.a();
-        String a2 = ak.a(this.b);
+        this.b = aj.a();
+        String a2 = aj.a(this.b);
         if (this.I == null) {
-            this.I = new ai(this, null);
+            this.I = new ah(this, null);
         }
         f.a();
         q();
         boolean a3 = f.a(a2, i2, this.I);
         if (a3) {
-            this.f2553a.b(true);
+            this.f2607a.b(true);
             this.H = 2;
             this.q = System.currentTimeMillis();
             p();
@@ -151,7 +151,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.H = 1;
         f.a();
         com.baidu.adp.lib.h.d.b("VoiceManager", "onTouch-getBtnMsgsendVoice", "user click too often");
-        this.f2553a.b(false);
+        this.f2607a.b(false);
         return a3;
     }
 
@@ -162,11 +162,11 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void a(String str) {
         f();
         g();
-        if (this.f2553a != null) {
-            this.f2553a.b(str);
+        if (this.f2607a != null) {
+            this.f2607a.b(str);
         }
         if (this.p != null) {
-            this.p.postDelayed(new t(this, str), 200L);
+            this.p.postDelayed(new s(this, str), 200L);
         }
     }
 
@@ -190,7 +190,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void b(VoiceModel voiceModel) {
         x();
         voiceModel.voice_status = 1;
-        ae m2 = m();
+        ad m2 = m();
         if (m2 != null) {
             m2.a(voiceModel);
         }
@@ -223,22 +223,22 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void d(VoiceModel voiceModel) {
         try {
             if (this.A == null) {
-                this.A = new aj(this, null);
+                this.A = new ai(this, null);
             }
-            String b = ak.b(voiceModel.getId());
+            String b = aj.b(voiceModel.getId());
             if (b == null) {
                 b = this.E.a(voiceModel.getId(), voiceModel.from, this.A);
             }
             if (voiceModel.isLocal && b == null) {
                 if (this.z == null) {
-                    this.z = new ah(this, null);
+                    this.z = new ag(this, null);
                 }
-                this.z.a(5, al.a(R.string.voice_err_no_file));
+                this.z.a(5, ak.a(R.string.voice_err_no_file));
             } else if (b != null) {
                 a(voiceModel, b);
             } else {
                 voiceModel.voice_status = 2;
-                ae m2 = m();
+                ad m2 = m();
                 if (m2 != null) {
                     m2.a(voiceModel);
                 }
@@ -249,40 +249,40 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ae m() {
+    public ad m() {
         if (this.y == null) {
             return null;
         }
-        ae realView = this.y.getRealView();
+        ad realView = this.y.getRealView();
         if (realView == null) {
             return this.y;
         }
         return realView;
     }
 
-    private void c(ae aeVar) {
-        this.y = aeVar;
+    private void c(ad adVar) {
+        this.y = adVar;
     }
 
-    public void a(ae aeVar) {
-        if (aeVar != null && a(aeVar.getVoiceModel())) {
-            c(aeVar);
+    public void a(ad adVar) {
+        if (adVar != null && a(adVar.getVoiceModel())) {
+            c(adVar);
         }
     }
 
-    public void b(ae aeVar) {
-        if (aeVar != null) {
+    public void b(ad adVar) {
+        if (adVar != null) {
             if (this.p != null) {
                 this.p.removeCallbacks(this.j);
             }
             this.M = false;
-            VoiceModel voiceModel = aeVar.getVoiceModel();
+            VoiceModel voiceModel = adVar.getVoiceModel();
             if (voiceModel != null) {
                 if (this.r != null && this.r.booleanValue()) {
                     d(this.r.booleanValue());
                     this.r = null;
                 }
-                this.x = aeVar;
+                this.x = adVar;
                 this.w = voiceModel;
                 int i2 = 1;
                 if (this.w.voice_status != null) {
@@ -291,7 +291,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 if (this.v != null) {
                     this.v.curr_time = 0;
                     if (this.v == this.w) {
-                        c(aeVar);
+                        c(adVar);
                         this.v = this.w;
                         switch (i2) {
                             case 1:
@@ -314,7 +314,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                     return;
                 }
-                c(aeVar);
+                c(adVar);
                 this.v = this.w;
                 d(this.v);
             }
@@ -323,7 +323,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     private void n() {
         if (this.s) {
-            if (TiebaApplication.g().ap()) {
+            if (TiebaApplication.g().am()) {
                 k();
             } else {
                 j();
@@ -336,10 +336,10 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void a(VoiceModel voiceModel, String str) {
         try {
             if (this.z == null) {
-                this.z = new ah(this, null);
+                this.z = new ag(this, null);
             }
             if (!new File(str).exists()) {
-                this.z.a(5, al.a(R.string.voice_err_no_file));
+                this.z.a(5, ak.a(R.string.voice_err_no_file));
                 return;
             }
             v();
@@ -357,7 +357,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                 return;
             }
             voiceModel.voice_status = 3;
-            ae m2 = m();
+            ad m2 = m();
             if (m2 != null) {
                 m2.a(voiceModel);
             }
@@ -389,7 +389,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             this.w.init();
         }
         this.d = null;
-        this.f2553a = null;
+        this.f2607a = null;
         this.y = null;
         this.x = null;
         this.v = null;
@@ -507,7 +507,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void a(String str, int i2) {
         if (str != null && i2 >= 1) {
             this.H = 3;
-            new Thread(new w(this, str, i2)).start();
+            new Thread(new v(this, str, i2)).start();
         }
     }
 
@@ -552,7 +552,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public void j() {
         if (this.g != null && this.H != 2) {
-            if (TiebaApplication.g().ap()) {
+            if (TiebaApplication.g().am()) {
                 d(false);
                 return;
             }
@@ -595,7 +595,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.p != null) {
                 this.p.removeCallbacks(this.j);
             }
-            ae m2 = m();
+            ad m2 = m();
             if (!this.M && this.v != null && a(this.v.voice_status.intValue()) && m2 != null) {
                 this.M = true;
                 if (m) {
@@ -609,7 +609,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
     public void l() {
         this.M = false;
-        if (this.g != null && al.c()) {
+        if (this.g != null && ak.c()) {
             try {
                 if (J != null && K != null && L != null) {
                     d(J.booleanValue());
@@ -625,7 +625,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     public void c(boolean z) {
-        if (this.g != null && al.c()) {
+        if (this.g != null && ak.c()) {
             if (this.B == null || this.B.booleanValue() != z) {
                 this.B = Boolean.valueOf(z);
                 if (this.p != null) {
@@ -643,7 +643,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         try {
-            if (!this.l && !this.N && this.F) {
+            if (!this.l && this.F) {
                 float[] fArr = sensorEvent.values;
                 if (sensorEvent.sensor.getType() == 8 && fArr.length > 0) {
                     float f = fArr[0];
@@ -660,12 +660,12 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     private void v() {
-        if (!TiebaApplication.g().ap() && !this.t && this.f != null && al.c()) {
+        if (!TiebaApplication.g().am() && !this.t && this.f != null && ak.c()) {
             if (this.p != null) {
                 this.p.removeCallbacks(this.O);
             }
             this.t = true;
-            this.N = al.a();
+            this.N = ak.a();
             this.e.registerListener(this, this.f, 3);
         }
     }
@@ -710,9 +710,18 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     }
 
     private void y() {
-        ad adVar = new ad(this, null);
-        adVar.setSelfExecute(true);
-        adVar.execute(new Void[0]);
+        if (this.g != null) {
+            try {
+                this.l = this.g.isWiredHeadsetOn();
+                if (this.l) {
+                    d(false);
+                }
+            } catch (Throwable th) {
+                ac acVar = new ac(this, null);
+                acVar.setSelfExecute(true);
+                acVar.execute(new Void[0]);
+            }
+        }
     }
 
     @Override // android.content.BroadcastReceiver

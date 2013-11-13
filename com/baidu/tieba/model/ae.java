@@ -7,8 +7,8 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 public class ae extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ad f1889a;
-    private com.baidu.tieba.util.ag b = null;
+    final /* synthetic */ ad f1885a;
+    private com.baidu.tieba.util.ap b = null;
     private String c;
     private String d;
     private String e;
@@ -18,7 +18,7 @@ public class ae extends BdAsyncTask<String, Integer, String> {
     private boolean i;
 
     public ae(ad adVar, String str, String str2, String str3, String str4, int i, int i2, boolean z) {
-        this.f1889a = adVar;
+        this.f1885a = adVar;
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -33,13 +33,13 @@ public class ae extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String a(String... strArr) {
         String str;
-        String str2 = com.baidu.tieba.data.h.f1165a;
+        String str2 = com.baidu.tieba.data.h.f1196a;
         if (this.g == 0) {
             str = str2 + "c/c/bawu/delthread";
         } else {
             str = str2 + "c/c/bawu/delpost";
         }
-        this.b = new com.baidu.tieba.util.ag(str);
+        this.b = new com.baidu.tieba.util.ap(str);
         this.b.a("fid", this.c);
         this.b.a("word", this.d);
         this.b.a("z", this.e);
@@ -81,9 +81,9 @@ public class ae extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1889a.f1888a = null;
+        this.f1885a.f1884a = null;
         super.cancel(true);
-        gVar = this.f1889a.mLoadDataCallBack;
+        gVar = this.f1885a.mLoadDataCallBack;
         gVar.a(null);
     }
 
@@ -94,22 +94,22 @@ public class ae extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((ae) str);
-        this.f1889a.f1888a = null;
+        this.f1885a.f1884a = null;
         if (this.b == null) {
-            gVar2 = this.f1889a.mLoadDataCallBack;
+            gVar2 = this.f1885a.mLoadDataCallBack;
             gVar2.a(null);
             return;
         }
-        af afVar = new af(this.f1889a);
+        af afVar = new af(this.f1885a);
         afVar.c = this.g;
         afVar.d = this.f;
         afVar.b = str;
         if (str == null) {
-            afVar.f1890a = true;
+            afVar.f1886a = true;
         } else {
-            afVar.f1890a = false;
+            afVar.f1886a = false;
         }
-        gVar = this.f1889a.mLoadDataCallBack;
+        gVar = this.f1885a.mLoadDataCallBack;
         gVar.a(afVar);
     }
 }

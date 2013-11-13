@@ -1,36 +1,36 @@
 package com.baidu.tieba.model;
+
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class cg extends com.baidu.adp.a.d {
+public class cg {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1935a = null;
-    private String b = null;
-    private ci c = null;
+    private ArrayList<String> f1931a = new ArrayList<>();
 
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
+    public ArrayList<String> a() {
+        return this.f1931a;
     }
 
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void a() {
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            com.baidu.tieba.util.bg.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 
-    public void a(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
-            this.f1935a = str;
-            this.b = str2;
-            this.c = new ci(this);
-            this.c.setPriority(2);
-            this.c.execute(new Object[0]);
+    public void a(JSONObject jSONObject) {
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("fname");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.f1931a.add(optJSONArray.getString(i));
+                }
+            }
+        } catch (Exception e) {
+            com.baidu.tieba.util.bg.b("BarlistModel", "parserJson", "error = " + e.getMessage());
         }
     }
 }

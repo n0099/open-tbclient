@@ -2,28 +2,16 @@ package com.baidu.tieba.view;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class ag implements View.OnClickListener {
-
-    /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuidPageView f2503a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(GuidPageView guidPageView) {
-        this.f2503a = guidPageView;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view != null && view.getBackground() != null) {
-            Bitmap bitmap = ((BitmapDrawable) view.getBackground()).getBitmap();
-            view.setBackgroundDrawable(null);
+public class ag extends ImageView {
+    public void a() {
+        if (getBackground() != null) {
+            Bitmap bitmap = ((BitmapDrawable) getBackground()).getBitmap();
+            setBackgroundDrawable(null);
             if (bitmap != null && !bitmap.isRecycled()) {
                 bitmap.recycle();
             }
-            view.setVisibility(8);
         }
     }
 }

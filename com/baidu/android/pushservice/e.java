@@ -7,20 +7,27 @@ import android.provider.Settings;
 import com.baidu.android.common.logging.Log;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.location.LocationClientOption;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Properties;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    static int f692a = -1;
+    static int f708a = -1;
     private static Boolean e = false;
     private static volatile e p;
     com.baidu.android.pushservice.message.a c;
@@ -30,27 +37,35 @@ public final class e {
     private j k;
     private i l;
     private Context o;
+    private HashSet q;
     private boolean r;
+    private int y;
     private boolean d = false;
     private boolean f = false;
     private LinkedList j = new LinkedList();
     private boolean m = false;
     private int n = 0;
     Handler b = new Handler();
-    private HashSet q = new HashSet();
     private Runnable s = new g(this);
     private Runnable t = new h(this);
     private long u = 0;
-    private int[] v = {300, 450, 600};
-    private int[] w = {0, 0, 0};
+    private int[] v = {300, 420, 540, 600};
+    private int[] w = {0, 0, 0, 0};
     private final int x = 2;
-    private int y = 2;
     private int z = 0;
     private final int A = 7200;
 
     private e(Context context) {
+        this.q = new HashSet();
+        this.y = 2;
         this.o = context;
-        h();
+        int i = i();
+        if (i != 0) {
+            this.y = i;
+        }
+        j();
+        this.q = e();
+        PushSDK.getInstantce(this.o).setAlarmTimeout(this.v[this.y]);
     }
 
     public static e a(Context context) {
@@ -58,6 +73,31 @@ public final class e {
             p = new e(context);
         }
         return p;
+    }
+
+    private void a(int i) {
+        PushSettings.a(i);
+    }
+
+    private void a(HashSet hashSet) {
+        String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        File file = new File(absolutePath, "baidu/pushservice/files");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(absolutePath, "baidu/pushservice/files/mi")));
+            Iterator it = hashSet.iterator();
+            while (it.hasNext()) {
+                bufferedWriter.write((String) it.next());
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.close();
+        } catch (FileNotFoundException e2) {
+            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -70,8 +110,17 @@ public final class e {
                 this.z = 0;
                 if (this.y < this.v.length - 1 && this.w[this.y + 1] < 2) {
                     this.y++;
+                    a(this.y);
                     PushSDK.getInstantce(this.o).setAlarmTimeout(this.v[this.y]);
                 }
+            }
+            if (this.v[this.y] * this.z >= 14400) {
+                com.baidu.android.pushservice.b.i iVar = new com.baidu.android.pushservice.b.i();
+                iVar.c("030101");
+                iVar.a(System.currentTimeMillis());
+                iVar.d(com.baidu.android.pushservice.b.m.d(this.o));
+                iVar.b(this.v[this.y]);
+                com.baidu.android.pushservice.b.s.a(this.o, iVar);
             }
         } else {
             this.z = 0;
@@ -80,24 +129,25 @@ public final class e {
             iArr[i2] = iArr[i2] + 1;
             if (this.y > 0) {
                 this.y--;
+                a(this.y);
                 PushSDK.getInstantce(this.o).setAlarmTimeout(this.v[this.y]);
             }
         }
         if (PushSettings.c()) {
             Log.d("PushConnection", "RTC stat update from " + this.v[i] + " to " + this.v[this.y]);
-            com.baidu.android.pushservice.util.n.a("RTC stat update from " + this.v[i] + " to " + this.v[this.y]);
+            com.baidu.android.pushservice.util.m.a("RTC stat update from " + this.v[i] + " to " + this.v[this.y]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void e() {
+    public synchronized void f() {
         if (this.d || e.booleanValue()) {
             if (b.a()) {
                 Log.i("PushConnection", "Connect return. mConnected:" + this.d + " mConnectting:" + e);
             }
         } else if (y.a().e()) {
             e = true;
-            f692a = -1;
+            f708a = -1;
             Thread thread = new Thread(new f(this));
             thread.setName("PushService-PushService-connect");
             thread.start();
@@ -110,15 +160,15 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
+    public void g() {
         if (b.a()) {
             Log.i("PushConnection", "disconnectedByPeer, mStoped == " + this.m);
-            com.baidu.android.pushservice.util.n.a("disconnectedByPeer, mStoped == " + this.m);
+            com.baidu.android.pushservice.util.m.a("disconnectedByPeer, mStoped == " + this.m);
         }
         if (this.m) {
             return;
         }
-        g();
+        h();
         this.n++;
         if (this.n < 3) {
             int i = (this.n - 1) * 30 * LocationClientOption.MIN_SCAN_SPAN;
@@ -133,7 +183,7 @@ public final class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
+    public void h() {
         if (b.a()) {
             Log.i("PushConnection", "disconnected");
         }
@@ -160,46 +210,46 @@ public final class e {
         } catch (IOException e2) {
             e2.printStackTrace();
         }
-        if (PushSocket.f698a) {
-            PushSocket.closeSocket(f692a);
+        if (PushSocket.f714a) {
+            PushSocket.closeSocket(f708a);
         }
         if (this.c != null) {
             this.c.c();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00a6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    private int i() {
+        return PushSettings.d();
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0086 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void h() {
+    private void j() {
         FileInputStream fileInputStream;
-        int i = 0;
         File file = new File(Environment.getExternalStorageDirectory(), "baidu/pushservice/pushservice.cfg");
         if (!file.exists()) {
             return;
         }
         Properties properties = new Properties();
+        FileInputStream fileInputStream2 = null;
         try {
             fileInputStream = new FileInputStream(file);
             try {
                 try {
                     properties.load(fileInputStream);
-                    String property = properties.getProperty("rtcseed1");
-                    Log.e("PushConnection", property);
-                    int parseInt = (property == null || property.length() <= 0) ? 0 : Integer.parseInt(property);
-                    String property2 = properties.getProperty("rtcseed2");
-                    Log.e("PushConnection", property2);
-                    int parseInt2 = (property2 == null || property2.length() <= 0) ? 0 : Integer.parseInt(property2);
-                    String property3 = properties.getProperty("rtcseed3");
-                    Log.e("PushConnection", property3);
-                    if (property3 != null && property3.length() > 0) {
-                        i = Integer.parseInt(property3);
+                    String property = properties.getProperty("rtcseed");
+                    if (property != null && property.length() > 0) {
+                        JSONArray jSONArray = new JSONArray(property);
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            this.v[i] = jSONArray.getInt(i);
+                            this.w[i] = 0;
+                        }
                     }
-                    if (parseInt > 0 && parseInt2 > 0 && i > 0) {
-                        this.v[0] = parseInt;
-                        this.v[1] = parseInt2;
-                        this.v[2] = i;
+                    String property2 = properties.getProperty("originseed");
+                    if (property2 != null && property2.length() > 0) {
+                        this.y = Integer.parseInt(property2);
                     }
                     if (fileInputStream != null) {
                         try {
@@ -209,9 +259,8 @@ public final class e {
                         }
                     }
                 } catch (Exception e3) {
-                    e = e3;
                     if (b.a()) {
-                        System.out.println(e.getMessage());
+                        Log.e("PushConnection", "getTestConfig exception ");
                     }
                     if (fileInputStream != null) {
                         try {
@@ -222,10 +271,11 @@ public final class e {
                     }
                 }
             } catch (Throwable th) {
+                fileInputStream2 = fileInputStream;
                 th = th;
-                if (fileInputStream != null) {
+                if (fileInputStream2 != null) {
                     try {
-                        fileInputStream.close();
+                        fileInputStream2.close();
                     } catch (IOException e5) {
                         e5.printStackTrace();
                     }
@@ -233,12 +283,10 @@ public final class e {
                 throw th;
             }
         } catch (Exception e6) {
-            e = e6;
             fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
-            if (fileInputStream != null) {
+            if (fileInputStream2 != null) {
             }
             throw th;
         }
@@ -273,13 +321,14 @@ public final class e {
             this.q.clear();
         }
         this.q.add(str);
+        a(this.q);
         return z;
     }
 
     public void b() {
         this.n = 0;
         this.m = false;
-        e();
+        f();
     }
 
     public void c() {
@@ -289,7 +338,7 @@ public final class e {
         this.f = true;
         this.m = true;
         this.b.removeCallbacks(this.s);
-        g();
+        h();
     }
 
     public void d() {
@@ -308,5 +357,29 @@ public final class e {
                 Log.i("PushConnection", "sendHeartbeatMessage");
             }
         }
+    }
+
+    public HashSet e() {
+        String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        File file = new File(absolutePath, "baidu/pushservice/files");
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        File file2 = new File(absolutePath, "baidu/pushservice/files/mi");
+        HashSet hashSet = new HashSet();
+        if (file2.exists()) {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(file2));
+                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                    hashSet.add(readLine);
+                }
+                bufferedReader.close();
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+        }
+        return hashSet;
     }
 }

@@ -21,9 +21,9 @@ public class f extends a {
     }
 
     public void b() {
-        if (this.f619a != null) {
+        if (this.f628a != null) {
             try {
-                JSONArray jSONArray = this.f619a.getJSONArray("params");
+                JSONArray jSONArray = this.f628a.getJSONArray("params");
                 if (jSONArray == null || jSONArray.length() == 0) {
                     this.b = false;
                     return;

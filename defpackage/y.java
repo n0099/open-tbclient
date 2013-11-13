@@ -11,13 +11,13 @@ import com.baidu.cloudsdk.social.share.ui.ShareDialog;
 public class y extends GestureDetector.SimpleOnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2944a;
+    final /* synthetic */ Context f2992a;
     final /* synthetic */ EditText b;
     final /* synthetic */ ShareDialog c;
 
     public y(ShareDialog shareDialog, Context context, EditText editText) {
         this.c = shareDialog;
-        this.f2944a = context;
+        this.f2992a = context;
         this.b = editText;
     }
 
@@ -26,7 +26,7 @@ public class y extends GestureDetector.SimpleOnGestureListener {
         if (motionEvent2.getY() - motionEvent.getY() <= 100.0f || Math.abs(f2) <= 200.0f) {
             return true;
         }
-        ((InputMethodManager) this.f2944a.getSystemService("input_method")).hideSoftInputFromWindow(this.b.getApplicationWindowToken(), 0);
+        ((InputMethodManager) this.f2992a.getSystemService("input_method")).hideSoftInputFromWindow(this.b.getApplicationWindowToken(), 0);
         return true;
     }
 }

@@ -1,36 +1,39 @@
 package com.baidu.tieba.write;
 
-import android.content.DialogInterface;
-import android.widget.EditText;
+import android.graphics.Bitmap;
 import com.baidu.tieba.data.WriteData;
-import com.baidu.tieba.util.DatabaseService;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ai implements DialogInterface.OnClickListener {
+public class ai implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2630a;
+    final /* synthetic */ WriteActivity f2682a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(WriteActivity writeActivity) {
-        this.f2630a = writeActivity;
+        this.f2682a = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // com.baidu.tieba.editortool.h
+    public void a(int i, Object obj) {
         WriteData writeData;
-        EditText editText;
         WriteData writeData2;
-        EditText editText2;
-        WriteData writeData3;
-        writeData = this.f2630a.f2619a;
-        editText = this.f2630a.e;
-        writeData.setTitle(editText.getText().toString());
-        writeData2 = this.f2630a.f2619a;
-        editText2 = this.f2630a.g;
-        writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.f2630a.f2619a;
-        DatabaseService.b(writeData3);
-        this.f2630a.finish();
+        if (i == 28) {
+            if (obj != null && (obj instanceof Bitmap)) {
+                WriteImageActivity.a(this.f2682a, (Bitmap) obj, 12003);
+            }
+        } else if (i == 29) {
+            this.f2682a.showToast(R.string.pic_parser_error);
+            this.f2682a.t();
+        } else if (i == 32) {
+            writeData2 = this.f2682a.b;
+            writeData2.setBitmapId(null);
+            this.f2682a.t();
+        } else if (i == 30) {
+            writeData = this.f2682a.b;
+            writeData.setBitmapId(null);
+            this.f2682a.t();
+        }
     }
 }

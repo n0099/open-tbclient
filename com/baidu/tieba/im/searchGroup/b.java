@@ -15,11 +15,11 @@ import java.util.List;
 public class b extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private SearchGroupActivity f1699a;
-    private com.baidu.tieba.util.a b;
+    private SearchGroupActivity f1786a;
+    private com.baidu.tieba.util.i b;
     private List<BaseGroupData> c = new ArrayList();
 
-    public com.baidu.tieba.util.a a() {
+    public com.baidu.tieba.util.i a() {
         return this.b;
     }
 
@@ -29,8 +29,8 @@ public class b extends BaseAdapter {
     }
 
     public b(SearchGroupActivity searchGroupActivity) {
-        this.f1699a = searchGroupActivity;
-        this.b = new com.baidu.tieba.util.a(searchGroupActivity);
+        this.f1786a = searchGroupActivity;
+        this.b = new com.baidu.tieba.util.i(searchGroupActivity);
         this.b.d(true);
     }
 
@@ -63,9 +63,9 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         c cVar;
         if (view == null || view.getTag() == null) {
-            view = LayoutInflater.from(this.f1699a).inflate(R.layout.im_search_group_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.f1786a).inflate(R.layout.im_search_group_list_item, viewGroup, false);
             cVar = new c();
-            cVar.f1700a = (HeadImageView) view.findViewById(R.id.item_head);
+            cVar.f1787a = (HeadImageView) view.findViewById(R.id.item_head);
             cVar.b = (TextView) view.findViewById(R.id.item_name);
             cVar.c = (TextView) view.findViewById(R.id.item_count);
             view.setTag(cVar);
@@ -73,13 +73,13 @@ public class b extends BaseAdapter {
             cVar = (c) view.getTag();
         }
         BaseGroupData baseGroupData = this.c.get(i);
-        cVar.f1700a.setTag(null);
-        cVar.f1700a.setDefaultId(R.drawable.avatar_poto_defaul50);
-        cVar.f1700a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        cVar.f1787a.setTag(null);
+        cVar.f1787a.setDefaultResource(R.drawable.avatar_poto_defaul50);
+        cVar.f1787a.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         if (baseGroupData != null) {
-            cVar.f1700a.setTag(baseGroupData.getPortrait());
+            cVar.f1787a.setTag(baseGroupData.getPortrait());
             cVar.b.setText(baseGroupData.getName());
-            cVar.c.setText(this.f1699a.getResources().getString(R.string.mem_count, String.valueOf(baseGroupData.getMemberNum())));
+            cVar.c.setText(this.f1786a.getResources().getString(R.string.mem_count, String.valueOf(baseGroupData.getMemberNum())));
         }
         return view;
     }

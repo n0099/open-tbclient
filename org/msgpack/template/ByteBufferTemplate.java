@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public class ByteBufferTemplate extends AbstractTemplate<ByteBuffer> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ByteBufferTemplate f2857a = new ByteBufferTemplate();
+    static final ByteBufferTemplate f2905a = new ByteBufferTemplate();
 
     private ByteBufferTemplate() {
     }
@@ -25,6 +25,6 @@ public class ByteBufferTemplate extends AbstractTemplate<ByteBuffer> {
     }
 
     public static ByteBufferTemplate a() {
-        return f2857a;
+        return f2905a;
     }
 }

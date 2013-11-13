@@ -31,7 +31,7 @@ import javassist.v;
 public class TypeChecker extends javassist.compiler.ast.a implements as, j {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f2790a;
+    protected int f2838a;
     protected int b;
     protected String c;
     protected MemberResolver d;
@@ -116,7 +116,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         javassist.h a2 = this.d.a(newExpr.getClassName());
         String n = a2.n();
         a(a2, MethodDecl.initName, newExpr.getArguments());
-        this.f2790a = 307;
+        this.f2838a = 307;
         this.b = 0;
         this.c = MemberResolver.c(n);
     }
@@ -137,7 +137,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         if (head != null) {
             head.accept(this);
         }
-        this.f2790a = arrayType;
+        this.f2838a = arrayType;
         this.b = 1;
         if (arrayType == 307) {
             this.c = d(className);
@@ -174,7 +174,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
             head.accept(this);
             aSTList2 = aSTList2.tail();
         }
-        this.f2790a = i;
+        this.f2838a = i;
         this.b = length;
         if (i == 307) {
             this.c = d(aSTList);
@@ -205,18 +205,18 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
             a(variable);
         }
         aSTree.accept(this);
-        this.f2790a = type;
+        this.f2838a = type;
         this.b = arrayDim;
         this.c = className;
     }
 
     private void a(Expr expr, int i, Expr expr2, ASTree aSTree) {
         a(expr2.oprand1(), expr2.oprand2());
-        int i2 = this.f2790a;
+        int i2 = this.f2838a;
         int i3 = this.b;
         String str = this.c;
         aSTree.accept(this);
-        this.f2790a = i2;
+        this.f2838a = i2;
         this.b = i3;
         this.c = str;
     }
@@ -224,11 +224,11 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Expr expr, int i, ASTree aSTree, ASTree aSTree2) {
         b(b(aSTree));
-        int i2 = this.f2790a;
+        int i2 = this.f2838a;
         int i3 = this.b;
         String str = this.c;
         aSTree2.accept(this);
-        this.f2790a = i2;
+        this.f2838a = i2;
         this.b = i3;
         this.c = str;
     }
@@ -237,16 +237,16 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
     public void a(CondExpr condExpr) {
         e(condExpr.condExpr());
         condExpr.thenExpr().accept(this);
-        int i = this.f2790a;
+        int i = this.f2838a;
         int i2 = this.b;
         String str = this.c;
         condExpr.elseExpr().accept(this);
         if (i2 == 0 && i2 == this.b) {
-            if (CodeGen.c(i, this.f2790a)) {
-                condExpr.setThen(new CastExpr(this.f2790a, 0, condExpr.thenExpr()));
-            } else if (CodeGen.c(this.f2790a, i)) {
+            if (CodeGen.c(i, this.f2838a)) {
+                condExpr.setThen(new CastExpr(this.f2838a, 0, condExpr.thenExpr()));
+            } else if (CodeGen.c(this.f2838a, i)) {
                 condExpr.setElse(new CastExpr(i, 0, condExpr.elseExpr()));
-                this.f2790a = i;
+                this.f2838a = i;
             }
         }
     }
@@ -268,7 +268,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
             ASTree oprand1 = binExpr.oprand1();
             ASTree oprand2 = binExpr.oprand2();
             oprand1.accept(this);
-            int i = this.f2790a;
+            int i = this.f2838a;
             oprand2.accept(this);
             if (!a(binExpr, operator, oprand1, oprand2)) {
                 a(binExpr, operator, i);
@@ -290,7 +290,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
             Expr b = b((BinExpr) oprand1);
             if (b != null) {
                 oprand2.accept(this);
-                this.f2790a = 307;
+                this.f2838a = 307;
                 this.b = 0;
                 this.c = "java/lang/StringBuffer";
                 return b(b, oprand2);
@@ -298,16 +298,16 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         } else {
             oprand1.accept(this);
         }
-        int i = this.f2790a;
+        int i = this.f2838a;
         int i2 = this.b;
         String str = this.c;
         oprand2.accept(this);
         if (a(binExpr, 43, oprand1, oprand2)) {
             return null;
         }
-        if ((i == 307 && i2 == 0 && "java/lang/String".equals(str)) || (this.f2790a == 307 && this.b == 0 && "java/lang/String".equals(this.c))) {
+        if ((i == 307 && i2 == 0 && "java/lang/String".equals(str)) || (this.f2838a == 307 && this.b == 0 && "java/lang/String".equals(this.c))) {
             NewExpr newExpr = new NewExpr(ASTList.make(new Symbol("java"), new Symbol("lang"), new Symbol("StringBuffer")), null);
-            this.f2790a = 307;
+            this.f2838a = 307;
             this.b = 0;
             this.c = "java/lang/StringBuffer";
             return b(b(newExpr, oprand1), oprand2);
@@ -394,14 +394,14 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
     }
 
     private void a(BinExpr binExpr, int i, int i2) {
-        int i3 = this.f2790a;
+        int i3 = this.f2838a;
         if (i == 364 || i == 366 || i == 370) {
-            this.f2790a = i2;
+            this.f2838a = i2;
         } else {
             b(binExpr, i2, i3);
         }
-        if (CodeGen.e(this.f2790a)) {
-            this.f2790a = 324;
+        if (CodeGen.e(this.f2838a)) {
+            this.f2838a = 324;
         }
     }
 
@@ -410,11 +410,11 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         if (d == 358) {
             BinExpr binExpr = (BinExpr) aSTree;
             binExpr.oprand1().accept(this);
-            int i = this.f2790a;
+            int i = this.f2838a;
             int i2 = this.b;
             binExpr.oprand2().accept(this);
             if (i2 == 0 && this.b == 0) {
-                b(binExpr, i, this.f2790a);
+                b(binExpr, i, this.f2838a);
             }
         } else if (d == 33) {
             ((Expr) aSTree).oprand1().accept(this);
@@ -425,7 +425,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         } else {
             aSTree.accept(this);
         }
-        this.f2790a = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
+        this.f2838a = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
         this.b = 0;
     }
 
@@ -433,7 +433,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         if (CodeGen.c(i, i2)) {
             binExpr.setLeft(new CastExpr(i2, 0, binExpr.oprand1()));
         } else {
-            this.f2790a = i;
+            this.f2838a = i;
         }
     }
 
@@ -441,7 +441,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
     public void a(CastExpr castExpr) {
         String d = d(castExpr.getClassName());
         castExpr.getOprand().accept(this);
-        this.f2790a = castExpr.getType();
+        this.f2838a = castExpr.getType();
         this.b = castExpr.getArrayDim();
         this.c = d;
     }
@@ -449,7 +449,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
     @Override // javassist.compiler.ast.a
     public void a(InstanceOfExpr instanceOfExpr) {
         instanceOfExpr.getOprand().accept(this);
-        this.f2790a = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
+        this.f2838a = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
         this.b = 0;
     }
 
@@ -487,8 +487,8 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         } else {
             oprand1.accept(this);
             if (!a(expr, operator, oprand1)) {
-                if ((operator == 45 || operator == 126) && CodeGen.e(this.f2790a)) {
-                    this.f2790a = 324;
+                if ((operator == 45 || operator == 126) && CodeGen.e(this.f2838a)) {
+                    this.f2838a = 324;
                 }
             }
         }
@@ -551,7 +551,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
                     if (e.getExpr() != oprand12) {
                         throw e;
                     }
-                    this.f2790a = 307;
+                    this.f2838a = 307;
                     this.b = 0;
                     this.c = e.getField();
                     expr.setOperator(35);
@@ -559,7 +559,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
                 }
                 if (this.b > 0) {
                     hVar = this.d.a("java.lang.Object", true);
-                } else if (this.f2790a == 307) {
+                } else if (this.f2838a == 307) {
                     hVar = this.d.a(this.c);
                 } else {
                     hVar = null;
@@ -611,7 +611,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         int i = 0;
         while (aSTList != null) {
             aSTList.head().accept(this);
-            iArr[i] = this.f2790a;
+            iArr[i] = this.f2838a;
             iArr2[i] = this.b;
             strArr[i] = this.c;
             i++;
@@ -638,11 +638,11 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
             if (indexOf2 < 0) {
                 a();
             }
-            this.f2790a = 307;
+            this.f2838a = 307;
             this.c = str.substring(i + 1, indexOf2);
             return;
         }
-        this.f2790a = MemberResolver.a(charAt);
+        this.f2838a = MemberResolver.a(charAt);
         this.c = null;
     }
 
@@ -661,7 +661,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
             charAt = d.charAt(i2);
         }
         this.b = i;
-        this.f2790a = MemberResolver.a(charAt);
+        this.f2838a = MemberResolver.a(charAt);
         if (charAt == 'L') {
             this.c = d.substring(i2 + 1, d.indexOf(59, i2 + 1));
         } else {
@@ -699,7 +699,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
                     } catch (CompileError e2) {
                         compileError = e2;
                     }
-                    if (this.f2790a != 307 || this.b != 0) {
+                    if (this.f2838a != 307 || this.b != 0) {
                         compileError = null;
                         ASTree oprand1 = expr.oprand1();
                         if (oprand1 instanceof Symbol) {
@@ -732,7 +732,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
     }
 
     public void a(Expr expr) {
-        this.f2790a = 307;
+        this.f2838a = 307;
         this.b = 0;
         this.c = "java/lang/Class";
     }
@@ -742,17 +742,17 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         if (this.b == 0) {
             throw new NoFieldException("length", expr);
         }
-        this.f2790a = 324;
+        this.f2838a = 324;
         this.b = 0;
     }
 
     public void a(ASTree aSTree, ASTree aSTree2) {
         aSTree.accept(this);
-        int i = this.f2790a;
+        int i = this.f2838a;
         int i2 = this.b;
         String str = this.c;
         aSTree2.accept(this);
-        this.f2790a = i;
+        this.f2838a = i;
         this.b = i2 - 1;
         this.c = str;
     }
@@ -761,7 +761,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         ASTree oprand2 = aSTree == null ? expr.oprand2() : aSTree;
         if (oprand2 instanceof Variable) {
             Declarator declarator = ((Variable) oprand2).getDeclarator();
-            this.f2790a = declarator.getType();
+            this.f2838a = declarator.getType();
             this.b = declarator.getArrayDim();
             return;
         }
@@ -769,9 +769,9 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
             Expr expr2 = (Expr) oprand2;
             if (expr2.getOperator() == 65) {
                 a(expr2.oprand1(), expr2.oprand2());
-                int i2 = this.f2790a;
+                int i2 = this.f2838a;
                 if (i2 == 324 || i2 == 303 || i2 == 306 || i2 == 334) {
-                    this.f2790a = 324;
+                    this.f2838a = 324;
                     return;
                 }
                 return;
@@ -782,9 +782,9 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
 
     protected void c(ASTree aSTree) {
         b(b(aSTree));
-        int i = this.f2790a;
+        int i = this.f2838a;
         if (i == 324 || i == 303 || i == 306 || i == 334) {
-            this.f2790a = 324;
+            this.f2838a = 324;
         }
     }
 
@@ -796,7 +796,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
     @Override // javassist.compiler.ast.a
     public void a(Variable variable) {
         Declarator declarator = variable.getDeclarator();
-        this.f2790a = declarator.getType();
+        this.f2838a = declarator.getType();
         this.b = declarator.getArrayDim();
         this.c = declarator.getClassName();
     }
@@ -808,7 +808,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         switch (i) {
             case 336:
             case 339:
-                this.f2790a = 307;
+                this.f2838a = 307;
                 if (i == 339) {
                     this.c = c();
                     return;
@@ -818,10 +818,10 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
                 }
             case BdWebErrorView.ERROR_CODE_410 /* 410 */:
             case BdWebErrorView.ERROR_CODE_411 /* 411 */:
-                this.f2790a = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
+                this.f2838a = BVideoView.MEDIA_ERROR_NO_INPUTFILE;
                 return;
             case BdWebErrorView.ERROR_CODE_412 /* 412 */:
-                this.f2790a = BdWebErrorView.ERROR_CODE_412;
+                this.f2838a = BdWebErrorView.ERROR_CODE_412;
                 return;
             default:
                 b();
@@ -831,7 +831,7 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
 
     @Override // javassist.compiler.ast.a
     public void a(StringL stringL) {
-        this.f2790a = 307;
+        this.f2838a = 307;
         this.b = 0;
         this.c = "java/lang/String";
     }
@@ -841,9 +841,9 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
         this.b = 0;
         int type = intConst.getType();
         if (type == 402 || type == 401) {
-            this.f2790a = type == 402 ? 324 : 306;
+            this.f2838a = type == 402 ? 324 : 306;
         } else {
-            this.f2790a = 326;
+            this.f2838a = 326;
         }
     }
 
@@ -851,9 +851,9 @@ public class TypeChecker extends javassist.compiler.ast.a implements as, j {
     public void a(DoubleConst doubleConst) {
         this.b = 0;
         if (doubleConst.getType() == 405) {
-            this.f2790a = 312;
+            this.f2838a = 312;
         } else {
-            this.f2790a = 317;
+            this.f2838a = 317;
         }
     }
 }

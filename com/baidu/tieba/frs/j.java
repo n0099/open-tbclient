@@ -2,49 +2,74 @@ package com.baidu.tieba.frs;
 
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.pb.NewPbActivity;
+import com.baidu.tieba.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class j implements AdapterView.OnItemLongClickListener {
+public class j implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1286a;
+    final /* synthetic */ FrsActivity f1354a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.f1286a = frsActivity;
+        this.f1354a = frsActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-        ba baVar;
-        ba baVar2;
-        com.baidu.tieba.data.bf bfVar;
-        com.baidu.tieba.data.bf bfVar2;
-        com.baidu.tieba.data.bf bfVar3;
-        ba baVar3;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        bn bnVar;
+        bn bnVar2;
+        boolean z;
+        String str;
+        int i2;
         if (i >= 0) {
-            baVar = this.f1286a.o;
-            long itemId = baVar.h().getItemId(i);
-            if (itemId != -100 && itemId != -1 && itemId != -2) {
-                FrsActivity frsActivity = this.f1286a;
-                baVar2 = this.f1286a.o;
-                frsActivity.H = (com.baidu.tieba.data.bf) baVar2.h().getItem(i);
-                FrsActivity frsActivity2 = this.f1286a;
-                bfVar = this.f1286a.H;
-                frsActivity2.m = bfVar.a();
-                bfVar2 = this.f1286a.H;
-                String i2 = bfVar2.i();
-                if (i2 == null || i2.equals("")) {
-                    this.f1286a.n = false;
-                } else {
-                    this.f1286a.n = true;
+            bnVar = this.f1354a.n;
+            long itemId = bnVar.l().getItemId(i);
+            if (itemId == -1) {
+                i2 = this.f1354a.i;
+                if (i2 > 1) {
+                    FrsActivity.i(this.f1354a);
+                    this.f1354a.e = 2;
+                    this.f1354a.B();
                 }
-                FrsActivity frsActivity3 = this.f1286a;
-                bfVar3 = this.f1286a.H;
-                frsActivity3.b(bfVar3);
-                baVar3 = this.f1286a.o;
-                baVar3.f();
+            } else if (itemId != -2) {
+                bnVar2 = this.f1354a.n;
+                com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) bnVar2.l().getItem(i);
+                if (baVar != null) {
+                    com.baidu.tieba.util.bc aw = TiebaApplication.g().aw();
+                    if (aw != null && !aw.b(baVar.a())) {
+                        aw.a(baVar.a());
+                    }
+                    String l = baVar.l();
+                    if (l == null || l.equals("")) {
+                        z = false;
+                    } else {
+                        new Thread(new k(this, l)).start();
+                        z = true;
+                    }
+                    String b = baVar.b();
+                    if (baVar.f() == 2 && !b.startsWith("pb:")) {
+                        UtilHelper.a(this.f1354a, b, "", null);
+                        return;
+                    }
+                    if (b.startsWith("pb:")) {
+                        baVar.a(b.substring(3));
+                    }
+                    FrsActivity frsActivity = this.f1354a;
+                    str = this.f1354a.f;
+                    NewPbActivity.a(frsActivity, baVar, str, null, 18003, true, false, z);
+                }
+            } else {
+                if (TiebaApplication.g().s()) {
+                    StatService.onEvent(this.f1354a, "frs_nextpage", "frsclick", 1);
+                }
+                FrsActivity.x(this.f1354a);
+                this.f1354a.e = 1;
+                this.f1354a.B();
             }
         }
-        return false;
     }
 }

@@ -12,7 +12,7 @@ import java.io.IOException;
 public class CyberPlayerEngineInit {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f870a = 0;
+    private static int f884a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     private static ICyberPlayerEngineInitBridge f2a = null;
@@ -26,12 +26,12 @@ public class CyberPlayerEngineInit {
             if (!f3a && (z = a(context, ReflectUtilsCyberPlayer.a.LOAD_FROM_APK))) {
             }
             if (z) {
-                if (f3a && f870a == 0) {
+                if (f3a && f884a == 0) {
                     a(context);
                 } else {
                     f3a = true;
                 }
-                f870a++;
+                f884a++;
             }
         }
         return z;
@@ -72,13 +72,13 @@ public class CyberPlayerEngineInit {
 
     public static synchronized void destroyCyberPlayerEngine(Context context) {
         synchronized (CyberPlayerEngineInit.class) {
-            f870a--;
-            if (f870a == 0) {
+            f884a--;
+            if (f884a == 0) {
                 b(context);
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                 }
-            } else if (f870a < 0) {
-                f870a = 0;
+            } else if (f884a < 0) {
+                f884a = 0;
             }
         }
     }

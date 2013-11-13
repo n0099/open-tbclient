@@ -5,7 +5,7 @@ import android.content.Context;
 public class c extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f1189a;
+    private e f1247a;
     private f b;
     private String c;
     private String d;
@@ -22,15 +22,15 @@ public class c extends com.baidu.adp.a.d {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.d
     public boolean LoadData() {
-        this.f1189a = new e(this);
-        this.f1189a.execute(new Object[0]);
+        this.f1247a = new e(this);
+        this.f1247a.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
-        if (this.f1189a != null) {
-            this.f1189a.cancel();
+        if (this.f1247a != null) {
+            this.f1247a.cancel();
             return false;
         }
         return false;

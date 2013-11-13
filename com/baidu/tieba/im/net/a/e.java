@@ -16,10 +16,10 @@ public class e extends com.baidu.tieba.im.messageCenter.d {
         RequestGroupInfoMessage requestGroupInfoMessage = (RequestGroupInfoMessage) message;
         int cmd = requestGroupInfoMessage.getCmd();
         String str = "";
-        if (TiebaApplication.G() != null) {
-            str = TiebaApplication.G().getID();
+        if (TiebaApplication.E() != null) {
+            str = TiebaApplication.E().getID();
         }
-        byte[] a2 = com.baidu.tieba.b.a.a().m().a("group_info" + str + requestGroupInfoMessage.getGroupId());
+        byte[] a2 = com.baidu.tieba.b.a.a().n().a("group_info" + str + requestGroupInfoMessage.getGroupId());
         if (a2 != null) {
             ResponsedMessage a3 = m.a(a2);
             if (a3 == null) {

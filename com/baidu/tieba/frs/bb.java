@@ -1,28 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class bb implements DialogInterface.OnClickListener {
+class bb implements SlidingMenu.OnOpenedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ba f1271a;
+    final /* synthetic */ FrsImageActivity f1328a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(ba baVar) {
-        this.f1271a = baVar;
+    public bb(FrsImageActivity frsImageActivity) {
+        this.f1328a = frsImageActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        com.baidu.tieba.j jVar;
-        com.baidu.tieba.j jVar2;
-        if (i == 0) {
-            jVar2 = this.f1271a.d;
-            com.baidu.tieba.write.bg.a(jVar2);
-        } else if (i == 1) {
-            jVar = this.f1271a.d;
-            com.baidu.tieba.write.bg.b(jVar);
+    @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
+    public void onOpened() {
+        if (TiebaApplication.g().s()) {
+            StatService.onEvent(this.f1328a, "frs_total_more", "frsclick", 1);
         }
     }
 }

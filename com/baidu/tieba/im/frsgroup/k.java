@@ -1,47 +1,47 @@
 package com.baidu.tieba.im.frsgroup;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import com.slidingmenu.lib.R;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements com.baidu.adp.lib.guide.b {
+public class k implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1566a;
+    final /* synthetic */ BdListView f1654a;
+    final /* synthetic */ MembersActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(i iVar) {
-        this.f1566a = iVar;
+    public k(MembersActivity membersActivity, BdListView bdListView) {
+        this.b = membersActivity;
+        this.f1654a = bdListView;
     }
 
-    @Override // com.baidu.adp.lib.guide.b
-    public View a(LayoutInflater layoutInflater) {
-        FrsGroupActivity frsGroupActivity;
-        frsGroupActivity = this.f1566a.f1564a;
-        ImageView imageView = new ImageView(frsGroupActivity);
-        imageView.setBackgroundResource(R.drawable.tips_group_setup3);
-        return imageView;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int a() {
-        return 4;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int b() {
-        return 32;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int c() {
-        return -60;
-    }
-
-    @Override // com.baidu.adp.lib.guide.b
-    public int d() {
-        return -10;
+    @Override // com.baidu.adp.widget.ListView.b
+    public void a(boolean z) {
+        aa aaVar;
+        boolean i;
+        com.baidu.tieba.im.model.h hVar;
+        com.baidu.tieba.im.model.h hVar2;
+        com.baidu.tieba.im.model.h hVar3;
+        com.baidu.tieba.im.model.h hVar4;
+        com.baidu.tieba.im.model.h hVar5;
+        aaVar = this.b.f1641a;
+        if (!aaVar.i().d()) {
+            i = this.b.i();
+            if (i) {
+                hVar = this.b.b;
+                hVar2 = this.b.b;
+                long g = hVar2.g();
+                hVar3 = this.b.b;
+                int e = hVar3.e();
+                hVar4 = this.b.b;
+                int f = hVar4.f();
+                hVar5 = this.b.b;
+                hVar.a(g, e, f, hVar5.b());
+                return;
+            }
+            this.b.g();
+            return;
+        }
+        this.f1654a.a();
     }
 }

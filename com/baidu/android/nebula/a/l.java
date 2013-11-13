@@ -16,7 +16,7 @@ public final class l {
     private static volatile l c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f640a = false;
+    boolean f649a = false;
     private Context b;
     private ExecutorService d;
 

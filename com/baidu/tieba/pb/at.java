@@ -1,38 +1,31 @@
 package com.baidu.tieba.pb;
+
+import android.os.Handler;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class at implements bn {
+class at implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2056a;
+    final /* synthetic */ NewPbActivity f2077a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(NewPbActivity newPbActivity) {
-        this.f2056a = newPbActivity;
+        this.f2077a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.bn
-    public void a(boolean z) {
-        com.baidu.tieba.model.bl blVar;
-        com.baidu.tieba.model.bl blVar2;
-        com.baidu.tieba.model.bl blVar3;
-        com.baidu.tieba.model.bl blVar4;
-        com.baidu.tieba.model.bl blVar5;
-        com.baidu.tieba.model.bl blVar6;
-        if (z) {
-            blVar6 = this.f2056a.o;
-            blVar6.b(true);
-            return;
-        }
-        blVar = this.f2056a.o;
-        int d = blVar.l().d();
-        blVar2 = this.f2056a.o;
-        if (d < blVar2.l().a()) {
-            blVar4 = this.f2056a.o;
-            blVar5 = this.f2056a.o;
-            blVar4.c(blVar5.l().d() + 1);
-            return;
-        }
-        blVar3 = this.f2056a.o;
-        blVar3.a(true);
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        Handler handler2;
+        Handler handler3;
+        handler = this.f2077a.r;
+        handler.removeMessages(1);
+        handler2 = this.f2077a.r;
+        handler3 = this.f2077a.r;
+        handler2.sendMessageDelayed(handler3.obtainMessage(1), 300L);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

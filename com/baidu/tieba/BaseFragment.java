@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,12 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import com.baidu.tieba.util.UtilHelper;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f980a = -1;
-    private com.baidu.tieba.util.i b;
+    private int f995a = -1;
+    private com.baidu.tieba.util.q b;
 
     @Override // android.support.v4.app.Fragment
     public void a(Activity activity) {
@@ -28,7 +30,7 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
 
     @Override // android.support.v4.app.Fragment
     public void a(Bundle bundle) {
-        this.b = com.baidu.tieba.util.i.a();
+        this.b = com.baidu.tieba.util.q.a();
         super.a(bundle);
     }
 
@@ -38,32 +40,44 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
     }
 
     public void a(String str) {
-        this.b.a(str, 2000);
+        String name = getClass().getName();
+        String str2 = i().getApplicationContext().getPackageName() + ".chat";
+        if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str2)) {
+            this.b.a(str, 2000);
+        } else {
+            UtilHelper.a((Context) i(), str);
+        }
     }
 
     public void b(int i) {
-        this.b.a(i, 2000);
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void c() {
-        super.c();
-    }
-
-    @Override // android.support.v4.app.Fragment
-    public void p() {
-        this.b.c();
-        super.p();
-        if (D()) {
-            this.f980a = TiebaApplication.g().as();
-            c(this.f980a);
+        String name = getClass().getName();
+        String str = i().getApplicationContext().getPackageName() + ".chat";
+        if (name.startsWith(i().getApplicationContext().getPackageName() + ".im") || name.startsWith(str)) {
+            this.b.a(i, 2000);
+        } else {
+            UtilHelper.a((Context) i(), i);
         }
     }
 
     @Override // android.support.v4.app.Fragment
-    public void q() {
+    public void c_() {
+        super.c_();
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public void r() {
+        this.b.c();
+        super.r();
+        if (F()) {
+            this.f995a = TiebaApplication.g().ap();
+            c(this.f995a);
+        }
+    }
+
+    @Override // android.support.v4.app.Fragment
+    public void s() {
         this.b.b();
-        super.q();
+        super.s();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -72,8 +86,8 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
     }
 
     @Override // android.support.v4.app.Fragment
-    public void r() {
-        super.r();
+    public void t() {
+        super.t();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -123,13 +137,14 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
     public void b(boolean z) {
         super.b(z);
         if (!z) {
-            p();
+            r();
         } else {
-            q();
+            s();
         }
     }
 
-    protected boolean D() {
-        return !n();
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean F() {
+        return !p();
     }
 }

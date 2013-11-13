@@ -1,50 +1,27 @@
 package com.baidu.tieba.util;
 
-import android.os.Handler;
-import java.net.HttpURLConnection;
+import android.widget.ImageView;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-class am implements com.baidu.adp.lib.network.c {
+final class am implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2423a = 0;
-    int b = 0;
-    int c = 0;
-    final /* synthetic */ Handler d;
-    final /* synthetic */ int e;
-    final /* synthetic */ NetWorkCoreByBdHttp f;
+    final /* synthetic */ ListView f2484a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(NetWorkCoreByBdHttp netWorkCoreByBdHttp, Handler handler, int i) {
-        this.f = netWorkCoreByBdHttp;
-        this.d = handler;
-        this.e = i;
+    public am(ListView listView) {
+        this.f2484a = listView;
     }
 
-    @Override // com.baidu.adp.lib.network.c
-    public void a(int i, HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && i > 0) {
-            this.f2423a = i / 50;
-        }
-    }
-
-    @Override // com.baidu.adp.lib.network.c
-    public void a(int i, int i2, HttpURLConnection httpURLConnection) {
-        this.b += i - this.c;
-        this.c = i;
-        if (this.d != null) {
-            if (this.b > this.f2423a || i == i2) {
-                this.b = 0;
-                this.d.sendMessage(this.d.obtainMessage(this.e, i, i2));
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        if (eVar != null) {
+            ImageView imageView = (ImageView) this.f2484a.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                imageView.setImageBitmap(eVar.f());
+                imageView = (ImageView) this.f2484a.findViewWithTag(str);
             }
         }
-    }
-
-    @Override // com.baidu.adp.lib.network.c
-    public void a(com.baidu.adp.lib.network.e eVar) {
-        be.a("NetWork", "downloadFile", "data.zise = " + String.valueOf(eVar.b));
-    }
-
-    @Override // com.baidu.adp.lib.network.c
-    public void a() {
     }
 }

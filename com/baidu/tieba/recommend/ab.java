@@ -1,22 +1,31 @@
 package com.baidu.tieba.recommend;
 
-import android.view.View;
+import android.view.animation.Animation;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
+public class ab implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ z f2268a;
+    final /* synthetic */ z f2303a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(z zVar) {
-        this.f2268a = zVar;
+        this.f2303a = zVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        DailyRecommendActivity dailyRecommendActivity;
-        dailyRecommendActivity = this.f2268a.f2294a;
-        dailyRecommendActivity.finish();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        textView = this.f2303a.i;
+        textView.setVisibility(8);
     }
 }

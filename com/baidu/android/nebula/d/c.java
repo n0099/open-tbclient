@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f666a = false;
+    private boolean f675a = false;
     private long b = Util.MILLSECONDS_OF_MINUTE;
     private long c = System.currentTimeMillis();
 
@@ -23,11 +23,11 @@ public abstract class c {
     public abstract boolean c();
 
     public void d() {
-        this.f666a = true;
+        this.f675a = true;
     }
 
     public boolean e() {
-        return this.f666a;
+        return this.f675a;
     }
 
     public boolean f() {

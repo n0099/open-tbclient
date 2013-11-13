@@ -25,8 +25,8 @@ import com.baidu.tieba.im.message.UpdateClientInfoMessage;
 import com.baidu.tieba.im.messageCenter.IDuplicateProcess;
 import com.baidu.tieba.im.net.link.TiebaSocketLinkService;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.ag;
-import com.baidu.tieba.util.o;
+import com.baidu.tieba.util.ap;
+import com.baidu.tieba.util.y;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,7 +40,7 @@ import javax.crypto.SecretKey;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1392a = null;
+    private static a f1484a = null;
     private static int g = 30000;
     private static int o = 60000;
     private static int p = VersionUtils.CUR_DEVELOPMENT;
@@ -80,7 +80,7 @@ public class a {
         if (message instanceof ResponsePullMessage) {
             ResponsePullMessage responsePullMessage = (ResponsePullMessage) message;
             StringBuilder sb = new StringBuilder(200);
-            if (responsePullMessage.hasError() || responsePullMessage.getGroupMsg() == null || responsePullMessage.getGroupMsg().size() == 0) {
+            if (responsePullMessage.hasError()) {
                 Iterator<GroupMidData> it = this.w.iterator();
                 while (it.hasNext()) {
                     GroupMidData next = it.next();
@@ -89,46 +89,50 @@ public class a {
                     sb.append(next.getLastMsgId());
                     sb.append("|");
                 }
-                o.a(202003, 0, this.y, "MessageSync-receive-pullmsg", "fail", responsePullMessage.getErrNo(), responsePullMessage.getErrMsg(), System.currentTimeMillis() - this.v, 0, sb.toString());
+                y.a(202003, 0, this.y, "MessageSync-receive-pullmsg", "fail", responsePullMessage.getErrNo(), responsePullMessage.getErrMsg(), System.currentTimeMillis() - this.v, 0, sb.toString());
                 return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (GroupMsgData groupMsgData : responsePullMessage.getGroupMsg()) {
-                if (groupMsgData != null) {
-                    long groupId = groupMsgData.getGroupInfo() != null ? groupMsgData.getGroupInfo().getGroupId() : 0L;
-                    long msgId = (groupMsgData.getListMessage() == null || (a2 = groupMsgData.getListMessage().a()) == null || a2.size() <= 0) ? 0L : a2.get(a2.size() - 1).getMsgId();
-                    if (groupId > 0 && msgId > 0) {
-                        hashMap.put(Long.valueOf(groupId), Long.valueOf(msgId));
+            } else if (responsePullMessage.getGroupMsg() == null || responsePullMessage.getGroupMsg().size() == 0) {
+                y.a(202003, 0, this.y, "MessageSync-receive-pullmsg", "succ-empty", responsePullMessage.getErrNo(), responsePullMessage.getErrMsg(), System.currentTimeMillis() - this.v, 0, "");
+                return null;
+            } else {
+                HashMap hashMap = new HashMap();
+                for (GroupMsgData groupMsgData : responsePullMessage.getGroupMsg()) {
+                    if (groupMsgData != null) {
+                        long groupId = groupMsgData.getGroupInfo() != null ? groupMsgData.getGroupInfo().getGroupId() : 0L;
+                        long msgId = (groupMsgData.getListMessage() == null || (a2 = groupMsgData.getListMessage().a()) == null || a2.size() <= 0) ? 0L : a2.get(a2.size() - 1).getMsgId();
+                        if (groupId > 0 && msgId > 0) {
+                            hashMap.put(Long.valueOf(groupId), Long.valueOf(msgId));
+                        }
                     }
                 }
-            }
-            Iterator<GroupMidData> it2 = this.w.iterator();
-            while (it2.hasNext()) {
-                GroupMidData next2 = it2.next();
-                sb.append(next2.getGroupId());
-                sb.append("-");
-                sb.append(next2.getLastMsgId());
-                sb.append("-");
-                Iterator<GroupMsgData> it3 = responsePullMessage.getGroupMsg().iterator();
-                while (true) {
-                    if (!it3.hasNext()) {
-                        z = false;
-                        break;
+                Iterator<GroupMidData> it2 = this.w.iterator();
+                while (it2.hasNext()) {
+                    GroupMidData next2 = it2.next();
+                    sb.append(next2.getGroupId());
+                    sb.append("-");
+                    sb.append(next2.getLastMsgId());
+                    sb.append("-");
+                    Iterator<GroupMsgData> it3 = responsePullMessage.getGroupMsg().iterator();
+                    while (true) {
+                        if (!it3.hasNext()) {
+                            z = false;
+                            break;
+                        }
+                        GroupMsgData next3 = it3.next();
+                        if (next3 != null && next3.getGroupInfo() != null && next3.getGroupInfo().getGroupId() == next2.getGroupId() && next3.getListMessage() != null && next3.getListMessage().a() != null) {
+                            z = true;
+                            sb.append(next3.getListMessage().a().size());
+                            break;
+                        }
                     }
-                    GroupMsgData next3 = it3.next();
-                    if (next3 != null && next3.getGroupInfo() != null && next3.getGroupInfo().getGroupId() == next2.getGroupId() && next3.getListMessage() != null && next3.getListMessage().a() != null) {
-                        z = true;
-                        sb.append(next3.getListMessage().a().size());
-                        break;
+                    if (!z) {
+                        sb.append(0);
                     }
+                    sb.append("|");
                 }
-                if (!z) {
-                    sb.append(0);
-                }
-                sb.append("|");
+                y.a(202003, 0, this.y, "MessageSync-receive-pullmsg", "succ", responsePullMessage.getErrNo(), responsePullMessage.getErrMsg(), System.currentTimeMillis() - this.v, 0, sb.toString());
+                return hashMap;
             }
-            o.a(202003, 0, this.y, "MessageSync-receive-pullmsg", "succ", responsePullMessage.getErrNo(), responsePullMessage.getErrMsg(), System.currentTimeMillis() - this.v, 0, sb.toString());
-            return hashMap;
         }
         return null;
     }
@@ -171,7 +175,7 @@ public class a {
             }
         } else if (i == 1003) {
             com.baidu.adp.lib.h.d.c("----ping error . reconnection...");
-            o.a(1003, 0, "receive ping", "MessageSync-receive-ping", "fail", i2, "ping err", System.currentTimeMillis() - this.t, 0, "ping error. restartReconnStra");
+            y.a(1003, 0, "receive ping", "MessageSync-receive-ping", "fail", i2, "ping err", System.currentTimeMillis() - this.t, 0, "ping error. restartReconnStra");
             p();
             TiebaSocketLinkService.b();
         }
@@ -180,10 +184,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1392a == null) {
-                f1392a = new a();
+            if (f1484a == null) {
+                f1484a = new a();
             }
-            aVar = f1392a;
+            aVar = f1484a;
         }
         return aVar;
     }
@@ -206,19 +210,19 @@ public class a {
     }
 
     public void b() {
-        int[] ba = TiebaApplication.g().ba();
-        if (ba.length == 2) {
-            a(ba[0] * LocationClientOption.MIN_SCAN_SPAN);
-            b(ba[1] * LocationClientOption.MIN_SCAN_SPAN);
+        int[] aW = TiebaApplication.g().aW();
+        if (aW.length == 2) {
+            a(aW[0] * LocationClientOption.MIN_SCAN_SPAN);
+            b(aW[1] * LocationClientOption.MIN_SCAN_SPAN);
         }
-        int[] bb = TiebaApplication.g().bb();
-        if (bb.length == 2) {
-            c(bb[0] * LocationClientOption.MIN_SCAN_SPAN);
-            d(bb[1] * LocationClientOption.MIN_SCAN_SPAN);
+        int[] aX = TiebaApplication.g().aX();
+        if (aX.length == 2) {
+            c(aX[0] * LocationClientOption.MIN_SCAN_SPAN);
+            d(aX[1] * LocationClientOption.MIN_SCAN_SPAN);
         }
-        int[] bc = TiebaApplication.g().bc();
-        if (bc.length > 0) {
-            e(bc[0] * LocationClientOption.MIN_SCAN_SPAN);
+        int[] aY = TiebaApplication.g().aY();
+        if (aY.length > 0) {
+            e(aY[0] * LocationClientOption.MIN_SCAN_SPAN);
         }
     }
 
@@ -255,7 +259,7 @@ public class a {
         com.baidu.adp.lib.h.d.c("----switchToForeground");
         if (System.currentTimeMillis() - this.u > this.j && UtilHelper.b()) {
             com.baidu.tieba.im.messageCenter.f.a().b(true);
-            o.a(1003, 0, "switchToForeground", "MessageSync-send-ping", "succ", 0, "", 0L, 0, "" + (System.currentTimeMillis() - this.u));
+            y.a(1003, 0, "switchToForeground", "MessageSync-send-ping", "succ", 0, "", 0L, 0, "" + (System.currentTimeMillis() - this.u));
         }
     }
 
@@ -298,7 +302,7 @@ public class a {
         this.t = System.currentTimeMillis();
         this.u = System.currentTimeMillis();
         com.baidu.adp.lib.h.d.c("----sendPing");
-        o.a(1003, 0, "send ping", "MessageSync-send-ping", "succ", 0, "", System.currentTimeMillis() - this.t, 0, "" + removeState);
+        y.a(1003, 0, "send ping", "MessageSync-send-ping", "succ", 0, "", System.currentTimeMillis() - this.t, 0, "" + removeState);
         PingMessage pingMessage = new PingMessage();
         pingMessage.setRemoveState(removeState);
         com.baidu.tieba.im.messageCenter.f.a().a(pingMessage, true, -3, 1, i);
@@ -343,7 +347,7 @@ public class a {
     }
 
     private synchronized void a(long j, long j2, long j3, boolean z) {
-        if (TiebaApplication.D()) {
+        if (TiebaApplication.B()) {
             this.r = com.baidu.tieba.im.messageCenter.f.a().b(202003);
             if (!this.r) {
                 if (!z) {
@@ -391,7 +395,7 @@ public class a {
             }
             this.s = System.currentTimeMillis();
             this.i = u();
-            o.a(1001, 0, t(), "MessageSync-send-online", "succ", 0, "", System.currentTimeMillis() - this.s, 0, "");
+            y.a(1001, 0, t(), "MessageSync-send-online", "succ", 0, "", System.currentTimeMillis() - this.s, 0, "");
             com.baidu.tieba.im.messageCenter.f.a().a(this.i, true, -3, 1, o);
         }
     }
@@ -428,15 +432,15 @@ public class a {
         if (TiebaApplication.g().p() != null) {
             updateClientInfoMessage.addUserInfo("_phone_imei", TiebaApplication.g().p());
         }
-        String P = TiebaApplication.P();
-        if (P != null) {
-            updateClientInfoMessage.addUserInfo("_client_id", P);
+        String N = TiebaApplication.N();
+        if (N != null) {
+            updateClientInfoMessage.addUserInfo("_client_id", N);
         }
         String y = TiebaApplication.y();
         if (y != null && y.length() > 0) {
             updateClientInfoMessage.addUserInfo("from", y);
         }
-        String f = new ag().f();
+        String f = new ap().f();
         if (f != null) {
             updateClientInfoMessage.addUserInfo("net_type", f);
         }
@@ -452,18 +456,18 @@ public class a {
         stringBuffer.append(",");
         stringBuffer.append(String.valueOf(UtilHelper.b(TiebaApplication.g())));
         updateClientInfoMessage.addUserInfo("_phone_screen", stringBuffer.toString());
-        if (TiebaApplication.g().R() > 0) {
+        if (TiebaApplication.g().P() > 0) {
             updateClientInfoMessage.addUserInfo("_msg_status", SocialConstants.FALSE);
         } else {
             updateClientInfoMessage.addUserInfo("_msg_status", SocialConstants.TRUE);
         }
-        updateClientInfoMessage.addUserInfo("_pic_quality", String.valueOf(TiebaApplication.g().am()));
-        if (TiebaApplication.D()) {
-            Token b = com.baidu.tieba.account.a.b(TiebaApplication.F());
+        updateClientInfoMessage.addUserInfo("_pic_quality", String.valueOf(TiebaApplication.g().aj()));
+        if (TiebaApplication.B()) {
+            Token b = com.baidu.tieba.account.a.b(TiebaApplication.D());
             if (b != null) {
                 updateClientInfoMessage.setBduss(b.mBduss);
             } else {
-                updateClientInfoMessage.setBduss(TiebaApplication.F());
+                updateClientInfoMessage.setBduss(TiebaApplication.D());
             }
         }
         int a2 = UtilHelper.a((Context) TiebaApplication.a(), 70.0f);

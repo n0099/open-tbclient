@@ -1,11 +1,12 @@
 package com.baidu.tieba.data;
 
+import com.baidu.tieba.util.bg;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class an {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1134a = 0;
+    private int f1168a = 0;
     private int b = 0;
     private int d = 0;
     private int e = 0;
@@ -14,11 +15,11 @@ public class an {
     private int c = 0;
 
     public int a() {
-        return this.f1134a;
+        return this.f1168a;
     }
 
     public void a(int i) {
-        this.f1134a = i;
+        this.f1168a = i;
     }
 
     public int b() {
@@ -68,7 +69,7 @@ public class an {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1134a = jSONObject.optInt("total_page", 0);
+                this.f1168a = jSONObject.optInt("total_page", 0);
                 this.b = jSONObject.optInt("total_num", 0);
                 this.c = jSONObject.optInt("total_count", 0);
                 this.d = jSONObject.optInt("current_page", 0);
@@ -76,7 +77,7 @@ public class an {
                 this.f = jSONObject.optInt("has_more", 0);
                 this.g = jSONObject.optInt("has_prev", 0);
             } catch (Exception e) {
-                com.baidu.tieba.util.be.b("PageData", "parserJson", "error = " + e.getMessage());
+                bg.b("PageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

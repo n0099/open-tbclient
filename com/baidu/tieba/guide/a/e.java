@@ -14,7 +14,7 @@ import android.widget.Scroller;
 import com.baidu.location.LocationClientOption;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-public class e extends com.baidu.tieba.guide.f {
+public class e extends com.baidu.tieba.guide.g {
     private boolean A;
     private int B;
     private int D;
@@ -37,7 +37,7 @@ public class e extends com.baidu.tieba.guide.f {
     private Context z;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1311a = 0;
+    private final int f1378a = 0;
     private final int b = 1;
     private final int c = 2;
     private final int d = 3;
@@ -68,7 +68,7 @@ public class e extends com.baidu.tieba.guide.f {
         this.q.setFilterBitmap(true);
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a() {
         if (this.u != null && this.u.computeScrollOffset()) {
             this.w = this.u.getCurrX();
@@ -120,12 +120,12 @@ public class e extends com.baidu.tieba.guide.f {
         }
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public boolean b() {
         return true;
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void a(int i, float f, int i2) {
         this.D = i;
     }
@@ -163,20 +163,20 @@ public class e extends com.baidu.tieba.guide.f {
         canvas.restore();
     }
 
-    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.g, android.graphics.drawable.Drawable
     public int getOpacity() {
         return 0;
     }
 
-    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.g, android.graphics.drawable.Drawable
     public void setAlpha(int i) {
     }
 
-    @Override // com.baidu.tieba.guide.f, android.graphics.drawable.Drawable
+    @Override // com.baidu.tieba.guide.g, android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
     }
 
-    @Override // com.baidu.tieba.guide.f
+    @Override // com.baidu.tieba.guide.g
     public void c() {
         if (this.e != null) {
             this.e.recycle();

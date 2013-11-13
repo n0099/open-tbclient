@@ -7,19 +7,19 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f648a;
+    private int f657a;
     private Map b;
     private Map c;
     private byte[] d;
 
     public a() {
-        this.f648a = -1;
+        this.f657a = -1;
         this.b = new HashMap();
         this.c = new HashMap();
     }
 
     public a(String str) {
-        this.f648a = -1;
+        this.f657a = -1;
         this.b = new HashMap();
         this.c = new HashMap();
         if (str == null) {
@@ -29,7 +29,7 @@ public class a {
         if (split.length >= 2) {
             String[] split2 = split[0].split(" ");
             if (split2.length >= 2) {
-                this.f648a = c.a(split2[0]);
+                this.f657a = c.a(split2[0]);
                 String str2 = split2[1];
                 if (str2 != null) {
                     this.b.put("URI", str2);

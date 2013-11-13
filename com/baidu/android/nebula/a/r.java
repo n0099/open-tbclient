@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f644a = -1;
+    private long f653a = -1;
     private long b = -1;
     private int c = 100;
     private int d = -10;
@@ -23,7 +23,7 @@ public class r {
     }
 
     public void a(long j) {
-        this.f644a = j;
+        this.f653a = j;
     }
 
     public void a(ArrayList arrayList) {
@@ -63,7 +63,7 @@ public class r {
     }
 
     public long g() {
-        return this.f644a;
+        return this.f653a;
     }
 
     public long h() {
@@ -86,7 +86,7 @@ public class r {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("[").append("[mMaxUpdloadAppsNum=").append(this.c).append("]mResponseStatus=").append(this.d).append("]mChannelId=").append(this.b).append("]mNeedsToken=").append(this.f644a).append("]mRandomCheckAppsSize=").append(this.e).append("[mRetSuccesslist=").append(this.g).append("[mRetFailedlist=").append(this.f).append("]]");
+        sb.append("[").append("[mMaxUpdloadAppsNum=").append(this.c).append("]mResponseStatus=").append(this.d).append("]mChannelId=").append(this.b).append("]mNeedsToken=").append(this.f653a).append("]mRandomCheckAppsSize=").append(this.e).append("[mRetSuccesslist=").append(this.g).append("[mRetFailedlist=").append(this.f).append("]]");
         return sb.toString();
     }
 }

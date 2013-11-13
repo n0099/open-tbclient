@@ -1,50 +1,47 @@
 package com.baidu.tieba.pb;
+
+import android.os.Handler;
+import android.widget.AbsListView;
 /* loaded from: classes.dex */
-class as extends com.baidu.adp.a.g {
+class as implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2055a;
+    final /* synthetic */ NewPbActivity f2076a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(NewPbActivity newPbActivity) {
-        this.f2055a = newPbActivity;
+        this.f2076a = newPbActivity;
     }
 
-    @Override // com.baidu.adp.a.g
-    public void a(Object obj) {
-        bt btVar;
-        com.baidu.tieba.model.ad adVar;
-        com.baidu.tieba.model.ad adVar2;
-        com.baidu.tieba.model.ad adVar3;
-        com.baidu.tieba.model.bl blVar;
-        if (obj != null) {
-            adVar2 = this.f2055a.t;
-            switch (adVar2.getLoadDataMode()) {
-                case 0:
-                    blVar = this.f2055a.o;
-                    blVar.u();
-                    this.f2055a.a((com.baidu.tieba.model.af) obj);
-                    return;
-                case 1:
-                    this.f2055a.a((com.baidu.tieba.model.ah) obj);
-                    return;
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                    NewPbActivity newPbActivity = this.f2055a;
-                    adVar3 = this.f2055a.t;
-                    newPbActivity.a(adVar3.getLoadDataMode(), (com.baidu.tieba.model.aj) obj);
-                    return;
-                case 6:
-                    this.f2055a.a((com.baidu.tieba.model.aj) obj);
-                    return;
-                default:
-                    return;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Handler handler;
+        cp cpVar;
+        Handler handler2;
+        Handler handler3;
+        Handler handler4;
+        Handler handler5;
+        handler = this.f2076a.r;
+        if (handler != null) {
+            handler5 = this.f2076a.r;
+            handler5.removeMessages(0);
+        }
+        this.f2076a.J = i;
+        if (i == 0) {
+            handler2 = this.f2076a.r;
+            if (handler2 != null) {
+                handler3 = this.f2076a.r;
+                handler4 = this.f2076a.r;
+                handler3.sendMessageDelayed(handler4.obtainMessage(0), 300L);
             }
         }
-        btVar = this.f2055a.u;
-        adVar = this.f2055a.t;
-        btVar.a(adVar.getLoadDataMode(), false, (String) null, false);
+        if (i == 2 || i == 1) {
+            cpVar = this.f2076a.y;
+            cpVar.Z();
+        }
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
     }
 }

@@ -1,21 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dq implements View.OnClickListener {
+public class dq implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f2130a;
+    final /* synthetic */ ImageView f2149a;
+    final /* synthetic */ cp b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dq(WebActivity webActivity) {
-        this.f2130a = webActivity;
+    public dq(cp cpVar, ImageView imageView) {
+        this.b = cpVar;
+        this.f2149a = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.f2130a.f2035a.canGoForward()) {
-            this.f2130a.f2035a.goForward();
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new dr(this));
     }
 }

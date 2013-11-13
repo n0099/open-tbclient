@@ -1,22 +1,39 @@
 package com.baidu.tieba.pb;
+
+import android.app.Dialog;
+import android.util.SparseArray;
+import android.view.View;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cs implements Runnable {
+public class cs implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ co f2106a;
+    final /* synthetic */ cp f2124a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cs(co coVar) {
-        this.f2106a = coVar;
+    public cs(cp cpVar) {
+        this.f2124a = cpVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        dd ddVar;
-        dd ddVar2;
-        ddVar = this.f2106a.f2102a.E;
-        ddVar.f();
-        ddVar2 = this.f2106a.f2102a.E;
-        ddVar2.d();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        bt btVar;
+        bt btVar2;
+        Dialog dialog2;
+        dialog = this.f2124a.G;
+        if (dialog != null) {
+            dialog2 = this.f2124a.G;
+            dialog2.dismiss();
+        }
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            btVar = this.f2124a.au;
+            if (btVar != null) {
+                btVar2 = this.f2124a.au;
+                btVar2.a((String) sparseArray.get(R.id.tag_forbid_user_name));
+            }
+        }
     }
 }

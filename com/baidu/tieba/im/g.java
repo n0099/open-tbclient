@@ -6,11 +6,11 @@ import com.baidu.tieba.im.message.UpdateClientInfoMessage;
 class g implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkDebugActivity f1582a;
+    final /* synthetic */ NetWorkDebugActivity f1669a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NetWorkDebugActivity netWorkDebugActivity) {
-        this.f1582a = netWorkDebugActivity;
+        this.f1669a = netWorkDebugActivity;
     }
 
     @Override // android.view.View.OnClickListener

@@ -1,58 +1,63 @@
 package com.baidu.tieba.flist;
 
-import com.baidu.tieba.data.ag;
-import com.baidu.tieba.model.ForumListModel;
-import com.baidu.tieba.model.ba;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ForumInfoData;
+import com.baidu.tieba.model.ax;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 class m extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListModel.Forum[] f1197a;
+    final /* synthetic */ ForumInfoData[] f1255a;
     final /* synthetic */ ForumListActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(ForumListActivity forumListActivity, ForumListModel.Forum[] forumArr) {
+    public m(ForumListActivity forumListActivity, ForumInfoData[] forumInfoDataArr) {
         this.b = forumListActivity;
-        this.f1197a = forumArr;
+        this.f1255a = forumInfoDataArr;
     }
 
     @Override // com.baidu.adp.a.g
     public void a(Object obj) {
-        ba baVar;
+        ax axVar;
+        ax axVar2;
         int i;
         int i2;
-        q qVar;
-        q qVar2;
-        q qVar3;
-        q qVar4;
-        ba baVar2;
-        if (obj != null) {
-            baVar = this.b.r;
-            if (baVar.getErrorCode() != 0) {
+        s sVar;
+        s sVar2;
+        s sVar3;
+        s sVar4;
+        ax axVar3;
+        axVar = this.b.q;
+        if (axVar.getErrorCode() == 22) {
+            this.b.showToast(this.b.getString(R.string.had_liked_forum));
+        } else if (obj != null) {
+            axVar2 = this.b.q;
+            if (axVar2.getErrorCode() != 0) {
                 ForumListActivity forumListActivity = this.b;
-                baVar2 = this.b.r;
-                forumListActivity.a(baVar2.getErrorString());
-            } else if (((ag) obj).b() == 1) {
-                this.b.a(this.b.getString(R.string.like_success));
-                i = this.b.q;
-                if (i != 0) {
-                    i2 = this.b.q;
-                    if (i2 == 1) {
-                        ForumListModel.Forum[] forumArr = this.f1197a;
-                        qVar = this.b.D;
-                        forumArr[qVar.f1201a].is_like = 1;
-                        qVar2 = this.b.D;
-                        qVar2.notifyDataSetChanged();
-                        return;
-                    }
+                axVar3 = this.b.q;
+                forumListActivity.showToast(axVar3.getErrorString());
+            } else if (((com.baidu.tieba.data.ag) obj).b() == 1) {
+                this.b.showToast(this.b.getString(R.string.like_success));
+                i = this.b.p;
+                if (i == 0) {
+                    sVar3 = this.b.D;
+                    sVar3.notifyDataSetChanged();
+                    TiebaApplication g = TiebaApplication.g();
+                    ForumInfoData[] forumInfoDataArr = this.f1255a;
+                    sVar4 = this.b.D;
+                    g.e(forumInfoDataArr[sVar4.f1261a].forum_name);
                     return;
                 }
-                ForumListModel.Forum[] forumArr2 = this.f1197a;
-                qVar3 = this.b.C;
-                forumArr2[qVar3.f1201a].is_like = 1;
-                qVar4 = this.b.C;
-                qVar4.notifyDataSetChanged();
+                i2 = this.b.p;
+                if (i2 == 1) {
+                    sVar = this.b.E;
+                    sVar.notifyDataSetChanged();
+                    TiebaApplication g2 = TiebaApplication.g();
+                    ForumInfoData[] forumInfoDataArr2 = this.f1255a;
+                    sVar2 = this.b.E;
+                    g2.e(forumInfoDataArr2[sVar2.f1261a].forum_name);
+                }
             }
         }
     }

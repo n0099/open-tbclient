@@ -7,7 +7,7 @@ import com.baidu.tieba.TiebaApplication;
 class m extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    long f2316a = TiebaApplication.g().R();
+    long f2349a = TiebaApplication.g().P();
     long b = 0;
     final /* synthetic */ TiebaMessageService c;
 
@@ -22,8 +22,8 @@ class m extends Handler {
         Handler handler;
         Handler handler2;
         if (message.what == 1) {
-            if (this.f2316a > 0) {
-                this.b = 1800 / this.f2316a;
+            if (this.f2349a > 0) {
+                this.b = 1800 / this.f2349a;
                 i = this.c.d;
                 if (i % this.b == 0) {
                     this.c.a(2);
@@ -31,9 +31,9 @@ class m extends Handler {
                     this.c.a(1);
                 }
                 TiebaMessageService.b(this.c);
-                if (TiebaApplication.ay()) {
+                if (TiebaApplication.av()) {
                     handler2 = this.c.e;
-                    handler2.sendEmptyMessageDelayed(1, this.f2316a * 1000);
+                    handler2.sendEmptyMessageDelayed(1, this.f2349a * 1000);
                     return;
                 }
                 handler = this.c.e;
@@ -43,7 +43,7 @@ class m extends Handler {
             }
             this.c.stopSelf();
         } else if (message.what == 3) {
-            if (this.f2316a > 0) {
+            if (this.f2349a > 0) {
                 this.c.a(3);
             } else {
                 this.c.stopSelf();

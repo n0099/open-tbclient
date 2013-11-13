@@ -1,51 +1,53 @@
 package com.baidu.tieba.frs;
 
-import android.os.Handler;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
+import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ForumData;
+import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class n implements AbsListView.OnScrollListener {
+class n implements af {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1290a;
+    final /* synthetic */ FrsActivity f1358a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.f1290a = frsActivity;
+        this.f1358a = frsActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.f1290a.K;
-        runnable = this.f1290a.M;
-        handler.removeCallbacks(runnable);
-        handler2 = this.f1290a.K;
-        runnable2 = this.f1290a.M;
-        handler2.postDelayed(runnable2, 300L);
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        ba baVar;
-        ba baVar2;
-        ba baVar3;
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        ba baVar4;
-        if (i == 0) {
-            baVar3 = this.f1290a.o;
-            onItemLongClickListener = this.f1290a.Q;
-            baVar3.a(onItemLongClickListener);
-            baVar4 = this.f1290a.o;
-            baVar4.f(false);
+    @Override // com.baidu.tieba.frs.af
+    public void a(com.baidu.tieba.model.am amVar, com.baidu.tieba.model.an anVar) {
+        bn bnVar;
+        bn bnVar2;
+        bn bnVar3;
+        com.baidu.tieba.model.ak akVar;
+        com.baidu.tieba.model.ak akVar2;
+        bn bnVar4;
+        com.baidu.tieba.model.ak akVar3;
+        com.baidu.tieba.model.ak akVar4;
+        if (amVar.f1893a) {
+            bnVar3 = this.f1358a.n;
+            bnVar3.a(this.f1358a.getString(R.string.add_fan_sucess));
+            akVar = this.f1358a.w;
+            akVar.f().b(1);
+            akVar2 = this.f1358a.w;
+            akVar2.f().c(amVar.c);
+            bnVar4 = this.f1358a.n;
+            akVar3 = this.f1358a.w;
+            ForumData a2 = akVar3.a();
+            akVar4 = this.f1358a.w;
+            bnVar4.a(1, a2, akVar4, false);
+            TiebaApplication.g().h(true);
             return;
         }
-        baVar = this.f1290a.o;
-        baVar.a((AdapterView.OnItemLongClickListener) null);
-        baVar2 = this.f1290a.o;
-        baVar2.f(true);
+        if (anVar.d == null || anVar.d.length() <= 0) {
+            bnVar = this.f1358a.n;
+            bnVar.a(this.f1358a.getString(R.string.add_fan_error));
+        } else {
+            bnVar2 = this.f1358a.n;
+            bnVar2.a(anVar.d);
+        }
+        if (anVar.c == 120002) {
+            this.f1358a.A();
+        }
     }
 }

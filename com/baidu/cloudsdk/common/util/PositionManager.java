@@ -13,7 +13,7 @@ public class PositionManager {
     public static PositionManager mInstance;
 
     /* renamed from: a  reason: collision with root package name */
-    private LocationManager f828a;
+    private LocationManager f842a;
     private Location b;
     private a c;
     private boolean d;
@@ -54,7 +54,7 @@ public class PositionManager {
         public void onPostExecute(Boolean bool) {
             PositionManager.this.d = false;
             if (this.d != null) {
-                PositionManager.this.f828a.removeUpdates(this.d);
+                PositionManager.this.f842a.removeUpdates(this.d);
             }
             if (this.c != null) {
                 if (PositionManager.b(PositionManager.this.b)) {
@@ -69,7 +69,7 @@ public class PositionManager {
         protected void onCancelled() {
             PositionManager.this.d = false;
             if (this.d != null) {
-                PositionManager.this.f828a.removeUpdates(this.d);
+                PositionManager.this.f842a.removeUpdates(this.d);
             }
             if (this.c != null) {
                 this.c.onFailed();
@@ -79,13 +79,13 @@ public class PositionManager {
         @Override // android.os.AsyncTask
         protected void onPreExecute() {
             PositionManager.this.d = true;
-            PositionManager.this.f828a.requestLocationUpdates(this.b, 10000L, 0.0f, this.d);
+            PositionManager.this.f842a.requestLocationUpdates(this.b, 10000L, 0.0f, this.d);
         }
     }
 
     private PositionManager(Context context) {
         Validator.notNull(context, "context");
-        this.f828a = (LocationManager) context.getSystemService(Headers.LOCATION);
+        this.f842a = (LocationManager) context.getSystemService(Headers.LOCATION);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,18 +110,18 @@ public class PositionManager {
         Location location2;
         boolean z2;
         Location location3 = this.b;
-        if (b(location3) || !this.f828a.isProviderEnabled("network")) {
+        if (b(location3) || !this.f842a.isProviderEnabled("network")) {
             location = location3;
             z = false;
         } else {
-            location = this.f828a.getLastKnownLocation("network");
+            location = this.f842a.getLastKnownLocation("network");
             z = true;
         }
-        if (b(location) || !this.f828a.isProviderEnabled("gps")) {
+        if (b(location) || !this.f842a.isProviderEnabled("gps")) {
             location2 = location;
             z2 = false;
         } else {
-            location2 = this.f828a.getLastKnownLocation("gps");
+            location2 = this.f842a.getLastKnownLocation("gps");
             z2 = true;
         }
         if (b(location2)) {

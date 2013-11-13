@@ -1,23 +1,24 @@
 package com.baidu.tieba.square;
-
-import android.view.View;
-import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements View.OnClickListener {
+public class ao implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2347a;
+    final /* synthetic */ SquareActivity f2384a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(SquareSearchActivity squareSearchActivity) {
-        this.f2347a = squareSearchActivity;
+    public ao(SquareActivity squareActivity) {
+        this.f2384a = squareActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.f2347a.c;
-        editText.setText("");
+    @Override // java.lang.Runnable
+    public void run() {
+        bw bwVar;
+        try {
+            bwVar = this.f2384a.b;
+            bwVar.a();
+        } catch (Exception e) {
+            com.baidu.tieba.util.bg.b("SquareActivity", "mLoadImageRunnable.run", "error = " + e.getMessage());
+        }
     }
 }

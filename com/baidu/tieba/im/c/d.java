@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.c;
 
 import android.os.Handler;
-import com.baidu.tieba.im.chat.aa;
+import com.baidu.tieba.im.chat.z;
 import com.baidu.tieba.im.data.GroupMidData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.m;
 import com.baidu.tieba.im.message.MessageSyncMessage;
-import com.baidu.tieba.util.o;
+import com.baidu.tieba.util.y;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f1395a;
+    final /* synthetic */ long f1487a;
     final /* synthetic */ long b;
     final /* synthetic */ boolean c;
     final /* synthetic */ a d;
@@ -24,7 +24,7 @@ public class d implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, long j, long j2, boolean z) {
         this.d = aVar;
-        this.f1395a = j;
+        this.f1487a = j;
         this.b = j2;
         this.c = z;
     }
@@ -42,15 +42,15 @@ public class d implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
         Handler handler;
         Handler handler2;
         if (concurrentHashMap != null) {
-            if (this.f1395a > 0 && this.b > 0) {
-                long b = aa.b(this.b - 1);
-                ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(this.f1395a));
+            if (this.f1487a > 0 && this.b > 0) {
+                long b = z.b(this.b - 1);
+                ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(this.f1487a));
                 if (imMessageCenterPojo == null) {
                     ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-                    imMessageCenterPojo2.setGid(String.valueOf(this.f1395a));
+                    imMessageCenterPojo2.setGid(String.valueOf(this.f1487a));
                     imMessageCenterPojo2.setLast_msgId(b);
                     imMessageCenterPojo2.setPulled_msgId(b);
-                    concurrentHashMap.put(String.valueOf(this.f1395a), imMessageCenterPojo2);
+                    concurrentHashMap.put(String.valueOf(this.f1487a), imMessageCenterPojo2);
                 } else if (0 == imMessageCenterPojo.getPulled_msgId() || imMessageCenterPojo.getIs_delete() == 1) {
                     imMessageCenterPojo.setPulled_msgId(b);
                 }
@@ -68,7 +68,7 @@ public class d implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                 for (String str2 : concurrentHashMap.keySet()) {
                     ImMessageCenterPojo imMessageCenterPojo3 = concurrentHashMap.get(str2);
                     if (imMessageCenterPojo3.getIs_delete() == 0) {
-                        long c = aa.c(imMessageCenterPojo3.getPulled_msgId());
+                        long c = z.c(imMessageCenterPojo3.getPulled_msgId());
                         if (c != 0) {
                             GroupMidData groupMidData = new GroupMidData();
                             groupMidData.setGroupId(Long.parseLong(imMessageCenterPojo3.getGid()));
@@ -93,7 +93,7 @@ public class d implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
                     sb.append("|");
                 }
                 str = this.d.y;
-                o.a(202003, 0, str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString());
+                y.a(202003, 0, str, "MessageSync-send-pullmsg", "succ", 0, "", 0L, 0, sb.toString());
                 com.baidu.tieba.im.messageCenter.f a2 = com.baidu.tieba.im.messageCenter.f.a();
                 i = a.q;
                 a2.a(r, true, 0, 1, i);

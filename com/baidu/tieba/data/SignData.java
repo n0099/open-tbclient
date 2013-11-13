@@ -6,6 +6,8 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SignData implements Serializable {
     private static final long serialVersionUID = -7905612002845096083L;
+    private String forumId;
+    private String forumName;
     private int is_signed = 0;
     private int user_sign_rank = 0;
     private int count_sign_num = 0;
@@ -42,6 +44,10 @@ public class SignData implements Serializable {
         return this.count_sign_num;
     }
 
+    public void setCountSignNum(int i) {
+        this.count_sign_num = i;
+    }
+
     public int getCountTotalSignNum() {
         return this.count_total_sign_num;
     }
@@ -50,12 +56,32 @@ public class SignData implements Serializable {
         return this.sign_bonus_point;
     }
 
+    public void setBonusPoint(int i) {
+        this.sign_bonus_point = i;
+    }
+
     public void setSignCount(int i) {
         this.sign_count = i;
     }
 
     public int getSignCount() {
         return this.sign_count;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
+    }
+
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    public void setForumName(String str) {
+        this.forumName = str;
     }
 
     public void parserJson(String str) {

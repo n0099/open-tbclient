@@ -1,22 +1,31 @@
 package com.baidu.tieba.frs;
-
-import android.app.Activity;
-import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf {
+public class bf extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    Activity f1275a;
-    int b = 0;
+    final /* synthetic */ FrsImageActivity f1332a;
 
-    public bf(Activity activity) {
-        this.f1275a = activity;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bf(FrsImageActivity frsImageActivity) {
+        this.f1332a = frsImageActivity;
     }
 
-    public void a(boolean z, int i) {
-        if (!com.baidu.tieba.im.l.b().e()) {
-            new com.baidu.adp.lib.guide.g().b(R.id.frs_lv_thread).a(150).a(true).a(new bg(this, i, z)).a().a(this.f1275a);
-            com.baidu.tieba.im.l.b().b(true);
+    @Override // com.baidu.adp.a.g
+    public void a(Object obj) {
+        com.baidu.tieba.model.x xVar;
+        bl blVar;
+        com.baidu.tieba.model.x xVar2;
+        xVar = this.f1332a.o;
+        if (xVar.getLoadDataMode() == 1) {
+            if (((Boolean) obj).booleanValue()) {
+                this.f1332a.k();
+            }
+            blVar = this.f1332a.l;
+            bs f = blVar.f();
+            boolean booleanValue = ((Boolean) obj).booleanValue();
+            xVar2 = this.f1332a.o;
+            f.a(booleanValue, xVar2.getErrorString());
         }
     }
 }

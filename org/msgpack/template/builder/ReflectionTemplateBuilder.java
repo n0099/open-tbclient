@@ -16,11 +16,11 @@ public class ReflectionTemplateBuilder extends AbstractTemplateBuilder {
     public abstract class ReflectionFieldTemplate extends AbstractTemplate<Object> {
 
         /* renamed from: a  reason: collision with root package name */
-        protected c f2893a;
+        protected c f2941a;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public ReflectionFieldTemplate(c cVar) {
-            this.f2893a = cVar;
+            this.f2941a = cVar;
         }
     }
 
@@ -28,11 +28,11 @@ public class ReflectionTemplateBuilder extends AbstractTemplateBuilder {
     public class ReflectionClassTemplate<T> extends AbstractTemplate<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        protected Class<T> f2892a;
+        protected Class<T> f2940a;
         protected ReflectionFieldTemplate[] b;
 
         protected ReflectionClassTemplate(Class<T> cls, ReflectionFieldTemplate[] reflectionFieldTemplateArr) {
-            this.f2892a = cls;
+            this.f2940a = cls;
             this.b = reflectionFieldTemplateArr;
         }
 
@@ -52,13 +52,13 @@ public class ReflectionTemplateBuilder extends AbstractTemplateBuilder {
             try {
                 aVar.c(this.b.length);
                 for (e eVar : this.b) {
-                    if (!eVar.f2893a.g()) {
+                    if (!eVar.f2941a.g()) {
                         aVar.d();
                     } else {
-                        Object a2 = eVar.f2893a.a(t);
+                        Object a2 = eVar.f2941a.a(t);
                         if (a2 == null) {
-                            if (eVar.f2893a.i()) {
-                                throw new MessageTypeException(String.valueOf(eVar.f2893a.d()) + " cannot be null by @NotNullable");
+                            if (eVar.f2941a.i()) {
+                                throw new MessageTypeException(String.valueOf(eVar.f2941a.d()) + " cannot be null by @NotNullable");
                             }
                             aVar.d();
                         } else {
@@ -107,7 +107,7 @@ public class ReflectionTemplateBuilder extends AbstractTemplateBuilder {
         ReflectionFieldTemplate[] reflectionFieldTemplateArr = new ReflectionFieldTemplate[cVarArr.length];
         for (int i = 0; i < cVarArr.length; i++) {
             c cVar2 = cVarArr[i];
-            reflectionFieldTemplateArr[i] = new e(cVar2, this.f2887a.a(cVar2.f()));
+            reflectionFieldTemplateArr[i] = new e(cVar2, this.f2935a.a(cVar2.f()));
         }
         return reflectionFieldTemplateArr;
     }

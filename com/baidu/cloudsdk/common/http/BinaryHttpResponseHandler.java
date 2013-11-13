@@ -12,15 +12,15 @@ import org.apache.http.util.EntityUtils;
 public class BinaryHttpResponseHandler extends HttpResponseHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private String[] f818a;
+    private String[] f832a;
 
     public BinaryHttpResponseHandler() {
-        this.f818a = new String[]{"image/jpeg", "image/png"};
+        this.f832a = new String[]{"image/jpeg", "image/png"};
     }
 
     public BinaryHttpResponseHandler(String[] strArr) {
-        this.f818a = new String[]{"image/jpeg", "image/png"};
-        this.f818a = strArr;
+        this.f832a = new String[]{"image/jpeg", "image/png"};
+        this.f832a = strArr;
     }
 
     protected void handleFailureMessage(Throwable th, byte[] bArr) {
@@ -68,7 +68,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
             return;
         }
         Header header = headers[0];
-        String[] strArr = this.f818a;
+        String[] strArr = this.f832a;
         int length = strArr.length;
         int i = 0;
         while (true) {

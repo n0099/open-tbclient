@@ -45,11 +45,11 @@ public class c extends View {
     }
 
     public void a() {
-        ((Activity) this.k).setContentView(com.baidu.adp.f.adp_debug_config_activity);
-        this.f = (ImageButton) ((Activity) this.k).findViewById(com.baidu.adp.e.close_debug);
-        this.g = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.e.switch_monitor_item);
-        this.j = (TextView) this.g.findViewById(com.baidu.adp.e.switch_monitor);
-        this.h = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.e.debug_close_item);
+        ((Activity) this.k).setContentView(com.baidu.adp.e.adp_debug_config_activity);
+        this.f = (ImageButton) ((Activity) this.k).findViewById(com.baidu.adp.d.close_debug);
+        this.g = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.switch_monitor_item);
+        this.j = (TextView) this.g.findViewById(com.baidu.adp.d.switch_monitor);
+        this.h = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.debug_close_item);
         if (com.baidu.adp.lib.debug.b.d) {
             this.j.setText("开");
         } else {
@@ -58,9 +58,9 @@ public class c extends View {
         this.f.setOnClickListener(new d(this));
         this.g.setOnClickListener(new e(this));
         this.h.setOnClickListener(new f(this));
-        this.m = (ListView) ((Activity) this.k).findViewById(com.baidu.adp.e.adp_debug_custom_configs_list);
+        this.m = (ListView) ((Activity) this.k).findViewById(com.baidu.adp.d.adp_debug_custom_configs_list);
         this.m.setAdapter((ListAdapter) new b(this.k));
-        this.i = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.e.debug_update_package_item);
+        this.i = (LinearLayout) ((Activity) this.k).findViewById(com.baidu.adp.d.debug_update_package_item);
         this.i.setOnClickListener(new h(this));
     }
 

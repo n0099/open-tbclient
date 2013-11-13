@@ -6,7 +6,7 @@ import java.util.Map;
 class b extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    ByteArrayOutputStream f2751a;
+    ByteArrayOutputStream f2799a;
     javassist.bytecode.annotation.c b;
     y c;
     y d;
@@ -15,8 +15,8 @@ class b extends d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(byte[] bArr, y yVar, y yVar2, Map map) {
         super(bArr);
-        this.f2751a = new ByteArrayOutputStream();
-        this.b = new javassist.bytecode.annotation.c(this.f2751a, yVar2);
+        this.f2799a = new ByteArrayOutputStream();
+        this.b = new javassist.bytecode.annotation.c(this.f2799a, yVar2);
         this.c = yVar;
         this.d = yVar2;
         this.e = map;
@@ -25,7 +25,7 @@ class b extends d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public byte[] a() {
         this.b.a();
-        return this.f2751a.toByteArray();
+        return this.f2799a.toByteArray();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

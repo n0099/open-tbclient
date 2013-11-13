@@ -1,6 +1,7 @@
 package com.baidu.adp.widget.ListView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,10 @@ import java.util.Date;
 /* loaded from: classes.dex */
 public class a extends d {
     @SuppressLint({"SimpleDateFormat"})
-    private static SimpleDateFormat i = new SimpleDateFormat("MM-dd HH:mm");
+    private static SimpleDateFormat l = new SimpleDateFormat("MM-dd HH:mm");
 
     /* renamed from: a  reason: collision with root package name */
-    private View f562a;
+    private View f564a;
     private ImageView b;
     private ProgressBar c;
     private TextView d;
@@ -25,15 +26,48 @@ public class a extends d {
     private RotateAnimation f;
     private RotateAnimation g;
     private b h;
+    private String i;
+    private String j;
+    private String k;
+
+    public a(Context context) {
+        super(context);
+        this.f564a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+    }
 
     @Override // com.baidu.adp.widget.ListView.d
     public View a() {
-        this.f562a = LayoutInflater.from(e()).inflate(com.baidu.adp.f.pull_view, (ViewGroup) null);
-        this.b = (ImageView) this.f562a.findViewById(com.baidu.adp.e.pull_arrow);
-        this.c = (ProgressBar) this.f562a.findViewById(com.baidu.adp.e.pull_progress);
-        this.d = (TextView) this.f562a.findViewById(com.baidu.adp.e.pull_text);
-        this.e = (TextView) this.f562a.findViewById(com.baidu.adp.e.pull_time);
-        a(d());
+        Context h = h();
+        return a(h.getString(com.baidu.adp.f.adp_pull_to_refresh), h.getString(com.baidu.adp.f.adp_release_to_refresh), h.getString(com.baidu.adp.f.adp_loading));
+    }
+
+    public View a(String str, String str2, String str3) {
+        Context h = h();
+        if (str == null) {
+            str = h.getString(com.baidu.adp.f.adp_pull_to_refresh);
+        }
+        this.i = str;
+        if (str2 == null) {
+            str2 = h.getString(com.baidu.adp.f.adp_release_to_refresh);
+        }
+        this.j = str2;
+        if (str3 == null) {
+            str3 = h.getString(com.baidu.adp.f.adp_loading);
+        }
+        this.k = str3;
+        this.f564a = LayoutInflater.from(h()).inflate(com.baidu.adp.e.pull_view, (ViewGroup) null);
+        this.b = (ImageView) this.f564a.findViewById(com.baidu.adp.d.pull_arrow);
+        this.c = (ProgressBar) this.f564a.findViewById(com.baidu.adp.d.pull_progress);
+        this.d = (TextView) this.f564a.findViewById(com.baidu.adp.d.pull_text);
+        this.e = (TextView) this.f564a.findViewById(com.baidu.adp.d.pull_time);
+        a(g());
         this.f = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.f.setInterpolator(new LinearInterpolator());
         this.f.setDuration(250L);
@@ -42,18 +76,33 @@ public class a extends d {
         this.g.setInterpolator(new LinearInterpolator());
         this.g.setDuration(200L);
         this.g.setFillAfter(true);
-        return this.f562a;
+        return this.f564a;
+    }
+
+    public View b() {
+        if (this.f564a == null) {
+            this.f564a = a();
+        }
+        return this.f564a;
+    }
+
+    public TextView c() {
+        return this.e;
+    }
+
+    public TextView d() {
+        return this.d;
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public void b() {
+    public void e() {
         this.b.setVisibility(0);
         this.c.setVisibility(4);
         this.d.setVisibility(0);
         this.e.setVisibility(0);
         this.b.clearAnimation();
         this.b.startAnimation(this.f);
-        this.d.setText("释放刷新");
+        this.d.setText(this.j);
     }
 
     @Override // com.baidu.adp.widget.ListView.d
@@ -61,23 +110,20 @@ public class a extends d {
         this.c.setVisibility(4);
         this.d.setVisibility(0);
         this.e.setVisibility(0);
-        this.b.clearAnimation();
         this.b.setVisibility(0);
+        this.b.clearAnimation();
         if (z) {
-            this.b.clearAnimation();
             this.b.startAnimation(this.g);
-            this.d.setText("下拉刷新");
-            return;
         }
-        this.d.setText("下拉刷新");
+        this.d.setText(this.i);
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public void c() {
+    public void f() {
         this.c.setVisibility(0);
         this.b.clearAnimation();
         this.b.setVisibility(4);
-        this.d.setText("正在加载");
+        this.d.setText(this.k);
         this.e.setVisibility(0);
     }
 
@@ -85,24 +131,24 @@ public class a extends d {
     public void b(boolean z) {
         this.c.setVisibility(4);
         this.b.clearAnimation();
-        this.b.setImageResource(com.baidu.adp.d.pull_icon);
-        this.d.setText("下拉刷新");
+        this.b.setImageResource(com.baidu.adp.c.pull_icon);
+        this.d.setText(this.i);
         this.e.setVisibility(0);
         if (z) {
-            a(d());
+            a(g());
         }
     }
 
-    public static String d() {
+    public static String g() {
         String format;
-        synchronized (i) {
-            format = i.format(new Date());
+        synchronized (l) {
+            format = l.format(new Date());
         }
         return format;
     }
 
     public void a(String str) {
-        this.e.setText("最后更新：" + str);
+        this.e.setText(h().getString(com.baidu.adp.f.adp_pull_view_date_tip) + str);
     }
 
     @Override // com.baidu.adp.widget.ListView.d
@@ -110,5 +156,9 @@ public class a extends d {
         if (this.h != null) {
             this.h.a(z);
         }
+    }
+
+    public void a(b bVar) {
+        this.h = bVar;
     }
 }

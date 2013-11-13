@@ -16,7 +16,7 @@ import java.io.IOException;
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f753a = b.class.getSimpleName();
+    private static final String f767a = b.class.getSimpleName();
     private final Context b;
     private final String c;
     private final SQLiteDatabase.CursorFactory d;
@@ -89,7 +89,7 @@ public abstract class b {
                         if (file2 != null && (!databasePath.isFile() || file2.lastModified() > databasePath.lastModified())) {
                             try {
                                 openDatabase = SQLiteDatabase.openDatabase(file2.getPath(), null, 0);
-                                Log.i(f753a, "--- Get sync db, version=" + openDatabase.getVersion() + ", curversion=" + this.e);
+                                Log.i(f767a, "--- Get sync db, version=" + openDatabase.getVersion() + ", curversion=" + this.e);
                             } catch (SQLiteException e2) {
                                 e = e2;
                                 z = false;
@@ -106,7 +106,7 @@ public abstract class b {
                                 z2 = z;
                             } catch (SQLiteException e3) {
                                 e = e3;
-                                Log.e(f753a, "Oops! That's impossible : \r\n", e);
+                                Log.e(f767a, "Oops! That's impossible : \r\n", e);
                                 z2 = z;
                                 if (z2) {
                                 }

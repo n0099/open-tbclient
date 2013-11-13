@@ -1,13 +1,31 @@
 package com.baidu.tieba.square;
 
-import android.widget.TextView;
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.tieba.view.HeadImageView;
 /* loaded from: classes.dex */
-public class l {
+class l implements com.baidu.tieba.util.bn {
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f2368a;
-    public TextView b;
-    public BestStringsFitTextView c;
-    public s d;
+    final /* synthetic */ String f2427a;
+    final /* synthetic */ com.baidu.adp.widget.ImageView.e b;
+    final /* synthetic */ k c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l(k kVar, String str, com.baidu.adp.widget.ImageView.e eVar) {
+        this.c = kVar;
+        this.f2427a = str;
+        this.b = eVar;
+    }
+
+    @Override // com.baidu.tieba.util.bn
+    public boolean a(View view) {
+        if ((view instanceof ImageView) && this.f2427a != null && this.f2427a.equals(view.getTag())) {
+            HeadImageView headImageView = (HeadImageView) view;
+            headImageView.setImageBitmap(this.b.f());
+            headImageView.invalidate();
+            return false;
+        }
+        return false;
+    }
 }

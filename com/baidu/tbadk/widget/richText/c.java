@@ -8,22 +8,25 @@ import java.util.Iterator;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f969a;
+    private int f983a;
     private SpannableStringBuilder b = null;
-    private e c = null;
-    private ArrayList<d> d = null;
-    private o e = null;
+    private f c = null;
+    private ArrayList<e> d = null;
+    private p e = null;
+    private d f;
 
     public c(int i) {
-        this.f969a = 0;
-        this.f969a = i;
+        this.f983a = 0;
+        this.f = null;
+        this.f983a = i;
+        this.f = new d(this);
     }
 
     public int a() {
-        return this.f969a;
+        return this.f983a;
     }
 
-    public ArrayList<d> b() {
+    public ArrayList<e> b() {
         if (this.d == null) {
             this.d = new ArrayList<>();
         }
@@ -32,9 +35,9 @@ public class c {
 
     public void a(int i, int i2) {
         if (this.d != null) {
-            Iterator<d> it = this.d.iterator();
+            Iterator<e> it = this.d.iterator();
             while (it.hasNext()) {
-                d next = it.next();
+                e next = it.next();
                 Rect bounds = next.getBounds();
                 if (bounds != null && i > bounds.bottom - bounds.top) {
                     next.a(0, i2);
@@ -45,7 +48,7 @@ public class c {
 
     public void b(int i, int i2) {
         if (this.d != null) {
-            Iterator<d> it = this.d.iterator();
+            Iterator<e> it = this.d.iterator();
             while (it.hasNext()) {
                 it.next().setBounds(0, 0, i, i2);
             }
@@ -53,30 +56,31 @@ public class c {
     }
 
     public void a(CharSequence charSequence) {
-        if ((this.f969a == 1 || this.f969a == 768) && charSequence != null) {
+        if ((this.f983a == 1 || this.f983a == 768) && charSequence != null) {
             if (this.b == null) {
                 this.b = new SpannableStringBuilder("");
             }
             this.b.append(charSequence);
+            this.f.f984a = this.b.length();
         }
     }
 
     public void a(String str) {
-        if (this.f969a == 32 && str != null) {
+        if (this.f983a == 32 && str != null) {
             this.b = new SpannableStringBuilder(str);
         }
     }
 
-    public e c() {
-        if (this.f969a != 8) {
+    public f c() {
+        if (this.f983a != 8) {
             return null;
         }
         return this.c;
     }
 
-    public void a(e eVar) {
-        if (this.f969a == 8) {
-            this.c = eVar;
+    public void a(f fVar) {
+        if (this.f983a == 8) {
+            this.c = fVar;
         }
     }
 
@@ -84,27 +88,34 @@ public class c {
         return this.b;
     }
 
-    public o e() {
-        if (this.f969a == 512 || this.f969a == 768) {
+    public p e() {
+        if (this.f983a == 512 || this.f983a == 768) {
             return this.e;
         }
         return null;
     }
 
-    public void a(o oVar) {
-        if (this.f969a == 512 || this.f969a == 768) {
-            this.e = oVar;
+    public void a(p pVar) {
+        if (this.f983a == 512 || this.f983a == 768) {
+            this.e = pVar;
         }
     }
 
     public String toString() {
-        if (this.f969a == 1) {
+        if (this.f983a == 1) {
             if (this.b != null) {
                 return this.b.toString();
             }
-        } else if (this.f969a == 8 && this.c != null) {
-            return this.c.e();
+        } else if (this.f983a == 8 && this.c != null) {
+            return this.c.f();
         }
         return "";
+    }
+
+    public d f() {
+        if (this.f983a != 1) {
+            return null;
+        }
+        return this.f;
     }
 }

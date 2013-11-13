@@ -13,14 +13,14 @@ final class d extends Handler {
             case 1:
                 com.baidu.adp.lib.h.d.d("tcp建立和握手超时");
                 TiebaSocketLinkService.c("tcp or websocket handshake timeout");
-                bVar3 = TiebaSocketLinkService.f1679a;
+                bVar3 = TiebaSocketLinkService.f1766a;
                 bVar3.a("tcp or websocket handshake timeout");
                 return;
             case 2:
                 TiebaSocketLinkService.b(7, "restart reconnStragtegy-ping error");
-                bVar = TiebaSocketLinkService.f1679a;
+                bVar = TiebaSocketLinkService.f1766a;
                 bVar.b("restart reconnStragtegy");
-                bVar2 = TiebaSocketLinkService.f1679a;
+                bVar2 = TiebaSocketLinkService.f1766a;
                 bVar2.a("restart reconnStragtegy");
                 return;
             default:

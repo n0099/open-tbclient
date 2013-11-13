@@ -1,8 +1,8 @@
 package com.baidu.tieba.service;
 
 import cn.jingling.lib.file.Shared;
-import com.baidu.tieba.util.be;
-import com.baidu.tieba.util.w;
+import com.baidu.tieba.util.af;
+import com.baidu.tieba.util.bg;
 import java.io.File;
 import java.io.FileWriter;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -10,11 +10,11 @@ import java.io.FileWriter;
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f2311a;
+    final /* synthetic */ PerformMonitorService f2344a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PerformMonitorService performMonitorService) {
-        this.f2311a = performMonitorService;
+        this.f2344a = performMonitorService;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0003 */
@@ -36,9 +36,9 @@ public class h implements Runnable {
         FileWriter fileWriter = null;
         fileWriter = null;
         try {
-            File g = w.g("performance_sample.log");
+            File g = af.g("performance_sample.log");
             if (g == null || g.length() > 51200) {
-                this.f2311a.b();
+                this.f2344a.b();
             } else {
                 FileWriter fileWriter2 = new FileWriter(g, true);
                 int i5 = Shared.INFINITY;
@@ -85,7 +85,7 @@ public class h implements Runnable {
                     fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + "\n"));
                     fileWriter2.flush();
                     fileWriter2.close();
-                    r0 = this.f2311a.h;
+                    r0 = this.f2344a.h;
                     ?? iVar = new i(this);
                     r0.post(iVar);
                     fileWriter = iVar;
@@ -96,11 +96,11 @@ public class h implements Runnable {
                         try {
                             fileWriter.close();
                         } catch (Exception e) {
-                            be.b(getClass().getName(), "sampleRunnable", th.toString());
+                            bg.b(getClass().getName(), "sampleRunnable", th.toString());
                         }
                     }
-                    be.b(getClass().getName(), "sampleRunnable", th.toString());
-                    this.f2311a.stopSelf();
+                    bg.b(getClass().getName(), "sampleRunnable", th.toString());
+                    this.f2344a.stopSelf();
                 }
             }
         } catch (Throwable th2) {

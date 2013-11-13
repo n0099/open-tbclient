@@ -1,38 +1,19 @@
 package com.baidu.tieba.write;
 
 import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements View.OnClickListener {
+class az implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2647a;
+    final /* synthetic */ WriteImagePreview f2699a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(WriteImageActivity writeImageActivity) {
-        this.f2647a = writeImageActivity;
+    public az(WriteImagePreview writeImagePreview) {
+        this.f2699a = writeImagePreview;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        progressBar = this.f2647a.j;
-        if (progressBar.getVisibility() != 0) {
-            bitmap = this.f2647a.c;
-            if (bitmap == null) {
-                bitmap2 = this.f2647a.r;
-                if (bitmap2 == null) {
-                    return;
-                }
-            }
-            if (view.getTag() != null) {
-                this.f2647a.z = false;
-                this.f2647a.c(view.getTag().toString());
-            }
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f2699a.a((Bitmap) null);
     }
 }

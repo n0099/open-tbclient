@@ -1,20 +1,20 @@
 package com.baidu.tieba.im.chat;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class am implements View.OnLongClickListener {
+public class am implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ al f1413a;
+    final /* synthetic */ ak f1506a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(al alVar) {
-        this.f1413a = alVar;
+    public am(ak akVar) {
+        this.f1506a = akVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.f1413a.d.b(view, 5, this.f1413a.f, 0L);
-        return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f1506a.c.a(view, 4, this.f1506a.f, 0L);
     }
 }

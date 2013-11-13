@@ -12,13 +12,13 @@ import java.util.LinkedList;
 public class e extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LinkedList f1522a;
+    final /* synthetic */ LinkedList f1613a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, LinkedList linkedList) {
         this.b = aVar;
-        this.f1522a = linkedList;
+        this.f1613a = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class e extends SingleRunnable<Void> {
     public Void b() {
         Cursor cursor;
         Iterator it;
-        if (this.f1522a != null && this.f1522a.size() != 0) {
+        if (this.f1613a != null && this.f1613a.size() != 0) {
             SQLiteDatabase a2 = m.a();
             LinkedList linkedList = new LinkedList();
             if (a2 != null) {
@@ -47,15 +47,15 @@ public class e extends SingleRunnable<Void> {
                             } catch (Exception e) {
                                 e = e;
                                 e.printStackTrace();
-                                com.baidu.tieba.util.g.a(cursor);
-                                it = this.f1522a.iterator();
+                                com.baidu.tieba.util.o.a(cursor);
+                                it = this.f1613a.iterator();
                                 while (it.hasNext()) {
                                 }
                                 return null;
                             }
                         } catch (Throwable th) {
                             th = th;
-                            com.baidu.tieba.util.g.a(cursor);
+                            com.baidu.tieba.util.o.a(cursor);
                             throw th;
                         }
                     }
@@ -63,23 +63,23 @@ public class e extends SingleRunnable<Void> {
                     e = e2;
                     cursor = null;
                     e.printStackTrace();
-                    com.baidu.tieba.util.g.a(cursor);
-                    it = this.f1522a.iterator();
+                    com.baidu.tieba.util.o.a(cursor);
+                    it = this.f1613a.iterator();
                     while (it.hasNext()) {
                     }
                     return null;
                 } catch (Throwable th2) {
                     th = th2;
                     cursor = null;
-                    com.baidu.tieba.util.g.a(cursor);
+                    com.baidu.tieba.util.o.a(cursor);
                     throw th;
                 }
             } else {
                 cursor = null;
             }
             com.baidu.adp.lib.h.d.d("haveTables:" + linkedList);
-            com.baidu.tieba.util.g.a(cursor);
-            it = this.f1522a.iterator();
+            com.baidu.tieba.util.o.a(cursor);
+            it = this.f1613a.iterator();
             while (it.hasNext()) {
                 String str = (String) it.next();
                 if (TextUtils.isEmpty(str)) {

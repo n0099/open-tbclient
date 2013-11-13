@@ -9,11 +9,11 @@ import java.util.List;
 public class n extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1954a;
-    private volatile com.baidu.tieba.util.ag b;
+    final /* synthetic */ f f1945a;
+    private volatile com.baidu.tieba.util.ap b;
 
     private n(f fVar) {
-        this.f1954a = fVar;
+        this.f1945a = fVar;
         this.b = null;
     }
 
@@ -37,33 +37,33 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
         String str4;
         List list;
         try {
-            this.b = new com.baidu.tieba.util.ag(com.baidu.tieba.data.h.f1165a + "c/s/comlist");
+            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/s/comlist");
             this.b.e(true);
-            com.baidu.tieba.util.ag agVar = this.b;
-            str = this.f1954a.d;
-            agVar.a(PushConstants.EXTRA_USER_ID, str);
-            com.baidu.tieba.util.ag agVar2 = this.b;
-            str2 = this.f1954a.f;
-            agVar2.a("pn", str2);
-            com.baidu.tieba.util.ag agVar3 = this.b;
-            str3 = this.f1954a.g;
-            agVar3.a("rn", str3);
+            com.baidu.tieba.util.ap apVar = this.b;
+            str = this.f1945a.d;
+            apVar.a(PushConstants.EXTRA_USER_ID, str);
+            com.baidu.tieba.util.ap apVar2 = this.b;
+            str2 = this.f1945a.f;
+            apVar2.a("pn", str2);
+            com.baidu.tieba.util.ap apVar3 = this.b;
+            str3 = this.f1945a.g;
+            apVar3.a("rn", str3);
             String j = this.b.j();
             if (this.b.c() && j != null) {
-                this.f1954a.c(j);
-                if (this.f1954a.d() == 0) {
-                    str4 = this.f1954a.f;
+                this.f1945a.c(j);
+                if (this.f1945a.d() == 0) {
+                    str4 = this.f1945a.f;
                     if (str4.equals(SocialConstants.TRUE)) {
-                        list = this.f1954a.c;
+                        list = this.f1945a.c;
                         if (list != null) {
-                            this.f1954a.f();
+                            this.f1945a.g();
                         }
                     }
                 }
                 return true;
             }
         } catch (Exception e) {
-            com.baidu.tieba.util.be.b(getClass().getName(), "doInBackground", e.getMessage());
+            com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         return false;
     }
@@ -74,16 +74,16 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
     public void a(Boolean bool) {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
-        this.f1954a.k = null;
-        this.f1954a.e();
+        this.f1945a.k = null;
+        this.f1945a.f();
         if (bool.booleanValue()) {
-            gVar = this.f1954a.mLoadDataCallBack;
+            gVar = this.f1945a.mLoadDataCallBack;
             gVar.a(true);
             return;
         }
-        this.f1954a.mErrorCode = this.b.e();
-        this.f1954a.mErrorString = this.b.g();
-        gVar2 = this.f1954a.mLoadDataCallBack;
+        this.f1945a.mErrorCode = this.b.e();
+        this.f1945a.mErrorString = this.b.g();
+        gVar2 = this.f1945a.mLoadDataCallBack;
         gVar2.a(false);
     }
 
@@ -95,7 +95,7 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
             this.b.h();
             this.b = null;
         }
-        gVar = this.f1954a.mLoadDataCallBack;
+        gVar = this.f1945a.mLoadDataCallBack;
         gVar.a(false);
     }
 }

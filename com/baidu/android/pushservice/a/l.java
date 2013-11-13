@@ -8,7 +8,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f681a;
+    public String f690a;
     public String b;
     public String c;
     public String d;
@@ -19,7 +19,7 @@ public class l {
     public String i;
 
     public l() {
-        this.f681a = "";
+        this.f690a = "";
         this.b = "";
         this.c = "";
         this.d = "";
@@ -31,7 +31,7 @@ public class l {
     }
 
     public l(Intent intent) {
-        this.f681a = "";
+        this.f690a = "";
         this.b = "";
         this.c = "";
         this.d = "";
@@ -46,7 +46,7 @@ public class l {
         }
         this.d = intent.getStringExtra("access_token");
         this.i = intent.getStringExtra(PushConstants.EXTRA_API_KEY);
-        this.f681a = intent.getStringExtra(PushConstants.EXTRA_METHOD);
+        this.f690a = intent.getStringExtra(PushConstants.EXTRA_METHOD);
         this.b = intent.getStringExtra("method_type");
         this.c = intent.getStringExtra("method_version");
         this.h = intent.getStringExtra(SocialConstants.PARAM_BDUSS);
@@ -54,6 +54,6 @@ public class l {
     }
 
     public String toString() {
-        return "method=" + this.f681a + ", rsarsaAccessToken=" + this.d + ", packageName=" + this.e + ", appId=" + this.f + ", userId=" + this.g + ", rsaBduss=" + this.h;
+        return "method=" + this.f690a + ", rsarsaAccessToken=" + this.d + ", packageName=" + this.e + ", appId=" + this.f + ", userId=" + this.g + ", rsaBduss=" + this.h;
     }
 }
