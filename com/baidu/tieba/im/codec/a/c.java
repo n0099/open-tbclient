@@ -10,19 +10,19 @@ import org.msgpack.type.s;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private MapValue f1568a;
+    private MapValue f1559a;
 
     public c(MapValue mapValue) {
-        this.f1568a = null;
-        this.f1568a = mapValue;
+        this.f1559a = null;
+        this.f1559a = mapValue;
     }
 
     public c(byte[] bArr, int i, int i2) {
-        this.f1568a = null;
+        this.f1559a = null;
         try {
             MapValue asMapValue = new org.msgpack.a().b(bArr, i, i2).asMapValue();
             if (asMapValue instanceof MapValue) {
-                this.f1568a = asMapValue;
+                this.f1559a = asMapValue;
             }
         } catch (Exception e) {
             if (e != null) {
@@ -38,7 +38,7 @@ public class c {
     public String a(String str, String str2) {
         r rVar;
         try {
-            if (this.f1568a != null && (rVar = this.f1568a.get(f(str))) != null && rVar.isRawValue()) {
+            if (this.f1559a != null && (rVar = this.f1559a.get(f(str))) != null && rVar.isRawValue()) {
                 return rVar.asRawValue().c();
             }
             return str2;
@@ -58,7 +58,7 @@ public class c {
     public int a(String str, int i) {
         r rVar;
         try {
-            if (this.f1568a != null && (rVar = this.f1568a.get(f(str))) != null) {
+            if (this.f1559a != null && (rVar = this.f1559a.get(f(str))) != null) {
                 if (rVar.isIntegerValue()) {
                     i = rVar.asIntegerValue().getInt();
                 } else if (rVar.isFloatValue()) {
@@ -82,7 +82,7 @@ public class c {
     public long a(String str, long j) {
         r rVar;
         try {
-            if (this.f1568a != null && (rVar = this.f1568a.get(f(str))) != null) {
+            if (this.f1559a != null && (rVar = this.f1559a.get(f(str))) != null) {
                 if (rVar.isIntegerValue()) {
                     j = rVar.asIntegerValue().longValue();
                 } else if (rVar.isFloatValue()) {
@@ -104,7 +104,7 @@ public class c {
         r rVar;
         ArrayValue asArrayValue;
         try {
-            if (this.f1568a == null || (rVar = this.f1568a.get(f(str))) == null || !rVar.isArrayValue() || (asArrayValue = rVar.asArrayValue()) == null) {
+            if (this.f1559a == null || (rVar = this.f1559a.get(f(str))) == null || !rVar.isArrayValue() || (asArrayValue = rVar.asArrayValue()) == null) {
                 aVar = null;
             } else {
                 aVar = new a(asArrayValue);
@@ -121,7 +121,7 @@ public class c {
 
     public c e(String str) {
         r rVar;
-        if (this.f1568a == null || (rVar = this.f1568a.get(f(str))) == null || !(rVar instanceof MapValue)) {
+        if (this.f1559a == null || (rVar = this.f1559a.get(f(str))) == null || !(rVar instanceof MapValue)) {
             return null;
         }
         return new c((MapValue) rVar);

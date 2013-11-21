@@ -3,5 +3,5 @@ package javassist.expr;
 public class Handler extends Expr {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2854a = "$1";
+    private static String f2838a = "$1";
 }

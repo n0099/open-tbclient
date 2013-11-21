@@ -28,7 +28,7 @@ import javassist.compiler.Javac;
 public class j extends h {
 
     /* renamed from: a  reason: collision with root package name */
-    c f2857a;
+    c f2841a;
     boolean n;
     boolean o;
     boolean p;
@@ -47,7 +47,7 @@ public class j extends h {
     public j(String str, c cVar) {
         super(str);
         this.y = c.b;
-        this.f2857a = cVar;
+        this.f2841a = cVar;
         this.p = false;
         this.o = false;
         this.s = false;
@@ -133,7 +133,7 @@ public class j extends h {
         if (iVar != null) {
             return iVar;
         }
-        this.f2857a.b();
+        this.f2841a.b();
         try {
             if (this.r != null) {
                 try {
@@ -147,7 +147,7 @@ public class j extends h {
             }
             try {
                 try {
-                    InputStream f = this.f2857a.f(n());
+                    InputStream f = this.f2841a.f(n());
                     try {
                         if (f == null) {
                             throw new NotFoundException(n());
@@ -251,7 +251,7 @@ public class j extends h {
 
     @Override // javassist.h
     public c a() {
-        return this.f2857a;
+        return this.f2841a;
     }
 
     @Override // javassist.h
@@ -292,9 +292,9 @@ public class j extends h {
                     return true;
                 }
             }
-            if (g == null || !this.f2857a.c(g).a(hVar)) {
+            if (g == null || !this.f2841a.c(g).a(hVar)) {
                 for (String str2 : i) {
-                    if (this.f2857a.c(str2).a(hVar)) {
+                    if (this.f2841a.c(str2).a(hVar)) {
                         return true;
                     }
                 }
@@ -363,7 +363,7 @@ public class j extends h {
         if (g == null) {
             return null;
         }
-        return this.f2857a.c(g);
+        return this.f2841a.c(g);
     }
 
     @Override // javassist.h
@@ -382,7 +382,7 @@ public class j extends h {
         int length = i.length;
         h[] hVarArr = new h[length];
         for (int i2 = 0; i2 < length; i2++) {
-            hVarArr[i2] = this.f2857a.c(i[i2]);
+            hVarArr[i2] = this.f2841a.c(i[i2]);
         }
         return hVarArr;
     }
@@ -408,11 +408,11 @@ public class j extends h {
             if (n.equals(innerClassesAttribute.b(i))) {
                 String d = innerClassesAttribute.d(i);
                 if (d != null) {
-                    return this.f2857a.c(d);
+                    return this.f2841a.c(d);
                 }
                 EnclosingMethodAttribute enclosingMethodAttribute = (EnclosingMethodAttribute) h.d("EnclosingMethod");
                 if (enclosingMethodAttribute != null) {
-                    return this.f2857a.c(enclosingMethodAttribute.g());
+                    return this.f2841a.c(enclosingMethodAttribute.g());
                 }
             }
         }
@@ -676,7 +676,7 @@ public class j extends h {
                     this.o = true;
                 }
             } else {
-                this.f2857a.a(n(), dataOutputStream);
+                this.f2841a.a(n(), dataOutputStream);
             }
             this.z = 0;
             this.s = true;
@@ -716,12 +716,12 @@ public class j extends h {
                     z = true;
                     i = tVar.c.a(ctField.d(), ctField.i(), bytecode, javac);
                     if (i2 < i) {
-                        tVar = tVar.f2862a;
+                        tVar = tVar.f2846a;
                         i2 = i;
                     }
                 }
                 i = i2;
-                tVar = tVar.f2862a;
+                tVar = tVar.f2846a;
                 i2 = i;
             }
             if (z) {
@@ -763,7 +763,7 @@ public class j extends h {
             }
         }
         try {
-            l.a(this.f2857a, iVar);
+            l.a(this.f2841a, iVar);
         } catch (BadBytecode e2) {
             throw new CannotCompileException(e2);
         }
@@ -780,8 +780,8 @@ public class j extends h {
                 if (anVar.d() && (i = anVar.i()) != null) {
                     try {
                         Bytecode bytecode = new Bytecode(c, 0, i.g());
-                        a(i, bytecode, a(bytecode, z.a(anVar.g(), this.f2857a)));
-                        anVar.a(this.f2857a, iVar);
+                        a(i, bytecode, a(bytecode, z.a(anVar.g(), this.f2841a)));
+                        anVar.a(this.f2841a, iVar);
                     } catch (BadBytecode e) {
                         throw new CannotCompileException(e);
                     }
@@ -812,7 +812,7 @@ public class j extends h {
                 if (v.d(ctField.b()) || i2 >= (i = tVar.c.a(ctField.d(), ctField.i(), bytecode, hVarArr, javac))) {
                     i = i2;
                 }
-                tVar = tVar.f2862a;
+                tVar = tVar.f2846a;
                 i2 = i;
             }
             return i2;

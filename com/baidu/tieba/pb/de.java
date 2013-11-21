@@ -1,31 +1,37 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.slidingmenu.lib.R;
+import android.os.Handler;
+import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class de implements View.OnClickListener {
+public class de implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cp f2137a;
+    final /* synthetic */ com.baidu.tieba.data.av f2120a;
+    final /* synthetic */ boolean b;
+    final /* synthetic */ String c;
+    final /* synthetic */ String d;
+    final /* synthetic */ cr e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public de(cp cpVar) {
-        this.f2137a = cpVar;
+    public de(cr crVar, com.baidu.tieba.data.av avVar, boolean z, String str, String str2) {
+        this.e = crVar;
+        this.f2120a = avVar;
+        this.b = z;
+        this.c = str;
+        this.d = str2;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        view2 = this.f2137a.k;
-        View findViewById = view2.findViewById(R.id.manage_bottom_bar);
-        if (findViewById != null) {
-            if (findViewById.getVisibility() == 0) {
-                findViewById.setVisibility(8);
-            } else {
-                findViewById.setVisibility(0);
-            }
-            this.f2137a.ai();
-        }
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new df(this));
     }
 }

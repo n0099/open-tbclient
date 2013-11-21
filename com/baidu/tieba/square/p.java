@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class p extends BdAsyncTask<Object, Integer, t> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderSecondDirActivity f2431a;
+    final /* synthetic */ BarFolderSecondDirActivity f2414a;
     private com.baidu.tieba.util.ap b;
 
     private p(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.f2431a = barFolderSecondDirActivity;
+        this.f2414a = barFolderSecondDirActivity;
         this.b = null;
     }
 
@@ -28,18 +28,18 @@ public class p extends BdAsyncTask<Object, Integer, t> {
         String str;
         String str2;
         String str3;
-        qVar = this.f2431a.i;
+        qVar = this.f2414a.i;
         t a2 = qVar.a();
         try {
-            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/f/forum/seconddir");
+            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/seconddir");
             com.baidu.tieba.util.ap apVar = this.b;
-            str = this.f2431a.l;
+            str = this.f2414a.l;
             apVar.a("menu_name", str);
             com.baidu.tieba.util.ap apVar2 = this.b;
-            str2 = this.f2431a.m;
+            str2 = this.f2414a.m;
             apVar2.a("menu_type", str2);
             com.baidu.tieba.util.ap apVar3 = this.b;
-            str3 = this.f2431a.n;
+            str3 = this.f2414a.n;
             apVar3.a("menu_id", str3);
             String j = this.b.j();
             if (this.b.c()) {
@@ -58,7 +58,7 @@ public class p extends BdAsyncTask<Object, Integer, t> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(t tVar) {
-        this.f2431a.a(tVar, false);
+        this.f2414a.a(tVar, false);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -68,6 +68,6 @@ public class p extends BdAsyncTask<Object, Integer, t> {
             this.b.h();
             this.b = null;
         }
-        this.f2431a.a(null, true);
+        this.f2414a.a(null, true);
     }
 }

@@ -1,22 +1,27 @@
 package com.baidu.tieba.pb;
 
-import android.webkit.URLUtil;
+import android.widget.ImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class en implements Runnable {
+public class en implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WebActivity f2170a;
+    final /* synthetic */ ed f2153a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public en(WebActivity webActivity) {
-        this.f2170a = webActivity;
+    public en(ed edVar) {
+        this.f2153a = edVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String guessUrl = URLUtil.guessUrl(this.f2170a.c);
-        if (URLUtil.isNetworkUrl(guessUrl)) {
-            this.f2170a.f2056a.loadUrl(guessUrl);
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        if (eVar != null) {
+            ImageView imageView = (ImageView) this.f2153a.c.findViewWithTag(str);
+            while (imageView != null) {
+                imageView.setTag(null);
+                eVar.a(imageView);
+                imageView = (ImageView) this.f2153a.c.findViewWithTag(str);
+            }
         }
     }
 }

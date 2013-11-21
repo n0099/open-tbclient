@@ -9,29 +9,29 @@ import java.util.Map;
 public class ar extends w {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2793a;
+    int f2777a;
     int c;
 
     public ar(int i, int i2, int i3) {
         super(i3);
-        this.f2793a = i;
+        this.f2777a = i;
         this.c = i2;
     }
 
     public ar(DataInputStream dataInputStream, int i) {
         super(i);
-        this.f2793a = dataInputStream.readUnsignedShort();
+        this.f2777a = dataInputStream.readUnsignedShort();
         this.c = dataInputStream.readUnsignedShort();
     }
 
     public int hashCode() {
-        return (this.f2793a << 16) ^ this.c;
+        return (this.f2777a << 16) ^ this.c;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ar) {
             ar arVar = (ar) obj;
-            return arVar.f2793a == this.f2793a && arVar.c == this.c;
+            return arVar.f2777a == this.f2777a && arVar.c == this.c;
         }
         return false;
     }
@@ -43,20 +43,20 @@ public class ar extends w {
 
     @Override // javassist.bytecode.w
     public int a(y yVar, y yVar2, Map map) {
-        return yVar2.a(yVar2.c(yVar.w(this.f2793a)), yVar2.c(z.a(yVar.w(this.c), map)));
+        return yVar2.a(yVar2.c(yVar.w(this.f2777a)), yVar2.c(z.a(yVar.w(this.c), map)));
     }
 
     @Override // javassist.bytecode.w
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeByte(12);
-        dataOutputStream.writeShort(this.f2793a);
+        dataOutputStream.writeShort(this.f2777a);
         dataOutputStream.writeShort(this.c);
     }
 
     @Override // javassist.bytecode.w
     public void a(PrintWriter printWriter) {
         printWriter.print("NameAndType #");
-        printWriter.print(this.f2793a);
+        printWriter.print(this.f2777a);
         printWriter.print(", type #");
         printWriter.println(this.c);
     }

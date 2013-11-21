@@ -11,14 +11,14 @@ import com.baidu.tieba.util.bg;
 public final class i implements AccountProxy.TokenCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Activity f1471a;
+    final /* synthetic */ Activity f1462a;
     final /* synthetic */ int b;
     final /* synthetic */ int c;
     final /* synthetic */ boolean d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(Activity activity, int i, int i2, boolean z) {
-        this.f1471a = activity;
+        this.f1462a = activity;
         this.b = i;
         this.c = i2;
         this.d = z;
@@ -28,15 +28,15 @@ public final class i implements AccountProxy.TokenCallback {
     public void callBack(String str) {
         bg.e("BaiduAccountProxy", "getAccountData", "token = " + str);
         if (str != null) {
-            BaiduAccount baiduAccount = BaiduAccount.get(this.f1471a);
+            BaiduAccount baiduAccount = BaiduAccount.get(this.f1462a);
             AccountData accountData = new AccountData();
             accountData.setAccount(baiduAccount.getCurrentAccount());
             accountData.setPortrait(null);
             accountData.setBDUSS(str);
             accountData.setIsActive(1);
-            ReLoginActivity.a(this.f1471a, this.b, this.c, this.d, accountData);
-        } else if ((this.f1471a instanceof GuideActivity) || (this.f1471a instanceof LogoActivity)) {
-            this.f1471a.finish();
+            ReLoginActivity.a(this.f1462a, this.b, this.c, this.d, accountData);
+        } else if ((this.f1462a instanceof GuideActivity) || (this.f1462a instanceof LogoActivity)) {
+            this.f1462a.finish();
         }
     }
 }

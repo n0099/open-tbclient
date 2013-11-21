@@ -8,7 +8,7 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 public class GalleryViewPager extends BaseViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    private PointF f2536a;
+    private PointF f2519a;
     private k b;
     private k c;
 
@@ -29,9 +29,9 @@ public class GalleryViewPager extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.f2536a.x, pointF.y - this.f2536a.y};
+                return new float[]{pointF.x - this.f2519a.x, pointF.y - this.f2519a.y};
             case 0:
-                this.f2536a = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.f2519a = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;

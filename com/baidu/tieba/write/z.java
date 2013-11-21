@@ -7,19 +7,19 @@ import com.baidu.tieba.editortool.EditorToolComponetContainer;
 public class z implements com.baidu.tieba.editortool.o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2725a;
+    final /* synthetic */ WriteActivity f2709a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(WriteActivity writeActivity) {
-        this.f2725a = writeActivity;
+        this.f2709a = writeActivity;
     }
 
     @Override // com.baidu.tieba.editortool.o
     public void a() {
         EditorToolComponetContainer editorToolComponetContainer;
         EditText editText;
-        editorToolComponetContainer = this.f2725a.B;
-        editText = this.f2725a.h;
+        editorToolComponetContainer = this.f2709a.B;
+        editText = this.f2709a.h;
         editorToolComponetContainer.c(editText);
     }
 

@@ -11,24 +11,24 @@ import com.slidingmenu.lib.R;
 public class ImageUploadView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1219a;
+    private Context f1224a;
     private Button b;
     private Button c;
 
     public ImageUploadView(Context context) {
         super(context);
-        this.f1219a = context;
+        this.f1224a = context;
         b();
     }
 
     public ImageUploadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1219a = context;
+        this.f1224a = context;
         b();
     }
 
     private void b() {
-        LayoutInflater.from(this.f1219a).inflate(R.layout.image_upload_view, (ViewGroup) this, true);
+        LayoutInflater.from(this.f1224a).inflate(R.layout.image_upload_view, (ViewGroup) this, true);
         this.b = (Button) findViewById(R.id.btn_image_upload_camera);
         this.c = (Button) findViewById(R.id.btn_image_upload_album);
     }

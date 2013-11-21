@@ -1,67 +1,36 @@
 package com.baidu.tieba.write;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.view.View;
 import android.widget.ProgressBar;
-import com.tencent.mm.sdk.platformtools.Util;
-import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class av implements View.OnClickListener {
+public class av implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2695a;
+    final /* synthetic */ String f2678a;
+    final /* synthetic */ int b;
+    final /* synthetic */ WriteImageActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(WriteImageActivity writeImageActivity) {
-        this.f2695a = writeImageActivity;
+    public av(WriteImageActivity writeImageActivity, String str, int i) {
+        this.c = writeImageActivity;
+        this.f2678a = str;
+        this.b = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
-        int i;
         ProgressBar progressBar;
-        boolean z2;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        boolean b;
-        z = this.f2695a.y;
-        if (!z) {
-            i = this.f2695a.z;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                progressBar = this.f2695a.g;
-                if (progressBar.getVisibility() != 0) {
-                    z2 = this.f2695a.x;
-                    if (z2) {
-                        bitmap = this.f2695a.p;
-                        if (bitmap != null) {
-                            bitmap2 = this.f2695a.p;
-                            if (!bitmap2.isRecycled()) {
-                                String str = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
-                                b = this.f2695a.b(str);
-                                if (b) {
-                                    intent.putExtra("change", true);
-                                    intent.putExtra("file_name", str);
-                                } else {
-                                    intent.putExtra("change", false);
-                                }
-                                this.f2695a.setResult(-1, intent);
-                            }
-                        }
-                    }
-                    intent.putExtra("change", false);
-                    this.f2695a.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.f2695a.setResult(0, new Intent());
+        String str;
+        progressBar = this.c.g;
+        if (progressBar.getVisibility() != 0) {
+            String str2 = this.f2678a;
+            str = this.c.v;
+            if (!str2.equals(str)) {
+                this.c.a(this.f2678a);
+                this.c.c(this.f2678a);
+                this.c.s = this.b;
             }
-        } else {
-            this.f2695a.setResult(0, new Intent());
         }
-        this.f2695a.finish();
     }
 }

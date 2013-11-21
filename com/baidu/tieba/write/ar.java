@@ -1,57 +1,85 @@
 package com.baidu.tieba.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.slidingmenu.lib.R;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.view.View;
+import com.tencent.mm.sdk.platformtools.Util;
+import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements CompoundButton.OnCheckedChangeListener {
+public class ar implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2691a;
+    final /* synthetic */ WriteImageActivity f2674a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(WriteImageActivity writeImageActivity) {
-        this.f2691a = writeImageActivity;
+        this.f2674a = writeImageActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            compoundButton.setTextColor(this.f2691a.getResources().getColor(R.color.white));
-            radioButton = this.f2691a.j;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.f2691a.f;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.f2691a.l;
-                linearLayout2.setVisibility(4);
-                textView2 = this.f2691a.n;
-                textView2.setText(this.f2691a.getString(R.string.beautify));
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        boolean z2;
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        boolean b;
+        boolean z3;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        boolean b2;
+        z = this.f2674a.y;
+        if (!z) {
+            i = this.f2674a.z;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                intent.putExtra("delete", true);
+                this.f2674a.setResult(-1, intent);
+            } else {
+                Intent intent2 = new Intent();
+                z2 = this.f2674a.x;
+                if (z2) {
+                    bitmap = this.f2674a.p;
+                    if (bitmap != null) {
+                        bitmap2 = this.f2674a.p;
+                        if (!bitmap2.isRecycled()) {
+                            String str = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
+                            b = this.f2674a.b(str);
+                            if (b) {
+                                intent2.putExtra("change", true);
+                                intent2.putExtra("file_name", str);
+                            } else {
+                                intent2.putExtra("change", false);
+                            }
+                        }
+                    }
+                    intent2.putExtra("change", false);
+                } else {
+                    intent2.setData(this.f2674a.getIntent().getData());
+                    this.f2674a.setResult(-1, intent2);
+                }
+                this.f2674a.setResult(-1, intent2);
             }
-            radioButton2 = this.f2691a.k;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.f2691a.f;
-                horizontalScrollView.setVisibility(4);
-                linearLayout = this.f2691a.l;
-                linearLayout.setVisibility(0);
-                textView = this.f2691a.n;
-                textView.setText(this.f2691a.getString(R.string.rotate));
-                return;
-            }
+            this.f2674a.finish();
             return;
         }
-        compoundButton.setTextColor(this.f2691a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
+        Intent intent3 = new Intent();
+        z3 = this.f2674a.x;
+        if (z3) {
+            bitmap3 = this.f2674a.p;
+            if (bitmap3 != null) {
+                bitmap4 = this.f2674a.p;
+                if (!bitmap4.isRecycled()) {
+                    String str2 = "tieba" + String.valueOf(new Date().getTime()) + Util.PHOTO_DEFAULT_EXT;
+                    b2 = this.f2674a.b(str2);
+                    if (b2) {
+                        intent3.putExtra("filename", str2);
+                    }
+                }
+            }
+        }
+        this.f2674a.setResult(-1, intent3);
+        this.f2674a.finish();
     }
 }

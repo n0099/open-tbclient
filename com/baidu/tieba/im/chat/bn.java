@@ -7,19 +7,19 @@ import android.widget.Button;
 public class bn implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1534a;
+    final /* synthetic */ bg f1525a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(bg bgVar) {
-        this.f1534a = bgVar;
+        this.f1525a = bgVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Button button;
-        this.f1534a.M();
-        this.f1534a.O();
-        button = this.f1534a.n;
+        this.f1525a.M();
+        this.f1525a.O();
+        button = this.f1525a.n;
         button.postDelayed(new bo(this), 100L);
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tieba.TiebaApplication;
 public class ForumDetailActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f1267a = null;
+    private e f1272a = null;
     private String b = SocialConstants.FALSE;
     private String c = SocialConstants.FALSE;
     private d d = new a(this);
@@ -44,11 +44,11 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f1267a.a();
+        this.f1272a.a();
     }
 
     private void a() {
-        this.f1267a = new e(this);
+        this.f1272a = new e(this);
     }
 
     private void b() {
@@ -61,6 +61,6 @@ public class ForumDetailActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1267a.a(i);
+        this.f1272a.a(i);
     }
 }

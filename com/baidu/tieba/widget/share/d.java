@@ -18,14 +18,14 @@ import com.slidingmenu.lib.R;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private SocialShare f2655a;
+    private SocialShare f2638a;
     private Context b;
     private String c;
     private g d;
 
     public d(Context context, a aVar) {
         this.b = context;
-        this.f2655a = SocialShare.getInstance(context);
+        this.f2638a = SocialShare.getInstance(context);
         this.c = SocialConfig.getInstance(context).getClientId(MediaType.BAIDU);
         this.d = new g(aVar);
     }
@@ -74,7 +74,7 @@ public class d {
             return;
         }
         this.d.a(false);
-        this.f2655a.share(shareContent, str, (IBaiduListener) this.d, true);
+        this.f2638a.share(shareContent, str, (IBaiduListener) this.d, true);
     }
 
     private String a(String str, int i, int i2) {

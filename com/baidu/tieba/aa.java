@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.util.DatabaseService;
+import android.support.v4.view.bq;
 /* loaded from: classes.dex */
-class aa extends Handler {
+class aa implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1015a;
+    final /* synthetic */ GuideActivity f1017a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(LogoActivity logoActivity) {
-        this.f1015a = logoActivity;
+    public aa(GuideActivity guideActivity) {
+        this.f1017a = guideActivity;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        boolean z;
-        this.f1015a.c = true;
-        z = this.f1015a.b;
-        if (z) {
-            if (!this.f1015a.getDatabasePath("baidu_tieba.db").exists()) {
-                TiebaApplication.a(DatabaseService.n(), this.f1015a.getBaseContext());
-            }
-            this.f1015a.a(this.f1015a.getBaseContext());
-        }
-        super.handleMessage(message);
+    @Override // android.support.v4.view.bq
+    public void onPageSelected(int i) {
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrollStateChanged(int i) {
+    }
+
+    @Override // android.support.v4.view.bq
+    public void onPageScrolled(int i, float f, int i2) {
     }
 }

@@ -53,7 +53,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
     private bw y = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected FrameLayout f2202a = null;
+    protected FrameLayout f2187a = null;
     private com.baidu.adp.widget.ImageView.e z = null;
     private ax A = null;
     private ay B = null;
@@ -175,7 +175,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
             this.l.setImageResource(R.drawable.list_divider_1);
             this.m.setImageResource(R.drawable.list_divider_1);
             this.n.setImageResource(R.drawable.list_divider_1);
-            this.f2202a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n_1));
+            this.f2187a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n_1));
             return;
         }
         this.i.setTextColor(-14277082);
@@ -188,7 +188,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.l.setImageResource(R.drawable.list_divider);
         this.m.setImageResource(R.drawable.list_divider);
         this.n.setImageResource(R.drawable.list_divider);
-        this.f2202a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n));
+        this.f2187a.setForeground(getResources().getDrawable(R.drawable.pic_bj_touxiang_n));
     }
 
     @Override // android.app.Activity
@@ -209,7 +209,7 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         this.p.setOnClickListener(new aq(this));
         this.d = (HeadImageView) findViewById(R.id.photo);
         d();
-        this.f2202a = (FrameLayout) findViewById(R.id.frame_photo);
+        this.f2187a = (FrameLayout) findViewById(R.id.frame_photo);
         this.z = this.E.c(this.y.a().getPortrait());
         if (this.z != null) {
             this.z.a(this.d);
@@ -293,10 +293,10 @@ public class PersonChangeActivity extends com.baidu.tieba.j {
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    com.baidu.tieba.write.bc.c(this);
+                    com.baidu.tieba.write.bd.c(this);
                     return;
                 case 12010:
-                    com.baidu.tieba.write.bc.a(this);
+                    com.baidu.tieba.write.bd.a(this);
                     return;
                 default:
                     return;

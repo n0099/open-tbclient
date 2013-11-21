@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 class bd implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShutDownValidateTipView f2574a;
+    final /* synthetic */ ShutDownValidateTipView f2557a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(ShutDownValidateTipView shutDownValidateTipView) {
-        this.f2574a = shutDownValidateTipView;
+        this.f2557a = shutDownValidateTipView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener

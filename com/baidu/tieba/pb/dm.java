@@ -1,20 +1,48 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
+import android.widget.ImageView;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dm implements View.OnLongClickListener {
+public class dm implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cp f2145a;
+    final /* synthetic */ cr f2128a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dm(cp cpVar) {
-        this.f2145a = cpVar;
+    public dm(cr crVar) {
+        this.f2128a = crVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        return false;
+    @Override // com.baidu.tbadk.imageManager.c
+    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
+        BdListView bdListView;
+        ed edVar;
+        ed edVar2;
+        bdListView = this.f2128a.i;
+        ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
+        if (eVar == null) {
+            if (imageView != null && (imageView instanceof com.baidu.tieba.view.ba)) {
+                ((com.baidu.tieba.view.ba) imageView).a(false);
+                return;
+            }
+            return;
+        }
+        if (imageView != null) {
+            if (imageView instanceof com.baidu.tieba.view.ba) {
+                ((com.baidu.tieba.view.ba) imageView).a(true);
+            }
+            imageView.invalidate();
+        }
+        if (this.f2128a.x()) {
+            edVar = this.f2128a.q;
+            if (edVar != null) {
+                edVar2 = this.f2128a.q;
+                ImageView imageView2 = (ImageView) edVar2.n().findViewWithTag(str);
+                if (imageView2 != null) {
+                    imageView2.invalidate();
+                }
+            }
+        }
     }
 }

@@ -13,14 +13,14 @@ import java.lang.ref.WeakReference;
 public class g extends BdAsyncTask<String, Object, AppealData> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1048a;
+    private String f1050a;
     private String b;
     private String c;
     private String d;
     private WeakReference<h> e;
 
     public g(String str, String str2, String str3, String str4, h hVar) {
-        this.f1048a = str;
+        this.f1050a = str;
         this.b = str2;
         this.c = str3;
         this.d = str4;
@@ -33,9 +33,9 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public AppealData a(String... strArr) {
         String str;
-        str = f.f1047a;
+        str = f.f1049a;
         ap apVar = new ap(str);
-        apVar.a("forum_id", this.f1048a);
+        apVar.a("forum_id", this.f1050a);
         apVar.a(PushConstants.EXTRA_USER_ID, this.b);
         apVar.a("user_name", this.c);
         apVar.a("content", this.d);

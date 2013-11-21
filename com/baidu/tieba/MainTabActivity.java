@@ -34,11 +34,11 @@ import com.baidu.tieba.more.AccountActivity;
 import com.baidu.tieba.more.MoreActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.service.ClearTempService;
+import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.square.SquareActivity;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.util.bg;
 import com.baidu.tieba.util.bh;
 import com.baidu.tieba.voice.VoiceManager;
@@ -48,9 +48,9 @@ import com.slidingmenu.lib.R;
 public class MainTabActivity extends BaseFragmentActivity implements CompoundButton.OnCheckedChangeListener, com.baidu.tieba.voice.af {
     private static boolean c = false;
     private static int d = -1;
-    private ag[] g;
-    private BaseFragment y;
-    private VoiceManager z;
+    private BaseFragment A;
+    private VoiceManager B;
+    private aj[] g;
     private final int e = 5;
     private int f = 1;
     private long h = 0;
@@ -69,79 +69,81 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
     private com.baidu.tieba.view.am u = null;
     private com.baidu.tieba.view.ag v = null;
     private long w = 0;
-    private long x = 2000;
+    private long x = 0;
+    private long y = 2000;
+    private long z = 7200000;
     protected int b = -1;
-    private ah A = null;
+    private ak C = null;
 
     protected void c() {
-        this.g = new ag[5];
-        ag agVar = new ag(null);
-        agVar.b = new ForumFeedActivity();
-        agVar.f = R.drawable.tabs_recommend;
-        agVar.g = R.drawable.tabs_recommend_1;
-        agVar.e = "maintab_home";
-        agVar.f1100a = "view_1";
-        agVar.d = (RadioButton) findViewById(R.id.radio_recommend);
-        this.g[0] = agVar;
-        ag agVar2 = new ag(null);
-        agVar2.b = new EnterForumActivity();
-        agVar2.f = R.drawable.tabs_home;
-        agVar2.g = R.drawable.tabs_home_1;
-        agVar2.e = "maintab_enterforum";
-        agVar2.f1100a = "view_2";
-        agVar2.d = (RadioButton) findViewById(R.id.radio_home);
-        this.g[1] = agVar2;
-        ag agVar3 = new ag(null);
-        agVar3.b = new SquareActivity();
-        agVar3.f = R.drawable.tabs_square;
-        agVar3.g = R.drawable.tabs_square_1;
-        agVar3.e = "maintab_square";
-        agVar3.f1100a = "view_3";
-        agVar3.d = (RadioButton) findViewById(R.id.radio_square);
-        this.g[2] = agVar3;
-        ag agVar4 = new ag(null);
-        agVar4.b = new MentionActivity();
-        agVar4.f = R.drawable.tabs_message;
-        agVar4.g = R.drawable.tabs_message_1;
-        agVar4.e = "maintab_message";
-        agVar4.f1100a = "view_4";
-        agVar4.d = (RadioButton) findViewById(R.id.radio_message);
-        this.g[3] = agVar4;
-        ag agVar5 = new ag(null);
-        agVar5.b = new PersonInfoActivity();
+        this.g = new aj[5];
+        aj ajVar = new aj(null);
+        ajVar.b = new ForumFeedActivity();
+        ajVar.f = R.drawable.tabs_recommend;
+        ajVar.g = R.drawable.tabs_recommend_1;
+        ajVar.e = "maintab_home";
+        ajVar.f1106a = "view_1";
+        ajVar.d = (RadioButton) findViewById(R.id.radio_recommend);
+        this.g[0] = ajVar;
+        aj ajVar2 = new aj(null);
+        ajVar2.b = new EnterForumActivity();
+        ajVar2.f = R.drawable.tabs_home;
+        ajVar2.g = R.drawable.tabs_home_1;
+        ajVar2.e = "maintab_enterforum";
+        ajVar2.f1106a = "view_2";
+        ajVar2.d = (RadioButton) findViewById(R.id.radio_home);
+        this.g[1] = ajVar2;
+        aj ajVar3 = new aj(null);
+        ajVar3.b = new SquareActivity();
+        ajVar3.f = R.drawable.tabs_square;
+        ajVar3.g = R.drawable.tabs_square_1;
+        ajVar3.e = "maintab_square";
+        ajVar3.f1106a = "view_3";
+        ajVar3.d = (RadioButton) findViewById(R.id.radio_square);
+        this.g[2] = ajVar3;
+        aj ajVar4 = new aj(null);
+        ajVar4.b = new MentionActivity();
+        ajVar4.f = R.drawable.tabs_message;
+        ajVar4.g = R.drawable.tabs_message_1;
+        ajVar4.e = "maintab_message";
+        ajVar4.f1106a = "view_4";
+        ajVar4.d = (RadioButton) findViewById(R.id.radio_message);
+        this.g[3] = ajVar4;
+        aj ajVar5 = new aj(null);
+        ajVar5.b = new PersonInfoActivity();
         Bundle bundle = new Bundle();
         bundle.putBoolean("self", true);
         bundle.putBoolean("tab_page", true);
         bundle.putString("un", TiebaApplication.A());
-        agVar5.b.g(bundle);
-        agVar5.f = R.drawable.tabs_search;
-        agVar5.g = R.drawable.tabs_search_1;
-        agVar5.e = "maintab_personal";
-        agVar5.f1100a = "view_5";
-        agVar5.d = (RadioButton) findViewById(R.id.radio_person_info);
-        this.g[4] = agVar5;
+        ajVar5.b.g(bundle);
+        ajVar5.f = R.drawable.tabs_search;
+        ajVar5.g = R.drawable.tabs_search_1;
+        ajVar5.e = "maintab_personal";
+        ajVar5.f1106a = "view_5";
+        ajVar5.d = (RadioButton) findViewById(R.id.radio_person_info);
+        this.g[4] = ajVar5;
     }
 
-    protected void a(ag agVar, int i) {
-        if (this.y != agVar.b) {
+    protected void a(aj ajVar, int i) {
+        if (this.A != ajVar.b) {
             if (i == 4) {
-                agVar.b.h().putString("un", TiebaApplication.A());
+                ajVar.b.h().putString("un", TiebaApplication.A());
             } else if (i == 3) {
                 MentionActivity.b = true;
                 p();
             }
             android.support.v4.app.ae a2 = getSupportFragmentManager().a();
-            if (this.y != null) {
-                a2.b(this.y);
+            if (this.A != null) {
+                a2.b(this.A);
             }
-            if (agVar.c) {
-                a2.c(agVar.b);
+            if (ajVar.c) {
+                a2.c(ajVar.b);
             } else {
-                a2.a(R.id.tabcontent, agVar.b);
-                agVar.c = true;
+                a2.a(R.id.tabcontent, ajVar.b);
+                ajVar.c = true;
             }
             a2.b();
-            this.y = agVar.b;
+            this.A = ajVar.b;
         }
     }
 
@@ -174,23 +176,24 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
         }
         n();
         i();
-        com.baidu.tieba.mention.t.a().i();
         a(this, TiebaApplication.e());
         String J = TiebaApplication.g().J();
         if (J != null && J.length() > 0) {
             UtilHelper.b(TiebaApplication.g(), J);
             TiebaApplication.g().l((String) null);
         }
-        this.z = g();
-        this.z.a((Activity) this);
+        this.B = g();
+        this.B.a((Activity) this);
+        com.baidu.tieba.util.y.c();
     }
 
     @Override // android.support.v4.app.n, android.app.Activity
     protected void onStart() {
         super.onStart();
-        if (this.z != null) {
-            this.z.b((Activity) this);
+        if (this.B != null) {
+            this.B.b((Activity) this);
         }
+        com.baidu.tieba.mention.t.a().i();
     }
 
     public static void c(int i) {
@@ -301,8 +304,8 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
             this.v.a();
         }
         bh.a();
-        if (this.z != null) {
-            this.z.g(this);
+        if (this.B != null) {
+            this.B.g(this);
         }
         super.onDestroy();
         System.gc();
@@ -339,16 +342,16 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
     }
 
     private void n() {
-        this.A = new ah(this, null);
+        this.C = new ak(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.tieba.broadcast.notify");
         intentFilter.addAction("com.baidu.tieba.broadcast.newrecommends");
-        registerReceiver(this.A, intentFilter);
+        registerReceiver(this.C, intentFilter);
     }
 
     private void o() {
-        if (this.A != null) {
-            unregisterReceiver(this.A);
+        if (this.C != null) {
+            unregisterReceiver(this.C);
         }
     }
 
@@ -358,16 +361,16 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
         long j2 = this.j;
         long j3 = this.l;
         if (j > 0) {
-            a(((UtilHelper.a((Context) this) * 7) / 10) + 5, this.n, j);
+            a(((UtilHelper.a((Context) this) * 7) / 10) + UtilHelper.a((Context) this, 3.0f), this.n, j);
         } else {
             this.n.setVisibility(8);
         }
         if (j2 > 0) {
-            a(((UtilHelper.a((Context) this) * 9) / 10) + 5, this.m, j2);
+            a(((UtilHelper.a((Context) this) * 9) / 10) + UtilHelper.a((Context) this, 3.0f), this.m, j2);
             this.q.setVisibility(8);
         } else if (j3 > 0 && !TiebaApplication.g().d().booleanValue()) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.q.getLayoutParams();
-            layoutParams.leftMargin = ((UtilHelper.a((Context) this) * 9) / 10) + 9;
+            layoutParams.leftMargin = ((UtilHelper.a((Context) this) * 9) / 10) + UtilHelper.a((Context) this, 6.0f);
             this.q.setLayoutParams(layoutParams);
             this.q.setVisibility(0);
             this.m.setVisibility(8);
@@ -390,10 +393,10 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
         textView.setTextColor(getResources().getColor(z ? R.color.top_msg_num_night : R.color.top_msg_num_day));
         if (j < 10) {
             textView.setText(String.valueOf(j));
-            textView.setBackgroundResource(z ? R.drawable.icon_news_prompt_1 : R.drawable.icon_news_prompt);
+            textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
         } else if (j < 100) {
             textView.setText(String.valueOf(j));
-            textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_1 : R.drawable.icon_news_head_prompt);
+            textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
         } else {
             textView.setText("   ");
             textView.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_more_1 : R.drawable.icon_news_head_prompt_more);
@@ -402,7 +405,7 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        if (TiebaApplication.aP()) {
+        if (TiebaApplication.aR()) {
             this.o.setVisibility(0);
         } else {
             this.o.setVisibility(8);
@@ -410,8 +413,8 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
     }
 
     private void r() {
-        for (ag agVar : this.g) {
-            agVar.d.setOnCheckedChangeListener(this);
+        for (aj ajVar : this.g) {
+            ajVar.d.setOnCheckedChangeListener(this);
         }
     }
 
@@ -422,26 +425,26 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
     public void d(int i) {
         int i2 = 0;
         if (i == 1) {
-            this.q.setImageResource(R.drawable.icon_maintab_prompt_1);
-            ag[] agVarArr = this.g;
-            int length = agVarArr.length;
+            this.q.setImageResource(R.drawable.icon_news_down_bar_one_1);
+            aj[] ajVarArr = this.g;
+            int length = ajVarArr.length;
             while (i2 < length) {
-                ag agVar = agVarArr[i2];
-                bd.e((View) agVar.d, (int) R.drawable.tabs_btn_bg_1);
-                agVar.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(agVar.g), (Drawable) null, (Drawable) null);
-                agVar.d.setTextColor(getResources().getColorStateList(R.color.main_bottom_button_color_1));
+                aj ajVar = ajVarArr[i2];
+                com.baidu.tieba.util.bd.e((View) ajVar.d, (int) R.drawable.tabs_btn_bg_1);
+                ajVar.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(ajVar.g), (Drawable) null, (Drawable) null);
+                ajVar.d.setTextColor(getResources().getColorStateList(R.color.main_bottom_button_color_1));
                 i2++;
             }
             return;
         }
-        this.q.setImageResource(R.drawable.icon_maintab_prompt);
-        ag[] agVarArr2 = this.g;
-        int length2 = agVarArr2.length;
+        this.q.setImageResource(R.drawable.icon_news_down_bar_one);
+        aj[] ajVarArr2 = this.g;
+        int length2 = ajVarArr2.length;
         while (i2 < length2) {
-            ag agVar2 = agVarArr2[i2];
-            bd.e((View) agVar2.d, (int) R.drawable.tabs_btn_bg);
-            agVar2.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(agVar2.f), (Drawable) null, (Drawable) null);
-            agVar2.d.setTextColor(getResources().getColorStateList(R.color.main_bottom_button_color));
+            aj ajVar2 = ajVarArr2[i2];
+            com.baidu.tieba.util.bd.e((View) ajVar2.d, (int) R.drawable.tabs_btn_bg);
+            ajVar2.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getResources().getDrawable(ajVar2.f), (Drawable) null, (Drawable) null);
+            ajVar2.d.setTextColor(getResources().getColorStateList(R.color.main_bottom_button_color));
             i2++;
         }
     }
@@ -450,13 +453,13 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
             for (int i = 0; i < this.g.length; i++) {
-                ag agVar = this.g[i];
-                if (agVar.d.getId() == compoundButton.getId()) {
+                aj ajVar = this.g[i];
+                if (ajVar.d.getId() == compoundButton.getId()) {
                     if (TiebaApplication.g().s()) {
-                        StatService.onEvent(this, agVar.e, "maintabclick", 1);
+                        StatService.onEvent(this, ajVar.e, "maintabclick", 1);
                     }
                     this.f = i;
-                    a(agVar, i);
+                    a(ajVar, i);
                     return;
                 }
             }
@@ -482,12 +485,21 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
             d(this.b);
         }
         if (TiebaApplication.A() == null || TiebaApplication.A().length() <= 0) {
-            s();
+            t();
         }
         p();
+        com.baidu.tieba.im.pushNotify.a.g().b(false, (com.baidu.tieba.im.a<Void>) null);
     }
 
     private void s() {
+        try {
+            startService(new Intent(this, FatalErrorService.class));
+        } catch (Throwable th) {
+            BdLog.e("failed to start FatalErrorService:" + th.getMessage());
+        }
+    }
+
+    private void t() {
         this.h = 0L;
         this.i = 0L;
         this.j = 0L;
@@ -522,8 +534,8 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
     @Override // android.support.v4.app.n, android.app.Activity
     protected void onStop() {
         super.onStop();
-        if (this.z != null) {
-            this.z.f(this);
+        if (this.B != null) {
+            this.B.f(this);
         }
     }
 
@@ -532,20 +544,20 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
         bg.a(getClass().getName(), "onNewIntent", "");
         super.onNewIntent(intent);
         if (intent.getBooleanExtra("close_dialog", false)) {
-            t();
+            u();
         }
         if (intent.getBooleanExtra("refresh_all", false)) {
             android.support.v4.app.ae a2 = getSupportFragmentManager().a();
             int length = this.g.length;
             for (int i = 0; i < length; i++) {
-                ag agVar = this.g[i];
-                if (agVar.b != null && agVar.c) {
-                    a2.a(agVar.b);
-                    agVar.c = false;
+                aj ajVar = this.g[i];
+                if (ajVar.b != null && ajVar.c) {
+                    a2.a(ajVar.b);
+                    ajVar.c = false;
                 }
             }
             a2.b();
-            this.y = null;
+            this.A = null;
             c();
             a(intent);
         }
@@ -555,9 +567,9 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
             String stringExtra = intent.getStringExtra("locate_ext");
             if (!TextUtils.isEmpty(stringExtra)) {
                 if (String.valueOf(1).equals(stringExtra)) {
-                    EnterForumActivity.f1388a = 1;
+                    EnterForumActivity.f1379a = 1;
                 } else {
-                    EnterForumActivity.f1388a = 0;
+                    EnterForumActivity.f1379a = 0;
                 }
             }
         }
@@ -569,7 +581,7 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
         a(this, TiebaApplication.e());
     }
 
-    private void t() {
+    private void u() {
         EnterForumActivity enterForumActivity;
         if (this.f != 1 && this.g[1].b.n() && (enterForumActivity = (EnterForumActivity) this.g[1].b) != null) {
             enterForumActivity.G();
@@ -581,11 +593,15 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
         if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4) {
             bg.e(getClass().getName(), "dispatchKeyEvent", "KEYCODE_BACK");
             if ((TiebaApplication.A() == null && this.f == 2) || (TiebaApplication.A() != null && this.f == 1)) {
-                if (System.currentTimeMillis() - this.w > this.x) {
+                if (System.currentTimeMillis() - this.w > this.y) {
                     b(R.string.double_back_quit);
                     this.w = System.currentTimeMillis();
                 } else {
+                    com.baidu.tieba.mention.t.a().k();
+                    v();
                     moveTaskToBack(true);
+                    TiebaApplication.g().aC();
+                    com.baidu.tieba.util.y.b();
                 }
             } else if (TiebaApplication.A() == null) {
                 this.g[2].d.performClick();
@@ -707,8 +723,8 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
             }
         } else if (i == 11001) {
             f();
-        } else if (this.y != null) {
-            this.y.a(i, i2, intent);
+        } else if (this.A != null) {
+            this.A.a(i, i2, intent);
         }
     }
 
@@ -718,14 +734,23 @@ public class MainTabActivity extends BaseFragmentActivity implements CompoundBut
 
     @Override // com.baidu.tieba.voice.af
     public VoiceManager g() {
-        if (this.z == null) {
-            this.z = new VoiceManager();
+        if (this.B == null) {
+            this.B = new VoiceManager();
         }
-        return this.z;
+        return this.B;
     }
 
     @Override // com.baidu.tieba.voice.af
     public com.baidu.tieba.voice.ad a(VoiceManager.VoiceModel voiceModel) {
         return null;
+    }
+
+    private void v() {
+        if (System.currentTimeMillis() - this.x >= this.z) {
+            s();
+            i();
+            j();
+            this.x = System.currentTimeMillis();
+        }
     }
 }

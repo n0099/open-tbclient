@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 class e implements com.baidu.adp.widget.ListView.r {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1349a;
+    final /* synthetic */ FrsActivity f1354a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FrsActivity frsActivity) {
-        this.f1349a = frsActivity;
+        this.f1354a = frsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.r

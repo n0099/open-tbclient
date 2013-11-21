@@ -78,8 +78,8 @@ public class MapMaker extends Tracer {
     }
 
     private void a(byte[] bArr, TypedBlock typedBlock) {
-        b(typedBlock.f2827a, typedBlock.j, this.e);
-        this.d = typedBlock.f2827a;
+        b(typedBlock.f2811a, typedBlock.j, this.e);
+        this.d = typedBlock.f2811a;
         b(typedBlock.i.length, typedBlock.i, this.f);
         a(bArr, typedBlock.g);
         int i = typedBlock.b;
@@ -113,7 +113,7 @@ public class MapMaker extends Tracer {
             TypedBlock typedBlock = (TypedBlock) aVar.b;
             if (typedBlock.a()) {
                 a(typedBlock, false);
-                if (typedBlock.f2827a < 1) {
+                if (typedBlock.f2811a < 1) {
                     throw new BadBytecode("bad catch clause: " + aVar.c);
                 }
                 typedBlock.j[0] = a(a(aVar.c), typedBlock.j[0]);
@@ -121,7 +121,7 @@ public class MapMaker extends Tracer {
                 a(typedBlock, aVar.c);
                 new MapMaker(this).a(bArr, typedBlock);
             }
-            aVar = aVar.f2828a;
+            aVar = aVar.f2812a;
         }
     }
 
@@ -207,7 +207,7 @@ public class MapMaker extends Tracer {
                         a(bArr, new a(typedBlock, aVar.c, null));
                         break;
                     } else {
-                        aVar = aVar.f2828a;
+                        aVar = aVar.f2812a;
                     }
                 }
             }
@@ -224,14 +224,14 @@ public class MapMaker extends Tracer {
                 int length = typedBlock.i.length;
                 int i2 = 0;
                 while (i2 < length) {
-                    int a2 = typedBlock.i[i2].a(arrayList, i, this.f2819a);
+                    int a2 = typedBlock.i[i2].a(arrayList, i, this.f2803a);
                     i2++;
                     i = a2;
                 }
-                int i3 = typedBlock.f2827a;
+                int i3 = typedBlock.f2811a;
                 int i4 = 0;
                 while (i4 < i3) {
-                    int a3 = typedBlock.j[i4].a(arrayList, i, this.f2819a);
+                    int a3 = typedBlock.j[i4].a(arrayList, i, this.f2803a);
                     i4++;
                     i = a3;
                 }
@@ -296,7 +296,7 @@ public class MapMaker extends Tracer {
     }
 
     private void a(bl blVar, TypedBlock typedBlock, int i, int i2, TypedBlock typedBlock2) {
-        int i3 = typedBlock.f2827a;
+        int i3 = typedBlock.f2811a;
         if (i3 == 0) {
             if (i == 0) {
                 blVar.a(i2);
@@ -409,7 +409,7 @@ public class MapMaker extends Tracer {
     private void a(bd bdVar, y yVar, int i, TypedBlock typedBlock) {
         bdVar.a(i);
         a(bdVar, yVar, typedBlock.i, typedBlock.h);
-        a(bdVar, yVar, typedBlock.j, typedBlock.f2827a);
+        a(bdVar, yVar, typedBlock.j, typedBlock.f2811a);
     }
 
     private void a(bd bdVar, y yVar, TypeData[] typeDataArr, int i) {

@@ -24,7 +24,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ReLoginShareActivity extends com.baidu.tieba.j {
     private NavigationBar l;
-    private ap b = null;
+    private aq b = null;
     private Button c = null;
     private Button d = null;
     private TextView e = null;
@@ -33,11 +33,11 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     private String h = null;
     private String i = null;
     private AccountData j = null;
-    private l k = null;
+    private m k = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1022a = null;
-    private View.OnClickListener m = new ao(this);
+    LinearLayout f1024a = null;
+    private View.OnClickListener m = new ap(this);
 
     public static void a(Activity activity, String str, String str2, String str3, int i) {
         Intent intent = new Intent(activity, ReLoginShareActivity.class);
@@ -90,7 +90,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         this.d.setOnClickListener(this.m);
         this.f = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.e = (TextView) findViewById(R.id.relogin_textview);
-        this.f1022a = (LinearLayout) findViewById(R.id.container);
+        this.f1024a = (LinearLayout) findViewById(R.id.container);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -100,7 +100,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
         a(0, this.g);
         this.l.c(i);
         bd.a((TextView) this.d, i);
-        bd.a(this.f1022a, i);
+        bd.a(this.f1024a, i);
         bd.b(this.e, i);
     }
 
@@ -173,7 +173,7 @@ public class ReLoginShareActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         if (this.b == null && this.h != null && this.i != null) {
-            this.b = new ap(this, null);
+            this.b = new aq(this, null);
             this.b.setPriority(3);
             this.b.execute(new String[0]);
         }

@@ -1,60 +1,45 @@
 package com.baidu.tieba.pb;
-
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.pb.PbEditorCacheModel;
-import com.tencent.mm.sdk.platformtools.Util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj extends BdAsyncTask<String, String, String> {
+public class cj implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    private PbEditorCacheModel.OP_TYPE f2116a;
-    private ck b;
-    private String c;
-    private String d;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2099a;
+    final /* synthetic */ PbEditor b;
 
-    public cj(PbEditorCacheModel.OP_TYPE op_type, String str, ck ckVar, String str2) {
-        this.f2116a = op_type;
-        this.b = ckVar;
-        this.c = str2;
-        this.d = "pb_editor_" + TiebaApplication.A() + str;
-        setPriority(3);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cj(PbEditor pbEditor, com.baidu.tieba.editortool.h hVar) {
+        this.b = pbEditor;
+        this.f2099a = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        try {
-            com.baidu.adp.lib.cache.s<String> d = com.baidu.tieba.b.a.a().d();
-            String a2 = d.a(this.d);
-            try {
-                if (this.f2116a == PbEditorCacheModel.OP_TYPE.SET) {
-                    if (com.baidu.tieba.util.be.c(this.c)) {
-                        if (!com.baidu.tieba.util.be.c(a2)) {
-                            d.c(this.d);
-                        }
-                    } else {
-                        d.a(this.d, this.c, Util.MILLSECONDS_OF_DAY);
-                    }
+    @Override // com.baidu.tieba.editortool.h
+    public void a(int i, Object obj) {
+        if (i == 2) {
+            this.b.c(i);
+        } else if (i == 3) {
+            this.b.l();
+        } else if (i == 5) {
+            this.b.c(i);
+        } else if (i == 6) {
+            this.b.l();
+        } else if (i == 8) {
+            this.b.c(i);
+        } else if (i == 9) {
+            this.b.l();
+        } else if (i != 0) {
+            if (i == 18) {
+                if (this.b.c()) {
+                    this.b.b.f();
+                } else {
+                    this.b.b.g();
                 }
-                return a2;
-            } catch (Exception e) {
-                return a2;
+            } else if (i == 12) {
+                this.f2099a.a(33, obj);
+                this.b.b.l();
+                this.b.c.c(this.b.b.getEditText());
             }
-        } catch (Exception e2) {
-            return null;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(String str) {
-        super.a((cj) str);
-        if (this.b != null) {
-            this.b.a(str);
-        }
+        this.f2099a.a(i, obj);
     }
 }

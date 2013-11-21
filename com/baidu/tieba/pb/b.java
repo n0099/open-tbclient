@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
+public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2084a;
+    final /* synthetic */ a f2067a;
     private com.baidu.tieba.util.ap b = null;
     private String c;
     private String d;
@@ -16,7 +16,7 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
     private int f;
 
     public b(a aVar, String str, String str2, int i, int i2) {
-        this.f2084a = aVar;
+        this.f2067a = aVar;
         this.c = null;
         this.d = null;
         this.e = 0;
@@ -35,12 +35,12 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.data.ac a(Object... objArr) {
+    public com.baidu.tieba.data.ab a(Object... objArr) {
         String str;
         boolean z;
-        this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/f/pb/picpage");
+        this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/f/pb/picpage");
         com.baidu.tieba.util.ap apVar = this.b;
-        str = this.f2084a.e;
+        str = this.f2067a.e;
         apVar.a("kw", str);
         this.b.a("tid", this.c);
         if (this.d != null) {
@@ -48,7 +48,7 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
         }
         this.b.a("next", String.valueOf(this.e));
         this.b.a("prev", String.valueOf(this.f));
-        z = this.f2084a.j;
+        z = this.f2067a.j;
         if (!z) {
             this.b.a("not_see_lz", String.valueOf(1));
         }
@@ -57,9 +57,9 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
         if (!this.b.c()) {
             return null;
         }
-        com.baidu.tieba.data.ac acVar = new com.baidu.tieba.data.ac();
-        acVar.a(j, true);
-        return acVar;
+        com.baidu.tieba.data.ab abVar = new com.baidu.tieba.data.ab();
+        abVar.a(j, true);
+        return abVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -67,7 +67,7 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
         if (this.b != null) {
             this.b.h();
         }
-        this.f2084a.h = null;
+        this.f2067a.h = null;
         super.cancel(true);
     }
 
@@ -81,7 +81,7 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(com.baidu.tieba.data.ac acVar) {
+    public void a(com.baidu.tieba.data.ab abVar) {
         boolean z;
         boolean z2;
         boolean z3;
@@ -101,10 +101,10 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
         int i4;
         String str4;
         c cVar4;
-        super.a((b) acVar);
-        this.f2084a.h = null;
-        if (acVar == null) {
-            cVar3 = this.f2084a.l;
+        super.a((b) abVar);
+        this.f2067a.h = null;
+        if (abVar == null) {
+            cVar3 = this.f2067a.l;
             if (cVar3 != null) {
                 if (this.b != null) {
                     i4 = this.b.e();
@@ -113,59 +113,59 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
                     i4 = -1;
                     str4 = null;
                 }
-                cVar4 = this.f2084a.l;
+                cVar4 = this.f2067a.l;
                 cVar4.a(i4, str4);
                 return;
             }
             return;
         }
-        this.f2084a.i = acVar.k();
-        this.f2084a.c = acVar.g();
-        this.f2084a.b = acVar.f();
+        this.f2067a.i = abVar.k();
+        this.f2067a.c = abVar.g();
+        this.f2067a.b = abVar.f();
         if (this.d == null) {
-            arrayList3 = this.f2084a.f2058a;
+            arrayList3 = this.f2067a.f2041a;
             arrayList3.clear();
         }
-        LinkedList<com.baidu.tieba.data.ab> h = acVar.h();
+        LinkedList<com.baidu.tieba.data.aa> h = abVar.h();
         int size = h.size();
         if (size <= 0) {
-            this.f2084a.g = true;
+            this.f2067a.g = true;
         } else {
             for (int i5 = 0; i5 < size; i5++) {
-                arrayList2 = this.f2084a.f2058a;
-                a2 = this.f2084a.a(h.get(i5));
+                arrayList2 = this.f2067a.f2041a;
+                a2 = this.f2067a.a(h.get(i5));
                 arrayList2.add(a2);
             }
-            com.baidu.tieba.data.ab abVar = h.get(size - 1);
-            this.f2084a.f = abVar.c();
-            i3 = this.f2084a.i;
-            if (i3 == abVar.h()) {
-                this.f2084a.g = true;
+            com.baidu.tieba.data.aa aaVar = h.get(size - 1);
+            this.f2067a.f = aaVar.c();
+            i3 = this.f2067a.i;
+            if (i3 == aaVar.h()) {
+                this.f2067a.g = true;
             } else {
-                this.f2084a.g = false;
+                this.f2067a.g = false;
             }
         }
-        z = this.f2084a.g;
+        z = this.f2067a.g;
         if (z) {
-            str2 = this.f2084a.b;
+            str2 = this.f2067a.b;
             if (str2 != null) {
-                str3 = this.f2084a.b;
+                str3 = this.f2067a.b;
                 if (str3.length() > 0) {
                     z2 = true;
                     if (this.d != null) {
-                        this.f2084a.d = this.c;
+                        this.f2067a.d = this.c;
                         z3 = true;
                         i = 0;
                     } else {
                         z3 = false;
                         i = -1;
                     }
-                    cVar = this.f2084a.l;
+                    cVar = this.f2067a.l;
                     if (cVar == null) {
-                        cVar2 = this.f2084a.l;
-                        arrayList = this.f2084a.f2058a;
-                        i2 = this.f2084a.i;
-                        str = this.f2084a.c;
+                        cVar2 = this.f2067a.l;
+                        arrayList = this.f2067a.f2041a;
+                        i2 = this.f2067a.i;
+                        str = this.f2067a.c;
                         cVar2.a(arrayList, i, i2, z2, str, z3);
                         return;
                     }
@@ -176,7 +176,7 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ac> {
         z2 = false;
         if (this.d != null) {
         }
-        cVar = this.f2084a.l;
+        cVar = this.f2067a.l;
         if (cVar == null) {
         }
     }

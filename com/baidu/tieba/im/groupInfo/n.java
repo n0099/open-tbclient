@@ -46,7 +46,7 @@ public class n extends com.baidu.adp.a.e {
     private NavigationBar T;
 
     /* renamed from: a  reason: collision with root package name */
-    private GroupInfoActivity f1696a;
+    private GroupInfoActivity f1687a;
     private ImageView c;
     private ProgressBar d;
     private TextView e;
@@ -80,7 +80,7 @@ public class n extends com.baidu.adp.a.e {
         this.u = null;
         this.H = null;
         this.R = true;
-        this.f1696a = groupInfoActivity;
+        this.f1687a = groupInfoActivity;
         groupInfoActivity.setContentView(R.layout.im_group_info_activity);
         this.w = new com.baidu.tieba.util.i(groupInfoActivity);
         this.w.d(false);
@@ -95,7 +95,7 @@ public class n extends com.baidu.adp.a.e {
     }
 
     private void f(String str) {
-        this.T.a(com.baidu.adp.lib.h.f.a(this.T.a(str).getPaint(), str, com.baidu.adp.lib.h.f.a(this.f1696a) - com.baidu.adp.lib.h.f.a(this.b, 184)));
+        this.T.a(com.baidu.adp.lib.h.f.a(this.T.a(str).getPaint(), str, com.baidu.adp.lib.h.f.a(this.f1687a) - com.baidu.adp.lib.h.f.a(this.b, 184)));
     }
 
     public void b(String str) {
@@ -141,7 +141,7 @@ public class n extends com.baidu.adp.a.e {
         this.y = (LinearLayout) groupInfoActivity.findViewById(R.id.bottom_bar);
         this.S = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_bottom_button);
         this.z = (TextView) groupInfoActivity.findViewById(R.id.txt_join);
-        this.S.setOnClickListener(this.f1696a);
+        this.S.setOnClickListener(this.f1687a);
         this.A = (RelativeLayout) groupInfoActivity.findViewById(R.id.lay_group_share);
         this.A.setOnClickListener(groupInfoActivity);
         this.B = (LinearLayout) groupInfoActivity.findViewById(R.id.lay_group_notice_share);
@@ -286,19 +286,19 @@ public class n extends com.baidu.adp.a.e {
                 }
                 if (responseGroupInfoMessage.getGroup().getForumName() != null && responseGroupInfoMessage.getGroup().getForumName().length() > 0) {
                     this.i.setVisibility(0);
-                    this.h.setText(responseGroupInfoMessage.getGroup().getForumName() + this.f1696a.getString(R.string.bar));
+                    this.h.setText(responseGroupInfoMessage.getGroup().getForumName() + this.f1687a.getString(R.string.bar));
                 } else {
                     this.i.setVisibility(8);
                 }
                 this.p.removeAllViews();
                 if (responseGroupInfoMessage.getGroup().getGrade() > 0) {
                     for (int i = 0; i < responseGroupInfoMessage.getGroup().getGrade(); i++) {
-                        ImageView imageView = new ImageView(this.f1696a);
+                        ImageView imageView = new ImageView(this.f1687a);
                         imageView.setImageResource(R.drawable.icon_grade_middle_star_s);
                         this.p.addView(imageView);
                     }
                 } else {
-                    ImageView imageView2 = new ImageView(this.f1696a);
+                    ImageView imageView2 = new ImageView(this.f1687a);
                     imageView2.setImageResource(R.drawable.icon_grade_middle_star_n);
                     this.p.addView(imageView2);
                 }
@@ -309,12 +309,12 @@ public class n extends com.baidu.adp.a.e {
                 int size = members.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     MemberData memberData = members.get(i2);
-                    HeadImageView headImageView = new HeadImageView(this.f1696a);
+                    HeadImageView headImageView = new HeadImageView(this.f1687a);
                     headImageView.setAutoChangeStyle(false);
                     headImageView.setTag(String.valueOf(memberData.getUserId()));
-                    int a2 = UtilHelper.a((Context) this.f1696a, 35.0f);
+                    int a2 = UtilHelper.a((Context) this.f1687a, 35.0f);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a2, a2);
-                    layoutParams.rightMargin = UtilHelper.a((Context) this.f1696a, 5.0f);
+                    layoutParams.rightMargin = UtilHelper.a((Context) this.f1687a, 5.0f);
                     this.x.addView(headImageView, layoutParams);
                     if (!TextUtils.isEmpty(memberData.getPortrait())) {
                         com.baidu.adp.widget.ImageView.e c2 = this.w.c(memberData.getPortrait());
@@ -335,7 +335,7 @@ public class n extends com.baidu.adp.a.e {
                 if (responseGroupInfoMessage.getGroup() != null) {
                     this.K.setText(responseGroupInfoMessage.getGroup().getName());
                 }
-                this.g.setPadding(0, 0, UtilHelper.a((Context) this.f1696a, 16.0f), 0);
+                this.g.setPadding(0, 0, UtilHelper.a((Context) this.f1687a, 16.0f), 0);
             } else {
                 this.v.setEnabled(false);
                 this.M.setEnabled(true);
@@ -361,13 +361,13 @@ public class n extends com.baidu.adp.a.e {
                     } else {
                         this.s.setBackgroundResource(R.drawable.more_all);
                     }
-                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1696a, 90.0f));
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1687a, 90.0f));
                     layoutParams2.rightMargin = 0;
                     layoutParams2.leftMargin = 0;
                     layoutParams2.topMargin = 0;
                     layoutParams2.bottomMargin = 0;
-                    int a3 = UtilHelper.a((Context) this.f1696a, 13.0f);
-                    int a4 = UtilHelper.a((Context) this.f1696a, 10.0f);
+                    int a3 = UtilHelper.a((Context) this.f1687a, 13.0f);
+                    int a4 = UtilHelper.a((Context) this.f1687a, 10.0f);
                     this.s.setPadding(a4, a3, a4, 0);
                     this.D.removeView(this.s);
                     this.B.addView(this.s, 1, layoutParams2);
@@ -378,13 +378,13 @@ public class n extends com.baidu.adp.a.e {
                 this.G.setVisibility(8);
                 if (this.s.getParent() != this.D) {
                     this.s.setBackgroundResource(R.drawable.more_all);
-                    LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1696a, 87.0f));
-                    layoutParams3.rightMargin = UtilHelper.a((Context) this.f1696a, 10.0f);
-                    layoutParams3.leftMargin = UtilHelper.a((Context) this.f1696a, 10.0f);
+                    LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1687a, 87.0f));
+                    layoutParams3.rightMargin = UtilHelper.a((Context) this.f1687a, 10.0f);
+                    layoutParams3.leftMargin = UtilHelper.a((Context) this.f1687a, 10.0f);
                     layoutParams3.topMargin = 0;
-                    layoutParams3.bottomMargin = UtilHelper.a((Context) this.f1696a, 10.0f);
-                    int a5 = UtilHelper.a((Context) this.f1696a, 13.0f);
-                    int a6 = UtilHelper.a((Context) this.f1696a, 10.0f);
+                    layoutParams3.bottomMargin = UtilHelper.a((Context) this.f1687a, 10.0f);
+                    int a5 = UtilHelper.a((Context) this.f1687a, 13.0f);
+                    int a6 = UtilHelper.a((Context) this.f1687a, 10.0f);
                     this.s.setPadding(a6, a5, a6, 0);
                     this.B.removeView(this.s);
                     this.D.addView(this.s, 3, layoutParams3);
@@ -398,8 +398,8 @@ public class n extends com.baidu.adp.a.e {
             if (responseGroupInfoMessage.getGroup().getGroupType() == 4 || responseGroupInfoMessage.getGroup().getGroupType() == 5) {
                 this.o.setVisibility(8);
                 this.n.setBackgroundResource(R.drawable.more_all);
-                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1696a, 54.0f));
-                int a7 = UtilHelper.a((Context) this.f1696a, 10.0f);
+                LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-1, UtilHelper.a((Context) this.f1687a, 54.0f));
+                int a7 = UtilHelper.a((Context) this.f1687a, 10.0f);
                 this.n.setPadding(a7, 0, a7, 0);
                 this.n.setLayoutParams(layoutParams4);
             } else {
@@ -418,21 +418,21 @@ public class n extends com.baidu.adp.a.e {
     }
 
     public void s() {
-        this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1696a.getResources().getDrawable(R.drawable.icon_brief_jinba), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.z.setText(this.f1696a.getString(R.string.group_info_enter_chat));
-        this.z.setTextColor(this.f1696a.getResources().getColorStateList(R.color.white));
+        this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1687a.getResources().getDrawable(R.drawable.icon_brief_jinba), (Drawable) null, (Drawable) null, (Drawable) null);
+        this.z.setText(this.f1687a.getString(R.string.group_info_enter_chat));
+        this.z.setTextColor(this.f1687a.getResources().getColorStateList(R.color.white));
         this.S.setBackgroundResource(R.drawable.group_info_foot_selector);
         this.S.setEnabled(true);
     }
 
     private void c(boolean z) {
-        this.z.setText(this.f1696a.getString(R.string.group_info_join));
+        this.z.setText(this.f1687a.getString(R.string.group_info_join));
         if (z) {
-            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1696a.getResources().getDrawable(R.drawable.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.z.setTextColor(this.f1696a.getResources().getColorStateList(R.color.white));
+            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1687a.getResources().getDrawable(R.drawable.icon_brief_attention), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.z.setTextColor(this.f1687a.getResources().getColorStateList(R.color.white));
         } else {
-            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1696a.getResources().getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
-            this.z.setTextColor(this.f1696a.getResources().getColorStateList(R.color.group_info_join_disable_color));
+            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1687a.getResources().getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.z.setTextColor(this.f1687a.getResources().getColorStateList(R.color.group_info_join_disable_color));
         }
         this.S.setBackgroundResource(R.drawable.group_info_foot_selector);
         this.S.setEnabled(true);
@@ -444,8 +444,8 @@ public class n extends com.baidu.adp.a.e {
 
     private void y() {
         this.z.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.z.setText(this.f1696a.getString(R.string.group_info_refuse_join));
-        this.z.setTextColor(this.f1696a.getResources().getColorStateList(R.color.group_info_join_resuse_color));
+        this.z.setText(this.f1687a.getString(R.string.group_info_refuse_join));
+        this.z.setTextColor(this.f1687a.getResources().getColorStateList(R.color.group_info_join_resuse_color));
         this.S.setBackgroundColor(0);
         this.S.setEnabled(false);
     }
@@ -502,9 +502,9 @@ public class n extends com.baidu.adp.a.e {
     }
 
     private void z() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1696a);
-        builder.setTitle(this.f1696a.getResources().getString(R.string.operation));
-        builder.setItems(new String[]{this.f1696a.getResources().getString(R.string.take_photo), this.f1696a.getResources().getString(R.string.album)}, this.k);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1687a);
+        builder.setTitle(this.f1687a.getResources().getString(R.string.operation));
+        builder.setItems(new String[]{this.f1687a.getResources().getString(R.string.take_photo), this.f1687a.getResources().getString(R.string.album)}, this.k);
         this.l = builder.create();
         this.l.setCanceledOnTouchOutside(true);
     }
@@ -523,9 +523,9 @@ public class n extends com.baidu.adp.a.e {
     }
 
     private void b(Object obj, int i) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1696a);
-        builder.setTitle(this.f1696a.getResources().getString(R.string.operation));
-        builder.setItems(new String[]{this.f1696a.getResources().getString(R.string.group_info_set_portrait), this.f1696a.getResources().getString(R.string.delete), this.f1696a.getResources().getString(R.string.cancel)}, new s(this, obj, i));
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1687a);
+        builder.setTitle(this.f1687a.getResources().getString(R.string.operation));
+        builder.setItems(new String[]{this.f1687a.getResources().getString(R.string.group_info_set_portrait), this.f1687a.getResources().getString(R.string.delete), this.f1687a.getResources().getString(R.string.cancel)}, new s(this, obj, i));
         this.E = builder.create();
         this.E.setCanceledOnTouchOutside(true);
     }
@@ -542,7 +542,7 @@ public class n extends com.baidu.adp.a.e {
 
     public void w() {
         if (this.t == null) {
-            this.t = new AlertDialog.Builder(this.f1696a).setTitle(R.string.group_address_option).setItems(new CharSequence[]{new SpannableString(this.f1696a.getString(R.string.group_address_show)), new SpannableString(this.f1696a.getString(R.string.group_address_hide))}, this.u).create();
+            this.t = new AlertDialog.Builder(this.f1687a).setTitle(R.string.group_address_option).setItems(new CharSequence[]{new SpannableString(this.f1687a.getString(R.string.group_address_show)), new SpannableString(this.f1687a.getString(R.string.group_address_hide))}, this.u).create();
         }
         this.t.setCanceledOnTouchOutside(true);
         this.t.show();
@@ -550,9 +550,9 @@ public class n extends com.baidu.adp.a.e {
 
     public void d(String str) {
         if (!TextUtils.isEmpty(str)) {
-            CharSequence[] charSequenceArr = {this.f1696a.getString(R.string.copy_group_introduction)};
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1696a);
-            builder.setTitle(this.f1696a.getString(R.string.operation));
+            CharSequence[] charSequenceArr = {this.f1687a.getString(R.string.copy_group_introduction)};
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1687a);
+            builder.setTitle(this.f1687a.getString(R.string.operation));
             builder.setItems(charSequenceArr, new t(this, str));
             AlertDialog create = builder.create();
             create.setCanceledOnTouchOutside(true);
@@ -569,9 +569,9 @@ public class n extends com.baidu.adp.a.e {
 
     private void g(String str) {
         if (this.C == null) {
-            CharSequence[] charSequenceArr = {this.f1696a.getString(R.string.copy_group_number)};
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1696a);
-            builder.setTitle(this.f1696a.getString(R.string.operation));
+            CharSequence[] charSequenceArr = {this.f1687a.getString(R.string.copy_group_number)};
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1687a);
+            builder.setTitle(this.f1687a.getString(R.string.operation));
             builder.setItems(charSequenceArr, new u(this, str));
             this.C = builder.create();
             this.C.setCanceledOnTouchOutside(true);
@@ -579,9 +579,9 @@ public class n extends com.baidu.adp.a.e {
     }
 
     public void x() {
-        ColorStateList colorStateList = this.f1696a.getResources().getColorStateList(R.color.group_info_join_disable_color);
+        ColorStateList colorStateList = this.f1687a.getResources().getColorStateList(R.color.group_info_join_disable_color);
         if (colorStateList != null) {
-            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1696a.getResources().getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.z.setCompoundDrawablesWithIntrinsicBounds(this.f1687a.getResources().getDrawable(R.drawable.icon_brief_attention_disable), (Drawable) null, (Drawable) null, (Drawable) null);
             this.z.setTextColor(colorStateList);
         }
     }

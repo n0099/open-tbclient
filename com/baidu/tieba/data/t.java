@@ -9,9 +9,9 @@ import org.json.JSONObject;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<s> f1208a = new ArrayList<>();
+    private ArrayList<s> f1213a = new ArrayList<>();
     private ArrayList<s> b = new ArrayList<>();
-    private an c = new an();
+    private am c = new am();
     private Date d = null;
     private boolean e = true;
     private int f = 0;
@@ -25,7 +25,7 @@ public class t {
     }
 
     public ArrayList<s> c() {
-        return this.f1208a;
+        return this.f1213a;
     }
 
     public void a(String str) {
@@ -44,7 +44,7 @@ public class t {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     s sVar = new s();
                     sVar.a(optJSONArray.getJSONObject(i));
-                    this.f1208a.add(sVar);
+                    this.f1213a.add(sVar);
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("commend_forum_list");

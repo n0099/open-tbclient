@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 public class t implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1364a;
+    final /* synthetic */ FrsActivity f1369a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FrsActivity frsActivity) {
-        this.f1364a = frsActivity;
+        this.f1369a = frsActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

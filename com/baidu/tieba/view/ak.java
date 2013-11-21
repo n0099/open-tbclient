@@ -6,18 +6,18 @@ import android.view.View;
 public class ak implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbPagerAdapter f2560a;
+    final /* synthetic */ ImagePbPagerAdapter f2543a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ImagePbPagerAdapter imagePbPagerAdapter) {
-        this.f2560a = imagePbPagerAdapter;
+        this.f2543a = imagePbPagerAdapter;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
-        ImagePbPagerAdapter imagePbPagerAdapter = this.f2560a;
-        i = this.f2560a.q;
+        ImagePbPagerAdapter imagePbPagerAdapter = this.f2543a;
+        i = this.f2543a.q;
         imagePbPagerAdapter.a(i);
     }
 }

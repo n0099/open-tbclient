@@ -5,19 +5,19 @@ import android.content.DialogInterface;
 class e implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f1046a;
+    final /* synthetic */ boolean f1048a;
     final /* synthetic */ AppealActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AppealActivity appealActivity, boolean z) {
         this.b = appealActivity;
-        this.f1046a = z;
+        this.f1048a = z;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
-        if (this.f1046a) {
+        if (this.f1048a) {
             this.b.finish();
         }
     }

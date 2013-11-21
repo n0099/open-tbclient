@@ -9,7 +9,7 @@ import javassist.bytecode.stackmap.TypeData;
 public class TypedBlock extends BasicBlock {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2827a;
+    public int f2811a;
     public int h;
     public TypeData[] i;
     public TypeData[] j;
@@ -33,7 +33,7 @@ public class TypedBlock extends BasicBlock {
     public void a(StringBuffer stringBuffer) {
         super.a(stringBuffer);
         stringBuffer.append(",\n stack={");
-        a(stringBuffer, this.f2827a, this.j);
+        a(stringBuffer, this.f2811a, this.j);
         stringBuffer.append("}, locals={");
         a(stringBuffer, this.h, this.i);
         stringBuffer.append('}');
@@ -56,7 +56,7 @@ public class TypedBlock extends BasicBlock {
     }
 
     public void a(int i, TypeData[] typeDataArr, int i2, TypeData[] typeDataArr2) {
-        this.f2827a = i;
+        this.f2811a = i;
         this.j = typeDataArr;
         this.h = i2;
         this.i = typeDataArr2;
@@ -89,7 +89,7 @@ public class TypedBlock extends BasicBlock {
         if (str2.charAt(0) != '(') {
             throw new BadBytecode("no method descriptor: " + str2);
         }
-        this.f2827a = 0;
+        this.f2811a = 0;
         this.j = TypeData.a(i);
         TypeData[] a2 = TypeData.a(i2);
         if (z2) {

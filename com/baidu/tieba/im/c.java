@@ -6,16 +6,16 @@ import android.os.Message;
 class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkDebugActivity f1483a;
+    final /* synthetic */ NetWorkDebugActivity f1474a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NetWorkDebugActivity netWorkDebugActivity) {
-        this.f1483a = netWorkDebugActivity;
+        this.f1474a = netWorkDebugActivity;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         super.handleMessage(message);
-        this.f1483a.c.append(((String) message.obj) + "\n");
+        this.f1474a.c.append(((String) message.obj) + "\n");
     }
 }

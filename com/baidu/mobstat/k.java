@@ -13,7 +13,7 @@ public class k {
     private int d = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    List<l> f964a = new ArrayList();
+    List<l> f965a = new ArrayList();
 
     public k() {
         a(System.currentTimeMillis());
@@ -32,14 +32,14 @@ public class k {
     }
 
     public void a(String str, long j) {
-        this.f964a.add(new l(this, str, j));
+        this.f965a.add(new l(this, str, j));
     }
 
     public void b() {
         this.b = 0L;
         this.c = 0L;
         this.d = 0;
-        this.f964a.clear();
+        this.f965a.clear();
         a(System.currentTimeMillis());
     }
 
@@ -55,10 +55,10 @@ public class k {
             jSONObject.put("i", System.currentTimeMillis());
             jSONObject.put("c", this.d);
             JSONArray jSONArray = new JSONArray();
-            for (int i = 0; i < this.f964a.size(); i++) {
+            for (int i = 0; i < this.f965a.size(); i++) {
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("n", this.f964a.get(i).a());
-                jSONObject2.put("d", this.f964a.get(i).b());
+                jSONObject2.put("n", this.f965a.get(i).a());
+                jSONObject2.put("d", this.f965a.get(i).b());
                 jSONArray.put(jSONObject2);
             }
             jSONObject.put("p", jSONArray);

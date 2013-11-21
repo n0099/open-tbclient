@@ -7,18 +7,18 @@ import com.baidu.tieba.im.message.ResponseOnlineMessage;
 public class g implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1480a;
+    final /* synthetic */ d f1471a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.f1480a = dVar;
+        this.f1471a = dVar;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
     public void a(Message message) {
-        if (this.f1480a.b != null && (message instanceof ResponseOnlineMessage) && !((ResponseOnlineMessage) message).hasError() && this.f1480a.b != null) {
-            this.f1480a.a();
-            this.f1480a.b.c();
+        if (this.f1471a.b != null && (message instanceof ResponseOnlineMessage) && !((ResponseOnlineMessage) message).hasError() && this.f1471a.b != null) {
+            this.f1471a.a();
+            this.f1471a.b.c();
         }
     }
 }

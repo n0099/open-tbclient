@@ -6,7 +6,7 @@ public class br extends com.baidu.adp.a.d {
     private static br f = new br();
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1436a;
+    public boolean f1427a;
     private bp c;
     private y e;
     private bt b = null;

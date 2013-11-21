@@ -6,14 +6,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.util.bl;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class a extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ViewGroup f1005a = null;
+    protected ViewGroup f1007a = null;
     protected View b = null;
     protected ImageView c = null;
     protected TextView d = null;
@@ -28,10 +27,10 @@ public class a extends j {
     }
 
     protected void a() {
-        if (this.f1005a == null) {
-            this.f1005a = (ViewGroup) findViewById(R.id.container);
-            if (this.f1005a == null) {
-                this.f1005a = (ViewGroup) findViewById(R.id.parent);
+        if (this.f1007a == null) {
+            this.f1007a = (ViewGroup) findViewById(R.id.container);
+            if (this.f1007a == null) {
+                this.f1007a = (ViewGroup) findViewById(R.id.parent);
             }
             this.b = findViewById(R.id.title);
             this.c = (ImageView) findViewById(R.id.back);
@@ -39,8 +38,8 @@ public class a extends j {
                 this.c.setOnClickListener(new b(this));
             }
             this.d = (TextView) findViewById(R.id.title_text);
-            if (this.f1005a != null) {
-                this.f = (Button) this.f1005a.findViewWithTag("skin_top_more_button");
+            if (this.f1007a != null) {
+                this.f = (Button) this.f1007a.findViewWithTag("skin_top_more_button");
             }
         }
         if (this.e == null) {
@@ -54,11 +53,11 @@ public class a extends j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        bd.a(this.c, i);
-        bd.d(this.b, i);
-        bd.e(this.d, i);
-        bd.b(this.f1005a, i);
-        bd.f((TextView) this.f, i);
+        com.baidu.tieba.util.bd.a(this.c, i);
+        com.baidu.tieba.util.bd.d(this.b, i);
+        com.baidu.tieba.util.bd.e(this.d, i);
+        com.baidu.tieba.util.bd.b(this.f1007a, i);
+        com.baidu.tieba.util.bd.f((TextView) this.f, i);
         if (this.e != null) {
             this.e.invalidateViews();
             if (i == 1) {

@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 class av implements com.baidu.adp.lib.network.c {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2491a = 0;
+    int f2474a = 0;
     int b = 0;
     int c = 0;
     final /* synthetic */ Handler d;
@@ -24,7 +24,7 @@ class av implements com.baidu.adp.lib.network.c {
     @Override // com.baidu.adp.lib.network.c
     public void a(int i, HttpURLConnection httpURLConnection, OutputStream outputStream) {
         if (httpURLConnection != null && i > 0) {
-            this.f2491a = i / 50;
+            this.f2474a = i / 50;
         }
     }
 
@@ -33,7 +33,7 @@ class av implements com.baidu.adp.lib.network.c {
         this.b += i - this.c;
         this.c = i;
         if (this.d != null) {
-            if (this.b > this.f2491a || i == i2) {
+            if (this.b > this.f2474a || i == i2) {
                 this.b = 0;
                 this.d.sendMessage(this.d.obtainMessage(this.e, i, i2));
             }

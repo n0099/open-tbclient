@@ -6,21 +6,21 @@ import android.view.View;
 public class be implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1331a;
+    final /* synthetic */ FrsImageActivity f1336a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(FrsImageActivity frsImageActivity) {
-        this.f1331a = frsImageActivity;
+        this.f1336a = frsImageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
         int i2;
-        i = this.f1331a.i;
+        i = this.f1336a.i;
         if (i > 240) {
-            FrsImageActivity frsImageActivity = this.f1331a;
-            i2 = this.f1331a.i;
+            FrsImageActivity frsImageActivity = this.f1336a;
+            i2 = this.f1336a.i;
             frsImageActivity.c(i2 - 240);
         }
     }

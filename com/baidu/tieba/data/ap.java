@@ -1,51 +1,50 @@
 package com.baidu.tieba.data;
+
+import com.baidu.tieba.util.bg;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile long f1170a = 0;
-    private volatile long b = 0;
-    private volatile int c = 0;
-    private volatile boolean d = false;
+    private ArrayList<UserData> f1176a = new ArrayList<>();
+    private am b = new am();
 
-    public void a(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.f1170a = i;
+    public void a(am amVar) {
+        this.b = amVar;
+    }
+
+    public am a() {
+        return this.b;
+    }
+
+    public ArrayList<UserData> b() {
+        return this.f1176a;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            bg.b(getClass().getName(), "parserJson", e.getMessage());
         }
     }
 
-    public void b(int i) {
-        if (i > 0) {
-            this.d = true;
-            this.b = i;
-        }
-    }
-
-    public void c(int i) {
-        if (i != 0) {
-            this.d = true;
-            this.c = i;
-        }
-    }
-
-    public void a() {
-        this.d = false;
-        this.f1170a = 0L;
-        this.b = 0L;
-        this.c = 0;
-    }
-
-    public void a(com.baidu.tieba.util.ap apVar) {
-        if (apVar != null) {
-            if (this.f1170a != 0) {
-                apVar.a("ctime", String.valueOf(this.f1170a));
-            }
-            if (this.b != 0) {
-                apVar.a("data_size", String.valueOf(this.b));
-            }
-            if (this.c != 0) {
-                apVar.a("net_error", String.valueOf(this.c));
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        this.f1176a.add(userData);
+                    }
+                }
+                this.b.a(jSONObject.optJSONObject("page"));
+            } catch (Exception e) {
+                bg.b(getClass().getName(), "parserJson", e.getMessage());
             }
         }
     }

@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class d implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f1487a;
+    final /* synthetic */ long f1478a;
     final /* synthetic */ long b;
     final /* synthetic */ boolean c;
     final /* synthetic */ a d;
@@ -24,7 +24,7 @@ public class d implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, long j, long j2, boolean z) {
         this.d = aVar;
-        this.f1487a = j;
+        this.f1478a = j;
         this.b = j2;
         this.c = z;
     }
@@ -42,15 +42,15 @@ public class d implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessa
         Handler handler;
         Handler handler2;
         if (concurrentHashMap != null) {
-            if (this.f1487a > 0 && this.b > 0) {
+            if (this.f1478a > 0 && this.b > 0) {
                 long b = z.b(this.b - 1);
-                ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(this.f1487a));
+                ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(String.valueOf(this.f1478a));
                 if (imMessageCenterPojo == null) {
                     ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-                    imMessageCenterPojo2.setGid(String.valueOf(this.f1487a));
+                    imMessageCenterPojo2.setGid(String.valueOf(this.f1478a));
                     imMessageCenterPojo2.setLast_msgId(b);
                     imMessageCenterPojo2.setPulled_msgId(b);
-                    concurrentHashMap.put(String.valueOf(this.f1487a), imMessageCenterPojo2);
+                    concurrentHashMap.put(String.valueOf(this.f1478a), imMessageCenterPojo2);
                 } else if (0 == imMessageCenterPojo.getPulled_msgId() || imMessageCenterPojo.getIs_delete() == 1) {
                     imMessageCenterPojo.setPulled_msgId(b);
                 }

@@ -9,24 +9,24 @@ import com.baidu.tieba.forumdetail.ForumDetailData;
 public class ai extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private aj f2378a;
+    private aj f2362a;
     private ForumDetailData.ThreadInfo[] b = null;
 
     public ai(Context context) {
-        this.f2378a = null;
-        this.f2378a = new aj(context);
+        this.f2362a = null;
+        this.f2362a = new aj(context);
     }
 
     public void a(ForumDetailData.ThreadInfo[] threadInfoArr) {
         this.b = threadInfoArr;
-        if (this.f2378a != null) {
-            this.f2378a.setData(threadInfoArr);
+        if (this.f2362a != null) {
+            this.f2362a.setData(threadInfoArr);
         }
     }
 
     public void a(int i) {
-        if (this.f2378a != null) {
-            this.f2378a.a(i);
+        if (this.f2362a != null) {
+            this.f2362a.a(i);
         }
         notifyDataSetChanged();
     }
@@ -48,6 +48,6 @@ public class ai extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.f2378a;
+        return this.f2362a;
     }
 }

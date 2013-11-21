@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
@@ -15,11 +16,11 @@ import com.slidingmenu.lib.R;
 public class n extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private BaseFragmentActivity f1458a;
+    private BaseFragmentActivity f1449a;
     private View.OnClickListener i;
     private View.OnLongClickListener j;
     private Boolean b = false;
-    private com.baidu.tieba.data.af c = null;
+    private com.baidu.tieba.data.ae c = null;
     private int d = 0;
     private int e = 0;
     private int f = 0;
@@ -28,21 +29,21 @@ public class n extends BaseAdapter {
     private boolean k = false;
 
     public n(BaseFragmentActivity baseFragmentActivity) {
-        this.f1458a = null;
-        this.f1458a = baseFragmentActivity;
+        this.f1449a = null;
+        this.f1449a = baseFragmentActivity;
         a();
     }
 
     public void a() {
-        this.d = UtilHelper.a((Context) this.f1458a, 3.0f);
-        this.e = UtilHelper.a((Context) this.f1458a, 6.0f);
-        this.g = UtilHelper.a((Context) this.f1458a, 8.0f);
-        this.f = UtilHelper.a((Context) this.f1458a, 10.0f);
-        this.h = UtilHelper.a((Context) this.f1458a, 12.0f);
+        this.d = UtilHelper.a((Context) this.f1449a, 3.0f);
+        this.e = UtilHelper.a((Context) this.f1449a, 6.0f);
+        this.g = UtilHelper.a((Context) this.f1449a, 8.0f);
+        this.f = UtilHelper.a((Context) this.f1449a, 10.0f);
+        this.h = UtilHelper.a((Context) this.f1449a, 12.0f);
     }
 
-    public void a(com.baidu.tieba.data.af afVar) {
-        this.c = afVar;
+    public void a(com.baidu.tieba.data.ae aeVar) {
+        this.c = aeVar;
         c();
         notifyDataSetChanged();
     }
@@ -98,8 +99,8 @@ public class n extends BaseAdapter {
             }
             cd cdVar = 0 == 0 ? (cd) view.getTag() : null;
             if (cdVar != null && this.c != null && this.c.a() != null) {
-                this.f1458a.a().a(ap == 1);
-                this.f1458a.a().a(view);
+                this.f1449a.a().a(ap == 1);
+                this.f1449a.a().a(view);
                 b(ap, cdVar);
                 a(i, cdVar);
                 if (i >= 0) {
@@ -116,7 +117,7 @@ public class n extends BaseAdapter {
             }
         } else if (itemViewType == 0) {
             if (view == null) {
-                sVar = new s(this.f1458a, this.f1458a.getString(R.string.login_block_tip), this.f1458a.getResources().getString(R.string.login_home_tab), 1);
+                sVar = new s(this.f1449a, this.f1449a.getString(R.string.login_block_tip), this.f1449a.getResources().getString(R.string.login_home_tab), 1);
                 view = sVar.e();
                 view.setTag(sVar);
             }
@@ -130,25 +131,25 @@ public class n extends BaseAdapter {
 
     private void a(int i, cd cdVar) {
         if (i == 0) {
-            cdVar.f1446a.setPadding(this.f, this.h, this.f, 0);
+            cdVar.f1437a.setPadding(this.f, this.h, this.f, 0);
         } else {
-            cdVar.f1446a.setPadding(this.f, this.g, this.f, 0);
+            cdVar.f1437a.setPadding(this.f, this.g, this.f, 0);
         }
     }
 
     private View a(cd cdVar) {
-        View inflate = LayoutInflater.from(this.f1458a).inflate(R.layout.home_like_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.f1449a).inflate(R.layout.home_like_item, (ViewGroup) null);
         cd cdVar2 = new cd();
-        cdVar2.f1446a = (LinearLayout) inflate;
+        cdVar2.f1437a = (LinearLayout) inflate;
         cdVar2.e = (TextView) inflate.findViewById(R.id.forum_icon_sign1);
-        cdVar2.b = (LinearLayout) inflate.findViewById(R.id.first);
+        cdVar2.b = (RelativeLayout) inflate.findViewById(R.id.item_left);
         cdVar2.b.setOnClickListener(this.i);
         cdVar2.b.setOnLongClickListener(this.j);
         cdVar2.c = (TextView) inflate.findViewById(R.id.home_lv_like_forum1);
         cdVar2.d = (TextView) inflate.findViewById(R.id.forum_lv_like_grade1);
         cdVar2.f = new cd();
         cdVar2.f.e = (TextView) inflate.findViewById(R.id.forum_icon_sign2);
-        cdVar2.f.b = (LinearLayout) inflate.findViewById(R.id.second);
+        cdVar2.f.b = (RelativeLayout) inflate.findViewById(R.id.item_right);
         cdVar2.f.b.setOnClickListener(this.i);
         cdVar2.f.b.setOnLongClickListener(this.j);
         cdVar2.f.c = (TextView) inflate.findViewById(R.id.home_lv_like_forum2);
@@ -204,13 +205,13 @@ public class n extends BaseAdapter {
         this.j = onLongClickListener;
     }
 
-    private void a(com.baidu.tieba.data.ae aeVar, cd cdVar) {
-        if (aeVar != null && cdVar != null) {
-            int d = aeVar.d();
-            cdVar.b.setTag(aeVar);
-            cdVar.c.setText(a(aeVar));
-            if (aeVar.c() == 0) {
-                cdVar.e.setVisibility(4);
+    private void a(com.baidu.tieba.data.ad adVar, cd cdVar) {
+        if (adVar != null && cdVar != null) {
+            int d = adVar.d();
+            cdVar.b.setTag(adVar);
+            cdVar.c.setText(adVar.b());
+            if (adVar.c() == 0) {
+                cdVar.e.setVisibility(8);
             } else {
                 cdVar.e.setVisibility(0);
             }
@@ -220,28 +221,8 @@ public class n extends BaseAdapter {
             }
             cdVar.d.setVisibility(0);
             cdVar.d.setBackgroundResource(com.baidu.tieba.util.m.b(d));
-            cdVar.d.setText(String.valueOf(aeVar.d()));
+            cdVar.d.setText(String.valueOf(adVar.d()));
         }
-    }
-
-    private String a(com.baidu.tieba.data.ae aeVar) {
-        String b = aeVar.b();
-        double d = 0.0d;
-        String str = "";
-        for (int i = 0; i < b.length(); i++) {
-            char charAt = b.charAt(i);
-            if ((charAt >= 'a' && charAt <= 'z') || ((charAt >= 'A' && charAt <= 'Z') || (charAt >= '0' && charAt <= '9'))) {
-                d += 0.5d;
-            } else {
-                d += 1.0d;
-            }
-            if (d <= 4.0d) {
-                str = str + charAt;
-            } else {
-                return str + "...";
-            }
-        }
-        return str;
     }
 
     public void a(com.baidu.tieba.data.r rVar) {

@@ -5,13 +5,13 @@ import android.database.Cursor;
 public class d extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f808a;
+    public long f809a;
     public int b;
     public long c;
 
     public d(long j) {
         super(j);
-        this.f808a = 0L;
+        this.f809a = 0L;
         this.b = 0;
         this.c = 0L;
         this.h = 3;
@@ -19,17 +19,17 @@ public class d extends c {
 
     public d(Cursor cursor) {
         super(cursor);
-        this.f808a = 0L;
+        this.f809a = 0L;
         this.b = 0;
         this.c = 0L;
         this.h = 3;
-        this.f808a = cursor.getLong(cursor.getColumnIndex("stopstamp"));
+        this.f809a = cursor.getLong(cursor.getColumnIndex("stopstamp"));
         this.b = cursor.getInt(cursor.getColumnIndex("netype"));
         this.c = cursor.getLong(cursor.getColumnIndex("flow"));
     }
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.c
     public String toString() {
-        return "NetworkEvent : startStamp" + this.g + " stopStamp =" + this.f808a + " netType = " + this.b + " netFlow=" + this.c;
+        return "NetworkEvent : startStamp" + this.g + " stopStamp =" + this.f809a + " netType = " + this.b + " netFlow=" + this.c;
     }
 }

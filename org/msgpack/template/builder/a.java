@@ -6,17 +6,17 @@ import org.msgpack.template.AbstractTemplate;
 class a extends AbstractTemplate {
 
     /* renamed from: a  reason: collision with root package name */
-    private Class f2942a;
+    private Class f2926a;
     private org.msgpack.template.d b;
 
     public a(Class cls, org.msgpack.template.d dVar) {
-        this.f2942a = cls;
+        this.f2926a = cls;
         this.b = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class a() {
-        return this.f2942a;
+        return this.f2926a;
     }
 
     @Override // org.msgpack.template.d
@@ -26,7 +26,7 @@ class a extends AbstractTemplate {
                 throw new MessageTypeException("Attempted to write null");
             }
             aVar.d();
-        } else if (!(obj instanceof Object[]) || !this.f2942a.isAssignableFrom(obj.getClass().getComponentType())) {
+        } else if (!(obj instanceof Object[]) || !this.f2926a.isAssignableFrom(obj.getClass().getComponentType())) {
             throw new MessageTypeException();
         } else {
             Object[] objArr = (Object[]) obj;

@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1620a = null;
+    private static String f1611a = null;
     private static volatile SQLiteDatabase b = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,15 +27,15 @@ public class m {
                 sQLiteDatabase = null;
             } else {
                 String str = TiebaApplication.A() + ".db";
-                if (b != null && str.equals(f1620a) && b.isOpen()) {
+                if (b != null && str.equals(f1611a) && b.isOpen()) {
                     sQLiteDatabase = b;
                 } else {
                     if (b != null) {
                         com.baidu.tieba.util.o.a(b);
-                        com.baidu.adp.lib.h.d.b("读取数据文件错误或者没有打开或者要切换数据库，关闭当前数据库，重新开启。cur data：" + f1620a + " should data:" + str);
+                        com.baidu.adp.lib.h.d.b("读取数据文件错误或者没有打开或者要切换数据库，关闭当前数据库，重新开启。cur data：" + f1611a + " should data:" + str);
                     }
                     l lVar = new l(TiebaApplication.g(), str);
-                    f1620a = str;
+                    f1611a = str;
                     b = lVar.getWritableDatabase();
                     sQLiteDatabase = b;
                 }
@@ -51,14 +51,14 @@ public class m {
             a(it.next().getID());
         }
         b = null;
-        f1620a = null;
+        f1611a = null;
     }
 
     public static void a(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 String str2 = str + ".db";
-                if (b != null && str2.equals(f1620a)) {
+                if (b != null && str2.equals(f1611a)) {
                     com.baidu.tieba.util.o.a(b);
                 }
                 TiebaApplication.g().deleteDatabase(str2);

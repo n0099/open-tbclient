@@ -11,11 +11,11 @@ import com.baidu.tieba.write.AtListActivity;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MentionActivity f1855a;
+    final /* synthetic */ MentionActivity f1837a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(MentionActivity mentionActivity) {
-        this.f1855a = mentionActivity;
+        this.f1837a = mentionActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,13 +23,13 @@ public class b implements View.OnClickListener {
         ImageView imageView;
         BaseFragmentActivity baseFragmentActivity;
         BaseFragmentActivity baseFragmentActivity2;
-        imageView = this.f1855a.Z;
+        imageView = this.f1837a.Z;
         if (view == imageView && TiebaApplication.B()) {
             if (TiebaApplication.g().s()) {
-                baseFragmentActivity2 = this.f1855a.ag;
+                baseFragmentActivity2 = this.f1837a.ag;
                 StatService.onEvent(baseFragmentActivity2, "msg_newchat_tab_c", "click", 1);
             }
-            baseFragmentActivity = this.f1855a.ag;
+            baseFragmentActivity = this.f1837a.ag;
             AtListActivity.a(baseFragmentActivity, 12011);
         }
     }

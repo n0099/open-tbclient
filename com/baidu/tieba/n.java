@@ -5,47 +5,47 @@ import com.baidu.tieba.data.NewErrorData;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.util.ap f2043a;
+    protected com.baidu.tieba.util.ap f2026a;
     protected NewErrorData b = null;
 
     public n() {
-        this.f2043a = null;
-        this.f2043a = new com.baidu.tieba.util.ap();
+        this.f2026a = null;
+        this.f2026a = new com.baidu.tieba.util.ap();
     }
 
     public void a() {
-        if (this.f2043a != null) {
-            this.f2043a.h();
+        if (this.f2026a != null) {
+            this.f2026a.h();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(String str) {
-        this.f2043a.a(str);
+        this.f2026a.a(str);
     }
 
     public void a(String str, String str2) {
-        this.f2043a.a(str, str2);
+        this.f2026a.a(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String b() {
-        String j = this.f2043a.j();
+        String j = this.f2026a.j();
         this.b = new NewErrorData();
         this.b.parserJson(j);
         return j;
     }
 
     public boolean c() {
-        if (this.f2043a != null) {
-            return this.f2043a.c();
+        if (this.f2026a != null) {
+            return this.f2026a.c();
         }
         return false;
     }
 
     public String d() {
-        if (this.f2043a != null) {
-            return this.f2043a.g();
+        if (this.f2026a != null) {
+            return this.f2026a.g();
         }
         return null;
     }

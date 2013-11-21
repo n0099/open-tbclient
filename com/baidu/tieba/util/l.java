@@ -14,7 +14,7 @@ public class l {
     public boolean l;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile ap f2512a = null;
+    public volatile ap f2495a = null;
     public boolean f = true;
     public volatile boolean h = false;
     public boolean j = false;
@@ -46,8 +46,8 @@ public class l {
 
     public void a() {
         this.j = true;
-        if (this.f2512a != null) {
-            this.f2512a.h();
+        if (this.f2495a != null) {
+            this.f2495a.h();
         }
     }
 

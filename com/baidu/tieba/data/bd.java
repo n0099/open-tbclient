@@ -6,15 +6,15 @@ import org.json.JSONObject;
 public class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1184a = 0;
-    private int b = 0;
-    private String c = "";
+    private String f1190a = null;
+    private String b = null;
+    private String c = null;
 
-    public int a() {
-        return this.f1184a;
+    public String a() {
+        return this.f1190a;
     }
 
-    public int b() {
+    public String b() {
         return this.b;
     }
 
@@ -22,14 +22,27 @@ public class bd {
         return this.c;
     }
 
+    public void a(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            if (optJSONObject == null) {
+                optJSONObject = jSONObject.optJSONObject("anti");
+            }
+            a(optJSONObject);
+        } catch (Exception e) {
+            bg.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1184a = jSONObject.optInt("is_lpost", 0);
-                this.b = jSONObject.optInt("topic_type", 0);
-                this.c = jSONObject.optString("link", "");
+                this.f1190a = jSONObject.optString("vcode_md5");
+                this.b = jSONObject.optString("vcode_pic_url");
+                this.c = jSONObject.optString("vcode_type");
             } catch (Exception e) {
-                bg.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
+                bg.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

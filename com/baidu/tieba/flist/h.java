@@ -6,11 +6,11 @@ import com.baidu.tieba.util.bg;
 class h implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1250a;
+    final /* synthetic */ ForumListActivity f1255a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ForumListActivity forumListActivity) {
-        this.f1250a = forumListActivity;
+        this.f1255a = forumListActivity;
     }
 
     @Override // com.baidu.tieba.flist.f
@@ -23,23 +23,23 @@ class h implements f {
         if (!z || i != 0) {
             bg.e("ForumListActivity", "callback", "dir menu not ok");
             if (!z2) {
-                this.f1250a.c.d();
+                this.f1255a.c.d();
                 return;
             }
             return;
         }
         bg.e("ForumListActivity", "callback", "dir menu ok");
         zVar.e.add(0, zVar);
-        if (this.f1250a.c.w != null) {
-            this.f1250a.c.w.a(zVar);
-            this.f1250a.a(String.valueOf(this.f1250a.c.f.getText()));
-            this.f1250a.c.w.notifyDataSetChanged();
+        if (this.f1255a.c.w != null) {
+            this.f1255a.c.w.a(zVar);
+            this.f1255a.a(String.valueOf(this.f1255a.c.f.getText()));
+            this.f1255a.c.w.notifyDataSetChanged();
         }
-        handler = this.f1250a.e;
-        runnable = this.f1250a.P;
+        handler = this.f1255a.e;
+        runnable = this.f1255a.P;
         handler.removeCallbacks(runnable);
-        handler2 = this.f1250a.e;
-        runnable2 = this.f1250a.P;
+        handler2 = this.f1255a.e;
+        runnable2 = this.f1255a.P;
         handler2.post(runnable2);
     }
 }

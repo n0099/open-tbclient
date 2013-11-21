@@ -9,20 +9,20 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 public class BrowseSettingActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private w f1959a = null;
+    private w f1942a = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1959a = new w(this);
+        this.f1942a = new w(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1959a.a(i);
+        this.f1942a.a(i);
     }
 
     public static void a(Context context) {
@@ -31,25 +31,25 @@ public class BrowseSettingActivity extends com.baidu.tieba.j implements com.baid
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1959a.a()) {
-            this.f1959a.i();
-        } else if (view == this.f1959a.e()) {
-            this.f1959a.j();
-        } else if (view == this.f1959a.f()) {
-            this.f1959a.k();
-        } else if (view == this.f1959a.g()) {
-            this.f1959a.l();
-        } else if (view == this.f1959a.h()) {
-            this.f1959a.m();
+        if (view == this.f1942a.a()) {
+            this.f1942a.i();
+        } else if (view == this.f1942a.e()) {
+            this.f1942a.j();
+        } else if (view == this.f1942a.f()) {
+            this.f1942a.k();
+        } else if (view == this.f1942a.g()) {
+            this.f1942a.l();
+        } else if (view == this.f1942a.h()) {
+            this.f1942a.m();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            this.f1959a.b(1);
+            this.f1942a.b(1);
         } else {
-            this.f1959a.b(0);
+            this.f1942a.b(0);
         }
     }
 }

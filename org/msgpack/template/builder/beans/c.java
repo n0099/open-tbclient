@@ -8,7 +8,7 @@ import java.util.WeakHashMap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String[] f2946a = {"sun.beans.infos"};
+    private static String[] f2930a = {"sun.beans.infos"};
     private static Map<Class<?>, e> b = Collections.synchronizedMap(new WeakHashMap((int) DERTags.TAGGED));
 
     public static String a(String str) {
@@ -42,9 +42,9 @@ public class c {
             aVar = b(cls);
         }
         e eVar = new e(cls, aVar, cls2);
-        if (eVar.f2947a != null) {
-            for (int length = eVar.f2947a.length - 1; length >= 0; length--) {
-                eVar.a(eVar.f2947a[length], true);
+        if (eVar.f2931a != null) {
+            for (int length = eVar.f2931a.length - 1; length >= 0; length--) {
+                eVar.a(eVar.f2931a[length], true);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();
@@ -72,9 +72,9 @@ public class c {
             if (lastIndexOf >= 0) {
                 str = str.substring(lastIndexOf + 1);
             }
-            for (int i = 0; i < f2946a.length; i++) {
+            for (int i = 0; i < f2930a.length; i++) {
                 try {
-                    a a2 = a(String.valueOf(f2946a[i]) + "." + str, cls);
+                    a a2 = a(String.valueOf(f2930a[i]) + "." + str, cls);
                     BeanDescriptor e2 = a2.e();
                     if (e2 != null && cls == e2.a()) {
                         return a2;

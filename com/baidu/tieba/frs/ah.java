@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.IconData;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.CommonImageLayout;
 import com.baidu.tieba.view.DottedLine;
@@ -27,8 +28,8 @@ import java.util.LinkedList;
 public class ah extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1309a;
-    private ArrayList<com.baidu.tieba.data.ba> b;
+    private Context f1314a;
+    private ArrayList<com.baidu.tieba.data.az> b;
     private boolean c;
     private boolean d;
     private boolean e;
@@ -42,18 +43,18 @@ public class ah extends BaseAdapter {
     private int i = 200;
     private float k = 0.4f;
     private boolean l = false;
-    private LinkedList<com.baidu.tieba.data.aa> m = null;
+    private LinkedList<IconData> m = null;
 
-    private int b(ArrayList<com.baidu.tieba.data.ba> arrayList) {
+    private int b(ArrayList<com.baidu.tieba.data.az> arrayList) {
         int i = 0;
         if (arrayList == null || arrayList.size() <= 0) {
             return 0;
         }
-        Iterator<com.baidu.tieba.data.ba> it = arrayList.iterator();
+        Iterator<com.baidu.tieba.data.az> it = arrayList.iterator();
         while (true) {
             int i2 = i;
             if (it.hasNext()) {
-                com.baidu.tieba.data.ba next = it.next();
+                com.baidu.tieba.data.az next = it.next();
                 if (next.f() == 1 || next.f() == 2) {
                     i = i2 + 1;
                 } else {
@@ -65,19 +66,19 @@ public class ah extends BaseAdapter {
         }
     }
 
-    public ah(Context context, ArrayList<com.baidu.tieba.data.ba> arrayList, int i, boolean z) {
+    public ah(Context context, ArrayList<com.baidu.tieba.data.az> arrayList, int i, boolean z) {
         this.h = 200;
         this.j = false;
-        this.f1309a = context;
+        this.f1314a = context;
         this.b = arrayList;
-        this.g = new com.baidu.tieba.util.i(this.f1309a);
+        this.g = new com.baidu.tieba.util.i(this.f1314a);
         this.g.f("frs");
         this.h = i;
         this.j = z;
         a(z);
         this.p = b(this.b);
-        this.n = this.f1309a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin);
-        this.o = this.f1309a.getResources().getDimensionPixelSize(R.dimen.listview_divider_height);
+        this.n = this.f1314a.getResources().getDimensionPixelSize(R.dimen.listview_item_margin);
+        this.o = this.f1314a.getResources().getDimensionPixelSize(R.dimen.listview_divider_height);
     }
 
     public void a(boolean z) {
@@ -89,16 +90,16 @@ public class ah extends BaseAdapter {
             if (this.i > 480) {
                 this.i = 480;
             }
-            if (this.i > UtilHelper.a(this.f1309a, 320.0f)) {
-                this.i = UtilHelper.a(this.f1309a, 320.0f);
+            if (this.i > UtilHelper.a(this.f1314a, 320.0f)) {
+                this.i = UtilHelper.a(this.f1314a, 320.0f);
             }
             this.g.b("_small");
         } else {
             if (this.i > this.k * 480.0f) {
                 this.i = (int) (this.k * 480.0f);
             }
-            if (this.i > UtilHelper.a(this.f1309a, 320.0f) * this.k) {
-                this.i = (int) (UtilHelper.a(this.f1309a, 320.0f) * this.k);
+            if (this.i > UtilHelper.a(this.f1314a, 320.0f) * this.k) {
+                this.i = (int) (UtilHelper.a(this.f1314a, 320.0f) * this.k);
             }
             this.g.b("_mobile");
         }
@@ -133,7 +134,7 @@ public class ah extends BaseAdapter {
         this.d = z;
     }
 
-    public void a(ArrayList<com.baidu.tieba.data.ba> arrayList) {
+    public void a(ArrayList<com.baidu.tieba.data.az> arrayList) {
         this.b = arrayList;
         this.p = b(this.b);
     }
@@ -209,78 +210,98 @@ public class ah extends BaseAdapter {
 
     private View a(int i, View view, int i2) {
         ak akVar;
+        View view2;
+        View view3;
+        ak akVar2;
         BitmapDrawable bitmapDrawable;
         if (view == null) {
-            view = LayoutInflater.from(this.f1309a).inflate(R.layout.frs_top_item, (ViewGroup) null);
-            akVar = new ak(this);
-            akVar.f1311a = (LinearLayout) view.findViewById(R.id.frs_top_item);
-            akVar.b = (TextView) view.findViewById(R.id.frs_top_title);
-            akVar.c = view.findViewById(R.id.frs_top_divider);
-            view.setTag(akVar);
+            view2 = e();
+            akVar = (ak) view2.getTag();
         } else {
-            akVar = (ak) view.getTag();
+            akVar = null;
+            view2 = view;
         }
-        ((FrsActivity) this.f1309a).getLayoutMode().a(i2 == 1);
-        ((FrsActivity) this.f1309a).getLayoutMode().a(view);
-        com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) getItem(i);
-        akVar.b.setText(baVar.c());
+        if (akVar == null) {
+            View e = e();
+            view3 = e;
+            akVar2 = (ak) e.getTag();
+        } else {
+            view3 = view2;
+            akVar2 = akVar;
+        }
+        ((FrsActivity) this.f1314a).getLayoutMode().a(i2 == 1);
+        ((FrsActivity) this.f1314a).getLayoutMode().a(view3);
+        com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) getItem(i);
+        akVar2.b.setText(azVar.c());
         com.baidu.tieba.util.bc aw = TiebaApplication.g().aw();
-        if (aw != null && aw.b(baVar.a())) {
-            akVar.b.setTextColor(this.f1309a.getResources().getColor(R.color.read_thread_color));
+        if (aw != null && aw.b(azVar.a())) {
+            akVar2.b.setTextColor(this.f1314a.getResources().getColor(R.color.read_thread_color));
         }
         if (i2 == 1) {
-            if (baVar.f() == 1) {
-                bitmapDrawable = (BitmapDrawable) this.f1309a.getResources().getDrawable(R.drawable.icon_top_1);
+            if (azVar.f() == 1) {
+                bitmapDrawable = (BitmapDrawable) this.f1314a.getResources().getDrawable(R.drawable.icon_top_1);
             } else {
-                bitmapDrawable = baVar.f() == 2 ? (BitmapDrawable) this.f1309a.getResources().getDrawable(R.drawable.icon_notice_1) : null;
+                bitmapDrawable = azVar.f() == 2 ? (BitmapDrawable) this.f1314a.getResources().getDrawable(R.drawable.icon_notice_1) : null;
             }
             if (this.p == 1) {
-                akVar.f1311a.setBackgroundResource(R.drawable.bg_frs_top_selector_1);
-                akVar.c.setVisibility(8);
+                akVar2.f1316a.setBackgroundResource(R.drawable.bg_frs_top_selector_1);
+                akVar2.c.setVisibility(8);
             } else if (this.p >= 2) {
                 if (i == 0) {
-                    akVar.f1311a.setBackgroundResource(R.drawable.bg_frs_top_up_selector_1);
-                    akVar.c.setVisibility(0);
+                    akVar2.f1316a.setBackgroundResource(R.drawable.bg_frs_top_up_selector_1);
+                    akVar2.c.setVisibility(0);
                 } else if (i == this.p - 1) {
-                    akVar.f1311a.setBackgroundResource(R.drawable.bg_frs_top_down_selector_1);
-                    akVar.c.setVisibility(8);
+                    akVar2.f1316a.setBackgroundResource(R.drawable.bg_frs_top_down_selector_1);
+                    akVar2.c.setVisibility(8);
                 } else {
-                    akVar.f1311a.setBackgroundResource(R.drawable.bg_frs_top_middle_selector_1);
-                    akVar.c.setVisibility(0);
+                    akVar2.f1316a.setBackgroundResource(R.drawable.bg_frs_top_middle_selector_1);
+                    akVar2.c.setVisibility(0);
                 }
             }
         } else {
-            if (baVar.f() == 1) {
-                bitmapDrawable = (BitmapDrawable) this.f1309a.getResources().getDrawable(R.drawable.icon_top);
+            if (azVar.f() == 1) {
+                bitmapDrawable = (BitmapDrawable) this.f1314a.getResources().getDrawable(R.drawable.icon_top);
             } else {
-                bitmapDrawable = baVar.f() == 2 ? (BitmapDrawable) this.f1309a.getResources().getDrawable(R.drawable.icon_notice) : null;
+                bitmapDrawable = azVar.f() == 2 ? (BitmapDrawable) this.f1314a.getResources().getDrawable(R.drawable.icon_notice) : null;
             }
             if (this.p == 1) {
-                akVar.f1311a.setBackgroundResource(R.drawable.bg_frs_top_selector);
-                akVar.c.setVisibility(8);
+                akVar2.f1316a.setBackgroundResource(R.drawable.bg_frs_top_selector);
+                akVar2.c.setVisibility(8);
             } else if (this.p >= 2) {
                 if (i == 0) {
-                    akVar.f1311a.setBackgroundResource(R.drawable.bg_frs_top_up_selector);
+                    akVar2.f1316a.setBackgroundResource(R.drawable.bg_frs_top_up_selector);
                 } else if (i == this.p - 1) {
-                    akVar.f1311a.setBackgroundResource(R.drawable.bg_frs_top_down_selector);
-                    akVar.c.setVisibility(8);
+                    akVar2.f1316a.setBackgroundResource(R.drawable.bg_frs_top_down_selector);
+                    akVar2.c.setVisibility(8);
                 } else {
-                    akVar.f1311a.setBackgroundResource(R.drawable.bg_frs_top_middle_selector);
+                    akVar2.f1316a.setBackgroundResource(R.drawable.bg_frs_top_middle_selector);
                 }
             }
         }
-        bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-        akVar.b.setCompoundDrawables(bitmapDrawable, null, null, null);
-        return view;
+        if (bitmapDrawable != null) {
+            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
+        }
+        akVar2.b.setCompoundDrawables(bitmapDrawable, null, null, null);
+        return view3;
+    }
+
+    private View e() {
+        View inflate = LayoutInflater.from(this.f1314a).inflate(R.layout.frs_top_item, (ViewGroup) null);
+        ak akVar = new ak(this);
+        akVar.f1316a = (LinearLayout) inflate.findViewById(R.id.frs_top_item);
+        akVar.b = (TextView) inflate.findViewById(R.id.frs_top_title);
+        akVar.c = inflate.findViewById(R.id.frs_top_divider);
+        inflate.setTag(akVar);
+        return inflate;
     }
 
     private View b(int i, View view, int i2) {
         al alVar;
         int i3;
         if (view == null) {
-            view = LayoutInflater.from(this.f1309a).inflate(R.layout.frs_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.f1314a).inflate(R.layout.frs_item, (ViewGroup) null);
             al alVar2 = new al(this);
-            alVar2.f1312a = (LinearLayout) view.findViewById(R.id.frs_list);
+            alVar2.f1317a = (LinearLayout) view.findViewById(R.id.frs_list);
             alVar2.b = (LinearLayout) view.findViewById(R.id.frs_list_item_top);
             alVar2.c = (RelativeLayout) view.findViewById(R.id.item_bottom_layout);
             alVar2.g = (TextView) view.findViewById(R.id.frs_lv_reply_num);
@@ -306,12 +327,12 @@ public class ah extends BaseAdapter {
             alVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
             alVar.c.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
         }
-        alVar.f1312a.setPadding(0, i - this.p == 0 ? this.n : this.o, 0, 0);
+        alVar.f1317a.setPadding(0, i - this.p == 0 ? this.n : this.o, 0, 0);
         alVar.l.setVisibility(8);
-        ((FrsActivity) this.f1309a).getLayoutMode().a(i2 == 1);
-        ((FrsActivity) this.f1309a).getLayoutMode().a(view);
-        com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) getItem(i);
-        int d = baVar.d();
+        ((FrsActivity) this.f1314a).getLayoutMode().a(i2 == 1);
+        ((FrsActivity) this.f1314a).getLayoutMode().a(view);
+        com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) getItem(i);
+        int d = azVar.d();
         alVar.k.setVisibility(0);
         if (d <= 999999) {
             if (d > 0) {
@@ -323,26 +344,26 @@ public class ah extends BaseAdapter {
         } else {
             alVar.g.setText("999999+");
         }
-        alVar.h.setText(com.baidu.tieba.util.be.b(baVar.e() * 1000));
-        alVar.i.setText(baVar.r());
+        alVar.h.setText(com.baidu.tieba.util.be.b(azVar.e() * 1000));
+        alVar.i.setText(azVar.r());
         com.baidu.tieba.util.bc aw = TiebaApplication.g().aw();
-        if (aw != null && aw.b(baVar.a())) {
-            alVar.i.setTextColor(i2 == 1 ? this.f1309a.getResources().getColor(R.color.listview_item_thread_read_1) : this.f1309a.getResources().getColor(R.color.listview_item_thread_read));
+        if (aw != null && aw.b(azVar.a())) {
+            alVar.i.setTextColor(i2 == 1 ? this.f1314a.getResources().getColor(R.color.listview_item_thread_read_1) : this.f1314a.getResources().getColor(R.color.listview_item_thread_read));
         }
-        alVar.j.setText(baVar.j().getName());
-        this.m = baVar.j().getIconInfo();
+        alVar.j.setText(azVar.j().getName());
+        this.m = azVar.j().getIconInfo();
         if (alVar.n != null) {
-            alVar.n.a(this.m, 3, this.f1309a.getResources().getDimensionPixelSize(R.dimen.frs_icon_width), this.f1309a.getResources().getDimensionPixelSize(R.dimen.frs_icon_height), this.f1309a.getResources().getDimensionPixelSize(R.dimen.frs_icon_margin));
+            alVar.n.a(this.m, 3, this.f1314a.getResources().getDimensionPixelSize(R.dimen.frs_icon_width), this.f1314a.getResources().getDimensionPixelSize(R.dimen.frs_icon_height), this.f1314a.getResources().getDimensionPixelSize(R.dimen.frs_icon_margin));
         }
         alVar.c.setVisibility(0);
         alVar.f.setVisibility(0);
         alVar.e.setVisibility(0);
         alVar.d.setVisibility(0);
         StringBuffer stringBuffer = new StringBuffer();
-        if (baVar.m() != null) {
-            stringBuffer.append(baVar.m());
+        if (azVar.m() != null) {
+            stringBuffer.append(azVar.m());
         }
-        ArrayList<com.baidu.tieba.data.aj> p = baVar.p();
+        ArrayList<com.baidu.tieba.data.ai> p = azVar.p();
         if (p != null) {
             StringBuffer stringBuffer2 = new StringBuffer();
             for (int i4 = 0; i4 < p.size(); i4++) {
@@ -357,39 +378,43 @@ public class ah extends BaseAdapter {
                 alVar.d.setVisibility(8);
             }
         }
-        if (com.baidu.tieba.d.a.a().f() && p != null) {
-            if (p.size() > 0) {
-                int i5 = 0;
-                for (int i6 = 0; i6 < p.size(); i6++) {
-                    if (p.get(i6) != null && (p.get(i6).a() == 3 || p.get(i6).a() == 5)) {
-                        i5++;
-                    }
-                }
-                int i7 = i5 > 3 ? 3 : i5;
-                if (i7 > 0) {
-                    com.baidu.tieba.data.aj[] ajVarArr = new com.baidu.tieba.data.aj[i7];
-                    int i8 = 0;
-                    int i9 = 0;
-                    while (i9 < p.size() && i8 < i7) {
-                        if (p.get(i9).a() == 3 || p.get(i9).a() == 5) {
-                            ajVarArr[i8] = p.get(i9);
-                            i3 = i8 + 1;
-                        } else {
-                            i3 = i8;
+        if (com.baidu.tieba.d.a.a().f()) {
+            if (p != null) {
+                if (p.size() > 0) {
+                    int i5 = 0;
+                    for (int i6 = 0; i6 < p.size(); i6++) {
+                        if (p.get(i6) != null && (p.get(i6).a() == 3 || p.get(i6).a() == 5)) {
+                            i5++;
                         }
-                        i9++;
-                        i8 = i3;
                     }
-                    alVar.f.setShowBig(this.j);
-                    alVar.f.setData(ajVarArr);
-                    alVar.f.setImageFrom("frs");
-                    alVar.f.setFromCDN(this.l);
+                    int i7 = i5 > 3 ? 3 : i5;
+                    if (i7 > 0) {
+                        com.baidu.tieba.data.ai[] aiVarArr = new com.baidu.tieba.data.ai[i7];
+                        int i8 = 0;
+                        int i9 = 0;
+                        while (i9 < p.size() && i8 < i7) {
+                            if (p.get(i9).a() == 3 || p.get(i9).a() == 5) {
+                                aiVarArr[i8] = p.get(i9);
+                                i3 = i8 + 1;
+                            } else {
+                                i3 = i8;
+                            }
+                            i9++;
+                            i8 = i3;
+                        }
+                        alVar.f.setShowBig(this.j);
+                        alVar.f.setData(aiVarArr);
+                        alVar.f.setImageFrom("frs");
+                        alVar.f.setFromCDN(this.l);
+                    }
+                } else {
+                    alVar.f.setVisibility(8);
                 }
-            } else {
-                alVar.f.setVisibility(8);
             }
+        } else {
+            alVar.f.setVisibility(8);
         }
-        ArrayList<VoiceManager.VoiceModel> q = baVar.q();
+        ArrayList<VoiceManager.VoiceModel> q = azVar.q();
         if (q != null && q.size() > 0) {
             VoiceManager.VoiceModel voiceModel = q.get(0);
             alVar.e.setVoiceModel(voiceModel);
@@ -405,9 +430,9 @@ public class ah extends BaseAdapter {
     private View a(View view, int i) {
         aj ajVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f1309a).inflate(R.layout.frs_item_control, (ViewGroup) null);
+            view = LayoutInflater.from(this.f1314a).inflate(R.layout.frs_item_control, (ViewGroup) null);
             aj ajVar2 = new aj(this);
-            ajVar2.f1310a = (FrameLayout) view.findViewById(R.id.frs_list_control);
+            ajVar2.f1315a = (FrameLayout) view.findViewById(R.id.frs_list_control);
             ajVar2.b = (LinearLayout) view.findViewById(R.id.frs_list_control_in);
             ajVar2.d = (ProgressBar) view.findViewById(R.id.frs_list_control_progress);
             ajVar2.c = (TextView) view.findViewById(R.id.frs_list_control_tv);
@@ -417,8 +442,8 @@ public class ah extends BaseAdapter {
             ajVar = (aj) view.getTag();
         }
         if (this.c) {
-            ajVar.f1310a.setVisibility(0);
-            ajVar.f1310a.setPadding(0, this.n, 0, 0);
+            ajVar.f1315a.setVisibility(0);
+            ajVar.f1315a.setPadding(0, this.n, 0, 0);
             if (this.f) {
                 ajVar.c.setText(R.string.loading);
                 ajVar.d.setVisibility(0);
@@ -433,7 +458,7 @@ public class ah extends BaseAdapter {
             }
             com.baidu.tieba.util.bd.b(ajVar.c, i);
         } else {
-            ajVar.f1310a.setVisibility(8);
+            ajVar.f1315a.setVisibility(8);
         }
         return view;
     }
@@ -441,9 +466,9 @@ public class ah extends BaseAdapter {
     private View b(View view, int i) {
         aj ajVar;
         if (view == null) {
-            view = LayoutInflater.from(this.f1309a).inflate(R.layout.frs_item_control, (ViewGroup) null);
+            view = LayoutInflater.from(this.f1314a).inflate(R.layout.frs_item_control, (ViewGroup) null);
             aj ajVar2 = new aj(this);
-            ajVar2.f1310a = (FrameLayout) view.findViewById(R.id.frs_list_control);
+            ajVar2.f1315a = (FrameLayout) view.findViewById(R.id.frs_list_control);
             ajVar2.b = (LinearLayout) view.findViewById(R.id.frs_list_control_in);
             ajVar2.d = (ProgressBar) view.findViewById(R.id.frs_list_control_progress);
             ajVar2.c = (TextView) view.findViewById(R.id.frs_list_control_tv);
@@ -453,8 +478,8 @@ public class ah extends BaseAdapter {
             ajVar = (aj) view.getTag();
         }
         if (this.d) {
-            ajVar.f1310a.setVisibility(0);
-            ajVar.f1310a.setPadding(0, this.n, 0, this.n);
+            ajVar.f1315a.setVisibility(0);
+            ajVar.f1315a.setPadding(0, this.n, 0, this.n);
             if (this.e) {
                 ajVar.c.setText(R.string.loading);
                 ajVar.d.setVisibility(0);
@@ -469,7 +494,7 @@ public class ah extends BaseAdapter {
             }
             com.baidu.tieba.util.bd.b(ajVar.c, i);
         } else {
-            ajVar.f1310a.setVisibility(8);
+            ajVar.f1315a.setVisibility(8);
         }
         return view;
     }

@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1601a = "tb_group_msg_";
+    public static String f1592a = "tb_group_msg_";
     private static a b;
     private AtomicInteger c = new AtomicInteger(0);
 
@@ -35,7 +35,7 @@ public class a {
         int i = 0;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1601a + str;
+                String str2 = f1592a + str;
                 SQLiteDatabase a2 = m.a();
                 Cursor cursor = null;
                 if (a2 != null) {
@@ -65,10 +65,13 @@ public class a {
     public synchronized void b(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
+                String str2 = f1592a + str;
                 SQLiteDatabase a2 = m.a();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("read_flag", (Integer) 0);
-                a2.update(f1601a + str, contentValues, null, null);
+                if (a2 != null) {
+                    a2.update(str2, contentValues, null, null);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 d(str);
@@ -81,7 +84,7 @@ public class a {
         GroupMsgPojo groupMsgPojo = null;
         synchronized (this) {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1601a + str;
+                String str2 = f1592a + str;
                 SQLiteDatabase a2 = m.a();
                 try {
                     if (a2 != null) {
@@ -159,7 +162,7 @@ public class a {
                     i = 20;
                 }
                 LinkedList<GroupMsgPojo> linkedList2 = new LinkedList<>();
-                ?? r2 = f1601a + str;
+                ?? r2 = f1592a + str;
                 SQLiteDatabase a2 = m.a();
                 try {
                     if (a2 == null) {
@@ -251,7 +254,7 @@ public class a {
     public synchronized void d(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                String str2 = f1601a + str;
+                String str2 = f1592a + str;
                 SQLiteDatabase a2 = m.a();
                 if (a2 != null) {
                     String str3 = "CREATE TABLE IF NOT EXISTS " + str2 + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob,read_flag int);";

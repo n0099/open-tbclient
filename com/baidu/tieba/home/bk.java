@@ -35,7 +35,7 @@ public class bk extends BaseAdapter implements AbsListView.OnScrollListener, cb 
     private TextView k;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<z> f1429a = new ArrayList<>();
+    private ArrayList<z> f1420a = new ArrayList<>();
     private HashMap<String, bz> g = new HashMap<>();
     private ColorDrawable h = new ColorDrawable(-13881543);
     private ColorDrawable i = new ColorDrawable(-1775893);
@@ -49,7 +49,7 @@ public class bk extends BaseAdapter implements AbsListView.OnScrollListener, cb 
 
     public void a(y yVar) {
         this.b = yVar;
-        this.f1429a = yVar.j();
+        this.f1420a = yVar.j();
         notifyDataSetChanged();
     }
 
@@ -65,13 +65,13 @@ public class bk extends BaseAdapter implements AbsListView.OnScrollListener, cb 
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f1429a.size() * 2;
+        return this.f1420a.size() * 2;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         if (i % 2 == 0) {
-            return this.f1429a.get(i / 2);
+            return this.f1420a.get(i / 2);
         }
         return -1;
     }
@@ -85,9 +85,9 @@ public class bk extends BaseAdapter implements AbsListView.OnScrollListener, cb 
         if (i == 0) {
             View inflate = this.d.inflate(R.layout.signallforum_item, (ViewGroup) null);
             bo boVar = new bo(this);
-            boVar.f1433a = (HeadImageView) inflate.findViewById(R.id.signallforum_item_avatar);
-            boVar.f1433a.setIsRound(false);
-            boVar.f1433a.setGifIconSupport(false);
+            boVar.f1424a = (HeadImageView) inflate.findViewById(R.id.signallforum_item_avatar);
+            boVar.f1424a.setIsRound(false);
+            boVar.f1424a.setGifIconSupport(false);
             boVar.c = (TextView) inflate.findViewById(R.id.signallforum_item_name);
             boVar.d = (TextView) inflate.findViewById(R.id.signallforum_item_level);
             boVar.e = (TextView) inflate.findViewById(R.id.signallforum_item_exp);
@@ -187,9 +187,9 @@ public class bk extends BaseAdapter implements AbsListView.OnScrollListener, cb 
             boVar.l.setVisibility(8);
         }
         String c = zVar.c();
-        boVar.f1433a.setTag(c);
+        boVar.f1424a.setTag(c);
         if (this.f.d(c) != null) {
-            boVar.f1433a.invalidate();
+            boVar.f1424a.invalidate();
         } else if (!this.e) {
             this.f.a(zVar.c(), new bm(this, view2));
         }
@@ -242,9 +242,9 @@ public class bk extends BaseAdapter implements AbsListView.OnScrollListener, cb 
     }
 
     private void a(String str, boolean z, SignData signData, String str2) {
-        int size = this.f1429a.size();
+        int size = this.f1420a.size();
         for (int i = 0; i < size; i++) {
-            z zVar = this.f1429a.get(i);
+            z zVar = this.f1420a.get(i);
             if ((zVar.a() + "").equals(str)) {
                 zVar.a(z);
                 zVar.b(!z);

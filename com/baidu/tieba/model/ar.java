@@ -9,14 +9,14 @@ import org.json.JSONObject;
 public class ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumData f1898a;
-    private ArrayList<com.baidu.tieba.data.bb> b;
+    private ForumData f1880a;
+    private ArrayList<com.baidu.tieba.data.ba> b;
     private ArrayList<String> c;
     private int d;
     private int e;
     private int f;
     private AntiData g;
-    private com.baidu.tieba.data.al h;
+    private com.baidu.tieba.data.ak h;
     private String i = null;
     private String j = null;
     private as k = null;
@@ -29,21 +29,21 @@ public class ar {
     }
 
     private void g() {
-        this.f1898a = new ForumData();
+        this.f1880a = new ForumData();
         this.b = new ArrayList<>();
         this.c = new ArrayList<>();
         this.d = 0;
         this.e = 0;
         this.f = 0;
         this.g = new AntiData();
-        this.h = new com.baidu.tieba.data.al();
+        this.h = new com.baidu.tieba.data.ak();
     }
 
     public ForumData a() {
-        return this.f1898a;
+        return this.f1880a;
     }
 
-    public ArrayList<com.baidu.tieba.data.bb> b() {
+    public ArrayList<com.baidu.tieba.data.ba> b() {
         return this.b;
     }
 
@@ -63,7 +63,7 @@ public class ar {
         if (jSONObject != null) {
             try {
                 g();
-                this.f1898a.parserJson(jSONObject.optJSONObject("forum"));
+                this.f1880a.parserJson(jSONObject.optJSONObject("forum"));
                 this.h.a(jSONObject.optJSONObject("user"));
                 this.g.parserJson(jSONObject.optJSONObject("anti"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("photo_data");
@@ -71,9 +71,9 @@ public class ar {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("thread_list");
                     if (optJSONArray != null) {
                         for (int i = 0; i < optJSONArray.length(); i++) {
-                            com.baidu.tieba.data.bb bbVar = new com.baidu.tieba.data.bb();
-                            bbVar.a(optJSONArray.optJSONObject(i));
-                            this.b.add(bbVar);
+                            com.baidu.tieba.data.ba baVar = new com.baidu.tieba.data.ba();
+                            baVar.a(optJSONArray.optJSONObject(i));
+                            this.b.add(baVar);
                         }
                     }
                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("alb_id_list");

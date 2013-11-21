@@ -4,11 +4,11 @@ package com.baidu.tieba.frs;
 public class bf extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1332a;
+    final /* synthetic */ FrsImageActivity f1337a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(FrsImageActivity frsImageActivity) {
-        this.f1332a = frsImageActivity;
+        this.f1337a = frsImageActivity;
     }
 
     @Override // com.baidu.adp.a.g
@@ -16,15 +16,15 @@ public class bf extends com.baidu.adp.a.g {
         com.baidu.tieba.model.x xVar;
         bl blVar;
         com.baidu.tieba.model.x xVar2;
-        xVar = this.f1332a.o;
+        xVar = this.f1337a.o;
         if (xVar.getLoadDataMode() == 1) {
             if (((Boolean) obj).booleanValue()) {
-                this.f1332a.k();
+                this.f1337a.k();
             }
-            blVar = this.f1332a.l;
+            blVar = this.f1337a.l;
             bs f = blVar.f();
             boolean booleanValue = ((Boolean) obj).booleanValue();
-            xVar2 = this.f1332a.o;
+            xVar2 = this.f1337a.o;
             f.a(booleanValue, xVar2.getErrorString());
         }
     }

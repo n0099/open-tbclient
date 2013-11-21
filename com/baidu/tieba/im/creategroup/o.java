@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class o extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f1594a;
+    NavigationBar f1585a;
     View c;
     GroupAddressActivity d;
     Button e;
@@ -27,7 +27,7 @@ public class o extends com.baidu.adp.a.e {
 
     public o(GroupAddressActivity groupAddressActivity) {
         super(groupAddressActivity);
-        this.f1594a = null;
+        this.f1585a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -77,9 +77,9 @@ public class o extends com.baidu.adp.a.e {
         this.f = (BdListView) groupAddressActivity.findViewById(R.id.lv_address);
         this.h = new m(this.d);
         this.f.setAdapter((ListAdapter) this.h);
-        this.f1594a = (NavigationBar) groupAddressActivity.findViewById(R.id.view_navigation_bar);
-        this.f1594a.a(groupAddressActivity.getResources().getString(R.string.group_address));
-        this.e = this.f1594a.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressActivity.getResources().getString(R.string.group_create_step_done_tip));
+        this.f1585a = (NavigationBar) groupAddressActivity.findViewById(R.id.view_navigation_bar);
+        this.f1585a.a(groupAddressActivity.getResources().getString(R.string.group_address));
+        this.e = this.f1585a.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, groupAddressActivity.getResources().getString(R.string.group_create_step_done_tip));
         this.f.setOnItemClickListener(this.d);
         com.baidu.adp.lib.c.a.a().a(true, this.i);
     }
@@ -88,6 +88,6 @@ public class o extends com.baidu.adp.a.e {
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.c);
         bd.b(this.c, i);
-        this.f1594a.c(i);
+        this.f1585a.c(i);
     }
 }

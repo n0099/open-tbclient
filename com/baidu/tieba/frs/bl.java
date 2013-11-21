@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
@@ -18,7 +19,7 @@ import com.slidingmenu.lib.SlidingMenu;
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f1337a;
+    private com.baidu.tieba.j f1342a;
     private View.OnClickListener b;
     private LinearLayout c = null;
     private bs d = null;
@@ -35,39 +36,39 @@ public class bl {
     private NavigationBar o;
 
     public bl(FrsImageActivity frsImageActivity, View.OnClickListener onClickListener) {
-        this.f1337a = null;
+        this.f1342a = null;
         this.b = null;
-        this.f1337a = frsImageActivity;
+        this.f1342a = frsImageActivity;
         this.b = onClickListener;
         l();
     }
 
     private void l() {
-        this.f1337a.setContentView(R.layout.frs_image_activity);
-        this.d = new bs(this.f1337a);
+        this.f1342a.setContentView(R.layout.frs_image_activity);
+        this.d = new bs(this.f1342a);
         this.d.a(R.id.show_image);
-        this.c = (LinearLayout) this.f1337a.findViewById(R.id.container);
-        this.e = new SlidingMenu(this.f1337a);
+        this.c = (LinearLayout) this.f1342a.findViewById(R.id.container);
+        this.e = new SlidingMenu(this.f1342a);
         this.e.setMode(1);
         this.e.setTouchModeAbove(1);
-        this.e.setBehindOffset(UtilHelper.a((Context) this.f1337a, 48.0f));
+        this.e.setBehindOffset(UtilHelper.a((Context) this.f1342a, 48.0f));
         this.e.setBehindScrollScale(0.5f);
         this.e.setFadeDegree(0.35f);
-        this.e.attachToActivity(this.f1337a, 1);
+        this.e.attachToActivity(this.f1342a, 1);
         this.e.setMenu(this.d.a());
-        this.o = (NavigationBar) this.f1337a.findViewById(R.id.view_navigation_bar);
+        this.o = (NavigationBar) this.f1342a.findViewById(R.id.view_navigation_bar);
         this.m = this.o.a("");
         this.i = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.b);
         this.j = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.EDIT_BUTTON, this.b);
         this.k = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_frs_more, (View.OnClickListener) null).findViewById(R.id.frs_top_more);
         this.k.setOnClickListener(this.b);
-        this.f = (WaterFallView) this.f1337a.findViewById(R.id.water_fall);
-        this.g = new com.baidu.tieba.view.bk(this.f1337a);
+        this.f = (WaterFallView) this.f1342a.findViewById(R.id.water_fall);
+        this.g = new com.baidu.tieba.view.bk(this.f1342a);
         this.f.setCustomHeaderView(this.g);
-        this.h = (ProgressBar) this.f1337a.findViewById(R.id.progress);
+        this.h = (ProgressBar) this.f1342a.findViewById(R.id.progress);
         this.d.a(this.b);
-        this.l = (TextView) this.f1337a.findViewById(R.id.frs_more_mes_text);
-        this.n = (NoNetworkView) this.f1337a.findViewById(R.id.view_no_network);
+        this.l = (TextView) this.f1342a.findViewById(R.id.frs_more_mes_text);
+        this.n = (NoNetworkView) this.f1342a.findViewById(R.id.view_no_network);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -135,13 +136,13 @@ public class bl {
     }
 
     public void a(String str) {
-        this.m.setText(str + this.f1337a.getString(R.string.forum));
+        this.m.setText(str + this.f1342a.getString(R.string.forum));
     }
 
     public AlertDialog j() {
-        String[] strArr = {this.f1337a.getString(R.string.take_photo), this.f1337a.getString(R.string.album)};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1337a);
-        builder.setTitle(this.f1337a.getString(R.string.operation));
+        String[] strArr = {this.f1342a.getString(R.string.take_photo), this.f1342a.getString(R.string.album)};
+        AlertDialog.Builder builder = new AlertDialog.Builder(this.f1342a);
+        builder.setTitle(this.f1342a.getString(R.string.operation));
         builder.setItems(strArr, new bm(this));
         AlertDialog create = builder.create();
         create.setCanceledOnTouchOutside(true);
@@ -151,17 +152,29 @@ public class bl {
     public void a(com.baidu.tieba.model.ap apVar) {
         this.d.a(apVar);
         long a2 = apVar.a() + apVar.b();
+        boolean z = TiebaApplication.g().ap() == 1;
         if (a2 > 0) {
             this.l.setVisibility(0);
-            this.l.setText(String.valueOf(a2 <= 99 ? a2 : 99L));
-            return;
+            if (a2 < 10) {
+                this.l.setText(String.valueOf(a2));
+                this.l.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
+                return;
+            } else if (a2 < 100) {
+                this.l.setText(String.valueOf(a2));
+                this.l.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
+                return;
+            } else {
+                this.l.setText("   ");
+                this.l.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_more_1 : R.drawable.icon_news_head_prompt_more);
+                return;
+            }
         }
         this.l.setVisibility(4);
     }
 
     public void a(int i) {
-        this.f1337a.getLayoutMode().a(i == 1);
-        this.f1337a.getLayoutMode().a(this.c);
+        this.f1342a.getLayoutMode().a(i == 1);
+        this.f1342a.getLayoutMode().a(this.c);
         this.d.b(i);
         this.f.d(i);
         this.g.a(i);

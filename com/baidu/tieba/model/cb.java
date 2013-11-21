@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class cb {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.aq f1927a = new com.baidu.tieba.data.aq();
+    private com.baidu.tieba.data.ap f1909a = new com.baidu.tieba.data.ap();
     private boolean b = true;
     private String c = null;
     private int d;
@@ -32,8 +32,8 @@ public class cb {
         return this.b;
     }
 
-    public com.baidu.tieba.data.aq d() {
-        return this.f1927a;
+    public com.baidu.tieba.data.ap d() {
+        return this.f1909a;
     }
 
     public void a(String str, boolean z) {
@@ -45,7 +45,7 @@ public class cb {
         }
     }
 
-    public com.baidu.tieba.data.aq b(boolean z) {
+    public com.baidu.tieba.data.ap b(boolean z) {
         if (this.c == null) {
             return null;
         }
@@ -55,9 +55,9 @@ public class cb {
             if (a2 == null) {
                 return null;
             }
-            com.baidu.tieba.data.aq aqVar = new com.baidu.tieba.data.aq();
-            aqVar.a(a2);
-            return aqVar;
+            com.baidu.tieba.data.ap apVar = new com.baidu.tieba.data.ap();
+            apVar.a(a2);
+            return apVar;
         }
         return null;
     }

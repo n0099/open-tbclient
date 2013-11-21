@@ -10,11 +10,11 @@ import java.io.FileInputStream;
 class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ y f2477a;
+    final /* synthetic */ y f2460a;
     private ap b;
 
     private ac(y yVar) {
-        this.f2477a = yVar;
+        this.f2460a = yVar;
         this.b = null;
     }
 
@@ -23,7 +23,7 @@ class ac {
         this(yVar);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [742=4, 743=4, 746=4, 747=4, 752=4, 753=4, 756=4, 757=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [677=4, 678=4, 681=4, 682=4, 687=4, 688=4, 691=4, 692=4] */
     /* JADX WARN: Removed duplicated region for block: B:86:0x008b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:96:0x0086 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -83,7 +83,7 @@ class ac {
                             }
                             return;
                         }
-                        this.b = new ap(com.baidu.tieba.data.h.f1196a + str2);
+                        this.b = new ap(com.baidu.tieba.data.h.f1201a + str2);
                         this.b.a(SocialConstants.PARAM_CUID, com.baidu.tieba.im.i.a());
                         this.b.a("uid", TiebaApplication.A());
                         this.b.a("time", str6);
@@ -99,13 +99,13 @@ class ac {
                             fileInputStream = null;
                         }
                         if (this.b.c()) {
-                            str4 = y.e;
+                            str4 = y.d;
                             af.k(str4);
                             if (TextUtils.isEmpty(af.a("log", name2, "logbak", name2))) {
                                 bg.b(getClass().getName(), "sendLogFile", "file.move error");
                             }
-                            y yVar = this.f2477a;
-                            str5 = y.e;
+                            y yVar = this.f2460a;
+                            str5 = y.d;
                             yVar.d(str5);
                         }
                     } catch (Exception e3) {

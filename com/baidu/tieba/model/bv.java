@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class bv {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.data.ao f1921a = null;
+    private com.baidu.tieba.data.an f1903a = null;
     private boolean d = true;
     private boolean c = true;
     private boolean e = false;
@@ -20,12 +20,12 @@ public class bv {
     private int o = 1;
     private boolean p = false;
 
-    public void a(com.baidu.tieba.data.ao aoVar) {
-        this.f1921a = aoVar;
+    public void a(com.baidu.tieba.data.an anVar) {
+        this.f1903a = anVar;
     }
 
-    public com.baidu.tieba.data.ao a() {
-        return this.f1921a;
+    public com.baidu.tieba.data.an a() {
+        return this.f1903a;
     }
 
     public boolean b() {

@@ -7,11 +7,11 @@ import android.widget.ImageView;
 public class aj implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ah f1977a;
+    final /* synthetic */ ah f1960a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ah ahVar) {
-        this.f1977a = ahVar;
+        this.f1960a = ahVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -34,57 +34,57 @@ public class aj implements View.OnClickListener {
         ac acVar7;
         ac acVar8;
         ac acVar9;
-        imageView = this.f1977a.o;
+        imageView = this.f1960a.o;
         if (view == imageView) {
-            acVar9 = this.f1977a.c;
+            acVar9 = this.f1960a.c;
             acVar9.a(0);
             return;
         }
-        settingTextImageView = this.f1977a.f;
+        settingTextImageView = this.f1960a.f;
         if (view == settingTextImageView) {
-            acVar8 = this.f1977a.c;
+            acVar8 = this.f1960a.c;
             acVar8.a(1);
             return;
         }
-        settingTextTipView = this.f1977a.g;
+        settingTextTipView = this.f1960a.g;
         if (view == settingTextTipView) {
-            acVar7 = this.f1977a.c;
+            acVar7 = this.f1960a.c;
             acVar7.a(2);
             return;
         }
-        settingTextTipView2 = this.f1977a.h;
+        settingTextTipView2 = this.f1960a.h;
         if (view == settingTextTipView2) {
-            acVar6 = this.f1977a.c;
+            acVar6 = this.f1960a.c;
             acVar6.a(3);
             return;
         }
-        settingTextTipView3 = this.f1977a.i;
+        settingTextTipView3 = this.f1960a.i;
         if (view == settingTextTipView3) {
-            acVar5 = this.f1977a.c;
+            acVar5 = this.f1960a.c;
             acVar5.a(4);
             return;
         }
-        settingTextVersionView = this.f1977a.j;
+        settingTextVersionView = this.f1960a.j;
         if (view == settingTextVersionView) {
-            acVar4 = this.f1977a.c;
+            acVar4 = this.f1960a.c;
             acVar4.a(6);
             return;
         }
-        settingTextTipView4 = this.f1977a.k;
+        settingTextTipView4 = this.f1960a.k;
         if (view == settingTextTipView4) {
-            acVar3 = this.f1977a.c;
+            acVar3 = this.f1960a.c;
             acVar3.a(7);
             return;
         }
-        settingTextTipView5 = this.f1977a.l;
+        settingTextTipView5 = this.f1960a.l;
         if (view == settingTextTipView5) {
-            acVar2 = this.f1977a.c;
+            acVar2 = this.f1960a.c;
             acVar2.a(8);
             return;
         }
-        settingTextTipView6 = this.f1977a.m;
+        settingTextTipView6 = this.f1960a.m;
         if (view == settingTextTipView6) {
-            acVar = this.f1977a.c;
+            acVar = this.f1960a.c;
             acVar.a(5);
         }
     }

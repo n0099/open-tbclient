@@ -3,11 +3,11 @@ package com.baidu.tieba.im.model;
 class l implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f1754a;
+    final /* synthetic */ k f1745a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.f1754a = kVar;
+        this.f1745a = kVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

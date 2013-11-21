@@ -3,11 +3,11 @@ package com.baidu.tieba.im.chat;
 class n implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1556a;
+    final /* synthetic */ GroupSettingActivity f1547a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(GroupSettingActivity groupSettingActivity) {
-        this.f1556a = groupSettingActivity;
+        this.f1547a = groupSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,11 +16,11 @@ class n implements com.baidu.tieba.im.a<Boolean> {
         v vVar;
         v vVar2;
         if (bool == null || !bool.equals(true)) {
-            vVar = this.f1556a.f1490a;
+            vVar = this.f1547a.f1481a;
             vVar.s().b();
             return;
         }
-        vVar2 = this.f1556a.f1490a;
+        vVar2 = this.f1547a.f1481a;
         vVar2.s().a();
     }
 }

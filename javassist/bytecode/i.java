@@ -14,7 +14,7 @@ public final class i {
     public static int n;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2814a;
+    int f2798a;
     int b;
     y c;
     int d;
@@ -46,7 +46,7 @@ public final class i {
     }
 
     public i(boolean z, String str, String str2) {
-        this.f2814a = n;
+        this.f2798a = n;
         this.b = 0;
         this.c = new y(str);
         this.d = this.c.b();
@@ -352,7 +352,7 @@ public final class i {
             throw new IOException("bad magic number: " + Integer.toHexString(readInt));
         }
         this.b = dataInputStream.readUnsignedShort();
-        this.f2814a = dataInputStream.readUnsignedShort();
+        this.f2798a = dataInputStream.readUnsignedShort();
         this.c = new y(dataInputStream);
         this.e = dataInputStream.readUnsignedShort();
         this.d = dataInputStream.readUnsignedShort();
@@ -389,7 +389,7 @@ public final class i {
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeInt(-889275714);
         dataOutputStream.writeShort(this.b);
-        dataOutputStream.writeShort(this.f2814a);
+        dataOutputStream.writeShort(this.f2798a);
         this.c.a(dataOutputStream);
         dataOutputStream.writeShort(this.e);
         dataOutputStream.writeShort(this.d);
@@ -416,6 +416,6 @@ public final class i {
     }
 
     public int m() {
-        return this.f2814a;
+        return this.f2798a;
     }
 }

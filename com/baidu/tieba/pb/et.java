@@ -1,5 +1,19 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public interface et {
-    boolean a(String str);
+class et implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ WebActivity f2159a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public et(WebActivity webActivity) {
+        this.f2159a = webActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f2159a.f2039a.reload();
+    }
 }

@@ -17,7 +17,7 @@ public class c {
     private static c b = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<Integer, b> f1569a = new HashMap<>();
+    private HashMap<Integer, b> f1560a = new HashMap<>();
     private SecretKey c;
 
     public boolean a() {
@@ -37,7 +37,7 @@ public class c {
     }
 
     protected void c() {
-        this.f1569a.put(1, new com.baidu.tieba.im.codec.a.b());
+        this.f1560a.put(1, new com.baidu.tieba.im.codec.a.b());
     }
 
     public byte[] a(NetworkMessage networkMessage, int i, boolean z) {
@@ -67,7 +67,7 @@ public class c {
         if (networkMessage == null) {
             throw new IMCodecException(com.baidu.tieba.im.k.b, null);
         }
-        b bVar = this.f1569a.get(Integer.valueOf(i));
+        b bVar = this.f1560a.get(Integer.valueOf(i));
         if (bVar == null) {
             throw new IMCodecException(com.baidu.tieba.im.k.c, networkMessage.getData());
         }
@@ -120,7 +120,7 @@ public class c {
         int length = bArr.length - a2;
         if (length == 0) {
             p pVar = new p();
-            pVar.f1575a = a3;
+            pVar.f1566a = a3;
             pVar.b = bArr;
             pVar.c = a2;
             pVar.d = length;
@@ -151,7 +151,7 @@ public class c {
             i = a2;
         }
         p pVar2 = new p();
-        pVar2.f1575a = a3;
+        pVar2.f1566a = a3;
         pVar2.b = bArr;
         pVar2.c = i;
         pVar2.d = length;
@@ -159,7 +159,7 @@ public class c {
     }
 
     public List<Message> a(int i, boolean z, byte[] bArr, int i2, int i3) {
-        b bVar = this.f1569a.get(Integer.valueOf(i));
+        b bVar = this.f1560a.get(Integer.valueOf(i));
         if (bVar == null) {
             throw new IMException(com.baidu.tieba.im.k.c);
         }
@@ -171,7 +171,7 @@ public class c {
     }
 
     public void a(int i, int i2, n<?> nVar) {
-        b bVar = this.f1569a.get(Integer.valueOf(i2));
+        b bVar = this.f1560a.get(Integer.valueOf(i2));
         if (bVar != null) {
             bVar.a(i, nVar);
         } else if (TiebaApplication.g().b()) {

@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class EditorToolComponetContainer extends RelativeLayout implements ao {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f1217a;
+    protected Context f1222a;
     protected FaceView b;
     protected RecordVoiceBnt c;
     protected ImageUploadView d;
@@ -25,19 +25,19 @@ public class EditorToolComponetContainer extends RelativeLayout implements ao {
     public EditorToolComponetContainer(Context context) {
         super(context);
         this.f = false;
-        this.f1217a = context;
+        this.f1222a = context;
         a();
     }
 
     public EditorToolComponetContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.f = false;
-        this.f1217a = context;
+        this.f1222a = context;
         a();
     }
 
     protected void a() {
-        LayoutInflater.from(this.f1217a).inflate(R.layout.editor_tool_container, (ViewGroup) this, true);
+        LayoutInflater.from(this.f1222a).inflate(R.layout.editor_tool_container, (ViewGroup) this, true);
         this.b = (FaceView) findViewById(R.id.face_view);
         this.c = (RecordVoiceBnt) findViewById(R.id.record_voice_view);
         this.d = (ImageUploadView) findViewById(R.id.image_upload_view);
@@ -69,14 +69,14 @@ public class EditorToolComponetContainer extends RelativeLayout implements ao {
 
     public void a(View view) {
         if (view != null) {
-            UtilHelper.b(this.f1217a, view);
+            UtilHelper.b(this.f1222a, view);
             this.f = true;
         }
     }
 
     public void b(View view) {
         if (view != null) {
-            UtilHelper.a(this.f1217a, view);
+            UtilHelper.a(this.f1222a, view);
             this.f = false;
         }
     }

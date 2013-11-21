@@ -6,15 +6,15 @@ import android.view.View;
 public class q implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VcodeActivity f2716a;
+    final /* synthetic */ VcodeActivity f2700a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(VcodeActivity vcodeActivity) {
-        this.f2716a = vcodeActivity;
+        this.f2700a = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2716a.a((String) null);
+        this.f2700a.a((String) null);
     }
 }

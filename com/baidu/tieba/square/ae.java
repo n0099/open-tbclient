@@ -9,17 +9,17 @@ import java.util.ArrayList;
 public class ae extends BaseAdapter implements com.baidu.tieba.view.ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private af f2374a;
-    private ArrayList<aw> b = new ArrayList<>();
+    private af f2358a;
+    private ArrayList<au> b = new ArrayList<>();
 
     public ae(Context context) {
-        this.f2374a = null;
-        this.f2374a = new af(context);
+        this.f2358a = null;
+        this.f2358a = new af(context);
     }
 
-    public void a(ArrayList<aw> arrayList) {
+    public void a(ArrayList<au> arrayList) {
         this.b = arrayList;
-        this.f2374a.a(arrayList);
+        this.f2358a.a(arrayList);
     }
 
     @Override // android.widget.Adapter
@@ -39,20 +39,20 @@ public class ae extends BaseAdapter implements com.baidu.tieba.view.ah {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.f2374a;
+        return this.f2358a;
     }
 
     @Override // com.baidu.tieba.view.ah
     public void d() {
-        if (this.f2374a != null) {
-            this.f2374a.d();
+        if (this.f2358a != null) {
+            this.f2358a.d();
         }
     }
 
     @Override // com.baidu.tieba.view.ah
     public void a(View view, int i, int i2) {
-        if (this.f2374a != null) {
-            this.f2374a.a(this.f2374a, 0, 0);
+        if (this.f2358a != null) {
+            this.f2358a.a(this.f2358a, 0, 0);
         }
     }
 }

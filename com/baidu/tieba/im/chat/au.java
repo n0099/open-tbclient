@@ -8,12 +8,12 @@ import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
 public final class au implements com.baidu.tieba.im.a<GroupSettingItemData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Activity f1514a;
+    final /* synthetic */ Activity f1505a;
     final /* synthetic */ GroupData b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(Activity activity, GroupData groupData) {
-        this.f1514a = activity;
+        this.f1505a = activity;
         this.b = groupData;
     }
 
@@ -21,7 +21,7 @@ public final class au implements com.baidu.tieba.im.a<GroupSettingItemData> {
     @Override // com.baidu.tieba.im.a
     public void a(GroupSettingItemData groupSettingItemData) {
         if (groupSettingItemData != null) {
-            MsglistActivity.b(this.f1514a, this.b, groupSettingItemData.isInGroup(), groupSettingItemData.isAcceptNotify());
+            MsglistActivity.b(this.f1505a, this.b, groupSettingItemData.isInGroup(), groupSettingItemData.isAcceptNotify());
         }
     }
 }

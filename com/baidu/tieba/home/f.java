@@ -7,11 +7,11 @@ import com.baidu.tieba.im.message.ResponsedMessage;
 public class f implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1450a;
+    final /* synthetic */ EnterForumActivity f1441a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EnterForumActivity enterForumActivity) {
-        this.f1450a = enterForumActivity;
+        this.f1441a = enterForumActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
@@ -26,17 +26,17 @@ public class f implements com.baidu.tieba.im.messageCenter.h {
             case 103102:
             case 103112:
                 if (!(message instanceof ResponsedMessage) || !((ResponsedMessage) message).hasError()) {
-                    oVar = this.f1450a.c;
+                    oVar = this.f1441a.c;
                     if (oVar != null) {
-                        oVar2 = this.f1450a.c;
-                        if (oVar2.f1459a != null) {
-                            if (this.f1450a.a()) {
-                                oVar4 = this.f1450a.c;
-                                oVar4.f1459a.f1477a.b();
+                        oVar2 = this.f1441a.c;
+                        if (oVar2.f1450a != null) {
+                            if (this.f1441a.a()) {
+                                oVar4 = this.f1441a.c;
+                                oVar4.f1450a.f1468a.b();
                                 return;
                             }
-                            oVar3 = this.f1450a.c;
-                            oVar3.f1459a.c = true;
+                            oVar3 = this.f1441a.c;
+                            oVar3.f1450a.c = true;
                             return;
                         }
                         return;

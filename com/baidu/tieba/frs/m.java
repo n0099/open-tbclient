@@ -6,18 +6,18 @@ import com.baidu.tieba.TiebaApplication;
 class m implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1357a;
+    final /* synthetic */ FrsActivity f1362a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsActivity frsActivity) {
-        this.f1357a = frsActivity;
+        this.f1362a = frsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1357a, "frs_pulldown", "frsclick", 1);
+            StatService.onEvent(this.f1362a, "frs_pulldown", "frsclick", 1);
         }
-        this.f1357a.A();
+        this.f1362a.A();
     }
 }

@@ -8,17 +8,17 @@ import com.baidu.tieba.im.groupInfo.GroupSettingItemData;
 public final class as extends SingleRunnable<GroupSettingItemData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1512a;
+    final /* synthetic */ int f1503a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(int i) {
-        this.f1512a = i;
+        this.f1503a = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public GroupSettingItemData b() {
-        return com.baidu.tieba.im.groupInfo.v.a(TiebaApplication.A(), String.valueOf(this.f1512a));
+        return com.baidu.tieba.im.groupInfo.v.a(TiebaApplication.A(), String.valueOf(this.f1503a));
     }
 }

@@ -1,37 +1,68 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import com.baidu.tieba.util.DatabaseService;
+import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.ViewGroup;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-class ac extends Thread {
+class ac extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LogoActivity f1017a;
+    final /* synthetic */ GuideActivity f1019a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(LogoActivity logoActivity) {
-        this.f1017a = logoActivity;
+    private ac(GuideActivity guideActivity) {
+        this.f1019a = guideActivity;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            TiebaApplication tiebaApplication = (TiebaApplication) this.f1017a.getApplication();
-            tiebaApplication.a(tiebaApplication.G() + 1);
-            if (tiebaApplication.L()) {
-                DatabaseService.x();
-                tiebaApplication.a(0);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ac(GuideActivity guideActivity, w wVar) {
+        this(guideActivity);
+    }
+
+    @Override // android.support.v4.view.ae
+    public int getCount() {
+        int[] iArr;
+        iArr = this.f1019a.f;
+        return iArr.length + 1;
+    }
+
+    @Override // android.support.v4.view.ae
+    public Object instantiateItem(View view, int i) {
+        ArrayList arrayList;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        ArrayList arrayList5;
+        arrayList = this.f1019a.g;
+        if (i < arrayList.size()) {
+            arrayList2 = this.f1019a.g;
+            ((ViewPager) view).addView((View) arrayList2.get(i), 0);
+            arrayList3 = this.f1019a.g;
+            if (i == arrayList3.size() - 1) {
+                arrayList5 = this.f1019a.g;
+                ((View) arrayList5.get(i)).setOnClickListener(this.f1019a.d);
             }
-            DatabaseService.t();
-            DatabaseService.w();
-            this.f1017a.a(this.f1017a.getCacheDir());
-        } catch (Exception e) {
+            arrayList4 = this.f1019a.g;
+            return arrayList4.get(i);
         }
-        handler = this.f1017a.i;
-        handler2 = this.f1017a.i;
-        handler.sendMessage(handler2.obtainMessage());
+        View view2 = new View(this.f1019a);
+        view2.setBackgroundColor(-1);
+        ((ViewPager) view).addView(view2, 0);
+        return view2;
+    }
+
+    @Override // android.support.v4.view.ae
+    public void destroyItem(View view, int i, Object obj) {
+        ((ViewPager) view).removeView((View) obj);
+    }
+
+    @Override // android.support.v4.view.ae
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
+    }
+
+    @Override // android.support.v4.view.ae
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        super.setPrimaryItem(viewGroup, i, obj);
     }
 }

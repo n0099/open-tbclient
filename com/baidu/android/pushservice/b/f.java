@@ -6,7 +6,7 @@ import com.baidu.cloudsdk.social.core.SocialConstants;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f696a = -1;
+    public static int f697a = -1;
     public static int b = 0;
     public static int c = 1;
     public static int d = 2;
@@ -86,6 +86,6 @@ public class f {
     }
 
     public int i() {
-        return TextUtils.isEmpty(this.i) ? f696a : this.i.startsWith(e) ? b : this.i.startsWith(f) ? c : this.i.startsWith(g) ? d : f696a;
+        return TextUtils.isEmpty(this.i) ? f697a : this.i.startsWith(e) ? b : this.i.startsWith(f) ? c : this.i.startsWith(g) ? d : f697a;
     }
 }

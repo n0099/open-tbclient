@@ -5,11 +5,11 @@ import com.baidu.tieba.util.DatabaseService;
 class a implements p {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AtMeFragment f1849a;
+    final /* synthetic */ AtMeFragment f1831a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AtMeFragment atMeFragment) {
-        this.f1849a = atMeFragment;
+        this.f1831a = atMeFragment;
     }
 
     @Override // com.baidu.tieba.mention.p

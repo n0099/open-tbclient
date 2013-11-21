@@ -11,7 +11,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class TripleTbImageView extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float[] f2265a = {0.5f, 0.33f, 0.25f};
+    public static final float[] f2250a = {0.5f, 0.33f, 0.25f};
     private static com.baidu.tieba.util.i g;
     private static int h;
     public TbImageView b;
@@ -125,7 +125,7 @@ public class TripleTbImageView extends ViewGroup {
     public void a(TbImageView tbImageView, com.baidu.adp.widget.ImageView.e eVar) {
         if (this.e != null) {
             int length = (int) (h / this.e.length);
-            if (eVar.a() < length * 0.3f || eVar.b() < length * f2265a[this.e.length - 1] * 0.3f) {
+            if (eVar.a() < length * 0.3f || eVar.b() < length * f2250a[this.e.length - 1] * 0.3f) {
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_START);
             } else {
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -145,16 +145,16 @@ public class TripleTbImageView extends ViewGroup {
             setMeasuredDimension(0, 0);
             return;
         }
-        setMeasuredDimension(i3, (int) ((i3 * f2265a[this.e.length - 1]) + 0.5f));
+        setMeasuredDimension(i3, (int) ((i3 * f2250a[this.e.length - 1]) + 0.5f));
         switch (this.e.length) {
             case 1:
-                measureChild(this.b, i3 + 1073741824, ((int) ((i3 * f2265a[0]) + 0.5f)) + 1073741824);
+                measureChild(this.b, i3 + 1073741824, ((int) ((i3 * f2250a[0]) + 0.5f)) + 1073741824);
                 measureChild(this.c, 0, 0);
                 measureChild(this.d, 0, 0);
                 return;
             case 2:
                 int i4 = ((i3 - (this.f * 3)) >> 1) + 1073741824;
-                int i5 = ((int) ((i4 * f2265a[1]) + 0.5f)) + 1073741824;
+                int i5 = ((int) ((i4 * f2250a[1]) + 0.5f)) + 1073741824;
                 measureChild(this.b, i4, i5);
                 measureChild(this.c, i4, i5);
                 measureChild(this.d, 0, 0);
@@ -165,7 +165,7 @@ public class TripleTbImageView extends ViewGroup {
                 return;
         }
         int i6 = ((i3 - (this.f * 4)) / 3) + 1073741824;
-        int i7 = ((int) ((i6 * f2265a[2]) + 0.5f)) + 1073741824;
+        int i7 = ((int) ((i6 * f2250a[2]) + 0.5f)) + 1073741824;
         measureChild(this.b, i6, i7);
         measureChild(this.c, i6, i7);
         measureChild(this.d, i6, i7);

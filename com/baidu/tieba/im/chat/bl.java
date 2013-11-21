@@ -7,18 +7,18 @@ import android.view.View;
 public class bl implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1532a;
+    final /* synthetic */ bg f1523a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bl(bg bgVar) {
-        this.f1532a = bgVar;
+        this.f1523a = bgVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.f1532a.L();
-        this.f1532a.M();
-        this.f1532a.N();
+        this.f1523a.L();
+        this.f1523a.M();
+        this.f1523a.N();
         return false;
     }
 }

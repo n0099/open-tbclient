@@ -25,19 +25,19 @@ import org.json.JSONObject;
 public class n implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static n f1779a = null;
+    private static n f1770a = null;
     private Map<String, LinkedList<WeakReference<m>>> b = new HashMap();
     private String c;
 
     public static n a() {
-        if (f1779a == null) {
+        if (f1770a == null) {
             synchronized (n.class) {
-                if (f1779a == null) {
-                    f1779a = new n();
+                if (f1770a == null) {
+                    f1770a = new n();
                 }
             }
         }
-        return f1779a;
+        return f1770a;
     }
 
     public void b() {
@@ -149,7 +149,7 @@ public class n implements com.baidu.tieba.im.messageCenter.h {
                 z = false;
             }
             String gid = groupMsgPojo.getGid();
-            boolean z2 = MsglistActivity.f1493a;
+            boolean z2 = MsglistActivity.f1484a;
             if (!TextUtils.isEmpty(gid) && z2 && gid.equals(MsglistActivity.b)) {
                 z = false;
             }

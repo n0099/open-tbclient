@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class al extends BdAsyncTask<String, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ak f1892a;
+    final /* synthetic */ ak f1874a;
     private com.baidu.tieba.util.ap b = null;
     private String c;
     private String d;
@@ -16,8 +16,8 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
     private am f;
 
     public al(ak akVar, String str, String str2, String str3) {
-        this.f1892a = akVar;
-        this.f = new am(this.f1892a);
+        this.f1874a = akVar;
+        this.f = new am(this.f1874a);
         this.c = str;
         this.d = str2;
         this.e = str3;
@@ -49,7 +49,7 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
                             }
                             this.f.b = true;
                         }
-                        this.f1892a.a(this.f);
+                        this.f1874a.a(this.f);
                     } catch (Exception e) {
                         com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
                     }
@@ -58,7 +58,7 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
                     try {
                         JSONObject jSONObject2 = new JSONObject(j);
                         this.f.c = jSONObject2.optInt("num");
-                        this.f.f1893a = true;
+                        this.f.f1875a = true;
                     } catch (Exception e2) {
                         com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e2.getMessage());
                     }
@@ -77,8 +77,8 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1892a.m = null;
-        this.f1892a.a(false);
+        this.f1874a.m = null;
+        this.f1874a.a(false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -87,15 +87,15 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
     public void a(Boolean bool) {
         com.baidu.tieba.frs.af afVar;
         com.baidu.tieba.frs.af afVar2;
-        this.f1892a.m = null;
-        this.f1892a.a(false);
+        this.f1874a.m = null;
+        this.f1874a.a(false);
         if (this.b != null) {
-            an anVar = new an(this.f1892a);
+            an anVar = new an(this.f1874a);
             anVar.d = this.b.g();
             anVar.c = this.b.e();
-            afVar = this.f1892a.j;
+            afVar = this.f1874a.j;
             if (afVar != null) {
-                afVar2 = this.f1892a.j;
+                afVar2 = this.f1874a.j;
                 afVar2.a(this.f, anVar);
             }
         }

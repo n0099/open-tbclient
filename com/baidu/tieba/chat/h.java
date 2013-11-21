@@ -6,18 +6,18 @@ import com.baidu.tieba.view.ao;
 class h implements ao {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f1135a;
+    final /* synthetic */ ChatActivity f1141a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(ChatActivity chatActivity) {
-        this.f1135a = chatActivity;
+        this.f1141a = chatActivity;
     }
 
     @Override // com.baidu.tieba.view.ao
     public void a(int i) {
         ai aiVar;
         if (i != 0) {
-            aiVar = this.f1135a.f1116a;
+            aiVar = this.f1141a.f1122a;
             aiVar.k();
             return;
         }

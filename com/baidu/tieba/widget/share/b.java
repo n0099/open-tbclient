@@ -26,7 +26,7 @@ import java.util.HashMap;
 public class b implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private LayoutInflater f2653a;
+    private LayoutInflater f2636a;
     private Context b;
     private View c;
     private TextView d;
@@ -47,8 +47,8 @@ public class b implements View.OnClickListener {
 
     public b(Context context) {
         this.b = context;
-        this.f2653a = (LayoutInflater) context.getSystemService("layout_inflater");
-        this.c = this.f2653a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
+        this.f2636a = (LayoutInflater) context.getSystemService("layout_inflater");
+        this.c = this.f2636a.inflate(R.layout.share_dialog_content, (ViewGroup) null);
         this.d = (TextView) this.c.findViewById(R.id.share_dialog_title);
         this.e = this.c.findViewById(R.id.share_dialog_content);
         this.l = (Button) this.c.findViewById(R.id.btnShareCancel);
@@ -151,7 +151,7 @@ public class b implements View.OnClickListener {
                 this.p = true;
                 d dVar = new d(this.b, this.r);
                 switch (view.getId()) {
-                    case R.id.iconWeixinTimeline /* 2131100852 */:
+                    case R.id.iconWeixinTimeline /* 2131100839 */:
                         a("share_to_pyq");
                         b(MediaType.WEIXIN_TIMELINE);
                         ShareContent a2 = a(MediaType.WEIXIN_TIMELINE);
@@ -160,7 +160,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconWeixin /* 2131100853 */:
+                    case R.id.iconWeixin /* 2131100840 */:
                         a("share_to_weixin");
                         b(MediaType.WEIXIN_FRIEND);
                         ShareContent a3 = a(MediaType.WEIXIN_FRIEND);
@@ -169,7 +169,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconQZone /* 2131100854 */:
+                    case R.id.iconQZone /* 2131100841 */:
                         a("share_to_qzone");
                         b(MediaType.QZONE);
                         ShareContent a4 = a(MediaType.QZONE);
@@ -178,7 +178,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconQQWeibo /* 2131100855 */:
+                    case R.id.iconQQWeibo /* 2131100842 */:
                         a("share_to_qweibo");
                         b(MediaType.QQWEIBO);
                         ShareContent a5 = a(MediaType.QQWEIBO);
@@ -187,7 +187,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconSinaWeibo /* 2131100856 */:
+                    case R.id.iconSinaWeibo /* 2131100843 */:
                         a("share_to_sweibo");
                         b(MediaType.SINAWEIBO);
                         ShareContent a6 = a(MediaType.SINAWEIBO);
@@ -196,7 +196,7 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.iconRenren /* 2131100857 */:
+                    case R.id.iconRenren /* 2131100844 */:
                         a("share_to_renren");
                         b(MediaType.RENREN);
                         ShareContent a7 = a(MediaType.RENREN);
@@ -205,10 +205,10 @@ public class b implements View.OnClickListener {
                             return;
                         }
                         return;
-                    case R.id.customViewBox /* 2131100858 */:
+                    case R.id.customViewBox /* 2131100845 */:
                     default:
                         return;
-                    case R.id.btnShareCancel /* 2131100859 */:
+                    case R.id.btnShareCancel /* 2131100846 */:
                         a("share_cancel");
                         this.r.b();
                         return;

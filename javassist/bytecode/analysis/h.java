@@ -13,7 +13,7 @@ public class h {
     private static final Map t = new IdentityHashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f2774a = new h(javassist.h.k);
+    public static final h f2758a = new h(javassist.h.k);
     public static final h b = new h(javassist.h.d);
     public static final h c = new h(javassist.h.i);
     public static final h d = new h(javassist.h.e);
@@ -32,7 +32,7 @@ public class h {
     public static final h q = a("java.lang.Throwable");
 
     static {
-        t.put(javassist.h.k, f2774a);
+        t.put(javassist.h.k, f2758a);
         t.put(javassist.h.i, c);
         t.put(javassist.h.e, d);
         t.put(javassist.h.g, f);

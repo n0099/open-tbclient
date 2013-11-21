@@ -21,7 +21,7 @@ import com.slidingmenu.lib.R;
 public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private ah f1960a;
+    private ah f1943a;
     private MoreModel b = null;
     private ag c = null;
 
@@ -39,7 +39,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1960a = new ah(this, a());
+        this.f1943a = new ah(this, a());
         a(bundle);
         c();
     }
@@ -61,14 +61,14 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
         super.onResume();
         if (TiebaApplication.n()) {
             if (TiebaApplication.A() == null || TiebaApplication.F() == null || TiebaApplication.F().equals("BaiduUser")) {
-                this.f1960a.e();
+                this.f1943a.e();
             } else {
-                this.f1960a.a();
+                this.f1943a.a();
             }
-            this.f1960a.f();
+            this.f1943a.f();
         }
-        if (this.f1960a != null) {
-            this.f1960a.i();
+        if (this.f1943a != null) {
+            this.f1943a.i();
         }
     }
 
@@ -76,14 +76,14 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1960a.a(i);
+        this.f1943a.a(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.f1960a.j();
+        this.f1943a.j();
     }
 
     @Override // android.app.Activity
@@ -109,11 +109,11 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
                     PersonChangeData personChangeData = (PersonChangeData) intent.getSerializableExtra("data");
                     this.b.a(personChangeData);
                     this.b.a(true);
-                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.f1960a != null) {
-                        this.f1960a.h();
+                    if (personChangeData != null && personChangeData.getPhotoChanged() && this.f1943a != null) {
+                        this.f1943a.h();
                         String portrait = personChangeData.getPortrait();
-                        if (portrait != null && portrait.length() > 0 && this.f1960a != null) {
-                            this.f1960a.b(portrait);
+                        if (portrait != null && portrait.length() > 0 && this.f1943a != null) {
+                            this.f1943a.b(portrait);
                             new af(this, null).execute(new Object[0]);
                             return;
                         }
@@ -145,7 +145,7 @@ public class MoreActivity extends com.baidu.tieba.j implements com.baidu.adp.wid
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra("person_change_data");
         }
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.f1960a.a(personChangeData.getPortrait());
+            this.f1943a.a(personChangeData.getPortrait());
         }
         this.b = new MoreModel(personChangeData);
         this.b.setLoadDataCallBack(new ae(this));

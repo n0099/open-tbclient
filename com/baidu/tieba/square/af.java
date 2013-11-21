@@ -15,7 +15,7 @@ import java.util.Iterator;
 public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com.baidu.tieba.view.ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2375a;
+    private Context f2359a;
     private LayoutInflater b;
     private final int c;
     private final int d;
@@ -26,7 +26,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
     private int i;
     private float j;
     private int k;
-    private ArrayList<aw> l;
+    private ArrayList<au> l;
     private com.baidu.tieba.util.i m;
     private View n;
 
@@ -36,7 +36,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
 
     public af(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2375a = null;
+        this.f2359a = null;
         this.b = null;
         this.g = new ArrayList<>(4);
         this.h = 0;
@@ -46,7 +46,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         this.l = null;
         this.m = null;
         this.n = null;
-        this.f2375a = context;
+        this.f2359a = context;
         this.e = UtilHelper.a(context);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
         this.d = context.getResources().getDimensionPixelSize(R.dimen.square_forum_topic_margin);
@@ -64,7 +64,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         setPadding(this.c, 0, this.c, 0);
     }
 
-    public boolean a(ArrayList<aw> arrayList) {
+    public boolean a(ArrayList<au> arrayList) {
         this.l = b(arrayList);
         Iterator<HeadImageView> it = this.g.iterator();
         while (it.hasNext()) {
@@ -79,7 +79,7 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         return false;
     }
 
-    private ArrayList<aw> b(ArrayList<aw> arrayList) {
+    private ArrayList<au> b(ArrayList<au> arrayList) {
         if (arrayList != null) {
             int size = (arrayList.size() / 2) * 2;
             int i = size <= 4 ? size : 4;
@@ -91,16 +91,16 @@ public class af extends ViewGroup implements com.baidu.tbadk.imageManager.c, com
         return null;
     }
 
-    private void c(ArrayList<aw> arrayList) {
+    private void c(ArrayList<au> arrayList) {
         int size = arrayList.size();
         this.k = size;
         requestLayout();
         for (int i = 0; i < size; i++) {
             HeadImageView headImageView = this.g.get(i);
-            aw awVar = arrayList.get(i);
+            au auVar = arrayList.get(i);
             headImageView.setVisibility(0);
-            headImageView.setTag(awVar.a());
-            headImageView.setOnClickListener(new ag(this, awVar, i));
+            headImageView.setTag(auVar.a());
+            headImageView.setOnClickListener(new ag(this, auVar, i));
         }
     }
 

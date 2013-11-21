@@ -68,15 +68,15 @@ public class Register2Activity extends com.baidu.tieba.j {
     private String L = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f1023a = null;
+    RelativeLayout f1025a = null;
     TextView b = null;
-    private ax N = null;
-    private ay O = null;
+    private ay N = null;
+    private az O = null;
     private be P = null;
-    private View.OnClickListener Q = new as(this);
-    private TextWatcher R = new at(this);
-    private View.OnFocusChangeListener S = new au(this);
-    private RadioGroup.OnCheckedChangeListener T = new av(this);
+    private View.OnClickListener Q = new at(this);
+    private TextWatcher R = new au(this);
+    private View.OnFocusChangeListener S = new av(this);
+    private RadioGroup.OnCheckedChangeListener T = new aw(this);
 
     public static void a(Activity activity, int i) {
         activity.startActivityForResult(new Intent(activity, Register2Activity.class), i);
@@ -88,7 +88,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         super.onCreate(bundle);
         setContentView(R.layout.account_register2_activity);
         h();
-        new ag("reg").start();
+        new ah("reg").start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -121,7 +121,7 @@ public class Register2Activity extends com.baidu.tieba.j {
     }
 
     private void h() {
-        this.f1023a = (RelativeLayout) findViewById(R.id.container);
+        this.f1025a = (RelativeLayout) findViewById(R.id.container);
         this.M = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.h = this.M.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.Q);
         this.M.a(getString(R.string.account_regedit_baidu));
@@ -176,7 +176,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         super.onChangeSkinType(i);
         this.M.c(i);
         bd.a(this.b, i);
-        bd.c(this.f1023a, i);
+        bd.c(this.f1025a, i);
         n();
         k();
     }
@@ -265,7 +265,7 @@ public class Register2Activity extends com.baidu.tieba.j {
                 this.N.cancel();
             }
             if (this.P != null) {
-                this.N = new ax(this, this.P.b().getVcode_pic_url());
+                this.N = new ay(this, this.P.b().getVcode_pic_url());
                 this.N.setPriority(3);
                 this.N.execute(new String[0]);
             }
@@ -346,7 +346,7 @@ public class Register2Activity extends com.baidu.tieba.j {
         String str = string + getString(R.string.user_server_agreement);
         int length2 = str.length();
         SpannableString spannableString = new SpannableString(str);
-        spannableString.setSpan(new aw(this, this), length, length2, 33);
+        spannableString.setSpan(new ax(this, this), length, length2, 33);
         if (this.mSkinType == 1) {
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.skin_1_common_color)), 0, length, 33);
         }

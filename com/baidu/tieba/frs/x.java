@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 class x implements com.baidu.tieba.view.az {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1368a;
+    final /* synthetic */ FrsActivity f1373a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(FrsActivity frsActivity) {
-        this.f1368a = frsActivity;
+        this.f1373a = frsActivity;
     }
 
     @Override // com.baidu.tieba.view.az
@@ -16,16 +16,16 @@ class x implements com.baidu.tieba.view.az {
         com.baidu.tieba.model.ak akVar;
         com.baidu.tieba.model.ak akVar2;
         if (z) {
-            bnVar = this.f1368a.n;
+            bnVar = this.f1373a.n;
             if (!bnVar.k()) {
-                akVar = this.f1368a.w;
+                akVar = this.f1373a.w;
                 if (akVar != null) {
-                    akVar2 = this.f1368a.w;
+                    akVar2 = this.f1373a.w;
                     if (akVar2.b().size() != 0) {
                         return;
                     }
                 }
-                this.f1368a.A();
+                this.f1373a.A();
             }
         }
     }

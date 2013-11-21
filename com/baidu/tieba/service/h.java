@@ -10,11 +10,11 @@ import java.io.FileWriter;
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f2344a;
+    final /* synthetic */ PerformMonitorService f2329a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PerformMonitorService performMonitorService) {
-        this.f2344a = performMonitorService;
+        this.f2329a = performMonitorService;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0003 */
@@ -38,7 +38,7 @@ public class h implements Runnable {
         try {
             File g = af.g("performance_sample.log");
             if (g == null || g.length() > 51200) {
-                this.f2344a.b();
+                this.f2329a.b();
             } else {
                 FileWriter fileWriter2 = new FileWriter(g, true);
                 int i5 = Shared.INFINITY;
@@ -85,7 +85,7 @@ public class h implements Runnable {
                     fileWriter2.append((CharSequence) ("gc:time=" + String.valueOf(currentTimeMillis2) + "\ngc=" + d + "\n"));
                     fileWriter2.flush();
                     fileWriter2.close();
-                    r0 = this.f2344a.h;
+                    r0 = this.f2329a.h;
                     ?? iVar = new i(this);
                     r0.post(iVar);
                     fileWriter = iVar;
@@ -100,7 +100,7 @@ public class h implements Runnable {
                         }
                     }
                     bg.b(getClass().getName(), "sampleRunnable", th.toString());
-                    this.f2344a.stopSelf();
+                    this.f2329a.stopSelf();
                 }
             }
         } catch (Throwable th2) {

@@ -24,7 +24,7 @@ import java.util.Set;
 public class w extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private MembersActivity f1666a;
+    private MembersActivity f1657a;
     private y b;
     private boolean c;
     private boolean d;
@@ -81,7 +81,7 @@ public class w extends BaseAdapter {
     }
 
     public w(MembersActivity membersActivity) {
-        this.f1666a = membersActivity;
+        this.f1657a = membersActivity;
         this.f = new com.baidu.tieba.util.i(membersActivity);
         this.f.d(false);
         this.d = false;
@@ -154,13 +154,13 @@ public class w extends BaseAdapter {
             if (view == null) {
                 z zVar2 = new z();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.f1666a).inflate(R.layout.im_members_list_foot, viewGroup, false);
-                    zVar2.f1668a = (LinearLayout) inflate.findViewById(R.id.list_more);
+                    View inflate = LayoutInflater.from(this.f1657a).inflate(R.layout.im_members_list_foot, viewGroup, false);
+                    zVar2.f1659a = (LinearLayout) inflate.findViewById(R.id.list_more);
                     zVar2.c = (TextView) inflate.findViewById(R.id.more_title);
                     zVar2.d = (ProgressBar) inflate.findViewById(R.id.more_progress);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.f1666a).inflate(R.layout.im_members_list_item, viewGroup, false);
+                    View inflate2 = LayoutInflater.from(this.f1657a).inflate(R.layout.im_members_list_item, viewGroup, false);
                     zVar2.b = (LinearLayout) inflate2.findViewById(R.id.list_content);
                     zVar2.f = (HeadImageView) inflate2.findViewById(R.id.item_head);
                     zVar2.f.setAutoChangeStyle(false);
@@ -230,7 +230,7 @@ public class w extends BaseAdapter {
 
     private String a(UserData userData) {
         long lastReplyTime;
-        com.baidu.tieba.im.model.h b = this.f1666a.b();
+        com.baidu.tieba.im.model.h b = this.f1657a.b();
         switch (b.b()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
@@ -247,7 +247,7 @@ public class w extends BaseAdapter {
         }
         if (lastReplyTime <= 0) {
             if (b.b() == 1) {
-                return this.f1666a.getString(R.string.members_no_speak);
+                return this.f1657a.getString(R.string.members_no_speak);
             }
             return "";
         }

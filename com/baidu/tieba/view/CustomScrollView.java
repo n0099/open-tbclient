@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 public class CustomScrollView extends ScrollView {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Field f2530a;
+    protected Field f2513a;
     private GestureDetector b;
     private int c;
     private int d;
@@ -40,10 +40,10 @@ public class CustomScrollView extends ScrollView {
         boolean z = this.c - this.d == i2;
         if (i2 == 0 || z) {
             try {
-                if (this.f2530a == null) {
-                    this.f2530a = UtilHelper.a(this, "mScroller");
+                if (this.f2513a == null) {
+                    this.f2513a = UtilHelper.a(this, "mScroller");
                 }
-                Object obj = this.f2530a.get(this);
+                Object obj = this.f2513a.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 } else {
@@ -58,10 +58,10 @@ public class CustomScrollView extends ScrollView {
 
     private void a() {
         try {
-            if (this.f2530a == null) {
-                this.f2530a = UtilHelper.a(this, "mScroller");
+            if (this.f2513a == null) {
+                this.f2513a = UtilHelper.a(this, "mScroller");
             }
-            Object obj = this.f2530a.get(this);
+            Object obj = this.f2513a.get(this);
             if (obj != null) {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }

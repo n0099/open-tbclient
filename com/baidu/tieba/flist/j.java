@@ -6,11 +6,11 @@ import com.baidu.tieba.util.bg;
 class j implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumListActivity f1252a;
+    final /* synthetic */ ForumListActivity f1257a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(ForumListActivity forumListActivity) {
-        this.f1252a = forumListActivity;
+        this.f1257a = forumListActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
@@ -25,40 +25,40 @@ class j implements com.baidu.adp.widget.ListView.b {
         u uVar;
         ForumListModel.RequestParams requestParams3;
         u uVar2;
-        sVar = this.f1252a.D;
+        sVar = this.f1257a.D;
         if (!sVar.c()) {
-            sVar2 = this.f1252a.E;
+            sVar2 = this.f1257a.E;
             if (!sVar2.c()) {
-                z2 = this.f1252a.x;
+                z2 = this.f1257a.x;
                 if (z2) {
-                    requestParams = this.f1252a.A;
+                    requestParams = this.f1257a.A;
                     requestParams.recommend_type = 0;
-                    requestParams2 = this.f1252a.A;
+                    requestParams2 = this.f1257a.A;
                     requestParams2.rn = 200;
-                    uVar = this.f1252a.G;
-                    requestParams3 = this.f1252a.A;
+                    uVar = this.f1257a.G;
+                    requestParams3 = this.f1257a.A;
                     uVar.a(requestParams3);
-                    uVar2 = this.f1252a.G;
+                    uVar2 = this.f1257a.G;
                     uVar2.LoadData();
-                    this.f1252a.x = false;
-                } else if (this.f1252a.c.c.getCurrentItem() == 0) {
-                    z4 = this.f1252a.B;
+                    this.f1257a.x = false;
+                } else if (this.f1257a.c.c.getCurrentItem() == 0) {
+                    z4 = this.f1257a.B;
                     if (z4) {
-                        this.f1252a.n = 50;
+                        this.f1257a.n = 50;
                     } else {
-                        this.f1252a.n = 200;
+                        this.f1257a.n = 200;
                     }
                     bg.e("ForumListActivity", "pull down", "left refresh");
-                    new r(this.f1252a, null).execute(new Void[0]);
-                } else if (this.f1252a.c.c.getCurrentItem() == 1) {
-                    z3 = this.f1252a.C;
+                    new r(this.f1257a, null).execute(new Void[0]);
+                } else if (this.f1257a.c.c.getCurrentItem() == 1) {
+                    z3 = this.f1257a.C;
                     if (z3) {
-                        this.f1252a.o = 50;
+                        this.f1257a.o = 50;
                     } else {
-                        this.f1252a.o = 200;
+                        this.f1257a.o = 200;
                     }
                     bg.e("ForumListActivity", "pull down", "right refresh");
-                    new q(this.f1252a, null).execute(new Void[0]);
+                    new q(this.f1257a, null).execute(new Void[0]);
                 }
             }
         }

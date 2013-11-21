@@ -8,13 +8,13 @@ import android.widget.TextView;
 public class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f2027a;
+    final /* synthetic */ w f2010a;
     final /* synthetic */ JigsawAlbumActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(JigsawAlbumActivity jigsawAlbumActivity, w wVar) {
         this.b = jigsawAlbumActivity;
-        this.f2027a = wVar;
+        this.f2010a = wVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,10 +23,10 @@ public class h implements View.OnClickListener {
         LinearLayout linearLayout;
         u uVar2;
         uVar = this.b.k;
-        uVar.b(this.b, this.f2027a.getUri());
+        uVar.b(this.b, this.f2010a.getUri());
         linearLayout = this.b.v;
         linearLayout.removeView(view);
-        TextView textView = this.b.f2019a;
+        TextView textView = this.b.f2002a;
         uVar2 = this.b.k;
         textView.setText(uVar2.e(this.b));
     }

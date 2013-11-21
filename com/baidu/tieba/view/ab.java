@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 public class ab implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f2553a;
+    final /* synthetic */ aa f2536a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.f2553a = aaVar;
+        this.f2536a = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,12 +22,12 @@ public class ab implements View.OnClickListener {
         Activity activity;
         Activity activity2;
         String str2;
-        str = this.f2553a.aB;
+        str = this.f2536a.aB;
         if (str != null) {
-            activity = this.f2553a.D;
-            activity2 = this.f2553a.D;
+            activity = this.f2536a.D;
+            activity2 = this.f2536a.D;
             String string = activity2.getString(R.string.frs_badge_intro);
-            str2 = this.f2553a.aB;
+            str2 = this.f2536a.aB;
             CommonWebviewActivity.a(activity, string, str2, true);
         }
     }

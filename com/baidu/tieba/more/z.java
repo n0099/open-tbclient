@@ -7,11 +7,11 @@ import com.baidu.tieba.util.bf;
 public class z implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f2018a;
+    final /* synthetic */ w f2001a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(w wVar) {
-        this.f2018a = wVar;
+        this.f2001a = wVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -30,8 +30,8 @@ public class z implements DialogInterface.OnClickListener {
                 com.baidu.tieba.d.a.a().b(3);
                 break;
         }
-        this.f2018a.C();
-        this.f2018a.q();
+        this.f2001a.C();
+        this.f2001a.q();
         bf.a().h();
     }
 }

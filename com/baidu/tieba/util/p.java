@@ -16,7 +16,7 @@ import java.util.List;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2515a;
+    private Context f2498a;
     private int b;
     private int c;
     private i d;
@@ -25,8 +25,8 @@ public class p {
     private int g = -16777216;
 
     public p(Context context) {
-        this.f2515a = context;
-        TextView textView = new TextView(this.f2515a);
+        this.f2498a = context;
+        TextView textView = new TextView(this.f2498a);
         textView.setLineSpacing(0.0f, 1.2f);
         textView.setTextSize(com.baidu.tieba.data.h.o());
         this.b = textView.getLineHeight();
@@ -78,7 +78,7 @@ public class p {
                                 }
                             } else if (textView3 != null) {
                                 if (jVar2.a() == 2) {
-                                    textView3.append(jVar2.a(this.f2515a, this.b, this.c));
+                                    textView3.append(jVar2.a(this.f2498a, this.b, this.c));
                                     i2 = i4;
                                     textView2 = textView3;
                                 } else {
@@ -154,7 +154,7 @@ public class p {
     private void a(TextView textView, com.baidu.tieba.data.j jVar) {
         if (textView != null && jVar != null) {
             if (jVar.a() == 2) {
-                textView.setText(jVar.a(this.f2515a, this.b, this.c));
+                textView.setText(jVar.a(this.f2498a, this.b, this.c));
             } else {
                 textView.setText(jVar.c());
             }
@@ -162,9 +162,9 @@ public class p {
     }
 
     private TextView a(com.baidu.tieba.data.j jVar) {
-        CustomTextView customTextView = new CustomTextView(this.f2515a);
+        CustomTextView customTextView = new CustomTextView(this.f2498a);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        int a2 = UtilHelper.a(this.f2515a, 15.0f);
+        int a2 = UtilHelper.a(this.f2498a, 15.0f);
         layoutParams.rightMargin = 0;
         layoutParams.leftMargin = 0;
         layoutParams.topMargin = a2;
@@ -184,11 +184,11 @@ public class p {
     }
 
     private ImageView a(List<com.baidu.tieba.data.j> list, com.baidu.tieba.data.j jVar, int i) {
-        ImageView imageView = new ImageView(this.f2515a);
-        int a2 = UtilHelper.a(this.f2515a, 105.0f);
-        int a3 = UtilHelper.a(this.f2515a, 105.0f);
+        ImageView imageView = new ImageView(this.f2498a);
+        int a2 = UtilHelper.a(this.f2498a, 105.0f);
+        int a3 = UtilHelper.a(this.f2498a, 105.0f);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, a2);
-        layoutParams.topMargin = UtilHelper.a(this.f2515a, 15.0f);
+        layoutParams.topMargin = UtilHelper.a(this.f2498a, 15.0f);
         layoutParams.bottomMargin = 0;
         com.baidu.adp.widget.ImageView.e d = this.d.d(jVar.d());
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);

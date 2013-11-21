@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tieba.account.ag;
+import com.baidu.tieba.account.ah;
 import com.tencent.mm.sdk.platformtools.LocaleUtil;
 /* loaded from: classes.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
@@ -21,7 +21,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 if (stringExtra.equals("web")) {
                     intent2.putExtra("class", 0);
                     intent2.putExtra(SocialConstants.PARAM_URL, intent.getStringExtra(SocialConstants.PARAM_URL));
-                    new ag(stringExtra2, SocialConstants.PARAM_URL).start();
+                    new ah(stringExtra2, SocialConstants.PARAM_URL).start();
                 } else if (stringExtra.equals("pb")) {
                     intent2.putExtra("class", 1);
                     intent2.putExtra(LocaleUtil.INDONESIAN, intent.getStringExtra(LocaleUtil.INDONESIAN));

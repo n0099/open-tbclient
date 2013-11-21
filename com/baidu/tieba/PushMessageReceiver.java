@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class PushMessageReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1001a = PushMessageReceiver.class.getSimpleName();
+    public static final String f1003a = PushMessageReceiver.class.getSimpleName();
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -43,9 +43,9 @@ public class PushMessageReceiver extends BroadcastReceiver {
                                 case 9:
                                 case 13:
                                     if (TiebaApplication.A() != null) {
-                                        com.baidu.tieba.data.au auVar = new com.baidu.tieba.data.au();
-                                        auVar.a(optString);
-                                        if (TiebaApplication.A().equals(auVar.e()) && TiebaApplication.g().ad()) {
+                                        com.baidu.tieba.data.at atVar = new com.baidu.tieba.data.at();
+                                        atVar.a(optString);
+                                        if (TiebaApplication.A().equals(atVar.e()) && TiebaApplication.g().ad()) {
                                             com.baidu.tieba.mention.t.a().j();
                                             return;
                                         }
@@ -54,21 +54,21 @@ public class PushMessageReceiver extends BroadcastReceiver {
                                     return;
                                 case 14:
                                     if (TiebaApplication.A() != null) {
-                                        UtilHelper.a(context, new com.baidu.tieba.data.au(-1L, "vote", optString), 15);
+                                        UtilHelper.a(context, new com.baidu.tieba.data.at(-1L, "vote", optString), 15);
                                         return;
                                     }
                                     return;
                                 case 65535:
-                                    com.baidu.tieba.data.au auVar2 = new com.baidu.tieba.data.au();
-                                    auVar2.a(optString);
-                                    if (TiebaApplication.g().s() && !TextUtils.isEmpty(auVar2.a())) {
-                                        StatService.onEvent(TiebaApplication.g().getApplicationContext(), "push_noti:" + auVar2.a(), "msgID:" + auVar2.b());
+                                    com.baidu.tieba.data.at atVar2 = new com.baidu.tieba.data.at();
+                                    atVar2.a(optString);
+                                    if (TiebaApplication.g().s() && !TextUtils.isEmpty(atVar2.a())) {
+                                        StatService.onEvent(TiebaApplication.g().getApplicationContext(), "push_noti:" + atVar2.a(), "msgID:" + atVar2.b());
                                     }
-                                    bh.a(auVar2.b(), 1, auVar2.c());
-                                    if (auVar2.b() != -1) {
-                                        TiebaApplication.g().b(auVar2.b());
+                                    bh.a(atVar2.b(), 1, atVar2.c());
+                                    if (atVar2.b() != -1) {
+                                        TiebaApplication.g().b(atVar2.b());
                                     }
-                                    UtilHelper.a(TiebaApplication.g().getApplicationContext(), auVar2, 13);
+                                    UtilHelper.a(TiebaApplication.g().getApplicationContext(), atVar2, 13);
                                     return;
                                 default:
                                     return;
@@ -94,14 +94,14 @@ public class PushMessageReceiver extends BroadcastReceiver {
                             if (optString3 != null) {
                                 TiebaApplication.g().x(optString3);
                             }
-                            new al().start();
+                            new ao().start();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
                 }
             } else if (intent.getAction().equals(PushConstants.ACTION_RECEIVER_NOTIFICATION_CLICK)) {
-                bg.e(f1001a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
+                bg.e(f1003a, "onReceive:click message", "EXTRA_EXTRA = " + intent.getStringExtra(PushConstants.EXTRA_EXTRA));
             }
         }
     }

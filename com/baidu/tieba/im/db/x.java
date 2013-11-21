@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static x f1631a;
+    private static x f1622a;
     private volatile String b = "";
     private AtomicBoolean c = new AtomicBoolean(false);
     private ConcurrentHashMap<String, ImMessageCenterPojo> d = new ConcurrentHashMap<>();
@@ -21,16 +21,16 @@ public class x {
     public static synchronized x a() {
         x xVar;
         synchronized (x.class) {
-            if (f1631a == null) {
-                f1631a = new x();
+            if (f1622a == null) {
+                f1622a = new x();
             }
-            xVar = f1631a;
+            xVar = f1622a;
         }
         return xVar;
     }
 
     public void a(com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> aVar) {
-        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.f1721a) {
+        if (Thread.currentThread().getId() != com.baidu.tieba.im.i.f1712a) {
             com.baidu.adp.lib.h.d.a("!!!!!!!!!!!!!!!获取缓存不是在主线程里面执行了！");
             try {
                 throw new RuntimeException();

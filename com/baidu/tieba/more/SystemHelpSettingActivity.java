@@ -14,19 +14,19 @@ import com.slidingmenu.lib.R;
 public class SystemHelpSettingActivity extends com.baidu.tieba.j implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private bb f1967a = null;
+    private bb f1950a = null;
     private ax b = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1967a = new bb(this);
+        this.f1950a = new bb(this);
         this.b = new ax();
         if (TiebaApplication.g().am()) {
-            this.f1967a.a().a();
+            this.f1950a.a().a();
         } else {
-            this.f1967a.a().b();
+            this.f1950a.a().b();
         }
         this.b.setLoadDataCallBack(new as(this));
     }
@@ -39,16 +39,16 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.j implements com.
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1967a.a(i);
+        this.f1950a.a(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1967a.e()) {
+        if (view == this.f1950a.e()) {
             if (this.b != null) {
                 new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_clear_all_cache).setPositiveButton(R.string.alert_yes_button, new au(this)).setNegativeButton(R.string.alert_no_button, new at(this)).create().show();
             }
-        } else if (view == this.f1967a.f()) {
+        } else if (view == this.f1950a.f()) {
             new AlertDialog.Builder(this).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.alert_clear_cache).setPositiveButton(R.string.alert_yes_button, new aw(this)).setNegativeButton(R.string.alert_no_button, new av(this)).create().show();
         }
     }
@@ -60,7 +60,7 @@ public class SystemHelpSettingActivity extends com.baidu.tieba.j implements com.
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && view.equals(this.f1967a.a())) {
+        if (view != null && view.equals(this.f1950a.a())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 this.b.a(true);
             } else {

@@ -12,7 +12,7 @@ import com.baidu.cloudsdk.social.core.SessionManager;
 public class SocialRestAPIImpl implements ISocialRestAPI {
 
     /* renamed from: a  reason: collision with root package name */
-    private AsyncHttpClient f855a = new AsyncHttpClient();
+    private AsyncHttpClient f856a = new AsyncHttpClient();
     private Context b;
 
     public SocialRestAPIImpl(Context context) {
@@ -30,6 +30,6 @@ public class SocialRestAPIImpl implements ISocialRestAPI {
             return;
         }
         requestParams.put("access_token", session.getAccessToken());
-        this.f855a.post(null, "https://openapi.baidu.com/social/api/2.0/user/info", requestParams, new BaiduAPIResponseHandler("https://openapi.baidu.com/social/api/2.0/user/info", iBaiduListener));
+        this.f856a.post(null, "https://openapi.baidu.com/social/api/2.0/user/info", requestParams, new BaiduAPIResponseHandler("https://openapi.baidu.com/social/api/2.0/user/info", iBaiduListener));
     }
 }

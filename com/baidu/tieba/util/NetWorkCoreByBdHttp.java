@@ -29,7 +29,7 @@ public class NetWorkCoreByBdHttp implements ai {
     private static int c = 2097152;
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f2468a;
+    protected Context f2451a;
     private az d;
     protected final com.baidu.adp.lib.network.a b = new com.baidu.adp.lib.network.a();
     private boolean e = false;
@@ -48,7 +48,7 @@ public class NetWorkCoreByBdHttp implements ai {
 
     public NetWorkCoreByBdHttp(az azVar) {
         A();
-        this.f2468a = TiebaApplication.g();
+        this.f2451a = TiebaApplication.g();
         this.d = azVar;
         com.baidu.adp.lib.network.d.a().b("BaiduTieba for Android " + com.baidu.tieba.data.h.j());
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
@@ -93,18 +93,18 @@ public class NetWorkCoreByBdHttp implements ai {
 
     @Override // com.baidu.tieba.util.ai
     public String e() {
-        if (this.d.f2495a == null) {
+        if (this.d.f2478a == null) {
             return null;
         }
-        String str = com.baidu.tieba.data.h.f1196a;
-        if (this.d.f2495a.startsWith(str)) {
-            int indexOf = this.d.f2495a.indexOf(63);
+        String str = com.baidu.tieba.data.h.f1201a;
+        if (this.d.f2478a.startsWith(str)) {
+            int indexOf = this.d.f2478a.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.d.f2495a.length();
+                indexOf = this.d.f2478a.length();
             }
-            return this.d.f2495a.substring(str.length(), indexOf);
+            return this.d.f2478a.substring(str.length(), indexOf);
         }
-        return this.d.f2495a;
+        return this.d.f2478a;
     }
 
     @Override // com.baidu.tieba.util.ai
@@ -113,7 +113,7 @@ public class NetWorkCoreByBdHttp implements ai {
     }
 
     private int a(UtilHelper.NetworkStateInfo networkStateInfo) {
-        switch (aw.f2492a[networkStateInfo.ordinal()]) {
+        switch (aw.f2475a[networkStateInfo.ordinal()]) {
             case 1:
                 return 1;
             case 2:
@@ -126,7 +126,7 @@ public class NetWorkCoreByBdHttp implements ai {
     }
 
     private void A() {
-        this.f2468a = null;
+        this.f2451a = null;
     }
 
     @Override // com.baidu.tieba.util.ai
@@ -137,7 +137,7 @@ public class NetWorkCoreByBdHttp implements ai {
     @Override // com.baidu.tieba.util.ai
     public String p() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f2468a.getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f2451a.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo.isAvailable()) {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
                     return "3";
@@ -163,7 +163,7 @@ public class NetWorkCoreByBdHttp implements ai {
 
     @Override // com.baidu.tieba.util.ai
     public void b(String str) {
-        this.d.f2495a = str;
+        this.d.f2478a = str;
     }
 
     @Override // com.baidu.tieba.util.ai
@@ -244,13 +244,13 @@ public class NetWorkCoreByBdHttp implements ai {
             try {
                 try {
                     if (this.d.e == null || this.d.e.size() <= 0 || this.e) {
-                        str = this.d.f2495a;
+                        str = this.d.f2478a;
                     } else {
                         StringBuilder sb = new StringBuilder(30);
-                        sb.append(this.d.f2495a);
-                        if (this.d.f2495a.indexOf("?") < 0) {
+                        sb.append(this.d.f2478a);
+                        if (this.d.f2478a.indexOf("?") < 0) {
                             sb.append("?");
-                        } else if (!this.d.f2495a.endsWith("?") && !this.d.f2495a.endsWith("&")) {
+                        } else if (!this.d.f2478a.endsWith("?") && !this.d.f2478a.endsWith("&")) {
                             sb.append("&");
                         }
                         for (int i = 0; i < this.d.e.size(); i++) {
@@ -302,7 +302,7 @@ public class NetWorkCoreByBdHttp implements ai {
                 }
             } catch (SocketTimeoutException e7) {
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 if (0 != 0) {
                     inputStream.close();
                     A = A;
@@ -312,7 +312,7 @@ public class NetWorkCoreByBdHttp implements ai {
             } catch (Exception e8) {
                 e = e8;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "getNetData", "error = " + e.getMessage());
                 if (0 != 0) {
                     inputStream.close();
@@ -323,7 +323,7 @@ public class NetWorkCoreByBdHttp implements ai {
             } catch (OutOfMemoryError e9) {
                 e = e9;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.memoryerror);
+                this.d.d = this.f2451a.getResources().getString(R.string.memoryerror);
                 bg.b(getClass().getName(), "getNetData", " 内存溢出！error = " + e.getMessage());
                 if (0 != 0) {
                     inputStream.close();
@@ -334,7 +334,7 @@ public class NetWorkCoreByBdHttp implements ai {
             } catch (SocketException e10) {
                 obj = A;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 A = obj;
                 if (A != 0) {
                 }
@@ -368,10 +368,10 @@ public class NetWorkCoreByBdHttp implements ai {
                 int i2 = parseInt * 10;
                 if (i2 > 0) {
                     if (com.baidu.adp.lib.h.d.a()) {
-                        com.baidu.adp.lib.h.d.d("pre-free memory for downloaded image:[" + this.d.f2495a + "], size:" + i2);
+                        com.baidu.adp.lib.h.d.d("pre-free memory for downloaded image:[" + this.d.f2478a + "], size:" + i2);
                     }
                     if (!com.baidu.tbadk.imageManager.d.a().c(i2)) {
-                        com.baidu.adp.lib.h.d.d("Image download cacelled. out of memory. url:[" + this.d.f2495a + "], size:" + i2);
+                        com.baidu.adp.lib.h.d.d("Image download cacelled. out of memory. url:[" + this.d.f2478a + "], size:" + i2);
                         if (0 != 0) {
                             try {
                                 inputStream.close();
@@ -386,13 +386,13 @@ public class NetWorkCoreByBdHttp implements ai {
             }
         }
         bb bbVar = new bb();
-        bbVar.e = a(UtilHelper.i(this.f2468a));
+        bbVar.e = a(UtilHelper.i(this.f2451a));
         bbVar.c = this.j.b;
         bbVar.b = new Date().getTime() - time;
         bbVar.d = this.j.e;
-        bbVar.f2497a = 2;
+        bbVar.f2480a = 2;
         ba.a(bbVar);
-        ba.f2496a.set(this.j.e);
+        ba.f2479a.set(this.j.e);
         if (this.h) {
             bh.b(this);
         } else {
@@ -417,13 +417,13 @@ public class NetWorkCoreByBdHttp implements ai {
                 errorData.parserJson(str);
                 this.d.c = errorData.getError_code();
                 if (this.d.c == -1) {
-                    this.d.d = this.f2468a.getString(R.string.error_unkown_try_again);
+                    this.d.d = this.f2451a.getString(R.string.error_unkown_try_again);
                 } else if (this.d.c != 0) {
                     this.d.d = errorData.getError_msg();
                 }
             } catch (Exception e) {
                 bg.b("NetWork", "parseServerCode", "error = " + e.getMessage());
-                this.d.d = this.f2468a.getString(R.string.error_unkown_try_again);
+                this.d.d = this.f2451a.getString(R.string.error_unkown_try_again);
             }
         }
     }
@@ -499,13 +499,13 @@ public class NetWorkCoreByBdHttp implements ai {
         }
         String sb3 = sb.toString();
         if (com.baidu.tieba.data.h.s()) {
-            bg.e(getClass().getName(), "postNetData", this.d.f2495a + "?" + sb3);
+            bg.e(getClass().getName(), "postNetData", this.d.f2478a + "?" + sb3);
         }
         try {
             if (this.b.c()) {
                 return null;
             }
-            com.baidu.adp.lib.network.e a3 = com.baidu.adp.lib.network.d.a().a(this.d.f2495a, sb3.getBytes(), this.d.g, 10, (com.baidu.adp.lib.network.c) null, this.b);
+            com.baidu.adp.lib.network.e a3 = com.baidu.adp.lib.network.d.a().a(this.d.f2478a, sb3.getBytes(), this.d.g, 10, (com.baidu.adp.lib.network.c) null, this.b);
             if (a3 == null) {
                 throw new BdHttpCancelException();
             }
@@ -527,13 +527,13 @@ public class NetWorkCoreByBdHttp implements ai {
                     d(str);
                 }
                 bb bbVar = new bb();
-                bbVar.e = a(UtilHelper.i(this.f2468a));
+                bbVar.e = a(UtilHelper.i(this.f2451a));
                 bbVar.c = this.j.b;
                 bbVar.b = this.j.f;
                 bbVar.d = this.j.e;
-                bbVar.f2497a = 1;
+                bbVar.f2480a = 1;
                 ba.a(bbVar);
-                ba.f2496a.set(this.j.e);
+                ba.f2479a.set(this.j.e);
                 bh.a(this);
                 return str;
             } catch (BdHttpCancelException e7) {
@@ -542,37 +542,37 @@ public class NetWorkCoreByBdHttp implements ai {
                 return str;
             } catch (BdHttpErrorException e8) {
                 e5 = e8;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "postNetData", "BdHttpErrorException " + e5.getMessage());
                 return str;
             } catch (OutOfMemoryError e9) {
                 e4 = e9;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.memoryerror);
+                this.d.d = this.f2451a.getResources().getString(R.string.memoryerror);
                 bg.b(getClass().getName(), "postNetData", " 内存溢出！error = " + e4.getMessage());
                 return str;
             } catch (SocketException e10) {
                 e3 = e10;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "postNetData", "SocketException " + e3.getMessage());
                 return str;
             } catch (SocketTimeoutException e11) {
                 e2 = e11;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "postNetData", "SocketTimeoutException " + e2.getMessage());
                 return str;
             } catch (Exception e12) {
                 e = e12;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "postNetData", e.getMessage());
                 return str;
             } catch (Throwable th2) {
                 th = th2;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "postNetData", th.getMessage());
                 return str;
             }
@@ -635,7 +635,7 @@ public class NetWorkCoreByBdHttp implements ai {
         if (this.b.c()) {
             throw new BdHttpCancelException();
         }
-        com.baidu.adp.lib.network.e a2 = com.baidu.adp.lib.network.d.a().a(this.d.f2495a, this.d.g, this.d.e, this.d.f, 10, null, this.b, null);
+        com.baidu.adp.lib.network.e a2 = com.baidu.adp.lib.network.d.a().a(this.d.f2478a, this.d.g, this.d.e, this.d.f, 10, null, this.b, null);
         this.d.b = a2.f513a;
         new Timer().schedule(new ax(this, null), 45000L);
         if (this.d.b != 200) {
@@ -651,7 +651,7 @@ public class NetWorkCoreByBdHttp implements ai {
             } catch (Exception e8) {
                 e2 = e8;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b("NetWork", "postMultiNetData", "error = " + e2.getMessage());
                 if (0 != 0) {
                     try {
@@ -666,7 +666,7 @@ public class NetWorkCoreByBdHttp implements ai {
             } catch (OutOfMemoryError e10) {
                 e = e10;
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.memoryerror);
+                this.d.d = this.f2451a.getResources().getString(R.string.memoryerror);
                 bg.b(getClass().getName(), "postMultiNetData", " 内存溢出！error = " + e.getMessage());
                 if (0 != 0) {
                     try {
@@ -680,7 +680,7 @@ public class NetWorkCoreByBdHttp implements ai {
                 return str;
             } catch (SocketException e12) {
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 if (0 != 0) {
                     try {
                         inputStream.close();
@@ -693,7 +693,7 @@ public class NetWorkCoreByBdHttp implements ai {
                 return str;
             } catch (SocketTimeoutException e14) {
                 this.d.b = 0;
-                this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 if (0 != 0) {
                     try {
                         inputStream.close();
@@ -732,17 +732,17 @@ public class NetWorkCoreByBdHttp implements ai {
             if (this.b.c()) {
                 valueOf = false;
             } else {
-                valueOf = Boolean.valueOf(com.baidu.adp.lib.network.d.a().a(this.d.f2495a, af.g(str).getAbsolutePath(), false, 10, (com.baidu.adp.lib.network.c) new av(this, handler, i), this.b));
+                valueOf = Boolean.valueOf(com.baidu.adp.lib.network.d.a().a(this.d.f2478a, af.g(str).getAbsolutePath(), false, 10, (com.baidu.adp.lib.network.c) new av(this, handler, i), this.b));
             }
             return valueOf;
         } catch (Exception e) {
             this.d.b = 0;
-            this.d.d = this.f2468a.getResources().getString(R.string.neterror);
+            this.d.d = this.f2451a.getResources().getString(R.string.neterror);
             bg.b("NetWork", "downloadFile", "error = " + e.getMessage());
             return false;
         } catch (OutOfMemoryError e2) {
             this.d.b = 0;
-            this.d.d = this.f2468a.getResources().getString(R.string.memoryerror);
+            this.d.d = this.f2451a.getResources().getString(R.string.memoryerror);
             bg.b(getClass().getName(), "downloadFile", "error = " + e2.getMessage());
             return false;
         }
@@ -750,12 +750,12 @@ public class NetWorkCoreByBdHttp implements ai {
 
     @Override // com.baidu.tieba.util.ai
     public void a(Context context) {
-        this.f2468a = context;
+        this.f2451a = context;
     }
 
     @Override // com.baidu.tieba.util.ai
     public Context m() {
-        return this.f2468a;
+        return this.f2451a;
     }
 
     @Override // com.baidu.tieba.util.ai

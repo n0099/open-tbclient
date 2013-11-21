@@ -1,60 +1,33 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import android.widget.Button;
-import com.slidingmenu.lib.R;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements View.OnFocusChangeListener {
+public class v implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f1092a;
+    final /* synthetic */ LoginActivity f1095a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(LoginActivity loginActivity) {
-        this.f1092a = loginActivity;
+        this.f1095a = loginActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        Button button;
-        Button button2;
-        Button button3;
-        Button button4;
-        Button button5;
-        Button button6;
-        Button button7;
-        Button button8;
-        Button button9;
-        if (z) {
-            switch (view.getId()) {
-                case R.id.login_edit_account /* 2131099739 */:
-                    button7 = this.f1092a.D;
-                    button7.setVisibility(8);
-                    button8 = this.f1092a.C;
-                    button8.setVisibility(0);
-                    button9 = this.f1092a.E;
-                    button9.setVisibility(8);
-                    return;
-                case R.id.login_edit_password /* 2131099743 */:
-                    button = this.f1092a.D;
-                    button.setVisibility(0);
-                    button2 = this.f1092a.C;
-                    button2.setVisibility(8);
-                    button3 = this.f1092a.E;
-                    button3.setVisibility(8);
-                    return;
-                case R.id.edit_vcode /* 2131099746 */:
-                    button4 = this.f1092a.D;
-                    button4.setVisibility(8);
-                    button5 = this.f1092a.C;
-                    button5.setVisibility(8);
-                    button6 = this.f1092a.E;
-                    button6.setVisibility(0);
-                    return;
-                default:
-                    return;
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        EditText editText2;
+        this.f1095a.o();
+        LoginActivity loginActivity = this.f1095a;
+        InputMethodManager inputMethodManager = this.f1095a.b;
+        editText = this.f1095a.o;
+        loginActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        LoginActivity loginActivity2 = this.f1095a;
+        InputMethodManager inputMethodManager2 = this.f1095a.b;
+        editText2 = this.f1095a.p;
+        loginActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        Register2Activity.a(this.f1095a, 12007);
     }
 }

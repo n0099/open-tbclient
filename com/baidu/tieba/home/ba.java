@@ -13,15 +13,15 @@ import java.util.ArrayList;
 public class ba extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1421a;
+    private Context f1412a;
     private ArrayList<String> b;
     private String c;
     private boolean d = true;
 
     public ba(Context context, ArrayList<String> arrayList) {
-        this.f1421a = context;
+        this.f1412a = context;
         this.b = arrayList;
-        this.c = this.f1421a.getText(R.string.forum).toString();
+        this.c = this.f1412a.getText(R.string.forum).toString();
     }
 
     public void a(ArrayList<String> arrayList) {
@@ -67,10 +67,10 @@ public class ba extends BaseAdapter {
         View view3;
         try {
             if (view == null) {
-                view3 = LayoutInflater.from(this.f1421a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
+                view3 = LayoutInflater.from(this.f1412a).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
                 try {
                     bcVar = new bc(this);
-                    bcVar.f1422a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
+                    bcVar.f1413a = (TextView) view3.findViewById(R.id.home_lv_search_forum);
                     view3.setTag(bcVar);
                 } catch (Exception e) {
                     view2 = view3;
@@ -86,12 +86,12 @@ public class ba extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            com.baidu.tieba.util.bd.b(bcVar.f1422a, TiebaApplication.g().ap());
+            com.baidu.tieba.util.bd.b(bcVar.f1413a, TiebaApplication.g().ap());
             String str = (String) item;
             if (this.d) {
-                bcVar.f1422a.setText(str.concat(this.c));
+                bcVar.f1413a.setText(str.concat(this.c));
             } else {
-                bcVar.f1422a.setText(str);
+                bcVar.f1413a.setText(str);
             }
             return view3;
         } catch (Exception e2) {

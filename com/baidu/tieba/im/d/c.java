@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static short f1597a = 1;
+    private static short f1588a = 1;
     private static short b = 2;
     private static short c = 3;
 

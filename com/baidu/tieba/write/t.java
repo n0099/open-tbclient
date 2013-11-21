@@ -6,11 +6,11 @@ import android.widget.EditText;
 class t implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2719a;
+    final /* synthetic */ WriteActivity f2703a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(WriteActivity writeActivity) {
-        this.f2719a = writeActivity;
+        this.f2703a = writeActivity;
     }
 
     @Override // java.lang.Runnable
@@ -20,17 +20,17 @@ class t implements Runnable {
         EditText editText2;
         InputMethodManager inputMethodManager2;
         EditText editText3;
-        editText = this.f2719a.f;
+        editText = this.f2703a.f;
         if (editText.getVisibility() == 0) {
-            WriteActivity writeActivity = this.f2719a;
-            inputMethodManager2 = this.f2719a.e;
-            editText3 = this.f2719a.f;
+            WriteActivity writeActivity = this.f2703a;
+            inputMethodManager2 = this.f2703a.e;
+            editText3 = this.f2703a.f;
             writeActivity.ShowSoftKeyPad(inputMethodManager2, editText3);
             return;
         }
-        WriteActivity writeActivity2 = this.f2719a;
-        inputMethodManager = this.f2719a.e;
-        editText2 = this.f2719a.h;
+        WriteActivity writeActivity2 = this.f2703a;
+        inputMethodManager = this.f2703a.e;
+        editText2 = this.f2703a.h;
         writeActivity2.ShowSoftKeyPad(inputMethodManager, editText2);
     }
 }

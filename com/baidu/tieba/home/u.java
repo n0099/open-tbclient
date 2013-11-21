@@ -7,17 +7,17 @@ import com.baidu.tieba.account.Register2Activity;
 class u implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Activity f1465a;
+    final /* synthetic */ Activity f1456a;
     final /* synthetic */ s b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(s sVar, Activity activity) {
         this.b = sVar;
-        this.f1465a = activity;
+        this.f1456a = activity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Register2Activity.a(this.f1465a, 12007);
+        Register2Activity.a(this.f1456a, 12007);
     }
 }

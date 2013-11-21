@@ -10,7 +10,7 @@ public class aa extends com.baidu.adp.a.d {
     private int f = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1881a = 0;
+    protected int f1863a = 0;
     protected String b = null;
     private int g = 0;
 
@@ -89,12 +89,12 @@ public class aa extends com.baidu.adp.a.d {
 
     @Override // com.baidu.adp.a.d
     public int getErrorCode() {
-        return this.f1881a;
+        return this.f1863a;
     }
 
     @Override // com.baidu.adp.a.d
     public void setErrorCode(int i) {
-        this.f1881a = i;
+        this.f1863a = i;
     }
 
     @Override // com.baidu.adp.a.d

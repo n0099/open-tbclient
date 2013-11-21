@@ -12,20 +12,20 @@ import com.slidingmenu.lib.R;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f2599a;
+    private View f2582a;
     private GoodGridView b;
     private ImageView c;
     private Activity d;
 
     public v(Activity activity) {
-        this.f2599a = null;
+        this.f2582a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.d = activity;
-        this.f2599a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
-        this.b = (GoodGridView) this.f2599a.findViewById(R.id.good_gridview);
-        this.c = (ImageView) this.f2599a.findViewById(R.id.divider_line);
+        this.f2582a = LayoutInflater.from(activity).inflate(R.layout.dialog_good, (ViewGroup) null);
+        this.b = (GoodGridView) this.f2582a.findViewById(R.id.good_gridview);
+        this.c = (ImageView) this.f2582a.findViewById(R.id.divider_line);
     }
 
     public void a(com.baidu.tieba.frs.ap apVar) {
@@ -37,7 +37,7 @@ public class v {
     }
 
     public View a() {
-        return this.f2599a;
+        return this.f2582a;
     }
 
     public void a(int i) {

@@ -10,7 +10,7 @@ public class az {
     protected String k = "UTF-8";
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2495a = null;
+    protected String f2478a = null;
     protected int b = 0;
     protected int c = 0;
     protected String d = null;

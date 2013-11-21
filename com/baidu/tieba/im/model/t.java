@@ -15,12 +15,12 @@ import java.io.RandomAccessFile;
 public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ r f1761a;
+    final /* synthetic */ r f1752a;
     private ap b;
     private boolean c;
 
     private t(r rVar) {
-        this.f1761a = rVar;
+        this.f1752a = rVar;
         this.b = null;
         this.c = false;
     }
@@ -48,7 +48,7 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
         int i7;
         int i8;
         try {
-            str = this.f1761a.g;
+            str = this.f1752a.g;
             File file = new File(str);
             long length = file.length();
             String a2 = be.a(af.a(file));
@@ -61,7 +61,7 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
             } else {
                 String str3 = a2 + 102400;
                 long j = length % 102400 == 0 ? length / 102400 : (length / 102400) + 1;
-                str2 = this.f1761a.g;
+                str2 = this.f1752a.g;
                 randomAccessFile = new RandomAccessFile(str2, "r");
                 int i9 = 0;
                 byte[] bArr = null;
@@ -95,16 +95,16 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
                                     this.b.a("isFinish", String.valueOf(0));
                                 }
                                 ap apVar = this.b;
-                                i2 = this.f1761a.k;
+                                i2 = this.f1752a.k;
                                 apVar.a("width", String.valueOf(i2));
                                 ap apVar2 = this.b;
-                                i3 = this.f1761a.l;
+                                i3 = this.f1752a.l;
                                 apVar2.a("height", String.valueOf(i3));
                                 ap apVar3 = this.b;
-                                i4 = this.f1761a.i;
+                                i4 = this.f1752a.i;
                                 apVar3.a("smallWidth", String.valueOf(i4));
                                 ap apVar4 = this.b;
-                                i5 = this.f1761a.j;
+                                i5 = this.f1752a.j;
                                 apVar4.a("smallHeight", String.valueOf(i5));
                                 this.b.a("groupId", String.valueOf(1));
                                 this.b.a("alt", "json");
@@ -177,14 +177,14 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
         u uVar2;
         String str;
         super.a();
-        uVar = this.f1761a.f;
+        uVar = this.f1752a.f;
         if (uVar != null) {
             UploadPicData2 uploadPicData2 = new UploadPicData2();
             i = r.d;
             uploadPicData2.error_code = i;
             uploadPicData2.error_msg = TiebaApplication.g().getString(R.string.send_error);
-            uVar2 = this.f1761a.f;
-            str = this.f1761a.g;
+            uVar2 = this.f1752a.f;
+            str = this.f1752a.g;
             uVar2.a(str, uploadPicData2);
         }
     }
@@ -192,7 +192,7 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.f1761a.m = null;
+        this.f1752a.m = null;
         if (this.b != null) {
             this.b.h();
         }
@@ -208,8 +208,8 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
         String str;
         int i;
         super.a((t) uploadPicData2);
-        this.f1761a.m = null;
-        uVar = this.f1761a.f;
+        this.f1752a.m = null;
+        uVar = this.f1752a.f;
         if (uVar != null) {
             if (uploadPicData2 == null) {
                 uploadPicData2 = new UploadPicData2();
@@ -217,8 +217,8 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
                 uploadPicData2.error_code = i;
                 uploadPicData2.error_msg = TiebaApplication.g().getString(R.string.send_error);
             }
-            uVar2 = this.f1761a.f;
-            str = this.f1761a.g;
+            uVar2 = this.f1752a.f;
+            str = this.f1752a.g;
             uVar2.a(str, uploadPicData2);
         }
     }

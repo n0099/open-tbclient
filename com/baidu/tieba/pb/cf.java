@@ -4,17 +4,17 @@ package com.baidu.tieba.pb;
 public class cf implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2112a;
-    final /* synthetic */ PbEditor b;
+    final /* synthetic */ PbEditor f2095a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(PbEditor pbEditor, int i) {
-        this.b = pbEditor;
-        this.f2112a = i;
+    public cf(PbEditor pbEditor) {
+        this.f2095a = pbEditor;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.a(this.f2112a, new cg(this));
+        if (this.f2095a.e) {
+            this.f2095a.d();
+        }
     }
 }

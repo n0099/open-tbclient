@@ -11,12 +11,12 @@ import java.util.ArrayList;
 public class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1877a;
+    final /* synthetic */ PostActivity f1859a;
     private ArrayList<com.baidu.tieba.data.j> b;
     private int c;
 
     public z(PostActivity postActivity, ArrayList<com.baidu.tieba.data.j> arrayList, int i) {
-        this.f1877a = postActivity;
+        this.f1859a = postActivity;
         this.b = arrayList;
         this.c = i;
     }
@@ -36,9 +36,9 @@ public class z implements View.OnClickListener {
                     arrayList.add(stringBuffer.toString());
                 }
             }
-            PostActivity postActivity = this.f1877a;
+            PostActivity postActivity = this.f1859a;
             int i2 = this.c;
-            bvVar = this.f1877a.l;
+            bvVar = this.f1859a.l;
             ImageActivity.a(postActivity, arrayList, i2, bvVar);
         } catch (Exception e) {
             bg.b("PbAdapter", "ImageOnClickListener", "error = " + e.getMessage());

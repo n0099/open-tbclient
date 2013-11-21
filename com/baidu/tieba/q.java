@@ -5,15 +5,15 @@ import android.view.View;
 class q implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CommonWebviewActivity f2296a;
+    final /* synthetic */ CommonWebviewActivity f2281a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(CommonWebviewActivity commonWebviewActivity) {
-        this.f2296a = commonWebviewActivity;
+        this.f2281a = commonWebviewActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2296a.a();
+        this.f2281a.a();
     }
 }

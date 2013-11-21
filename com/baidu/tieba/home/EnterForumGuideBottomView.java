@@ -12,13 +12,13 @@ import com.slidingmenu.lib.R;
 public class EnterForumGuideBottomView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1389a;
+    private int f1380a;
     private ImageView b;
     private TextView c;
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1389a = -1;
+        this.f1380a = -1;
         this.b = null;
         this.c = null;
         a(context);
@@ -26,7 +26,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
 
     public EnterForumGuideBottomView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1389a = -1;
+        this.f1380a = -1;
         this.b = null;
         this.c = null;
         a(context);
@@ -34,7 +34,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
 
     public EnterForumGuideBottomView(Context context) {
         super(context);
-        this.f1389a = -1;
+        this.f1380a = -1;
         this.b = null;
         this.c = null;
         a(context);
@@ -47,11 +47,11 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     private void setSkinType(int i) {
-        this.f1389a = i;
+        this.f1380a = i;
     }
 
     private int getSkinType() {
-        return this.f1389a;
+        return this.f1380a;
     }
 
     private boolean c(int i) {
@@ -97,7 +97,7 @@ public class EnterForumGuideBottomView extends RelativeLayout {
     }
 
     public void c() {
-        this.f1389a = -1;
+        this.f1380a = -1;
         this.b.setBackgroundDrawable(null);
     }
 }

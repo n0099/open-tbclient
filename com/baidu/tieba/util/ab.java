@@ -9,12 +9,12 @@ import java.io.File;
 public class ab extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ y f2476a;
+    final /* synthetic */ y f2459a;
     private ac b = null;
     private String c;
 
     public ab(y yVar, String str) {
-        this.f2476a = yVar;
+        this.f2459a = yVar;
         this.c = null;
         this.c = str;
     }
@@ -28,18 +28,18 @@ public class ab extends BdAsyncTask<String, Integer, String> {
         String str;
         String str2;
         String str3;
-        this.b = new ac(this.f2476a, null);
-        networkStateInfo = this.f2476a.n;
+        this.b = new ac(this.f2459a, null);
+        networkStateInfo = this.f2459a.m;
         if (networkStateInfo != UtilHelper.NetworkStateInfo.WIFI) {
-            y yVar = this.f2476a;
-            str3 = y.d;
+            y yVar = this.f2459a;
+            str3 = y.c;
             yVar.d(str3);
             z = false;
         } else {
             z = true;
         }
         if (z) {
-            str = y.d;
+            str = y.c;
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null) {
                 for (File file : listFiles) {
@@ -48,7 +48,7 @@ public class ab extends BdAsyncTask<String, Integer, String> {
                         if (name.contains(".log") && (TextUtils.isEmpty(this.c) || !this.c.equals(name))) {
                             ac acVar = this.b;
                             StringBuilder sb = new StringBuilder();
-                            str2 = y.d;
+                            str2 = y.c;
                             acVar.a(sb.append(str2).append("/").append(name).toString(), "c/s/logupload", true);
                         }
                     }
@@ -63,7 +63,7 @@ public class ab extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.a();
         }
-        this.f2476a.t = null;
+        this.f2459a.s = null;
         super.cancel(true);
     }
 
@@ -72,6 +72,6 @@ public class ab extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((ab) str);
-        this.f2476a.t = null;
+        this.f2459a.s = null;
     }
 }

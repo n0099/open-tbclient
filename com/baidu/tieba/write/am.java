@@ -1,19 +1,21 @@
 package com.baidu.tieba.write;
 
 import android.content.DialogInterface;
+import android.os.Handler;
 import android.widget.EditText;
 import com.baidu.tieba.data.WriteData;
 import com.baidu.tieba.util.DatabaseService;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2686a;
+    final /* synthetic */ WriteActivity f2669a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.f2686a = writeActivity;
+        this.f2669a = writeActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -23,14 +25,17 @@ public class am implements DialogInterface.OnClickListener {
         WriteData writeData2;
         EditText editText2;
         WriteData writeData3;
-        writeData = this.f2686a.b;
-        editText = this.f2686a.f;
+        Handler handler;
+        writeData = this.f2669a.b;
+        editText = this.f2669a.f;
         writeData.setTitle(editText.getText().toString());
-        writeData2 = this.f2686a.b;
-        editText2 = this.f2686a.h;
+        writeData2 = this.f2669a.b;
+        editText2 = this.f2669a.h;
         writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.f2686a.b;
+        writeData3 = this.f2669a.b;
         DatabaseService.b(writeData3);
-        this.f2686a.finish();
+        this.f2669a.showToast(R.string.draft_save_success);
+        handler = this.f2669a.s;
+        handler.postDelayed(new an(this), 1000L);
     }
 }

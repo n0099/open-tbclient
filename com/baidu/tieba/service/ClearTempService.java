@@ -11,7 +11,7 @@ import java.util.Date;
 public class ClearTempService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f2329a = false;
+    private volatile boolean f2314a = false;
     private Thread b = null;
     private Handler c = new a(this);
 
@@ -28,13 +28,13 @@ public class ClearTempService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.f2329a = true;
+        this.f2314a = true;
     }
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        this.f2329a = false;
+        this.f2314a = false;
         if (this.b == null) {
             this.b = new b(this);
             this.b.start();
@@ -46,7 +46,7 @@ public class ClearTempService extends Service {
         File[] listFiles = file.listFiles();
         long time = new Date().getTime();
         if (listFiles != null) {
-            for (int i = 0; i < listFiles.length && !this.f2329a; i++) {
+            for (int i = 0; i < listFiles.length && !this.f2314a; i++) {
                 if (time - listFiles[i].lastModified() > 259200000 && !listFiles[i].delete()) {
                     bg.b(getClass().getName(), "run", "list[i].delete error");
                 }

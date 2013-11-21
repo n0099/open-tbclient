@@ -20,15 +20,15 @@ import java.net.URLEncoder;
 public class SquareActivity extends BaseFragment implements AbsListView.OnScrollListener, com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2366a = false;
+    public static boolean f2351a = false;
     private BaseFragmentActivity f;
-    private bw b = null;
-    private ax c = null;
+    private bu b = null;
+    private av c = null;
     private boolean d = false;
     private boolean e = false;
     private Handler g = null;
     private Runnable h = null;
-    private ay i = new am(this);
+    private aw i = new am(this);
     private com.baidu.tieba.view.az Y = new an(this);
     private View.OnKeyListener Z = new ap(this);
     private com.baidu.adp.widget.ListView.b aa = new aq(this);
@@ -75,13 +75,13 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     }
 
     private void G() {
-        this.b = new bw(this.f, this, this.Z);
+        this.b = new bu(this.f, this, this.Z);
         this.b.a(this.aa);
         this.b.f().setClickStatKey("sq_tb_search");
     }
 
     private void H() {
-        this.c = new ax();
+        this.c = new av();
         this.c.a(this.i);
         this.e = true;
         a(this.e);
@@ -112,9 +112,9 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
     public void r() {
         super.r();
         if (F()) {
-            if (f2366a) {
+            if (f2351a) {
                 a(true);
-                f2366a = false;
+                f2351a = false;
             }
             if (this.g != null && !this.e) {
                 this.g.removeCallbacks(this.h);
@@ -149,7 +149,7 @@ public class SquareActivity extends BaseFragment implements AbsListView.OnScroll
             if (TiebaApplication.g().s()) {
                 StatService.onEvent(this.f, "sq_icon_category", "click", 1);
             }
-            BarFolderFirstDirActivity.a(this.f, a(bw.f2417a, "all"));
+            BarFolderFirstDirActivity.a(this.f, a(bu.f2400a, "all"));
         }
     }
 

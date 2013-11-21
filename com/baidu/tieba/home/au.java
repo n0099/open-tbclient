@@ -8,11 +8,11 @@ import android.widget.Button;
 public class au implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1414a;
+    final /* synthetic */ SearchActivity f1405a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(SearchActivity searchActivity) {
-        this.f1414a = searchActivity;
+        this.f1405a = searchActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -20,22 +20,22 @@ public class au implements TextWatcher {
         String str;
         int i4;
         int i5;
-        this.f1414a.A = charSequence.toString();
-        str = this.f1414a.A;
+        this.f1405a.A = charSequence.toString();
+        str = this.f1405a.A;
         if (str.trim().length() > 0) {
-            i5 = this.f1414a.B;
+            i5 = this.f1405a.B;
             if (i5 == 0) {
-                this.f1414a.g();
+                this.f1405a.g();
                 return;
             }
             return;
         }
-        this.f1414a.a();
-        i4 = this.f1414a.B;
+        this.f1405a.a();
+        i4 = this.f1405a.B;
         if (i4 == 0) {
-            this.f1414a.f();
+            this.f1405a.f();
         } else {
-            this.f1414a.h();
+            this.f1405a.h();
         }
     }
 
@@ -48,11 +48,11 @@ public class au implements TextWatcher {
         Button button;
         Button button2;
         if (editable.toString().trim().length() == 0) {
-            button2 = this.f1414a.d;
+            button2 = this.f1405a.d;
             button2.setVisibility(8);
             return;
         }
-        button = this.f1414a.d;
+        button = this.f1405a.d;
         button.setVisibility(0);
     }
 }

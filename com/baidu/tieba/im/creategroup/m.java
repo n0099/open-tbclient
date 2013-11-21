@@ -16,7 +16,7 @@ import java.util.List;
 public class m extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<Address> f1592a = null;
+    private List<Address> f1583a = null;
     private int b = -1;
     private com.baidu.tieba.j c;
 
@@ -27,22 +27,22 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f1592a == null) {
+        if (this.f1583a == null) {
             return 0;
         }
-        return this.f1592a.size();
+        return this.f1583a.size();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f1592a == null || this.f1592a.size() == 0) {
+        if (this.f1583a == null || this.f1583a.size() == 0) {
             return 0;
         }
-        if (this.f1592a.size() != 1) {
-            if (this.f1592a.size() > 1 && i == 0) {
+        if (this.f1583a.size() != 1) {
+            if (this.f1583a.size() > 1 && i == 0) {
                 return 2;
             }
-            if (this.f1592a.size() > 1 && i + 1 < this.f1592a.size()) {
+            if (this.f1583a.size() > 1 && i + 1 < this.f1583a.size()) {
                 return 3;
             }
             return 4;
@@ -57,7 +57,7 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f1592a.get(i);
+        return this.f1583a.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,8 +66,8 @@ public class m extends BaseAdapter {
     }
 
     public Address a() {
-        if (this.b >= 0 && this.f1592a.size() >= this.b + 1) {
-            return this.f1592a.get(this.b);
+        if (this.b >= 0 && this.f1583a.size() >= this.b + 1) {
+            return this.f1583a.get(this.b);
         }
         return null;
     }
@@ -88,7 +88,7 @@ public class m extends BaseAdapter {
         if (view == null) {
             View inflate = LayoutInflater.from(this.c).inflate(R.layout.address_lbs_item, (ViewGroup) null);
             n nVar2 = new n(this);
-            nVar2.f1593a = (LinearLayout) inflate;
+            nVar2.f1584a = (LinearLayout) inflate;
             nVar2.b = (TextView) inflate.findViewById(R.id.text);
             nVar2.c = (ImageView) inflate.findViewById(R.id.arrow2);
             inflate.setTag(nVar2);
@@ -101,27 +101,27 @@ public class m extends BaseAdapter {
         int ap = TiebaApplication.g().ap();
         if (itemViewType == 1) {
             if (ap == 1) {
-                bd.e(nVar3.f1593a, (int) R.drawable.more_all_1);
+                bd.e(nVar3.f1584a, (int) R.drawable.more_all_1);
             } else {
-                bd.e(nVar3.f1593a, (int) R.drawable.more_all);
+                bd.e(nVar3.f1584a, (int) R.drawable.more_all);
             }
         } else if (itemViewType == 2) {
             if (ap == 1) {
-                bd.e(nVar3.f1593a, (int) R.drawable.more_up_1);
+                bd.e(nVar3.f1584a, (int) R.drawable.more_up_1);
             } else {
-                bd.e(nVar3.f1593a, (int) R.drawable.more_up);
+                bd.e(nVar3.f1584a, (int) R.drawable.more_up);
             }
         } else if (itemViewType == 3) {
             if (ap == 1) {
-                bd.e(nVar3.f1593a, (int) R.drawable.more_middle_1);
+                bd.e(nVar3.f1584a, (int) R.drawable.more_middle_1);
             } else {
-                bd.e(nVar3.f1593a, (int) R.drawable.more_middle);
+                bd.e(nVar3.f1584a, (int) R.drawable.more_middle);
             }
         } else if (itemViewType == 4) {
             if (ap == 1) {
-                bd.e(nVar3.f1593a, (int) R.drawable.more_down_1);
+                bd.e(nVar3.f1584a, (int) R.drawable.more_down_1);
             } else {
-                bd.e(nVar3.f1593a, (int) R.drawable.more_down);
+                bd.e(nVar3.f1584a, (int) R.drawable.more_down);
             }
         }
         if (ap == 1) {
@@ -136,8 +136,8 @@ public class m extends BaseAdapter {
         } else {
             nVar3.c.setVisibility(8);
         }
-        if (this.f1592a.size() >= i + 1) {
-            nVar3.b.setText(this.f1592a.get(i).getAddressLine(0));
+        if (this.f1583a.size() >= i + 1) {
+            nVar3.b.setText(this.f1583a.get(i).getAddressLine(0));
         }
         return view2;
     }

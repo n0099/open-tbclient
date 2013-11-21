@@ -9,19 +9,19 @@ import com.baidu.tieba.flist.ForumListActivity;
 public class y implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsHeaderView f2602a;
+    final /* synthetic */ FrsHeaderView f2585a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(FrsHeaderView frsHeaderView) {
-        this.f2602a = frsHeaderView;
+        this.f2585a = frsHeaderView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
         String str;
-        activity = this.f2602a.D;
-        str = this.f2602a.J;
+        activity = this.f2585a.E;
+        str = this.f2585a.K;
         ForumListActivity.a(activity, str, "2", SocialConstants.TRUE);
     }
 }

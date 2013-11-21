@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 
-import android.location.Address;
+import com.baidu.tieba.im.SingleRunnable;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface aw {
-    void a(int i, String str, Address address);
+public final class aw extends SingleRunnable<Void> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.SingleRunnable
+    /* renamed from: a */
+    public Void b() {
+        return null;
+    }
 }

@@ -14,27 +14,27 @@ import com.slidingmenu.lib.R;
 public class SubPbLoadPreviousView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2055a;
+    private Context f2038a;
     private TextView b;
     private ImageView c;
     private ProgressBar d;
 
     public SubPbLoadPreviousView(Context context) {
         super(context);
-        this.f2055a = context;
+        this.f2038a = context;
         e();
     }
 
     public SubPbLoadPreviousView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2055a = context;
+        this.f2038a = context;
         e();
     }
 
     private void e() {
         setOrientation(0);
         setClickable(true);
-        LayoutInflater.from(this.f2055a).inflate(R.layout.sub_pb_load_previous, (ViewGroup) this, true);
+        LayoutInflater.from(this.f2038a).inflate(R.layout.sub_pb_load_previous, (ViewGroup) this, true);
         this.b = (TextView) findViewById(R.id.btn_loadprevious);
         this.c = (ImageView) findViewById(R.id.image_up);
         this.d = (ProgressBar) findViewById(R.id.progress);

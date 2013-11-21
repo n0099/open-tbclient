@@ -6,11 +6,11 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class bz extends BdAsyncTask<Integer, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bx f1924a;
+    final /* synthetic */ bx f1906a;
     private com.baidu.tieba.util.ap b;
 
     private bz(bx bxVar) {
-        this.f1924a = bxVar;
+        this.f1906a = bxVar;
         this.b = null;
     }
 
@@ -20,14 +20,14 @@ public class bz extends BdAsyncTask<Integer, Integer, String> {
     public String a(Integer... numArr) {
         try {
             int intValue = numArr[0].intValue();
-            if (this.f1924a.d() != null) {
+            if (this.f1906a.d() != null) {
                 this.b = new com.baidu.tieba.util.ap();
                 if (intValue == 0) {
-                    this.b.a(com.baidu.tieba.data.h.f1196a + "c/c/user/follow");
+                    this.b.a(com.baidu.tieba.data.h.f1201a + "c/c/user/follow");
                 } else {
-                    this.b.a(com.baidu.tieba.data.h.f1196a + "c/c/user/unfollow");
+                    this.b.a(com.baidu.tieba.data.h.f1201a + "c/c/user/unfollow");
                 }
-                this.b.a("portrait", this.f1924a.d().getPortrait());
+                this.b.a("portrait", this.f1906a.d().getPortrait());
                 this.b.e(true);
                 this.b.j();
                 return null;
@@ -46,24 +46,24 @@ public class bz extends BdAsyncTask<Integer, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((bz) str);
-        this.f1924a.o = null;
+        this.f1906a.o = null;
         if (this.b != null) {
             if (!this.b.c()) {
-                this.f1924a.mLoadDataMode = 3;
-                this.f1924a.setErrorString(this.b.g());
-                gVar = this.f1924a.mLoadDataCallBack;
+                this.f1906a.mLoadDataMode = 3;
+                this.f1906a.setErrorString(this.b.g());
+                gVar = this.f1906a.mLoadDataCallBack;
                 gVar.a(false);
                 return;
             }
-            if (this.f1924a.d() != null) {
-                if (this.f1924a.d().getHave_attention() == 1) {
-                    this.f1924a.d().setHave_attention(0);
+            if (this.f1906a.d() != null) {
+                if (this.f1906a.d().getHave_attention() == 1) {
+                    this.f1906a.d().setHave_attention(0);
                 } else {
-                    this.f1924a.d().setHave_attention(1);
+                    this.f1906a.d().setHave_attention(1);
                 }
             }
-            this.f1924a.mLoadDataMode = 3;
-            gVar2 = this.f1924a.mLoadDataCallBack;
+            this.f1906a.mLoadDataMode = 3;
+            gVar2 = this.f1906a.mLoadDataCallBack;
             gVar2.a(true);
         }
     }
@@ -76,8 +76,8 @@ public class bz extends BdAsyncTask<Integer, Integer, String> {
             this.b.h();
             this.b = null;
         }
-        this.f1924a.o = null;
-        gVar = this.f1924a.mLoadDataCallBack;
+        this.f1906a.o = null;
+        gVar = this.f1906a.mLoadDataCallBack;
         gVar.a(false);
     }
 }

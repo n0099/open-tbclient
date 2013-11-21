@@ -13,12 +13,12 @@ import com.slidingmenu.lib.R;
 public class x extends BdAsyncTask<Void, Void, ForumListModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    ForumListModel f1264a;
+    ForumListModel f1269a;
     final /* synthetic */ u b;
 
     private x(u uVar) {
         this.b = uVar;
-        this.f1264a = new ForumListModel();
+        this.f1269a = new ForumListModel();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,11 +29,11 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
         w wVar;
         boolean z;
         super.b((Object[]) voidArr);
-        if (this.f1264a != null) {
+        if (this.f1269a != null) {
             wVar = this.b.c;
-            int errorCode = this.f1264a.getErrorCode();
-            ForumListModel forumListModel = this.f1264a;
-            String errorString = this.f1264a.getErrorString();
+            int errorCode = this.f1269a.getErrorCode();
+            ForumListModel forumListModel = this.f1269a;
+            String errorString = this.f1269a.getErrorString();
             z = this.b.f;
             wVar.a(true, errorCode, forumListModel, errorString, z);
         }
@@ -61,15 +61,15 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
                     str = null;
                 }
                 if (str != null) {
-                    this.f1264a = (ForumListModel) new GsonBuilder().create().fromJson(str, (Class<Object>) ForumListModel.class);
-                    if (this.f1264a != null) {
+                    this.f1269a = (ForumListModel) new GsonBuilder().create().fromJson(str, (Class<Object>) ForumListModel.class);
+                    if (this.f1269a != null) {
                         c((Object[]) new Void[0]);
                     }
                     this.b.f = true;
                 }
             }
             this.b.e = false;
-            context = this.b.f1263a;
+            context = this.b.f1268a;
             requestParams = this.b.b;
             return ForumListModel.new_fetch(context, requestParams);
         } catch (JsonParseException e) {
@@ -89,7 +89,7 @@ public class x extends BdAsyncTask<Void, Void, ForumListModel> {
         boolean z2;
         if (forumListModel == null || !forumListModel.isOk()) {
             wVar = this.b.c;
-            context = this.b.f1263a;
+            context = this.b.f1268a;
             String string = context.getString(R.string.neterror);
             z = this.b.f;
             wVar.a(false, 0, forumListModel, string, z);

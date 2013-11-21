@@ -6,7 +6,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
-public class q implements ai {
+public class q implements ak {
 
     /* renamed from: a */
     final /* synthetic */ IndicatorView f608a;
@@ -23,7 +23,7 @@ public class q implements ai {
         this.b = (int) ((indicatorView.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
     }
 
-    @Override // com.baidu.adp.widget.ai
+    @Override // com.baidu.adp.widget.ak
     public void a(int i, int i2) {
         Drawable drawable;
         Drawable drawable2;
@@ -193,7 +193,7 @@ public class q implements ai {
     }
 
     /* JADX WARN: Incorrect condition in loop: B:17:0x0013 */
-    @Override // com.baidu.adp.widget.ai
+    @Override // com.baidu.adp.widget.ak
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

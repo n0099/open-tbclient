@@ -12,7 +12,7 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
     public static final int PAGE_SIZE = 20;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2260a = 0;
+    private static int f2245a = 0;
     private static String b = "";
     public static h sFetchThreadAsyncTask;
     @SerializedName("post_list")
@@ -160,10 +160,10 @@ public class PersonPostThreadModel extends com.baidu.adp.a.d implements Serializ
 
     public static void fetchThread(g gVar, boolean z, String str) {
         if (z || !str.equals(b)) {
-            f2260a = 1;
+            f2245a = 1;
             b = str;
         } else {
-            f2260a++;
+            f2245a++;
         }
         if (sFetchThreadAsyncTask != null && sFetchThreadAsyncTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
             sFetchThreadAsyncTask.cancel();

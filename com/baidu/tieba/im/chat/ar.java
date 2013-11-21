@@ -5,18 +5,18 @@ import com.baidu.tieba.view.HeadImageView;
 class ar implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgleftView f1511a;
+    final /* synthetic */ MsgleftView f1502a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(MsgleftView msgleftView) {
-        this.f1511a = msgleftView;
+        this.f1502a = msgleftView;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         HeadImageView headImageView;
         if (eVar != null) {
-            headImageView = this.f1511a.n;
+            headImageView = this.f1502a.n;
             eVar.a(headImageView);
         }
     }

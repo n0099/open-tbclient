@@ -15,7 +15,7 @@ public class AnnotationsAttribute extends e {
 
     @Override // javassist.bytecode.e
     public e a(y yVar, Map map) {
-        b bVar = new b(this.c, this.f2811a, yVar, map);
+        b bVar = new b(this.c, this.f2795a, yVar, map);
         try {
             bVar.e();
             return new AnnotationsAttribute(yVar, b(), bVar.a());
@@ -26,7 +26,7 @@ public class AnnotationsAttribute extends e {
 
     public javassist.bytecode.annotation.a[] a() {
         try {
-            return new c(this.c, this.f2811a).b();
+            return new c(this.c, this.f2795a).b();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

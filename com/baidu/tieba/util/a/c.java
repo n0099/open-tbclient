@@ -15,6 +15,7 @@ import com.baidu.tieba.util.bg;
 import com.baidu.tieba.util.i;
 import com.baidu.tieba.util.l;
 import com.baidu.tieba.util.m;
+import com.baidu.tieba.util.y;
 /* loaded from: classes.dex */
 public class c extends a {
     @Override // com.baidu.tieba.util.a.a
@@ -43,22 +44,22 @@ public class c extends a {
         String f = be.f(str);
         String str2 = iVar.f != null ? f + iVar.f : f;
         String a2 = iVar.a(str);
-        synchronized (m.f2513a) {
+        synchronized (m.f2496a) {
             if (str2 != null) {
                 if (lVar.d == 5) {
                     lVar.e = DatabaseService.d(a2);
                 } else {
-                    int a3 = (int) af.a("image", str2);
-                    if (a3 > 0) {
-                        com.baidu.tbadk.imageManager.d.a().c(a3);
-                        lVar.e = af.c("image", str2);
+                    int b = (int) af.b("image", str2);
+                    if (b > 0) {
+                        com.baidu.tbadk.imageManager.d.a().c(b);
+                        lVar.e = af.d("image", str2);
                         if (lVar.e != null) {
                             s<String> q = com.baidu.tieba.b.a.a().q();
                             if (q != null && "gif".equals(q.a(a2))) {
                                 lVar.h = true;
                             }
                             if (!lVar.h) {
-                                lVar.h = af.b("image", str2);
+                                lVar.h = af.c("image", str2);
                             }
                         }
                     }
@@ -97,21 +98,20 @@ public class c extends a {
         int i;
         int i2;
         String sb;
-        int i3;
         Bitmap a2;
         if (str == null || str.length() == 0) {
             return null;
         }
-        int i4 = lVar.d;
+        int i3 = lVar.d;
         String f = be.f(str);
         String str2 = iVar.f != null ? f + iVar.f : f;
         if (iVar.b == 0) {
-            i = UtilHelper.a(iVar.f2509a, 105.0f);
+            i = UtilHelper.a(iVar.f2492a, 105.0f);
         } else {
             i = iVar.b;
         }
         if (iVar.c == 0) {
-            i2 = UtilHelper.a(iVar.f2509a, 105.0f);
+            i2 = UtilHelper.a(iVar.f2492a, 105.0f);
         } else {
             i2 = iVar.c;
         }
@@ -138,19 +138,18 @@ public class c extends a {
             }
             sb = sb2.toString();
         }
-        lVar.f2512a = new ap(iVar.f2509a, sb);
-        if (!sb.contains(".gif")) {
-            i3 = 1;
-        } else {
-            i3 = 2;
+        lVar.f2495a = new ap(iVar.f2492a, sb);
+        int i4 = 1;
+        if (sb.contains(".gif")) {
+            i4 = 2;
         }
-        lVar.f2512a.a(iVar.d(), i3);
+        lVar.f2495a.a(iVar.d(), i4);
         if (c) {
-            lVar.f2512a.d(false);
+            lVar.f2495a.d(false);
         } else {
-            lVar.f2512a.d(true);
+            lVar.f2495a.d(true);
         }
-        lVar.f2512a.f(c);
+        lVar.f2495a.f(c);
         if (iVar.h != null && !c) {
             int i5 = 0;
             while (true) {
@@ -158,91 +157,97 @@ public class c extends a {
                 if (i6 >= iVar.h.size()) {
                     break;
                 }
-                lVar.f2512a.a(iVar.h.get(i6));
+                lVar.f2495a.a(iVar.h.get(i6));
                 i5 = i6 + 1;
             }
         }
-        byte[] i7 = lVar.f2512a.i();
-        if (i7 == null || !lVar.f2512a.c() || lVar.j) {
+        long currentTimeMillis = System.currentTimeMillis();
+        byte[] i7 = lVar.f2495a.i();
+        if (i7 == null || !lVar.f2495a.c()) {
+            y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.e() + ":" + lVar.f2495a.g(), "IS_CDN=" + c + "|download error");
             return null;
-        }
-        String a3 = iVar.a(str);
-        synchronized (m.f2513a) {
-            if (lVar.j) {
-                return null;
-            }
-            com.baidu.tbadk.imageManager.d.a().c(h.k() + i7.length);
-            lVar.e = m.a(i7);
-            if (lVar.e == null) {
-                return null;
-            }
-            lVar.h = lVar.f2512a.n() || UtilHelper.a(i7);
-            if (lVar.j) {
-                return null;
-            }
-            if (lVar.e.getWidth() > i || lVar.e.getHeight() > i2) {
-                bg.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
-                com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
-                lVar.e = m.a(lVar.e, i, i2);
-            }
-            if (lVar.j) {
-                return null;
-            }
-            if (i4 == 4) {
-                com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
-                lVar.e = m.a(lVar.e, 7.0f);
-            }
-            if (lVar.j) {
-                return null;
-            }
-            if (lVar.l && (a2 = a(lVar.e, lVar.l, true, str2)) != null) {
-                lVar.e = a2;
-            }
-            lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, lVar.h, str);
-            com.baidu.tbadk.imageManager.d.a().b(a3, lVar.i);
-            if (lVar.j) {
-                return null;
-            }
-            eVar.d(lVar);
-            if (lVar.j) {
-                return null;
-            }
-            try {
-                if (!lVar.l) {
-                    if (i4 == 4) {
-                        if (str2 != null) {
-                            af.a("image", str2, m.c(lVar.e, 80));
-                        }
-                    } else if (i4 == 5) {
-                        DatabaseService.b(a3, lVar.e);
-                    } else if (str2 != null) {
-                        s<String> q = com.baidu.tieba.b.a.a().q();
-                        if (q != null && lVar.h) {
-                            q.a(a3, "gif", 315532800000L);
-                        }
-                        af.a("image", str2, i7);
-                    }
+        } else if (lVar.j) {
+            return null;
+        } else {
+            String a3 = iVar.a(str);
+            synchronized (m.f2496a) {
+                if (lVar.j) {
+                    return null;
                 }
-            } catch (Throwable th) {
+                com.baidu.tbadk.imageManager.d.a().c(h.k() + i7.length);
+                lVar.e = m.a(i7);
+                if (lVar.e == null) {
+                    y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.e() + ":" + lVar.f2495a.g(), "IS_CDN=" + c + "|decode error");
+                    return null;
+                }
+                lVar.h = lVar.f2495a.n() || UtilHelper.a(i7);
+                if (lVar.j) {
+                    return null;
+                }
+                if (lVar.e.getWidth() > i || lVar.e.getHeight() > i2) {
+                    bg.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
+                    com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
+                    lVar.e = m.a(lVar.e, i, i2);
+                }
+                if (lVar.j) {
+                    return null;
+                }
+                if (i3 == 4) {
+                    com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
+                    lVar.e = m.a(lVar.e, 7.0f);
+                }
+                if (lVar.j) {
+                    return null;
+                }
+                if (lVar.l && (a2 = a(lVar.e, lVar.l, true, str2)) != null) {
+                    lVar.e = a2;
+                }
+                lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, lVar.h, str);
+                com.baidu.tbadk.imageManager.d.a().b(a3, lVar.i);
+                if (lVar.j) {
+                    return null;
+                }
+                eVar.d(lVar);
+                if (lVar.j) {
+                    return null;
+                }
+                try {
+                    if (!lVar.l) {
+                        if (i3 == 4) {
+                            if (str2 != null) {
+                                af.a("image", str2, m.c(lVar.e, 80));
+                            }
+                        } else if (i3 == 5) {
+                            DatabaseService.b(a3, lVar.e);
+                        } else if (str2 != null) {
+                            s<String> q = com.baidu.tieba.b.a.a().q();
+                            if (q != null && lVar.h) {
+                                q.a(a3, "gif", 315532800000L);
+                            }
+                            af.a("image", str2, i7);
+                        }
+                    }
+                } catch (Throwable th) {
+                }
+                return lVar.i;
             }
-            return lVar.i;
         }
     }
 
     public static void a(String str, String str2, boolean z, boolean z2, boolean z3) {
-        String str3 = af.f2480a + "/tieba/image/";
+        String str3 = af.f2463a + "/tieba/image/";
         if (af.a(str3) && str2 != null && str != null) {
             String f = be.f(str);
             af.a(str2, str3 + f, true);
             if (z || z2) {
-                synchronized (m.f2513a) {
-                    int a2 = (int) af.a("image", f);
-                    if (a2 > 0) {
-                        Bitmap c = af.c("image", f);
+                synchronized (m.f2496a) {
+                    int b = (int) af.b("image", f);
+                    if (b > 0) {
+                        Bitmap d = af.d("image", f);
                         if (z) {
-                            com.baidu.tbadk.imageManager.d.a().c(a2);
-                            if (c != null) {
-                                a(str, c, z2, af.b("image", f), z3, f);
+                            com.baidu.tbadk.imageManager.d.a().c(b);
+                            if (d != null) {
+                                a(str, d, z2, af.c("image", f), z3, f);
                             }
                         }
                     }

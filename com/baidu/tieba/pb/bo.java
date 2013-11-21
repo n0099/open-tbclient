@@ -1,25 +1,26 @@
 package com.baidu.tieba.pb;
+
+import android.text.ClipboardManager;
+import android.view.View;
+import com.baidu.tieba.util.UtilHelper;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bo implements ck {
+public class bo implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2099a;
+    final /* synthetic */ String f2082a;
+    final /* synthetic */ NewPbActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(NewPbActivity newPbActivity) {
-        this.f2099a = newPbActivity;
+    public bo(NewPbActivity newPbActivity, String str) {
+        this.b = newPbActivity;
+        this.f2082a = str;
     }
 
-    @Override // com.baidu.tieba.pb.ck
-    public void a(String str) {
-        cp cpVar;
-        cp cpVar2;
-        if (!com.baidu.tieba.util.be.c(str)) {
-            cpVar = this.f2099a.y;
-            if (com.baidu.tieba.util.be.c(cpVar.J())) {
-                cpVar2 = this.f2099a.y;
-                cpVar2.d(str);
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ((ClipboardManager) view.getContext().getSystemService("clipboard")).setText(this.f2082a);
+        UtilHelper.a(view.getContext(), view.getResources().getString(R.string.copy_pb_url_success));
     }
 }

@@ -6,20 +6,20 @@ import com.baidu.adp.widget.ImageView.BDImageView2;
 class ca implements com.baidu.tieba.util.bn {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1546a;
+    final /* synthetic */ String f1537a;
     final /* synthetic */ com.baidu.adp.widget.ImageView.e b;
     final /* synthetic */ bz c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ca(bz bzVar, String str, com.baidu.adp.widget.ImageView.e eVar) {
         this.c = bzVar;
-        this.f1546a = str;
+        this.f1537a = str;
         this.b = eVar;
     }
 
     @Override // com.baidu.tieba.util.bn
     public boolean a(View view) {
-        if ((view instanceof BDImageView2) && this.f1546a.equals(view.getTag())) {
+        if ((view instanceof BDImageView2) && this.f1537a.equals(view.getTag())) {
             view.setTag(null);
             BDImageView2 bDImageView2 = (BDImageView2) view;
             bDImageView2.a();

@@ -13,14 +13,14 @@ import com.slidingmenu.lib.R;
 public class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Handler f2183a;
+    final /* synthetic */ Handler f2168a;
     final /* synthetic */ Runnable b;
     final /* synthetic */ ImagePbActivity c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ImagePbActivity imagePbActivity, Handler handler, Runnable runnable) {
         this.c = imagePbActivity;
-        this.f2183a = handler;
+        this.f2168a = handler;
         this.b = runnable;
     }
 
@@ -52,7 +52,7 @@ public class m implements View.OnClickListener {
         ImagePbActivity imagePbActivity2 = this.c;
         editText = this.c.l;
         UtilHelper.a(imagePbActivity2, editText);
-        this.f2183a.postDelayed(this.b, 200L);
+        this.f2168a.postDelayed(this.b, 200L);
         button = this.c.n;
         button.setBackgroundResource(R.drawable.sub_pb_keyboard);
     }

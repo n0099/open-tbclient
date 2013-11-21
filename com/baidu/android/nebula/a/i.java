@@ -22,17 +22,17 @@ public final class i {
     private static String g = "http://m.baidu.com/open/iasdk?";
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f646a;
+    private Context f647a;
     private ExecutorService c;
     private String d;
     private q e = null;
     private r f;
 
     private i(Context context) {
-        this.f646a = null;
+        this.f647a = null;
         this.c = null;
         this.f = null;
-        this.f646a = context;
+        this.f647a = context;
         this.f = new r();
         this.c = Executors.newSingleThreadExecutor();
     }
@@ -124,7 +124,7 @@ public final class i {
             }
         }
         if (jSONObject.has("synctimeinterval")) {
-            c.c(this.f646a, Long.valueOf(jSONObject.getLong("synctimeinterval")).longValue());
+            c.c(this.f647a, Long.valueOf(jSONObject.getLong("synctimeinterval")).longValue());
         }
     }
 
@@ -142,6 +142,6 @@ public final class i {
     public void a(String str, q qVar) {
         this.e = qVar;
         String a2 = a(str);
-        this.c.submit(new j(this, com.baidu.android.nebula.util.e.a(this.f646a).a(g), a2));
+        this.c.submit(new j(this, com.baidu.android.nebula.util.e.a(this.f647a).a(g), a2));
     }
 }

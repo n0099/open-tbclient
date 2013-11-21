@@ -22,13 +22,13 @@ public interface a {
 
     View e();
 
+    String e_();
+
     View f();
 
-    String f_();
+    void f_();
 
     void g();
-
-    void g_();
 
     void h();
 

@@ -6,13 +6,13 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1187a = 0;
+    private int f1192a = 0;
     private int b = 0;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1187a = jSONObject.optInt("group_count", 0);
+                this.f1192a = jSONObject.optInt("group_count", 0);
                 this.b = jSONObject.optInt("hide_recommend_group", 0);
             } catch (Exception e) {
                 bg.b("FrsStarData", "parserJson", "error = " + e.getMessage());
@@ -21,7 +21,7 @@ public class c {
     }
 
     public int a() {
-        return this.f1187a;
+        return this.f1192a;
     }
 
     public int b() {

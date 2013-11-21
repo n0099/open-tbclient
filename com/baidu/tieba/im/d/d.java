@@ -15,7 +15,7 @@ import javax.crypto.spec.PBEKeySpec;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f1598a = Charset.forName("UTF-8");
+    public static final Charset f1589a = Charset.forName("UTF-8");
     private static final byte[] b = {-92, 11, -56, 52, -42, -107, -13, 19};
 
     public static PublicKey a(byte[] bArr) {

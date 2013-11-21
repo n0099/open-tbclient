@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public class MapTemplate<K, V> extends AbstractTemplate<Map<K, V>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private d<K> f2922a;
+    private d<K> f2906a;
     private d<V> b;
 
     @Override // org.msgpack.template.d
@@ -15,7 +15,7 @@ public class MapTemplate<K, V> extends AbstractTemplate<Map<K, V>> {
     }
 
     public MapTemplate(d<K> dVar, d<V> dVar2) {
-        this.f2922a = dVar;
+        this.f2906a = dVar;
         this.b = dVar2;
     }
 
@@ -32,7 +32,7 @@ public class MapTemplate<K, V> extends AbstractTemplate<Map<K, V>> {
         }
         aVar.d(map.size());
         for (Map.Entry<K, V> entry : map.entrySet()) {
-            this.f2922a.a(aVar, entry.getKey());
+            this.f2906a.a(aVar, entry.getKey());
             this.b.a(aVar, entry.getValue());
         }
         aVar.b();

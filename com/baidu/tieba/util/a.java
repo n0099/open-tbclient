@@ -9,18 +9,18 @@ import com.baidu.tieba.util.AntiHelper;
 public final class a implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2472a;
+    final /* synthetic */ Context f2455a;
     final /* synthetic */ AntiHelper.PageType b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context, AntiHelper.PageType pageType) {
-        this.f2472a = context;
+        this.f2455a = context;
         this.b = pageType;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         dialogInterface.dismiss();
-        AccountRestoreActivity.startActivity(this.f2472a, this.b);
+        AccountRestoreActivity.startActivity(this.f2455a, this.b);
     }
 }

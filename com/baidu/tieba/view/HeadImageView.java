@@ -52,7 +52,7 @@ public class HeadImageView extends TbImageView {
         this.p = 0;
         this.q = 0;
         this.r = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.an.HeadImageView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.aq.HeadImageView);
         this.k = obtainStyledAttributes.getFloat(0, -1.0f);
         obtainStyledAttributes.recycle();
         this.j = UtilHelper.a(context, 5.0f);
@@ -69,7 +69,7 @@ public class HeadImageView extends TbImageView {
         this.f = new Paint();
         this.f.setColor(1275068416);
         this.f.setAntiAlias(true);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.an.HeadImageView);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, com.baidu.tieba.aq.HeadImageView);
         this.n = obtainStyledAttributes2.getBoolean(1, true);
         if (this.n) {
             setIsRound(this.o);
@@ -138,7 +138,11 @@ public class HeadImageView extends TbImageView {
             this.l = false;
             return;
         }
-        setImageDrawable(new com.baidu.adp.widget.u(getResources(), null, this, bitmap, this.j, null));
+        if (Build.VERSION.SDK_INT < 11 && getMeasuredWidth() > com.baidu.adp.lib.h.f.a(getContext(), 100.0f)) {
+            setImageDrawable(new com.baidu.adp.widget.v(getResources(), null, this, bitmap, this.j, null));
+        } else {
+            setImageDrawable(new com.baidu.adp.widget.w(getResources(), null, this, bitmap, this.j, null));
+        }
         this.l = true;
     }
 
@@ -192,8 +196,8 @@ public class HeadImageView extends TbImageView {
             this.j = this.p;
             setRadius(this.j);
         }
-        if (this.l && (drawable = getDrawable()) != null && (drawable instanceof com.baidu.adp.widget.u)) {
-            ((com.baidu.adp.widget.u) drawable).a(this.j);
+        if (this.l && (drawable = getDrawable()) != null && (drawable instanceof com.baidu.adp.widget.w)) {
+            ((com.baidu.adp.widget.w) drawable).a(this.j);
         }
     }
 }

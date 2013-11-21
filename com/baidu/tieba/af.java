@@ -1,15 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.os.Handler;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class af implements DialogInterface.OnDismissListener {
+class af extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MainTabActivity f1099a;
+    final /* synthetic */ LogoActivity f1102a;
 
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.f1099a.h();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public af(LogoActivity logoActivity) {
+        this.f1102a = logoActivity;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Handler handler;
+        Handler handler2;
+        super.run();
+        try {
+            TiebaApplication tiebaApplication = (TiebaApplication) this.f1102a.getApplication();
+            tiebaApplication.a(tiebaApplication.G() + 1);
+            if (tiebaApplication.L()) {
+                DatabaseService.x();
+                tiebaApplication.a(0);
+            }
+            DatabaseService.t();
+            DatabaseService.w();
+            this.f1102a.a(this.f1102a.getCacheDir());
+        } catch (Exception e) {
+        }
+        handler = this.f1102a.i;
+        handler2 = this.f1102a.i;
+        handler.sendMessage(handler2.obtainMessage());
     }
 }

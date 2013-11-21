@@ -8,20 +8,20 @@ import com.slidingmenu.lib.R;
 public class ab implements PopupWindow.OnDismissListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ y f1237a;
+    final /* synthetic */ y f1242a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(y yVar) {
-        this.f1237a = yVar;
+        this.f1242a = yVar;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        this.f1237a.A = false;
+        this.f1242a.A = false;
         if (TiebaApplication.g().ap() == 1) {
-            this.f1237a.y.setImageResource(R.drawable.btn_allsproutpop_down_1);
+            this.f1242a.y.setImageResource(R.drawable.btn_allsproutpop_down_1);
         } else {
-            this.f1237a.y.setImageResource(R.drawable.btn_allsproutpop_down);
+            this.f1242a.y.setImageResource(R.drawable.btn_allsproutpop_down);
         }
     }
 }

@@ -6,17 +6,17 @@ import com.baidu.tieba.util.bg;
 public class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListFragment f1142a;
+    final /* synthetic */ ChatListFragment f1148a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ChatListFragment chatListFragment) {
-        this.f1142a = chatListFragment;
+        this.f1148a = chatListFragment;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            this.f1142a.I();
+            this.f1148a.I();
         } catch (Exception e) {
             bg.b("ChatListFragment", "mLoadImageRunnable.run", "error = " + e.getMessage());
         }

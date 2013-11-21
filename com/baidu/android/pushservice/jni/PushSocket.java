@@ -8,7 +8,7 @@ import com.baidu.android.pushservice.util.m;
 public class PushSocket {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f714a;
+    public static boolean f715a;
     private static byte[] b = null;
     private static int c = 0;
     private static String d = "socket";
@@ -16,14 +16,14 @@ public class PushSocket {
     private static int f = 32;
 
     static {
-        f714a = false;
+        f715a = false;
         try {
             System.loadLibrary("bdpush_V1_0");
-            f714a = true;
+            f715a = true;
         } catch (UnsatisfiedLinkError e2) {
             try {
                 System.loadLibrary("push-socket");
-                f714a = true;
+                f715a = true;
             } catch (UnsatisfiedLinkError e3) {
                 Log.d(d, "native library not found!");
             }

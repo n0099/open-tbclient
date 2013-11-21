@@ -25,7 +25,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
     private int g;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1261a = -1;
+    public int f1266a = -1;
     private int f = 0;
     private boolean h = true;
     private ForumDetailActivity.FromType i = ForumDetailActivity.FromType.BAR_DIR;
@@ -117,8 +117,8 @@ public class s extends BaseAdapter implements View.OnClickListener {
         if (view == null || view.getTag() == null) {
             view = View.inflate(this.b, R.layout.forum_list_forum_item, null);
             t tVar = new t(this);
-            tVar.f1262a = (HeadImageView) view.findViewById(R.id.forum_avatar);
-            tVar.f1262a.setGifIconSupport(false);
+            tVar.f1267a = (HeadImageView) view.findViewById(R.id.forum_avatar);
+            tVar.f1267a.setGifIconSupport(false);
             tVar.d = (TextView) view.findViewById(R.id.name);
             tVar.e = (TextView) view.findViewById(R.id.member_count);
             tVar.f = (TextView) view.findViewById(R.id.thread_count);
@@ -135,9 +135,9 @@ public class s extends BaseAdapter implements View.OnClickListener {
         ForumInfoData forumInfoData = this.j[i];
         bg.e("ForumListAdapter", "getView", "forum name:" + this.j[i].forum_name + "forum avatar:" + this.j[i].avatar);
         String str = this.j[i].avatar;
-        HeadImageView headImageView = tVar2.f1262a;
-        tVar2.f1262a.setTag(str);
-        tVar2.f1262a.invalidate();
+        HeadImageView headImageView = tVar2.f1267a;
+        tVar2.f1267a.setTag(str);
+        tVar2.f1267a.invalidate();
         tVar2.d.setText(forumInfoData.forum_name);
         tVar2.d.setTag(Integer.valueOf(forumInfoData.forum_id));
         tVar2.h.setTag(forumInfoData.forum_name);
@@ -187,7 +187,7 @@ public class s extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.like /* 2131100144 */:
+            case R.id.like /* 2131100146 */:
                 if (TiebaApplication.g().s()) {
                     StatService.onEvent(this.b, "forumlist_to_frs", "tofrsclick", 1);
                 }

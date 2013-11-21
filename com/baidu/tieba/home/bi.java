@@ -10,16 +10,16 @@ import com.slidingmenu.lib.R;
 class bi implements bs {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignAllForumActivity f1427a;
+    final /* synthetic */ SignAllForumActivity f1418a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(SignAllForumActivity signAllForumActivity) {
-        this.f1427a = signAllForumActivity;
+        this.f1418a = signAllForumActivity;
     }
 
     @Override // com.baidu.tieba.home.bs
     public void a(String str) {
-        this.f1427a.a(str);
+        this.f1418a.a(str);
     }
 
     @Override // com.baidu.tieba.home.bs
@@ -35,44 +35,44 @@ class bi implements bs {
         boolean z2;
         r c = bpVar.c();
         if (c == null || c.a() != 0) {
-            this.f1427a.a(c.b());
+            this.f1418a.a(c.b());
             return;
         }
-        bxVar = this.f1427a.f1394a;
+        bxVar = this.f1418a.f1385a;
         y h = bxVar.h();
         h.a(bpVar);
         int size = h.j().size();
         int size2 = h.l().size();
-        z = this.f1427a.e;
+        z = this.f1418a.e;
         if (z) {
-            Intent intent = new Intent(this.f1427a, SignAllForumActivity.class);
+            Intent intent = new Intent(this.f1418a, SignAllForumActivity.class);
             intent.addFlags(805306368);
             intent.putExtra("signall_noyify_click", true);
-            this.f1427a.a(String.format(this.f1427a.getString(R.string.signallforum_back_finish), Integer.valueOf(size2), Integer.valueOf(size - size2)), PendingIntent.getActivity(this.f1427a, 0, intent, 134217728), 16);
-            z2 = this.f1427a.f;
+            this.f1418a.a(String.format(this.f1418a.getString(R.string.signallforum_back_finish), Integer.valueOf(size2), Integer.valueOf(size - size2)), PendingIntent.getActivity(this.f1418a, 0, intent, 134217728), 16);
+            z2 = this.f1418a.f;
             if (z2) {
                 return;
             }
         }
-        bxVar2 = this.f1427a.f1394a;
+        bxVar2 = this.f1418a.f1385a;
         bxVar2.i().notifyDataSetChanged();
-        bxVar3 = this.f1427a.f1394a;
-        bxVar3.j().setText(String.format(this.f1427a.getString(R.string.signallforum_res), Integer.valueOf(size2), Integer.valueOf(size - size2)));
-        bxVar4 = this.f1427a.f1394a;
+        bxVar3 = this.f1418a.f1385a;
+        bxVar3.j().setText(String.format(this.f1418a.getString(R.string.signallforum_res), Integer.valueOf(size2), Integer.valueOf(size - size2)));
+        bxVar4 = this.f1418a.f1385a;
         bu f = bxVar4.f();
         if (size != size2) {
             if (bpVar.a() != 0) {
-                alertDialog = this.f1427a.c;
+                alertDialog = this.f1418a.c;
                 alertDialog.setMessage(bpVar.b());
-                alertDialog2 = this.f1427a.c;
+                alertDialog2 = this.f1418a.c;
                 if (!alertDialog2.isShowing()) {
-                    alertDialog3 = this.f1427a.c;
+                    alertDialog3 = this.f1418a.c;
                     alertDialog3.show();
                 }
             } else if (bpVar.e() != 0) {
-                UtilHelper.a((Context) this.f1427a, bpVar.f());
+                UtilHelper.a((Context) this.f1418a, bpVar.f());
             } else {
-                this.f1427a.showToast(R.string.signallforum_error);
+                this.f1418a.showToast(R.string.signallforum_error);
             }
         }
         f.a();

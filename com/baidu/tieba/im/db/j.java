@@ -7,13 +7,13 @@ import com.baidu.tieba.im.SingleRunnable;
 public class j extends SingleRunnable<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1618a;
+    final /* synthetic */ String f1609a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(g gVar, String str) {
         this.b = gVar;
-        this.f1618a = str;
+        this.f1609a = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class j extends SingleRunnable<Boolean> {
         try {
             SQLiteDatabase a2 = m.a();
             if (a2 != null) {
-                a2.delete("tb_group_news", "notice_id = ?", new String[]{this.f1618a});
+                a2.delete("tb_group_news", "notice_id = ?", new String[]{this.f1609a});
                 z = true;
             } else {
                 z = false;
@@ -34,7 +34,7 @@ public class j extends SingleRunnable<Boolean> {
             e.printStackTrace();
             z = false;
         }
-        com.baidu.adp.lib.h.d.d("noticeid: " + this.f1618a + " success:" + z);
+        com.baidu.adp.lib.h.d.d("noticeid: " + this.f1609a + " success:" + z);
         return z;
     }
 }

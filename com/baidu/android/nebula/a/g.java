@@ -3,15 +3,15 @@ package com.baidu.android.nebula.a;
 class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f644a;
+    final /* synthetic */ f f645a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f644a = fVar;
+        this.f645a = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f644a.f643a.h();
+        this.f645a.f644a.h();
     }
 }

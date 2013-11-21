@@ -21,14 +21,14 @@ import org.apache.http.message.BasicNameValuePair;
 public class q extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f703a;
+    final /* synthetic */ o f704a;
     private final CharSequence b;
     private String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(o oVar, CharSequence charSequence, String str) {
         super("Push_UpdateWorker");
-        this.f703a = oVar;
+        this.f704a = oVar;
         this.c = null;
         this.b = charSequence;
         this.c = str;
@@ -38,10 +38,10 @@ public class q extends Thread {
         Context context;
         InputStream a2;
         PushSettings.a(System.currentTimeMillis());
-        context = this.f703a.b;
+        context = this.f704a.b;
         PushDatabase.clearBehaviorInfo(PushDatabase.getDb(context));
         HttpEntity entity = httpResponse.getEntity();
-        a2 = this.f703a.a(entity);
+        a2 = this.f704a.a(entity);
         return a2 == null ? entity.getContent() : a2;
     }
 
@@ -71,7 +71,7 @@ public class q extends Thread {
         Context context;
         Context context2;
         String obj = this.b.toString();
-        context = this.f703a.b;
+        context = this.f704a.b;
         ProxyHttpClient proxyHttpClient = new ProxyHttpClient(context);
         HttpPost httpPost = new HttpPost(obj);
         try {
@@ -80,16 +80,16 @@ public class q extends Thread {
             HttpResponse execute = proxyHttpClient.execute(httpPost);
             InputStream a2 = a(execute);
             if (execute.getStatusLine().getStatusCode() == 200) {
-                this.f703a.a(a2);
+                this.f704a.a(a2);
             } else if (execute.getStatusLine().getStatusCode() == 201) {
-                this.f703a.b(a2);
+                this.f704a.b(a2);
             } else if (execute.getStatusLine().getStatusCode() == 403) {
-                this.f703a.c(a2);
+                this.f704a.c(a2);
             }
         } catch (ClientProtocolException e) {
         } catch (IOException e2) {
         } catch (Exception e3) {
-            context2 = this.f703a.b;
+            context2 = this.f704a.b;
             if (com.baidu.android.pushservice.b.a(context2)) {
                 Log.w("StatisticPoster", e3);
             }

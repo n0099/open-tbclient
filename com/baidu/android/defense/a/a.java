@@ -12,6 +12,6 @@ public final class a extends d {
     protected void a() {
         Intent intent = new Intent("action_appinstall");
         intent.putExtra("file_path", this.c);
-        this.f620a.sendBroadcast(intent);
+        this.f621a.sendBroadcast(intent);
     }
 }

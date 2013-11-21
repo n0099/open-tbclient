@@ -15,7 +15,7 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
     private String name = null;
     private String name_show = null;
     private String portrait = null;
-    LinkedList<aa> mIconInfo = new LinkedList<>();
+    LinkedList<IconData> mIconInfo = new LinkedList<>();
 
     public void setId(String str) {
         this.id = str;
@@ -57,7 +57,7 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
         return this.portrait;
     }
 
-    public LinkedList<aa> getIconInfo() {
+    public LinkedList<IconData> getIconInfo() {
         return this.mIconInfo;
     }
 
@@ -83,9 +83,9 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
                 JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        aa aaVar = new aa();
-                        aaVar.a(optJSONArray.getJSONObject(i));
-                        this.mIconInfo.add(aaVar);
+                        IconData iconData = new IconData();
+                        iconData.parserJson(optJSONArray.getJSONObject(i));
+                        this.mIconInfo.add(iconData);
                     }
                 }
             } catch (Exception e) {
@@ -104,7 +104,7 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
 
     @Override // com.baidu.tieba.util.an
     public LinkedList<String> getImageUrl() {
-        LinkedList<aa> iconInfo = getIconInfo();
+        LinkedList<IconData> iconInfo = getIconInfo();
         if (iconInfo == null) {
             return null;
         }
@@ -115,7 +115,7 @@ public class MetaData implements com.baidu.tieba.util.an, Serializable {
             if (i2 >= iconInfo.size()) {
                 return linkedList;
             }
-            linkedList.add(iconInfo.get(i2).a());
+            linkedList.add(iconInfo.get(i2).getIconUrl());
             i = i2 + 1;
         }
     }

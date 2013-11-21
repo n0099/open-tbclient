@@ -1,13 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.SingleRunnable;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public final class at extends SingleRunnable<Void> {
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.SingleRunnable
-    /* renamed from: a */
-    public Void b() {
-        return null;
+class at implements View.OnClickListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ ar f1111a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public at(ar arVar) {
+        this.f1111a = arVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        au auVar;
+        auVar = this.f1111a.h;
+        auVar.a();
     }
 }

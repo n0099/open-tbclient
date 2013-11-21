@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class q implements com.baidu.adp.lib.guide.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f2458a;
+    final /* synthetic */ p f2441a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.f2458a = pVar;
+        this.f2441a = pVar;
     }
 
     @Override // com.baidu.adp.lib.guide.b

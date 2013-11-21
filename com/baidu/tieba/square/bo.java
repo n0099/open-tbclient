@@ -1,58 +1,32 @@
 package com.baidu.tieba.square;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements TextWatcher {
+public class bo implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2409a;
+    final /* synthetic */ SquareSearchActivity f2394a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(SquareSearchActivity squareSearchActivity) {
-        this.f2409a = squareSearchActivity;
+        this.f2394a = squareSearchActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        String str;
-        int i4;
-        int i5;
-        this.f2409a.B = charSequence.toString();
-        str = this.f2409a.B;
-        if (str.trim().length() > 0) {
-            i5 = this.f2409a.C;
-            if (i5 == 0) {
-                this.f2409a.g();
-                return;
-            }
-            return;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        RadioButton radioButton3;
+        if (z) {
+            this.f2394a.a(1);
+            radioButton = this.f2394a.j;
+            radioButton.setChecked(false);
+            radioButton2 = this.f2394a.j;
+            radioButton2.setSelected(false);
+            radioButton3 = this.f2394a.k;
+            radioButton3.setSelected(true);
         }
-        this.f2409a.a();
-        i4 = this.f2409a.C;
-        if (i4 == 0) {
-            this.f2409a.f();
-        } else {
-            this.f2409a.h();
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Button button;
-        Button button2;
-        if (editable.toString().trim().length() == 0) {
-            button2 = this.f2409a.d;
-            button2.setVisibility(8);
-            return;
-        }
-        button = this.f2409a.d;
-        button.setVisibility(0);
     }
 }

@@ -16,7 +16,7 @@ import java.util.Map;
 public class j extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<c> f2029a;
+    public List<c> f2012a;
     final /* synthetic */ JigsawAlbumActivity b;
     private Context c;
 
@@ -26,23 +26,23 @@ public class j extends BaseAdapter {
     }
 
     public void a(List<c> list) {
-        this.f2029a = list;
+        this.f2012a = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2029a != null) {
-            return this.f2029a.size();
+        if (this.f2012a != null) {
+            return this.f2012a.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.f2029a == null || i < 0 || i >= this.f2029a.size()) {
+        if (this.f2012a == null || i < 0 || i >= this.f2012a.size()) {
             return null;
         }
-        return this.f2029a.get(i);
+        return this.f2012a.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -74,17 +74,17 @@ public class j extends BaseAdapter {
             kVar = (k) view.getTag();
         }
         StringBuilder sb = new StringBuilder();
-        String str = this.f2029a.get(i).b;
+        String str = this.f2012a.get(i).b;
         arrayList = this.b.f;
         StringBuilder append = sb.append(str.substring(((c) arrayList.get(i)).b.lastIndexOf("/") + 1)).append("(");
         map = this.b.g;
         arrayList2 = this.b.f;
-        String sb2 = append.append(String.valueOf(map.get(String.valueOf(((c) arrayList2.get(i)).f2022a)))).append(")").toString();
+        String sb2 = append.append(String.valueOf(map.get(String.valueOf(((c) arrayList2.get(i)).f2005a)))).append(")").toString();
         JigsawAlbumActivity jigsawAlbumActivity = this.b;
         arrayList3 = this.b.f;
-        a2 = jigsawAlbumActivity.a(((c) arrayList3.get(i)).f2022a);
+        a2 = jigsawAlbumActivity.a(((c) arrayList3.get(i)).f2005a);
         kVar.c.setText(sb2);
-        kVar.f2030a = String.valueOf(i);
+        kVar.f2013a = String.valueOf(i);
         map2 = this.b.h;
         if (map2.containsKey(a2)) {
             map4 = this.b.h;
@@ -92,7 +92,7 @@ public class j extends BaseAdapter {
         } else {
             JigsawAlbumActivity jigsawAlbumActivity2 = this.b;
             arrayList4 = this.b.f;
-            b = jigsawAlbumActivity2.b(((c) arrayList4.get(i)).f2022a);
+            b = jigsawAlbumActivity2.b(((c) arrayList4.get(i)).f2005a);
             uVar = this.b.k;
             a3 = uVar.a(this.b, b, this.b.a(70.0f));
             if (a3 != null) {
@@ -101,7 +101,7 @@ public class j extends BaseAdapter {
             }
         }
         kVar.b.setImageBitmap(a3);
-        kVar.b.setTag(this.f2029a.get(i));
+        kVar.b.setTag(this.f2012a.get(i));
         return view;
     }
 

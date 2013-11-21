@@ -59,7 +59,7 @@ public class JavassistTemplateBuilder extends AbstractTemplateBuilder {
             if (!cVar.g()) {
                 dVarArr[i] = null;
             } else {
-                dVarArr[i] = this.f2935a.a(cVar.f());
+                dVarArr[i] = this.f2919a.a(cVar.f());
             }
         }
         return dVarArr;

@@ -17,7 +17,7 @@ import java.util.List;
 public class PhotoWallView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1679a;
+    private final int f1670a;
     private final int b;
     private final int c;
     private BDImageView2[] d;
@@ -35,7 +35,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1679a = 8;
+        this.f1670a = 8;
         this.b = 20;
         this.c = 2;
         this.d = new BDImageView2[8];
@@ -50,7 +50,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1679a = 8;
+        this.f1670a = 8;
         this.b = 20;
         this.c = 2;
         this.d = new BDImageView2[8];
@@ -65,7 +65,7 @@ public class PhotoWallView extends FrameLayout {
 
     public PhotoWallView(Context context) {
         super(context);
-        this.f1679a = 8;
+        this.f1670a = 8;
         this.b = 20;
         this.c = 2;
         this.d = new BDImageView2[8];

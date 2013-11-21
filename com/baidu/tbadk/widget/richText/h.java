@@ -14,38 +14,38 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f988a = 0;
+    private int f989a = 0;
     private b b = null;
     private f c = null;
     private p d = null;
 
     public int a() {
-        return this.f988a;
+        return this.f989a;
     }
 
     public void a(int i, b bVar, f fVar, p pVar) {
-        this.f988a = i;
+        this.f989a = i;
         this.b = bVar;
         this.c = fVar;
         this.d = pVar;
     }
 
     public f b() {
-        if (this.f988a == 8) {
+        if (this.f989a == 8) {
             return this.c;
         }
         return null;
     }
 
     public p c() {
-        if (this.f988a == 512 || this.f988a == 768) {
+        if (this.f989a == 512 || this.f989a == 768) {
             return this.d;
         }
         return null;
     }
 
     public SpannableString d() {
-        if (this.f988a != 1 || this.b == null) {
+        if (this.f989a != 1 || this.b == null) {
             return null;
         }
         return new SpannableString(this.b.a());
@@ -53,13 +53,13 @@ public class h {
 
     public CharSequence a(Context context, ArrayList<e> arrayList) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.f988a == 32 && this.b != null) {
+        if (this.f989a == 32 && this.b != null) {
             spannableStringBuilder.append((CharSequence) "视频：");
             CharSequence d = d(context, arrayList);
             if (d != null) {
                 spannableStringBuilder.append(d);
             }
-            SpannableString a2 = a(context, this.f988a, this.b.a(), this.b.a());
+            SpannableString a2 = a(context, this.f989a, this.b.a(), this.b.a());
             if (a2 != null) {
                 spannableStringBuilder.append((CharSequence) a2);
             }
@@ -69,12 +69,12 @@ public class h {
 
     public CharSequence b(Context context, ArrayList<e> arrayList) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.f988a == 128 && this.b != null) {
+        if (this.f989a == 128 && this.b != null) {
             CharSequence d = d(context, arrayList);
             if (d != null) {
                 spannableStringBuilder.append(d);
             }
-            SpannableString a2 = a(context, this.f988a, this.b.b(), this.b.b());
+            SpannableString a2 = a(context, this.f989a, this.b.b(), this.b.b());
             if (a2 != null) {
                 spannableStringBuilder.append((CharSequence) a2);
             }
@@ -89,21 +89,21 @@ public class h {
     }
 
     public String e() {
-        if (this.f988a != 32 || this.b == null) {
+        if (this.f989a != 32 || this.b == null) {
             return null;
         }
         return this.b.a();
     }
 
     public SpannableString a(Context context) {
-        if (this.f988a != 2 || this.b == null) {
+        if (this.f989a != 2 || this.b == null) {
             return null;
         }
-        return a(context, this.f988a, this.b.a(), this.b.b());
+        return a(context, this.f989a, this.b.a(), this.b.b());
     }
 
     public SpannableString b(Context context) {
-        if (this.f988a != 256 || this.b == null) {
+        if (this.f989a != 256 || this.b == null) {
             return null;
         }
         String a2 = this.b.a();
@@ -114,22 +114,22 @@ public class h {
             a2 = a2 + " ";
         }
         SpannableString spannableString = new SpannableString(a2);
-        g gVar = new g(context, this.f988a, a2);
+        g gVar = new g(context, this.f989a, a2);
         gVar.a(this.b.b());
         spannableString.setSpan(gVar, 0, a2.length() - 1, 33);
         return spannableString;
     }
 
     public SpannableString c(Context context) {
-        if (this.f988a != 16 || this.b == null) {
+        if (this.f989a != 16 || this.b == null) {
             return null;
         }
-        return a(context, this.f988a, this.b.a(), this.b.b());
+        return a(context, this.f989a, this.b.a(), this.b.b());
     }
 
     private SpannableString e(Context context, ArrayList<e> arrayList) {
         SpannableString spannableString = null;
-        if (this.f988a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
+        if (this.f989a == 4 && this.b != null && this.b.a() != null && this.b.b() != null) {
             String a2 = this.b.a();
             String b = this.b.b();
             int b2 = TbFaceManager.a().b(a2);
@@ -164,7 +164,7 @@ public class h {
     }
 
     public CharSequence c(Context context, ArrayList<e> arrayList) {
-        switch (this.f988a) {
+        switch (this.f989a) {
             case 1:
                 return d();
             case 2:
@@ -187,28 +187,28 @@ public class h {
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f988a = a(jSONObject.optInt("type", 0));
-            if (this.f988a == 8) {
+            this.f989a = a(jSONObject.optInt("type", 0));
+            if (this.f989a == 8) {
                 this.c = new f(jSONObject);
-            } else if (this.f988a == 512) {
+            } else if (this.f989a == 512) {
                 this.d = new p(jSONObject);
-            } else if (this.f988a == 16) {
+            } else if (this.f989a == 16) {
                 this.b = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else {
                 this.b = new b(jSONObject);
-                if (this.f988a == 4) {
+                if (this.f989a == 4) {
                     String str = "[" + jSONObject.optString("c") + "]";
                     if (TbFaceManager.a().b(this.b.a()) <= 0) {
-                        this.f988a = 1;
+                        this.f989a = 1;
                         this.b.a(str);
                     } else {
                         this.b.b(str);
                     }
-                } else if (this.f988a == 256) {
+                } else if (this.f989a == 256) {
                     this.b.b(jSONObject.optString("phonetype"));
                 }
             }
-            if (this.f988a != 1 && this.b != null) {
+            if (this.f989a != 1 && this.b != null) {
                 this.b.c();
             }
         } catch (Exception e) {

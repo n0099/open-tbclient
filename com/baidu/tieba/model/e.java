@@ -9,17 +9,17 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<ForumData> f1936a = new ArrayList<>();
-    private com.baidu.tieba.data.an b = new com.baidu.tieba.data.an();
+    private ArrayList<ForumData> f1919a = new ArrayList<>();
+    private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
     private Date c = null;
     private boolean d = true;
 
     public ArrayList<ForumData> a() {
-        return this.f1936a;
+        return this.f1919a;
     }
 
     public void a(ArrayList<ForumData> arrayList) {
-        this.f1936a = arrayList;
+        this.f1919a = arrayList;
     }
 
     public void a(String str) {
@@ -40,7 +40,7 @@ public class e {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ForumData forumData = new ForumData();
                     forumData.parserJson(optJSONArray.getJSONObject(i));
-                    this.f1936a.add(forumData);
+                    this.f1919a.add(forumData);
                 }
             }
             this.b.a(jSONObject.optJSONObject("page"));

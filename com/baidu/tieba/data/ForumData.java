@@ -20,7 +20,7 @@ public class ForumData implements Serializable {
     private ArrayList<com.baidu.tieba.frs.a> mBadgeData;
     private String tag_color;
     private String tag_id;
-    private bc top_notice_data;
+    private bb top_notice_data;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -45,7 +45,7 @@ public class ForumData implements Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new bc();
+        this.top_notice_data = new bb();
         this.mBadgeData = new ArrayList<>();
     }
 
@@ -165,12 +165,12 @@ public class ForumData implements Serializable {
         this.mSignData = signData;
     }
 
-    public bc getTop_notice_data() {
+    public bb getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(bc bcVar) {
-        this.top_notice_data = bcVar;
+    public void setTop_notice_data(bb bbVar) {
+        this.top_notice_data = bbVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {

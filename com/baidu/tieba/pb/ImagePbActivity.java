@@ -53,7 +53,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     private FaceView o;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f2047a = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    private static final Pattern f2030a = Pattern.compile("#\\([^#\\)\\(]+\\)$");
     private static boolean P = true;
     private ab b = null;
     private ImageView c = null;
@@ -81,8 +81,8 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     private String D = null;
     private String E = null;
     private int F = 0;
-    private com.baidu.tieba.data.ac G = null;
-    private com.baidu.tieba.data.ac H = null;
+    private com.baidu.tieba.data.ab G = null;
+    private com.baidu.tieba.data.ab H = null;
     private AlertDialog I = null;
     private int J = 0;
     private MyOnPageChangeListener K = null;
@@ -116,7 +116,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
         super.onCreate(bundle);
         setContentView(R.layout.image_pb_activity);
         this.Q = new Handler();
-        this.G = new com.baidu.tieba.data.ac(this);
+        this.G = new com.baidu.tieba.data.ab(this);
         c();
         a(bundle);
         a();
@@ -424,7 +424,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                             WriteImageActivity.a(this, 12002, 12009, intent.getData(), String.valueOf(this.G.j()), this.C, null);
                             return;
                         } else {
-                            com.baidu.tieba.write.bc.b(this);
+                            com.baidu.tieba.write.bd.b(this);
                             return;
                         }
                     }
@@ -486,7 +486,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     public void a(String str, int i, int i2, boolean z) {
         com.baidu.tieba.util.bg.a(getClass().getName(), str, "" + i2);
         if (!this.G.a() && this.b == null) {
-            String str2 = com.baidu.tieba.data.h.f1196a + "c/f/pb/picpage";
+            String str2 = com.baidu.tieba.data.h.f1201a + "c/f/pb/picpage";
             ArrayList arrayList = new ArrayList();
             arrayList.add(new BasicNameValuePair("kw", this.C));
             arrayList.add(new BasicNameValuePair("tid", this.D));
@@ -518,29 +518,29 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
         Intent intent = new Intent("com.baidu.tieba.broadcast.imagepb.pageadded");
-        LinkedList<com.baidu.tieba.data.ab> h = this.G.h();
+        LinkedList<com.baidu.tieba.data.aa> h = this.G.h();
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i2 = 0; i2 < h.size(); i2++) {
-            com.baidu.tieba.data.ab abVar = h.get(i2);
-            if (!P || abVar.j() == null) {
+            com.baidu.tieba.data.aa aaVar = h.get(i2);
+            if (!P || aaVar.j() == null) {
                 StringBuilder sb = new StringBuilder(100);
-                if (abVar.g() * abVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
-                    double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (abVar.g() * abVar.f()));
+                if (aaVar.g() * aaVar.f() > com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) {
+                    double sqrt = Math.sqrt((com.baidu.tieba.data.h.i() * com.baidu.tieba.data.h.i()) / (aaVar.g() * aaVar.f()));
                     sb.append("width=");
-                    sb.append(String.valueOf((int) (abVar.f() * sqrt)));
+                    sb.append(String.valueOf((int) (aaVar.f() * sqrt)));
                     sb.append("&height=");
-                    sb.append(String.valueOf((int) (sqrt * abVar.g())));
+                    sb.append(String.valueOf((int) (sqrt * aaVar.g())));
                 } else {
                     sb.append("width=");
-                    sb.append(String.valueOf(abVar.f()));
+                    sb.append(String.valueOf(aaVar.f()));
                     sb.append("&height=");
-                    sb.append(String.valueOf(abVar.g()));
+                    sb.append(String.valueOf(aaVar.g()));
                 }
                 sb.append("&src=");
-                sb.append(com.baidu.tieba.util.be.d(abVar.b()));
+                sb.append(com.baidu.tieba.util.be.d(aaVar.b()));
                 arrayList.add(sb.toString());
             } else {
-                arrayList.add(abVar.j());
+                arrayList.add(aaVar.j());
             }
         }
         if (arrayList != null && arrayList.size() > 0) {
@@ -594,7 +594,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                 ImagePbActivity.this.i.setVisibility(0);
                 ImagePbActivity.this.r.setVisibility(0);
                 ImagePbActivity.this.i.setText(String.valueOf(i + 1) + "/" + String.valueOf(ImagePbActivity.this.G.k()));
-                LinkedList<com.baidu.tieba.data.ab> h = ImagePbActivity.this.G.h();
+                LinkedList<com.baidu.tieba.data.aa> h = ImagePbActivity.this.G.h();
                 if (h != null && ImagePbActivity.this.J < h.size() && h.get(ImagePbActivity.this.J) != null) {
                     ImagePbActivity.this.L = h.get(ImagePbActivity.this.J).d();
                     if (h.get(ImagePbActivity.this.J).i().equals(TiebaApplication.A())) {
@@ -712,7 +712,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
                     this.y.a(0, false);
                     this.i.setText((CharSequence) null);
                     this.H = this.G;
-                    this.G = new com.baidu.tieba.data.ac();
+                    this.G = new com.baidu.tieba.data.ab();
                     this.O = true;
                     c(true);
                     return;
@@ -796,7 +796,7 @@ public class ImagePbActivity extends com.baidu.tieba.j implements com.baidu.tieb
             }
         } else if (i == 21 && this.l.getSelectionStart() > 0) {
             String substring = this.l.getText().toString().substring(0, this.l.getSelectionStart());
-            Matcher matcher = f2047a.matcher(substring);
+            Matcher matcher = f2030a.matcher(substring);
             if (matcher.find()) {
                 this.l.getText().delete(this.l.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.l.getSelectionStart());
                 return;

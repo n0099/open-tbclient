@@ -16,7 +16,7 @@ public class e extends SimpleBeanInfo {
     private static f m = new f(null);
 
     /* renamed from: a  reason: collision with root package name */
-    a[] f2947a;
+    a[] f2931a;
     private boolean b;
     private boolean c;
     private boolean d;
@@ -40,7 +40,7 @@ public class e extends SimpleBeanInfo {
         this.f = null;
         this.g = null;
         this.h = null;
-        this.f2947a = null;
+        this.f2931a = null;
         this.k = -1;
         this.l = -1;
         this.j = cls;
@@ -57,7 +57,7 @@ public class e extends SimpleBeanInfo {
             if (this.l < 0 || this.l >= this.h.length) {
                 this.l = -1;
             }
-            this.f2947a = aVar.d();
+            this.f2931a = aVar.d();
             if (this.f != null) {
                 this.d = true;
             }
@@ -354,7 +354,7 @@ public class e extends SimpleBeanInfo {
     private static void a(PropertyDescriptor propertyDescriptor, PropertyDescriptor propertyDescriptor2) {
         propertyDescriptor.b |= propertyDescriptor2.b;
         propertyDescriptor.c |= propertyDescriptor2.c;
-        propertyDescriptor.f2945a |= propertyDescriptor2.f2945a;
+        propertyDescriptor.f2929a |= propertyDescriptor2.f2929a;
         propertyDescriptor.i |= propertyDescriptor2.i;
         propertyDescriptor.h |= propertyDescriptor2.h;
         propertyDescriptor.e = propertyDescriptor2.e;

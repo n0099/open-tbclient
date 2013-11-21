@@ -9,12 +9,12 @@ public abstract class SingleRunnable<T> implements Runnable {
     protected static UIHandler d = new UIHandler();
 
     /* renamed from: a  reason: collision with root package name */
-    private a<T> f1473a;
+    private a<T> f1464a;
 
     public abstract T b();
 
     public void a(a<T> aVar) {
-        this.f1473a = aVar;
+        this.f1464a = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -27,8 +27,8 @@ public abstract class SingleRunnable<T> implements Runnable {
             th.printStackTrace();
         }
         try {
-            if (this.f1473a != null) {
-                d.a(t, this.f1473a);
+            if (this.f1464a != null) {
+                d.a(t, this.f1464a);
             }
         } catch (Throwable th2) {
             th2.printStackTrace();

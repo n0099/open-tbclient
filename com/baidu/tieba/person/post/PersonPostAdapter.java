@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class PersonPostAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    PersonThreadFragment f2259a;
+    PersonThreadFragment f2244a;
     PersonReplyFragment b;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
@@ -18,15 +18,15 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString("key_empty_view_text", personPostActivity.f());
         this.b = new PersonReplyFragment();
         this.b.g(bundle);
-        this.f2259a = new PersonThreadFragment();
-        this.f2259a.g(bundle);
+        this.f2244a = new PersonThreadFragment();
+        this.f2244a.g(bundle);
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment a(int i) {
         switch (i) {
             case 0:
-                return this.f2259a;
+                return this.f2244a;
             case 1:
                 return this.b;
             default:

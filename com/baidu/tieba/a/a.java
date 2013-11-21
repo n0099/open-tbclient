@@ -11,7 +11,7 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ap f1006a;
+    private ap f1008a;
     private b b;
     private com.baidu.tieba.data.f c;
     private String d;
@@ -28,7 +28,7 @@ public class a {
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.f1006a = new ap(com.baidu.tieba.data.h.f1196a + this.d);
+            this.f1008a = new ap(com.baidu.tieba.data.h.f1201a + this.d);
             return a(str, file);
         } catch (Exception e) {
             bg.b(getClass().getName(), "upload", e.getMessage());
@@ -49,7 +49,7 @@ public class a {
             p.a(0);
             p.a(file.length());
         }
-        this.b = new b(this, str, p, com.baidu.tieba.data.h.f1196a + this.d, a3);
+        this.b = new b(this, str, p, com.baidu.tieba.data.h.f1201a + this.d, a3);
         this.c = this.b.a();
         if (this.c.b() && (a2 = a(a3, p)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
@@ -67,14 +67,14 @@ public class a {
     }
 
     private String a(String str, com.baidu.tieba.data.e eVar) {
-        this.f1006a = new ap(com.baidu.tieba.data.h.f1196a + this.e);
-        this.f1006a.a("voice_md5", eVar.a());
-        String j = this.f1006a.j();
-        if (j == null || !this.f1006a.c()) {
+        this.f1008a = new ap(com.baidu.tieba.data.h.f1201a + this.e);
+        this.f1008a.a("voice_md5", eVar.a());
+        String j = this.f1008a.j();
+        if (j == null || !this.f1008a.c()) {
             eVar.a((int) a(eVar.b()));
             DatabaseService.a(eVar);
-            this.c.a(this.f1006a.e());
-            this.c.a(this.f1006a.g());
+            this.c.a(this.f1008a.e());
+            this.c.a(this.f1008a.g());
             this.c.a(false);
             return null;
         }

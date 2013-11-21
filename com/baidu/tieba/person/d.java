@@ -7,11 +7,11 @@ import com.baidu.tieba.data.ForumData;
 public class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditBarActivity f2247a;
+    final /* synthetic */ EditBarActivity f2232a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(EditBarActivity editBarActivity) {
-        this.f2247a = editBarActivity;
+        this.f2232a = editBarActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,24 +25,24 @@ public class d implements View.OnClickListener {
         h hVar2;
         h hVar3;
         h hVar4;
-        this.f2247a.i = ((Integer) view.getTag()).intValue();
-        i = this.f2247a.i;
+        this.f2232a.i = ((Integer) view.getTag()).intValue();
+        i = this.f2232a.i;
         if (i >= 0) {
-            i2 = this.f2247a.i;
-            iVar = this.f2247a.f;
+            i2 = this.f2232a.i;
+            iVar = this.f2232a.f;
             if (i2 < iVar.getCount()) {
-                iVar2 = this.f2247a.f;
-                i3 = this.f2247a.i;
+                iVar2 = this.f2232a.f;
+                i3 = this.f2232a.i;
                 ForumData forumData = (ForumData) iVar2.getItem(i3);
-                hVar = this.f2247a.k;
+                hVar = this.f2232a.k;
                 if (hVar != null) {
-                    hVar4 = this.f2247a.k;
+                    hVar4 = this.f2232a.k;
                     hVar4.cancel();
                 }
-                this.f2247a.k = new h(this.f2247a, null);
-                hVar2 = this.f2247a.k;
+                this.f2232a.k = new h(this.f2232a, null);
+                hVar2 = this.f2232a.k;
                 hVar2.setPriority(2);
-                hVar3 = this.f2247a.k;
+                hVar3 = this.f2232a.k;
                 hVar3.execute(forumData);
             }
         }

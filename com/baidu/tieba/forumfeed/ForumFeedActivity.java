@@ -28,7 +28,7 @@ import com.slidingmenu.lib.R;
 public class ForumFeedActivity extends BaseFragment implements bu {
 
     /* renamed from: a  reason: collision with root package name */
-    private VoiceManager f1286a;
+    private VoiceManager f1291a;
     private aa b;
     private i c;
     private View d;
@@ -63,7 +63,7 @@ public class ForumFeedActivity extends BaseFragment implements bu {
         H();
         this.Z = null;
         if (this.f instanceof af) {
-            this.f1286a = ((af) this.f).g();
+            this.f1291a = ((af) this.f).g();
         }
     }
 
@@ -88,6 +88,7 @@ public class ForumFeedActivity extends BaseFragment implements bu {
                 this.Z = Boolean.valueOf(com.baidu.tieba.d.a.a().f());
             } else {
                 this.Y = this.Z.booleanValue() != com.baidu.tieba.d.a.a().f();
+                this.Z = Boolean.valueOf(com.baidu.tieba.d.a.a().f());
             }
             boolean N = N();
             if (this.e != N) {
@@ -101,8 +102,8 @@ public class ForumFeedActivity extends BaseFragment implements bu {
             if (this.c != null) {
                 this.c.k();
             }
-            if (this.f1286a != null) {
-                this.f1286a.c(this.f);
+            if (this.f1291a != null) {
+                this.f1291a.c(this.f);
             }
         }
     }
@@ -123,8 +124,8 @@ public class ForumFeedActivity extends BaseFragment implements bu {
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void s() {
         super.s();
-        if (this.f1286a != null) {
-            this.f1286a.h();
+        if (this.f1291a != null) {
+            this.f1291a.h();
         }
     }
 
@@ -193,8 +194,8 @@ public class ForumFeedActivity extends BaseFragment implements bu {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
         ac acVar = (ac) obj;
-        if (acVar != null && acVar.f1883a != null && acVar.f1883a.b() != null && acVar.f1883a.b().size() > 0) {
-            this.c.a(acVar.f1883a);
+        if (acVar != null && acVar.f1865a != null && acVar.f1865a.b() != null && acVar.f1865a.b().size() > 0) {
+            this.c.a(acVar.f1865a);
             this.b.a(true);
         }
         this.c.a();

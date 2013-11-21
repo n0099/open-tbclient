@@ -1,58 +1,51 @@
 package com.baidu.tieba.data;
 
 import com.baidu.tieba.util.bg;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1159a = null;
-    private String b = null;
-    private int c = 0;
-    private int d = 0;
-    private int f = 0;
-    private String e = null;
+    private ArrayList<ad> f1165a = new ArrayList<>();
+    private boolean b;
+    private int c;
 
-    public String a() {
-        return this.f1159a;
-    }
-
-    public String b() {
-        return this.b;
+    public ArrayList<ad> a() {
+        return this.f1165a;
     }
 
     public void a(int i) {
-        this.d = i;
+        this.c = i;
     }
 
-    public int c() {
-        return this.d;
+    public boolean b() {
+        return this.b;
     }
 
-    public int d() {
-        return this.c;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.f1159a = jSONObject.optString("forum_id");
-                this.b = jSONObject.optString("forum_name");
-                b(jSONObject.optInt("is_like", 0));
-                this.d = jSONObject.optInt("is_sign", 0);
-                this.c = jSONObject.optInt("level_id", 0);
-                this.e = jSONObject.optString("avatar", "");
-            } catch (Exception e) {
-                bg.b("BrowseForumData", "parserJson", "error = " + e.getMessage());
-            }
+    public void c() {
+        Iterator<ad> it = this.f1165a.iterator();
+        while (it.hasNext()) {
+            it.next().a(0);
         }
     }
 
-    public void b(int i) {
-        this.f = i;
-    }
-
-    public int e() {
-        return this.f;
+    public void a(JSONArray jSONArray) {
+        if (jSONArray != null) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    ad adVar = new ad();
+                    adVar.a(jSONArray.getJSONObject(i));
+                    if (adVar.d() >= this.c) {
+                        this.b = true;
+                    }
+                    this.f1165a.add(adVar);
+                } catch (Exception e) {
+                    bg.b("LikeForumListData", "parserJson", "error = " + e.getMessage());
+                    return;
+                }
+            }
+        }
     }
 }

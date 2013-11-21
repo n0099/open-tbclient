@@ -7,11 +7,11 @@ import com.slidingmenu.lib.R;
 class k implements y {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupInfoActivity f1693a;
+    final /* synthetic */ GroupInfoActivity f1684a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(GroupInfoActivity groupInfoActivity) {
-        this.f1693a = groupInfoActivity;
+        this.f1684a = groupInfoActivity;
     }
 
     @Override // com.baidu.tieba.im.groupInfo.y
@@ -19,22 +19,22 @@ class k implements y {
         n nVar;
         if (i == 0) {
             if (i2 == 0) {
-                this.f1693a.showToast(this.f1693a.getString(R.string.has_set_portrait));
+                this.f1684a.showToast(this.f1684a.getString(R.string.has_set_portrait));
                 return;
             }
             dialogInterface.dismiss();
-            this.f1693a.a(obj);
+            this.f1684a.a(obj);
         } else if (i == 1) {
             if (i2 == 0) {
-                this.f1693a.showToast(this.f1693a.getString(R.string.group_portrait_cant_del));
+                this.f1684a.showToast(this.f1684a.getString(R.string.group_portrait_cant_del));
                 return;
             }
             dialogInterface.dismiss();
             if (obj != null && (obj instanceof PhotoUrlData)) {
-                this.f1693a.a((PhotoUrlData) obj);
+                this.f1684a.a((PhotoUrlData) obj);
             }
         } else if (i == 2) {
-            nVar = this.f1693a.f;
+            nVar = this.f1684a.f;
             nVar.u();
         }
     }

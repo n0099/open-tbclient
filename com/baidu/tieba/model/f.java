@@ -16,7 +16,7 @@ public class f extends com.baidu.adp.a.d {
     private String i;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<RecentChatFriendData> f1937a = new LinkedList();
+    private List<RecentChatFriendData> f1920a = new LinkedList();
     private List<RecentChatFriendData> b = new LinkedList();
     private List<RecentChatFriendData> c = new LinkedList();
     private String d = null;
@@ -89,11 +89,11 @@ public class f extends com.baidu.adp.a.d {
     }
 
     public List<RecentChatFriendData> a() {
-        return this.f1937a;
+        return this.f1920a;
     }
 
     public void b() {
-        this.f1937a.clear();
+        this.f1920a.clear();
         this.b.clear();
         this.c.clear();
     }
@@ -147,11 +147,11 @@ public class f extends com.baidu.adp.a.d {
     }
 
     public List<RecentChatFriendData> d(String str) {
-        this.f1937a = com.baidu.tieba.data.chat.c.a().a(str);
-        for (RecentChatFriendData recentChatFriendData : this.f1937a) {
+        this.f1920a = com.baidu.tieba.data.chat.c.a().a(str);
+        for (RecentChatFriendData recentChatFriendData : this.f1920a) {
             recentChatFriendData.setUnReadCount(0);
         }
-        return this.f1937a;
+        return this.f1920a;
     }
 
     public boolean c() {
@@ -180,38 +180,38 @@ public class f extends com.baidu.adp.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void f() {
-        this.f1937a.clear();
+        this.f1920a.clear();
         if (this.b != null) {
-            this.f1937a.addAll(this.b);
+            this.f1920a.addAll(this.b);
         }
         if (this.c != null) {
-            this.f1937a.addAll(this.c);
+            this.f1920a.addAll(this.c);
         }
         if (com.baidu.tieba.im.pushNotify.a.g().n()) {
             RecentChatFriendData k = com.baidu.tieba.im.pushNotify.a.g().k();
             if (k != null) {
-                this.f1937a.add(k);
+                this.f1920a.add(k);
             } else {
                 com.baidu.tieba.im.pushNotify.a.f();
                 RecentChatFriendData k2 = com.baidu.tieba.im.pushNotify.a.g().k();
                 if (k2 != null) {
-                    this.f1937a.add(k2);
+                    this.f1920a.add(k2);
                 }
             }
         }
         if (com.baidu.tieba.im.pushNotify.a.g().o()) {
             RecentChatFriendData m = com.baidu.tieba.im.pushNotify.a.g().m();
             if (m != null) {
-                this.f1937a.add(m);
+                this.f1920a.add(m);
             } else {
                 com.baidu.tieba.im.pushNotify.a.a(false);
                 RecentChatFriendData m2 = com.baidu.tieba.im.pushNotify.a.g().m();
                 if (m2 != null) {
-                    this.f1937a.add(m2);
+                    this.f1920a.add(m2);
                 }
             }
         }
-        Collections.sort(this.f1937a, new k(this));
+        Collections.sort(this.f1920a, new k(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -10,22 +10,22 @@ import android.widget.ImageView;
 class r extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ JigsawAlbumListActivity f2037a;
+    final /* synthetic */ JigsawAlbumListActivity f2020a;
     private Context b;
 
     public r(JigsawAlbumListActivity jigsawAlbumListActivity, Context context) {
-        this.f2037a = jigsawAlbumListActivity;
+        this.f2020a = jigsawAlbumListActivity;
         this.b = context;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.f2037a.f2020a.b();
+        return this.f2020a.f2003a.b();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f2037a.f2020a.a(i);
+        return this.f2020a.f2003a.a(i);
     }
 
     @Override // android.widget.Adapter
@@ -40,24 +40,24 @@ class r extends BaseAdapter {
         ViewphotoLinkedHashMap viewphotoLinkedHashMap2;
         boolean z;
         ViewphotoLinkedHashMap viewphotoLinkedHashMap3;
-        c a2 = this.f2037a.f2020a.a(i);
-        viewphotoLinkedHashMap = this.f2037a.h;
+        c a2 = this.f2020a.f2003a.a(i);
+        viewphotoLinkedHashMap = this.f2020a.h;
         if (viewphotoLinkedHashMap.containsKey(Integer.valueOf(i))) {
-            viewphotoLinkedHashMap3 = this.f2037a.h;
+            viewphotoLinkedHashMap3 = this.f2020a.h;
             aVar = (a) viewphotoLinkedHashMap3.get((Object) Integer.valueOf(i));
         } else {
             aVar = new a(this.b);
-            aVar.setLayoutParams(new AbsListView.LayoutParams(this.f2037a.d, this.f2037a.d));
+            aVar.setLayoutParams(new AbsListView.LayoutParams(this.f2020a.d, this.f2020a.d));
             aVar.setTag(Integer.valueOf(i));
             aVar.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            aVar.setPadding(this.f2037a.e, this.f2037a.e, this.f2037a.e, this.f2037a.e);
+            aVar.setPadding(this.f2020a.e, this.f2020a.e, this.f2020a.e, this.f2020a.e);
             aVar.setOnClickListener(new s(this, a2));
-            viewphotoLinkedHashMap2 = this.f2037a.h;
+            viewphotoLinkedHashMap2 = this.f2020a.h;
             viewphotoLinkedHashMap2.put(Integer.valueOf(i), (ImageView) aVar);
         }
-        z = this.f2037a.p;
+        z = this.f2020a.p;
         if (z) {
-            this.f2037a.p = false;
+            this.f2020a.p = false;
         }
         if (a2 != null && u.a().b(a2.d)) {
             aVar.setIsSelected(true);

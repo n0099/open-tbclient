@@ -25,7 +25,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
     private static boolean o = true;
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f2019a;
+    TextView f2002a;
     private Cursor d;
     private j i;
     private ListView j;
@@ -71,7 +71,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
             finish();
             x.a(R.string.oom_retry);
         }
-        this.f2019a = (TextView) findViewById(R.id.jigsaw_selected_text);
+        this.f2002a = (TextView) findViewById(R.id.jigsaw_selected_text);
         this.k = u.a();
         this.k.b(this);
         this.j = (ListView) findViewById(R.id.albums_list);
@@ -90,7 +90,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
     public void onResume() {
         o = true;
         this.t = false;
-        this.f2019a.setText(this.k.e(this));
+        this.f2002a.setText(this.k.e(this));
         if (this.k.e()) {
             this.u.sendMessage(this.u.obtainMessage(1));
         }
@@ -161,7 +161,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
                                         this.g.put(String.valueOf(0), new Integer(1));
                                         i = this.f.size();
                                         try {
-                                            remove.f2022a = i;
+                                            remove.f2005a = i;
                                             this.f.add(remove);
                                             this.g.put(String.valueOf(i), new Integer(intValue));
                                             a(0, i);
@@ -187,7 +187,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
                                     int i4 = 0;
                                     while (i4 < this.f.size()) {
                                         if (this.f.get(i4).b.equals(substring)) {
-                                            i = this.f.get(i4).f2022a;
+                                            i = this.f.get(i4).f2005a;
                                             this.g.put(String.valueOf(i), new Integer(this.g.get(String.valueOf(i)).intValue() + 1));
                                         }
                                         i4++;
@@ -220,10 +220,10 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
             Iterator<c> it = this.e.iterator();
             while (it.hasNext()) {
                 c next = it.next();
-                if (next.f2022a == i) {
-                    next.f2022a = i2;
-                } else if (next.f2022a == i2) {
-                    next.f2022a = i;
+                if (next.f2005a == i) {
+                    next.f2005a = i2;
+                } else if (next.f2005a == i2) {
+                    next.f2005a = i;
                 }
             }
         }
@@ -257,7 +257,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
         Iterator<c> it = this.e.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (next.f2022a == i) {
+            if (next.f2005a == i) {
                 return next.b;
             }
         }
@@ -269,7 +269,7 @@ public class JigsawAlbumActivity extends com.baidu.tieba.j {
         Iterator<c> it = this.e.iterator();
         while (it.hasNext()) {
             c next = it.next();
-            if (next.f2022a == i) {
+            if (next.f2005a == i) {
                 return next;
             }
         }

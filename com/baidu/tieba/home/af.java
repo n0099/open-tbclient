@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class af extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1400a;
+    private Context f1391a;
     private ArrayList<MarkData> b;
     private int c;
     private boolean d;
@@ -31,7 +31,7 @@ public class af extends BaseAdapter {
     private boolean j = true;
 
     public af(Context context) {
-        this.f1400a = context;
+        this.f1391a = context;
         c(true);
         b();
     }
@@ -121,7 +121,7 @@ public class af extends BaseAdapter {
         ai aiVar2 = null;
         try {
             if (view == null) {
-                LayoutInflater from = LayoutInflater.from(this.f1400a);
+                LayoutInflater from = LayoutInflater.from(this.f1391a);
                 if (getItemViewType(i) == 0) {
                     view = from.inflate(R.layout.home_mark_item, (ViewGroup) null);
                     ai aiVar3 = new ai(this);
@@ -131,7 +131,7 @@ public class af extends BaseAdapter {
                     aiVar3.f = (TextView) view.findViewById(R.id.home_lv_markitem_author);
                     aiVar3.h = (ImageButton) view.findViewById(R.id.home_lv_markitem_delete);
                     aiVar3.e = (ImageView) view.findViewById(R.id.mark_author_icon);
-                    aiVar3.f1402a = (ImageView) view.findViewById(R.id.mark_comment_icon);
+                    aiVar3.f1393a = (ImageView) view.findViewById(R.id.mark_comment_icon);
                     aiVar3.g = (ImageView) view.findViewById(R.id.new_mark_mention);
                     view.setTag(aiVar3);
                     ahVar = null;
@@ -139,7 +139,7 @@ public class af extends BaseAdapter {
                 } else if (getItemViewType(i) == 1) {
                     ah ahVar2 = new ah(this);
                     view = from.inflate(R.layout.page_item, (ViewGroup) null);
-                    ahVar2.f1401a = (TextView) view.findViewById(R.id.page_text);
+                    ahVar2.f1392a = (TextView) view.findViewById(R.id.page_text);
                     ahVar2.b = (ProgressBar) view.findViewById(R.id.progress);
                     if (this.g == null) {
                         this.g = new ArrayList<>();
@@ -170,15 +170,15 @@ public class af extends BaseAdapter {
                 if (getItemViewType(i) == 1) {
                     if (this.i) {
                         ahVar.b.setVisibility(0);
-                        ahVar.f1401a.setText(this.f1400a.getString(R.string.loading));
+                        ahVar.f1392a.setText(this.f1391a.getString(R.string.loading));
                     } else if (!this.j) {
                         ahVar.b.setVisibility(8);
-                        ahVar.f1401a.setText(this.f1400a.getString(R.string.no_more_mark));
+                        ahVar.f1392a.setText(this.f1391a.getString(R.string.no_more_mark));
                     } else {
                         ahVar.b.setVisibility(8);
-                        ahVar.f1401a.setText(this.f1400a.getString(R.string.load_more));
+                        ahVar.f1392a.setText(this.f1391a.getString(R.string.load_more));
                     }
-                    com.baidu.tieba.util.bd.b(ahVar.f1401a, ap);
+                    com.baidu.tieba.util.bd.b(ahVar.f1392a, ap);
                 } else {
                     if (this.d) {
                         aiVar.b.setVisibility(8);
@@ -198,14 +198,14 @@ public class af extends BaseAdapter {
                         aiVar.b.setTextColor(-11446171);
                         aiVar.d.setTextColor(com.baidu.tieba.util.bd.a(1));
                         aiVar.f.setTextColor(-11446171);
-                        aiVar.f1402a.setBackgroundResource(R.drawable.icon_little_comment_1);
+                        aiVar.f1393a.setBackgroundResource(R.drawable.icon_little_comment_1);
                         aiVar.e.setBackgroundResource(R.drawable.icon_little_people_1);
                         aiVar.g.setBackgroundResource(R.drawable.icon_new_tip_1);
                     } else {
                         aiVar.b.setTextColor(-5065030);
                         aiVar.d.setTextColor(-14277082);
                         aiVar.f.setTextColor(-5065030);
-                        aiVar.f1402a.setBackgroundResource(R.drawable.icon_little_comment_grey);
+                        aiVar.f1393a.setBackgroundResource(R.drawable.icon_little_comment_grey);
                         aiVar.e.setBackgroundResource(R.drawable.icon_little_people);
                         aiVar.g.setBackgroundResource(R.drawable.icon_new_tip);
                     }
@@ -222,9 +222,9 @@ public class af extends BaseAdapter {
                     int replyNum = markData.getReplyNum();
                     if (replyNum == 0) {
                         aiVar.b.setVisibility(8);
-                        aiVar.f1402a.setVisibility(8);
+                        aiVar.f1393a.setVisibility(8);
                     } else {
-                        aiVar.f1402a.setVisibility(0);
+                        aiVar.f1393a.setVisibility(0);
                         aiVar.b.setVisibility(0);
                         aiVar.b.setText(String.valueOf(replyNum));
                     }

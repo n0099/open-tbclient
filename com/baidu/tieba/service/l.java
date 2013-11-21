@@ -13,12 +13,12 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class l extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    NetWorkCore f2348a;
+    NetWorkCore f2333a;
     final /* synthetic */ TiebaActiveService b;
 
     private l(TiebaActiveService tiebaActiveService) {
         this.b = tiebaActiveService;
-        this.f2348a = null;
+        this.f2333a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,17 +32,17 @@ public class l extends BdAsyncTask<String, Integer, String> {
     public String a(String... strArr) {
         bg.a(getClass().getName(), "doBackGround", "send active...");
         try {
-            this.f2348a = new NetWorkCore(new az());
-            this.f2348a.b("http://114.113.149.3:8086/partnersService");
-            this.f2348a.a(this.b.getApplicationContext());
-            this.f2348a.a("apk", TiebaApplication.g().getPackageName());
-            this.f2348a.a("imei", TiebaApplication.g().p());
-            this.f2348a.a("model", Build.MODEL);
-            this.f2348a.a("edition", com.baidu.tieba.data.h.j());
-            this.f2348a.a("system", Build.VERSION.SDK);
-            this.f2348a.e(false);
-            String u = this.f2348a.u();
-            if (this.f2348a.r()) {
+            this.f2333a = new NetWorkCore(new az());
+            this.f2333a.b("http://114.113.149.3:8086/partnersService");
+            this.f2333a.a(this.b.getApplicationContext());
+            this.f2333a.a("apk", TiebaApplication.g().getPackageName());
+            this.f2333a.a("imei", TiebaApplication.g().p());
+            this.f2333a.a("model", Build.MODEL);
+            this.f2333a.a("edition", com.baidu.tieba.data.h.j());
+            this.f2333a.a("system", Build.VERSION.SDK);
+            this.f2333a.e(false);
+            String u = this.f2333a.u();
+            if (this.f2333a.r()) {
                 bg.a(getClass().getName(), "task", "data=" + u);
                 return u;
             }
@@ -55,9 +55,9 @@ public class l extends BdAsyncTask<String, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.b.f2333a = null;
-        if (this.f2348a != null) {
-            this.f2348a.t();
+        this.b.f2318a = null;
+        if (this.f2333a != null) {
+            this.f2333a.t();
         }
         super.cancel(true);
     }
@@ -72,7 +72,7 @@ public class l extends BdAsyncTask<String, Integer, String> {
         Handler handler2;
         Runnable runnable2;
         super.a((l) str);
-        this.b.f2333a = null;
+        this.b.f2318a = null;
         if (str == null) {
             TiebaActiveService.b(this.b);
             i = this.b.b;

@@ -11,7 +11,7 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 public class x extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1763a;
+    private long f1754a;
     private String b;
     private String c;
     private String d;
@@ -21,11 +21,11 @@ public class x extends com.baidu.adp.a.d {
     private ResponseUpdateGroupMessage h;
 
     public long a() {
-        return this.f1763a;
+        return this.f1754a;
     }
 
     public void a(long j) {
-        this.f1763a = j;
+        this.f1754a = j;
     }
 
     public String b() {

@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class ah extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f1975a;
+    private com.baidu.tieba.j f1958a;
     private ac c;
     private com.baidu.tieba.util.i d;
     private NavigationBar e;
@@ -28,9 +28,9 @@ public class ah extends com.baidu.adp.a.e {
 
     public ah(com.baidu.tieba.j jVar, ac acVar) {
         super(jVar);
-        this.f1975a = jVar;
+        this.f1958a = jVar;
         this.c = acVar;
-        this.f1975a.setContentView(R.layout.more_activity);
+        this.f1958a.setContentView(R.layout.more_activity);
         k();
     }
 
@@ -68,7 +68,7 @@ public class ah extends com.baidu.adp.a.e {
             return;
         }
         if (this.d == null) {
-            this.d = new com.baidu.tieba.util.i(this.f1975a);
+            this.d = new com.baidu.tieba.util.i(this.f1958a);
         }
         this.f.b();
         h();
@@ -131,33 +131,33 @@ public class ah extends com.baidu.adp.a.e {
         this.k.a(i);
         this.l.a(i);
         if (i == 1) {
-            this.n.setBackgroundColor(this.f1975a.getResources().getColor(R.color.bg_page_setting_1));
+            this.n.setBackgroundColor(this.f1958a.getResources().getColor(R.color.bg_page_setting_1));
             m();
             return;
         }
-        this.n.setBackgroundColor(this.f1975a.getResources().getColor(R.color.bg_page_setting));
+        this.n.setBackgroundColor(this.f1958a.getResources().getColor(R.color.bg_page_setting));
         l();
     }
 
     private void k() {
         View.OnClickListener n = n();
-        this.n = (RelativeLayout) this.f1975a.findViewById(R.id.parent);
-        this.e = (NavigationBar) this.f1975a.findViewById(R.id.view_navigation_bar);
-        this.e.a(this.f1975a.getString(R.string.setup));
+        this.n = (RelativeLayout) this.f1958a.findViewById(R.id.parent);
+        this.e = (NavigationBar) this.f1958a.findViewById(R.id.view_navigation_bar);
+        this.e.a(this.f1958a.getString(R.string.setup));
         this.o = this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f = (SettingTextImageView) this.f1975a.findViewById(R.id.personInfo);
-        this.g = (SettingTextTipView) this.f1975a.findViewById(R.id.accountManager);
-        this.h = (SettingTextTipView) this.f1975a.findViewById(R.id.browseSetting);
-        this.i = (SettingTextTipView) this.f1975a.findViewById(R.id.messageSetting);
-        this.j = (SettingTextVersionView) this.f1975a.findViewById(R.id.versionInfo);
-        this.k = (SettingTextTipView) this.f1975a.findViewById(R.id.feedBack);
-        this.l = (SettingTextTipView) this.f1975a.findViewById(R.id.recommend);
+        this.f = (SettingTextImageView) this.f1958a.findViewById(R.id.personInfo);
+        this.g = (SettingTextTipView) this.f1958a.findViewById(R.id.accountManager);
+        this.h = (SettingTextTipView) this.f1958a.findViewById(R.id.browseSetting);
+        this.i = (SettingTextTipView) this.f1958a.findViewById(R.id.messageSetting);
+        this.j = (SettingTextVersionView) this.f1958a.findViewById(R.id.versionInfo);
+        this.k = (SettingTextTipView) this.f1958a.findViewById(R.id.feedBack);
+        this.l = (SettingTextTipView) this.f1958a.findViewById(R.id.recommend);
         if (!TiebaApplication.g().x()) {
             this.l.setVisibility(8);
         } else {
             this.l.setVisibility(0);
         }
-        this.m = (SettingTextTipView) this.f1975a.findViewById(R.id.systemhelpsetting);
+        this.m = (SettingTextTipView) this.f1958a.findViewById(R.id.systemhelpsetting);
         i();
         g();
         this.f.a();

@@ -8,12 +8,12 @@ import com.baidu.tieba.util.ap;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1008a = com.baidu.tieba.data.h.f1196a + "c/s/addmsg";
+    private static final String f1010a = com.baidu.tieba.data.h.f1201a + "c/s/addmsg";
     private ap b = null;
     private NewErrorData c = null;
 
     public String a(ChatPostData chatPostData) {
-        this.b = new ap(f1008a);
+        this.b = new ap(f1010a);
         this.b.a(PushConstants.EXTRA_USER_ID, chatPostData.getUserID());
         this.b.a("com_id", chatPostData.getFriendID());
         this.b.a("content", chatPostData.getContent());

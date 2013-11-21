@@ -12,11 +12,11 @@ import com.slidingmenu.lib.R;
 public class m extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f2006a;
+    final /* synthetic */ AccountActivity f1989a;
     private AccountData b;
 
     public m(AccountActivity accountActivity, AccountData accountData) {
-        this.f2006a = accountActivity;
+        this.f1989a = accountActivity;
         this.b = null;
         this.b = accountData;
     }
@@ -24,7 +24,7 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f2006a.showLoadingDialog(this.f2006a.getString(R.string.account_logining), new n(this));
+        this.f1989a.showLoadingDialog(this.f1989a.getString(R.string.account_logining), new n(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +36,7 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
             Thread.sleep(1000L);
             this.b.setIsActive(1);
             DatabaseService.a(this.b);
-            TiebaApplication.a(this.b, this.f2006a.getBaseContext());
+            TiebaApplication.a(this.b, this.f1989a.getBaseContext());
         } catch (Exception e) {
             bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
@@ -48,11 +48,11 @@ public class m extends BdAsyncTask<Object, Integer, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(Boolean bool) {
         if (this.b != null) {
-            new o(this.f2006a, this.b.getBDUSS()).start();
+            new o(this.f1989a, this.b.getBDUSS()).start();
         }
-        this.f2006a.closeLoadingDialog();
-        MainTabActivity.b(this.f2006a, 1);
+        this.f1989a.closeLoadingDialog();
+        MainTabActivity.b(this.f1989a, 1);
         com.baidu.tieba.account.a.a().b();
-        this.f2006a.g = null;
+        this.f1989a.g = null;
     }
 }

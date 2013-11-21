@@ -11,10 +11,10 @@ import com.baidu.tieba.model.MoreModel;
 public class ba extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f1994a;
+    final /* synthetic */ ax f1977a;
 
     private ba(ax axVar) {
-        this.f1994a = axVar;
+        this.f1977a = axVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,10 +24,10 @@ public class ba extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((ba) str);
-        this.f1994a.b = null;
-        gVar = this.f1994a.mLoadDataCallBack;
+        this.f1977a.b = null;
+        gVar = this.f1977a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f1994a.mLoadDataCallBack;
+            gVar2 = this.f1977a.mLoadDataCallBack;
             gVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
         com.baidu.tieba.im.db.x.a().b();

@@ -36,7 +36,7 @@ public class k extends ImageView {
     private Interpolator L;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile int f2590a;
+    public volatile int f2573a;
     private Matrix b;
     private int c;
     private int d;
@@ -81,7 +81,7 @@ public class k extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f2590a = 0;
+        this.f2573a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -115,7 +115,7 @@ public class k extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f2590a = 0;
+        this.f2573a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -149,7 +149,7 @@ public class k extends ImageView {
         this.x = 0;
         this.y = false;
         this.z = false;
-        this.f2590a = 0;
+        this.f2573a = 0;
         this.A = 0;
         this.B = null;
         this.C = null;
@@ -354,7 +354,7 @@ public class k extends ImageView {
         c();
         this.D = 0;
         if (this.m != null) {
-            this.f2590a = 1;
+            this.f2573a = 1;
             invalidate();
             new l(this).start();
         }
@@ -401,7 +401,7 @@ public class k extends ImageView {
             }
             canvas.clipRect(i, i2, width + i, height + i2);
             canvas.drawColor(-1);
-            if (this.f2590a == 2 && this.A == 1 && this.G && this.B != null) {
+            if (this.f2573a == 2 && this.A == 1 && this.G && this.B != null) {
                 if (this.E + this.B.a(this.D) < System.currentTimeMillis()) {
                     this.E += this.B.a(this.D);
                     t();
@@ -434,7 +434,7 @@ public class k extends ImageView {
 
     public void e() {
         if (this.w == 1) {
-            if (this.f2590a == 0) {
+            if (this.f2573a == 0) {
                 d();
             } else {
                 this.E = System.currentTimeMillis();
@@ -457,7 +457,7 @@ public class k extends ImageView {
             super.setImageBitmap(null);
             this.G = false;
             c();
-            this.f2590a = 0;
+            this.f2573a = 0;
             this.D = 0;
             invalidate();
         }
@@ -572,7 +572,7 @@ public class k extends ImageView {
         c();
         r();
         this.w = 1;
-        this.f2590a = 0;
+        this.f2573a = 0;
         this.C = bitmap;
         this.m = bArr;
         if (this.s != null) {
@@ -587,7 +587,7 @@ public class k extends ImageView {
         super.setImageBitmap(null);
         c();
         this.m = null;
-        this.f2590a = 0;
+        this.f2573a = 0;
         this.C = null;
         this.G = false;
     }
@@ -598,7 +598,7 @@ public class k extends ImageView {
         }
         super.setImageBitmap(null);
         c();
-        this.f2590a = 0;
+        this.f2573a = 0;
         this.C = null;
         this.G = false;
     }

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f759a;
+    public int f760a;
     public String b;
     public String c;
     public String d;

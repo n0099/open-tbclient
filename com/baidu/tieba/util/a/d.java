@@ -36,7 +36,7 @@ public class d extends a {
         }
         int i2 = lVar.d;
         String a2 = iVar.a(str);
-        synchronized (m.f2513a) {
+        synchronized (m.f2496a) {
             if (i2 == 1) {
                 lVar.e = DatabaseService.c(a2);
             } else if (i2 == 2) {
@@ -79,8 +79,8 @@ public class d extends a {
         } else if (i == 1) {
             str2 = h.l() + str;
         }
-        lVar.f2512a = new ap(iVar.f2509a, str2);
-        lVar.f2512a.a(iVar.d(), 3);
+        lVar.f2495a = new ap(iVar.f2492a, str2);
+        lVar.f2495a.a(iVar.d(), 3);
         if (iVar.h != null) {
             int i2 = 0;
             while (true) {
@@ -88,16 +88,16 @@ public class d extends a {
                 if (i3 >= iVar.h.size()) {
                     break;
                 }
-                lVar.f2512a.a(iVar.h.get(i3));
+                lVar.f2495a.a(iVar.h.get(i3));
                 i2 = i3 + 1;
             }
         }
-        byte[] i4 = lVar.f2512a.i();
-        if (i4 == null || !lVar.f2512a.c() || lVar.j) {
+        byte[] i4 = lVar.f2495a.i();
+        if (i4 == null || !lVar.f2495a.c() || lVar.j) {
             return null;
         }
         String a2 = iVar.a(str);
-        synchronized (m.f2513a) {
+        synchronized (m.f2496a) {
             if (lVar.j) {
                 return null;
             }

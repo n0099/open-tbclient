@@ -20,7 +20,7 @@ import org.json.JSONArray;
 public class TbRichTextView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f980a = 174;
+    public static int f981a = 174;
     private com.baidu.adp.lib.d.b<ImageView> b;
     private com.baidu.adp.lib.d.b<TextView> c;
     private com.baidu.adp.lib.d.b<View> d;
@@ -139,12 +139,12 @@ public class TbRichTextView extends LinearLayout {
     }
 
     private void b() {
-        f980a = getContext().getResources().getDimensionPixelSize(com.baidu.tbadk.b.adk_default_image_height);
+        f981a = getContext().getResources().getDimensionPixelSize(com.baidu.tbadk.b.adk_default_image_height);
         if (getContext() instanceof i) {
             i iVar = (i) getContext();
             this.b = iVar.e();
             this.c = iVar.f();
-            this.d = iVar.e_();
+            this.d = iVar.d_();
             this.e = iVar.h();
             if (iVar.c() != null && this.t == null) {
                 this.t = new o(iVar.d());
@@ -277,7 +277,7 @@ public class TbRichTextView extends LinearLayout {
             int[] iArr = {a2[0], a2[1]};
             if (!this.v && z) {
                 iArr[0] = i;
-                iArr[1] = f980a;
+                iArr[1] = f981a;
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(iArr[0], iArr[1]);
             if (imageView instanceof TbImageView) {

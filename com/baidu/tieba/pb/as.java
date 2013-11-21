@@ -6,38 +6,38 @@ import android.widget.AbsListView;
 class as implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2076a;
+    final /* synthetic */ NewPbActivity f2059a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(NewPbActivity newPbActivity) {
-        this.f2076a = newPbActivity;
+        this.f2059a = newPbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         Handler handler;
-        cp cpVar;
+        cr crVar;
         Handler handler2;
         Handler handler3;
         Handler handler4;
         Handler handler5;
-        handler = this.f2076a.r;
+        handler = this.f2059a.r;
         if (handler != null) {
-            handler5 = this.f2076a.r;
+            handler5 = this.f2059a.r;
             handler5.removeMessages(0);
         }
-        this.f2076a.J = i;
+        this.f2059a.J = i;
         if (i == 0) {
-            handler2 = this.f2076a.r;
+            handler2 = this.f2059a.r;
             if (handler2 != null) {
-                handler3 = this.f2076a.r;
-                handler4 = this.f2076a.r;
+                handler3 = this.f2059a.r;
+                handler4 = this.f2059a.r;
                 handler3.sendMessageDelayed(handler4.obtainMessage(0), 300L);
             }
         }
         if (i == 2 || i == 1) {
-            cpVar = this.f2076a.y;
-            cpVar.Z();
+            crVar = this.f2059a.y;
+            crVar.Z();
         }
     }
 

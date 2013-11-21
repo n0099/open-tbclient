@@ -1,27 +1,26 @@
 package com.baidu.tieba.pb;
+
+import android.content.DialogInterface;
+import com.baidu.tieba.FileDownloader;
+import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bg implements dv {
+public class bg implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2091a;
+    final /* synthetic */ NewPbActivity f2074a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(NewPbActivity newPbActivity) {
-        this.f2091a = newPbActivity;
+        this.f2074a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.dv
-    public void a(com.baidu.tieba.data.aw awVar) {
-        com.baidu.tieba.model.bp bpVar;
-        com.baidu.tieba.model.bp bpVar2;
-        cp cpVar;
-        bpVar = this.f2091a.w;
-        if (bpVar != null) {
-            bpVar2 = this.f2091a.w;
-            if (bpVar2.h()) {
-                cpVar = this.f2091a.y;
-                cpVar.v();
-            }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (!com.baidu.tieba.util.af.a()) {
+            this.f2074a.showToast(com.baidu.tieba.util.af.b());
+        } else {
+            FileDownloader.a(this.f2074a, "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.f2074a.getString(R.string.download_baidu_video));
         }
     }
 }

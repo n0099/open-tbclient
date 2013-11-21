@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.aj;
+import com.baidu.tieba.am;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.bi;
@@ -19,57 +19,62 @@ import com.slidingmenu.lib.R;
 public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private j f1844a = null;
+    private j f1826a = null;
     private BdListView b = null;
     private bi c;
     private LinearLayout d;
     private com.baidu.tieba.home.s e;
-    private aj f;
+    private am f;
+    private int g;
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.g = -1;
         View inflate = layoutInflater.inflate(R.layout.at_me_activity, viewGroup, false);
         this.c = new bi(i());
         this.c.a(this);
         this.b = (BdListView) inflate.findViewById(R.id.atme_lv);
         this.b.setPullRefresh(this.c);
         this.d = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
-        this.f = new aj(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
-        this.f1844a = new j(this, 2, new a(this));
-        this.f1844a.a(this.b);
-        this.f1844a.a(this.f);
-        this.f1844a.a("c/u/feed/atme");
-        this.f1844a.c();
+        this.f = new am(inflate, (int) R.drawable.individual_center_news, (int) R.drawable.individual_center_news_1);
+        this.f1826a = new j(this, 2, new a(this));
+        this.f1826a.a(this.b);
+        this.f1826a.a(this.f);
+        this.f1826a.a("c/u/feed/atme");
+        this.f1826a.c();
         return inflate;
     }
 
     @Override // com.baidu.tieba.BaseFragment
     public void c(int i) {
         super.c(i);
-        if (n()) {
-            if (i == 1) {
-                this.b.setCacheColorHint(j().getColor(17170445));
-                if (this.f.c()) {
-                    this.b.setDivider(j().getDrawable(17170445));
+        if (this.g != i) {
+            this.g = i;
+            if (n()) {
+                if (i == 1) {
+                    this.b.setCacheColorHint(j().getColor(17170445));
+                    if (this.f.c()) {
+                        this.b.setDivider(j().getDrawable(17170445));
+                    } else {
+                        this.b.setDivider(new ColorDrawable(j().getColor(R.color.night_divider)));
+                    }
+                    this.b.setDividerHeight(UtilHelper.a((Context) i(), 1.0f));
                 } else {
-                    this.b.setDivider(new ColorDrawable(j().getColor(R.color.night_divider)));
+                    this.b.setCacheColorHint(j().getColor(17170445));
+                    if (this.f.c()) {
+                        this.b.setDivider(j().getDrawable(17170445));
+                    } else {
+                        this.b.setDivider(new ColorDrawable(j().getColor(R.color.day_divider)));
+                    }
+                    this.b.setDividerHeight(UtilHelper.a((Context) i(), 1.0f));
                 }
-                this.b.setDividerHeight(UtilHelper.a((Context) i(), 1.0f));
-            } else {
-                this.b.setCacheColorHint(j().getColor(17170445));
-                if (this.f.c()) {
-                    this.b.setDivider(j().getDrawable(17170445));
-                } else {
-                    this.b.setDivider(new ColorDrawable(j().getColor(R.color.day_divider)));
+                this.f.a(i);
+                if (this.c != null) {
+                    this.c.a(i);
                 }
-                this.b.setDividerHeight(UtilHelper.a((Context) i(), 1.0f));
-            }
-            this.f.a(i);
-            if (this.c != null) {
-                this.c.a(i);
-            }
-            if (this.e != null) {
-                this.e.b(i);
+                if (this.e != null) {
+                    this.e.b(i);
+                }
             }
         }
     }
@@ -93,12 +98,13 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
             this.b.setVisibility(0);
             this.d.setVisibility(8);
             if (t.a().m() > 0) {
-                this.f1844a.a(2);
+                this.f1826a.a(2);
             } else {
-                this.f1844a.a(1);
+                this.f1826a.a(1);
             }
-            this.f1844a.d();
-            this.f1844a.e();
+            this.f1826a.a(1);
+            this.f1826a.d();
+            this.f1826a.e();
             return;
         }
         if (this.e == null) {
@@ -118,9 +124,9 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     public void t() {
         super.t();
         try {
-            if (this.f1844a != null) {
-                this.f1844a.f();
-                this.f1844a.a();
+            if (this.f1826a != null) {
+                this.f1826a.f();
+                this.f1826a.a();
             }
             System.gc();
         } catch (Exception e) {
@@ -129,7 +135,7 @@ public class AtMeFragment extends BaseFragment implements com.baidu.adp.widget.L
     }
 
     public void a() {
-        this.f1844a.b();
+        this.f1826a.b();
     }
 
     @Override // com.baidu.adp.widget.ListView.b

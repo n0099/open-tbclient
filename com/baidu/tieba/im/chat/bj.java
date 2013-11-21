@@ -6,17 +6,17 @@ import android.view.View;
 public class bj implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1530a;
+    final /* synthetic */ bg f1521a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(bg bgVar) {
-        this.f1530a = bgVar;
+        this.f1521a = bgVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1530a.M();
-        this.f1530a.O();
-        this.f1530a.R();
+        this.f1521a.M();
+        this.f1521a.O();
+        this.f1521a.R();
     }
 }

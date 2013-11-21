@@ -27,6 +27,7 @@ import com.baidu.tieba.im.groupInfo.GroupInfoActivity;
 import com.baidu.tieba.im.message.ChatMessage;
 import com.baidu.tieba.im.model.LocalPicModel;
 import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.tieba.model.cc;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.voice.VoiceManager;
@@ -42,7 +43,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     private static final String e = MsglistActivity.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1493a = false;
+    public static boolean f1484a = false;
     public static String b = "";
     private bg f = null;
     private MsglistModel g = null;
@@ -67,11 +68,16 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         activity.startActivity(intent);
     }
 
-    public static void a(Activity activity, int i, String str, int i2) {
+    public static void a(Activity activity, int i, String str, int i2, String str2) {
         GroupData groupData = new GroupData();
         groupData.setGroupId(i);
         groupData.setName(str);
         groupData.setAuthorId(i2);
+        String valueOf = String.valueOf(i);
+        if (!cc.a().a(valueOf)) {
+            new com.baidu.tieba.account.l("chat_pg", str2, valueOf).start();
+            cc.a().a(valueOf, valueOf);
+        }
         com.baidu.tieba.im.m.a(new as(i), new au(activity, groupData));
     }
 
@@ -150,13 +156,13 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         if (this.j != null) {
             this.j.b((Activity) this);
         }
-        f1493a = true;
+        f1484a = true;
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        f1493a = true;
+        f1484a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -166,7 +172,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         if (this.j != null) {
             this.j.d(this);
         }
-        f1493a = false;
+        f1484a = false;
         if (this.g != null) {
             j();
         }
@@ -185,7 +191,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         if (this.f != null) {
             m();
         }
-        f1493a = true;
+        f1484a = true;
         com.baidu.tieba.mention.t.a().a(b);
         if (!TextUtils.isEmpty(b)) {
             com.baidu.tieba.model.f.b(b);
@@ -215,7 +221,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
         if (this.j != null) {
             this.j.f(this);
         }
-        f1493a = false;
+        f1484a = false;
     }
 
     private boolean a(Bundle bundle) {
@@ -312,11 +318,11 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
             finish();
         } else if (view == this.f.u()) {
             if (i()) {
-                com.baidu.tieba.write.bc.a(this);
+                com.baidu.tieba.write.bd.a(this);
             }
         } else if (view == this.f.v()) {
             if (i()) {
-                com.baidu.tieba.write.bc.b(this);
+                com.baidu.tieba.write.bd.b(this);
             }
         } else if (view == this.f.t()) {
             u();
@@ -446,9 +452,9 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                com.baidu.tieba.write.bc.a(this);
+                com.baidu.tieba.write.bd.a(this);
             } else if (i == 12009) {
-                com.baidu.tieba.write.bc.b(this);
+                com.baidu.tieba.write.bd.b(this);
             }
         }
     }
@@ -771,7 +777,7 @@ public class MsglistActivity extends com.baidu.tieba.j implements SensorEventLis
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
-    public com.baidu.adp.lib.d.b<View> e_() {
+    public com.baidu.adp.lib.d.b<View> d_() {
         return null;
     }
 

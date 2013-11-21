@@ -10,12 +10,12 @@ import java.lang.ref.WeakReference;
 public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<g> f2273a;
+    private WeakReference<g> f2258a;
     private boolean b;
     private ap c;
 
     public h(g gVar, boolean z) {
-        this.f2273a = new WeakReference<>(gVar);
+        this.f2258a = new WeakReference<>(gVar);
         this.b = z;
     }
 
@@ -25,12 +25,12 @@ public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
         String str;
         int i;
         PersonPostThreadModel personPostThreadModel;
-        this.c = new ap(com.baidu.tieba.data.h.f1196a + "c/u/feed/userpost");
+        this.c = new ap(com.baidu.tieba.data.h.f1201a + "c/u/feed/userpost");
         ap apVar = this.c;
         str = PersonPostThreadModel.b;
         apVar.a("uid", String.valueOf(str));
         ap apVar2 = this.c;
-        i = PersonPostThreadModel.f2260a;
+        i = PersonPostThreadModel.f2245a;
         apVar2.a("pn", String.valueOf(i));
         this.c.a("rn", String.valueOf(20));
         this.c.a("is_thread", String.valueOf(1));
@@ -55,7 +55,7 @@ public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(PersonPostThreadModel personPostThreadModel) {
-        g gVar = this.f2273a.get();
+        g gVar = this.f2258a.get();
         if (gVar != null) {
             gVar.a(personPostThreadModel, this.b);
         }

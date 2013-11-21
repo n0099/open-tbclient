@@ -13,29 +13,29 @@ import com.slidingmenu.lib.R;
 public class HotThreadPagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumDetailData.ThreadInfo[] f2365a;
+    private ForumDetailData.ThreadInfo[] f2350a;
     private LayoutInflater b;
     private Context c;
 
     public HotThreadPagerAdapter(Context context, ForumDetailData.ThreadInfo[] threadInfoArr) {
         this.c = context;
         if (threadInfoArr != null && threadInfoArr.length != 0) {
-            this.f2365a = threadInfoArr;
+            this.f2350a = threadInfoArr;
             this.b = LayoutInflater.from(this.c);
         }
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        if (this.f2365a == null) {
+        if (this.f2350a == null) {
             return 0;
         }
-        return this.f2365a.length;
+        return this.f2350a.length;
     }
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        ForumDetailData.ThreadInfo threadInfo = this.f2365a[i];
+        ForumDetailData.ThreadInfo threadInfo = this.f2350a[i];
         View inflate = this.b.inflate(R.layout.square_hot_thread_item, viewGroup, false);
         TextView textView = (TextView) inflate.findViewById(R.id.ht_item_title);
         TextView textView2 = (TextView) inflate.findViewById(R.id.ht_item_content);

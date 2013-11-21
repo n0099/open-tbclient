@@ -24,7 +24,7 @@ import com.slidingmenu.lib.R;
 public class ItemInfoView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1272a;
+    private Context f1277a;
     private ViewGroup b;
     private TextView c;
     private ViewGroup d;
@@ -51,7 +51,7 @@ public class ItemInfoView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        this.f1272a = context;
+        this.f1277a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         this.b = (ViewGroup) findViewById(R.id.info_brief_box);
         this.c = (TextView) findViewById(R.id.info_brief_content);
@@ -139,14 +139,14 @@ public class ItemInfoView extends RelativeLayout {
     }
 
     private void a(ForumDetailData forumDetailData) {
-        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.f1272a);
-        int a2 = UtilHelper.a(this.f1272a, 20.0f);
+        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.f1277a);
+        int a2 = UtilHelper.a(this.f1277a, 20.0f);
         iVar.a(a2, a2);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(a2, a2);
-        layoutParams.rightMargin = UtilHelper.a(this.f1272a, 6.0f);
+        layoutParams.rightMargin = UtilHelper.a(this.f1277a, 6.0f);
         int length = forumDetailData.badges.length;
         for (int i = 0; i < length; i++) {
-            HeadImageView headImageView = new HeadImageView(this.f1272a);
+            HeadImageView headImageView = new HeadImageView(this.f1277a);
             headImageView.setLayoutParams(layoutParams);
             headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.setTag(forumDetailData.badges[i].badgeURL);

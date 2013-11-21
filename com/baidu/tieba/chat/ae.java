@@ -7,11 +7,11 @@ import com.baidu.tieba.data.chat.ChatData;
 public class ae extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ab f1122a;
+    final /* synthetic */ ab f1128a;
     private com.baidu.tieba.a.e b = null;
 
     public ae(ab abVar) {
-        this.f1122a = abVar;
+        this.f1128a = abVar;
         setPriority(3);
     }
 
@@ -21,9 +21,9 @@ public class ae extends BdAsyncTask<Object, Integer, Boolean> {
         ad adVar;
         ad adVar2;
         super.b();
-        adVar = this.f1122a.k;
+        adVar = this.f1128a.k;
         if (adVar != null) {
-            adVar2 = this.f1122a.k;
+            adVar2 = this.f1128a.k;
             adVar2.a();
         }
     }
@@ -37,11 +37,11 @@ public class ae extends BdAsyncTask<Object, Integer, Boolean> {
         String str2;
         this.b = new com.baidu.tieba.a.e();
         com.baidu.tieba.a.e eVar = this.b;
-        str = this.f1122a.b;
-        str2 = this.f1122a.d;
+        str = this.f1128a.b;
+        str2 = this.f1128a.d;
         eVar.a(str, str2);
         if (this.b != null && this.b.b() && this.b.d() == 0) {
-            this.f1122a.h();
+            this.f1128a.h();
             return true;
         }
         return false;
@@ -53,7 +53,7 @@ public class ae extends BdAsyncTask<Object, Integer, Boolean> {
         if (this.b != null) {
             this.b.a();
         }
-        this.f1122a.j = null;
+        this.f1128a.j = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,20 +67,20 @@ public class ae extends BdAsyncTask<Object, Integer, Boolean> {
         ChatData chatData2;
         super.a((ae) bool);
         if (bool.booleanValue()) {
-            chatData = this.f1122a.h;
+            chatData = this.f1128a.h;
             chatData.clearData();
-            adVar3 = this.f1122a.k;
-            chatData2 = this.f1122a.h;
+            adVar3 = this.f1128a.k;
+            chatData2 = this.f1128a.h;
             adVar3.a(true, null, false, 0, chatData2, false);
         } else if (this.b != null) {
             if (this.b.b()) {
-                adVar2 = this.f1122a.k;
+                adVar2 = this.f1128a.k;
                 adVar2.a(false, this.b.e(), false, 0, null, false);
             } else {
-                adVar = this.f1122a.k;
+                adVar = this.f1128a.k;
                 adVar.a(false, this.b.c(), false, 0, null, false);
             }
         }
-        this.f1122a.j = null;
+        this.f1128a.j = null;
     }
 }

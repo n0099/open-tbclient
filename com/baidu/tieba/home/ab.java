@@ -8,11 +8,11 @@ import com.baidu.tieba.util.UtilHelper;
 public class ab extends BdAsyncTask<Object, Integer, y> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1397a;
+    final /* synthetic */ aa f1388a;
     private ad b = null;
 
     public ab(aa aaVar) {
-        this.f1397a = aaVar;
+        this.f1388a = aaVar;
         setPriority(3);
     }
 
@@ -24,8 +24,8 @@ public class ab extends BdAsyncTask<Object, Integer, y> {
         y yVar;
         this.b = new ad();
         if (UtilHelper.i(TiebaApplication.g().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            this.f1397a.b = d();
-            yVar = this.f1397a.b;
+            this.f1388a.b = d();
+            yVar = this.f1388a.b;
             return yVar;
         }
         return null;
@@ -44,9 +44,11 @@ public class ab extends BdAsyncTask<Object, Integer, y> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.b.b();
+        if (this.b != null) {
+            this.b.b();
+        }
         this.b = null;
-        this.f1397a.f1396a = null;
+        this.f1388a.f1387a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,18 +60,18 @@ public class ab extends BdAsyncTask<Object, Integer, y> {
         ac acVar2;
         ac acVar3;
         y yVar3;
-        this.f1397a.f1396a = null;
-        acVar = this.f1397a.c;
+        this.f1388a.f1387a = null;
+        acVar = this.f1388a.c;
         if (acVar != null) {
-            yVar2 = this.f1397a.b;
+            yVar2 = this.f1388a.b;
             if (yVar2 != null) {
-                acVar3 = this.f1397a.c;
-                yVar3 = this.f1397a.b;
+                acVar3 = this.f1388a.c;
+                yVar3 = this.f1388a.b;
                 acVar3.a(yVar3);
                 return;
             }
             String d = this.b != null ? this.b.d() : null;
-            acVar2 = this.f1397a.c;
+            acVar2 = this.f1388a.c;
             acVar2.a(d);
         }
     }

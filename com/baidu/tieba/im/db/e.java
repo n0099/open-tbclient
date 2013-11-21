@@ -12,13 +12,13 @@ import java.util.LinkedList;
 public class e extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LinkedList f1613a;
+    final /* synthetic */ LinkedList f1604a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, LinkedList linkedList) {
         this.b = aVar;
-        this.f1613a = linkedList;
+        this.f1604a = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class e extends SingleRunnable<Void> {
     public Void b() {
         Cursor cursor;
         Iterator it;
-        if (this.f1613a != null && this.f1613a.size() != 0) {
+        if (this.f1604a != null && this.f1604a.size() != 0) {
             SQLiteDatabase a2 = m.a();
             LinkedList linkedList = new LinkedList();
             if (a2 != null) {
@@ -48,7 +48,7 @@ public class e extends SingleRunnable<Void> {
                                 e = e;
                                 e.printStackTrace();
                                 com.baidu.tieba.util.o.a(cursor);
-                                it = this.f1613a.iterator();
+                                it = this.f1604a.iterator();
                                 while (it.hasNext()) {
                                 }
                                 return null;
@@ -64,7 +64,7 @@ public class e extends SingleRunnable<Void> {
                     cursor = null;
                     e.printStackTrace();
                     com.baidu.tieba.util.o.a(cursor);
-                    it = this.f1613a.iterator();
+                    it = this.f1604a.iterator();
                     while (it.hasNext()) {
                     }
                     return null;
@@ -79,7 +79,7 @@ public class e extends SingleRunnable<Void> {
             }
             com.baidu.adp.lib.h.d.d("haveTables:" + linkedList);
             com.baidu.tieba.util.o.a(cursor);
-            it = this.f1613a.iterator();
+            it = this.f1604a.iterator();
             while (it.hasNext()) {
                 String str = (String) it.next();
                 if (TextUtils.isEmpty(str)) {

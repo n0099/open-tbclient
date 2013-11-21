@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f2500a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    private static SimpleDateFormat f2483a = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     private static SimpleDateFormat b = new SimpleDateFormat("yyyy年");
     private static SimpleDateFormat c = new SimpleDateFormat("HH:mm");
     private static SimpleDateFormat d = new SimpleDateFormat("M月d日");
@@ -46,7 +46,7 @@ public class be {
     static {
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            f2500a.setTimeZone(timeZone);
+            f2483a.setTimeZone(timeZone);
             b.setTimeZone(timeZone);
             c.setTimeZone(timeZone);
             d.setTimeZone(timeZone);
@@ -96,8 +96,8 @@ public class be {
     public static String a(long j2) {
         String format;
         Date date = new Date(j2);
-        synchronized (f2500a) {
-            format = f2500a.format(date);
+        synchronized (f2483a) {
+            format = f2483a.format(date);
         }
         return format;
     }

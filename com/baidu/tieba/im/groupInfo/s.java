@@ -6,14 +6,14 @@ import android.content.DialogInterface;
 public class s implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Object f1701a;
+    final /* synthetic */ Object f1692a;
     final /* synthetic */ int b;
     final /* synthetic */ n c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(n nVar, Object obj, int i) {
         this.c = nVar;
-        this.f1701a = obj;
+        this.f1692a = obj;
         this.b = i;
     }
 
@@ -21,6 +21,6 @@ public class s implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialogInterface, int i) {
         y yVar;
         yVar = this.c.F;
-        yVar.a(dialogInterface, i, this.f1701a, this.b);
+        yVar.a(dialogInterface, i, this.f1692a, this.b);
     }
 }

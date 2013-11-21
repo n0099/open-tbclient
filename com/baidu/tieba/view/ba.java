@@ -10,7 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.pb.NewPbActivity;
-import com.baidu.tieba.pb.cp;
+import com.baidu.tieba.pb.cr;
 import com.baidu.tieba.util.UtilHelper;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -47,10 +47,10 @@ public class ba extends com.baidu.tbadk.widget.b {
         this.m = -1;
         this.n = false;
         this.e = new bb(this);
-        l();
+        i();
     }
 
-    private void l() {
+    private void i() {
         this.f = false;
         this.i = 0;
         this.n = com.baidu.tieba.d.a.a().f();
@@ -77,7 +77,7 @@ public class ba extends com.baidu.tbadk.widget.b {
         return this.h;
     }
 
-    public void h() {
+    public void e() {
         removeCallbacks(this.e);
         if (TiebaApplication.g().ap() == 1) {
             setNightDefaultResource(R.drawable.img_loading_1);
@@ -97,7 +97,7 @@ public class ba extends com.baidu.tbadk.widget.b {
     }
 
     public void a(boolean z) {
-        k();
+        h();
         this.i = 0;
         removeCallbacks(this.e);
         this.f = false;
@@ -130,8 +130,8 @@ public class ba extends com.baidu.tbadk.widget.b {
         }
     }
 
-    public void i() {
-        k();
+    public void f() {
+        h();
         removeCallbacks(this.e);
         setTag(null);
         this.f = false;
@@ -163,8 +163,8 @@ public class ba extends com.baidu.tbadk.widget.b {
         }
     }
 
-    public void j() {
-        k();
+    public void g() {
+        h();
         removeCallbacks(this.e);
         this.f = false;
         this.i = 0;
@@ -180,7 +180,7 @@ public class ba extends com.baidu.tbadk.widget.b {
         setTag(null);
         com.baidu.tbadk.widget.a listViewActivity = getListViewActivity();
         if (listViewActivity != null) {
-            listViewActivity.b(this);
+            listViewActivity.a(this);
         }
     }
 
@@ -359,14 +359,14 @@ public class ba extends com.baidu.tbadk.widget.b {
         }
     }
 
-    public void k() {
-        cp pbView = getPbView();
+    public void h() {
+        cr pbView = getPbView();
         if (pbView != null) {
             pbView.b(this);
         }
     }
 
-    public cp getPbView() {
+    public cr getPbView() {
         Context context = getContext();
         if (context instanceof NewPbActivity) {
             return ((NewPbActivity) context).b();

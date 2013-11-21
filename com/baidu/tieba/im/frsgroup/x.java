@@ -6,11 +6,11 @@ import java.util.Set;
 class x implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1667a;
+    final /* synthetic */ w f1658a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.f1667a = wVar;
+        this.f1658a = wVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -22,16 +22,16 @@ class x implements CompoundButton.OnCheckedChangeListener {
         Set set3;
         Long l = (Long) compoundButton.getTag();
         if (z) {
-            set3 = this.f1667a.g;
+            set3 = this.f1658a.g;
             set3.add(l);
         } else {
-            set = this.f1667a.g;
+            set = this.f1658a.g;
             set.remove(l);
         }
-        yVar = this.f1667a.b;
+        yVar = this.f1658a.b;
         if (yVar != null) {
-            yVar2 = this.f1667a.b;
-            set2 = this.f1667a.g;
+            yVar2 = this.f1658a.b;
+            set2 = this.f1658a.g;
             yVar2.a(set2.size());
         }
     }

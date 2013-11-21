@@ -5,12 +5,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.data.IconData;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tbadk.imageManager.c f2551a;
+    com.baidu.tbadk.imageManager.c f2534a;
     private com.baidu.adp.lib.d.b<TbImageView> b;
     private bt c;
     private Context d;
@@ -23,7 +24,7 @@ public class UserIconBox extends LinearLayout {
         this.b = null;
         this.c = null;
         this.g = null;
-        this.f2551a = new br(this);
+        this.f2534a = new br(this);
         a(context);
     }
 
@@ -32,7 +33,7 @@ public class UserIconBox extends LinearLayout {
         this.b = null;
         this.c = null;
         this.g = null;
-        this.f2551a = new br(this);
+        this.f2534a = new br(this);
         a(context);
     }
 
@@ -62,7 +63,7 @@ public class UserIconBox extends LinearLayout {
         this.g = onClickListener;
     }
 
-    public void a(LinkedList<com.baidu.tieba.data.aa> linkedList, int i, int i2, int i3, int i4) {
+    public void a(LinkedList<IconData> linkedList, int i, int i2, int i3, int i4) {
         removeAllViews();
         if (linkedList != null && linkedList.size() > 0) {
             this.e.a(i2, i3);
@@ -72,8 +73,8 @@ public class UserIconBox extends LinearLayout {
                 TbImageView b = b(this.d);
                 if (b != null) {
                     b.setLayoutParams(a2);
-                    b.setTag(linkedList.get(i5).a());
-                    this.e.e(linkedList.get(i5).a(), this.f2551a);
+                    b.setTag(linkedList.get(i5).getIconUrl());
+                    this.e.e(linkedList.get(i5).getIconUrl(), this.f2534a);
                     addView(b);
                 }
                 if (this.g != null) {

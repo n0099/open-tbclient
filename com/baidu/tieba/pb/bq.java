@@ -1,22 +1,25 @@
 package com.baidu.tieba.pb;
-
-import android.content.DialogInterface;
-import com.baidu.mobstat.StatService;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements DialogInterface.OnClickListener {
+class bq implements cm {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2101a;
+    final /* synthetic */ NewPbActivity f2084a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(NewPbActivity newPbActivity) {
-        this.f2101a = newPbActivity;
+        this.f2084a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        StatService.onEvent(this.f2101a, "pb_close_phonedialog", "close");
-        dialogInterface.cancel();
+    @Override // com.baidu.tieba.pb.cm
+    public void a(String str) {
+        cr crVar;
+        cr crVar2;
+        if (!com.baidu.tieba.util.be.c(str)) {
+            crVar = this.f2084a.y;
+            if (com.baidu.tieba.util.be.c(crVar.J())) {
+                crVar2 = this.f2084a.y;
+                crVar2.d(str);
+            }
+        }
     }
 }

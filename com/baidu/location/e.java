@@ -35,7 +35,7 @@ public class e {
     private final long f160new = 3000;
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f918a = 5000;
+    private final long f919a = 5000;
 
     /* renamed from: void  reason: not valid java name */
     private WifiManager f161void = null;

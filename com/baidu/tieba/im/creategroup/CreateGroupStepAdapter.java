@@ -9,11 +9,11 @@ import java.util.List;
 public class CreateGroupStepAdapter extends ae {
 
     /* renamed from: a  reason: collision with root package name */
-    public CreateGroupStepActivity f1579a;
+    public CreateGroupStepActivity f1570a;
     private List<q> b = new ArrayList();
 
     public CreateGroupStepAdapter(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1579a = createGroupStepActivity;
+        this.f1570a = createGroupStepActivity;
     }
 
     public List<q> a() {

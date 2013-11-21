@@ -1,37 +1,21 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.KeyboardEventLayout;
 /* loaded from: classes.dex */
-public class dc implements Animation.AnimationListener {
+class dc implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.data.aw f2135a;
-    final /* synthetic */ boolean b;
-    final /* synthetic */ String c;
-    final /* synthetic */ String d;
-    final /* synthetic */ cp e;
+    final /* synthetic */ db f2118a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dc(cp cpVar, com.baidu.tieba.data.aw awVar, boolean z, String str, String str2) {
-        this.e = cpVar;
-        this.f2135a = awVar;
-        this.b = z;
-        this.c = str;
-        this.d = str2;
+    public dc(db dbVar) {
+        this.f2118a = dbVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new dd(this));
+    @Override // java.lang.Runnable
+    public void run() {
+        KeyboardEventLayout keyboardEventLayout;
+        keyboardEventLayout = this.f2118a.b.h;
+        keyboardEventLayout.removeView(this.f2118a.f2117a);
     }
 }

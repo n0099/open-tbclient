@@ -15,14 +15,14 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.person.EditHeadActivity;
 import com.baidu.tieba.s;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.write.bc;
+import com.baidu.tieba.write.bd;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWatcher, CompoundButton.OnCheckedChangeListener {
     com.baidu.tieba.im.model.a b;
 
     /* renamed from: a  reason: collision with root package name */
-    j f1578a = null;
+    j f1569a = null;
     private g c = null;
     private s d = null;
 
@@ -30,11 +30,11 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1578a = new j(this);
+        this.f1569a = new j(this);
         this.b = new com.baidu.tieba.im.model.a();
         Intent intent = getIntent();
         int intExtra = intent.getIntExtra("group_type", 3);
-        this.f1578a.a(intExtra, intent.getIntExtra("forumid", 0));
+        this.f1569a.a(intExtra, intent.getIntExtra("forumid", 0));
         a();
         this.d = new s(this, R.style.common_alert_dialog);
         if (intExtra == 2 && com.baidu.tieba.sharedPref.b.a().a("first_create_private", true)) {
@@ -71,7 +71,7 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1578a.b(i);
+        this.f1569a.b(i);
         this.d.a(i);
     }
 
@@ -91,9 +91,9 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
                     return;
                 case 12009:
                 case 12010:
-                    this.f1578a.a(intent.getStringExtra(EditHeadActivity.f2199a));
-                    this.f1578a.r();
-                    this.f1578a.q();
+                    this.f1569a.a(intent.getStringExtra(EditHeadActivity.f2184a));
+                    this.f1569a.r();
+                    this.f1569a.q();
                     return;
                 case 21001:
                 default:
@@ -102,10 +102,10 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
         } else if (i2 == 0) {
             switch (i) {
                 case 12009:
-                    bc.b(this);
+                    bd.b(this);
                     return;
                 case 12010:
-                    bc.a(this);
+                    bd.a(this);
                     return;
                 default:
                     return;
@@ -124,48 +124,48 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        this.f1578a.f().setEnabled(!z);
-        this.f1578a.a(z);
+        this.f1569a.f().setEnabled(!z);
+        this.f1569a.a(z);
     }
 
     private void b() {
-        if (this.f1578a.e() == 1) {
+        if (this.f1569a.e() == 1) {
             finish();
         } else {
-            this.f1578a.t();
+            this.f1569a.t();
         }
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f1578a.a()) {
+        if (view == this.f1569a.a()) {
             b();
-        } else if (view == this.f1578a.f()) {
+        } else if (view == this.f1569a.f()) {
             int a2 = UtilHelper.a((Context) TiebaApplication.g(), 0.0f);
-            if (!this.f1578a.s() || (this.f1578a.e() == 1 && !this.f1578a.j())) {
-                if (this.f1578a.e() == 1) {
+            if (!this.f1569a.s() || (this.f1569a.e() == 1 && !this.f1569a.j())) {
+                if (this.f1569a.e() == 1) {
                     showToast(R.string.group_step_name_error, a2);
-                } else if (this.f1578a.e() == 2) {
+                } else if (this.f1569a.e() == 2) {
                     showToast(R.string.group_step_info_error, a2);
                 }
-            } else if (this.f1578a.e() == 3) {
-                if (!this.f1578a.i()) {
+            } else if (this.f1569a.e() == 3) {
+                if (!this.f1569a.i()) {
                     a(true);
-                    this.b.a(this.f1578a.k());
-                    this.b.a(this.f1578a.l());
-                    this.b.b(this.f1578a.m());
-                    this.b.b(this.f1578a.p());
-                    this.b.c(this.f1578a.n());
-                    this.b.d(this.f1578a.o().getLng());
-                    this.b.e(this.f1578a.o().getLat());
+                    this.b.a(this.f1569a.k());
+                    this.b.a(this.f1569a.l());
+                    this.b.b(this.f1569a.m());
+                    this.b.b(this.f1569a.p());
+                    this.b.c(this.f1569a.n());
+                    this.b.d(this.f1569a.o().getLng());
+                    this.b.e(this.f1569a.o().getLat());
                     this.b.a();
                 }
             } else {
-                this.f1578a.u();
+                this.f1569a.u();
             }
-        } else if (view == this.f1578a.g() || view == this.f1578a.h()) {
-            this.f1578a.w();
+        } else if (view == this.f1569a.g() || view == this.f1569a.h()) {
+            this.f1569a.w();
         }
     }
 
@@ -175,13 +175,13 @@ public class CreateGroupStepActivity extends com.baidu.tieba.j implements TextWa
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.f1578a.y();
+        this.f1569a.y();
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         int length;
-        if (this.f1578a.e() == 1) {
+        if (this.f1569a.e() == 1) {
             try {
                 if (com.baidu.tieba.im.d.f.a(editable) > 20 && editable.length() - 1 > 0) {
                     editable.delete(length, length + 1);

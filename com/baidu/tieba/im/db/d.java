@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class d extends SingleRunnable<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1612a;
+    final /* synthetic */ String f1603a;
     final /* synthetic */ LinkedList b;
     final /* synthetic */ boolean c;
     final /* synthetic */ a e;
@@ -22,12 +22,12 @@ public class d extends SingleRunnable<Boolean> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar, String str, LinkedList linkedList, boolean z) {
         this.e = aVar;
-        this.f1612a = str;
+        this.f1603a = str;
         this.b = linkedList;
         this.c = z;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [495=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [497=4] */
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
@@ -35,10 +35,10 @@ public class d extends SingleRunnable<Boolean> {
         Cursor cursor;
         AtomicInteger atomicInteger;
         AtomicInteger atomicInteger2;
-        if (TextUtils.isEmpty(this.f1612a) || this.b == null || this.b.size() == 0) {
+        if (TextUtils.isEmpty(this.f1603a) || this.b == null || this.b.size() == 0) {
             return false;
         }
-        String str = a.f1601a + this.f1612a;
+        String str = a.f1592a + this.f1603a;
         SQLiteDatabase a2 = m.a();
         if (a2 == null) {
             return false;
@@ -89,7 +89,7 @@ public class d extends SingleRunnable<Boolean> {
                 contentValues.put("msg_type", Integer.valueOf(groupMsgPojo.getMsg_type()));
                 contentValues.put("uid", groupMsgPojo.getUid());
                 contentValues.put("user_info", groupMsgPojo.getUser_info());
-                contentValues.put("read_flag", (Integer) 0);
+                contentValues.put("read_flag", Integer.valueOf(groupMsgPojo.getRead_flag()));
                 if (a2.update(str, contentValues, "mid=?", new String[]{String.valueOf(groupMsgPojo.getMid())}) == 0) {
                     a2.insert(str, null, contentValues);
                 }

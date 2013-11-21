@@ -18,7 +18,7 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f1788a;
+    public BdListView f1779a;
     private SearchGroupActivity b;
     private View c;
     private NavigationBar d = null;
@@ -51,11 +51,11 @@ public class d {
         this.f = (Button) this.b.findViewById(R.id.home_bt_search_del);
         this.f.setOnClickListener(new f(this));
         this.e.addTextChangedListener(new g(this));
-        this.f1788a = (BdListView) this.b.findViewById(R.id.home_lv_search);
-        this.f1788a.a(new h(this), 300L);
+        this.f1779a = (BdListView) this.b.findViewById(R.id.home_lv_search);
+        this.f1779a.a(new h(this), 300L);
         this.j = new b(this.b);
-        this.f1788a.setOnItemClickListener(this.b);
-        this.f1788a.setAdapter((ListAdapter) this.j);
+        this.f1779a.setOnItemClickListener(this.b);
+        this.f1779a.setAdapter((ListAdapter) this.j);
         this.i = (ProgressBar) this.b.findViewById(R.id.home_progress_search);
         this.i.setVisibility(8);
         this.e.setText("");

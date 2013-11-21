@@ -15,7 +15,7 @@ import com.baidu.tieba.util.UtilHelper;
 public abstract class BaseFragment extends Fragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f995a = -1;
+    private int f996a = -1;
     private com.baidu.tieba.util.q b;
 
     @Override // android.support.v4.app.Fragment
@@ -69,8 +69,8 @@ public abstract class BaseFragment extends Fragment implements DialogInterface.O
         this.b.c();
         super.r();
         if (F()) {
-            this.f995a = TiebaApplication.g().ap();
-            c(this.f995a);
+            this.f996a = TiebaApplication.g().ap();
+            c(this.f996a);
         }
     }
 

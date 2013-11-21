@@ -6,11 +6,11 @@ import com.baidu.tieba.util.bg;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DailyRecommendActivity f2307a;
+    final /* synthetic */ DailyRecommendActivity f2292a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(DailyRecommendActivity dailyRecommendActivity) {
-        this.f2307a = dailyRecommendActivity;
+        this.f2292a = dailyRecommendActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,10 +18,10 @@ public class d implements Runnable {
         String str;
         z zVar;
         try {
-            zVar = this.f2307a.c;
+            zVar = this.f2292a.c;
             zVar.h();
         } catch (Exception e) {
-            str = this.f2307a.b;
+            str = this.f2292a.b;
             bg.b(str, "mLoadImageRunnable.run", "error = " + e.getMessage());
         }
     }

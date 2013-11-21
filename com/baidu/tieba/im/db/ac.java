@@ -2,28 +2,29 @@ package com.baidu.tieba.im.db;
 
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.concurrent.ConcurrentHashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ac implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+public class ac implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1604a;
+    final /* synthetic */ String f1595a;
     final /* synthetic */ ImMessageCenterPojo b;
     final /* synthetic */ aa c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(aa aaVar, String str, ImMessageCenterPojo imMessageCenterPojo) {
         this.c = aaVar;
-        this.f1604a = str;
+        this.f1595a = str;
         this.b = imMessageCenterPojo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(ConcurrentHashMap<String, ImMessageCenterPojo> concurrentHashMap) {
-        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.f1604a);
+        ImMessageCenterPojo imMessageCenterPojo = concurrentHashMap.get(this.f1595a);
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
-            imMessageCenterPojo.setGid(this.f1604a);
+            imMessageCenterPojo.setGid(this.f1595a);
         }
         imMessageCenterPojo.setExt(this.b.getExt());
         imMessageCenterPojo.setGroup_ext(this.b.getGroup_ext());

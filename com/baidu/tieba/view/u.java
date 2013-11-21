@@ -8,7 +8,7 @@ import com.baidu.tieba.voice.PlayVoiceBnt;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f2598a;
+    public LinearLayout f2581a;
     public RelativeLayout b;
     public TextView c;
     public TextView d;

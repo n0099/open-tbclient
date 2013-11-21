@@ -9,12 +9,12 @@ import java.util.LinkedList;
 public class ac extends BdAsyncTask<Object, Integer, ChatData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ab f1121a;
+    final /* synthetic */ ab f1127a;
     private com.baidu.tieba.a.d b = null;
     private int c;
 
     public ac(ab abVar, int i) {
-        this.f1121a = abVar;
+        this.f1127a = abVar;
         this.c = 0;
         this.c = i;
         setPriority(3);
@@ -26,9 +26,9 @@ public class ac extends BdAsyncTask<Object, Integer, ChatData> {
         ad adVar;
         ad adVar2;
         super.b();
-        adVar = this.f1121a.k;
+        adVar = this.f1127a.k;
         if (adVar != null) {
-            adVar2 = this.f1121a.k;
+            adVar2 = this.f1127a.k;
             adVar2.a();
         }
     }
@@ -39,7 +39,7 @@ public class ac extends BdAsyncTask<Object, Integer, ChatData> {
         if (this.b != null) {
             this.b.a();
         }
-        this.f1121a.i = null;
+        this.f1127a.i = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,7 +60,7 @@ public class ac extends BdAsyncTask<Object, Integer, ChatData> {
         long j = 0;
         switch (this.c) {
             case 0:
-                chatData = this.f1121a.h;
+                chatData = this.f1127a.h;
                 ChatMessageData lastMsg = chatData.getLastMsg();
                 if (lastMsg != null) {
                     j = lastMsg.getMsgId();
@@ -68,7 +68,7 @@ public class ac extends BdAsyncTask<Object, Integer, ChatData> {
                 }
                 break;
             case 1:
-                chatData2 = this.f1121a.h;
+                chatData2 = this.f1127a.h;
                 ChatMessageData msg = chatData2.getMsg(0);
                 if (msg != null) {
                     j = msg.getMsgId();
@@ -77,26 +77,26 @@ public class ac extends BdAsyncTask<Object, Integer, ChatData> {
                 break;
             case 2:
                 ChatData chatData3 = new ChatData();
-                cVar = this.f1121a.l;
-                str = this.f1121a.b;
-                str2 = this.f1121a.d;
+                cVar = this.f1127a.l;
+                str = this.f1127a.b;
+                str2 = this.f1127a.d;
                 chatData3.setChatList((LinkedList) cVar.a(str, str2));
                 return chatData3;
         }
         this.b = new com.baidu.tieba.a.d();
         com.baidu.tieba.a.d dVar = this.b;
         int i = this.c;
-        str3 = this.f1121a.b;
-        str4 = this.f1121a.d;
+        str3 = this.f1127a.b;
+        str4 = this.f1127a.d;
         String a2 = dVar.a(i, str3, str4, j);
         ChatData chatData4 = new ChatData();
-        str5 = this.f1121a.d;
+        str5 = this.f1127a.d;
         chatData4.setFriendId(str5);
-        str6 = this.f1121a.b;
+        str6 = this.f1127a.b;
         chatData4.setUserId(str6);
         chatData4.parserJson(a2);
         if (this.b.b() && this.b.d() == 0 && this.c == 0) {
-            cVar2 = this.f1121a.l;
+            cVar2 = this.f1127a.l;
             cVar2.a(chatData4.getChatList());
             return chatData4;
         }
@@ -125,55 +125,55 @@ public class ac extends BdAsyncTask<Object, Integer, ChatData> {
         ad adVar8;
         ChatData chatData10;
         super.a((ac) chatData);
-        this.f1121a.i = null;
+        this.f1127a.i = null;
         if (this.c == 2) {
             if (chatData == null) {
-                adVar6 = this.f1121a.k;
+                adVar6 = this.f1127a.k;
                 adVar6.a(false, null, false, 0, null, true);
                 return;
             }
             int size = chatData.getChatList().size();
-            adVar7 = this.f1121a.k;
+            adVar7 = this.f1127a.k;
             adVar7.b();
-            chatData8 = this.f1121a.h;
+            chatData8 = this.f1127a.h;
             chatData8.mergeData(chatData);
-            chatData9 = this.f1121a.h;
+            chatData9 = this.f1127a.h;
             chatData9.setHasMore(chatData.getHasMore());
-            adVar8 = this.f1121a.k;
-            chatData10 = this.f1121a.h;
+            adVar8 = this.f1127a.k;
+            chatData10 = this.f1127a.h;
             adVar8.a(true, null, false, size, chatData10, true);
         } else if (this.b != null && chatData != null) {
             if (!this.b.b()) {
-                adVar = this.f1121a.k;
+                adVar = this.f1127a.k;
                 adVar.a(false, this.b.c(), false, 0, null, false);
             } else if (this.b.d() != 0) {
-                adVar2 = this.f1121a.k;
+                adVar2 = this.f1127a.k;
                 adVar2.a(false, this.b.e(), false, 0, null, false);
             } else {
                 int size2 = chatData.getChatList().size();
-                adVar3 = this.f1121a.k;
+                adVar3 = this.f1127a.k;
                 adVar3.b();
-                chatData2 = this.f1121a.h;
+                chatData2 = this.f1127a.h;
                 chatData2.mergeData(chatData);
-                chatData3 = this.f1121a.h;
+                chatData3 = this.f1127a.h;
                 chatData3.setHasMore(chatData.getHasMore());
                 if (chatData.getFriendPortrait() != null && chatData.getFriendPortrait().length() > 0) {
-                    chatData7 = this.f1121a.h;
+                    chatData7 = this.f1127a.h;
                     chatData7.setFriendPortrait(chatData.getFriendPortrait());
                 }
                 if (chatData.getUserPortrait() != null && chatData.getUserPortrait().length() > 0) {
-                    chatData6 = this.f1121a.h;
+                    chatData6 = this.f1127a.h;
                     chatData6.setUserPortrait(chatData.getUserPortrait());
                 }
                 switch (this.c) {
                     case 0:
-                        adVar5 = this.f1121a.k;
-                        chatData5 = this.f1121a.h;
+                        adVar5 = this.f1127a.k;
+                        chatData5 = this.f1127a.h;
                         adVar5.a(true, null, true, size2, chatData5, false);
                         return;
                     case 1:
-                        adVar4 = this.f1121a.k;
-                        chatData4 = this.f1121a.h;
+                        adVar4 = this.f1127a.k;
+                        chatData4 = this.f1127a.h;
                         adVar4.a(true, null, false, size2, chatData4, false);
                         return;
                     default:

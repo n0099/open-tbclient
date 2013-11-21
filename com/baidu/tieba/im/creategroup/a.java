@@ -12,19 +12,19 @@ import com.slidingmenu.lib.R;
 public class a implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1581a;
+    CreateGroupStepActivity f1572a;
     View b;
     ImageView c;
     EditText d;
     TextView e;
 
     public a(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1581a = null;
+        this.f1572a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f1581a = createGroupStepActivity;
+        this.f1572a = createGroupStepActivity;
         this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step2_view, (ViewGroup) null);
         this.c = (ImageView) this.b.findViewById(R.id.step2_img_bg);
         this.d = (EditText) this.b.findViewById(R.id.step2_group_info);
@@ -57,7 +57,7 @@ public class a implements q {
     @Override // com.baidu.tieba.im.creategroup.q
     public View f() {
         if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1581a, "create_g_intro", "pv", 1);
+            StatService.onEvent(this.f1572a, "create_g_intro", "pv", 1);
         }
         return this.b;
     }
@@ -68,13 +68,13 @@ public class a implements q {
     }
 
     public void h() {
-        this.f1581a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
-        this.f1581a.getLayoutMode().a(this.e);
+        this.f1572a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
+        this.f1572a.getLayoutMode().a(this.e);
     }
 
     @Override // com.baidu.tieba.im.creategroup.q
     public void i() {
-        this.f1581a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
-        this.f1581a.getLayoutMode().a(this.b);
+        this.f1572a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
+        this.f1572a.getLayoutMode().a(this.b);
     }
 }

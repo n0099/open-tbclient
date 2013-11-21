@@ -10,12 +10,12 @@ import java.lang.ref.WeakReference;
 public class f extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<e> f2272a;
+    private WeakReference<e> f2257a;
     private boolean b;
     private ap c;
 
     public f(e eVar, boolean z) {
-        this.f2272a = new WeakReference<>(eVar);
+        this.f2257a = new WeakReference<>(eVar);
         this.b = z;
     }
 
@@ -23,7 +23,7 @@ public class f extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public PersonPostReplyModel a(Void... voidArr) {
         PersonPostReplyModel personPostReplyModel;
-        this.c = new ap(com.baidu.tieba.data.h.f1196a + "c/u/feed/userpost");
+        this.c = new ap(com.baidu.tieba.data.h.f1201a + "c/u/feed/userpost");
         this.c.a("uid", String.valueOf(PersonPostReplyModel.mLastReplyUid));
         this.c.a("pn", String.valueOf(PersonPostReplyModel.mReplyPn));
         this.c.a("rn", String.valueOf(20));
@@ -49,7 +49,7 @@ public class f extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(PersonPostReplyModel personPostReplyModel) {
-        e eVar = this.f2272a.get();
+        e eVar = this.f2257a.get();
         if (eVar != null) {
             eVar.a(personPostReplyModel, this.b);
         }

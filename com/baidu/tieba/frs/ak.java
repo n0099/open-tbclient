@@ -7,7 +7,7 @@ import android.widget.TextView;
 class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1311a;
+    LinearLayout f1316a;
     TextView b;
     View c;
     final /* synthetic */ ah d;

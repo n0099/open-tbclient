@@ -1,32 +1,23 @@
 package com.baidu.tieba.pb;
 
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.widget.ImageView;
+import android.app.Dialog;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cx implements Animation.AnimationListener {
+public class cx implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImageView f2129a;
-    final /* synthetic */ cp b;
+    final /* synthetic */ cr f2112a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cx(cp cpVar, ImageView imageView) {
-        this.b = cpVar;
-        this.f2129a = imageView;
+    public cx(cr crVar) {
+        this.f2112a = crVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        new Handler().post(new cy(this));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        dialog = this.f2112a.X;
+        dialog.dismiss();
     }
 }

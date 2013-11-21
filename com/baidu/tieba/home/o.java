@@ -1,6 +1,7 @@
 package com.baidu.tieba.home;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.view.NoNetworkView;
 import com.baidu.tieba.view.SearchBoxView;
@@ -25,7 +27,7 @@ public class o extends com.baidu.adp.a.e {
     private com.baidu.tieba.im.b.j A;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.im.b.d f1459a;
+    protected com.baidu.tieba.im.b.d f1450a;
     TextView c;
     TextView d;
     boolean e;
@@ -61,7 +63,7 @@ public class o extends com.baidu.adp.a.e {
             }
             boolean z = TiebaApplication.g().ap() == 1;
             EnterForumActivity enterForumActivity = this.g;
-            switch (EnterForumActivity.f1388a) {
+            switch (EnterForumActivity.f1379a) {
                 case 0:
                     g();
                     if (this.s != null && this.s.getVisibility() == 0) {
@@ -71,7 +73,7 @@ public class o extends com.baidu.adp.a.e {
                     com.baidu.tieba.util.bd.f((View) this.c, (int) R.drawable.btn_jin_qun_n);
                     this.d.setTextColor(this.b.getResources().getColor(z ? R.color.navi_multiview_text_s_1 : R.color.navi_multiview_text_s));
                     this.c.setTextColor(this.b.getResources().getColor(z ? R.color.navi_multiview_text_n_1 : R.color.navi_multiview_text_n));
-                    this.f1459a.e();
+                    this.f1450a.e();
                     this.h.setVisibility(0);
                     this.p.setText(this.f.getString(R.string.search_bar_post));
                     this.z.setOnClickListener(this.v);
@@ -80,9 +82,9 @@ public class o extends com.baidu.adp.a.e {
                 case 1:
                     this.u.setVisibility(8);
                     a(8);
-                    if (this.f1459a != null && this.f1459a.c() != null) {
-                        if (this.f1459a.c().getCount() > 0) {
-                            this.f1459a.c().notifyDataSetChanged();
+                    if (this.f1450a != null && this.f1450a.c() != null) {
+                        if (this.f1450a.c().getCount() > 0) {
+                            this.f1450a.c().notifyDataSetChanged();
                             a(8, 1);
                         } else {
                             a(0, 1);
@@ -96,10 +98,10 @@ public class o extends com.baidu.adp.a.e {
                         }
                         textView.setTextColor(resources.getColor(i));
                         this.c.setTextColor(this.b.getResources().getColor(z ? R.color.navi_multiview_text_s_1 : R.color.navi_multiview_text_s));
-                        this.f1459a.d();
+                        this.f1450a.d();
                         this.h.setVisibility(8);
                         this.p.setText(this.f.getString(R.string.search_group_text));
-                        this.f1459a.g();
+                        this.f1450a.g();
                         this.z.setOnClickListener(this.w);
                         y();
                         return;
@@ -142,9 +144,9 @@ public class o extends com.baidu.adp.a.e {
         this.c.setOnClickListener(this.g);
         this.d.setOnClickListener(this.g);
         this.o.a(NavigationBar.ControlAlign.HORIZONTAL_CENTER, inflate, (View.OnClickListener) null);
-        this.f1459a = new com.baidu.tieba.im.b.d(this.g, this.f, this.A);
+        this.f1450a = new com.baidu.tieba.im.b.d(this.g, this.f, this.A);
         this.z = this.o.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f.getString(R.string.signallforum_title), this.v);
-        this.f1459a.a(this.z);
+        this.f1450a.a(this.z);
         this.z.setVisibility(8);
         this.u = (ImageView) inflate.findViewById(R.id.enter_group_new);
         this.n = (FrameLayout) q.findViewById(R.id.lv_container);
@@ -182,7 +184,7 @@ public class o extends com.baidu.adp.a.e {
         if (this.e) {
             this.e = false;
             this.h.setPullRefresh(this.q);
-            this.i.a((com.baidu.tieba.data.af) null);
+            this.i.a((com.baidu.tieba.data.ae) null);
             w();
             a(0, 0);
         }
@@ -223,7 +225,7 @@ public class o extends com.baidu.adp.a.e {
 
     public void a(int i, int i2) {
         EnterForumActivity enterForumActivity = this.g;
-        if (i2 == EnterForumActivity.f1388a) {
+        if (i2 == EnterForumActivity.f1379a) {
             if (this.r == null) {
                 w();
             }
@@ -231,7 +233,7 @@ public class o extends com.baidu.adp.a.e {
                 this.r.b(i);
                 if (i == 0) {
                     EnterForumActivity enterForumActivity2 = this.g;
-                    switch (EnterForumActivity.f1388a) {
+                    switch (EnterForumActivity.f1379a) {
                         case 0:
                             this.r.setNoCenterTipText(R.string.forum_not_like_tip);
                             this.r.setArrowDisplay(0);
@@ -322,8 +324,8 @@ public class o extends com.baidu.adp.a.e {
     }
 
     public void m() {
-        if (this.f1459a != null) {
-            this.f1459a.b();
+        if (this.f1450a != null) {
+            this.f1450a.b();
         }
     }
 
@@ -344,13 +346,17 @@ public class o extends com.baidu.adp.a.e {
 
     private void y() {
         EnterForumActivity enterForumActivity = this.g;
-        if (EnterForumActivity.f1388a == 0) {
+        if (EnterForumActivity.f1379a == 0) {
             this.z.setText(this.f.getString(R.string.signallforum_title));
             this.z.setTextSize(10.0f);
             return;
         }
         this.z.setText(this.f.getString(R.string.frsgroup_create));
-        this.z.setTextSize(14.0f);
+        if (UtilHelper.a((Context) this.f) > 700) {
+            this.z.setTextSize(14.0f);
+        } else {
+            this.z.setTextSize(12.0f);
+        }
     }
 
     public void b(int i) {
@@ -375,17 +381,17 @@ public class o extends com.baidu.adp.a.e {
         this.i.a(i);
         this.q.a(i);
         this.p.a(i);
-        if (this.f1459a != null) {
-            this.f1459a.a(i);
+        if (this.f1450a != null) {
+            this.f1450a.a(i);
         }
     }
 
     public int p() {
-        return R.id.first;
+        return R.id.item_left;
     }
 
     public int q() {
-        return R.id.second;
+        return R.id.item_right;
     }
 
     public void r() {

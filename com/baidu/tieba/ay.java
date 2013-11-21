@@ -1,29 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.UtilHelper;
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
 /* loaded from: classes.dex */
-class ay extends BdAsyncTask<String, Integer, String> {
-    private ay() {
-    }
+class ay implements LocationListener {
+
+    /* renamed from: a  reason: collision with root package name */
+    final /* synthetic */ TiebaApplication f1113a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ay(as asVar) {
-        this();
+    public ay(TiebaApplication tiebaApplication) {
+        this.f1113a = tiebaApplication;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public String a(String... strArr) {
-        byte[] bArr;
-        byte[] bArr2;
-        bArr = TiebaApplication.as;
-        synchronized (bArr) {
-            Boolean unused = TiebaApplication.at = Boolean.valueOf(UtilHelper.a());
-            bArr2 = TiebaApplication.as;
-            bArr2.notifyAll();
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        ba baVar;
+        if (location != null) {
+            this.f1113a.B = 0;
+            this.f1113a.f1004a = System.currentTimeMillis();
+            this.f1113a.E = new ba(this.f1113a, null);
+            baVar = this.f1113a.E;
+            baVar.execute(location);
         }
-        return null;
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i, Bundle bundle) {
     }
 }

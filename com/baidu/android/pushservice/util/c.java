@@ -6,7 +6,7 @@ import java.io.OutputStream;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    byte[] f753a = new byte[8];
+    byte[] f754a = new byte[8];
     private DataOutputStream b;
 
     public c(OutputStream outputStream) {
@@ -18,21 +18,21 @@ public class c {
     }
 
     public final void a(int i) {
-        this.f753a[1] = (byte) (i >> 8);
-        this.f753a[0] = (byte) i;
-        this.b.write(this.f753a, 0, 2);
+        this.f754a[1] = (byte) (i >> 8);
+        this.f754a[0] = (byte) i;
+        this.b.write(this.f754a, 0, 2);
     }
 
     public final void a(long j) {
-        this.f753a[7] = (byte) (j >> 56);
-        this.f753a[6] = (byte) (j >> 48);
-        this.f753a[5] = (byte) (j >> 40);
-        this.f753a[4] = (byte) (j >> 32);
-        this.f753a[3] = (byte) (j >> 24);
-        this.f753a[2] = (byte) (j >> 16);
-        this.f753a[1] = (byte) (j >> 8);
-        this.f753a[0] = (byte) j;
-        this.b.write(this.f753a, 0, 8);
+        this.f754a[7] = (byte) (j >> 56);
+        this.f754a[6] = (byte) (j >> 48);
+        this.f754a[5] = (byte) (j >> 40);
+        this.f754a[4] = (byte) (j >> 32);
+        this.f754a[3] = (byte) (j >> 24);
+        this.f754a[2] = (byte) (j >> 16);
+        this.f754a[1] = (byte) (j >> 8);
+        this.f754a[0] = (byte) j;
+        this.b.write(this.f754a, 0, 8);
     }
 
     public void a(byte[] bArr) {
@@ -40,10 +40,10 @@ public class c {
     }
 
     public final void b(int i) {
-        this.f753a[3] = (byte) (i >> 24);
-        this.f753a[2] = (byte) (i >> 16);
-        this.f753a[1] = (byte) (i >> 8);
-        this.f753a[0] = (byte) i;
-        this.b.write(this.f753a, 0, 4);
+        this.f754a[3] = (byte) (i >> 24);
+        this.f754a[2] = (byte) (i >> 16);
+        this.f754a[1] = (byte) (i >> 8);
+        this.f754a[0] = (byte) i;
+        this.b.write(this.f754a, 0, 4);
     }
 }

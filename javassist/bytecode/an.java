@@ -11,7 +11,7 @@ public class an {
     public static boolean g = false;
 
     /* renamed from: a  reason: collision with root package name */
-    y f2764a;
+    y f2748a;
     int b;
     int c;
     String d;
@@ -19,7 +19,7 @@ public class an {
     ArrayList f;
 
     private an(y yVar) {
-        this.f2764a = yVar;
+        this.f2748a = yVar;
         this.f = null;
     }
 
@@ -28,7 +28,7 @@ public class an {
         this.b = 0;
         this.c = yVar.c(str);
         this.d = str;
-        this.e = this.f2764a.c(str2);
+        this.e = this.f2748a.c(str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -51,7 +51,7 @@ public class an {
         this.c = yVar.c(a());
         this.e = yVar.c(g());
         this.f = e.a(this.f, yVar);
-        this.f2764a = yVar;
+        this.f2748a = yVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -88,12 +88,12 @@ public class an {
         this.f = arrayList;
         this.c = yVar.c(a());
         this.e = yVar.c(g());
-        this.f2764a = yVar;
+        this.f2748a = yVar;
     }
 
     public String a() {
         if (this.d == null) {
-            this.d = this.f2764a.w(this.c);
+            this.d = this.f2748a.w(this.c);
         }
         return this.d;
     }
@@ -104,7 +104,7 @@ public class an {
     }
 
     public y c() {
-        return this.f2764a;
+        return this.f2748a;
     }
 
     public boolean d() {
@@ -124,7 +124,7 @@ public class an {
     }
 
     public String g() {
-        return this.f2764a.w(this.e);
+        return this.f2748a.w(this.e);
     }
 
     public e a(String str) {
@@ -200,18 +200,18 @@ public class an {
             byte[] i2 = i.i();
             int h = i.j().h();
             if (h >= 0) {
-                y yVar = this.f2764a;
+                y yVar = this.f2748a;
                 g.a(yVar.c(yVar.a(str), yVar.m(g.a(i2, h + 1))), i2, h + 1);
             }
         }
     }
 
     private void a(an anVar, String str, Map map) {
-        y yVar = this.f2764a;
+        y yVar = this.f2748a;
         this.b = anVar.b;
         this.c = yVar.c(str);
         this.d = str;
-        this.e = yVar.c(z.a(anVar.f2764a.w(anVar.e), map));
+        this.e = yVar.c(z.a(anVar.f2748a.w(anVar.e), map));
         this.f = new ArrayList();
         ExceptionsAttribute h = anVar.h();
         if (h != null) {
@@ -230,7 +230,7 @@ public class an {
         int readUnsignedShort = dataInputStream.readUnsignedShort();
         this.f = new ArrayList();
         for (int i = 0; i < readUnsignedShort; i++) {
-            this.f.add(e.a(this.f2764a, dataInputStream));
+            this.f.add(e.a(this.f2748a, dataInputStream));
         }
     }
 

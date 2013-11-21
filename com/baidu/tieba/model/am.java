@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 public class am {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1893a = false;
+    public boolean f1875a = false;
     public boolean b = false;
     public int c = -1;
     public int d = -1;

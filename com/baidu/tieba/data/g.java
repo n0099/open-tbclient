@@ -7,16 +7,16 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1195a = null;
+    private String f1200a = null;
 
     public String a() {
-        return this.f1195a;
+        return this.f1200a;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1195a = jSONObject.optString(SocialConstants.PARAM_CLIENT_ID);
+                this.f1200a = jSONObject.optString(SocialConstants.PARAM_CLIENT_ID);
             } catch (Exception e) {
                 bg.b(getClass().getName(), "parserJson", e.getMessage());
             }

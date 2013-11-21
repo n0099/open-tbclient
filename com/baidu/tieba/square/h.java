@@ -7,14 +7,14 @@ import org.json.JSONObject;
 public class h extends com.baidu.tieba.data.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<z> f2423a = new ArrayList<>();
+    private ArrayList<z> f2406a = new ArrayList<>();
 
     public ArrayList<z> d() {
-        return this.f2423a;
+        return this.f2406a;
     }
 
     public void a(ArrayList<z> arrayList) {
-        this.f2423a = arrayList;
+        this.f2406a = arrayList;
         a((String) null);
     }
 

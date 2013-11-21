@@ -5,12 +5,12 @@ import com.baidu.tieba.im.message.RequestReportGroupMessage;
 public class v extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1762a;
+    private int f1753a;
     private int b;
     private RequestReportGroupMessage c;
 
     public void a(int i) {
-        this.f1762a = i;
+        this.f1753a = i;
     }
 
     public void b(int i) {
@@ -29,7 +29,7 @@ public class v extends com.baidu.adp.a.d {
 
     private RequestReportGroupMessage c() {
         RequestReportGroupMessage requestReportGroupMessage = new RequestReportGroupMessage();
-        requestReportGroupMessage.setGroupId(this.f1762a);
+        requestReportGroupMessage.setGroupId(this.f1753a);
         requestReportGroupMessage.setReportType(this.b);
         return requestReportGroupMessage;
     }

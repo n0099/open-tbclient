@@ -1,25 +1,24 @@
 package com.baidu.tieba.pb;
-
-import com.baidu.tieba.view.KeyboardEventLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dr implements Runnable {
+public class dr implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dq f2150a;
+    final /* synthetic */ cr f2133a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dr(dq dqVar) {
-        this.f2150a = dqVar;
+    public dr(cr crVar) {
+        this.f2133a = crVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        KeyboardEventLayout keyboardEventLayout;
-        KeyboardEventLayout keyboardEventLayout2;
-        keyboardEventLayout = this.f2150a.b.h;
-        if (keyboardEventLayout != null) {
-            keyboardEventLayout2 = this.f2150a.b.h;
-            keyboardEventLayout2.removeView(this.f2150a.f2149a);
-        }
+        PbEditor pbEditor;
+        PbEditor pbEditor2;
+        this.f2133a.f2106a.setVisibility(0);
+        pbEditor = this.f2133a.an;
+        pbEditor.h();
+        pbEditor2 = this.f2133a.an;
+        pbEditor2.setVisibility(0);
     }
 }

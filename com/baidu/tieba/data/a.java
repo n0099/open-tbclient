@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Date f1154a;
+    private Date f1160a;
     private String b;
     private int c;
 
@@ -56,7 +56,7 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.f1154a = new Date(optLong * 1000);
+                this.f1160a = new Date(optLong * 1000);
             }
             a(jSONObject);
         } catch (Exception e) {

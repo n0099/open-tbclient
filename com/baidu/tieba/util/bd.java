@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2499a = "skinType not support";
+    private static String f2482a = "skinType not support";
 
     public static void a(TextView textView, int i) {
         if (textView != null) {
@@ -129,26 +129,15 @@ public class bd {
     public static void g(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                e((View) textView, (int) R.drawable.title_comm_hilite_1);
-            } else {
-                e((View) textView, (int) R.drawable.title_comm_hilite);
-            }
-        }
-        e(textView, i);
-    }
-
-    public static void h(TextView textView, int i) {
-        if (textView != null) {
-            if (i == 1) {
                 e((View) textView, (int) R.drawable.navi_done_text_bg_1);
             } else {
                 e((View) textView, (int) R.drawable.navi_done_text_bg);
             }
         }
-        i(textView, i);
+        h(textView, i);
     }
 
-    public static void i(TextView textView, int i) {
+    public static void h(TextView textView, int i) {
         if (textView != null) {
             TiebaApplication g = TiebaApplication.g();
             if (i == 1) {
@@ -159,7 +148,7 @@ public class bd {
         }
     }
 
-    public static void j(TextView textView, int i) {
+    public static void i(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
                 e((View) textView, (int) R.drawable.navi_op_text_bg_1);
@@ -167,10 +156,10 @@ public class bd {
                 e((View) textView, (int) R.drawable.navi_op_text_bg);
             }
         }
-        k(textView, i);
+        j(textView, i);
     }
 
-    public static void k(TextView textView, int i) {
+    public static void j(TextView textView, int i) {
         if (textView != null) {
             TiebaApplication g = TiebaApplication.g();
             if (i == 1) {
@@ -181,7 +170,7 @@ public class bd {
         }
     }
 
-    public static void l(TextView textView, int i) {
+    public static void k(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
                 e((View) textView, (int) R.drawable.navi_del_text_bg_1);
@@ -189,10 +178,10 @@ public class bd {
                 e((View) textView, (int) R.drawable.navi_del_text_bg);
             }
         }
-        m(textView, i);
+        l(textView, i);
     }
 
-    public static void m(TextView textView, int i) {
+    public static void l(TextView textView, int i) {
         if (textView != null) {
             TiebaApplication g = TiebaApplication.g();
             if (i == 1) {
@@ -246,21 +235,21 @@ public class bd {
         if (i == 1) {
             return TiebaApplication.g().getResources().getColor(R.color.skin_1_common_color);
         }
-        throw new IllegalArgumentException(f2499a);
+        throw new IllegalArgumentException(f2482a);
     }
 
     public static int b(int i) {
         if (i == 1) {
             return TiebaApplication.g().getResources().getColor(R.color.skin_1_second_common_color);
         }
-        throw new IllegalArgumentException(f2499a);
+        throw new IllegalArgumentException(f2482a);
     }
 
     public static int c(int i) {
         if (i == 1) {
             return TiebaApplication.g().getResources().getColor(R.color.skin_1_third_common_color);
         }
-        throw new IllegalArgumentException(f2499a);
+        throw new IllegalArgumentException(f2482a);
     }
 
     public static int d(int i) {

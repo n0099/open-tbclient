@@ -8,17 +8,17 @@ import java.util.ArrayList;
 public class o implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderSecondDirActivity f2430a;
+    final /* synthetic */ BarFolderSecondDirActivity f2413a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(BarFolderSecondDirActivity barFolderSecondDirActivity) {
-        this.f2430a = barFolderSecondDirActivity;
+        this.f2413a = barFolderSecondDirActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         q qVar;
-        qVar = this.f2430a.i;
+        qVar = this.f2413a.i;
         ArrayList<z> arrayList = qVar.a().d().e;
         if (arrayList == null || i >= arrayList.size()) {
         }

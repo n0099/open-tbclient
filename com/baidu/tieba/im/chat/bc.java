@@ -4,10 +4,10 @@ package com.baidu.tieba.im.chat;
 public class bc implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1523a;
+    final /* synthetic */ MsglistActivity f1514a;
 
     private bc(MsglistActivity msglistActivity) {
-        this.f1523a = msglistActivity;
+        this.f1514a = msglistActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

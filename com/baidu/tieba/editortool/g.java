@@ -5,12 +5,12 @@ import android.graphics.Bitmap;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FaceView f1226a;
+    final /* synthetic */ FaceView f1231a;
     private String b;
     private Bitmap c;
 
     public g(FaceView faceView) {
-        this.f1226a = faceView;
+        this.f1231a = faceView;
     }
 
     public String a() {

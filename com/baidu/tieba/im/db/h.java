@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class h extends SingleRunnable<LinkedList<GroupNewsPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f1616a;
+    final /* synthetic */ long f1607a;
     final /* synthetic */ int b;
     final /* synthetic */ String c;
     final /* synthetic */ g e;
@@ -16,7 +16,7 @@ public class h extends SingleRunnable<LinkedList<GroupNewsPojo>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, long j, int i, String str) {
         this.e = gVar;
-        this.f1616a = j;
+        this.f1607a = j;
         this.b = i;
         this.c = str;
     }
@@ -25,6 +25,6 @@ public class h extends SingleRunnable<LinkedList<GroupNewsPojo>> {
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public LinkedList<GroupNewsPojo> b() {
-        return this.e.a(this.f1616a, this.b, this.c);
+        return this.e.a(this.f1607a, this.b, this.c);
     }
 }

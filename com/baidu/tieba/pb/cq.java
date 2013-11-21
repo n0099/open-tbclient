@@ -1,34 +1,22 @@
 package com.baidu.tieba.pb;
 
-import android.view.MotionEvent;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements com.baidu.tieba.c.b {
+public class cq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cp f2122a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2105a;
+    final /* synthetic */ PbEditorToolView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cp cpVar) {
-        this.f2122a = cpVar;
+    public cq(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.h hVar) {
+        this.b = pbEditorToolView;
+        this.f2105a = hVar;
     }
 
-    @Override // com.baidu.tieba.c.b
-    public boolean a(View view, MotionEvent motionEvent) {
-        this.f2122a.k(false);
-        this.f2122a.b(view);
-        this.f2122a.k(true);
-        return true;
-    }
-
-    @Override // com.baidu.tieba.c.b
-    public boolean b(View view, MotionEvent motionEvent) {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.c.b
-    public boolean c(View view, MotionEvent motionEvent) {
-        return false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f2105a.a(10, null);
     }
 }

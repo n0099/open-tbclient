@@ -54,7 +54,7 @@ public class c extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         d b = b(spannableStringBuilder, i, i2);
-        if (b.f979a) {
+        if (b.f980a) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             b(i, i2);

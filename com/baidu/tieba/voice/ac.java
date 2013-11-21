@@ -8,10 +8,10 @@ import java.io.FileReader;
 public class ac extends BdAsyncTask<Void, Void, Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoiceManager f2617a;
+    final /* synthetic */ VoiceManager f2600a;
 
     private ac(VoiceManager voiceManager) {
-        this.f2617a = voiceManager;
+        this.f2600a = voiceManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,9 +37,9 @@ public class ac extends BdAsyncTask<Void, Void, Void> {
         }
         try {
             char[] cArr = new char[1024];
-            this.f2617a.l = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
-            if (this.f2617a.l) {
-                this.f2617a.d(false);
+            this.f2600a.l = Integer.valueOf(new String(cArr, 0, fileReader.read(cArr, 0, 1024)).trim()).intValue() != 0;
+            if (this.f2600a.l) {
+                this.f2600a.d(false);
             }
             if (fileReader != null) {
                 try {

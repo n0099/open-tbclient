@@ -9,7 +9,7 @@ import com.baidu.tieba.view.ImagePbImageView;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f2067a;
+    TextView f2050a;
     TextView b;
     TextView c;
     LinearLayout d;

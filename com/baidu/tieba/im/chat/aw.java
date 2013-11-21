@@ -8,11 +8,11 @@ import com.baidu.tieba.im.model.MsglistModel;
 public class aw extends SingleRunnable<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1516a;
+    final /* synthetic */ MsglistActivity f1507a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(MsglistActivity msglistActivity) {
-        this.f1516a = msglistActivity;
+        this.f1507a = msglistActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class aw extends SingleRunnable<Boolean> {
     public Boolean b() {
         MsglistModel msglistModel;
         String A = TiebaApplication.A();
-        msglistModel = this.f1516a.g;
+        msglistModel = this.f1507a.g;
         return Boolean.valueOf(com.baidu.tieba.im.groupInfo.v.b(A, String.valueOf(msglistModel.a().getGroupId())));
     }
 }

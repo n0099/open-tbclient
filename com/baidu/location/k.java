@@ -41,7 +41,7 @@ public class k {
     private static double e = 0.0d;
 
     /* renamed from: a  reason: collision with root package name */
-    private static double f938a = 0.1d;
+    private static double f939a = 0.1d;
 
     /* renamed from: long  reason: not valid java name */
     private static double f256long = 30.0d;
@@ -200,7 +200,7 @@ public class k {
             d2 = e;
         }
         e = d2;
-        f938a = d3;
+        f939a = d3;
         if (d4 <= 20.0d) {
             d4 = f256long;
         }

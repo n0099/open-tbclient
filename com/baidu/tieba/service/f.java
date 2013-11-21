@@ -13,7 +13,7 @@ import com.baidu.tieba.view.NoNetworkView;
 public class f extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2342a = -1;
+    public int f2327a = -1;
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
@@ -23,20 +23,20 @@ public class f extends BroadcastReceiver {
             NoNetworkView.setIsHasNetwork(z);
             if (z) {
                 if (activeNetworkInfo.getTypeName().equalsIgnoreCase("WIFI")) {
-                    if (this.f2342a != 1) {
-                        if (this.f2342a != -1) {
+                    if (this.f2327a != 1) {
+                        if (this.f2327a != -1) {
                             bf.a().b(true);
                         }
-                        this.f2342a = 1;
+                        this.f2327a = 1;
                     }
-                } else if (this.f2342a != 2) {
-                    if (this.f2342a != -1) {
+                } else if (this.f2327a != 2) {
+                    if (this.f2327a != -1) {
                         bf.a().b(false);
                     }
-                    this.f2342a = 2;
+                    this.f2327a = 2;
                 }
-            } else if (this.f2342a != 0) {
-                this.f2342a = 0;
+            } else if (this.f2327a != 0) {
+                this.f2327a = 0;
             }
             CompatibleUtile.dealWebView();
         } catch (Exception e) {

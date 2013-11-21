@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ImagePagerAdapter extends android.support.v4.view.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2537a;
+    private Context f2520a;
     private ArrayList<String> b;
     private o e;
     private View.OnClickListener c = null;
@@ -27,10 +27,10 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     private boolean k = false;
 
     public ImagePagerAdapter(Context context, ArrayList<String> arrayList, o oVar) {
-        this.f2537a = null;
+        this.f2520a = null;
         this.b = null;
         this.e = null;
-        this.f2537a = context;
+        this.f2520a = context;
         this.b = arrayList;
         this.e = oVar;
     }
@@ -98,13 +98,13 @@ public class ImagePagerAdapter extends android.support.v4.view.ae {
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == this.b.size()) {
-            View inflate = LayoutInflater.from(this.f2537a).inflate(R.layout.big_image_next, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f2520a).inflate(R.layout.big_image_next, (ViewGroup) null);
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.h);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.c);
             return inflate;
         }
-        bl blVar = new bl(this.f2537a);
+        bl blVar = new bl(this.f2520a);
         String str = i < this.b.size() ? this.b.get(i) : null;
         blVar.setLayoutParams(new Gallery.LayoutParams(-1, -1));
         blVar.setImageOnClickListener(this.c);

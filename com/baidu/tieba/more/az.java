@@ -10,10 +10,10 @@ import java.io.File;
 public class az extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ax f1992a;
+    final /* synthetic */ ax f1975a;
 
     private az(ax axVar) {
-        this.f1992a = axVar;
+        this.f1975a = axVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,10 +23,10 @@ public class az extends BdAsyncTask<String, Integer, String> {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
         super.a((az) str);
-        this.f1992a.f1991a = null;
-        gVar = this.f1992a.mLoadDataCallBack;
+        this.f1975a.f1974a = null;
+        gVar = this.f1975a.mLoadDataCallBack;
         if (gVar != null) {
-            gVar2 = this.f1992a.mLoadDataCallBack;
+            gVar2 = this.f1975a.mLoadDataCallBack;
             gVar2.a(MoreModel.TaskType.DO_CLEAR);
         }
     }
@@ -39,7 +39,7 @@ public class az extends BdAsyncTask<String, Integer, String> {
         DatabaseService.x();
         com.baidu.tieba.voice.a.e.a();
         try {
-            File[] listFiles = new File(com.baidu.tieba.util.af.f2480a + "/tieba/image/").listFiles();
+            File[] listFiles = new File(com.baidu.tieba.util.af.f2463a + "/tieba/image/").listFiles();
             if (listFiles != null) {
                 for (File file : listFiles) {
                     if (!file.delete()) {
@@ -47,7 +47,7 @@ public class az extends BdAsyncTask<String, Integer, String> {
                     }
                 }
             }
-            File[] listFiles2 = new File(com.baidu.tieba.util.af.f2480a + "/tieba/hotspot/").listFiles();
+            File[] listFiles2 = new File(com.baidu.tieba.util.af.f2463a + "/tieba/hotspot/").listFiles();
             if (listFiles2 != null) {
                 for (File file2 : listFiles2) {
                     if (!file2.delete()) {

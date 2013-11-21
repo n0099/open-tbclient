@@ -1,19 +1,21 @@
 package com.baidu.tieba.pb;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cg implements com.baidu.tieba.editortool.o {
+public class cg implements com.baidu.tieba.editortool.o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cf f2113a;
+    final /* synthetic */ int f2096a;
+    final /* synthetic */ PbEditor b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(cf cfVar) {
-        this.f2113a = cfVar;
+    public cg(PbEditor pbEditor, int i) {
+        this.b = pbEditor;
+        this.f2096a = i;
     }
 
     @Override // com.baidu.tieba.editortool.o
     public void a() {
-        this.f2113a.b.e = true;
-        this.f2113a.b.b.getEditText().requestFocus();
+        this.b.a(this.f2096a, null);
     }
 
     @Override // com.baidu.tieba.editortool.o

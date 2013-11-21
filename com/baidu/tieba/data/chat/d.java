@@ -5,14 +5,14 @@ import com.baidu.tieba.im.SingleRunnable;
 class d extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1191a;
+    final /* synthetic */ String f1196a;
     final /* synthetic */ int b;
     final /* synthetic */ c c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, int i) {
         this.c = cVar;
-        this.f1191a = str;
+        this.f1196a = str;
         this.b = i;
     }
 
@@ -20,7 +20,7 @@ class d extends SingleRunnable<Void> {
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public Void b() {
-        this.c.a(this.f1191a, this.b);
+        this.c.a(this.f1196a, this.b);
         return null;
     }
 }

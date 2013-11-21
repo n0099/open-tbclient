@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ResponseOnlineMessage f1489a;
+    final /* synthetic */ ResponseOnlineMessage f1480a;
     final /* synthetic */ LinkedList b;
     final /* synthetic */ LinkedList c;
     final /* synthetic */ e d;
@@ -25,7 +25,7 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar, ResponseOnlineMessage responseOnlineMessage, LinkedList linkedList, LinkedList linkedList2) {
         this.d = eVar;
-        this.f1489a = responseOnlineMessage;
+        this.f1480a = responseOnlineMessage;
         this.b = linkedList;
         this.c = linkedList2;
     }
@@ -37,15 +37,15 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
         Handler handler2;
         boolean z;
         ImMessageCenterPojo a2;
-        if (this.f1489a.getGroupInfos() != null) {
-            for (GroupUpdateMessage groupUpdateMessage : this.f1489a.getGroupInfos()) {
+        if (this.f1480a.getGroupInfos() != null) {
+            for (GroupUpdateMessage groupUpdateMessage : this.f1480a.getGroupInfos()) {
                 if (groupUpdateMessage != null) {
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     this.b.add(imMessageCenterPojo);
                     imMessageCenterPojo.setGid(String.valueOf(groupUpdateMessage.getGroupId()));
                     imMessageCenterPojo.setGroup_name(groupUpdateMessage.getName());
                     imMessageCenterPojo.setGroup_type(groupUpdateMessage.getGroupType());
-                    a2 = this.d.f1488a.a(concurrentHashMap, groupUpdateMessage.getGroupId());
+                    a2 = this.d.f1479a.a(concurrentHashMap, groupUpdateMessage.getGroupId());
                     if (a2 == null || a2.getPulled_msgId() == 0 || a2.getLast_msgId() == 0) {
                         long b = z.b(groupUpdateMessage.getLastMsgId());
                         imMessageCenterPojo.setPulled_msgId(b);
@@ -83,13 +83,13 @@ class f implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCente
         }
         com.baidu.tieba.im.messageCenter.f.a().a(false);
         com.baidu.adp.lib.h.d.c("----online succ");
-        this.d.f1488a.m = false;
-        this.d.f1488a.n = true;
-        this.d.f1488a.l = 0;
+        this.d.f1479a.m = false;
+        this.d.f1479a.n = true;
+        this.d.f1479a.l = 0;
         aa.a().a(concurrentHashMap, this.b);
         if (TiebaApplication.B()) {
-            handler = this.d.f1488a.D;
-            handler2 = this.d.f1488a.D;
+            handler = this.d.f1479a.D;
+            handler2 = this.d.f1479a.D;
             handler.sendMessage(handler2.obtainMessage(3));
         }
         n.a().a(this.b, (com.baidu.tieba.im.a<Void>) null);

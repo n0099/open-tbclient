@@ -3,9 +3,9 @@ package com.baidu.tieba.account.forbid;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1076a = com.baidu.tieba.data.h.f1196a + "c/u/bawu/listreason";
+    private static final String f1079a = com.baidu.tieba.data.h.f1201a + "c/u/bawu/listreason";
 
-    public static void a(String str, n nVar) {
-        new m(str, nVar).execute(new String[0]);
+    public static void a(String str, String str2, n nVar) {
+        new m(str, str2, nVar).execute(new String[0]);
     }
 }

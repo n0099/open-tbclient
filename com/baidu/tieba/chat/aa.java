@@ -9,11 +9,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 public class aa implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListFragment f1119a;
+    final /* synthetic */ ChatListFragment f1125a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(ChatListFragment chatListFragment) {
-        this.f1119a = chatListFragment;
+        this.f1125a = chatListFragment;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -24,31 +24,37 @@ public class aa implements AbsListView.OnScrollListener {
         Runnable runnable2;
         BdListView bdListView;
         BdListView bdListView2;
+        boolean z;
         com.baidu.tieba.view.q qVar;
         Activity activity;
         com.baidu.tieba.view.q qVar2;
         BdListView bdListView3;
         com.baidu.tieba.view.q qVar3;
-        handler = this.f1119a.f;
-        runnable = this.f1119a.g;
+        handler = this.f1125a.f;
+        runnable = this.f1125a.g;
         handler.removeCallbacks(runnable);
-        handler2 = this.f1119a.f;
-        runnable2 = this.f1119a.g;
+        handler2 = this.f1125a.f;
+        runnable2 = this.f1125a.g;
         handler2.postDelayed(runnable2, 300L);
-        bdListView = this.f1119a.Z;
+        bdListView = this.f1125a.Z;
         if (bdListView.getAdapter() != null) {
-            bdListView2 = this.f1119a.Z;
+            bdListView2 = this.f1125a.Z;
             if (i2 < bdListView2.getAdapter().getCount()) {
-                qVar = this.f1119a.af;
-                if (qVar == null) {
-                    ChatListFragment chatListFragment = this.f1119a;
-                    activity = this.f1119a.d;
-                    chatListFragment.af = new com.baidu.tieba.view.q(activity);
-                    qVar2 = this.f1119a.af;
-                    qVar2.setHeightDip(30);
-                    bdListView3 = this.f1119a.Z;
-                    qVar3 = this.f1119a.af;
-                    bdListView3.addFooterView(qVar3);
+                z = this.f1125a.am;
+                if (!z) {
+                    qVar = this.f1125a.af;
+                    if (qVar == null) {
+                        ChatListFragment chatListFragment = this.f1125a;
+                        activity = this.f1125a.d;
+                        chatListFragment.af = new com.baidu.tieba.view.q(activity);
+                        qVar2 = this.f1125a.af;
+                        qVar2.setHeightDip(30);
+                        bdListView3 = this.f1125a.Z;
+                        qVar3 = this.f1125a.af;
+                        bdListView3.addFooterView(qVar3);
+                        this.f1125a.al = true;
+                        this.f1125a.am = true;
+                    }
                 }
             }
         }

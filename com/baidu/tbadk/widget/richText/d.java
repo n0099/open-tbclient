@@ -3,7 +3,7 @@ package com.baidu.tbadk.widget.richText;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f984a = 0;
+    public int f985a = 0;
     public int b = 0;
     public int c = 0;
     final /* synthetic */ c d;

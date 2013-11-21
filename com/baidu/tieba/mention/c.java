@@ -7,17 +7,17 @@ import com.baidu.tieba.BaseFragmentActivity;
 public class c implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MentionActivity f1856a;
+    final /* synthetic */ MentionActivity f1838a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(MentionActivity mentionActivity) {
-        this.f1856a = mentionActivity;
+        this.f1838a = mentionActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         BaseFragmentActivity baseFragmentActivity;
-        baseFragmentActivity = this.f1856a.ag;
+        baseFragmentActivity = this.f1838a.ag;
         baseFragmentActivity.finish();
     }
 }

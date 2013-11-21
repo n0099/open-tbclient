@@ -9,14 +9,14 @@ import java.util.LinkedList;
 public class p extends SingleRunnable<LinkedList<GroupNewsPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupMsgData f1781a;
+    final /* synthetic */ GroupMsgData f1772a;
     final /* synthetic */ int b;
     final /* synthetic */ n c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar, GroupMsgData groupMsgData, int i) {
         this.c = nVar;
-        this.f1781a = groupMsgData;
+        this.f1772a = groupMsgData;
         this.b = i;
     }
 
@@ -25,7 +25,7 @@ public class p extends SingleRunnable<LinkedList<GroupNewsPojo>> {
     /* renamed from: a */
     public LinkedList<GroupNewsPojo> b() {
         LinkedList<GroupNewsPojo> b;
-        b = this.c.b(this.f1781a, this.b);
+        b = this.c.b(this.f1772a, this.b);
         return b;
     }
 }

@@ -41,7 +41,7 @@ public class ShareDialog extends Dialog implements aj {
     protected static final int MAX_LENGTH_FOR_QZONE = 80;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f874a = ShareDialog.class.getSimpleName();
+    private static final String f875a = ShareDialog.class.getSimpleName();
     private static final ViewGroup.LayoutParams b = new ViewGroup.LayoutParams(-1, -1);
     public static TextView mCounterView;
     private m c;
@@ -163,7 +163,7 @@ public class ShareDialog extends Dialog implements aj {
     }
 
     private void a() {
-        Log.d(f874a, "showToast");
+        Log.d(f875a, "showToast");
         Context context = getContext();
         Drawable drawable = DrawableUtils.getDrawable(context, this.mSocialShareConfig.getAssetFileName("tip_words"));
         LinearLayout linearLayout = new LinearLayout(context);

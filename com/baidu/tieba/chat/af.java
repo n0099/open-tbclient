@@ -5,7 +5,7 @@ import com.baidu.tieba.data.chat.ChatPostData;
 public class af extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ChatPostData f1123a = null;
+    private ChatPostData f1129a = null;
     private ag b = null;
     private ah c = null;
     private com.baidu.tieba.data.chat.c d;
@@ -20,13 +20,13 @@ public class af extends com.baidu.adp.a.d {
     }
 
     public void a(ChatPostData chatPostData) {
-        this.f1123a = chatPostData;
+        this.f1129a = chatPostData;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.d
     public boolean LoadData() {
-        if (this.f1123a != null && this.b == null) {
+        if (this.f1129a != null && this.b == null) {
             this.b = new ag(this);
             this.b.execute(new Object[0]);
             return true;

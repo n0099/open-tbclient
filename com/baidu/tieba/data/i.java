@@ -2,6 +2,7 @@ package com.baidu.tieba.data;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.switchs.SwitchModel;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.bg;
@@ -22,7 +23,7 @@ public class i {
     private boolean q = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1197a = 0;
+    private int f1202a = 0;
     private int b = 0;
     private int c = 1;
     private String d = null;
@@ -44,7 +45,7 @@ public class i {
         if (jSONObject != null) {
             try {
                 this.j.parserJson(jSONObject.optJSONObject("banner"));
-                this.f1197a = jSONObject.optInt("pb_max_floor_total_num", 0);
+                this.f1202a = jSONObject.optInt("pb_max_floor_total_num", 0);
                 this.b = jSONObject.optInt("pb_big_image_width", 0);
                 this.d = jSONObject.optString("big_head_image_host");
                 this.e = jSONObject.optString("small_head_image_host");
@@ -72,6 +73,11 @@ public class i {
                 }
                 if (this.p != null && this.p.size() > 0) {
                     SwitchModel.refreshSwitchManager(this.p);
+                    if (com.baidu.adp.lib.a.d.a().b(SwitchKey.LOG) == 0) {
+                        com.baidu.tieba.util.y.a(true);
+                    } else {
+                        com.baidu.tieba.util.y.a(false);
+                    }
                 }
                 this.l = jSONObject.optInt("is_pushservice_open", 1) == 1;
                 TiebaApplication.g().f(this.l);
@@ -83,7 +89,7 @@ public class i {
                 TiebaApplication.g().d(this.i);
                 this.q = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
                 VoiceManager.a(this.q);
-                if (TiebaApplication.g().aH()) {
+                if (TiebaApplication.g().aJ()) {
                     int optInt3 = jSONObject.optInt("open_abstract", 0);
                     if (!(optInt3 == 0 || TiebaApplication.g().an() != 0)) {
                         TiebaApplication.g().e(optInt3);
@@ -161,7 +167,7 @@ public class i {
                 com.baidu.tieba.im.c.a.a().b();
                 TiebaApplication.g().c(optInt2 == 1);
                 TiebaApplication.g().t(jSONObject.optInt("open_local_popularize", 0) == 1);
-                h.a(this.f1197a);
+                h.a(this.f1202a);
                 h.e(this.d);
                 h.d(this.e);
                 h.a(this.f, this.g);

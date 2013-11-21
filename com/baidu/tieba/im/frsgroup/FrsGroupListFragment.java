@@ -18,7 +18,7 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     private int Y;
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1636a;
+    private FrsGroupActivity f1627a;
     private com.baidu.tieba.im.model.b b;
     private g c;
     private BdListView d;
@@ -33,9 +33,9 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void a(Bundle bundle) {
         super.a(bundle);
-        this.f1636a = (FrsGroupActivity) i();
-        this.b = this.f1636a.c();
-        this.c = this.f1636a.d();
+        this.f1627a = (FrsGroupActivity) i();
+        this.b = this.f1627a.c();
+        this.c = this.f1627a.d();
         this.i = new Handler();
         this.b.a(this.aa);
     }
@@ -66,9 +66,9 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
         this.g = (InitGuideView) inflate.findViewById(R.id.group_guide);
         this.e = (Button) inflate.findViewById(R.id.guide_create);
         this.d = (BdListView) inflate.findViewById(R.id.group_list);
-        this.f = new bi(this.f1636a);
+        this.f = new bi(this.f1627a);
         this.d.setPullRefresh(this.f);
-        this.h = new GroupListAdapter(this.f1636a);
+        this.h = new GroupListAdapter(this.f1627a);
         this.d.setAdapter((ListAdapter) this.h);
         this.d.setOnScrollListener(this);
         this.d.setOnSrollToBottomListener(this);
@@ -129,7 +129,6 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
 
     /* JADX INFO: Access modifiers changed from: private */
     public void J() {
-        this.c.b(false);
         this.b.f();
         this.b.a(true);
         this.h.a(false);
@@ -140,7 +139,6 @@ public class FrsGroupListFragment extends BaseFragment implements AbsListView.On
     }
 
     private void K() {
-        this.c.b(false);
         this.b.f();
         this.b.a(false);
         this.Y = 0;

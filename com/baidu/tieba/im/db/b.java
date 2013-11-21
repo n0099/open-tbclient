@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class b extends SingleRunnable<LinkedList<String>> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1610a;
+    final /* synthetic */ String f1601a;
     final /* synthetic */ int b;
     final /* synthetic */ String c;
     final /* synthetic */ int e;
@@ -20,7 +20,7 @@ public class b extends SingleRunnable<LinkedList<String>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, String str, int i, String str2, int i2) {
         this.f = aVar;
-        this.f1610a = str;
+        this.f1601a = str;
         this.b = i;
         this.c = str2;
         this.e = i2;
@@ -31,7 +31,7 @@ public class b extends SingleRunnable<LinkedList<String>> {
     /* renamed from: a */
     public LinkedList<String> b() {
         Cursor cursor = null;
-        if (TextUtils.isEmpty(this.f1610a)) {
+        if (TextUtils.isEmpty(this.f1601a)) {
             return null;
         }
         int i = this.b;
@@ -39,12 +39,12 @@ public class b extends SingleRunnable<LinkedList<String>> {
             i = 20;
         }
         LinkedList<String> linkedList = new LinkedList<>();
-        String str = a.f1601a + this.f1610a;
+        String str = a.f1592a + this.f1601a;
         SQLiteDatabase a2 = m.a();
         try {
         } catch (SQLiteException e) {
             e.printStackTrace();
-            this.f.d(this.f1610a);
+            this.f.d(this.f1601a);
         } catch (Exception e2) {
             e2.printStackTrace();
         } finally {

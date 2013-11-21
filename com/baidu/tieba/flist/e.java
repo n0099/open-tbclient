@@ -10,14 +10,14 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.square.t f1248a;
+    com.baidu.tieba.square.t f1253a;
     final /* synthetic */ c b;
     private ap c;
 
     private e(c cVar) {
         this.b = cVar;
         this.c = null;
-        this.f1248a = new com.baidu.tieba.square.t();
+        this.f1253a = new com.baidu.tieba.square.t();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,11 +28,11 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
         f fVar;
         boolean z;
         super.b((Object[]) numArr);
-        if (this.f1248a != null) {
+        if (this.f1253a != null) {
             fVar = this.b.b;
-            int a2 = this.f1248a.a();
-            com.baidu.tieba.square.z d = this.f1248a.d();
-            String c = this.f1248a.c();
+            int a2 = this.f1253a.a();
+            com.baidu.tieba.square.z d = this.f1253a.d();
+            String c = this.f1253a.c();
             z = this.b.g;
             fVar.a(true, a2, d, c, z);
         }
@@ -57,12 +57,12 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
             str6 = j2.a(append.append(str5).append("_dir").toString());
         }
         if (str6 != null) {
-            this.f1248a.b(str6);
+            this.f1253a.b(str6);
             this.b.g = true;
             c((Object[]) new Integer[0]);
         }
         try {
-            this.c = new ap(com.baidu.tieba.data.h.f1196a + "c/f/forum/seconddir");
+            this.c = new ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/seconddir");
             ap apVar = this.c;
             str = this.b.c;
             apVar.a("menu_name", str);
@@ -74,14 +74,14 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
             apVar3.a("menu_id", str3);
             j = this.c.j();
         } catch (Exception e) {
-            this.f1248a.a(e.getMessage());
+            this.f1253a.a(e.getMessage());
             bg.b(getClass().getName(), "doInBackground", e.getMessage());
         }
         if (j == null) {
-            return this.f1248a;
+            return this.f1253a;
         }
         if (this.c.c()) {
-            this.f1248a.b(j);
+            this.f1253a.b(j);
             this.b.f = true;
             if (j2 != null) {
                 StringBuilder append2 = new StringBuilder().append(TiebaApplication.A()).append("_");
@@ -89,10 +89,10 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
                 j2.a(append2.append(str4).append("_dir").toString(), j, Util.MILLSECONDS_OF_DAY);
             }
         } else {
-            this.f1248a.a(this.c.g());
+            this.f1253a.a(this.c.g());
             this.b.f = false;
         }
-        return this.f1248a;
+        return this.f1253a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

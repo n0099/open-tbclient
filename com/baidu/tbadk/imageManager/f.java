@@ -4,13 +4,13 @@ package com.baidu.tbadk.imageManager;
 public class f extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f978a;
+    final /* synthetic */ d f979a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.f978a = dVar;
+        this.f979a = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class f extends com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageV
         if (eVar != null) {
             if (com.baidu.adp.lib.h.d.a()) {
                 StringBuilder append = new StringBuilder().append("pic removed from cache:").append(eVar.h()).append(", size:").append(eVar.d()).append("/");
-                aVar = this.f978a.c;
+                aVar = this.f979a.c;
                 com.baidu.adp.lib.h.d.d(append.append(aVar.c()).toString());
             }
             eVar.e();

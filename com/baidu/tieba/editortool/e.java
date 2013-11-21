@@ -8,11 +8,11 @@ import android.widget.AdapterView;
 public class e implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FaceView f1224a;
+    final /* synthetic */ FaceView f1229a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(FaceView faceView) {
-        this.f1224a = faceView;
+        this.f1229a = faceView;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -26,20 +26,20 @@ public class e implements AdapterView.OnItemClickListener {
         h hVar3;
         h hVar4;
         if (i % 27 != 0 || i == 0) {
-            i2 = this.f1224a.f1218a;
-            i3 = this.f1224a.f1218a;
+            i2 = this.f1229a.f1223a;
+            i3 = this.f1229a.f1223a;
             int i4 = ((((i2 - 1) * 28) + i) - i3) + 1;
-            mVar = this.f1224a.d;
+            mVar = this.f1229a.d;
             String a2 = mVar.a(i4);
-            mVar2 = this.f1224a.d;
+            mVar2 = this.f1229a.d;
             Bitmap b = mVar2.b(i4);
             if (a2 != null && b != null) {
-                hVar = this.f1224a.k;
+                hVar = this.f1229a.k;
                 if (hVar != null) {
-                    g gVar = new g(this.f1224a);
+                    g gVar = new g(this.f1229a);
                     gVar.a(a2);
                     gVar.a(b);
-                    hVar2 = this.f1224a.k;
+                    hVar2 = this.f1229a.k;
                     hVar2.a(20, gVar);
                     return;
                 }
@@ -47,10 +47,10 @@ public class e implements AdapterView.OnItemClickListener {
             }
             return;
         }
-        g gVar2 = new g(this.f1224a);
-        hVar3 = this.f1224a.k;
+        g gVar2 = new g(this.f1229a);
+        hVar3 = this.f1229a.k;
         if (hVar3 != null) {
-            hVar4 = this.f1224a.k;
+            hVar4 = this.f1229a.k;
             hVar4.a(21, gVar2);
         }
     }

@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class q extends BaseAdapter implements c, g {
 
     /* renamed from: a  reason: collision with root package name */
-    private PersonPostThreadModel f2279a;
+    private PersonPostThreadModel f2264a;
     private r b;
     private String c;
     private String d;
@@ -33,17 +33,17 @@ public class q extends BaseAdapter implements c, g {
     }
 
     public void a() {
-        if (this.f2279a != null) {
-            this.f2279a.cancelLoadData();
+        if (this.f2264a != null) {
+            this.f2264a.cancelLoadData();
         }
     }
 
     @Override // com.baidu.tieba.person.post.g
     public void a(PersonPostThreadModel personPostThreadModel, boolean z) {
         if (z) {
-            this.f2279a = personPostThreadModel;
-        } else if (this.f2279a != null) {
-            this.f2279a.post_list.addAll(personPostThreadModel.post_list);
+            this.f2264a = personPostThreadModel;
+        } else if (this.f2264a != null) {
+            this.f2264a.post_list.addAll(personPostThreadModel.post_list);
         }
         if (this.b != null) {
             this.b.a(personPostThreadModel, z);
@@ -57,15 +57,15 @@ public class q extends BaseAdapter implements c, g {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2279a == null || this.f2279a.post_list == null) {
+        if (this.f2264a == null || this.f2264a.post_list == null) {
             return 0;
         }
-        return this.f2279a.post_list.size();
+        return this.f2264a.post_list.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.f2279a.post_list.get(i);
+        return this.f2264a.post_list.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -86,11 +86,11 @@ public class q extends BaseAdapter implements c, g {
             sVar = (s) view.getTag();
         }
         if (i == 0) {
-            sVar.f2266a.setVisibility(0);
+            sVar.f2251a.setVisibility(0);
         } else {
-            sVar.f2266a.setVisibility(8);
+            sVar.f2251a.setVisibility(8);
         }
-        PersonPostThreadModel.PostList postList = this.f2279a.post_list.get(i);
+        PersonPostThreadModel.PostList postList = this.f2264a.post_list.get(i);
         sVar.a(postList, this.d);
         String str = postList.title;
         if (str.trim().length() > 0) {
@@ -135,8 +135,8 @@ public class q extends BaseAdapter implements c, g {
             case R.id.portrait /* 2131099850 */:
                 this.e.finish();
                 return;
-            case R.id.item_header /* 2131100060 */:
-            case R.id.item_content /* 2131100796 */:
+            case R.id.item_header /* 2131100062 */:
+            case R.id.item_content /* 2131100782 */:
                 String[] strArr = (String[]) view.getTag();
                 if (strArr != null) {
                     NewPbActivity.a(view.getContext(), strArr[0], strArr[1], "person_post");
@@ -144,14 +144,14 @@ public class q extends BaseAdapter implements c, g {
                     return;
                 }
                 return;
-            case R.id.forum_name /* 2131100800 */:
+            case R.id.forum_name /* 2131100786 */:
                 String str = (String) view.getTag();
                 if (str != null) {
                     FrsActivity.a(view.getContext(), str, "");
                     return;
                 }
                 return;
-            case R.id.username /* 2131100802 */:
+            case R.id.username /* 2131100788 */:
                 this.e.finish();
                 return;
             default:

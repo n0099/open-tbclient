@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class j extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private m f2274a;
+    private m f2259a;
     private PersonPostReplyModel b;
     private String c;
     private String d;
@@ -31,7 +31,7 @@ public class j extends BaseAdapter {
     }
 
     public void a(m mVar) {
-        this.f2274a = mVar;
+        this.f2259a = mVar;
     }
 
     public void a(boolean z) {
@@ -73,9 +73,9 @@ public class j extends BaseAdapter {
             nVar = (n) view.getTag();
         }
         if (i == 0) {
-            nVar.f2266a.setVisibility(0);
+            nVar.f2251a.setVisibility(0);
         } else {
-            nVar.f2266a.setVisibility(8);
+            nVar.f2251a.setVisibility(8);
         }
         a(i, nVar, viewGroup);
         return view;

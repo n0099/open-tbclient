@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1209a = 0;
+    private int f1214a = 0;
     private long b = 0;
     private String c = null;
     private String d = null;
@@ -20,7 +20,7 @@ public class u {
     private String l;
 
     public int a() {
-        return this.f1209a;
+        return this.f1214a;
     }
 
     public long b() {
@@ -62,7 +62,7 @@ public class u {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1209a = jSONObject.optInt("type", 0);
+                this.f1214a = jSONObject.optInt("type", 0);
                 this.c = jSONObject.optString("title");
                 this.b = jSONObject.optLong("time", 0L) * 1000;
                 this.d = jSONObject.optString("fname");

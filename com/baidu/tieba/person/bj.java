@@ -10,21 +10,21 @@ import com.slidingmenu.lib.R;
 public class bj implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f2240a;
+    final /* synthetic */ PersonListActivity f2225a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(PersonListActivity personListActivity) {
-        this.f2240a = personListActivity;
+        this.f2225a = personListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2240a.f2204a = ((Integer) view.getTag()).intValue();
+        this.f2225a.f2189a = ((Integer) view.getTag()).intValue();
         String A = TiebaApplication.A();
         if (A != null && A.length() > 0) {
-            this.f2240a.c();
+            this.f2225a.c();
         } else {
-            LoginActivity.a((Activity) this.f2240a, this.f2240a.getString(R.string.login_to_chat), true, 11028);
+            LoginActivity.a((Activity) this.f2225a, this.f2225a.getString(R.string.login_to_chat), true, 11028);
         }
     }
 }

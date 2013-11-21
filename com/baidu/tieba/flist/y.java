@@ -26,7 +26,7 @@ public class y {
     private int B = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    final View f1265a;
+    final View f1270a;
     final View b;
     ViewPager c;
     LinearLayout d;
@@ -70,7 +70,7 @@ public class y {
         this.q = new bi(forumListActivity);
         this.r = new bi(forumListActivity);
         this.k = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
-        this.f1265a = this.k.findViewById(R.id.footer_background);
+        this.f1270a = this.k.findViewById(R.id.footer_background);
         this.l = (TextView) this.k.findViewById(R.id.footer_text);
         this.m = (ImageView) this.k.findViewById(R.id.footer_icon);
         this.n = (LinearLayout) forumListActivity.getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);

@@ -17,7 +17,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class ay extends BdAsyncTask<Object, Integer, SearchPostModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1418a;
+    ArrayList<BasicNameValuePair> f1409a;
     final /* synthetic */ SearchActivity b;
     private com.baidu.tieba.util.ap c = null;
     private String d;
@@ -25,9 +25,9 @@ public class ay extends BdAsyncTask<Object, Integer, SearchPostModel> {
     public ay(SearchActivity searchActivity, String str, ArrayList<BasicNameValuePair> arrayList) {
         this.b = searchActivity;
         this.d = null;
-        this.f1418a = null;
+        this.f1409a = null;
         this.d = str;
-        this.f1418a = arrayList;
+        this.f1409a = arrayList;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,7 +59,7 @@ public class ay extends BdAsyncTask<Object, Integer, SearchPostModel> {
         String str;
         try {
             this.c = new com.baidu.tieba.util.ap(this.d);
-            Iterator<BasicNameValuePair> it = this.f1418a.iterator();
+            Iterator<BasicNameValuePair> it = this.f1409a.iterator();
             while (it.hasNext()) {
                 this.c.a(it.next());
             }

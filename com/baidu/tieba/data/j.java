@@ -19,7 +19,7 @@ public class j {
     private int d;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1198a = 0;
+    private int f1203a = 0;
     private String b = null;
     private String f = null;
     private String g = null;
@@ -35,11 +35,11 @@ public class j {
     }
 
     public void a(int i2) {
-        this.f1198a = i2;
+        this.f1203a = i2;
     }
 
     public int a() {
-        return this.f1198a;
+        return this.f1203a;
     }
 
     public String b() {
@@ -64,7 +64,7 @@ public class j {
 
     public SpannableString a(Context context) {
         String str;
-        switch (this.f1198a) {
+        switch (this.f1203a) {
             case 0:
                 return new SpannableString(this.b);
             case 1:
@@ -107,7 +107,7 @@ public class j {
 
     public SpannableString a(Context context, int i2, int i3) {
         int b;
-        if (this.f1198a != 2) {
+        if (this.f1203a != 2) {
             return null;
         }
         SpannableString spannableString = new SpannableString(this.b + " ");
@@ -132,15 +132,17 @@ public class j {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1198a = jSONObject.optInt("type", 0);
-                if (this.f1198a == 3) {
+                this.f1203a = jSONObject.optInt("type", 0);
+                if (this.f1203a == 3) {
                     this.f = jSONObject.optString("src");
                     this.b = jSONObject.optString("bsize");
                     this.g = jSONObject.optString("cdn_src", null);
                     try {
                         String[] split = this.b.split(",");
-                        this.c = Integer.valueOf(split[0]).intValue();
-                        this.d = Integer.valueOf(split[1]).intValue();
+                        if (split.length > 1) {
+                            this.c = Integer.valueOf(split[0]).intValue();
+                            this.d = Integer.valueOf(split[1]).intValue();
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -153,18 +155,18 @@ public class j {
                     if (this.f != null && this.f.indexOf(".baidu.com") != -1) {
                         this.e = true;
                     }
-                } else if (this.f1198a == 4) {
+                } else if (this.f1203a == 4) {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("uid");
                 } else {
                     this.b = jSONObject.optString("text");
                     this.f = jSONObject.optString("link");
-                    if (this.f1198a == 2 && TbFaceManager.a().b(this.b) == 0) {
-                        this.f1198a = 0;
+                    if (this.f1203a == 2 && TbFaceManager.a().b(this.b) == 0) {
+                        this.f1203a = 0;
                         this.b = "[" + jSONObject.optString("c") + "]";
                     }
                 }
-                if (this.f1198a != 0) {
+                if (this.f1203a != 0) {
                     this.b = this.b.replaceAll("\n", "");
                     this.f = this.f.replaceAll("\n", "");
                 }

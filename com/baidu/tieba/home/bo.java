@@ -12,7 +12,7 @@ import com.baidu.tieba.view.HeadImageView;
 public class bo {
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f1433a;
+    public HeadImageView f1424a;
     public LinearLayout b;
     public TextView c;
     public TextView d;

@@ -10,20 +10,20 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 public class g implements AsyncImageLoader.IAsyncImageLoaderListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ak f2733a;
+    final /* synthetic */ ak f2717a;
 
     private g(ak akVar) {
-        this.f2733a = akVar;
+        this.f2717a = akVar;
     }
 
     @Override // com.baidu.cloudsdk.common.imgloader.AsyncImageLoader.IAsyncImageLoaderListener
     public void onComplete(Bitmap bitmap) {
         String a2;
         if (bitmap != null) {
-            ShareContent shareContent = this.f2733a.mShareContent;
-            a2 = this.f2733a.a(bitmap);
+            ShareContent shareContent = this.f2717a.mShareContent;
+            a2 = this.f2717a.a(bitmap);
             shareContent.setImageUri(Uri.parse(a2));
         }
-        this.f2733a.c();
+        this.f2717a.c();
     }
 }

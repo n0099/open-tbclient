@@ -1,24 +1,19 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
-import android.widget.EditText;
-import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class bc implements View.OnClickListener {
+class bc implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2397a;
+    final /* synthetic */ bb f2382a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bc(SquareSearchActivity squareSearchActivity) {
-        this.f2397a = squareSearchActivity;
+    public bc(bb bbVar) {
+        this.f2382a = bbVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.f2397a.c;
-        UtilHelper.i(this.f2397a, editText.getText().toString().trim());
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.cancel();
     }
 }

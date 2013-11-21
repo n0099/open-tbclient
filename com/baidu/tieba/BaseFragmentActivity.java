@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public abstract class BaseFragmentActivity extends android.support.v4.app.n {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ProgressDialog f996a = null;
+    protected ProgressDialog f997a = null;
     private DialogInterface.OnCancelListener b = null;
     private AlertDialog c = null;
     private int d = -1;
@@ -88,22 +88,22 @@ public abstract class BaseFragmentActivity extends android.support.v4.app.n {
 
     public void a(String str, DialogInterface.OnCancelListener onCancelListener) {
         if (str != null) {
-            this.f996a = ProgressDialog.show(this, "", str, true, true, onCancelListener);
+            this.f997a = ProgressDialog.show(this, "", str, true, true, onCancelListener);
         } else {
-            this.f996a = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, true, onCancelListener);
+            this.f997a = ProgressDialog.show(this, "", getResources().getString(R.string.Waiting), true, true, onCancelListener);
         }
     }
 
     public void b() {
-        if (this.f996a != null) {
+        if (this.f997a != null) {
             try {
-                if (this.f996a.isShowing()) {
-                    this.f996a.dismiss();
+                if (this.f997a.isShowing()) {
+                    this.f997a.dismiss();
                 }
             } catch (Exception e) {
                 bg.b(getClass().getName(), "closeLoadingDialog", e.getMessage());
             }
-            this.f996a = null;
+            this.f997a = null;
         }
     }
 

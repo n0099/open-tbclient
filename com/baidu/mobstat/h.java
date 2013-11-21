@@ -10,13 +10,13 @@ import java.util.Timer;
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f961a;
+    final /* synthetic */ Context f962a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar, Context context) {
         this.b = gVar;
-        this.f961a = context;
+        this.f962a = context;
     }
 
     @Override // java.lang.Runnable
@@ -28,11 +28,11 @@ public class h implements Runnable {
         Handler handler;
         int i;
         Timer timer2;
-        SharedPreferences a2 = this.b.a(this.f961a);
+        SharedPreferences a2 = this.b.a(this.f962a);
         this.b.g = a2.getBoolean("exceptionanalysisflag", false);
         z = this.b.g;
         if (z) {
-            e.a().b(this.f961a);
+            e.a().b(this.f962a);
         }
         timer = this.b.e;
         if (timer != null) {
@@ -45,11 +45,11 @@ public class h implements Runnable {
         this.b.b = a2.getBoolean("onlywifi", false);
         sendStrategyEnum = this.b.c;
         if (sendStrategyEnum.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
-            this.b.e(this.f961a);
+            this.b.e(this.f962a);
         } else {
             sendStrategyEnum2 = this.b.c;
             if (sendStrategyEnum2.equals(SendStrategyEnum.ONCE_A_DAY)) {
-                this.b.e(this.f961a);
+                this.b.e(this.f962a);
             }
         }
         handler = g.h;

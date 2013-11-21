@@ -6,7 +6,7 @@ import android.widget.TextView;
 class bf {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1424a;
+    TextView f1415a;
     ProgressBar b;
     final /* synthetic */ bd c;
 

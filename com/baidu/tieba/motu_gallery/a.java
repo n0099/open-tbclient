@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class a extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2021a = -1;
+    private static int f2004a = -1;
     private boolean b;
     private int c;
     private int d;
@@ -40,12 +40,12 @@ public class a extends ImageView {
     private Bitmap getSelectIcon() {
         int i;
         if (this.b) {
-            if (f2021a == 1) {
+            if (f2004a == 1) {
                 i = R.drawable.but_posts_fit_select_s_1;
             } else {
                 i = R.drawable.but_posts_fit_select_s;
             }
-        } else if (f2021a == 1) {
+        } else if (f2004a == 1) {
             i = R.drawable.but_posts_fit_select_n_1;
         } else {
             i = R.drawable.but_posts_fit_select_n;

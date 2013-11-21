@@ -13,7 +13,7 @@ public final class AppManager {
     private static AppManager b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f823a;
+    private Context f824a;
     private ConcurrentHashMap c;
     private PackageReceiver d;
 
@@ -34,14 +34,14 @@ public final class AppManager {
             aVar2.b = System.currentTimeMillis();
             String action = intent.getAction();
             if (action.equals("android.intent.action.PACKAGE_ADDED")) {
-                if (intent.getBooleanExtra("android.intent.extra.REPLACING", false) || (a2 = com.baidu.android.systemmonitor.d.a.a(AppManager.this.f823a, schemeSpecificPart)) == null) {
+                if (intent.getBooleanExtra("android.intent.extra.REPLACING", false) || (a2 = com.baidu.android.systemmonitor.d.a.a(AppManager.this.f824a, schemeSpecificPart)) == null) {
                     return;
                 }
                 AppManager.this.c.put(a2.a(), a2);
                 aVar2.c = 0;
                 aVar2.e = a2.f;
                 aVar2.d = a2.b;
-                aVar2.h = a2.a(AppManager.this.f823a);
+                aVar2.h = a2.a(AppManager.this.f824a);
             } else if (action.equals("android.intent.action.PACKAGE_REPLACED")) {
                 a aVar3 = (a) AppManager.this.c.remove(schemeSpecificPart);
                 if (aVar3 == null) {
@@ -50,8 +50,8 @@ public final class AppManager {
                 aVar2.c = 1;
                 aVar2.e = aVar3.f;
                 aVar2.d = aVar3.b;
-                aVar2.h = aVar3.a(AppManager.this.f823a);
-                a a3 = com.baidu.android.systemmonitor.d.a.a(AppManager.this.f823a, schemeSpecificPart);
+                aVar2.h = aVar3.a(AppManager.this.f824a);
+                a a3 = com.baidu.android.systemmonitor.d.a.a(AppManager.this.f824a, schemeSpecificPart);
                 if (a3 == null) {
                     return;
                 }
@@ -65,17 +65,17 @@ public final class AppManager {
                 aVar2.c = 2;
                 aVar2.e = aVar.f;
                 aVar2.d = aVar.b;
-                aVar2.h = aVar.a(AppManager.this.f823a);
+                aVar2.h = aVar.a(AppManager.this.f824a);
             }
-            d.a(AppManager.this.f823a).a(AppManager.this.f823a.getContentResolver(), aVar2);
+            d.a(AppManager.this.f824a).a(AppManager.this.f824a.getContentResolver(), aVar2);
         }
     }
 
     private AppManager(Context context) {
-        this.f823a = null;
+        this.f824a = null;
         this.c = null;
         this.d = null;
-        this.f823a = context.getApplicationContext();
+        this.f824a = context.getApplicationContext();
         this.c = new ConcurrentHashMap();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
@@ -83,7 +83,7 @@ public final class AppManager {
         intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
         intentFilter.addDataScheme("package");
         this.d = new PackageReceiver();
-        this.f823a.registerReceiver(this.d, intentFilter);
+        this.f824a.registerReceiver(this.d, intentFilter);
         d();
     }
 
@@ -107,14 +107,14 @@ public final class AppManager {
 
     private void d() {
         System.currentTimeMillis();
-        for (PackageInfo packageInfo : com.baidu.android.systemmonitor.d.a.a(this.f823a)) {
+        for (PackageInfo packageInfo : com.baidu.android.systemmonitor.d.a.a(this.f824a)) {
             a aVar = new a();
-            aVar.c((String) packageInfo.applicationInfo.loadLabel(this.f823a.getPackageManager()));
+            aVar.c((String) packageInfo.applicationInfo.loadLabel(this.f824a.getPackageManager()));
             aVar.b = packageInfo.versionName;
             aVar.f = packageInfo.versionCode;
             aVar.h = (packageInfo.applicationInfo == null || (packageInfo.applicationInfo.flags & 262144) == 0) ? false : true;
             aVar.e(packageInfo.packageName);
-            com.baidu.android.systemmonitor.d.a.a(this.f823a, packageInfo, aVar);
+            com.baidu.android.systemmonitor.d.a.a(this.f824a, packageInfo, aVar);
             try {
                 int intValue = ((Integer) packageInfo.getClass().getField("installLocation").get(packageInfo)).intValue();
                 if (intValue != 0 && intValue != 2) {
@@ -143,7 +143,7 @@ public final class AppManager {
     }
 
     private void e() {
-        this.f823a.unregisterReceiver(this.d);
+        this.f824a.unregisterReceiver(this.d);
     }
 
     public ConcurrentHashMap a() {
@@ -155,8 +155,8 @@ public final class AppManager {
             return;
         }
         for (a aVar : this.c.values()) {
-            aVar.b(this.f823a);
-            aVar.c(this.f823a);
+            aVar.b(this.f824a);
+            aVar.c(this.f824a);
         }
     }
 }

@@ -11,13 +11,13 @@ import java.util.List;
 public class i extends SingleRunnable<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ValidateItemData f1617a;
+    final /* synthetic */ ValidateItemData f1608a;
     final /* synthetic */ g b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar, ValidateItemData validateItemData) {
         this.b = gVar;
-        this.f1617a = validateItemData;
+        this.f1608a = validateItemData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,9 +32,9 @@ public class i extends SingleRunnable<Boolean> {
         int i3 = 0;
         while (i2 < size) {
             ValidateItemData validateItemData = a2.get(i2);
-            if (validateItemData.getGroupId().equals(this.f1617a.getGroupId()) && validateItemData.getUserId().equals(this.f1617a.getUserId()) && this.f1617a.isPass()) {
+            if (validateItemData.getGroupId().equals(this.f1608a.getGroupId()) && validateItemData.getUserId().equals(this.f1608a.getUserId()) && this.f1608a.isPass()) {
                 validateItemData.setPass(true);
-                if (this.f1617a.isShown()) {
+                if (this.f1608a.isShown()) {
                     validateItemData.setShown(true);
                 }
                 linkedList.add(validateItemData.toGroupNewsPojo());

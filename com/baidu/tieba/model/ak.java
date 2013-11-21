@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private ForumData f1891a;
-    private ArrayList<com.baidu.tieba.data.ba> b;
+    private ForumData f1873a;
+    private ArrayList<com.baidu.tieba.data.az> b;
     private AntiData c;
-    private com.baidu.tieba.data.an d;
+    private com.baidu.tieba.data.am d;
     private com.baidu.tieba.data.y e;
     private UserData f;
     private com.baidu.tieba.data.c g;
@@ -32,32 +32,32 @@ public class ak {
     }
 
     private void k() {
-        this.f1891a = new ForumData();
+        this.f1873a = new ForumData();
         this.b = new ArrayList<>();
-        this.d = new com.baidu.tieba.data.an();
+        this.d = new com.baidu.tieba.data.am();
         this.e = new com.baidu.tieba.data.y();
         this.f = new UserData();
         a(new AntiData());
         a(new com.baidu.tieba.data.c());
     }
 
-    public void a(com.baidu.tieba.data.ag agVar) {
-        this.f1891a.setCurScore(agVar.d());
-        this.f1891a.setLevelupScore(agVar.e());
-        this.f1891a.setLike(agVar.b());
-        this.f1891a.setUser_level(agVar.a());
-        this.f1891a.setLevelName(agVar.c());
+    public void a(com.baidu.tieba.data.af afVar) {
+        this.f1873a.setCurScore(afVar.d());
+        this.f1873a.setLevelupScore(afVar.e());
+        this.f1873a.setLike(afVar.b());
+        this.f1873a.setUser_level(afVar.a());
+        this.f1873a.setLevelName(afVar.c());
     }
 
     public void a(SignData signData) {
-        this.f1891a.setSignData(signData);
+        this.f1873a.setSignData(signData);
     }
 
     public ForumData a() {
-        return this.f1891a;
+        return this.f1873a;
     }
 
-    public ArrayList<com.baidu.tieba.data.ba> b() {
+    public ArrayList<com.baidu.tieba.data.az> b() {
         return this.b;
     }
 
@@ -73,7 +73,7 @@ public class ak {
         return this.c;
     }
 
-    public com.baidu.tieba.data.an e() {
+    public com.baidu.tieba.data.am e() {
         return this.d;
     }
 
@@ -101,14 +101,14 @@ public class ak {
             a(jSONObject.optInt("is_new_url", 0));
             JSONObject optJSONObject = jSONObject.optJSONObject("forum");
             k();
-            this.f1891a.parserJson(optJSONObject);
+            this.f1873a.parserJson(optJSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tieba.data.ba baVar = new com.baidu.tieba.data.ba();
-                    baVar.a(optJSONArray.optJSONObject(i));
-                    baVar.t();
-                    this.b.add(baVar);
+                    com.baidu.tieba.data.az azVar = new com.baidu.tieba.data.az();
+                    azVar.a(optJSONArray.optJSONObject(i));
+                    azVar.t();
+                    this.b.add(azVar);
                 }
             }
             this.c.parserJson(jSONObject.optJSONObject("anti"));
@@ -140,7 +140,7 @@ public class ak {
         ForumData a2 = a();
         this.m = new al(this, a2.getId(), a2.getName(), str);
         this.m.setPriority(2);
-        this.m.execute(com.baidu.tieba.data.h.f1196a + "c/c/user/fansno");
+        this.m.execute(com.baidu.tieba.data.h.f1201a + "c/c/user/fansno");
     }
 
     public void h() {
@@ -155,13 +155,13 @@ public class ak {
     }
 
     public void a(am amVar) {
-        com.baidu.tieba.data.ag agVar = new com.baidu.tieba.data.ag();
-        agVar.b(1);
-        agVar.a(amVar.d);
-        agVar.b(amVar.e);
-        agVar.e(amVar.f);
-        agVar.f(amVar.g);
-        a(agVar);
+        com.baidu.tieba.data.af afVar = new com.baidu.tieba.data.af();
+        afVar.b(1);
+        afVar.a(amVar.d);
+        afVar.b(amVar.e);
+        afVar.e(amVar.f);
+        afVar.f(amVar.g);
+        a(afVar);
     }
 
     public void a(com.baidu.tieba.frs.ag agVar) {

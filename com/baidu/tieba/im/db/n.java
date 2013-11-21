@@ -11,15 +11,15 @@ import java.util.LinkedList;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private static n f1621a;
+    private static n f1612a;
 
     public static synchronized n a() {
         n nVar;
         synchronized (n.class) {
-            if (f1621a == null) {
-                f1621a = new n();
+            if (f1612a == null) {
+                f1612a = new n();
             }
-            nVar = f1621a;
+            nVar = f1612a;
         }
         return nVar;
     }

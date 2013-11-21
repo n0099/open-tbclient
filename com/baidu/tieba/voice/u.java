@@ -4,20 +4,20 @@ package com.baidu.tieba.voice;
 public class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoiceManager f2646a;
+    final /* synthetic */ VoiceManager f2629a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(VoiceManager voiceManager) {
-        this.f2646a = voiceManager;
+        this.f2629a = voiceManager;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         int i;
-        if (this.f2646a.f2607a != null) {
-            i = this.f2646a.H;
+        if (this.f2629a.f2590a != null) {
+            i = this.f2629a.H;
             if (i == 2) {
-                this.f2646a.f2607a.C();
+                this.f2629a.f2590a.C();
             }
         }
     }

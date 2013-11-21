@@ -3,16 +3,16 @@ package com.baidu.tieba.model;
 public class x extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.t f1953a;
+    com.baidu.tieba.data.t f1936a;
     private y b = null;
 
     public x() {
-        this.f1953a = null;
-        this.f1953a = new com.baidu.tieba.data.t();
+        this.f1936a = null;
+        this.f1936a = new com.baidu.tieba.data.t();
     }
 
     public com.baidu.tieba.data.t a() {
-        return this.f1953a;
+        return this.f1936a;
     }
 
     @Override // com.baidu.adp.a.d

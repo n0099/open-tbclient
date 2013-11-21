@@ -40,7 +40,7 @@ import javax.crypto.SecretKey;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1484a = null;
+    private static a f1475a = null;
     private static int g = 30000;
     private static int o = 60000;
     private static int p = VersionUtils.CUR_DEVELOPMENT;
@@ -184,10 +184,10 @@ public class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1484a == null) {
-                f1484a = new a();
+            if (f1475a == null) {
+                f1475a = new a();
             }
-            aVar = f1484a;
+            aVar = f1475a;
         }
         return aVar;
     }
@@ -210,19 +210,19 @@ public class a {
     }
 
     public void b() {
-        int[] aW = TiebaApplication.g().aW();
-        if (aW.length == 2) {
-            a(aW[0] * LocationClientOption.MIN_SCAN_SPAN);
-            b(aW[1] * LocationClientOption.MIN_SCAN_SPAN);
-        }
         int[] aX = TiebaApplication.g().aX();
         if (aX.length == 2) {
-            c(aX[0] * LocationClientOption.MIN_SCAN_SPAN);
-            d(aX[1] * LocationClientOption.MIN_SCAN_SPAN);
+            a(aX[0] * LocationClientOption.MIN_SCAN_SPAN);
+            b(aX[1] * LocationClientOption.MIN_SCAN_SPAN);
         }
         int[] aY = TiebaApplication.g().aY();
-        if (aY.length > 0) {
-            e(aY[0] * LocationClientOption.MIN_SCAN_SPAN);
+        if (aY.length == 2) {
+            c(aY[0] * LocationClientOption.MIN_SCAN_SPAN);
+            d(aY[1] * LocationClientOption.MIN_SCAN_SPAN);
+        }
+        int[] aZ = TiebaApplication.g().aZ();
+        if (aZ.length > 0) {
+            e(aZ[0] * LocationClientOption.MIN_SCAN_SPAN);
         }
     }
 
@@ -314,10 +314,12 @@ public class a {
         pushCountMessage.setPusherCount(this.C);
         pushCountMessage.setUpFlowSize(l.a().h());
         pushCountMessage.setDownFlowSize(l.a().j());
+        pushCountMessage.setEnterForeCount(TiebaApplication.g().aE());
         com.baidu.tieba.im.messageCenter.f.a().a(pushCountMessage);
         this.C = 0;
         l.a().i();
         l.a().g();
+        TiebaApplication.g().aF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

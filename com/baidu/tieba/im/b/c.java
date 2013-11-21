@@ -12,7 +12,7 @@ public class c {
     private boolean d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1476a = UtilHelper.a((Context) TiebaApplication.a(), 70.0f);
+    public int f1467a = UtilHelper.a((Context) TiebaApplication.a(), 70.0f);
     public int b = UtilHelper.a((Context) TiebaApplication.a(), 70.0f);
 
     public GroupPermData a() {
@@ -27,7 +27,7 @@ public class c {
         if (this.d) {
             if (UtilHelper.b()) {
                 if (com.baidu.tieba.im.c.a.a().c()) {
-                    com.baidu.tieba.im.messageCenter.f.a().a(new GroupsByUidMessage(this.f1476a, this.b));
+                    com.baidu.tieba.im.messageCenter.f.a().a(new GroupsByUidMessage(this.f1467a, this.b));
                     return true;
                 }
                 return true;
@@ -40,6 +40,6 @@ public class c {
     }
 
     public void c() {
-        com.baidu.tieba.im.messageCenter.f.a().a(new GroupsByUidMessage(this.f1476a, this.b));
+        com.baidu.tieba.im.messageCenter.f.a().a(new GroupsByUidMessage(this.f1467a, this.b));
     }
 }

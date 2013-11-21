@@ -7,11 +7,11 @@ import com.baidu.tieba.view.KeyboardLayout;
 public class aa implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2059a;
+    final /* synthetic */ ImagePbActivity f2042a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(ImagePbActivity imagePbActivity) {
-        this.f2059a = imagePbActivity;
+        this.f2042a = imagePbActivity;
     }
 
     @Override // java.lang.Runnable
@@ -20,13 +20,13 @@ public class aa implements Runnable {
         KeyboardLayout keyboardLayout;
         com.baidu.tieba.view.ap apVar;
         FaceView faceView2;
-        faceView = this.f2059a.o;
+        faceView = this.f2042a.o;
         if (faceView.getVisibility() != 0) {
-            faceView2 = this.f2059a.o;
+            faceView2 = this.f2042a.o;
             faceView2.setVisibility(0);
         }
-        keyboardLayout = this.f2059a.s;
-        apVar = this.f2059a.T;
+        keyboardLayout = this.f2042a.s;
+        apVar = this.f2042a.T;
         keyboardLayout.setOnkbdStateListener(apVar);
     }
 }

@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class bq {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1435a;
+    private int f1426a;
     private String b;
     private int c;
     private int d;
@@ -15,7 +15,7 @@ public class bq {
     private r h = new r();
 
     public int a() {
-        return this.f1435a;
+        return this.f1426a;
     }
 
     public int b() {
@@ -38,7 +38,7 @@ public class bq {
         if (jSONObject != null) {
             try {
                 this.h.a(jSONObject.optJSONObject("error"));
-                this.f1435a = jSONObject.optInt("forum_id");
+                this.f1426a = jSONObject.optInt("forum_id");
                 this.b = jSONObject.optString("forum_name");
                 this.c = jSONObject.optInt("signed");
                 this.d = jSONObject.optInt("is_on");

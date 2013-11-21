@@ -12,10 +12,10 @@ import com.baidu.tieba.service.TiebaUpdateService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class UpdateDialog extends j {
-    private ao c;
+    private ar c;
 
     /* renamed from: a  reason: collision with root package name */
-    private VersionData f1004a = null;
+    private VersionData f1006a = null;
     private CombineDownload b = null;
     private Dialog d = null;
     private DialogInterface.OnClickListener e = null;
@@ -40,29 +40,29 @@ public class UpdateDialog extends j {
 
     private void a(Bundle bundle) {
         if (bundle != null) {
-            this.f1004a = (VersionData) bundle.getSerializable("data");
+            this.f1006a = (VersionData) bundle.getSerializable("data");
             this.b = (CombineDownload) bundle.getSerializable("combineDownload");
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.f1004a = (VersionData) intent.getSerializableExtra("data");
+                this.f1006a = (VersionData) intent.getSerializableExtra("data");
                 this.b = (CombineDownload) intent.getSerializableExtra("combineDownload");
             }
         }
-        if (this.f1004a == null || this.f1004a.getHas_new_ver() == 0) {
+        if (this.f1006a == null || this.f1006a.getHas_new_ver() == 0) {
             finish();
         }
         new AlertDialog.Builder(this);
-        if (this.f1004a.getNew_version_desc() != null && this.f1004a.getNew_version_desc().length() > 0) {
-            this.f1004a.getNew_version_desc();
+        if (this.f1006a.getNew_version_desc() != null && this.f1006a.getNew_version_desc().length() > 0) {
+            this.f1006a.getNew_version_desc();
         } else {
-            String.format(getString(R.string.update_client), this.f1004a.getNew_version());
+            String.format(getString(R.string.update_client), this.f1006a.getNew_version());
         }
-        if (this.f1004a.getHas_new_ver() == 1) {
-            this.c = new ao(this, R.style.common_alert_dialog);
-            this.c.a(this.f1004a, this.b, new az(this));
-            this.c.setOnCancelListener(new ba(this));
-            this.c.setOnDismissListener(new bb(this));
+        if (this.f1006a.getHas_new_ver() == 1) {
+            this.c = new ar(this, R.style.common_alert_dialog);
+            this.c.a(this.f1006a, this.b, new bc(this));
+            this.c.setOnCancelListener(new bd(this));
+            this.c.setOnDismissListener(new be(this));
             this.c.show();
         }
     }
@@ -70,8 +70,8 @@ public class UpdateDialog extends j {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.f1004a != null) {
-            bundle.putSerializable("data", this.f1004a);
+        if (this.f1006a != null) {
+            bundle.putSerializable("data", this.f1006a);
         }
     }
 
@@ -95,7 +95,7 @@ public class UpdateDialog extends j {
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);
         intent.putExtra("update", true);
-        intent.putExtra("version", this.f1004a);
+        intent.putExtra("version", this.f1006a);
         startService(intent);
     }
 
@@ -107,7 +107,7 @@ public class UpdateDialog extends j {
         }
         Intent intent = new Intent(this, TiebaUpdateService.class);
         intent.putExtra("update", true);
-        intent.putExtra("version", this.f1004a);
+        intent.putExtra("version", this.f1006a);
         intent.putExtra("other_url", str);
         startService(intent);
     }

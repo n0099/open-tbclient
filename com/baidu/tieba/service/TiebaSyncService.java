@@ -4,16 +4,16 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.tieba.model.ch;
+import com.baidu.tieba.model.ci;
 import com.baidu.tieba.util.bg;
 /* loaded from: classes.dex */
 public class TiebaSyncService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2336a = null;
+    private static String f2321a = null;
     private r b = null;
     private int c = 0;
-    private ch d = null;
+    private ci d = null;
     private Handler e = new Handler();
     private Runnable f = new q(this);
 
@@ -25,7 +25,7 @@ public class TiebaSyncService extends Service {
     }
 
     public static void a(String str) {
-        f2336a = str;
+        f2321a = str;
     }
 
     @Override // android.app.Service

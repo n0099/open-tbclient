@@ -29,15 +29,15 @@ public final class c {
     public static final int adp_debug_switch_edit_quit = 2130837535;
     public static final int adp_debug_update_package_item = 2130837536;
     public static final int adp_down_arrow = 2130837537;
-    public static final int btn_switch = 2130838285;
-    public static final int btn_switch_1 = 2130838286;
-    public static final int btn_switch_masking = 2130838287;
-    public static final int btn_switch_masking_1 = 2130838288;
-    public static final int btn_switch_masking_sidebar = 2130838289;
-    public static final int icon_gif = 2130838713;
-    public static final int pic_image_h_not = 2130839188;
-    public static final int pic_image_h_not_1 = 2130839189;
-    public static final int pull_icon = 2130839206;
-    public static final int pull_loading = 2130839207;
-    public static final int pull_progressbar = 2130839208;
+    public static final int btn_switch = 2130838272;
+    public static final int btn_switch_1 = 2130838273;
+    public static final int btn_switch_masking = 2130838274;
+    public static final int btn_switch_masking_1 = 2130838275;
+    public static final int btn_switch_masking_sidebar = 2130838276;
+    public static final int icon_gif = 2130838688;
+    public static final int pic_image_h_not = 2130839168;
+    public static final int pic_image_h_not_1 = 2130839169;
+    public static final int pull_icon = 2130839185;
+    public static final int pull_loading = 2130839186;
+    public static final int pull_progressbar = 2130839187;
 }

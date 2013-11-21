@@ -1,51 +1,35 @@
 package com.baidu.tieba.data;
 
 import com.baidu.tieba.util.bg;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1182a = null;
-    private String d = null;
+    private String f1188a = null;
     private String b = null;
-    private int c = 0;
-    private bf e = new bf();
+    private String c = null;
+    private int d = 0;
 
     public String a() {
-        return this.d;
+        return this.f1188a;
     }
 
-    public bf b() {
-        return this.e;
-    }
-
-    public String c() {
+    public String b() {
         return this.b;
     }
 
-    public String d() {
-        return this.f1182a;
-    }
-
-    public int e() {
-        return this.c;
-    }
-
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.f1182a = jSONObject.optString("tid");
-                this.b = jSONObject.optString("title");
-                this.c = jSONObject.optInt("reply_amount", 0);
-                JSONObject optJSONObject = jSONObject.optJSONObject("user");
-                if (optJSONObject != null) {
-                    this.d = optJSONObject.optString("name_show");
-                }
-                this.e.a(jSONObject.optJSONObject("photo"));
-            } catch (Exception e) {
-                bg.b("HotspotData", "parserJson", "error = " + e.getMessage());
-            }
+        try {
+            this.f1188a = jSONObject.getString("title");
+            this.b = jSONObject.getString("title_link");
+            this.c = jSONObject.getString("author");
+            this.d = jSONObject.getInt(LocaleUtil.INDONESIAN);
+            bg.c("TOPNotice:title:" + this.f1188a + " link:" + this.b);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

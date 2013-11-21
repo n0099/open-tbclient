@@ -24,7 +24,7 @@ import java.util.LinkedList;
 public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.OnScrollListener, com.baidu.tieba.im.messageCenter.h, com.baidu.tieba.im.pushNotify.m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1706a = false;
+    public static boolean f1697a = false;
     private n b;
     private AlertDialog c;
     private com.baidu.tieba.im.a<LinkedList<GroupNewsPojo>> d;
@@ -81,7 +81,7 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        f1706a = true;
+        f1697a = true;
         t.a().a(2);
     }
 
@@ -89,26 +89,26 @@ public class UpdatesActivity extends com.baidu.tieba.j implements AbsListView.On
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        f1706a = false;
+        f1697a = false;
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        f1706a = true;
+        f1697a = true;
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        f1706a = true;
+        f1697a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        f1706a = false;
+        f1697a = false;
     }
 
     private void c() {

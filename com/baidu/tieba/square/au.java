@@ -1,23 +1,24 @@
 package com.baidu.tieba.square;
 /* loaded from: classes.dex */
-class au implements Runnable {
+public class au {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareHorizontalScrollView f2390a;
+    protected String f2374a = null;
+    protected String b = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public au(SquareHorizontalScrollView squareHorizontalScrollView) {
-        this.f2390a = squareHorizontalScrollView;
+    public String a() {
+        return this.f2374a;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        av avVar;
-        av avVar2;
-        avVar = this.f2390a.f2367a;
-        if (avVar != null) {
-            avVar2 = this.f2390a.f2367a;
-            avVar2.b(this.f2390a);
-        }
+    public void a(String str) {
+        this.f2374a = str;
+    }
+
+    public String b() {
+        return this.b;
+    }
+
+    public void b(String str) {
+        this.b = str;
     }
 }

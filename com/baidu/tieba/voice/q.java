@@ -8,10 +8,10 @@ import android.os.SystemClock;
 public class q extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RecordVoiceBnt f2633a;
+    final /* synthetic */ RecordVoiceBnt f2616a;
 
     private q(RecordVoiceBnt recordVoiceBnt) {
-        this.f2633a = recordVoiceBnt;
+        this.f2616a = recordVoiceBnt;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,22 +26,22 @@ public class q extends Handler {
         float f2;
         long j2;
         if (message.what == 1) {
-            f = this.f2633a.E;
+            f = this.f2616a.E;
             if (f >= 360.0f) {
-                this.f2633a.E = 360.0f;
-                this.f2633a.C = false;
+                this.f2616a.E = 360.0f;
+                this.f2616a.C = false;
             } else {
                 long uptimeMillis = SystemClock.uptimeMillis();
-                j = this.f2633a.H;
-                this.f2633a.H = uptimeMillis;
-                this.f2633a.I = uptimeMillis + 25;
-                RecordVoiceBnt recordVoiceBnt = this.f2633a;
-                f2 = this.f2633a.D;
+                j = this.f2616a.H;
+                this.f2616a.H = uptimeMillis;
+                this.f2616a.I = uptimeMillis + 25;
+                RecordVoiceBnt recordVoiceBnt = this.f2616a;
+                f2 = this.f2616a.D;
                 RecordVoiceBnt.a(recordVoiceBnt, f2 * (((float) (uptimeMillis - j)) / 1000.0f));
-                j2 = this.f2633a.I;
+                j2 = this.f2616a.I;
                 sendEmptyMessageAtTime(1, j2);
             }
-            this.f2633a.invalidate();
+            this.f2616a.invalidate();
         }
     }
 }

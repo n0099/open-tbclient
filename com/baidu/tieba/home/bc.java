@@ -5,7 +5,7 @@ import android.widget.TextView;
 class bc {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1422a;
+    TextView f1413a;
     final /* synthetic */ ba b;
 
     private bc(ba baVar) {

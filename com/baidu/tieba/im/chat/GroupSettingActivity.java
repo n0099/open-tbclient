@@ -18,7 +18,7 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
     private com.baidu.tieba.im.a<Boolean> f;
 
     /* renamed from: a  reason: collision with root package name */
-    private v f1490a = null;
+    private v f1481a = null;
     private s b = null;
     private com.baidu.tieba.im.model.v d = null;
     private r e = null;
@@ -28,14 +28,14 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1490a = new v(this);
+        this.f1481a = new v(this);
         this.b = new s();
         this.c = new com.baidu.tieba.im.model.x();
         a();
-        this.f1490a.a(this.b.a());
-        this.f1490a.a(this.g);
-        this.f1490a.b(a(this.b.e()));
-        this.f1490a.e();
+        this.f1481a.a(this.b.a());
+        this.f1481a.a(this.g);
+        this.f1481a.b(a(this.b.e()));
+        this.f1481a.e();
         this.f = new n(this);
         this.b.a(this.f);
         b();
@@ -55,13 +55,13 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
             String stringExtra2 = intent.getStringExtra("intent_data_group_id");
             int intExtra = intent.getIntExtra("intent_data_group_flag", 0);
             if (intent.getBooleanExtra("intent_data_is_group_master", false)) {
-                this.f1490a.n();
-                this.f1490a.q();
-                this.f1490a.a(true);
+                this.f1481a.n();
+                this.f1481a.q();
+                this.f1481a.a(true);
             } else {
-                this.f1490a.o();
-                this.f1490a.p();
-                this.f1490a.a(false);
+                this.f1481a.o();
+                this.f1481a.p();
+                this.f1481a.a(false);
             }
             this.b.a(stringExtra2, stringExtra, intExtra);
         }
@@ -71,7 +71,7 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1490a.a(i);
+        this.f1481a.a(i);
     }
 
     public static void a(Activity activity, int i, String str, String str2, boolean z, int i2) {
@@ -95,13 +95,13 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (view.equals(this.f1490a.f())) {
+            if (view.equals(this.f1481a.f())) {
                 UpdateGroupActivity.a(this, 1, Integer.parseInt(this.b.c()), 1, this.b.a());
-            } else if (view.equals(this.f1490a.g())) {
-                this.f1490a.i();
-            } else if (view.equals(this.f1490a.h())) {
-                this.f1490a.k();
-            } else if (view.equals(this.f1490a.a())) {
+            } else if (view.equals(this.f1481a.g())) {
+                this.f1481a.i();
+            } else if (view.equals(this.f1481a.h())) {
+                this.f1481a.k();
+            } else if (view.equals(this.f1481a.a())) {
                 finish();
             }
         }
@@ -118,15 +118,15 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (view != null) {
-            if (view.equals(this.f1490a.h())) {
-                this.f1490a.k();
-            } else if (view.equals(this.f1490a.s())) {
+            if (view.equals(this.f1481a.h())) {
+                this.f1481a.k();
+            } else if (view.equals(this.f1481a.s())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     this.b.a(true);
                 } else {
                     this.b.a(false);
                 }
-            } else if (view.equals(this.f1490a.r())) {
+            } else if (view.equals(this.f1481a.r())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
                     b(a(this.b.e(), true));
                 } else {
@@ -149,7 +149,7 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
             this.c.a(this.b.d());
             this.c.a(i);
             this.c.b(5);
-            this.f1490a.m();
+            this.f1481a.m();
         }
     }
 
@@ -159,20 +159,20 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
             ResponsedMessage responsedMessage = (ResponsedMessage) message;
             if (message.getCmd() == 103112) {
                 if (responsedMessage.hasError()) {
-                    this.f1490a.l();
+                    this.f1481a.l();
                     showToast(R.string.neterror);
                     return;
                 }
-                this.f1490a.l();
+                this.f1481a.l();
                 showToast(R.string.group_quit_suc);
                 com.baidu.tieba.im.m.a(new o(this), new p(this));
             } else if (message.getCmd() == 103102) {
                 if (responsedMessage.hasError()) {
-                    this.f1490a.l();
+                    this.f1481a.l();
                     showToast(responsedMessage.getErrMsg());
                     return;
                 }
-                this.f1490a.l();
+                this.f1481a.l();
                 showToast(R.string.group_add_group_switch_success);
                 this.b.a(this.c.f());
             }
@@ -192,8 +192,8 @@ public class GroupSettingActivity extends com.baidu.tieba.j implements com.baidu
 
     @Override // com.baidu.adp.a.a, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
-        if (dialogInterface != null && dialogInterface == this.f1490a.j()) {
-            this.f1490a.m();
+        if (dialogInterface != null && dialogInterface == this.f1481a.j()) {
+            this.f1481a.m();
             this.b.a(Long.parseLong(this.b.c()));
         }
     }

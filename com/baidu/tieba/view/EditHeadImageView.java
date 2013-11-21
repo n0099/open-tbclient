@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.slidingmenu.lib.R;
 import com.tencent.mm.sdk.contact.RContact;
@@ -95,7 +94,7 @@ public class EditHeadImageView extends k {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
                 Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.d, getWidth(), getWidth());
-                bitmap = i == 0 ? Bitmap.createScaledBitmap(createBitmap, SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN, SocialAPIErrorCodes.ERROR_MISS_ACCESS_TOKEN, false) : createBitmap;
+                bitmap = i == 0 ? createBitmap : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
                 }

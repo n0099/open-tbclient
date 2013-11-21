@@ -14,7 +14,7 @@ import com.slidingmenu.lib.R;
 public class d extends e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected NavigationBar f1674a;
+    protected NavigationBar f1665a;
     protected View c;
     private GroupCardActivity d;
     private LinearLayout e;
@@ -46,7 +46,7 @@ public class d extends e {
         this.o = null;
         this.p = null;
         this.q = null;
-        this.f1674a = null;
+        this.f1665a = null;
         this.c = null;
         this.d = groupCardActivity;
         l();
@@ -55,9 +55,9 @@ public class d extends e {
     private void l() {
         this.d.setContentView(R.layout.group_card_activity);
         this.c = this.d.findViewById(R.id.parent);
-        this.f1674a = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
-        this.f1674a.a(this.d.getResources().getString(R.string.group_card_name));
-        this.i = this.f1674a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f1665a = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
+        this.f1665a.a(this.d.getResources().getString(R.string.group_card_name));
+        this.i = this.f1665a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.i.setOnClickListener(this.d);
         this.e = (LinearLayout) this.d.findViewById(R.id.groud_card_save);
         this.e.setOnClickListener(this.d);
@@ -72,7 +72,7 @@ public class d extends e {
     public void a(int i) {
         this.d.getLayoutMode().a(false);
         this.d.getLayoutMode().a(this.c);
-        this.f1674a.c(0);
+        this.f1665a.c(0);
         bd.b(this.c, 0);
     }
 
@@ -118,7 +118,7 @@ public class d extends e {
     }
 
     public View j() {
-        return this.f1674a;
+        return this.f1665a;
     }
 
     public LinearLayout k() {

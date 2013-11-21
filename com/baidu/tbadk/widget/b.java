@@ -17,11 +17,6 @@ public class b extends TbImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.widget.ImageView.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        if (!getIsLoaded() && g()) {
-            e();
-            return;
-        }
-        f();
         super.onDraw(canvas);
     }
 
@@ -36,7 +31,7 @@ public class b extends TbImageView {
         setTag(null);
         a listViewActivity = getListViewActivity();
         if (listViewActivity != null) {
-            listViewActivity.b(this);
+            listViewActivity.a(this);
         }
     }
 
@@ -46,27 +41,5 @@ public class b extends TbImageView {
             return (a) context;
         }
         return null;
-    }
-
-    public void e() {
-        a listViewActivity = getListViewActivity();
-        if (listViewActivity != null) {
-            listViewActivity.a(this);
-        }
-    }
-
-    public void f() {
-        a listViewActivity = getListViewActivity();
-        if (listViewActivity != null) {
-            listViewActivity.b(this);
-        }
-    }
-
-    public boolean g() {
-        Context context = getContext();
-        if (!(context instanceof a)) {
-            return false;
-        }
-        return ((a) context).d_();
     }
 }

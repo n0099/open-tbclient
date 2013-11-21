@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 public class TbFaceManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static TbFaceManager f974a = null;
+    private static TbFaceManager f975a = null;
     private Context b = null;
     private a c = null;
 
@@ -25,10 +25,10 @@ public class TbFaceManager {
     }
 
     public static TbFaceManager a() {
-        if (f974a == null) {
-            f974a = new TbFaceManager();
+        if (f975a == null) {
+            f975a = new TbFaceManager();
         }
-        return f974a;
+        return f975a;
     }
 
     private TbFaceManager() {

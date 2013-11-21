@@ -14,7 +14,7 @@ import com.baidu.tieba.voice.PlayVoiceBnt;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1312a;
+    LinearLayout f1317a;
     LinearLayout b;
     RelativeLayout c;
     TextView d;

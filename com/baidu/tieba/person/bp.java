@@ -9,7 +9,7 @@ import android.widget.TextView;
 class bp {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f2245a;
+    ImageView f2230a;
     LinearLayout b;
     TextView c;
     TextView d;

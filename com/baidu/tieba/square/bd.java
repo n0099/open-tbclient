@@ -1,22 +1,28 @@
 package com.baidu.tieba.square;
 
-import android.app.AlertDialog;
-import android.view.View;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.DialogInterface;
+import com.baidu.tieba.util.DatabaseService;
 /* loaded from: classes.dex */
-public class bd implements View.OnClickListener {
+class bd implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2398a;
+    final /* synthetic */ bb f2383a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(SquareSearchActivity squareSearchActivity) {
-        this.f2398a = squareSearchActivity;
+    public bd(bb bbVar) {
+        this.f2383a = bbVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        new AlertDialog.Builder(this.f2398a).setTitle("提醒").setIcon(R.drawable.dialogue_quit).setMessage("确认清除搜索记录？").setPositiveButton("确认", new bf(this)).setNegativeButton("取消", new be(this)).create().show();
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        int i2;
+        i2 = this.f2383a.f2381a.C;
+        if (i2 == 0) {
+            DatabaseService.q();
+            this.f2383a.f2381a.f();
+            return;
+        }
+        DatabaseService.r();
+        this.f2383a.f2381a.h();
     }
 }

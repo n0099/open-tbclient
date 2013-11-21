@@ -12,7 +12,7 @@ public class r {
     private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private af f1206a = new af();
+    private ae f1211a = new ae();
 
     public r() {
         this.b = true;
@@ -51,8 +51,8 @@ public class r {
             this.e = jSONObject.optInt("msign_level");
             this.f = jSONObject.optString("msign_text");
             JSONArray optJSONArray = jSONObject.optJSONArray("like_forum");
-            this.f1206a.a(this.e);
-            this.f1206a.a(optJSONArray);
+            this.f1211a.a(this.e);
+            this.f1211a.a(optJSONArray);
             this.c = jSONObject.optLong("time");
         } catch (Exception e) {
             this.b = false;
@@ -60,8 +60,8 @@ public class r {
         }
     }
 
-    public af d() {
-        return this.f1206a;
+    public ae d() {
+        return this.f1211a;
     }
 
     public void a(boolean z) {
@@ -77,8 +77,8 @@ public class r {
     }
 
     public boolean g() {
-        if (this.f1206a != null) {
-            return this.f1206a.b();
+        if (this.f1211a != null) {
+            return this.f1211a.b();
         }
         return false;
     }

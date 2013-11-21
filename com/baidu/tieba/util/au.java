@@ -8,11 +8,11 @@ import java.net.HttpURLConnection;
 public class au implements com.baidu.adp.lib.network.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkCoreByBdHttp f2490a;
+    final /* synthetic */ NetWorkCoreByBdHttp f2473a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.f2490a = netWorkCoreByBdHttp;
+        this.f2473a = netWorkCoreByBdHttp;
     }
 
     @Override // com.baidu.adp.lib.network.c
@@ -27,7 +27,7 @@ public class au implements com.baidu.adp.lib.network.c {
                     if (headerField != null && headerField.length() > 0) {
                         z = true;
                     }
-                    azVar = this.f2490a.d;
+                    azVar = this.f2473a.d;
                     if (azVar.h || z) {
                         byte[] bArr = new byte[23];
                         int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
@@ -36,15 +36,15 @@ public class au implements com.baidu.adp.lib.network.c {
                         }
                     }
                     if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
-                        this.f2490a.f = true;
-                        i2 = this.f2490a.i;
+                        this.f2473a.f = true;
+                        i2 = this.f2473a.i;
                         if (i2 == 1) {
-                            this.f2490a.i = 2;
+                            this.f2473a.i = 2;
                             return;
                         }
                         return;
                     }
-                    this.f2490a.f = false;
+                    this.f2473a.f = false;
                 }
             } catch (IOException e) {
                 e.printStackTrace();

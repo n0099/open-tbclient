@@ -1,28 +1,32 @@
 package com.baidu.tieba.pb;
 
-import android.view.View;
-import com.baidu.tieba.view.PbListView;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class du implements View.OnClickListener {
+public class du implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cp f2153a;
+    final /* synthetic */ ImageView f2136a;
+    final /* synthetic */ cr b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public du(cp cpVar) {
-        this.f2153a = cpVar;
+    public du(cr crVar, ImageView imageView) {
+        this.b = crVar;
+        this.f2136a = imageView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbListView pbListView;
-        boolean z;
-        pbListView = this.f2153a.aq;
-        pbListView.c();
-        bu buVar = this.f2153a.f;
-        z = this.f2153a.ar;
-        buVar.a(z);
-        this.f2153a.ai();
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        new Handler().post(new dv(this));
     }
 }

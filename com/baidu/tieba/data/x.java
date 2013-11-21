@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<MetaData> f1212a = new ArrayList<>();
+    private ArrayList<MetaData> f1217a = new ArrayList<>();
     private HashMap<String, String> b = null;
 
     public void a(JSONObject jSONObject, boolean z) {
@@ -30,7 +30,7 @@ public class x {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (metaData.getName_show() != null) {
-                        this.f1212a.add(metaData);
+                        this.f1217a.add(metaData);
                         if (z) {
                             this.b.put(metaData.getName_show(), metaData.getPortrait());
                         }
@@ -49,7 +49,7 @@ public class x {
     }
 
     public ArrayList<MetaData> a() {
-        return this.f1212a;
+        return this.f1217a;
     }
 
     public HashMap<String, String> b() {

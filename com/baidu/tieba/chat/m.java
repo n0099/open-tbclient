@@ -27,7 +27,7 @@ import org.json.JSONException;
 public class m extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1139a;
+    private Context f1145a;
     private com.baidu.tieba.util.i h;
     private ChatListFragment b = null;
     private boolean c = false;
@@ -39,10 +39,10 @@ public class m extends BaseAdapter {
     private ArrayList<ProgressBar> g = new ArrayList<>();
 
     public m(Context context) {
-        this.f1139a = null;
+        this.f1145a = null;
         this.h = null;
-        this.f1139a = context;
-        this.h = new com.baidu.tieba.util.i(this.f1139a);
+        this.f1145a = context;
+        this.h = new com.baidu.tieba.util.i(this.f1145a);
         this.h.d(true);
     }
 
@@ -125,7 +125,7 @@ public class m extends BaseAdapter {
             oVar2 = (o) view.getTag();
         }
         if (oVar2 == null) {
-            view2 = LayoutInflater.from(this.f1139a).inflate(R.layout.chat_list_item, viewGroup, false);
+            view2 = LayoutInflater.from(this.f1145a).inflate(R.layout.chat_list_item, viewGroup, false);
             o a2 = a(view2);
             view2.setTag(a2);
             this.g.add(a2.j);
@@ -241,7 +241,7 @@ public class m extends BaseAdapter {
         if (String.valueOf(2).equals(recentChatFriendData.getOwnerName())) {
             oVar.e.setText(recentChatFriendData.getMsgContent());
         } else if (String.valueOf(3).equals(recentChatFriendData.getOwnerName())) {
-            oVar.d.setText(this.f1139a.getString(R.string.updates_activity_title));
+            oVar.d.setText(this.f1145a.getString(R.string.updates_activity_title));
             oVar.e.setText(recentChatFriendData.getMsgContent());
         } else if (String.valueOf(1).equals(recentChatFriendData.getOwnerName())) {
             oVar.e.setText(recentChatFriendData.getMsgContent());
@@ -301,7 +301,7 @@ public class m extends BaseAdapter {
                 oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_more_1);
                 oVar.g.setText("");
             }
-            oVar.g.setTextColor(this.f1139a.getResources().getColor(R.color.top_msg_num_night));
+            oVar.g.setTextColor(this.f1145a.getResources().getColor(R.color.top_msg_num_night));
             return;
         }
         oVar.d.setTextColor(-14277082);
@@ -315,7 +315,7 @@ public class m extends BaseAdapter {
             oVar.g.setBackgroundResource(R.drawable.icon_news_head_prompt_more);
             oVar.g.setText("");
         }
-        oVar.g.setTextColor(this.f1139a.getResources().getColor(R.color.top_msg_num_day));
+        oVar.g.setTextColor(this.f1145a.getResources().getColor(R.color.top_msg_num_day));
     }
 
     private void c(o oVar, RecentChatFriendData recentChatFriendData) {
@@ -395,7 +395,7 @@ public class m extends BaseAdapter {
 
     private o a(View view) {
         o oVar = new o(this);
-        oVar.f1140a = (ViewGroup) view.findViewById(R.id.chat_item);
+        oVar.f1146a = (ViewGroup) view.findViewById(R.id.chat_item);
         oVar.b = (ViewGroup) view.findViewById(R.id.list_content);
         oVar.c = (HeadImageView) view.findViewById(R.id.chat_head);
         oVar.d = (TextView) view.findViewById(R.id.chat_name);

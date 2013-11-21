@@ -14,12 +14,12 @@ import com.baidu.tieba.view.BaseWebView;
 public class r extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ CommonWebviewActivity f2297a;
+    final /* synthetic */ CommonWebviewActivity f2282a;
     private com.baidu.tieba.util.ap b;
     private String c;
 
     private r(CommonWebviewActivity commonWebviewActivity) {
-        this.f2297a = commonWebviewActivity;
+        this.f2282a = commonWebviewActivity;
         this.b = null;
     }
 
@@ -43,14 +43,14 @@ public class r extends BdAsyncTask<Object, Integer, String> {
         String str3;
         String str4;
         long j;
-        str = this.f2297a.b;
+        str = this.f2282a.b;
         this.b = new com.baidu.tieba.util.ap(str);
         this.b.b(false);
         if (TiebaApplication.g().ap() == 1) {
             this.b.a("night_type", SocialConstants.TRUE);
         }
         com.baidu.tieba.util.ap apVar = this.b;
-        str2 = this.f2297a.s;
+        str2 = this.f2282a.s;
         apVar.a("pn", str2);
         this.b.a("_version_more", SocialConstants.TRUE);
         this.b.a("platform", SocialConstants.ANDROID_CLIENT_TYPE);
@@ -62,17 +62,17 @@ public class r extends BdAsyncTask<Object, Integer, String> {
             j = CommonWebviewActivity.r;
             apVar2.a("message_id", String.valueOf(j));
         }
-        Address aN = TiebaApplication.g().aN();
-        if (aN != null && TiebaApplication.g().t()) {
-            this.b.a("lbs", String.valueOf(aN.getLatitude()) + "," + String.valueOf(aN.getLongitude()));
+        Address aP = TiebaApplication.g().aP();
+        if (aP != null && TiebaApplication.g().t()) {
+            this.b.a("lbs", String.valueOf(aP.getLatitude()) + "," + String.valueOf(aP.getLongitude()));
         }
         try {
-            str3 = this.f2297a.t;
+            str3 = this.f2282a.t;
         } catch (Exception e) {
             bg.b("ContentAsyncTask", "doInBackground", "error = " + e.getMessage());
         }
         if (str3 != null) {
-            str4 = this.f2297a.t;
+            str4 = this.f2282a.t;
             if (str4.equals("get")) {
                 this.c = this.b.k();
                 if (this.b.d()) {
@@ -92,7 +92,7 @@ public class r extends BdAsyncTask<Object, Integer, String> {
         if (this.b != null) {
             this.b.h();
         }
-        this.f2297a.p = false;
+        this.f2282a.p = false;
         super.cancel(true);
     }
 
@@ -108,27 +108,27 @@ public class r extends BdAsyncTask<Object, Integer, String> {
         BaseWebView baseWebView2;
         TextView textView2;
         BaseWebView baseWebView3;
-        this.f2297a.k = null;
-        linearLayout = this.f2297a.j;
+        this.f2282a.k = null;
+        linearLayout = this.f2282a.j;
         linearLayout.setOnClickListener(null);
         if (this.b == null || !this.b.d() || str == null || str.length() <= 0) {
-            this.f2297a.m = false;
-            textView = this.f2297a.n;
+            this.f2282a.m = false;
+            textView = this.f2282a.n;
             textView.setVisibility(0);
-            baseWebView = this.f2297a.h;
+            baseWebView = this.f2282a.h;
             baseWebView.setVisibility(8);
-            linearLayout2 = this.f2297a.j;
-            onClickListener = this.f2297a.v;
+            linearLayout2 = this.f2282a.j;
+            onClickListener = this.f2282a.v;
             linearLayout2.setOnClickListener(onClickListener);
         } else {
-            baseWebView2 = this.f2297a.h;
-            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.h.f1196a, str, "text/html", BdUtil.UTF8, "");
-            textView2 = this.f2297a.n;
+            baseWebView2 = this.f2282a.h;
+            baseWebView2.loadDataWithBaseURL(com.baidu.tieba.data.h.f1201a, str, "text/html", BdUtil.UTF8, "");
+            textView2 = this.f2282a.n;
             textView2.setVisibility(8);
-            baseWebView3 = this.f2297a.h;
+            baseWebView3 = this.f2282a.h;
             baseWebView3.setVisibility(0);
         }
-        this.f2297a.l = true;
-        this.f2297a.e();
+        this.f2282a.l = true;
+        this.f2282a.e();
     }
 }

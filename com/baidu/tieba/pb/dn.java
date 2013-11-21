@@ -1,29 +1,36 @@
 package com.baidu.tieba.pb;
-
-import android.util.SparseArray;
-import android.view.View;
-import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dn implements View.OnClickListener {
+public class dn implements com.baidu.tieba.view.ao {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cp f2146a;
+    final /* synthetic */ cr f2129a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dn(cp cpVar) {
-        this.f2146a = cpVar;
+    public dn(cr crVar) {
+        this.f2129a = crVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            if (!"".equals(sparseArray.get(R.id.tag_forbid_user_name)) && !"".equals(sparseArray.get(R.id.tag_del_post_id))) {
-                this.f2146a.a(view);
-            } else {
-                this.f2146a.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
-            }
+    @Override // com.baidu.tieba.view.ao
+    public void a(int i) {
+        ed edVar;
+        PbEditor pbEditor;
+        if (!this.f2129a.x()) {
+            pbEditor = this.f2129a.an;
+            pbEditor.a(i);
+        } else {
+            edVar = this.f2129a.q;
+            edVar.a(i);
+        }
+        switch (i) {
+            case 0:
+                this.f2129a.ae = true;
+                return;
+            case 1:
+                this.f2129a.ae = false;
+                return;
+            default:
+                return;
         }
     }
 }

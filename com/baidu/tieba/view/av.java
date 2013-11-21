@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class av implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NavigationBar f2568a;
+    final /* synthetic */ NavigationBar f2551a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(NavigationBar navigationBar) {
-        this.f2568a = navigationBar;
+        this.f2551a = navigationBar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,15 +20,15 @@ class av implements View.OnClickListener {
         boolean z;
         Activity activity;
         Activity activity2;
-        z = this.f2568a.f2543a;
+        z = this.f2551a.f2526a;
         if (z) {
             switch (view.getId()) {
-                case R.id.navigationBarGoBack /* 2131100945 */:
-                    activity2 = this.f2568a.f;
+                case R.id.navigationBarGoBack /* 2131100933 */:
+                    activity2 = this.f2551a.f;
                     activity2.finish();
                     return;
-                case R.id.navigationBarHome /* 2131100946 */:
-                    activity = this.f2568a.f;
+                case R.id.navigationBarHome /* 2131100934 */:
+                    activity = this.f2551a.f;
                     MainTabActivity.a(activity);
                     return;
                 default:

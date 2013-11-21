@@ -10,12 +10,12 @@ import com.slidingmenu.lib.R;
 public class q extends BdAsyncTask<Void, Void, ForumListModel> {
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f1259a;
+    boolean f1264a;
     final /* synthetic */ ForumListActivity b;
 
     private q(ForumListActivity forumListActivity) {
         this.b = forumListActivity;
-        this.f1259a = false;
+        this.f1264a = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,7 +24,7 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
     }
 
     public void a(boolean z) {
-        this.f1259a = z;
+        this.f1264a = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -95,7 +95,7 @@ public class q extends BdAsyncTask<Void, Void, ForumListModel> {
             }
         } else {
             this.b.showToast(this.b.getString(R.string.neterror));
-            if (!this.f1259a) {
+            if (!this.f1264a) {
                 i = this.b.o;
                 if (i == 200) {
                     this.b.c.o.setText(this.b.getString(R.string.flist_expand_list));

@@ -5,23 +5,23 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.util.af;
-import com.baidu.tieba.write.bc;
+import com.baidu.tieba.write.bd;
 import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2352a;
+    int f2337a;
     Uri b;
     String c = null;
     final /* synthetic */ TiebaPrepareImageService d;
 
     public p(TiebaPrepareImageService tiebaPrepareImageService, int i, Uri uri) {
         this.d = tiebaPrepareImageService;
-        this.f2352a = 0;
+        this.f2337a = 0;
         this.b = null;
-        this.f2352a = i;
+        this.f2337a = i;
         this.b = uri;
     }
 
@@ -35,17 +35,17 @@ public class p extends BdAsyncTask<Object, Integer, Boolean> {
         int i2;
         boolean z = true;
         boolean z2 = false;
-        TiebaPrepareImageService.f2335a = true;
+        TiebaPrepareImageService.f2320a = true;
         try {
-            int i3 = this.f2352a;
+            int i3 = this.f2337a;
             TiebaPrepareImageService tiebaPrepareImageService = this.d;
             Uri uri = this.b;
             i = this.d.f;
-            a2 = bc.a(i3, tiebaPrepareImageService, uri, i);
+            a2 = bd.a(i3, tiebaPrepareImageService, uri, i);
         } catch (Exception e) {
-            TiebaPrepareImageService.f2335a = false;
+            TiebaPrepareImageService.f2320a = false;
         } catch (Throwable th) {
-            TiebaPrepareImageService.f2335a = false;
+            TiebaPrepareImageService.f2320a = false;
             throw th;
         }
         if (a2 != null) {
@@ -63,13 +63,13 @@ public class p extends BdAsyncTask<Object, Integer, Boolean> {
                 this.c = this.d.getString(R.string.error_sd_error);
                 z = false;
             }
-            TiebaPrepareImageService.f2335a = false;
+            TiebaPrepareImageService.f2320a = false;
             z2 = z;
             return Boolean.valueOf(z2);
         }
         this.c = this.d.getString(R.string.pic_parser_error);
         z = false;
-        TiebaPrepareImageService.f2335a = false;
+        TiebaPrepareImageService.f2320a = false;
         z2 = z;
         return Boolean.valueOf(z2);
     }

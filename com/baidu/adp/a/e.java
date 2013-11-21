@@ -27,7 +27,7 @@ public class e {
         this.f400a = inputMethodManager;
     }
 
-    public InputMethodManager h_() {
+    public InputMethodManager g_() {
         if (this.f400a == null) {
             this.f400a = (InputMethodManager) this.b.getSystemService("input_method");
         }
@@ -46,7 +46,7 @@ public class e {
 
     public void b(View view) {
         try {
-            h_().showSoftInput(view, 0);
+            g_().showSoftInput(view, 0);
         } catch (Exception e) {
             com.baidu.adp.lib.h.d.b(getClass().getName(), "ShowSoftKeyPad", "error = " + e.getMessage());
         }

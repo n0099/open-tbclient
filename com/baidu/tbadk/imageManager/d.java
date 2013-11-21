@@ -3,12 +3,12 @@ package com.baidu.tbadk.imageManager;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static d f976a = new d();
+    private static d f977a = new d();
     private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> b;
     private com.baidu.adp.lib.d.a<String, com.baidu.adp.widget.ImageView.e> c;
 
     public static d a() {
-        return f976a;
+        return f977a;
     }
 
     private d() {

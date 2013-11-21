@@ -1,32 +1,35 @@
 package com.baidu.tieba.pb;
 
-import android.widget.ImageView;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.widget.EditText;
+import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class di implements com.baidu.tbadk.imageManager.c {
+public class di implements DialogInterface.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cp f2141a;
+    final /* synthetic */ cr f2124a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public di(cp cpVar) {
-        this.f2141a = cpVar;
+    public di(cr crVar) {
+        this.f2124a = crVar;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        BdListView bdListView;
-        BdListView bdListView2;
-        if (eVar != null) {
-            bdListView = this.f2141a.i;
-            ImageView imageView = (ImageView) bdListView.findViewWithTag(str);
-            while (imageView != null) {
-                imageView.setTag(null);
-                imageView.setImageBitmap(eVar.f());
-                bdListView2 = this.f2141a.i;
-                imageView = (ImageView) bdListView2.findViewWithTag(str);
-            }
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        NewPbActivity newPbActivity;
+        EditText editText;
+        Dialog dialog;
+        if (i == 4) {
+            newPbActivity = this.f2124a.g;
+            editText = this.f2124a.s;
+            UtilHelper.a(newPbActivity, editText);
+            dialog = this.f2124a.o;
+            dialog.dismiss();
+            return true;
         }
+        return false;
     }
 }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class DailyRecommendBannerPagerAdapter extends ae implements ah {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<View> f2300a = new ArrayList<>();
+    ArrayList<View> f2285a = new ArrayList<>();
     public int b;
     public int c;
     Activity d;
@@ -37,17 +37,17 @@ public class DailyRecommendBannerPagerAdapter extends ae implements ah {
 
     @Override // android.support.v4.view.ae
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.f2300a.get(i));
+        viewGroup.removeView(this.f2285a.get(i));
     }
 
     private void a(ArrayList<com.baidu.tieba.data.n> arrayList) {
         this.f = arrayList;
         if (arrayList != null && arrayList.size() > 0) {
-            this.f2300a.add(a(arrayList.get(arrayList.size() - 1)));
+            this.f2285a.add(a(arrayList.get(arrayList.size() - 1)));
             for (int i = 0; i < arrayList.size(); i++) {
-                this.f2300a.add(a(arrayList.get(i)));
+                this.f2285a.add(a(arrayList.get(i)));
             }
-            this.f2300a.add(a(arrayList.get(0)));
+            this.f2285a.add(a(arrayList.get(0)));
             notifyDataSetChanged();
         }
     }
@@ -67,13 +67,13 @@ public class DailyRecommendBannerPagerAdapter extends ae implements ah {
 
     @Override // android.support.v4.view.ae
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        viewGroup.addView(this.f2300a.get(i));
-        return this.f2300a.get(i);
+        viewGroup.addView(this.f2285a.get(i));
+        return this.f2285a.get(i);
     }
 
     @Override // android.support.v4.view.ae
     public int getCount() {
-        return this.f2300a.size();
+        return this.f2285a.size();
     }
 
     @Override // android.support.v4.view.ae

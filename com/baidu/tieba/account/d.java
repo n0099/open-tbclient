@@ -9,10 +9,10 @@ import com.baidu.tieba.util.bg;
 public class d implements ILoginShareListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1062a;
+    final /* synthetic */ a f1065a;
 
     private d(a aVar) {
-        this.f1062a = aVar;
+        this.f1065a = aVar;
     }
 
     @Override // com.baidu.loginshare.ILoginShareListener
@@ -28,13 +28,13 @@ public class d implements ILoginShareListener {
             if (loginShareEvent == LoginShareEvent.VALID) {
                 if (str2 != null && str3 != null) {
                     bg.e(getClass().getName(), "onLoginShareEvent", "login");
-                    this.f1062a.a(true, str2, str3, str);
+                    this.f1065a.a(true, str2, str3, str);
                     return;
                 }
                 return;
             }
             bg.e(getClass().getName(), "onLoginShareEvent", "logout");
-            this.f1062a.a(false, null, null, null);
+            this.f1065a.a(false, null, null, null);
         }
     }
 }

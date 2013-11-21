@@ -1,44 +1,35 @@
 package com.baidu.tieba;
 
-import android.support.v4.view.bq;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.content.Intent;
+import android.view.View;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.service.DealIntentService;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
-class x implements bq {
+class x implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GuideActivity f2726a;
+    final /* synthetic */ GuideActivity f2710a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(GuideActivity guideActivity) {
-        this.f2726a = guideActivity;
+        this.f2710a = guideActivity;
     }
 
-    @Override // android.support.v4.view.bq
-    public void onPageSelected(int i) {
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        linearLayout = this.f2726a.k;
-        int childCount = linearLayout.getChildCount();
-        if (i < childCount) {
-            for (int i2 = 0; i2 < childCount; i2++) {
-                linearLayout2 = this.f2726a.k;
-                ImageView imageView = (ImageView) linearLayout2.getChildAt(i2);
-                if (i2 != i) {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_click);
-                } else {
-                    imageView.setBackgroundResource(R.drawable.tag_page_rb_normal);
-                }
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        str = this.f2710a.m;
+        if (str.equals(GuideActivity.f1000a)) {
+            Intent intent = new Intent(this.f2710a, DealIntentService.class);
+            intent.putExtra("class", 2);
+            intent.putExtra("fname", this.f2710a.getString(R.string.guide_ten_years));
+            intent.putExtra("from", "guide_ten_year");
+            TiebaApplication.a(intent);
+            this.f2710a.setResult(-1);
+        } else {
+            FrsActivity.a(this.f2710a, this.f2710a.getString(R.string.guide_ten_years), "guide_ten_year");
         }
-    }
-
-    @Override // android.support.v4.view.bq
-    public void onPageScrollStateChanged(int i) {
-    }
-
-    @Override // android.support.v4.view.bq
-    public void onPageScrolled(int i, float f, int i2) {
+        this.f2710a.closeActivity();
     }
 }

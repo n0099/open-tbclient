@@ -7,17 +7,17 @@ import android.content.DialogInterface;
 public class bj implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignAllForumActivity f1428a;
+    final /* synthetic */ SignAllForumActivity f1419a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bj(SignAllForumActivity signAllForumActivity) {
-        this.f1428a = signAllForumActivity;
+        this.f1419a = signAllForumActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         AlertDialog alertDialog;
-        alertDialog = this.f1428a.c;
+        alertDialog = this.f1419a.c;
         alertDialog.dismiss();
     }
 }

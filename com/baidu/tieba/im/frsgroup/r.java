@@ -12,11 +12,11 @@ import java.util.List;
 class r implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MembersActivity f1661a;
+    final /* synthetic */ MembersActivity f1652a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(MembersActivity membersActivity) {
-        this.f1661a = membersActivity;
+        this.f1652a = membersActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
@@ -30,11 +30,11 @@ class r implements com.baidu.tieba.im.messageCenter.h {
         com.baidu.tieba.im.model.h hVar3;
         com.baidu.tieba.im.model.h hVar4;
         boolean i3;
-        aaVar = this.f1661a.f1641a;
+        aaVar = this.f1652a.f1632a;
         w i4 = aaVar.i();
-        this.f1661a.h();
+        this.f1652a.h();
         if (message == null || !(message instanceof ResponseMembersMessage)) {
-            this.f1661a.showToast(R.string.neterror);
+            this.f1652a.showToast(R.string.neterror);
             return;
         }
         ResponseMembersMessage responseMembersMessage = (ResponseMembersMessage) message;
@@ -44,50 +44,50 @@ class r implements com.baidu.tieba.im.messageCenter.h {
         } else {
             requestMembersMessage = (RequestMembersMessage) orginalMessage;
         }
-        hVar = this.f1661a.b;
+        hVar = this.f1652a.b;
         hVar.a(requestMembersMessage);
         if (responseMembersMessage.hasError()) {
             if (responseMembersMessage.getErrNo() > 0) {
                 if (!TextUtils.isEmpty(responseMembersMessage.getErrMsg())) {
-                    this.f1661a.showToast(responseMembersMessage.getErrMsg());
+                    this.f1652a.showToast(responseMembersMessage.getErrMsg());
                     return;
                 }
                 return;
             }
-            this.f1661a.showToast(R.string.neterror);
+            this.f1652a.showToast(R.string.neterror);
             return;
         }
         MembersData membersData = responseMembersMessage.getMembersData();
         List<UserData> users = membersData.getUsers();
         if (users != null) {
-            i = this.f1661a.i();
+            i = this.f1652a.i();
             if (i) {
-                this.f1661a.a(membersData.getPermission());
+                this.f1652a.a(membersData.getPermission());
             }
-            i2 = this.f1661a.i();
+            i2 = this.f1652a.i();
             if (i2) {
                 i4.a(true);
             }
             int size = users.size();
-            hVar2 = this.f1661a.b;
+            hVar2 = this.f1652a.b;
             if (size != hVar2.f()) {
                 i4.b(false);
                 i4.c(false);
-                i3 = this.f1661a.i();
+                i3 = this.f1652a.i();
                 if (i3 && users.size() == 0) {
-                    this.f1661a.j();
+                    this.f1652a.j();
                     return;
                 }
             } else {
                 i4.c(true);
             }
-            hVar3 = this.f1661a.b;
+            hVar3 = this.f1652a.b;
             hVar3.c(users.size());
-            hVar4 = this.f1661a.b;
+            hVar4 = this.f1652a.b;
             hVar4.d(20);
             i4.a(users);
             i4.notifyDataSetChanged();
-            this.f1661a.c();
+            this.f1652a.c();
         }
     }
 }

@@ -8,24 +8,24 @@ import javassist.bytecode.z;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    y f2788a;
+    y f2772a;
     int b;
     LinkedHashMap c = null;
 
     public a(int i, y yVar) {
-        this.f2788a = yVar;
+        this.f2772a = yVar;
         this.b = i;
     }
 
     public void a(int i, d dVar) {
         b bVar = new b();
-        bVar.f2789a = i;
+        bVar.f2773a = i;
         bVar.b = dVar;
         a(bVar);
     }
 
     private void a(b bVar) {
-        String w = this.f2788a.w(bVar.f2789a);
+        String w = this.f2772a.w(bVar.f2773a);
         if (this.c == null) {
             this.c = new LinkedHashMap();
         }
@@ -51,7 +51,7 @@ public class a {
     }
 
     public String a() {
-        return z.c(this.f2788a.w(this.b));
+        return z.c(this.f2772a.w(this.b));
     }
 
     public d a(String str) {

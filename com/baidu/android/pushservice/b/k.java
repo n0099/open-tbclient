@@ -14,17 +14,17 @@ import org.apache.http.client.methods.HttpPost;
 public abstract class k {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f697a;
+    protected Context f698a;
     protected String b;
     private boolean c = false;
 
     public k(Context context) {
-        this.f697a = context.getApplicationContext();
+        this.f698a = context.getApplicationContext();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:25:0x00aa, code lost:
-        if (com.baidu.android.pushservice.b.a(r5.f697a) == false) goto L32;
+        if (com.baidu.android.pushservice.b.a(r5.f698a) == false) goto L32;
      */
     /* JADX WARN: Code restructure failed: missing block: B:26:0x00ac, code lost:
         com.baidu.android.common.logging.Log.w("Statistics-BaseSender", "Send statistics data failed, abort!" + r0.getStatusLine());
@@ -39,13 +39,13 @@ public abstract class k {
     */
     public void f() {
         if (TextUtils.isEmpty(this.b)) {
-            if (com.baidu.android.pushservice.b.a(this.f697a)) {
+            if (com.baidu.android.pushservice.b.a(this.f698a)) {
                 Log.e("Statistics-BaseSender", "mUrl is null");
                 return;
             }
             return;
         }
-        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f697a);
+        ProxyHttpClient proxyHttpClient = new ProxyHttpClient(this.f698a);
         try {
             String b = b();
             while (true) {
@@ -62,7 +62,7 @@ public abstract class k {
                     if (proxyHttpClient.execute(httpPost).getStatusLine().getStatusCode() != 200) {
                         break;
                     }
-                    if (com.baidu.android.pushservice.b.a(this.f697a)) {
+                    if (com.baidu.android.pushservice.b.a(this.f698a)) {
                         Log.d("Statistics-BaseSender", "Send statistics data OK, continue!");
                     }
                     c();
@@ -97,19 +97,19 @@ public abstract class k {
     public synchronized void g() {
         if (!this.c) {
             if (a()) {
-                if (ConnectManager.isNetworkConnected(this.f697a)) {
+                if (ConnectManager.isNetworkConnected(this.f698a)) {
                     if (y.a().e()) {
                         this.c = true;
                         Thread thread = new Thread(new l(this));
                         thread.setName("PushService-stats-sender");
                         thread.start();
-                    } else if (com.baidu.android.pushservice.b.a(this.f697a)) {
+                    } else if (com.baidu.android.pushservice.b.a(this.f698a)) {
                         Log.e("Statistics-BaseSender", "Fail Send Statistics. Token invalid!");
                     }
-                } else if (com.baidu.android.pushservice.b.a(this.f697a)) {
+                } else if (com.baidu.android.pushservice.b.a(this.f698a)) {
                     Log.w("Statistics-BaseSender", "Network is not reachable!");
                 }
-            } else if (com.baidu.android.pushservice.b.a(this.f697a)) {
+            } else if (com.baidu.android.pushservice.b.a(this.f698a)) {
                 Log.w("Statistics-BaseSender", "No new data producted, do nothing!");
             }
         }

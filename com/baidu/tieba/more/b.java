@@ -4,15 +4,15 @@ package com.baidu.tieba.more;
 public class b extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AboutActivity f1993a;
+    final /* synthetic */ AboutActivity f1976a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AboutActivity aboutActivity) {
-        this.f1993a = aboutActivity;
+        this.f1976a = aboutActivity;
     }
 
     @Override // com.baidu.adp.a.g
     public void a(Object obj) {
-        this.f1993a.a(obj);
+        this.f1976a.a(obj);
     }
 }

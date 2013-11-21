@@ -12,18 +12,18 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1196a = "http://c.tieba.baidu.com/";
+    public static String f1201a = "http://c.tieba.baidu.com/";
     public static String b = "http://tieba.baidu.com/";
     public static String c = "http://static.tieba.baidu.com/";
     public static final Long d = Long.valueOf((long) Util.MILLSECONDS_OF_HOUR);
     public static final Long e = 36000000L;
     public static final Long f = 36000000L;
     public static final Long g = Long.valueOf((long) Util.MILLSECONDS_OF_DAY);
-    public static final String h = f1196a + "c/s/apprecommend";
-    public static final String i = f1196a + "c/s/recommend/";
-    public static final String j = f1196a + "c/s/classic";
+    public static final String h = b + "mo/q/topic_page/136_1";
+    public static final String i = f1201a + "c/s/recommend/";
+    public static final String j = f1201a + "c/s/classic";
     public static String k = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static final String l = f1196a + "c/p/img?";
+    public static final String l = f1201a + "c/p/img?";
     public static int m = 80;
     public static final Bitmap.Config n = Bitmap.Config.RGB_565;
     private static String p = null;

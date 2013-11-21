@@ -5,11 +5,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bj {
-    private com.baidu.tieba.data.ak c = new com.baidu.tieba.data.ak();
+    private com.baidu.tieba.data.aj c = new com.baidu.tieba.data.aj();
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<com.baidu.tieba.data.u> f1912a = new ArrayList<>();
-    private com.baidu.tieba.data.an b = new com.baidu.tieba.data.an();
+    private ArrayList<com.baidu.tieba.data.u> f1894a = new ArrayList<>();
+    private com.baidu.tieba.data.am b = new com.baidu.tieba.data.am();
     private boolean d = true;
 
     public boolean a() {
@@ -17,14 +17,14 @@ public class bj {
     }
 
     public void a(ArrayList<com.baidu.tieba.data.u> arrayList) {
-        this.f1912a = arrayList;
+        this.f1894a = arrayList;
     }
 
     public ArrayList<com.baidu.tieba.data.u> b() {
-        return this.f1912a;
+        return this.f1894a;
     }
 
-    public com.baidu.tieba.data.an c() {
+    public com.baidu.tieba.data.am c() {
         return this.b;
     }
 
@@ -45,7 +45,7 @@ public class bj {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     com.baidu.tieba.data.u uVar = new com.baidu.tieba.data.u();
                     uVar.a(optJSONArray2.optJSONObject(i));
-                    this.f1912a.add(uVar);
+                    this.f1894a.add(uVar);
                 }
             }
             this.c.a(jSONObject.optJSONObject("message"));

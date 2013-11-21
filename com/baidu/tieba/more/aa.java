@@ -5,11 +5,11 @@ import android.content.DialogInterface;
 class aa implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ w f1969a;
+    final /* synthetic */ w f1952a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(w wVar) {
-        this.f1969a = wVar;
+        this.f1952a = wVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
@@ -25,7 +25,7 @@ class aa implements DialogInterface.OnClickListener {
                 com.baidu.tieba.d.a.a().a(2);
                 break;
         }
-        this.f1969a.s();
-        this.f1969a.q();
+        this.f1952a.s();
+        this.f1952a.q();
     }
 }

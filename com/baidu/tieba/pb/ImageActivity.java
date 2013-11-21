@@ -28,7 +28,7 @@ public class ImageActivity extends com.baidu.tieba.j {
     private FrameLayout D;
 
     /* renamed from: a  reason: collision with root package name */
-    private ProgressBar f2046a = null;
+    private ProgressBar f2029a = null;
     private int b = 0;
     private ArrayList<String> c = null;
     private int d = -1;
@@ -85,28 +85,28 @@ public class ImageActivity extends com.baidu.tieba.j {
         }
     }
 
-    public static void a(Context context, ArrayList<String> arrayList, int i, com.baidu.tieba.data.ao aoVar) {
+    public static void a(Context context, ArrayList<String> arrayList, int i, com.baidu.tieba.data.an anVar) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putStringArrayListExtra(SocialConstants.PARAM_URL, arrayList);
             intent.putExtra("index", i);
             intent.putExtra("is_pv", true);
             intent.putExtra("pv_type", "pb");
-            if (aoVar != null) {
-                intent.putExtra("isCdn", aoVar.m() == 1);
-                if (aoVar.c() != null) {
-                    intent.putExtra("fname", aoVar.c().getName());
-                    intent.putExtra("fid", aoVar.c().getId());
+            if (anVar != null) {
+                intent.putExtra("isCdn", anVar.m() == 1);
+                if (anVar.c() != null) {
+                    intent.putExtra("fname", anVar.c().getName());
+                    intent.putExtra("fid", anVar.c().getId());
                 }
-                if (aoVar.d() != null) {
-                    intent.putExtra("tid", aoVar.d().a());
+                if (anVar.d() != null) {
+                    intent.putExtra("tid", anVar.d().a());
                 }
             }
             context.startActivity(intent);
         }
     }
 
-    public static void a(Context context, ArrayList<String> arrayList, int i, int i2, boolean z, com.baidu.tieba.data.ac acVar) {
+    public static void a(Context context, ArrayList<String> arrayList, int i, int i2, boolean z, com.baidu.tieba.data.ab abVar) {
         Intent intent = new Intent(context, ImageActivity.class);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putStringArrayListExtra(SocialConstants.PARAM_URL, arrayList);
@@ -116,12 +116,12 @@ public class ImageActivity extends com.baidu.tieba.j {
             intent.putExtra("hasnext", z);
             intent.putExtra("pv_type", "photo");
             intent.putExtra("isCdn", true);
-            if (acVar != null) {
-                intent.putExtra("isCdn", acVar.m() == 1);
-                intent.putExtra("nexttitle", acVar.g());
-                intent.putExtra("fname", acVar.i());
-                intent.putExtra("fid", acVar.j());
-                intent.putExtra("tid", acVar.c());
+            if (abVar != null) {
+                intent.putExtra("isCdn", abVar.m() == 1);
+                intent.putExtra("nexttitle", abVar.g());
+                intent.putExtra("fname", abVar.i());
+                intent.putExtra("fid", abVar.j());
+                intent.putExtra("tid", abVar.c());
             }
             ((Activity) context).startActivityForResult(intent, 14001);
         }
@@ -210,8 +210,8 @@ public class ImageActivity extends com.baidu.tieba.j {
             this.h.cancel();
             this.h = null;
         }
-        if (this.f2046a != null) {
-            this.f2046a.setVisibility(8);
+        if (this.f2029a != null) {
+            this.f2029a.setVisibility(8);
         }
         if (this.B) {
             unregisterReceiver(this.t);
@@ -239,7 +239,7 @@ public class ImageActivity extends com.baidu.tieba.j {
         this.D = (FrameLayout) this.l.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.image_activity_save_button, this.n);
         this.j = this.l.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = this.l.a("");
-        this.f2046a = (ProgressBar) findViewById(R.id.progress);
+        this.f2029a = (ProgressBar) findViewById(R.id.progress);
         this.i = (Button) findViewById(R.id.save);
         this.i.setClickable(false);
         this.m = (MultiImageView) findViewById(R.id.viewpager);

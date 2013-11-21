@@ -12,12 +12,12 @@ import java.lang.ref.WeakReference;
 public class c extends BdAsyncTask<String, Object, ForumDetailData> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1275a;
+    private String f1280a;
     private String b;
     private WeakReference<d> c;
 
     public c(String str, String str2, d dVar) {
-        this.f1275a = str;
+        this.f1280a = str;
         this.b = str2;
         this.c = new WeakReference<>(dVar);
         setPriority(3);
@@ -28,9 +28,9 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public ForumDetailData a(String... strArr) {
         String str;
-        str = b.f1274a;
+        str = b.f1279a;
         ap apVar = new ap(str);
-        apVar.a("forum_id", this.f1275a);
+        apVar.a("forum_id", this.f1280a);
         apVar.a("need_good_thread", this.b);
         String j = apVar.j();
         if (apVar.c()) {

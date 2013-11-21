@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 public class au implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1320a;
+    final /* synthetic */ FrsImageActivity f1325a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(FrsImageActivity frsImageActivity) {
-        this.f1320a = frsImageActivity;
+        this.f1325a = frsImageActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

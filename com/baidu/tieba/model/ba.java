@@ -7,8 +7,8 @@ public class ba extends com.baidu.adp.a.d {
     private Context c;
 
     /* renamed from: a  reason: collision with root package name */
-    private bd f1906a = null;
-    private ArrayList<com.baidu.tieba.data.ah> b = null;
+    private bd f1888a = null;
+    private ArrayList<com.baidu.tieba.data.ag> b = null;
     private bc d = null;
 
     public ba(Context context) {
@@ -22,9 +22,9 @@ public class ba extends com.baidu.adp.a.d {
 
     @Override // com.baidu.adp.a.d
     protected boolean LoadData() {
-        if (this.f1906a == null) {
-            this.f1906a = new bd(this);
-            this.f1906a.execute(new String[0]);
+        if (this.f1888a == null) {
+            this.f1888a = new bd(this);
+            this.f1888a.execute(new String[0]);
             return true;
         }
         return false;

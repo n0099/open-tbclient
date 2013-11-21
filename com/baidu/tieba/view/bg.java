@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class bg extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2576a;
+    private Context f2559a;
     private TextView b = null;
     private ProgressBar c = null;
     private ImageView d = null;
@@ -22,13 +22,13 @@ public class bg extends com.baidu.adp.widget.ListView.c {
     private int g = 0;
 
     public bg(Context context) {
-        this.f2576a = null;
-        this.f2576a = context;
+        this.f2559a = null;
+        this.f2559a = context;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.f = LayoutInflater.from(this.f2576a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
+        this.f = LayoutInflater.from(this.f2559a).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
         this.b = (TextView) this.f.findViewById(R.id.sub_pb_more_text);
         this.d = (ImageView) this.f.findViewById(R.id.image);
         if (TiebaApplication.g().ap() == 1) {
@@ -43,7 +43,7 @@ public class bg extends com.baidu.adp.widget.ListView.c {
     public void c() {
         this.c.setVisibility(0);
         this.d.setVisibility(8);
-        this.b.setText(this.f2576a.getText(R.string.loading));
+        this.b.setText(this.f2559a.getText(R.string.loading));
         e();
     }
 
@@ -52,9 +52,9 @@ public class bg extends com.baidu.adp.widget.ListView.c {
         this.c.setVisibility(8);
         this.d.setVisibility(0);
         if (i > 0) {
-            com.baidu.tieba.pb.bv.a(this.f2576a, this.b, i);
+            com.baidu.tieba.pb.bx.a(this.f2559a, this.b, i);
         } else {
-            this.b.setText(this.f2576a.getText(R.string.load_more));
+            this.b.setText(this.f2559a.getText(R.string.load_more));
         }
         e();
     }
@@ -63,9 +63,9 @@ public class bg extends com.baidu.adp.widget.ListView.c {
         this.c.setVisibility(8);
         this.d.setVisibility(0);
         if (this.g > 0) {
-            com.baidu.tieba.pb.bv.a(this.f2576a, this.b, this.g);
+            com.baidu.tieba.pb.bx.a(this.f2559a, this.b, this.g);
         } else {
-            this.b.setText(this.f2576a.getText(R.string.load_more));
+            this.b.setText(this.f2559a.getText(R.string.load_more));
         }
         e();
     }
@@ -75,14 +75,14 @@ public class bg extends com.baidu.adp.widget.ListView.c {
     }
 
     protected void b(int i) {
-        this.b.setTextColor(this.f2576a.getResources().getColor(i));
+        this.b.setTextColor(this.f2559a.getResources().getColor(i));
     }
 
     public void e() {
         boolean z = TiebaApplication.g().ap() == 1;
         String charSequence = this.b.getText().toString();
         if (charSequence != null && !charSequence.equals("")) {
-            if (charSequence.equals(this.f2576a.getString(R.string.loading))) {
+            if (charSequence.equals(this.f2559a.getString(R.string.loading))) {
                 b(z ? R.color.pb_more_txt_1 : R.color.pb_more_txt);
             } else {
                 b(z ? R.color.sub_pb_more_text_1 : R.color.sub_pb_more_text);

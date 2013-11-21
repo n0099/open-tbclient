@@ -22,6 +22,10 @@ public class ac {
                 bg.b(ac.class.getName(), "jumpTiebaNative", e.getMessage());
             }
         }
+        if (str != null && str.contains("jump=finish_this_page") && (context instanceof com.baidu.tieba.j)) {
+            ((com.baidu.tieba.j) context).finish();
+            return true;
+        }
         if (str != null && str.contains("jump_tieba_native=1")) {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 DailyClassicalActivity.a(context);
@@ -50,9 +54,6 @@ public class ac {
                 if (a6 != null && a6.length() >= 0) {
                     FrsActivity.a(context, a6, "allthread");
                 }
-                return true;
-            } else if (str.contains("jump=finish_this_page") && (context instanceof com.baidu.tieba.j)) {
-                ((com.baidu.tieba.j) context).finish();
                 return true;
             }
         }

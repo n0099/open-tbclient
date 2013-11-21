@@ -17,7 +17,7 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f1615a;
+    private static g f1606a;
 
     private g() {
     }
@@ -25,10 +25,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f1615a == null) {
-                f1615a = new g();
+            if (f1606a == null) {
+                f1606a = new g();
             }
-            gVar = f1615a;
+            gVar = f1606a;
         }
         return gVar;
     }

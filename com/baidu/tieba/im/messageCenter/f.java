@@ -14,7 +14,7 @@ import java.util.List;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static f f1731a = null;
+    private static f f1722a = null;
     private SparseArray<Class<? extends d>> b;
     private SparseArray<Class<? extends a>> c;
     private SparseArray<Class<? extends ResponsedMessage>> d;
@@ -38,14 +38,14 @@ public class f {
     }
 
     public static f a() {
-        if (f1731a == null) {
+        if (f1722a == null) {
             synchronized (f.class) {
-                if (f1731a == null) {
-                    f1731a = new f();
+                if (f1722a == null) {
+                    f1722a = new f();
                 }
             }
         }
-        return f1731a;
+        return f1722a;
     }
 
     public void a(Message message, boolean z, int i, int i2, int i3) {

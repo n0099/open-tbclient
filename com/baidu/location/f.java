@@ -101,7 +101,7 @@ public final class f extends Service {
     static String aa = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata";
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f923a = aa + "/glb.dat";
+    private static String f924a = aa + "/glb.dat";
     private static File j = null;
     private static File k = null;
     private String m = aa + "/vm.dat";
@@ -355,7 +355,7 @@ public final class f extends Service {
         private final int f182char = 200;
 
         /* renamed from: a  reason: collision with root package name */
-        private long[] f926a = new long[20];
+        private long[] f927a = new long[20];
 
         /* renamed from: int  reason: not valid java name */
         private int f187int = 0;
@@ -464,14 +464,14 @@ public final class f extends Service {
                 randomAccessFile.writeInt(this.b.f147try);
                 byte[] bArr = new byte[160];
                 for (int i = 0; i < this.f187int; i++) {
-                    bArr[(i * 8) + 7] = (byte) this.f926a[i];
-                    bArr[(i * 8) + 6] = (byte) (this.f926a[i] >> 8);
-                    bArr[(i * 8) + 5] = (byte) (this.f926a[i] >> 16);
-                    bArr[(i * 8) + 4] = (byte) (this.f926a[i] >> 24);
-                    bArr[(i * 8) + 3] = (byte) (this.f926a[i] >> 32);
-                    bArr[(i * 8) + 2] = (byte) (this.f926a[i] >> 40);
-                    bArr[(i * 8) + 1] = (byte) (this.f926a[i] >> 48);
-                    bArr[(i * 8) + 0] = (byte) (this.f926a[i] >> 56);
+                    bArr[(i * 8) + 7] = (byte) this.f927a[i];
+                    bArr[(i * 8) + 6] = (byte) (this.f927a[i] >> 8);
+                    bArr[(i * 8) + 5] = (byte) (this.f927a[i] >> 16);
+                    bArr[(i * 8) + 4] = (byte) (this.f927a[i] >> 24);
+                    bArr[(i * 8) + 3] = (byte) (this.f927a[i] >> 32);
+                    bArr[(i * 8) + 2] = (byte) (this.f927a[i] >> 40);
+                    bArr[(i * 8) + 1] = (byte) (this.f927a[i] >> 48);
+                    bArr[(i * 8) + 0] = (byte) (this.f927a[i] >> 56);
                 }
                 if (this.f187int > 0) {
                     randomAccessFile.write(bArr, 0, this.f187int * 8);
@@ -595,7 +595,7 @@ public final class f extends Service {
                         try {
                             i = i2 + 1;
                             try {
-                                this.f926a[i2] = Long.parseLong(((ScanResult) m139byte.f162do.get(i3)).BSSID.replace(":", ""), 16);
+                                this.f927a[i2] = Long.parseLong(((ScanResult) m139byte.f162do.get(i3)).BSSID.replace(":", ""), 16);
                             } catch (Exception e) {
                             }
                         } catch (Exception e2) {
@@ -664,14 +664,14 @@ public final class f extends Service {
                             while (i8 < this.f187int) {
                                 int i9 = i7;
                                 for (int i10 = 0; i10 < readInt4; i10++) {
-                                    if (this.f926a[i8] == jArr[i10]) {
+                                    if (this.f927a[i8] == jArr[i10]) {
                                         i9++;
                                     }
                                 }
                                 i8++;
                                 i7 = i9;
                             }
-                            if (i7 > 5 || i7 * 8 > this.f187int + readInt4 || ((readInt4 == 0 && this.f187int == 0) || ((readInt4 == 1 && this.f187int == 1 && this.f926a[0] == jArr[0]) || (readInt4 > 1 && this.f187int > 1 && this.f926a[0] == jArr[0] && this.f926a[1] == jArr[1])))) {
+                            if (i7 > 5 || i7 * 8 > this.f187int + readInt4 || ((readInt4 == 0 && this.f187int == 0) || ((readInt4 == 1 && this.f187int == 1 && this.f927a[0] == jArr[0]) || (readInt4 > 1 && this.f187int > 1 && this.f927a[0] == jArr[0] && this.f927a[1] == jArr[1])))) {
                                 z = true;
                                 randomAccessFile.seek((i * 200) + 16);
                                 randomAccessFile.writeInt(readInt3 + 1);
@@ -692,8 +692,8 @@ public final class f extends Service {
                                         }
                                     }
                                     if (this.f187int == 1) {
-                                        str3 = str3 + "w" + Long.toHexString(this.f926a[0]) + "k";
-                                        if (this.f926a[0] == j) {
+                                        str3 = str3 + "w" + Long.toHexString(this.f927a[0]) + "k";
+                                        if (this.f927a[0] == j) {
                                             str2 = str3 + "k";
                                             this.f188long += str2 + str;
                                             if (this.c != null) {
@@ -708,12 +708,12 @@ public final class f extends Service {
                                         a();
                                     } else {
                                         if (this.f187int > 1) {
-                                            String str4 = str3 + "w" + Long.toHexString(this.f926a[0]);
-                                            if (this.f926a[0] == j) {
+                                            String str4 = str3 + "w" + Long.toHexString(this.f927a[0]);
+                                            if (this.f927a[0] == j) {
                                                 str4 = str4 + "k";
                                                 j = 0;
                                             }
-                                            str2 = j > 0 ? str4 + "," + Long.toHexString(j) + "k" : str4 + "," + Long.toHexString(this.f926a[1]);
+                                            str2 = j > 0 ? str4 + "," + Long.toHexString(j) + "k" : str4 + "," + Long.toHexString(this.f927a[1]);
                                             this.f188long += str2 + str;
                                             if (this.c != null) {
                                             }
@@ -1273,11 +1273,11 @@ public final class f extends Service {
     /* renamed from: goto  reason: not valid java name */
     public static void m176goto() {
         try {
-            if (f923a == null) {
+            if (f924a == null) {
                 k = null;
                 return;
             }
-            k = new File(f923a);
+            k = new File(f924a);
             if (k.exists()) {
                 return;
             }

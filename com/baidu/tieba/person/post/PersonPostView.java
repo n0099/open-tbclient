@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class PersonPostView implements bq {
 
     /* renamed from: a  reason: collision with root package name */
-    public FrameLayout f2261a;
+    public FrameLayout f2246a;
     public ViewPager b;
     public TextView c;
     public TextView d;
@@ -23,7 +23,7 @@ public class PersonPostView implements bq {
 
     public PersonPostView(PersonPostActivity personPostActivity) {
         personPostActivity.setContentView(R.layout.person_post_activity);
-        this.f2261a = (FrameLayout) personPostActivity.findViewById(16908290);
+        this.f2246a = (FrameLayout) personPostActivity.findViewById(16908290);
         this.f = (NavigationBar) personPostActivity.findViewById(R.id.view_navigation_bar);
         this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         View a2 = this.f.a(R.layout.nb_item_person_post, (View.OnClickListener) null);
@@ -36,7 +36,7 @@ public class PersonPostView implements bq {
     }
 
     public void a(int i) {
-        bd.b(this.f2261a, i);
+        bd.b(this.f2246a, i);
         this.f.c(i);
         b(this.e);
     }

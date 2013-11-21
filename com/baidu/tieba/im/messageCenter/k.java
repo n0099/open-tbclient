@@ -16,7 +16,7 @@ import java.util.List;
 public class k implements com.baidu.tieba.im.net.link.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.im.a<s> f1734a;
+    private com.baidu.tieba.im.a<s> f1725a;
     private com.baidu.tieba.im.a<q> b;
     private com.baidu.tieba.im.a<List<Message>> c;
     private f h;
@@ -30,13 +30,13 @@ public class k implements com.baidu.tieba.im.net.link.a {
     private boolean l = false;
 
     public k(f fVar) {
-        this.f1734a = null;
+        this.f1725a = null;
         this.b = null;
         this.c = null;
         this.h = null;
         this.h = fVar;
         TiebaSocketLinkService.a(this);
-        this.f1734a = new l(this);
+        this.f1725a = new l(this);
         this.b = new m(this);
         this.c = new n(this);
     }
@@ -76,7 +76,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
                 StatService.onEvent(TiebaApplication.g().getApplicationContext(), "send_msg_time", "send", 1);
             }
             j.b(sVar, this.e);
-            com.baidu.tieba.im.m.a(new i(sVar), this.f1734a);
+            com.baidu.tieba.im.m.a(new i(sVar), this.f1725a);
         }
     }
 
@@ -84,7 +84,7 @@ public class k implements com.baidu.tieba.im.net.link.a {
         if (message != null && (message instanceof IDuplicateProcess)) {
             int cmd = message.getCmd();
             IDuplicateProcess iDuplicateProcess = (IDuplicateProcess) message;
-            switch (o.f1738a[iDuplicateProcess.getDuplicateRemoveType().ordinal()]) {
+            switch (o.f1729a[iDuplicateProcess.getDuplicateRemoveType().ordinal()]) {
                 case 1:
                     j.b(this.g, iDuplicateProcess, cmd);
                     j.b(this.d, iDuplicateProcess, cmd);

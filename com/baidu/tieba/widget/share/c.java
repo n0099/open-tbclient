@@ -8,17 +8,17 @@ import com.slidingmenu.lib.R;
 public class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2654a;
+    final /* synthetic */ b f2637a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f2654a = bVar;
+        this.f2637a = bVar;
     }
 
     @Override // com.baidu.tieba.widget.share.a
     public void a() {
         Context context;
-        context = this.f2654a.b;
+        context = this.f2637a.b;
         UtilHelper.a(context, (int) R.string.auth_account_success);
     }
 
@@ -29,7 +29,7 @@ public class c implements a {
     @Override // com.baidu.tieba.widget.share.a
     public void c() {
         Context context;
-        context = this.f2654a.b;
+        context = this.f2637a.b;
         UtilHelper.a(context, (int) R.string.share_success);
     }
 

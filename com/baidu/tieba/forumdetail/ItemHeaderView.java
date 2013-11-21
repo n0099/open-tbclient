@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class ItemHeaderView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1270a;
+    private Context f1275a;
     private HeadImageView b;
     private ImageView c;
     private TextView d;
@@ -41,7 +41,7 @@ public class ItemHeaderView extends RelativeLayout {
     }
 
     public void a(Context context) {
-        this.f1270a = context;
+        this.f1275a = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.forum_detail_header, (ViewGroup) this, true);
         this.b = (HeadImageView) findViewById(R.id.h_forum_portrait);
         this.d = (TextView) findViewById(R.id.h_forum_name);
@@ -78,8 +78,8 @@ public class ItemHeaderView extends RelativeLayout {
         } else {
             this.c.setVisibility(8);
         }
-        int a2 = UtilHelper.a(this.f1270a, 80.0f);
-        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.f1270a);
+        int a2 = UtilHelper.a(this.f1275a, 80.0f);
+        com.baidu.tieba.util.i iVar = new com.baidu.tieba.util.i(this.f1275a);
         iVar.a(a2, a2);
         com.baidu.adp.widget.ImageView.e d = iVar.d(forumInfo.avatar);
         if (d != null) {

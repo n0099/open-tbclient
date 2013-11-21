@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public class DateTemplate extends AbstractTemplate<Date> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final DateTemplate f2909a = new DateTemplate();
+    static final DateTemplate f2893a = new DateTemplate();
 
     private DateTemplate() {
     }
@@ -25,6 +25,6 @@ public class DateTemplate extends AbstractTemplate<Date> {
     }
 
     public static DateTemplate a() {
-        return f2909a;
+        return f2893a;
     }
 }

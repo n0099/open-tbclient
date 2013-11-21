@@ -8,10 +8,10 @@ import com.baidu.tieba.voice.VoiceManager;
 public class ag implements j {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ VoiceManager f2618a;
+    final /* synthetic */ VoiceManager f2601a;
 
     private ag(VoiceManager voiceManager) {
-        this.f2618a = voiceManager;
+        this.f2601a = voiceManager;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -31,34 +31,34 @@ public class ag implements j {
         Handler handler3;
         VoiceManager.VoiceModel voiceModel2;
         com.baidu.adp.lib.h.d.a("VoiceManager", "Voice-Play-Succ", "");
-        adVar = this.f2618a.y;
+        adVar = this.f2601a.y;
         if (adVar != null) {
-            voiceModel = this.f2618a.v;
+            voiceModel = this.f2601a.v;
             if (voiceModel != null) {
-                z = this.f2618a.M;
+                z = this.f2601a.M;
                 if (!z) {
-                    VoiceManager voiceManager = this.f2618a;
-                    voiceModel2 = this.f2618a.v;
+                    VoiceManager voiceManager = this.f2601a;
+                    voiceModel2 = this.f2601a.v;
                     voiceManager.b(voiceModel2);
-                    this.f2618a.y = null;
+                    this.f2601a.y = null;
                 }
-                this.f2618a.v = null;
-                m = this.f2618a.m();
-                z2 = this.f2618a.M;
+                this.f2601a.v = null;
+                m = this.f2601a.m();
+                z2 = this.f2601a.M;
                 if (!z2 || m == null) {
-                    this.f2618a.q();
+                    this.f2601a.q();
                     return;
                 }
                 VoiceManager.VoiceModel voiceModel3 = m.getVoiceModel();
                 if (voiceModel3 != null && i >= 0) {
                     voiceModel3.curr_time = i;
                 }
-                handler = this.f2618a.p;
+                handler = this.f2601a.p;
                 if (handler != null) {
-                    handler2 = this.f2618a.p;
-                    handler2.removeCallbacks(this.f2618a.j);
-                    handler3 = this.f2618a.p;
-                    handler3.postDelayed(this.f2618a.j, 10L);
+                    handler2 = this.f2601a.p;
+                    handler2.removeCallbacks(this.f2601a.j);
+                    handler3 = this.f2601a.p;
+                    handler3.postDelayed(this.f2601a.j, 10L);
                 }
             }
         }
@@ -71,18 +71,18 @@ public class ag implements j {
         VoiceManager.VoiceModel voiceModel;
         VoiceManager.VoiceModel voiceModel2;
         bg.b("VoiceManager", "Voice-Play-Fail", " " + i + " " + str);
-        adVar = this.f2618a.y;
+        adVar = this.f2601a.y;
         if (adVar != null) {
-            adVar2 = this.f2618a.y;
+            adVar2 = this.f2601a.y;
             adVar2.b(i, str);
-            voiceModel = this.f2618a.v;
+            voiceModel = this.f2601a.v;
             if (voiceModel != null) {
-                VoiceManager voiceManager = this.f2618a;
-                voiceModel2 = this.f2618a.v;
+                VoiceManager voiceManager = this.f2601a;
+                voiceModel2 = this.f2601a.v;
                 voiceManager.b(voiceModel2);
-                this.f2618a.v = null;
+                this.f2601a.v = null;
             }
-            this.f2618a.q();
+            this.f2601a.q();
         }
     }
 
@@ -91,13 +91,13 @@ public class ag implements j {
         ad m;
         VoiceManager.VoiceModel voiceModel;
         VoiceManager.VoiceModel voiceModel2;
-        m = this.f2618a.m();
+        m = this.f2601a.m();
         if (m != null) {
             m.c(i);
         }
-        voiceModel = this.f2618a.v;
+        voiceModel = this.f2601a.v;
         if (voiceModel != null) {
-            voiceModel2 = this.f2618a.v;
+            voiceModel2 = this.f2601a.v;
             voiceModel2.elapse = i;
         }
     }

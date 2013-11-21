@@ -23,7 +23,7 @@ import java.util.List;
 public class a extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private EnterForumActivity f1474a;
+    private EnterForumActivity f1465a;
     private com.baidu.tieba.util.i b;
     private List<GroupInfoData> c = new ArrayList();
 
@@ -50,7 +50,7 @@ public class a extends BaseAdapter {
     }
 
     public a(EnterForumActivity enterForumActivity) {
-        this.f1474a = enterForumActivity;
+        this.f1465a = enterForumActivity;
         this.b = new com.baidu.tieba.util.i(enterForumActivity.i());
         this.b.d(true);
     }
@@ -98,7 +98,7 @@ public class a extends BaseAdapter {
         int ap = TiebaApplication.g().ap();
         s sVar = null;
         if (view == null || view.getTag() == null) {
-            sVar = new s(this.f1474a.i(), this.f1474a.a(R.string.login_block_group_tip), this.f1474a.j().getString(R.string.login_home_tab), 1);
+            sVar = new s(this.f1465a.i(), this.f1465a.a(R.string.login_block_group_tip), this.f1465a.j().getString(R.string.login_home_tab), 1);
             view = sVar.e();
             view.setTag(sVar);
         }
@@ -112,9 +112,9 @@ public class a extends BaseAdapter {
     private View a(int i, View view, ViewGroup viewGroup) {
         b bVar;
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
-            view = LayoutInflater.from(this.f1474a.i()).inflate(R.layout.im_entergroup_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.f1465a.i()).inflate(R.layout.im_entergroup_list_item, viewGroup, false);
             bVar = new b();
-            bVar.f1475a = (LinearLayout) view.findViewById(R.id.click_head);
+            bVar.f1466a = (LinearLayout) view.findViewById(R.id.click_head);
             bVar.b = (LinearLayout) view.findViewById(R.id.list_item_content);
             bVar.c = (HeadImageView) view.findViewById(R.id.item_head);
             bVar.d = (TextView) view.findViewById(R.id.item_group_name);
@@ -138,14 +138,14 @@ public class a extends BaseAdapter {
         bVar.c.setDefaultResource(R.drawable.avatar_poto_defaul140);
         bVar.c.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
         bVar.c.setDrawBorder(true);
-        bVar.c.setRadius(UtilHelper.a((Context) this.f1474a.i(), 5.0f));
+        bVar.c.setRadius(UtilHelper.a((Context) this.f1465a.i(), 5.0f));
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
                 bVar.c.setTag(portrait);
             }
-            bVar.f1475a.setOnClickListener(this.f1474a);
-            bVar.f1475a.setTag(groupInfoData);
+            bVar.f1466a.setOnClickListener(this.f1465a);
+            bVar.f1466a.setTag(groupInfoData);
             bVar.d.setText(groupInfoData.getName());
             bVar.e.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
             bVar.f.setText(groupInfoData.getIntro());
@@ -156,8 +156,8 @@ public class a extends BaseAdapter {
             }
             a(bVar.l, groupInfoData.getGrade());
         }
-        ((BaseFragmentActivity) this.f1474a.i()).a().a(TiebaApplication.g().ap() == 1);
-        ((BaseFragmentActivity) this.f1474a.i()).a().a(view);
+        ((BaseFragmentActivity) this.f1465a.i()).a().a(TiebaApplication.g().ap() == 1);
+        ((BaseFragmentActivity) this.f1465a.i()).a().a(view);
         return view;
     }
 
@@ -165,15 +165,21 @@ public class a extends BaseAdapter {
         int i2 = i < 0 ? 0 : i;
         int i3 = i2 > 3 ? 3 : i2;
         int i4 = 1;
-        if (i3 >= 1) {
-            while (i4 <= i3) {
-                imageViewArr[i4].setVisibility(0);
-                i4++;
+        if (i3 < 1) {
+            for (int i5 = 0; i5 <= 3; i5++) {
+                if (imageViewArr[i5] != null) {
+                    imageViewArr[i5].setVisibility(8);
+                }
             }
-            while (i4 <= 3 && i4 > i3) {
-                imageViewArr[i4].setVisibility(8);
-                i4++;
-            }
+            return;
+        }
+        while (i4 <= i3) {
+            imageViewArr[i4].setVisibility(0);
+            i4++;
+        }
+        while (i4 <= 3 && i4 > i3) {
+            imageViewArr[i4].setVisibility(8);
+            i4++;
         }
     }
 }

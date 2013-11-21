@@ -13,11 +13,11 @@ import java.util.List;
 public class p extends SingleRunnable<q> {
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f1739a;
+    private byte[] f1730a;
 
     public p(byte[] bArr) {
-        this.f1739a = null;
-        this.f1739a = bArr;
+        this.f1730a = null;
+        this.f1730a = bArr;
     }
 
     private List<Message> c() {
@@ -42,18 +42,18 @@ public class p extends SingleRunnable<q> {
         com.baidu.tieba.im.codec.p pVar2;
         List<Message> list;
         List<Message> linkedList;
-        if (this.f1739a == null) {
+        if (this.f1730a == null) {
             return null;
         }
         try {
-            com.baidu.tieba.im.codec.p a2 = com.baidu.tieba.im.codec.c.b().a(this.f1739a);
+            com.baidu.tieba.im.codec.p a2 = com.baidu.tieba.im.codec.c.b().a(this.f1730a);
             try {
-                if (a2.f1575a.d() == 1003) {
+                if (a2.f1566a.d() == 1003) {
                     linkedList = c();
                 } else if (a2.d > 0) {
-                    linkedList = com.baidu.tieba.im.codec.c.b().a(a2.f1575a.b(), true, a2.b, a2.c, a2.d);
+                    linkedList = com.baidu.tieba.im.codec.c.b().a(a2.f1566a.b(), true, a2.b, a2.c, a2.d);
                 } else {
-                    com.baidu.adp.lib.h.d.b("[server error] receive messages without body! cmd:" + a2.f1575a.d());
+                    com.baidu.adp.lib.h.d.b("[server error] receive messages without body! cmd:" + a2.f1566a.d());
                     linkedList = new LinkedList<>();
                 }
                 list = linkedList;

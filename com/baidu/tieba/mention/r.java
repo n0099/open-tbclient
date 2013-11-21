@@ -18,7 +18,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class r extends BdAsyncTask<Object, Integer, bj> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1869a;
+    final /* synthetic */ j f1851a;
     private String c;
     private ArrayList<BasicNameValuePair> d;
     private f e;
@@ -32,12 +32,12 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
     public void b(Integer... numArr) {
         super.b((Object[]) numArr);
         if (this.f != null) {
-            this.f1869a.a(this.f, true);
+            this.f1851a.a(this.f, true);
         }
     }
 
     public r(j jVar, String str, ArrayList<BasicNameValuePair> arrayList, f fVar) {
-        this.f1869a = jVar;
+        this.f1851a = jVar;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -49,7 +49,6 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        a(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,24 +61,28 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
         Activity activity;
         int i;
         p pVar2;
+        int i2;
         p pVar3;
-        pVar = this.f1869a.j;
+        pVar = this.f1851a.j;
         String a2 = pVar.a();
         if (a2 != null && a2.length() > 0) {
-            this.f = new bj();
-            this.f.a(a2);
-            if (!this.f.a()) {
-                bg.e("MentionAsyncTask", "doInBackground", "cache data format err");
-                this.f = null;
-                pVar3 = this.f1869a.j;
-                pVar3.b();
-            } else {
-                bg.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a2.length()));
-                c((Object[]) new Integer[]{0});
+            i2 = this.f1851a.h;
+            if (i2 == 1) {
+                this.f = new bj();
+                this.f.a(a2);
+                if (!this.f.a()) {
+                    bg.e("MentionAsyncTask", "doInBackground", "cache data format err");
+                    this.f = null;
+                    pVar3 = this.f1851a.j;
+                    pVar3.b();
+                } else {
+                    bg.e("MentionAsyncTask", "doInBackground", "cache data.size: " + String.valueOf(a2.length()));
+                    c((Object[]) new Integer[]{0});
+                }
             }
         }
         try {
-            str = this.f1869a.o;
+            str = this.f1851a.o;
         } catch (Exception e) {
             bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
         }
@@ -89,16 +92,16 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
         this.b = new ap(this.c);
         this.b.a(this.d);
         ap apVar = this.b;
-        activity = this.f1869a.c;
+        activity = this.f1851a.c;
         apVar.a(activity);
         String j = this.b.j();
         if (this.b.c() && j != null) {
             this.f = new bj();
             this.f.a(j);
             if (this.f.a()) {
-                i = this.f1869a.n;
+                i = this.f1851a.n;
                 if (i != 4) {
-                    pVar2 = this.f1869a.j;
+                    pVar2 = this.f1851a.j;
                     pVar2.a(j);
                 }
             } else {
@@ -116,14 +119,14 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
         BdListView bdListView3;
         BdListView bdListView4;
         if (z) {
-            i2 = this.f1869a.n;
+            i2 = this.f1851a.n;
             switch (i2) {
                 case 1:
                 case 2:
                 case 3:
-                    bdListView3 = this.f1869a.e;
+                    bdListView3 = this.f1851a.e;
                     if (bdListView3 != null) {
-                        bdListView4 = this.f1869a.e;
+                        bdListView4 = this.f1851a.e;
                         bdListView4.b();
                         return;
                     }
@@ -136,14 +139,14 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
                     return;
             }
         }
-        i = this.f1869a.n;
+        i = this.f1851a.n;
         switch (i) {
             case 1:
             case 2:
             case 3:
-                bdListView = this.f1869a.e;
+                bdListView = this.f1851a.e;
                 if (bdListView != null) {
-                    bdListView2 = this.f1869a.e;
+                    bdListView2 = this.f1851a.e;
                     bdListView2.a();
                     return;
                 }
@@ -166,18 +169,18 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
         a(false);
         if (this.b != null) {
             if (!this.b.d() || bjVar == null) {
-                fragment = this.f1869a.b;
+                fragment = this.f1851a.b;
                 android.support.v4.app.n i2 = fragment.i();
                 if (i2 != null && (i2 instanceof BaseFragmentActivity)) {
                     UtilHelper.a((Context) ((BaseFragmentActivity) i2), this.b.g());
                 }
             } else {
-                j jVar = this.f1869a;
-                i = this.f1869a.n;
+                j jVar = this.f1851a;
+                i = this.f1851a.n;
                 jVar.a(bjVar, i == 4);
             }
         }
-        this.f1869a.k = null;
+        this.f1851a.k = null;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -186,7 +189,7 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
             this.b.h();
         }
         a(false);
-        this.f1869a.k = null;
+        this.f1851a.k = null;
         super.cancel(true);
     }
 }

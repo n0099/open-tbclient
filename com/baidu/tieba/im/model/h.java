@@ -9,7 +9,7 @@ import java.util.List;
 public class h extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1750a;
+    private long f1741a;
     private int b;
     private int c;
     private int d;
@@ -75,7 +75,7 @@ public class h extends com.baidu.adp.a.d {
     }
 
     public long g() {
-        return this.f1750a;
+        return this.f1741a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -89,11 +89,11 @@ public class h extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.f1750a = intent.getLongExtra("group_id", 0L);
+        this.f1741a = intent.getLongExtra("group_id", 0L);
     }
 
     public void a(Bundle bundle) {
-        this.f1750a = bundle.getLong("group_id", 0L);
+        this.f1741a = bundle.getLong("group_id", 0L);
         this.c = bundle.getInt("start_position", 0);
         this.d = bundle.getInt("len_position", 0);
     }
@@ -139,7 +139,7 @@ public class h extends com.baidu.adp.a.d {
     }
 
     public void b(Bundle bundle) {
-        bundle.putLong("group_id", this.f1750a);
+        bundle.putLong("group_id", this.f1741a);
         bundle.putInt("start_position", this.c);
         bundle.putInt("len_position", this.d);
     }

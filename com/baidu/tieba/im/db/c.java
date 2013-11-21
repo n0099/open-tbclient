@@ -9,7 +9,7 @@ import com.baidu.tieba.im.SingleRunnable;
 public class c extends SingleRunnable<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1611a;
+    final /* synthetic */ String f1602a;
     final /* synthetic */ String b;
     final /* synthetic */ String c;
     final /* synthetic */ int e;
@@ -18,7 +18,7 @@ public class c extends SingleRunnable<Boolean> {
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, String str, String str2, String str3, int i) {
         this.f = aVar;
-        this.f1611a = str;
+        this.f1602a = str;
         this.b = str2;
         this.c = str3;
         this.e = i;
@@ -29,10 +29,10 @@ public class c extends SingleRunnable<Boolean> {
     /* renamed from: a */
     public Boolean b() {
         boolean z = false;
-        if (TextUtils.isEmpty(this.f1611a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) {
+        if (TextUtils.isEmpty(this.f1602a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) {
             return false;
         }
-        String str = a.f1601a + this.f1611a;
+        String str = a.f1592a + this.f1602a;
         try {
             SQLiteDatabase a2 = m.a();
             if (a2 == null) {

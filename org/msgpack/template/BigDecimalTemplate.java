@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public class BigDecimalTemplate extends AbstractTemplate<BigDecimal> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final BigDecimalTemplate f2900a = new BigDecimalTemplate();
+    static final BigDecimalTemplate f2884a = new BigDecimalTemplate();
 
     private BigDecimalTemplate() {
     }
@@ -25,6 +25,6 @@ public class BigDecimalTemplate extends AbstractTemplate<BigDecimal> {
     }
 
     public static BigDecimalTemplate a() {
-        return f2900a;
+        return f2884a;
     }
 }

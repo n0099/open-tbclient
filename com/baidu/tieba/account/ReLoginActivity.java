@@ -30,7 +30,7 @@ import com.tencent.mm.sdk.platformtools.Util;
 /* loaded from: classes.dex */
 public class ReLoginActivity extends com.baidu.tieba.j {
     private NavigationBar m;
-    private an b = null;
+    private ao b = null;
     private Button c = null;
     private Button d = null;
     private TextView e = null;
@@ -38,15 +38,15 @@ public class ReLoginActivity extends com.baidu.tieba.j {
     private boolean g = false;
     private boolean h = false;
     private AccountData i = null;
-    private l j = null;
+    private m j = null;
     private long k = 0;
     private String l = null;
 
     /* renamed from: a  reason: collision with root package name */
-    LinearLayout f1021a = null;
+    LinearLayout f1023a = null;
     private Handler n = null;
-    private Runnable o = new ah(this);
-    private View.OnClickListener p = new ak(this);
+    private Runnable o = new ai(this);
+    private View.OnClickListener p = new al(this);
 
     public static void a(Activity activity, int i, int i2, boolean z, AccountData accountData) {
         Intent intent = new Intent(activity, ReLoginActivity.class);
@@ -98,19 +98,19 @@ public class ReLoginActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        new AccountProxy(this).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new ai(this));
+        new AccountProxy(this).getTokenAsync(AccountProxy.BAIDUACCOUNT_TYPE, new aj(this));
     }
 
     private void b() {
         this.m = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.m.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.c = (Button) findViewById(R.id.relogin_retry_button);
-        this.c.setOnClickListener(new aj(this));
+        this.c.setOnClickListener(new ak(this));
         this.d = (Button) findViewById(R.id.relogin_cacel_button);
         this.d.setOnClickListener(this.p);
         this.f = (ProgressBar) findViewById(R.id.relogin_progressbar);
         this.e = (TextView) findViewById(R.id.relogin_textview);
-        this.f1021a = (LinearLayout) findViewById(R.id.container);
+        this.f1023a = (LinearLayout) findViewById(R.id.container);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -120,7 +120,7 @@ public class ReLoginActivity extends com.baidu.tieba.j {
         a(0, getIntent().getStringExtra("uname"));
         this.m.c(i);
         bd.a((TextView) this.d, i);
-        bd.a(this.f1021a, i);
+        bd.a(this.f1023a, i);
         bd.b(this.e, i);
     }
 
@@ -137,7 +137,7 @@ public class ReLoginActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2) {
         if (this.b == null) {
-            this.b = new an(this, str, str2);
+            this.b = new ao(this, str, str2);
             this.b.setPriority(3);
             this.b.execute(new String[0]);
         }
@@ -225,9 +225,9 @@ public class ReLoginActivity extends com.baidu.tieba.j {
         } catch (ActivityNotFoundException e) {
             bg.a(getClass().getName(), "fillUserName", e.toString());
             if (this.j == null) {
-                this.j = new l(this);
-                this.j.a(new al(this));
-                this.j.b(new am(this));
+                this.j = new m(this);
+                this.j.a(new am(this));
+                this.j.b(new an(this));
             }
             this.j.e();
             this.j.a(getString(R.string.default_username));

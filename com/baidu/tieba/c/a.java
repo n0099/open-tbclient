@@ -8,7 +8,7 @@ import android.view.View;
 public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private GestureDetector f1115a = new GestureDetector(this);
+    private GestureDetector f1121a = new GestureDetector(this);
     private b b;
     private View c;
 
@@ -19,8 +19,8 @@ public class a implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         this.c = view;
-        if (this.f1115a != null) {
-            return this.f1115a.onTouchEvent(motionEvent);
+        if (this.f1121a != null) {
+            return this.f1121a.onTouchEvent(motionEvent);
         }
         return true;
     }

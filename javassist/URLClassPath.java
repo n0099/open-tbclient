@@ -9,13 +9,13 @@ import java.net.URLConnection;
 public class URLClassPath implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2744a;
+    protected String f2728a;
     protected int b;
     protected String c;
     protected String d;
 
     public String toString() {
-        return this.f2744a + ":" + this.b + this.c;
+        return this.f2728a + ":" + this.b + this.c;
     }
 
     @Override // javassist.a
@@ -32,7 +32,7 @@ public class URLClassPath implements a {
 
     private URLConnection c(String str) {
         if (this.d == null || str.startsWith(this.d)) {
-            return a(this.f2744a, this.b, this.c + str.replace('.', '/') + ".class");
+            return a(this.f2728a, this.b, this.c + str.replace('.', '/') + ".class");
         }
         return null;
     }

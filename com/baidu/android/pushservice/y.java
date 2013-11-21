@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public final class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static y f765a;
+    private static y f766a;
     private String b;
     private String c;
     private Thread d = null;
@@ -22,10 +22,10 @@ public final class y {
     public static synchronized y a() {
         y yVar;
         synchronized (y.class) {
-            if (f765a == null) {
-                f765a = new y();
+            if (f766a == null) {
+                f766a = new y();
             }
-            yVar = f765a;
+            yVar = f766a;
         }
         return yVar;
     }

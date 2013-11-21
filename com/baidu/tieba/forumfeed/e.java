@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tieba.BaseFragmentActivity;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.aj;
+import com.baidu.tieba.data.ai;
 import com.baidu.tieba.data.v;
 import com.baidu.tieba.data.w;
 import com.baidu.tieba.util.UtilHelper;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class e extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private v f1291a;
+    private v f1296a;
     private Context b;
     private r c;
     private View.OnClickListener d;
@@ -33,7 +33,7 @@ public class e extends BaseAdapter {
     public void a(v vVar) {
         b(bf.a().b());
         this.e = true;
-        this.f1291a = vVar;
+        this.f1296a = vVar;
     }
 
     public e(Context context) {
@@ -50,7 +50,7 @@ public class e extends BaseAdapter {
         if (!this.e) {
             return 1;
         }
-        if (this.f1291a == null || (b = this.f1291a.b()) == null) {
+        if (this.f1296a == null || (b = this.f1296a.b()) == null) {
             return 0;
         }
         return b.size();
@@ -58,10 +58,10 @@ public class e extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (!this.e || this.f1291a == null || this.f1291a.b() == null) {
+        if (!this.e || this.f1296a == null || this.f1296a.b() == null) {
             return null;
         }
-        ArrayList<w> b = this.f1291a.b();
+        ArrayList<w> b = this.f1296a.b();
         if (i < 0 || b == null || i >= b.size()) {
             return null;
         }
@@ -95,7 +95,7 @@ public class e extends BaseAdapter {
         View a2 = (view == null || view.getTag() == null) ? this.c.a() : view;
         a2.setPadding(0, i == 0 ? this.b.getResources().getDimensionPixelSize(R.dimen.forumfeed_first_item_margin_top) : 0, 0, 0);
         int ap = TiebaApplication.g().ap();
-        ArrayList<w> b = this.f1291a.b();
+        ArrayList<w> b = this.f1296a.b();
         if (b != null && (wVar = b.get(i)) != null) {
             this.c.a(a2, wVar);
             this.c.a(ap, a2);
@@ -114,9 +114,9 @@ public class e extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         w wVar;
-        ArrayList<aj> j;
-        if (this.e && this.f1291a != null) {
-            ArrayList<w> b = this.f1291a.b();
+        ArrayList<ai> j;
+        if (this.e && this.f1296a != null) {
+            ArrayList<w> b = this.f1296a.b();
             if (b == null || (wVar = b.get(i)) == null || (j = wVar.j()) == null) {
                 return 2;
             }

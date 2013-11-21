@@ -7,21 +7,26 @@ import android.widget.Toast;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Toast f2517a;
+    private static Toast f2500a;
     private static Handler b = new Handler();
-    private static Runnable c = new t();
+    private static String c = null;
+    private static Runnable d = new t();
 
     public static void a(Context context, String str, int i) {
         if (str != null && str.length() > 0) {
-            b.removeCallbacks(c);
-            if (f2517a != null) {
-                f2517a.setText(str);
+            b.removeCallbacks(d);
+            if (f2500a != null) {
+                if (!str.equals(c)) {
+                    c = str;
+                    f2500a.setText(str);
+                }
             } else {
-                f2517a = Toast.makeText(context, str, 0);
-                f2517a.setGravity(17, 0, UtilHelper.a(context, 100.0f));
+                c = str;
+                f2500a = Toast.makeText(context, str, 0);
+                f2500a.setGravity(17, 0, UtilHelper.a(context, 100.0f));
             }
-            b.postDelayed(c, i);
-            f2517a.show();
+            b.postDelayed(d, i);
+            f2500a.show();
         }
     }
 

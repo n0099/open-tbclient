@@ -4,19 +4,19 @@ package com.baidu.tieba.forumfeed;
 public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ i f1296a;
+    final /* synthetic */ i f1301a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.f1296a = iVar;
+        this.f1301a = iVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        z = this.f1296a.p;
+        z = this.f1301a.p;
         if (z) {
-            this.f1296a.l();
+            this.f1301a.l();
         }
     }
 }

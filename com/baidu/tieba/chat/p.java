@@ -4,11 +4,11 @@ package com.baidu.tieba.chat;
 public class p implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListFragment f1141a;
+    final /* synthetic */ ChatListFragment f1147a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(ChatListFragment chatListFragment) {
-        this.f1141a = chatListFragment;
+        this.f1147a = chatListFragment;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,10 +17,10 @@ public class p implements com.baidu.tieba.im.a<Void> {
         m mVar;
         m mVar2;
         com.baidu.tieba.model.f fVar;
-        mVar = this.f1141a.aa;
+        mVar = this.f1147a.aa;
         if (mVar != null) {
-            mVar2 = this.f1141a.aa;
-            fVar = this.f1141a.c;
+            mVar2 = this.f1147a.aa;
+            fVar = this.f1147a.c;
             mVar2.a(fVar.a());
         }
     }

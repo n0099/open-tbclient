@@ -10,15 +10,15 @@ import com.baidu.tieba.TiebaApplication;
 public class CreateGroupMainActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    b f1577a = null;
+    b f1568a = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1577a = new b(this);
+        this.f1568a = new b(this);
         Intent intent = getIntent();
-        this.f1577a.a(intent.getBooleanExtra("canCreateOfficialGroup", false), intent.getBooleanExtra("canCreateCommonGroup", false), intent.getStringExtra("createGroupOfficialTip"), intent.getStringExtra("createCommonGroupTip"), intent.getIntExtra("forumid", 0));
+        this.f1568a.a(intent.getBooleanExtra("canCreateOfficialGroup", false), intent.getBooleanExtra("canCreateCommonGroup", false), intent.getStringExtra("createGroupOfficialTip"), intent.getStringExtra("createCommonGroupTip"), intent.getIntExtra("forumid", 0));
         if (TiebaApplication.g().s()) {
             StatService.onEvent(this, "create_g_bz_pv", "pv", 1);
         }
@@ -38,19 +38,19 @@ public class CreateGroupMainActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1577a.a(i);
+        this.f1568a.a(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f1577a.e()) {
-            CreateGroupStepActivity.a(this, 3, this.f1577a.a());
+        if (view == this.f1568a.e()) {
+            CreateGroupStepActivity.a(this, 3, this.f1568a.a());
             if (TiebaApplication.g().s()) {
                 StatService.onEvent(this, "create_g_common", "click", 1);
             }
-        } else if (view == this.f1577a.f()) {
-            CreateGroupStepActivity.a(this, 4, this.f1577a.a());
+        } else if (view == this.f1568a.f()) {
+            CreateGroupStepActivity.a(this, 4, this.f1568a.a());
             if (TiebaApplication.g().s()) {
                 StatService.onEvent(this, "create_g_official", "click", 1);
             }

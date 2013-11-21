@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f1496a;
+    private Activity f1487a;
     private EditText b;
     private int c = 1;
     private double d = 0.0d;
@@ -32,26 +32,26 @@ public class aa {
 
     public aa(Activity activity, EditText editText) {
         this.b = null;
-        this.f1496a = activity;
+        this.f1487a = activity;
         this.b = editText;
         b();
         c();
     }
 
     private void b() {
-        this.i = (RelativeLayout) this.f1496a.findViewById(R.id.face_view);
-        this.j = (ViewPager) this.f1496a.findViewById(R.id.face_im_contains);
+        this.i = (RelativeLayout) this.f1487a.findViewById(R.id.face_view);
+        this.j = (ViewPager) this.f1487a.findViewById(R.id.face_im_contains);
         this.g = new ArrayList<>();
         this.d = TbFaceManager.a().b();
         int ceil = (int) Math.ceil(this.d / 27.0d);
-        View view = new View(this.f1496a);
+        View view = new View(this.f1487a);
         view.setBackgroundColor(0);
         this.g.add(view);
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < ceil; i++) {
-            GridView gridView = new GridView(this.f1496a);
+            GridView gridView = new GridView(this.f1487a);
             this.e = i * 28;
-            this.f = new m(this.f1496a, 28, this.e - i, i);
+            this.f = new m(this.f1487a, 28, this.e - i, i);
             gridView.setAdapter((ListAdapter) this.f);
             arrayList.add(this.f);
             gridView.setNumColumns(7);
@@ -65,7 +65,7 @@ public class aa {
             this.g.add(gridView);
             gridView.setOnItemClickListener(new ab(this));
         }
-        View view2 = new View(this.f1496a);
+        View view2 = new View(this.f1487a);
         view2.setBackgroundColor(0);
         this.g.add(view2);
         this.j.setAdapter(new ViewPagerAdapter(this.g));
@@ -74,22 +74,20 @@ public class aa {
     }
 
     private void c() {
-        this.k = (LinearLayout) this.f1496a.findViewById(R.id.iv_image);
+        this.k = (LinearLayout) this.f1487a.findViewById(R.id.iv_image);
         this.h = new ArrayList<>();
         for (int i = 0; i < this.g.size(); i++) {
-            ImageView imageView = new ImageView(this.f1496a);
-            imageView.setBackgroundResource(R.drawable.face_im_dot_corners);
+            ImageView imageView = new ImageView(this.f1487a);
+            imageView.setBackgroundResource(R.drawable.dot_pb_expression_n);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            layoutParams.leftMargin = 10;
-            layoutParams.rightMargin = 10;
-            layoutParams.width = 8;
-            layoutParams.height = 8;
+            layoutParams.leftMargin = 14;
+            layoutParams.rightMargin = 14;
             this.k.addView(imageView, layoutParams);
             if (i == 0 || i == this.g.size() - 1) {
                 imageView.setVisibility(8);
             }
             if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.face_im_dot_corners_selected);
+                imageView.setBackgroundResource(R.drawable.dot_pb_expression_s);
             }
             this.h.add(imageView);
         }
@@ -102,9 +100,9 @@ public class aa {
             int i3 = i2;
             if (i3 < this.h.size()) {
                 if (i == i3) {
-                    this.h.get(i3).setBackgroundResource(R.drawable.face_im_dot_corners_selected);
+                    this.h.get(i3).setBackgroundResource(R.drawable.dot_pb_expression_s);
                 } else {
-                    this.h.get(i3).setBackgroundResource(R.drawable.face_im_dot_corners);
+                    this.h.get(i3).setBackgroundResource(R.drawable.dot_pb_expression_n);
                 }
                 i2 = i3 + 1;
             } else {

@@ -3,7 +3,7 @@ package javassist.bytecode.stackmap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f2828a;
+    public a f2812a;
     public BasicBlock b;
     public int c;
 
@@ -11,6 +11,6 @@ public class a {
     public a(BasicBlock basicBlock, int i, a aVar) {
         this.b = basicBlock;
         this.c = i;
-        this.f2828a = aVar;
+        this.f2812a = aVar;
     }
 }

@@ -19,7 +19,7 @@ public class ae {
     private int Q;
 
     /* renamed from: a  reason: collision with root package name */
-    protected InputStream f2556a;
+    protected InputStream f2539a;
     protected int b;
     protected int c;
     protected int d;
@@ -157,7 +157,7 @@ public class ae {
         if (this.N <= 0) {
             return null;
         }
-        return this.M.elementAt(i % this.N).f2557a;
+        return this.M.elementAt(i % this.N).f2540a;
     }
 
     public int a(InputStream inputStream) {
@@ -166,7 +166,7 @@ public class ae {
         }
         f();
         if (inputStream != null) {
-            this.f2556a = inputStream;
+            this.f2539a = inputStream;
             k();
             if (!e()) {
                 i();
@@ -347,7 +347,7 @@ public class ae {
 
     protected int g() {
         try {
-            return this.f2556a.read();
+            return this.f2539a.read();
         } catch (Exception e) {
             this.b = 1;
             return 0;
@@ -360,7 +360,7 @@ public class ae {
         if (this.C > 0) {
             while (i < this.C) {
                 try {
-                    int read = this.f2556a.read(this.B, i, this.C - i);
+                    int read = this.f2539a.read(this.B, i, this.C - i);
                     if (read == -1) {
                         break;
                     }
@@ -382,7 +382,7 @@ public class ae {
         int[] iArr = null;
         byte[] bArr = new byte[i3];
         try {
-            i2 = this.f2556a.read(bArr);
+            i2 = this.f2539a.read(bArr);
         } catch (Exception e) {
             e.printStackTrace();
             i2 = 0;
@@ -583,7 +583,7 @@ public class ae {
             while (true) {
                 int i2 = i;
                 if (i2 < this.M.size()) {
-                    this.M.get(i2).f2557a = null;
+                    this.M.get(i2).f2540a = null;
                     i = i2 + 1;
                 } else {
                     return;

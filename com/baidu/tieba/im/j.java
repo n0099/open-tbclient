@@ -6,7 +6,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1722a = "ws://im.tieba.baidu.com:8000";
+    public static String f1713a = "ws://im.tieba.baidu.com:8000";
     public static String b = "im_version=1.1";
     public static int[] c = {30, 60, 300, 600, 1800, 3600, 7200, 14400};
     public static int d = 30000;

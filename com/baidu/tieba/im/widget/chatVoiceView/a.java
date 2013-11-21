@@ -6,18 +6,18 @@ import android.widget.ImageView;
 public class a implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatVoiceView f1817a;
+    final /* synthetic */ ChatVoiceView f1808a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChatVoiceView chatVoiceView) {
-        this.f1817a = chatVoiceView;
+        this.f1808a = chatVoiceView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.a
     public void a(Boolean bool) {
         ImageView imageView;
-        imageView = this.f1817a.d;
+        imageView = this.f1808a.d;
         imageView.setVisibility(8);
     }
 }

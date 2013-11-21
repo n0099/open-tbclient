@@ -8,10 +8,10 @@ import android.content.Intent;
 public class w extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2293a;
+    final /* synthetic */ EditHeadActivity f2278a;
 
     private w(EditHeadActivity editHeadActivity) {
-        this.f2293a = editHeadActivity;
+        this.f2278a = editHeadActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,11 +21,11 @@ public class w extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        this.f2293a.releaseResouce();
+        this.f2278a.releaseResouce();
         if (intent.getBooleanExtra("result", false)) {
-            this.f2293a.c();
+            this.f2278a.c();
         } else {
-            this.f2293a.showToast(intent.getStringExtra("error"));
+            this.f2278a.showToast(intent.getStringExtra("error"));
         }
     }
 }

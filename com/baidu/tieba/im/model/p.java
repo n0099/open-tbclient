@@ -16,10 +16,10 @@ import java.util.List;
 public class p implements com.baidu.tieba.im.chat.x {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistModel f1758a;
+    final /* synthetic */ MsglistModel f1749a;
 
     private p(MsglistModel msglistModel) {
-        this.f1758a = msglistModel;
+        this.f1749a = msglistModel;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -66,29 +66,29 @@ public class p implements com.baidu.tieba.im.chat.x {
                 GroupMsgData groupMsgData = (GroupMsgData) message;
                 if (groupMsgData.getGroupInfo() != null) {
                     long groupId = groupMsgData.getGroupInfo().getGroupId();
-                    groupData5 = this.f1758a.e;
+                    groupData5 = this.f1749a.e;
                     if (groupId == groupData5.getGroupId() && (listMessage = groupMsgData.getListMessage()) != null) {
                         List<ChatMessage> a4 = listMessage.a();
-                        MsglistModel msglistModel = this.f1758a;
-                        msgPageData9 = this.f1758a.i;
+                        MsglistModel msglistModel = this.f1749a;
+                        msgPageData9 = this.f1749a.i;
                         msglistModel.b(msgPageData9.getChatMessages(), a4);
-                        MsglistModel msglistModel2 = this.f1758a;
-                        msgPageData10 = this.f1758a.i;
+                        MsglistModel msglistModel2 = this.f1749a;
+                        msgPageData10 = this.f1749a.i;
                         a3 = msglistModel2.a(msgPageData10.getChatMessages(), a4);
                         if (a3 > 0) {
-                            msgPageData13 = this.f1758a.i;
+                            msgPageData13 = this.f1749a.i;
                             msgPageData13.setIsNewAdd(true);
-                            msgPageData14 = this.f1758a.i;
+                            msgPageData14 = this.f1749a.i;
                             msgPageData14.setNewAddNum(a3);
-                            this.f1758a.mLoadDataMode = 3;
-                            gVar4 = this.f1758a.mLoadDataCallBack;
-                            msgPageData15 = this.f1758a.i;
+                            this.f1749a.mLoadDataMode = 3;
+                            gVar4 = this.f1749a.mLoadDataCallBack;
+                            msgPageData15 = this.f1749a.i;
                             gVar4.a(msgPageData15);
                             return;
                         }
-                        msgPageData11 = this.f1758a.i;
+                        msgPageData11 = this.f1749a.i;
                         msgPageData11.setIsNewAdd(false);
-                        msgPageData12 = this.f1758a.i;
+                        msgPageData12 = this.f1749a.i;
                         msgPageData12.setNewAddNum(0);
                     }
                 }
@@ -98,11 +98,11 @@ public class p implements com.baidu.tieba.im.chat.x {
                         if (chatResponsedMessage.getOrginalMessage() != null && (chatResponsedMessage.getOrginalMessage() instanceof ChatMessage)) {
                             long currentTimeMillis = System.currentTimeMillis() - ((ChatMessage) chatResponsedMessage.getOrginalMessage()).getLogTime();
                             long recordId = ((ChatMessage) chatResponsedMessage.getOrginalMessage()).getRecordId();
-                            d2 = this.f1758a.d((ChatMessage) chatResponsedMessage.getOrginalMessage());
+                            d2 = this.f1749a.d((ChatMessage) chatResponsedMessage.getOrginalMessage());
                             com.baidu.tieba.util.y.a(chatResponsedMessage.getCmd(), 0, "", "", d2 + "rid" + recordId, chatResponsedMessage.getErrNo(), chatResponsedMessage.getErrMsg(), currentTimeMillis);
-                            this.f1758a.c((ChatMessage) chatResponsedMessage.getOrginalMessage());
+                            this.f1749a.c((ChatMessage) chatResponsedMessage.getOrginalMessage());
                             if (chatResponsedMessage.getErrNo() > 0) {
-                                msglistActivity = this.f1758a.o;
+                                msglistActivity = this.f1749a.o;
                                 msglistActivity.showToast(chatResponsedMessage.getErrMsg());
                                 return;
                             }
@@ -114,13 +114,13 @@ public class p implements com.baidu.tieba.im.chat.x {
                     long recordId2 = chatResponsedMessage.getRecordId();
                     long msgId = chatResponsedMessage.getMsgId();
                     if (chatResponsedMessage.getOrginalMessage() != null && (chatResponsedMessage.getOrginalMessage() instanceof ChatMessage)) {
-                        d = this.f1758a.d((ChatMessage) chatResponsedMessage.getOrginalMessage());
+                        d = this.f1749a.d((ChatMessage) chatResponsedMessage.getOrginalMessage());
                         str = d;
                     } else {
                         str = "";
                     }
                     com.baidu.tieba.util.y.a(chatResponsedMessage.getCmd(), 0, "", "", "rid = " + recordId2 + "msgId = " + msgId + str, chatResponsedMessage.getErrNo(), chatResponsedMessage.getErrMsg(), currentTimeMillis2);
-                    this.f1758a.a(chatResponsedMessage);
+                    this.f1749a.a(chatResponsedMessage);
                 }
             } else if (message.getCmd() == -103) {
                 if (!(message instanceof LoadDraftResponsedMessage)) {
@@ -128,17 +128,17 @@ public class p implements com.baidu.tieba.im.chat.x {
                     return;
                 }
                 LoadDraftResponsedMessage loadDraftResponsedMessage = (LoadDraftResponsedMessage) message;
-                groupData3 = this.f1758a.e;
+                groupData3 = this.f1749a.e;
                 if (groupData3 == null || loadDraftResponsedMessage == null) {
                     com.baidu.adp.lib.h.d.a("group ==null or LoadDraftResponsedMessage == null");
                 } else if (loadDraftResponsedMessage.hasError()) {
                     com.baidu.adp.lib.h.d.a("LoadDraftResponedMessage hasError");
                 } else {
                     String groupId2 = loadDraftResponsedMessage.getGroupId();
-                    groupData4 = this.f1758a.e;
+                    groupData4 = this.f1749a.e;
                     if (groupId2.equals(String.valueOf(groupData4.getGroupId()))) {
-                        this.f1758a.mLoadDataMode = 8;
-                        gVar3 = this.f1758a.mLoadDataCallBack;
+                        this.f1749a.mLoadDataMode = 8;
+                        gVar3 = this.f1749a.mLoadDataCallBack;
                         gVar3.a(loadDraftResponsedMessage.getDraft());
                     }
                 }
@@ -148,45 +148,45 @@ public class p implements com.baidu.tieba.im.chat.x {
                     return;
                 }
                 LoadHistoryResponsedMessage loadHistoryResponsedMessage = (LoadHistoryResponsedMessage) message;
-                groupData = this.f1758a.e;
+                groupData = this.f1749a.e;
                 if (groupData == null || loadHistoryResponsedMessage == null) {
                     com.baidu.adp.lib.h.d.a("group ==null or LoadHistoryResponsedMessage == null");
                 } else if (loadHistoryResponsedMessage.hasError()) {
                     com.baidu.adp.lib.h.d.a("LoadHistoryResponsedMessage hasError");
                 } else {
                     String groupId3 = loadHistoryResponsedMessage.getGroupId();
-                    groupData2 = this.f1758a.e;
+                    groupData2 = this.f1749a.e;
                     if (groupId3.equals(String.valueOf(groupData2.getGroupId()))) {
-                        msgPageData = this.f1758a.i;
-                        a2 = this.f1758a.a(msgPageData.getChatMessages(), (LinkedList) loadHistoryResponsedMessage.getMsgList());
+                        msgPageData = this.f1749a.i;
+                        a2 = this.f1749a.a(msgPageData.getChatMessages(), (LinkedList) loadHistoryResponsedMessage.getMsgList());
                         if (a2 > 0) {
-                            msgPageData7 = this.f1758a.i;
+                            msgPageData7 = this.f1749a.i;
                             msgPageData7.setIsNewAdd(true);
-                            msgPageData8 = this.f1758a.i;
+                            msgPageData8 = this.f1749a.i;
                             msgPageData8.setNewAddNum(a2);
                         } else {
-                            msgPageData2 = this.f1758a.i;
+                            msgPageData2 = this.f1749a.i;
                             msgPageData2.setIsNewAdd(false);
-                            msgPageData3 = this.f1758a.i;
+                            msgPageData3 = this.f1749a.i;
                             msgPageData3.setNewAddNum(0);
                         }
-                        MsglistModel msglistModel3 = this.f1758a;
-                        msgPageData4 = this.f1758a.i;
+                        MsglistModel msglistModel3 = this.f1749a;
+                        msgPageData4 = this.f1749a.i;
                         msglistModel3.a(msgPageData4.getChatMessages());
                         if (loadHistoryResponsedMessage.getIsFirst()) {
-                            msgPageData6 = this.f1758a.i;
+                            msgPageData6 = this.f1749a.i;
                             if (msgPageData6.getIsNewAdd()) {
-                                this.f1758a.mLoadDataMode = 1;
-                                gVar2 = this.f1758a.mLoadDataCallBack;
+                                this.f1749a.mLoadDataMode = 1;
+                                gVar2 = this.f1749a.mLoadDataCallBack;
                                 gVar2.a(null);
                                 return;
                             }
                             return;
                         }
-                        msgPageData5 = this.f1758a.i;
+                        msgPageData5 = this.f1749a.i;
                         if (msgPageData5.getIsNewAdd()) {
-                            this.f1758a.mLoadDataMode = 2;
-                            gVar = this.f1758a.mLoadDataCallBack;
+                            this.f1749a.mLoadDataMode = 2;
+                            gVar = this.f1749a.mLoadDataCallBack;
                             gVar.a(null);
                         }
                     }

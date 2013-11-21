@@ -8,19 +8,19 @@ import com.baidu.tieba.forumdetail.ForumDetailActivity;
 public class ac implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f2554a;
+    final /* synthetic */ aa f2537a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(aa aaVar) {
-        this.f2554a = aaVar;
+        this.f2537a = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Activity activity;
         String str;
-        activity = this.f2554a.D;
-        str = this.f2554a.F;
+        activity = this.f2537a.D;
+        str = this.f2537a.F;
         ForumDetailActivity.a(activity, str, ForumDetailActivity.FromType.FRS);
     }
 }

@@ -19,23 +19,25 @@ import com.slidingmenu.lib.R;
 public class ForbidActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private NavigationBar f1065a;
+    private NavigationBar f1068a;
     private RadioGroup b;
     private String c;
     private String d;
     private String e;
     private String f;
-    private TextView g;
-    private BdListView h;
-    private e i;
-    private View.OnClickListener j = new c(this);
+    private String g;
+    private TextView h;
+    private BdListView i;
+    private e j;
+    private View.OnClickListener k = new c(this);
 
-    public static void a(Context context, String str, String str2, String str3, String str4) {
+    public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
         Intent intent = new Intent(context, ForbidActivity.class);
         intent.putExtra("forum_id", str);
         intent.putExtra("forum_name", str2);
         intent.putExtra("thread_id", str3);
-        intent.putExtra("user_name", str4);
+        intent.putExtra("bar_manager_user_id", str4);
+        intent.putExtra("user_name", str5);
         context.startActivity(intent);
     }
 
@@ -48,12 +50,12 @@ public class ForbidActivity extends com.baidu.tieba.j {
             LoginActivity.a((Activity) this, getString(R.string.login_to_use), true, 11018);
             return;
         }
-        this.f1065a = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.f1065a.a(getString(R.string.forbid_page_title));
-        this.f1065a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f1065a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.forbid_btn_txt), this.j);
-        this.g = (TextView) findViewById(R.id.forbid_id);
-        this.h = (BdListView) findViewById(R.id.listview_forbid_reason);
+        this.f1068a = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.f1068a.a(getString(R.string.forbid_page_title));
+        this.f1068a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f1068a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.forbid_btn_txt), this.k);
+        this.h = (TextView) findViewById(R.id.forbid_id);
+        this.i = (BdListView) findViewById(R.id.listview_forbid_reason);
         this.b = (RadioGroup) findViewById(R.id.forbid_days);
         this.b.setOnCheckedChangeListener(new a(this));
         a();
@@ -64,8 +66,9 @@ public class ForbidActivity extends com.baidu.tieba.j {
         this.c = intent.getStringExtra("forum_id");
         this.d = intent.getStringExtra("forum_name");
         this.e = intent.getStringExtra("thread_id");
-        this.f = intent.getStringExtra("user_name");
-        l.a(this.c, new b(this));
+        this.f = intent.getStringExtra("bar_manager_user_id");
+        this.g = intent.getStringExtra("user_name");
+        l.a(this.c, this.f, new b(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -94,8 +97,8 @@ public class ForbidActivity extends com.baidu.tieba.j {
         View findViewById = findViewById(R.id.root);
         getLayoutMode().a(z);
         getLayoutMode().a(findViewById);
-        this.f1065a.c(i);
-        this.h.setDivider(getResources().getDrawable(z ? R.drawable.forbid_list_divider_1 : R.drawable.forbid_list_divider));
-        this.h.setDividerHeight(UtilHelper.a((Context) this, 1.0f));
+        this.f1068a.c(i);
+        this.i.setDivider(getResources().getDrawable(z ? R.drawable.forbid_list_divider_1 : R.drawable.forbid_list_divider));
+        this.i.setDividerHeight(UtilHelper.a((Context) this, 1.0f));
     }
 }

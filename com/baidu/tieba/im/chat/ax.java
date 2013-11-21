@@ -7,11 +7,11 @@ import com.baidu.tieba.im.model.MsglistModel;
 public class ax implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1517a;
+    final /* synthetic */ MsglistActivity f1508a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(MsglistActivity msglistActivity) {
-        this.f1517a = msglistActivity;
+        this.f1508a = msglistActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,20 +25,20 @@ public class ax implements com.baidu.tieba.im.a<Boolean> {
         bg bgVar3;
         if (bool != null) {
             if (bool.booleanValue()) {
-                bgVar3 = this.f1517a.f;
+                bgVar3 = this.f1508a.f;
                 bgVar3.H();
             } else {
-                bgVar = this.f1517a.f;
+                bgVar = this.f1508a.f;
                 bgVar.I();
             }
-            msglistModel = this.f1517a.g;
+            msglistModel = this.f1508a.g;
             if (msglistModel != null) {
-                msglistModel2 = this.f1517a.g;
+                msglistModel2 = this.f1508a.g;
                 if (msglistModel2.a() != null) {
-                    msglistModel3 = this.f1517a.g;
+                    msglistModel3 = this.f1508a.g;
                     String name = msglistModel3.a().getName();
                     if (!TextUtils.isEmpty(name)) {
-                        bgVar2 = this.f1517a.f;
+                        bgVar2 = this.f1508a.f;
                         bgVar2.a(name, true);
                     }
                 }

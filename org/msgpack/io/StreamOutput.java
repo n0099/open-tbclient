@@ -6,64 +6,64 @@ import java.nio.ByteBuffer;
 public class StreamOutput implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private DataOutputStream f2893a;
+    private DataOutputStream f2877a;
 
     @Override // org.msgpack.io.g
     public void a(byte[] bArr, int i, int i2) {
-        this.f2893a.write(bArr, i, i2);
+        this.f2877a.write(bArr, i, i2);
     }
 
     @Override // org.msgpack.io.g
     public void a(ByteBuffer byteBuffer) {
         if (byteBuffer.hasArray()) {
-            this.f2893a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.remaining());
+            this.f2877a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.remaining());
             byteBuffer.position(byteBuffer.limit());
             return;
         }
         byte[] bArr = new byte[byteBuffer.remaining()];
         byteBuffer.get(bArr);
-        this.f2893a.write(bArr);
+        this.f2877a.write(bArr);
     }
 
     @Override // org.msgpack.io.g
     public void a(byte b) {
-        this.f2893a.write(b);
+        this.f2877a.write(b);
     }
 
     @Override // org.msgpack.io.g
     public void a(byte b, byte b2) {
-        this.f2893a.write(b);
-        this.f2893a.write(b2);
+        this.f2877a.write(b);
+        this.f2877a.write(b2);
     }
 
     @Override // org.msgpack.io.g
     public void a(byte b, short s) {
-        this.f2893a.write(b);
-        this.f2893a.writeShort(s);
+        this.f2877a.write(b);
+        this.f2877a.writeShort(s);
     }
 
     @Override // org.msgpack.io.g
     public void a(byte b, int i) {
-        this.f2893a.write(b);
-        this.f2893a.writeInt(i);
+        this.f2877a.write(b);
+        this.f2877a.writeInt(i);
     }
 
     @Override // org.msgpack.io.g
     public void a(byte b, long j) {
-        this.f2893a.write(b);
-        this.f2893a.writeLong(j);
+        this.f2877a.write(b);
+        this.f2877a.writeLong(j);
     }
 
     @Override // org.msgpack.io.g
     public void a(byte b, float f) {
-        this.f2893a.write(b);
-        this.f2893a.writeFloat(f);
+        this.f2877a.write(b);
+        this.f2877a.writeFloat(f);
     }
 
     @Override // org.msgpack.io.g
     public void a(byte b, double d) {
-        this.f2893a.write(b);
-        this.f2893a.writeDouble(d);
+        this.f2877a.write(b);
+        this.f2877a.writeDouble(d);
     }
 
     @Override // java.io.Flushable
@@ -72,6 +72,6 @@ public class StreamOutput implements g {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f2893a.close();
+        this.f2877a.close();
     }
 }

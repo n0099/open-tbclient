@@ -21,9 +21,9 @@ public class e {
                 dVar.d = d.a(dVar.c);
             } else {
                 String a3 = af.a(a2, 1, true);
-                if (af.f(str, a3)) {
+                if (af.g(str, a3)) {
                     dVar.b = a3;
-                    dVar.f2612a = a2;
+                    dVar.f2595a = a2;
                 } else {
                     dVar.c = 1;
                     dVar.d = d.a(dVar.c);
@@ -47,7 +47,7 @@ public class e {
     }
 
     public static boolean a(String str, String str2) {
-        return af.f(str, af.a(str2, 1, true));
+        return af.g(str, af.a(str2, 1, true));
     }
 
     public static synchronized void a() {

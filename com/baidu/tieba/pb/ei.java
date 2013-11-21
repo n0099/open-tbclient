@@ -1,20 +1,19 @@
 package com.baidu.tieba.pb;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-public class ei implements Runnable {
+class ei implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2165a;
-    final /* synthetic */ eb b;
+    final /* synthetic */ ef f2148a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ei(eb ebVar, String str) {
-        this.b = ebVar;
-        this.f2165a = str;
+    public ei(ef efVar) {
+        this.f2148a = efVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.b.a(this.f2165a);
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        dialogInterface.dismiss();
     }
 }

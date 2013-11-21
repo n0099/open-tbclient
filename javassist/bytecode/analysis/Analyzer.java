@@ -14,7 +14,7 @@ import javassist.bytecode.z;
 public class Analyzer implements as {
 
     /* renamed from: a  reason: collision with root package name */
-    private final SubroutineScanner f2765a = new SubroutineScanner();
+    private final SubroutineScanner f2749a = new SubroutineScanner();
     private javassist.h b;
     private b[] c;
     private c[] d;
@@ -32,7 +32,7 @@ public class Analyzer implements as {
         CodeIterator j = i.j();
         d dVar = new d();
         this.c = a(anVar);
-        this.e = this.f2765a.a(anVar);
+        this.e = this.f2749a.a(anVar);
         Executor executor = new Executor(hVar.a(), anVar.c());
         this.d = new c[h];
         this.d[j.g()] = a(anVar, g, f);
@@ -169,7 +169,7 @@ public class Analyzer implements as {
             b bVar = this.c[i5];
             i2 = bVar.c;
             if (i >= i2) {
-                i3 = bVar.f2769a;
+                i3 = bVar.f2753a;
                 if (i < i3) {
                     c f = cVar.f();
                     f.a();

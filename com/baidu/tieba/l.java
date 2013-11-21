@@ -7,19 +7,19 @@ import android.view.inputmethod.InputMethodManager;
 public class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1819a;
+    final /* synthetic */ j f1810a;
     private View b;
 
     public l(j jVar, View view) {
-        this.f1819a = jVar;
+        this.f1810a = jVar;
         this.b = null;
         this.b = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (!this.f1819a.isFinishing()) {
-            this.f1819a.ShowSoftKeyPad((InputMethodManager) this.f1819a.getSystemService("input_method"), this.b);
+        if (!this.f1810a.isFinishing()) {
+            this.f1810a.ShowSoftKeyPad((InputMethodManager) this.f1810a.getSystemService("input_method"), this.b);
         }
     }
 }

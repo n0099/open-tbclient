@@ -14,7 +14,7 @@ import com.baidu.tieba.util.y;
 public class s implements an {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Handler f1741a = new Handler();
+    private static Handler f1732a = new Handler();
     private int b;
     private am c;
     private IMException d;
@@ -96,7 +96,7 @@ public class s implements an {
     }
 
     private void n() {
-        f1741a.removeCallbacks(m());
+        f1732a.removeCallbacks(m());
     }
 
     public void b() {
@@ -107,14 +107,14 @@ public class s implements an {
     @Override // com.baidu.adp.lib.webSocket.an
     public void a(am amVar) {
         y.a(g() != null ? g().getCmd() : 0, (this.e == null || this.e.getMsgTag() == null) ? 0 : this.e.getMsgTag().getSequence(), "socket", "SenderData: start send", null, 0, null, 0L, (this.c == null || this.c.c() == null) ? 0 : this.c.c().length, null);
-        f1741a.removeCallbacks(m());
-        f1741a.postDelayed(m(), this.b);
+        f1732a.removeCallbacks(m());
+        f1732a.postDelayed(m(), this.b);
         l();
     }
 
     @Override // com.baidu.adp.lib.webSocket.an
     public void b(am amVar) {
-        f1741a.removeCallbacks(m());
+        f1732a.removeCallbacks(m());
         i();
     }
 
@@ -122,7 +122,7 @@ public class s implements an {
     public void c(am amVar) {
         y.a(g() != null ? g().getCmd() : 0, (this.e == null || this.e.getMsgTag() == null) ? 0 : this.e.getMsgTag().getSequence(), "socket", "SenderData: finish send", null, 0, null, 0L, (this.c == null || this.c.c() == null) ? 0 : this.c.c().length, null);
         if (!this.f) {
-            f1741a.removeCallbacks(m());
+            f1732a.removeCallbacks(m());
         }
         k();
     }

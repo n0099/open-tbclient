@@ -8,15 +8,15 @@ import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends BdAsyncTask<String, Integer, ch> {
+public class c extends BdAsyncTask<String, Integer, ci> {
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.util.ap f1925a;
+    com.baidu.tieba.util.ap f1907a;
     final /* synthetic */ a b;
 
     private c(a aVar) {
         this.b = aVar;
-        this.f1925a = null;
+        this.f1907a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,44 +28,44 @@ public class c extends BdAsyncTask<String, Integer, ch> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public ch a(String... strArr) {
-        ch chVar;
+    public ci a(String... strArr) {
+        ci ciVar;
         Exception e;
         Context context;
         try {
-            this.f1925a = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/s/sync");
-            this.f1925a.a("_os_version", Build.VERSION.RELEASE);
+            this.f1907a = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/s/sync");
+            this.f1907a.a("_os_version", Build.VERSION.RELEASE);
             StringBuffer stringBuffer = new StringBuffer(15);
             stringBuffer.append(String.valueOf(UtilHelper.a(TiebaApplication.g())));
             stringBuffer.append(",");
             stringBuffer.append(String.valueOf(UtilHelper.b(TiebaApplication.g())));
-            this.f1925a.a("_phone_screen", stringBuffer.toString());
+            this.f1907a.a("_phone_screen", stringBuffer.toString());
             if (TiebaApplication.g().P() > 0) {
-                this.f1925a.a("_msg_status", SocialConstants.FALSE);
+                this.f1907a.a("_msg_status", SocialConstants.FALSE);
             } else {
-                this.f1925a.a("_msg_status", SocialConstants.TRUE);
+                this.f1907a.a("_msg_status", SocialConstants.TRUE);
             }
-            String j = this.f1925a.j();
-            if (!this.f1925a.c()) {
+            String j = this.f1907a.j();
+            if (!this.f1907a.c()) {
                 return null;
             }
-            chVar = new ch();
+            ciVar = new ci();
             try {
-                chVar.a(j);
-                if (TiebaApplication.N() == null && chVar.d().a() != null && chVar.d().a().length() > 0) {
+                ciVar.a(j);
+                if (TiebaApplication.N() == null && ciVar.d().a() != null && ciVar.d().a().length() > 0) {
                     context = this.b.c;
-                    TiebaApplication.a(context, chVar.d().a());
-                    TiebaApplication.n(chVar.d().a());
-                    return chVar;
+                    TiebaApplication.a(context, ciVar.d().a());
+                    TiebaApplication.n(ciVar.d().a());
+                    return ciVar;
                 }
-                return chVar;
+                return ciVar;
             } catch (Exception e2) {
                 e = e2;
                 com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
-                return chVar;
+                return ciVar;
             }
         } catch (Exception e3) {
-            chVar = null;
+            ciVar = null;
             e = e3;
         }
     }
@@ -73,8 +73,8 @@ public class c extends BdAsyncTask<String, Integer, ch> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         this.b.b = null;
-        if (this.f1925a != null) {
-            this.f1925a.h();
+        if (this.f1907a != null) {
+            this.f1907a.h();
         }
         super.cancel(true);
     }
@@ -82,9 +82,9 @@ public class c extends BdAsyncTask<String, Integer, ch> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(ch chVar) {
-        super.a((c) chVar);
+    public void a(ci ciVar) {
+        super.a((c) ciVar);
         this.b.b = null;
-        this.b.f1880a.a(chVar);
+        this.b.f1862a.a(ciVar);
     }
 }

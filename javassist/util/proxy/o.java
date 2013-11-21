@@ -5,15 +5,15 @@ import java.security.PrivilegedAction;
 final class o implements PrivilegedAction {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Class f2876a;
+    final /* synthetic */ Class f2860a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(Class cls) {
-        this.f2876a = cls;
+        this.f2860a = cls;
     }
 
     @Override // java.security.PrivilegedAction
     public Object run() {
-        return this.f2876a.getDeclaredConstructors();
+        return this.f2860a.getDeclaredConstructors();
     }
 }

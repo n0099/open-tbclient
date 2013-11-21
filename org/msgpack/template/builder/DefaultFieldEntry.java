@@ -8,7 +8,7 @@ import org.msgpack.template.FieldOption;
 public class DefaultFieldEntry extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Field f2939a;
+    protected Field f2923a;
 
     public DefaultFieldEntry() {
         this(null, FieldOption.IGNORE);
@@ -16,26 +16,26 @@ public class DefaultFieldEntry extends c {
 
     public DefaultFieldEntry(Field field, FieldOption fieldOption) {
         super(fieldOption);
-        this.f2939a = field;
+        this.f2923a = field;
     }
 
     public Field a() {
-        return this.f2939a;
+        return this.f2923a;
     }
 
     @Override // org.msgpack.template.builder.c
     public String d() {
-        return this.f2939a.getName();
+        return this.f2923a.getName();
     }
 
     @Override // org.msgpack.template.builder.c
     public Class<?> e() {
-        return this.f2939a.getType();
+        return this.f2923a.getType();
     }
 
     @Override // org.msgpack.template.builder.c
     public Type f() {
-        return this.f2939a.getGenericType();
+        return this.f2923a.getGenericType();
     }
 
     @Override // org.msgpack.template.builder.c

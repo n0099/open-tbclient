@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 class ay implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NoNetworkView f2570a;
+    final /* synthetic */ NoNetworkView f2553a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(NoNetworkView noNetworkView) {
-        this.f2570a = noNetworkView;
+        this.f2553a = noNetworkView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,6 +22,6 @@ class ay implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.f2570a.setVisibility(8);
+        this.f2553a.setVisibility(8);
     }
 }

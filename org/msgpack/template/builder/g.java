@@ -7,7 +7,7 @@ import java.util.List;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected List<f> f2949a;
+    protected List<f> f2933a;
     protected f b;
 
     private static boolean b() {
@@ -19,7 +19,7 @@ public class g {
     }
 
     public g(org.msgpack.template.e eVar, ClassLoader classLoader) {
-        this.f2949a = new ArrayList();
+        this.f2933a = new ArrayList();
         a(eVar, classLoader);
     }
 
@@ -35,10 +35,10 @@ public class g {
         }
         this.b = a(str, eVar, classLoader);
         f fVar = this.b;
-        this.f2949a.add(new ArrayTemplateBuilder(eVar));
-        this.f2949a.add(new OrdinalEnumTemplateBuilder(eVar));
-        this.f2949a.add(fVar);
-        this.f2949a.add(new ReflectionBeansTemplateBuilder(eVar));
+        this.f2933a.add(new ArrayTemplateBuilder(eVar));
+        this.f2933a.add(new OrdinalEnumTemplateBuilder(eVar));
+        this.f2933a.add(fVar);
+        this.f2933a.add(new ReflectionBeansTemplateBuilder(eVar));
     }
 
     private static f a(String str, org.msgpack.template.e eVar, ClassLoader classLoader) {
@@ -55,7 +55,7 @@ public class g {
     }
 
     public f a(Type type, boolean z) {
-        for (f fVar : this.f2949a) {
+        for (f fVar : this.f2933a) {
             if (fVar.b(type, z)) {
                 return fVar;
             }

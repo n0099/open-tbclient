@@ -12,7 +12,7 @@ import java.util.List;
 public class m extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1814a;
+    private View f1805a;
     private ImageView c;
     private ValidateActivity d;
     private BdListView e;
@@ -30,13 +30,13 @@ public class m extends com.baidu.adp.a.e {
     }
 
     void a() {
-        this.f1814a = View.inflate(this.d, R.layout.validate_activity, null);
-        this.d.setContentView(this.f1814a);
+        this.f1805a = View.inflate(this.d, R.layout.validate_activity, null);
+        this.d.setContentView(this.f1805a);
         this.h = (NavigationBar) this.d.findViewById(R.id.view_navigation_bar);
         this.h.a(this.d.getString(R.string.group_apply_join));
         this.h.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new n(this));
-        this.e = (BdListView) this.f1814a.findViewById(R.id.validate_list);
-        this.g = (ProgressBar) this.f1814a.findViewById(R.id.pro_load);
+        this.e = (BdListView) this.f1805a.findViewById(R.id.validate_list);
+        this.g = (ProgressBar) this.f1805a.findViewById(R.id.pro_load);
         a(false);
     }
 
@@ -62,7 +62,7 @@ public class m extends com.baidu.adp.a.e {
 
     public void a(int i) {
         this.d.getLayoutMode().a(i == 1);
-        this.d.getLayoutMode().a(this.f1814a);
+        this.d.getLayoutMode().a(this.f1805a);
         this.h.c(i);
         if (i == 1) {
             this.e.setDivider(this.d.getResources().getDrawable(R.drawable.list_divider_1));

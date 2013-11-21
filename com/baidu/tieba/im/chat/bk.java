@@ -6,11 +6,11 @@ import android.widget.AbsListView;
 public class bk implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1531a;
+    final /* synthetic */ bg f1522a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bk(bg bgVar) {
-        this.f1531a = bgVar;
+        this.f1522a = bgVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -19,8 +19,8 @@ public class bk implements AbsListView.OnScrollListener {
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        this.f1531a.L();
-        this.f1531a.M();
-        this.f1531a.N();
+        this.f1522a.L();
+        this.f1522a.M();
+        this.f1522a.N();
     }
 }

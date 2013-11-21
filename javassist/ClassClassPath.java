@@ -6,10 +6,10 @@ import java.net.URL;
 public class ClassClassPath implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Class f2738a;
+    private Class f2722a;
 
     public ClassClassPath(Class cls) {
-        this.f2738a = cls;
+        this.f2722a = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,12 +19,12 @@ public class ClassClassPath implements a {
 
     @Override // javassist.a
     public InputStream a(String str) {
-        return this.f2738a.getResourceAsStream("/" + str.replace('.', '/') + ".class");
+        return this.f2722a.getResourceAsStream("/" + str.replace('.', '/') + ".class");
     }
 
     @Override // javassist.a
     public URL b(String str) {
-        return this.f2738a.getResource("/" + str.replace('.', '/') + ".class");
+        return this.f2722a.getResource("/" + str.replace('.', '/') + ".class");
     }
 
     @Override // javassist.a
@@ -32,6 +32,6 @@ public class ClassClassPath implements a {
     }
 
     public String toString() {
-        return this.f2738a.getName() + ".class";
+        return this.f2722a.getName() + ".class";
     }
 }

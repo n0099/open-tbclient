@@ -3,6 +3,6 @@ package javassist.bytecode.annotation;
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2789a;
+    int f2773a;
     d b;
 }

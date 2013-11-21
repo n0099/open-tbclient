@@ -9,11 +9,11 @@ import com.baidu.tieba.model.bw;
 class ao implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2220a;
+    final /* synthetic */ PersonChangeActivity f2205a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PersonChangeActivity personChangeActivity) {
-        this.f2220a = personChangeActivity;
+        this.f2205a = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -31,49 +31,49 @@ class ao implements View.OnClickListener {
         Dialog dialog;
         bw bwVar7;
         bw bwVar8;
-        radioButton = this.f2220a.u;
+        radioButton = this.f2205a.u;
         if (radioButton.isChecked()) {
-            bwVar7 = this.f2220a.y;
+            bwVar7 = this.f2205a.y;
             if (bwVar7 != null) {
-                bwVar8 = this.f2220a.y;
+                bwVar8 = this.f2205a.y;
                 if (bwVar8.a().getSex() != 1) {
-                    this.f2220a.G = true;
+                    this.f2205a.G = true;
                 }
             }
         } else {
-            radioButton2 = this.f2220a.v;
+            radioButton2 = this.f2205a.v;
             if (radioButton2.isChecked()) {
-                bwVar = this.f2220a.y;
+                bwVar = this.f2205a.y;
                 if (bwVar != null) {
-                    bwVar2 = this.f2220a.y;
+                    bwVar2 = this.f2205a.y;
                     if (bwVar2.a().getSex() != 2) {
-                        this.f2220a.G = true;
+                        this.f2205a.G = true;
                     }
                 }
             }
         }
-        z = this.f2220a.G;
+        z = this.f2205a.G;
         if (z) {
-            dialog = this.f2220a.F;
+            dialog = this.f2205a.F;
             dialog.show();
             return;
         }
-        bwVar3 = this.f2220a.y;
+        bwVar3 = this.f2205a.y;
         if (bwVar3 != null) {
-            bwVar4 = this.f2220a.y;
+            bwVar4 = this.f2205a.y;
             if (bwVar4.a().getPhotoChanged()) {
                 Intent intent = new Intent();
-                bool = this.f2220a.b;
+                bool = this.f2205a.b;
                 if (bool.booleanValue()) {
-                    bwVar6 = this.f2220a.y;
+                    bwVar6 = this.f2205a.y;
                     intent.putExtra("person_change_data", bwVar6.a());
                 } else {
-                    bwVar5 = this.f2220a.y;
+                    bwVar5 = this.f2205a.y;
                     intent.putExtra("data", bwVar5.a());
                 }
-                this.f2220a.setResult(-1, intent);
+                this.f2205a.setResult(-1, intent);
             }
         }
-        this.f2220a.finish();
+        this.f2205a.finish();
     }
 }

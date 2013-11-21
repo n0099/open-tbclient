@@ -8,8 +8,11 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.widget.ImageView;
 import com.baidu.adp.widget.u;
+import com.baidu.adp.widget.v;
+import com.baidu.adp.widget.w;
 import java.io.ByteArrayOutputStream;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
@@ -79,11 +82,17 @@ public class e {
         if (this.c != null) {
             if (this.k != imageView.getMeasuredWidth() || this.l != imageView.getMeasuredHeight()) {
                 this.f = null;
+                this.k = imageView.getMeasuredWidth();
+                this.l = imageView.getMeasuredHeight();
             }
             this.m.set(true);
             if (this.f == null || this.g != i) {
                 this.g = i;
-                this.f = new u(resources, matrix, imageView, this.c, this.g, colorFilter);
+                if (Build.VERSION.SDK_INT < 11 && imageView.getMeasuredWidth() > com.baidu.adp.lib.h.f.a(imageView.getContext(), 100.0f)) {
+                    this.f = new v(resources, matrix, imageView, this.c, this.g, colorFilter);
+                } else {
+                    this.f = new w(resources, matrix, imageView, this.c, this.g, colorFilter);
+                }
                 this.f.setBounds(0, 0, imageView.getMeasuredWidth(), imageView.getMeasuredHeight());
                 this.i = new RectF();
                 this.j = (int) ((resources.getDisplayMetrics().density * 1.0f) + 0.5d);

@@ -1,21 +1,36 @@
 package com.baidu.tieba.pb;
 
-import com.baidu.tieba.view.KeyboardEventLayout;
+import com.baidu.mobstat.StatService;
+import com.baidu.tieba.TiebaApplication;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cy implements Runnable {
+public class cy implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cx f2130a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2113a;
+    final /* synthetic */ cr b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cx cxVar) {
-        this.f2130a = cxVar;
+    public cy(cr crVar, com.baidu.tieba.editortool.h hVar) {
+        this.b = crVar;
+        this.f2113a = hVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        KeyboardEventLayout keyboardEventLayout;
-        keyboardEventLayout = this.f2130a.b.h;
-        keyboardEventLayout.removeView(this.f2130a.f2129a);
+    @Override // com.baidu.tieba.editortool.h
+    public void a(int i, Object obj) {
+        PbEditor pbEditor;
+        PbEditor pbEditor2;
+        NewPbActivity newPbActivity;
+        if (i == 33) {
+            pbEditor = this.b.an;
+            if (!pbEditor.i()) {
+                pbEditor2 = this.b.an;
+                if (!pbEditor2.k() && TiebaApplication.g().s()) {
+                    newPbActivity = this.b.g;
+                    StatService.onEvent(newPbActivity, "pb_reply", "pbclick", 1);
+                }
+            }
+        }
+        this.f2113a.a(i, obj);
     }
 }

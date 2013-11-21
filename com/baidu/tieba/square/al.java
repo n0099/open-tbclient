@@ -8,10 +8,10 @@ import com.baidu.tieba.forumdetail.ForumDetailData;
 public class al implements android.support.v4.view.bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aj f2381a;
+    final /* synthetic */ aj f2365a;
 
     private al(aj ajVar) {
-        this.f2381a = ajVar;
+        this.f2365a = ajVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,22 +28,22 @@ public class al implements android.support.v4.view.bq {
         IndicatorView indicatorView2;
         IndicatorView indicatorView3;
         IndicatorView indicatorView4;
-        indicatorView = this.f2381a.f;
+        indicatorView = this.f2365a.f;
         if (indicatorView != null) {
-            hotThreadPagerAdapter = this.f2381a.g;
+            hotThreadPagerAdapter = this.f2365a.g;
             if (hotThreadPagerAdapter != null) {
-                threadInfoArr = this.f2381a.j;
+                threadInfoArr = this.f2365a.j;
                 if (threadInfoArr.length > 1) {
-                    hotThreadPagerAdapter2 = this.f2381a.g;
+                    hotThreadPagerAdapter2 = this.f2365a.g;
                     int count = hotThreadPagerAdapter2.getCount();
                     if (i == 0) {
-                        indicatorView4 = this.f2381a.f;
+                        indicatorView4 = this.f2365a.f;
                         indicatorView4.setPosition((count - 3) + f);
                     } else if (i == count - 1) {
-                        indicatorView3 = this.f2381a.f;
+                        indicatorView3 = this.f2365a.f;
                         indicatorView3.setPosition(f);
                     } else {
-                        indicatorView2 = this.f2381a.f;
+                        indicatorView2 = this.f2365a.f;
                         indicatorView2.setPosition((i - 1) + f);
                     }
                 }
@@ -69,33 +69,33 @@ public class al implements android.support.v4.view.bq {
         ViewPager viewPager7;
         HotThreadPagerAdapter hotThreadPagerAdapter3;
         ViewPager viewPager8;
-        viewPager = this.f2381a.e;
+        viewPager = this.f2365a.e;
         if (viewPager != null) {
-            hotThreadPagerAdapter = this.f2381a.g;
+            hotThreadPagerAdapter = this.f2365a.g;
             if (hotThreadPagerAdapter != null && i == 0) {
-                threadInfoArr = this.f2381a.j;
+                threadInfoArr = this.f2365a.j;
                 if (threadInfoArr.length > 1) {
-                    viewPager3 = this.f2381a.e;
+                    viewPager3 = this.f2365a.e;
                     int currentItem = viewPager3.getCurrentItem();
                     if (currentItem < 1) {
-                        viewPager7 = this.f2381a.e;
-                        hotThreadPagerAdapter3 = this.f2381a.g;
+                        viewPager7 = this.f2365a.e;
+                        hotThreadPagerAdapter3 = this.f2365a.g;
                         viewPager7.a(hotThreadPagerAdapter3.getCount() - 2, false);
-                        viewPager8 = this.f2381a.e;
+                        viewPager8 = this.f2365a.e;
                         viewPager8.invalidate();
                     } else {
-                        hotThreadPagerAdapter2 = this.f2381a.g;
+                        hotThreadPagerAdapter2 = this.f2365a.g;
                         if (currentItem > hotThreadPagerAdapter2.getCount() - 2) {
-                            viewPager4 = this.f2381a.e;
+                            viewPager4 = this.f2365a.e;
                             viewPager4.a(1, false);
-                            viewPager5 = this.f2381a.e;
+                            viewPager5 = this.f2365a.e;
                             viewPager5.invalidate();
                         }
                     }
-                    viewPager6 = this.f2381a.e;
+                    viewPager6 = this.f2365a.e;
                     viewPager6.requestDisallowInterceptTouchEvent(false);
                 } else if (i == 1) {
-                    viewPager2 = this.f2381a.e;
+                    viewPager2 = this.f2365a.e;
                     viewPager2.requestDisallowInterceptTouchEvent(true);
                 }
             }

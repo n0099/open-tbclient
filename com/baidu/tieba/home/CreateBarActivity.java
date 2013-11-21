@@ -35,7 +35,7 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     private TextView t = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f1386a = null;
+    RelativeLayout f1377a = null;
     View b = null;
     TextView c = null;
     TextView d = null;
@@ -110,7 +110,7 @@ public class CreateBarActivity extends com.baidu.tieba.j {
     private void e() {
         this.q = new a(this);
         this.r = new b(this);
-        this.f1386a = (RelativeLayout) findViewById(R.id.container);
+        this.f1377a = (RelativeLayout) findViewById(R.id.container);
         this.b = findViewById(R.id.title);
         this.c = (TextView) findViewById(R.id.title_text);
         this.d = (TextView) findViewById(R.id.text);
@@ -148,7 +148,7 @@ public class CreateBarActivity extends com.baidu.tieba.j {
         super.onChangeSkinType(i);
         com.baidu.tieba.util.bd.e(this.c, i);
         com.baidu.tieba.util.bd.a(this.j, i);
-        com.baidu.tieba.util.bd.a(this.f1386a, i);
+        com.baidu.tieba.util.bd.a(this.f1377a, i);
         com.baidu.tieba.util.bd.d(this.b, i);
         com.baidu.tieba.util.bd.a(this.d, i);
         com.baidu.tieba.util.bd.b(this.f, i);

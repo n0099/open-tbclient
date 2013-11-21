@@ -6,23 +6,23 @@ import com.baidu.tieba.util.DatabaseService;
 class am implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ak f1406a;
+    final /* synthetic */ ak f1397a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(ak akVar) {
-        this.f1406a = akVar;
+        this.f1397a = akVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         int i2;
-        i2 = this.f1406a.f1404a.B;
+        i2 = this.f1397a.f1395a.B;
         if (i2 == 0) {
             DatabaseService.q();
-            this.f1406a.f1404a.f();
+            this.f1397a.f1395a.f();
             return;
         }
         DatabaseService.r();
-        this.f1406a.f1404a.h();
+        this.f1397a.f1395a.h();
     }
 }

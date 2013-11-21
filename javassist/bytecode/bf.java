@@ -3,16 +3,16 @@ package javassist.bytecode;
 class bf extends bi {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2803a;
+    int f2787a;
 
     public bf(byte[] bArr, int i) {
         super(bArr);
-        this.f2803a = i;
+        this.f2787a = i;
     }
 
     @Override // javassist.bytecode.bi, javassist.bytecode.bk
     public void a(int i, int i2, int i3, int i4) {
-        if (i3 == 8 && i4 == this.f2803a) {
+        if (i3 == 8 && i4 == this.f2787a) {
             super.a_(i, i2);
         } else {
             super.a(i, i2, i3, i4);
@@ -31,7 +31,7 @@ class bf extends bi {
                 iArr5 = iArr4;
                 iArr6 = iArr3;
                 break;
-            } else if (iArr3[i4] != 8 || iArr4[i4] != this.f2803a || iArr3[i4 + 1] != 8 || iArr4[i4 + 1] != this.f2803a) {
+            } else if (iArr3[i4] != 8 || iArr4[i4] != this.f2787a || iArr3[i4 + 1] != 8 || iArr4[i4 + 1] != this.f2787a) {
                 i4++;
             } else {
                 int i5 = length + 1;

@@ -5,15 +5,15 @@ import android.database.sqlite.SQLiteDatabase;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2518a;
+    private int f2501a;
     private boolean b = false;
     private w e = null;
     private String c = "tieba_database.db";
-    private String d = af.f2480a + "/tieba/" + this.c;
+    private String d = af.f2463a + "/tieba/" + this.c;
 
     public v() {
-        this.f2518a = 1;
-        this.f2518a = 10;
+        this.f2501a = 1;
+        this.f2501a = 10;
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, String str) {
@@ -32,12 +32,12 @@ public class v {
             if (sQLiteDatabase != null) {
                 if (!this.b) {
                     a(sQLiteDatabase);
-                    sQLiteDatabase.setVersion(this.f2518a);
+                    sQLiteDatabase.setVersion(this.f2501a);
                 } else {
                     int version = sQLiteDatabase.getVersion();
-                    if (version != this.f2518a) {
-                        a(sQLiteDatabase, version, this.f2518a);
-                        sQLiteDatabase.setVersion(this.f2518a);
+                    if (version != this.f2501a) {
+                        a(sQLiteDatabase, version, this.f2501a);
+                        sQLiteDatabase.setVersion(this.f2501a);
                     }
                 }
             }

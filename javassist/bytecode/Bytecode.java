@@ -5,7 +5,7 @@ import javassist.CtPrimitiveType;
 public class Bytecode extends h implements Cloneable, as {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final javassist.h f2746a = y.e;
+    public static final javassist.h f2730a = y.e;
     y b;
     int c;
     int d;

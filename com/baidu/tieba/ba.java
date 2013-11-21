@@ -1,19 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tieba.util.bg;
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ba implements DialogInterface.OnCancelListener {
+public class ba extends BdAsyncTask<Location, Void, Address> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UpdateDialog f1112a;
+    final /* synthetic */ TiebaApplication f1116a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(UpdateDialog updateDialog) {
-        this.f1112a = updateDialog;
+    private ba(TiebaApplication tiebaApplication) {
+        this.f1116a = tiebaApplication;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.f1112a.finish();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ba(TiebaApplication tiebaApplication, av avVar) {
+        this(tiebaApplication);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Address a(Location... locationArr) {
+        List<Address> list;
+        Geocoder geocoder = new Geocoder(TiebaApplication.g(), Locale.getDefault());
+        if (locationArr == null || locationArr.length < 1) {
+            return null;
+        }
+        Location location = locationArr[0];
+        try {
+            list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+        } catch (IOException e) {
+            bg.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e.toString());
+            list = null;
+        } catch (IllegalArgumentException e2) {
+            bg.b(getClass().getName(), "ReverseGeocodingTask_doInBackground", e2.toString());
+            list = null;
+        }
+        if (list == null || list.size() <= 0) {
+            return null;
+        }
+        Address address = list.get(0);
+        StringBuffer stringBuffer = new StringBuffer();
+        if (address.getSubLocality() == null || address.getThoroughfare() == null) {
+            stringBuffer.append(address.getLocality());
+        }
+        stringBuffer.append(address.getSubLocality());
+        stringBuffer.append(address.getThoroughfare());
+        address.setAddressLine(0, stringBuffer.toString());
+        return address;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        cancel(true);
+        this.f1116a.E = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(Address address) {
+        super.a((ba) address);
+        if (address != null) {
+            this.f1116a.aO();
+            this.f1116a.a(0, "", address);
+            this.f1116a.D = address;
+        }
+        this.f1116a.E = null;
     }
 }

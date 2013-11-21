@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public abstract class g extends com.baidu.adp.a.e implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private DialogInterface.OnClickListener f1799a;
+    private DialogInterface.OnClickListener f1790a;
     protected EditText c;
     protected NavigationBar d;
     protected View e;
@@ -34,7 +34,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     @Override // com.baidu.tieba.im.updategroup.a
     public void a(DialogInterface.OnClickListener onClickListener) {
-        this.f1799a = onClickListener;
+        this.f1790a = onClickListener;
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -69,7 +69,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     public g(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.f1799a = null;
+        this.f1790a = null;
         this.p = null;
         this.c = null;
         this.d = null;
@@ -109,7 +109,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public String f_() {
+    public String e_() {
         return this.j;
     }
 
@@ -130,7 +130,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
 
     protected void b(boolean z) {
         this.m = z;
-        n();
+        this.f.setEnabled(z);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -165,6 +165,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
         this.h.getLayoutMode().a(this.e);
         this.d.c(0);
         bd.b(this.e, 0);
+        bd.g(this.f, 0);
         n();
     }
 
@@ -185,7 +186,7 @@ public abstract class g extends com.baidu.adp.a.e implements a {
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void g_() {
+    public void f_() {
         new AlertDialog.Builder(this.h).setTitle(R.string.alerm_title).setIcon((Drawable) null).setCancelable(false).setMessage(R.string.group_update_alert_save).setPositiveButton(R.string.group_update_canel, new j(this)).setNegativeButton(R.string.group_update_done, new i(this)).create().show();
     }
 }

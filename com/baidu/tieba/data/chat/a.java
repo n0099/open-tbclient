@@ -15,7 +15,7 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinkedList<Integer> f1188a = new LinkedList<>();
+    private LinkedList<Integer> f1193a = new LinkedList<>();
 
     public void a() {
         new b(this).start();
@@ -101,17 +101,17 @@ public class a {
     }
 
     protected void a(int i) {
-        if (!this.f1188a.contains(Integer.valueOf(i))) {
-            this.f1188a.add(Integer.valueOf(i));
+        if (!this.f1193a.contains(Integer.valueOf(i))) {
+            this.f1193a.add(Integer.valueOf(i));
         }
     }
 
     protected void a(SQLiteDatabase sQLiteDatabase) {
-        if (!this.f1188a.isEmpty()) {
+        if (!this.f1193a.isEmpty()) {
             sQLiteDatabase.beginTransaction();
-            while (!this.f1188a.isEmpty()) {
+            while (!this.f1193a.isEmpty()) {
                 try {
-                    sQLiteDatabase.delete("chat_msgs", "pk = ?", new String[]{String.valueOf(this.f1188a.removeFirst().intValue())});
+                    sQLiteDatabase.delete("chat_msgs", "pk = ?", new String[]{String.valueOf(this.f1193a.removeFirst().intValue())});
                 } finally {
                     sQLiteDatabase.endTransaction();
                 }

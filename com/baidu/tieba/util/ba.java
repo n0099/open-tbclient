@@ -7,14 +7,14 @@ public class ba {
     private static ArrayList<bb> b = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    public static AtomicInteger f2496a = new AtomicInteger(0);
+    public static AtomicInteger f2479a = new AtomicInteger(0);
 
     public static int a(int i) {
-        return f2496a.getAndSet(i);
+        return f2479a.getAndSet(i);
     }
 
     public static int b(int i) {
-        return f2496a.addAndGet(i);
+        return f2479a.addAndGet(i);
     }
 
     public static synchronized void a(bb bbVar) {

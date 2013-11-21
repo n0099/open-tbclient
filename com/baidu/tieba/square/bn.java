@@ -1,23 +1,32 @@
 package com.baidu.tieba.square;
 
-import android.view.View;
-import android.widget.EditText;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bn implements View.OnClickListener {
+public class bn implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2408a;
+    final /* synthetic */ SquareSearchActivity f2393a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(SquareSearchActivity squareSearchActivity) {
-        this.f2408a = squareSearchActivity;
+        this.f2393a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
-        editText = this.f2408a.c;
-        editText.setText("");
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        RadioButton radioButton3;
+        if (z) {
+            this.f2393a.a(0);
+            radioButton = this.f2393a.k;
+            radioButton.setChecked(false);
+            radioButton2 = this.f2393a.k;
+            radioButton2.setSelected(false);
+            radioButton3 = this.f2393a.j;
+            radioButton3.setSelected(true);
+        }
     }
 }

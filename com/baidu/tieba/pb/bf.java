@@ -4,25 +4,25 @@ package com.baidu.tieba.pb;
 public class bf implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2090a;
+    final /* synthetic */ NewPbActivity f2073a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(NewPbActivity newPbActivity) {
-        this.f2090a = newPbActivity;
+        this.f2073a = newPbActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cp cpVar;
-        cp cpVar2;
-        cp cpVar3;
-        cpVar = this.f2090a.y;
-        if (!cpVar.x()) {
-            cpVar3 = this.f2090a.y;
-            cpVar3.b(false);
+        cr crVar;
+        cr crVar2;
+        cr crVar3;
+        crVar = this.f2073a.y;
+        if (!crVar.x()) {
+            crVar3 = this.f2073a.y;
+            crVar3.b(false);
             return;
         }
-        cpVar2 = this.f2090a.y;
-        cpVar2.b(true);
+        crVar2 = this.f2073a.y;
+        crVar2.b(true);
     }
 }

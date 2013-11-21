@@ -26,7 +26,7 @@ public class s extends c {
     @Override // com.baidu.android.pushservice.a.a
     protected void a(int i, byte[] bArr) {
         Intent intent = new Intent(PushConstants.ACTION_RECEIVE);
-        intent.putExtra(PushConstants.EXTRA_METHOD, this.b.f690a);
+        intent.putExtra(PushConstants.EXTRA_METHOD, this.b.f691a);
         intent.putExtra("error_msg", i);
         intent.putExtra("content", bArr);
         if (!this.e.isEmpty()) {
@@ -39,9 +39,9 @@ public class s extends c {
         }
         intent.setPackage(this.b.e);
         if (com.baidu.android.pushservice.b.a()) {
-            Log.d("Glist", "> sendResult to " + this.b.e + " ,method:" + this.b.f690a + " ,errorCode : " + i + " ,content : " + new String(bArr));
+            Log.d("Glist", "> sendResult to " + this.b.e + " ,method:" + this.b.f691a + " ,errorCode : " + i + " ,content : " + new String(bArr));
         }
-        this.f688a.sendBroadcast(intent);
+        this.f689a.sendBroadcast(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

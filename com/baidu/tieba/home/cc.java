@@ -7,11 +7,11 @@ import com.baidu.tieba.data.SignData;
 public class cc extends BdAsyncTask<Object, Integer, SignData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bz f1445a;
+    final /* synthetic */ bz f1436a;
     private volatile com.baidu.tieba.util.ap b;
 
     private cc(bz bzVar) {
-        this.f1445a = bzVar;
+        this.f1436a = bzVar;
         this.b = null;
     }
 
@@ -32,12 +32,12 @@ public class cc extends BdAsyncTask<Object, Integer, SignData> {
         String str3;
         String str4;
         try {
-            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/c/forum/sign");
+            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/forum/sign");
             com.baidu.tieba.util.ap apVar = this.b;
-            str = this.f1445a.f1443a;
+            str = this.f1436a.f1434a;
             apVar.a("kw", str);
             com.baidu.tieba.util.ap apVar2 = this.b;
-            str2 = this.f1445a.b;
+            str2 = this.f1436a.b;
             apVar2.a("fid", str2);
             this.b.e(true);
             String j = this.b.j();
@@ -47,9 +47,9 @@ public class cc extends BdAsyncTask<Object, Integer, SignData> {
             signData = new SignData();
             try {
                 signData.parserJson(j);
-                str3 = this.f1445a.b;
+                str3 = this.f1436a.b;
                 signData.setForumId(str3);
-                str4 = this.f1445a.f1443a;
+                str4 = this.f1436a.f1434a;
                 signData.setForumName(str4);
                 return signData;
             } catch (Exception e2) {
@@ -70,10 +70,10 @@ public class cc extends BdAsyncTask<Object, Integer, SignData> {
         if (this.b != null) {
             this.b.h();
         }
-        this.f1445a.c = null;
+        this.f1436a.c = null;
         super.cancel(true);
-        cbVar = this.f1445a.d;
-        str = this.f1445a.b;
+        cbVar = this.f1436a.d;
+        str = this.f1436a.b;
         cbVar.a(str, null);
     }
 
@@ -85,17 +85,17 @@ public class cc extends BdAsyncTask<Object, Integer, SignData> {
         cb cbVar2;
         String str;
         String str2;
-        this.f1445a.c = null;
+        this.f1436a.c = null;
         if (signData != null || this.b == null) {
-            cbVar = this.f1445a.d;
+            cbVar = this.f1436a.d;
             cbVar.a(signData);
             return;
         }
-        this.f1445a.mErrorCode = this.b.e();
-        this.f1445a.mErrorString = this.b.g();
-        cbVar2 = this.f1445a.d;
-        str = this.f1445a.b;
-        str2 = this.f1445a.mErrorString;
+        this.f1436a.mErrorCode = this.b.e();
+        this.f1436a.mErrorString = this.b.g();
+        cbVar2 = this.f1436a.d;
+        str = this.f1436a.b;
+        str2 = this.f1436a.mErrorString;
         cbVar2.a(str, str2);
     }
 }

@@ -6,11 +6,11 @@ import java.lang.ref.SoftReference;
 class d extends SoftReference {
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f2861a;
+    public Object f2845a;
 
     private d(Object obj, Object obj2, ReferenceQueue referenceQueue) {
         super(obj2, referenceQueue);
-        this.f2861a = obj;
+        this.f2845a = obj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -10,11 +10,11 @@ import java.util.List;
 class h implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupLevelActivity f1651a;
+    final /* synthetic */ GroupLevelActivity f1642a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(GroupLevelActivity groupLevelActivity) {
-        this.f1651a = groupLevelActivity;
+        this.f1642a = groupLevelActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
@@ -24,15 +24,15 @@ class h implements com.baidu.tieba.im.messageCenter.h {
         i iVar3;
         i iVar4;
         i iVar5;
-        iVar = this.f1651a.b;
+        iVar = this.f1642a.b;
         iVar.a(false);
         if (message == null) {
-            this.f1651a.showToast(R.string.neterror);
+            this.f1642a.showToast(R.string.neterror);
             return;
         }
         ResponseGroupLevelMessage responseGroupLevelMessage = (ResponseGroupLevelMessage) message;
         if (responseGroupLevelMessage.hasError()) {
-            this.f1651a.showToast(responseGroupLevelMessage.getErrMsg());
+            this.f1642a.showToast(responseGroupLevelMessage.getErrMsg());
             return;
         }
         GroupLevelInfo groupLevelInfo = responseGroupLevelMessage.getGroupLevelInfo();
@@ -44,18 +44,18 @@ class h implements com.baidu.tieba.im.messageCenter.h {
                 int activeDay = groupLevelInfo.getActiveDay();
                 int thresholdDay = levelInfo.getThresholdDay();
                 String intro = levelInfo.getIntro();
-                iVar2 = this.f1651a.b;
+                iVar2 = this.f1642a.b;
                 iVar2.b(grade);
-                iVar3 = this.f1651a.b;
+                iVar3 = this.f1642a.b;
                 iVar3.f().setText(intro);
-                iVar4 = this.f1651a.b;
+                iVar4 = this.f1642a.b;
                 iVar4.a(grade, activeDay, thresholdDay);
                 for (int i = 1; i < levelInfos.size(); i++) {
                     int maxMemberNum = levelInfos.get(i).getMaxMemberNum();
-                    iVar5 = this.f1651a.b;
+                    iVar5 = this.f1642a.b;
                     TextView[] e = iVar5.e();
                     if (i <= e.length) {
-                        e[i].setText(this.f1651a.getString(R.string.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum)}));
+                        e[i].setText(this.f1642a.getString(R.string.grouplevel_level_condition, new Object[]{String.valueOf(maxMemberNum)}));
                     }
                 }
             }

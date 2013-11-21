@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class NavigationBar extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2543a;
+    private boolean f2526a;
     private LinearLayout b;
     private LinearLayout c;
     private LinearLayout d;
@@ -49,7 +49,7 @@ public class NavigationBar extends RelativeLayout {
 
     public NavigationBar(Context context) {
         super(context);
-        this.f2543a = true;
+        this.f2526a = true;
         this.i = 0;
         this.j = 0;
         this.k = new av(this);
@@ -58,7 +58,7 @@ public class NavigationBar extends RelativeLayout {
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2543a = true;
+        this.f2526a = true;
         this.i = 0;
         this.j = 0;
         this.k = new av(this);
@@ -67,7 +67,7 @@ public class NavigationBar extends RelativeLayout {
 
     public NavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f2543a = true;
+        this.f2526a = true;
         this.i = 0;
         this.j = 0;
         this.k = new av(this);
@@ -157,12 +157,18 @@ public class NavigationBar extends RelativeLayout {
     public Button b(ControlAlign controlAlign, String str) {
         Button button = (Button) b(R.layout.widget_nb_item_stepbtn);
         button.setText(str);
+        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) getResources().getDimension(R.dimen.navi_btn_margin_right);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            button.setLayoutParams(layoutParams);
+        }
         a(controlAlign).addView(button);
         return button;
     }
 
     public void setSystemClickable(boolean z) {
-        this.f2543a = z;
+        this.f2526a = z;
     }
 
     public TextView a(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {

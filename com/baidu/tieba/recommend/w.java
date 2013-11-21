@@ -8,7 +8,7 @@ import com.baidu.tieba.TiebaApplication;
 public class w extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2325a = "st_type";
+    public static String f2310a = "st_type";
     private y b;
     private x d;
     private x e;
@@ -20,11 +20,11 @@ public class w extends com.baidu.adp.a.d {
     }
 
     public void a(Intent intent) {
-        this.g = intent.getStringExtra(f2325a);
+        this.g = intent.getStringExtra(f2310a);
     }
 
     public void a(Bundle bundle) {
-        this.g = bundle.getString(f2325a);
+        this.g = bundle.getString(f2310a);
     }
 
     @Override // com.baidu.adp.a.d
@@ -65,9 +65,9 @@ public class w extends com.baidu.adp.a.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        com.baidu.adp.lib.cache.s<String> bb = TiebaApplication.g().bb();
-        if (bb != null) {
-            bb.a("dailyrecommend", str, 2592000000L);
+        com.baidu.adp.lib.cache.s<String> bc = TiebaApplication.g().bc();
+        if (bc != null) {
+            bc.a("dailyrecommend", str, 2592000000L);
         }
     }
 

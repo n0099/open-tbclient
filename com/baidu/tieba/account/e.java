@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ActivationActivity f1063a;
+    final /* synthetic */ ActivationActivity f1066a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ActivationActivity activationActivity) {
-        this.f1063a = activationActivity;
+        this.f1066a = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -25,27 +25,27 @@ class e implements Runnable {
         TextView textView2;
         i iVar;
         RelativeLayout relativeLayout;
-        ActivationActivity.a(this.f1063a);
-        i = this.f1063a.o;
+        ActivationActivity.a(this.f1066a);
+        i = this.f1066a.o;
         if (i <= 0) {
-            this.f1063a.n = true;
-            textView2 = this.f1063a.g;
-            textView2.setText(this.f1063a.getString(R.string.resend_code));
-            iVar = this.f1063a.m;
+            this.f1066a.n = true;
+            textView2 = this.f1066a.g;
+            textView2.setText(this.f1066a.getString(R.string.resend_code));
+            iVar = this.f1066a.m;
             if (iVar == null) {
-                relativeLayout = this.f1063a.k;
+                relativeLayout = this.f1066a.k;
                 relativeLayout.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.f1063a.getString(R.string.resend_code_second);
-        i2 = this.f1063a.o;
+        String string = this.f1066a.getString(R.string.resend_code_second);
+        i2 = this.f1066a.o;
         String format = String.format(string, Integer.valueOf(i2));
-        textView = this.f1063a.g;
+        textView = this.f1066a.g;
         textView.setText(format);
-        handler = this.f1063a.q;
-        runnable = this.f1063a.z;
+        handler = this.f1066a.q;
+        runnable = this.f1066a.z;
         handler.postDelayed(runnable, 1000L);
     }
 }

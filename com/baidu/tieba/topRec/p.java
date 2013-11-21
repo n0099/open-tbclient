@@ -8,11 +8,11 @@ import com.baidu.tieba.util.bg;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    Activity f2457a;
+    Activity f2440a;
     int b = 0;
 
     public p(Activity activity) {
-        this.f2457a = activity;
+        this.f2440a = activity;
     }
 
     public static boolean a() {
@@ -29,7 +29,7 @@ public class p {
             gVar.a(view).a(150).b(true);
             q qVar = new q(this);
             gVar.a(qVar).a(new r(this));
-            gVar.a().a(this.f2457a);
+            gVar.a().a(this.f2440a);
             bg.e("TOPRECTipCover", "show", "done");
             b();
         }

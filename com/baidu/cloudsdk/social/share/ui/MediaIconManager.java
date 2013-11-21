@@ -19,7 +19,7 @@ public class MediaIconManager {
     private static MediaIconManager h;
 
     /* renamed from: a  reason: collision with root package name */
-    private Map f873a = new HashMap();
+    private Map f874a = new HashMap();
     private Map b = new HashMap();
     private Map c = new HashMap();
     private Map d = new HashMap();
@@ -94,10 +94,10 @@ public class MediaIconManager {
     }
 
     public Drawable getNormalIcon(String str) {
-        Drawable drawable = (Drawable) this.f873a.get(str);
+        Drawable drawable = (Drawable) this.f874a.get(str);
         if (drawable == null) {
             Drawable drawable2 = DrawableUtils.getDrawable(this.f, this.g.getAssetFileName(str));
-            this.f873a.put(str, drawable2);
+            this.f874a.put(str, drawable2);
             return drawable2;
         }
         return drawable;

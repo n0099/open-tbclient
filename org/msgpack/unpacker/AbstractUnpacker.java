@@ -6,7 +6,7 @@ import org.msgpack.type.r;
 public abstract class AbstractUnpacker implements k {
 
     /* renamed from: a  reason: collision with root package name */
-    protected org.msgpack.a f2968a;
+    protected org.msgpack.a f2952a;
     protected int b = 134217728;
     protected int c = 4194304;
     protected int d = 2097152;
@@ -16,7 +16,7 @@ public abstract class AbstractUnpacker implements k {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractUnpacker(org.msgpack.a aVar) {
-        this.f2968a = aVar;
+        this.f2952a = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public abstract class AbstractUnpacker implements k {
 
     @Override // org.msgpack.unpacker.k
     public r b() {
-        Unconverter unconverter = new Unconverter(this.f2968a);
+        Unconverter unconverter = new Unconverter(this.f2952a);
         a(unconverter);
         return unconverter.c();
     }

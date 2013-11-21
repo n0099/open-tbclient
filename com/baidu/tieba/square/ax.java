@@ -1,53 +1,89 @@
 package com.baidu.tieba.square;
+
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.tencent.mm.sdk.platformtools.Util;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends com.baidu.adp.a.d {
-    private ar b;
+public class ax extends BdAsyncTask<Object, ar, ar> {
 
     /* renamed from: a  reason: collision with root package name */
-    private az f2392a = null;
-    private ay c = null;
+    final /* synthetic */ av f2376a;
+    private int c;
+    private com.baidu.tieba.a.j b = null;
+    private com.baidu.adp.lib.cache.s<String> d = null;
 
-    public ax() {
-        this.b = null;
-        this.b = new ar();
+    public ax(av avVar, int i) {
+        this.f2376a = avVar;
+        this.c = 1;
+        this.c = i;
+        setPriority(3);
     }
 
-    public ar a() {
-        return this.b;
-    }
-
-    public void a(ay ayVar) {
-        this.c = ayVar;
-    }
-
-    @Override // com.baidu.adp.a.d
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.a.d
-    public boolean cancelLoadData() {
-        if (this.f2392a != null) {
-            this.f2392a.cancel();
-            return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public ar a(Object... objArr) {
+        ar arVar;
+        String str = null;
+        this.b = new com.baidu.tieba.a.j();
+        this.d = com.baidu.tieba.b.a.a().l();
+        if (this.c == 0) {
+            String a2 = this.d.a("square_cache_key");
+            if (a2 == null) {
+                return null;
+            }
+            ar arVar2 = new ar();
+            arVar2.a(a2);
+            if (!arVar2.a()) {
+                this.c = 1;
+                str = a2;
+                arVar = arVar2;
+            } else {
+                return arVar2;
+            }
+        } else {
+            arVar = null;
         }
-        return false;
-    }
-
-    public boolean b() {
-        return a(1);
-    }
-
-    public boolean c() {
-        return a(0);
-    }
-
-    public boolean a(int i) {
-        if (this.f2392a != null) {
-            return false;
+        if (this.c == 1) {
+            str = this.b.g();
         }
-        this.f2392a = new az(this, i);
-        this.f2392a.execute(new Object[0]);
-        return true;
+        if (this.b.c()) {
+            arVar = new ar();
+            arVar.a(str);
+            this.d.a("square_cache_key", str, Util.MILLSECONDS_OF_DAY);
+        }
+        return arVar;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        super.cancel();
+        if (this.b != null) {
+            this.b.a();
+        }
+        this.f2376a.f2375a = null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void a(ar arVar) {
+        aw awVar;
+        aw awVar2;
+        aw awVar3;
+        this.f2376a.f2375a = null;
+        this.f2376a.b = arVar;
+        awVar = this.f2376a.c;
+        if (awVar != null) {
+            if (this.c == 0 || this.b.c()) {
+                awVar2 = this.f2376a.c;
+                awVar2.a(true, null, arVar);
+                return;
+            }
+            String d = this.b.d();
+            awVar3 = this.f2376a.c;
+            awVar3.a(false, d, arVar);
+        }
     }
 }

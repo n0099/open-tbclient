@@ -7,13 +7,13 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 public class o extends SingleRunnable<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImMessageCenterPojo f1622a;
+    final /* synthetic */ ImMessageCenterPojo f1613a;
     final /* synthetic */ n b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, ImMessageCenterPojo imMessageCenterPojo) {
         this.b = nVar;
-        this.f1622a = imMessageCenterPojo;
+        this.f1613a = imMessageCenterPojo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class o extends SingleRunnable<Boolean> {
     /* renamed from: a */
     public Boolean b() {
         Boolean a2;
-        a2 = this.b.a(this.f1622a);
+        a2 = this.b.a(this.f1613a);
         return a2;
     }
 }

@@ -7,20 +7,20 @@ import javassist.bytecode.y;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private OutputStream f2790a;
+    private OutputStream f2774a;
     private y b;
 
     public c(OutputStream outputStream, y yVar) {
-        this.f2790a = outputStream;
+        this.f2774a = outputStream;
         this.b = yVar;
     }
 
     public void a() {
-        this.f2790a.close();
+        this.f2774a.close();
     }
 
     public void a(int i) {
-        this.f2790a.write(i);
+        this.f2774a.write(i);
     }
 
     public void b(int i) {
@@ -37,33 +37,33 @@ public class c {
     }
 
     public void b(int i, int i2) {
-        this.f2790a.write(i);
+        this.f2774a.write(i);
         f(i2);
     }
 
     public void c(int i, int i2) {
-        this.f2790a.write(101);
+        this.f2774a.write(101);
         f(i);
         f(i2);
     }
 
     public void d(int i) {
-        this.f2790a.write(99);
+        this.f2774a.write(99);
         f(i);
     }
 
     public void b() {
-        this.f2790a.write(64);
+        this.f2774a.write(64);
     }
 
     public void e(int i) {
-        this.f2790a.write(91);
+        this.f2774a.write(91);
         f(i);
     }
 
     private void f(int i) {
         byte[] bArr = new byte[2];
         g.a(i, bArr, 0);
-        this.f2790a.write(bArr);
+        this.f2774a.write(bArr);
     }
 }

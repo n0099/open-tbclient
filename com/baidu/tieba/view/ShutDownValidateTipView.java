@@ -16,7 +16,7 @@ import java.util.Iterator;
 public class ShutDownValidateTipView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<ShutDownValidateTipView> f2550a = new ArrayList<>();
+    private static ArrayList<ShutDownValidateTipView> f2533a = new ArrayList<>();
     private static boolean f;
     private TextView b;
     private ImageView c;
@@ -63,13 +63,13 @@ public class ShutDownValidateTipView extends FrameLayout {
         if (z != f) {
             f = z;
             if (f) {
-                Iterator<ShutDownValidateTipView> it = f2550a.iterator();
+                Iterator<ShutDownValidateTipView> it = f2533a.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
                 }
                 return;
             }
-            Iterator<ShutDownValidateTipView> it2 = f2550a.iterator();
+            Iterator<ShutDownValidateTipView> it2 = f2533a.iterator();
             while (it2.hasNext()) {
                 it2.next().setVisible(true);
             }
@@ -105,13 +105,13 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        f2550a.add(this);
+        f2533a.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f2550a.remove(this);
+        f2533a.remove(this);
         this.i.clear();
     }
 

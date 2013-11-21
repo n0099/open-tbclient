@@ -16,21 +16,21 @@ import com.slidingmenu.lib.R;
 public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private al f1961a;
+    private al f1944a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1961a = new al(this);
-        this.f1961a.a(this);
+        this.f1944a = new al(this);
+        this.f1944a.a(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f1961a.a(i);
+        this.f1944a.a(i);
     }
 
     public static void a(Context context) {
@@ -39,44 +39,44 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.f1961a.g()) {
+        if (view == this.f1944a.g()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.g().i(true);
             } else {
                 TiebaApplication.g().i(false);
             }
-        } else if (view == this.f1961a.h()) {
+        } else if (view == this.f1944a.h()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.g().r(true);
-                this.f1961a.e();
-                this.f1961a.b(true);
+                this.f1944a.e();
+                this.f1944a.b(true);
                 return;
             }
             TiebaApplication.g().r(false);
-            this.f1961a.b(false);
-        } else if (view == this.f1961a.i()) {
+            this.f1944a.b(false);
+        } else if (view == this.f1944a.i()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.g().c(300);
-                this.f1961a.c(true);
+                this.f1944a.c(true);
                 return;
             }
             TiebaApplication.g().c(0);
-            this.f1961a.c(false);
-        } else if (view == this.f1961a.k()) {
+            this.f1944a.c(false);
+        } else if (view == this.f1944a.k()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.g().k(true);
-                this.f1961a.a(true);
+                this.f1944a.a(true);
                 return;
             }
             TiebaApplication.g().k(false);
-            this.f1961a.a(false);
-        } else if (view == this.f1961a.o()) {
+            this.f1944a.a(false);
+        } else if (view == this.f1944a.o()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.g().j(true);
             } else {
                 TiebaApplication.g().j(false);
             }
-        } else if (view == this.f1961a.p()) {
+        } else if (view == this.f1944a.p()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 TiebaApplication.g().l(true);
             } else {
@@ -87,25 +87,25 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.f1961a.a().performClick();
+        this.f1944a.a().performClick();
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f1961a.a()) {
-            if (this.f1961a.f1979a) {
+        if (view == this.f1944a.a()) {
+            if (this.f1944a.f1962a) {
                 finish();
             } else {
-                this.f1961a.d(true);
+                this.f1944a.d(true);
             }
-        } else if (view == this.f1961a.j()) {
+        } else if (view == this.f1944a.j()) {
             showDialog(R.id.sign_remind);
-        } else if (view == this.f1961a.l()) {
-            this.f1961a.d(false);
-        } else if (view == this.f1961a.m()) {
+        } else if (view == this.f1944a.l()) {
+            this.f1944a.d(false);
+        } else if (view == this.f1944a.m()) {
             showDialog(R.id.no_disturb_start_time);
-        } else if (view == this.f1961a.n()) {
+        } else if (view == this.f1944a.n()) {
             showDialog(R.id.no_disturb_end_time);
         }
     }
@@ -153,7 +153,7 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         switch (compoundButton.getId()) {
-            case R.id.check_replyme /* 2131100578 */:
+            case R.id.check_replyme /* 2131100567 */:
                 if (z) {
                     TiebaApplication.g().o(true);
                     return;
@@ -161,7 +161,7 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
                     TiebaApplication.g().o(false);
                     return;
                 }
-            case R.id.check_atme /* 2131100579 */:
+            case R.id.check_atme /* 2131100568 */:
                 if (z) {
                     TiebaApplication.g().n(true);
                     return;
@@ -169,7 +169,7 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
                     TiebaApplication.g().n(false);
                     return;
                 }
-            case R.id.check_newfans /* 2131100580 */:
+            case R.id.check_newfans /* 2131100569 */:
                 if (z) {
                     TiebaApplication.g().m(true);
                     return;
@@ -177,7 +177,7 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
                     TiebaApplication.g().m(false);
                     return;
                 }
-            case R.id.check_chatmessage /* 2131100581 */:
+            case R.id.check_chatmessage /* 2131100570 */:
                 if (z) {
                     TiebaApplication.g().p(true);
                     return;
@@ -185,7 +185,7 @@ public class MsgRemindActivity extends com.baidu.tieba.j implements View.OnClick
                     TiebaApplication.g().p(false);
                     return;
                 }
-            case R.id.check_groupmessage /* 2131100582 */:
+            case R.id.check_groupmessage /* 2131100571 */:
                 if (z) {
                     TiebaApplication.g().q(true);
                     return;

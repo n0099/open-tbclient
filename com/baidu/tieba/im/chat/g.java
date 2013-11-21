@@ -7,13 +7,13 @@ import java.lang.ref.WeakReference;
 public class g implements com.baidu.tieba.im.a<Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatResponsedMessage f1550a;
+    final /* synthetic */ ChatResponsedMessage f1541a;
     final /* synthetic */ a b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar, ChatResponsedMessage chatResponsedMessage) {
         this.b = aVar;
-        this.f1550a = chatResponsedMessage;
+        this.f1541a = chatResponsedMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ public class g implements com.baidu.tieba.im.a<Boolean> {
             weakReference2 = this.b.b;
             if (weakReference2.get() != null) {
                 weakReference3 = this.b.b;
-                ((x) weakReference3.get()).a(this.f1550a);
+                ((x) weakReference3.get()).a(this.f1541a);
             }
         }
     }

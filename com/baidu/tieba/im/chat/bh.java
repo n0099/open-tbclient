@@ -7,11 +7,11 @@ import android.os.Message;
 public class bh extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1528a;
+    final /* synthetic */ bg f1519a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bh(bg bgVar) {
-        this.f1528a = bgVar;
+        this.f1519a = bgVar;
     }
 
     @Override // android.os.Handler
@@ -20,10 +20,10 @@ public class bh extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                handler = this.f1528a.R;
+                handler = this.f1519a.R;
                 handler.removeMessages(1);
-                this.f1528a.l();
-                this.f1528a.j();
+                this.f1519a.l();
+                this.f1519a.j();
                 return;
             default:
                 return;

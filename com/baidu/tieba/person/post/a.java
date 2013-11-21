@@ -21,7 +21,7 @@ class a implements View.OnClickListener {
     private static String k;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f2266a;
+    public LinearLayout f2251a;
     public HeadImageView b;
     public TextView c;
     public TextView d;
@@ -34,7 +34,7 @@ class a implements View.OnClickListener {
     private com.baidu.tieba.util.i m;
 
     public a(View view) {
-        this.f2266a = (LinearLayout) view.findViewById(R.id.top_line);
+        this.f2251a = (LinearLayout) view.findViewById(R.id.top_line);
         this.b = (HeadImageView) view.findViewById(R.id.portrait);
         this.c = (TextView) view.findViewById(R.id.username);
         this.d = (TextView) view.findViewById(R.id.reply_time);
@@ -60,7 +60,7 @@ class a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.forum_name /* 2131100800 */:
+            case R.id.forum_name /* 2131100786 */:
                 FrsActivity.a(view.getContext(), (String) view.getTag(), "");
                 return;
             default:

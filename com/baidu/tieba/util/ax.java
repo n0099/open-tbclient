@@ -5,10 +5,10 @@ import java.util.TimerTask;
 class ax extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkCoreByBdHttp f2493a;
+    final /* synthetic */ NetWorkCoreByBdHttp f2476a;
 
     private ax(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.f2493a = netWorkCoreByBdHttp;
+        this.f2476a = netWorkCoreByBdHttp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -19,7 +19,7 @@ class ax extends TimerTask {
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
         try {
-            this.f2493a.t();
+            this.f2476a.t();
         } catch (Exception e) {
             bg.b(getClass().getName(), "initNetWorkCore", e.getMessage());
         }

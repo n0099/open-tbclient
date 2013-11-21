@@ -3,7 +3,7 @@ package com.baidu.tieba.account;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1061a = false;
+    public boolean f1064a = false;
     public String b = null;
     public String c = null;
     public String d = null;

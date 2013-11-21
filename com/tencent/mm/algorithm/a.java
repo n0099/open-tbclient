@@ -5,16 +5,16 @@ import java.util.Arrays;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f2730a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
+    private static final char[] f2714a = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
     private static final int[] b;
 
     static {
         int[] iArr = new int[256];
         b = iArr;
         Arrays.fill(iArr, -1);
-        int length = f2730a.length;
+        int length = f2714a.length;
         for (int i = 0; i < length; i++) {
-            b[f2730a[i]] = i;
+            b[f2714a[i]] = i;
         }
         b[61] = 0;
     }
@@ -38,13 +38,13 @@ public class a {
             i6 = i8 + 1;
             int i10 = i9 | (bArr[i8] & 255);
             int i11 = i5 + 1;
-            cArr[i5] = f2730a[(i10 >>> 18) & 63];
+            cArr[i5] = f2714a[(i10 >>> 18) & 63];
             int i12 = i11 + 1;
-            cArr[i11] = f2730a[(i10 >>> 12) & 63];
+            cArr[i11] = f2714a[(i10 >>> 12) & 63];
             int i13 = i12 + 1;
-            cArr[i12] = f2730a[(i10 >>> 6) & 63];
+            cArr[i12] = f2714a[(i10 >>> 6) & 63];
             i5 = i13 + 1;
-            cArr[i13] = f2730a[i10 & 63];
+            cArr[i13] = f2714a[i10 & 63];
             if (z && (i4 = i4 + 1) == 19 && i5 < i3 - 2) {
                 int i14 = i5 + 1;
                 cArr[i5] = '\r';
@@ -56,9 +56,9 @@ public class a {
         int i15 = length - i;
         if (i15 > 0) {
             int i16 = (i15 == 2 ? (bArr[length - 1] & 255) << 2 : 0) | ((bArr[i] & 255) << 10);
-            cArr[i3 - 4] = f2730a[i16 >> 12];
-            cArr[i3 - 3] = f2730a[(i16 >>> 6) & 63];
-            cArr[i3 - 2] = i15 == 2 ? f2730a[i16 & 63] : '=';
+            cArr[i3 - 4] = f2714a[i16 >> 12];
+            cArr[i3 - 3] = f2714a[(i16 >>> 6) & 63];
+            cArr[i3 - 2] = i15 == 2 ? f2714a[i16 & 63] : '=';
             cArr[i3 - 1] = '=';
         }
         return cArr;

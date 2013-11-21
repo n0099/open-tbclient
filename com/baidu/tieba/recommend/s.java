@@ -9,7 +9,7 @@ import android.widget.TextView;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    View f2321a;
+    View f2306a;
     TextView b;
     LinearLayout c;
     RelativeLayout d;

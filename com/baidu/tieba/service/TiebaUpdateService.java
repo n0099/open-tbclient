@@ -18,7 +18,7 @@ public class TiebaUpdateService extends Service {
     private static boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f2337a = null;
+    protected String f2322a = null;
     private NotificationManager b = null;
     private Notification c = null;
     private Notification d = null;
@@ -101,15 +101,15 @@ public class TiebaUpdateService extends Service {
                     } else {
                         z = true;
                     }
-                    this.f2337a = a(this.i);
-                    if (this.f2337a == null || this.f2337a.length() < 4) {
+                    this.f2322a = a(this.i);
+                    if (this.f2322a == null || this.f2322a.length() < 4) {
                         this.j = true;
                         z = false;
                     }
                     if (z) {
                         this.d.contentView.setTextViewText(R.id.info, getString(R.string.is_downloading));
                         this.d.contentView.setTextViewText(R.id.schedule, "0/0");
-                        if (af.d(this.f2337a) != null) {
+                        if (af.d(this.f2322a) != null) {
                             this.l.sendMessageDelayed(this.l.obtainMessage(2, this.f), 100L);
                         } else if (this.g == null) {
                             this.g = new v(this, this.i);

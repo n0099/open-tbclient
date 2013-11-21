@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class bp {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1434a;
+    private int f1425a;
     private String b;
     private int c;
     private String d;
@@ -15,7 +15,7 @@ public class bp {
     private ArrayList<bq> f = new ArrayList<>();
 
     public int a() {
-        return this.f1434a;
+        return this.f1425a;
     }
 
     public String b() {
@@ -52,7 +52,7 @@ public class bp {
         if (jSONObject != null) {
             try {
                 this.e.a(jSONObject.optJSONObject("error"));
-                this.f1434a = jSONObject.optInt("show_dialog");
+                this.f1425a = jSONObject.optInt("show_dialog");
                 this.b = jSONObject.optString("sign_notice");
                 this.c = jSONObject.optInt("is_timeout");
                 this.d = jSONObject.optString("timeout_notice");

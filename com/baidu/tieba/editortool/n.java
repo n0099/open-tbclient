@@ -6,19 +6,19 @@ import android.view.animation.Animation;
 final class n implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1231a;
+    final /* synthetic */ o f1236a;
     final /* synthetic */ ViewGroup b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(o oVar, ViewGroup viewGroup) {
-        this.f1231a = oVar;
+        this.f1236a = oVar;
         this.b = viewGroup;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        if (this.f1231a != null) {
-            this.f1231a.a();
+        if (this.f1236a != null) {
+            this.f1236a.a();
         }
         this.b.setVisibility(0);
     }

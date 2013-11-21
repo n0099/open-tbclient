@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.data.MetaData;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
@@ -22,8 +21,8 @@ import java.util.ArrayList;
 public class AtListActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<MetaData> f2658a = new ArrayList<>();
-    private com.baidu.tieba.aj m;
+    public static ArrayList<MetaData> f2641a = new ArrayList<>();
+    private com.baidu.tieba.am m;
     private NavigationBar n;
     private LinearLayout o;
     private LinearLayout p;
@@ -62,7 +61,7 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.at_list_activity);
-        this.m = new com.baidu.tieba.aj(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
+        this.m = new com.baidu.tieba.am(this, (int) R.drawable.individual_center_like, (int) R.drawable.individual_center_like_1);
         a(bundle);
         a();
         a((String) null);
@@ -73,12 +72,12 @@ public class AtListActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.m.a(i);
-        bd.a(this.l, i);
+        com.baidu.tieba.util.bd.a(this.l, i);
         this.n.c(i);
         this.i.notifyDataSetChanged();
         if (i == 1) {
             this.d.setDivider(getResources().getDrawable(R.drawable.list_divider_1));
-            bd.e(this.o, (int) R.drawable.inputbox_topbg_1);
+            com.baidu.tieba.util.bd.e(this.o, (int) R.drawable.inputbox_topbg_1);
             this.p.setBackgroundResource(R.drawable.inputbox_top_1);
             this.q.setImageResource(R.drawable.icon_head_bar_search_1);
             this.b.setTextColor(-11446171);
@@ -87,7 +86,7 @@ public class AtListActivity extends com.baidu.tieba.j {
             return;
         }
         this.d.setDivider(getResources().getDrawable(R.drawable.list_divider));
-        bd.e(this.o, (int) R.drawable.tabbar_bj_tab);
+        com.baidu.tieba.util.bd.e(this.o, (int) R.drawable.tabbar_bj_tab);
         this.p.setBackgroundResource(R.drawable.inputbox_top);
         this.q.setImageResource(R.drawable.icon_head_bar_search);
         this.b.setTextColor(-5921112);

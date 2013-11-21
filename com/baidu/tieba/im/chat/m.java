@@ -14,17 +14,17 @@ import com.slidingmenu.lib.R;
 public class m extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1555a;
+    private Context f1546a;
     private int b;
     private int c;
     private int d;
 
     public m(Context context, int i, int i2, int i3) {
-        this.f1555a = null;
+        this.f1546a = null;
         this.b = 0;
         this.c = 0;
         this.d = 0;
-        this.f1555a = context;
+        this.f1546a = context;
         this.b = i;
         this.c = i2;
         this.d = i3;
@@ -53,9 +53,9 @@ public class m extends BaseAdapter {
         ImageView imageView;
         int i2 = i + this.c;
         if (view == null) {
-            ImageView imageView2 = new ImageView(this.f1555a);
+            ImageView imageView2 = new ImageView(this.f1546a);
             imageView2.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            int a2 = UtilHelper.a(this.f1555a, 50.0f);
+            int a2 = UtilHelper.a(this.f1546a, 50.0f);
             imageView2.setLayoutParams(new AbsListView.LayoutParams(a2, a2));
             imageView = imageView2;
             view = imageView2;

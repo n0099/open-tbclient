@@ -3,7 +3,7 @@ package com.baidu.tieba;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1152a;
+    private String f1158a;
     private String b;
     private int c;
     private int d;
@@ -15,11 +15,11 @@ public class d {
     private int j;
 
     public String a() {
-        return this.f1152a;
+        return this.f1158a;
     }
 
     public void a(String str) {
-        this.f1152a = str;
+        this.f1158a = str;
     }
 
     public void b(String str) {

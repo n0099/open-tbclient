@@ -20,6 +20,7 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumData;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.view.FrsHeaderView;
@@ -68,7 +69,7 @@ public class bn {
     private String D = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1339a = null;
+    AlertDialog f1344a = null;
     Animation b = null;
     private DialogInterface.OnClickListener F = null;
     private com.baidu.tieba.view.az G = null;
@@ -202,7 +203,7 @@ public class bn {
         return this.K;
     }
 
-    public void a(com.baidu.tieba.data.ba baVar, boolean z) {
+    public void a(com.baidu.tieba.data.az azVar, boolean z) {
         String string = this.d.getString(R.string.view);
         String string2 = this.d.getString(R.string.view_host);
         String string3 = this.d.getString(R.string.view_reverse);
@@ -213,8 +214,8 @@ public class bn {
         } else {
             builder.setItems(new String[]{string, string2, string3}, this.F);
         }
-        this.f1339a = builder.create();
-        this.f1339a.setCanceledOnTouchOutside(true);
+        this.f1344a = builder.create();
+        this.f1344a.setCanceledOnTouchOutside(true);
     }
 
     public void a(com.baidu.adp.widget.ListView.b bVar) {
@@ -246,8 +247,8 @@ public class bn {
     }
 
     public void j() {
-        if (this.f1339a != null) {
-            this.f1339a.show();
+        if (this.f1344a != null) {
+            this.f1344a.show();
         }
     }
 
@@ -417,7 +418,7 @@ public class bn {
         this.r.show();
     }
 
-    public void a(ArrayList<com.baidu.tieba.data.ba> arrayList, int i, com.baidu.tieba.model.ak akVar) {
+    public void a(ArrayList<com.baidu.tieba.data.az> arrayList, int i, com.baidu.tieba.model.ak akVar) {
         this.n.a(arrayList);
         if (arrayList == null || arrayList.size() <= 0) {
             this.o.setText(R.string.frs_nodata);
@@ -650,10 +651,22 @@ public class bn {
     public void a(com.baidu.tieba.model.ap apVar) {
         this.A.a(apVar);
         long a2 = apVar.a() + apVar.b();
+        boolean z = TiebaApplication.g().ap() == 1;
         if (a2 > 0) {
             this.w.setVisibility(0);
-            this.w.setText(String.valueOf(a2 <= 99 ? a2 : 99L));
-            return;
+            if (a2 < 10) {
+                this.w.setText(String.valueOf(a2));
+                this.w.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
+                return;
+            } else if (a2 < 100) {
+                this.w.setText(String.valueOf(a2));
+                this.w.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
+                return;
+            } else {
+                this.w.setText("   ");
+                this.w.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_more_1 : R.drawable.icon_news_head_prompt_more);
+                return;
+            }
         }
         this.w.setVisibility(4);
     }
@@ -674,6 +687,7 @@ public class bn {
         this.u.a(i);
         this.A.b(i);
         this.s.a(i);
+        ((FrsActivity) this.d).e();
         this.d.getLayoutMode().a(i == 1);
         this.d.getLayoutMode().a(this.e);
         this.L.c(i);

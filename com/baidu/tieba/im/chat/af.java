@@ -7,21 +7,21 @@ import java.util.HashMap;
 public class af implements android.support.v4.view.bq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgImageActivity f1501a;
+    final /* synthetic */ MsgImageActivity f1492a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(MsgImageActivity msgImageActivity) {
-        this.f1501a = msgImageActivity;
+        this.f1492a = msgImageActivity;
     }
 
     @Override // android.support.v4.view.bq
     public void onPageSelected(int i) {
         int i2;
-        MsgImageActivity msgImageActivity = this.f1501a;
-        i2 = this.f1501a.c;
+        MsgImageActivity msgImageActivity = this.f1492a;
+        i2 = this.f1492a.c;
         msgImageActivity.a(i2, i);
-        this.f1501a.c = i;
-        this.f1501a.b();
+        this.f1492a.c = i;
+        this.f1492a.b();
     }
 
     @Override // android.support.v4.view.bq
@@ -39,16 +39,16 @@ public class af implements android.support.v4.view.bq {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.f1501a.s;
+            j = this.f1492a.t;
             if (nanoTime - j > 300000000) {
-                arrayList = this.f1501a.b;
+                arrayList = this.f1492a.b;
                 if (arrayList != null) {
-                    i2 = this.f1501a.c;
-                    arrayList2 = this.f1501a.b;
+                    i2 = this.f1492a.c;
+                    arrayList2 = this.f1492a.b;
                     if (i2 < arrayList2.size()) {
-                        hashMap = this.f1501a.t;
-                        arrayList3 = this.f1501a.b;
-                        i3 = this.f1501a.c;
+                        hashMap = this.f1492a.u;
+                        arrayList3 = this.f1492a.b;
+                        i3 = this.f1492a.c;
                         hashMap.put(arrayList3.get(i3), true);
                     }
                 }

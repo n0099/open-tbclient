@@ -42,7 +42,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class NetWorkCore implements ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f2465a = "\r\n";
+    private static String f2448a = "\r\n";
     private static String b = "--";
     private static String c = "--------7da3d81520810*";
     private static int d = 2097152;
@@ -121,18 +121,18 @@ public class NetWorkCore implements ai {
 
     @Override // com.baidu.tieba.util.ai
     public String e() {
-        if (this.o.f2495a == null) {
+        if (this.o.f2478a == null) {
             return null;
         }
-        String str = com.baidu.tieba.data.h.f1196a;
-        if (this.o.f2495a.startsWith(str)) {
-            int indexOf = this.o.f2495a.indexOf(63);
+        String str = com.baidu.tieba.data.h.f1201a;
+        if (this.o.f2478a.startsWith(str)) {
+            int indexOf = this.o.f2478a.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.o.f2495a.length();
+                indexOf = this.o.f2478a.length();
             }
-            return this.o.f2495a.substring(str.length(), indexOf);
+            return this.o.f2478a.substring(str.length(), indexOf);
         }
-        return this.o.f2495a;
+        return this.o.f2478a;
     }
 
     @Override // com.baidu.tieba.util.ai
@@ -247,7 +247,7 @@ public class NetWorkCore implements ai {
 
     @Override // com.baidu.tieba.util.ai
     public void b(String str) {
-        this.o.f2495a = str;
+        this.o.f2478a = str;
     }
 
     @Override // com.baidu.tieba.util.ai
@@ -391,13 +391,13 @@ public class NetWorkCore implements ai {
         boolean z = true;
         try {
             if (this.o.e == null || this.o.e.size() <= 0 || this.p) {
-                str = this.o.f2495a;
+                str = this.o.f2478a;
             } else {
                 StringBuilder sb = new StringBuilder(30);
-                sb.append(this.o.f2495a);
-                if (this.o.f2495a.indexOf("?") < 0) {
+                sb.append(this.o.f2478a);
+                if (this.o.f2478a.indexOf("?") < 0) {
                     sb.append("?");
-                } else if (!this.o.f2495a.endsWith("?") && !this.o.f2495a.endsWith("&")) {
+                } else if (!this.o.f2478a.endsWith("?") && !this.o.f2478a.endsWith("&")) {
                     sb.append("&");
                 }
                 for (int i2 = 0; i2 < this.o.e.size(); i2++) {
@@ -483,10 +483,10 @@ public class NetWorkCore implements ai {
                                         int i3 = parseInt * 10;
                                         if (i3 > 0) {
                                             if (com.baidu.adp.lib.h.d.a()) {
-                                                com.baidu.adp.lib.h.d.d("pre-free memory for downloaded image:[" + this.o.f2495a + "], size:" + i3);
+                                                com.baidu.adp.lib.h.d.d("pre-free memory for downloaded image:[" + this.o.f2478a + "], size:" + i3);
                                             }
                                             if (!com.baidu.tbadk.imageManager.d.a().c(i3)) {
-                                                com.baidu.adp.lib.h.d.d("Image download cacelled. out of memory. url:[" + this.o.f2495a + "], size:" + i3);
+                                                com.baidu.adp.lib.h.d.d("Image download cacelled. out of memory. url:[" + this.o.f2478a + "], size:" + i3);
                                                 bArr = null;
                                                 if (inputStream != null) {
                                                     try {
@@ -565,7 +565,7 @@ public class NetWorkCore implements ai {
                             bbVar.c = this.n;
                             bbVar.b = time2;
                             bbVar.d = i + 1;
-                            bbVar.f2497a = 2;
+                            bbVar.f2480a = 2;
                             ba.a(bbVar);
                             if (this.q) {
                                 bh.b(this);
@@ -586,7 +586,7 @@ public class NetWorkCore implements ai {
                         inputStream3 = inputStream;
                         try {
                             this.o.b = 0;
-                            ba.f2496a.incrementAndGet();
+                            ba.f2479a.incrementAndGet();
                             z = true;
                             this.o.d = this.i.getResources().getString(R.string.neterror);
                             if (inputStream3 != null) {
@@ -618,7 +618,7 @@ public class NetWorkCore implements ai {
                         }
                     } catch (SocketTimeoutException e17) {
                         inputStream3 = inputStream;
-                        ba.f2496a.incrementAndGet();
+                        ba.f2479a.incrementAndGet();
                         this.o.b = 0;
                         z = true;
                         this.o.d = this.i.getResources().getString(R.string.neterror);
@@ -819,7 +819,7 @@ public class NetWorkCore implements ai {
         String sb3 = sb.toString();
         this.t = sb3.length();
         if (com.baidu.tieba.data.h.s()) {
-            bg.e(getClass().getName(), "postNetData", this.o.f2495a + "?" + sb3);
+            bg.e(getClass().getName(), "postNetData", this.o.f2478a + "?" + sb3);
         }
         int i3 = 0;
         boolean z = true;
@@ -831,7 +831,7 @@ public class NetWorkCore implements ai {
             InputStream inputStream4 = null;
             try {
                 try {
-                    url = new URL(this.o.f2495a);
+                    url = new URL(this.o.f2478a);
                     this.j = a(url);
                 } catch (Throwable th) {
                     th = th;
@@ -964,7 +964,7 @@ public class NetWorkCore implements ai {
                                     bbVar.c = this.n;
                                     bbVar.b = time2;
                                     bbVar.d = i3 + 1;
-                                    bbVar.f2497a = 1;
+                                    bbVar.f2480a = 1;
                                     ba.a(bbVar);
                                     bh.a(this);
                                     if (inputStream5 != null) {
@@ -984,7 +984,7 @@ public class NetWorkCore implements ai {
                                     inputStream3 = inputStream5;
                                     socketException = e12;
                                     str = str2;
-                                    ba.f2496a.incrementAndGet();
+                                    ba.f2479a.incrementAndGet();
                                     this.o.b = 0;
                                     z = true;
                                     this.o.d = this.i.getResources().getString(R.string.neterror);
@@ -1004,7 +1004,7 @@ public class NetWorkCore implements ai {
                                     socketTimeoutException = e14;
                                     str = str2;
                                     try {
-                                        ba.f2496a.incrementAndGet();
+                                        ba.f2479a.incrementAndGet();
                                         this.o.b = 0;
                                         z = true;
                                         this.o.d = this.i.getResources().getString(R.string.neterror);
@@ -1158,7 +1158,7 @@ public class NetWorkCore implements ai {
             InputStream inputStream2 = null;
             DataOutputStream dataOutputStream3 = null;
             try {
-                this.j = a(new URL(this.o.f2495a));
+                this.j = a(new URL(this.o.f2478a));
             } catch (SocketException e2) {
                 str = str2;
                 dataOutputStream2 = null;
@@ -1244,12 +1244,12 @@ public class NetWorkCore implements ai {
                                 if (basicNameValuePair != null) {
                                     String name = basicNameValuePair.getName();
                                     String value = basicNameValuePair.getValue();
-                                    dataOutputStream.writeBytes(b + c + f2465a);
+                                    dataOutputStream.writeBytes(b + c + f2448a);
                                     byte[] bytes = value.getBytes("UTF-8");
-                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + f2465a);
-                                    dataOutputStream.writeBytes(f2465a);
+                                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + f2448a);
+                                    dataOutputStream.writeBytes(f2448a);
                                     dataOutputStream.write(bytes);
-                                    dataOutputStream.writeBytes(f2465a);
+                                    dataOutputStream.writeBytes(f2448a);
                                 }
                             } catch (Throwable th3) {
                                 th = th3;
@@ -1275,15 +1275,15 @@ public class NetWorkCore implements ai {
                             if (this.m) {
                                 break;
                             } else if (value2 != null) {
-                                dataOutputStream.writeBytes(b + c + f2465a);
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + f2465a);
-                                dataOutputStream.writeBytes(f2465a);
+                                dataOutputStream.writeBytes(b + c + f2448a);
+                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + f2448a);
+                                dataOutputStream.writeBytes(f2448a);
                                 dataOutputStream.write(value2);
-                                dataOutputStream.writeBytes(f2465a);
+                                dataOutputStream.writeBytes(f2448a);
                             }
                         }
                     }
-                    dataOutputStream.writeBytes(b + c + b + f2465a);
+                    dataOutputStream.writeBytes(b + c + b + f2448a);
                     dataOutputStream.flush();
                     bg.a("NetWork", "postMultiNetData", "Post data.zise = " + String.valueOf(dataOutputStream.size()));
                     dataOutputStream.close();
@@ -1667,7 +1667,7 @@ public class NetWorkCore implements ai {
         try {
             try {
                 try {
-                    this.j = a(new URL(this.o.f2495a));
+                    this.j = a(new URL(this.o.f2478a));
                 } catch (Throwable th) {
                     th = th;
                 }

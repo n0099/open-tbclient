@@ -6,17 +6,17 @@ import android.view.View;
 public class by implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bx f1442a;
+    final /* synthetic */ bx f1433a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public by(bx bxVar) {
-        this.f1442a = bxVar;
+        this.f1433a = bxVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.j jVar;
-        jVar = this.f1442a.f1441a;
+        jVar = this.f1433a.c;
         jVar.finish();
     }
 }

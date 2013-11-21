@@ -5,25 +5,25 @@ import android.view.View;
 class an implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.data.aw f2071a;
+    final /* synthetic */ com.baidu.tieba.data.av f2054a;
     final /* synthetic */ View b;
     final /* synthetic */ am c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public an(am amVar, com.baidu.tieba.data.aw awVar, View view) {
+    public an(am amVar, com.baidu.tieba.data.av avVar, View view) {
         this.c = amVar;
-        this.f2071a = awVar;
+        this.f2054a = avVar;
         this.b = view;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cp cpVar;
+        cr crVar;
         com.baidu.tieba.model.bm bmVar;
-        cpVar = this.c.f2070a.y;
-        com.baidu.tieba.data.aw awVar = this.f2071a;
+        crVar = this.c.f2053a.y;
+        com.baidu.tieba.data.av avVar = this.f2054a;
         View view = this.b;
-        bmVar = this.c.f2070a.s;
-        cpVar.a(false, awVar, true, null, null, view, bmVar.l().l());
+        bmVar = this.c.f2053a.s;
+        crVar.a(false, avVar, true, null, null, view, bmVar.l().l());
     }
 }

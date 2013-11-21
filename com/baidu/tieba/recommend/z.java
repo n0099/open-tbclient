@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class z extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private DailyRecommendActivity f2327a;
+    private DailyRecommendActivity f2312a;
     private PinnedHeaderListView c;
     private ProgressBar d;
     private View e;
@@ -31,9 +31,9 @@ public class z extends com.baidu.adp.a.e {
 
     public z(DailyRecommendActivity dailyRecommendActivity, com.baidu.adp.widget.ListView.r rVar, q qVar) {
         super(dailyRecommendActivity);
-        this.f2327a = dailyRecommendActivity;
+        this.f2312a = dailyRecommendActivity;
         this.e = LayoutInflater.from(this.b).inflate(R.layout.daily_recommend_view, (ViewGroup) null);
-        this.f2327a.setContentView(this.e);
+        this.f2312a.setContentView(this.e);
         this.c = (PinnedHeaderListView) this.e.findViewById(R.id.pinnedHeaderListview);
         this.j = new h(dailyRecommendActivity, qVar);
         this.i = (TextView) this.e.findViewById(R.id.text_info);
@@ -43,11 +43,11 @@ public class z extends com.baidu.adp.a.e {
         this.c.setOnSrollToBottomListener(rVar);
         this.d = (ProgressBar) this.e.findViewById(R.id.progress);
         this.d.setVisibility(8);
-        this.g = new PbListView(this.f2327a);
+        this.g = new PbListView(this.f2312a);
         this.g.a(new aa(this));
         this.h = this.g.b().findViewById(R.id.pb_more_view);
-        this.k = (NavigationBar) this.f2327a.findViewById(R.id.view_navigation_bar);
-        this.k.a(this.f2327a.getString(R.string.dailyrecommend_title));
+        this.k = (NavigationBar) this.f2312a.findViewById(R.id.view_navigation_bar);
+        this.k.a(this.f2312a.getString(R.string.dailyrecommend_title));
         this.k.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, NavigationBar.ControlType.HOME_BUTTON);
     }
@@ -63,7 +63,7 @@ public class z extends com.baidu.adp.a.e {
     public void a(boolean z, String str) {
         this.d.setVisibility(8);
         if (!z && str != null) {
-            this.f2327a.showToast(str);
+            this.f2312a.showToast(str);
         }
     }
 
@@ -107,7 +107,7 @@ public class z extends com.baidu.adp.a.e {
         bd.b(this.c, i);
         this.f.a(i);
         if (this.g != null) {
-            this.g.b(i);
+            this.g.d(i);
         }
         this.i.setTextColor(i == 1 ? -3380702 : -893399);
         this.i.setBackgroundResource(i == 1 ? R.drawable.bg_update_1 : R.drawable.bg_update);

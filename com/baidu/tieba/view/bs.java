@@ -7,18 +7,18 @@ import com.baidu.tbadk.widget.TbImageView;
 public final class bs implements com.baidu.adp.lib.d.c<TbImageView> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2582a;
+    final /* synthetic */ Context f2565a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(Context context) {
-        this.f2582a = context;
+        this.f2565a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.d.c
     /* renamed from: b */
     public TbImageView a() {
-        return new TbImageView(this.f2582a);
+        return new TbImageView(this.f2565a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

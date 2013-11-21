@@ -7,19 +7,19 @@ import com.baidu.tieba.util.UtilHelper;
 public class bf {
 
     /* renamed from: a  reason: collision with root package name */
-    private static bf f2501a = null;
+    private static bf f2484a = null;
     private boolean b = false;
     private boolean c = false;
     private int d = 600;
     private String e = String.valueOf(45);
 
     public static bf a() {
-        if (f2501a == null) {
+        if (f2484a == null) {
             synchronized (bf.class) {
-                f2501a = new bf();
+                f2484a = new bf();
             }
         }
-        return f2501a;
+        return f2484a;
     }
 
     public bf() {

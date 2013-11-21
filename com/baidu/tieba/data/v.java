@@ -10,7 +10,7 @@ public class v {
     private String h;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1210a = 0;
+    private int f1215a = 0;
     private String b = "";
     private String c = "";
     private int d = 0;
@@ -32,7 +32,7 @@ public class v {
                 a(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.f1210a = optJSONObject.optInt("errno", 0);
+                    this.f1215a = optJSONObject.optInt("errno", 0);
                     this.b = optJSONObject.optString("errmsg", "");
                     this.c = optJSONObject.optString("usermsg", "");
                 }
@@ -112,7 +112,7 @@ public class v {
     }
 
     public int g() {
-        return this.f1210a;
+        return this.f1215a;
     }
 
     public String h() {

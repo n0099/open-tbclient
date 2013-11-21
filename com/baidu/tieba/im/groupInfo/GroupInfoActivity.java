@@ -21,7 +21,7 @@ import com.baidu.tieba.im.updategroup.UpdateGroupActivity;
 import com.baidu.tieba.person.EditHeadActivity;
 import com.baidu.tieba.person.PersonInfoActivity;
 import com.baidu.tieba.util.af;
-import com.baidu.tieba.write.bc;
+import com.baidu.tieba.write.bd;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 import org.json.JSONException;
@@ -34,7 +34,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
     private l i;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1678a = 1;
+    private final int f1669a = 1;
     private final int b = 2;
     private final int c = 3;
     private final int d = 4;
@@ -171,7 +171,7 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
             } else if (this.g.d() != null) {
                 if (this.g.d().isJoin()) {
                     if (this.g.d().getGroup() != null) {
-                        MsglistActivity.a(this, (int) this.g.a(), this.g.d().getGroup().getName(), this.g.d().getGroup().getAuthorId());
+                        MsglistActivity.a(this, (int) this.g.a(), this.g.d().getGroup().getName(), this.g.d().getGroup().getAuthorId(), "group_info");
                     }
                 } else if (this.g.k()) {
                     showToast(R.string.has_recent_join);
@@ -311,9 +311,9 @@ public class GroupInfoActivity extends com.baidu.tieba.j implements View.OnClick
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                bc.a(this);
+                bd.a(this);
             } else if (i == 12009) {
-                bc.b(this);
+                bd.b(this);
             }
         }
     }

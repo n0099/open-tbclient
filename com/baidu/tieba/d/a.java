@@ -6,7 +6,7 @@ import com.baidu.tieba.util.bf;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1153a;
+    private static a f1159a;
     private int b = 1;
     private int c = 1;
     private int d = 0;
@@ -15,16 +15,16 @@ public class a {
 
     public static a a() {
         a aVar;
-        if (f1153a == null) {
+        if (f1159a == null) {
             synchronized (a.class) {
-                if (f1153a == null) {
-                    f1153a = new a();
+                if (f1159a == null) {
+                    f1159a = new a();
                 }
-                aVar = f1153a;
+                aVar = f1159a;
             }
             return aVar;
         }
-        return f1153a;
+        return f1159a;
     }
 
     private a() {
@@ -32,7 +32,7 @@ public class a {
 
     public void b() {
         this.d = b.a().a("image_quality", 0);
-        this.b = b.a().a("new_display_photo", 0);
+        this.b = b.a().a("new_display_photo", 1);
         this.c = b.a().a("new_abstract_state", 0);
         this.f = b.a().a("view_image_quality", 0);
         this.e = b.a().a("show_images", true);

@@ -7,11 +7,11 @@ import com.baidu.tieba.TiebaApplication;
 class ap implements com.baidu.adp.widget.BdSwitchView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SignRemindActivity f1983a;
+    final /* synthetic */ SignRemindActivity f1966a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(SignRemindActivity signRemindActivity) {
-        this.f1983a = signRemindActivity;
+        this.f1966a = signRemindActivity;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.c
@@ -21,6 +21,6 @@ class ap implements com.baidu.adp.widget.BdSwitchView.c {
         } else {
             TiebaApplication.g().r(false);
         }
-        this.f1983a.c();
+        this.f1966a.c();
     }
 }

@@ -5,17 +5,17 @@ import java.io.RandomAccessFile;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2514a;
+    private String f2497a;
     private String b;
     private com.baidu.tieba.data.e c;
     private ap d;
     private boolean e = false;
 
     public n(String str, com.baidu.tieba.data.e eVar, String str2) {
-        this.f2514a = null;
+        this.f2497a = null;
         this.b = null;
         this.c = null;
-        this.f2514a = str;
+        this.f2497a = str;
         this.c = eVar;
         this.b = str2;
     }
@@ -33,7 +33,7 @@ public class n {
         long j = b % 102400 == 0 ? b / 102400 : (b / 102400) + 1;
         int c = this.c.c();
         if (c < j) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(af.d(this.f2514a), "r");
+            RandomAccessFile randomAccessFile = new RandomAccessFile(af.d(this.f2497a), "r");
             bg.e("ChunkUploadHelper", "uploadChunkFile", String.format("start chunk : %d", Integer.valueOf(c)));
             if (randomAccessFile.skipBytes(102400 * c) >= 102400 * c) {
                 while (true) {

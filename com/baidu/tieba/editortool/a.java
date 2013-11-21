@@ -11,21 +11,21 @@ import com.slidingmenu.lib.R;
 public class a extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1220a;
+    private Context f1225a;
 
     public a(Context context) {
         super(context);
-        this.f1220a = context;
+        this.f1225a = context;
     }
 
     public a(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1220a = context;
+        this.f1225a = context;
     }
 
     public a(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1220a = context;
+        this.f1225a = context;
     }
 
     private boolean d() {
@@ -33,9 +33,9 @@ public class a extends RelativeLayout {
     }
 
     public TextView a(EditorToolButton editorToolButton, boolean z) {
-        TextView textView = new TextView(this.f1220a);
+        TextView textView = new TextView(this.f1225a);
         textView.setTextSize(10.0f);
-        textView.setTextColor(this.f1220a.getResources().getColor(d() ? R.color.top_msg_num_night : R.color.top_msg_num_day));
+        textView.setTextColor(this.f1225a.getResources().getColor(d() ? R.color.top_msg_num_night : R.color.top_msg_num_day));
         textView.setGravity(17);
         if (z) {
             textView.setBackgroundResource(d() ? R.drawable.icon_news_prompt_1 : R.drawable.icon_news_prompt);

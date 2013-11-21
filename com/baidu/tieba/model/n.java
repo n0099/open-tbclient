@@ -9,11 +9,11 @@ import java.util.List;
 public class n extends BdAsyncTask<Object, Integer, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1945a;
+    final /* synthetic */ f f1928a;
     private volatile com.baidu.tieba.util.ap b;
 
     private n(f fVar) {
-        this.f1945a = fVar;
+        this.f1928a = fVar;
         this.b = null;
     }
 
@@ -37,26 +37,26 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
         String str4;
         List list;
         try {
-            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/s/comlist");
+            this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/s/comlist");
             this.b.e(true);
             com.baidu.tieba.util.ap apVar = this.b;
-            str = this.f1945a.d;
+            str = this.f1928a.d;
             apVar.a(PushConstants.EXTRA_USER_ID, str);
             com.baidu.tieba.util.ap apVar2 = this.b;
-            str2 = this.f1945a.f;
+            str2 = this.f1928a.f;
             apVar2.a("pn", str2);
             com.baidu.tieba.util.ap apVar3 = this.b;
-            str3 = this.f1945a.g;
+            str3 = this.f1928a.g;
             apVar3.a("rn", str3);
             String j = this.b.j();
             if (this.b.c() && j != null) {
-                this.f1945a.c(j);
-                if (this.f1945a.d() == 0) {
-                    str4 = this.f1945a.f;
+                this.f1928a.c(j);
+                if (this.f1928a.d() == 0) {
+                    str4 = this.f1928a.f;
                     if (str4.equals(SocialConstants.TRUE)) {
-                        list = this.f1945a.c;
+                        list = this.f1928a.c;
                         if (list != null) {
-                            this.f1945a.g();
+                            this.f1928a.g();
                         }
                     }
                 }
@@ -74,16 +74,16 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
     public void a(Boolean bool) {
         com.baidu.adp.a.g gVar;
         com.baidu.adp.a.g gVar2;
-        this.f1945a.k = null;
-        this.f1945a.f();
+        this.f1928a.k = null;
+        this.f1928a.f();
         if (bool.booleanValue()) {
-            gVar = this.f1945a.mLoadDataCallBack;
+            gVar = this.f1928a.mLoadDataCallBack;
             gVar.a(true);
             return;
         }
-        this.f1945a.mErrorCode = this.b.e();
-        this.f1945a.mErrorString = this.b.g();
-        gVar2 = this.f1945a.mLoadDataCallBack;
+        this.f1928a.mErrorCode = this.b.e();
+        this.f1928a.mErrorString = this.b.g();
+        gVar2 = this.f1928a.mLoadDataCallBack;
         gVar2.a(false);
     }
 
@@ -95,7 +95,7 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
             this.b.h();
             this.b = null;
         }
-        gVar = this.f1945a.mLoadDataCallBack;
+        gVar = this.f1928a.mLoadDataCallBack;
         gVar.a(false);
     }
 }

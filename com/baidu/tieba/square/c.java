@@ -20,7 +20,7 @@ public class c extends BaseAdapter {
     private float e = 0.0f;
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f2418a = new f(this);
+    View.OnClickListener f2401a = new f(this);
 
     public c(Activity activity, h hVar, boolean z) {
         this.b = activity;
@@ -78,9 +78,9 @@ public class c extends BaseAdapter {
             return from.inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = from.inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.f2418a);
+        inflate.setOnClickListener(this.f2401a);
         g gVar = new g();
-        gVar.f2422a = (HeadImageView) inflate.findViewById(R.id.portrait);
+        gVar.f2405a = (HeadImageView) inflate.findViewById(R.id.portrait);
         gVar.b = (TextView) inflate.findViewById(R.id.name);
         gVar.c = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(gVar);
@@ -108,12 +108,12 @@ public class c extends BaseAdapter {
             gVar.c.setVisibility(8);
         }
         if (zVar.d != null) {
-            gVar.f2422a.setImageBitmap(null);
-            gVar.f2422a.setTag(zVar.d);
+            gVar.f2405a.setImageBitmap(null);
+            gVar.f2405a.setTag(zVar.d);
             com.baidu.adp.widget.ImageView.e d = this.d.d(zVar.d);
             if (d != null) {
-                gVar.f2422a.setImageBitmap(d.f());
-                gVar.f2422a.invalidate();
+                gVar.f2405a.setImageBitmap(d.f());
+                gVar.f2405a.invalidate();
                 return;
             }
             this.d.a(zVar.d, new d(this, viewGroup));

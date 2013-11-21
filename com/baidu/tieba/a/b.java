@@ -9,7 +9,7 @@ import java.io.RandomAccessFile;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f1007a;
+    final /* synthetic */ a f1009a;
     private String b;
     private String c;
     private com.baidu.tieba.data.e d;
@@ -18,7 +18,7 @@ public class b {
     private String g;
 
     public b(a aVar, String str, com.baidu.tieba.data.e eVar, String str2, String str3) {
-        this.f1007a = aVar;
+        this.f1009a = aVar;
         this.b = null;
         this.c = null;
         this.d = null;

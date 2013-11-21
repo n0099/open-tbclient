@@ -5,14 +5,14 @@ import android.content.Context;
 public class a extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.adp.a.g f1880a;
+    protected com.baidu.adp.a.g f1862a;
     private c b;
     private Context c;
 
     public a(Context context, com.baidu.adp.a.g gVar) {
-        this.f1880a = null;
+        this.f1862a = null;
         this.c = context;
-        this.f1880a = gVar;
+        this.f1862a = gVar;
     }
 
     @Override // com.baidu.adp.a.d

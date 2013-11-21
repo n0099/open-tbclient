@@ -14,7 +14,7 @@ public class a {
     private static a b = null;
 
     /* renamed from: a  reason: collision with root package name */
-    private c f1024a = null;
+    private c f1026a = null;
     private d c = null;
 
     public static a a() {
@@ -91,33 +91,33 @@ public class a {
     }
 
     public void a(Context context) {
-        String aK;
+        String aM;
         try {
-            if (!TiebaApplication.n() && (aK = TiebaApplication.g().aK()) != null) {
-                this.f1024a = new c(this);
-                String[] split = aK.split(":");
+            if (!TiebaApplication.n() && (aM = TiebaApplication.g().aM()) != null) {
+                this.f1026a = new c(this);
+                String[] split = aM.split(":");
                 int length = split.length;
                 if (length >= 1) {
                     if (SocialConstants.TRUE.equals(split[0])) {
-                        this.f1024a.f1061a = true;
+                        this.f1026a.f1064a = true;
                     } else {
-                        this.f1024a.f1061a = false;
+                        this.f1026a.f1064a = false;
                     }
                 }
                 if (length >= 2) {
-                    this.f1024a.b = split[1];
+                    this.f1026a.b = split[1];
                 }
                 if (length >= 3) {
-                    this.f1024a.c = split[2];
+                    this.f1026a.c = split[2];
                 }
                 if (length >= 4) {
                     if (split[3] == null || split[3].equalsIgnoreCase("null")) {
-                        this.f1024a.d = null;
+                        this.f1026a.d = null;
                     } else {
-                        this.f1024a.d = split[3];
+                        this.f1026a.d = split[3];
                     }
                 }
-                if (this.f1024a != null && !this.f1024a.f1061a) {
+                if (this.f1026a != null && !this.f1026a.f1064a) {
                     DatabaseService.k();
                     TiebaApplication.a((AccountData) null, context);
                     d();
@@ -156,18 +156,18 @@ public class a {
     }
 
     public void d() {
-        this.f1024a = null;
-        TiebaApplication.g().aJ();
+        this.f1026a = null;
+        TiebaApplication.g().aL();
     }
 
     public void e() {
-        this.f1024a = null;
+        this.f1026a = null;
     }
 
     public void a(Activity activity, int i) {
         String F;
-        if (this.f1024a != null && this.f1024a.f1061a && TiebaApplication.A() == null && ((F = TiebaApplication.F()) == null || !F.equals(this.f1024a.d))) {
-            ReLoginShareActivity.a(activity, this.f1024a.d, this.f1024a.b, this.f1024a.c, i);
+        if (this.f1026a != null && this.f1026a.f1064a && TiebaApplication.A() == null && ((F = TiebaApplication.F()) == null || !F.equals(this.f1026a.d))) {
+            ReLoginShareActivity.a(activity, this.f1026a.d, this.f1026a.b, this.f1026a.c, i);
         }
         e();
     }

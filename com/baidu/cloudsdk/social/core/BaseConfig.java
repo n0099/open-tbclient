@@ -18,7 +18,7 @@ public abstract class BaseConfig {
     protected Map mIntItems = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f844a = false;
+    private boolean f845a = false;
 
     public BaseConfig(Context context) {
         Validator.notNull(context, "context");
@@ -87,10 +87,10 @@ public abstract class BaseConfig {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void loadDefaultConfig() {
-        if (this.f844a) {
+        if (this.f845a) {
             return;
         }
-        this.f844a = true;
+        this.f845a = true;
         loadFromLocal(getDefaultConfigFile());
         loadFromLocal("config.json");
     }

@@ -9,7 +9,7 @@ import com.slidingmenu.lib.R;
 public class g implements com.baidu.adp.lib.e.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private ap f2614a = null;
+    private ap f2597a = null;
     private com.baidu.adp.lib.e.f b;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class g implements com.baidu.adp.lib.e.g {
             return null;
         }
         d dVar = new d();
-        dVar.f2612a = str;
+        dVar.f2595a = str;
         dVar.b = a2;
         return dVar;
     }
@@ -43,12 +43,12 @@ public class g implements com.baidu.adp.lib.e.g {
             str2 = (String) this.b.a("from");
         }
         d dVar = new d();
-        this.f2614a = new ap(h.f1196a + "c/p/voice?voice_md5=" + str + "&play_from=" + str2);
+        this.f2597a = new ap(h.f1201a + "c/p/voice?voice_md5=" + str + "&play_from=" + str2);
         if (this.b != null) {
-            this.b.a("network", this.f2614a);
+            this.b.a("network", this.f2597a);
         }
-        byte[] i = this.f2614a.i();
-        if (!this.f2614a.d()) {
+        byte[] i = this.f2597a.i();
+        if (!this.f2597a.d()) {
             dVar.c = 3;
             dVar.d = ak.a(R.string.sync_mark_fail_con);
             return dVar;
@@ -60,7 +60,7 @@ public class g implements com.baidu.adp.lib.e.g {
             int a2 = e.a(str, i);
             if (a2 == 0) {
                 dVar.b = af.a(str, 1);
-                dVar.f2612a = str;
+                dVar.f2595a = str;
             } else {
                 dVar.c = a2;
                 dVar.d = d.a(a2);

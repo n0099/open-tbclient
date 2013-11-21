@@ -10,7 +10,7 @@ import java.io.IOException;
 public final class WXMediaMessage {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f869a;
+    private String f870a;
     private String b;
     private byte[] c;
     private IMediaObject d;
@@ -31,10 +31,10 @@ public final class WXMediaMessage {
     public class WXWebpageObject implements IMediaObject {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f870a;
+        private String f871a;
 
         public WXWebpageObject(String str) {
-            this.f870a = str;
+            this.f871a = str;
         }
 
         @Override // com.baidu.cloudsdk.social.share.handler.WXMediaMessage.IMediaObject
@@ -45,7 +45,7 @@ public final class WXMediaMessage {
         @Override // com.baidu.cloudsdk.social.share.handler.WXMediaMessage.IMediaObject
         public void serialize(Bundle bundle) {
             Validator.notNull(bundle, "bundle");
-            bundle.putString("_wxwebpageobject_webpageUrl", this.f870a);
+            bundle.putString("_wxwebpageobject_webpageUrl", this.f871a);
         }
 
         @Override // com.baidu.cloudsdk.social.share.handler.WXMediaMessage.IMediaObject
@@ -55,7 +55,7 @@ public final class WXMediaMessage {
     }
 
     public WXMediaMessage(String str, String str2, IMediaObject iMediaObject) {
-        this.f869a = str;
+        this.f870a = str;
         this.b = str2;
         this.d = iMediaObject;
     }
@@ -75,7 +75,7 @@ public final class WXMediaMessage {
     public Bundle a() {
         Bundle bundle = new Bundle();
         bundle.putInt("_wxobject_sdkVer", 553844737);
-        bundle.putString("_wxobject_title", this.f869a);
+        bundle.putString("_wxobject_title", this.f870a);
         bundle.putString("_wxobject_description", this.b);
         bundle.putByteArray("_wxobject_thumbdata", this.c);
         if (this.d != null) {

@@ -20,7 +20,7 @@ import com.slidingmenu.lib.R;
 public class SearchGroupActivity extends j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    protected w f1784a;
+    protected w f1775a;
     private d b;
     private com.baidu.tieba.im.messageCenter.h c = new a(this);
 
@@ -29,7 +29,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.b = new d(this);
-        this.f1784a = new w();
+        this.f1775a = new w();
         com.baidu.tieba.im.messageCenter.f.a().a(103007, this.c);
     }
 
@@ -78,7 +78,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.home_bt_search_s /* 2131100316 */:
+            case R.id.home_bt_search_s /* 2131100305 */:
                 if (view.getTag() instanceof String) {
                     a((String) view.getTag());
                     return;
@@ -94,7 +94,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
             try {
                 this.b.d();
                 this.b.a((ResponseSearchGroupMessage) null);
-                this.f1784a.a(Long.parseLong(str));
+                this.f1775a.a(Long.parseLong(str));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
@@ -120,7 +120,7 @@ public class SearchGroupActivity extends j implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (this.b != null && this.b.a() != null) {
-            ak.a(this.b.f1788a, this.b.a().a(), 0, -1);
+            ak.a(this.b.f1779a, this.b.a().a(), 0, -1);
         }
     }
 }

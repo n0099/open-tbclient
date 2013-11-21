@@ -6,18 +6,18 @@ import com.slidingmenu.lib.R;
 class au implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SystemHelpSettingActivity f1988a;
+    final /* synthetic */ SystemHelpSettingActivity f1971a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.f1988a = systemHelpSettingActivity;
+        this.f1971a = systemHelpSettingActivity;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         ax axVar;
-        this.f1988a.showLoadingDialog(this.f1988a.getString(R.string.deleting));
-        axVar = this.f1988a.b;
+        this.f1971a.showLoadingDialog(this.f1971a.getString(R.string.deleting));
+        axVar = this.f1971a.b;
         axVar.a();
         dialogInterface.cancel();
     }

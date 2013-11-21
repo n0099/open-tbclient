@@ -6,9 +6,9 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<b> f2933a;
+    private ArrayList<b> f2917a;
 
     public List<b> a() {
-        return this.f2933a;
+        return this.f2917a;
     }
 }

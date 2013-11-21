@@ -16,13 +16,13 @@ import org.msgpack.template.FieldOption;
 public abstract class AbstractTemplateBuilder implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    protected org.msgpack.template.e f2935a;
+    protected org.msgpack.template.e f2919a;
 
     protected abstract <T> org.msgpack.template.d<T> a(Class<T> cls, c[] cVarArr);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractTemplateBuilder(org.msgpack.template.e eVar) {
-        this.f2935a = eVar;
+        this.f2919a = eVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: org.msgpack.template.builder.AbstractTemplateBuilder */

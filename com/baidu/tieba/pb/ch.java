@@ -1,45 +1,20 @@
 package com.baidu.tieba.pb;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ch implements com.baidu.tieba.editortool.h {
+public class ch implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2114a;
+    final /* synthetic */ int f2097a;
     final /* synthetic */ PbEditor b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ch(PbEditor pbEditor, com.baidu.tieba.editortool.h hVar) {
+    public ch(PbEditor pbEditor, int i) {
         this.b = pbEditor;
-        this.f2114a = hVar;
+        this.f2097a = i;
     }
 
-    @Override // com.baidu.tieba.editortool.h
-    public void a(int i, Object obj) {
-        if (i == 2) {
-            this.b.c(i);
-        } else if (i == 3) {
-            this.b.l();
-        } else if (i == 5) {
-            this.b.c(i);
-        } else if (i == 6) {
-            this.b.l();
-        } else if (i == 8) {
-            this.b.c(i);
-        } else if (i == 9) {
-            this.b.l();
-        } else if (i != 0) {
-            if (i == 18) {
-                if (this.b.c()) {
-                    this.b.b.f();
-                } else {
-                    this.b.b.g();
-                }
-            } else if (i == 12) {
-                this.f2114a.a(33, obj);
-                this.b.b.l();
-                this.b.c.c(this.b.b.getEditText());
-            }
-        }
-        this.f2114a.a(i, obj);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.b.a(this.f2097a, new ci(this));
     }
 }

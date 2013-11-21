@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 public class y extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1764a = y.class.getName();
+    private static final String f1755a = y.class.getName();
     private z b;
 
     @Override // com.baidu.adp.a.d

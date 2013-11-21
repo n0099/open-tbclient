@@ -1,86 +1,120 @@
 package com.baidu.tieba.square;
 
-import android.widget.FrameLayout;
-import android.widget.ProgressBar;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.cyberplayer.sdk.internal.VersionUtils;
+import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.model.BarSuggestModel;
-import org.apache.http.message.BasicNameValuePair;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.view.HeadImageView;
+import com.slidingmenu.lib.R;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class br extends BdAsyncTask<Object, Integer, BarSuggestModel> {
+public class br extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    BasicNameValuePair f2412a;
-    final /* synthetic */ SquareSearchActivity b;
-    private com.baidu.tieba.util.ap c = null;
-    private String d;
+    private com.baidu.tieba.j f2397a;
+    private com.baidu.tieba.util.i b;
+    private String c;
+    private boolean d = true;
+    private ArrayList<BarSuggestModel.Forum> e;
 
-    public br(SquareSearchActivity squareSearchActivity, String str, BasicNameValuePair basicNameValuePair, boolean z) {
-        this.b = squareSearchActivity;
-        this.d = null;
-        this.f2412a = null;
-        this.d = str;
-        this.f2412a = basicNameValuePair;
+    public br(com.baidu.tieba.j jVar, ArrayList<BarSuggestModel.Forum> arrayList) {
+        this.f2397a = jVar;
+        this.c = jVar.getText(R.string.forum).toString();
+        this.e = arrayList;
+        this.b = new com.baidu.tieba.util.i(jVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void b() {
-        ProgressBar progressBar;
-        TextView textView;
-        FrameLayout frameLayout;
-        progressBar = this.b.t;
-        progressBar.setVisibility(0);
-        textView = this.b.w;
-        textView.setVisibility(8);
-        frameLayout = this.b.m;
-        frameLayout.setVisibility(8);
+    public void a(ArrayList<BarSuggestModel.Forum> arrayList) {
+        this.e = arrayList;
+        if (this.e != null) {
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.e == null) {
+            return 0;
+        }
+        return this.e.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public BarSuggestModel a(Object... objArr) {
-        try {
-            this.c = new com.baidu.tieba.util.ap(this.d);
-            this.c.a(this.f2412a);
-            String j = this.c.j();
-            if (j == null) {
-                return null;
-            }
-            return BarSuggestModel.parserJson(j);
-        } catch (Exception e) {
-            com.baidu.tieba.util.bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public BarSuggestModel.Forum getItem(int i) {
+        int count = getCount();
+        if (count <= 0 || i >= count) {
             return null;
         }
+        return this.e.get(i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(BarSuggestModel barSuggestModel) {
-        ProgressBar progressBar;
-        progressBar = this.b.t;
-        progressBar.setVisibility(8);
-        if (barSuggestModel != null) {
-            this.b.x = barSuggestModel;
-            this.b.i();
-        } else if (this.c != null) {
-        }
-        this.b.z = null;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        if (this.c != null) {
-            this.c.h();
-            this.c = null;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        Exception e;
+        View view2;
+        bt btVar;
+        try {
+            if (view == null) {
+                view = LayoutInflater.from(this.f2397a).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
+                btVar = new bt(this, null);
+                btVar.b = (HeadImageView) view.findViewById(R.id.forum_avatar);
+                btVar.b.setGifIconSupport(false);
+                btVar.f2399a = (TextView) view.findViewById(R.id.name);
+                btVar.c = (TextView) view.findViewById(R.id.member_count);
+                btVar.d = (TextView) view.findViewById(R.id.thread_count);
+                btVar.e = (TextView) view.findViewById(R.id.slogan);
+                view.setTag(btVar);
+                view2 = view;
+            } else {
+                btVar = (bt) view.getTag();
+                view2 = view;
+            }
+            try {
+                BarSuggestModel.Forum item = getItem(i);
+                if (item != null) {
+                    this.f2397a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
+                    this.f2397a.getLayoutMode().a(view2);
+                    String str = item.avatar;
+                    this.b.f(str, new bs(this, btVar.b));
+                    btVar.b.setTag(str);
+                    btVar.b.invalidate();
+                    if (this.d) {
+                        btVar.f2399a.setText(item.forum_name.concat(this.c));
+                    } else {
+                        btVar.f2399a.setText(item.forum_name);
+                    }
+                    btVar.b.setTag(item.avatar);
+                    btVar.c.setText(this.f2397a.getString(R.string.forum_list_attention_tv) + " " + b(item.member_num));
+                    btVar.d.setText(this.f2397a.getString(R.string.forum_list_thread_tv) + " " + b(item.thread_num));
+                    btVar.e.setText(item.slogan);
+                }
+            } catch (Exception e2) {
+                e = e2;
+                com.baidu.tieba.util.bg.b(getClass().getName(), "", "SearchAdapter.getView error = " + e.getMessage());
+                return view2;
+            }
+        } catch (Exception e3) {
+            e = e3;
+            view2 = view;
         }
-        progressBar = this.b.t;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+        return view2;
+    }
+
+    public String b(int i) {
+        if (i >= 100000) {
+            return String.valueOf(i / VersionUtils.CUR_DEVELOPMENT) + this.f2397a.getString(R.string.member_count_unit);
+        }
+        return String.valueOf(i);
     }
 }

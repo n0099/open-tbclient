@@ -1,7 +1,7 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import com.baidu.tieba.data.as;
+import com.baidu.tieba.data.ar;
 import com.baidu.tieba.model.bv;
 import com.baidu.tieba.person.PersonInfoActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,11 +9,11 @@ import com.baidu.tieba.person.PersonInfoActivity;
 public class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1874a;
+    final /* synthetic */ PostActivity f1856a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PostActivity postActivity) {
-        this.f1874a = postActivity;
+        this.f1856a = postActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,14 +21,14 @@ public class w implements View.OnClickListener {
         bv bvVar;
         bv bvVar2;
         bv bvVar3;
-        bvVar = this.f1874a.l;
+        bvVar = this.f1856a.l;
         if (bvVar != null) {
-            bvVar2 = this.f1874a.l;
+            bvVar2 = this.f1856a.l;
             if (bvVar2.a() != null) {
-                bvVar3 = this.f1874a.l;
-                as asVar = bvVar3.a().e().get(0);
-                if (asVar != null) {
-                    PersonInfoActivity.a(this.f1874a, asVar.g().getId(), asVar.g().getName());
+                bvVar3 = this.f1856a.l;
+                ar arVar = bvVar3.a().e().get(0);
+                if (arVar != null) {
+                    PersonInfoActivity.a(this.f1856a, arVar.g().getId(), arVar.g().getName());
                 }
             }
         }

@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class InitGuideView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1640a;
+    private ImageView f1631a;
     private TextView b;
     private TextView c;
     private Button d;
@@ -41,7 +41,7 @@ public class InitGuideView extends RelativeLayout {
 
     public void a(Context context) {
         addView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.im_frsgroup_guide, (ViewGroup) null));
-        this.f1640a = (ImageView) findViewById(R.id.guide_img);
+        this.f1631a = (ImageView) findViewById(R.id.guide_img);
         this.b = (TextView) findViewById(R.id.guide_tip1);
         this.c = (TextView) findViewById(R.id.guide_tip2);
     }
@@ -76,7 +76,7 @@ public class InitGuideView extends RelativeLayout {
     public void a(int i) {
         if (b(i)) {
             if (i == 1) {
-                this.f1640a.setBackgroundResource(R.drawable.pic_go_ba_1);
+                this.f1631a.setBackgroundResource(R.drawable.pic_go_ba_1);
                 this.b.setTextColor(-8815226);
                 this.c.setTextColor(-8815226);
                 if (this.d != null) {
@@ -86,7 +86,7 @@ public class InitGuideView extends RelativeLayout {
                 }
                 return;
             }
-            this.f1640a.setBackgroundResource(R.drawable.pic_go_ba);
+            this.f1631a.setBackgroundResource(R.drawable.pic_go_ba);
             this.b.setTextColor(-5065030);
             this.c.setTextColor(-5065030);
             if (this.d != null) {
@@ -170,6 +170,6 @@ public class InitGuideView extends RelativeLayout {
 
     public void h() {
         this.e = -1;
-        this.f1640a.setBackgroundDrawable(null);
+        this.f1631a.setBackgroundDrawable(null);
     }
 }

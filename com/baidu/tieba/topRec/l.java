@@ -3,22 +3,22 @@ package com.baidu.tieba.topRec;
 public class l extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    n f2455a;
+    n f2438a;
     o b;
     private boolean c = false;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.a.d
     public boolean LoadData() {
-        this.f2455a = new n(this);
-        this.f2455a.execute(new Object[0]);
+        this.f2438a = new n(this);
+        this.f2438a.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.a.d
     public boolean cancelLoadData() {
-        if (this.f2455a != null) {
-            this.f2455a.cancel();
+        if (this.f2438a != null) {
+            this.f2438a.cancel();
             return false;
         }
         return false;

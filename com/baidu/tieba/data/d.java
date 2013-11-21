@@ -8,18 +8,18 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private UserData f1192a;
+    private UserData f1197a;
     private ArrayList<String> b;
 
     public d() {
-        this.f1192a = null;
+        this.f1197a = null;
         this.b = null;
-        this.f1192a = new UserData();
+        this.f1197a = new UserData();
         this.b = new ArrayList<>(3);
     }
 
     public UserData a() {
-        return this.f1192a;
+        return this.f1197a;
     }
 
     public ArrayList<String> b() {
@@ -36,7 +36,7 @@ public class d {
 
     public void a(JSONObject jSONObject) {
         try {
-            this.f1192a.parserJson(jSONObject.optJSONObject("user"));
+            this.f1197a.parserJson(jSONObject.optJSONObject("user"));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {

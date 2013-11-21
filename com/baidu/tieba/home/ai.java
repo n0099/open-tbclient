@@ -8,7 +8,7 @@ import android.widget.TextView;
 class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f1402a;
+    ImageView f1393a;
     TextView b;
     LinearLayout c;
     TextView d;

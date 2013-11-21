@@ -50,8 +50,8 @@ public class c extends a {
         PublicMsg a2 = i.a(str2, str, bArr);
         if (a2 != null && !TextUtils.isEmpty(a2.e)) {
             com.baidu.android.pushservice.d b = com.baidu.android.pushservice.a.a(this.c).b(str);
-            if (b != null && b.f707a != null) {
-                a2.f = b.f707a;
+            if (b != null && b.f708a != null) {
+                a2.f = b.f708a;
             }
             a(str, a2, str2);
             if (com.baidu.android.pushservice.b.a(this.c)) {
@@ -71,7 +71,7 @@ public class c extends a {
         com.baidu.android.pushservice.d b = com.baidu.android.pushservice.a.a(this.c).b(str);
         if (b != null) {
             try {
-                packageInfo = this.c.getPackageManager().getPackageInfo(b.f707a, 0);
+                packageInfo = this.c.getPackageManager().getPackageInfo(b.f708a, 0);
             } catch (PackageManager.NameNotFoundException e) {
                 if (com.baidu.android.pushservice.b.a()) {
                     Log.e("MessageHandler", Log.getStackTraceString(e));
@@ -80,7 +80,7 @@ public class c extends a {
             }
             if (packageInfo == null) {
                 com.baidu.android.pushservice.a.b.b(this.c);
-                String str2 = ">>> NOT deliver to app: " + b.f707a + ", package has been uninstalled.";
+                String str2 = ">>> NOT deliver to app: " + b.f708a + ", package has been uninstalled.";
                 a(str);
                 if (com.baidu.android.pushservice.b.a()) {
                     Log.i("MessageHandler", str2);
@@ -88,12 +88,12 @@ public class c extends a {
                 }
             } else {
                 Intent intent = new Intent(PushConstants.ACTION_MESSAGE);
-                intent.setPackage(b.f707a);
+                intent.setPackage(b.f708a);
                 intent.putExtra("message", bArr);
                 intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE_STRING, new String(bArr, "UTF-8"));
                 intent.setFlags(32);
                 this.c.sendBroadcast(intent);
-                String str3 = ">>> Deliver message to client: " + b.f707a;
+                String str3 = ">>> Deliver message to client: " + b.f708a;
                 if (com.baidu.android.pushservice.b.a()) {
                     Log.d("MessageHandler", str3);
                     m.a(str3);
@@ -164,8 +164,8 @@ public class c extends a {
 
     private void a(com.baidu.android.pushservice.d dVar, j jVar, com.baidu.android.pushservice.b.b bVar) {
         if (dVar != null) {
-            bVar.d(dVar.f707a);
-            bVar = m.a(bVar, this.c, dVar.f707a);
+            bVar.d(dVar.f708a);
+            bVar = m.a(bVar, this.c, dVar.f708a);
         }
         s.a(this.c, jVar);
         s.a(this.c, bVar);
@@ -252,7 +252,7 @@ public class c extends a {
         if (b != null) {
             bVar.c(m.b(b.c));
             bVar.b(b.c);
-            bVar.d(b.f707a);
+            bVar.d(b.f708a);
         } else {
             bVar.c(SocialConstants.FALSE);
             bVar.b(SocialConstants.FALSE);
@@ -409,7 +409,7 @@ public class c extends a {
             return 2;
         }
         com.baidu.android.pushservice.d b = com.baidu.android.pushservice.a.a(this.c).b(str);
-        if (b == null || b.f707a == null) {
+        if (b == null || b.f708a == null) {
             if (com.baidu.android.pushservice.b.a(this.c)) {
                 Log.d("MessageHandler", ">>> Don't Show pMsg private Notification! package name is null");
             }
@@ -417,7 +417,7 @@ public class c extends a {
             m.a(">>> Don't Show pMsg private Notification! package name is null");
             return 0;
         }
-        a2.f = b.f707a;
+        a2.f = b.f708a;
         if (TextUtils.isEmpty(a2.c)) {
             PackageManager packageManager = this.c.getPackageManager();
             a2.c = packageManager.getApplicationLabel(packageManager.getApplicationInfo(a2.f, DERTags.TAGGED)).toString();
@@ -477,7 +477,7 @@ public class c extends a {
     private int d(String str, String str2, byte[] bArr) {
         com.baidu.android.pushservice.d b = com.baidu.android.pushservice.a.a(this.c).b(str);
         if (b == null) {
-            String str3 = ">>> NOT delivere message to app: " + (b == null ? "client not found." : " client_userId-" + b.c + " in " + b.f707a);
+            String str3 = ">>> NOT delivere message to app: " + (b == null ? "client not found." : " client_userId-" + b.c + " in " + b.f708a);
             a(str);
             Log.i("MessageHandler", str3);
             if (com.baidu.android.pushservice.b.a()) {
@@ -489,7 +489,7 @@ public class c extends a {
         if (a2 != null) {
             Intent intent = new Intent(PushConstants.ACTION_MESSAGE);
             Log.e("Chirs", "client = " + b);
-            intent.setPackage(b.f707a);
+            intent.setPackage(b.f708a);
             intent.putExtra(PushConstants.EXTRA_PUSH_MESSAGE_STRING, a2.d);
             intent.setFlags(32);
             if (!TextUtils.isEmpty(a2.n)) {
@@ -506,7 +506,7 @@ public class c extends a {
                 }
             }
             this.c.sendBroadcast(intent);
-            String str4 = ">>> Deliver message to client: " + b.f707a;
+            String str4 = ">>> Deliver message to client: " + b.f708a;
             if (com.baidu.android.pushservice.b.a()) {
                 Log.i("MessageHandler", str4);
                 m.a(str4);
@@ -547,7 +547,7 @@ public class c extends a {
         aVar.a(bArr2);
         String b = b(bArr2);
         com.baidu.android.pushservice.util.b c = aVar.c();
-        String str = c.f752a;
+        String str = c.f753a;
         long j = c.b;
         int a2 = aVar.a();
         int length = bArr.length - 140;
@@ -600,7 +600,7 @@ public class c extends a {
         this.e = new com.baidu.android.pushservice.util.a(new ByteArrayInputStream(bArr));
         short b = this.e.b();
         b bVar = new b();
-        bVar.f720a = b;
+        bVar.f721a = b;
         if (b == 6 || b == 5) {
             if (com.baidu.android.pushservice.b.a()) {
                 Log.i("MessageHandler", "readMessage tiny heart beat from server, msgId:" + ((int) b));
@@ -683,7 +683,7 @@ public class c extends a {
         byte[] bArr;
         short b = this.e.b();
         b bVar = new b();
-        bVar.f720a = b;
+        bVar.f721a = b;
         if (b == 6 || b == 5) {
             if (com.baidu.android.pushservice.b.a()) {
                 Log.i("MessageHandler", "readMessage tiny heart beat from server, msgId:" + ((int) b));
@@ -714,7 +714,7 @@ public class c extends a {
         if (bVar == null) {
             return;
         }
-        int i = bVar.f720a;
+        int i = bVar.f721a;
         if (i == 1) {
             d(bVar);
         } else if (i == 2 || i == 6) {
@@ -738,12 +738,12 @@ public class c extends a {
 
     public void c(b bVar) {
         if (com.baidu.android.pushservice.b.a()) {
-            Log.i("MessageHandler", "handleMessage: server heart beat id - " + bVar.f720a);
+            Log.i("MessageHandler", "handleMessage: server heart beat id - " + bVar.f721a);
         }
         if (com.baidu.android.pushservice.b.a()) {
             Log.i("MessageHandler", "handleServerHeartbeatMsg, send handshake return msg ");
         }
-        byte[] a2 = a((short) bVar.f720a, (byte[]) null);
+        byte[] a2 = a((short) bVar.f721a, (byte[]) null);
         b bVar2 = new b();
         bVar2.c = a2;
         a(bVar2);

@@ -5,7 +5,7 @@ import com.baidu.tieba.util.af;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1748a = e.class.getName();
+    private static final String f1739a = e.class.getName();
     private String b = "";
 
     public String a(String str) {
@@ -19,7 +19,7 @@ public class e {
                     return a4;
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.d.b(f1748a, "submitVoiceBinary", "error: " + e.getMessage());
+                com.baidu.adp.lib.h.d.b(f1739a, "submitVoiceBinary", "error: " + e.getMessage());
             }
         }
         return null;

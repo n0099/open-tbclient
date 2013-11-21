@@ -5,17 +5,18 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.data.ak;
+import com.baidu.tieba.data.aj;
 import com.baidu.tieba.util.bg;
 /* loaded from: classes.dex */
 public class TiebaMessageService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private n f2334a = null;
+    private n f2319a = null;
     private n b = null;
-    private ak c = null;
+    private aj c = null;
     private int d = 0;
-    private Handler e = new m(this);
+    private boolean e = false;
+    private Handler f = new m(this);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ int b(TiebaMessageService tiebaMessageService) {
@@ -32,10 +33,11 @@ public class TiebaMessageService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        this.e.removeMessages(1);
-        this.e.removeMessages(2);
-        if (this.f2334a != null) {
-            this.f2334a.cancel();
+        this.e = false;
+        this.f.removeMessages(1);
+        this.f.removeMessages(2);
+        if (this.f2319a != null) {
+            this.f2319a.cancel();
         }
         if (this.b != null) {
             this.b.cancel();
@@ -52,12 +54,13 @@ public class TiebaMessageService extends Service {
         this.d = 0;
         if (intent != null) {
             if (intent.getBooleanExtra("getMessageAtOnce", false)) {
-                this.e.removeMessages(3);
-                this.e.sendEmptyMessageDelayed(3, 3000L);
-                return;
+                this.f.removeMessages(3);
+                this.f.sendEmptyMessageDelayed(3, 3000L);
+            } else if (!this.e) {
+                this.f.removeMessages(1);
+                this.f.sendEmptyMessageDelayed(1, 3000L);
+                this.e = true;
             }
-            this.e.removeMessages(1);
-            this.e.sendEmptyMessageDelayed(1, 3000L);
         }
     }
 
@@ -71,17 +74,17 @@ public class TiebaMessageService extends Service {
         try {
             if (TiebaApplication.A() != null && TiebaApplication.F() != null) {
                 if (i == 1 || i == 3) {
-                    if (this.f2334a != null) {
-                        this.f2334a.cancel();
+                    if (this.f2319a != null) {
+                        this.f2319a.cancel();
                     }
-                    this.f2334a = new n(this, i);
-                    this.f2334a.execute(new String[0]);
+                    this.f2319a = new n(this, i);
+                    this.f2319a.execute(new String[0]);
                 } else if (i == 2) {
                     if (this.b != null) {
                         this.b.cancel();
                     }
-                    if (this.f2334a != null) {
-                        this.f2334a.cancel();
+                    if (this.f2319a != null) {
+                        this.f2319a.cancel();
                     }
                     this.b = new n(this, i);
                     this.b.execute(new String[0]);

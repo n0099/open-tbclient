@@ -5,12 +5,12 @@ import javassist.bytecode.an;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public javassist.h f2844a;
+    public javassist.h f2828a;
     public an b;
     public int c;
 
     public g(javassist.h hVar, an anVar, int i) {
-        this.f2844a = hVar;
+        this.f2828a = hVar;
         this.b = anVar;
         this.c = i;
     }

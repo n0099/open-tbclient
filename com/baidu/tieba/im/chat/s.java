@@ -6,7 +6,7 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 public class s extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1561a;
+    private String f1552a;
     private String b;
     private int c;
     private RequestRemoveMembersMessage d;
@@ -58,12 +58,12 @@ public class s extends com.baidu.adp.a.d {
     }
 
     public String c() {
-        return this.f1561a;
+        return this.f1552a;
     }
 
     public long d() {
         try {
-            return Long.parseLong(this.f1561a);
+            return Long.parseLong(this.f1552a);
         } catch (NumberFormatException e) {
             e.printStackTrace();
             return 0L;
@@ -71,7 +71,7 @@ public class s extends com.baidu.adp.a.d {
     }
 
     public void b(String str) {
-        this.f1561a = str;
+        this.f1552a = str;
     }
 
     public int e() {

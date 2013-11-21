@@ -6,13 +6,13 @@ import android.view.View;
 public class ad implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f1683a;
+    final /* synthetic */ int f1674a;
     final /* synthetic */ PhotoWallView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(PhotoWallView photoWallView, int i) {
         this.b = photoWallView;
-        this.f1683a = i;
+        this.f1674a = i;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,7 +22,7 @@ public class ad implements View.OnClickListener {
         zVar = this.b.l;
         if (zVar != null) {
             zVar2 = this.b.l;
-            zVar2.onClick(view, 2, null, this.f1683a);
+            zVar2.onClick(view, 2, null, this.f1674a);
         }
     }
 }

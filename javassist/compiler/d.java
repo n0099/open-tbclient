@@ -11,20 +11,20 @@ import javassist.compiler.ast.Member;
 public class d implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2841a;
+    final /* synthetic */ String f2825a;
     final /* synthetic */ ASTree b;
     final /* synthetic */ Javac c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Javac javac, String str, ASTree aSTree) {
         this.c = javac;
-        this.f2841a = str;
+        this.f2825a = str;
         this.b = aSTree;
     }
 
     @Override // javassist.compiler.h
     public void a(JvstCodeGen jvstCodeGen, Bytecode bytecode, ASTList aSTList) {
-        ASTree member = new Member(this.f2841a);
+        ASTree member = new Member(this.f2825a);
         if (this.b != null) {
             member = Expr.make(46, this.b, member);
         }
@@ -34,7 +34,7 @@ public class d implements h {
 
     @Override // javassist.compiler.h
     public void a(JvstTypeChecker jvstTypeChecker, ASTList aSTList) {
-        ASTree member = new Member(this.f2841a);
+        ASTree member = new Member(this.f2825a);
         if (this.b != null) {
             member = Expr.make(46, this.b, member);
         }

@@ -9,8 +9,8 @@ import org.json.JSONObject;
 public class ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<aw> f2387a = new ArrayList<>();
-    private ArrayList<aw> b = new ArrayList<>();
+    private ArrayList<au> f2371a = new ArrayList<>();
+    private ArrayList<au> b = new ArrayList<>();
     private ad c = new ad();
     private ForumDetailData.ThreadInfo[] d = null;
     private at e = null;
@@ -20,11 +20,11 @@ public class ar {
         return this.f;
     }
 
-    public ArrayList<aw> b() {
-        return this.f2387a;
+    public ArrayList<au> b() {
+        return this.f2371a;
     }
 
-    public ArrayList<aw> c() {
+    public ArrayList<au> c() {
         return this.b;
     }
 
@@ -72,11 +72,11 @@ public class ar {
             try {
                 if (jSONArray.length() != 0) {
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        aw awVar = new aw();
+                        au auVar = new au();
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        awVar.a(jSONObject.optString("pic_url", ""));
-                        awVar.b(jSONObject.optString("link", ""));
-                        this.f2387a.add(awVar);
+                        auVar.a(jSONObject.optString("pic_url", ""));
+                        auVar.b(jSONObject.optString("link", ""));
+                        this.f2371a.add(auVar);
                     }
                 }
             } catch (Exception e) {
@@ -90,11 +90,11 @@ public class ar {
             try {
                 if (jSONArray.length() != 0) {
                     for (int i = 0; i < jSONArray.length(); i++) {
-                        aw awVar = new aw();
+                        au auVar = new au();
                         JSONObject jSONObject = jSONArray.getJSONObject(i);
-                        awVar.a(jSONObject.optString("pic_url", ""));
-                        awVar.b(jSONObject.optString("link", ""));
-                        this.b.add(awVar);
+                        auVar.a(jSONObject.optString("pic_url", ""));
+                        auVar.b(jSONObject.optString("link", ""));
+                        this.b.add(auVar);
                     }
                 }
             } catch (Exception e) {
@@ -142,7 +142,7 @@ public class ar {
     public boolean g() {
         boolean z = false;
         if (this.f) {
-            if (this.f2387a == null || this.e == null || this.b == null || this.c == null || this.d == null) {
+            if (this.f2371a == null || this.e == null || this.b == null || this.c == null || this.d == null) {
                 z = true;
             }
             return z;

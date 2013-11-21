@@ -7,7 +7,7 @@ import org.msgpack.MessageTypeException;
 public class BigIntegerValueImpl extends IntegerValue {
 
     /* renamed from: a  reason: collision with root package name */
-    private static BigInteger f2951a = BigInteger.valueOf(127);
+    private static BigInteger f2935a = BigInteger.valueOf(127);
     private static BigInteger b = BigInteger.valueOf(32767);
     private static BigInteger c = BigInteger.valueOf(2147483647L);
     private static BigInteger d = BigInteger.valueOf(Long.MAX_VALUE);
@@ -24,7 +24,7 @@ public class BigIntegerValueImpl extends IntegerValue {
 
     @Override // org.msgpack.type.IntegerValue
     public byte getByte() {
-        if (this.value.compareTo(f2951a) > 0 || this.value.compareTo(e) < 0) {
+        if (this.value.compareTo(f2935a) > 0 || this.value.compareTo(e) < 0) {
             throw new MessageTypeException();
         }
         return this.value.byteValue();

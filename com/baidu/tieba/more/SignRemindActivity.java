@@ -17,7 +17,7 @@ import com.slidingmenu.lib.R;
 public class SignRemindActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f1966a;
+    private LinearLayout f1949a;
     private LinearLayout b;
     private TextView c;
     private TextView d;
@@ -50,7 +50,7 @@ public class SignRemindActivity extends com.baidu.tieba.j {
         ImageView imageView = (ImageView) findViewById(R.id.arrow);
         if (i == 1) {
             int a2 = bd.a(i);
-            bd.e(this.f1966a, (int) R.drawable.more_all_1);
+            bd.e(this.f1949a, (int) R.drawable.more_all_1);
             bd.e(this.b, (int) R.drawable.more_all_1);
             this.e.setTextColor(-11446171);
             this.f.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
@@ -58,7 +58,7 @@ public class SignRemindActivity extends com.baidu.tieba.j {
             i2 = a2;
         } else {
             int color = getResources().getColor(R.color.more_color);
-            bd.e(this.f1966a, (int) R.drawable.more_all);
+            bd.e(this.f1949a, (int) R.drawable.more_all);
             bd.e(this.b, (int) R.drawable.more_all);
             this.e.setTextColor(-5065030);
             this.f.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
@@ -74,7 +74,7 @@ public class SignRemindActivity extends com.baidu.tieba.j {
         this.h = findViewById(R.id.title);
         this.i = (ImageView) findViewById(R.id.back);
         this.j = (TextView) findViewById(R.id.title_text);
-        this.f1966a = (LinearLayout) findViewById(R.id.sign_remind);
+        this.f1949a = (LinearLayout) findViewById(R.id.sign_remind);
         this.b = (LinearLayout) findViewById(R.id.sign_remind_on);
         this.c = (TextView) findViewById(R.id.sign_remind_text);
         this.d = (TextView) findViewById(R.id.sign_remind_on_text);
@@ -85,7 +85,7 @@ public class SignRemindActivity extends com.baidu.tieba.j {
     protected void b() {
         this.i.setOnClickListener(new ao(this));
         this.f.setOnSwitchStateChangeListener(new ap(this));
-        this.f1966a.setOnClickListener(new aq(this));
+        this.f1949a.setOnClickListener(new aq(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -93,7 +93,7 @@ public class SignRemindActivity extends com.baidu.tieba.j {
         TiebaApplication g = TiebaApplication.g();
         if (g.ae()) {
             this.e.setText(getString(R.string.sign_remind_time, new Object[]{g.af() > 9 ? String.valueOf(g.af()) : SocialConstants.FALSE + g.af(), g.ag() > 9 ? String.valueOf(g.ag()) : SocialConstants.FALSE + g.ag()}));
-            this.f1966a.setVisibility(0);
+            this.f1949a.setVisibility(0);
             if (!this.f.c()) {
                 this.f.a();
                 return;
@@ -101,7 +101,7 @@ public class SignRemindActivity extends com.baidu.tieba.j {
             return;
         }
         this.e.setText(R.string.close);
-        this.f1966a.setVisibility(8);
+        this.f1949a.setVisibility(8);
         if (this.f.c()) {
             this.f.b();
         }

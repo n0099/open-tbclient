@@ -6,14 +6,14 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.model.ch;
+import com.baidu.tieba.model.ci;
 import com.slidingmenu.lib.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f1956a;
+    private d f1939a;
     private com.baidu.tieba.model.a b;
     private c c = null;
     private String d = com.baidu.tieba.data.h.b + "mo/q/topic_page/110_1";
@@ -26,8 +26,8 @@ public class AboutActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, com.baidu.adp.a.a, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f1956a = new d(this, new a(this));
-        this.f1956a.f();
+        this.f1939a = new d(this, new a(this));
+        this.f1939a.f();
         b();
     }
 
@@ -35,8 +35,8 @@ public class AboutActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.f1956a != null) {
-            this.f1956a.f();
+        if (this.f1939a != null) {
+            this.f1939a.f();
         }
     }
 
@@ -48,8 +48,8 @@ public class AboutActivity extends com.baidu.tieba.j {
         if (this.b != null) {
             this.b.cancelLoadData();
         }
-        if (this.f1956a != null) {
-            this.f1956a.e();
+        if (this.f1939a != null) {
+            this.f1939a.e();
         }
     }
 
@@ -57,8 +57,8 @@ public class AboutActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.f1956a != null) {
-            this.f1956a.a(i);
+        if (this.f1939a != null) {
+            this.f1939a.a(i);
         }
     }
 
@@ -70,32 +70,32 @@ public class AboutActivity extends com.baidu.tieba.j {
             this.b.cancelLoadData();
         }
         this.b.a();
-        if (this.f1956a != null) {
-            this.f1956a.a();
+        if (this.f1939a != null) {
+            this.f1939a.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
-        if (this.f1956a != null) {
-            this.f1956a.e();
+        if (this.f1939a != null) {
+            this.f1939a.e();
         }
-        ch chVar = obj != null ? (ch) obj : null;
-        if (chVar != null) {
-            TiebaApplication.g().a(chVar.c());
+        ci ciVar = obj != null ? (ci) obj : null;
+        if (ciVar != null) {
+            TiebaApplication.g().a(ciVar.c());
             TiebaApplication.g().w(false);
-            if (chVar.c().getHas_new_ver() == 1) {
-                if (chVar.c().getForce_update() == 1) {
-                    UpdateDialog.a(TiebaApplication.g(), chVar.c(), chVar.b());
+            if (ciVar.c().getHas_new_ver() == 1) {
+                if (ciVar.c().getForce_update() == 1) {
+                    UpdateDialog.a(TiebaApplication.g(), ciVar.c(), ciVar.b());
                 } else {
                     TiebaApplication.g().a(Long.valueOf(new Date().getTime()).longValue());
-                    UpdateDialog.a(TiebaApplication.g(), chVar.c(), chVar.b());
+                    UpdateDialog.a(TiebaApplication.g(), ciVar.c(), ciVar.b());
                 }
             } else {
                 showToast(getResources().getString(R.string.neednot_update));
             }
-            if (this.f1956a != null) {
-                this.f1956a.f();
+            if (this.f1939a != null) {
+                this.f1939a.f();
                 return;
             }
             return;

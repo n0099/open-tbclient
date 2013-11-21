@@ -3,16 +3,16 @@ package com.baidu.tieba.data;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1193a;
+    private String f1198a;
     private long b;
     private int c;
 
     public String a() {
-        return this.f1193a;
+        return this.f1198a;
     }
 
     public void a(String str) {
-        this.f1193a = str;
+        this.f1198a = str;
     }
 
     public long b() {

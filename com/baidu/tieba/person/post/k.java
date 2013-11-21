@@ -4,11 +4,11 @@ package com.baidu.tieba.person.post;
 public class k implements e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f2275a;
+    final /* synthetic */ j f2260a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f2275a = jVar;
+        this.f2260a = jVar;
     }
 
     @Override // com.baidu.tieba.person.post.e
@@ -18,19 +18,19 @@ public class k implements e {
         m mVar;
         m mVar2;
         if (z) {
-            this.f2275a.b = personPostReplyModel;
+            this.f2260a.b = personPostReplyModel;
         } else {
-            personPostReplyModel2 = this.f2275a.b;
+            personPostReplyModel2 = this.f2260a.b;
             if (personPostReplyModel2 != null) {
-                personPostReplyModel3 = this.f2275a.b;
+                personPostReplyModel3 = this.f2260a.b;
                 personPostReplyModel3.post_list.addAll(personPostReplyModel.post_list);
             }
         }
-        mVar = this.f2275a.f2274a;
+        mVar = this.f2260a.f2259a;
         if (mVar != null) {
-            mVar2 = this.f2275a.f2274a;
+            mVar2 = this.f2260a.f2259a;
             mVar2.a(personPostReplyModel, z);
         }
-        this.f2275a.notifyDataSetChanged();
+        this.f2260a.notifyDataSetChanged();
     }
 }

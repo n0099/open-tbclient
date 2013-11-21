@@ -9,7 +9,7 @@ import java.util.Date;
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2502a = 0;
+    private static int f2485a = 0;
     private static int b = 0;
     private static int c = 0;
     private static int d = 0;
@@ -225,8 +225,8 @@ public class bg {
         FileWriter fileWriter2 = null;
         switch (i) {
             case 1:
-                if (f2502a < 10) {
-                    f2502a++;
+                if (f2485a < 10) {
+                    f2485a++;
                     z = true;
                     break;
                 }

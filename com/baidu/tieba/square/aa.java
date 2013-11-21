@@ -17,7 +17,7 @@ public class aa extends BaseAdapter {
     private ArrayList<ad> c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    View.OnClickListener f2370a = new ab(this);
+    View.OnClickListener f2354a = new ab(this);
 
     public aa(Context context) {
         this.b = null;
@@ -106,9 +106,9 @@ public class aa extends BaseAdapter {
         if (i >= 0 && this.c != null) {
             if (i * 2 < this.c.size()) {
                 ad adVar = this.c.get(i * 2);
-                acVar.f2372a.setText(adVar.a());
+                acVar.f2356a.setText(adVar.a());
                 adVar.a(String.valueOf(i) + "_first");
-                acVar.f2372a.setTag(adVar);
+                acVar.f2356a.setTag(adVar);
             }
             if ((i * 2) + 1 < this.c.size()) {
                 ad adVar2 = this.c.get((i * 2) + 1);
@@ -125,13 +125,13 @@ public class aa extends BaseAdapter {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.forum_list_recommend_item, (ViewGroup) null);
             ac acVar = new ac(this, null);
             acVar.d = (LinearLayout) inflate.findViewById(R.id.container);
-            acVar.f2372a = (TextView) inflate.findViewById(R.id.forum_list_title_1);
+            acVar.f2356a = (TextView) inflate.findViewById(R.id.forum_list_title_1);
             acVar.b = (TextView) inflate.findViewById(R.id.forum_list_title_2);
             acVar.c = inflate.findViewById(R.id.forum_list_title_divider);
-            acVar.f2372a.setClickable(true);
+            acVar.f2356a.setClickable(true);
             acVar.b.setClickable(true);
-            acVar.f2372a.setOnClickListener(this.f2370a);
-            acVar.b.setOnClickListener(this.f2370a);
+            acVar.f2356a.setOnClickListener(this.f2354a);
+            acVar.b.setOnClickListener(this.f2354a);
             inflate.setTag(acVar);
             return inflate;
         } else if (i2 == 1) {

@@ -6,20 +6,20 @@ import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 class ah extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ResponseRemoveMembersMessage f1609a;
+    final /* synthetic */ ResponseRemoveMembersMessage f1600a;
     final /* synthetic */ ag b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(ag agVar, ResponseRemoveMembersMessage responseRemoveMembersMessage) {
         this.b = agVar;
-        this.f1609a = responseRemoveMembersMessage;
+        this.f1600a = responseRemoveMembersMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.SingleRunnable
     /* renamed from: a */
     public Void b() {
-        n.a().b(this.f1609a.getGroupId(), true);
+        n.a().b(this.f1600a.getGroupId(), true);
         return null;
     }
 }

@@ -7,11 +7,11 @@ import android.widget.Scroller;
 public class bv implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bu f1439a;
+    final /* synthetic */ bu f1430a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(bu buVar) {
-        this.f1439a = buVar;
+        this.f1430a = buVar;
     }
 
     @Override // java.lang.Runnable
@@ -27,37 +27,37 @@ public class bv implements Runnable {
         int i;
         Scroller scroller4;
         Runnable runnable2;
-        scroller = this.f1439a.i;
+        scroller = this.f1430a.i;
         if (scroller.computeScrollOffset()) {
-            scroller3 = this.f1439a.i;
+            scroller3 = this.f1430a.i;
             int currX = scroller3.getCurrX();
-            progressBar3 = this.f1439a.d;
+            progressBar3 = this.f1430a.d;
             if (currX >= (progressBar3.getMax() * 9) / 10) {
-                i = this.f1439a.f1438a;
+                i = this.f1430a.f1429a;
                 if (i != 2) {
-                    scroller4 = this.f1439a.i;
+                    scroller4 = this.f1430a.i;
                     scroller4.forceFinished(true);
-                    bu buVar = this.f1439a;
-                    runnable2 = this.f1439a.l;
+                    bu buVar = this.f1430a;
+                    runnable2 = this.f1430a.l;
                     buVar.postDelayed(runnable2, 2000L);
                     return;
                 }
             }
-            progressBar4 = this.f1439a.d;
+            progressBar4 = this.f1430a.d;
             progressBar4.setProgress(currX);
-            bu buVar2 = this.f1439a;
-            runnable = this.f1439a.k;
+            bu buVar2 = this.f1430a;
+            runnable = this.f1430a.k;
             buVar2.postDelayed(runnable, 16L);
             return;
         }
-        progressBar = this.f1439a.d;
+        progressBar = this.f1430a.d;
         int progress = progressBar.getProgress();
-        progressBar2 = this.f1439a.d;
+        progressBar2 = this.f1430a.d;
         int max = (progressBar2.getMax() * 9) / 10;
         if (progress < max) {
-            scroller2 = this.f1439a.i;
+            scroller2 = this.f1430a.i;
             scroller2.startScroll(progress, 0, max - progress, 0, 5000);
-            this.f1439a.post(this);
+            this.f1430a.post(this);
         }
     }
 }

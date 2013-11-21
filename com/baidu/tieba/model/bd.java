@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
+public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ag, Boolean> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ba f1907a;
+    final /* synthetic */ ba f1889a;
 
     private bd(ba baVar) {
-        this.f1907a = baVar;
+        this.f1889a = baVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,25 +24,25 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
         Context context;
         Context context2;
         com.baidu.tieba.util.bf a2 = com.baidu.tieba.util.bf.a();
-        arrayList = this.f1907a.b;
+        arrayList = this.f1889a.b;
         Iterator it = arrayList.iterator();
         boolean z = true;
         while (it.hasNext()) {
-            com.baidu.tieba.data.ah ahVar = (com.baidu.tieba.data.ah) it.next();
-            if (ahVar != null && ahVar.d != null) {
+            com.baidu.tieba.data.ag agVar = (com.baidu.tieba.data.ag) it.next();
+            if (agVar != null && agVar.d != null) {
                 try {
-                    context = this.f1907a.c;
-                    com.baidu.tieba.motu_gallery.b.a(context, ahVar.d, a2.e(), a2.e());
-                    context2 = this.f1907a.c;
-                    Bitmap a3 = com.baidu.tieba.motu_gallery.b.a(context2, ahVar.d, 150, 150);
+                    context = this.f1889a.c;
+                    com.baidu.tieba.motu_gallery.b.a(context, agVar.d, a2.e(), a2.e());
+                    context2 = this.f1889a.c;
+                    Bitmap a3 = com.baidu.tieba.motu_gallery.b.a(context2, agVar.d, 150, 150);
                     if (a3 != null) {
-                        ahVar.e = a3;
+                        agVar.e = a3;
                     }
                 } catch (Exception e) {
                     z = false;
                 }
             }
-            c((Object[]) new com.baidu.tieba.data.ah[]{ahVar});
+            c((Object[]) new com.baidu.tieba.data.ag[]{agVar});
         }
         return Boolean.valueOf(z);
     }
@@ -50,7 +50,7 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel(true);
-        this.f1907a.f1906a = null;
+        this.f1889a.f1888a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,10 +59,10 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
     public void a(Boolean bool) {
         bc bcVar;
         bc bcVar2;
-        this.f1907a.f1906a = null;
-        bcVar = this.f1907a.d;
+        this.f1889a.f1888a = null;
+        bcVar = this.f1889a.d;
         if (bcVar != null) {
-            bcVar2 = this.f1907a.d;
+            bcVar2 = this.f1889a.d;
             bcVar2.a(bool.booleanValue(), "载入失败");
         }
     }
@@ -71,13 +71,13 @@ public class bd extends BdAsyncTask<String, com.baidu.tieba.data.ah, Boolean> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void b(com.baidu.tieba.data.ah... ahVarArr) {
+    public void b(com.baidu.tieba.data.ag... agVarArr) {
         bc bcVar;
         bc bcVar2;
-        bcVar = this.f1907a.d;
+        bcVar = this.f1889a.d;
         if (bcVar != null) {
-            bcVar2 = this.f1907a.d;
-            bcVar2.a(ahVarArr[0]);
+            bcVar2 = this.f1889a.d;
+            bcVar2.a(agVarArr[0]);
         }
     }
 }

@@ -19,7 +19,7 @@ public class StackMapTable extends e {
     @Override // javassist.bytecode.e
     public e a(y yVar, Map map) {
         try {
-            return new StackMapTable(yVar, new be(this.f2811a, this.c, yVar, map).a());
+            return new StackMapTable(yVar, new be(this.f2795a, this.c, yVar, map).a());
         } catch (BadBytecode e) {
             throw new RuntimeCopyException("bad bytecode. fatal?");
         }

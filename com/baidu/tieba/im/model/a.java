@@ -6,7 +6,7 @@ import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 public class a extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private RequestAddGroupMessage f1744a = null;
+    private RequestAddGroupMessage f1735a = null;
     private ResponseAddGroupMessage b = null;
     private int c;
     private String d;
@@ -69,14 +69,14 @@ public class a extends com.baidu.adp.a.d {
     }
 
     public void a() {
-        this.f1744a = c();
-        com.baidu.tieba.im.messageCenter.f.a().a(this.f1744a);
+        this.f1735a = c();
+        com.baidu.tieba.im.messageCenter.f.a().a(this.f1735a);
     }
 
     public void b() {
-        if (this.f1744a != null) {
-            com.baidu.tieba.im.messageCenter.f.a().b(this.f1744a);
-            this.f1744a = null;
+        if (this.f1735a != null) {
+            com.baidu.tieba.im.messageCenter.f.a().b(this.f1735a);
+            this.f1735a = null;
         }
         if (this.b != null) {
             com.baidu.tieba.im.messageCenter.f.a().b(this.b);

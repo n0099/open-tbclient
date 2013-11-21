@@ -1,23 +1,23 @@
 package com.baidu.tieba.square;
 
 import android.view.View;
-import com.baidu.tieba.util.UtilHelper;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl implements View.OnFocusChangeListener {
+public class bl implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2406a;
+    final /* synthetic */ SquareSearchActivity f2391a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bl(SquareSearchActivity squareSearchActivity) {
-        this.f2406a = squareSearchActivity;
+        this.f2391a = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        if (!z) {
-            UtilHelper.a(this.f2406a, view);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        EditText editText;
+        editText = this.f2391a.c;
+        editText.setText("");
     }
 }

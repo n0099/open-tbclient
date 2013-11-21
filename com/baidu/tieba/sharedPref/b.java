@@ -16,7 +16,7 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f2360a = null;
+    private static b f2345a = null;
     private static ContentResolver b = null;
     private static HashMap<String, String> f = null;
     private String c = null;
@@ -25,7 +25,7 @@ public class b {
 
     private b() {
         f = new HashMap<>();
-        f.put(a.f2359a, "settings");
+        f.put(a.f2344a, "settings");
         f.put(a.b, "remote_settings");
         f.put(a.c, "bdservice_settings");
         b = TiebaApplication.g().getContentResolver();
@@ -34,10 +34,10 @@ public class b {
     public static synchronized b a() {
         b bVar;
         synchronized (b.class) {
-            if (f2360a == null) {
-                f2360a = new b();
+            if (f2345a == null) {
+                f2345a = new b();
             }
-            bVar = f2360a;
+            bVar = f2345a;
         }
         return bVar;
     }
@@ -239,7 +239,7 @@ public class b {
                 }
             }
         }
-        return a.f2359a;
+        return a.f2344a;
     }
 
     public void b() {

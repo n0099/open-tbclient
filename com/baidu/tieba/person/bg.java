@@ -7,11 +7,11 @@ import com.baidu.tieba.data.UserData;
 public class bg implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f2237a;
+    final /* synthetic */ PersonListActivity f2222a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(PersonListActivity personListActivity) {
-        this.f2237a = personListActivity;
+        this.f2222a = personListActivity;
     }
 
     @Override // java.lang.Runnable
@@ -22,17 +22,17 @@ public class bg implements Runnable {
         bn bnVar2;
         bn bnVar3;
         try {
-            bdListView = this.f2237a.b;
+            bdListView = this.f2222a.b;
             int firstVisiblePosition = bdListView.getFirstVisiblePosition();
-            bdListView2 = this.f2237a.b;
+            bdListView2 = this.f2222a.b;
             int lastVisiblePosition = bdListView2.getLastVisiblePosition();
             for (int i = firstVisiblePosition; i <= lastVisiblePosition; i++) {
-                bnVar = this.f2237a.e;
+                bnVar = this.f2222a.e;
                 if (i < bnVar.getCount()) {
-                    bnVar2 = this.f2237a.e;
+                    bnVar2 = this.f2222a.e;
                     UserData userData = (UserData) bnVar2.getItem(i);
                     if (userData != null && userData.getPortrait() != null) {
-                        bnVar3 = this.f2237a.e;
+                        bnVar3 = this.f2222a.e;
                         bnVar3.c().b(userData.getPortrait(), new bh(this));
                     }
                 } else {

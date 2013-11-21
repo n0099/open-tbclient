@@ -1,49 +1,75 @@
 package com.baidu.tieba.data;
 
-import android.content.Context;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.person.PersonInfoActivity;
-import com.slidingmenu.lib.R;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.util.bg;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class at extends ClickableSpan {
+public class at {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ as f1174a;
+    private long f1180a;
     private String b;
     private String c;
-    private Context d;
+    private String d;
+    private String e;
 
-    public at(as asVar, Context context, String str, String str2) {
-        this.f1174a = asVar;
+    public at() {
+        this.f1180a = -1L;
         this.b = null;
         this.c = null;
         this.d = null;
+        this.e = "";
+    }
+
+    public at(long j, String str, String str2) {
+        this.f1180a = -1L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = "";
+        this.f1180a = j;
         this.b = str;
         this.c = str2;
-        this.d = context;
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        if (this.d != null) {
-            if (TiebaApplication.g().ap() == 1) {
-                textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text_1));
-            } else {
-                textPaint.setColor(this.d.getResources().getColor(R.color.common_link_text));
+    public String a() {
+        return this.e;
+    }
+
+    public void a(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            bg.b("MssageData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.f1180a = jSONObject.optLong("message_id");
+                this.b = jSONObject.optString("link");
+                this.c = jSONObject.optString("content");
+                this.d = jSONObject.optString("to");
+                this.e = jSONObject.optString("stat");
+            } catch (Exception e) {
+                bg.b("MssageData", "parserJson", "error = " + e.getMessage());
             }
         }
-        textPaint.setUnderlineText(false);
-        textPaint.setFakeBoldText(false);
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
-        if (this.b != null && this.c != null && this.d != null) {
-            PersonInfoActivity.a(this.d, this.c, this.b);
-        }
+    public long b() {
+        return this.f1180a;
+    }
+
+    public String c() {
+        return this.b;
+    }
+
+    public String d() {
+        return this.c;
+    }
+
+    public String e() {
+        return this.d;
     }
 }

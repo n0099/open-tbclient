@@ -6,15 +6,16 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.bq;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import com.baidu.mobstat.StatService;
 import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.BaseViewPager;
@@ -25,25 +26,26 @@ import java.util.List;
 public class GuideActivity extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f998a = "from_logo_page";
+    public static String f1000a = "from_logo_page";
     public static String b = "from_about_page";
-    private static String m = "from_page";
-    private ArrayList<View> f;
-    private z g;
-    private BaseViewPager h;
-    private List<Bitmap> i;
-    private int[] e = {R.drawable.image_bootpage01, R.drawable.image_bootpage02, R.drawable.image_bootpage03};
-    private y j = null;
-    private LinearLayout k = null;
-    private String l = null;
-    private com.baidu.tieba.view.a n = new u(this);
-    public View.OnClickListener c = new v(this);
-    public View.OnClickListener d = new w(this);
-    private final bq o = new x(this);
+    private static String n = "from_page";
+    private ArrayList<View> g;
+    private ac h;
+    private BaseViewPager i;
+    private List<Bitmap> k;
+    private int[] f = {R.drawable.image_bootpage01, R.drawable.image_bootpage02, R.drawable.image_bootpage03};
+    private Button j = null;
+    private ab l = null;
+    private String m = null;
+    private com.baidu.tieba.view.a o = new w(this);
+    public View.OnClickListener c = new x(this);
+    public View.OnClickListener d = new y(this);
+    public View.OnClickListener e = new z(this);
+    private final bq p = new aa(this);
 
     public static void a(Activity activity, int i, String str) {
         Intent intent = new Intent(activity, GuideActivity.class);
-        intent.putExtra(m, str);
+        intent.putExtra(n, str);
         activity.startActivityForResult(intent, i);
     }
 
@@ -51,24 +53,27 @@ public class GuideActivity extends j {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.guide_activity);
-        this.g = new z(this, null);
-        this.h = (BaseViewPager) findViewById(R.id.guide_pager);
-        this.h.setAdapter(this.g);
-        this.h.setOnScrollOutListener(this.n);
-        this.h.setOnPageChangeListener(this.o);
-        this.i = new ArrayList();
-        this.f = new ArrayList<>();
-        this.k = (LinearLayout) findViewById(R.id.tagsGroup);
-        for (int i = 0; i < this.e.length; i++) {
-            Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), this.e[i]);
+        this.h = new ac(this, null);
+        this.i = (BaseViewPager) findViewById(R.id.guide_pager);
+        this.i.setAdapter(this.h);
+        this.i.setOnScrollOutListener(this.o);
+        this.i.setOnPageChangeListener(this.p);
+        this.k = new ArrayList();
+        this.g = new ArrayList<>();
+        for (int i = 0; i < this.f.length; i++) {
+            Bitmap b2 = com.baidu.tieba.util.m.b(this, this.f[i]);
             ImageView imageView = new ImageView(this);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             imageView.setBackgroundColor(-1);
-            imageView.setOnClickListener(this.d);
-            imageView.setImageBitmap(decodeResource);
-            this.i.add(decodeResource);
-            this.f.add(i, imageView);
+            imageView.setOnClickListener(this.e);
+            imageView.setImageBitmap(b2);
+            this.k.add(b2);
+            this.g.add(i, imageView);
         }
+        View inflate = LayoutInflater.from(this).inflate(R.layout.guide_view_last, (ViewGroup) null);
+        this.j = (Button) inflate.findViewById(R.id.last_page_btn);
+        this.j.setOnClickListener(this.c);
+        this.g.add(inflate);
         if (TiebaApplication.g().s()) {
             try {
                 StatService.setAppChannel(com.baidu.tieba.data.h.a());
@@ -77,17 +82,17 @@ public class GuideActivity extends j {
             }
         }
         if (bundle != null) {
-            this.l = bundle.getString(m);
+            this.m = bundle.getString(n);
         } else {
-            this.l = getIntent().getStringExtra(m);
+            this.m = getIntent().getStringExtra(n);
         }
-        if (this.l.equals(f998a)) {
-            this.j = new y(this, null);
-            this.j.setSelfExecute(true);
-            this.j.execute(new String[0]);
+        if (this.m.equals(f1000a)) {
+            this.l = new ab(this, null);
+            this.l.setSelfExecute(true);
+            this.l.execute(new String[0]);
             return;
         }
-        this.j = null;
+        this.l = null;
     }
 
     @Override // com.baidu.tieba.j, android.app.Activity
@@ -96,25 +101,25 @@ public class GuideActivity extends j {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.e.length) {
+            if (i2 >= this.f.length) {
                 break;
             }
-            View view = this.f.get(i2);
+            View view = this.g.get(i2);
             if (view != null) {
                 view.setBackgroundDrawable(null);
                 if (view instanceof ImageView) {
                     ((ImageView) view).setImageBitmap(null);
                 }
             }
-            Bitmap bitmap = this.i.get(i2);
+            Bitmap bitmap = this.k.get(i2);
             if (bitmap != null && !bitmap.isRecycled()) {
                 bitmap.recycle();
             }
             i = i2 + 1;
         }
-        if (this.j != null) {
-            this.j.cancel(true);
-            this.j = null;
+        if (this.l != null) {
+            this.l.cancel(true);
+            this.l = null;
         }
     }
 

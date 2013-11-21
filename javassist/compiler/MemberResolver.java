@@ -22,15 +22,15 @@ public class MemberResolver implements j {
     private static WeakHashMap b = new WeakHashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    private javassist.c f2836a;
+    private javassist.c f2820a;
     private Hashtable c = null;
 
     public MemberResolver(javassist.c cVar) {
-        this.f2836a = cVar;
+        this.f2820a = cVar;
     }
 
     public javassist.c a() {
-        return this.f2836a;
+        return this.f2820a;
     }
 
     private static void b() {
@@ -297,7 +297,7 @@ public class MemberResolver implements j {
         }
         if (obj != null) {
             try {
-                return this.f2836a.c((String) obj);
+                return this.f2820a.c((String) obj);
             } catch (NotFoundException e2) {
             }
         }
@@ -315,11 +315,11 @@ public class MemberResolver implements j {
         Hashtable hashtable2 = this.c;
         if (hashtable2 == null) {
             synchronized (MemberResolver.class) {
-                WeakReference weakReference = (WeakReference) b.get(this.f2836a);
+                WeakReference weakReference = (WeakReference) b.get(this.f2820a);
                 hashtable = weakReference != null ? (Hashtable) weakReference.get() : hashtable2;
                 if (hashtable == null) {
                     hashtable = new Hashtable();
-                    b.put(this.f2836a, new WeakReference(hashtable));
+                    b.put(this.f2820a, new WeakReference(hashtable));
                 }
             }
             this.c = hashtable;
@@ -331,14 +331,14 @@ public class MemberResolver implements j {
     private javassist.h e(String str) {
         javassist.h c;
         if (str.indexOf(46) < 0) {
-            Iterator d = this.f2836a.d();
+            Iterator d = this.f2820a.d();
             while (d.hasNext()) {
                 String str2 = (String) d.next();
                 try {
-                    c = this.f2836a.c(str2 + '.' + str);
+                    c = this.f2820a.c(str2 + '.' + str);
                 } catch (NotFoundException e) {
                     if (str2.endsWith("." + str)) {
-                        c = this.f2836a.c(str2);
+                        c = this.f2820a.c(str2);
                     } else {
                         continue;
                     }
@@ -356,7 +356,7 @@ public class MemberResolver implements j {
         while (true) {
             try {
                 hVar = hVar2;
-                hVar2 = this.f2836a.c(str);
+                hVar2 = this.f2820a.c(str);
             } catch (NotFoundException e) {
                 int lastIndexOf = str.lastIndexOf(46);
                 if (z || lastIndexOf < 0) {

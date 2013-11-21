@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class a extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    b f1235a;
+    b f1240a;
     Activity b;
     private com.baidu.tieba.square.z c;
     private int d = 0;
@@ -48,9 +48,9 @@ public class a extends BaseAdapter {
         }
         if (this.c != null) {
             com.baidu.tieba.square.z zVar = this.c.e.get(i);
-            this.f1235a = (b) view.getTag();
+            this.f1240a = (b) view.getTag();
             if (zVar != null) {
-                a(this.f1235a, zVar, view, i);
+                a(this.f1240a, zVar, view, i);
             }
         }
         return view;
@@ -71,10 +71,10 @@ public class a extends BaseAdapter {
 
     private View b() {
         View inflate = this.b.getLayoutInflater().inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
-        this.f1235a = new b(this);
-        this.f1235a.f1246a = (ImageView) inflate.findViewById(R.id.menu_choose);
-        this.f1235a.b = (TextView) inflate.findViewById(R.id.menu_name);
-        inflate.setTag(this.f1235a);
+        this.f1240a = new b(this);
+        this.f1240a.f1251a = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.f1240a.b = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.f1240a);
         return inflate;
     }
 
@@ -87,11 +87,11 @@ public class a extends BaseAdapter {
                 bVar.b.setText(zVar.b);
             }
             if (i != this.d) {
-                bVar.f1246a.setVisibility(4);
+                bVar.f1251a.setVisibility(4);
                 bVar.b.setTextColor(this.b.getResources().getColor(R.color.forum_list_menu_notselected));
                 return;
             }
-            bVar.f1246a.setVisibility(0);
+            bVar.f1251a.setVisibility(0);
             bVar.b.setTextColor(this.b.getResources().getColor(R.color.forum_list_menu_selected));
         }
     }

@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<NoNetworkView> f2546a = new ArrayList<>();
+    private static ArrayList<NoNetworkView> f2529a = new ArrayList<>();
     private static boolean f;
     private TextView b;
     private ImageView c;
@@ -83,13 +83,13 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (z != f) {
             f = z;
             if (f) {
-                Iterator<NoNetworkView> it = f2546a.iterator();
+                Iterator<NoNetworkView> it = f2529a.iterator();
                 while (it.hasNext()) {
                     it.next().setVisible(false);
                 }
                 return;
             }
-            Iterator<NoNetworkView> it2 = f2546a.iterator();
+            Iterator<NoNetworkView> it2 = f2529a.iterator();
             while (it2.hasNext()) {
                 it2.next().setVisible(true);
             }
@@ -134,13 +134,13 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        f2546a.add(this);
+        f2529a.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        f2546a.remove(this);
+        f2529a.remove(this);
         this.i.clear();
     }
 

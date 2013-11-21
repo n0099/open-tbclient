@@ -8,24 +8,24 @@ import com.baidu.cloudsdk.common.util.PositionManager;
 class r implements PositionManager.IPositionManagerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ n f2985a;
+    final /* synthetic */ n f2969a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(n nVar) {
-        this.f2985a = nVar;
+        this.f2969a = nVar;
     }
 
     @Override // com.baidu.cloudsdk.common.util.PositionManager.IPositionManagerListener
     public void onComplete(Location location) {
-        this.f2985a.f2882a.f = location;
-        this.f2985a.f2882a.b(location);
+        this.f2969a.f2866a.f = location;
+        this.f2969a.f2866a.b(location);
     }
 
     @Override // com.baidu.cloudsdk.common.util.PositionManager.IPositionManagerListener
     public void onFailed() {
         String str;
-        str = m.f2881a;
+        str = m.f2865a;
         Log.e(str, "request location failed");
-        this.f2985a.f2882a.d();
+        this.f2969a.f2866a.d();
     }
 }

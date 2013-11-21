@@ -4,15 +4,16 @@ import android.view.View;
 import android.widget.AbsListView;
 import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
 import com.slidingmenu.lib.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bm implements AbsListView.RecyclerListener {
+public class bm implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bg f1533a;
+    final /* synthetic */ bg f1524a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(bg bgVar) {
-        this.f1533a = bgVar;
+        this.f1524a = bgVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

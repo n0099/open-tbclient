@@ -7,9 +7,9 @@ final class r implements Runnable {
     public void run() {
         Toast toast;
         Toast toast2;
-        toast = q.f2516a;
+        toast = q.f2499a;
         if (toast != null) {
-            toast2 = q.f2516a;
+            toast2 = q.f2499a;
             toast2.cancel();
         }
     }

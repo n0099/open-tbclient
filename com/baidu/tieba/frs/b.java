@@ -9,12 +9,12 @@ import org.json.JSONObject;
 class b implements ag {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1326a;
+    final /* synthetic */ FrsActivity f1331a;
     private long b = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(FrsActivity frsActivity) {
-        this.f1326a = frsActivity;
+        this.f1331a = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.ag
@@ -27,19 +27,19 @@ class b implements ag {
         this.b = System.nanoTime();
         switch (i) {
             case 1:
-                bnVar3 = this.f1326a.n;
+                bnVar3 = this.f1331a.n;
                 bnVar3.c(true);
-                bnVar4 = this.f1326a.n;
+                bnVar4 = this.f1331a.n;
                 bnVar4.p();
                 return;
             case 2:
-                bnVar = this.f1326a.n;
+                bnVar = this.f1331a.n;
                 bnVar.d(true);
-                bnVar2 = this.f1326a.n;
+                bnVar2 = this.f1331a.n;
                 bnVar2.p();
                 return;
             case 3:
-                bnVar5 = this.f1326a.n;
+                bnVar5 = this.f1331a.n;
                 bnVar5.b(true);
                 return;
             default:
@@ -78,90 +78,90 @@ class b implements ag {
         boolean z2;
         bn bnVar11;
         bn bnVar12;
-        if (UtilHelper.i(this.f1326a) == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            bnVar12 = this.f1326a.n;
+        if (UtilHelper.i(this.f1331a) == UtilHelper.NetworkStateInfo.UNAVAIL) {
+            bnVar12 = this.f1331a.n;
             bnVar12.g();
         } else {
-            bnVar = this.f1326a.n;
+            bnVar = this.f1331a.n;
             bnVar.h();
         }
         if (anVar == null || !anVar.b) {
             int unused = FrsActivity.s = 1;
         } else {
-            bnVar11 = this.f1326a.n;
+            bnVar11 = this.f1331a.n;
             bnVar11.l().a(com.baidu.tieba.util.bf.a().b());
             long unused2 = FrsActivity.q = 0L;
             long unused3 = FrsActivity.r = 0L;
             int unused4 = FrsActivity.s = 0;
         }
-        bnVar2 = this.f1326a.n;
+        bnVar2 = this.f1331a.n;
         bnVar2.b(false);
         switch (i) {
             case 1:
-                bnVar5 = this.f1326a.n;
+                bnVar5 = this.f1331a.n;
                 bnVar5.c(false);
-                bnVar6 = this.f1326a.n;
+                bnVar6 = this.f1331a.n;
                 bnVar6.p();
                 break;
             case 2:
-                bnVar3 = this.f1326a.n;
+                bnVar3 = this.f1331a.n;
                 bnVar3.d(false);
-                bnVar4 = this.f1326a.n;
+                bnVar4 = this.f1331a.n;
                 bnVar4.p();
                 break;
         }
         if (jSONObject == null || (anVar != null && anVar.c != 0)) {
-            this.f1326a.a(anVar);
+            this.f1331a.a(anVar);
         } else {
-            akVar = this.f1326a.w;
+            akVar = this.f1331a.w;
             if (akVar != null) {
-                akVar8 = this.f1326a.w;
+                akVar8 = this.f1331a.w;
                 if (akVar8.f().a() == 1) {
-                    this.f1326a.C = "frs_page";
+                    this.f1331a.C = "frs_page";
                 } else {
-                    this.f1326a.C = "normal_page";
+                    this.f1331a.C = "normal_page";
                 }
-                FrsActivity frsActivity = this.f1326a;
-                akVar9 = this.f1326a.w;
+                FrsActivity frsActivity = this.f1331a;
+                akVar9 = this.f1331a.w;
                 frsActivity.f = akVar9.a().getName();
-                z2 = this.f1326a.u;
+                z2 = this.f1331a.u;
                 if (z2) {
-                    this.f1326a.C = "good_page";
+                    this.f1331a.C = "good_page";
                 }
             }
-            akVar2 = this.f1326a.w;
-            com.baidu.tieba.data.bc top_notice_data = akVar2.a().getTop_notice_data();
+            akVar2 = this.f1331a.w;
+            com.baidu.tieba.data.bb top_notice_data = akVar2.a().getTop_notice_data();
             if (top_notice_data != null && top_notice_data.a() != null) {
-                com.baidu.tieba.data.ba baVar = new com.baidu.tieba.data.ba();
-                baVar.c(top_notice_data.a());
-                baVar.a(2);
-                baVar.b(top_notice_data.b());
-                baVar.t();
-                akVar7 = this.f1326a.w;
-                akVar7.b().add(0, baVar);
+                com.baidu.tieba.data.az azVar = new com.baidu.tieba.data.az();
+                azVar.c(top_notice_data.a());
+                azVar.a(2);
+                azVar.b(top_notice_data.b());
+                azVar.t();
+                akVar7 = this.f1331a.w;
+                akVar7.b().add(0, azVar);
             }
-            z = this.f1326a.v;
+            z = this.f1331a.v;
             if (z) {
-                bnVar10 = this.f1326a.n;
+                bnVar10 = this.f1331a.n;
                 bnVar10.z();
-                this.f1326a.v = false;
+                this.f1331a.v = false;
             }
-            str = this.f1326a.C;
+            str = this.f1331a.C;
             if (str.equals("frs_page")) {
-                bnVar9 = this.f1326a.n;
+                bnVar9 = this.f1331a.n;
                 bnVar9.r();
             } else {
-                str2 = this.f1326a.C;
+                str2 = this.f1331a.C;
                 if (str2.equals("normal_page")) {
-                    bnVar8 = this.f1326a.n;
+                    bnVar8 = this.f1331a.n;
                     bnVar8.q();
                 } else {
-                    str3 = this.f1326a.C;
+                    str3 = this.f1331a.C;
                     if (str3.equals("good_page")) {
-                        bnVar7 = this.f1326a.n;
-                        akVar3 = this.f1326a.w;
+                        bnVar7 = this.f1331a.n;
+                        akVar3 = this.f1331a.w;
                         ArrayList<com.baidu.tieba.data.z> good_classify = akVar3.a().getGood_classify();
-                        onItemClickListener = this.f1326a.ad;
+                        onItemClickListener = this.f1331a.ad;
                         bnVar7.a(good_classify, onItemClickListener);
                     }
                 }
@@ -170,18 +170,18 @@ class b implements ag {
             if (anVar != null) {
                 long unused6 = FrsActivity.r = anVar.e;
             }
-            akVar4 = this.f1326a.w;
+            akVar4 = this.f1331a.w;
             if (akVar4 != null) {
-                akVar5 = this.f1326a.w;
+                akVar5 = this.f1331a.w;
                 if (akVar5.b() != null) {
-                    akVar6 = this.f1326a.w;
+                    akVar6 = this.f1331a.w;
                     if (akVar6.b().size() == 0) {
-                        i2 = this.f1326a.e;
+                        i2 = this.f1331a.e;
                         if (i2 == 1) {
-                            this.f1326a.showToast(this.f1326a.getString(R.string.no_more_to_load));
-                            i3 = this.f1326a.i;
+                            this.f1331a.showToast(this.f1331a.getString(R.string.no_more_to_load));
+                            i3 = this.f1331a.i;
                             if (i3 > 1) {
-                                FrsActivity.i(this.f1326a);
+                                FrsActivity.i(this.f1331a);
                                 return;
                             }
                             return;
@@ -189,9 +189,9 @@ class b implements ag {
                     }
                 }
             }
-            this.f1326a.D();
+            this.f1331a.D();
         }
-        this.f1326a.o = null;
+        this.f1331a.o = null;
         System.gc();
     }
 
@@ -200,14 +200,14 @@ class b implements ag {
         String str;
         String str2;
         if (akVar != null) {
-            str = this.f1326a.C;
+            str = this.f1331a.C;
             if (!str.equals("normal_page")) {
-                str2 = this.f1326a.C;
+                str2 = this.f1331a.C;
                 if (!str2.equals("frs_page")) {
                     return;
                 }
             }
-            this.f1326a.a(akVar);
+            this.f1331a.a(akVar);
         }
     }
 }

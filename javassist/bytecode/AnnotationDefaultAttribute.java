@@ -15,7 +15,7 @@ public class AnnotationDefaultAttribute extends e {
 
     @Override // javassist.bytecode.e
     public e a(y yVar, Map map) {
-        b bVar = new b(this.c, this.f2811a, yVar, map);
+        b bVar = new b(this.c, this.f2795a, yVar, map);
         try {
             bVar.g(0);
             return new AnnotationDefaultAttribute(yVar, bVar.a());
@@ -26,7 +26,7 @@ public class AnnotationDefaultAttribute extends e {
 
     public javassist.bytecode.annotation.d a() {
         try {
-            return new c(this.c, this.f2811a).c();
+            return new c(this.c, this.f2795a).c();
         } catch (Exception e) {
             throw new RuntimeException(e.toString());
         }

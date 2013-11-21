@@ -12,13 +12,13 @@ import java.util.LinkedList;
 public class bl {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2505a = -1;
+    private static int f2488a = -1;
     private static int b = -1;
     private static com.baidu.adp.lib.d.a<Integer, Integer> c = new com.baidu.adp.lib.d.a<>(BdWebErrorView.ERROR_CODE_500);
 
     public static void a(TiebaApplication tiebaApplication) {
         if (tiebaApplication != null && tiebaApplication.getResources() != null) {
-            f2505a = tiebaApplication.getResources().getColor(R.color.skin_1_common_color);
+            f2488a = tiebaApplication.getResources().getColor(R.color.skin_1_common_color);
             b = tiebaApplication.getResources().getColor(R.color.more_color);
         }
     }
@@ -116,7 +116,7 @@ public class bl {
     public static void b(TextView textView, int i) {
         if (textView != null) {
             if (i == 1) {
-                textView.setTextColor(f2505a);
+                textView.setTextColor(f2488a);
             } else {
                 textView.setTextColor(b);
             }
@@ -126,7 +126,7 @@ public class bl {
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
             if (i == 1) {
-                checkBox.setTextColor(f2505a);
+                checkBox.setTextColor(f2488a);
             } else {
                 checkBox.setTextColor(b);
             }

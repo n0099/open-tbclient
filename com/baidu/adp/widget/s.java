@@ -15,7 +15,6 @@ public class s extends DataSetObserver {
 
     @Override // android.database.DataSetObserver
     public void onChanged() {
-        this.f611a.h = -1;
         this.f611a.requestLayout();
         this.f611a.invalidate();
     }

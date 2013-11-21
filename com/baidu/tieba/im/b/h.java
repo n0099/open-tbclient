@@ -18,11 +18,11 @@ import java.util.List;
 public class h implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1481a;
+    final /* synthetic */ d f1472a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(d dVar) {
-        this.f1481a = dVar;
+        this.f1472a = dVar;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
@@ -42,16 +42,16 @@ public class h implements com.baidu.tieba.im.messageCenter.h {
         EnterForumActivity enterForumActivity3;
         EnterForumActivity enterForumActivity4;
         EnterForumActivity enterForumActivity5;
-        baseFragmentActivity = this.f1481a.e;
+        baseFragmentActivity = this.f1472a.e;
         baseFragmentActivity.b();
-        enterForumActivity = this.f1481a.d;
-        if (enterForumActivity != null && this.f1481a.f1477a != null) {
-            handler = this.f1481a.m;
-            if (handler != null && this.f1481a.b != null) {
-                aVar = this.f1481a.j;
+        enterForumActivity = this.f1472a.d;
+        if (enterForumActivity != null && this.f1472a.f1468a != null) {
+            handler = this.f1472a.m;
+            if (handler != null && this.f1472a.b != null) {
+                aVar = this.f1472a.j;
                 if (aVar != null) {
                     if (message.getCmd() == 103003) {
-                        this.f1481a.f1477a.a();
+                        this.f1472a.f1468a.a();
                     }
                     if (message == null || !(message instanceof ResponseGroupsByUidMessage)) {
                         EnterForumActivity.b = false;
@@ -63,7 +63,7 @@ public class h implements com.baidu.tieba.im.messageCenter.h {
                         if (responseGroupsByUidMessage.getErrNo() != k.r) {
                             String errMsg = responseGroupsByUidMessage.getErrMsg();
                             if (!TextUtils.isEmpty(errMsg)) {
-                                enterForumActivity5 = this.f1481a.d;
+                                enterForumActivity5 = this.f1472a.d;
                                 enterForumActivity5.a(errMsg);
                             }
                         }
@@ -71,56 +71,56 @@ public class h implements com.baidu.tieba.im.messageCenter.h {
                         EnterForumActivity.b = false;
                         GroupPermData groupPerm = responseGroupsByUidMessage.getGroupPerm();
                         if (groupPerm == null) {
-                            enterForumActivity4 = this.f1481a.d;
+                            enterForumActivity4 = this.f1472a.d;
                             enterForumActivity4.b(R.string.group_create_no_personinfo);
                         } else if (!groupPerm.isCreatePersonal()) {
-                            enterForumActivity3 = this.f1481a.d;
+                            enterForumActivity3 = this.f1472a.d;
                             enterForumActivity3.a(groupPerm.getCreatePersonalTip());
                         } else {
-                            enterForumActivity2 = this.f1481a.d;
+                            enterForumActivity2 = this.f1472a.d;
                             CreateGroupStepActivity.a(enterForumActivity2.i(), 2, 0);
                         }
                     } else {
                         List<GroupInfoData> groups = responseGroupsByUidMessage.getGroups();
                         GroupPermData groupPerm2 = responseGroupsByUidMessage.getGroupPerm();
                         if (groupPerm2 != null) {
-                            this.f1481a.b.a(groupPerm2);
+                            this.f1472a.b.a(groupPerm2);
                         }
                         if (groups != null) {
                             if (groups.size() > 0) {
-                                jVar3 = this.f1481a.k;
+                                jVar3 = this.f1472a.k;
                                 if (jVar3 != null) {
-                                    jVar4 = this.f1481a.k;
+                                    jVar4 = this.f1472a.k;
                                     jVar4.b();
                                 }
                             } else {
-                                jVar = this.f1481a.k;
+                                jVar = this.f1472a.k;
                                 if (jVar != null) {
-                                    jVar2 = this.f1481a.k;
+                                    jVar2 = this.f1472a.k;
                                     jVar2.a();
                                 }
                             }
-                            aVar2 = this.f1481a.j;
+                            aVar2 = this.f1472a.j;
                             aVar2.a(groups);
-                            this.f1481a.j();
-                            aVar3 = this.f1481a.j;
+                            this.f1472a.j();
+                            aVar3 = this.f1472a.j;
                             aVar3.notifyDataSetChanged();
-                            this.f1481a.f();
+                            this.f1472a.f();
                         }
                         if (message.getCmd() == 103003) {
-                            handler2 = this.f1481a.l;
+                            handler2 = this.f1472a.l;
                             handler2.removeMessages(1);
-                            this.f1481a.c = false;
+                            this.f1472a.c = false;
                         } else if (message.getCmd() == -106) {
                             if (UtilHelper.b()) {
-                                this.f1481a.a();
-                                if (this.f1481a.b != null) {
-                                    this.f1481a.b.b();
+                                this.f1472a.a();
+                                if (this.f1472a.b != null) {
+                                    this.f1472a.b.b();
                                     return;
                                 }
                                 return;
                             }
-                            this.f1481a.f1477a.a();
+                            this.f1472a.f1468a.a();
                         }
                     }
                 }

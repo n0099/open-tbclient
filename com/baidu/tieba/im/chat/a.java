@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1495a = null;
+    private static a f1486a = null;
     private WeakReference<x> b;
     private j c = null;
     private com.baidu.tieba.im.pushNotify.m d = null;
@@ -42,10 +42,10 @@ public class a {
     }
 
     public static a b() {
-        if (f1495a == null) {
-            f1495a = new a();
+        if (f1486a == null) {
+            f1486a = new a();
         }
-        return f1495a;
+        return f1486a;
     }
 
     public void a(x xVar) {
@@ -131,7 +131,7 @@ public class a {
                         linkedList.add(groupMsgPojo);
                         i = i;
                     }
-                    com.baidu.tieba.im.db.a.a().a(valueOf, linkedList, true, new f(this, groupMsgData, valueOf, linkedList.getLast(), (MsglistActivity.f1493a && valueOf.equals(MsglistActivity.b)) ? 0 : i));
+                    com.baidu.tieba.im.db.a.a().a(valueOf, linkedList, true, new f(this, groupMsgData, valueOf, linkedList.getLast(), (MsglistActivity.f1484a && valueOf.equals(MsglistActivity.b)) ? 0 : i));
                 }
             }
         }

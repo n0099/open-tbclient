@@ -9,14 +9,14 @@ import com.google.gson.GsonBuilder;
 public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
 
     /* renamed from: a  reason: collision with root package name */
-    TRForumListData f2456a;
+    TRForumListData f2439a;
     final /* synthetic */ l b;
     private ap c;
 
     private n(l lVar) {
         this.b = lVar;
         this.c = null;
-        this.f2456a = new TRForumListData();
+        this.f2439a = new TRForumListData();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
     public TRForumListData a(Object... objArr) {
         String j;
         try {
-            this.c = new ap(com.baidu.tieba.data.h.f1196a + "c/f/forum/random_recommend_forum");
+            this.c = new ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/random_recommend_forum");
             this.c.a("rn", "100");
             j = this.c.j();
             bg.e("TopRecModel", "doInBackground", j);
@@ -39,11 +39,11 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
         if (!this.c.c()) {
             this.b.c = false;
         } else {
-            this.f2456a = (TRForumListData) new GsonBuilder().create().fromJson(j, (Class<Object>) TRForumListData.class);
+            this.f2439a = (TRForumListData) new GsonBuilder().create().fromJson(j, (Class<Object>) TRForumListData.class);
             this.b.c = true;
-            bg.c(this.f2456a.toString());
+            bg.c(this.f2439a.toString());
         }
-        return this.f2456a;
+        return this.f2439a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

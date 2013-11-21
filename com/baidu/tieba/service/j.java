@@ -14,11 +14,11 @@ import java.io.FileWriter;
 public class j extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PerformMonitorService f2346a;
+    final /* synthetic */ PerformMonitorService f2331a;
     private ap b;
 
     private j(PerformMonitorService performMonitorService) {
-        this.f2346a = performMonitorService;
+        this.f2331a = performMonitorService;
         this.b = null;
     }
 
@@ -99,7 +99,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
                                 }
                                 return;
                             }
-                            this.b = new ap(com.baidu.tieba.data.h.f1196a + str2);
+                            this.b = new ap(com.baidu.tieba.data.h.f1201a + str2);
                             this.b.a("logfile", byteArray);
                             this.b.a("errortype", "3");
                             this.b.l();
@@ -286,9 +286,9 @@ public class j extends BdAsyncTask<String, Integer, String> {
         if (this.b != null) {
             this.b.h();
         }
-        this.f2346a.g = null;
+        this.f2331a.g = null;
         super.cancel(true);
-        this.f2346a.stopSelf();
+        this.f2331a.stopSelf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -296,7 +296,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
         super.a((j) str);
-        this.f2346a.g = null;
-        this.f2346a.stopSelf();
+        this.f2331a.g = null;
+        this.f2331a.stopSelf();
     }
 }

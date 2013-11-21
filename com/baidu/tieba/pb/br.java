@@ -1,37 +1,105 @@
 package com.baidu.tieba.pb;
 
-import android.content.DialogInterface;
-import com.baidu.mobstat.StatService;
-import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.write.AtListActivity;
+import com.baidu.tieba.write.WriteImageActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements DialogInterface.OnClickListener {
+public class br implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2102a;
+    final /* synthetic */ NewPbActivity f2085a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public br(NewPbActivity newPbActivity) {
-        this.f2102a = newPbActivity;
+        this.f2085a = newPbActivity;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
+    @Override // com.baidu.tieba.editortool.h
+    public void a(int i, Object obj) {
         String str;
+        cr crVar;
+        cr crVar2;
         String str2;
-        com.baidu.tieba.model.bm bmVar;
+        cr crVar3;
+        cr crVar4;
         String str3;
-        StatService.onEvent(this.f2102a, "pb_phone_sms", "sms");
-        NewPbActivity newPbActivity = this.f2102a;
-        str = this.f2102a.C;
-        newPbActivity.C = str.trim();
-        NewPbActivity newPbActivity2 = this.f2102a;
-        str2 = this.f2102a.C;
-        UtilHelper.h(newPbActivity2, str2);
-        bmVar = this.f2102a.s;
-        String b = bmVar.b();
-        str3 = this.f2102a.C;
-        new com.baidu.tieba.account.k(b, str3, "2").start();
-        dialogInterface.cancel();
+        boolean a2;
+        cr crVar5;
+        com.baidu.tieba.model.bm bmVar;
+        boolean a3;
+        boolean a4;
+        cr crVar6;
+        cr crVar7;
+        cr crVar8;
+        cr crVar9;
+        cr crVar10;
+        boolean a5;
+        cr crVar11;
+        if (i == 0) {
+            a5 = this.f2085a.a(11025);
+            if (a5) {
+                NewPbActivity newPbActivity = this.f2085a;
+                crVar11 = this.f2085a.y;
+                newPbActivity.z = crVar11.ae();
+                AtListActivity.a(this.f2085a, 12004);
+            }
+        } else if (i == 7) {
+            crVar7 = this.f2085a.y;
+            if (!crVar7.E()) {
+                crVar10 = this.f2085a.y;
+                crVar10.D();
+            } else {
+                NewPbActivity newPbActivity2 = this.f2085a;
+                crVar8 = this.f2085a.y;
+                WriteImageActivity.a(newPbActivity2, crVar8.F(), 12003);
+            }
+            crVar9 = this.f2085a.y;
+            crVar9.e(false);
+        } else if (i == 26) {
+            a4 = this.f2085a.a(11026);
+            if (a4) {
+                NewPbActivity newPbActivity3 = this.f2085a;
+                crVar6 = this.f2085a.y;
+                newPbActivity3.z = crVar6.ae();
+                AtListActivity.a(this.f2085a, 12005);
+            }
+        } else if (i == 10) {
+            bmVar = this.f2085a.s;
+            if (bmVar.l() != null) {
+                a3 = this.f2085a.a(11001);
+                if (a3) {
+                    this.f2085a.a((String) null);
+                }
+            }
+        } else if (i == 27) {
+            a2 = this.f2085a.a(11027);
+            if (a2) {
+                crVar5 = this.f2085a.y;
+                this.f2085a.a(crVar5.L());
+            }
+        } else if (i == 4) {
+            str = this.f2085a.l;
+            if (str != null) {
+                str2 = this.f2085a.l;
+                if (str2.length() > 0) {
+                    crVar3 = this.f2085a.y;
+                    crVar3.c(false);
+                    crVar4 = this.f2085a.y;
+                    crVar4.d(false);
+                    NewPbActivity newPbActivity4 = this.f2085a;
+                    str3 = this.f2085a.l;
+                    newPbActivity4.showToast(str3);
+                    return;
+                }
+            }
+            crVar = this.f2085a.y;
+            crVar.c(true);
+            crVar2 = this.f2085a.y;
+            crVar2.d(true);
+        } else if (i == 22) {
+            com.baidu.tieba.write.bd.a(this.f2085a);
+        } else if (i == 23) {
+            com.baidu.tieba.write.bd.b(this.f2085a);
+        }
     }
 }

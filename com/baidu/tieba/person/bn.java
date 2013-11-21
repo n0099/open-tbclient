@@ -29,7 +29,7 @@ public class bn extends BaseAdapter {
     private boolean h = false;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2244a = false;
+    boolean f2229a = false;
     private ArrayList<ProgressBar> i = new ArrayList<>();
 
     public void a() {
@@ -53,9 +53,9 @@ public class bn extends BaseAdapter {
     }
 
     public void b() {
-        this.f2244a = false;
+        this.f2229a = false;
         if (this.d != null && this.d.size() == 0) {
-            this.f2244a = true;
+            this.f2229a = true;
         }
     }
 
@@ -96,7 +96,7 @@ public class bn extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2244a) {
+        if (this.f2229a) {
             return 1;
         }
         int i = 0;
@@ -135,7 +135,7 @@ public class bn extends BaseAdapter {
                 bp bpVar2 = new bp(this);
                 if (getItemViewType(i) == 0) {
                     View inflate = from.inflate(R.layout.person_list_item, (ViewGroup) null);
-                    bpVar2.f2245a = (ImageView) inflate.findViewById(R.id.photo);
+                    bpVar2.f2230a = (ImageView) inflate.findViewById(R.id.photo);
                     bpVar2.c = (TextView) inflate.findViewById(R.id.name);
                     bpVar2.b = (LinearLayout) inflate.findViewById(R.id.info);
                     bpVar2.b.setOnClickListener(this.k);
@@ -159,7 +159,7 @@ public class bn extends BaseAdapter {
                 bpVar = (bp) view.getTag();
             }
             if (getItemViewType(i) == 0) {
-                if (this.f2244a) {
+                if (this.f2229a) {
                     bpVar.b.setVisibility(8);
                     bpVar.e.setVisibility(8);
                     bpVar.g.setVisibility(0);
@@ -190,11 +190,11 @@ public class bn extends BaseAdapter {
                     String portrait = this.d.get(i).getPortrait();
                     com.baidu.adp.widget.ImageView.e c = this.f.c(portrait);
                     if (c != null) {
-                        bpVar.f2245a.setTag(null);
-                        c.a(bpVar.f2245a);
+                        bpVar.f2230a.setTag(null);
+                        c.a(bpVar.f2230a);
                     } else {
-                        bpVar.f2245a.setTag(portrait);
-                        bpVar.f2245a.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
+                        bpVar.f2230a.setTag(portrait);
+                        bpVar.f2230a.setImageBitmap(com.baidu.tieba.util.m.a((int) R.drawable.photo));
                     }
                     bpVar.c.setText(this.d.get(i).getName_show());
                     bpVar.d.setText(this.d.get(i).getIntro());
@@ -237,7 +237,7 @@ public class bn extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.f2244a) {
+        if (this.f2229a) {
             return 0;
         }
         return (this.d == null || i >= this.d.size()) ? 1 : 0;
@@ -250,7 +250,7 @@ public class bn extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.f2244a) {
+        if (this.f2229a) {
             return false;
         }
         return super.isEnabled(i);

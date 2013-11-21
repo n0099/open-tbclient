@@ -8,10 +8,10 @@ import com.baidu.tieba.util.af;
 public class f extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1585a;
+    final /* synthetic */ d f1576a;
 
     private f(d dVar) {
-        this.f1585a = dVar;
+        this.f1576a = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,7 +25,7 @@ public class f extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
-        return af.c(null, "tieba_group_image");
+        return af.d(null, "tieba_group_image");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -46,10 +46,10 @@ public class f extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.adp.widget.ImageView.e eVar;
         super.a((f) bitmap);
         if (bitmap != null) {
-            this.f1585a.c.setVisibility(0);
-            this.f1585a.f = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
-            eVar = this.f1585a.f;
-            eVar.a(this.f1585a.c);
+            this.f1576a.c.setVisibility(0);
+            this.f1576a.f = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
+            eVar = this.f1576a.f;
+            eVar.a(this.f1576a.c);
         }
     }
 }

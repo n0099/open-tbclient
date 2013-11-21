@@ -20,7 +20,7 @@ public class BootstrapMethodsAttribute extends e {
         byte[] bArr = new byte[i2];
         g.a(fVarArr.length, bArr, 0);
         for (int i3 = 0; i3 < fVarArr.length; i3++) {
-            g.a(fVarArr[i3].f2812a, bArr, i);
+            g.a(fVarArr[i3].f2796a, bArr, i);
             g.a(fVarArr[i3].b.length, bArr, i + 2);
             i += 4;
             for (int i4 : fVarArr[i3].b) {
@@ -55,7 +55,7 @@ public class BootstrapMethodsAttribute extends e {
         f[] a2 = a();
         y c = c();
         for (f fVar : a2) {
-            fVar.f2812a = c.a(fVar.f2812a, yVar, map);
+            fVar.f2796a = c.a(fVar.f2796a, yVar, map);
             for (int i = 0; i < fVar.b.length; i++) {
                 fVar.b[i] = c.a(fVar.b[i], yVar, map);
             }

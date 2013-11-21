@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class PbEditorToolView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f2052a;
+    protected Context f2035a;
     protected PbEditorToolButtonContainer b;
     protected PbEditorToolButtonContainer c;
     protected EditText d;
@@ -23,13 +23,13 @@ public class PbEditorToolView extends LinearLayout {
 
     public PbEditorToolView(Context context) {
         super(context);
-        this.f2052a = context;
+        this.f2035a = context;
         a();
     }
 
     public PbEditorToolView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2052a = context;
+        this.f2035a = context;
         a();
     }
 
@@ -42,7 +42,7 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     protected void a() {
-        LayoutInflater.from(this.f2052a).inflate(R.layout.pb_editor_tool_view, (ViewGroup) this, true);
+        LayoutInflater.from(this.f2035a).inflate(R.layout.pb_editor_tool_view, (ViewGroup) this, true);
         this.b = (PbEditorToolButtonContainer) findViewById(R.id.tool_button_container);
         this.b.b(false);
         this.c = (PbEditorToolButtonContainer) findViewById(R.id.extern_tool_button_container);
@@ -57,12 +57,12 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public void setOnActionListener(com.baidu.tieba.editortool.h hVar) {
-        cl clVar = new cl(this, hVar);
-        this.b.setOnActionListener(clVar);
-        this.d.setOnTouchListener(new cm(this, hVar));
-        this.d.addTextChangedListener(new cn(this, hVar));
-        this.e.setOnClickListener(new co(this, hVar));
-        this.c.setOnActionListener(clVar);
+        cn cnVar = new cn(this, hVar);
+        this.b.setOnActionListener(cnVar);
+        this.d.setOnTouchListener(new co(this, hVar));
+        this.d.addTextChangedListener(new cp(this, hVar));
+        this.e.setOnClickListener(new cq(this, hVar));
+        this.c.setOnActionListener(cnVar);
     }
 
     public void b() {
@@ -137,7 +137,7 @@ public class PbEditorToolView extends LinearLayout {
     }
 
     public void a(int i) {
-        this.d.setHintTextColor(this.f2052a.getResources().getColor(i == 1 ? R.color.pb_editor_edittext_hint_text_1 : R.color.pb_editor_edittext_hint_text));
+        this.d.setHintTextColor(this.f2035a.getResources().getColor(i == 1 ? R.color.pb_editor_edittext_hint_text_1 : R.color.pb_editor_edittext_hint_text));
     }
 
     public boolean m() {

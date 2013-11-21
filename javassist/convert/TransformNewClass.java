@@ -9,7 +9,7 @@ import javassist.h;
 public final class TransformNewClass extends Transformer {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2850a;
+    private int f2834a;
     private String b;
     private String c;
     private int d;
@@ -18,7 +18,7 @@ public final class TransformNewClass extends Transformer {
 
     @Override // javassist.convert.Transformer
     public void a(y yVar, CodeAttribute codeAttribute) {
-        this.f2850a = 0;
+        this.f2834a = 0;
         this.g = 0;
         this.e = 0;
         this.d = 0;
@@ -36,18 +36,18 @@ public final class TransformNewClass extends Transformer {
                     this.d = yVar.a(this.c);
                 }
                 codeIterator.b(this.d, i + 1);
-                this.f2850a++;
+                this.f2834a++;
             }
         } else if (c == 183) {
             int d = codeIterator.d(i + 1);
-            if (yVar.a(this.b, d) != 0 && this.f2850a > 0) {
+            if (yVar.a(this.b, d) != 0 && this.f2834a > 0) {
                 int m = yVar.m(d);
                 if (this.e != m) {
                     this.e = m;
                     this.g = yVar.c(this.d, m);
                 }
                 codeIterator.b(this.g, i + 1);
-                this.f2850a--;
+                this.f2834a--;
             }
         }
         return i;

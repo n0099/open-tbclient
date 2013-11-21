@@ -9,12 +9,12 @@ import com.baidu.tieba.util.UtilHelper;
 public class v extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.r> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f1952a;
+    final /* synthetic */ t f1935a;
     private com.baidu.tieba.a.f b = null;
     private int c;
 
     public v(t tVar, int i) {
-        this.f1952a = tVar;
+        this.f1935a = tVar;
         this.c = 1;
         this.c = i;
         setPriority(3);
@@ -28,7 +28,7 @@ public class v extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.r> {
         boolean z;
         com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
         this.b = new com.baidu.tieba.a.f();
-        z = this.f1952a.c;
+        z = this.f1935a.c;
         if (!z) {
             rVar.a(true);
             return rVar;
@@ -60,7 +60,7 @@ public class v extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.r> {
         boolean z;
         com.baidu.tieba.data.r rVar = new com.baidu.tieba.data.r();
         String str = null;
-        z = this.f1952a.c;
+        z = this.f1935a.c;
         if (z) {
             str = DatabaseService.d();
         }
@@ -75,7 +75,7 @@ public class v extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.r> {
 
     private void a(String str) {
         boolean z;
-        z = this.f1952a.c;
+        z = this.f1935a.c;
         if (z) {
             DatabaseService.f(str);
         }
@@ -84,7 +84,7 @@ public class v extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.r> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         super.cancel();
-        this.f1952a.f1950a = null;
+        this.f1935a.f1933a = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,35 +97,35 @@ public class v extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.r> {
         w wVar3;
         com.baidu.tieba.data.r rVar3;
         w wVar4;
-        this.f1952a.f1950a = null;
-        this.f1952a.b = rVar;
-        u uVar = new u(this.f1952a);
+        this.f1935a.f1933a = null;
+        this.f1935a.b = rVar;
+        u uVar = new u(this.f1935a);
         uVar.c = this.c;
-        wVar = this.f1952a.d;
+        wVar = this.f1935a.d;
         if (wVar != null) {
             if (this.c != 0 && (this.b == null || !this.b.c())) {
-                rVar2 = this.f1952a.b;
+                rVar2 = this.f1935a.b;
                 if (rVar2 != null) {
-                    rVar3 = this.f1952a.b;
+                    rVar3 = this.f1935a.b;
                     if (rVar3.e()) {
                         uVar.b = true;
                         uVar.d = rVar;
-                        wVar4 = this.f1952a.d;
+                        wVar4 = this.f1935a.d;
                         wVar4.a(uVar);
                         return;
                     }
                 }
                 String d = this.b != null ? this.b.d() : null;
                 uVar.b = false;
-                uVar.f1951a = d;
+                uVar.f1934a = d;
                 uVar.d = rVar;
-                wVar3 = this.f1952a.d;
+                wVar3 = this.f1935a.d;
                 wVar3.a(uVar);
                 return;
             }
             uVar.b = true;
             uVar.d = rVar;
-            wVar2 = this.f1952a.d;
+            wVar2 = this.f1935a.d;
             wVar2.a(uVar);
         }
     }

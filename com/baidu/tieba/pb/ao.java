@@ -7,78 +7,81 @@ import com.baidu.tieba.util.UtilHelper;
 class ao implements com.baidu.tieba.model.bn {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2072a;
+    final /* synthetic */ NewPbActivity f2055a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(NewPbActivity newPbActivity) {
-        this.f2072a = newPbActivity;
+        this.f2055a = newPbActivity;
     }
 
     @Override // com.baidu.tieba.model.bn
-    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.data.ao aoVar, String str) {
-        cp cpVar;
-        cp cpVar2;
+    public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.data.an anVar, String str) {
+        cr crVar;
+        cr crVar2;
+        cr crVar3;
         com.baidu.tieba.model.bg bgVar;
-        cp cpVar3;
+        cr crVar4;
         com.baidu.tieba.model.bm bmVar;
-        cp cpVar4;
-        cp cpVar5;
+        cr crVar5;
+        cr crVar6;
         com.baidu.tieba.model.bm bmVar2;
         Handler handler;
         Handler handler2;
         Handler handler3;
         com.baidu.tieba.model.bm bmVar3;
-        cp cpVar6;
-        cp cpVar7;
-        if (z && aoVar != null) {
-            bgVar = this.f2072a.t;
-            bgVar.a(aoVar.i());
-            cpVar3 = this.f2072a.y;
-            bmVar = this.f2072a.s;
-            cpVar3.a(aoVar, i2, i3, bmVar.d());
-            cpVar4 = this.f2072a.y;
-            cpVar4.a(aoVar, false);
-            cpVar5 = this.f2072a.y;
-            bmVar2 = this.f2072a.s;
-            cpVar5.f(bmVar2.c());
-            handler = this.f2072a.r;
+        cr crVar7;
+        cr crVar8;
+        crVar = this.f2055a.y;
+        crVar.r();
+        if (z && anVar != null) {
+            bgVar = this.f2055a.t;
+            bgVar.a(anVar.i());
+            crVar4 = this.f2055a.y;
+            bmVar = this.f2055a.s;
+            crVar4.a(anVar, i2, i3, bmVar.d());
+            crVar5 = this.f2055a.y;
+            crVar5.a(anVar, false);
+            crVar6 = this.f2055a.y;
+            bmVar2 = this.f2055a.s;
+            crVar6.f(bmVar2.c());
+            handler = this.f2055a.r;
             handler.removeMessages(0);
-            handler2 = this.f2072a.r;
-            handler3 = this.f2072a.r;
+            handler2 = this.f2055a.r;
+            handler3 = this.f2055a.r;
             handler2.sendMessageDelayed(handler3.obtainMessage(0), 300L);
-            AntiData g = aoVar.g();
+            AntiData g = anVar.g();
             if (g != null) {
                 Boolean valueOf = Boolean.valueOf(g.isIfvoice());
-                this.f2072a.l = g.getVoice_message();
-                this.f2072a.a(valueOf);
+                this.f2055a.l = g.getVoice_message();
+                this.f2055a.a(valueOf);
             }
-            bmVar3 = this.f2072a.s;
+            bmVar3 = this.f2055a.s;
             if (bmVar3.l().m() == 1) {
-                cpVar7 = this.f2072a.y;
-                cpVar7.j(true);
+                crVar8 = this.f2055a.y;
+                crVar8.j(true);
                 return;
             }
-            cpVar6 = this.f2072a.y;
-            cpVar6.j(false);
+            crVar7 = this.f2055a.y;
+            crVar7.j(false);
         } else if (str != null) {
             if (UtilHelper.b()) {
-                cpVar = this.f2072a.y;
-                cpVar.e(str);
+                crVar2 = this.f2055a.y;
+                crVar2.e(str);
             } else {
-                this.f2072a.i();
+                this.f2055a.i();
             }
             if (i == 4 || i == 28) {
-                this.f2072a.finish();
+                this.f2055a.finish();
             }
-            cpVar2 = this.f2072a.y;
-            cpVar2.M();
+            crVar3 = this.f2055a.y;
+            crVar3.M();
         }
     }
 
     @Override // com.baidu.tieba.model.bn
-    public void a(com.baidu.tieba.data.ao aoVar) {
-        cp cpVar;
-        cpVar = this.f2072a.y;
-        cpVar.a(aoVar);
+    public void a(com.baidu.tieba.data.an anVar) {
+        cr crVar;
+        crVar = this.f2055a.y;
+        crVar.a(anVar);
     }
 }

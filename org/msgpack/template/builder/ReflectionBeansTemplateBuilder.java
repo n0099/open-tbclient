@@ -38,7 +38,7 @@ public class ReflectionBeansTemplateBuilder extends ReflectionTemplateBuilder {
             if (cVar.e().isPrimitive()) {
                 reflectionFieldTemplateArr[i] = new d(cVar);
             } else {
-                reflectionFieldTemplateArr[i] = new e(cVar, this.f2935a.a(cVar.f()));
+                reflectionFieldTemplateArr[i] = new e(cVar, this.f2919a.a(cVar.f()));
             }
         }
         return reflectionFieldTemplateArr;

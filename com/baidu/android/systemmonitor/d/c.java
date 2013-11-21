@@ -33,14 +33,14 @@ import java.util.regex.Pattern;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final HashMap f803a = new HashMap();
+    private static final HashMap f804a = new HashMap();
 
     static {
-        f803a.put("&lt;", "<");
-        f803a.put("&gt;", ">");
-        f803a.put("&amp;", "&");
-        f803a.put("&quot;", "\"");
-        f803a.put("&#039;", "'");
+        f804a.put("&lt;", "<");
+        f804a.put("&gt;", ">");
+        f804a.put("&amp;", "&");
+        f804a.put("&quot;", "\"");
+        f804a.put("&#039;", "'");
     }
 
     public static int a(Context context, String str) {
@@ -49,8 +49,8 @@ public final class c {
 
     public static String a(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (String str2 : f803a.keySet()) {
-                str = str.replaceAll(str2, (String) f803a.get(str2));
+            for (String str2 : f804a.keySet()) {
+                str = str.replaceAll(str2, (String) f804a.get(str2));
             }
         }
         return str;

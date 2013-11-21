@@ -1,84 +1,174 @@
 package com.baidu.tieba.data;
 
+import android.content.Context;
 import com.baidu.tieba.util.bg;
+import com.baidu.zeus.Headers;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class an {
+    private int i;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1168a = 0;
-    private int b = 0;
-    private int d = 0;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private int c = 0;
+    private ForumData f1174a = new ForumData();
+    private az b = new az();
+    private ArrayList<ar> c = new ArrayList<>();
+    private am d = new am();
+    private AntiData e = new AntiData();
+    private ah f = new ah();
+    private int h = 0;
+    private boolean g = false;
+    private UserData j = new UserData();
 
-    public int a() {
-        return this.f1168a;
+    public an() {
+        this.i = 0;
+        this.i = 0;
     }
 
-    public void a(int i) {
-        this.f1168a = i;
+    public boolean a() {
+        return this.c != null && this.c.size() > 0;
     }
 
-    public int b() {
+    public String[] b() {
+        String str = null;
+        String str2 = "";
+        if (a()) {
+            ar arVar = this.c.get(0);
+            LinkedList<String> imageUrl = arVar.getImageUrl();
+            if (imageUrl != null && imageUrl.size() > 0) {
+                str = imageUrl.get(0);
+            }
+            str2 = arVar.k();
+        }
+        return new String[]{str, str2};
+    }
+
+    public ForumData c() {
+        return this.f1174a;
+    }
+
+    public az d() {
         return this.b;
     }
 
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public int c() {
+    public ArrayList<ar> e() {
         return this.c;
     }
 
-    public int d() {
+    public am f() {
         return this.d;
     }
 
-    public void c(int i) {
-        this.d = i;
+    public void a(am amVar, int i) {
+        this.d.c(amVar.d());
+        this.d.b(amVar.b());
+        this.d.a(amVar.a());
+        this.d.d(amVar.e());
+        if (i == 0) {
+            this.d = amVar;
+        } else if (i == 1) {
+            this.d.e(amVar.f());
+        } else if (i == 2) {
+            this.d.f(amVar.g());
+        }
     }
 
-    public int e() {
+    public AntiData g() {
         return this.e;
     }
 
-    public void d(int i) {
-        this.e = i;
+    public UserData h() {
+        return this.j;
     }
 
-    public void e(int i) {
-        this.f = i;
+    public boolean i() {
+        return this.b.n() != 0;
     }
 
-    public int f() {
-        return this.f;
+    public void a(boolean z) {
+        if (this.b != null) {
+            if (z) {
+                this.b.c(1);
+            } else {
+                this.b.c(0);
+            }
+        }
     }
 
-    public void f(int i) {
-        this.g = i;
+    public String j() {
+        if (this.b != null) {
+            return this.b.o();
+        }
+        return null;
     }
 
-    public int g() {
-        return this.g;
+    public void a(String str) {
+        if (this.b != null) {
+            this.b.d(str);
+        }
+    }
+
+    public void a(String str, Context context) {
+        try {
+            a(new JSONObject(str), context);
+        } catch (Exception e) {
+            bg.b("PbData", "parserJson", "error = " + e.getMessage());
+        }
+    }
+
+    public void b(String str) {
+        try {
+            a(new JSONObject(str));
+        } catch (Exception e) {
+            bg.b("PbData", "parserJson", "error = " + e.getMessage());
+        }
     }
 
     public void a(JSONObject jSONObject) {
+        a(jSONObject, (Context) null);
+    }
+
+    public void a(JSONObject jSONObject, Context context) {
         if (jSONObject != null) {
             try {
-                this.f1168a = jSONObject.optInt("total_page", 0);
-                this.b = jSONObject.optInt("total_num", 0);
-                this.c = jSONObject.optInt("total_count", 0);
-                this.d = jSONObject.optInt("current_page", 0);
-                this.e = jSONObject.optInt("page_size", 0);
-                this.f = jSONObject.optInt("has_more", 0);
-                this.g = jSONObject.optInt("has_prev", 0);
+                a(jSONObject.optInt("is_new_url", 0));
+                this.f1174a.parserJson(jSONObject.optJSONObject("forum"));
+                this.b.a(jSONObject.optJSONObject("thread"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        ar arVar = new ar();
+                        arVar.a(optJSONArray.optJSONObject(i), context);
+                        this.c.add(arVar);
+                    }
+                }
+                this.d.a(jSONObject.optJSONObject("page"));
+                this.e.parserJson(jSONObject.optJSONObject("anti"));
+                this.f.a(jSONObject.optJSONObject(Headers.LOCATION));
+                this.g = jSONObject.optInt("has_floor") == 1;
+                this.h = jSONObject.optJSONObject("user").optInt("is_manager", 0);
+                this.j.parserJson(jSONObject.optJSONObject("user"));
             } catch (Exception e) {
-                bg.b("PageData", "parserJson", "error = " + e.getMessage());
+                bg.b("PbData", "parserJson", "error = " + e.getMessage());
             }
         }
+    }
+
+    public boolean k() {
+        return this.g;
+    }
+
+    public int l() {
+        return this.h;
+    }
+
+    public int m() {
+        return this.i;
+    }
+
+    public void a(int i) {
+        this.i = i;
     }
 }

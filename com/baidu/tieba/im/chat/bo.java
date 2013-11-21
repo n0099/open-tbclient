@@ -3,15 +3,15 @@ package com.baidu.tieba.im.chat;
 class bo implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1535a;
+    final /* synthetic */ bn f1526a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(bn bnVar) {
-        this.f1535a = bnVar;
+        this.f1526a = bnVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1535a.f1534a.Q();
+        this.f1526a.f1525a.Q();
     }
 }

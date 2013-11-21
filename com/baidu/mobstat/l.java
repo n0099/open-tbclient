@@ -3,12 +3,12 @@ package com.baidu.mobstat;
 class l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ k f965a;
+    final /* synthetic */ k f966a;
     private String b;
     private long c;
 
     public l(k kVar, String str, long j) {
-        this.f965a = kVar;
+        this.f966a = kVar;
         this.b = str;
         this.c = j;
     }

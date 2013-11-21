@@ -19,137 +19,138 @@ import java.util.ArrayList;
 public class bx extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f1441a;
-    private NavigationBar c;
-    private RelativeLayout d;
-    private bu e;
-    private ProgressBar f;
-    private BdListView g;
-    private com.baidu.tieba.view.bi h;
-    private bk i;
-    private y j;
-    private View k;
-    private TextView l;
+    public static int f1432a;
+    private com.baidu.tieba.j c;
+    private NavigationBar d;
+    private RelativeLayout e;
+    private bu f;
+    private ProgressBar g;
+    private BdListView h;
+    private com.baidu.tieba.view.bi i;
+    private bk j;
+    private y k;
+    private View l;
     private TextView m;
     private TextView n;
+    private TextView o;
 
     public bx(com.baidu.tieba.j jVar) {
         super(jVar);
-        this.h = null;
-        this.f1441a = jVar;
-        this.f1441a.setContentView(R.layout.signallforum_view);
-        this.d = (RelativeLayout) this.f1441a.findViewById(R.id.parent);
-        this.c = (NavigationBar) this.f1441a.findViewById(R.id.view_navigation_bar);
-        this.c.a(this.f1441a.getString(R.string.signallforum));
-        this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new by(this));
-        this.g = (BdListView) this.f1441a.findViewById(R.id.signallforum_list);
-        this.g.setOnItemClickListener(jVar);
-        this.h = new com.baidu.tieba.view.bi(jVar);
-        this.g.setPullRefresh(this.h);
-        this.n = (TextView) this.f1441a.getLayoutInflater().inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
-        this.g.addFooterView(this.n);
-        this.e = new bu(this.f1441a);
-        this.f = this.e.getProgressBar();
-        this.f.setOnClickListener(this.f1441a);
-        this.g.addHeaderView(this.e);
-        this.e.setVisibility(8);
-        this.k = this.f1441a.getLayoutInflater().inflate(R.layout.signallforum_header, (ViewGroup) null);
-        this.l = (TextView) this.k.findViewById(R.id.signallforum_head_title);
-        this.m = (TextView) this.k.findViewById(R.id.signallforum_head_res);
-        this.g.addHeaderView(this.k);
-        this.k.setVisibility(8);
-        this.i = new bk(this.f1441a, this.m);
-        this.g.setAdapter((ListAdapter) this.i);
-        this.g.setOnScrollListener(this.i);
+        this.i = null;
+        this.c = jVar;
+        this.c.setContentView(R.layout.signallforum_view);
+        this.e = (RelativeLayout) this.c.findViewById(R.id.parent);
+        this.d = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
+        this.d.a(this.c.getString(R.string.signallforum));
+        this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new by(this));
+        this.h = (BdListView) this.c.findViewById(R.id.signallforum_list);
+        this.h.setOnItemClickListener(jVar);
+        this.i = new com.baidu.tieba.view.bi(jVar);
+        this.h.setPullRefresh(this.i);
+        this.o = (TextView) this.c.getLayoutInflater().inflate(R.layout.signallforum_maxcount_warning, (ViewGroup) null);
+        this.h.addFooterView(this.o);
+        this.f = new bu(this.c);
+        this.g = this.f.getProgressBar();
+        this.g.setOnClickListener(this.c);
+        this.h.addHeaderView(this.f);
+        this.f.setVisibility(8);
+        this.l = this.c.getLayoutInflater().inflate(R.layout.signallforum_header, (ViewGroup) null);
+        this.m = (TextView) this.l.findViewById(R.id.signallforum_head_title);
+        this.n = (TextView) this.l.findViewById(R.id.signallforum_head_res);
+        this.h.addHeaderView(this.l);
+        this.l.setVisibility(8);
+        this.j = new bk(this.c, this.n);
+        this.h.setAdapter((ListAdapter) this.j);
+        this.h.setOnScrollListener(this.j);
     }
 
     public void a(int i) {
-        Resources resources = this.f1441a.getResources();
-        this.f1441a.getLayoutMode().a(i == 1);
-        this.f1441a.getLayoutMode().a(this.d);
-        this.f1441a.getLayoutMode().a(this.n);
+        Resources resources = this.c.getResources();
+        this.c.getLayoutMode().a(i == 1);
+        this.c.getLayoutMode().a(this.e);
+        this.c.getLayoutMode().a(this.o);
         if (i == 1) {
-            this.d.setBackgroundColor(-13618114);
+            this.e.setBackgroundColor(-13618114);
         } else {
-            this.d.setBackgroundColor(-197380);
+            this.e.setBackgroundColor(-197380);
         }
-        this.c.c(i);
-        this.h.a(i);
+        this.d.c(i);
+        this.i.a(i);
         int i2 = i == 1 ? R.drawable.bg_ba_catalogue_1 : R.drawable.bg_ba_catalogue;
         int i3 = i == 1 ? R.color.forum_detail_ht_title_color_1 : R.color.forum_detail_ht_title_color;
-        this.k.setBackgroundResource(i2);
-        this.l.setTextColor(resources.getColor(i3));
+        this.l.setBackgroundResource(i2);
         this.m.setTextColor(resources.getColor(i3));
-        this.i.notifyDataSetChanged();
+        this.n.setTextColor(resources.getColor(i3));
+        this.j.notifyDataSetChanged();
     }
 
     public void a(y yVar) {
-        this.j = yVar;
+        this.k = yVar;
         k();
         ArrayList<z> j = yVar.j();
-        this.i.a(this.j);
-        if (j.size() == 200) {
-            this.n.setVisibility(0);
-            this.n.setText(yVar.f());
+        this.j.a(this.k);
+        if (j.size() == f1432a) {
+            this.o.setVisibility(0);
+            this.o.setText(yVar.f());
             return;
         }
-        this.n.setVisibility(8);
+        this.o.setVisibility(8);
     }
 
     private void k() {
-        if (this.j.i() == 0 || this.j.l().size() == this.j.j().size()) {
-            this.e.a();
-            int size = this.j.j().size();
-            int size2 = this.j.l().size();
-            this.m.setText(String.format(this.f1441a.getString(R.string.signallforum_res), Integer.valueOf(size2), Integer.valueOf(size - size2)));
+        if (this.k.i() == 0 || this.k.l().size() == this.k.j().size()) {
+            this.f.a();
+            int size = this.k.j().size();
+            int size2 = this.k.l().size();
+            this.n.setText(String.format(this.c.getString(R.string.signallforum_res), Integer.valueOf(size2), Integer.valueOf(size - size2)));
         } else {
-            this.m.setText(String.format(this.f1441a.getString(R.string.signallforum_count), Integer.valueOf(this.j.j().size())));
+            this.n.setText(String.format(this.c.getString(R.string.signallforum_count), Integer.valueOf(this.k.j().size())));
         }
-        TextView message1 = this.e.getMessage1();
-        SpannableString spannableString = new SpannableString(this.j.b() + this.j.c() + this.j.d());
+        TextView message1 = this.f.getMessage1();
+        SpannableString spannableString = new SpannableString(this.k.b() + this.k.c() + this.k.d());
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.parseColor("#56aeff"));
-        int length = this.j.b().length();
-        spannableString.setSpan(foregroundColorSpan, length, this.j.c().length() + length, 33);
+        int length = this.k.b().length();
+        spannableString.setSpan(foregroundColorSpan, length, this.k.c().length() + length, 33);
         message1.setText(spannableString);
-        this.e.getMessage2().setText(this.j.e());
-        this.l.setText(this.j.a());
-        this.k.setVisibility(0);
-        this.e.setVisibility(0);
+        this.f.getMessage2().setText(this.k.e());
+        this.m.setText(this.k.a());
+        this.l.setVisibility(0);
+        this.f.setVisibility(0);
     }
 
     public void a() {
-        this.g.b();
+        this.h.b();
     }
 
     public void e() {
-        this.g.a();
+        this.h.a();
     }
 
     public void a(com.baidu.adp.widget.ListView.b bVar) {
-        this.h.a(bVar);
+        this.i.a(bVar);
     }
 
     public void a(AdapterView.OnItemClickListener onItemClickListener) {
-        this.g.setOnItemClickListener(onItemClickListener);
+        this.h.setOnItemClickListener(onItemClickListener);
     }
 
     public bu f() {
-        return this.e;
-    }
-
-    public ProgressBar g() {
         return this.f;
     }
 
+    public ProgressBar g() {
+        return this.g;
+    }
+
     public y h() {
-        return this.j;
+        return this.k;
     }
 
     public bk i() {
-        return this.i;
+        return this.j;
     }
 
     public TextView j() {
-        return this.m;
+        return this.n;
     }
 }

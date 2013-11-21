@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class CharacterTemplate extends AbstractTemplate<Character> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final CharacterTemplate f2907a = new CharacterTemplate();
+    static final CharacterTemplate f2891a = new CharacterTemplate();
 
     private CharacterTemplate() {
     }
@@ -24,6 +24,6 @@ public class CharacterTemplate extends AbstractTemplate<Character> {
     }
 
     public static CharacterTemplate a() {
-        return f2907a;
+        return f2891a;
     }
 }

@@ -1,38 +1,57 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.widget.ProgressBar;
+import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements View.OnClickListener {
+public class as implements CompoundButton.OnCheckedChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2692a;
+    final /* synthetic */ WriteImageActivity f2675a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(WriteImageActivity writeImageActivity) {
-        this.f2692a = writeImageActivity;
+        this.f2675a = writeImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ProgressBar progressBar;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        progressBar = this.f2692a.g;
-        if (progressBar.getVisibility() != 0) {
-            bitmap = this.f2692a.c;
-            if (bitmap == null) {
-                bitmap2 = this.f2692a.p;
-                if (bitmap2 == null) {
-                    return;
-                }
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        HorizontalScrollView horizontalScrollView;
+        LinearLayout linearLayout;
+        TextView textView;
+        HorizontalScrollView horizontalScrollView2;
+        LinearLayout linearLayout2;
+        TextView textView2;
+        if (z) {
+            compoundButton.setTextColor(this.f2675a.getResources().getColor(R.color.white));
+            radioButton = this.f2675a.j;
+            if (compoundButton == radioButton) {
+                horizontalScrollView2 = this.f2675a.f;
+                horizontalScrollView2.setVisibility(0);
+                linearLayout2 = this.f2675a.l;
+                linearLayout2.setVisibility(4);
+                textView2 = this.f2675a.n;
+                textView2.setText(this.f2675a.getString(R.string.beautify));
+                return;
             }
-            if (view.getTag() != null) {
-                this.f2692a.x = false;
-                this.f2692a.a(view.getTag().toString());
+            radioButton2 = this.f2675a.k;
+            if (compoundButton == radioButton2) {
+                horizontalScrollView = this.f2675a.f;
+                horizontalScrollView.setVisibility(4);
+                linearLayout = this.f2675a.l;
+                linearLayout.setVisibility(0);
+                textView = this.f2675a.n;
+                textView.setText(this.f2675a.getString(R.string.rotate));
+                return;
             }
+            return;
         }
+        compoundButton.setTextColor(this.f2675a.getResources().getColor(R.color.beautify_rotate_tab_unchecked_color));
     }
 }

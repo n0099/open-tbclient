@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class w implements com.baidu.tieba.util.an {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1211a;
+    private String f1216a;
     private String b;
     private String c;
     private SpannableString d;
@@ -30,16 +30,16 @@ public class w implements com.baidu.tieba.util.an {
     private int j;
     private int k;
     private int l;
-    private ArrayList<aj> m;
+    private ArrayList<ai> m;
     private ArrayList<VoiceManager.VoiceModel> n = new ArrayList<>();
     private int o = 0;
     private int p;
-    private LinkedList<aa> q;
+    private LinkedList<IconData> q;
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1211a = jSONObject.optString("forum_id", "");
+                this.f1216a = jSONObject.optString("forum_id", "");
                 this.b = jSONObject.optString("forum_name", "");
                 this.c = jSONObject.optString("thread_id", "");
                 String optString = jSONObject.optString("title", "");
@@ -57,9 +57,9 @@ public class w implements com.baidu.tieba.util.an {
                         this.q = new LinkedList<>();
                     }
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        aa aaVar = new aa();
-                        aaVar.a(optJSONArray.getJSONObject(i));
-                        this.q.add(aaVar);
+                        IconData iconData = new IconData();
+                        iconData.parserJson(optJSONArray.getJSONObject(i));
+                        this.q.add(iconData);
                     }
                 }
                 StringBuilder sb = new StringBuilder();
@@ -80,10 +80,10 @@ public class w implements com.baidu.tieba.util.an {
                         this.m = new ArrayList<>();
                     }
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        aj ajVar = new aj();
-                        ajVar.a(optJSONArray3.getJSONObject(i3));
-                        if (ajVar.b() != null && ajVar.b().length() > 0) {
-                            this.m.add(ajVar);
+                        ai aiVar = new ai();
+                        aiVar.a(optJSONArray3.getJSONObject(i3));
+                        if (aiVar.b() != null && aiVar.b().length() > 0) {
+                            this.m.add(aiVar);
                         }
                     }
                 }
@@ -135,7 +135,7 @@ public class w implements com.baidu.tieba.util.an {
     }
 
     public String a() {
-        return this.f1211a;
+        return this.f1216a;
     }
 
     public String b() {
@@ -170,7 +170,7 @@ public class w implements com.baidu.tieba.util.an {
         return this.j;
     }
 
-    public ArrayList<aj> j() {
+    public ArrayList<ai> j() {
         return this.m;
     }
 
@@ -178,7 +178,7 @@ public class w implements com.baidu.tieba.util.an {
         return this.n;
     }
 
-    public LinkedList<aa> l() {
+    public LinkedList<IconData> l() {
         return this.q;
     }
 
@@ -188,10 +188,10 @@ public class w implements com.baidu.tieba.util.an {
             return null;
         }
         LinkedList<String> linkedList = new LinkedList<>();
-        Iterator<aj> it = this.m.iterator();
+        Iterator<ai> it = this.m.iterator();
         int i = 0;
         while (it.hasNext()) {
-            aj next = it.next();
+            ai next = it.next();
             i++;
             if (i > 3) {
                 break;

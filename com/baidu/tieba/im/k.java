@@ -6,7 +6,7 @@ import com.slidingmenu.lib.R;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1723a = 110000;
+    public static int f1714a = 110000;
     private static int u = -100000000;
     public static final int b = u - 200;
     public static final int c = u - 201;

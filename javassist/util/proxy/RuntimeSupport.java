@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 public class RuntimeSupport {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f2869a = new DefaultMethodHandler();
+    public static c f2853a = new DefaultMethodHandler();
 
     /* loaded from: classes.dex */
     class DefaultMethodHandler implements Serializable, c {

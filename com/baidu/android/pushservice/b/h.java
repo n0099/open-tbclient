@@ -46,9 +46,9 @@ public class h extends k {
     }
 
     private String h() {
-        String bssid = ((WifiManager) this.f697a.getSystemService("wifi")).getConnectionInfo().getBSSID();
+        String bssid = ((WifiManager) this.f698a.getSystemService("wifi")).getConnectionInfo().getBSSID();
         if (TextUtils.isEmpty(bssid)) {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f697a.getSystemService("phone");
+            TelephonyManager telephonyManager = (TelephonyManager) this.f698a.getSystemService("phone");
             CellLocation cellLocation = telephonyManager.getCellLocation();
             if (cellLocation instanceof GsmCellLocation) {
                 GsmCellLocation gsmCellLocation = (GsmCellLocation) telephonyManager.getCellLocation();
@@ -69,7 +69,7 @@ public class h extends k {
     @Override // com.baidu.android.pushservice.b.k
     void a(String str, List list) {
         list.add(new BasicNameValuePair(PushConstants.EXTRA_METHOD, "uploadGeo"));
-        if (com.baidu.android.pushservice.b.a(this.f697a)) {
+        if (com.baidu.android.pushservice.b.a(this.f698a)) {
             Log.d(this.c, "Sending LBS data: " + str);
         }
         list.add(new BasicNameValuePair("data", str));
@@ -84,22 +84,22 @@ public class h extends k {
     String b() {
         String a2 = PushSettings.a();
         if (!TextUtils.isEmpty(a2)) {
-            String locString = new BDLocManager(this.f697a.getApplicationContext()).getLocString(d);
+            String locString = new BDLocManager(this.f698a.getApplicationContext()).getLocString(d);
             String h = h();
             if (!TextUtils.isEmpty(locString)) {
-                String string = Settings.System.getString(this.f697a.getContentResolver(), "com.baidu.android.pushservice.lac");
+                String string = Settings.System.getString(this.f698a.getContentResolver(), "com.baidu.android.pushservice.lac");
                 if (!TextUtils.isEmpty(h)) {
                     if (TextUtils.equals(h, string)) {
-                        if (com.baidu.android.pushservice.b.a(this.f697a)) {
+                        if (com.baidu.android.pushservice.b.a(this.f698a)) {
                             Log.i(this.c, "lbsinfo equals");
                         }
                         PushSettings.b(System.currentTimeMillis());
                         return null;
                     }
-                    if (com.baidu.android.pushservice.b.a(this.f697a)) {
+                    if (com.baidu.android.pushservice.b.a(this.f698a)) {
                         Log.i(this.c, "lbsinfo not the same");
                     }
-                    Settings.System.putString(this.f697a.getContentResolver(), "com.baidu.android.pushservice.lac", h);
+                    Settings.System.putString(this.f698a.getContentResolver(), "com.baidu.android.pushservice.lac", h);
                 }
                 String f = f();
                 int indexOf = f.indexOf(37);
@@ -107,7 +107,7 @@ public class h extends k {
                     f = f.substring(0, indexOf);
                 }
                 String str = f == null ? "" : f;
-                com.baidu.android.pushservice.a a3 = com.baidu.android.pushservice.a.a(this.f697a);
+                com.baidu.android.pushservice.a a3 = com.baidu.android.pushservice.a.a(this.f698a);
                 new ArrayList();
                 JSONArray jSONArray = new JSONArray();
                 JSONObject jSONObject = new JSONObject();
@@ -124,7 +124,7 @@ public class h extends k {
                         jSONArray.put(jSONObject2);
                     }
                 }
-                ArrayList arrayList2 = a3.f687a;
+                ArrayList arrayList2 = a3.f688a;
                 for (int i2 = 0; i2 < arrayList2.size(); i2++) {
                     String str2 = ((com.baidu.android.pushservice.d) arrayList2.get(i2)).b;
                     if (!TextUtils.isEmpty(str2) && !a3.c(str2)) {
@@ -142,8 +142,8 @@ public class h extends k {
                 if (jSONArray.length() > 0) {
                     try {
                         jSONObject.put("channelid", a2);
-                        jSONObject.put(SocialConstants.PARAM_CUID, CommonParam.getCUID(this.f697a));
-                        jSONObject.put("nettype", com.baidu.android.pushservice.util.m.r(this.f697a.getApplicationContext()));
+                        jSONObject.put(SocialConstants.PARAM_CUID, CommonParam.getCUID(this.f698a));
+                        jSONObject.put("nettype", com.baidu.android.pushservice.util.m.r(this.f698a.getApplicationContext()));
                         jSONObject.put("clients", jSONArray);
                         jSONObject.put("apinfo", locString);
                         jSONObject.put("cip", str);
@@ -162,7 +162,7 @@ public class h extends k {
 
     @Override // com.baidu.android.pushservice.b.k
     void c() {
-        if (com.baidu.android.pushservice.b.a(this.f697a)) {
+        if (com.baidu.android.pushservice.b.a(this.f698a)) {
             Log.i(this.c, "<<< Location info send result return OK!");
         }
         PushSettings.b(System.currentTimeMillis());
@@ -170,7 +170,7 @@ public class h extends k {
 
     @Override // com.baidu.android.pushservice.b.k
     void d() {
-        if (com.baidu.android.pushservice.b.a(this.f697a)) {
+        if (com.baidu.android.pushservice.b.a(this.f698a)) {
             Log.i(this.c, "<<< Location info send result failed!");
         }
     }

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1469a;
+    private int f1460a;
     private String b;
     private String c;
     private String d;
@@ -24,6 +24,7 @@ public class y {
     private ArrayList<z> m = new ArrayList<>();
     private HashMap<String, z> n = new HashMap<>();
     private r o = new r();
+    private int p;
 
     public String a() {
         return this.b;
@@ -124,7 +125,7 @@ public class y {
         if (jSONObject != null) {
             try {
                 this.o.a(jSONObject.optJSONObject("error"));
-                this.f1469a = jSONObject.optInt("level");
+                this.f1460a = jSONObject.optInt("level");
                 this.b = jSONObject.optString("title");
                 this.c = jSONObject.optString("text_pre");
                 this.d = jSONObject.optString("text_color");
@@ -134,9 +135,11 @@ public class y {
                 this.h = jSONObject.optInt("show_dialog");
                 this.i = jSONObject.optString("sign_notice");
                 this.j = jSONObject.optInt("valid");
+                this.p = jSONObject.optInt("sign_max_num");
+                bx.f1432a = this.p;
                 JSONArray optJSONArray = jSONObject.optJSONArray("forum_info");
                 if (optJSONArray != null) {
-                    int min = Math.min(optJSONArray.length(), 200);
+                    int min = Math.min(optJSONArray.length(), bx.f1432a);
                     for (int i = 0; i < min; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {

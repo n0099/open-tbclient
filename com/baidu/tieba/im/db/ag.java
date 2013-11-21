@@ -10,14 +10,15 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import java.util.LinkedList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements com.baidu.tieba.im.messageCenter.h {
+public class ag implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1608a;
+    final /* synthetic */ aa f1599a;
 
     private ag(aa aaVar) {
-        this.f1608a = aaVar;
+        this.f1599a = aaVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -40,7 +41,7 @@ class ag implements com.baidu.tieba.im.messageCenter.h {
                             if (!TextUtils.isEmpty(id)) {
                                 for (String str : split) {
                                     if (id.equals(str)) {
-                                        this.f1608a.a(responseRemoveMembersMessage.getGroupId());
+                                        this.f1599a.a(responseRemoveMembersMessage.getGroupId());
                                         com.baidu.tieba.im.m.a(new ah(this, responseRemoveMembersMessage), null);
                                         aa.a().a(responseRemoveMembersMessage.getGroupId());
                                         return;

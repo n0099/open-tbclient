@@ -9,32 +9,32 @@ import com.tencent.mm.sdk.platformtools.LocaleUtil;
 public class ai extends com.baidu.adp.a.d {
 
     /* renamed from: a */
-    private String f1244a;
+    private String f1249a;
     private ak b = null;
     private String c;
 
     public ai(Bundle bundle) {
-        this.f1244a = null;
+        this.f1249a = null;
         this.c = null;
-        this.f1244a = bundle.getString(LocaleUtil.INDONESIAN);
+        this.f1249a = bundle.getString(LocaleUtil.INDONESIAN);
         this.c = bundle.getString("st_type");
     }
 
     public ai(Intent intent) {
-        this.f1244a = null;
+        this.f1249a = null;
         this.c = null;
-        this.f1244a = intent.getStringExtra(LocaleUtil.INDONESIAN);
+        this.f1249a = intent.getStringExtra(LocaleUtil.INDONESIAN);
         this.c = intent.getStringExtra("st_type");
     }
 
     public void a(Bundle bundle) {
-        bundle.putString(LocaleUtil.INDONESIAN, this.f1244a);
+        bundle.putString(LocaleUtil.INDONESIAN, this.f1249a);
         bundle.putString("st_type", this.c);
     }
 
     @Override // com.baidu.adp.a.d
     public boolean LoadData() {
-        if (this.f1244a == null) {
+        if (this.f1249a == null) {
             return false;
         }
         if (this.b == null) {
@@ -54,8 +54,8 @@ public class ai extends com.baidu.adp.a.d {
     }
 
     public ForumRankData a() {
-        ap apVar = new ap(com.baidu.tieba.data.h.f1196a + "c/f/forum/forumsquarelist");
-        apVar.a("list_id", this.f1244a);
+        ap apVar = new ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/forumsquarelist");
+        apVar.a("list_id", this.f1249a);
         apVar.a("st_type", this.c);
         return (ForumRankData) new GsonBuilder().create().fromJson(apVar.j(), (Class<Object>) ForumRankData.class);
     }

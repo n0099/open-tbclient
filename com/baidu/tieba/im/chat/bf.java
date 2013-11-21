@@ -12,7 +12,7 @@ import java.util.List;
 public class bf extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1526a;
+    private Context f1517a;
     private List<ChatMessage> b = null;
     private Long c = 0L;
     private long d = 0;
@@ -24,7 +24,7 @@ public class bf extends BaseAdapter {
 
     public bf(Context context) {
         this.i = null;
-        this.f1526a = context;
+        this.f1517a = context;
         this.i = new com.baidu.tieba.util.i(context);
     }
 
@@ -80,7 +80,7 @@ public class bf extends BaseAdapter {
         switch (itemViewType) {
             case 0:
                 if (view == null) {
-                    msgleftView = new MsgleftView(this.f1526a);
+                    msgleftView = new MsgleftView(this.f1517a);
                     view = msgleftView.a();
                 } else {
                     msgleftView = (MsgleftView) view.getTag();
@@ -92,7 +92,7 @@ public class bf extends BaseAdapter {
                 break;
             case 1:
                 if (view == null) {
-                    msgrightView = new MsgrightView(this.f1526a);
+                    msgrightView = new MsgrightView(this.f1517a);
                     view = msgrightView.a();
                 } else {
                     msgrightView = (MsgrightView) view.getTag();
@@ -104,7 +104,7 @@ public class bf extends BaseAdapter {
                 break;
             case 2:
                 if (view == null) {
-                    ajVar = new aj(this.f1526a);
+                    ajVar = new aj(this.f1517a);
                     view = ajVar.a();
                     break;
                 } else {

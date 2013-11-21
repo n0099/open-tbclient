@@ -1,34 +1,58 @@
 package com.baidu.tieba.square;
 
-import android.view.KeyEvent;
-import android.widget.TextView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.Button;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements TextView.OnEditorActionListener {
+public class bm implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2407a;
+    final /* synthetic */ SquareSearchActivity f2392a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bm(SquareSearchActivity squareSearchActivity) {
-        this.f2407a = squareSearchActivity;
+        this.f2392a = squareSearchActivity;
     }
 
-    @Override // android.widget.TextView.OnEditorActionListener
-    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-        int i2;
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         String str;
-        if (i == 2) {
-            i2 = this.f2407a.C;
-            if (i2 == 0) {
-                this.f2407a.d();
-                return true;
+        int i4;
+        int i5;
+        this.f2392a.B = charSequence.toString();
+        str = this.f2392a.B;
+        if (str.trim().length() > 0) {
+            i5 = this.f2392a.C;
+            if (i5 == 0) {
+                this.f2392a.g();
+                return;
             }
-            SquareSearchActivity squareSearchActivity = this.f2407a;
-            str = this.f2407a.B;
-            squareSearchActivity.a(1, str);
-            return true;
+            return;
         }
-        return false;
+        this.f2392a.a();
+        i4 = this.f2392a.C;
+        if (i4 == 0) {
+            this.f2392a.f();
+        } else {
+            this.f2392a.h();
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        Button button;
+        Button button2;
+        if (editable.toString().trim().length() == 0) {
+            button2 = this.f2392a.d;
+            button2.setVisibility(8);
+            return;
+        }
+        button = this.f2392a.d;
+        button.setVisibility(0);
     }
 }

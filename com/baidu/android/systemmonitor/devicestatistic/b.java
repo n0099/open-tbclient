@@ -9,26 +9,26 @@ import android.os.Environment;
 public class b extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f811a;
+    final /* synthetic */ a f812a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f811a = aVar;
+        this.f812a = aVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
         if (action.equals("com.baidu.moplus.systemmonitor.pathdeleted")) {
-            this.f811a.a(intent.getStringExtra("path"));
+            this.f812a.a(intent.getStringExtra("path"));
         } else if ("com.baidu.moplus.systemmonitor.pathrefresh".equals(action)) {
-            this.f811a.e();
-            this.f811a.b();
+            this.f812a.e();
+            this.f812a.b();
         } else if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
-            this.f811a.c();
+            this.f812a.c();
         } else {
-            this.f811a.d();
-            this.f811a.b();
+            this.f812a.d();
+            this.f812a.b();
         }
     }
 }

@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 class s implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MembersActivity f1662a;
+    final /* synthetic */ MembersActivity f1653a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(MembersActivity membersActivity) {
-        this.f1662a = membersActivity;
+        this.f1653a = membersActivity;
     }
 
     @Override // com.baidu.tieba.im.messageCenter.h
@@ -22,32 +22,32 @@ class s implements com.baidu.tieba.im.messageCenter.h {
         com.baidu.tieba.im.model.h hVar;
         aa aaVar3;
         aa aaVar4;
-        aaVar = this.f1662a.f1641a;
+        aaVar = this.f1653a.f1632a;
         aaVar.a(false);
         if (message == null || !(message instanceof ResponseRemoveMembersMessage)) {
-            this.f1662a.showToast(R.string.neterror);
+            this.f1653a.showToast(R.string.neterror);
             return;
         }
         ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) message;
         if (responseRemoveMembersMessage.hasError()) {
             if (responseRemoveMembersMessage.getErrNo() > 0) {
                 if (!TextUtils.isEmpty(responseRemoveMembersMessage.getErrMsg())) {
-                    this.f1662a.showToast(responseRemoveMembersMessage.getErrMsg());
+                    this.f1653a.showToast(responseRemoveMembersMessage.getErrMsg());
                     return;
                 }
                 return;
             }
-            this.f1662a.showToast(R.string.neterror);
+            this.f1653a.showToast(R.string.neterror);
             return;
         }
-        this.f1662a.showToast(R.string.members_delete_success);
-        aaVar2 = this.f1662a.f1641a;
+        this.f1653a.showToast(R.string.members_delete_success);
+        aaVar2 = this.f1653a.f1632a;
         w i = aaVar2.i();
-        hVar = this.f1662a.b;
+        hVar = this.f1653a.b;
         i.b(hVar.d());
-        aaVar3 = this.f1662a.f1641a;
+        aaVar3 = this.f1653a.f1632a;
         aaVar3.j();
-        aaVar4 = this.f1662a.f1641a;
+        aaVar4 = this.f1653a.f1632a;
         aaVar4.i().a();
     }
 }

@@ -9,6 +9,8 @@ public class ForbidTplData implements Serializable {
     public k error;
     @SerializedName("reason")
     public String[] reason = new String[0];
+    @SerializedName("type")
+    public int type = 0;
 
     public ForbidTplData() {
         this.error = null;

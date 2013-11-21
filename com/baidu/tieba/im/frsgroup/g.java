@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.frsgroup;
 
+import android.content.res.ColorStateList;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ae;
 import android.view.View;
@@ -15,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class g extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private FrsGroupActivity f1650a;
+    private FrsGroupActivity f1641a;
     private View c;
     private ImageView d;
     private TextView e;
@@ -31,7 +32,7 @@ public class g extends com.baidu.adp.a.e {
 
     public g(FrsGroupActivity frsGroupActivity) {
         super(frsGroupActivity);
-        this.f1650a = frsGroupActivity;
+        this.f1641a = frsGroupActivity;
         frsGroupActivity.setContentView(R.layout.im_frsgroup_activity);
         a(frsGroupActivity);
         b(frsGroupActivity);
@@ -40,9 +41,9 @@ public class g extends com.baidu.adp.a.e {
     private void a(FrsGroupActivity frsGroupActivity) {
         this.c = frsGroupActivity.findViewById(R.id.view_root);
         this.f = (NavigationBar) frsGroupActivity.findViewById(R.id.view_navigation_bar);
-        this.f.a(this.f1650a.getString(R.string.frsgroup_title));
+        this.f.a(this.f1641a.getString(R.string.frsgroup_title));
         this.d = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e = this.f.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1650a.getString(R.string.frsgroup_create));
+        this.e = this.f.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1641a.getString(R.string.frsgroup_create));
         this.d.setOnClickListener(frsGroupActivity);
         this.e.setOnClickListener(frsGroupActivity);
     }
@@ -82,7 +83,7 @@ public class g extends com.baidu.adp.a.e {
     }
 
     public void e() {
-        this.g.setOnCheckedChangeListener(this.f1650a);
+        this.g.setOnCheckedChangeListener(this.f1641a);
     }
 
     public void f() {
@@ -92,38 +93,43 @@ public class g extends com.baidu.adp.a.e {
     }
 
     public void b(int i) {
-        this.f1650a.a().a(i == 1);
-        this.f1650a.a().a(this.c);
+        ColorStateList colorStateList;
+        this.f1641a.a().a(i == 1);
+        this.f1641a.a().a(this.c);
         this.f.c(i);
         if (i == 1) {
-            this.c.setBackgroundColor(this.f1650a.getResources().getColor(R.color.frsgruop_container_bg_1));
+            this.c.setBackgroundColor(this.f1641a.getResources().getColor(R.color.frsgruop_container_bg_1));
             bd.e(this.g, (int) R.drawable.bg_pop_most_1);
+            colorStateList = this.f1641a.getResources().getColorStateList(R.drawable.im_textcolor_groupradios_1);
             this.j.setBackgroundResource(R.drawable.radio_commen_bg_right_1);
             this.h.setBackgroundResource(R.drawable.radio_commen_bg_left_1);
             if (this.n) {
                 this.i.setBackgroundResource(R.drawable.radio_commen_bg_middle_1);
-                return;
             } else {
                 this.i.setBackgroundResource(R.drawable.radio_commen_bg_left_1);
-                return;
+            }
+        } else {
+            this.c.setBackgroundColor(this.f1641a.getResources().getColor(R.color.frsgroup_container_bg));
+            bd.e(this.g, (int) R.drawable.bg_pop_most);
+            colorStateList = this.f1641a.getResources().getColorStateList(R.drawable.im_textcolor_groupradios);
+            this.j.setBackgroundResource(R.drawable.radio_commen_bg_right);
+            this.h.setBackgroundResource(R.drawable.radio_commen_bg_left);
+            if (this.n) {
+                this.i.setBackgroundResource(R.drawable.radio_commen_bg_middle);
+            } else {
+                this.i.setBackgroundResource(R.drawable.radio_commen_bg_left);
             }
         }
-        this.c.setBackgroundColor(this.f1650a.getResources().getColor(R.color.frsgroup_container_bg));
-        bd.e(this.g, (int) R.drawable.bg_pop_most);
-        this.j.setBackgroundResource(R.drawable.radio_commen_bg_right);
-        this.h.setBackgroundResource(R.drawable.radio_commen_bg_left);
-        if (this.n) {
-            this.i.setBackgroundResource(R.drawable.radio_commen_bg_middle);
-        } else {
-            this.i.setBackgroundResource(R.drawable.radio_commen_bg_left);
-        }
+        this.j.setTextColor(colorStateList);
+        this.h.setTextColor(colorStateList);
+        this.i.setTextColor(colorStateList);
     }
 
     @Override // com.baidu.adp.a.e
     public void c() {
         super.c();
         if (this.k != null) {
-            ae a2 = this.f1650a.getSupportFragmentManager().a();
+            ae a2 = this.f1641a.getSupportFragmentManager().a();
             for (int i = 0; i < this.k.length; i++) {
                 a2.a(this.k[i]);
             }

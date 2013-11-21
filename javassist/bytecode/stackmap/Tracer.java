@@ -14,7 +14,7 @@ import javassist.bytecode.z;
 public abstract class Tracer implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected javassist.c f2819a;
+    protected javassist.c f2803a;
     protected y b;
     protected String c;
     protected int d;
@@ -22,7 +22,7 @@ public abstract class Tracer implements d {
     protected TypeData[] f;
 
     public Tracer(javassist.c cVar, y yVar, int i, int i2, String str) {
-        this.f2819a = cVar;
+        this.f2803a = cVar;
         this.b = yVar;
         this.c = str;
         this.d = 0;
@@ -31,7 +31,7 @@ public abstract class Tracer implements d {
     }
 
     public Tracer(Tracer tracer) {
-        this.f2819a = tracer.f2819a;
+        this.f2803a = tracer.f2803a;
         this.b = tracer.b;
         this.c = tracer.c;
         this.d = tracer.d;
@@ -356,7 +356,7 @@ public abstract class Tracer implements d {
                 this.d -= (i2 == 80 || i2 == 82) ? 4 : 3;
                 break;
             case 83:
-                TypeData.ArrayElement.a(this.e[this.d - 3], this.e[this.d - 1], this.f2819a);
+                TypeData.ArrayElement.a(this.e[this.d - 3], this.e[this.d - 1], this.f2803a);
                 this.d -= 3;
                 break;
             case 84:
@@ -592,7 +592,7 @@ public abstract class Tracer implements d {
                 TypeData[] typeDataArr2 = this.e;
                 int i6 = this.d - 1;
                 this.d = i6;
-                typeDataArr2[i6].a(this.c, this.f2819a);
+                typeDataArr2[i6].a(this.c, this.f2803a);
                 b(i, bArr);
                 break;
             case 177:
@@ -634,14 +634,14 @@ public abstract class Tracer implements d {
                 this.e[this.d - 1] = new TypeData.ClassName(str);
                 return 3;
             case 190:
-                this.e[this.d - 1].a("[Ljava.lang.Object;", this.f2819a);
+                this.e[this.d - 1].a("[Ljava.lang.Object;", this.f2803a);
                 this.e[this.d - 1] = h;
                 break;
             case 191:
                 TypeData[] typeDataArr4 = this.e;
                 int i8 = this.d - 1;
                 this.d = i8;
-                typeDataArr4[i8].a("java.lang.Throwable", this.f2819a);
+                typeDataArr4[i8].a("java.lang.Throwable", this.f2803a);
                 c(i, bArr);
                 break;
             case 192:
@@ -735,9 +735,9 @@ public abstract class Tracer implements d {
         this.d -= z.g(k);
         char charAt = k.charAt(0);
         if (charAt == 'L') {
-            this.e[this.d].a(a(k, 0), this.f2819a);
+            this.e[this.d].a(a(k, 0), this.f2803a);
         } else if (charAt == '[') {
-            this.e[this.d].a(k, this.f2819a);
+            this.e[this.d].a(k, this.f2803a);
         }
         a(z, a2);
         return 3;
@@ -756,7 +756,7 @@ public abstract class Tracer implements d {
             TypeData[] typeDataArr = this.e;
             int i3 = this.d - 1;
             this.d = i3;
-            typeDataArr[i3].a(i2, this.f2819a);
+            typeDataArr[i3].a(i2, this.f2803a);
         }
     }
 
@@ -817,7 +817,7 @@ public abstract class Tracer implements d {
             } else if (typeData instanceof TypeData.UninitData) {
                 a(typeData, ((TypeData.UninitData) typeData).j());
             }
-            typeData.a(l, this.f2819a);
+            typeData.a(l, this.f2803a);
         }
         a(o);
         return 3;
@@ -841,7 +841,7 @@ public abstract class Tracer implements d {
         TypeData[] typeDataArr = this.e;
         int i2 = this.d - 1;
         this.d = i2;
-        typeDataArr[i2].a(p, this.f2819a);
+        typeDataArr[i2].a(p, this.f2803a);
         a(q);
         return 5;
     }
@@ -926,9 +926,9 @@ public abstract class Tracer implements d {
                 this.d--;
             }
             if (z) {
-                this.e[this.d].a(str.substring(i, i2), this.f2819a);
+                this.e[this.d].a(str.substring(i, i2), this.f2803a);
             } else if (c == 'L') {
-                this.e[this.d].a(str.substring(i + 1, i2 - 1).replace('/', '.'), this.f2819a);
+                this.e[this.d].a(str.substring(i + 1, i2 - 1).replace('/', '.'), this.f2803a);
             }
         }
     }

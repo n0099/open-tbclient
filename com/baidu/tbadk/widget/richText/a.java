@@ -9,13 +9,13 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList<h> f981a;
+    private ArrayList<h> f982a;
     private int b;
     private ArrayList<c> c;
     private Context d;
 
     public a(Context context, String str) {
-        this.f981a = null;
+        this.f982a = null;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -23,7 +23,7 @@ public class a {
     }
 
     public a(Context context, JSONArray jSONArray, int i) {
-        this.f981a = null;
+        this.f982a = null;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -31,7 +31,7 @@ public class a {
     }
 
     public a(Context context, JSONArray jSONArray, boolean z) {
-        this.f981a = null;
+        this.f982a = null;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -44,7 +44,7 @@ public class a {
     }
 
     public a(Context context, ArrayList<c> arrayList) {
-        this.f981a = null;
+        this.f982a = null;
         this.b = 0;
         this.c = null;
         this.d = null;
@@ -63,18 +63,18 @@ public class a {
 
     private void a(JSONArray jSONArray, int i, boolean z) {
         if (jSONArray != null) {
-            this.f981a = new ArrayList<>();
+            this.f982a = new ArrayList<>();
             int length = jSONArray.length();
             for (int i2 = 0; i2 < length; i2++) {
                 h hVar = new h();
                 hVar.a(jSONArray.optJSONObject(i2));
                 if ((hVar.a() & i) != 0) {
-                    this.f981a.add(hVar);
+                    this.f982a.add(hVar);
                 }
             }
             this.c = new ArrayList<>();
             this.b = 0;
-            Iterator<h> it = this.f981a.iterator();
+            Iterator<h> it = this.f982a.iterator();
             c cVar = null;
             while (it.hasNext()) {
                 h next = it.next();
@@ -120,8 +120,8 @@ public class a {
             if (cVar != null) {
                 this.c.add(cVar);
             }
-            this.f981a.clear();
-            this.f981a = null;
+            this.f982a.clear();
+            this.f982a = null;
         }
     }
 

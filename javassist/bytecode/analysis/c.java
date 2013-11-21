@@ -3,23 +3,23 @@ package javassist.bytecode.analysis;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private h[] f2770a;
+    private h[] f2754a;
     private h[] b;
     private int c;
     private boolean d;
     private boolean e;
 
     public c(int i, int i2) {
-        this.f2770a = new h[i];
+        this.f2754a = new h[i];
         this.b = new h[i2];
     }
 
     public h a(int i) {
-        return this.f2770a[i];
+        return this.f2754a[i];
     }
 
     public void a(int i, h hVar) {
-        this.f2770a[i] = hVar;
+        this.f2754a[i] = hVar;
     }
 
     public h b(int i) {
@@ -39,7 +39,7 @@ public class c {
     }
 
     public int c() {
-        return this.f2770a.length;
+        return this.f2754a.length;
     }
 
     public h d() {
@@ -67,15 +67,15 @@ public class c {
     }
 
     public c f() {
-        c cVar = new c(this.f2770a.length, this.b.length);
-        System.arraycopy(this.f2770a, 0, cVar.f2770a, 0, this.f2770a.length);
+        c cVar = new c(this.f2754a.length, this.b.length);
+        System.arraycopy(this.f2754a, 0, cVar.f2754a, 0, this.f2754a.length);
         System.arraycopy(this.b, 0, cVar.b, 0, this.b.length);
         cVar.c = this.c;
         return cVar;
     }
 
     public c g() {
-        c cVar = new c(this.f2770a.length, this.b.length);
+        c cVar = new c(this.f2754a.length, this.b.length);
         System.arraycopy(this.b, 0, cVar.b, 0, this.b.length);
         cVar.c = this.c;
         return cVar;
@@ -104,16 +104,16 @@ public class c {
 
     public boolean b(c cVar) {
         boolean z = false;
-        for (int i = 0; i < this.f2770a.length; i++) {
-            if (this.f2770a[i] != null) {
-                h hVar = this.f2770a[i];
-                h c = hVar.c(cVar.f2770a[i]);
-                this.f2770a[i] = c;
+        for (int i = 0; i < this.f2754a.length; i++) {
+            if (this.f2754a[i] != null) {
+                h hVar = this.f2754a[i];
+                h c = hVar.c(cVar.f2754a[i]);
+                this.f2754a[i] = c;
                 if (!c.equals(hVar) || c.b()) {
                     z = true;
                 }
-            } else if (cVar.f2770a[i] != null) {
-                this.f2770a[i] = cVar.f2770a[i];
+            } else if (cVar.f2754a[i] != null) {
+                this.f2754a[i] = cVar.f2754a[i];
                 z = true;
             }
         }
@@ -123,9 +123,9 @@ public class c {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("locals = [");
-        for (int i = 0; i < this.f2770a.length; i++) {
-            stringBuffer.append(this.f2770a[i] == null ? "empty" : this.f2770a[i].toString());
-            if (i < this.f2770a.length - 1) {
+        for (int i = 0; i < this.f2754a.length; i++) {
+            stringBuffer.append(this.f2754a[i] == null ? "empty" : this.f2754a[i].toString());
+            if (i < this.f2754a.length - 1) {
                 stringBuffer.append(", ");
             }
         }

@@ -8,7 +8,7 @@ public class bc {
     private volatile HashMap<Long, Integer> c = new HashMap<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f2498a = 0;
+    private volatile int f2481a = 0;
 
     public bc(int i) {
         this.b = i;
@@ -21,8 +21,8 @@ public class bc {
                 if (this.c.size() >= this.b) {
                     a();
                 }
-                this.f2498a++;
-                this.c.put(valueOf, Integer.valueOf(this.f2498a));
+                this.f2481a++;
+                this.c.put(valueOf, Integer.valueOf(this.f2481a));
             }
         } catch (Exception e) {
             bg.b(getClass().getName(), "addThread", e.getMessage());

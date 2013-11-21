@@ -7,16 +7,16 @@ import com.tencent.mm.sdk.contact.RContact;
 public final class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private w[][] f2761a;
+    private w[][] f2745a;
     private int b;
 
     public ak() {
-        this.f2761a = new w[8];
+        this.f2745a = new w[8];
         this.b = 0;
     }
 
     public ak(int i) {
-        this.f2761a = new w[((i >> 7) & (-8)) + 8];
+        this.f2745a = new w[((i >> 7) & (-8)) + 8];
         this.b = 0;
     }
 
@@ -24,22 +24,22 @@ public final class ak {
         if (i < 0 || this.b <= i) {
             return null;
         }
-        return this.f2761a[i >> 7][i & RContact.MM_CONTACTFLAG_ALL];
+        return this.f2745a[i >> 7][i & RContact.MM_CONTACTFLAG_ALL];
     }
 
     public void a(w wVar) {
         int i = this.b >> 7;
         int i2 = this.b & RContact.MM_CONTACTFLAG_ALL;
-        int length = this.f2761a.length;
+        int length = this.f2745a.length;
         if (i >= length) {
             w[][] wVarArr = new w[length + 8];
-            System.arraycopy(this.f2761a, 0, wVarArr, 0, length);
-            this.f2761a = wVarArr;
+            System.arraycopy(this.f2745a, 0, wVarArr, 0, length);
+            this.f2745a = wVarArr;
         }
-        if (this.f2761a[i] == null) {
-            this.f2761a[i] = new w[DERTags.TAGGED];
+        if (this.f2745a[i] == null) {
+            this.f2745a[i] = new w[DERTags.TAGGED];
         }
-        this.f2761a[i][i2] = wVar;
+        this.f2745a[i][i2] = wVar;
         this.b++;
     }
 }

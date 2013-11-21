@@ -20,6 +20,7 @@ import com.baidu.cyberplayer.sdk.internal.VersionUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.TiebaApplication;
 import com.baidu.tieba.data.ForumData;
+import com.baidu.tieba.data.IconData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.switchs.SwitchKey;
 import com.baidu.tieba.util.UtilHelper;
@@ -87,10 +88,10 @@ public class aa implements com.baidu.tbadk.imageManager.c {
     private int H = 0;
     private String J = "?tag=";
     private com.baidu.tieba.data.y K = null;
-    private com.baidu.tieba.data.ay L = null;
+    private com.baidu.tieba.data.ax L = null;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.tieba.data.ba f2552a = null;
+    com.baidu.tieba.data.az f2535a = null;
     private float Q = 0.36458334f;
     private PopupWindow R = null;
     private LinearLayout T = null;
@@ -228,8 +229,8 @@ public class aa implements com.baidu.tbadk.imageManager.c {
         return this.M;
     }
 
-    public com.baidu.tieba.data.ba b() {
-        return this.f2552a;
+    public com.baidu.tieba.data.az b() {
+        return this.f2535a;
     }
 
     public void a(int i) {
@@ -288,17 +289,17 @@ public class aa implements com.baidu.tbadk.imageManager.c {
             this.B = akVar;
             this.K = akVar.f();
             this.aC = forumData.getBadgeData();
-            this.f2552a = new com.baidu.tieba.data.ba();
+            this.f2535a = new com.baidu.tieba.data.az();
             if (this.K != null) {
                 this.L = this.K.j();
-                com.baidu.tieba.data.aj ajVar = new com.baidu.tieba.data.aj();
-                ajVar.a(3);
-                ajVar.a(this.K.b());
-                this.f2552a.p().add(ajVar);
-                com.baidu.tieba.data.aj ajVar2 = new com.baidu.tieba.data.aj();
-                ajVar2.a(3);
-                ajVar2.a(this.K.c());
-                this.f2552a.p().add(ajVar2);
+                com.baidu.tieba.data.ai aiVar = new com.baidu.tieba.data.ai();
+                aiVar.a(3);
+                aiVar.a(this.K.b());
+                this.f2535a.p().add(aiVar);
+                com.baidu.tieba.data.ai aiVar2 = new com.baidu.tieba.data.ai();
+                aiVar2.a(3);
+                aiVar2.a(this.K.c());
+                this.f2535a.p().add(aiVar2);
             }
             this.y.setVisibility(0);
             h();
@@ -381,12 +382,12 @@ public class aa implements com.baidu.tbadk.imageManager.c {
             }
         }
         if (this.az != null && this.aC != null && this.aC.size() > 0) {
-            LinkedList<com.baidu.tieba.data.aa> linkedList = new LinkedList<>();
+            LinkedList<IconData> linkedList = new LinkedList<>();
             for (int i = 0; i < this.aC.size(); i++) {
-                com.baidu.tieba.data.aa aaVar = new com.baidu.tieba.data.aa();
-                aaVar.b(this.aC.get(i).b());
-                aaVar.a(this.aC.get(i).a());
-                linkedList.add(aaVar);
+                IconData iconData = new IconData();
+                iconData.setIconName(this.aC.get(i).b());
+                iconData.setIconUrl(this.aC.get(i).a());
+                linkedList.add(iconData);
             }
             this.az.setClickListener(this.d);
             this.az.a(linkedList, this.aA, this.D.getResources().getDimensionPixelSize(R.dimen.frs_starheader_badge_width), this.D.getResources().getDimensionPixelSize(R.dimen.frs_starheader_badge_height), this.D.getResources().getDimensionPixelSize(R.dimen.frs_starheader_badge_margin));
@@ -508,6 +509,8 @@ public class aa implements com.baidu.tbadk.imageManager.c {
     public void c(int i) {
         if (i == 0) {
             this.as = false;
+            this.r.setVisibility(8);
+            this.n.setVisibility(0);
             if (this.ar == 1) {
                 this.o.setBackgroundResource(R.drawable.frs_btn_sign_1);
                 return;

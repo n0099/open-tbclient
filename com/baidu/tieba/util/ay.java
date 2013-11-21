@@ -9,7 +9,7 @@ import com.baidu.tieba.TiebaApplication;
 public class ay {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2494a;
+    public static int f2477a;
     private static ay b;
     private static long d;
     private static volatile int c = 0;
@@ -17,7 +17,7 @@ public class ay {
     private static int f = 10;
 
     private ay() {
-        f2494a = TiebaApplication.g().aS();
+        f2477a = TiebaApplication.g().aT();
     }
 
     public static synchronized ay a() {
@@ -32,7 +32,7 @@ public class ay {
     }
 
     public ai a(az azVar) {
-        switch (f2494a) {
+        switch (f2477a) {
             case 0:
                 return new NetWorkCore(azVar);
             case 1:
@@ -44,15 +44,15 @@ public class ay {
 
     public static synchronized void b() {
         synchronized (ay.class) {
-            if (f2494a == 1) {
+            if (f2477a == 1) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - d < e) {
                     c++;
                     bg.c(ay.class.getName(), "addError", "发生一次新网络内核不通畅警告！ errotime:" + c);
                     if (c > f) {
-                        f2494a = 0;
+                        f2477a = 0;
                         bg.b(ay.class.getName(), "addError", "切换会老的网络内核");
-                        TiebaApplication.g().l(f2494a);
+                        TiebaApplication.g().l(f2477a);
                         if (TiebaApplication.g().s()) {
                             StatService.onEvent(TiebaApplication.g().getApplicationContext(), "network_core", "current Net：" + UtilHelper.i(TiebaApplication.g().getApplicationContext()) + ", TelType:" + com.baidu.adp.lib.network.g.c() + ", wap:" + c(), 1);
                         }
@@ -87,6 +87,6 @@ public class ay {
     }
 
     public static void a(int i) {
-        f2494a = i;
+        f2477a = i;
     }
 }

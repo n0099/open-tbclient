@@ -1,18 +1,27 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ej implements com.baidu.tbadk.imageManager.c {
+public class ej implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ eb f2166a;
+    final /* synthetic */ int f2149a;
+    final /* synthetic */ View b;
+    final /* synthetic */ ed c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ej(eb ebVar) {
-        this.f2166a = ebVar;
+    public ej(ed edVar, int i, View view) {
+        this.c = edVar;
+        this.f2149a = i;
+        this.b = view;
     }
 
-    @Override // com.baidu.tbadk.imageManager.c
-    public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-        eVar.a(this.f2166a.g);
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        this.c.I.getLocationInWindow(iArr);
+        this.c.c.setSelectionFromTop(this.f2149a + 1, iArr[1] - this.b.getHeight());
+        this.c.c.invalidate();
     }
 }

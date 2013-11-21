@@ -39,7 +39,7 @@ public class ResponsedMessage extends Message {
             this.errNo = 0;
             return;
         }
-        this.errNo = qVar.f1576a;
+        this.errNo = qVar.f1567a;
         this.errMsg = qVar.c;
     }
 

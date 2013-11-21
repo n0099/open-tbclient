@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class ShortTemplate extends AbstractTemplate<Short> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ShortTemplate f2929a = new ShortTemplate();
+    static final ShortTemplate f2913a = new ShortTemplate();
 
     private ShortTemplate() {
     }
@@ -24,6 +24,6 @@ public class ShortTemplate extends AbstractTemplate<Short> {
     }
 
     public static ShortTemplate a() {
-        return f2929a;
+        return f2913a;
     }
 }

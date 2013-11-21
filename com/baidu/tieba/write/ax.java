@@ -1,108 +1,33 @@
 package com.baidu.tieba.write;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Build;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import cn.jingling.lib.filters.FilterFactory;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bg;
-import java.util.HashMap;
+import com.baidu.browser.explorer.BdWebErrorView;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
+public class ax extends BdAsyncTask<String, Void, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImageActivity f2697a;
+    final /* synthetic */ WriteImageActivity f2680a;
+    private String b;
+    private Bitmap c;
+    private Boolean d;
+    private Boolean e;
 
     private ax(WriteImageActivity writeImageActivity) {
-        this.f2697a = writeImageActivity;
+        this.f2680a = writeImageActivity;
+        this.d = false;
+        this.e = false;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ax(WriteImageActivity writeImageActivity, ao aoVar) {
+    public /* synthetic */ ax(WriteImageActivity writeImageActivity, ap apVar) {
         this(writeImageActivity);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public Bitmap a(Object... objArr) {
-        Bitmap c;
-        boolean z;
-        Object obj;
-        HashMap hashMap;
-        String[] strArr;
-        Object obj2;
-        HashMap hashMap2;
-        Bitmap bitmap = null;
-        try {
-            c = com.baidu.tieba.util.af.c(null, "tieba_resized_image");
-        } catch (Exception e) {
-            e = e;
-        }
-        try {
-            if (isCancelled() && c != null && !c.isRecycled()) {
-                c.recycle();
-                return null;
-            }
-            if (c != null) {
-                int a2 = UtilHelper.a((Context) this.f2697a, 63.5f);
-                if (Build.VERSION.SDK_INT >= 7) {
-                    z = this.f2697a.u;
-                    if (z) {
-                        Bitmap b = com.baidu.tieba.util.m.b(c, a2);
-                        if (b == null) {
-                            return null;
-                        }
-                        if (b.equals(c)) {
-                            c = com.baidu.tieba.util.m.a(com.baidu.tieba.util.m.c(c, 100));
-                        }
-                        Bitmap a3 = com.baidu.tieba.util.m.a(b, UtilHelper.a((Context) this.f2697a, 5.0f));
-                        if (a3 == null) {
-                            return null;
-                        }
-                        obj = this.f2697a.E;
-                        synchronized (obj) {
-                            this.f2697a.C = new HashMap();
-                            this.f2697a.D = new HashMap();
-                            hashMap = this.f2697a.C;
-                            hashMap.put("normal", a3);
-                        }
-                        strArr = WriteImageActivity.f2671a;
-                        for (String str : strArr) {
-                            String substring = str.substring(0, str.indexOf("|"));
-                            if (!substring.equals("normal")) {
-                                Bitmap.Config config = a3.getConfig();
-                                if (config == null) {
-                                    config = com.baidu.tieba.data.h.n;
-                                }
-                                Bitmap apply = FilterFactory.createOneKeyFilter(this.f2697a, substring).apply(this.f2697a, a3.copy(config, true));
-                                if (apply == null) {
-                                    return null;
-                                }
-                                obj2 = this.f2697a.E;
-                                synchronized (obj2) {
-                                    hashMap2 = this.f2697a.C;
-                                    hashMap2.put(substring, apply);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return c;
-        } catch (Exception e2) {
-            bitmap = c;
-            e = e2;
-            e.printStackTrace();
-            bg.b(getClass().getName(), "GetImageTask", e.toString());
-            return bitmap;
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -110,49 +35,158 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
     public void b() {
         ProgressBar progressBar;
         TextView textView;
-        progressBar = this.f2697a.g;
+        progressBar = this.f2680a.g;
         progressBar.setVisibility(0);
-        textView = this.f2697a.e;
+        textView = this.f2680a.e;
         textView.setClickable(false);
-        super.b();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.f2697a.h = null;
-        progressBar = this.f2697a.g;
-        progressBar.setVisibility(8);
-        super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(Bitmap bitmap) {
-        TextView textView;
-        ProgressBar progressBar;
-        ImageView imageView;
-        boolean z;
-        String[] strArr;
-        super.a((ax) bitmap);
-        textView = this.f2697a.e;
-        textView.setClickable(true);
-        this.f2697a.h = null;
-        this.f2697a.c = bitmap;
-        progressBar = this.f2697a.g;
-        progressBar.setVisibility(8);
-        if (bitmap != null && !bitmap.isRecycled() && bitmap != null) {
-            imageView = this.f2697a.b;
-            imageView.setImageBitmap(bitmap);
-            if (Build.VERSION.SDK_INT >= 7) {
-                z = this.f2697a.u;
-                if (z) {
-                    WriteImageActivity writeImageActivity = this.f2697a;
-                    strArr = WriteImageActivity.f2671a;
-                    writeImageActivity.a(strArr);
+    public Bitmap a(String... strArr) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        Bitmap bitmap10;
+        Bitmap bitmap11;
+        Bitmap bitmap12;
+        this.b = strArr[0];
+        bitmap = this.f2680a.c;
+        if (bitmap == null) {
+            bitmap12 = this.f2680a.p;
+            if (bitmap12 == null) {
+                return null;
+            }
+        }
+        if (this.b.equals(SocialConstants.FALSE) || this.b.equals(SocialConstants.TRUE)) {
+            this.d = true;
+        } else if (this.b.equals("2") || this.b.equals("3")) {
+            this.e = true;
+        }
+        if (this.d.booleanValue() || this.e.booleanValue()) {
+            bitmap2 = this.f2680a.p;
+            if (bitmap2 != null) {
+                bitmap6 = this.f2680a.p;
+                if (!bitmap6.isRecycled()) {
+                    bitmap7 = this.f2680a.p;
+                    bitmap8 = this.f2680a.p;
+                    this.c = bitmap7.copy(bitmap8.getConfig(), true);
                 }
             }
+            bitmap3 = this.f2680a.c;
+            if (!bitmap3.isRecycled()) {
+                bitmap4 = this.f2680a.c;
+                bitmap5 = this.f2680a.c;
+                this.c = bitmap4.copy(bitmap5.getConfig(), true);
+            }
+        } else {
+            bitmap9 = this.f2680a.c;
+            if (!bitmap9.isRecycled()) {
+                bitmap10 = this.f2680a.c;
+                bitmap11 = this.f2680a.c;
+                this.c = bitmap10.copy(bitmap11.getConfig(), true);
+            }
+        }
+        if (this.c != null) {
+            if (this.c.getWidth() > 900 || this.c.getHeight() > 900) {
+                this.c = com.baidu.tieba.util.m.a(this.c, (int) BdWebErrorView.ERROR_CODE_900);
+            }
+            if (this.d.booleanValue()) {
+                this.c = com.baidu.tieba.util.m.d(this.c, Integer.parseInt(this.b));
+            } else if (this.e.booleanValue()) {
+                this.c = com.baidu.tieba.util.m.f(this.c, Integer.parseInt(this.b));
+            } else {
+                this.c = FilterFactory.createOneKeyFilter(this.f2680a, this.b).apply(this.f2680a, this.c);
+            }
+            return this.c;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        ProgressBar progressBar;
+        TextView textView;
+        Bitmap bitmap;
+        if (this.c != null && !this.c.isRecycled()) {
+            bitmap = this.f2680a.p;
+            if (bitmap != this.c) {
+                this.c.recycle();
+            }
+        }
+        this.c = null;
+        progressBar = this.f2680a.g;
+        progressBar.setVisibility(8);
+        textView = this.f2680a.e;
+        textView.setClickable(true);
+        super.cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x005b, code lost:
+        if (r0.getHeight() > 900) goto L21;
+     */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(Bitmap bitmap) {
+        ProgressBar progressBar;
+        TextView textView;
+        ImageView imageView;
+        Bitmap bitmap2;
+        Bitmap bitmap3;
+        Bitmap bitmap4;
+        Bitmap bitmap5;
+        Bitmap bitmap6;
+        Bitmap bitmap7;
+        Bitmap bitmap8;
+        Bitmap bitmap9;
+        Bitmap bitmap10;
+        progressBar = this.f2680a.g;
+        progressBar.setVisibility(8);
+        textView = this.f2680a.e;
+        textView.setClickable(true);
+        if (bitmap != null && !bitmap.isRecycled()) {
+            this.f2680a.x = true;
+            imageView = this.f2680a.b;
+            imageView.setImageBitmap(bitmap);
+            bitmap2 = this.f2680a.c;
+            if (bitmap2 != null && (this.d.booleanValue() || this.e.booleanValue())) {
+                bitmap6 = this.f2680a.c;
+                if (bitmap6.getWidth() <= 900) {
+                    bitmap10 = this.f2680a.c;
+                }
+                WriteImageActivity writeImageActivity = this.f2680a;
+                bitmap7 = this.f2680a.c;
+                writeImageActivity.c = com.baidu.tieba.util.m.a(bitmap7, (int) BdWebErrorView.ERROR_CODE_900);
+                if (this.d.booleanValue()) {
+                    WriteImageActivity writeImageActivity2 = this.f2680a;
+                    bitmap9 = this.f2680a.c;
+                    writeImageActivity2.c = com.baidu.tieba.util.m.d(bitmap9, Integer.parseInt(this.b));
+                } else if (this.e.booleanValue()) {
+                    WriteImageActivity writeImageActivity3 = this.f2680a;
+                    bitmap8 = this.f2680a.c;
+                    writeImageActivity3.c = com.baidu.tieba.util.m.f(bitmap8, Integer.parseInt(this.b));
+                }
+            }
+            bitmap3 = this.f2680a.p;
+            if (bitmap3 != null) {
+                bitmap4 = this.f2680a.p;
+                if (!bitmap4.isRecycled()) {
+                    bitmap5 = this.f2680a.p;
+                    bitmap5.recycle();
+                }
+            }
+            this.f2680a.p = bitmap;
         }
     }
 }

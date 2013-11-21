@@ -30,7 +30,7 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1769a;
+    private static a f1760a;
     private static Handler l = new Handler();
     private String c;
     private String d;
@@ -206,7 +206,7 @@ public class a {
         if (recentChatFriendData != null) {
             String friendId = recentChatFriendData.getFriendId();
             if (!TextUtils.isEmpty(friendId)) {
-                if ((!MsglistActivity.f1493a || !friendId.equals(MsglistActivity.b)) && !TextUtils.isEmpty(recentChatFriendData.getMsgContent())) {
+                if ((!MsglistActivity.f1484a || !friendId.equals(MsglistActivity.b)) && !TextUtils.isEmpty(recentChatFriendData.getMsgContent())) {
                     HashMap<String, String> j = aeVar.j();
                     boolean b = v.b(TiebaApplication.A(), friendId);
                     com.baidu.adp.lib.h.d.d("isNofity:" + b + " gid:" + friendId + "count:" + recentChatFriendData.getUnReadCount());
@@ -493,14 +493,14 @@ public class a {
     }
 
     public static a g() {
-        if (f1769a == null) {
+        if (f1760a == null) {
             synchronized (a.class) {
-                if (f1769a == null) {
-                    f1769a = new a();
+                if (f1760a == null) {
+                    f1760a = new a();
                 }
             }
         }
-        return f1769a;
+        return f1760a;
     }
 
     public void b(long j) {

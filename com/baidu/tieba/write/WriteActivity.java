@@ -34,7 +34,6 @@ import com.baidu.tieba.editortool.EditorToolComponetContainer;
 import com.baidu.tieba.service.TiebaPrepareImageService;
 import com.baidu.tieba.util.DatabaseService;
 import com.baidu.tieba.util.UtilHelper;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.NavigationBar;
 import com.baidu.tieba.voice.VoiceManager;
@@ -54,12 +53,12 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
     private com.baidu.tieba.model.ba j = null;
 
     /* renamed from: a  reason: collision with root package name */
-    final KeyEvent f2670a = new KeyEvent(0, 67);
+    final KeyEvent f2653a = new KeyEvent(0, 67);
     private NavigationBar k = null;
     private ImageView l = null;
     private TextView m = null;
     private TextView n = null;
-    private an o = null;
+    private ao o = null;
     private DialogInterface.OnCancelListener p = null;
     private AlertDialog q = null;
     private Bitmap r = null;
@@ -192,7 +191,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         }
         r();
         this.C.c();
-        TiebaApplication.g().aM();
+        TiebaApplication.g().aO();
         super.onDestroy();
         g().g(this);
     }
@@ -258,7 +257,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
         getLayoutMode().a(i == 1);
         getLayoutMode().a(this.w);
         this.k.c(i);
-        bd.h(this.m, i);
+        com.baidu.tieba.util.bd.g(this.m, i);
         n();
         if (i == 1) {
             this.f.setBackgroundColor(getResources().getColor(R.color.write_title_bg_1));
@@ -399,6 +398,17 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             stringBuffer.append(Build.VERSION.RELEASE);
             stringBuffer.append(", ");
             stringBuffer.append(Build.MODEL);
+            stringBuffer.append(", ");
+            UtilHelper.NetworkStateInfo i = UtilHelper.i(this);
+            if (i == UtilHelper.NetworkStateInfo.WIFI) {
+                stringBuffer.append("WIFI");
+            } else if (i == UtilHelper.NetworkStateInfo.ThreeG) {
+                stringBuffer.append("3G");
+            } else if (i == UtilHelper.NetworkStateInfo.TwoG) {
+                stringBuffer.append("2G");
+            } else {
+                stringBuffer.append("UNKNOWN");
+            }
             stringBuffer.append(":");
             this.h.setText(stringBuffer);
         }
@@ -482,7 +492,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void l() {
-        this.h.onKeyDown(67, this.f2670a);
+        this.h.onKeyDown(67, this.f2653a);
     }
 
     private void a(Boolean bool) {
@@ -632,7 +642,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
             this.o.cancel();
         }
         this.b.setVcode(null);
-        this.o = new an(this, this.b);
+        this.o = new ao(this, this.b);
         this.o.setPriority(3);
         this.o.execute(0);
     }
@@ -677,7 +687,7 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
                     if (intent != null && intent.getData() != null) {
                         WriteImageActivity.a(this, 12002, 12009, intent.getData(), null, null, null);
                     } else {
-                        bc.c(this);
+                        bd.c(this);
                     }
                 } else if (i == 12001) {
                     WriteImageActivity.a(this, 12001, 12010, null, null, null, null);
@@ -690,10 +700,10 @@ public class WriteActivity extends com.baidu.tieba.j implements com.baidu.tieba.
                     this.i.show();
                     return;
                 case 12009:
-                    bc.b(this);
+                    bd.b(this);
                     return;
                 case 12010:
-                    bc.a(this);
+                    bd.a(this);
                     return;
                 default:
                     return;

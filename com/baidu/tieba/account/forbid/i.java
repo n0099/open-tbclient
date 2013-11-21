@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 public class i extends BdAsyncTask<String, Object, ForbidResultData> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1074a;
+    private String f1077a;
     private String b;
     private String c;
     private String d;
@@ -21,7 +21,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     private WeakReference<j> g;
 
     public i(String str, String str2, String str3, String str4, String str5, String str6, j jVar) {
-        this.f1074a = str;
+        this.f1077a = str;
         this.b = str2;
         this.c = str3;
         this.d = str4;
@@ -36,11 +36,11 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public ForbidResultData a(String... strArr) {
         String str;
-        str = h.f1073a;
+        str = h.f1076a;
         ap apVar = new ap(str);
         apVar.a("day", this.e);
         apVar.a("un", this.d);
-        apVar.a("fid", this.f1074a);
+        apVar.a("fid", this.f1077a);
         apVar.a("word", this.b);
         apVar.a("z", this.c);
         apVar.a("reason", this.f);

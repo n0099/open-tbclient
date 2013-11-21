@@ -8,7 +8,7 @@ import com.baidu.tieba.view.HeadImageView;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public HeadImageView f1138a;
+    public HeadImageView f1144a;
     public TbRichTextView b;
     public TextView c;
     final /* synthetic */ j d;

@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class v extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private GroupSettingActivity f1564a;
+    private GroupSettingActivity f1555a;
     private RelativeLayout c;
     private AlertDialog d;
     private AlertDialog e;
@@ -39,7 +39,7 @@ public class v extends com.baidu.adp.a.e {
 
     public v(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity);
-        this.f1564a = null;
+        this.f1555a = null;
         this.c = null;
         this.d = null;
         this.f = null;
@@ -47,7 +47,7 @@ public class v extends com.baidu.adp.a.e {
         this.h = null;
         this.i = null;
         this.l = null;
-        this.f1564a = groupSettingActivity;
+        this.f1555a = groupSettingActivity;
         t();
     }
 
@@ -57,8 +57,8 @@ public class v extends com.baidu.adp.a.e {
         this.g.a(i);
         this.i.a(i);
         this.h.a(i);
-        this.f1564a.getLayoutMode().a(i == 1);
-        this.f1564a.getLayoutMode().a(this.c);
+        this.f1555a.getLayoutMode().a(i == 1);
+        this.f1555a.getLayoutMode().a(this.c);
         this.n.c(i);
     }
 
@@ -73,27 +73,27 @@ public class v extends com.baidu.adp.a.e {
     }
 
     private void t() {
-        this.f1564a.setContentView(R.layout.group_setting_activity);
-        this.f = (SettingTextSwitchView) this.f1564a.findViewById(R.id.sv_group_msg_notify);
-        this.g = (SettingTextSwitchView) this.f1564a.findViewById(R.id.sv_group_add_group);
-        this.h = (SettingTextTipView) this.f1564a.findViewById(R.id.tv_change_name);
-        this.i = (SettingTextTipView) this.f1564a.findViewById(R.id.sv_report);
-        this.j = (Button) this.f1564a.findViewById(R.id.btn_dismiss);
-        this.k = (Button) this.f1564a.findViewById(R.id.btn_quit);
-        this.c = (RelativeLayout) this.f1564a.findViewById(R.id.parent);
-        this.m = (ProgressBar) this.f1564a.findViewById(R.id.progress_loading);
-        this.n = (NavigationBar) this.f1564a.findViewById(R.id.view_navigation_bar);
-        this.o = this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f1564a);
+        this.f1555a.setContentView(R.layout.group_setting_activity);
+        this.f = (SettingTextSwitchView) this.f1555a.findViewById(R.id.sv_group_msg_notify);
+        this.g = (SettingTextSwitchView) this.f1555a.findViewById(R.id.sv_group_add_group);
+        this.h = (SettingTextTipView) this.f1555a.findViewById(R.id.tv_change_name);
+        this.i = (SettingTextTipView) this.f1555a.findViewById(R.id.sv_report);
+        this.j = (Button) this.f1555a.findViewById(R.id.btn_dismiss);
+        this.k = (Button) this.f1555a.findViewById(R.id.btn_quit);
+        this.c = (RelativeLayout) this.f1555a.findViewById(R.id.parent);
+        this.m = (ProgressBar) this.f1555a.findViewById(R.id.progress_loading);
+        this.n = (NavigationBar) this.f1555a.findViewById(R.id.view_navigation_bar);
+        this.o = this.n.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f1555a);
         this.n.a(R.string.group_setting);
     }
 
     public void e() {
-        this.f.setSwitchStateChangeListener(this.f1564a);
-        this.g.setSwitchStateChangeListener(this.f1564a);
-        this.h.setOnClickListener(this.f1564a);
-        this.i.setOnClickListener(this.f1564a);
-        this.j.setOnClickListener(this.f1564a);
-        this.k.setOnClickListener(this.f1564a);
+        this.f.setSwitchStateChangeListener(this.f1555a);
+        this.g.setSwitchStateChangeListener(this.f1555a);
+        this.h.setOnClickListener(this.f1555a);
+        this.i.setOnClickListener(this.f1555a);
+        this.j.setOnClickListener(this.f1555a);
+        this.k.setOnClickListener(this.f1555a);
     }
 
     public SettingTextTipView f() {
@@ -110,12 +110,12 @@ public class v extends com.baidu.adp.a.e {
 
     public void i() {
         if (this.e == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1564a);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this.f1555a);
             builder.setTitle(R.string.alerm_title);
             builder.setIcon((Drawable) null);
             builder.setCancelable(false);
             builder.setMessage(R.string.group_quit_alert);
-            builder.setPositiveButton(R.string.alert_yes_button, this.f1564a);
+            builder.setPositiveButton(R.string.alert_yes_button, this.f1555a);
             builder.setNegativeButton(R.string.alert_no_button, new w(this));
             this.e = builder.create();
             this.e.setCanceledOnTouchOutside(true);
@@ -131,7 +131,7 @@ public class v extends com.baidu.adp.a.e {
 
     public void k() {
         if (this.d == null) {
-            this.d = new AlertDialog.Builder(this.f1564a).setTitle(R.string.group_report).setItems(new CharSequence[]{new SpannableString(this.f1564a.getString(R.string.group_report_ad)), new SpannableString(this.f1564a.getString(R.string.group_report_sex)), new SpannableString(this.f1564a.getString(R.string.group_report_lllegal))}, this.l).create();
+            this.d = new AlertDialog.Builder(this.f1555a).setTitle(R.string.group_report).setItems(new CharSequence[]{new SpannableString(this.f1555a.getString(R.string.group_report_ad)), new SpannableString(this.f1555a.getString(R.string.group_report_sex)), new SpannableString(this.f1555a.getString(R.string.group_report_lllegal))}, this.l).create();
         }
         this.d.setCanceledOnTouchOutside(true);
         this.d.show();

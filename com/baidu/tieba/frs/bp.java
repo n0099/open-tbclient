@@ -10,11 +10,11 @@ import com.slidingmenu.lib.R;
 public class bp implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1341a;
+    final /* synthetic */ bn f1346a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(bn bnVar) {
-        this.f1341a = bnVar;
+        this.f1346a = bnVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

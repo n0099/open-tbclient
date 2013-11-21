@@ -3,17 +3,17 @@ package com.baidu.tieba.pb;
 class be implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2089a;
+    final /* synthetic */ NewPbActivity f2072a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(NewPbActivity newPbActivity) {
-        this.f2089a = newPbActivity;
+        this.f2072a = newPbActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        cp cpVar;
-        cpVar = this.f2089a.y;
-        cpVar.t();
+        cr crVar;
+        crVar = this.f2072a.y;
+        crVar.t();
     }
 }

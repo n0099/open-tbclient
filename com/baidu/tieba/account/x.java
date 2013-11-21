@@ -1,48 +1,32 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.baidu.tieba.util.be;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements TextWatcher {
+public class x implements TextView.OnEditorActionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LoginActivity f1094a;
+    final /* synthetic */ LoginActivity f1097a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(LoginActivity loginActivity) {
-        this.f1094a = loginActivity;
+        this.f1097a = loginActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        boolean z;
-        z = this.f1094a.m;
-        if (z) {
-            this.f1094a.k();
-        }
-        this.f1094a.n = true;
-        this.f1094a.n();
-        this.f1094a.o();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        String str;
-        String str2;
-        this.f1094a.d();
-        str = this.f1094a.f;
-        if (!be.c(str)) {
-            String obj = editable.toString();
-            str2 = this.f1094a.f;
-            if (obj.equals(str2)) {
-                this.f1094a.j();
+    @Override // android.widget.TextView.OnEditorActionListener
+    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+        View view;
+        View view2;
+        view = this.f1097a.B;
+        if (view.getVisibility() != 8 || i != 4) {
+            view2 = this.f1097a.B;
+            if (view2.getVisibility() != 0 || i != 6) {
+                return false;
             }
         }
+        this.f1097a.g();
+        return true;
     }
 }

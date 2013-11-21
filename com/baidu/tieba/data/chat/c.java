@@ -10,7 +10,7 @@ public class c {
     private long c = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f1190a = new a();
+    private final a f1195a = new a();
 
     private c() {
     }
@@ -34,24 +34,24 @@ public class c {
     public void a(List<ChatMessageData> list) {
         for (ChatMessageData chatMessageData : list) {
             chatMessageData.setLocalTime(b());
-            this.f1190a.a(chatMessageData);
+            this.f1195a.a(chatMessageData);
         }
     }
 
     public List<ChatMessageData> a(String str, String str2) {
-        return this.f1190a.a(str, str2, 20);
+        return this.f1195a.a(str, str2, 20);
     }
 
     public void b(String str, String str2) {
-        this.f1190a.a(str, str2);
+        this.f1195a.a(str, str2);
     }
 
     public void a(String str, List<RecentChatFriendData> list) {
-        this.f1190a.a(str, list);
+        this.f1195a.a(str, list);
     }
 
     public void a(RecentChatFriendData recentChatFriendData) {
-        this.f1190a.a(recentChatFriendData);
+        this.f1195a.a(recentChatFriendData);
     }
 
     public void a(String str, int i, com.baidu.tieba.im.a<Void> aVar) {
@@ -67,11 +67,11 @@ public class c {
     }
 
     public List<RecentChatFriendData> a(String str) {
-        return this.f1190a.a(str, 20);
+        return this.f1195a.a(str, 20);
     }
 
     public RecentChatFriendData b(String str) {
-        LinkedList<RecentChatFriendData> a2 = this.f1190a.a(1, str);
+        LinkedList<RecentChatFriendData> a2 = this.f1195a.a(1, str);
         if (a2 == null || a2.isEmpty()) {
             return null;
         }
@@ -79,6 +79,6 @@ public class c {
     }
 
     public void c(String str, String str2) {
-        this.f1190a.b(str, str2);
+        this.f1195a.b(str, str2);
     }
 }

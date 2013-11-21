@@ -2,10 +2,10 @@ package com.baidu.tieba.model;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
-public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.aw> {
+public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.av> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.tieba.a.i f1918a = null;
+    protected com.baidu.tieba.a.i f1900a = null;
     protected int b;
     final /* synthetic */ bp c;
 
@@ -19,23 +19,23 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.aw> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
-    public com.baidu.tieba.data.aw a(Object... objArr) {
-        this.f1918a = new com.baidu.tieba.a.i();
+    public com.baidu.tieba.data.av a(Object... objArr) {
+        this.f1900a = new com.baidu.tieba.a.i();
         try {
-            String a2 = this.f1918a.a(this.c.b, this.c.d, this.b, this.c.c, d());
-            if (!this.f1918a.a()) {
+            String a2 = this.f1900a.a(this.c.b, this.c.d, this.b, this.c.c, d());
+            if (!this.f1900a.a()) {
                 return null;
             }
-            com.baidu.tieba.data.aw awVar = new com.baidu.tieba.data.aw();
-            awVar.a(a2, this.c.e);
-            String id = (awVar.m() == null || awVar.m().j() == null) ? null : awVar.m().j().getId();
+            com.baidu.tieba.data.av avVar = new com.baidu.tieba.data.av();
+            avVar.a(a2, this.c.e);
+            String id = (avVar.m() == null || avVar.m().j() == null) ? null : avVar.m().j().getId();
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= awVar.c().size()) {
-                    return awVar;
+                if (i2 >= avVar.c().size()) {
+                    return avVar;
                 }
-                awVar.c().get(i2).a(this.c.e, id.equals(awVar.c().get(i2).g().getId()));
+                avVar.c().get(i2).a(this.c.e, id.equals(avVar.c().get(i2).g().getId()));
                 i = i2 + 1;
             }
         } catch (Exception e) {
@@ -65,41 +65,41 @@ public class bq extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.aw> {
     public void cancel() {
         super.cancel(true);
         this.c.g = null;
-        if (this.f1918a != null) {
-            this.f1918a.d();
+        if (this.f1900a != null) {
+            this.f1900a.d();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.aw awVar) {
+    public void a(com.baidu.tieba.data.av avVar) {
         this.c.g = null;
-        if (awVar == null) {
+        if (avVar == null) {
             if (this.c.h != null) {
-                this.c.h.a(false, this.f1918a.c(), this.f1918a.b(), null);
+                this.c.h.a(false, this.f1900a.c(), this.f1900a.b(), null);
                 return;
             }
             return;
         }
-        if (awVar.a() != null) {
-            this.c.c = awVar.a().d();
+        if (avVar.a() != null) {
+            this.c.c = avVar.a().d();
         }
-        if (awVar.m() != null) {
-            this.c.b = awVar.m().a();
+        if (avVar.m() != null) {
+            this.c.b = avVar.m().a();
         }
         if (this.b == 1) {
-            this.c.f = awVar;
+            this.c.f = avVar;
         } else if (this.b == 2) {
-            this.c.f.b(awVar, true);
+            this.c.f.b(avVar, true);
         } else if (this.b == 3) {
-            this.c.f.a(awVar, false);
+            this.c.f.a(avVar, false);
         } else {
-            this.c.f.b(awVar, false);
+            this.c.f.b(avVar, false);
         }
         if (this.c.h != null) {
-            this.c.h.a(true, this.f1918a.c(), this.f1918a.b(), this.c.f);
+            this.c.h.a(true, this.f1900a.c(), this.f1900a.b(), this.c.f);
         }
-        this.f1918a = null;
+        this.f1900a = null;
     }
 }

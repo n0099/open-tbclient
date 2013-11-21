@@ -19,7 +19,7 @@ import java.util.Set;
 public class MembersActivity extends com.baidu.tieba.j implements View.OnClickListener, AbsListView.OnScrollListener, com.baidu.adp.widget.ListView.r, com.baidu.tieba.im.pushNotify.m {
 
     /* renamed from: a  reason: collision with root package name */
-    private aa f1641a;
+    private aa f1632a;
     private com.baidu.tieba.im.model.h b;
     private Handler c;
     private com.baidu.tieba.im.messageCenter.h d = new r(this);
@@ -57,7 +57,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.f1641a.h().h();
+        this.f1632a.h().h();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -74,8 +74,8 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     private void e() {
-        this.f1641a = new aa(this);
-        BdListView l = this.f1641a.l();
+        this.f1632a = new aa(this);
+        BdListView l = this.f1632a.l();
         bi biVar = new bi(this);
         biVar.a(new k(this, l));
         l.setPullRefresh(biVar);
@@ -83,17 +83,17 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
         l.setOnSrollToBottomListener(this);
         l.setOnItemClickListener(new m(this));
         l.setOnItemLongClickListener(new n(this));
-        this.f1641a.a().setOnClickListener(this);
-        this.f1641a.e().setOnClickListener(this);
-        this.f1641a.f().setOnClickListener(this);
-        this.f1641a.b(false);
-        this.f1641a.i().a(new q(this));
+        this.f1632a.a().setOnClickListener(this);
+        this.f1632a.e().setOnClickListener(this);
+        this.f1632a.f().setOnClickListener(this);
+        this.f1632a.b(false);
+        this.f1632a.i().a(new q(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, List<Long> list) {
         if (list != null && list.size() != 0) {
-            this.f1641a.a(true);
+            this.f1632a.a(true);
             this.b.a(list);
             this.b.a(j, a(list));
         }
@@ -113,26 +113,26 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     private void f() {
         this.b.b(false);
         this.b.a((RequestMembersMessage) null);
-        this.f1641a.i().a(true);
+        this.f1632a.i().a(true);
         this.b.b(0);
         this.b.d(50);
-        this.f1641a.l().b();
+        this.f1632a.l().b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         this.b.b(true);
         this.b.a((RequestMembersMessage) null);
-        this.f1641a.i().a(false);
+        this.f1632a.i().a(false);
         this.b.b(0);
         this.b.d(50);
-        this.f1641a.l().b();
+        this.f1632a.l().b();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         if (i()) {
-            this.f1641a.g();
+            this.f1632a.g();
         }
     }
 
@@ -159,7 +159,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
         if (permission != null) {
             boolean isController = permission.isController();
             this.b.a(isController);
-            this.f1641a.b(isController);
+            this.f1632a.b(isController);
         }
     }
 
@@ -172,27 +172,27 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        this.f1641a.h().g();
-        this.f1641a.h().e();
+        this.f1632a.h().g();
+        this.f1632a.h().e();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
-        this.f1641a.a(i);
+        this.f1632a.a(i);
     }
 
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f1641a.k()) {
+        if (view == this.f1632a.k()) {
             k();
-        } else if (view == this.f1641a.a()) {
+        } else if (view == this.f1632a.a()) {
             m();
-            this.f1641a.d(false);
-        } else if (view == this.f1641a.e()) {
+            this.f1632a.d(false);
+        } else if (view == this.f1632a.e()) {
             l();
-            this.f1641a.d(true);
-        } else if (view == this.f1641a.f()) {
+            this.f1632a.d(true);
+        } else if (view == this.f1632a.f()) {
             n();
         }
     }
@@ -202,20 +202,20 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     private void l() {
-        this.f1641a.c(false);
-        this.f1641a.i().d(false);
-        this.f1641a.i().a();
-        this.f1641a.j();
+        this.f1632a.c(false);
+        this.f1632a.i().d(false);
+        this.f1632a.i().a();
+        this.f1632a.j();
     }
 
     private void m() {
-        this.f1641a.c(true);
-        this.f1641a.i().d(true);
-        this.f1641a.j();
+        this.f1632a.c(true);
+        this.f1632a.i().d(true);
+        this.f1632a.j();
     }
 
     private void n() {
-        Set<Long> b = this.f1641a.i().b();
+        Set<Long> b = this.f1632a.i().b();
         if (b.size() > 0) {
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(b);
@@ -224,7 +224,7 @@ public class MembersActivity extends com.baidu.tieba.j implements View.OnClickLi
     }
 
     private void o() {
-        if (this.f1641a.i().c()) {
+        if (this.f1632a.i().c()) {
             this.b.a(this.b.g(), this.b.e(), this.b.f(), this.b.b());
         }
     }

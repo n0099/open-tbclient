@@ -1,25 +1,72 @@
 package com.baidu.adp.widget;
 
-import com.baidu.adp.widget.VerticalTranslateLayout;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Region;
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public /* synthetic */ class v {
+public class v extends BitmapDrawable implements u {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f614a = new int[VerticalTranslateLayout.TrackDirection.values().length];
+    private int f613a;
+    private int b;
+    private int c;
+    private final Paint d;
+    private Path e;
+    private ImageView f;
 
-    static {
-        try {
-            f614a[VerticalTranslateLayout.TrackDirection.top.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+    public v(Resources resources, Matrix matrix, ImageView imageView, Bitmap bitmap, int i, ColorFilter colorFilter) {
+        super(resources, bitmap);
+        this.f613a = 0;
+        this.b = 0;
+        this.e = new Path();
+        this.f = imageView;
+        this.c = Math.max(0, i);
+        this.d = new Paint();
+        this.d.setAntiAlias(true);
+        this.d.setFilterBitmap(true);
+        if (colorFilter != null) {
+            this.d.setColorFilter(colorFilter);
         }
-        try {
-            f614a[VerticalTranslateLayout.TrackDirection.bottom.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+    }
+
+    @Override // android.graphics.drawable.Drawable, com.baidu.adp.widget.u
+    public void setBounds(int i, int i2, int i3, int i4) {
+        super.setBounds(i, i2, i3, i4);
+        int i5 = i3 - i;
+        int i6 = i4 - i2;
+        this.f613a = this.f.getMeasuredWidth();
+        this.b = this.f.getMeasuredHeight();
+        this.e.moveTo(0.0f, this.c);
+        this.e.quadTo(0.0f, 0.0f, this.c, 0.0f);
+        this.e.lineTo(this.f613a - this.c, 0.0f);
+        this.e.quadTo(this.f613a, 0.0f, this.f613a, this.c);
+        this.e.lineTo(this.f613a, this.b - this.c);
+        this.e.quadTo(this.f613a, this.b, this.f613a - this.c, this.b);
+        this.e.lineTo(this.c, this.b);
+        this.e.quadTo(0.0f, this.b, 0.0f, this.b - this.c);
+        this.e.lineTo(0.0f, this.c);
+        this.e.close();
+    }
+
+    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable, com.baidu.adp.widget.u
+    public void draw(Canvas canvas) {
+        if (this.f613a != 0 && this.b != 0) {
+            canvas.save();
+            canvas.clipPath(this.e, Region.Op.INTERSECT);
+            super.draw(canvas);
+            canvas.restore();
         }
-        try {
-            f614a[VerticalTranslateLayout.TrackDirection.vertical.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
+    }
+
+    @Override // com.baidu.adp.widget.u
+    public void a(ColorFilter colorFilter) {
+        this.d.setColorFilter(colorFilter);
     }
 }

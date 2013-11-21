@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class d implements q {
 
     /* renamed from: a  reason: collision with root package name */
-    CreateGroupStepActivity f1584a;
+    CreateGroupStepActivity f1575a;
     View b;
     HeadImageView c;
     ImageView d;
@@ -20,12 +20,12 @@ public class d implements q {
     private f g = null;
 
     public d(CreateGroupStepActivity createGroupStepActivity) {
-        this.f1584a = null;
+        this.f1575a = null;
         this.b = null;
         this.c = null;
         this.d = null;
         this.e = null;
-        this.f1584a = createGroupStepActivity;
+        this.f1575a = createGroupStepActivity;
         this.b = createGroupStepActivity.getLayoutInflater().inflate(R.layout.create_group_step3_view, (ViewGroup) null);
         this.d = (ImageView) this.b.findViewById(R.id.step3_img_bg);
         this.c = (HeadImageView) this.b.findViewById(R.id.step3_img_scr);
@@ -76,8 +76,8 @@ public class d implements q {
 
     @Override // com.baidu.tieba.im.creategroup.q
     public void i() {
-        this.f1584a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
-        this.f1584a.getLayoutMode().a(this.b);
+        this.f1575a.getLayoutMode().a(TiebaApplication.g().ap() == 1);
+        this.f1575a.getLayoutMode().a(this.b);
         this.c.d();
     }
 }

@@ -7,15 +7,15 @@ public class Voice implements Parcelable {
     public static final Parcelable.Creator<Voice> CREATOR = new i();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2637a;
+    private String f2620a;
     private int b;
 
     public String a() {
-        return this.f2637a;
+        return this.f2620a;
     }
 
     public void a(String str) {
-        this.f2637a = str;
+        this.f2620a = str;
     }
 
     public int b() {
@@ -34,6 +34,6 @@ public class Voice implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeLong(this.b);
-        parcel.writeString(this.f2637a);
+        parcel.writeString(this.f2620a);
     }
 }

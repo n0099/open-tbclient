@@ -6,20 +6,20 @@ import java.util.List;
 class o implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f1658a;
+    final /* synthetic */ List f1649a;
     final /* synthetic */ n b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, List list) {
         this.b = nVar;
-        this.f1658a = list;
+        this.f1649a = list;
     }
 
     @Override // android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         com.baidu.tieba.im.model.h hVar;
-        MembersActivity membersActivity = this.b.f1657a;
-        hVar = this.b.f1657a.b;
-        membersActivity.a(hVar.g(), this.f1658a);
+        MembersActivity membersActivity = this.b.f1648a;
+        hVar = this.b.f1648a.b;
+        membersActivity.a(hVar.g(), this.f1649a);
     }
 }

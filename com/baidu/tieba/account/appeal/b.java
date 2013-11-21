@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class b implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AppealActivity f1043a;
+    final /* synthetic */ AppealActivity f1045a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AppealActivity appealActivity) {
-        this.f1043a = appealActivity;
+        this.f1045a = appealActivity;
     }
 
     @Override // com.baidu.tieba.account.appeal.l
@@ -20,15 +20,15 @@ public class b implements l {
         TextView textView;
         String str;
         TextView textView2;
-        textView = this.f1043a.b;
-        str = this.f1043a.h;
+        textView = this.f1045a.b;
+        str = this.f1045a.h;
         textView.setText(str);
-        textView2 = this.f1043a.c;
-        textView2.setText(!be.c(forbidReasonData.reason) ? forbidReasonData.reason : this.f1043a.getString(R.string.default_forbid_reason));
+        textView2 = this.f1045a.c;
+        textView2.setText(!be.c(forbidReasonData.reason) ? forbidReasonData.reason : this.f1045a.getString(R.string.default_forbid_reason));
     }
 
     @Override // com.baidu.tieba.account.appeal.l
     public void b(ForbidReasonData forbidReasonData) {
-        this.f1043a.showToast(forbidReasonData.error.b);
+        this.f1045a.showToast(forbidReasonData.error.b);
     }
 }

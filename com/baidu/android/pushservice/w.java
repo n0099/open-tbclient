@@ -9,7 +9,7 @@ import java.util.Properties;
 public final class w {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f763a;
+    public static final String f764a;
     public static final String b;
     public static final int c;
     public static final String d;
@@ -24,12 +24,12 @@ public final class w {
 
     static {
         a();
-        f763a = i;
+        f764a = i;
         b = j;
         c = k;
         d = l;
-        e = f763a + "/rest/2.0/channel/channel";
-        f = f763a + "/rest/2.0/channel/";
+        e = f764a + "/rest/2.0/channel/channel";
+        f = f764a + "/rest/2.0/channel/";
         g = d + "/searchbox?action=publicsrv&type=issuedcode";
         h = "http://lbsonline.pushct.baidu.com/lbsupload";
     }

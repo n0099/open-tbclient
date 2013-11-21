@@ -17,7 +17,7 @@ import com.slidingmenu.lib.R;
 public class s extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f1463a;
+    private Activity f1454a;
     private View c;
     private LinearLayout d;
     private TextView e;
@@ -37,7 +37,7 @@ public class s extends com.baidu.adp.a.e {
     public s(Activity activity, String str, String str2, int i) {
         super(activity);
         this.i = -1;
-        this.f1463a = activity;
+        this.f1454a = activity;
         this.c = LayoutInflater.from(activity).inflate(R.layout.enter_forum_login, (ViewGroup) null);
         this.d = (LinearLayout) this.c;
         this.e = (TextView) this.c.findViewById(R.id.tip);
@@ -56,7 +56,7 @@ public class s extends com.baidu.adp.a.e {
 
     public View e() {
         if (TiebaApplication.g().s()) {
-            StatService.onEvent(this.f1463a, "home_login_show", "loginshow", 1);
+            StatService.onEvent(this.f1454a, "home_login_show", "loginshow", 1);
         }
         return this.c;
     }

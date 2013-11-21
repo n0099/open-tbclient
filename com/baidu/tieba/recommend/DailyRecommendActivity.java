@@ -21,7 +21,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     private Runnable f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    q f2299a = new c(this);
+    q f2284a = new c(this);
     private com.baidu.adp.widget.ListView.r h = new e(this);
     private com.baidu.adp.widget.ListView.b i = new g(this);
 
@@ -56,7 +56,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
     }
 
     private void d() {
-        this.c = new z(this, this.h, this.f2299a);
+        this.c = new z(this, this.h, this.f2284a);
         this.c.a(this.i);
         this.c.e();
     }
@@ -126,7 +126,7 @@ public class DailyRecommendActivity extends com.baidu.tieba.j {
 
     public static void a(Context context, String str) {
         Intent intent = new Intent(context, DailyRecommendActivity.class);
-        intent.putExtra(w.f2325a, str);
+        intent.putExtra(w.f2310a, str);
         intent.addFlags(268435456);
         context.startActivity(intent);
     }

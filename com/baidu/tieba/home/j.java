@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class j implements com.baidu.tieba.model.w {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1454a;
+    final /* synthetic */ EnterForumActivity f1445a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(EnterForumActivity enterForumActivity) {
-        this.f1454a = enterForumActivity;
+        this.f1445a = enterForumActivity;
     }
 
     @Override // com.baidu.tieba.model.w
@@ -32,49 +32,49 @@ public class j implements com.baidu.tieba.model.w {
         o oVar7;
         boolean z = false;
         boolean z2 = true;
-        baseFragmentActivity = this.f1454a.i;
+        baseFragmentActivity = this.f1445a.i;
         UtilHelper.NetworkStateInfo i = UtilHelper.i(baseFragmentActivity);
         if (i == UtilHelper.NetworkStateInfo.UNAVAIL) {
-            oVar7 = this.f1454a.c;
+            oVar7 = this.f1445a.c;
             oVar7.o();
         }
-        oVar = this.f1454a.c;
+        oVar = this.f1445a.c;
         oVar.a(true, "");
         if (uVar.b) {
-            tVar2 = this.f1454a.e;
+            tVar2 = this.f1445a.e;
             com.baidu.tieba.data.r a2 = tVar2.a();
-            oVar5 = this.f1454a.c;
-            bool = this.f1454a.h;
+            oVar5 = this.f1445a.c;
+            bool = this.f1445a.h;
             oVar5.a(a2, bool.booleanValue());
-            oVar6 = this.f1454a.c;
+            oVar6 = this.f1445a.c;
             oVar6.i();
         } else {
-            oVar2 = this.f1454a.c;
+            oVar2 = this.f1445a.c;
             oVar2.f();
-            if (uVar.f1951a != null && uVar.f1951a.equals("")) {
-                baseFragmentActivity2 = this.f1454a.i;
-                baseFragmentActivity2.a(uVar.f1951a);
+            if (uVar.f1934a != null && uVar.f1934a.equals("")) {
+                baseFragmentActivity2 = this.f1445a.i;
+                baseFragmentActivity2.a(uVar.f1934a);
             }
         }
         if (uVar.c == 0 && i != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            oVar4 = this.f1454a.c;
+            oVar4 = this.f1445a.c;
             oVar4.e();
         }
-        tVar = this.f1454a.e;
+        tVar = this.f1445a.e;
         com.baidu.tieba.data.r a3 = tVar.a();
         String str = null;
         if (a3.a() == 1) {
             if (a3.g()) {
                 z = true;
             } else {
-                baseFragmentActivity3 = this.f1454a.i;
+                baseFragmentActivity3 = this.f1445a.i;
                 str = String.format(baseFragmentActivity3.getString(R.string.signallforum_warning), Integer.valueOf(a3.b()));
             }
         } else {
             str = a3.c();
             z2 = false;
         }
-        oVar3 = this.f1454a.c;
+        oVar3 = this.f1445a.c;
         oVar3.a(z2, z, str);
     }
 }

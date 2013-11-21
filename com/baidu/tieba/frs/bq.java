@@ -9,11 +9,11 @@ import com.slidingmenu.lib.R;
 public class bq implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f1342a;
+    final /* synthetic */ bn f1347a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(bn bnVar) {
-        this.f1342a = bnVar;
+        this.f1347a = bnVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -26,23 +26,23 @@ public class bq implements View.OnTouchListener {
         ImageView imageView4;
         if (view.getId() == R.id.refresh_layout) {
             if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                i = this.f1342a.y;
+                i = this.f1347a.y;
                 if (i == 1) {
-                    imageView2 = this.f1342a.k;
+                    imageView2 = this.f1347a.k;
                     imageView2.setImageResource(R.drawable.pic_fresh_n_1);
                 } else {
-                    imageView = this.f1342a.k;
+                    imageView = this.f1347a.k;
                     imageView.setImageResource(R.drawable.pic_fresh_n);
                 }
             }
             if (motionEvent.getAction() == 0) {
-                i2 = this.f1342a.y;
+                i2 = this.f1347a.y;
                 if (i2 == 1) {
-                    imageView4 = this.f1342a.k;
+                    imageView4 = this.f1347a.k;
                     imageView4.setImageResource(R.drawable.pic_fresh_s_1);
                     return false;
                 }
-                imageView3 = this.f1342a.k;
+                imageView3 = this.f1347a.k;
                 imageView3.setImageResource(R.drawable.pic_fresh_s);
                 return false;
             }

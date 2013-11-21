@@ -1,5 +1,6 @@
 package com.baidu.tieba.person;
 
+import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ScrollView.BdPullRefreshScrollView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.BaseFragmentActivity;
+import com.baidu.tieba.data.IconData;
 import com.baidu.tieba.data.UserData;
 import com.baidu.tieba.model.bx;
 import com.baidu.tieba.util.UtilHelper;
@@ -26,10 +28,10 @@ public class be extends com.baidu.adp.a.e {
     protected LinearLayout C;
     protected LinearLayout D;
     protected UserIconBox E;
-    protected LinkedList<com.baidu.tieba.data.aa> F;
+    protected LinkedList<IconData> F;
 
     /* renamed from: a  reason: collision with root package name */
-    BaseFragmentActivity f2235a;
+    BaseFragmentActivity f2220a;
     BaseFragment c;
     View d;
     protected NavigationBar e;
@@ -57,7 +59,7 @@ public class be extends com.baidu.adp.a.e {
 
     public be(BaseFragmentActivity baseFragmentActivity, BaseFragment baseFragment, bx bxVar) {
         super(baseFragmentActivity);
-        this.f2235a = null;
+        this.f2220a = null;
         this.e = null;
         this.f = null;
         this.g = null;
@@ -86,7 +88,7 @@ public class be extends com.baidu.adp.a.e {
         this.D = null;
         this.E = null;
         this.F = null;
-        this.f2235a = baseFragmentActivity;
+        this.f2220a = baseFragmentActivity;
         this.c = baseFragment;
         this.d = this.c.q();
         this.A = bxVar.b();
@@ -108,7 +110,7 @@ public class be extends com.baidu.adp.a.e {
         this.o = (HeadImageView) this.d.findViewById(R.id.photo_bg);
         this.o.setIsRound(true);
         this.o.setDrawBorder(false);
-        this.o.setImageBitmap(BitmapFactory.decodeResource(this.f2235a.getResources(), R.drawable.bg_pop));
+        this.o.setImageBitmap(BitmapFactory.decodeResource(this.f2220a.getResources(), R.drawable.bg_pop));
         this.p = (FrameLayout) this.d.findViewById(R.id.photo_frame);
         this.m = (LinearLayout) this.d.findViewById(R.id.person_info_view);
         this.q = (TextView) this.d.findViewById(R.id.name);
@@ -138,7 +140,7 @@ public class be extends com.baidu.adp.a.e {
             this.h.setVisibility(0);
             this.g.setVisibility(8);
             this.f.setVisibility(4);
-            int a2 = UtilHelper.a(this.f2235a, this.b.getResources().getDimension(R.dimen.person_notlogin_edge));
+            int a2 = UtilHelper.a((Context) this.f2220a, 7.0f);
             this.v.setPadding(a2, 0, a2, 0);
         } else {
             this.m.setVisibility(0);
@@ -174,14 +176,14 @@ public class be extends com.baidu.adp.a.e {
                 this.q.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_boy, 0);
             } else if (this.B.getSex() != 2) {
                 i = 4;
-            } else if (this.F.size() > 0 && this.F.get(0).b().equals(com.baidu.tieba.data.aa.f1155a)) {
+            } else if (this.F.size() > 0 && this.F.get(0).getIconName().equals(IconData.meizhi_icon_name)) {
                 this.q.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
             } else {
                 this.q.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.icon_pop_girl, 0);
             }
             this.r.setText(this.B.getIntro());
             if (this.E != null) {
-                this.E.a(this.F, i, this.f2235a.getResources().getDimensionPixelSize(R.dimen.person_icon_width), this.f2235a.getResources().getDimensionPixelSize(R.dimen.person_icon_height), this.f2235a.getResources().getDimensionPixelSize(R.dimen.person_icon_margin));
+                this.E.a(this.F, i, this.f2220a.getResources().getDimensionPixelSize(R.dimen.person_icon_width), this.f2220a.getResources().getDimensionPixelSize(R.dimen.person_icon_height), this.f2220a.getResources().getDimensionPixelSize(R.dimen.person_icon_margin));
             }
         }
     }
@@ -204,15 +206,15 @@ public class be extends com.baidu.adp.a.e {
 
     public void a(int i, bx bxVar) {
         this.A = bxVar.b();
-        this.f2235a.a().a(i == 1);
-        this.f2235a.a().a(this.i);
+        this.f2220a.a().a(i == 1);
+        this.f2220a.a().a(this.i);
         this.e.c(i);
         this.n.d();
         this.l.a(i);
         if (i == 1) {
             this.k.setBackgroundColor(this.b.getResources().getColor(R.color.person_scrollview_bg_1));
             this.n.invalidate();
-            this.o.setImageBitmap(BitmapFactory.decodeResource(this.f2235a.getResources(), R.drawable.bg_pop_1));
+            this.o.setImageBitmap(BitmapFactory.decodeResource(this.f2220a.getResources(), R.drawable.bg_pop_1));
             this.o.invalidate();
             if (this.l.b() != null) {
                 this.l.b().setBackgroundColor(this.b.getResources().getColor(R.color.person_scrollview_bg_1));
@@ -222,7 +224,7 @@ public class be extends com.baidu.adp.a.e {
         } else {
             this.k.setBackgroundColor(this.b.getResources().getColor(R.color.person_scrollview_bg));
             this.n.invalidate();
-            this.o.setImageBitmap(BitmapFactory.decodeResource(this.f2235a.getResources(), R.drawable.bg_pop));
+            this.o.setImageBitmap(BitmapFactory.decodeResource(this.f2220a.getResources(), R.drawable.bg_pop));
             this.o.invalidate();
             if (this.l.b() != null) {
                 this.l.b().setBackgroundColor(this.b.getResources().getColor(R.color.person_scrollview_bg));

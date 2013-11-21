@@ -36,7 +36,7 @@ public class PersonInfoActivity extends BaseFragment {
     private BroadcastReceiver d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    bd f2203a = null;
+    bd f2188a = null;
     bc b = null;
     private bx e = null;
     private Boolean f = false;
@@ -101,11 +101,11 @@ public class PersonInfoActivity extends BaseFragment {
     private void G() {
         if (this.f.booleanValue()) {
             this.b = null;
-            this.f2203a = new bd(this.g, this, this.e);
-            this.f2203a.a(new az(this));
+            this.f2188a = new bd(this.g, this, this.e);
+            this.f2188a.a(new az(this));
             return;
         }
-        this.f2203a = null;
+        this.f2188a = null;
         this.b = new bc(this.g, this, this.e);
     }
 
@@ -141,8 +141,8 @@ public class PersonInfoActivity extends BaseFragment {
 
     public void a() {
         if (this.f.booleanValue()) {
-            if (this.f2203a != null) {
-                this.f2203a.e(this.e);
+            if (this.f2188a != null) {
+                this.f2188a.e(this.e);
             }
             this.e.a(true, true);
             return;
@@ -188,13 +188,13 @@ public class PersonInfoActivity extends BaseFragment {
                     this.e.c(TiebaApplication.F());
                     H();
                     a();
-                    if (this.f2203a != null) {
-                        this.f2203a.a(true);
+                    if (this.f2188a != null) {
+                        this.f2188a.a(true);
                     } else if (this.b != null) {
                         this.b.a(true);
                     }
-                } else if (this.f2203a != null) {
-                    this.f2203a.a(false);
+                } else if (this.f2188a != null) {
+                    this.f2188a.a(false);
                 } else if (this.b != null) {
                     this.b.a(false);
                 }
@@ -207,11 +207,11 @@ public class PersonInfoActivity extends BaseFragment {
                     this.e.c(com.baidu.tieba.mention.t.a().q());
                     z = true;
                 }
-                if (this.f2203a != null) {
+                if (this.f2188a != null) {
                     if (z) {
-                        this.f2203a.d(this.e);
+                        this.f2188a.d(this.e);
                     }
-                    this.f2203a.a(true);
+                    this.f2188a.a(true);
                 }
             } else if (this.b != null) {
                 this.b.a(false);
@@ -223,8 +223,8 @@ public class PersonInfoActivity extends BaseFragment {
     public void c(int i) {
         super.c(i);
         if (this.f.booleanValue()) {
-            if (this.f2203a != null) {
-                this.f2203a.a(i, this.e);
+            if (this.f2188a != null) {
+                this.f2188a.a(i, this.e);
             }
         } else if (this.b != null) {
             this.b.a(i, this.e);
@@ -267,27 +267,27 @@ public class PersonInfoActivity extends BaseFragment {
         AntiData a2;
         UserData d = this.e.d();
         if (this.f.booleanValue()) {
-            if (this.f2203a != null && !a(view, this.f2203a).booleanValue()) {
-                if (view == this.f2203a.e()) {
+            if (this.f2188a != null && !a(view, this.f2188a).booleanValue()) {
+                if (view == this.f2188a.e()) {
                     if (TiebaApplication.g().s()) {
                         StatService.onEvent(this.g, "personal_my_collect", "personclick", 1);
                     }
                     EditMarkActivity.a(this.g, 102);
-                } else if (view == this.f2203a.f()) {
-                    new com.baidu.tieba.account.ag("tb_mytieba").start();
+                } else if (view == this.f2188a.f()) {
+                    new com.baidu.tieba.account.ah("tb_mytieba").start();
                     EditBarActivity.a(this.g, 103, null, d != null ? d.getSex() : 0);
-                } else if (view == this.f2203a.g()) {
+                } else if (view == this.f2188a.g()) {
                     PersonListActivity.a(this.g, true, TiebaApplication.A(), d != null ? d.getSex() : 0);
-                } else if (view == this.f2203a.h()) {
+                } else if (view == this.f2188a.h()) {
                     PersonListActivity.a(this.g, false, TiebaApplication.A(), d != null ? d.getSex() : 0);
-                } else if (view == this.f2203a.i()) {
+                } else if (view == this.f2188a.i()) {
                     if (TiebaApplication.g().s()) {
                         StatService.onEvent(this.g, "personal_my_threads", "click", 1);
                     }
                     if (this.e != null && this.e.d() != null) {
                         PersonPostActivity.a(this.g, TiebaApplication.A(), 0, this.e.d().getPortrait());
                     }
-                } else if (view == this.f2203a.j()) {
+                } else if (view == this.f2188a.j()) {
                     PersonChangeData personChangeData = new PersonChangeData();
                     if (this.e.d() != null) {
                         personChangeData.setName(this.e.d().getName_show());
@@ -296,7 +296,7 @@ public class PersonInfoActivity extends BaseFragment {
                         personChangeData.setPortrait(this.e.d().getPortrait());
                     }
                     PersonChangeActivity.a(this.g, 101, personChangeData, true);
-                } else if (view == this.f2203a.k() && (a2 = this.e.a()) != null) {
+                } else if (view == this.f2188a.k() && (a2 = this.e.a()) != null) {
                     AntiHelper.a(this.g, a2, AntiHelper.OperationType.ACCOUNT_RESTORE, AntiHelper.PageType.PERSON_INFO);
                 }
             }
@@ -358,8 +358,8 @@ public class PersonInfoActivity extends BaseFragment {
         }
         this.e.l();
         if (this.f.booleanValue()) {
-            if (this.f2203a != null) {
-                this.f2203a.a();
+            if (this.f2188a != null) {
+                this.f2188a.a();
             }
         } else if (this.b != null) {
             this.b.a();
@@ -395,16 +395,16 @@ public class PersonInfoActivity extends BaseFragment {
         if (personChangeData != null && this.e.d() != null) {
             this.e.a(personChangeData);
             if (this.f.booleanValue()) {
-                if (this.f2203a != null) {
-                    this.f2203a.d(this.e);
+                if (this.f2188a != null) {
+                    this.f2188a.d(this.e);
                 }
             } else if (this.b != null) {
                 this.b.d(this.e);
             }
             if (personChangeData.getPhotoChanged()) {
                 if (this.f.booleanValue()) {
-                    if (this.f2203a != null) {
-                        this.f2203a.m();
+                    if (this.f2188a != null) {
+                        this.f2188a.m();
                     }
                 } else if (this.b != null) {
                     this.b.m();

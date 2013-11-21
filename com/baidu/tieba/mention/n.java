@@ -9,11 +9,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 public class n implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1866a;
+    final /* synthetic */ j f1848a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.f1866a = jVar;
+        this.f1848a = jVar;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -29,25 +29,25 @@ public class n implements AbsListView.OnScrollListener {
         com.baidu.tieba.view.q qVar2;
         BdListView bdListView3;
         com.baidu.tieba.view.q qVar3;
-        handler = this.f1866a.r;
-        runnable = this.f1866a.s;
+        handler = this.f1848a.r;
+        runnable = this.f1848a.s;
         handler.removeCallbacks(runnable);
-        handler2 = this.f1866a.r;
-        runnable2 = this.f1866a.s;
+        handler2 = this.f1848a.r;
+        runnable2 = this.f1848a.s;
         handler2.postDelayed(runnable2, 300L);
-        bdListView = this.f1866a.e;
+        bdListView = this.f1848a.e;
         if (bdListView.getAdapter() != null) {
-            bdListView2 = this.f1866a.e;
+            bdListView2 = this.f1848a.e;
             if (i2 < bdListView2.getAdapter().getCount()) {
-                qVar = this.f1866a.p;
+                qVar = this.f1848a.p;
                 if (qVar == null) {
-                    j jVar = this.f1866a;
-                    activity = this.f1866a.c;
+                    j jVar = this.f1848a;
+                    activity = this.f1848a.c;
                     jVar.p = new com.baidu.tieba.view.q(activity);
-                    qVar2 = this.f1866a.p;
+                    qVar2 = this.f1848a.p;
                     qVar2.setHeightDip(30);
-                    bdListView3 = this.f1866a.e;
-                    qVar3 = this.f1866a.p;
+                    bdListView3 = this.f1848a.e;
+                    qVar3 = this.f1848a.p;
                     bdListView3.addFooterView(qVar3);
                 }
             }

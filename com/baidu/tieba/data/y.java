@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1213a = 0;
+    private int f1218a = 0;
     private int b = 0;
     private String c = null;
     private String d = null;
@@ -18,10 +18,10 @@ public class y {
     private int j = 0;
     private long k = 0;
     private long l = 0;
-    private ay m = new ay();
+    private ax m = new ax();
 
     public int a() {
-        return this.f1213a;
+        return this.f1218a;
     }
 
     public String b() {
@@ -71,8 +71,8 @@ public class y {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1213a = jSONObject.optInt("has_frs_star", 0);
-                if (this.f1213a == 1) {
+                this.f1218a = jSONObject.optInt("has_frs_star", 0);
+                if (this.f1218a == 1) {
                     this.c = jSONObject.optString("top", "");
                     this.d = jSONObject.optString("head", "");
                     JSONObject optJSONObject = jSONObject.optJSONObject("fans");
@@ -94,7 +94,7 @@ public class y {
         }
     }
 
-    public ay j() {
+    public ax j() {
         return this.m;
     }
 }

@@ -10,13 +10,13 @@ import java.util.regex.Pattern;
 public class l extends com.baidu.tieba.util.aj {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ j f1200a;
+    final /* synthetic */ j f1205a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(j jVar, Context context) {
         super(context);
-        this.f1200a = jVar;
+        this.f1205a = jVar;
     }
 
     @Override // com.baidu.tieba.util.aj, android.text.style.ClickableSpan
@@ -27,7 +27,7 @@ public class l extends com.baidu.tieba.util.aj {
         String str2;
         String str3;
         pattern = j.i;
-        str = this.f1200a.f;
+        str = this.f1205a.f;
         Matcher matcher = pattern.matcher(str);
         if (matcher.find()) {
             try {
@@ -39,7 +39,7 @@ public class l extends com.baidu.tieba.util.aj {
             }
         }
         pattern2 = j.j;
-        str2 = this.f1200a.f;
+        str2 = this.f1205a.f;
         Matcher matcher2 = pattern2.matcher(str2);
         if (matcher2.find()) {
             try {
@@ -50,7 +50,7 @@ public class l extends com.baidu.tieba.util.aj {
                 bg.b(getClass().getName(), "onClick", e2.toString());
             }
         }
-        str3 = this.f1200a.f;
+        str3 = this.f1205a.f;
         a(str3);
     }
 }

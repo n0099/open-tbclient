@@ -6,15 +6,15 @@ import android.content.DialogInterface;
 public class g implements DialogInterface.OnDismissListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1351a;
+    final /* synthetic */ FrsActivity f1356a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(FrsActivity frsActivity) {
-        this.f1351a = frsActivity;
+        this.f1356a = frsActivity;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        this.f1351a.y();
+        this.f1356a.y();
     }
 }

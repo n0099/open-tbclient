@@ -7,11 +7,11 @@ import android.os.Message;
 public class bv extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WaterFallView f2584a;
+    final /* synthetic */ WaterFallView f2567a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(WaterFallView waterFallView) {
-        this.f2584a = waterFallView;
+        this.f2567a = waterFallView;
     }
 
     @Override // android.os.Handler
@@ -20,9 +20,9 @@ public class bv extends Handler {
         bx bxVar2;
         super.handleMessage(message);
         if (message.what == 101) {
-            bxVar = this.f2584a.o;
+            bxVar = this.f2567a.o;
             if (bxVar != null) {
-                bxVar2 = this.f2584a.o;
+                bxVar2 = this.f2567a.o;
                 bxVar2.d();
             }
         }

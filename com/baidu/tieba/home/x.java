@@ -7,18 +7,18 @@ import android.webkit.WebView;
 public class x extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumTopicActivity f1468a;
+    final /* synthetic */ ForumTopicActivity f1459a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(ForumTopicActivity forumTopicActivity) {
-        this.f1468a = forumTopicActivity;
+        this.f1459a = forumTopicActivity;
     }
 
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i) {
         super.onProgressChanged(webView, i);
         if (i == 100) {
-            this.f1468a.f();
+            this.f1459a.f();
         }
     }
 }

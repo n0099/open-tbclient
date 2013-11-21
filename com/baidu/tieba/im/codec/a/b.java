@@ -18,7 +18,7 @@ import java.util.Map;
 public class b implements com.baidu.tieba.im.codec.b<c> {
 
     /* renamed from: a  reason: collision with root package name */
-    org.msgpack.a f1567a = new org.msgpack.a();
+    org.msgpack.a f1558a = new org.msgpack.a();
     private Map<Integer, n<c>> b = new HashMap();
 
     @Override // com.baidu.tieba.im.codec.b
@@ -36,7 +36,7 @@ public class b implements com.baidu.tieba.im.codec.b<c> {
             }
             hashMap.put("data", map);
         }
-        return this.f1567a.a((org.msgpack.a) hashMap);
+        return this.f1558a.a((org.msgpack.a) hashMap);
     }
 
     @Override // com.baidu.tieba.im.codec.b
@@ -54,7 +54,7 @@ public class b implements com.baidu.tieba.im.codec.b<c> {
             c e = cVar.e("error");
             if (e != null) {
                 qVar = new q();
-                qVar.f1576a = e.a("errno", 0);
+                qVar.f1567a = e.a("errno", 0);
                 qVar.b = e.a("errmsg");
                 qVar.c = e.a("usermsg");
             } else {

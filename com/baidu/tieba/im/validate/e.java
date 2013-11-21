@@ -9,18 +9,18 @@ import java.util.List;
 public class e extends BaseAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    ValidateActivity f1808a;
+    ValidateActivity f1799a;
     com.baidu.tieba.util.i b;
     List<ValidateItemData> c = new ArrayList();
 
     public e(ValidateActivity validateActivity) {
         this.b = null;
-        this.f1808a = validateActivity;
-        this.b = new com.baidu.tieba.util.i(this.f1808a);
+        this.f1799a = validateActivity;
+        this.b = new com.baidu.tieba.util.i(this.f1799a);
     }
 
     public void a() {
-        this.f1808a = null;
+        this.f1799a = null;
     }
 
     public void a(List<ValidateItemData> list) {
@@ -45,7 +45,7 @@ public class e extends BaseAdapter {
         if (view != null) {
             fVar = (f) view.getTag();
         }
-        f fVar2 = fVar == null ? new f(this.f1808a) : fVar;
+        f fVar2 = fVar == null ? new f(this.f1799a) : fVar;
         fVar2.a(this.c.get(i));
         return fVar2.a();
     }

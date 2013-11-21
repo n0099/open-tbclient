@@ -61,7 +61,7 @@ import java.util.List;
 public class UtilHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2470a = false;
+    private static boolean f2453a = false;
     private static float b;
     private static int c;
     private static int d;
@@ -78,25 +78,25 @@ public class UtilHelper {
         b = context.getResources().getDisplayMetrics().density;
         c = context.getResources().getDisplayMetrics().widthPixels;
         d = context.getResources().getDisplayMetrics().heightPixels;
-        f2470a = true;
+        f2453a = true;
     }
 
     public static int a(Context context, float f) {
-        if (!f2470a) {
+        if (!f2453a) {
             j(context);
         }
         return (int) ((b * f) + 0.5f);
     }
 
     public static int a(Context context) {
-        if (!f2470a) {
+        if (!f2453a) {
             j(context);
         }
         return c;
     }
 
     public static int b(Context context) {
-        if (!f2470a) {
+        if (!f2453a) {
             j(context);
         }
         return d;
@@ -430,7 +430,7 @@ public class UtilHelper {
         return str.concat(str3);
     }
 
-    public static void a(Context context, com.baidu.tieba.data.au auVar, int i) {
+    public static void a(Context context, com.baidu.tieba.data.at atVar, int i) {
         boolean z;
         boolean z2;
         int hours = new Date(System.currentTimeMillis()).getHours();
@@ -439,7 +439,7 @@ public class UtilHelper {
             if (com.baidu.tieba.mention.t.c()) {
                 z = false;
                 z2 = false;
-            } else if (time - TiebaApplication.g().aR() >= 5000) {
+            } else if (time - TiebaApplication.g().aS() >= 5000) {
                 boolean z3 = TiebaApplication.g().V();
                 z = TiebaApplication.g().W();
                 TiebaApplication.g().c(time);
@@ -449,8 +449,8 @@ public class UtilHelper {
                 z2 = false;
             }
             NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-            String d2 = auVar.d();
-            String c2 = auVar.c();
+            String d2 = atVar.d();
+            String c2 = atVar.c();
             if (TiebaApplication.g().R()) {
                 Notification notification = new Notification(R.drawable.icon, d2, System.currentTimeMillis());
                 if (c2 != null && c2.length() > 0) {
@@ -489,9 +489,9 @@ public class UtilHelper {
                         return;
                     }
                     intent.putExtra("is_notify", true);
-                    intent.putExtra("message_id", auVar.b());
-                    if (!TextUtils.isEmpty(auVar.a())) {
-                        intent.putExtra("stat", auVar.a());
+                    intent.putExtra("message_id", atVar.b());
+                    if (!TextUtils.isEmpty(atVar.a())) {
+                        intent.putExtra("stat", atVar.a());
                     }
                     PendingIntent service = PendingIntent.getService(context, 0, intent, 134217728);
                     String string = context.getString(R.string.app_name);

@@ -11,7 +11,7 @@ import com.baidu.tieba.util.y;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f1767a = false;
+    private boolean f1758a = false;
     private int b = 0;
     private int[] c = new int[0];
     private Handler d = new c(this);
@@ -25,8 +25,8 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(String str) {
-        if (!this.f1767a) {
-            this.f1767a = true;
+        if (!this.f1758a) {
+            this.f1758a = true;
             this.d.removeMessages(1);
             if (l.a().e()) {
                 com.baidu.adp.lib.h.d.d("启动重连策略失败，  WebSocketClient opened");
@@ -49,17 +49,17 @@ public class b {
     }
 
     private void a() {
-        int[] aV = TiebaApplication.g().aV();
-        if (aV == null || aV.length == 0) {
-            aV = j.c;
+        int[] aW = TiebaApplication.g().aW();
+        if (aW == null || aW.length == 0) {
+            aW = j.c;
         }
-        this.c = aV;
+        this.c = aW;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(String str) {
         y.a(str, "ReConnStrategy:stop", "succ");
-        this.f1767a = false;
+        this.f1758a = false;
         this.b = 0;
         bg.b("stop reconnStrategy");
         this.d.removeMessages(1);

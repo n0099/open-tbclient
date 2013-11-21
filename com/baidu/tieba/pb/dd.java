@@ -1,29 +1,20 @@
 package com.baidu.tieba.pb;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class dd implements Runnable {
+public class dd implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dc f2136a;
+    final /* synthetic */ cr f2119a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dd(dc dcVar) {
-        this.f2136a = dcVar;
+    public dd(cr crVar) {
+        this.f2119a = crVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        dv dvVar;
-        eb ebVar;
-        dv dvVar2;
-        dvVar = this.f2136a.e.af;
-        if (dvVar != null) {
-            dvVar2 = this.f2136a.e.af;
-            dvVar2.a(this.f2136a.f2135a);
-        }
-        if (this.f2136a.b) {
-            ebVar = this.f2136a.e.q;
-            ebVar.a(this.f2136a.c, this.f2136a.d);
-        }
-        this.f2136a.e.al();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.f2119a.i();
     }
 }

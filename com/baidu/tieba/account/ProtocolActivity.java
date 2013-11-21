@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 public class ProtocolActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1020a = null;
+    private TextView f1022a = null;
     private RelativeLayout b = null;
     private NavigationBar c;
 
@@ -24,9 +24,9 @@ public class ProtocolActivity extends com.baidu.tieba.j {
         a();
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0087 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0086 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x008a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r2v1 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.io.BufferedReader] */
     /* JADX WARN: Type inference failed for: r2v3 */
@@ -41,7 +41,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
         NavigationBar navigationBar = this.c;
         String string = getString(R.string.account_protocol);
         navigationBar.a(string);
-        this.f1020a = (TextView) findViewById(R.id.text);
+        this.f1022a = (TextView) findViewById(R.id.text);
         StringBuilder sb = new StringBuilder(1024);
         ?? r2 = 0;
         try {
@@ -65,7 +65,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
                                 e2.printStackTrace();
                             }
                         }
-                        this.f1020a.setText(sb.toString());
+                        this.f1022a.setText(sb.toString());
                     }
                 }
                 if (bufferedReader != null) {
@@ -96,7 +96,7 @@ public class ProtocolActivity extends com.baidu.tieba.j {
             }
             throw th;
         }
-        this.f1020a.setText(sb.toString());
+        this.f1022a.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -105,6 +105,6 @@ public class ProtocolActivity extends com.baidu.tieba.j {
         super.onChangeSkinType(i);
         this.c.c(i);
         bd.c(this.b, i);
-        bd.b(this.f1020a, i);
+        bd.b(this.f1022a, i);
     }
 }

@@ -8,13 +8,13 @@ import com.slidingmenu.lib.R;
 class m extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumInfoData[] f1255a;
+    final /* synthetic */ ForumInfoData[] f1260a;
     final /* synthetic */ ForumListActivity b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(ForumListActivity forumListActivity, ForumInfoData[] forumInfoDataArr) {
         this.b = forumListActivity;
-        this.f1255a = forumInfoDataArr;
+        this.f1260a = forumInfoDataArr;
     }
 
     @Override // com.baidu.adp.a.g
@@ -37,16 +37,16 @@ class m extends com.baidu.adp.a.g {
                 ForumListActivity forumListActivity = this.b;
                 axVar3 = this.b.q;
                 forumListActivity.showToast(axVar3.getErrorString());
-            } else if (((com.baidu.tieba.data.ag) obj).b() == 1) {
+            } else if (((com.baidu.tieba.data.af) obj).b() == 1) {
                 this.b.showToast(this.b.getString(R.string.like_success));
                 i = this.b.p;
                 if (i == 0) {
                     sVar3 = this.b.D;
                     sVar3.notifyDataSetChanged();
                     TiebaApplication g = TiebaApplication.g();
-                    ForumInfoData[] forumInfoDataArr = this.f1255a;
+                    ForumInfoData[] forumInfoDataArr = this.f1260a;
                     sVar4 = this.b.D;
-                    g.e(forumInfoDataArr[sVar4.f1261a].forum_name);
+                    g.e(forumInfoDataArr[sVar4.f1266a].forum_name);
                     return;
                 }
                 i2 = this.b.p;
@@ -54,9 +54,9 @@ class m extends com.baidu.adp.a.g {
                     sVar = this.b.E;
                     sVar.notifyDataSetChanged();
                     TiebaApplication g2 = TiebaApplication.g();
-                    ForumInfoData[] forumInfoDataArr2 = this.f1255a;
+                    ForumInfoData[] forumInfoDataArr2 = this.f1260a;
                     sVar2 = this.b.E;
-                    g2.e(forumInfoDataArr2[sVar2.f1261a].forum_name);
+                    g2.e(forumInfoDataArr2[sVar2.f1266a].forum_name);
                 }
             }
         }

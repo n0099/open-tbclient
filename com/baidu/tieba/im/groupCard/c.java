@@ -13,17 +13,17 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class c extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1673a;
+    String f1664a;
     Bitmap b;
     final /* synthetic */ b c;
 
     public c(b bVar, Bitmap bitmap) {
         String str;
         this.c = bVar;
-        this.f1673a = null;
+        this.f1664a = null;
         this.b = null;
         str = bVar.e;
-        this.f1673a = str;
+        this.f1664a = str;
         this.b = bitmap;
     }
 
@@ -37,11 +37,11 @@ public class c extends BdAsyncTask<String, Integer, String> {
         GroupCardActivity groupCardActivity4;
         GroupCardActivity groupCardActivity5;
         try {
-            if (this.f1673a == null || this.f1673a.length() <= 0 || this.b == null) {
+            if (this.f1664a == null || this.f1664a.length() <= 0 || this.b == null) {
                 groupCardActivity2 = this.c.b;
                 return groupCardActivity2.getString(R.string.save_error);
             }
-            String f = be.f(this.f1673a);
+            String f = be.f(this.f1664a);
             if (f == null) {
                 groupCardActivity5 = this.c.b;
                 return groupCardActivity5.getString(R.string.save_error);

@@ -6,7 +6,7 @@ import android.widget.TextView;
 class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    TextView f1425a;
+    TextView f1416a;
     TextView b;
     TextView c;
     TextView d;

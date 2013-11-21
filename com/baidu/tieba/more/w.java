@@ -17,7 +17,7 @@ import com.slidingmenu.lib.R;
 public class w extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    Handler f2015a;
+    Handler f1998a;
     private BrowseSettingActivity c;
     private RelativeLayout d;
     private NavigationBar e;
@@ -59,7 +59,7 @@ public class w extends com.baidu.adp.a.e {
         this.s = new z(this);
         this.t = new aa(this);
         this.u = new ab(this);
-        this.f2015a = new Handler();
+        this.f1998a = new Handler();
         this.c = browseSettingActivity;
         u();
         n();
@@ -78,8 +78,7 @@ public class w extends com.baidu.adp.a.e {
         if (i == 1) {
             this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting_1));
             bd.e(this.f, (int) R.drawable.more_all_1);
-            bd.e(this.g, (int) R.drawable.more_up_1);
-            bd.e(this.h, (int) R.drawable.more_middle_1);
+            bd.e(this.h, (int) R.drawable.more_up_1);
             bd.e(this.i, (int) R.drawable.more_middle_1);
             bd.e(this.j, (int) R.drawable.more_down_1);
             bd.e(this.k, (int) R.drawable.more_all_1);
@@ -87,8 +86,7 @@ public class w extends com.baidu.adp.a.e {
         }
         this.d.setBackgroundColor(this.c.getResources().getColor(R.color.bg_page_setting));
         bd.e(this.f, (int) R.drawable.more_all);
-        bd.e(this.g, (int) R.drawable.more_up);
-        bd.e(this.h, (int) R.drawable.more_middle);
+        bd.e(this.h, (int) R.drawable.more_up);
         bd.e(this.i, (int) R.drawable.more_middle);
         bd.e(this.j, (int) R.drawable.more_down);
         bd.e(this.k, (int) R.drawable.more_all);
@@ -224,7 +222,7 @@ public class w extends com.baidu.adp.a.e {
             if (TiebaApplication.g().ap() != 1) {
                 TiebaApplication.g().f(i);
                 a(i);
-                new com.baidu.tieba.account.ag("eyeshield").start();
+                new com.baidu.tieba.account.ah("eyeshield").start();
             } else {
                 return;
             }

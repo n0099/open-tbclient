@@ -6,12 +6,12 @@ import com.baidu.tieba.data.chat.ChatData;
 class g implements ad {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f1134a;
+    final /* synthetic */ ChatActivity f1140a;
     private boolean b = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ChatActivity chatActivity) {
-        this.f1134a = chatActivity;
+        this.f1140a = chatActivity;
     }
 
     @Override // com.baidu.tieba.chat.ad
@@ -22,7 +22,7 @@ class g implements ad {
     @Override // com.baidu.tieba.chat.ad
     public void b() {
         ai aiVar;
-        aiVar = this.f1134a.f1116a;
+        aiVar = this.f1140a.f1122a;
         this.b = aiVar.l();
     }
 
@@ -40,39 +40,39 @@ class g implements ad {
         ai aiVar2;
         ai aiVar3;
         ai aiVar4;
-        this.f1134a.g = true;
+        this.f1140a.g = true;
         if (z) {
-            aiVar = this.f1134a.f1116a;
-            abVar = this.f1134a.b;
+            aiVar = this.f1140a.f1122a;
+            abVar = this.f1140a.b;
             String f = abVar.f();
-            abVar2 = this.f1134a.b;
+            abVar2 = this.f1140a.b;
             aiVar.a(f, abVar2.e());
             if (i > 0) {
-                this.f1134a.f = true;
+                this.f1140a.f = true;
             }
-            aiVar2 = this.f1134a.f1116a;
+            aiVar2 = this.f1140a.f1122a;
             aiVar2.a(chatData);
             if (!z2) {
                 if (i > 0) {
-                    aiVar4 = this.f1134a.f1116a;
+                    aiVar4 = this.f1140a.f1122a;
                     aiVar4.b(i);
                 }
             } else if (this.b && i > 0) {
-                aiVar3 = this.f1134a.f1116a;
+                aiVar3 = this.f1140a.f1122a;
                 aiVar3.j();
             }
         }
-        handler = this.f1134a.h;
-        runnable = this.f1134a.k;
+        handler = this.f1140a.h;
+        runnable = this.f1140a.k;
         handler.removeCallbacks(runnable);
         if (z3) {
-            handler3 = this.f1134a.h;
-            runnable3 = this.f1134a.k;
+            handler3 = this.f1140a.h;
+            runnable3 = this.f1140a.k;
             handler3.postDelayed(runnable3, 0L);
             return;
         }
-        handler2 = this.f1134a.h;
-        runnable2 = this.f1134a.k;
+        handler2 = this.f1140a.h;
+        runnable2 = this.f1140a.k;
         handler2.postDelayed(runnable2, 30000L);
     }
 }

@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.BaseFragment;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.aj;
+import com.baidu.tieba.am;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.bg;
 import com.baidu.tieba.view.bi;
@@ -19,58 +19,63 @@ import com.slidingmenu.lib.R;
 public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private j f1848a = null;
+    private j f1830a = null;
     private BdListView b = null;
     private bi c;
     private LinearLayout d;
     private com.baidu.tieba.home.s e;
-    private aj f;
+    private am f;
+    private int g;
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.g = -1;
         View inflate = layoutInflater.inflate(R.layout.reply_me_activity, (ViewGroup) null);
         this.c = new bi(i());
         this.c.a(this);
         this.d = (LinearLayout) inflate.findViewById(R.id.bodyNotLogin);
-        this.f = new aj(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
+        this.f = new am(inflate, (int) R.drawable.pic_blank_page_search, (int) R.drawable.pic_blank_page_search_1);
         this.b = (BdListView) inflate.findViewById(R.id.replyme_lv);
         this.b.setPullRefresh(this.c);
-        this.f1848a = new j(this, 1, new ad(this));
-        this.f1848a.a(this.b);
-        this.f1848a.a((ViewGroup) inflate.findViewById(R.id.mention_layout_replyme));
-        this.f1848a.a(this.f);
-        this.f1848a.a("c/u/feed/replyme");
-        this.f1848a.c();
+        this.f1830a = new j(this, 1, new ad(this));
+        this.f1830a.a(this.b);
+        this.f1830a.a((ViewGroup) inflate.findViewById(R.id.mention_layout_replyme));
+        this.f1830a.a(this.f);
+        this.f1830a.a("c/u/feed/replyme");
+        this.f1830a.c();
         return inflate;
     }
 
     @Override // com.baidu.tieba.BaseFragment
     public void c(int i) {
         super.c(i);
-        if (n()) {
-            if (i == 1) {
-                this.b.setCacheColorHint(j().getColor(17170445));
-                if (this.f.c()) {
-                    this.b.setDivider(j().getDrawable(17170445));
+        if (this.g != i) {
+            this.g = i;
+            if (n()) {
+                if (i == 1) {
+                    this.b.setCacheColorHint(j().getColor(17170445));
+                    if (this.f.c()) {
+                        this.b.setDivider(j().getDrawable(17170445));
+                    } else {
+                        this.b.setDivider(new ColorDrawable(j().getColor(R.color.night_divider)));
+                    }
+                    this.b.setDividerHeight(UtilHelper.a((Context) i(), 1.0f));
                 } else {
-                    this.b.setDivider(new ColorDrawable(j().getColor(R.color.night_divider)));
+                    this.b.setCacheColorHint(j().getColor(17170445));
+                    if (this.f.c()) {
+                        this.b.setDivider(j().getDrawable(17170445));
+                    } else {
+                        this.b.setDivider(new ColorDrawable(j().getColor(R.color.day_divider)));
+                    }
+                    this.b.setDividerHeight(UtilHelper.a((Context) i(), 1.0f));
                 }
-                this.b.setDividerHeight(UtilHelper.a((Context) i(), 1.0f));
-            } else {
-                this.b.setCacheColorHint(j().getColor(17170445));
-                if (this.f.c()) {
-                    this.b.setDivider(j().getDrawable(17170445));
-                } else {
-                    this.b.setDivider(new ColorDrawable(j().getColor(R.color.day_divider)));
+                this.f.a(i);
+                if (this.c != null) {
+                    this.c.a(i);
                 }
-                this.b.setDividerHeight(UtilHelper.a((Context) i(), 1.0f));
-            }
-            this.f.a(i);
-            if (this.c != null) {
-                this.c.a(i);
-            }
-            if (this.e != null) {
-                this.e.b(i);
+                if (this.e != null) {
+                    this.e.b(i);
+                }
             }
         }
     }
@@ -82,12 +87,12 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
             this.b.setVisibility(0);
             this.d.setVisibility(8);
             if (t.a().l() > 0) {
-                this.f1848a.a(2);
+                this.f1830a.a(2);
             } else {
-                this.f1848a.a(1);
+                this.f1830a.a(1);
             }
-            this.f1848a.d();
-            this.f1848a.e();
+            this.f1830a.d();
+            this.f1830a.e();
             return;
         }
         if (this.e == null) {
@@ -119,9 +124,9 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
     public void t() {
         super.t();
         try {
-            if (this.f1848a != null) {
-                this.f1848a.f();
-                this.f1848a.a();
+            if (this.f1830a != null) {
+                this.f1830a.f();
+                this.f1830a.a();
             }
             System.gc();
         } catch (Exception e) {
@@ -130,7 +135,7 @@ public class ReplyMeFragment extends BaseFragment implements com.baidu.adp.widge
     }
 
     public void a() {
-        this.f1848a.b();
+        this.f1830a.b();
     }
 
     @Override // com.baidu.adp.widget.ListView.b

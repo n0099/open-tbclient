@@ -7,11 +7,11 @@ import com.baidu.tieba.view.HeadImageView;
 class aq implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2074a;
+    final /* synthetic */ NewPbActivity f2057a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(NewPbActivity newPbActivity) {
-        this.f2074a = newPbActivity;
+        this.f2057a = newPbActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,7 +23,7 @@ class aq implements View.OnClickListener {
             str = (String) view.getTag();
         }
         if (str != null) {
-            PersonInfoActivity.a(this.f2074a, str, (String) null);
+            PersonInfoActivity.a(this.f2057a, str, (String) null);
         }
     }
 }

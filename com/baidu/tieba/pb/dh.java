@@ -1,25 +1,21 @@
 package com.baidu.tieba.pb;
 
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tieba.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dh implements View.OnFocusChangeListener {
+public class dh implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cp f2140a;
+    final /* synthetic */ cr f2123a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dh(cp cpVar) {
-        this.f2140a = cpVar;
+    public dh(cr crVar) {
+        this.f2123a = crVar;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        NewPbActivity newPbActivity;
-        if (!z) {
-            newPbActivity = this.f2140a.g;
-            UtilHelper.a(newPbActivity, view);
-        }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        return motionEvent.getAction() == 0;
     }
 }

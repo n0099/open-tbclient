@@ -6,18 +6,18 @@ import com.slidingmenu.lib.R;
 class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ForumTopicActivity f1467a;
+    final /* synthetic */ ForumTopicActivity f1458a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(ForumTopicActivity forumTopicActivity) {
-        this.f1467a = forumTopicActivity;
+        this.f1458a = forumTopicActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.forum_topic_title_back /* 2131100159 */:
-                this.f1467a.finish();
+            case R.id.forum_topic_title_back /* 2131100153 */:
+                this.f1458a.finish();
                 return;
             default:
                 return;

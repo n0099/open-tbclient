@@ -18,7 +18,7 @@ import com.slidingmenu.lib.R;
 public class e extends BaseAdapter implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private TRForumListData f2448a;
+    private TRForumListData f2431a;
     private TopRecActivity c;
     private com.baidu.tieba.util.i d;
     private boolean b = false;
@@ -34,8 +34,8 @@ public class e extends BaseAdapter implements View.OnClickListener {
     }
 
     public void a(TRForumListData tRForumListData) {
-        this.f2448a = tRForumListData;
-        if (this.h && this.f2448a.forum_list.length >= 20) {
+        this.f2431a = tRForumListData;
+        if (this.h && this.f2431a.forum_list.length >= 20) {
             this.g = 20;
             this.h = false;
         }
@@ -43,12 +43,12 @@ public class e extends BaseAdapter implements View.OnClickListener {
     }
 
     public void a() {
-        if (this.f2448a != null) {
-            if (this.f2448a.forum_list.length - this.g > 20) {
+        if (this.f2431a != null) {
+            if (this.f2431a.forum_list.length - this.g > 20) {
                 this.g += 20;
                 this.b = false;
             } else {
-                this.g = this.f2448a.forum_list.length;
+                this.g = this.f2431a.forum_list.length;
                 this.b = true;
             }
             notifyDataSetChanged();
@@ -67,23 +67,23 @@ public class e extends BaseAdapter implements View.OnClickListener {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.f2448a == null) {
+        if (this.f2431a == null) {
             return 0;
         }
-        return this.g < this.f2448a.forum_list.length ? this.g : this.f2448a.forum_list.length;
+        return this.g < this.f2431a.forum_list.length ? this.g : this.f2431a.forum_list.length;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < this.f2448a.forum_list.length) {
-            return this.f2448a.forum_list[i];
+        if (i < this.f2431a.forum_list.length) {
+            return this.f2431a.forum_list[i];
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (i < this.f2448a.forum_list.length) {
+        if (i < this.f2431a.forum_list.length) {
             return i;
         }
         return 0L;
@@ -94,7 +94,7 @@ public class e extends BaseAdapter implements View.OnClickListener {
         if (view == null || view.getTag() == null) {
             view = View.inflate(this.c, R.layout.top_recommended_list_item, null);
             g gVar = new g(this);
-            gVar.f2450a = (ImageView) view.findViewById(R.id.forum_avatar);
+            gVar.f2433a = (ImageView) view.findViewById(R.id.forum_avatar);
             gVar.b = (TextView) view.findViewById(R.id.name);
             gVar.c = (TextView) view.findViewById(R.id.member_count);
             gVar.d = (TextView) view.findViewById(R.id.thread_count);
@@ -121,11 +121,11 @@ public class e extends BaseAdapter implements View.OnClickListener {
         } else {
             view.setBackgroundColor(this.c.getResources().getColor(R.color.flist_item_color_even_day));
         }
-        TRForumListData.TRForum tRForum = this.f2448a.forum_list[i];
-        bg.e("ForumListAdapter", "getView", "forum name:" + this.f2448a.forum_list[i].forum_name + "forum avatar:" + this.f2448a.forum_list[i].avatar);
+        TRForumListData.TRForum tRForum = this.f2431a.forum_list[i];
+        bg.e("ForumListAdapter", "getView", "forum name:" + this.f2431a.forum_list[i].forum_name + "forum avatar:" + this.f2431a.forum_list[i].avatar);
         String str = tRForum.avatar;
-        this.d.f(str, new f(this, str, gVar2.f2450a));
-        gVar2.f2450a.setTag(str);
+        this.d.f(str, new f(this, str, gVar2.f2433a));
+        gVar2.f2433a.setTag(str);
         gVar2.b.setText(tRForum.forum_name);
         gVar2.c.setText(this.c.getString(R.string.forum_list_attention_tv) + " " + String.valueOf(tRForum.member_count));
         gVar2.d.setText(this.c.getString(R.string.forum_list_thread_tv) + " " + String.valueOf(tRForum.thread_count));
@@ -159,19 +159,19 @@ public class e extends BaseAdapter implements View.OnClickListener {
     }
 
     public int c() {
-        if (this.f2448a == null || this.f2448a.forum_list == null) {
+        if (this.f2431a == null || this.f2431a.forum_list == null) {
             return 0;
         }
         int i = 0;
-        for (int i2 = 0; i2 < this.f2448a.forum_list.length; i2++) {
-            int d = TiebaApplication.g().d(this.f2448a.forum_list[i2].forum_name);
+        for (int i2 = 0; i2 < this.f2431a.forum_list.length; i2++) {
+            int d = TiebaApplication.g().d(this.f2431a.forum_list[i2].forum_name);
             if (d == 1) {
-                if (this.f2448a.forum_list[i2].is_like == 0) {
-                    this.f2448a.forum_list[i2].is_like = 1;
+                if (this.f2431a.forum_list[i2].is_like == 0) {
+                    this.f2431a.forum_list[i2].is_like = 1;
                     i++;
                 }
-            } else if (d == -1 && this.f2448a.forum_list[i2].is_like == 1) {
-                this.f2448a.forum_list[i2].is_like = 0;
+            } else if (d == -1 && this.f2431a.forum_list[i2].is_like == 1) {
+                this.f2431a.forum_list[i2].is_like = 0;
                 i--;
             }
         }

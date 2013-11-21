@@ -19,9 +19,9 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1013a = com.baidu.tieba.data.h.f1196a + "c/c/thread/add";
-    private static final String b = com.baidu.tieba.data.h.f1196a + "c/c/post/add";
-    private static final String c = com.baidu.tieba.data.h.f1196a + "c/c/img/upload";
+    private static final String f1015a = com.baidu.tieba.data.h.f1201a + "c/c/thread/add";
+    private static final String b = com.baidu.tieba.data.h.f1201a + "c/c/post/add";
+    private static final String c = com.baidu.tieba.data.h.f1201a + "c/c/img/upload";
     private ap d = null;
     private ErrorData e;
     private AntiData f;
@@ -65,8 +65,8 @@ public class k {
                         } else {
                             eVar = p;
                         }
-                        if (new n("tieba_resized_image", eVar, com.baidu.tieba.data.h.f1196a + "c/c/img/chunkupload").b().b()) {
-                            this.d = new ap(com.baidu.tieba.data.h.f1196a + "c/c/img/finupload");
+                        if (new n("tieba_resized_image", eVar, com.baidu.tieba.data.h.f1201a + "c/c/img/chunkupload").b().b()) {
+                            this.d = new ap(com.baidu.tieba.data.h.f1201a + "c/c/img/finupload");
                             this.d.a("md5", eVar.a());
                             this.d.a("pic_type", String.valueOf(writeData.getPicType()));
                             b2 = this.d.j();
@@ -114,16 +114,16 @@ public class k {
             if (TiebaApplication.g().as() < 3) {
                 this.d.a("vcode_tag", "11");
             }
-            Address aN = TiebaApplication.g().aN();
+            Address aP = TiebaApplication.g().aP();
             this.d.a("new_vcode", SocialConstants.TRUE);
             this.d.a("content", writeData.getContent() + str2);
             switch (writeData.getType()) {
                 case 0:
-                    this.d.a(f1013a);
+                    this.d.a(f1015a);
                     this.d.a("kw", writeData.getForumName());
                     this.d.a("title", writeData.getTitle());
-                    if (aN != null && TiebaApplication.g().t() && !com.baidu.tieba.data.h.h().equals(writeData.getForumId())) {
-                        this.d.a("lbs", String.valueOf(aN.getLatitude()) + "," + String.valueOf(aN.getLongitude()));
+                    if (aP != null && TiebaApplication.g().t() && !com.baidu.tieba.data.h.h().equals(writeData.getForumId())) {
+                        this.d.a("lbs", String.valueOf(aP.getLatitude()) + "," + String.valueOf(aP.getLongitude()));
                         break;
                     }
                     break;

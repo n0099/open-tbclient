@@ -8,11 +8,11 @@ import com.baidu.tieba.util.UtilHelper;
 public class bt extends BdAsyncTask<String, Integer, bp> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ br f1437a;
+    final /* synthetic */ br f1428a;
     private ae b = null;
 
     public bt(br brVar) {
-        this.f1437a = brVar;
+        this.f1428a = brVar;
         setPriority(3);
     }
 
@@ -20,7 +20,7 @@ public class bt extends BdAsyncTask<String, Integer, bp> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
         super.b();
-        this.f1437a.f1436a = true;
+        this.f1428a.f1427a = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,8 +30,8 @@ public class bt extends BdAsyncTask<String, Integer, bp> {
         bp bpVar;
         this.b = new ae();
         if (UtilHelper.i(TiebaApplication.g().getApplicationContext()) != UtilHelper.NetworkStateInfo.UNAVAIL) {
-            this.f1437a.c = a(strArr[0]);
-            bpVar = this.f1437a.c;
+            this.f1428a.c = a(strArr[0]);
+            bpVar = this.f1428a.c;
             return bpVar;
         }
         return null;
@@ -52,8 +52,8 @@ public class bt extends BdAsyncTask<String, Integer, bp> {
         super.cancel();
         this.b.a();
         this.b = null;
-        this.f1437a.b = null;
-        this.f1437a.f1436a = false;
+        this.f1428a.b = null;
+        this.f1428a.f1427a = false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,19 +65,19 @@ public class bt extends BdAsyncTask<String, Integer, bp> {
         bs bsVar2;
         bs bsVar3;
         bp bpVar3;
-        this.f1437a.f1436a = false;
-        this.f1437a.b = null;
-        bsVar = this.f1437a.d;
+        this.f1428a.f1427a = false;
+        this.f1428a.b = null;
+        bsVar = this.f1428a.d;
         if (bsVar != null) {
-            bpVar2 = this.f1437a.c;
+            bpVar2 = this.f1428a.c;
             if (bpVar2 != null) {
-                bsVar3 = this.f1437a.d;
-                bpVar3 = this.f1437a.c;
+                bsVar3 = this.f1428a.d;
+                bpVar3 = this.f1428a.c;
                 bsVar3.a(bpVar3);
                 return;
             }
             String c = this.b != null ? this.b.c() : null;
-            bsVar2 = this.f1437a.d;
+            bsVar2 = this.f1428a.d;
             bsVar2.a(c);
         }
     }

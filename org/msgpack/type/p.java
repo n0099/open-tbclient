@@ -7,17 +7,17 @@ import org.msgpack.MessageTypeException;
 class p extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2966a;
+    private String f2950a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(String str) {
-        this.f2966a = str;
+        this.f2950a = str;
     }
 
     @Override // org.msgpack.type.RawValue
     public byte[] b() {
         try {
-            return this.f2966a.getBytes("UTF-8");
+            return this.f2950a.getBytes("UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new MessageTypeException(e);
         }
@@ -25,12 +25,12 @@ class p extends d {
 
     @Override // org.msgpack.type.RawValue
     public String c() {
-        return this.f2966a;
+        return this.f2950a;
     }
 
     @Override // org.msgpack.type.r
     public void writeTo(org.msgpack.packer.a aVar) {
-        aVar.a(this.f2966a);
+        aVar.a(this.f2950a);
     }
 
     @Override // org.msgpack.type.d
@@ -42,7 +42,7 @@ class p extends d {
             r rVar = (r) obj;
             if (rVar.isRawValue()) {
                 if (rVar.getClass() == p.class) {
-                    return this.f2966a.equals(((p) rVar).f2966a);
+                    return this.f2950a.equals(((p) rVar).f2950a);
                 }
                 return Arrays.equals(b(), rVar.asRawValue().b());
             }

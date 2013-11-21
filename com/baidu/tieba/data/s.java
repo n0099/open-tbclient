@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1207a = null;
+    private String f1212a = null;
     private String b = null;
     private int c = 0;
     private int d = 0;
@@ -25,7 +25,7 @@ public class s {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1207a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.f1212a = jSONObject.optString(LocaleUtil.INDONESIAN);
                 this.b = jSONObject.optString(SocialConstants.PARAM_MEDIA_UNAME);
                 this.c = jSONObject.optInt("member_count", 0);
                 this.d = jSONObject.optInt("is_like", 0);

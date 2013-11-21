@@ -10,19 +10,19 @@ import java.util.ArrayList;
 public class u extends BaseAdapter implements com.baidu.tieba.view.ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2436a;
+    private Context f2419a;
     private CarouselRecommendView.CarouselRecommendPagerAdapter b = null;
-    private ArrayList<aw> c = new ArrayList<>();
+    private ArrayList<au> c = new ArrayList<>();
     private CarouselRecommendView d;
 
     public u(Context context) {
-        this.f2436a = null;
+        this.f2419a = null;
         this.d = null;
-        this.f2436a = context;
+        this.f2419a = context;
         this.d = new CarouselRecommendView(context);
     }
 
-    public void a(ArrayList<aw> arrayList) {
+    public void a(ArrayList<au> arrayList) {
         this.c = arrayList;
         this.d.a(arrayList);
         this.b = this.d.getPagerAdapter();

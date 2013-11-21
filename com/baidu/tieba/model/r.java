@@ -11,19 +11,19 @@ import java.util.Iterator;
 public class r extends BdAsyncTask<Boolean, String, o> {
     final /* synthetic */ o b;
     private int e;
-    private com.baidu.tieba.data.az f;
+    private com.baidu.tieba.data.ay f;
     private com.baidu.tieba.util.ap c = null;
     private String d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    Boolean f1948a = false;
+    Boolean f1931a = false;
 
     public r(o oVar, int i) {
         this.b = oVar;
         this.e = 0;
         this.f = null;
         this.e = i;
-        this.f = new com.baidu.tieba.data.az();
+        this.f = new com.baidu.tieba.data.ay();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,9 +37,9 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     public o a(Boolean... boolArr) {
         ArrayList arrayList;
         ArrayList arrayList2;
-        this.f1948a = boolArr[0];
+        this.f1931a = boolArr[0];
         o oVar = new o();
-        if (this.f1948a.booleanValue()) {
+        if (this.f1931a.booleanValue()) {
             com.baidu.adp.lib.cache.s<String> i = com.baidu.tieba.b.a.a().i();
             if (i != null) {
                 c((Object[]) new String[]{i.a(TiebaApplication.A())});
@@ -53,7 +53,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
             }
             this.b.f = 0;
         }
-        this.c = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/f/post/threadstore");
+        this.c = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/f/post/threadstore");
         this.c.a(PushConstants.EXTRA_USER_ID, TiebaApplication.A());
         this.c.a("offset", String.valueOf(this.e));
         this.c.a("rn", String.valueOf(20));
@@ -61,7 +61,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         this.f.a(this.d);
         if (this.c.c()) {
             oVar.a(this.d);
-            if (this.e == 0 && this.f1948a.booleanValue()) {
+            if (this.e == 0 && this.f1931a.booleanValue()) {
                 a(this.d);
             }
         }
@@ -87,7 +87,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         ArrayList<MarkData> arrayList = new ArrayList<>();
         if (str != null) {
             b = this.b.b(str);
-            if (this.f1948a.booleanValue()) {
+            if (this.f1931a.booleanValue()) {
                 this.b.a(b);
             } else {
                 this.b.b(b);
@@ -95,7 +95,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         } else {
             this.b.a(arrayList);
         }
-        this.b.f1946a.a(0, null, true);
+        this.b.f1929a.a(0, null, true);
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -115,7 +115,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         this.b.b = null;
         this.b.f = oVar.d();
         ArrayList<MarkData> c = oVar.c();
-        if (this.f1948a.booleanValue()) {
+        if (this.f1931a.booleanValue()) {
             this.b.a(c);
         } else {
             this.b.b(c);
@@ -131,14 +131,14 @@ public class r extends BdAsyncTask<Boolean, String, o> {
             }
             i2 = i;
         }
-        if (this.b.f1946a != null) {
+        if (this.b.f1929a != null) {
             if (this.c.c()) {
                 String b = this.f.b();
                 TiebaApplication.g().a((Boolean) true);
-                this.b.f1946a.a(0, b, false);
+                this.b.f1929a.a(0, b, false);
                 return;
             }
-            this.b.f1946a.a(3, this.c.g());
+            this.b.f1929a.a(3, this.c.g());
         }
     }
 }

@@ -11,13 +11,13 @@ public final class y {
     public static final javassist.h e = null;
 
     /* renamed from: a  reason: collision with root package name */
-    ak f2831a;
+    ak f2815a;
     int b;
     int c;
     HashMap d;
 
     public y(String str) {
-        this.f2831a = new ak();
+        this.f2815a = new ak();
         this.d = null;
         this.b = 0;
         a((w) null);
@@ -45,7 +45,7 @@ public final class y {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w b(int i) {
-        return this.f2831a.a(i);
+        return this.f2815a.a(i);
     }
 
     public int c(int i) {
@@ -57,7 +57,7 @@ public final class y {
         if (jVar == null) {
             return null;
         }
-        return z.b(w(jVar.f2815a));
+        return z.b(w(jVar.f2799a));
     }
 
     public String e(int i) {
@@ -65,12 +65,12 @@ public final class y {
         if (jVar == null) {
             return null;
         }
-        String w = w(jVar.f2815a);
+        String w = w(jVar.f2799a);
         return w.charAt(0) != '[' ? z.d(w) : w;
     }
 
     public int f(int i) {
-        return ((ar) b(i)).f2793a;
+        return ((ar) b(i)).f2777a;
     }
 
     public int g(int i) {
@@ -86,14 +86,14 @@ public final class y {
         if (aeVar == null) {
             return null;
         }
-        return d(aeVar.f2762a);
+        return d(aeVar.f2746a);
     }
 
     public String j(int i) {
         ar arVar;
         ae aeVar = (ae) b(i);
         if (aeVar != null && (arVar = (ar) b(aeVar.c)) != null) {
-            return w(arVar.f2793a);
+            return w(arVar.f2777a);
         }
         return null;
     }
@@ -112,7 +112,7 @@ public final class y {
         if (apVar == null) {
             return null;
         }
-        return d(apVar.f2762a);
+        return d(apVar.f2746a);
     }
 
     public int m(int i) {
@@ -123,7 +123,7 @@ public final class y {
         ar arVar;
         ap apVar = (ap) b(i);
         if (apVar != null && (arVar = (ar) b(apVar.c)) != null) {
-            return w(arVar.f2793a);
+            return w(arVar.f2777a);
         }
         return null;
     }
@@ -138,7 +138,7 @@ public final class y {
     }
 
     public String p(int i) {
-        return d(((ah) b(i)).f2762a);
+        return d(((ah) b(i)).f2746a);
     }
 
     public String q(int i) {
@@ -151,27 +151,27 @@ public final class y {
     }
 
     public int r(int i) {
-        return ((ag) b(i)).f2758a;
+        return ((ag) b(i)).f2742a;
     }
 
     public float s(int i) {
-        return ((af) b(i)).f2757a;
+        return ((af) b(i)).f2741a;
     }
 
     public long t(int i) {
-        return ((aj) b(i)).f2760a;
+        return ((aj) b(i)).f2744a;
     }
 
     public double u(int i) {
-        return ((aa) b(i)).f2753a;
+        return ((aa) b(i)).f2737a;
     }
 
     public String v(int i) {
-        return w(((bm) b(i)).f2808a);
+        return w(((bm) b(i)).f2792a);
     }
 
     public String w(int i) {
-        return ((bn) b(i)).f2809a;
+        return ((bn) b(i)).f2793a;
     }
 
     public String x(int i) {
@@ -189,9 +189,9 @@ public final class y {
 
     public int a(String str, String str2, int i) {
         al alVar = (al) b(i);
-        if (d(alVar.f2762a).equals(str)) {
+        if (d(alVar.f2746a).equals(str)) {
             ar arVar = (ar) b(alVar.c);
-            if (w(arVar.f2793a).equals(str2)) {
+            if (w(arVar.f2777a).equals(str2)) {
                 return arVar.c;
             }
         }
@@ -201,14 +201,14 @@ public final class y {
     public String b(String str, String str2, int i) {
         al alVar = (al) b(i);
         ar arVar = (ar) b(alVar.c);
-        if (w(arVar.f2793a).equals(str) && w(arVar.c).equals(str2)) {
-            return d(alVar.f2762a);
+        if (w(arVar.f2777a).equals(str) && w(arVar.c).equals(str2)) {
+            return d(alVar.f2746a);
         }
         return null;
     }
 
     private int a(w wVar) {
-        this.f2831a.a(wVar);
+        this.f2815a.a(wVar);
         int i = this.b;
         this.b = i + 1;
         return i;
@@ -216,13 +216,13 @@ public final class y {
 
     private int b(w wVar) {
         if (this.d == null) {
-            this.d = a(this.f2831a);
+            this.d = a(this.f2815a);
         }
         w wVar2 = (w) this.d.get(wVar);
         if (wVar2 != null) {
             return wVar2.b;
         }
-        this.f2831a.a(wVar);
+        this.f2815a.a(wVar);
         this.d.put(wVar, wVar);
         int i = this.b;
         this.b = i + 1;
@@ -333,7 +333,7 @@ public final class y {
 
     private void a(DataInputStream dataInputStream) {
         int readUnsignedShort = dataInputStream.readUnsignedShort();
-        this.f2831a = new ak(readUnsignedShort);
+        this.f2815a = new ak(readUnsignedShort);
         this.b = 0;
         a((w) null);
         while (true) {
@@ -424,7 +424,7 @@ public final class y {
 
     public void a(DataOutputStream dataOutputStream) {
         dataOutputStream.writeShort(this.b);
-        ak akVar = this.f2831a;
+        ak akVar = this.f2815a;
         int i = this.b;
         for (int i2 = 1; i2 < i; i2++) {
             akVar.a(i2).a(dataOutputStream);

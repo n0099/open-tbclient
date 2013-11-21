@@ -5,37 +5,37 @@ import com.baidu.tieba.data.NewErrorData;
 import com.baidu.tieba.util.ap;
 /* loaded from: classes.dex */
 public class e {
-    private static final String c = com.baidu.tieba.data.h.f1196a + "c/s/clearmsg";
+    private static final String c = com.baidu.tieba.data.h.f1201a + "c/s/clearmsg";
 
     /* renamed from: a  reason: collision with root package name */
-    private ap f1010a = null;
+    private ap f1012a = null;
     private NewErrorData b = null;
 
     public void a(String str, String str2) {
-        this.f1010a = new ap(c);
-        this.f1010a.a(PushConstants.EXTRA_USER_ID, str);
-        this.f1010a.a("com_id", str2);
-        String j = this.f1010a.j();
+        this.f1012a = new ap(c);
+        this.f1012a.a(PushConstants.EXTRA_USER_ID, str);
+        this.f1012a.a("com_id", str2);
+        String j = this.f1012a.j();
         this.b = new NewErrorData();
         this.b.parserJson(j);
     }
 
     public void a() {
-        if (this.f1010a != null) {
-            this.f1010a.h();
+        if (this.f1012a != null) {
+            this.f1012a.h();
         }
     }
 
     public boolean b() {
-        if (this.f1010a != null) {
-            return this.f1010a.c();
+        if (this.f1012a != null) {
+            return this.f1012a.c();
         }
         return false;
     }
 
     public String c() {
-        if (this.f1010a != null) {
-            return this.f1010a.g();
+        if (this.f1012a != null) {
+            return this.f1012a.g();
         }
         return null;
     }

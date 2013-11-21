@@ -3,15 +3,15 @@ package com.baidu.tieba.home;
 class bw implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bu f1440a;
+    final /* synthetic */ bu f1431a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(bu buVar) {
-        this.f1440a = buVar;
+        this.f1431a = buVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f1440a.postDelayed(this, 2000L);
+        this.f1431a.postDelayed(this, 2000L);
     }
 }

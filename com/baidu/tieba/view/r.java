@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.tieba.data.IconData;
 import com.baidu.tieba.voice.PlayVoiceBnt;
 import com.baidu.tieba.voice.VoiceManager;
 import com.slidingmenu.lib.R;
@@ -20,17 +21,17 @@ import java.util.LinkedList;
 public class r {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2595a;
+    private Context f2578a;
     private View.OnClickListener g;
     private int b = 200;
     private boolean c = true;
     private boolean d = false;
     private float e = 0.4f;
-    private LinkedList<com.baidu.tieba.data.aa> f = null;
+    private LinkedList<IconData> f = null;
     private t h = new t(this, null);
 
     public r(Context context) {
-        this.f2595a = context;
+        this.f2578a = context;
         this.g = new s(this, context);
     }
 
@@ -49,7 +50,7 @@ public class r {
         int i;
         int i2 = 0;
         if (view.getTag() != null && (uVar = (u) view.getTag()) != null) {
-            uVar.c.setText(wVar.b() + this.f2595a.getResources().getString(R.string.forum_name_suffix));
+            uVar.c.setText(wVar.b() + this.f2578a.getResources().getString(R.string.forum_name_suffix));
             uVar.c.setTag(wVar.b());
             if (wVar.i() > 0) {
                 uVar.d.setText(b(view, wVar));
@@ -59,7 +60,7 @@ public class r {
             uVar.f.setText(wVar.f());
             this.f = wVar.l();
             if (uVar.o != null) {
-                uVar.o.a(this.f, 3, this.f2595a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_width), this.f2595a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_height), this.f2595a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_margin));
+                uVar.o.a(this.f, 3, this.f2578a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_width), this.f2578a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_height), this.f2578a.getResources().getDimensionPixelSize(R.dimen.forumfeed_icon_margin));
             }
             uVar.h.setText(String.valueOf(wVar.e()));
             uVar.g.setText(com.baidu.tieba.util.be.b(wVar.g() * 1000));
@@ -84,17 +85,17 @@ public class r {
             }
             if (com.baidu.tieba.d.a.a().f()) {
                 uVar.i.setVisibility(0);
-                ArrayList<com.baidu.tieba.data.aj> j = wVar.j();
+                ArrayList<com.baidu.tieba.data.ai> j = wVar.j();
                 if (j != null) {
                     if (j.size() > 0) {
                         int size = j.size();
                         int i3 = size > 3 ? 3 : size;
                         if (i3 > 0) {
-                            com.baidu.tieba.data.aj[] ajVarArr = new com.baidu.tieba.data.aj[i3];
+                            com.baidu.tieba.data.ai[] aiVarArr = new com.baidu.tieba.data.ai[i3];
                             int i4 = 0;
                             while (i2 < j.size() && i4 < i3) {
                                 if (j.get(i2).a() == 3 || j.get(i2).a() == 5) {
-                                    ajVarArr[i4] = j.get(i2);
+                                    aiVarArr[i4] = j.get(i2);
                                     i = i4 + 1;
                                 } else {
                                     i = i4;
@@ -103,7 +104,7 @@ public class r {
                                 i4 = i;
                             }
                             uVar.i.setShowBig(this.c);
-                            uVar.i.setData(ajVarArr);
+                            uVar.i.setData(aiVarArr);
                             uVar.i.setImageFrom("other");
                             uVar.i.setFromCDN(this.d);
                         }
@@ -111,6 +112,8 @@ public class r {
                         uVar.i.setVisibility(8);
                     }
                 }
+            } else {
+                uVar.i.setVisibility(8);
             }
             uVar.n = this.c;
             view.setTag(uVar);
@@ -128,8 +131,8 @@ public class r {
 
     public View a() {
         u uVar = new u(this);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f2595a).inflate(R.layout.forum_feed_item, (ViewGroup) null);
-        uVar.f2598a = (LinearLayout) linearLayout.findViewById(R.id.layoutForumTop);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f2578a).inflate(R.layout.forum_feed_item, (ViewGroup) null);
+        uVar.f2581a = (LinearLayout) linearLayout.findViewById(R.id.layoutForumTop);
         uVar.b = (RelativeLayout) linearLayout.findViewById(R.id.layoutForumBottom);
         uVar.c = (TextView) linearLayout.findViewById(R.id.textHomeListFrsName);
         uVar.d = (TextView) linearLayout.findViewById(R.id.textHomeListTitle);
@@ -162,16 +165,16 @@ public class r {
     }
 
     private void a(u uVar) {
-        Resources resources = this.f2595a.getResources();
-        uVar.f2598a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
+        Resources resources = this.f2578a.getResources();
+        uVar.f2581a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg);
         com.baidu.tieba.util.bd.e((View) uVar.c, (int) R.drawable.bg_label);
         uVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
         uVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg);
     }
 
     private void b(u uVar) {
-        Resources resources = this.f2595a.getResources();
-        uVar.f2598a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg_1);
+        Resources resources = this.f2578a.getResources();
+        uVar.f2581a.setBackgroundResource(R.drawable.forumfeed_frs_list_item_top_bg_1);
         com.baidu.tieba.util.bd.e((View) uVar.c, (int) R.drawable.bg_label_1);
         uVar.h.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.icon_little_comment_s_1), (Drawable) null, (Drawable) null, (Drawable) null);
         uVar.b.setBackgroundResource(R.drawable.forumfeed_frs_list_item_foot_bg_1);

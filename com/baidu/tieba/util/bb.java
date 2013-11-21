@@ -3,7 +3,7 @@ package com.baidu.tieba.util;
 public class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f2497a;
+    public int f2480a;
     public long b;
     public int c;
     public int d;

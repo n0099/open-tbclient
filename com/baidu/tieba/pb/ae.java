@@ -14,13 +14,13 @@ import org.json.JSONObject;
 public class ae extends BdAsyncTask<Integer, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ImagePbActivity f2062a;
+    final /* synthetic */ ImagePbActivity f2045a;
     private WriteData b;
     private com.baidu.tieba.util.ap c = null;
     private boolean d = false;
 
     public ae(ImagePbActivity imagePbActivity, WriteData writeData) {
-        this.f2062a = imagePbActivity;
+        this.f2045a = imagePbActivity;
         this.b = null;
         this.b = writeData;
     }
@@ -32,7 +32,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         if (this.d) {
             return null;
         }
-        this.c = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/c/post/add");
+        this.c = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/post/add");
         this.c.a("anonymous", SocialConstants.FALSE);
         this.c.a("fid", this.b.getForumId());
         this.c.a("kw", this.b.getForumName());
@@ -57,27 +57,27 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
             antiData.setBlock_forum_id(this.b.getForumId());
             antiData.setUser_id(TiebaApplication.A());
             antiData.setUser_name(TiebaApplication.F());
-            AntiHelper.a(this.f2062a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
+            AntiHelper.a(this.f2045a, antiData, AntiHelper.OperationType.REPLY, AntiHelper.PageType.IMAGE_PB);
             return;
         }
-        this.f2062a.showToast(str);
+        this.f2045a.showToast(str);
     }
 
     private void a(int i, String str, String str2, AntiData antiData) {
         if (i == 5 || i == 6) {
-            com.baidu.tieba.data.be beVar = new com.baidu.tieba.data.be();
-            beVar.a(str2);
+            com.baidu.tieba.data.bd bdVar = new com.baidu.tieba.data.bd();
+            bdVar.a(str2);
             if (AntiHelper.c(antiData)) {
                 a(antiData, str);
                 return;
-            } else if (beVar.b() != null) {
-                this.b.setVcodeMD5(beVar.a());
-                this.b.setVcodeUrl(beVar.b());
-                if (beVar.c().equals("4")) {
-                    NewVcodeActivity.a(this.f2062a, this.b, 12006);
+            } else if (bdVar.b() != null) {
+                this.b.setVcodeMD5(bdVar.a());
+                this.b.setVcodeUrl(bdVar.b());
+                if (bdVar.c().equals("4")) {
+                    NewVcodeActivity.a(this.f2045a, this.b, 12006);
                     return;
                 } else {
-                    VcodeActivity.a(this.f2062a, this.b, 12006);
+                    VcodeActivity.a(this.f2045a, this.b, 12006);
                     return;
                 }
             } else {
@@ -94,8 +94,8 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
     public void a(String str) {
         AntiData antiData;
         super.a((ae) str);
-        this.f2062a.closeLoadingDialog();
-        this.f2062a.u = null;
+        this.f2045a.closeLoadingDialog();
+        this.f2045a.u = null;
         if (this.c != null) {
             try {
                 antiData = new AntiData();
@@ -107,7 +107,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
                 antiData = null;
             }
             if (this.c.c()) {
-                this.f2062a.h();
+                this.f2045a.h();
             } else {
                 a(this.c.e(), this.c.g(), str, antiData);
             }
@@ -116,8 +116,8 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
-        this.f2062a.u = null;
-        this.f2062a.closeLoadingDialog();
+        this.f2045a.u = null;
+        this.f2045a.closeLoadingDialog();
         this.d = true;
         if (this.c != null) {
             this.c.h();

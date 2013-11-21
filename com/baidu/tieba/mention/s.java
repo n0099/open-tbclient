@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tieba.data.AntiData;
-import com.baidu.tieba.data.ao;
-import com.baidu.tieba.data.as;
-import com.baidu.tieba.data.aw;
-import com.baidu.tieba.model.cf;
+import com.baidu.tieba.data.an;
+import com.baidu.tieba.data.ar;
+import com.baidu.tieba.data.av;
+import com.baidu.tieba.model.cg;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.ap;
 import com.baidu.tieba.util.bg;
@@ -19,7 +19,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class s extends BdAsyncTask<Object, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    ArrayList<BasicNameValuePair> f1870a;
+    ArrayList<BasicNameValuePair> f1852a;
     final /* synthetic */ j b;
     private ap c = null;
     private String d;
@@ -30,9 +30,9 @@ public class s extends BdAsyncTask<Object, Integer, String> {
         this.b = jVar;
         this.d = null;
         this.e = null;
-        this.f1870a = null;
+        this.f1852a = null;
         this.d = str;
-        this.f1870a = arrayList;
+        this.f1852a = arrayList;
         this.f = i;
         this.e = str2;
     }
@@ -50,7 +50,7 @@ public class s extends BdAsyncTask<Object, Integer, String> {
     public String a(Object... objArr) {
         try {
             this.c = new ap(this.d);
-            this.c.a(this.f1870a);
+            this.c.a(this.f1852a);
             return this.c.j();
         } catch (Exception e) {
             bg.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
@@ -69,19 +69,19 @@ public class s extends BdAsyncTask<Object, Integer, String> {
         try {
             if (this.c != null && this.c.c()) {
                 if (this.f == 1) {
-                    ao aoVar = new ao();
-                    aoVar.b(str);
-                    as asVar = aoVar.e().get(0);
-                    if (asVar != null) {
+                    an anVar = new an();
+                    anVar.b(str);
+                    ar arVar = anVar.e().get(0);
+                    if (arVar != null) {
                         activity4 = this.b.c;
-                        WriteActivity.a(activity4, aoVar.c().getId(), aoVar.c().getName(), aoVar.d().a(), asVar.d(), asVar.e(), this.e, aoVar.g(), aoVar.k());
+                        WriteActivity.a(activity4, anVar.c().getId(), anVar.c().getName(), anVar.d().a(), arVar.d(), arVar.e(), this.e, anVar.g(), anVar.k());
                     } else {
                         return;
                     }
                 }
                 if (this.f == 2) {
                     activity2 = this.b.c;
-                    aw a2 = new cf(activity2, str).a();
+                    av a2 = new cg(activity2, str).a();
                     String id = a2.h().getId();
                     String name = a2.h().getName();
                     String a3 = a2.m().a();

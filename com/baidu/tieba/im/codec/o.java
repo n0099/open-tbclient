@@ -8,7 +8,7 @@ public class o {
     private int f;
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1574a = 1;
+    private final int f1565a = 1;
     private int c = 1;
     private final int e = 1;
 

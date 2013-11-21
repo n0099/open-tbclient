@@ -10,12 +10,12 @@ import javassist.compiler.Javac;
 public abstract class CtBehavior extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    protected an f2740a;
+    protected an f2724a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public CtBehavior(h hVar, an anVar) {
         super(hVar);
-        this.f2740a = anVar;
+        this.f2724a = anVar;
     }
 
     @Override // javassist.l
@@ -23,40 +23,40 @@ public abstract class CtBehavior extends l {
         stringBuffer.append(' ');
         stringBuffer.append(i());
         stringBuffer.append(' ');
-        stringBuffer.append(this.f2740a.g());
+        stringBuffer.append(this.f2724a.g());
     }
 
     public an a() {
-        return this.f2740a;
+        return this.f2724a;
     }
 
     @Override // javassist.l
     public int b() {
-        return javassist.bytecode.a.e(this.f2740a.f());
+        return javassist.bytecode.a.e(this.f2724a.f());
     }
 
     public void a(int i) {
         this.c.l();
-        this.f2740a.a(javassist.bytecode.a.d(i));
+        this.f2724a.a(javassist.bytecode.a.d(i));
     }
 
-    public h[] i_() {
-        return z.a(this.f2740a.g(), this.c.a());
+    public h[] h_() {
+        return z.a(this.f2724a.g(), this.c.a());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h d() {
-        return z.b(this.f2740a.g(), this.c.a());
+        return z.b(this.f2724a.g(), this.c.a());
     }
 
     @Override // javassist.l
     public String e() {
-        return this.f2740a.g();
+        return this.f2724a.g();
     }
 
     public h[] f() {
         String[] a2;
-        ExceptionsAttribute h = this.f2740a.h();
+        ExceptionsAttribute h = this.f2724a.h();
         if (h == null) {
             a2 = null;
         } else {
@@ -68,17 +68,17 @@ public abstract class CtBehavior extends l {
     public void a(h[] hVarArr) {
         this.c.l();
         if (hVarArr == null || hVarArr.length == 0) {
-            this.f2740a.j();
+            this.f2724a.j();
             return;
         }
         String[] strArr = new String[hVarArr.length];
         for (int i = 0; i < hVarArr.length; i++) {
             strArr[i] = hVarArr[i].n();
         }
-        ExceptionsAttribute h = this.f2740a.h();
+        ExceptionsAttribute h = this.f2724a.h();
         if (h == null) {
-            h = new ExceptionsAttribute(this.f2740a.c());
-            this.f2740a.a(h);
+            h = new ExceptionsAttribute(this.f2724a.c());
+            this.f2724a.a(h);
         }
         h.a(strArr);
     }
@@ -95,9 +95,9 @@ public abstract class CtBehavior extends l {
             if (str3 != null) {
                 javac.a(str2, str3);
             }
-            this.f2740a.a(javac.a(this, str).e());
-            this.f2740a.a(this.f2740a.f() & (-1025));
-            this.f2740a.a(hVar.a(), hVar.h());
+            this.f2724a.a(javac.a(this, str).e());
+            this.f2724a.a(this.f2724a.f() & (-1025));
+            this.f2724a.a(hVar.a(), hVar.h());
             this.c.v();
         } catch (BadBytecode e) {
             throw new CannotCompileException(e);

@@ -7,7 +7,7 @@ import android.os.IBinder;
 public class DealIntentService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f2330a = null;
+    private c f2315a = null;
 
     @Override // android.app.Service
     public void onCreate() {
@@ -28,11 +28,11 @@ public class DealIntentService extends Service {
     }
 
     private void a(Intent intent) {
-        if (this.f2330a != null) {
-            this.f2330a.cancel();
-            this.f2330a = null;
+        if (this.f2315a != null) {
+            this.f2315a.cancel();
+            this.f2315a = null;
         }
-        this.f2330a = new c(this, intent);
-        this.f2330a.execute(new String[0]);
+        this.f2315a = new c(this, intent);
+        this.f2315a.execute(new String[0]);
     }
 }

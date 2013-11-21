@@ -9,7 +9,7 @@ import com.baidu.cloudsdk.social.share.ShareContent;
 public class d extends DefaultBaiduListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShareContent f2731a;
+    final /* synthetic */ ShareContent f2715a;
     final /* synthetic */ boolean b;
     final /* synthetic */ ae c;
 
@@ -18,12 +18,12 @@ public class d extends DefaultBaiduListener {
     public d(ae aeVar, IBaiduListener iBaiduListener, ShareContent shareContent, boolean z) {
         super(iBaiduListener);
         this.c = aeVar;
-        this.f2731a = shareContent;
+        this.f2715a = shareContent;
         this.b = z;
     }
 
     @Override // com.baidu.cloudsdk.DefaultBaiduListener, com.baidu.cloudsdk.IBaiduListener
     public void onComplete() {
-        this.c.share(this.f2731a, this.mListener, this.b);
+        this.c.share(this.f2715a, this.mListener, this.b);
     }
 }

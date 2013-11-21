@@ -7,7 +7,7 @@ import java.io.Reader;
 class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int[] f2887a = {0, 0, 1, 1};
+    private static final int[] f2871a = {0, 0, 1, 1};
     private static final char[] b = a("\t\u0000\u0001\u0007\u0001\u0007\u0002\u0000\u0001\u0007\u0012\u0000\u0001\u0007\u0001\u0000\u0001\t\b\u0000\u0001\u0006\u0001\u0019\u0001\u0002\u0001\u0004\u0001\n\n\u0003\u0001\u001a\u0006\u0000\u0004\u0001\u0001\u0005\u0001\u0001\u0014\u0000\u0001\u0017\u0001\b\u0001\u0018\u0003\u0000\u0001\u0012\u0001\u000b\u0002\u0001\u0001\u0011\u0001\f\u0005\u0000\u0001\u0013\u0001\u0000\u0001\r\u0003\u0000\u0001\u000e\u0001\u0014\u0001\u000f\u0001\u0010\u0005\u0000\u0001\u0015\u0001\u0000\u0001\u0016ﾂ\u0000");
     private static final int[] c = d();
     private static final int[] d = e();
@@ -225,7 +225,7 @@ class c {
             int i5 = -1;
             this.n = i4;
             this.m = i4;
-            this.i = f2887a[this.j];
+            this.i = f2871a[this.j];
             int i6 = i4;
             while (true) {
                 if (i6 < i3) {

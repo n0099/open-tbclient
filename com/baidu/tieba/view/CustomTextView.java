@@ -49,7 +49,7 @@ public class CustomTextView extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         j b = b(spannableStringBuilder, i, i2);
-        if (b.f2589a) {
+        if (b.f2572a) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             b(i, i2);

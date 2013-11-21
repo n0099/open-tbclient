@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f986a;
+    private String f987a;
     private String b;
     private String c;
     private int d;
@@ -13,17 +13,17 @@ public class f {
     private boolean f;
 
     public f(JSONObject jSONObject) {
-        this.f986a = null;
+        this.f987a = null;
         this.b = null;
         this.c = null;
         this.d = 1;
         this.e = 1;
         this.f = false;
         if (jSONObject != null) {
-            this.f986a = jSONObject.optString("src");
+            this.f987a = jSONObject.optString("src");
             this.b = jSONObject.optString("cdn_src", "");
             if (this.b == null || this.b.length() == 0) {
-                this.b = this.f986a;
+                this.b = this.f987a;
             }
             this.c = jSONObject.optString("big_cdn_src", null);
             try {
@@ -62,7 +62,7 @@ public class f {
     }
 
     public String e() {
-        return this.f986a;
+        return this.f987a;
     }
 
     public String f() {

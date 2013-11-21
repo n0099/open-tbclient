@@ -4,14 +4,14 @@ package com.baidu.tieba.im.db;
 public class s implements com.baidu.tieba.im.a<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1626a;
+    final /* synthetic */ String f1617a;
     final /* synthetic */ String b;
     final /* synthetic */ n c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(n nVar, String str, String str2) {
         this.c = nVar;
-        this.f1626a = str;
+        this.f1617a = str;
         this.b = str2;
     }
 

@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class SocialShareConfig extends BaseConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SocialShareConfig f859a;
+    private static SocialShareConfig f860a;
     private List b;
     private List c;
 
@@ -22,11 +22,11 @@ public class SocialShareConfig extends BaseConfig {
     }
 
     public static SocialShareConfig getInstance(Context context) {
-        if (f859a == null) {
-            f859a = new SocialShareConfig(context);
-            f859a.loadDefaultConfig();
+        if (f860a == null) {
+            f860a = new SocialShareConfig(context);
+            f860a.loadDefaultConfig();
         }
-        return f859a;
+        return f860a;
     }
 
     @Override // com.baidu.cloudsdk.social.core.BaseConfig

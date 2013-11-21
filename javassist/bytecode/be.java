@@ -5,13 +5,13 @@ import java.util.Map;
 class be extends bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private y f2802a;
+    private y f2786a;
     private y b;
     private Map c;
 
     public be(y yVar, byte[] bArr, y yVar2, Map map) {
         super(bArr);
-        this.f2802a = yVar;
+        this.f2786a = yVar;
         this.b = yVar2;
         this.c = map;
     }
@@ -19,7 +19,7 @@ class be extends bi {
     @Override // javassist.bytecode.bi
     protected int a(int i, int i2) {
         if (i == 7) {
-            return this.f2802a.a(i2, this.b, this.c);
+            return this.f2786a.a(i2, this.b, this.c);
         }
         return i2;
     }
@@ -29,7 +29,7 @@ class be extends bi {
         int[] iArr3 = new int[iArr2.length];
         for (int i = 0; i < iArr2.length; i++) {
             if (iArr[i] == 7) {
-                iArr3[i] = this.f2802a.a(iArr2[i], this.b, this.c);
+                iArr3[i] = this.f2786a.a(iArr2[i], this.b, this.c);
             } else {
                 iArr3[i] = iArr2[i];
             }

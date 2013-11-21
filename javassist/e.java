@@ -11,12 +11,12 @@ import java.net.URL;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    protected b f2853a = null;
+    protected b f2837a = null;
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("[class path: ");
-        for (b bVar = this.f2853a; bVar != null; bVar = bVar.f2745a) {
+        for (b bVar = this.f2837a; bVar != null; bVar = bVar.f2729a) {
             stringBuffer.append(bVar.b.toString());
             stringBuffer.append(File.pathSeparatorChar);
         }
@@ -25,35 +25,35 @@ public final class e {
     }
 
     public synchronized a a(a aVar) {
-        this.f2853a = new b(aVar, this.f2853a);
+        this.f2837a = new b(aVar, this.f2837a);
         return aVar;
     }
 
     public synchronized a b(a aVar) {
         b bVar = new b(aVar, null);
-        b bVar2 = this.f2853a;
+        b bVar2 = this.f2837a;
         if (bVar2 == null) {
-            this.f2853a = bVar;
+            this.f2837a = bVar;
         } else {
-            while (bVar2.f2745a != null) {
-                bVar2 = bVar2.f2745a;
+            while (bVar2.f2729a != null) {
+                bVar2 = bVar2.f2729a;
             }
-            bVar2.f2745a = bVar;
+            bVar2.f2729a = bVar;
         }
         return aVar;
     }
 
     public synchronized void c(a aVar) {
-        b bVar = this.f2853a;
+        b bVar = this.f2837a;
         if (bVar != null) {
             if (bVar.b == aVar) {
-                this.f2853a = bVar.f2745a;
+                this.f2837a = bVar.f2729a;
             } else {
-                while (bVar.f2745a != null) {
-                    if (bVar.f2745a.b == aVar) {
-                        bVar.f2745a = bVar.f2745a.f2745a;
+                while (bVar.f2729a != null) {
+                    if (bVar.f2729a.b == aVar) {
+                        bVar.f2729a = bVar.f2729a.f2729a;
                     } else {
-                        bVar = bVar.f2745a;
+                        bVar = bVar.f2729a;
                     }
                 }
             }
@@ -83,7 +83,7 @@ public final class e {
         InputStream inputStream;
         NotFoundException notFoundException = null;
         InputStream inputStream2 = null;
-        b bVar = this.f2853a;
+        b bVar = this.f2837a;
         while (bVar != null) {
             try {
                 inputStream = bVar.b.a(str);
@@ -96,7 +96,7 @@ public final class e {
                 }
             }
             if (inputStream == null) {
-                bVar = bVar.f2745a;
+                bVar = bVar.f2729a;
                 inputStream2 = inputStream;
             } else {
                 return inputStream;
@@ -109,7 +109,7 @@ public final class e {
     }
 
     public URL b(String str) {
-        for (b bVar = this.f2853a; bVar != null; bVar = bVar.f2745a) {
+        for (b bVar = this.f2837a; bVar != null; bVar = bVar.f2729a) {
             URL b = bVar.b.b(str);
             if (b != null) {
                 return b;

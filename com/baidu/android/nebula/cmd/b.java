@@ -6,18 +6,18 @@ import java.util.TimerTask;
 public class b extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GeoLocation f666a;
+    final /* synthetic */ GeoLocation f667a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(GeoLocation geoLocation) {
-        this.f666a = geoLocation;
+        this.f667a = geoLocation;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        synchronized (this.f666a) {
-            this.f666a.mErrcode = 3;
-            this.f666a.notifyAll();
+        synchronized (this.f667a) {
+            this.f667a.mErrcode = 3;
+            this.f667a.notifyAll();
         }
     }
 }

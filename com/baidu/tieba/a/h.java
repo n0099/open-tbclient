@@ -2,6 +2,7 @@ package com.baidu.tieba.a;
 
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tieba.TiebaApplication;
+import com.baidu.tieba.data.ao;
 import com.baidu.tieba.util.UtilHelper;
 import com.baidu.tieba.util.ap;
 import com.baidu.tieba.util.bf;
@@ -9,14 +10,14 @@ import com.baidu.tieba.util.bf;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1011a = com.baidu.tieba.data.h.f1196a + "c/f/pb/page";
+    private static final String f1013a = com.baidu.tieba.data.h.f1201a + "c/f/pb/page";
     private ap b = null;
 
-    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, com.baidu.tieba.data.ap apVar) {
+    public String a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, int i3, int i4, int i5, boolean z3, long j, boolean z4, ao aoVar) {
         if (str == null || str.length() == 0) {
             return null;
         }
-        this.b = new ap(f1011a);
+        this.b = new ap(f1013a);
         this.b.a("kz", str);
         this.b.a("rn", String.valueOf(30));
         this.b.a("with_floor", SocialConstants.TRUE);
@@ -44,8 +45,8 @@ public class h {
             this.b.a("msg_click", SocialConstants.TRUE);
             this.b.a("message_id", String.valueOf(j));
         }
-        if (apVar != null) {
-            apVar.a(this.b);
+        if (aoVar != null) {
+            aoVar.a(this.b);
         }
         switch (i3) {
             case 1:

@@ -7,21 +7,21 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f818a;
+    final /* synthetic */ h f819a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f818a = hVar;
+        this.f819a = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Handler handler;
         Runnable runnable;
-        this.f818a.c();
-        handler = this.f818a.c;
-        runnable = this.f818a.e;
+        this.f819a.c();
+        handler = this.f819a.c;
+        runnable = this.f819a.e;
         handler.postDelayed(runnable, Util.MILLSECONDS_OF_MINUTE);
-        this.f818a.g();
+        this.f819a.g();
     }
 }

@@ -27,7 +27,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     private static long l = System.currentTimeMillis();
 
     /* renamed from: a  reason: collision with root package name */
-    NotificationManager f1871a = null;
+    NotificationManager f1853a = null;
     private long c = 0;
     private long d = 0;
     private long e = 0;
@@ -45,7 +45,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     public void b() {
-        this.f1871a = (NotificationManager) this.b.getSystemService("notification");
+        this.f1853a = (NotificationManager) this.b.getSystemService("notification");
     }
 
     private t() {
@@ -137,7 +137,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     private void a(int i, int i2) {
-        if (this.f1871a != null) {
+        if (this.f1853a != null) {
             try {
                 if (i == 1) {
                     StringBuffer stringBuffer = new StringBuffer();
@@ -156,9 +156,9 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                     } else if (i2 == 16 || !TiebaApplication.g().ac() || TiebaApplication.g().P() > 0) {
                     }
                 } else if (i == 2) {
-                    this.f1871a.cancel(11);
-                    this.f1871a.cancel(16);
-                    this.f1871a.cancel(17);
+                    this.f1853a.cancel(11);
+                    this.f1853a.cancel(16);
+                    this.f1853a.cancel(17);
                 }
             } catch (Exception e) {
                 bg.b(getClass().toString(), "showNotification", e.getMessage());
@@ -168,7 +168,7 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
 
     private void a(int i, int i2, ae aeVar) {
         boolean z = true;
-        if (this.f1871a != null && aeVar != null) {
+        if (this.f1853a != null && aeVar != null) {
             try {
                 if (i == 1) {
                     StringBuffer stringBuffer = new StringBuffer();
@@ -199,12 +199,12 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                             a(16, aeVar.i(), aeVar.h());
                         }
                     } else if (TiebaApplication.g().ac() && TiebaApplication.g().P() > 0 && aeVar.c() + aeVar.d() > 0) {
-                        if (aeVar.c() <= 0 || UpdatesActivity.f1706a) {
+                        if (aeVar.c() <= 0 || UpdatesActivity.f1697a) {
                             z = false;
                         } else {
                             stringBuffer.append(String.format(this.b.getString(R.string.notify_updates), Long.valueOf(aeVar.c())));
                         }
-                        if (aeVar.d() > 0 && !ValidateActivity.f1803a) {
+                        if (aeVar.d() > 0 && !ValidateActivity.f1794a) {
                             if (z) {
                                 stringBuffer.append(String.format(this.b.getString(R.string.notify_validate_1), Long.valueOf(aeVar.d())));
                             } else {
@@ -214,9 +214,9 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                         a(17, (String) null, stringBuffer.toString());
                     }
                 } else if (i == 2) {
-                    this.f1871a.cancel(11);
-                    this.f1871a.cancel(16);
-                    this.f1871a.cancel(17);
+                    this.f1853a.cancel(11);
+                    this.f1853a.cancel(16);
+                    this.f1853a.cancel(17);
                 }
             } catch (Exception e) {
                 bg.b(getClass().toString(), "showNotification", e.getMessage());
@@ -231,8 +231,8 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     private void a(int i, String str, String str2) {
         Intent v;
         Notification notification = new Notification(R.drawable.icon_notify, this.b.getString(R.string.notify_text), System.currentTimeMillis());
-        if (this.f1871a != null) {
-            this.f1871a.cancel(i);
+        if (this.f1853a != null) {
+            this.f1853a.cancel(i);
         }
         if (i == 11 && this.e > 0 && this.c == 0 && this.d == 0) {
             v = u();
@@ -285,8 +285,8 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                 notification.audioStreamType = 5;
             }
         }
-        if (this.f1871a != null) {
-            this.f1871a.notify(i, notification);
+        if (this.f1853a != null) {
+            this.f1853a.notify(i, notification);
         }
     }
 
@@ -316,19 +316,19 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     public void d() {
-        if (this.f1871a != null) {
-            this.f1871a.cancel(11);
-            this.f1871a.cancel(16);
-            this.f1871a.cancel(17);
-            this.f1871a.cancel(15);
-            this.f1871a.cancel(13);
-            this.f1871a.cancel(12);
+        if (this.f1853a != null) {
+            this.f1853a.cancel(11);
+            this.f1853a.cancel(16);
+            this.f1853a.cancel(17);
+            this.f1853a.cancel(15);
+            this.f1853a.cancel(13);
+            this.f1853a.cancel(12);
         }
     }
 
     public void e() {
-        if (this.f1871a != null) {
-            this.f1871a.cancel(16);
+        if (this.f1853a != null) {
+            this.f1853a.cancel(16);
         }
     }
 
@@ -351,8 +351,8 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     public void f() {
-        if (this.f1871a != null) {
-            this.f1871a.cancel(17);
+        if (this.f1853a != null) {
+            this.f1853a.cancel(17);
         }
     }
 
@@ -370,10 +370,10 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
     }
 
     public void g() {
-        if (this.f1871a != null) {
-            this.f1871a.cancel(11);
-            this.f1871a.cancel(16);
-            this.f1871a.cancel(17);
+        if (this.f1853a != null) {
+            this.f1853a.cancel(11);
+            this.f1853a.cancel(16);
+            this.f1853a.cancel(17);
         }
     }
 
@@ -524,8 +524,8 @@ public class t implements com.baidu.tieba.im.pushNotify.m {
                     a(1, 16, aeVar);
                 }
                 if (aeVar.c() > aeVar.k() || aeVar.d() > aeVar.l()) {
-                    if (aeVar.c() <= aeVar.k() || aeVar.d() != aeVar.l() || !UpdatesActivity.f1706a) {
-                        if (aeVar.c() != aeVar.k() || aeVar.d() <= aeVar.l() || !ValidateActivity.f1803a) {
+                    if (aeVar.c() <= aeVar.k() || aeVar.d() != aeVar.l() || !UpdatesActivity.f1697a) {
+                        if (aeVar.c() != aeVar.k() || aeVar.d() <= aeVar.l() || !ValidateActivity.f1794a) {
                             a(1, 17, aeVar);
                         }
                     }

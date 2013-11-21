@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class c extends BdAsyncTask<Integer, String, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AllPostActivity f2246a;
+    final /* synthetic */ AllPostActivity f2231a;
     private int b;
     private int c;
     private int d;
@@ -19,7 +19,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
     private com.baidu.tieba.util.ap f;
 
     public c(AllPostActivity allPostActivity, int i, int i2, int i3, String str) {
-        this.f2246a = allPostActivity;
+        this.f2231a = allPostActivity;
         this.e = null;
         this.b = i;
         this.c = i2;
@@ -41,9 +41,9 @@ public class c extends BdAsyncTask<Integer, String, String> {
                 c((Object[]) new String[]{a2});
             }
             if (z) {
-                str = com.baidu.tieba.data.h.f1196a + "c/u/feed/mypost";
+                str = com.baidu.tieba.data.h.f1201a + "c/u/feed/mypost";
             } else {
-                str = com.baidu.tieba.data.h.f1196a + "c/u/feed/otherpost";
+                str = com.baidu.tieba.data.h.f1201a + "c/u/feed/otherpost";
             }
             this.f = new com.baidu.tieba.util.ap(str);
             this.f.a("type", String.valueOf(this.b));
@@ -82,32 +82,32 @@ public class c extends BdAsyncTask<Integer, String, String> {
         ProgressBar progressBar;
         Handler handler;
         Handler handler2;
-        this.f2246a.f.e();
-        this.f2246a.f.b(strArr[0]);
-        this.f2246a.e.notifyDataSetChanged();
-        if (this.e != null && !this.e.equals(TiebaApplication.A()) && !this.f2246a.f.c()) {
-            this.f2246a.c.setVisibility(8);
-            this.f2246a.d.setVisibility(8);
-            this.f2246a.b.setVisibility(8);
-            this.f2246a.showToast(this.f2246a.getString(R.string.his_post_not_available));
-            handler = this.f2246a.k;
-            handler2 = this.f2246a.k;
+        this.f2231a.f.e();
+        this.f2231a.f.b(strArr[0]);
+        this.f2231a.e.notifyDataSetChanged();
+        if (this.e != null && !this.e.equals(TiebaApplication.A()) && !this.f2231a.f.c()) {
+            this.f2231a.c.setVisibility(8);
+            this.f2231a.d.setVisibility(8);
+            this.f2231a.b.setVisibility(8);
+            this.f2231a.showToast(this.f2231a.getString(R.string.his_post_not_available));
+            handler = this.f2231a.k;
+            handler2 = this.f2231a.k;
             handler.sendMessageDelayed(handler2.obtainMessage(1), 2000L);
             return;
         }
-        if (this.f2246a.f.d().size() == 0) {
-            this.f2246a.c.setVisibility(8);
-            this.f2246a.d.setVisibility(8);
-            this.f2246a.b.setVisibility(0);
+        if (this.f2231a.f.d().size() == 0) {
+            this.f2231a.c.setVisibility(8);
+            this.f2231a.d.setVisibility(8);
+            this.f2231a.b.setVisibility(0);
         } else {
-            this.f2246a.c.setVisibility(0);
-            this.f2246a.d.setVisibility(0);
-            this.f2246a.b.setVisibility(8);
+            this.f2231a.c.setVisibility(0);
+            this.f2231a.d.setVisibility(0);
+            this.f2231a.b.setVisibility(8);
             if (this.d == 0) {
-                this.f2246a.c.setSelection(0);
+                this.f2231a.c.setSelection(0);
             }
         }
-        progressBar = this.f2246a.h;
+        progressBar = this.f2231a.h;
         progressBar.setVisibility(0);
     }
 
@@ -118,44 +118,44 @@ public class c extends BdAsyncTask<Integer, String, String> {
         ProgressBar progressBar;
         Handler handler;
         Handler handler2;
-        this.f2246a.g = null;
-        this.f2246a.i = false;
-        progressBar = this.f2246a.h;
+        this.f2231a.g = null;
+        this.f2231a.i = false;
+        progressBar = this.f2231a.h;
         progressBar.setVisibility(8);
         if (this.f != null) {
             try {
                 if (str != null) {
                     if (this.d == 0) {
-                        this.f2246a.f.e();
+                        this.f2231a.f.e();
                     }
-                    this.f2246a.f.b(str);
-                    this.f2246a.e.notifyDataSetChanged();
-                    if (this.e != null && !this.e.equals(TiebaApplication.A()) && !this.f2246a.f.c()) {
-                        this.f2246a.c.setVisibility(8);
-                        this.f2246a.d.setVisibility(8);
-                        this.f2246a.b.setVisibility(8);
-                        this.f2246a.showToast(this.f2246a.getString(R.string.his_post_not_available));
-                        handler = this.f2246a.k;
-                        handler2 = this.f2246a.k;
+                    this.f2231a.f.b(str);
+                    this.f2231a.e.notifyDataSetChanged();
+                    if (this.e != null && !this.e.equals(TiebaApplication.A()) && !this.f2231a.f.c()) {
+                        this.f2231a.c.setVisibility(8);
+                        this.f2231a.d.setVisibility(8);
+                        this.f2231a.b.setVisibility(8);
+                        this.f2231a.showToast(this.f2231a.getString(R.string.his_post_not_available));
+                        handler = this.f2231a.k;
+                        handler2 = this.f2231a.k;
                         handler.sendMessageDelayed(handler2.obtainMessage(1), 2000L);
                         return;
-                    } else if (this.f2246a.f.d().size() == 0) {
-                        this.f2246a.c.setVisibility(8);
-                        this.f2246a.d.setVisibility(8);
-                        this.f2246a.b.setVisibility(0);
+                    } else if (this.f2231a.f.d().size() == 0) {
+                        this.f2231a.c.setVisibility(8);
+                        this.f2231a.d.setVisibility(8);
+                        this.f2231a.b.setVisibility(0);
                         return;
                     } else {
-                        this.f2246a.c.setVisibility(0);
-                        this.f2246a.d.setVisibility(0);
-                        this.f2246a.b.setVisibility(8);
+                        this.f2231a.c.setVisibility(0);
+                        this.f2231a.d.setVisibility(0);
+                        this.f2231a.b.setVisibility(8);
                         if (this.d == 0) {
-                            this.f2246a.c.setSelection(0);
+                            this.f2231a.c.setSelection(0);
                             return;
                         }
                         return;
                     }
                 }
-                this.f2246a.showToast(this.f.g());
+                this.f2231a.showToast(this.f.g());
             } catch (Exception e) {
                 com.baidu.tieba.util.bg.b(getClass().getName(), "", "MyPostAsyncTask.onPostExecute error = " + e.getMessage());
             }
@@ -168,10 +168,10 @@ public class c extends BdAsyncTask<Integer, String, String> {
         if (this.f != null) {
             this.f.h();
         }
-        this.f2246a.g = null;
-        this.f2246a.i = false;
-        this.f2246a.e.notifyDataSetChanged();
-        progressBar = this.f2246a.h;
+        this.f2231a.g = null;
+        this.f2231a.i = false;
+        this.f2231a.e.notifyDataSetChanged();
+        progressBar = this.f2231a.h;
         progressBar.setVisibility(8);
         super.cancel(true);
     }

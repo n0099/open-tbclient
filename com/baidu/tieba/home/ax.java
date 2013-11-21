@@ -8,17 +8,17 @@ import com.baidu.tieba.util.UtilHelper;
 public class ax implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1417a;
+    final /* synthetic */ SearchActivity f1408a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(SearchActivity searchActivity) {
-        this.f1417a = searchActivity;
+        this.f1408a = searchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        editText = this.f1417a.c;
-        UtilHelper.i(this.f1417a, editText.getText().toString().trim());
+        editText = this.f1408a.c;
+        UtilHelper.i(this.f1408a, editText.getText().toString().trim());
     }
 }

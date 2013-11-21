@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ShareAssistant {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ShareAssistant f971a = null;
+    private static ShareAssistant f972a = null;
     private d b = new d();
     private b c;
 
@@ -21,10 +21,10 @@ public class ShareAssistant {
     public static synchronized ShareAssistant a(Context context) {
         ShareAssistant shareAssistant;
         synchronized (ShareAssistant.class) {
-            if (f971a == null) {
-                f971a = new ShareAssistant(context);
+            if (f972a == null) {
+                f972a = new ShareAssistant(context);
             }
-            shareAssistant = f971a;
+            shareAssistant = f972a;
         }
         return shareAssistant;
     }
@@ -45,7 +45,7 @@ public class ShareAssistant {
             Crypto.a();
         } catch (Throwable th) {
         }
-        f971a = null;
+        f972a = null;
     }
 
     public boolean registListener(IShareListener iShareListener) {

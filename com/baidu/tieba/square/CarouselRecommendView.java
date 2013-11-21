@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.adp.widget.IndicatorView;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.util.UtilHelper;
+import com.baidu.tieba.view.HeadImageView;
 import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CarouselRecommendView extends FrameLayout {
-    private static int j = 5000;
+    private static int l = 5000;
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnTouchListener f2363a;
+    public View.OnTouchListener f2348a;
     private Context b;
     private ViewPager c;
     private IndicatorView d;
@@ -28,8 +28,10 @@ public class CarouselRecommendView extends FrameLayout {
     private int g;
     private float h;
     private final int i;
-    private ArrayList<aw> k;
-    private Handler l;
+    private final int j;
+    private final int k;
+    private ArrayList<au> m;
+    private Handler n;
 
     public CarouselRecommendView(Context context) {
         this(context, null);
@@ -44,46 +46,48 @@ public class CarouselRecommendView extends FrameLayout {
         this.f = 0;
         this.g = 0;
         this.h = 0.3043478f;
-        this.k = new ArrayList<>();
-        this.l = new v(this);
-        this.f2363a = new w(this);
+        this.m = new ArrayList<>();
+        this.n = new v(this);
+        this.f2348a = new w(this);
         this.b = context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.carousel_topics_recommend, (ViewGroup) this, true);
         this.c = (ViewPager) findViewById(R.id.carousel_pager);
         this.d = (IndicatorView) findViewById(R.id.carousel_indicator);
-        this.c.setOnTouchListener(this.f2363a);
+        this.c.setOnTouchListener(this.f2348a);
+        this.j = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingTop);
         this.i = context.getResources().getDimensionPixelSize(R.dimen.square_caroucel_paddingBottom);
-        this.f = UtilHelper.a(context);
+        this.k = context.getResources().getDimensionPixelSize(R.dimen.square_page_padding);
+        this.f = UtilHelper.a(context) - (this.k * 2);
         this.g = (int) (0.5f + (this.f * this.h));
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         layoutParams.width = this.f;
         layoutParams.height = this.g;
         this.c.setLayoutParams(layoutParams);
         this.e = new CarouselRecommendPagerAdapter(this.b);
-        setPadding(0, 0, 0, this.i);
+        setPadding(this.k, this.j, this.k, this.i);
     }
 
-    public Boolean a(ArrayList<aw> arrayList) {
+    public Boolean a(ArrayList<au> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             setVisibility(8);
             return false;
         }
-        this.k.clear();
-        this.k = arrayList;
+        this.m.clear();
+        this.m = arrayList;
         setVisibility(0);
-        int size = this.k.size();
+        int size = this.m.size();
         if (size > 1) {
-            this.k.add(arrayList.get(0));
-            this.k.add(0, arrayList.get(arrayList.size() - 1));
+            this.m.add(arrayList.get(0));
+            this.m.add(0, arrayList.get(arrayList.size() - 1));
         }
-        this.e.a(this.k);
+        this.e.a(this.m);
         this.c.setAdapter(this.e);
         this.c.setOnPageChangeListener(new y(this, null));
         this.c.a(size > 1 ? 1 : 0, false);
         this.c.invalidate();
         if (size > 1) {
             this.d.setVisibility(0);
-            this.d.setCount(this.k.size() - 2);
+            this.d.setCount(this.m.size() - 2);
             this.d.setPosition(0.0f);
         } else {
             this.d.setVisibility(8);
@@ -93,12 +97,12 @@ public class CarouselRecommendView extends FrameLayout {
     }
 
     public void a() {
-        this.l.removeMessages(0);
-        this.l.sendEmptyMessageDelayed(0, j);
+        this.n.removeMessages(0);
+        this.n.sendEmptyMessageDelayed(0, l);
     }
 
     public void b() {
-        this.l.removeMessages(0);
+        this.n.removeMessages(0);
     }
 
     public CarouselRecommendPagerAdapter getPagerAdapter() {
@@ -113,12 +117,12 @@ public class CarouselRecommendView extends FrameLayout {
         private int i;
         private LayoutInflater k;
         private View l;
-        private ArrayList<aw> c = null;
+        private ArrayList<au> c = null;
         private int d = 0;
         private ArrayList<View> e = new ArrayList<>();
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<TbImageView> f2364a = new ArrayList<>();
+        public ArrayList<HeadImageView> f2349a = new ArrayList<>();
         private float j = 0.46875f;
 
         public CarouselRecommendPagerAdapter(Context context) {
@@ -135,23 +139,23 @@ public class CarouselRecommendView extends FrameLayout {
             this.g.a(this.h, this.i);
         }
 
-        private void a(TbImageView tbImageView, aw awVar, int i) {
-            tbImageView.setTag(awVar.a());
-            tbImageView.setLayoutParams(new ViewGroup.LayoutParams(this.h, this.i));
-            tbImageView.setOnClickListener(new x(this, awVar, i));
-            this.f2364a.add(tbImageView);
+        private void a(HeadImageView headImageView, au auVar, int i) {
+            headImageView.setTag(auVar.a());
+            headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.h, this.i));
+            headImageView.setOnClickListener(new x(this, auVar, i));
+            this.f2349a.add(headImageView);
         }
 
-        public void a(ArrayList<aw> arrayList) {
+        public void a(ArrayList<au> arrayList) {
             a();
             if (arrayList != null && arrayList.size() != 0) {
                 this.d = arrayList.size();
                 this.c = arrayList;
                 int i = 0;
                 while (i < this.d) {
-                    TbImageView tbImageView = (TbImageView) this.k.inflate(R.layout.carousel_topics_recommend_item, (ViewGroup) null);
-                    a(tbImageView, arrayList.get(i), i > 0 ? i - 1 : 0);
-                    this.e.add(tbImageView);
+                    HeadImageView headImageView = (HeadImageView) this.k.inflate(R.layout.carousel_topics_recommend_item, (ViewGroup) null);
+                    a(headImageView, arrayList.get(i), i > 0 ? i - 1 : 0);
+                    this.e.add(headImageView);
                     i++;
                 }
                 notifyDataSetChanged();
@@ -209,7 +213,7 @@ public class CarouselRecommendView extends FrameLayout {
                     if (i4 < this.c.size()) {
                         String a2 = this.c.get(i4).a();
                         if (this.l != null) {
-                            ((TbImageView) this.l.findViewWithTag(a2)).setDefaultScaleType(ImageView.ScaleType.CENTER);
+                            ((HeadImageView) this.l.findViewWithTag(a2)).setDefaultScaleType(ImageView.ScaleType.CENTER);
                         }
                         this.g.a(this.c.get(i4).a(), this);
                         i3 = i4 + 1;
@@ -222,10 +226,10 @@ public class CarouselRecommendView extends FrameLayout {
 
         @Override // com.baidu.tbadk.imageManager.c
         public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
-            TbImageView tbImageView;
-            if (this.l != null && (tbImageView = (TbImageView) this.l.findViewWithTag(str)) != null) {
-                tbImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-                tbImageView.invalidate();
+            HeadImageView headImageView;
+            if (this.l != null && (headImageView = (HeadImageView) this.l.findViewWithTag(str)) != null) {
+                headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+                headImageView.invalidate();
             }
         }
     }

@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class ForumListModel extends com.baidu.adp.a.d implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1233a = false;
+    private static boolean f1238a = false;
     private static String b = null;
     private static final long serialVersionUID = -5006585496963439439L;
     public ForumInfoData[] editor_recommend;
@@ -36,7 +36,7 @@ public class ForumListModel extends com.baidu.adp.a.d implements Serializable {
     }
 
     public boolean isOk() {
-        return f1233a;
+        return f1238a;
     }
 
     /* loaded from: classes.dex */
@@ -63,14 +63,14 @@ public class ForumListModel extends com.baidu.adp.a.d implements Serializable {
             i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
         }
         b = requestParams.menu_name;
-        ap apVar = new ap(context, com.baidu.tieba.data.h.f1196a + "c/f/forum/forumrank");
+        ap apVar = new ap(context, com.baidu.tieba.data.h.f1201a + "c/f/forum/forumrank");
         apVar.a("rn", String.valueOf(requestParams.rn));
         apVar.a("offset", String.valueOf(requestParams.offset));
         apVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
         apVar.a("menu_name", requestParams.menu_name);
         apVar.a("menu_type", String.valueOf(i));
         String j2 = apVar.j();
-        f1233a = apVar.d();
+        f1238a = apVar.d();
         bg.e("DataProvider", "fetch", "fetched raw string\n" + j2);
         ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(j2, (Class<Object>) ForumListModel.class);
         if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (j = com.baidu.tieba.b.a.a().j()) != null)) {

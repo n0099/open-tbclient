@@ -1,30 +1,25 @@
 package com.baidu.tieba.pb;
+
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class bl implements com.baidu.tieba.view.az {
+class bl implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2096a;
+    final /* synthetic */ NewPbActivity f2079a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bl(NewPbActivity newPbActivity) {
-        this.f2096a = newPbActivity;
+        this.f2079a = newPbActivity;
     }
 
-    @Override // com.baidu.tieba.view.az
-    public void a(boolean z) {
-        boolean z2;
-        com.baidu.tieba.model.bm bmVar;
-        com.baidu.tieba.model.bm bmVar2;
-        cp cpVar;
-        z2 = this.f2096a.e;
-        if (!z2 && z) {
-            bmVar = this.f2096a.s;
-            if (!bmVar.j()) {
-                bmVar2 = this.f2096a.s;
-                if (bmVar2.o()) {
-                    cpVar = this.f2096a.y;
-                    cpVar.o();
-                }
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        if (this.f2079a.b != null) {
+            if (i == 0) {
+                this.f2079a.b.c(this.f2079a);
+                this.f2079a.b = null;
+            } else if (i == 1) {
+                this.f2079a.a(this.f2079a.b);
             }
         }
     }

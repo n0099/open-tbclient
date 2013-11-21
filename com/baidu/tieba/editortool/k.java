@@ -5,19 +5,19 @@ import android.view.View;
 class k implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f1229a;
+    final /* synthetic */ h f1234a;
     final /* synthetic */ j b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, h hVar) {
         this.b = jVar;
-        this.f1229a = hVar;
+        this.f1234a = hVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view instanceof EditorToolButton) {
-            this.b.a((EditorToolButton) view, this.f1229a);
+            this.b.a((EditorToolButton) view, this.f1234a);
         }
     }
 }

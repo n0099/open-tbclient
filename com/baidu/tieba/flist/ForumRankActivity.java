@@ -29,7 +29,7 @@ import com.tencent.mm.sdk.platformtools.LocaleUtil;
 public class ForumRankActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private BdListView f1234a = null;
+    private BdListView f1239a = null;
     private ai b = null;
     private s c = null;
     private NavigationBar d = null;
@@ -41,9 +41,10 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     private FrameLayout j = null;
     private TextView k = null;
     private Handler l = null;
-    private com.baidu.adp.a.g m = new ae(this);
-    private AbsListView.OnScrollListener n = new ag(this);
-    private Runnable o = new ah(this);
+    private boolean m = false;
+    private com.baidu.adp.a.g n = new ae(this);
+    private AbsListView.OnScrollListener o = new ag(this);
+    private Runnable p = new ah(this);
 
     public static void a(Context context, String str, String str2) {
         if (context != null && str != null) {
@@ -75,15 +76,14 @@ public class ForumRankActivity extends com.baidu.tieba.j {
         this.f.a(a2, a2);
         this.d = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.d.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f1234a = (BdListView) findViewById(R.id.list);
-        this.e.setLayoutParams(new AbsListView.LayoutParams(UtilHelper.a((Context) this), (int) (UtilHelper.a((Context) this) * 0.75d)));
-        this.f1234a.addHeaderView(this.e, null, false);
-        this.f1234a.setOnScrollListener(this.n);
+        this.f1239a = (BdListView) findViewById(R.id.list);
+        this.e.setLayoutParams(new AbsListView.LayoutParams(UtilHelper.a((Context) this), (int) (UtilHelper.a((Context) this) * 0.5d)));
+        this.f1239a.setOnScrollListener(this.o);
         this.e.setVisibility(8);
         this.h = (LinearLayout) getLayoutInflater().inflate(R.layout.forum_list_forum_footer, (ViewGroup) null);
         this.h.setOnClickListener(new ac(this));
         this.i = new bi(this);
-        this.f1234a.setPullRefresh(this.i);
+        this.f1239a.setPullRefresh(this.i);
         this.i.a(new ad(this));
         this.j = (FrameLayout) findViewById(R.id.empty_textview_container);
         this.k = (TextView) findViewById(R.id.empty_textview);
@@ -101,12 +101,13 @@ public class ForumRankActivity extends com.baidu.tieba.j {
         } else {
             this.b = new ai(getIntent());
         }
-        this.b.setLoadDataCallBack(this.m);
+        this.m = true;
+        this.b.setLoadDataCallBack(this.n);
         this.c = new s(this, 0);
         this.c.a(100);
         this.c.a((Boolean) true);
         this.c.a(ForumDetailActivity.FromType.BAR_RANK);
-        this.f1234a.setAdapter((ListAdapter) this.c);
+        this.f1239a.setAdapter((ListAdapter) this.c);
         if (this.b.LoadData()) {
             this.c.a(100);
             showProgressBar();
@@ -133,14 +134,14 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     public void onResume() {
         super.onResume();
         b();
-        com.baidu.tieba.util.ak.a(this.f1234a, this.f, 1, -1);
+        com.baidu.tieba.util.ak.a(this.f1239a, this.f, 1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.l.removeCallbacks(this.o);
+        this.l.removeCallbacks(this.p);
         this.f.b();
     }
 
@@ -148,7 +149,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.l.removeCallbacks(this.o);
+        this.l.removeCallbacks(this.p);
         this.f.b();
     }
 
@@ -156,7 +157,7 @@ public class ForumRankActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         this.d.c(i);
-        bd.a((ListView) this.f1234a, i);
+        bd.a((ListView) this.f1239a, i);
         bd.b(findViewById(R.id.root_view), i);
         this.i.a(i);
         if (i == 1) {

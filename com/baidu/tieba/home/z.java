@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1470a;
+    private int f1461a;
     private String b;
     private String c;
     private int d;
@@ -22,7 +22,7 @@ public class z {
     private String o;
 
     public int a() {
-        return this.f1470a;
+        return this.f1461a;
     }
 
     public String b() {
@@ -126,7 +126,7 @@ public class z {
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1470a = jSONObject.optInt("forum_id");
+                this.f1461a = jSONObject.optInt("forum_id");
                 this.b = jSONObject.optString("forum_name");
                 this.c = jSONObject.optString("avatar");
                 this.d = jSONObject.optInt("is_sign_in");

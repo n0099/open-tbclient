@@ -28,8 +28,8 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class LoginActivity extends com.baidu.tieba.j {
     private NavigationBar L;
-    private ac d;
-    private ac e;
+    private ad d;
+    private ad e;
     private String f = null;
     private String g = null;
     private String h = null;
@@ -64,12 +64,12 @@ public class LoginActivity extends com.baidu.tieba.j {
     private Button K = null;
 
     /* renamed from: a  reason: collision with root package name */
-    RelativeLayout f1019a = null;
-    private ae M = null;
+    RelativeLayout f1021a = null;
+    private af M = null;
     private be N = null;
-    private ad O = null;
+    private ae O = null;
     InputMethodManager b = null;
-    l c = null;
+    m c = null;
     private AccountData P = null;
     private String Q = null;
 
@@ -142,7 +142,7 @@ public class LoginActivity extends com.baidu.tieba.j {
             a(R.id.mobile_login);
         }
         ShowSoftKeyPadDelay(this.o, 150);
-        new ag("login").start();
+        new ah("login").start();
     }
 
     @Override // android.app.Activity
@@ -223,11 +223,11 @@ public class LoginActivity extends com.baidu.tieba.j {
 
     private void b() {
         this.b = (InputMethodManager) getSystemService("input_method");
-        this.f1019a = (RelativeLayout) findViewById(R.id.container);
+        this.f1021a = (RelativeLayout) findViewById(R.id.container);
         this.L = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.y = this.L.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new t(this));
+        this.y = this.L.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new u(this));
         this.L.a(getString(R.string.title_login));
-        this.L.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.account_regedit), new u(this));
+        this.L.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.account_regedit), new v(this));
         this.o = (EditText) findViewById(R.id.login_edit_account);
         this.p = (EditText) findViewById(R.id.login_edit_password);
         this.q = (EditText) findViewById(R.id.edit_vcode);
@@ -253,19 +253,19 @@ public class LoginActivity extends com.baidu.tieba.j {
         this.I = (TextView) findViewById(R.id.text_login);
         this.J = (Button) findViewById(R.id.normal_login);
         this.K = (Button) findViewById(R.id.mobile_login);
-        v vVar = new v(this);
-        this.o.setOnFocusChangeListener(vVar);
-        this.p.setOnFocusChangeListener(vVar);
-        this.q.setOnFocusChangeListener(vVar);
         w wVar = new w(this);
-        this.p.setOnEditorActionListener(wVar);
-        this.q.setOnEditorActionListener(wVar);
-        this.o.addTextChangedListener(new x(this));
-        this.p.addTextChangedListener(new y(this));
-        this.q.addTextChangedListener(new z(this));
+        this.o.setOnFocusChangeListener(wVar);
+        this.p.setOnFocusChangeListener(wVar);
+        this.q.setOnFocusChangeListener(wVar);
+        x xVar = new x(this);
+        this.p.setOnEditorActionListener(xVar);
+        this.q.setOnEditorActionListener(xVar);
+        this.o.addTextChangedListener(new y(this));
+        this.p.addTextChangedListener(new z(this));
+        this.q.addTextChangedListener(new aa(this));
         this.r = findViewById(R.id.layout_login);
         this.r.setEnabled(false);
-        this.r.setOnClickListener(new aa(this));
+        this.r.setOnClickListener(new ab(this));
         k();
     }
 
@@ -275,7 +275,7 @@ public class LoginActivity extends com.baidu.tieba.j {
         super.onChangeSkinType(i);
         this.L.c(i);
         bd.a(this.I, i);
-        bd.c(this.f1019a, i);
+        bd.c(this.f1021a, i);
         if (i == 1) {
             this.H.setTextColor(getResources().getColor(R.color.skin_1_common_color));
         } else {
@@ -402,8 +402,8 @@ public class LoginActivity extends com.baidu.tieba.j {
                 this.n = true;
                 this.m = false;
             } else {
-                this.f = this.d.f1027a;
-                this.o.setText(this.d.f1027a);
+                this.f = this.d.f1030a;
+                this.o.setText(this.d.f1030a);
                 this.p.setText(this.d.b);
                 this.q.setText(this.d.c);
                 this.G.setText(this.d.d);
@@ -424,8 +424,8 @@ public class LoginActivity extends com.baidu.tieba.j {
                 this.n = true;
                 this.m = false;
             } else {
-                this.f = this.e.f1027a;
-                this.o.setText(this.e.f1027a);
+                this.f = this.e.f1030a;
+                this.o.setText(this.e.f1030a);
                 this.p.setText(this.e.b);
                 this.q.setText(this.e.c);
                 this.G.setText(this.e.d);
@@ -441,8 +441,8 @@ public class LoginActivity extends com.baidu.tieba.j {
 
     private void f() {
         if (this.j == 0) {
-            this.d = new ac(this, null);
-            this.d.f1027a = this.o.getText().toString();
+            this.d = new ad(this, null);
+            this.d.f1030a = this.o.getText().toString();
             this.d.b = this.p.getText().toString();
             this.d.c = this.q.getText().toString();
             this.d.d = this.G.getText().toString();
@@ -451,8 +451,8 @@ public class LoginActivity extends com.baidu.tieba.j {
             this.d.g = this.n;
         }
         if (this.j == 1) {
-            this.e = new ac(this, null);
-            this.e.f1027a = this.o.getText().toString();
+            this.e = new ad(this, null);
+            this.e.f1030a = this.o.getText().toString();
             this.e.b = this.p.getText().toString();
             this.e.c = this.q.getText().toString();
             this.e.d = this.G.getText().toString();
@@ -471,20 +471,20 @@ public class LoginActivity extends com.baidu.tieba.j {
                 if (!this.m || !com.baidu.tieba.util.be.c(this.q.getText().toString())) {
                     l();
                     StringBuffer stringBuffer = new StringBuffer(30);
-                    stringBuffer.append(com.baidu.tieba.data.h.f1196a);
+                    stringBuffer.append(com.baidu.tieba.data.h.f1201a);
                     stringBuffer.append("c/s/login");
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(new BasicNameValuePair("un", obj));
                     arrayList.add(new BasicNameValuePair("passwd", this.g));
                     arrayList.add(new BasicNameValuePair("isphone", String.valueOf(this.j)));
-                    arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().ba()));
-                    arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().aZ()));
+                    arrayList.add(new BasicNameValuePair("channel_id", TiebaApplication.g().bb()));
+                    arrayList.add(new BasicNameValuePair("channel_uid", TiebaApplication.g().ba()));
                     if (this.B != null && this.B.getVisibility() == 0) {
                         arrayList.add(new BasicNameValuePair("vcode", this.q.getText().toString()));
                         arrayList.add(new BasicNameValuePair("vcode_md5", this.h));
                     }
                     o();
-                    this.M = new ae(this, stringBuffer.toString(), arrayList);
+                    this.M = new af(this, stringBuffer.toString(), arrayList);
                     this.M.setPriority(3);
                     this.M.execute(stringBuffer.toString(), arrayList);
                 }
@@ -516,8 +516,8 @@ public class LoginActivity extends com.baidu.tieba.j {
             return;
         }
         if (this.c == null) {
-            this.c = new l(this);
-            this.c.a(new ab(this));
+            this.c = new m(this);
+            this.c.a(new ac(this));
         }
         this.c.e();
         this.c.a(this.o.getText().toString());
@@ -539,7 +539,7 @@ public class LoginActivity extends com.baidu.tieba.j {
         this.v.setVisibility(0);
         this.s.setImageBitmap(null);
         o();
-        this.O = new ad(this, null);
+        this.O = new ae(this, null);
         this.O.setPriority(3);
         this.O.execute(str);
     }

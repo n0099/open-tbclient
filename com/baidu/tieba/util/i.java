@@ -9,7 +9,7 @@ import org.apache.http.message.BasicNameValuePair;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f2509a;
+    public Context f2492a;
     public boolean d;
     public boolean e;
     public String f;
@@ -27,7 +27,7 @@ public class i {
         this.e = false;
         this.f = null;
         this.g = false;
-        this.f2509a = context;
+        this.f2492a = context;
         this.d = true;
         this.f = null;
         this.e = false;
@@ -149,7 +149,7 @@ public class i {
                     while (true) {
                         if (i2 >= size2) {
                             break;
-                        } else if (this.l.get(i2).f2511a == null || !this.l.get(i2).f2511a.equals(str)) {
+                        } else if (this.l.get(i2).f2494a == null || !this.l.get(i2).f2494a.equals(str)) {
                             i2++;
                         } else if (z2) {
                             this.l.remove(i2);
@@ -162,7 +162,7 @@ public class i {
                     if (this.d) {
                         k kVar = new k(this, null);
                         kVar.c = cVar;
-                        kVar.f2511a = str;
+                        kVar.f2494a = str;
                         kVar.b = num.intValue();
                         kVar.d = z;
                         kVar.e = z3;

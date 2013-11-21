@@ -6,11 +6,11 @@ import android.widget.ImageView;
 class j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TbRichTextView f989a;
+    final /* synthetic */ TbRichTextView f990a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(TbRichTextView tbRichTextView) {
-        this.f989a = tbRichTextView;
+        this.f990a = tbRichTextView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,7 +18,7 @@ class j implements View.OnClickListener {
         n nVar;
         String str;
         n nVar2;
-        nVar = this.f989a.u;
+        nVar = this.f990a.u;
         if (nVar != null && (view instanceof ImageView)) {
             Object tag = view.getTag();
             if (tag == null || !(tag instanceof String)) {
@@ -26,10 +26,10 @@ class j implements View.OnClickListener {
             } else {
                 str = (String) tag;
             }
-            int childCount = this.f989a.getChildCount();
+            int childCount = this.f990a.getChildCount();
             int i = -1;
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.f989a.getChildAt(i2);
+                View childAt = this.f990a.getChildAt(i2);
                 if (childAt instanceof ImageView) {
                     i++;
                 }
@@ -37,7 +37,7 @@ class j implements View.OnClickListener {
                     break;
                 }
             }
-            nVar2 = this.f989a.u;
+            nVar2 = this.f990a.u;
             nVar2.onClick(view, str, i);
         }
     }

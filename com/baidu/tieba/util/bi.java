@@ -17,7 +17,7 @@ import java.util.List;
 public class bi implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f2503a = Thread.getDefaultUncaughtExceptionHandler();
+    private Thread.UncaughtExceptionHandler f2486a = Thread.getDefaultUncaughtExceptionHandler();
 
     /* JADX WARN: Removed duplicated region for block: B:122:0x01e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:79:0x01e5 A[Catch: Exception -> 0x01fd, TryCatch #9 {Exception -> 0x01fd, blocks: (B:77:0x01e0, B:79:0x01e5, B:81:0x01ea), top: B:122:0x01e0 }] */
@@ -102,8 +102,8 @@ public class bi implements Thread.UncaughtExceptionHandler {
                                             printStream2.close();
                                         } catch (Exception e2) {
                                             e2.printStackTrace();
-                                            if (!com.baidu.tieba.data.h.s() && this.f2503a != null) {
-                                                uncaughtExceptionHandler = this.f2503a;
+                                            if (!com.baidu.tieba.data.h.s() && this.f2486a != null) {
+                                                uncaughtExceptionHandler = this.f2486a;
                                                 uncaughtExceptionHandler.uncaughtException(thread, th);
                                                 return;
                                             }
@@ -143,8 +143,8 @@ public class bi implements Thread.UncaughtExceptionHandler {
                                     if (fileWriter != null) {
                                         fileWriter.close();
                                     }
-                                    if (!com.baidu.tieba.data.h.s() && this.f2503a != null) {
-                                        this.f2503a.uncaughtException(thread, th);
+                                    if (!com.baidu.tieba.data.h.s() && this.f2486a != null) {
+                                        this.f2486a.uncaughtException(thread, th);
                                     } else {
                                         Process.killProcess(Process.myPid());
                                     }
@@ -236,8 +236,8 @@ public class bi implements Thread.UncaughtExceptionHandler {
             printStream = null;
             byteArrayOutputStream = null;
         }
-        if (com.baidu.tieba.data.h.s() && this.f2503a != null) {
-            uncaughtExceptionHandler = this.f2503a;
+        if (com.baidu.tieba.data.h.s() && this.f2486a != null) {
+            uncaughtExceptionHandler = this.f2486a;
             uncaughtExceptionHandler.uncaughtException(thread, th);
             return;
         }

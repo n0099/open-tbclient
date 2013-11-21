@@ -3,15 +3,15 @@ package com.baidu.tieba.im;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static l f1724a;
+    private static l f1715a;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static void a() {
-        f1724a = new l();
+        f1715a = new l();
     }
 
     public static l b() {
-        return f1724a;
+        return f1715a;
     }
 
     public boolean c() {

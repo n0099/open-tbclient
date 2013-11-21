@@ -6,11 +6,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class z implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ y f2521a;
+    final /* synthetic */ y f2504a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(y yVar) {
-        this.f2521a = yVar;
+        this.f2504a = yVar;
     }
 
     @Override // java.lang.Runnable
@@ -18,7 +18,7 @@ public class z implements Runnable {
         AtomicBoolean atomicBoolean;
         AtomicBoolean atomicBoolean2;
         for (int i = 0; i < 60; i++) {
-            atomicBoolean2 = this.f2521a.f2520a;
+            atomicBoolean2 = this.f2504a.f2503a;
             if (!atomicBoolean2.get()) {
                 break;
             }
@@ -30,9 +30,9 @@ public class z implements Runnable {
                 com.baidu.adp.lib.h.d.a("DebugLogger", "write error ", e);
             }
         }
-        atomicBoolean = this.f2521a.f2520a;
+        atomicBoolean = this.f2504a.f2503a;
         if (!atomicBoolean.get()) {
-            this.f2521a.b(true);
+            this.f2504a.b(true);
         }
     }
 }

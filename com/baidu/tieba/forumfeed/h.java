@@ -8,7 +8,7 @@ import com.baidu.tieba.view.NoNetworkView;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public LinearLayout f1292a;
+    public LinearLayout f1297a;
     public NavigationBar b;
     public s c;
     public NoNetworkView d;

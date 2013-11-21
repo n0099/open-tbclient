@@ -18,8 +18,8 @@ public class ImageManager {
     private int c = DEFAULT_MAX_CACHEABLE_SIZE;
 
     /* renamed from: a  reason: collision with root package name */
-    private MemoryBitmapCache f836a = new MemoryBitmapCache(20);
-    private bm b = new bm(DEFAULT_STORAGE_PATH, 1, this.c, this.f836a);
+    private MemoryBitmapCache f837a = new MemoryBitmapCache(20);
+    private bm b = new bm(DEFAULT_STORAGE_PATH, 1, this.c, this.f837a);
 
     private ImageManager() {
     }
@@ -41,7 +41,7 @@ public class ImageManager {
         Validator.notNull(uri, "uri");
         Validator.notNull(iAsyncImageLoaderListener, "listener");
         String md5 = Utils.md5(uri.toString());
-        Bitmap a2 = this.f836a.a(md5);
+        Bitmap a2 = this.f837a.a(md5);
         if (a2 == null && Utils.isUrl(uri)) {
             a2 = this.b.b(md5);
         }
@@ -64,12 +64,12 @@ public class ImageManager {
     }
 
     public ImageManager setMaxMemCacheSize(int i) {
-        this.f836a.a(i);
+        this.f837a.a(i);
         return this;
     }
 
     public ImageManager setMemCacheEvictPolicy(MemoryBitmapCache.IEvictPolicy iEvictPolicy) {
-        this.f836a.a(iEvictPolicy);
+        this.f837a.a(iEvictPolicy);
         return this;
     }
 

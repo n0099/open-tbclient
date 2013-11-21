@@ -6,7 +6,7 @@ import org.msgpack.type.r;
 public class ValueTemplate extends AbstractTemplate<r> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ValueTemplate f2932a = new ValueTemplate();
+    static final ValueTemplate f2916a = new ValueTemplate();
 
     private ValueTemplate() {
     }
@@ -25,6 +25,6 @@ public class ValueTemplate extends AbstractTemplate<r> {
     }
 
     public static ValueTemplate a() {
-        return f2932a;
+        return f2916a;
     }
 }

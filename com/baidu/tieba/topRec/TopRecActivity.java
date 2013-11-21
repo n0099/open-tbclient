@@ -15,7 +15,7 @@ import java.util.List;
 public class TopRecActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    private h f2443a;
+    private h f2426a;
     private e b;
     private l c;
     private ax d;
@@ -37,19 +37,19 @@ public class TopRecActivity extends com.baidu.tieba.j {
     }
 
     private void a() {
-        this.f2443a = new h(this);
-        this.f2443a.a(true);
+        this.f2426a = new h(this);
+        this.f2426a.a(true);
     }
 
     private void b() {
         this.b = new e(this);
-        this.f2443a.a(this.b);
+        this.f2426a.a(this.b);
         this.c = new l();
         this.c.a(this.k);
         this.c.LoadData();
         this.h = new LinkedList();
         this.i = new LinkedList();
-        this.f2443a.a(this.l);
+        this.f2426a.a(this.l);
     }
 
     public static void a(Context context) {
@@ -62,7 +62,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
             this.f.forum_list[i].is_like = 1;
             this.b.notifyDataSetChanged();
             this.g++;
-            this.f2443a.a(this.g);
+            this.f2426a.a(this.g);
         }
     }
 
@@ -74,7 +74,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
             if (this.g != 0) {
                 this.g--;
             }
-            this.f2443a.a(this.g);
+            this.f2426a.a(this.g);
         }
     }
 
@@ -117,7 +117,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
             if (c != 0) {
                 this.g += c;
                 this.j = c + this.j;
-                this.f2443a.a(this.g);
+                this.f2426a.a(this.g);
             }
             this.b.notifyDataSetChanged();
         }
@@ -127,7 +127,7 @@ public class TopRecActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.f2443a.b(i);
+        this.f2426a.b(i);
         if (i == 1) {
             this.b.a(R.drawable.btn_add_1, R.drawable.btn_add_end_1);
         } else {
@@ -151,12 +151,12 @@ public class TopRecActivity extends com.baidu.tieba.j {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.f2443a.a()) {
+        if (view == this.f2426a.a()) {
             this.b.a();
             if (this.b.b()) {
-                this.f2443a.e();
+                this.f2426a.e();
             }
-        } else if (view == this.f2443a.b()) {
+        } else if (view == this.f2426a.b()) {
             if (this.j != 0) {
                 showToast(getString(R.string.top_rec_like_finish_a) + this.j + getString(R.string.top_rec_like_finish_b));
                 if (TiebaApplication.g().s()) {

@@ -1,7 +1,53 @@
 package com.baidu.tieba.square;
 /* loaded from: classes.dex */
-public interface av {
-    void a(SquareHorizontalScrollView squareHorizontalScrollView);
+public class av extends com.baidu.adp.a.d {
+    private ar b;
 
-    void b(SquareHorizontalScrollView squareHorizontalScrollView);
+    /* renamed from: a  reason: collision with root package name */
+    private ax f2375a = null;
+    private aw c = null;
+
+    public av() {
+        this.b = null;
+        this.b = new ar();
+    }
+
+    public ar a() {
+        return this.b;
+    }
+
+    public void a(aw awVar) {
+        this.c = awVar;
+    }
+
+    @Override // com.baidu.adp.a.d
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.a.d
+    public boolean cancelLoadData() {
+        if (this.f2375a != null) {
+            this.f2375a.cancel();
+            return false;
+        }
+        return false;
+    }
+
+    public boolean b() {
+        return a(1);
+    }
+
+    public boolean c() {
+        return a(0);
+    }
+
+    public boolean a(int i) {
+        if (this.f2375a != null) {
+            return false;
+        }
+        this.f2375a = new ax(this, i);
+        this.f2375a.execute(new Object[0]);
+        return true;
+    }
 }

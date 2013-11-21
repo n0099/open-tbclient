@@ -1,31 +1,41 @@
 package com.baidu.tieba.pb;
-
-import android.text.Editable;
-import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cn implements TextWatcher {
+public class cn implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.editortool.h f2119a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2102a;
     final /* synthetic */ PbEditorToolView b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cn(PbEditorToolView pbEditorToolView, com.baidu.tieba.editortool.h hVar) {
         this.b = pbEditorToolView;
-        this.f2119a = hVar;
+        this.f2102a = hVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.f2119a.a(18, null);
+    @Override // com.baidu.tieba.editortool.h
+    public void a(int i, Object obj) {
+        if (i == 5) {
+            this.b.h();
+            this.b.c.h();
+        } else if (i == 6) {
+            this.b.h();
+            this.b.c.c();
+        } else if (i == 0) {
+            this.b.h();
+        } else if (i == 2) {
+            this.b.h();
+            this.b.c.f();
+        } else if (i == 3) {
+            this.b.h();
+            this.b.c.c();
+        } else if (i == 8) {
+            this.b.h();
+            this.b.c.g();
+        } else if (i == 9) {
+            this.b.h();
+            this.b.c.c();
+        }
+        this.f2102a.a(i, obj);
     }
 }

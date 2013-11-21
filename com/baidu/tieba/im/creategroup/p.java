@@ -6,17 +6,17 @@ import android.location.Address;
 public class p implements com.baidu.adp.lib.c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1595a;
+    final /* synthetic */ o f1586a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.f1595a = oVar;
+        this.f1586a = oVar;
     }
 
     @Override // com.baidu.adp.lib.c.d
     public void a(int i, String str, Address address) {
         if (i == 0) {
-            this.f1595a.f();
+            this.f1586a.f();
         }
     }
 }

@@ -16,7 +16,7 @@ import java.util.Date;
 public class DatabaseService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Boolean f2463a = true;
+    private static Boolean f2446a = true;
     private static Boolean b = true;
     private static volatile SQLiteDatabase c = null;
     private static volatile SQLiteDatabase d = null;
@@ -545,20 +545,21 @@ public class DatabaseService {
                 k();
             }
             DatabaseService databaseService = new DatabaseService();
-            try {
-                Date date = new Date();
-                if (databaseService != null) {
+            Date date = new Date();
+            if (databaseService != null) {
+                try {
                     databaseService.a("delete from account_data where id=?", (Object[]) new String[]{accountData.getID()});
                     databaseService.a("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait) values(?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(date.getTime()), accountData.getPortrait()});
-                }
-            } catch (Exception e) {
-                bg.b("DatabaseService", "saveAccountData", "error = " + e.getMessage());
-                if (databaseService != null) {
-                    try {
-                        databaseService.a("DROP TABLE IF EXISTS account_data");
-                        databaseService.a("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time)");
-                    } catch (Exception e2) {
-                        bg.b("DatabaseService", "saveAccountData", "catch error = " + e2.getMessage());
+                } catch (Exception e) {
+                    bg.b("DatabaseService", "saveAccountData", "error = " + e.getMessage());
+                    if (databaseService != null) {
+                        try {
+                            databaseService.a("DROP TABLE IF EXISTS account_data");
+                            databaseService.a("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time)");
+                            databaseService.a("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait) values(?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(date.getTime()), accountData.getPortrait()});
+                        } catch (Exception e2) {
+                            bg.b("DatabaseService", "saveAccountData", "catch error = " + e2.getMessage());
+                        }
                     }
                 }
             }
@@ -1043,7 +1044,7 @@ public class DatabaseService {
     }
 
     public static void a(Boolean bool) {
-        f2463a = bool;
+        f2446a = bool;
     }
 
     public static void b(Boolean bool) {

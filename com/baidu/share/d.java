@@ -5,24 +5,24 @@ import java.util.ArrayList;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f973a = new ArrayList();
+    private ArrayList f974a = new ArrayList();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        synchronized (this.f973a) {
-            this.f973a.clear();
+        synchronized (this.f974a) {
+            this.f974a.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(ShareModel shareModel) {
-        if (shareModel == null || this.f973a == null) {
+        if (shareModel == null || this.f974a == null) {
             return;
         }
-        synchronized (this.f973a) {
-            int size = this.f973a.size();
+        synchronized (this.f974a) {
+            int size = this.f974a.size();
             for (int i = 0; i < size; i++) {
-                ((IShareListener) this.f973a.get(i)).onShareEvent(shareModel);
+                ((IShareListener) this.f974a.get(i)).onShareEvent(shareModel);
             }
         }
     }
@@ -31,9 +31,9 @@ public class d {
     public boolean a(IShareListener iShareListener) {
         boolean z = false;
         if (iShareListener != null) {
-            synchronized (this.f973a) {
-                if (!this.f973a.contains(iShareListener)) {
-                    z = this.f973a.add(iShareListener);
+            synchronized (this.f974a) {
+                if (!this.f974a.contains(iShareListener)) {
+                    z = this.f974a.add(iShareListener);
                 }
             }
         }
@@ -46,8 +46,8 @@ public class d {
         if (iShareListener == null) {
             return false;
         }
-        synchronized (this.f973a) {
-            remove = this.f973a.remove(iShareListener);
+        synchronized (this.f974a) {
+            remove = this.f974a.remove(iShareListener);
         }
         return remove;
     }

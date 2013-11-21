@@ -8,7 +8,7 @@ import java.util.Vector;
 public class u extends ClassLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2868a;
+    public boolean f2852a;
     private Hashtable b;
     private Vector c;
     private c d;
@@ -20,7 +20,7 @@ public class u extends ClassLoader {
     }
 
     public u(c cVar) {
-        this.f2868a = true;
+        this.f2852a = true;
         a(cVar);
     }
 
@@ -109,7 +109,7 @@ public class u extends ClassLoader {
     }
 
     protected Class b(String str) {
-        if (!this.f2868a) {
+        if (!this.f2852a) {
             return null;
         }
         if (!str.startsWith("java.") && !str.startsWith("javax.") && !str.startsWith("sun.") && !str.startsWith("com.sun.") && !str.startsWith("org.w3c.") && !str.startsWith("org.xml.") && !d(str)) {

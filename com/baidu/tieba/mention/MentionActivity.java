@@ -42,7 +42,7 @@ public class MentionActivity extends BaseFragment implements bq {
     private ViewPager ab = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1845a = -1;
+    protected int f1827a = -1;
     private boolean ae = false;
     private e ah = null;
 
@@ -89,7 +89,7 @@ public class MentionActivity extends BaseFragment implements bq {
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public void r() {
-        this.f1845a = TiebaApplication.g().ap();
+        this.f1827a = TiebaApplication.g().ap();
         super.r();
         if (F()) {
             if (this.ae) {
@@ -167,6 +167,7 @@ public class MentionActivity extends BaseFragment implements bq {
         this.ab.setAdapter(this.ad);
         this.c = new TextView[]{(TextView) this.aa.findViewById(R.id.chatme_tab), (TextView) this.aa.findViewById(R.id.replyme_tab), (TextView) this.aa.findViewById(R.id.atme_tab)};
         this.g = this.c.length;
+        this.ab.setOffscreenPageLimit(this.g - 1);
         this.d = new TextView[]{(TextView) this.aa.findViewById(R.id.chatme_msg_num), (TextView) this.aa.findViewById(R.id.replyme_msg_num), (TextView) this.aa.findViewById(R.id.atme_msg_num)};
         d dVar = new d(this);
         for (int i2 = 0; i2 < this.c.length; i2++) {
@@ -210,7 +211,7 @@ public class MentionActivity extends BaseFragment implements bq {
                 StatService.onEvent(this.ag, str, "click", 1);
             }
             a();
-            a(i, false);
+            a(i, true);
         }
     }
 
@@ -233,17 +234,17 @@ public class MentionActivity extends BaseFragment implements bq {
                 textView2.setTextColor(j().getColor(R.color.top_msg_num_day));
             }
         }
-        boolean z = this.f1845a == 1;
+        boolean z = this.f1827a == 1;
         while (true) {
             int i3 = i2;
             if (i3 < this.c.length) {
                 TextView textView3 = this.c[i3];
                 if (i3 == 0) {
-                    bd.e((View) textView3, z ? R.drawable.multiview_left_drawable_1 : R.drawable.multiview_left_drawable);
+                    textView3.setBackgroundResource(z ? R.drawable.multiview_left_drawable_1 : R.drawable.multiview_left_drawable);
                 } else if (i3 == this.c.length - 1) {
-                    bd.e((View) textView3, z ? R.drawable.multiview_right_drawable_1 : R.drawable.multiview_right_drawable);
+                    textView3.setBackgroundResource(z ? R.drawable.multiview_right_drawable_1 : R.drawable.multiview_right_drawable);
                 } else {
-                    bd.e((View) textView3, z ? R.drawable.multiview_center_drawable_1 : R.drawable.multiview_center_drawable);
+                    textView3.setBackgroundResource(z ? R.drawable.multiview_center_drawable_1 : R.drawable.multiview_center_drawable);
                 }
                 i2 = i3 + 1;
             } else {
@@ -260,7 +261,7 @@ public class MentionActivity extends BaseFragment implements bq {
             if (i == this.e) {
                 textView.setTextColor(j().getColor(z ? R.color.navi_multiview_text_s_1 : R.color.navi_multiview_text_s));
                 textView.setSelected(true);
-            } else if (i == this.f || this.f == -1) {
+            } else {
                 textView.setTextColor(j().getColor(z ? R.color.navi_multiview_text_n_1 : R.color.navi_multiview_text_n));
                 textView.setSelected(false);
             }
@@ -269,7 +270,7 @@ public class MentionActivity extends BaseFragment implements bq {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long[] jArr) {
-        boolean z = this.f1845a == 1;
+        boolean z = this.f1827a == 1;
         for (int i = 0; i < jArr.length; i++) {
             TextView textView = this.d[i];
             long j = jArr[i];
@@ -324,7 +325,7 @@ public class MentionActivity extends BaseFragment implements bq {
         jArr[0] = t.a().p();
         jArr[1] = l;
         jArr[2] = m;
-        if (z && i < jArr.length && i > -1 && i != 0) {
+        if (z && i < jArr.length && i > -1 && i != 0 && this.e != 0) {
             jArr[i] = 0;
         }
         a(jArr);

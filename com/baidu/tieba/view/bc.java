@@ -10,11 +10,11 @@ import com.slidingmenu.lib.R;
 class bc implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchBoxView f2573a;
+    final /* synthetic */ SearchBoxView f2556a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(SearchBoxView searchBoxView) {
-        this.f2573a = searchBoxView;
+        this.f2556a = searchBoxView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,11 +24,11 @@ class bc implements View.OnClickListener {
         String str;
         if (view.getId() == R.id.search_bg_layout) {
             if (TiebaApplication.g().s()) {
-                activity2 = this.f2573a.f2549a;
-                str = this.f2573a.b;
+                activity2 = this.f2556a.f2532a;
+                str = this.f2556a.b;
                 StatService.onEvent(activity2, str, "click", 1);
             }
-            activity = this.f2573a.f2549a;
+            activity = this.f2556a.f2532a;
             SquareSearchActivity.a(activity, "");
         }
     }

@@ -34,7 +34,7 @@ import java.util.Map;
 public class EditHeadActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2199a = "resourceid";
+    public static String f2184a = "resourceid";
     public static String b = "pic_info";
     public static String c = "delete";
     public static String d = "change";
@@ -273,9 +273,9 @@ public class EditHeadActivity extends com.baidu.tieba.j {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(String str, Bitmap bitmap) {
         try {
-            com.baidu.tieba.util.af.a((String) null, str, bitmap, 90);
+            com.baidu.tieba.util.af.a((String) null, str, bitmap, 80);
             if (this.E) {
-                new com.baidu.tieba.account.ag("motu_pic", String.valueOf(this.A)).start();
+                new com.baidu.tieba.account.ah("motu_pic", String.valueOf(this.A)).start();
             }
             return true;
         } catch (Exception e2) {

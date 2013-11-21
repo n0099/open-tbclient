@@ -5,7 +5,7 @@ import org.msgpack.MessageTypeException;
 public class LongTemplate extends AbstractTemplate<Long> {
 
     /* renamed from: a  reason: collision with root package name */
-    static final LongTemplate f2921a = new LongTemplate();
+    static final LongTemplate f2905a = new LongTemplate();
 
     private LongTemplate() {
     }
@@ -24,6 +24,6 @@ public class LongTemplate extends AbstractTemplate<Long> {
     }
 
     public static LongTemplate a() {
-        return f2921a;
+        return f2905a;
     }
 }

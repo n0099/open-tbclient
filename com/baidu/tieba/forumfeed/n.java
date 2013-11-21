@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f1298a = false;
+    public boolean f1303a = false;
     final /* synthetic */ i b;
     private TextView c;
     private TextView d;
@@ -35,7 +35,7 @@ public class n {
 
     public void a() {
         LinearLayout linearLayout;
-        this.f1298a = false;
+        this.f1303a = false;
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
@@ -47,7 +47,7 @@ public class n {
 
     public void b() {
         LinearLayout linearLayout;
-        this.f1298a = true;
+        this.f1303a = true;
         int ap = TiebaApplication.g().ap();
         this.c.setVisibility(0);
         this.d.setVisibility(0);
@@ -61,7 +61,7 @@ public class n {
     public void a(int i) {
         if (i == 1) {
             this.h.setBackgroundResource(R.color.forumfeed_frs_bg_1);
-        } else if (this.f1298a) {
+        } else if (this.f1303a) {
             this.h.setBackgroundResource(R.color.forumfeed_frs_bg);
         }
     }

@@ -16,11 +16,11 @@ import com.baidu.tieba.im.validate.ValidateActivity;
 public class u implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatListFragment f1146a;
+    final /* synthetic */ ChatListFragment f1152a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(ChatListFragment chatListFragment) {
-        this.f1146a = chatListFragment;
+        this.f1152a = chatListFragment;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -38,21 +38,21 @@ public class u implements AdapterView.OnItemClickListener {
         int i3;
         int i4;
         if (i >= 0) {
-            mVar = this.f1146a.aa;
+            mVar = this.f1152a.aa;
             long itemId = mVar.getItemId(i);
             if (itemId == -1) {
-                i3 = this.f1146a.e;
+                i3 = this.f1152a.e;
                 if (i3 > 1) {
-                    ChatListFragment.h(this.f1146a);
-                    ChatListFragment chatListFragment = this.f1146a;
-                    i4 = this.f1146a.e;
+                    ChatListFragment.h(this.f1152a);
+                    ChatListFragment chatListFragment = this.f1152a;
+                    i4 = this.f1152a.e;
                     chatListFragment.b(i4, 2);
                 }
             } else if (itemId != -2) {
-                mVar2 = this.f1146a.aa;
+                mVar2 = this.f1152a.aa;
                 RecentChatFriendData recentChatFriendData = (RecentChatFriendData) mVar2.getItem(i);
                 if (TiebaApplication.g().s()) {
-                    activity5 = this.f1146a.d;
+                    activity5 = this.f1152a.d;
                     StatService.onEvent(activity5, "list_to_chat", "chatlistclick", 1);
                 }
                 if (recentChatFriendData != null) {
@@ -62,14 +62,14 @@ public class u implements AdapterView.OnItemClickListener {
                         return;
                     } else if (ownerName.equals(SocialConstants.TRUE)) {
                         com.baidu.tieba.im.pushNotify.a g = com.baidu.tieba.im.pushNotify.a.g();
-                        aVar2 = this.f1146a.ak;
+                        aVar2 = this.f1152a.an;
                         g.b(false, aVar2);
                         if (TiebaApplication.g().s()) {
-                            activity4 = this.f1146a.d;
+                            activity4 = this.f1152a.d;
                             StatService.onEvent(activity4, "chat_list_to_group", "click", 1);
                         }
-                        activity3 = this.f1146a.d;
-                        MsglistActivity.a(activity3, Integer.parseInt(recentChatFriendData.getFriendId()), recentChatFriendData.getFriendName(), 0);
+                        activity3 = this.f1152a.d;
+                        MsglistActivity.a(activity3, Integer.parseInt(recentChatFriendData.getFriendId()), recentChatFriendData.getFriendName(), 0, "msg_lstb");
                         return;
                     } else if (recentChatFriendData.getOwnerName().equals("2")) {
                         a(recentChatFriendData);
@@ -77,9 +77,9 @@ public class u implements AdapterView.OnItemClickListener {
                             com.baidu.tieba.mention.t.a().t().c(0L);
                         }
                         com.baidu.tieba.im.pushNotify.a g2 = com.baidu.tieba.im.pushNotify.a.g();
-                        aVar = this.f1146a.ak;
+                        aVar = this.f1152a.an;
                         g2.b(false, aVar);
-                        activity2 = this.f1146a.d;
+                        activity2 = this.f1152a.d;
                         ValidateActivity.a(activity2);
                         return;
                     } else if (recentChatFriendData.getOwnerName().equals("3")) {
@@ -87,7 +87,7 @@ public class u implements AdapterView.OnItemClickListener {
                         if (com.baidu.tieba.mention.t.a().t() != null) {
                             com.baidu.tieba.mention.t.a().t().b(0L);
                         }
-                        activity = this.f1146a.d;
+                        activity = this.f1152a.d;
                         UpdatesActivity.a(activity);
                         return;
                     } else {
@@ -97,9 +97,9 @@ public class u implements AdapterView.OnItemClickListener {
                 }
                 com.baidu.adp.lib.h.d.e(ChatListFragment.class.getName(), "onItemClick", " RecentChatFriendData data is null");
             } else {
-                ChatListFragment.i(this.f1146a);
-                ChatListFragment chatListFragment2 = this.f1146a;
-                i2 = this.f1146a.e;
+                ChatListFragment.i(this.f1152a);
+                ChatListFragment chatListFragment2 = this.f1152a;
+                i2 = this.f1152a.e;
                 chatListFragment2.b(i2, 1);
             }
         }
@@ -116,7 +116,7 @@ public class u implements AdapterView.OnItemClickListener {
             com.baidu.tieba.mention.t.a().i();
             recentChatFriendData.setUnReadCount(0);
         }
-        activity = this.f1146a.d;
+        activity = this.f1152a.d;
         ChatActivity.a(activity, recentChatFriendData.getFriendId(), recentChatFriendData.getFriendName(), recentChatFriendData.getFriendPortrait(), null, "chat_list");
     }
 }

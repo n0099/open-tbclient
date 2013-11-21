@@ -5,5 +5,5 @@ import java.util.logging.Logger;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Logger f2981a = Logger.getLogger(a.class.getName());
+    private static final Logger f2965a = Logger.getLogger(a.class.getName());
 }

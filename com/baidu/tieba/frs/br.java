@@ -5,10 +5,10 @@ import android.app.Activity;
 public class br {
 
     /* renamed from: a  reason: collision with root package name */
-    Activity f1343a;
+    Activity f1348a;
     int b = 0;
 
     public br(Activity activity) {
-        this.f1343a = activity;
+        this.f1348a = activity;
     }
 }

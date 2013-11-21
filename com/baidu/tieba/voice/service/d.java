@@ -7,11 +7,11 @@ import com.baidu.location.LocationClientOption;
 class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MediaService f2641a;
+    final /* synthetic */ MediaService f2624a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(MediaService mediaService) {
-        this.f2641a = mediaService;
+        this.f2624a = mediaService;
     }
 
     @Override // java.lang.Runnable
@@ -22,18 +22,18 @@ class d implements Runnable {
         Runnable runnable;
         int i2;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.f2641a.mStartRecorderTime;
+        j = this.f2624a.mStartRecorderTime;
         int i3 = (int) (currentTimeMillis - j);
-        i = this.f2641a.mElapsedTime;
+        i = this.f2624a.mElapsedTime;
         if (i != i3) {
-            this.f2641a.mElapsedTime = i3 / LocationClientOption.MIN_SCAN_SPAN;
+            this.f2624a.mElapsedTime = i3 / LocationClientOption.MIN_SCAN_SPAN;
             Intent intent = new Intent("com.baidu.recordElapsedTime");
-            i2 = this.f2641a.mElapsedTime;
+            i2 = this.f2624a.mElapsedTime;
             intent.putExtra("com.baidu.msg.recordElapsedTime", i2);
-            this.f2641a.sendBroadcast(intent);
+            this.f2624a.sendBroadcast(intent);
         }
-        handler = this.f2641a.mHandler;
-        runnable = this.f2641a.mRecordTimeThread;
+        handler = this.f2624a.mHandler;
+        runnable = this.f2624a.mRecordTimeThread;
         handler.postDelayed(runnable, 200L);
     }
 }

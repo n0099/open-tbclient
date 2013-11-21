@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class d extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.tieba.j f1997a;
+    private com.baidu.tieba.j f1980a;
     private NavigationBar c;
     private RelativeLayout d;
     private TextView e;
@@ -25,7 +25,7 @@ public class d extends com.baidu.adp.a.e {
 
     public d(com.baidu.tieba.j jVar, ac acVar) {
         super(jVar);
-        this.f1997a = jVar;
+        this.f1980a = jVar;
         g();
         a(acVar);
     }
@@ -43,20 +43,20 @@ public class d extends com.baidu.adp.a.e {
     }
 
     private void g() {
-        this.f1997a.setContentView(R.layout.about_activity);
-        this.d = (RelativeLayout) this.f1997a.findViewById(R.id.parent);
-        this.c = (NavigationBar) this.f1997a.findViewById(R.id.view_navigation_bar);
+        this.f1980a.setContentView(R.layout.about_activity);
+        this.d = (RelativeLayout) this.f1980a.findViewById(R.id.parent);
+        this.c = (NavigationBar) this.f1980a.findViewById(R.id.view_navigation_bar);
         this.c.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.a(this.f1997a.getString(R.string.version_info));
-        this.e = (TextView) this.f1997a.findViewById(R.id.text_versioninfo);
-        this.f = (ImageView) this.f1997a.findViewById(R.id.text_description);
-        this.h = (SettingTextTestNewView) this.f1997a.findViewById(R.id.about_version_update);
+        this.c.a(this.f1980a.getString(R.string.version_info));
+        this.e = (TextView) this.f1980a.findViewById(R.id.text_versioninfo);
+        this.f = (ImageView) this.f1980a.findViewById(R.id.text_description);
+        this.h = (SettingTextTestNewView) this.f1980a.findViewById(R.id.about_version_update);
         this.h.d();
-        this.j = (SettingTextFunctionIntroView) this.f1997a.findViewById(R.id.about_function_intro);
-        this.i = (SettingTextTipView) this.f1997a.findViewById(R.id.about_guide);
-        this.k = (ProgressBar) this.f1997a.findViewById(R.id.about_progress);
-        this.e.setText(this.f1997a.getString(R.string.setting_version_text) + " " + com.baidu.tieba.data.h.j());
-        this.g = (TextView) this.f1997a.findViewById(R.id.text_version_protoco);
+        this.j = (SettingTextFunctionIntroView) this.f1980a.findViewById(R.id.about_function_intro);
+        this.i = (SettingTextTipView) this.f1980a.findViewById(R.id.about_guide);
+        this.k = (ProgressBar) this.f1980a.findViewById(R.id.about_progress);
+        this.e.setText(this.f1980a.getString(R.string.setting_version_text) + " " + com.baidu.tieba.data.h.j());
+        this.g = (TextView) this.f1980a.findViewById(R.id.text_version_protoco);
         a(TiebaApplication.g().ap());
     }
 
@@ -78,9 +78,9 @@ public class d extends com.baidu.adp.a.e {
 
     public void a(int i) {
         if (i == 1) {
-            this.d.setBackgroundColor(this.f1997a.getResources().getColor(R.color.bg_page_setting_1));
+            this.d.setBackgroundColor(this.f1980a.getResources().getColor(R.color.bg_page_setting_1));
         } else {
-            this.d.setBackgroundColor(this.f1997a.getResources().getColor(R.color.bg_page_setting));
+            this.d.setBackgroundColor(this.f1980a.getResources().getColor(R.color.bg_page_setting));
         }
         this.c.c(i);
         this.h.a(i);
@@ -90,16 +90,16 @@ public class d extends com.baidu.adp.a.e {
             bd.e(this.h, (int) R.drawable.more_up_1);
             bd.e(this.i, (int) R.drawable.more_down_1);
             bd.e(this.j, (int) R.drawable.more_middle_1);
-            this.g.setTextColor(this.f1997a.getResources().getColor(R.color.skin_1_common_color));
-            this.e.setTextColor(this.f1997a.getResources().getColor(R.color.skin_1_common_color));
-            this.f.setImageDrawable(this.f1997a.getResources().getDrawable(R.drawable.setting_logo_desc_1));
+            this.g.setTextColor(this.f1980a.getResources().getColor(R.color.skin_1_common_color));
+            this.e.setTextColor(this.f1980a.getResources().getColor(R.color.skin_1_common_color));
+            this.f.setImageDrawable(this.f1980a.getResources().getDrawable(R.drawable.setting_logo_desc_1));
         } else {
             bd.e(this.h, (int) R.drawable.more_up);
             bd.e(this.i, (int) R.drawable.more_down);
             bd.e(this.j, (int) R.drawable.more_middle);
-            this.g.setTextColor(this.f1997a.getResources().getColor(R.color.c_555d68));
-            this.e.setTextColor(this.f1997a.getResources().getColor(R.color.c_262626));
-            this.f.setImageDrawable(this.f1997a.getResources().getDrawable(R.drawable.setting_logo_desc));
+            this.g.setTextColor(this.f1980a.getResources().getColor(R.color.c_555d68));
+            this.e.setTextColor(this.f1980a.getResources().getColor(R.color.c_262626));
+            this.f.setImageDrawable(this.f1980a.getResources().getDrawable(R.drawable.setting_logo_desc));
         }
         f();
     }

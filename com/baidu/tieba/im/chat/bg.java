@@ -36,7 +36,7 @@ import org.json.JSONObject;
 public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1527a = bg.class.getName();
+    private static final String f1518a = bg.class.getName();
     private LinearLayout A;
     private Button B;
     private Button C;
@@ -327,7 +327,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
 
     private void a(MsgPageData msgPageData, int i) {
         try {
-            com.baidu.adp.lib.h.d.a(f1527a, "doRefresh", "selection:" + i);
+            com.baidu.adp.lib.h.d.a(f1518a, "doRefresh", "selection:" + i);
             if (msgPageData != null) {
                 this.I.a();
                 this.I.a(msgPageData.getChatMessages());
@@ -337,7 +337,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
                 }
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.d.b(f1527a, "doRefresh", e.getMessage());
+            com.baidu.adp.lib.h.d.b(f1518a, "doRefresh", e.getMessage());
         }
     }
 
@@ -356,7 +356,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
                 }
                 a(msgPageData, i);
             } catch (Exception e) {
-                com.baidu.adp.lib.h.d.b(f1527a, "refreshGo2New", e.getMessage());
+                com.baidu.adp.lib.h.d.b(f1518a, "refreshGo2New", e.getMessage());
                 a(msgPageData, -1);
             }
         }
@@ -364,7 +364,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
 
     public void c(MsgPageData msgPageData) {
         try {
-            com.baidu.adp.lib.h.d.a(f1527a, "refreshPrepage", "new:" + msgPageData.getNewAddNum());
+            com.baidu.adp.lib.h.d.a(f1518a, "refreshPrepage", "new:" + msgPageData.getNewAddNum());
             int firstVisiblePosition = this.k.getFirstVisiblePosition();
             com.baidu.adp.lib.h.d.d("pos" + firstVisiblePosition);
             if (msgPageData.getIsNewAdd()) {
@@ -377,7 +377,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
                 a(msgPageData, -1);
             }
         } catch (Exception e) {
-            com.baidu.adp.lib.h.d.b(f1527a, "refreshPrepage", e.getMessage());
+            com.baidu.adp.lib.h.d.b(f1518a, "refreshPrepage", e.getMessage());
             a(msgPageData, -1);
         }
     }
@@ -394,7 +394,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
     public boolean U() {
         try {
         } catch (Exception e) {
-            com.baidu.adp.lib.h.d.b(f1527a, "checkTextNum", e.getMessage());
+            com.baidu.adp.lib.h.d.b(f1518a, "checkTextNum", e.getMessage());
         }
         if (Pattern.compile("\\s*|\t|\r|\n").matcher(this.z.getText().toString()).replaceAll("").length() == 0) {
             return false;
@@ -406,7 +406,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
         try {
             return Pattern.compile("\n+").matcher(str.trim()).replaceAll("\n");
         } catch (Exception e) {
-            com.baidu.adp.lib.h.d.b(f1527a, "checkTextNum", e.getMessage());
+            com.baidu.adp.lib.h.d.b(f1518a, "checkTextNum", e.getMessage());
             return null;
         }
     }
@@ -457,7 +457,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
     public void d(MsgPageData msgPageData) {
         if (msgPageData != null) {
             try {
-                com.baidu.adp.lib.h.d.a(f1527a, "refreshCheckNew", "new:" + msgPageData.getNewAddNum());
+                com.baidu.adp.lib.h.d.a(f1518a, "refreshCheckNew", "new:" + msgPageData.getNewAddNum());
                 boolean z = false;
                 if (msgPageData.getIsNewAdd()) {
                     z = g(msgPageData.getNewAddNum());
@@ -471,7 +471,7 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
                     a(msgPageData.getChatMessages().get(msgPageData.getChatMessages().size() - 1));
                 }
             } catch (Exception e) {
-                com.baidu.adp.lib.h.d.b(f1527a, "refreshCheckNew", e.getMessage());
+                com.baidu.adp.lib.h.d.b(f1518a, "refreshCheckNew", e.getMessage());
                 a(msgPageData, -1);
             }
         }

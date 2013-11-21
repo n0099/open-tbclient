@@ -25,7 +25,7 @@ import com.slidingmenu.lib.R;
 public class WebActivity extends com.baidu.tieba.j {
 
     /* renamed from: a  reason: collision with root package name */
-    protected WebView f2056a = null;
+    protected WebView f2039a = null;
     private ImageView g = null;
     private ImageView h = null;
     private ImageView i = null;
@@ -36,9 +36,9 @@ public class WebActivity extends com.baidu.tieba.j {
     private LinearLayout l = null;
     protected String d = null;
     protected String e = null;
-    protected et f = null;
+    protected ev f = null;
     private Handler m = new Handler();
-    private Runnable n = new en(this);
+    private Runnable n = new ep(this);
 
     public static void a(Context context, String str, String str2, String str3) {
         if (UtilHelper.f(context)) {
@@ -95,26 +95,26 @@ public class WebActivity extends com.baidu.tieba.j {
         setContentView(R.layout.web_activity);
         this.l = (LinearLayout) findViewById(R.id.softkey);
         this.j = (ProgressBar) findViewById(R.id.progress);
-        this.f2056a = (WebView) findViewById(R.id.webview);
-        CompatibleUtile.getInstance().removeJavascriptInterface(this.f2056a);
-        this.f2056a.setWebViewClient(new eo(this));
+        this.f2039a = (WebView) findViewById(R.id.webview);
+        CompatibleUtile.getInstance().removeJavascriptInterface(this.f2039a);
+        this.f2039a.setWebViewClient(new eq(this));
         this.k = CompatibleUtile.getInstance().getWebChromeClient(this);
-        this.f2056a.setWebChromeClient(this.k);
-        WebSettings settings = this.f2056a.getSettings();
+        this.f2039a.setWebChromeClient(this.k);
+        WebSettings settings = this.f2039a.getSettings();
         settings.setBuiltInZoomControls(true);
         settings.setJavaScriptEnabled(true);
         settings.setPluginsEnabled(true);
         UtilHelper.a(settings);
         this.g = (ImageView) findViewById(R.id.webBack);
         this.g.setEnabled(false);
-        this.g.setOnClickListener(new ep(this));
+        this.g.setOnClickListener(new er(this));
         this.h = (ImageView) findViewById(R.id.webForward);
         this.h.setEnabled(false);
-        this.h.setOnClickListener(new eq(this));
+        this.h.setOnClickListener(new es(this));
         this.i = (ImageView) findViewById(R.id.refresh);
-        this.i.setOnClickListener(new er(this));
+        this.i.setOnClickListener(new et(this));
         this.b = (ImageView) findViewById(R.id.back);
-        this.b.setOnClickListener(new es(this));
+        this.b.setOnClickListener(new eu(this));
     }
 
     @Override // com.baidu.tieba.j, android.app.Activity, android.view.KeyEvent.Callback
@@ -130,7 +130,7 @@ public class WebActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.f2056a.pauseTimers();
+        this.f2039a.pauseTimers();
         a("onPause");
     }
 
@@ -138,7 +138,7 @@ public class WebActivity extends com.baidu.tieba.j {
     @Override // com.baidu.tieba.j, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f2056a.resumeTimers();
+        this.f2039a.resumeTimers();
         a("onResume");
     }
 
@@ -185,9 +185,9 @@ public class WebActivity extends com.baidu.tieba.j {
     }
 
     private void a(String str) {
-        if (this.f2056a != null) {
+        if (this.f2039a != null) {
             try {
-                WebView.class.getMethod(str, new Class[0]).invoke(this.f2056a, new Object[0]);
+                WebView.class.getMethod(str, new Class[0]).invoke(this.f2039a, new Object[0]);
             } catch (Exception e) {
                 com.baidu.tieba.util.bg.b(getClass().getName(), "callHiddenWebViewMethod", "error = " + e.getMessage());
             }

@@ -1,20 +1,20 @@
-package com.baidu.tieba.media;
+package com.baidu.tieba.pb;
 
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
+public class eu implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ q f1843a;
+    final /* synthetic */ WebActivity f2160a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(q qVar) {
-        this.f1843a = qVar;
+    public eu(WebActivity webActivity) {
+        this.f2160a = webActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.h.d.e("next btn clicked");
+        this.f2160a.closeActivity();
     }
 }

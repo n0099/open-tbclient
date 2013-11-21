@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 class bp {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2579a;
+    public String f2562a;
     public byte[] b;
     public Bitmap c;
     final /* synthetic */ bl d;

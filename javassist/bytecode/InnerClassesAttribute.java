@@ -26,7 +26,7 @@ public class InnerClassesAttribute extends e {
         if (a2 == 0) {
             return null;
         }
-        return this.f2811a.d(a2);
+        return this.f2795a.d(a2);
     }
 
     public int c(int i) {
@@ -38,7 +38,7 @@ public class InnerClassesAttribute extends e {
         if (c == 0) {
             return null;
         }
-        return this.f2811a.d(c);
+        return this.f2795a.d(c);
     }
 
     public int e(int i) {

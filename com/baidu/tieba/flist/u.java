@@ -6,7 +6,7 @@ import com.baidu.tieba.flist.ForumListModel;
 public class u extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1263a;
+    private Context f1268a;
     private ForumListModel.RequestParams b;
     private w c;
     private x d;
@@ -14,7 +14,7 @@ public class u extends com.baidu.adp.a.d {
     private boolean f = false;
 
     public u(Context context, ForumListModel.RequestParams requestParams) {
-        this.f1263a = context;
+        this.f1268a = context;
         this.b = requestParams;
     }
 

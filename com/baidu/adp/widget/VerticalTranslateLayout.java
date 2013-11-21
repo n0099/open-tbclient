@@ -15,9 +15,9 @@ public class VerticalTranslateLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
     static final /* synthetic */ boolean f597a;
-    private ac A;
-    private z B;
-    private ad C;
+    private ae A;
+    private ab B;
+    private af C;
     private int b;
     private int c;
     private float d;
@@ -37,12 +37,12 @@ public class VerticalTranslateLayout extends FrameLayout {
     private int r;
     private int s;
     private boolean t;
-    private final w u;
-    private final x v;
-    private final ae w;
-    private ab x;
-    private y y;
-    private final List<aa> z;
+    private final y u;
+    private final z v;
+    private final ag w;
+    private ad x;
+    private aa y;
+    private final List<ac> z;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -110,24 +110,24 @@ public class VerticalTranslateLayout extends FrameLayout {
         return this.m;
     }
 
-    public void setTopAnimationListener(ab abVar) {
-        this.x = abVar;
+    public void setTopAnimationListener(ad adVar) {
+        this.x = adVar;
     }
 
-    public void setBottomAnimationListener(y yVar) {
-        this.y = yVar;
+    public void setBottomAnimationListener(aa aaVar) {
+        this.y = aaVar;
     }
 
-    public void setTopTrackListener(ac acVar) {
-        this.A = acVar;
+    public void setTopTrackListener(ae aeVar) {
+        this.A = aeVar;
     }
 
-    public void setBottomTrackListener(z zVar) {
-        this.B = zVar;
+    public void setBottomTrackListener(ab abVar) {
+        this.B = abVar;
     }
 
-    public void setVerticalTrackListener(ad adVar) {
-        this.C = adVar;
+    public void setVerticalTrackListener(af afVar) {
+        this.C = afVar;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -194,7 +194,7 @@ public class VerticalTranslateLayout extends FrameLayout {
                     if (this.w.b) {
                         Log.d("VerticalTranslateLayout", "@onTouchEvent tracking");
                         this.w.a();
-                        ae.a(this.w);
+                        ag.a(this.w);
                         return true;
                     }
                     return true;
@@ -234,7 +234,7 @@ public class VerticalTranslateLayout extends FrameLayout {
             case 3:
                 if (this.w.b) {
                     this.w.a();
-                    ae.a(this.w);
+                    ag.a(this.w);
                     return true;
                 }
                 return true;

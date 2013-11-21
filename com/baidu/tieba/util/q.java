@@ -8,7 +8,7 @@ import com.baidu.tieba.TiebaApplication;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Toast f2516a;
+    private static Toast f2499a;
     private static Handler b = new Handler();
     private static Runnable c = new r();
     private boolean d;
@@ -25,14 +25,14 @@ public class q {
             String trim = str.trim();
             if (trim.length() != 0) {
                 b.removeCallbacks(c);
-                if (f2516a != null) {
-                    f2516a.setText(trim);
+                if (f2499a != null) {
+                    f2499a.setText(trim);
                 } else {
-                    f2516a = Toast.makeText(TiebaApplication.g(), trim, 0);
-                    f2516a.setGravity(17, 0, i2);
+                    f2499a = Toast.makeText(TiebaApplication.g(), trim, 0);
+                    f2499a.setGravity(17, 0, i2);
                 }
                 b.postDelayed(c, i);
-                f2516a.show();
+                f2499a.show();
             }
         }
     }
@@ -59,10 +59,10 @@ public class q {
     }
 
     public static void d() {
-        if (f2516a != null) {
+        if (f2499a != null) {
             b.removeCallbacks(c);
-            f2516a.cancel();
-            f2516a = null;
+            f2499a.cancel();
+            f2499a = null;
         }
     }
 }

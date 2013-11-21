@@ -9,13 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tieba.util.bd;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f1000a;
+    private View f1002a;
     private ImageView b;
     private ImageView c;
     private TextView d;
@@ -31,7 +30,7 @@ public class NoNetworkMoreActivity extends j {
     }
 
     protected void a() {
-        this.f1000a = findViewById(R.id.title);
+        this.f1002a = findViewById(R.id.title);
         this.b = (ImageView) findViewById(R.id.back);
         this.b.setOnClickListener(this);
         this.c = (ImageView) findViewById(R.id.home);
@@ -61,9 +60,9 @@ public class NoNetworkMoreActivity extends j {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.j
     public void onChangeSkinType(int i) {
-        bd.a(this.b, i);
-        bd.a(this.c, i);
-        bd.d(this.f1000a, i);
-        bd.e(this.d, i);
+        com.baidu.tieba.util.bd.a(this.b, i);
+        com.baidu.tieba.util.bd.a(this.c, i);
+        com.baidu.tieba.util.bd.d(this.f1002a, i);
+        com.baidu.tieba.util.bd.e(this.d, i);
     }
 }

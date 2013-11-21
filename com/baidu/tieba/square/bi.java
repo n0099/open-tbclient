@@ -1,27 +1,26 @@
 package com.baidu.tieba.square;
 
-import android.widget.AbsListView;
+import android.widget.EditText;
 import com.baidu.tieba.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi implements AbsListView.OnScrollListener {
+class bi implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SquareSearchActivity f2403a;
+    final /* synthetic */ SquareSearchActivity f2388a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bi(SquareSearchActivity squareSearchActivity) {
-        this.f2403a = squareSearchActivity;
+        this.f2388a = squareSearchActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 2 || i == 1) {
-            UtilHelper.a(this.f2403a, absListView);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // java.lang.Runnable
+    public void run() {
+        EditText editText;
+        EditText editText2;
+        editText = this.f2388a.c;
+        editText.requestFocus();
+        SquareSearchActivity squareSearchActivity = this.f2388a;
+        editText2 = this.f2388a.c;
+        UtilHelper.b(squareSearchActivity, editText2);
     }
 }

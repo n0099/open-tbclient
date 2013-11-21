@@ -6,13 +6,13 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<ChatMessage> f1600a;
+    private List<ChatMessage> f1591a;
 
     public List<ChatMessage> a() {
-        return this.f1600a;
+        return this.f1591a;
     }
 
     public void a(List<ChatMessage> list) {
-        this.f1600a = list;
+        this.f1591a = list;
     }
 }

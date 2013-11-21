@@ -12,7 +12,7 @@ import com.slidingmenu.lib.R;
 public class EnterForumGuideCenterView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1390a;
+    private ImageView f1381a;
     private ImageView b;
     private TextView c;
     private TextView d;
@@ -20,7 +20,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
 
     public EnterForumGuideCenterView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1390a = null;
+        this.f1381a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -30,7 +30,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
 
     public EnterForumGuideCenterView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1390a = null;
+        this.f1381a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -40,7 +40,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
 
     public EnterForumGuideCenterView(Context context) {
         super(context);
-        this.f1390a = null;
+        this.f1381a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -50,7 +50,7 @@ public class EnterForumGuideCenterView extends RelativeLayout {
 
     public void a(Context context) {
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.enter_forum_guide_center, this);
-        this.f1390a = (ImageView) findViewById(R.id.img_bg_center);
+        this.f1381a = (ImageView) findViewById(R.id.img_bg_center);
         this.c = (TextView) findViewById(R.id.tip_center);
         this.d = (TextView) findViewById(R.id.tip_no_center);
         this.b = (ImageView) findViewById(R.id.arrows_center);
@@ -96,12 +96,12 @@ public class EnterForumGuideCenterView extends RelativeLayout {
     public void a(int i) {
         if (c(i)) {
             if (i == 1) {
-                this.f1390a.setBackgroundResource(R.drawable.pic_go_ba_1);
+                this.f1381a.setBackgroundResource(R.drawable.pic_go_ba_1);
                 this.c.setTextColor(-8815226);
                 this.d.setTextColor(-8815226);
                 return;
             }
-            this.f1390a.setBackgroundResource(R.drawable.pic_go_ba);
+            this.f1381a.setBackgroundResource(R.drawable.pic_go_ba);
             this.c.setTextColor(-5065030);
             this.d.setTextColor(-5065030);
         }
@@ -125,6 +125,6 @@ public class EnterForumGuideCenterView extends RelativeLayout {
 
     public void c() {
         this.e = -1;
-        this.f1390a.setBackgroundDrawable(null);
+        this.f1381a.setBackgroundDrawable(null);
     }
 }

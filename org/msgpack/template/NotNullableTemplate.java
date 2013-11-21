@@ -3,11 +3,11 @@ package org.msgpack.template;
 public class NotNullableTemplate<T> extends AbstractTemplate<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private d<T> f2924a;
+    private d<T> f2908a;
 
     @Override // org.msgpack.template.d
     public void a(org.msgpack.packer.a aVar, T t, boolean z) {
-        this.f2924a.a(aVar, t, z);
+        this.f2908a.a(aVar, t, z);
     }
 
     @Override // org.msgpack.template.AbstractTemplate, org.msgpack.template.d

@@ -3,11 +3,11 @@ package com.baidu.tieba.pb;
 class bb implements com.baidu.adp.widget.ListView.s {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NewPbActivity f2086a;
+    final /* synthetic */ NewPbActivity f2069a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(NewPbActivity newPbActivity) {
-        this.f2086a = newPbActivity;
+        this.f2069a = newPbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.s

@@ -22,7 +22,7 @@ import com.slidingmenu.lib.R;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f2451a;
+    NavigationBar f2434a;
     Handler b;
     private BdListView c;
     private Button d;
@@ -47,9 +47,9 @@ public class h {
         this.b = new Handler();
         this.j.setContentView(R.layout.top_recommended_activity);
         this.c = (BdListView) this.j.findViewById(R.id.top_list);
-        this.f2451a = (NavigationBar) topRecActivity.findViewById(R.id.view_navigation_bar);
-        this.f2451a.a(topRecActivity.getString(R.string.top_recommended));
-        View a2 = this.f2451a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_top_rec, (View.OnClickListener) null);
+        this.f2434a = (NavigationBar) topRecActivity.findViewById(R.id.view_navigation_bar);
+        this.f2434a.a(topRecActivity.getString(R.string.top_recommended));
+        View a2 = this.f2434a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_top_rec, (View.OnClickListener) null);
         this.d = (Button) a2.findViewById(R.id.title_finish);
         this.d.setOnClickListener(this.j);
         this.m = (TextView) a2.findViewById(R.id.title_finish_cover);
@@ -125,7 +125,7 @@ public class h {
     }
 
     public void b(int i) {
-        this.f2451a.c(i);
+        this.f2434a.c(i);
         bd.b(this.j.findViewById(R.id.container), i);
         bd.f((TextView) this.d, i);
         bd.e((TextView) this.d, i);

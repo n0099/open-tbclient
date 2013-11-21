@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class bs extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private BdSwitchView f1344a;
+    private BdSwitchView f1349a;
     private BdSwitchView c;
     private View d;
     private LinearLayout e;
@@ -39,7 +39,7 @@ public class bs extends com.baidu.adp.a.e {
 
     public bs(Context context) {
         super(context);
-        this.f1344a = null;
+        this.f1349a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -74,9 +74,9 @@ public class bs extends com.baidu.adp.a.e {
         this.d = LayoutInflater.from(this.b).inflate(R.layout.frs_sidebar, (ViewGroup) null);
         this.c = (BdSwitchView) this.d.findViewById(R.id.thrift_mode_switch);
         this.c.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
-        this.f1344a = (BdSwitchView) this.d.findViewById(R.id.eyeshield_mode_switch);
-        this.f1344a.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.b);
-        this.f1344a.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
+        this.f1349a = (BdSwitchView) this.d.findViewById(R.id.eyeshield_mode_switch);
+        this.f1349a.setOnSwitchStateChangeListener((com.baidu.adp.widget.BdSwitchView.c) this.b);
+        this.f1349a.setSwitchStyle(BdSwitchView.SwitchStyle.SIDE_BAR);
         this.g = (TextView) this.d.findViewById(R.id.message_btn);
         this.e = (LinearLayout) this.d.findViewById(R.id.message_layout);
         this.h = (LinearLayout) this.d.findViewById(R.id.like_forum_layout);
@@ -117,7 +117,7 @@ public class bs extends com.baidu.adp.a.e {
     }
 
     public BdSwitchView f() {
-        return this.f1344a;
+        return this.f1349a;
     }
 
     public boolean g() {
@@ -133,15 +133,15 @@ public class bs extends com.baidu.adp.a.e {
 
     public void i() {
         if (TiebaApplication.g().ap() == 1) {
-            this.f1344a.a();
+            this.f1349a.a();
         } else {
-            this.f1344a.b();
+            this.f1349a.b();
         }
     }
 
     public void j() {
         this.c.setOnSwitchStateChangeListener(null);
-        if (com.baidu.tieba.d.a.a().h()) {
+        if (com.baidu.tieba.d.a.a().f()) {
             if (this.c.c()) {
                 this.c.b();
             }
@@ -154,12 +154,24 @@ public class bs extends com.baidu.adp.a.e {
 
     public void a(com.baidu.tieba.model.ap apVar) {
         long a2 = apVar.a() + apVar.b();
+        boolean z = TiebaApplication.g().ap() == 1;
         if (a2 > 0) {
             this.g.setVisibility(0);
-            this.g.setText(String.valueOf(a2 <= 99 ? a2 : 99L));
-            return;
+            if (a2 < 10) {
+                this.g.setText(String.valueOf(a2));
+                this.g.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_one_1 : R.drawable.icon_news_head_prompt_one);
+                return;
+            } else if (a2 < 100) {
+                this.g.setText(String.valueOf(a2));
+                this.g.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_two_1 : R.drawable.icon_news_head_prompt_two);
+                return;
+            } else {
+                this.g.setText("   ");
+                this.g.setBackgroundResource(z ? R.drawable.icon_news_head_prompt_more_1 : R.drawable.icon_news_head_prompt_more);
+                return;
+            }
         }
-        this.g.setVisibility(8);
+        this.g.setVisibility(4);
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -175,16 +187,6 @@ public class bs extends com.baidu.adp.a.e {
     public void a(boolean z, String str) {
     }
 
-    public void c(boolean z) {
-        if (z) {
-            this.o.setText(this.b.getString(R.string.attention_cancel));
-            this.o.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_broadside_off, 0, 0, 0);
-            return;
-        }
-        this.o.setText(this.b.getString(R.string.attention_n));
-        this.o.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_broadside_add, 0, 0, 0);
-    }
-
     public void a(com.baidu.tieba.data.t tVar) {
         if (tVar != null) {
             this.h.removeAllViews();
@@ -193,7 +195,6 @@ public class bs extends com.baidu.adp.a.e {
             int size = c.size();
             if (size != 0) {
                 int i = size > 10 ? 10 : size;
-                this.h.setBackgroundResource(0);
                 int ap = TiebaApplication.g().ap();
                 com.baidu.tieba.e layoutMode = ((com.baidu.tieba.j) this.b).getLayoutMode();
                 layoutMode.a(ap == 1);

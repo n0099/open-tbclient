@@ -8,11 +8,11 @@ public class a {
     private static j d;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f2609a = 0;
+    private static int f2592a = 0;
     private static Handler e = new Handler(new b());
 
     public static boolean a(String str, j jVar, int i) {
-        if (f2609a == 0) {
+        if (f2592a == 0) {
             if (b == null) {
                 b = new c(e, i);
             } else {
@@ -21,7 +21,7 @@ public class a {
             c = str;
             d = jVar;
             b.a(str);
-            f2609a = 2;
+            f2592a = 2;
             new Thread(b).start();
             return true;
         }
@@ -32,7 +32,7 @@ public class a {
         if (b != null) {
             b.c();
         } else {
-            f2609a = 0;
+            f2592a = 0;
         }
     }
 }

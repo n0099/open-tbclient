@@ -19,7 +19,7 @@ public class TiebaSocketLinkService extends Service {
     private static a b;
 
     /* renamed from: a  reason: collision with root package name */
-    private static b f1766a = new b();
+    private static b f1757a = new b();
     private static final Handler c = new d();
     private static q d = new e();
 
@@ -39,7 +39,7 @@ public class TiebaSocketLinkService extends Service {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("Content-Type", "application/octet-stream"));
         arrayList.add(new BasicNameValuePair(SocialConstants.PARAM_CUID, i.a()));
-        l.a().a(j.f1722a, j.b, null, arrayList);
+        l.a().a(j.f1713a, j.b, null, arrayList);
         l.a().a(d);
     }
 

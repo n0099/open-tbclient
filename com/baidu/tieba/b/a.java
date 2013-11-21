@@ -6,7 +6,7 @@ import com.baidu.adp.lib.cache.s;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1111a = null;
+    private static a f1115a = null;
     private s<String> b = null;
     private s<String> c = null;
     private s<String> d = null;
@@ -25,10 +25,10 @@ public class a {
     private s<String> q = null;
 
     public static a a() {
-        if (f1111a == null) {
-            f1111a = new a();
+        if (f1115a == null) {
+            f1115a = new a();
         }
-        return f1111a;
+        return f1115a;
     }
 
     private a() {

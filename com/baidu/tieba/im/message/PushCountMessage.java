@@ -3,8 +3,17 @@ package com.baidu.tieba.im.message;
 public class PushCountMessage extends Message {
     private static final long serialVersionUID = -4476585135528193926L;
     private long downFlowSize;
+    private int enterForeCount;
     private int pusherCount;
     private long upFlowSize;
+
+    public int getEnterForeCount() {
+        return this.enterForeCount;
+    }
+
+    public void setEnterForeCount(int i) {
+        this.enterForeCount = i;
+    }
 
     public int getPusherCount() {
         return this.pusherCount;

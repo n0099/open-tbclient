@@ -9,7 +9,7 @@ import com.baidu.tieba.util.UtilHelper;
 public class bo extends BdAsyncTask<String, Integer, bp> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bl f2578a;
+    final /* synthetic */ bl f2561a;
     private com.baidu.tieba.util.ap b = null;
     private String c;
     private String d;
@@ -17,7 +17,7 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bo(bl blVar, String str, boolean z) {
-        this.f2578a = blVar;
+        this.f2561a = blVar;
         this.c = null;
         this.d = null;
         this.c = str;
@@ -38,22 +38,22 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
             return null;
         }
         if (this.c != null && this.c.startsWith("width=")) {
-            this.f2578a.f = false;
+            this.f2561a.f = false;
         }
-        z = this.f2578a.f;
+        z = this.f2561a.f;
         if (z) {
             str = this.c;
         } else {
             str = com.baidu.tieba.data.h.l + ((this.c + "&imgtype=0") + "&qulity=" + com.baidu.tieba.util.bf.a().d());
         }
         try {
-            byte[] imageData = this.f2578a.b.getImageData();
+            byte[] imageData = this.f2561a.b.getImageData();
             Bitmap a2 = imageData != null ? com.baidu.tieba.util.m.a(imageData) : null;
             if (a2 == null) {
                 if (this.e && this.c.startsWith("/")) {
                     a2 = com.baidu.adp.lib.h.a.a().a(this.c);
                 } else {
-                    imageData = com.baidu.tieba.util.af.d("image", this.d);
+                    imageData = com.baidu.tieba.util.af.e("image", this.d);
                     if (imageData != null) {
                         a2 = com.baidu.tieba.util.m.a(imageData);
                     }
@@ -62,17 +62,17 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
             if (a2 == null) {
                 this.b = new com.baidu.tieba.util.ap(str);
                 com.baidu.tieba.util.ap apVar = this.b;
-                z2 = this.f2578a.f;
+                z2 = this.f2561a.f;
                 apVar.f(z2);
-                if (this.f2578a.c != null && (this.f2578a.c instanceof ImageActivity)) {
-                    if (((ImageActivity) this.f2578a.c).a() != null) {
-                        this.b.a("fid", ((ImageActivity) this.f2578a.c).a());
+                if (this.f2561a.c != null && (this.f2561a.c instanceof ImageActivity)) {
+                    if (((ImageActivity) this.f2561a.c).a() != null) {
+                        this.b.a("fid", ((ImageActivity) this.f2561a.c).a());
                     }
-                    if (((ImageActivity) this.f2578a.c).b() != null) {
-                        this.b.a("tid", ((ImageActivity) this.f2578a.c).b());
+                    if (((ImageActivity) this.f2561a.c).b() != null) {
+                        this.b.a("tid", ((ImageActivity) this.f2561a.c).b());
                     }
-                    if (((ImageActivity) this.f2578a.c).c() != null) {
-                        this.b.a("fname", ((ImageActivity) this.f2578a.c).c());
+                    if (((ImageActivity) this.f2561a.c).c() != null) {
+                        this.b.a("fname", ((ImageActivity) this.f2561a.c).c());
                     }
                 }
                 this.b.d(true);
@@ -82,9 +82,9 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
                 a2 = a3;
                 imageData = i;
             }
-            bpVar = new bp(this.f2578a);
+            bpVar = new bp(this.f2561a);
             try {
-                bpVar.f2579a = this.c;
+                bpVar.f2562a = this.c;
                 bpVar.b = imageData;
                 bpVar.c = a2;
                 return bpVar;
@@ -105,22 +105,22 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
     public void a(bp bpVar) {
         bn bnVar;
         bn bnVar2;
-        this.f2578a.f2577a.setVisibility(8);
-        this.f2578a.d = null;
+        this.f2561a.f2560a.setVisibility(8);
+        this.f2561a.d = null;
         if (bpVar != null) {
-            bnVar = this.f2578a.e;
+            bnVar = this.f2561a.e;
             if (bnVar != null) {
-                bnVar2 = this.f2578a.e;
-                bnVar2.a(bpVar.f2579a, bpVar.b);
+                bnVar2 = this.f2561a.e;
+                bnVar2.a(bpVar.f2562a, bpVar.b);
             }
             Bitmap bitmap = bpVar.c;
             if (bitmap == null) {
-                this.f2578a.b.l();
+                this.f2561a.b.l();
             } else if (UtilHelper.a(bpVar.b)) {
-                this.f2578a.b.a(bpVar.b, bitmap);
+                this.f2561a.b.a(bpVar.b, bitmap);
             } else {
-                this.f2578a.b.setImageBitmap(bitmap);
-                this.f2578a.b.setImageData(bpVar.b);
+                this.f2561a.b.setImageBitmap(bitmap);
+                this.f2561a.b.setImageData(bpVar.b);
             }
         }
     }
@@ -128,8 +128,8 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f2578a.b.setImageBitmap(null);
-        this.f2578a.f2577a.setVisibility(0);
+        this.f2561a.b.setImageBitmap(null);
+        this.f2561a.f2560a.setVisibility(0);
         super.b();
     }
 
@@ -138,9 +138,9 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
         if (this.b != null) {
             this.b.h();
         }
-        this.f2578a.b.setVisibility(0);
-        this.f2578a.f2577a.setVisibility(8);
-        this.f2578a.d = null;
+        this.f2561a.b.setVisibility(0);
+        this.f2561a.f2560a.setVisibility(8);
+        this.f2561a.d = null;
         super.cancel(true);
     }
 }

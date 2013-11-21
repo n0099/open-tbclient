@@ -106,7 +106,7 @@ public class bd extends be {
         this.U = (TextView) q.findViewById(R.id.my_bookmark_text);
         this.V = (ImageView) q.findViewById(R.id.new_bookmark_mention);
         this.J = UtilHelper.a((Context) baseFragmentActivity);
-        a(this.V, UtilHelper.a(baseFragmentActivity, (int) this.I.getResources().getDimension(R.dimen.person_bookmark_icon_margin_top)), UtilHelper.a(baseFragmentActivity, (int) this.I.getResources().getDimension(R.dimen.person_bookmark_icon_margin_right)));
+        a(this.V, this.I.getResources().getDimensionPixelSize(R.dimen.person_bookmark_icon_margin_top), this.I.getResources().getDimensionPixelSize(R.dimen.person_bookmark_icon_margin_right));
         this.W = (LinearLayout) q.findViewById(R.id.my_forums);
         this.X = (ImageView) q.findViewById(R.id.my_forums_image);
         this.Y = (TextView) q.findViewById(R.id.my_forums_text);
@@ -120,7 +120,7 @@ public class bd extends be {
         this.ag = (TextView) q.findViewById(R.id.my_fans_text);
         this.ah = (TextView) q.findViewById(R.id.my_fans_num);
         this.ai = (TextView) q.findViewById(R.id.new_fans_mention);
-        a(this.ai, UtilHelper.a(baseFragmentActivity, (int) this.I.getResources().getDimension(R.dimen.person_fans_icon_margin_top)), UtilHelper.a(baseFragmentActivity, (int) this.I.getResources().getDimension(R.dimen.person_fans_icon_margin_right)));
+        a(this.ai, this.I.getResources().getDimensionPixelSize(R.dimen.person_fans_icon_margin_top), this.I.getResources().getDimensionPixelSize(R.dimen.person_fans_icon_margin_right));
         this.aj = (LinearLayout) q.findViewById(R.id.my_post);
         this.ak = (ImageView) q.findViewById(R.id.my_post_image);
         this.al = (TextView) q.findViewById(R.id.my_post_text);
@@ -173,7 +173,7 @@ public class bd extends be {
         if (i == 1) {
             this.k.c();
             if (bxVar.getErrorString() != null) {
-                this.f2235a.a(bxVar.getErrorString());
+                this.f2220a.a(bxVar.getErrorString());
             }
         }
     }
@@ -184,6 +184,8 @@ public class bd extends be {
         AntiData a2 = bxVar.a();
         if (AntiHelper.a(a2) || AntiHelper.c(a2)) {
             this.N.setVisibility(0);
+        } else {
+            this.N.setVisibility(8);
         }
     }
 
@@ -236,11 +238,11 @@ public class bd extends be {
         if (h > 0) {
             this.ai.setVisibility(0);
             if (h <= 9) {
-                a(this.ai, i, R.drawable.icon_news_prompt_1, R.drawable.icon_news_prompt);
+                a(this.ai, i, R.drawable.icon_news_head_prompt_one_1, R.drawable.icon_news_head_prompt_one);
                 a(this.ai, UtilHelper.a((Context) this.I, 9.0f), (this.J / 6) - UtilHelper.a((Context) this.I, 28.0f));
                 this.ai.setText(String.valueOf(h));
             } else if (h > 9 && h <= 99) {
-                a(this.ai, i, R.drawable.icon_news_head_prompt_1, R.drawable.icon_news_head_prompt);
+                a(this.ai, i, R.drawable.icon_news_head_prompt_two_1, R.drawable.icon_news_head_prompt_two);
                 this.ai.setText(String.valueOf(h));
             } else if (h > 99) {
                 a(this.ai, i, R.drawable.icon_news_head_prompt_more_1, R.drawable.icon_news_head_prompt_more);
@@ -249,7 +251,7 @@ public class bd extends be {
             this.ai.setVisibility(8);
         }
         if (i2 > 0) {
-            a(this.V, i, R.drawable.icon_news_content_prompt_1, R.drawable.icon_news_content_prompt);
+            a(this.V, i, R.drawable.icon_news_list_prompt_1, R.drawable.icon_news_list_prompt);
             this.V.setVisibility(0);
             return;
         }
@@ -259,8 +261,8 @@ public class bd extends be {
     @Override // com.baidu.tieba.person.be
     public void a(int i, bx bxVar) {
         super.a(i, bxVar);
-        a(this.ai, i, R.drawable.icon_news_prompt_1, R.drawable.icon_news_prompt);
-        a(this.V, i, R.drawable.icon_news_content_prompt_1, R.drawable.icon_news_content_prompt);
+        a(this.ai, i, R.drawable.icon_news_list_prompt_1, R.drawable.icon_news_list_prompt);
+        a(this.V, i, R.drawable.icon_news_list_prompt_1, R.drawable.icon_news_list_prompt);
         if (i == 1) {
             this.M.setBackgroundResource(R.drawable.btn_white_bg_night_selector);
         } else {

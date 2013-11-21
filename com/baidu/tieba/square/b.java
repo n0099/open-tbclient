@@ -7,11 +7,11 @@ import com.tencent.mm.sdk.platformtools.Util;
 public class b extends BdAsyncTask<Object, h, h> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BarFolderFirstDirActivity f2394a;
+    final /* synthetic */ BarFolderFirstDirActivity f2379a;
     private com.baidu.tieba.util.ap b;
 
     private b(BarFolderFirstDirActivity barFolderFirstDirActivity) {
-        this.f2394a = barFolderFirstDirActivity;
+        this.f2379a = barFolderFirstDirActivity;
         this.b = null;
     }
 
@@ -26,7 +26,7 @@ public class b extends BdAsyncTask<Object, h, h> {
     /* renamed from: a */
     public void b(h... hVarArr) {
         super.b((Object[]) hVarArr);
-        this.f2394a.a(hVarArr[0], false);
+        this.f2379a.a(hVarArr[0], false);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,12 +60,12 @@ public class b extends BdAsyncTask<Object, h, h> {
                 hVar.b(a2);
                 c((Object[]) new h[]{hVar});
                 z2 = z;
-                this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/f/forum/forumdir");
-                str = this.f2394a.g;
+                this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/forumdir");
+                str = this.f2379a.g;
                 if (str != null) {
                     com.baidu.tieba.util.ap apVar = this.b;
                     String str3 = BarFolderFirstDirActivity.c;
-                    str2 = this.f2394a.g;
+                    str2 = this.f2379a.g;
                     apVar.a(str3, str2);
                 }
                 String j = this.b.j();
@@ -86,8 +86,8 @@ public class b extends BdAsyncTask<Object, h, h> {
         }
         z = false;
         z2 = z;
-        this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1196a + "c/f/forum/forumdir");
-        str = this.f2394a.g;
+        this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/forumdir");
+        str = this.f2379a.g;
         if (str != null) {
         }
         String j2 = this.b.j();
@@ -101,7 +101,7 @@ public class b extends BdAsyncTask<Object, h, h> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(h hVar) {
         if (hVar != null) {
-            this.f2394a.a(hVar, false);
+            this.f2379a.a(hVar, false);
         }
     }
 
@@ -112,6 +112,6 @@ public class b extends BdAsyncTask<Object, h, h> {
             this.b.h();
             this.b = null;
         }
-        this.f2394a.a((h) null, true);
+        this.f2379a.a((h) null, true);
     }
 }

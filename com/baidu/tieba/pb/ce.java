@@ -4,18 +4,18 @@ package com.baidu.tieba.pb;
 public class ce implements com.baidu.tieba.editortool.o {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f2111a;
-    final /* synthetic */ PbEditor b;
+    final /* synthetic */ PbEditor f2094a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(PbEditor pbEditor, int i) {
-        this.b = pbEditor;
-        this.f2111a = i;
+    public ce(PbEditor pbEditor) {
+        this.f2094a = pbEditor;
     }
 
     @Override // com.baidu.tieba.editortool.o
     public void a() {
-        this.b.a(this.f2111a, null);
+        this.f2094a.b.getEditText().requestFocus();
+        this.f2094a.c.c(this.f2094a.b.getEditText());
+        this.f2094a.b.getEditText().setSelection(this.f2094a.b.getEditText().getText().length());
     }
 
     @Override // com.baidu.tieba.editortool.o

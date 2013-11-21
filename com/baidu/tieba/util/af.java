@@ -18,7 +18,7 @@ import java.io.InputStream;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final File f2480a = Environment.getExternalStorageDirectory();
+    public static final File f2463a = Environment.getExternalStorageDirectory();
     private static final File b = TiebaApplication.g().getCacheDir();
 
     public static boolean a() {
@@ -55,13 +55,13 @@ public class af {
     }
 
     public static boolean c() {
-        return a(f2480a + "/tieba/");
+        return a(f2463a + "/tieba/");
     }
 
     public static boolean b(String str) {
         if (a()) {
             try {
-                return new File(new StringBuilder().append(f2480a).append("/").append("tieba").append("/").append(str).toString()).exists();
+                return new File(new StringBuilder().append(f2463a).append("/").append("tieba").append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 bg.b("FileHelper", "CheckFile", "error = " + e.getMessage());
                 return false;
@@ -73,7 +73,23 @@ public class af {
     public static long a(String str, String str2) {
         if (a()) {
             try {
-                if (new File(f2480a + "/tieba/" + str + "/" + str2).exists()) {
+                File file = new File(f2463a + "/tieba/" + str + "/" + str2);
+                if (file.exists()) {
+                    return file.length();
+                }
+                return -1L;
+            } catch (Exception e) {
+                bg.b("FileHelper", "CheckFile", "error = " + e.getMessage());
+                return -1L;
+            }
+        }
+        return -1L;
+    }
+
+    public static long b(String str, String str2) {
+        if (a()) {
+            try {
+                if (new File(f2463a + "/tieba/" + str + "/" + str2).exists()) {
                     return com.baidu.tieba.data.h.f();
                 }
                 return -1L;
@@ -89,12 +105,12 @@ public class af {
         if (str == null) {
             return null;
         }
-        return f2480a + "/tieba/" + str;
+        return f2463a + "/tieba/" + str;
     }
 
     public static File d(String str) {
         if (c()) {
-            File file = new File(f2480a + "/tieba/" + str);
+            File file = new File(f2463a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file;
@@ -112,12 +128,12 @@ public class af {
         if (!c()) {
             return null;
         }
-        return new File(f2480a + "/tieba/" + str);
+        return new File(f2463a + "/tieba/" + str);
     }
 
     public static File f(String str) {
         if (c()) {
-            File file = new File(f2480a + "/tieba/" + str);
+            File file = new File(f2463a + "/tieba/" + str);
             try {
                 if (!file.exists() || file.delete()) {
                     if (file.createNewFile()) {
@@ -136,7 +152,7 @@ public class af {
 
     public static File g(String str) {
         if (c()) {
-            File file = new File(f2480a + "/tieba/" + str);
+            File file = new File(f2463a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file;
@@ -153,7 +169,7 @@ public class af {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [391=4, 392=4, 394=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [411=4, 412=4, 414=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00b7 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:54:0x00ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -163,13 +179,13 @@ public class af {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean b(String str, String str2) {
+    public static boolean c(String str, String str2) {
         FileInputStream fileInputStream;
         IOException e;
         boolean z;
         FileNotFoundException e2;
         FileInputStream fileInputStream2 = null;
-        String str3 = str != null ? f2480a + "/tieba/" + str + "/" : f2480a + "/tieba/";
+        String str3 = str != null ? f2463a + "/tieba/" + str + "/" : f2463a + "/tieba/";
         ?? sb = new StringBuilder();
         try {
             try {
@@ -261,9 +277,9 @@ public class af {
             return null;
         }
         if (str != null) {
-            str3 = f2480a + "/tieba/" + str + "/";
+            str3 = f2463a + "/tieba/" + str + "/";
         } else {
-            str3 = f2480a + "/tieba/";
+            str3 = f2463a + "/tieba/";
         }
         if (!a(str3) || bitmap == null) {
             return null;
@@ -288,14 +304,14 @@ public class af {
         String str5;
         String str6;
         if (str != null) {
-            str5 = f2480a + "/tieba/" + str + "/";
+            str5 = f2463a + "/tieba/" + str + "/";
         } else {
-            str5 = f2480a + "/tieba/";
+            str5 = f2463a + "/tieba/";
         }
         if (str3 != null) {
-            str6 = f2480a + "/tieba/" + str3 + "/";
+            str6 = f2463a + "/tieba/" + str3 + "/";
         } else {
-            str6 = f2480a + "/tieba/";
+            str6 = f2463a + "/tieba/";
         }
         if (a(str5) && a(str6)) {
             File file = new File(str5 + str2);
@@ -308,12 +324,12 @@ public class af {
         return null;
     }
 
-    public static Bitmap c(String str, String str2) {
+    public static Bitmap d(String str, String str2) {
         String str3;
         if (str != null) {
-            str3 = f2480a + "/tieba/" + str + "/";
+            str3 = f2463a + "/tieba/" + str + "/";
         } else {
-            str3 = f2480a + "/tieba/";
+            str3 = f2463a + "/tieba/";
         }
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
@@ -337,7 +353,7 @@ public class af {
         return a() ? a((String) null, a(str, i, false), bArr) : a(i, str, bArr);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [563=5, 564=5, 566=5, 567=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [583=5, 584=5, 586=5, 587=5] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:0x019a */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:61:0x019d */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x008b */
@@ -360,7 +376,7 @@ public class af {
     public static String a(String str, String str2, byte[] bArr) {
         FileOutputStream fileOutputStream;
         String str3;
-        String str4 = str != null ? f2480a + "/tieba/" + str + "/" : f2480a + "/tieba/";
+        String str4 = str != null ? f2463a + "/tieba/" + str + "/" : f2463a + "/tieba/";
         if (!a(str4) || bArr == null || str2 == null) {
             return null;
         }
@@ -457,15 +473,15 @@ public class af {
         }
     }
 
-    public static byte[] d(String str, String str2) {
+    public static byte[] e(String str, String str2) {
         String str3;
         if (!c() || str2 == null) {
             return null;
         }
         if (str != null) {
-            str3 = f2480a + "/tieba/" + str + "/";
+            str3 = f2463a + "/tieba/" + str + "/";
         } else {
-            str3 = f2480a + "/tieba/";
+            str3 = f2463a + "/tieba/";
         }
         File file = new File(str3 + str2);
         try {
@@ -493,7 +509,7 @@ public class af {
     }
 
     private static String b(String str, boolean z) {
-        return (z && str.startsWith(f2480a.toString())) ? str : f2480a + "/tieba/" + str;
+        return (z && str.startsWith(f2463a.toString())) ? str : f2463a + "/tieba/" + str;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -504,7 +520,7 @@ public class af {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [652=4, 653=4, 655=4, 656=4, 659=4, 660=4, 662=4, 663=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [673=4, 674=4, 676=4, 677=4, 680=4, 681=4, 683=4, 684=4] */
     public static boolean a(java.lang.String r8, java.lang.String r9, boolean r10) {
         /*
             r7 = 0
@@ -658,7 +674,7 @@ public class af {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.util.af.a(java.lang.String, java.lang.String, boolean):boolean");
     }
 
-    public static boolean e(String str, String str2) {
+    public static boolean f(String str, String str2) {
         return a(str, str2, false);
     }
 
@@ -694,7 +710,7 @@ public class af {
 
     public static boolean j(String str) {
         if (c()) {
-            File file = new File(f2480a + "/tieba/" + str);
+            File file = new File(f2463a + "/tieba/" + str);
             try {
                 if (file.exists()) {
                     return file.delete();
@@ -709,10 +725,10 @@ public class af {
     }
 
     public static String d() {
-        return f2480a + "/tieba/";
+        return f2463a + "/tieba/";
     }
 
-    public static boolean f(String str, String str2) {
+    public static boolean g(String str, String str2) {
         File file = new File(str);
         File file2 = new File(str2);
         String parent = file2.getParent();
@@ -774,7 +790,7 @@ public class af {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [884=4, 885=4, 887=4, 888=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [905=4, 906=4, 908=4, 909=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00f0 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x00f2 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:49:0x0016 */

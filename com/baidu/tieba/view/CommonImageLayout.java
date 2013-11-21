@@ -14,7 +14,7 @@ public class CommonImageLayout extends ViewGroup {
     public bh b;
     public bh c;
     public bh d;
-    private com.baidu.tieba.data.aj[] k;
+    private com.baidu.tieba.data.ai[] k;
     private int l;
     private boolean m;
     private boolean n;
@@ -27,23 +27,23 @@ public class CommonImageLayout extends ViewGroup {
     private static int i = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    public static float f2528a = -1.0f;
+    public static float f2511a = -1.0f;
 
     public CommonImageLayout(Context context) {
         this(context, null);
     }
 
     private void b() {
-        if (f2528a < 0.0f) {
-            f2528a = UtilHelper.a(this.o) / 320.0f;
+        if (f2511a < 0.0f) {
+            f2511a = UtilHelper.a(this.o) / 320.0f;
             for (int i2 = 0; i2 < e.length; i2++) {
                 float[] fArr = e;
-                fArr[i2] = fArr[i2] * f2528a;
+                fArr[i2] = fArr[i2] * f2511a;
                 float[] fArr2 = f;
-                fArr2[i2] = fArr2[i2] * f2528a;
+                fArr2[i2] = fArr2[i2] * f2511a;
             }
-            g = (int) (g * f2528a);
-            h = (int) (h * f2528a);
+            g = (int) (g * f2511a);
+            h = (int) (h * f2511a);
         }
     }
 
@@ -64,7 +64,7 @@ public class CommonImageLayout extends ViewGroup {
         addView(this.b);
         addView(this.c);
         addView(this.d);
-        this.l = (int) (this.l * f2528a);
+        this.l = (int) (this.l * f2511a);
     }
 
     public void setShowBig(boolean z) {
@@ -93,8 +93,8 @@ public class CommonImageLayout extends ViewGroup {
         }
     }
 
-    public void setData(com.baidu.tieba.data.aj[] ajVarArr) {
-        this.k = ajVarArr;
+    public void setData(com.baidu.tieba.data.ai[] aiVarArr) {
+        this.k = aiVarArr;
         if (this.k == null || this.k.length <= 0) {
             if (this.b != null) {
                 this.b.setTag(null);
@@ -273,14 +273,14 @@ public class CommonImageLayout extends ViewGroup {
         this.l = i2;
     }
 
-    private void a(TbImageView tbImageView, com.baidu.tieba.data.aj ajVar) {
+    private void a(TbImageView tbImageView, com.baidu.tieba.data.ai aiVar) {
         if (tbImageView != null) {
-            String b = ajVar.b();
-            if (ajVar.a() == 5) {
+            String b = aiVar.b();
+            if (aiVar.a() == 5) {
                 b = null;
                 tbImageView.setDefaultResource(R.drawable.pic_video);
                 tbImageView.setNightDefaultResource(R.drawable.pic_video_1);
-                tbImageView.setOnClickListener(new h(this, ajVar));
+                tbImageView.setOnClickListener(new h(this, aiVar));
             } else {
                 tbImageView.setDefaultResource(R.drawable.pic_baidu_logo_d);
                 tbImageView.setNightDefaultResource(R.drawable.pic_baidu_logo_d_1);

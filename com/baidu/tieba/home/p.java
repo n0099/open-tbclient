@@ -9,11 +9,11 @@ import com.baidu.tieba.util.UtilHelper;
 public class p implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f1460a;
+    final /* synthetic */ o f1451a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.f1460a = oVar;
+        this.f1451a = oVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,19 +24,19 @@ public class p implements View.OnClickListener {
         BaseFragmentActivity baseFragmentActivity2;
         BaseFragmentActivity baseFragmentActivity3;
         EnterForumActivity unused;
-        unused = this.f1460a.g;
-        if (EnterForumActivity.f1388a == 0) {
-            z = this.f1460a.x;
+        unused = this.f1451a.g;
+        if (EnterForumActivity.f1379a == 0) {
+            z = this.f1451a.x;
             if (z) {
-                baseFragmentActivity3 = this.f1460a.f;
+                baseFragmentActivity3 = this.f1451a.f;
                 SignAllForumActivity.a(baseFragmentActivity3);
             } else {
-                baseFragmentActivity = this.f1460a.f;
-                str = this.f1460a.y;
+                baseFragmentActivity = this.f1451a.f;
+                str = this.f1451a.y;
                 UtilHelper.a((Context) baseFragmentActivity, str);
             }
-            baseFragmentActivity2 = this.f1460a.f;
-            com.baidu.tieba.ai.a(baseFragmentActivity2, "signall_enter_click");
+            baseFragmentActivity2 = this.f1451a.f;
+            com.baidu.tieba.al.a(baseFragmentActivity2, "signall_enter_click");
         }
     }
 }

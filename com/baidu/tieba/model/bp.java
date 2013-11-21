@@ -7,10 +7,10 @@ import com.baidu.tieba.data.WriteData;
 /* loaded from: classes.dex */
 public class bp extends com.baidu.adp.a.d {
     protected Context e;
-    protected com.baidu.tieba.data.aw f;
+    protected com.baidu.tieba.data.av f;
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f1917a = 0;
+    protected int f1899a = 0;
     protected String b = null;
     protected String c = null;
     protected String d = null;
@@ -39,7 +39,7 @@ public class bp extends com.baidu.adp.a.d {
         this.e = null;
         this.f = null;
         this.e = context;
-        this.f = new com.baidu.tieba.data.aw();
+        this.f = new com.baidu.tieba.data.av();
     }
 
     public void a(String str) {
@@ -63,10 +63,10 @@ public class bp extends com.baidu.adp.a.d {
     }
 
     public void d() {
-        this.f = new com.baidu.tieba.data.aw();
+        this.f = new com.baidu.tieba.data.av();
     }
 
-    public com.baidu.tieba.data.aw e() {
+    public com.baidu.tieba.data.av e() {
         return this.f;
     }
 
@@ -94,7 +94,7 @@ public class bp extends com.baidu.adp.a.d {
     }
 
     public int g() {
-        return this.f1917a;
+        return this.f1899a;
     }
 
     @Override // com.baidu.adp.a.d
@@ -111,7 +111,7 @@ public class bp extends com.baidu.adp.a.d {
         if (this.b == null || this.c == null || this.g != null) {
             return false;
         }
-        this.f1917a = 0;
+        this.f1899a = 0;
         a(0);
         return true;
     }
@@ -121,21 +121,21 @@ public class bp extends com.baidu.adp.a.d {
         if (this.b == null || this.c == null || this.f.l() || this.g != null) {
             return false;
         }
-        this.f1917a = 2;
+        this.f1899a = 2;
         a(2);
         return true;
     }
 
     public boolean j() {
         cancelLoadData();
-        this.f1917a = 1;
+        this.f1899a = 1;
         a(1);
         return true;
     }
 
     public boolean k() {
         cancelLoadData();
-        this.f1917a = 3;
+        this.f1899a = 3;
         a(3);
         return true;
     }

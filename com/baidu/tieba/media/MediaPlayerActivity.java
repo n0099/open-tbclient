@@ -3,7 +3,6 @@ package com.baidu.tieba.media;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,20 +15,20 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class MediaPlayerActivity extends Activity implements BVideoView.OnCompletionListener, BVideoView.OnErrorListener, BVideoView.OnInfoListener, BVideoView.OnPlayingBufferCacheListener, BVideoView.OnPreparedListener {
-    private o j;
+    private f j;
     private HandlerThread k;
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1823a = null;
-    private q b = null;
-    private l c = null;
+    private a f1814a = null;
+    private h b = null;
+    private c c = null;
     private String d = null;
     private AlertDialog e = null;
     private final int f = 0;
     private final Object g = new Object();
     private int h = 0;
     private PowerManager.WakeLock i = null;
-    private p l = null;
+    private g l = null;
     private ArrayList<UtilHelper.NetworkStateInfo> m = new ArrayList<>();
     private PLAYER_STATUS n = PLAYER_STATUS.PLAYER_IDLE;
 
@@ -39,13 +38,6 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
         PLAYER_IDLE,
         PLAYER_PREPARING,
         PLAYER_PREPARED
-    }
-
-    public static void a(Activity activity, String str) {
-        Intent intent = new Intent(activity, MediaPlayerActivity.class);
-        intent.setData(Uri.parse(str));
-        intent.putExtra("init_network_info", UtilHelper.i(activity));
-        activity.startActivity(intent);
     }
 
     @Override // android.app.Activity
@@ -67,17 +59,17 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     private void c() {
         this.k = new HandlerThread("event handler thread", 10);
         this.k.start();
-        this.j = new o(this, this.k.getLooper());
+        this.j = new f(this, this.k.getLooper());
     }
 
     private void d() {
-        this.b = new q(this);
-        this.f1823a = new a(this);
+        this.b = new h(this);
+        this.f1814a = new a(this);
         this.b.a();
     }
 
     private void e() {
-        this.c = new l();
+        this.c = new c();
         this.c.a();
     }
 
@@ -207,7 +199,7 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
     }
 
     private void j() {
-        this.l = new p(this, null);
+        this.l = new g(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
         registerReceiver(this.l, intentFilter);
@@ -221,11 +213,11 @@ public class MediaPlayerActivity extends Activity implements BVideoView.OnComple
 
     /* JADX INFO: Access modifiers changed from: private */
     public DialogInterface.OnClickListener l() {
-        return new m(this);
+        return new d(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public DialogInterface.OnClickListener m() {
-        return new n(this);
+        return new e(this);
     }
 }

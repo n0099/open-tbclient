@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class FaceView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1218a;
+    private int f1223a;
     private double b;
     private int c;
     private com.baidu.tieba.im.chat.m d;
@@ -34,7 +34,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context) {
         super(context);
-        this.f1218a = 1;
+        this.f1223a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -50,7 +50,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1218a = 1;
+        this.f1223a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -66,7 +66,7 @@ public class FaceView extends RelativeLayout {
 
     public FaceView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f1218a = 1;
+        this.f1223a = 1;
         this.b = 0.0d;
         this.c = 0;
         this.d = null;
@@ -128,18 +128,16 @@ public class FaceView extends RelativeLayout {
         this.f = new ArrayList<>();
         for (int i = 0; i < this.e.size(); i++) {
             ImageView imageView = new ImageView(this.j);
-            imageView.setBackgroundResource(R.drawable.face_im_dot_corners);
+            imageView.setBackgroundResource(R.drawable.dot_pb_expression_n);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            layoutParams.leftMargin = 10;
-            layoutParams.rightMargin = 10;
-            layoutParams.width = 8;
-            layoutParams.height = 8;
+            layoutParams.leftMargin = 14;
+            layoutParams.rightMargin = 14;
             this.i.addView(imageView, layoutParams);
             if (i == 0 || i == this.e.size() - 1) {
                 imageView.setVisibility(8);
             }
             if (i == 1) {
-                imageView.setBackgroundResource(R.drawable.face_im_dot_corners_selected);
+                imageView.setBackgroundResource(R.drawable.dot_pb_expression_s);
             }
             this.f.add(imageView);
         }
@@ -152,9 +150,9 @@ public class FaceView extends RelativeLayout {
             int i3 = i2;
             if (i3 < this.f.size()) {
                 if (i == i3) {
-                    this.f.get(i3).setBackgroundResource(R.drawable.face_im_dot_corners_selected);
+                    this.f.get(i3).setBackgroundResource(R.drawable.dot_pb_expression_s);
                 } else {
-                    this.f.get(i3).setBackgroundResource(R.drawable.face_im_dot_corners);
+                    this.f.get(i3).setBackgroundResource(R.drawable.dot_pb_expression_n);
                 }
                 i2 = i3 + 1;
             } else {

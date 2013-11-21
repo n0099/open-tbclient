@@ -5,15 +5,15 @@ import android.view.View;
 class bv implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsgrightView f1541a;
+    final /* synthetic */ MsgrightView f1532a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(MsgrightView msgrightView) {
-        this.f1541a = msgrightView;
+        this.f1532a = msgrightView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f1541a.c.a(view, 6, this.f1541a.f, 0L);
+        this.f1532a.c.a(view, 6, this.f1532a.f, 0L);
     }
 }

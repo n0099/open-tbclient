@@ -8,17 +8,17 @@ import com.baidu.tieba.data.chat.ChatPostData;
 public class e implements ah {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ChatActivity f1132a;
+    final /* synthetic */ ChatActivity f1138a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ChatActivity chatActivity) {
-        this.f1132a = chatActivity;
+        this.f1138a = chatActivity;
     }
 
     @Override // com.baidu.tieba.chat.ah
     public void a() {
         ai aiVar;
-        aiVar = this.f1132a.f1116a;
+        aiVar = this.f1138a.f1122a;
         aiVar.n();
     }
 
@@ -32,26 +32,26 @@ public class e implements ah {
         Runnable runnable;
         Handler handler2;
         Runnable runnable2;
-        aiVar = this.f1132a.f1116a;
+        aiVar = this.f1138a.f1122a;
         aiVar.o();
         if (z) {
-            abVar = this.f1132a.b;
+            abVar = this.f1138a.b;
             abVar.a().mergeData(chatData);
-            aiVar2 = this.f1132a.f1116a;
+            aiVar2 = this.f1138a.f1122a;
             aiVar2.i();
             new Handler().post(new f(this));
             if (chatData.getHasMore()) {
-                handler = this.f1132a.h;
-                runnable = this.f1132a.k;
+                handler = this.f1138a.h;
+                runnable = this.f1138a.k;
                 handler.removeCallbacks(runnable);
-                handler2 = this.f1132a.h;
-                runnable2 = this.f1132a.k;
+                handler2 = this.f1138a.h;
+                runnable2 = this.f1138a.k;
                 handler2.post(runnable2);
             }
-            afVar = this.f1132a.c;
+            afVar = this.f1138a.c;
             afVar.a((ChatPostData) null);
             return;
         }
-        this.f1132a.showToast(str);
+        this.f1138a.showToast(str);
     }
 }

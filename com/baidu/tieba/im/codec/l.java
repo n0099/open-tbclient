@@ -8,10 +8,10 @@ import java.util.Map;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static l f1573a = new l();
+    private static l f1564a = new l();
 
     public static l a() {
-        return f1573a;
+        return f1564a;
     }
 
     private l() {

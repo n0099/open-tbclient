@@ -25,10 +25,10 @@ import java.util.HashMap;
 public class GroupCardActivity extends j implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1670a = "groupid";
+    public static String f1661a = "groupid";
     public static String b = "groupname";
     public static String c = "groupportrait";
-    private static String j = h.f1196a + "c/p/groupShareImg?group_id=";
+    private static String j = h.f1201a + "c/p/groupShareImg?group_id=";
     private d d = null;
     private b e = null;
     private long f = 0;
@@ -39,7 +39,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     public static void a(Activity activity, long j2, String str, String str2) {
         Intent intent = new Intent(activity, GroupCardActivity.class);
         if (j2 != 0) {
-            intent.putExtra(f1670a, j2);
+            intent.putExtra(f1661a, j2);
             intent.putExtra(b, str);
             intent.putExtra(c, str2);
             activity.startActivity(intent);
@@ -116,7 +116,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
             } else if (this.h.startsWith("http")) {
                 shareContent.setImageUri(Uri.parse(this.h));
             } else {
-                shareContent.setImageData(af.c(null, "tieba_group_image"));
+                shareContent.setImageData(af.d(null, "tieba_group_image"));
             }
         } catch (Throwable th) {
         }
@@ -141,7 +141,7 @@ public class GroupCardActivity extends j implements View.OnClickListener {
     private void f() {
         this.d.a();
         Intent intent = getIntent();
-        this.f = intent.getLongExtra(f1670a, 0L);
+        this.f = intent.getLongExtra(f1661a, 0L);
         this.g = intent.getStringExtra(b);
         this.h = intent.getStringExtra(c);
         this.e = new b(this.f, this);

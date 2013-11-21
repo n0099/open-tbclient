@@ -5,7 +5,7 @@ import java.nio.ByteBuffer;
 abstract class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected byte[] f2895a;
+    protected byte[] f2879a;
     protected int b;
     protected final int c;
     protected ByteBuffer d;
@@ -17,17 +17,17 @@ abstract class c implements g {
     }
 
     private void a() {
-        this.f2895a = new byte[this.c];
-        this.d = ByteBuffer.wrap(this.f2895a);
+        this.f2879a = new byte[this.c];
+        this.d = ByteBuffer.wrap(this.f2879a);
     }
 
     private void a(int i) {
-        if (this.f2895a == null) {
+        if (this.f2879a == null) {
             a();
         } else if (this.c - this.b < i) {
-            if (!b(this.f2895a, 0, this.b)) {
-                this.f2895a = new byte[this.c];
-                this.d = ByteBuffer.wrap(this.f2895a);
+            if (!b(this.f2879a, 0, this.b)) {
+                this.f2879a = new byte[this.c];
+                this.d = ByteBuffer.wrap(this.f2879a);
             }
             this.b = 0;
         }
@@ -35,7 +35,7 @@ abstract class c implements g {
 
     @Override // org.msgpack.io.g
     public void a(byte[] bArr, int i, int i2) {
-        if (this.f2895a == null) {
+        if (this.f2879a == null) {
             if (this.c < i2) {
                 b(bArr, i, i2);
                 return;
@@ -43,14 +43,14 @@ abstract class c implements g {
             a();
         }
         if (i2 <= this.c - this.b) {
-            System.arraycopy(bArr, i, this.f2895a, this.b, i2);
+            System.arraycopy(bArr, i, this.f2879a, this.b, i2);
             this.b += i2;
         } else if (i2 <= this.c) {
-            if (!b(this.f2895a, 0, this.b)) {
+            if (!b(this.f2879a, 0, this.b)) {
                 a();
             }
             this.b = 0;
-            System.arraycopy(bArr, i, this.f2895a, 0, i2);
+            System.arraycopy(bArr, i, this.f2879a, 0, i2);
             this.b = i2;
         } else {
             flush();
@@ -61,7 +61,7 @@ abstract class c implements g {
     @Override // org.msgpack.io.g
     public void a(ByteBuffer byteBuffer) {
         int remaining = byteBuffer.remaining();
-        if (this.f2895a == null) {
+        if (this.f2879a == null) {
             if (this.c < remaining) {
                 b(byteBuffer);
                 return;
@@ -69,14 +69,14 @@ abstract class c implements g {
             a();
         }
         if (remaining <= this.c - this.b) {
-            byteBuffer.get(this.f2895a, this.b, remaining);
+            byteBuffer.get(this.f2879a, this.b, remaining);
             this.b = remaining + this.b;
         } else if (remaining <= this.c) {
-            if (!b(this.f2895a, 0, this.b)) {
+            if (!b(this.f2879a, 0, this.b)) {
                 a();
             }
             this.b = 0;
-            byteBuffer.get(this.f2895a, 0, remaining);
+            byteBuffer.get(this.f2879a, 0, remaining);
             this.b = remaining;
         } else {
             flush();
@@ -87,7 +87,7 @@ abstract class c implements g {
     @Override // org.msgpack.io.g
     public void a(byte b) {
         a(1);
-        byte[] bArr = this.f2895a;
+        byte[] bArr = this.f2879a;
         int i = this.b;
         this.b = i + 1;
         bArr[i] = b;
@@ -96,11 +96,11 @@ abstract class c implements g {
     @Override // org.msgpack.io.g
     public void a(byte b, byte b2) {
         a(2);
-        byte[] bArr = this.f2895a;
+        byte[] bArr = this.f2879a;
         int i = this.b;
         this.b = i + 1;
         bArr[i] = b;
-        byte[] bArr2 = this.f2895a;
+        byte[] bArr2 = this.f2879a;
         int i2 = this.b;
         this.b = i2 + 1;
         bArr2[i2] = b2;
@@ -109,7 +109,7 @@ abstract class c implements g {
     @Override // org.msgpack.io.g
     public void a(byte b, short s) {
         a(3);
-        byte[] bArr = this.f2895a;
+        byte[] bArr = this.f2879a;
         int i = this.b;
         this.b = i + 1;
         bArr[i] = b;
@@ -120,7 +120,7 @@ abstract class c implements g {
     @Override // org.msgpack.io.g
     public void a(byte b, int i) {
         a(5);
-        byte[] bArr = this.f2895a;
+        byte[] bArr = this.f2879a;
         int i2 = this.b;
         this.b = i2 + 1;
         bArr[i2] = b;
@@ -131,7 +131,7 @@ abstract class c implements g {
     @Override // org.msgpack.io.g
     public void a(byte b, long j) {
         a(9);
-        byte[] bArr = this.f2895a;
+        byte[] bArr = this.f2879a;
         int i = this.b;
         this.b = i + 1;
         bArr[i] = b;
@@ -142,7 +142,7 @@ abstract class c implements g {
     @Override // org.msgpack.io.g
     public void a(byte b, float f) {
         a(5);
-        byte[] bArr = this.f2895a;
+        byte[] bArr = this.f2879a;
         int i = this.b;
         this.b = i + 1;
         bArr[i] = b;
@@ -153,7 +153,7 @@ abstract class c implements g {
     @Override // org.msgpack.io.g
     public void a(byte b, double d) {
         a(9);
-        byte[] bArr = this.f2895a;
+        byte[] bArr = this.f2879a;
         int i = this.b;
         this.b = i + 1;
         bArr[i] = b;
@@ -163,8 +163,8 @@ abstract class c implements g {
 
     public void flush() {
         if (this.b > 0) {
-            if (!b(this.f2895a, 0, this.b)) {
-                this.f2895a = null;
+            if (!b(this.f2879a, 0, this.b)) {
+                this.f2879a = null;
             }
             this.b = 0;
         }

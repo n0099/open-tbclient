@@ -18,7 +18,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     private int Z;
 
     /* renamed from: a  reason: collision with root package name */
-    private View f2262a;
+    private View f2247a;
     private BdListView b;
     private j c;
     private ProgressBar d;
@@ -33,12 +33,12 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
 
     @Override // com.baidu.tieba.BaseFragment, android.support.v4.app.Fragment
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.f2262a = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
-        this.b = (BdListView) this.f2262a.findViewById(R.id.listview_reply);
-        this.f = (TextView) this.f2262a.findViewById(R.id.txt_listview_emptyview);
+        this.f2247a = layoutInflater.inflate(R.layout.person_reply_fragment, viewGroup, false);
+        this.b = (BdListView) this.f2247a.findViewById(R.id.listview_reply);
+        this.f = (TextView) this.f2247a.findViewById(R.id.txt_listview_emptyview);
         this.f.setText(h().getString("key_empty_view_text"));
-        this.d = (ProgressBar) this.f2262a.findViewById(R.id.person_post_progress);
-        return this.f2262a;
+        this.d = (ProgressBar) this.f2247a.findViewById(R.id.person_post_progress);
+        return this.f2247a;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -93,7 +93,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 textView.setTextColor(j().getColor(R.color.person_post_header_uname));
             }
             if (this.h != null) {
-                this.h.b(i);
+                this.h.d(i);
             }
             this.g.a(i);
         }

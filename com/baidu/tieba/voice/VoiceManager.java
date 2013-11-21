@@ -27,7 +27,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     private com.baidu.tieba.voice.a.a E;
 
     /* renamed from: a  reason: collision with root package name */
-    ae f2607a;
+    ae f2590a;
     Activity d;
     AudioManager g;
     private Handler p;
@@ -123,13 +123,13 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         if (aeVar == null) {
             return false;
         }
-        this.f2607a = aeVar;
+        this.f2590a = aeVar;
         if (!com.baidu.tieba.util.af.a()) {
             String b = com.baidu.tieba.util.af.b();
             if (b == null) {
                 b = this.d.getString(R.string.voice_error_sdcard);
             }
-            this.f2607a.b(0, b);
+            this.f2590a.b(0, b);
             return false;
         }
         g();
@@ -142,7 +142,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         q();
         boolean a3 = f.a(a2, i2, this.I);
         if (a3) {
-            this.f2607a.b(true);
+            this.f2590a.b(true);
             this.H = 2;
             this.q = System.currentTimeMillis();
             p();
@@ -151,7 +151,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         this.H = 1;
         f.a();
         com.baidu.adp.lib.h.d.b("VoiceManager", "onTouch-getBtnMsgsendVoice", "user click too often");
-        this.f2607a.b(false);
+        this.f2590a.b(false);
         return a3;
     }
 
@@ -162,8 +162,8 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
     public void a(String str) {
         f();
         g();
-        if (this.f2607a != null) {
-            this.f2607a.b(str);
+        if (this.f2590a != null) {
+            this.f2590a.b(str);
         }
         if (this.p != null) {
             this.p.postDelayed(new s(this, str), 200L);
@@ -389,7 +389,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             this.w.init();
         }
         this.d = null;
-        this.f2607a = null;
+        this.f2590a = null;
         this.y = null;
         this.x = null;
         this.v = null;

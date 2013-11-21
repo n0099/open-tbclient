@@ -59,7 +59,7 @@ public class o extends j {
         for (CtConstructor ctConstructor : f.s()) {
             int b = ctConstructor.b();
             if (a(b, f)) {
-                CtConstructor a2 = p.a(ctConstructor.i_(), ctConstructor.f(), this);
+                CtConstructor a2 = p.a(ctConstructor.h_(), ctConstructor.f(), this);
                 a2.a(b & 7);
                 a(a2);
                 i++;

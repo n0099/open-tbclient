@@ -7,11 +7,11 @@ import com.baidu.tieba.pb.NewPbActivity;
 class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ReplyLinearLayout f2283a;
+    final /* synthetic */ ReplyLinearLayout f2268a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(ReplyLinearLayout replyLinearLayout) {
-        this.f2283a = replyLinearLayout;
+        this.f2268a = replyLinearLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,9 +19,9 @@ class w implements View.OnClickListener {
         String[] strArr = (String[]) view.getTag();
         if (strArr != null) {
             if (SocialConstants.FALSE.equals(strArr[3])) {
-                NewPbActivity.a(this.f2283a.getContext(), strArr[1], strArr[2], "person_post_reply");
+                NewPbActivity.a(this.f2268a.getContext(), strArr[1], strArr[2], "person_post_reply");
             } else {
-                NewPbActivity.b(this.f2283a.getContext(), strArr[1], strArr[2], "person_post_reply");
+                NewPbActivity.b(this.f2268a.getContext(), strArr[1], strArr[2], "person_post_reply");
             }
         }
     }

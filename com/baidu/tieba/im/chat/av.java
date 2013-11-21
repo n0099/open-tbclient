@@ -8,11 +8,11 @@ import com.slidingmenu.lib.R;
 public class av extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MsglistActivity f1515a;
+    final /* synthetic */ MsglistActivity f1506a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(MsglistActivity msglistActivity) {
-        this.f1515a = msglistActivity;
+        this.f1506a = msglistActivity;
     }
 
     @Override // com.baidu.adp.a.g
@@ -21,14 +21,14 @@ public class av extends com.baidu.adp.a.g {
         MsglistModel msglistModel2;
         if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
             LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            msglistModel = this.f1515a.g;
+            msglistModel = this.f1506a.g;
             if (msglistModel != null) {
-                msglistModel2 = this.f1515a.g;
+                msglistModel2 = this.f1506a.g;
                 msglistModel2.a(responseData.getSPathGen(), responseData.getBitmap());
                 return;
             }
             return;
         }
-        this.f1515a.showToast(R.string.pic_parser_error);
+        this.f1506a.showToast(R.string.pic_parser_error);
     }
 }

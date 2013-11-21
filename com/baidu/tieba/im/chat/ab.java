@@ -15,11 +15,11 @@ import java.util.regex.Pattern;
 public class ab implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aa f1497a;
+    final /* synthetic */ aa f1488a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.f1497a = aaVar;
+        this.f1488a = aaVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -40,42 +40,42 @@ public class ab implements AdapterView.OnItemClickListener {
         EditText editText10;
         EditText editText11;
         if (i % 27 != 0 || i == 0) {
-            mVar = this.f1497a.f;
-            i2 = this.f1497a.c;
-            i3 = this.f1497a.c;
+            mVar = this.f1488a.f;
+            i2 = this.f1488a.c;
+            i3 = this.f1488a.c;
             String a2 = mVar.a(((((i2 - 1) * 28) + i) - i3) + 1);
             if (a2 != null) {
-                editText = this.f1497a.b;
+                editText = this.f1488a.b;
                 int selectionStart = editText.getSelectionStart();
-                editText2 = this.f1497a.b;
+                editText2 = this.f1488a.b;
                 editText2.getText().insert(selectionStart, a2);
                 return;
             }
             return;
         }
-        editText3 = this.f1497a.b;
+        editText3 = this.f1488a.b;
         if (editText3.getSelectionStart() > 0) {
-            activity = this.f1497a.f1496a;
+            activity = this.f1488a.f1487a;
             ((ImageView) view).setImageBitmap(((BitmapDrawable) activity.getResources().getDrawable(R.drawable.but_face_close_n)).getBitmap());
-            editText4 = this.f1497a.b;
+            editText4 = this.f1488a.b;
             String obj = editText4.getText().toString();
-            editText5 = this.f1497a.b;
+            editText5 = this.f1488a.b;
             String substring = obj.substring(0, editText5.getSelectionStart());
             Matcher matcher = Pattern.compile("#\\([^#\\)\\(]+\\)$").matcher(substring);
             if (!matcher.find()) {
-                editText6 = this.f1497a.b;
+                editText6 = this.f1488a.b;
                 Editable text = editText6.getText();
-                editText7 = this.f1497a.b;
-                editText8 = this.f1497a.b;
+                editText7 = this.f1488a.b;
+                editText8 = this.f1488a.b;
                 text.delete(editText7.getSelectionStart() - 1, editText8.getSelectionStart());
                 return;
             }
             int length = substring.length() - matcher.replaceFirst("").length();
-            editText9 = this.f1497a.b;
+            editText9 = this.f1488a.b;
             Editable text2 = editText9.getText();
-            editText10 = this.f1497a.b;
+            editText10 = this.f1488a.b;
             int selectionStart2 = editText10.getSelectionStart() - length;
-            editText11 = this.f1497a.b;
+            editText11 = this.f1488a.b;
             text2.delete(selectionStart2, editText11.getSelectionStart());
         }
     }

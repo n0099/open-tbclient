@@ -1,22 +1,39 @@
 package com.baidu.tieba.pb;
 
-import android.widget.CompoundButton;
+import android.app.Dialog;
+import android.util.SparseArray;
+import android.view.View;
+import com.slidingmenu.lib.R;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cu implements CompoundButton.OnCheckedChangeListener {
+public class cu implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cp f2126a;
+    final /* synthetic */ cr f2109a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cu(cp cpVar) {
-        this.f2126a = cpVar;
+    public cu(cr crVar) {
+        this.f2109a = crVar;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (z) {
-            this.f2126a.ad = (String) compoundButton.getTag();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        bv bvVar;
+        bv bvVar2;
+        Dialog dialog2;
+        dialog = this.f2109a.G;
+        if (dialog != null) {
+            dialog2 = this.f2109a.G;
+            dialog2.dismiss();
+        }
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            bvVar = this.f2109a.au;
+            if (bvVar != null) {
+                bvVar2 = this.f2109a.au;
+                bvVar2.a(new Object[]{sparseArray.get(R.id.tag_manage_user_identity), sparseArray.get(R.id.tag_forbid_user_name)});
+            }
         }
     }
 }

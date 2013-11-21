@@ -15,7 +15,7 @@ import javassist.bytecode.z;
 public class Executor implements as {
 
     /* renamed from: a  reason: collision with root package name */
-    private final y f2767a;
+    private final y f2751a;
     private final javassist.c b;
     private final h c;
     private final h d;
@@ -23,7 +23,7 @@ public class Executor implements as {
     private int g;
 
     public Executor(javassist.c cVar, y yVar) {
-        this.f2767a = yVar;
+        this.f2751a = yVar;
         this.b = cVar;
         try {
             this.c = a("java.lang.String");
@@ -68,7 +68,7 @@ public class Executor implements as {
                 return;
             case 14:
             case 15:
-                cVar.a(h.f2774a);
+                cVar.a(h.f2758a);
                 cVar.a(h.l);
                 return;
             case 16:
@@ -92,7 +92,7 @@ public class Executor implements as {
                 a(h.h, codeIterator.c(i + 1), cVar, gVar);
                 return;
             case DERTags.GENERALIZED_TIME /* 24 */:
-                a(h.f2774a, codeIterator.c(i + 1), cVar, gVar);
+                a(h.f2758a, codeIterator.c(i + 1), cVar, gVar);
                 return;
             case DERTags.GRAPHIC_STRING /* 25 */:
                 a(h.n, codeIterator.c(i + 1), cVar, gVar);
@@ -119,7 +119,7 @@ public class Executor implements as {
             case 39:
             case 40:
             case 41:
-                a(h.f2774a, c - 38, cVar, gVar);
+                a(h.f2758a, c - 38, cVar, gVar);
                 return;
             case 42:
             case 43:
@@ -137,7 +137,7 @@ public class Executor implements as {
                 a(h.h, cVar);
                 return;
             case 49:
-                a(h.f2774a, cVar);
+                a(h.f2758a, cVar);
                 return;
             case 50:
                 a(h.n, cVar);
@@ -157,7 +157,7 @@ public class Executor implements as {
                 b(h.h, codeIterator.c(i + 1), cVar, gVar);
                 return;
             case 57:
-                b(h.f2774a, codeIterator.c(i + 1), cVar, gVar);
+                b(h.f2758a, codeIterator.c(i + 1), cVar, gVar);
                 return;
             case 58:
                 b(h.n, codeIterator.c(i + 1), cVar, gVar);
@@ -184,7 +184,7 @@ public class Executor implements as {
             case 72:
             case 73:
             case 74:
-                b(h.f2774a, c - 71, cVar, gVar);
+                b(h.f2758a, c - 71, cVar, gVar);
                 return;
             case 75:
             case 76:
@@ -202,7 +202,7 @@ public class Executor implements as {
                 b(h.h, cVar);
                 return;
             case 82:
-                b(h.f2774a, cVar);
+                b(h.f2758a, cVar);
                 return;
             case 83:
                 b(h.n, cVar);
@@ -280,7 +280,7 @@ public class Executor implements as {
                 c(h.h, cVar);
                 return;
             case 99:
-                c(h.f2774a, cVar);
+                c(h.f2758a, cVar);
                 return;
             case 100:
                 c(h.g, cVar);
@@ -292,7 +292,7 @@ public class Executor implements as {
                 c(h.h, cVar);
                 return;
             case 103:
-                c(h.f2774a, cVar);
+                c(h.f2758a, cVar);
                 return;
             case 104:
                 c(h.g, cVar);
@@ -304,7 +304,7 @@ public class Executor implements as {
                 c(h.h, cVar);
                 return;
             case SocialAPIErrorCodes.ERROR_INVALID_TIMESTAMP /* 107 */:
-                c(h.f2774a, cVar);
+                c(h.f2758a, cVar);
                 return;
             case 108:
                 c(h.g, cVar);
@@ -316,7 +316,7 @@ public class Executor implements as {
                 c(h.h, cVar);
                 return;
             case SocialAPIErrorCodes.ERROR_EXPIRED_ACCESS_TOKEN /* 111 */:
-                c(h.f2774a, cVar);
+                c(h.f2758a, cVar);
                 return;
             case SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY /* 112 */:
                 c(h.g, cVar);
@@ -328,7 +328,7 @@ public class Executor implements as {
                 c(h.h, cVar);
                 return;
             case SocialAPIErrorCodes.ERROR_INVALID_RESPONSE_TYPE /* 115 */:
-                c(h.f2774a, cVar);
+                c(h.f2758a, cVar);
                 return;
             case SocialAPIErrorCodes.ERROR_INVALID_GRANT_TYPE /* 116 */:
                 a(h.g, a(cVar));
@@ -340,7 +340,7 @@ public class Executor implements as {
                 a(h.h, a(cVar));
                 return;
             case SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY /* 119 */:
-                a(h.f2774a, a(cVar));
+                a(h.f2758a, a(cVar));
                 return;
             case SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE /* 120 */:
                 d(h.g, cVar);
@@ -393,7 +393,7 @@ public class Executor implements as {
                 return;
             case 135:
                 a(h.g, b(cVar));
-                e(h.f2774a, cVar);
+                e(h.f2758a, cVar);
                 return;
             case 136:
                 a(h.c, b(cVar));
@@ -405,7 +405,7 @@ public class Executor implements as {
                 return;
             case 138:
                 a(h.c, b(cVar));
-                e(h.f2774a, cVar);
+                e(h.f2758a, cVar);
                 return;
             case 139:
                 a(h.h, b(cVar));
@@ -417,18 +417,18 @@ public class Executor implements as {
                 return;
             case 141:
                 a(h.h, b(cVar));
-                e(h.f2774a, cVar);
+                e(h.f2758a, cVar);
                 return;
             case 142:
-                a(h.f2774a, b(cVar));
+                a(h.f2758a, b(cVar));
                 e(h.g, cVar);
                 return;
             case 143:
-                a(h.f2774a, b(cVar));
+                a(h.f2758a, b(cVar));
                 e(h.c, cVar);
                 return;
             case 144:
-                a(h.f2774a, b(cVar));
+                a(h.f2758a, b(cVar));
                 e(h.h, cVar);
                 return;
             case 145:
@@ -449,8 +449,8 @@ public class Executor implements as {
                 return;
             case 151:
             case 152:
-                a(h.f2774a, b(cVar));
-                a(h.f2774a, b(cVar));
+                a(h.f2758a, b(cVar));
+                a(h.f2758a, b(cVar));
                 cVar.a(h.g);
                 return;
             case RContact.MM_CONTACTIMGFLAG_LOCAL_EXIST /* 153 */:
@@ -493,7 +493,7 @@ public class Executor implements as {
                 a(h.h, b(cVar));
                 return;
             case 175:
-                a(h.f2774a, b(cVar));
+                a(h.f2758a, b(cVar));
                 return;
             case 176:
                 try {
@@ -526,7 +526,7 @@ public class Executor implements as {
                 d(c, codeIterator.d(i + 1), cVar);
                 return;
             case 187:
-                cVar.a(d(this.f2767a.d(codeIterator.d(i + 1))));
+                cVar.a(d(this.f2751a.d(codeIterator.d(i + 1))));
                 return;
             case 188:
                 a(i, codeIterator, cVar);
@@ -546,7 +546,7 @@ public class Executor implements as {
                 return;
             case 192:
                 a(h.n, b(cVar));
-                cVar.a(e(this.f2767a.e(codeIterator.d(i + 1))));
+                cVar.a(e(this.f2751a.e(codeIterator.d(i + 1))));
                 return;
             case 193:
                 a(h.n, b(cVar));
@@ -633,22 +633,22 @@ public class Executor implements as {
     }
 
     private void a(int i, int i2, c cVar) {
-        h a2 = a(e(this.f2767a.k(i2)));
+        h a2 = a(e(this.f2751a.k(i2)));
         if (i == 180) {
-            a(d(this.f2767a.i(i2)), b(cVar));
+            a(d(this.f2751a.i(i2)), b(cVar));
         }
         e(a2, cVar);
     }
 
     private void b(int i, int i2, c cVar) {
-        String q = this.f2767a.q(i2);
+        String q = this.f2751a.q(i2);
         h[] b = b(q);
         int length = b.length;
         while (length > 0) {
             length--;
             a(a(b[length]), b(cVar));
         }
-        a(d(this.f2767a.p(i2)), b(cVar));
+        a(d(this.f2751a.p(i2)), b(cVar));
         h c = c(q);
         if (c != h.i) {
             e(a(c), cVar);
@@ -656,7 +656,7 @@ public class Executor implements as {
     }
 
     private void c(int i, int i2, c cVar) {
-        String o = this.f2767a.o(i2);
+        String o = this.f2751a.o(i2);
         h[] b = b(o);
         int length = b.length;
         while (length > 0) {
@@ -664,7 +664,7 @@ public class Executor implements as {
             a(a(b[length]), b(cVar));
         }
         if (i != 184) {
-            a(d(this.f2767a.l(i2)), b(cVar));
+            a(d(this.f2751a.l(i2)), b(cVar));
         }
         h c = c(o);
         if (c != h.i) {
@@ -673,7 +673,7 @@ public class Executor implements as {
     }
 
     private void d(int i, int i2, c cVar) {
-        String x = this.f2767a.x(i2);
+        String x = this.f2751a.x(i2);
         h[] b = b(x);
         int length = b.length;
         while (length > 0) {
@@ -688,7 +688,7 @@ public class Executor implements as {
 
     private void a(int i, c cVar) {
         h hVar;
-        int c = this.f2767a.c(i);
+        int c = this.f2751a.c(i);
         switch (c) {
             case 3:
                 hVar = h.g;
@@ -700,7 +700,7 @@ public class Executor implements as {
                 hVar = h.c;
                 break;
             case 6:
-                hVar = h.f2774a;
+                hVar = h.f2758a;
                 break;
             case 7:
                 hVar = this.d;
@@ -759,7 +759,7 @@ public class Executor implements as {
     private void b(int i, CodeIterator codeIterator, c cVar) {
         int i2;
         String str;
-        String n = d(this.f2767a.d(codeIterator.d(i + 1))).a().n();
+        String n = d(this.f2751a.d(codeIterator.d(i + 1))).a().n();
         if (codeIterator.c(i) == 197) {
             i2 = codeIterator.c(i + 3);
             str = n;
@@ -780,9 +780,9 @@ public class Executor implements as {
     }
 
     private void e(int i, int i2, c cVar) {
-        a(a(e(this.f2767a.k(i2))), b(cVar));
+        a(a(e(this.f2751a.k(i2))), b(cVar));
         if (i == 181) {
-            a(d(this.f2767a.i(i2)), b(cVar));
+            a(d(this.f2751a.i(i2)), b(cVar));
         }
     }
 
@@ -817,7 +817,7 @@ public class Executor implements as {
                 a(h.h, d, cVar, gVar);
                 return;
             case DERTags.GENERALIZED_TIME /* 24 */:
-                a(h.f2774a, d, cVar, gVar);
+                a(h.f2758a, d, cVar, gVar);
                 return;
             case DERTags.GRAPHIC_STRING /* 25 */:
                 a(h.n, d, cVar, gVar);
@@ -832,7 +832,7 @@ public class Executor implements as {
                 b(h.h, d, cVar, gVar);
                 return;
             case 57:
-                b(h.f2774a, d, cVar, gVar);
+                b(h.f2758a, d, cVar, gVar);
                 return;
             case 58:
                 b(h.n, d, cVar, gVar);

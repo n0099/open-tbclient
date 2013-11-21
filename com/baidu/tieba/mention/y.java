@@ -7,25 +7,25 @@ import android.widget.LinearLayout;
 public class y implements com.baidu.tbadk.imageManager.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PostActivity f1876a;
+    final /* synthetic */ PostActivity f1858a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PostActivity postActivity) {
-        this.f1876a = postActivity;
+        this.f1858a = postActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.c
     public void a(com.baidu.adp.widget.ImageView.e eVar, String str, boolean z) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
-        linearLayout = this.f1876a.f1847a;
+        linearLayout = this.f1858a.f1829a;
         ImageView imageView = (ImageView) linearLayout.findViewWithTag(str);
         while (imageView != null) {
             imageView.setTag(null);
             if (imageView != null && eVar != null) {
                 eVar.a(imageView);
             }
-            linearLayout2 = this.f1876a.f1847a;
+            linearLayout2 = this.f1858a.f1829a;
             imageView = (ImageView) linearLayout2.findViewWithTag(str);
         }
     }

@@ -6,15 +6,15 @@ import org.json.JSONObject;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1214a = null;
+    private String f1219a = null;
     private int b = 0;
 
     public void a(String str) {
-        this.f1214a = str;
+        this.f1219a = str;
     }
 
     public String a() {
-        return this.f1214a;
+        return this.f1219a;
     }
 
     public void a(int i) {
@@ -29,7 +29,7 @@ public class z {
         if (jSONObject != null) {
             try {
                 this.b = jSONObject.optInt("class_id", 0);
-                this.f1214a = jSONObject.optString("class_name");
+                this.f1219a = jSONObject.optString("class_name");
             } catch (Exception e) {
                 bg.b("GoodData", "parserJson", "error = " + e.getMessage());
             }

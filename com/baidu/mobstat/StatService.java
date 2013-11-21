@@ -7,7 +7,7 @@ public class StatService {
     public static final int EXCEPTION_LOG = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f951a = false;
+    private static boolean f952a = false;
 
     private static void a(Context context) {
         if (a(context, "onError(...)")) {
@@ -17,7 +17,7 @@ public class StatService {
     }
 
     private static boolean a() {
-        return f951a;
+        return f952a;
     }
 
     private static boolean a(Context context, String str) {
@@ -57,7 +57,7 @@ public class StatService {
     }
 
     private static void b() {
-        f951a = true;
+        f952a = true;
     }
 
     public static void onEvent(Context context, String str, String str2) {

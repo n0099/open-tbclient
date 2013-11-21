@@ -141,7 +141,7 @@ public class bc extends be {
         if (i == 1) {
             this.k.c();
             if (bxVar.getErrorString() != null) {
-                this.f2235a.a(bxVar.getErrorString());
+                this.f2220a.a(bxVar.getErrorString());
             }
         }
     }
@@ -207,10 +207,10 @@ public class bc extends be {
 
     public void a(boolean z, bx bxVar) {
         if (z) {
-            this.f2235a.a(this.f2235a.getString(R.string.success));
+            this.f2220a.a(this.f2220a.getString(R.string.success));
             g(bxVar);
         } else if (bxVar.getErrorString() != null) {
-            this.f2235a.a(bxVar.getErrorString());
+            this.f2220a.a(bxVar.getErrorString());
         }
     }
 

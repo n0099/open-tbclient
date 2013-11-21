@@ -1,20 +1,30 @@
 package com.baidu.tieba.pb;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ec implements View.OnClickListener {
+class ec implements com.baidu.tieba.editortool.h {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ eb f2159a;
+    final /* synthetic */ com.baidu.tieba.editortool.h f2142a;
+    final /* synthetic */ ea b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ec(eb ebVar) {
-        this.f2159a = ebVar;
+    public ec(ea eaVar, com.baidu.tieba.editortool.h hVar) {
+        this.b = eaVar;
+        this.f2142a = hVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.f2159a.q();
+    @Override // com.baidu.tieba.editortool.h
+    public void a(int i, Object obj) {
+        if (i == 0) {
+            this.f2142a.a(26, obj);
+        } else if (i == 10) {
+            this.f2142a.a(27, obj);
+        } else if (i == 33) {
+            this.b.I.e();
+            this.f2142a.a(33, obj);
+        } else if (i == 34) {
+            this.b.q.setEnabled(true);
+        } else {
+            this.f2142a.a(i, obj);
+        }
     }
 }

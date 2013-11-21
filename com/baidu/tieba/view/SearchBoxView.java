@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class SearchBoxView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f2549a;
+    private Activity f2532a;
     private String b;
     private LinearLayout c;
     private TextView d;
@@ -50,7 +50,7 @@ public class SearchBoxView extends RelativeLayout {
     }
 
     private void a(Context context) {
-        this.f2549a = (Activity) context;
+        this.f2532a = (Activity) context;
         ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.widget_search_box, this);
         this.c = (LinearLayout) findViewById(R.id.search_bg_layout);
         this.d = (TextView) findViewById(R.id.search_bar_text);
@@ -72,13 +72,13 @@ public class SearchBoxView extends RelativeLayout {
     }
 
     public void a(int i) {
-        if (this.f2549a instanceof com.baidu.tieba.j) {
-            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.f2549a;
+        if (this.f2532a instanceof com.baidu.tieba.j) {
+            com.baidu.tieba.j jVar = (com.baidu.tieba.j) this.f2532a;
             jVar.getLayoutMode().a(i == 1);
             jVar.getLayoutMode().a(this);
         }
-        if (this.f2549a instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.f2549a;
+        if (this.f2532a instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) this.f2532a;
             baseFragmentActivity.a().a(i == 1);
             baseFragmentActivity.a().a(this);
         }

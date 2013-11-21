@@ -25,7 +25,7 @@ public class b extends c<byte[]> {
         return 1;
     }
 
-    /* JADX WARN: Type inference failed for: r2v15, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r2v15, types: [byte[], T] */
     @Override // com.baidu.adp.lib.cache.c
     protected m<byte[]> a(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;

@@ -149,7 +149,6 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
 
     private void i() {
         this.b.d(true);
-        this.b.b(false);
         this.c.c(this.c.m());
     }
 
@@ -187,13 +186,13 @@ public class FrsGroupActivity extends BaseFragmentActivity implements View.OnCli
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         g();
         switch (i) {
-            case R.id.radio_recommend /* 2131100360 */:
+            case R.id.radio_recommend /* 2131100349 */:
                 this.c.a(1);
                 break;
-            case R.id.radio_hot /* 2131100361 */:
+            case R.id.radio_hot /* 2131100350 */:
                 this.c.a(2);
                 break;
-            case R.id.radio_official /* 2131100362 */:
+            case R.id.radio_official /* 2131100351 */:
                 this.c.a(3);
                 break;
         }

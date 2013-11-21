@@ -12,7 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.data.WriteData;
-import com.baidu.tieba.util.bd;
 import com.baidu.tieba.view.NavigationBar;
 import com.slidingmenu.lib.R;
 /* loaded from: classes.dex */
@@ -31,7 +30,7 @@ public class VcodeActivity extends com.baidu.tieba.j {
     private TextView m = null;
 
     /* renamed from: a  reason: collision with root package name */
-    protected NavigationBar f2669a = null;
+    protected NavigationBar f2652a = null;
     private View.OnClickListener n = new o(this);
     private View.OnClickListener o = new p(this);
 
@@ -98,11 +97,11 @@ public class VcodeActivity extends com.baidu.tieba.j {
     public void onChangeSkinType(int i) {
         int i2;
         super.onChangeSkinType(i);
-        bd.a(this.l, i);
-        this.f2669a.c(i);
-        bd.h(this.d, i);
+        com.baidu.tieba.util.bd.a(this.l, i);
+        this.f2652a.c(i);
+        com.baidu.tieba.util.bd.g(this.d, i);
         if (i == 1) {
-            i2 = bd.a(i);
+            i2 = com.baidu.tieba.util.bd.a(i);
         } else {
             i2 = -12895429;
         }
@@ -111,10 +110,10 @@ public class VcodeActivity extends com.baidu.tieba.j {
 
     private void a() {
         this.l = (RelativeLayout) findViewById(R.id.parent);
-        this.f2669a = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.f2652a = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.m = (TextView) findViewById(R.id.info);
-        this.c = this.f2669a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
-        this.d = this.f2669a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.send), this.o);
+        this.c = this.f2652a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
+        this.d = this.f2652a.a(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.send), this.o);
         this.f = (EditText) findViewById(R.id.input);
         this.e = (ImageView) findViewById(R.id.vcode_image);
         this.e.setImageBitmap(null);

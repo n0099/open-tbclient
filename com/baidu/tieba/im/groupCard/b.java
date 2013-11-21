@@ -12,19 +12,19 @@ public class b extends com.baidu.adp.a.d {
     private static final Long g = 300000L;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1672a;
+    private long f1663a;
     private GroupCardActivity b;
     private i c = null;
     private c d = null;
-    private String e = h.f1196a + "c/p/groupShareImg?group_id=";
+    private String e = h.f1201a + "c/p/groupShareImg?group_id=";
 
     public static void a() {
         f = 0L;
     }
 
     public b(long j, GroupCardActivity groupCardActivity) {
-        this.f1672a = j;
-        this.e += this.f1672a;
+        this.f1663a = j;
+        this.e += this.f1663a;
         this.e += "&w=" + LocalViewSize.a().b();
         this.b = groupCardActivity;
     }

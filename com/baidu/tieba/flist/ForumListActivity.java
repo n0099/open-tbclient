@@ -31,7 +31,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     private u G;
 
     /* renamed from: a  reason: collision with root package name */
-    public ForumListModel.List f1232a;
+    public ForumListModel.List f1237a;
     public ForumListModel.List b;
     public y c;
     private int f;
@@ -184,9 +184,9 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.D.a(Boolean.valueOf(this.y));
             this.c.a();
         }
-        this.f1232a = new ForumListModel.List();
+        this.f1237a = new ForumListModel.List();
         this.b = new ForumListModel.List();
-        this.f1232a.forum_list = new ForumInfoData[50];
+        this.f1237a.forum_list = new ForumInfoData[50];
         this.b.forum_list = new ForumInfoData[50];
         this.c.g.setPullRefresh(this.c.q);
         this.c.h.setPullRefresh(this.c.r);
@@ -306,7 +306,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.c.j.setTextColor(this.f);
             this.c.b.setBackgroundResource(R.drawable.bg_black_banner_down_1);
             this.c.o.setTextColor(getResources().getColor(R.color.flist_text_color_night));
-            this.c.f1265a.setBackgroundResource(R.drawable.bg_black_banner_down_1);
+            this.c.f1270a.setBackgroundResource(R.drawable.bg_black_banner_down_1);
             this.c.l.setTextColor(getResources().getColor(R.color.flist_text_color_night));
             if (this.c.q != null && this.c.r != null) {
                 this.c.q.a(i);
@@ -340,7 +340,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             this.E.a(R.drawable.btn_add_end, R.drawable.btn_add);
             this.c.b.setBackgroundResource(R.drawable.bg_black_banner_down);
             this.c.o.setTextColor(getResources().getColor(R.color.flist_text_color_day));
-            this.c.f1265a.setBackgroundResource(R.drawable.bg_black_banner_down);
+            this.c.f1270a.setBackgroundResource(R.drawable.bg_black_banner_down);
             this.c.l.setTextColor(getResources().getColor(R.color.flist_text_color_day));
             if (this.B) {
                 this.c.m.setImageResource(R.drawable.ico_upward);
@@ -369,7 +369,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
     @Override // com.baidu.adp.a.a, android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tab_recommends /* 2131100128 */:
+            case R.id.tab_recommends /* 2131100130 */:
                 this.c.c.setCurrentItem(0);
                 this.p = 0;
                 if (TiebaApplication.g().s()) {
@@ -377,7 +377,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
                     return;
                 }
                 return;
-            case R.id.tab_hot /* 2131100129 */:
+            case R.id.tab_hot /* 2131100131 */:
                 this.c.c.setCurrentItem(1);
                 this.p = 1;
                 if (TiebaApplication.g().s()) {
@@ -385,7 +385,7 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
                     return;
                 }
                 return;
-            case R.id.title_menu /* 2131100605 */:
+            case R.id.title_menu /* 2131100594 */:
                 this.c.a(this.J);
                 return;
             default:
@@ -508,9 +508,9 @@ public class ForumListActivity extends com.baidu.tieba.j implements bq {
             }
             this.q.setLoadDataCallBack(new m(this, a2));
             if (this.p == 0) {
-                this.q.a(a2[this.D.f1261a].forum_name, String.valueOf(a2[this.D.f1261a].forum_id));
+                this.q.a(a2[this.D.f1266a].forum_name, String.valueOf(a2[this.D.f1266a].forum_id));
             } else {
-                this.q.a(a2[this.E.f1261a].forum_name, String.valueOf(a2[this.E.f1261a].forum_id));
+                this.q.a(a2[this.E.f1266a].forum_name, String.valueOf(a2[this.E.f1266a].forum_id));
             }
         }
     }

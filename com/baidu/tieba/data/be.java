@@ -1,48 +1,54 @@
 package com.baidu.tieba.data;
 
 import com.baidu.tieba.util.bg;
+import com.tencent.mm.sdk.platformtools.LocaleUtil;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class be {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1185a = null;
-    private String b = null;
-    private String c = null;
+    private String f1191a = null;
+    private int b = 0;
+    private int d = 0;
+    private int e = 0;
+    private int c = 0;
 
-    public String a() {
-        return this.f1185a;
+    public int a() {
+        return this.d;
     }
 
-    public String b() {
-        return this.b;
+    public int b() {
+        return this.e;
     }
 
     public String c() {
+        return this.f1191a;
+    }
+
+    public int d() {
+        return this.b;
+    }
+
+    public void a(int i) {
+        this.b = i;
+    }
+
+    public int e() {
         return this.c;
     }
 
-    public void a(String str) {
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
-            if (optJSONObject == null) {
-                optJSONObject = jSONObject.optJSONObject("anti");
-            }
-            a(optJSONObject);
-        } catch (Exception e) {
-            bg.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
-        }
+    public void b(int i) {
+        this.c = i;
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1185a = jSONObject.optString("vcode_md5");
-                this.b = jSONObject.optString("vcode_pic_url");
-                this.c = jSONObject.optString("vcode_type");
+                this.f1191a = jSONObject.optString(LocaleUtil.INDONESIAN);
+                this.d = jSONObject.optInt("width", 0);
+                this.e = jSONObject.optInt("height", 0);
             } catch (Exception e) {
-                bg.b("VcodeInfoData", "parserJson", "error = " + e.getMessage());
+                bg.b(getClass().getName(), "parserJson", "error = " + e.getMessage());
             }
         }
     }

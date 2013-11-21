@@ -9,11 +9,11 @@ import com.baidu.tieba.model.bx;
 public class bb extends com.baidu.adp.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonInfoActivity f2234a;
+    final /* synthetic */ PersonInfoActivity f2219a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(PersonInfoActivity personInfoActivity) {
-        this.f2234a = personInfoActivity;
+        this.f2219a = personInfoActivity;
     }
 
     @Override // com.baidu.adp.a.g
@@ -28,15 +28,15 @@ public class bb extends com.baidu.adp.a.g {
         bx bxVar6;
         bx bxVar7;
         bx bxVar8;
-        bxVar = this.f2234a.e;
+        bxVar = this.f2219a.e;
         if (bxVar.getLoadDataMode() != 1) {
-            bxVar6 = this.f2234a.e;
+            bxVar6 = this.f2219a.e;
             if (bxVar6.getLoadDataMode() != 2) {
-                bxVar7 = this.f2234a.e;
-                if (bxVar7.getLoadDataMode() == 3 && this.f2234a.b != null) {
-                    bc bcVar = this.f2234a.b;
+                bxVar7 = this.f2219a.e;
+                if (bxVar7.getLoadDataMode() == 3 && this.f2219a.b != null) {
+                    bc bcVar = this.f2219a.b;
                     boolean booleanValue = ((Boolean) obj).booleanValue();
-                    bxVar8 = this.f2234a.e;
+                    bxVar8 = this.f2219a.e;
                     bcVar.a(booleanValue, bxVar8);
                     return;
                 }
@@ -44,23 +44,23 @@ public class bb extends com.baidu.adp.a.g {
             }
         }
         if (TiebaApplication.g().s()) {
-            baseFragmentActivity = this.f2234a.g;
+            baseFragmentActivity = this.f2219a.g;
             StatService.onEvent(baseFragmentActivity, "person_info_pv", "infopv", 1);
         }
-        bool = this.f2234a.f;
+        bool = this.f2219a.f;
         if (bool.booleanValue()) {
-            if (this.f2234a.f2203a != null) {
-                bd bdVar = this.f2234a.f2203a;
+            if (this.f2219a.f2188a != null) {
+                bd bdVar = this.f2219a.f2188a;
                 boolean booleanValue2 = ((Boolean) obj).booleanValue();
-                bxVar4 = this.f2234a.e;
-                bxVar5 = this.f2234a.e;
+                bxVar4 = this.f2219a.e;
+                bxVar5 = this.f2219a.e;
                 bdVar.a(booleanValue2, bxVar4, bxVar5.getLoadDataMode());
             }
-        } else if (this.f2234a.b != null) {
-            bc bcVar2 = this.f2234a.b;
+        } else if (this.f2219a.b != null) {
+            bc bcVar2 = this.f2219a.b;
             boolean booleanValue3 = ((Boolean) obj).booleanValue();
-            bxVar2 = this.f2234a.e;
-            bxVar3 = this.f2234a.e;
+            bxVar2 = this.f2219a.e;
+            bxVar3 = this.f2219a.e;
             bcVar2.a(booleanValue3, bxVar2, bxVar3.getLoadDataMode());
         }
     }

@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 public class ListTemplate<E> extends AbstractTemplate<List<E>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private d<E> f2919a;
+    private d<E> f2903a;
 
     @Override // org.msgpack.template.d
     public /* bridge */ /* synthetic */ void a(org.msgpack.packer.a aVar, Object obj, boolean z) {
@@ -14,7 +14,7 @@ public class ListTemplate<E> extends AbstractTemplate<List<E>> {
     }
 
     public ListTemplate(d<E> dVar) {
-        this.f2919a = dVar;
+        this.f2903a = dVar;
     }
 
     public void a(org.msgpack.packer.a aVar, List<E> list, boolean z) {
@@ -30,7 +30,7 @@ public class ListTemplate<E> extends AbstractTemplate<List<E>> {
         }
         aVar.c(list.size());
         for (E e : list) {
-            this.f2919a.a(aVar, e);
+            this.f2903a.a(aVar, e);
         }
         aVar.a();
     }

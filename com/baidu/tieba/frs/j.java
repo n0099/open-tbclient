@@ -11,11 +11,11 @@ import com.baidu.tieba.util.UtilHelper;
 public class j implements AdapterView.OnItemClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsActivity f1354a;
+    final /* synthetic */ FrsActivity f1359a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.f1354a = frsActivity;
+        this.f1359a = frsActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -26,49 +26,49 @@ public class j implements AdapterView.OnItemClickListener {
         String str;
         int i2;
         if (i >= 0) {
-            bnVar = this.f1354a.n;
+            bnVar = this.f1359a.n;
             long itemId = bnVar.l().getItemId(i);
             if (itemId == -1) {
-                i2 = this.f1354a.i;
+                i2 = this.f1359a.i;
                 if (i2 > 1) {
-                    FrsActivity.i(this.f1354a);
-                    this.f1354a.e = 2;
-                    this.f1354a.B();
+                    FrsActivity.i(this.f1359a);
+                    this.f1359a.e = 2;
+                    this.f1359a.B();
                 }
             } else if (itemId != -2) {
-                bnVar2 = this.f1354a.n;
-                com.baidu.tieba.data.ba baVar = (com.baidu.tieba.data.ba) bnVar2.l().getItem(i);
-                if (baVar != null) {
+                bnVar2 = this.f1359a.n;
+                com.baidu.tieba.data.az azVar = (com.baidu.tieba.data.az) bnVar2.l().getItem(i);
+                if (azVar != null) {
                     com.baidu.tieba.util.bc aw = TiebaApplication.g().aw();
-                    if (aw != null && !aw.b(baVar.a())) {
-                        aw.a(baVar.a());
+                    if (aw != null && !aw.b(azVar.a())) {
+                        aw.a(azVar.a());
                     }
-                    String l = baVar.l();
+                    String l = azVar.l();
                     if (l == null || l.equals("")) {
                         z = false;
                     } else {
                         new Thread(new k(this, l)).start();
                         z = true;
                     }
-                    String b = baVar.b();
-                    if (baVar.f() == 2 && !b.startsWith("pb:")) {
-                        UtilHelper.a(this.f1354a, b, "", null);
+                    String b = azVar.b();
+                    if (azVar.f() == 2 && !b.startsWith("pb:")) {
+                        UtilHelper.a(this.f1359a, b, "", null);
                         return;
                     }
                     if (b.startsWith("pb:")) {
-                        baVar.a(b.substring(3));
+                        azVar.a(b.substring(3));
                     }
-                    FrsActivity frsActivity = this.f1354a;
-                    str = this.f1354a.f;
-                    NewPbActivity.a(frsActivity, baVar, str, null, 18003, true, false, z);
+                    FrsActivity frsActivity = this.f1359a;
+                    str = this.f1359a.f;
+                    NewPbActivity.a(frsActivity, azVar, str, null, 18003, true, false, z);
                 }
             } else {
                 if (TiebaApplication.g().s()) {
-                    StatService.onEvent(this.f1354a, "frs_nextpage", "frsclick", 1);
+                    StatService.onEvent(this.f1359a, "frs_nextpage", "frsclick", 1);
                 }
-                FrsActivity.x(this.f1354a);
-                this.f1354a.e = 1;
-                this.f1354a.B();
+                FrsActivity.x(this.f1359a);
+                this.f1359a.e = 1;
+                this.f1359a.B();
             }
         }
     }

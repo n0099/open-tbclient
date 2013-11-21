@@ -14,10 +14,10 @@ public class f {
         View inflate = LinearLayout.inflate(baseFragmentActivity, R.layout.forum_feed_guide, null);
         hVar.b = (NavigationBar) inflate.findViewById(R.id.view_navigation_bar);
         hVar.b.a(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.nb_item_tieba_logo, (View.OnClickListener) null);
-        hVar.f1292a = (LinearLayout) inflate.findViewById(R.id.forum_feed_login_container);
+        hVar.f1297a = (LinearLayout) inflate.findViewById(R.id.forum_feed_login_container);
         hVar.d = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
         hVar.c = new s(baseFragmentActivity, str, str, 0);
-        hVar.f1292a.addView(hVar.c.e());
+        hVar.f1297a.addView(hVar.c.e());
         inflate.setTag(hVar);
         a(baseFragmentActivity, inflate, i);
         return inflate;

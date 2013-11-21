@@ -8,23 +8,23 @@ import org.json.JSONObject;
 class as implements bk {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1318a;
+    final /* synthetic */ FrsImageActivity f1323a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public as(FrsImageActivity frsImageActivity) {
-        this.f1318a = frsImageActivity;
+        this.f1323a = frsImageActivity;
     }
 
     @Override // com.baidu.tieba.frs.bk
     public void a(int i) {
         boolean z;
         bl blVar;
-        z = this.f1318a.q;
+        z = this.f1323a.q;
         if (z) {
-            this.f1318a.q = false;
+            this.f1323a.q = false;
             return;
         }
-        blVar = this.f1318a.l;
+        blVar = this.f1323a.l;
         blVar.a(true);
     }
 
@@ -33,26 +33,24 @@ class as implements bk {
         bl blVar;
         bl blVar2;
         com.baidu.tieba.model.ar arVar;
-        bl blVar3;
         com.baidu.tieba.model.ar arVar2;
-        com.baidu.tieba.model.ar arVar3;
-        bl blVar4;
+        bl blVar3;
         int i2;
         int i3;
-        com.baidu.tieba.model.ar arVar4;
+        com.baidu.tieba.model.ar arVar3;
         int i4;
-        com.baidu.tieba.model.ar arVar5;
+        com.baidu.tieba.model.ar arVar4;
         String str;
-        this.f1318a.d();
-        blVar = this.f1318a.l;
+        this.f1323a.d();
+        blVar = this.f1323a.l;
         blVar.a(false);
-        this.f1318a.a("done");
+        this.f1323a.a("done");
         if (jSONObject == null) {
-            if (atVar.f1900a) {
-                this.f1318a.showToast(atVar.d);
+            if (atVar.f1882a) {
+                this.f1323a.showToast(atVar.d);
                 if (atVar.b && atVar.c == 2000) {
                     TiebaApplication g = TiebaApplication.g();
-                    str = this.f1318a.b;
+                    str = this.f1323a.b;
                     g.i(str);
                     return;
                 }
@@ -61,47 +59,43 @@ class as implements bk {
             return;
         }
         if (atVar != null && atVar.b) {
-            i4 = this.f1318a.k;
+            i4 = this.f1323a.k;
             if (i4 == 1) {
-                arVar5 = this.f1318a.r;
-                DatabaseService.m(arVar5.a().getName());
+                arVar4 = this.f1323a.r;
+                DatabaseService.m(arVar4.a().getName());
             }
         }
-        blVar2 = this.f1318a.l;
+        blVar2 = this.f1323a.l;
         blVar2.e().g();
-        FrsImageActivity frsImageActivity = this.f1318a;
-        arVar = this.f1318a.r;
+        FrsImageActivity frsImageActivity = this.f1323a;
+        arVar = this.f1323a.r;
         frsImageActivity.a(arVar.b());
-        blVar3 = this.f1318a.l;
-        bs f = blVar3.f();
-        arVar2 = this.f1318a.r;
-        f.c(arVar2.a().isLike() != 0);
-        this.f1318a.h = 30;
-        arVar3 = this.f1318a.r;
-        if (arVar3.c().size() > 30) {
-            this.f1318a.a(FrsImageActivity.FooterType.NORMAL);
+        this.f1323a.h = 30;
+        arVar2 = this.f1323a.r;
+        if (arVar2.c().size() > 30) {
+            this.f1323a.a(FrsImageActivity.FooterType.NORMAL);
         } else {
             if (i == 1) {
-                arVar4 = this.f1318a.r;
-                if (arVar4.c().size() == 0) {
-                    this.f1318a.a(FrsImageActivity.FooterType.NO_ITEM);
+                arVar3 = this.f1323a.r;
+                if (arVar3.c().size() == 0) {
+                    this.f1323a.a(FrsImageActivity.FooterType.NO_ITEM);
                 }
             }
-            this.f1318a.a(FrsImageActivity.FooterType.LAST);
+            this.f1323a.a(FrsImageActivity.FooterType.LAST);
         }
-        blVar4 = this.f1318a.l;
-        blVar4.e().scrollTo(0, 0);
-        this.f1318a.i = i;
-        i2 = this.f1318a.i;
+        blVar3 = this.f1323a.l;
+        blVar3.e().scrollTo(0, 0);
+        this.f1323a.i = i;
+        i2 = this.f1323a.i;
         if (i2 > 1) {
-            this.f1318a.h();
+            this.f1323a.h();
         } else {
-            this.f1318a.i();
+            this.f1323a.i();
         }
-        i3 = this.f1318a.k;
+        i3 = this.f1323a.k;
         if (i3 == 1) {
-            this.f1318a.k = 0;
-            this.f1318a.getIntent().putExtra("add_search", 0);
+            this.f1323a.k = 0;
+            this.f1323a.getIntent().putExtra("add_search", 0);
         }
     }
 }

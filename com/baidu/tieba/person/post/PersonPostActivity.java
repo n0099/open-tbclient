@@ -33,9 +33,8 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
         this.d = getIntent().getStringExtra("key_portrait_url");
         this.b = getIntent().getStringExtra("key_uid");
         this.e = getIntent().getIntExtra("key_sex", 0);
-        String str = this.b;
-        TiebaApplication.g();
-        if (str.equals(TiebaApplication.A())) {
+        this.b = this.b == null ? "" : this.b;
+        if (this.b.equals(TiebaApplication.A())) {
             this.c = getString(R.string.me);
             this.f = true;
         } else {
@@ -114,14 +113,14 @@ public class PersonPostActivity extends BaseFragmentActivity implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.reply /* 2131100447 */:
+            case R.id.reply /* 2131100436 */:
                 if (TiebaApplication.g().s()) {
                     StatService.onEvent(this, this.f ? "pp_my_reply" : "pp_his_reply", "click", 1);
                 }
                 c(2);
                 this.g.b.setCurrentItem(1);
                 return;
-            case R.id.thread /* 2131100618 */:
+            case R.id.thread /* 2131100607 */:
                 if (TiebaApplication.g().s()) {
                     StatService.onEvent(this, this.f ? "pp_my_thread" : "pp_his_thread", "click", 1);
                 }

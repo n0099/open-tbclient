@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class b extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    NavigationBar f1582a;
+    NavigationBar f1573a;
     View c;
     Button d;
     Button e;
@@ -33,7 +33,7 @@ public class b extends com.baidu.adp.a.e {
 
     public b(CreateGroupMainActivity createGroupMainActivity) {
         super(createGroupMainActivity);
-        this.f1582a = null;
+        this.f1573a = null;
         this.c = null;
         this.d = null;
         this.e = null;
@@ -66,15 +66,15 @@ public class b extends com.baidu.adp.a.e {
         this.e = (Button) createGroupMainActivity.findViewById(R.id.create_group2);
         this.f = (TextView) createGroupMainActivity.findViewById(R.id.create_group1_text);
         this.g = (TextView) createGroupMainActivity.findViewById(R.id.create_group2_text);
-        this.f1582a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
-        this.f1582a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
-        this.f1582a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f1573a = (NavigationBar) createGroupMainActivity.findViewById(R.id.view_navigation_bar);
+        this.f1573a.a(createGroupMainActivity.getResources().getString(R.string.group_create));
+        this.f1573a.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
     public void a(int i) {
         this.h.getLayoutMode().a(i == 1);
         this.h.getLayoutMode().a(this.c);
         bd.a(this.c, i);
-        this.f1582a.c(i);
+        this.f1573a.c(i);
     }
 }

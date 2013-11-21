@@ -15,7 +15,7 @@ import com.slidingmenu.lib.R;
 public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static NetWorkDebugActivity f1472a;
+    public static NetWorkDebugActivity f1463a;
     LinearLayout b;
     TextView c;
     EditText d;
@@ -25,12 +25,12 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
-        f1472a = this;
+        f1463a = this;
         this.b = (LinearLayout) findViewById(R.id.action_layout);
         this.c = (TextView) findViewById(R.id.tv);
         this.d = new EditText(this);
         this.b.addView(this.d, new LinearLayout.LayoutParams(-2, -2));
-        this.d.setText(j.f1722a);
+        this.d.setText(j.f1713a);
         com.baidu.tieba.im.messageCenter.f.a().a(1001, this);
         com.baidu.tieba.im.messageCenter.f.a().a(202001, this);
         a("closeConnect", new d(this));
@@ -65,8 +65,8 @@ public class NetWorkDebugActivity extends Activity implements com.baidu.tieba.im
     }
 
     public static void a(String str) {
-        if (f1472a != null) {
-            f1472a.e.sendMessage(f1472a.e.obtainMessage(0, str));
+        if (f1463a != null) {
+            f1463a.e.sendMessage(f1463a.e.obtainMessage(0, str));
         }
     }
 

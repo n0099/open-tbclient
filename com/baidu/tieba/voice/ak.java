@@ -6,7 +6,7 @@ import com.baidu.tieba.TiebaApplication;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f2621a = new String[0];
+    private static final String[] f2604a = new String[0];
     private static final String[] b = {"meizu"};
 
     public static String a(int i) {
@@ -41,8 +41,8 @@ public class ak {
         if (str == null) {
             return true;
         }
-        for (int i = 0; i < f2621a.length; i++) {
-            if (f2621a[i].equals(str)) {
+        for (int i = 0; i < f2604a.length; i++) {
+            if (f2604a[i].equals(str)) {
                 return false;
             }
         }

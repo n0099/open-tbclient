@@ -18,7 +18,7 @@ import java.net.URL;
 public class AsyncImageLoader extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f834a = AsyncImageLoader.class.getSimpleName();
+    private static final String f835a = AsyncImageLoader.class.getSimpleName();
     private Context b;
     private IAsyncImageLoaderListener c;
 
@@ -73,7 +73,7 @@ public class AsyncImageLoader extends AsyncTask {
     private InputStream a(Uri uri) {
         try {
         } catch (IOException e) {
-            Log.e(f834a, "IOexception");
+            Log.e(f835a, "IOexception");
             e.printStackTrace();
         }
         if (uri.getScheme() == null) {
@@ -121,12 +121,12 @@ public class AsyncImageLoader extends AsyncTask {
                 try {
                     a3.close();
                 } catch (IOException e) {
-                    Log.e(f834a, "IO exception");
+                    Log.e(f835a, "IO exception");
                     e.printStackTrace();
                 }
                 return decodeStream;
             } catch (OutOfMemoryError e2) {
-                Log.e(f834a, "out of memory err no bitmap found");
+                Log.e(f835a, "out of memory err no bitmap found");
                 e2.printStackTrace();
                 return null;
             }

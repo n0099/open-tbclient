@@ -6,7 +6,7 @@ import org.msgpack.MessageTypeException;
 class LongValueImpl extends IntegerValue {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f2953a = 127;
+    private static long f2937a = 127;
     private static long b = 32767;
     private static long c = 2147483647L;
     private static long d = -128;
@@ -21,7 +21,7 @@ class LongValueImpl extends IntegerValue {
 
     @Override // org.msgpack.type.IntegerValue
     public byte getByte() {
-        if (this.value > f2953a || this.value < d) {
+        if (this.value > f2937a || this.value < d) {
             throw new MessageTypeException();
         }
         return (byte) this.value;

@@ -32,7 +32,7 @@ public class d implements AbsListView.OnScrollListener, AdapterView.OnItemClickL
     private bi f = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public BdListView f1477a = null;
+    public BdListView f1468a = null;
     private q g = null;
     private Handler l = new e(this);
     private Handler m = new Handler();
@@ -71,13 +71,13 @@ public class d implements AbsListView.OnScrollListener, AdapterView.OnItemClickL
     }
 
     private void h() {
-        this.f1477a = (BdListView) this.d.i().findViewById(R.id.enter_group_lv_forum);
+        this.f1468a = (BdListView) this.d.i().findViewById(R.id.enter_group_lv_forum);
         this.f = new bi(this.d.i());
         this.j = new a(this.d);
         this.f.a(new f(this));
-        this.f1477a.setAdapter((ListAdapter) this.j);
-        this.f1477a.setOnItemClickListener(this);
-        this.f1477a.setOnScrollListener(this);
+        this.f1468a.setAdapter((ListAdapter) this.j);
+        this.f1468a.setOnItemClickListener(this);
+        this.f1468a.setOnScrollListener(this);
     }
 
     public void a(TextView textView) {
@@ -86,22 +86,22 @@ public class d implements AbsListView.OnScrollListener, AdapterView.OnItemClickL
 
     public void d() {
         if (TiebaApplication.B()) {
-            this.f1477a.setPullRefresh(this.f);
+            this.f1468a.setPullRefresh(this.f);
             a(this.f);
         } else {
-            this.f1477a.setPullRefresh(null);
+            this.f1468a.setPullRefresh(null);
         }
         if (TiebaApplication.B()) {
             l.b().a(true);
         }
         if (this.b == null) {
             this.b = new c();
-            this.f1477a.b();
+            this.f1468a.b();
         } else if (this.c) {
-            this.f1477a.b();
+            this.f1468a.b();
         }
         j();
-        this.f1477a.setVisibility(0);
+        this.f1468a.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,24 +116,24 @@ public class d implements AbsListView.OnScrollListener, AdapterView.OnItemClickL
     }
 
     public void e() {
-        this.f1477a.setVisibility(8);
+        this.f1468a.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        if (this.f1477a != null && this.j != null) {
+        if (this.f1468a != null && this.j != null) {
             if (TiebaApplication.B()) {
                 if (this.j.b()) {
-                    this.f1477a.setHeaderDividersEnabled(true);
-                    this.f1477a.setFooterDividersEnabled(true);
+                    this.f1468a.setHeaderDividersEnabled(true);
+                    this.f1468a.setFooterDividersEnabled(true);
                     return;
                 }
-                this.f1477a.setHeaderDividersEnabled(false);
-                this.f1477a.setFooterDividersEnabled(false);
+                this.f1468a.setHeaderDividersEnabled(false);
+                this.f1468a.setFooterDividersEnabled(false);
                 return;
             }
-            this.f1477a.setHeaderDividersEnabled(false);
-            this.f1477a.setFooterDividersEnabled(false);
+            this.f1468a.setHeaderDividersEnabled(false);
+            this.f1468a.setFooterDividersEnabled(false);
         }
     }
 
@@ -158,10 +158,10 @@ public class d implements AbsListView.OnScrollListener, AdapterView.OnItemClickL
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.f1477a.getAdapter() != null && i2 < this.f1477a.getAdapter().getCount() && this.g == null) {
+        if (this.f1468a.getAdapter() != null && i2 < this.f1468a.getAdapter().getCount() && this.g == null) {
             this.g = new q(this.e);
             this.g.setHeightDip(30);
-            this.f1477a.addFooterView(this.g);
+            this.f1468a.addFooterView(this.g);
         }
     }
 
@@ -172,13 +172,13 @@ public class d implements AbsListView.OnScrollListener, AdapterView.OnItemClickL
             if (TiebaApplication.g().s()) {
                 StatService.onEvent(this.d.i(), "cl_enter_group", "click", 1);
             }
-            MsglistActivity.a(this.d.i(), item.getGroupId(), item.getName(), item.getAuthorId());
+            MsglistActivity.a(this.d.i(), item.getGroupId(), item.getName(), item.getAuthorId(), "group_lstb");
         }
     }
 
     public void g() {
         if (this.c) {
-            this.f1477a.b();
+            this.f1468a.b();
         }
         f();
     }
@@ -189,9 +189,9 @@ public class d implements AbsListView.OnScrollListener, AdapterView.OnItemClickL
 
     public void a(int i) {
         if (i == 1) {
-            this.f1477a.setDivider(this.d.j().getDrawable(R.drawable.list_divider_1));
+            this.f1468a.setDivider(this.d.j().getDrawable(R.drawable.list_divider_1));
         } else {
-            this.f1477a.setDivider(this.d.j().getDrawable(R.drawable.list_divider));
+            this.f1468a.setDivider(this.d.j().getDrawable(R.drawable.list_divider));
         }
     }
 }

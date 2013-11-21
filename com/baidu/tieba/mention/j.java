@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.TiebaApplication;
-import com.baidu.tieba.ai;
-import com.baidu.tieba.aj;
+import com.baidu.tieba.al;
+import com.baidu.tieba.am;
 import com.baidu.tieba.model.bj;
 import com.baidu.tieba.pb.NewPbActivity;
 import java.util.ArrayList;
@@ -29,12 +29,12 @@ public class j {
     private int h = 1;
     private r k = null;
     private s l = null;
-    private aj m = null;
+    private am m = null;
     private String o = null;
     private com.baidu.tieba.view.q p = null;
 
     /* renamed from: a  reason: collision with root package name */
-    AlertDialog f1862a = null;
+    AlertDialog f1844a = null;
     private q q = null;
     private Handler r = new Handler();
     private Runnable s = new k(this);
@@ -73,8 +73,8 @@ public class j {
         this.o = str;
     }
 
-    public void a(aj ajVar) {
-        this.m = ajVar;
+    public void a(am amVar) {
+        this.m = amVar;
     }
 
     public void a() {
@@ -92,17 +92,17 @@ public class j {
         if (uVar != null) {
             if (uVar.j()) {
                 if (this.i == 2) {
-                    ai.a(this.c, "new_at_me_visit_post");
+                    al.a(this.c, "new_at_me_visit_post");
                 } else if (this.i == 1) {
-                    ai.a(this.c, "new_my_reply_visit_post");
+                    al.a(this.c, "new_my_reply_visit_post");
                 }
                 b(uVar);
                 return;
             }
             if (this.i == 2) {
-                ai.a(this.c, "new_at_me_visit_pb");
+                al.a(this.c, "new_at_me_visit_pb");
             } else if (this.i == 1) {
-                ai.a(this.c, "new_my_reply_visit_pb");
+                al.a(this.c, "new_my_reply_visit_pb");
             }
             NewPbActivity.a(this.c, uVar.g(), uVar.h(), "mention");
         }
@@ -150,7 +150,7 @@ public class j {
             this.h = 1;
         }
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.h.f1196a);
+        stringBuffer.append(com.baidu.tieba.data.h.f1201a);
         stringBuffer.append(this.o);
         ArrayList arrayList = new ArrayList();
         arrayList.add(new BasicNameValuePair("uid", TiebaApplication.A()));
@@ -260,7 +260,7 @@ public class j {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, String str2, String str3, int i) {
         StringBuffer stringBuffer = new StringBuffer(30);
-        stringBuffer.append(com.baidu.tieba.data.h.f1196a);
+        stringBuffer.append(com.baidu.tieba.data.h.f1201a);
         ArrayList arrayList = new ArrayList();
         if (i == 1) {
             stringBuffer.append("c/f/pb/page");

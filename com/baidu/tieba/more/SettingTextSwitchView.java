@@ -16,7 +16,7 @@ import com.slidingmenu.lib.R;
 public class SettingTextSwitchView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected TextView f1964a;
+    protected TextView f1947a;
     private Context b;
     private LinearLayout c;
     private TextView d;
@@ -50,16 +50,16 @@ public class SettingTextSwitchView extends FrameLayout {
         if (i == 1) {
             this.d.setTextColor(this.b.getResources().getColor(R.color.skin_1_common_color));
             this.e.setSwitchStyle(BdSwitchView.SwitchStyle.NIGHT);
-            if (this.f1964a != null) {
-                this.f1964a.setTextColor(this.b.getResources().getColor(R.color.c_FF515865));
+            if (this.f1947a != null) {
+                this.f1947a.setTextColor(this.b.getResources().getColor(R.color.c_FF515865));
                 return;
             }
             return;
         }
         this.d.setTextColor(this.b.getResources().getColor(R.color.more_color));
         this.e.setSwitchStyle(BdSwitchView.SwitchStyle.DAY);
-        if (this.f1964a != null) {
-            this.f1964a.setTextColor(this.b.getResources().getColor(R.color.c_FFB2B6BA));
+        if (this.f1947a != null) {
+            this.f1947a.setTextColor(this.b.getResources().getColor(R.color.c_FFB2B6BA));
         }
     }
 
@@ -92,23 +92,23 @@ public class SettingTextSwitchView extends FrameLayout {
         this.c = (LinearLayout) findViewById(R.id.container);
         this.d = (TextView) findViewById(R.id.text);
         this.e = (BdSwitchView) findViewById(R.id.button);
-        this.f1964a = (TextView) findViewById(R.id.tip);
-        if (this.f1964a != null) {
-            this.f1964a.setVisibility(8);
+        this.f1947a = (TextView) findViewById(R.id.tip);
+        if (this.f1947a != null) {
+            this.f1947a.setVisibility(8);
         }
     }
 
     private void a(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.an.SettingView);
+        TypedArray obtainStyledAttributes = this.b.obtainStyledAttributes(attributeSet, com.baidu.tieba.aq.SettingView);
         String string = obtainStyledAttributes.getString(0);
         int color = obtainStyledAttributes.getColor(1, -1);
         String string2 = obtainStyledAttributes.getString(2);
         int color2 = obtainStyledAttributes.getColor(3, -1);
-        if (this.f1964a != null && string2 != null) {
-            this.f1964a.setVisibility(0);
-            this.f1964a.setText(string2);
+        if (this.f1947a != null && string2 != null) {
+            this.f1947a.setVisibility(0);
+            this.f1947a.setText(string2);
             if (color2 > -1) {
-                this.f1964a.setTextColor(color2);
+                this.f1947a.setTextColor(color2);
             }
         }
         if (string != null) {
@@ -122,28 +122,28 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        if (str != null && this.f1964a != null) {
+        if (str != null && this.f1947a != null) {
             c();
-            this.f1964a.setText(str);
+            this.f1947a.setText(str);
         }
     }
 
     public void setTip(int i) {
-        if (i != -1 && this.f1964a != null) {
+        if (i != -1 && this.f1947a != null) {
             c();
-            this.f1964a.setText(i);
+            this.f1947a.setText(i);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.f1964a != null) {
-            this.f1964a.setTextColor(i);
+        if (this.f1947a != null) {
+            this.f1947a.setTextColor(i);
         }
     }
 
     public void c() {
-        if (this.f1964a != null) {
-            this.f1964a.setVisibility(8);
+        if (this.f1947a != null) {
+            this.f1947a.setVisibility(8);
         }
     }
 

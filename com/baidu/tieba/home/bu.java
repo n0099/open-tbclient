@@ -20,7 +20,7 @@ import java.util.Random;
 public class bu extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1438a;
+    private int f1429a;
     private final int b;
     private Context c;
     private ProgressBar d;
@@ -35,7 +35,7 @@ public class bu extends FrameLayout {
 
     public bu(Context context) {
         super(context);
-        this.f1438a = 0;
+        this.f1429a = 0;
         this.b = 180;
         this.j = 2000;
         this.k = new bv(this);
@@ -102,7 +102,7 @@ public class bu extends FrameLayout {
         removeCallbacks(this.k);
         removeCallbacks(this.l);
         boolean z = TiebaApplication.g().ap() == 1;
-        switch (this.f1438a) {
+        switch (this.f1429a) {
             case 0:
                 this.d.setPadding(0, 0, 0, 0);
                 this.d.setClickable(true);
@@ -112,7 +112,7 @@ public class bu extends FrameLayout {
                 this.f.setText(R.string.signallforum_begin);
                 return;
             case 1:
-                int a2 = UtilHelper.a(this.c, 10.0f);
+                int a2 = UtilHelper.a(this.c, 6.0f);
                 this.d.setPadding(a2, a2, a2, a2);
                 this.d.getProgressDrawable().setBounds(0, 0, this.d.getWidth() - (a2 * 2), this.d.getHeight() - (a2 * 2));
                 this.d.setClickable(false);
@@ -140,20 +140,20 @@ public class bu extends FrameLayout {
     }
 
     public int getCurrentStatus() {
-        return this.f1438a;
+        return this.f1429a;
     }
 
     public void setSigning(int i) {
-        if (this.f1438a != 1 && this.f1438a == 0) {
+        if (this.f1429a != 1 && this.f1429a == 0) {
             this.d.setProgress(i);
-            this.f1438a = 1;
+            this.f1429a = 1;
             c();
         }
     }
 
     public void a() {
-        if (this.f1438a != 2) {
-            this.f1438a = 2;
+        if (this.f1429a != 2) {
+            this.f1429a = 2;
             c();
         }
     }

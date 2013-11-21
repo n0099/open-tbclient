@@ -6,11 +6,11 @@ import com.baidu.tieba.im.db.x;
 public final class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1777a;
+    final /* synthetic */ String f1768a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(String str) {
-        this.f1777a = str;
+        this.f1768a = str;
     }
 
     @Override // java.lang.Runnable

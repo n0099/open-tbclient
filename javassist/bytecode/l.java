@@ -3,7 +3,7 @@ package javassist.bytecode;
 abstract class l {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2817a;
+    int f2801a;
     int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,13 +12,13 @@ abstract class l {
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(int i) {
         this.b = i;
-        this.f2817a = i;
+        this.f2801a = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, int i2, boolean z) {
-        if (i < this.f2817a || (i == this.f2817a && z)) {
-            this.f2817a += i2;
+        if (i < this.f2801a || (i == this.f2801a && z)) {
+            this.f2801a += i2;
         }
     }
 

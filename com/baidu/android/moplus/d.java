@@ -3,15 +3,15 @@ package com.baidu.android.moplus;
 class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MoPlusService f636a;
+    final /* synthetic */ MoPlusService f637a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(MoPlusService moPlusService) {
-        this.f636a = moPlusService;
+        this.f637a = moPlusService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f636a.stopSelf();
+        this.f637a.stopSelf();
     }
 }

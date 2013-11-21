@@ -10,7 +10,7 @@ import com.slidingmenu.lib.R;
 public class bl extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ProgressBar f2577a;
+    protected ProgressBar f2560a;
     protected k b;
     protected Context c;
     private bo d;
@@ -23,7 +23,7 @@ public class bl extends RelativeLayout {
 
     public bl(Context context) {
         super(context);
-        this.f2577a = null;
+        this.f2560a = null;
         this.b = null;
         this.d = null;
         this.c = null;
@@ -53,13 +53,13 @@ public class bl extends RelativeLayout {
         this.b = new k(this.c);
         this.b.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
         addView(this.b);
-        this.f2577a = new ProgressBar(this.c, null, 16843399);
-        this.f2577a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
+        this.f2560a = new ProgressBar(this.c, null, 16843399);
+        this.f2560a.setIndeterminateDrawable(this.c.getResources().getDrawable(R.drawable.progressbar));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(13);
-        this.f2577a.setLayoutParams(layoutParams);
-        this.f2577a.setIndeterminate(true);
-        addView(this.f2577a);
+        this.f2560a.setLayoutParams(layoutParams);
+        this.f2560a.setIndeterminate(true);
+        addView(this.f2560a);
     }
 
     public void a(String str, boolean z) {
@@ -92,7 +92,7 @@ public class bl extends RelativeLayout {
         if (this.b != null) {
             this.b.j();
         }
-        this.f2577a.setVisibility(8);
+        this.f2560a.setVisibility(8);
     }
 
     public void d() {
@@ -100,7 +100,7 @@ public class bl extends RelativeLayout {
         if (this.b != null) {
             this.b.k();
         }
-        this.f2577a.setVisibility(8);
+        this.f2560a.setVisibility(8);
     }
 
     public void e() {

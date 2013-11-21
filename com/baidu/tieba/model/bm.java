@@ -13,11 +13,11 @@ import java.util.Date;
 public class bm extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f1915a = com.baidu.tieba.data.h.c() / 30;
-    private static com.baidu.tieba.data.ap w = new com.baidu.tieba.data.ap();
+    private static final int f1897a = com.baidu.tieba.data.h.c() / 30;
+    private static com.baidu.tieba.data.ao w = new com.baidu.tieba.data.ao();
     private com.baidu.adp.lib.cache.s<String> A;
     private com.baidu.adp.lib.cache.s<String> B;
-    private com.baidu.tieba.data.ao u;
+    private com.baidu.tieba.data.an u;
     private Context x;
     private String b = null;
     private String c = null;
@@ -47,7 +47,7 @@ public class bm extends com.baidu.adp.a.d {
         this.x = null;
         this.A = null;
         this.B = null;
-        this.u = new com.baidu.tieba.data.ao();
+        this.u = new com.baidu.tieba.data.an();
         w.a();
         this.x = context;
         this.A = com.baidu.tieba.b.a.a().b();
@@ -194,23 +194,23 @@ public class bm extends com.baidu.adp.a.d {
     public void e(int i) {
         if (this.k < i) {
             this.k = i;
-            if (this.k - this.l >= f1915a) {
-                this.l = (this.k - f1915a) + 1;
+            if (this.k - this.l >= f1897a) {
+                this.l = (this.k - f1897a) + 1;
             }
         }
         if (this.l > i) {
             this.l = i;
-            if (this.k - this.l >= f1915a) {
-                this.k = (this.l + f1915a) - 1;
+            if (this.k - this.l >= f1897a) {
+                this.k = (this.l + f1897a) - 1;
             }
         }
     }
 
-    public com.baidu.tieba.data.ao l() {
+    public com.baidu.tieba.data.an l() {
         return this.u;
     }
 
-    public com.baidu.tieba.data.an m() {
+    public com.baidu.tieba.data.am m() {
         if (this.u == null) {
             return null;
         }
@@ -348,24 +348,24 @@ public class bm extends com.baidu.adp.a.d {
         return writeData;
     }
 
-    public com.baidu.tieba.data.aw a(com.baidu.tieba.data.as asVar) {
-        if (asVar == null) {
+    public com.baidu.tieba.data.av a(com.baidu.tieba.data.ar arVar) {
+        if (arVar == null) {
             return null;
         }
-        com.baidu.tieba.data.aw awVar = new com.baidu.tieba.data.aw();
-        awVar.a(this.u.c());
-        awVar.a(this.u.d());
-        awVar.a(asVar);
-        awVar.a(asVar.a());
-        awVar.c(asVar.j());
+        com.baidu.tieba.data.av avVar = new com.baidu.tieba.data.av();
+        avVar.a(this.u.c());
+        avVar.a(this.u.d());
+        avVar.a(arVar);
+        avVar.a(arVar.a());
+        avVar.c(arVar.j());
         String j = this.u.j();
-        String d = asVar.d();
+        String d = arVar.d();
         if (t() && j != null && d != null && j.equals(d)) {
-            awVar.a(true);
-            return awVar;
+            avVar.a(true);
+            return avVar;
         }
-        awVar.a(false);
-        return awVar;
+        avVar.a(false);
+        return avVar;
     }
 
     public MarkData f(int i) {
@@ -375,7 +375,7 @@ public class bm extends com.baidu.adp.a.d {
         if (this.u == null || this.u.e() == null) {
             return null;
         }
-        ArrayList<com.baidu.tieba.data.as> e = this.u.e();
+        ArrayList<com.baidu.tieba.data.ar> e = this.u.e();
         if (e.size() <= 0 || i >= e.size()) {
             return null;
         }
@@ -395,17 +395,17 @@ public class bm extends com.baidu.adp.a.d {
         return markData;
     }
 
-    public MarkData b(com.baidu.tieba.data.as asVar) {
+    public MarkData b(com.baidu.tieba.data.ar arVar) {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TiebaApplication.A());
         markData.setThreadId(this.c);
-        markData.setPostId(asVar.d());
+        markData.setPostId(arVar.d());
         markData.setTime(date.getTime());
         markData.setHostMode(this.e);
         markData.setSequence(Boolean.valueOf(this.f));
         markData.setId(this.c);
-        markData.setFloor(asVar.e());
+        markData.setFloor(arVar.e());
         return markData;
     }
 

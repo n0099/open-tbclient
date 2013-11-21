@@ -20,7 +20,7 @@ import com.slidingmenu.lib.R;
 public class i extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private e f1293a;
+    private e f1298a;
     private BdListView c;
     private BaseFragmentActivity d;
     private bi e;
@@ -55,7 +55,7 @@ public class i extends com.baidu.adp.a.e {
     }
 
     public void a() {
-        if (this.f1293a == null) {
+        if (this.f1298a == null) {
             p();
             q();
         }
@@ -65,15 +65,15 @@ public class i extends com.baidu.adp.a.e {
     public void e() {
         this.p = false;
         o();
-        if (this.f1293a == null) {
+        if (this.f1298a == null) {
             p();
         }
         if (this.c != null) {
             this.c.setBackgroundColor(0);
         }
         this.m.b();
-        this.f1293a.a((v) null);
-        this.f1293a.notifyDataSetChanged();
+        this.f1298a.a((v) null);
+        this.f1298a.notifyDataSetChanged();
         if (this.j != null) {
             this.j.c();
         }
@@ -119,25 +119,25 @@ public class i extends com.baidu.adp.a.e {
 
     public void a(v vVar) {
         if (vVar != null) {
-            if (this.f1293a == null) {
+            if (this.f1298a == null) {
                 p();
                 q();
             }
             if (vVar.a() == 1) {
-                this.f1293a.a(true);
+                this.f1298a.a(true);
             } else {
-                this.f1293a.a(false);
+                this.f1298a.a(false);
             }
             this.m.a();
             this.p = true;
-            this.f1293a.a(vVar);
-            this.f1293a.notifyDataSetChanged();
+            this.f1298a.a(vVar);
+            this.f1298a.notifyDataSetChanged();
             if (this.j != null) {
                 this.j.d();
             }
             k();
             g();
-            if (this.f1293a.getCount() > 0) {
+            if (this.f1298a.getCount() > 0) {
                 this.j.h();
             }
         }
@@ -148,11 +148,11 @@ public class i extends com.baidu.adp.a.e {
         this.d.a().a(this.f);
         this.o.c(i);
         this.c.setBackgroundColor(0);
-        if (!this.m.f1298a) {
+        if (!this.m.f1303a) {
             this.n.setBackgroundResource(i == 1 ? R.color.forumfeed_frs_bg_1 : R.color.forumfeed_frs_bg);
         }
-        if (this.f1293a != null) {
-            this.f1293a.notifyDataSetChanged();
+        if (this.f1298a != null) {
+            this.f1298a.notifyDataSetChanged();
         }
         if (this.e != null) {
             this.e.a(i);
@@ -177,7 +177,7 @@ public class i extends com.baidu.adp.a.e {
 
     public void l() {
         if (com.baidu.tieba.d.a.a().f()) {
-            ak.a(this.c, this.f1293a.b(), 0, -1);
+            ak.a(this.c, this.f1298a.b(), 0, -1);
         }
     }
 
@@ -187,11 +187,11 @@ public class i extends com.baidu.adp.a.e {
     }
 
     private void p() {
-        this.f1293a = new e(this.d);
+        this.f1298a = new e(this.d);
         if (this.k != null) {
-            this.f1293a.a(this.k);
+            this.f1298a.a(this.k);
         }
-        this.c.setAdapter((ListAdapter) this.f1293a);
+        this.c.setAdapter((ListAdapter) this.f1298a);
         this.i = new com.baidu.tieba.util.i(this.d);
     }
 

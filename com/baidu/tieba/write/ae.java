@@ -6,20 +6,20 @@ import com.baidu.tieba.editortool.EditorToolComponetContainer;
 class ae implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteActivity f2678a;
+    final /* synthetic */ WriteActivity f2661a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(WriteActivity writeActivity) {
-        this.f2678a = writeActivity;
+        this.f2661a = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditorToolComponetContainer editorToolComponetContainer;
         EditorToolComponetContainer editorToolComponetContainer2;
-        editorToolComponetContainer = this.f2678a.B;
+        editorToolComponetContainer = this.f2661a.B;
         if (editorToolComponetContainer.h()) {
-            editorToolComponetContainer2 = this.f2678a.B;
+            editorToolComponetContainer2 = this.f2661a.B;
             editorToolComponetContainer2.i();
         }
     }

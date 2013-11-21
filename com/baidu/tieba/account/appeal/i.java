@@ -6,7 +6,7 @@ public class i {
     @SerializedName("errno")
 
     /* renamed from: a  reason: collision with root package name */
-    public int f1049a = 0;
+    public int f1051a = 0;
     @SerializedName("errmsg")
     public String b = "";
     @SerializedName("usermsg")

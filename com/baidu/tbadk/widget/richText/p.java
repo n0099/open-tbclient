@@ -6,7 +6,7 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f994a;
+    private String f995a;
     private int b;
     private int c;
     private Object d;
@@ -16,14 +16,14 @@ public class p {
 
     public p(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.f994a = jSONObject.optString("voice_md5");
+            this.f995a = jSONObject.optString("voice_md5");
             this.b = jSONObject.optInt("during_time") / LocationClientOption.MIN_SCAN_SPAN;
             this.c = jSONObject.optInt("is_sub");
         }
     }
 
     public String a() {
-        return this.f994a;
+        return this.f995a;
     }
 
     public int b() {

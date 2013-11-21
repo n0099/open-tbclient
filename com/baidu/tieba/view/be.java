@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 class be implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ShutDownValidateTipView f2575a;
+    final /* synthetic */ ShutDownValidateTipView f2558a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(ShutDownValidateTipView shutDownValidateTipView) {
-        this.f2575a = shutDownValidateTipView;
+        this.f2558a = shutDownValidateTipView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,6 +22,6 @@ class be implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.f2575a.setVisibility(8);
+        this.f2558a.setVisibility(8);
     }
 }

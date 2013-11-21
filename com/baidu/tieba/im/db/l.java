@@ -71,7 +71,7 @@ public class l extends SQLiteOpenHelper {
                 String str = (String) it.next();
                 if (TextUtils.isEmpty(str)) {
                     com.baidu.adp.lib.h.d.a("gid is null");
-                } else if (str.startsWith(a.f1601a)) {
+                } else if (str.startsWith(a.f1592a)) {
                     try {
                         sQLiteDatabase.execSQL("ALTER TABLE " + str + " ADD read_flag int;");
                     } catch (Exception e2) {

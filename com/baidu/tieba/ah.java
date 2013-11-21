@@ -1,38 +1,18 @@
 package com.baidu.tieba;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah extends BroadcastReceiver {
+class ah implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MainTabActivity f1101a;
-
-    private ah(MainTabActivity mainTabActivity) {
-        this.f1101a = mainTabActivity;
-    }
+    final /* synthetic */ LogoActivity f1104a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ah(MainTabActivity mainTabActivity, af afVar) {
-        this(mainTabActivity);
+    public ah(LogoActivity logoActivity) {
+        this.f1104a = logoActivity;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
-        if (action.equals("com.baidu.tieba.broadcast.notify")) {
-            this.f1101a.h = intent.getLongExtra("relay", 0L);
-            this.f1101a.i = intent.getLongExtra("at_me", 0L);
-            this.f1101a.j = intent.getLongExtra("fans", 0L);
-            this.f1101a.k = intent.getLongExtra("pletter", 0L);
-            this.f1101a.l = intent.getLongExtra("new_bookmark", 0L);
-            this.f1101a.p();
-        } else if (action.equals("com.baidu.tieba.broadcast.newversion")) {
-            this.f1101a.q();
-        } else if (action.equals("com.baidu.tieba.broadcast.newrecommends")) {
-            this.f1101a.e();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        this.f1104a.releaseResouce();
+        this.f1104a.a(this.f1104a.getBaseContext());
     }
 }

@@ -13,7 +13,7 @@ import com.slidingmenu.lib.R;
 public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2547a;
+    private Context f2530a;
     private TextView b;
     private ProgressBar c;
     private View.OnClickListener d;
@@ -30,7 +30,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     }
 
     public PbListView(Context context) {
-        this.f2547a = null;
+        this.f2530a = null;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -39,7 +39,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         this.g = null;
         this.h = 0;
         this.i = IconType.ICON_DOWN_WARD;
-        this.f2547a = context;
+        this.f2530a = context;
     }
 
     public PbListView(Context context, IconType iconType) {
@@ -49,7 +49,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public View a() {
-        this.e = LayoutInflater.from(this.f2547a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        this.e = LayoutInflater.from(this.f2530a).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
         this.g = (LinearLayout) this.e.findViewById(R.id.pb_more_view);
         this.b = (TextView) this.e.findViewById(R.id.pb_more_text);
         this.c = (ProgressBar) this.e.findViewById(R.id.progress);
@@ -58,8 +58,8 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
 
     public void c() {
         this.c.setVisibility(0);
-        this.b.setText(this.f2547a.getText(R.string.loading));
-        b(TiebaApplication.g().ap());
+        this.b.setText(this.f2530a.getText(R.string.loading));
+        d(TiebaApplication.g().ap());
     }
 
     public void d() {
@@ -67,19 +67,29 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         if (this.f != null) {
             this.b.setText(this.f);
         } else {
-            this.b.setText(this.f2547a.getText(R.string.pb_load_more));
+            this.b.setText(this.f2530a.getText(R.string.pb_load_more));
         }
-        b(TiebaApplication.g().ap());
+        d(TiebaApplication.g().ap());
+    }
+
+    public void a(int i) {
+        this.g.setBackgroundResource(i);
+    }
+
+    public void b(int i) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.g.getLayoutParams());
+        layoutParams.height = i;
+        this.g.setLayoutParams(layoutParams);
     }
 
     public void a(String str) {
         this.f = str;
         this.b.setText(str);
-        b(TiebaApplication.g().ap());
+        d(TiebaApplication.g().ap());
     }
 
-    public void a(int i) {
-        this.b.setTextColor(this.f2547a.getResources().getColor(i));
+    public void c(int i) {
+        this.b.setTextColor(this.f2530a.getResources().getColor(i));
     }
 
     public void a(View.OnClickListener onClickListener) {
@@ -93,23 +103,23 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         }
     }
 
-    public void b(int i) {
+    public void d(int i) {
         String charSequence = this.b.getText().toString();
         if (this.e != null && charSequence != null) {
             if (i == 1) {
-                if (charSequence.equals(this.f2547a.getText(R.string.pb_load_more))) {
-                    a(R.color.pb_more_txt_1);
-                } else if (charSequence.equals(this.f2547a.getText(R.string.loading))) {
-                    a(R.color.pb_more_txt_1);
-                } else if (charSequence.equals(this.f2547a.getText(R.string.no_more_to_load))) {
-                    a(R.color.pb_list_morebutton_nomore_text_1);
+                if (charSequence.equals(this.f2530a.getText(R.string.pb_load_more))) {
+                    c(R.color.pb_more_txt_1);
+                } else if (charSequence.equals(this.f2530a.getText(R.string.loading))) {
+                    c(R.color.pb_more_txt_1);
+                } else if (charSequence.equals(this.f2530a.getText(R.string.no_more_to_load))) {
+                    c(R.color.pb_list_morebutton_nomore_text_1);
                 }
-            } else if (charSequence.equals(this.f2547a.getText(R.string.pb_load_more))) {
-                a(R.color.pb_more_txt);
-            } else if (charSequence.equals(this.f2547a.getText(R.string.loading))) {
-                a(R.color.pb_more_txt);
-            } else if (charSequence.equals(this.f2547a.getText(R.string.no_more_to_load))) {
-                a(R.color.pb_list_morebutton_nomore_text);
+            } else if (charSequence.equals(this.f2530a.getText(R.string.pb_load_more))) {
+                c(R.color.pb_more_txt);
+            } else if (charSequence.equals(this.f2530a.getText(R.string.loading))) {
+                c(R.color.pb_more_txt);
+            } else if (charSequence.equals(this.f2530a.getText(R.string.no_more_to_load))) {
+                c(R.color.pb_list_morebutton_nomore_text);
             }
         }
     }

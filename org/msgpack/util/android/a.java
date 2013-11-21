@@ -3,18 +3,18 @@ package org.msgpack.util.android;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f2982a;
+    private static final boolean f2966a;
 
     static {
         try {
-            f2982a = System.getProperty("java.vm.name").equals("Dalvik");
+            f2966a = System.getProperty("java.vm.name").equals("Dalvik");
         } catch (Throwable th) {
-            f2982a = false;
+            f2966a = false;
             throw th;
         }
     }
 
     public static boolean a() {
-        return f2982a;
+        return f2966a;
     }
 }

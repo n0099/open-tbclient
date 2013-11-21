@@ -9,13 +9,13 @@ import com.baidu.tieba.util.UtilHelper;
 public class m implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.baidu.tieba.data.p f2316a;
+    final /* synthetic */ com.baidu.tieba.data.p f2301a;
     final /* synthetic */ h b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(h hVar, com.baidu.tieba.data.p pVar) {
         this.b = hVar;
-        this.f2316a = pVar;
+        this.f2301a = pVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,6 +25,6 @@ public class m implements View.OnClickListener {
         activity = this.b.i;
         StatService.onEvent(activity, "recommend_to_pb", "click");
         activity2 = this.b.i;
-        UtilHelper.a(activity2, this.f2316a.a(), null, null);
+        UtilHelper.a(activity2, this.f2301a.a(), null, null);
     }
 }

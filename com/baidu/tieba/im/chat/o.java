@@ -6,11 +6,11 @@ import com.baidu.tieba.im.SingleRunnable;
 class o extends SingleRunnable<Void> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ GroupSettingActivity f1557a;
+    final /* synthetic */ GroupSettingActivity f1548a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(GroupSettingActivity groupSettingActivity) {
-        this.f1557a = groupSettingActivity;
+        this.f1548a = groupSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,10 +20,10 @@ class o extends SingleRunnable<Void> {
         s sVar;
         s sVar2;
         String A = TiebaApplication.A();
-        sVar = this.f1557a.b;
+        sVar = this.f1548a.b;
         com.baidu.tieba.im.groupInfo.v.a(A, sVar.c(), false);
         String A2 = TiebaApplication.A();
-        sVar2 = this.f1557a.b;
+        sVar2 = this.f1548a.b;
         com.baidu.tieba.im.groupInfo.v.c(A2, sVar2.c(), false);
         return null;
     }

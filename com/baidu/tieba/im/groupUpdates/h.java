@@ -6,11 +6,11 @@ import android.view.View;
 public class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f1713a;
+    final /* synthetic */ f f1704a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.f1713a = fVar;
+        this.f1704a = fVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,9 +18,9 @@ public class h implements View.OnClickListener {
         UpdatesActivity updatesActivity;
         View view2;
         UpdatesItemData updatesItemData;
-        updatesActivity = this.f1713a.l;
-        view2 = this.f1713a.c;
-        updatesItemData = this.f1713a.m;
+        updatesActivity = this.f1704a.l;
+        view2 = this.f1704a.c;
+        updatesItemData = this.f1704a.m;
         updatesActivity.a(view2, 101, 0, 0L, updatesItemData);
     }
 }

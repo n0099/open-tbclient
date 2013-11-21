@@ -11,7 +11,7 @@ import com.slidingmenu.lib.R;
 public class aa extends com.baidu.adp.a.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private MembersActivity f1643a;
+    private MembersActivity f1634a;
     private w c;
     private Button d;
     private NavigationBar e;
@@ -26,7 +26,7 @@ public class aa extends com.baidu.adp.a.e {
 
     public aa(MembersActivity membersActivity) {
         super(membersActivity);
-        this.f1643a = membersActivity;
+        this.f1634a = membersActivity;
         membersActivity.setContentView(R.layout.im_members_activity);
         a(membersActivity);
         b(membersActivity);
@@ -34,17 +34,17 @@ public class aa extends com.baidu.adp.a.e {
     }
 
     private void a(MembersActivity membersActivity) {
-        this.e = (NavigationBar) this.f1643a.findViewById(R.id.view_navigation_bar);
-        this.e.a(this.f1643a.getString(R.string.members_title));
+        this.e = (NavigationBar) this.f1634a.findViewById(R.id.view_navigation_bar);
+        this.e.a(this.f1634a.getString(R.string.members_title));
         this.e.a(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new ab(this));
-        this.d = this.e.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1643a.getString(R.string.members_order));
+        this.d = this.e.b(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.f1634a.getString(R.string.members_order));
         this.d.setOnClickListener(membersActivity);
     }
 
     private void b(MembersActivity membersActivity) {
         this.f = (BdListView) membersActivity.findViewById(R.id.members_list);
         this.g = (InitGuideView) membersActivity.findViewById(R.id.members_guide);
-        this.c = new w(this.f1643a);
+        this.c = new w(this.f1634a);
         this.f.setAdapter((ListAdapter) this.c);
     }
 
@@ -79,7 +79,7 @@ public class aa extends com.baidu.adp.a.e {
     }
 
     public void b(int i) {
-        this.l.setText(this.f1643a.getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
+        this.l.setText(this.f1634a.getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 
     public void b(boolean z) {
@@ -127,7 +127,7 @@ public class aa extends com.baidu.adp.a.e {
     }
 
     public void c(int i) {
-        this.d.setText(this.f1643a.getResources().getStringArray(R.array.members_order_by_short)[i]);
+        this.d.setText(this.f1634a.getResources().getStringArray(R.array.members_order_by_short)[i]);
     }
 
     public BdListView l() {

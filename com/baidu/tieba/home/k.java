@@ -8,11 +8,11 @@ import android.widget.ListView;
 public class k implements View.OnKeyListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1455a;
+    final /* synthetic */ EnterForumActivity f1446a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(EnterForumActivity enterForumActivity) {
-        this.f1455a = enterForumActivity;
+        this.f1446a = enterForumActivity;
     }
 
     @Override // android.view.View.OnKeyListener

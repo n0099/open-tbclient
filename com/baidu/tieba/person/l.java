@@ -6,16 +6,16 @@ import android.view.View;
 public class l implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditHeadActivity f2254a;
+    final /* synthetic */ EditHeadActivity f2239a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(EditHeadActivity editHeadActivity) {
-        this.f2254a = editHeadActivity;
+        this.f2239a = editHeadActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.f2254a.setResult(0);
-        this.f2254a.finish();
+        this.f2239a.setResult(0);
+        this.f2239a.finish();
     }
 }

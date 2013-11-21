@@ -23,7 +23,7 @@ public class c {
     private static c m;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2832a;
+    public boolean f2816a;
     protected e d;
     protected c e;
     protected Hashtable f;
@@ -47,7 +47,7 @@ public class c {
     }
 
     public c(c cVar) {
-        this.f2832a = false;
+        this.f2816a = false;
         this.k = null;
         this.f = new Hashtable(191);
         this.d = new e();
@@ -142,13 +142,13 @@ public class c {
         if (z) {
             a2 = a(str);
         }
-        if (this.f2832a || this.e == null || (a2 = this.e.a(str, z)) == null) {
+        if (this.f2816a || this.e == null || (a2 = this.e.a(str, z)) == null) {
             a2 = b(str, z);
             if (a2 != null) {
                 if (z) {
                     a(a2.n(), a2, false);
                 }
-            } else if (this.f2832a && this.e != null) {
+            } else if (this.f2816a && this.e != null) {
                 a2 = this.e.a(str, z);
             }
         }
@@ -179,7 +179,7 @@ public class c {
     void e(String str) {
         h a2 = a(str);
         if (a2 == null) {
-            if (!this.f2832a && this.e != null) {
+            if (!this.f2816a && this.e != null) {
                 try {
                     a2 = this.e.a(str, true);
                 } catch (NotFoundException e) {

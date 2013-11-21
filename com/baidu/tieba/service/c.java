@@ -16,11 +16,11 @@ import java.util.Iterator;
 class c extends BdAsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ DealIntentService f2340a;
+    final /* synthetic */ DealIntentService f2325a;
     private Intent b;
 
     public c(DealIntentService dealIntentService, Intent intent) {
-        this.f2340a = dealIntentService;
+        this.f2325a = dealIntentService;
         this.b = null;
         this.b = intent;
     }
@@ -47,7 +47,7 @@ class c extends BdAsyncTask<String, Integer, String> {
             while (true) {
                 if (it.hasNext()) {
                     ActivityManager.RunningTaskInfo next = it.next();
-                    if (next.baseActivity.getClassName().startsWith(this.f2340a.getPackageName())) {
+                    if (next.baseActivity.getClassName().startsWith(this.f2325a.getPackageName())) {
                         if (5 == this.b.getIntExtra("class", -1)) {
                             if (!next.topActivity.getClassName().equalsIgnoreCase(MainTabActivity.class.getName())) {
                                 this.b.putExtra("class", 11);
@@ -56,13 +56,13 @@ class c extends BdAsyncTask<String, Integer, String> {
                             this.b.putExtra("class", 12);
                         }
                         this.b.addFlags(268435456);
-                        UtilHelper.a(this.f2340a.getBaseContext(), this.b);
+                        UtilHelper.a(this.f2325a.getBaseContext(), this.b);
                     }
                 } else {
                     if (this.b.getExtras().getBoolean("is_notify", false)) {
                         a(i);
                     }
-                    LogoActivity.a(this.f2340a, this.b);
+                    LogoActivity.a(this.f2325a, this.b);
                 }
             }
         }
@@ -98,13 +98,13 @@ class c extends BdAsyncTask<String, Integer, String> {
     private void b(int i) {
         switch (i) {
             case 6:
-                StatService.onEvent(this.f2340a.getBaseContext(), "notify_to_pk_before", "click");
+                StatService.onEvent(this.f2325a.getBaseContext(), "notify_to_pk_before", "click");
                 return;
             case 7:
-                StatService.onEvent(this.f2340a.getBaseContext(), "notify_to_pk_end", "click");
+                StatService.onEvent(this.f2325a.getBaseContext(), "notify_to_pk_end", "click");
                 return;
             case 8:
-                StatService.onEvent(this.f2340a.getBaseContext(), "notify_to_vote_list", "click");
+                StatService.onEvent(this.f2325a.getBaseContext(), "notify_to_vote_list", "click");
                 return;
             default:
                 return;
@@ -120,6 +120,6 @@ class c extends BdAsyncTask<String, Integer, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void a(String str) {
-        this.f2340a.stopSelf();
+        this.f2325a.stopSelf();
     }
 }

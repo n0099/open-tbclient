@@ -3,18 +3,18 @@ package com.baidu.tieba.recommend;
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2304a;
+    public String f2289a;
     public String b;
 
     public ad(String str, String str2) {
-        this.f2304a = "";
+        this.f2289a = "";
         this.b = "";
-        this.f2304a = str;
+        this.f2289a = str;
         this.b = str2;
     }
 
     public int hashCode() {
-        return (((this.f2304a == null ? 0 : this.f2304a.hashCode()) + 31) * 31) + (this.b != null ? this.b.hashCode() : 0);
+        return (((this.f2289a == null ? 0 : this.f2289a.hashCode()) + 31) * 31) + (this.b != null ? this.b.hashCode() : 0);
     }
 
     public boolean equals(Object obj) {
@@ -23,11 +23,11 @@ public class ad {
         }
         if (obj != null && getClass() == obj.getClass()) {
             ad adVar = (ad) obj;
-            if (this.f2304a == null) {
-                if (adVar.f2304a != null) {
+            if (this.f2289a == null) {
+                if (adVar.f2289a != null) {
                     return false;
                 }
-            } else if (!this.f2304a.equals(adVar.f2304a)) {
+            } else if (!this.f2289a.equals(adVar.f2289a)) {
                 return false;
             }
             return this.b == null ? adVar.b == null : this.b.equals(adVar.b);

@@ -4,19 +4,19 @@ package com.baidu.tieba.home;
 public class l implements com.baidu.adp.widget.ListView.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EnterForumActivity f1456a;
+    final /* synthetic */ EnterForumActivity f1447a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(EnterForumActivity enterForumActivity) {
-        this.f1456a = enterForumActivity;
+        this.f1447a = enterForumActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.b
     public void a(boolean z) {
         com.baidu.tieba.model.t tVar;
         Boolean bool;
-        tVar = this.f1456a.e;
-        bool = this.f1456a.h;
+        tVar = this.f1447a.e;
+        bool = this.f1447a.h;
         if (tVar.a(bool.booleanValue())) {
         }
     }

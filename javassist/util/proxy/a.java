@@ -14,7 +14,7 @@ import javassist.CannotCompileException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Class[] f2870a;
+    public static final Class[] f2854a;
     public static final String[] b;
     public static final String[] c;
     public static final String[] d;
@@ -28,7 +28,7 @@ public class a {
             Class<?> cls = Class.forName("java.lang.ClassLoader");
             g = m.a(cls, "defineClass", new Class[]{String.class, byte[].class, Integer.TYPE, Integer.TYPE});
             h = m.a(cls, "defineClass", new Class[]{String.class, byte[].class, Integer.TYPE, Integer.TYPE, ProtectionDomain.class});
-            f2870a = new Class[]{Boolean.TYPE, Byte.TYPE, Character.TYPE, Short.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE, Void.TYPE};
+            f2854a = new Class[]{Boolean.TYPE, Byte.TYPE, Character.TYPE, Short.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE, Void.TYPE};
             b = new String[]{"java.lang.Boolean", "java.lang.Byte", "java.lang.Character", "java.lang.Short", "java.lang.Integer", "java.lang.Long", "java.lang.Float", "java.lang.Double", "java.lang.Void"};
             c = new String[]{"(Z)V", "(B)V", "(C)V", "(S)V", "(I)V", "(J)V", "(F)V", "(D)V"};
             d = new String[]{"booleanValue", "byteValue", "charValue", "shortValue", "intValue", "longValue", "floatValue", "doubleValue"};
@@ -40,7 +40,7 @@ public class a {
     }
 
     public static final int a(Class cls) {
-        Class[] clsArr = f2870a;
+        Class[] clsArr = f2854a;
         int length = clsArr.length;
         for (int i = 0; i < length; i++) {
             if (clsArr[i] == cls) {

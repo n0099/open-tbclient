@@ -6,7 +6,7 @@ import android.text.TextUtils;
 public final class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f806a;
+    public String f807a;
     public String b;
 
     public a(long j, String str, String str2) {
@@ -16,7 +16,7 @@ public final class a extends c {
             return;
         }
         try {
-            this.f806a = com.baidu.android.systemmonitor.security.a.a(str);
+            this.f807a = com.baidu.android.systemmonitor.security.a.a(str);
             this.b = com.baidu.android.systemmonitor.security.a.a(str2);
         } catch (Exception e) {
         }
@@ -36,12 +36,12 @@ public final class a extends c {
             string = "";
             string2 = "";
         }
-        this.f806a = string;
+        this.f807a = string;
         this.b = string2;
     }
 
     @Override // com.baidu.android.systemmonitor.devicestatistic.a.c
     public String toString() {
-        return "ApkDownloadEvent : downloadPath =" + this.f806a + " apkName = " + this.b + " StartStamp = " + this.g;
+        return "ApkDownloadEvent : downloadPath =" + this.f807a + " apkName = " + this.b + " StartStamp = " + this.g;
     }
 }

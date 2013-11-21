@@ -10,10 +10,10 @@ import com.baidu.tieba.view.HeadImageView;
 public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonChangeActivity f2229a;
+    final /* synthetic */ PersonChangeActivity f2214a;
 
     private ax(PersonChangeActivity personChangeActivity) {
-        this.f2229a = personChangeActivity;
+        this.f2214a = personChangeActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,13 +27,13 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
         ProgressBar progressBar;
         TextView textView;
         HeadImageView headImageView;
-        progressBar = this.f2229a.C;
+        progressBar = this.f2214a.C;
         progressBar.setVisibility(0);
-        textView = this.f2229a.g;
+        textView = this.f2214a.g;
         textView.setEnabled(false);
-        headImageView = this.f2229a.d;
+        headImageView = this.f2214a.d;
         headImageView.setImageBitmap(null);
-        this.f2229a.z = null;
+        this.f2214a.z = null;
         super.b();
     }
 
@@ -42,17 +42,17 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public Bitmap a(Object... objArr) {
-        return com.baidu.tieba.util.af.c(null, "tieba_head_image");
+        return com.baidu.tieba.util.af.d(null, "tieba_head_image");
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         TextView textView;
-        this.f2229a.A = null;
-        progressBar = this.f2229a.C;
+        this.f2214a.A = null;
+        progressBar = this.f2214a.C;
         progressBar.setVisibility(8);
-        textView = this.f2229a.g;
+        textView = this.f2214a.g;
         textView.setEnabled(true);
         super.cancel(true);
     }
@@ -72,15 +72,15 @@ public class ax extends BdAsyncTask<Object, Integer, Bitmap> {
         com.baidu.adp.widget.ImageView.e eVar;
         HeadImageView headImageView;
         super.a((ax) bitmap);
-        this.f2229a.A = null;
-        textView = this.f2229a.g;
+        this.f2214a.A = null;
+        textView = this.f2214a.g;
         textView.setEnabled(true);
-        progressBar = this.f2229a.C;
+        progressBar = this.f2214a.C;
         progressBar.setVisibility(8);
         if (bitmap != null) {
-            this.f2229a.z = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
-            eVar = this.f2229a.z;
-            headImageView = this.f2229a.d;
+            this.f2214a.z = new com.baidu.adp.widget.ImageView.e(bitmap, false, null);
+            eVar = this.f2214a.z;
+            headImageView = this.f2214a.d;
             eVar.a(headImageView);
         }
     }

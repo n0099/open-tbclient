@@ -5,24 +5,24 @@ import com.baidu.tieba.view.bx;
 class av implements bx {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FrsImageActivity f1321a;
+    final /* synthetic */ FrsImageActivity f1326a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(FrsImageActivity frsImageActivity) {
-        this.f1321a = frsImageActivity;
+        this.f1326a = frsImageActivity;
     }
 
     @Override // com.baidu.tieba.view.bx
     public void a() {
         int i;
-        FrsImageActivity frsImageActivity = this.f1321a;
-        i = this.f1321a.h;
+        FrsImageActivity frsImageActivity = this.f1326a;
+        i = this.f1326a.h;
         frsImageActivity.d(i);
     }
 
     @Override // com.baidu.tieba.view.bx
     public void b() {
-        this.f1321a.f();
+        this.f1326a.f();
     }
 
     @Override // com.baidu.tieba.view.bx
@@ -31,6 +31,6 @@ class av implements bx {
 
     @Override // com.baidu.tieba.view.bx
     public void d() {
-        this.f1321a.f();
+        this.f1326a.f();
     }
 }

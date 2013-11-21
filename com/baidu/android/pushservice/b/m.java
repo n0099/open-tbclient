@@ -21,7 +21,7 @@ import java.util.Enumeration;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static double f699a = 0.5d;
+    public static double f700a = 0.5d;
     public static double b = 0.2d;
     public static double c = 0.2d;
     public static double d = 0.1d;
@@ -52,16 +52,16 @@ public class m {
             return null;
         }
         n nVar = new n();
-        nVar.f700a = 0;
+        nVar.f701a = 0;
         nVar.c = 0;
         nVar.b = 1;
         nVar.d = 0.0d;
         if (str.contains("ARMv5")) {
-            nVar.f700a = 1;
+            nVar.f701a = 1;
         } else if (str.contains("ARMv6")) {
-            nVar.f700a = 16;
+            nVar.f701a = 16;
         } else if (str.contains("ARMv7")) {
-            nVar.f700a = 256;
+            nVar.f701a = 256;
         }
         if (str.contains("neon")) {
             nVar.c |= 256;
@@ -175,7 +175,7 @@ public class m {
 
     public static String c() {
         n a2 = a();
-        return (a2.f700a & 1) == 1 ? "armv5" : (a2.f700a & 16) == 16 ? "armv6" : (a2.f700a & 256) == 256 ? "armv7" : "unknown";
+        return (a2.f701a & 1) == 1 ? "armv5" : (a2.f701a & 16) == 16 ? "armv6" : (a2.f701a & 256) == 256 ? "armv7" : "unknown";
     }
 
     public static boolean c(Context context) {

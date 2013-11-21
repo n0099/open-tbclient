@@ -4,11 +4,11 @@ package com.baidu.android.pushservice;
 public class m implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PushSDK f717a;
+    final /* synthetic */ PushSDK f718a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PushSDK pushSDK) {
-        this.f717a = pushSDK;
+        this.f718a = pushSDK;
     }
 
     @Override // java.lang.Runnable

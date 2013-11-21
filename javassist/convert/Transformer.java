@@ -10,12 +10,12 @@ import javassist.h;
 public abstract class Transformer implements as {
 
     /* renamed from: a  reason: collision with root package name */
-    private Transformer f2852a;
+    private Transformer f2836a;
 
     public abstract int a(h hVar, int i, CodeIterator codeIterator, y yVar);
 
     public Transformer c() {
-        return this.f2852a;
+        return this.f2836a;
     }
 
     public void a(y yVar, CodeAttribute codeAttribute) {

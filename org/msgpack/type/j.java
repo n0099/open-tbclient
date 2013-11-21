@@ -8,11 +8,11 @@ import java.util.Set;
 public class j extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f2960a = new j(new r[0], true);
+    private static j f2944a = new j(new r[0], true);
     private r[] b;
 
     public static MapValue b() {
-        return f2960a;
+        return f2944a;
     }
 
     @Override // org.msgpack.type.MapValue

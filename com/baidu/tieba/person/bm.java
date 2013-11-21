@@ -11,10 +11,10 @@ import com.slidingmenu.lib.R;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.tieba.data.aq> {
+public class bm extends BdAsyncTask<String, com.baidu.tieba.data.ap, com.baidu.tieba.data.ap> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ PersonListActivity f2243a;
+    final /* synthetic */ PersonListActivity f2228a;
     private String b;
     private boolean c;
     private int d;
@@ -22,7 +22,7 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
     private boolean f;
 
     public bm(PersonListActivity personListActivity, String str, boolean z, int i, boolean z2) {
-        this.f2243a = personListActivity;
+        this.f2228a = personListActivity;
         this.f = false;
         this.b = str;
         this.c = z;
@@ -31,7 +31,7 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
     }
 
     public bm(PersonListActivity personListActivity, String str, boolean z, int i) {
-        this.f2243a = personListActivity;
+        this.f2228a = personListActivity;
         this.f = false;
         this.b = str;
         this.c = z;
@@ -48,41 +48,41 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
         if (this.e != null) {
             this.e.h();
         }
-        bnVar = this.f2243a.e;
+        bnVar = this.f2228a.e;
         if (bnVar != null) {
-            bnVar2 = this.f2243a.e;
+            bnVar2 = this.f2228a.e;
             bnVar2.b(false);
-            bnVar3 = this.f2243a.e;
+            bnVar3 = this.f2228a.e;
             bnVar3.notifyDataSetChanged();
         }
-        progressBar = this.f2243a.d;
+        progressBar = this.f2228a.d;
         progressBar.setVisibility(8);
-        this.f2243a.g = null;
+        this.f2228a.g = null;
         super.cancel(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public com.baidu.tieba.data.aq a(String... strArr) {
+    public com.baidu.tieba.data.ap a(String... strArr) {
         cb cbVar;
         cb cbVar2;
         cb cbVar3;
         cb cbVar4;
         this.e = new com.baidu.tieba.util.ap();
-        com.baidu.tieba.data.aq aqVar = null;
+        com.baidu.tieba.data.ap apVar = null;
         if (this.f) {
-            cbVar3 = this.f2243a.h;
+            cbVar3 = this.f2228a.h;
             if (cbVar3 != null) {
-                cbVar4 = this.f2243a.h;
-                c((Object[]) new com.baidu.tieba.data.aq[]{cbVar4.b(this.c)});
+                cbVar4 = this.f2228a.h;
+                c((Object[]) new com.baidu.tieba.data.ap[]{cbVar4.b(this.c)});
             }
         }
         this.f = false;
         if (this.c) {
-            this.e.a(com.baidu.tieba.data.h.f1196a + "c/u/follow/page");
+            this.e.a(com.baidu.tieba.data.h.f1201a + "c/u/follow/page");
         } else {
-            this.e.a(com.baidu.tieba.data.h.f1196a + "c/u/fans/page");
+            this.e.a(com.baidu.tieba.data.h.f1201a + "c/u/fans/page");
         }
         if (this.b != null && !this.b.equals(TiebaApplication.A())) {
             this.e.a("uid", this.b);
@@ -92,33 +92,33 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
         }
         String j = this.e.j();
         if (this.e.c()) {
-            aqVar = new com.baidu.tieba.data.aq();
-            aqVar.a(j);
-            if (aqVar.a().d() == 1) {
-                cbVar = this.f2243a.h;
+            apVar = new com.baidu.tieba.data.ap();
+            apVar.a(j);
+            if (apVar.a().d() == 1) {
+                cbVar = this.f2228a.h;
                 if (cbVar != null) {
-                    cbVar2 = this.f2243a.h;
+                    cbVar2 = this.f2228a.h;
                     cbVar2.a(j, this.c);
                 }
             }
         }
-        return aqVar;
+        return apVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: a */
-    public void b(com.baidu.tieba.data.aq... aqVarArr) {
+    public void b(com.baidu.tieba.data.ap... apVarArr) {
         ProgressBar progressBar;
         ArrayList<UserData> b;
-        super.b((Object[]) aqVarArr);
-        if (aqVarArr.length >= 1) {
-            com.baidu.tieba.data.aq aqVar = aqVarArr[0];
-            if (aqVar != null && (b = aqVar.b()) != null && b.size() > 0) {
-                a(aqVar, true);
+        super.b((Object[]) apVarArr);
+        if (apVarArr.length >= 1) {
+            com.baidu.tieba.data.ap apVar = apVarArr[0];
+            if (apVar != null && (b = apVar.b()) != null && b.size() > 0) {
+                a(apVar, true);
             }
-            progressBar = this.f2243a.d;
+            progressBar = this.f2228a.d;
             progressBar.setVisibility(0);
         }
     }
@@ -126,19 +126,19 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void a(com.baidu.tieba.data.aq aqVar) {
+    public void a(com.baidu.tieba.data.ap apVar) {
         ProgressBar progressBar;
-        progressBar = this.f2243a.d;
+        progressBar = this.f2228a.d;
         progressBar.setVisibility(8);
-        this.f2243a.g = null;
+        this.f2228a.g = null;
         if (this.e != null) {
             if (this.e.c()) {
-                a(aqVar, false);
+                a(apVar, false);
             } else {
-                a(aqVar, true);
-                this.f2243a.showToast(this.e.g());
+                a(apVar, true);
+                this.f2228a.showToast(this.e.g());
             }
-            super.a((bm) aqVar);
+            super.a((bm) apVar);
         }
     }
 
@@ -148,54 +148,54 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void a(com.baidu.tieba.data.aq aqVar, boolean z) {
+    private synchronized void a(com.baidu.tieba.data.ap apVar, boolean z) {
         cb cbVar;
-        com.baidu.tieba.data.aq aqVar2;
-        com.baidu.tieba.data.aq aqVar3;
-        com.baidu.tieba.data.aq aqVar4;
-        com.baidu.tieba.data.aq aqVar5;
-        com.baidu.tieba.data.aq aqVar6;
+        com.baidu.tieba.data.ap apVar2;
+        com.baidu.tieba.data.ap apVar3;
+        com.baidu.tieba.data.ap apVar4;
+        com.baidu.tieba.data.ap apVar5;
+        com.baidu.tieba.data.ap apVar6;
         cb cbVar2;
-        cbVar = this.f2243a.h;
+        cbVar = this.f2228a.h;
         if (cbVar != null) {
-            if (aqVar == null) {
-                aqVar2 = this.f2243a.m;
-                if (aqVar2 != null) {
-                    aqVar4 = this.f2243a.m;
-                    if (aqVar4.b() != null) {
-                        aqVar5 = this.f2243a.m;
+            if (apVar == null) {
+                apVar2 = this.f2228a.m;
+                if (apVar2 != null) {
+                    apVar4 = this.f2228a.m;
+                    if (apVar4.b() != null) {
+                        apVar5 = this.f2228a.m;
                     }
                 }
-                aqVar3 = this.f2243a.m;
-                d(aqVar3);
+                apVar3 = this.f2228a.m;
+                d(apVar3);
             } else {
                 if (z) {
-                    aqVar6 = aqVar;
+                    apVar6 = apVar;
                 } else {
-                    b(aqVar);
-                    cbVar2 = this.f2243a.h;
-                    aqVar6 = cbVar2.d();
+                    b(apVar);
+                    cbVar2 = this.f2228a.h;
+                    apVar6 = cbVar2.d();
                 }
-                this.f2243a.m = aqVar6;
-                d(aqVar6);
+                this.f2228a.m = apVar6;
+                d(apVar6);
                 if (!this.c) {
                     com.baidu.tieba.mention.t.a().c(0L);
                 }
-                c(aqVar);
+                c(apVar);
             }
         }
     }
 
-    private void b(com.baidu.tieba.data.aq aqVar) {
+    private void b(com.baidu.tieba.data.ap apVar) {
         cb cbVar;
         cb cbVar2;
-        cbVar = this.f2243a.h;
-        cbVar.d().b().addAll(aqVar.b());
-        cbVar2 = this.f2243a.h;
-        cbVar2.d().a(aqVar.a());
+        cbVar = this.f2228a.h;
+        cbVar.d().b().addAll(apVar.b());
+        cbVar2 = this.f2228a.h;
+        cbVar2.d().a(apVar.a());
     }
 
-    private void c(com.baidu.tieba.data.aq aqVar) {
+    private void c(com.baidu.tieba.data.ap apVar) {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         LinearLayout linearLayout3;
@@ -211,64 +211,64 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
         String string3;
         cb cbVar4;
         if (this.d == 0) {
-            if (aqVar.a().c() > 0) {
-                linearLayout2 = this.f2243a.c;
+            if (apVar.a().c() > 0) {
+                linearLayout2 = this.f2228a.c;
                 linearLayout2.setVisibility(0);
-                linearLayout3 = this.f2243a.c;
+                linearLayout3 = this.f2228a.c;
                 TextView textView = (TextView) linearLayout3.findViewById(R.id.person_num);
                 if (this.c) {
-                    cbVar3 = this.f2243a.h;
+                    cbVar3 = this.f2228a.h;
                     if (cbVar3.a() != null) {
-                        cbVar4 = this.f2243a.h;
+                        cbVar4 = this.f2228a.h;
                         if (cbVar4.a().equals(TiebaApplication.A())) {
-                            string = this.f2243a.getString(R.string.my_attention_prefix);
-                            string2 = this.f2243a.getString(R.string.person);
+                            string = this.f2228a.getString(R.string.my_attention_prefix);
+                            string2 = this.f2228a.getString(R.string.person);
                         }
                     }
-                    i3 = this.f2243a.l;
+                    i3 = this.f2228a.l;
                     if (i3 != 2) {
-                        i4 = this.f2243a.l;
+                        i4 = this.f2228a.l;
                         if (i4 == 1) {
-                            string3 = this.f2243a.getString(R.string.he_attention_prefix);
+                            string3 = this.f2228a.getString(R.string.he_attention_prefix);
                         } else {
-                            string3 = this.f2243a.getString(R.string.its_attention_prefix);
+                            string3 = this.f2228a.getString(R.string.its_attention_prefix);
                         }
                     } else {
-                        string3 = this.f2243a.getString(R.string.she_attention_prefix);
+                        string3 = this.f2228a.getString(R.string.she_attention_prefix);
                     }
                     string = string3;
-                    string2 = this.f2243a.getString(R.string.person);
+                    string2 = this.f2228a.getString(R.string.person);
                 } else {
-                    cbVar = this.f2243a.h;
+                    cbVar = this.f2228a.h;
                     if (cbVar.a() != null) {
-                        cbVar2 = this.f2243a.h;
+                        cbVar2 = this.f2228a.h;
                         if (cbVar2.a().equals(TiebaApplication.A())) {
-                            string = this.f2243a.getString(R.string.my_fans_prefix);
-                            string2 = this.f2243a.getString(R.string.my_fans_suffix);
+                            string = this.f2228a.getString(R.string.my_fans_prefix);
+                            string2 = this.f2228a.getString(R.string.my_fans_suffix);
                         }
                     }
-                    string = this.f2243a.getString(R.string.its_fans_prefix);
-                    i = this.f2243a.l;
+                    string = this.f2228a.getString(R.string.its_fans_prefix);
+                    i = this.f2228a.l;
                     if (i != 2) {
-                        i2 = this.f2243a.l;
+                        i2 = this.f2228a.l;
                         if (i2 == 1) {
-                            string2 = this.f2243a.getString(R.string.his_fans_suffix);
+                            string2 = this.f2228a.getString(R.string.his_fans_suffix);
                         } else {
-                            string2 = this.f2243a.getString(R.string.its_fans_suffix);
+                            string2 = this.f2228a.getString(R.string.its_fans_suffix);
                         }
                     } else {
-                        string2 = this.f2243a.getString(R.string.her_fans_suffix);
+                        string2 = this.f2228a.getString(R.string.her_fans_suffix);
                     }
                 }
-                textView.setText(string + String.valueOf(aqVar.a().c()) + string2);
+                textView.setText(string + String.valueOf(apVar.a().c()) + string2);
                 return;
             }
-            linearLayout = this.f2243a.c;
+            linearLayout = this.f2228a.c;
             linearLayout.setVisibility(8);
         }
     }
 
-    private void d(com.baidu.tieba.data.aq aqVar) {
+    private void d(com.baidu.tieba.data.ap apVar) {
         bn bnVar;
         bn bnVar2;
         bn bnVar3;
@@ -281,34 +281,34 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.aq, com.baidu.t
         bn bnVar10;
         bn bnVar11;
         boolean z = true;
-        bnVar = this.f2243a.e;
+        bnVar = this.f2228a.e;
         if (bnVar != null) {
-            if (aqVar == null) {
-                bnVar2 = this.f2243a.e;
+            if (apVar == null) {
+                bnVar2 = this.f2228a.e;
                 bnVar2.a(false);
-                bnVar3 = this.f2243a.e;
+                bnVar3 = this.f2228a.e;
                 bnVar3.a(new ArrayList<>());
-                bnVar4 = this.f2243a.e;
+                bnVar4 = this.f2228a.e;
                 bnVar4.b(false);
-                bnVar5 = this.f2243a.e;
+                bnVar5 = this.f2228a.e;
                 bnVar5.b();
-                bnVar6 = this.f2243a.e;
+                bnVar6 = this.f2228a.e;
                 bnVar6.notifyDataSetChanged();
                 return;
             }
-            com.baidu.tieba.data.an a2 = aqVar.a();
-            bnVar7 = this.f2243a.e;
+            com.baidu.tieba.data.am a2 = apVar.a();
+            bnVar7 = this.f2228a.e;
             if (a2 == null || a2.f() != 1) {
                 z = false;
             }
             bnVar7.a(z);
-            bnVar8 = this.f2243a.e;
-            bnVar8.a(aqVar.b());
-            bnVar9 = this.f2243a.e;
+            bnVar8 = this.f2228a.e;
+            bnVar8.a(apVar.b());
+            bnVar9 = this.f2228a.e;
             bnVar9.b(false);
-            bnVar10 = this.f2243a.e;
+            bnVar10 = this.f2228a.e;
             bnVar10.b();
-            bnVar11 = this.f2243a.e;
+            bnVar11 = this.f2228a.e;
             bnVar11.notifyDataSetChanged();
         }
     }

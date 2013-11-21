@@ -1,19 +1,31 @@
 package com.baidu.tieba.write;
 
-import android.graphics.Bitmap;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class az implements Runnable {
+public class az extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WriteImagePreview f2699a;
+    final /* synthetic */ WriteImageActivity f2682a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public az(WriteImagePreview writeImagePreview) {
-        this.f2699a = writeImagePreview;
+    private az(WriteImageActivity writeImageActivity) {
+        this.f2682a = writeImageActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.f2699a.a((Bitmap) null);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ az(WriteImageActivity writeImageActivity, ap apVar) {
+        this(writeImageActivity);
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.f2682a.releaseResouce();
+        if (intent.getBooleanExtra("result", false)) {
+            this.f2682a.c();
+        } else {
+            this.f2682a.showToast(intent.getStringExtra("error"));
+        }
     }
 }

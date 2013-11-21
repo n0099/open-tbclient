@@ -20,14 +20,15 @@ import java.util.Queue;
 public class SubPbLayout extends ViewGroup {
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnClickListener f2054a;
+    private View.OnClickListener f2037a;
     private View.OnLongClickListener b;
     private View.OnTouchListener c;
-    private by d;
-    private com.baidu.tieba.data.as e;
+    private ca d;
+    private com.baidu.tieba.data.ar e;
     private View f;
-    private Queue<dx> g;
+    private Queue<dz> g;
     private View h;
+    private ViewGroup.MarginLayoutParams i;
 
     public SubPbLayout(Context context) {
         this(context, null);
@@ -37,12 +38,13 @@ public class SubPbLayout extends ViewGroup {
         super(context, attributeSet);
         this.f = null;
         this.g = new LinkedList();
+        this.i = new ViewGroup.MarginLayoutParams(-1, -2);
         this.h = LayoutInflater.from(getContext()).inflate(R.layout.new_sub_pb_list_more, (ViewGroup) null);
         addView(this.h, -1, -2);
     }
 
     public void setChildOnClickListener(View.OnClickListener onClickListener) {
-        this.f2054a = onClickListener;
+        this.f2037a = onClickListener;
     }
 
     public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
@@ -53,12 +55,12 @@ public class SubPbLayout extends ViewGroup {
         this.c = onTouchListener;
     }
 
-    public void setSubPbAdapter(by byVar) {
-        this.d = byVar;
+    public void setSubPbAdapter(ca caVar) {
+        this.d = caVar;
     }
 
-    public void a(com.baidu.tieba.data.as asVar, View view) {
-        this.e = asVar;
+    public void a(com.baidu.tieba.data.ar arVar, View view) {
+        this.e = arVar;
         requestLayout();
         this.f = view;
     }
@@ -72,7 +74,7 @@ public class SubPbLayout extends ViewGroup {
             return;
         }
         int i3 = i & 1073741823;
-        ArrayList<com.baidu.tieba.data.as> a2 = this.e.a();
+        ArrayList<com.baidu.tieba.data.ar> a2 = this.e.a();
         int size = a2.size();
         int i4 = 0;
         int i5 = 0;
@@ -82,13 +84,13 @@ public class SubPbLayout extends ViewGroup {
             if (childAt == null || childAt.equals(this.h)) {
                 com.baidu.tieba.util.bg.e("SubPbLayout", "onMeasure", "Item View Created for position: " + i4);
                 View b = this.d.b();
-                this.g.offer(new dx(i4, b));
+                this.g.offer(new dz(i4, b));
                 z = true;
                 view = b;
             } else {
                 view = childAt;
             }
-            view.setOnClickListener(this.f2054a);
+            view.setOnClickListener(this.f2037a);
             view.setOnLongClickListener(this.b);
             view.setOnTouchListener(this.c);
             view.setClickable(true);
@@ -110,9 +112,9 @@ public class SubPbLayout extends ViewGroup {
                 sparseArray.put(R.id.tag_photo_username, a2.get(i4).g().getName());
                 sparseArray.put(R.id.tag_clip_board, a2.get(i4));
             }
-            bz bzVar = (bz) sparseArray.get(R.id.tag_holder);
+            cb cbVar = (cb) sparseArray.get(R.id.tag_holder);
             if (z) {
-                this.d.a(bzVar, a2.get(i4), this.e.j() > a2.size() || a2.size() - i4 > 1, i4 == 0);
+                this.d.a(cbVar, a2.get(i4), this.e.j() > a2.size() || a2.size() - i4 > 1, i4 == 0);
             }
             view.measure(((i3 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             i4++;
@@ -127,7 +129,7 @@ public class SubPbLayout extends ViewGroup {
             } else {
                 imageView.setBackgroundResource(R.drawable.icon_downward);
             }
-            this.h.setOnClickListener(this.f2054a);
+            this.h.setOnClickListener(this.f2037a);
             SparseArray sparseArray4 = (SparseArray) this.h.getTag();
             if (sparseArray4 == null) {
                 sparseArray4 = new SparseArray();
@@ -149,10 +151,10 @@ public class SubPbLayout extends ViewGroup {
         if (this.e != null) {
             int size = this.g.size();
             for (int i6 = 0; i6 < size; i6++) {
-                dx poll = this.g.poll();
+                dz poll = this.g.poll();
                 if (poll.b.getParent() == null) {
-                    com.baidu.tieba.util.bg.e("SubPbLayout", "onLayout", "add to position: " + poll.f2154a);
-                    addViewInLayout(poll.b, poll.f2154a, new ViewGroup.MarginLayoutParams(-1, -2), true);
+                    com.baidu.tieba.util.bg.e("SubPbLayout", "onLayout", "add to position: " + poll.f2139a);
+                    addViewInLayout(poll.b, poll.f2139a, this.i, true);
                 }
             }
             int paddingLeft = getPaddingLeft();

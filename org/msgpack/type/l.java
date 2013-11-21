@@ -10,7 +10,7 @@ class l implements Iterator<Map.Entry<r, r>> {
     private static final boolean c;
 
     /* renamed from: a  reason: collision with root package name */
-    private r[] f2962a;
+    private r[] f2946a;
     private int b = 0;
 
     static {
@@ -27,12 +27,12 @@ class l implements Iterator<Map.Entry<r, r>> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(r[] rVarArr) {
-        this.f2962a = rVarArr;
+        this.f2946a = rVarArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.b < this.f2962a.length;
+        return this.b < this.f2946a.length;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,11 +40,11 @@ class l implements Iterator<Map.Entry<r, r>> {
     /* renamed from: a */
     public Map.Entry<r, r> next() {
         Map.Entry<r, r> portedImmutableEntry;
-        if (this.b >= this.f2962a.length) {
+        if (this.b >= this.f2946a.length) {
             throw new NoSuchElementException();
         }
-        r rVar = this.f2962a[this.b];
-        r rVar2 = this.f2962a[this.b + 1];
+        r rVar = this.f2946a[this.b];
+        r rVar2 = this.f2946a[this.b + 1];
         if (c) {
             portedImmutableEntry = new AbstractMap.SimpleImmutableEntry<>(rVar, rVar2);
         } else {

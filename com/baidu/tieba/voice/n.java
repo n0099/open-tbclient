@@ -5,13 +5,13 @@ import android.widget.TextView;
 class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2631a;
+    final /* synthetic */ String f2614a;
     final /* synthetic */ RecordVoiceBnt b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(RecordVoiceBnt recordVoiceBnt, String str) {
         this.b = recordVoiceBnt;
-        this.f2631a = str;
+        this.f2614a = str;
     }
 
     @Override // java.lang.Runnable
@@ -21,6 +21,6 @@ class n implements Runnable {
         textView = this.b.u;
         textView.setVisibility(0);
         textView2 = this.b.u;
-        textView2.setText(this.f2631a);
+        textView2.setText(this.f2614a);
     }
 }

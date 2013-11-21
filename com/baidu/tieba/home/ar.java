@@ -7,17 +7,17 @@ import com.baidu.tieba.util.UtilHelper;
 public class ar implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1411a;
+    final /* synthetic */ SearchActivity f1402a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(SearchActivity searchActivity) {
-        this.f1411a = searchActivity;
+        this.f1402a = searchActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            UtilHelper.a(this.f1411a, view);
+            UtilHelper.a(this.f1402a, view);
         }
     }
 }

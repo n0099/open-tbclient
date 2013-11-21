@@ -15,7 +15,7 @@ public class ParameterAnnotationsAttribute extends e {
 
     @Override // javassist.bytecode.e
     public e a(y yVar, Map map) {
-        b bVar = new b(this.c, this.f2811a, yVar, map);
+        b bVar = new b(this.c, this.f2795a, yVar, map);
         try {
             bVar.d();
             return new ParameterAnnotationsAttribute(yVar, b(), bVar.a());
@@ -26,7 +26,7 @@ public class ParameterAnnotationsAttribute extends e {
 
     public javassist.bytecode.annotation.a[][] a() {
         try {
-            return new c(this.c, this.f2811a).a();
+            return new c(this.c, this.f2795a).a();
         } catch (Exception e) {
             throw new RuntimeException(e.toString());
         }

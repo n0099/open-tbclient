@@ -13,13 +13,13 @@ import java.util.ArrayList;
 public class j extends BdAsyncTask<Object, Integer, AccountData> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ AccountActivity f2003a;
+    final /* synthetic */ AccountActivity f1986a;
     private AccountData b;
     private int c = 0;
     private boolean d;
 
     public j(AccountActivity accountActivity, boolean z, AccountData accountData) {
-        this.f2003a = accountActivity;
+        this.f1986a = accountActivity;
         this.d = false;
         this.b = accountData;
         this.d = z;
@@ -28,7 +28,7 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void b() {
-        this.f2003a.showLoadingDialog(this.f2003a.getString(R.string.deleting), new k(this));
+        this.f1986a.showLoadingDialog(this.f1986a.getString(R.string.deleting), new k(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,11 +45,11 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
             }
             DatabaseService.q(this.b.getID());
             if (this.b.getID().equals(TiebaApplication.A())) {
-                TiebaApplication.a((AccountData) null, this.f2003a.getBaseContext());
-                arrayList = this.f2003a.f1957a;
+                TiebaApplication.a((AccountData) null, this.f1986a.getBaseContext());
+                arrayList = this.f1986a.f1940a;
                 if (arrayList.size() >= 2) {
                     this.c = 1;
-                    arrayList2 = this.f2003a.f1957a;
+                    arrayList2 = this.f1986a.f1940a;
                     AccountData accountData = (AccountData) arrayList2.get(1);
                     accountData.setIsActive(1);
                     DatabaseService.a(accountData);
@@ -73,30 +73,30 @@ public class j extends BdAsyncTask<Object, Integer, AccountData> {
         ArrayList arrayList;
         p pVar;
         if (this.b != null) {
-            new l(this.f2003a, this.b.getBDUSS()).start();
+            new l(this.f1986a, this.b.getBDUSS()).start();
         }
-        this.f2003a.closeLoadingDialog();
+        this.f1986a.closeLoadingDialog();
         switch (this.c) {
             case 0:
-                this.f2003a.showToast(this.f2003a.getString(R.string.success));
-                arrayList = this.f2003a.f1957a;
+                this.f1986a.showToast(this.f1986a.getString(R.string.success));
+                arrayList = this.f1986a.f1940a;
                 arrayList.remove(this.b);
                 this.b = null;
-                pVar = this.f2003a.b;
+                pVar = this.f1986a.b;
                 pVar.notifyDataSetChanged();
                 break;
             case 1:
                 if (accountData != null) {
-                    new o(this.f2003a, accountData.getBDUSS()).start();
+                    new o(this.f1986a, accountData.getBDUSS()).start();
                 }
-                TiebaApplication.a(accountData, this.f2003a.getBaseContext());
+                TiebaApplication.a(accountData, this.f1986a.getBaseContext());
                 com.baidu.tieba.account.a.a().b();
-                MainTabActivity.b(this.f2003a, 1);
+                MainTabActivity.b(this.f1986a, 1);
                 break;
             case 2:
-                MainTabActivity.b(this.f2003a, 4);
+                MainTabActivity.b(this.f1986a, 4);
                 break;
         }
-        this.f2003a.h = null;
+        this.f1986a.h = null;
     }
 }

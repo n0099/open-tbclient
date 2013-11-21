@@ -6,42 +6,67 @@ import org.json.JSONObject;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1164a = -1;
-    private String b = null;
-    private String c = null;
+    private long f1170a = 0;
+    private long b = 0;
+    private long c = 0;
+    private long d = 0;
+    private long e = 0;
 
-    public int a() {
-        return this.f1164a;
+    public void a(long j) {
+        this.f1170a = j;
     }
 
-    public String b() {
+    public long a() {
+        return this.f1170a;
+    }
+
+    public void b(long j) {
+        this.b = j;
+    }
+
+    public long b() {
         return this.b;
     }
 
-    public String c() {
+    public void c(long j) {
+        this.c = j;
+    }
+
+    public long c() {
         return this.c;
     }
 
-    public void a(int i) {
-        this.f1164a = i;
+    public long d() {
+        return this.d;
+    }
+
+    public void d(long j) {
+        this.d = j;
+    }
+
+    public long e() {
+        return this.e;
     }
 
     public void a(String str) {
-        this.b = str;
+        try {
+            a(new JSONObject(str).optJSONObject("message"));
+        } catch (Exception e) {
+            bg.b("MessageData", "parserJson", "error = " + e.getMessage());
+        }
     }
 
     public void a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.f1164a = jSONObject.optInt("type");
-                if (this.f1164a == 3) {
-                    this.b = jSONObject.optString("big_pic");
-                } else if (this.f1164a == 5) {
-                    this.b = jSONObject.optString("vpic");
-                    this.c = jSONObject.optString("vsrc");
-                }
+                this.f1170a = jSONObject.optLong("replyme", 0L);
+                this.b = jSONObject.optLong("atme", 0L);
+                this.c = jSONObject.optLong("fans", 0L);
+                this.d = jSONObject.optLong("pletter", 0L);
+                this.e = jSONObject.optLong("bookmark", 0L);
+                this.d = jSONObject.optLong("pletter", 0L);
             } catch (Exception e) {
-                bg.b(getClass().getName(), "parserJson", "error=" + e.toString());
+                bg.b("MessageData", "parserJson", "error = " + e.getMessage());
             }
         }
     }

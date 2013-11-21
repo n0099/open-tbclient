@@ -5,13 +5,13 @@ import com.baidu.tieba.TiebaApplication;
 public class ax extends com.baidu.adp.a.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private az f1991a = null;
+    private az f1974a = null;
     private ba b = null;
 
     public void a() {
-        if (this.f1991a == null) {
-            this.f1991a = new az(this);
-            this.f1991a.execute(new String[0]);
+        if (this.f1974a == null) {
+            this.f1974a = new az(this);
+            this.f1974a.execute(new String[0]);
         }
     }
 

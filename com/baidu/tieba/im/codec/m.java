@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class m {
     public static void a(s<byte[]> sVar, String str, p pVar) {
-        if (str != null && sVar != null && pVar != null && pVar.f1575a.b() == 1 && pVar.c == 0 && pVar.d > 0) {
+        if (str != null && sVar != null && pVar != null && pVar.f1566a.b() == 1 && pVar.c == 0 && pVar.d > 0) {
             sVar.a(str, pVar.b);
         }
     }

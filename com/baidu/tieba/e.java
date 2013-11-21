@@ -27,7 +27,7 @@ public class e {
     private String h = "_1";
 
     /* renamed from: a  reason: collision with root package name */
-    Map<String, d> f1215a = new HashMap();
+    Map<String, d> f1220a = new HashMap();
 
     public void a(String str, Context context, AttributeSet attributeSet) {
         int[] a2;
@@ -69,8 +69,8 @@ public class e {
                     z = true;
                 }
             }
-            if (z && !TextUtils.isEmpty(dVar.a()) && this.f1215a != null && !this.f1215a.containsKey(dVar.a())) {
-                this.f1215a.put(dVar.a(), dVar);
+            if (z && !TextUtils.isEmpty(dVar.a()) && this.f1220a != null && !this.f1220a.containsKey(dVar.a())) {
+                this.f1220a.put(dVar.a(), dVar);
             }
         } catch (Resources.NotFoundException e2) {
         } catch (Exception e3) {
@@ -92,8 +92,8 @@ public class e {
         Adapter adapter;
         if (view != null) {
             String str = "@" + view.getId();
-            if (this.f1215a != null && this.f1215a.containsKey(str)) {
-                d dVar = this.f1215a.get(str);
+            if (this.f1220a != null && this.f1220a.containsKey(str)) {
+                d dVar = this.f1220a.get(str);
                 if (view instanceof TextView) {
                     if (dVar.e() != 0) {
                         ((TextView) view).setTextColor(this.i.getColor(this.g ? dVar.e() : dVar.d()));
@@ -135,9 +135,9 @@ public class e {
     }
 
     public void a() {
-        if (this.f1215a != null) {
-            this.f1215a.clear();
-            this.f1215a = null;
+        if (this.f1220a != null) {
+            this.f1220a.clear();
+            this.f1220a = null;
         }
     }
 }

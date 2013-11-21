@@ -3,7 +3,7 @@ package com.baidu.tieba.im.codec;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public o f1575a;
+    public o f1566a;
     public byte[] b;
     public int c;
     public int d;

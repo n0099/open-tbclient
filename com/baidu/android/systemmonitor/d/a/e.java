@@ -3,11 +3,11 @@ package com.baidu.android.systemmonitor.d.a;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f793a;
+    private String f794a;
     private f b;
 
     public String a() {
-        return this.f793a;
+        return this.f794a;
     }
 
     public void a(f fVar) {
@@ -15,7 +15,7 @@ public class e {
     }
 
     public void a(String str) {
-        this.f793a = str;
+        this.f794a = str;
     }
 
     public f b() {

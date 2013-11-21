@@ -7,17 +7,17 @@ import com.baidu.tieba.util.UtilHelper;
 public class ap implements AbsListView.OnScrollListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SearchActivity f1409a;
+    final /* synthetic */ SearchActivity f1400a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(SearchActivity searchActivity) {
-        this.f1409a = searchActivity;
+        this.f1400a = searchActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
         if (i == 2 || i == 1) {
-            UtilHelper.a(this.f1409a, absListView);
+            UtilHelper.a(this.f1400a, absListView);
         }
     }
 

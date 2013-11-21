@@ -6,7 +6,7 @@ public class SwitchKey {
     public static final String BAIDU_WEBVIEW = "baidu_webview";
     public static final String BAR_DETAIL_DIR = "bar_detail";
     public static final String BAR_DETAIL_FRS = "frs_to_bar_detail";
-    public static final String DEBUG = "log_upload";
+    public static final String LOG = "img_log";
     public static final String MM = "tencent_mm";
     public static final String MOTU = "motu_sdk";
     public static final String PUSHSERVICE = "push_service_sdk";

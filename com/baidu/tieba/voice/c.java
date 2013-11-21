@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f2622a = 0;
+    private static volatile int f2605a = 0;
     private static Object g = new Object();
     private AudioTrack b;
     private String c;
@@ -73,7 +73,7 @@ public class c implements Runnable {
             this.b = null;
             bg.b("AmrAudioPlayerRunnable", "init new AudioTrack", "error = " + e.getMessage());
         }
-        f2622a = 1;
+        f2605a = 1;
     }
 
     public void b() {
@@ -105,7 +105,7 @@ public class c implements Runnable {
                 this.f.sendMessage(obtainMessage);
             }
         }
-        f2622a = 0;
+        f2605a = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:45:0x00cb  */
@@ -149,7 +149,7 @@ public class c implements Runnable {
                 this.b.setPlaybackHeadPosition(this.l);
             }
             this.b.play();
-            f2622a = 2;
+            f2605a = 2;
             this.j.post(this.k);
             try {
                 fileInputStream2 = new FileInputStream(file);
@@ -158,7 +158,7 @@ public class c implements Runnable {
                     byte[] bArr = new byte[32];
                     this.e.decoderInit();
                     short[] sArr = new short[160];
-                    while (f2622a == 2) {
+                    while (f2605a == 2) {
                         if (bool.booleanValue()) {
                             if (fileInputStream2.read(bArr, 0, 6) == 6) {
                                 if (bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82) {
@@ -215,11 +215,11 @@ public class c implements Runnable {
                         com.baidu.adp.lib.h.d.b("AudioPlayer", "play", "error = " + e4.getMessage());
                     }
                 }
-                f2622a = 3;
+                f2605a = 3;
                 if (!z) {
                 }
             }
-            f2622a = 3;
+            f2605a = 3;
             if (!z) {
                 this.f.postDelayed(this.m, 500L);
             } else {
@@ -233,7 +233,7 @@ public class c implements Runnable {
     }
 
     public void c() {
-        f2622a = 3;
+        f2605a = 3;
         b();
     }
 }

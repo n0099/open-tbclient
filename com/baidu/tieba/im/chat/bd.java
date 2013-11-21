@@ -7,24 +7,24 @@ import com.tencent.mm.sdk.platformtools.Util;
 class bd {
 
     /* renamed from: a  reason: collision with root package name */
-    String f1524a;
+    String f1515a;
     com.baidu.adp.widget.ImageView.e b = null;
     final /* synthetic */ MsglistActivity c;
 
     public bd(MsglistActivity msglistActivity, String str) {
         this.c = msglistActivity;
-        this.f1524a = null;
-        this.f1524a = str;
+        this.f1515a = null;
+        this.f1515a = str;
     }
 
     public void a() {
         try {
-            if (this.f1524a == null || this.f1524a.length() <= 0) {
+            if (this.f1515a == null || this.f1515a.length() <= 0) {
                 a(this.c.getString(R.string.save_error));
             }
-            this.b = new com.baidu.tieba.util.i(this.c).a(this.f1524a, false, true, (com.baidu.tbadk.imageManager.c) new be(this));
+            this.b = new com.baidu.tieba.util.i(this.c).a(this.f1515a, false, true, (com.baidu.tbadk.imageManager.c) new be(this));
             if (this.b != null) {
-                a(a(this.f1524a, this.b.i()));
+                a(a(this.f1515a, this.b.i()));
             }
         } catch (Exception e) {
             com.baidu.tieba.util.bg.b("SaveImageAsyncTask", "execute", "error" + e.getMessage());
