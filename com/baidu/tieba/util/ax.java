@@ -19,7 +19,7 @@ class ax extends TimerTask {
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
         try {
-            this.f2476a.t();
+            this.f2476a.r();
         } catch (Exception e) {
             bg.b(getClass().getName(), "initNetWorkCore", e.getMessage());
         }

@@ -59,7 +59,7 @@ public class b {
                             boolean z = false;
                             if (this.f) {
                                 z = true;
-                            } else if (this.e.l() == null || !this.e.c()) {
+                            } else if (this.e.n() == null || !this.e.c()) {
                                 this.d.a(i);
                                 DatabaseService.a(this.d);
                                 randomAccessFile.close();
@@ -67,7 +67,7 @@ public class b {
                             }
                             if (z) {
                                 fVar.a(this.e.e());
-                                fVar.a(this.e.g());
+                                fVar.a(this.e.i());
                                 fVar.a(this.d);
                                 fVar.a(false);
                                 return fVar;

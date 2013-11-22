@@ -267,9 +267,6 @@ public class k implements com.baidu.tieba.im.net.link.a {
     }
 
     private void a(Message message, int i, String str) {
-        if (TiebaApplication.g().s()) {
-            StatService.onEvent(TiebaApplication.g().getApplicationContext(), "send_msg_time", "send", 1);
-        }
         if (this.h != null && message != null) {
             this.h.a(message, i, str);
         }

@@ -25,7 +25,7 @@ public class ay extends BdAsyncTask<String, Integer, String> {
     public void cancel() {
         this.f2215a.B = null;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         super.cancel(true);
     }
@@ -50,7 +50,7 @@ public class ay extends BdAsyncTask<String, Integer, String> {
                 this.f2215a.setResult(-1, intent);
                 this.f2215a.finish();
             } else {
-                this.f2215a.showToast(this.b.g());
+                this.f2215a.showToast(this.b.i());
             }
         }
         super.a((ay) str);
@@ -75,7 +75,7 @@ public class ay extends BdAsyncTask<String, Integer, String> {
             this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/profile/modify");
             this.b.a("sex", String.valueOf(this.c.a().getSex()));
             this.b.a("intro", this.c.a().getIntro());
-            this.b.l();
+            this.b.n();
             if (this.b.c()) {
                 DatabaseService.f();
             }

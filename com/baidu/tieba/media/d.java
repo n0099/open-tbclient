@@ -1,8 +1,9 @@
 package com.baidu.tieba.media;
 
 import android.content.DialogInterface;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements DialogInterface.OnClickListener {
+public class d implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ MediaPlayerActivity f1819a;

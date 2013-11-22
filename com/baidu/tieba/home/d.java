@@ -31,7 +31,7 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
         super.cancel(true);
         this.c = true;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         progressBar = this.f1439a.n;
         progressBar.setVisibility(8);
@@ -48,10 +48,10 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
             this.b.a("pub_type", SocialConstants.FALSE);
             this.b.a("fname", "");
             this.b.a("tid", SocialConstants.FALSE);
-            String j = this.b.j();
+            String l = this.b.l();
             if (this.b.c()) {
                 com.baidu.tieba.data.bd bdVar = new com.baidu.tieba.data.bd();
-                bdVar.a(j);
+                bdVar.a(l);
                 if (bdVar.b() == null || bdVar.b().length() <= 0) {
                     return null;
                 }
@@ -60,7 +60,7 @@ public class d extends BdAsyncTask<String, Integer, Bitmap> {
                     return null;
                 }
                 this.b = new com.baidu.tieba.util.ap(bdVar.b());
-                return com.baidu.tieba.util.m.a(this.b.i());
+                return com.baidu.tieba.util.m.a(this.b.k());
             }
             return null;
         } catch (Exception e) {

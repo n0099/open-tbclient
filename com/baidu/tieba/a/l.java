@@ -32,19 +32,19 @@ public class l {
         if (str2 != null) {
             this.b.a(w.f2310a, str2);
         }
-        String j = this.b.j();
-        if (j != null) {
+        String l = this.b.l();
+        if (l != null) {
             try {
-                this.f1016a = new JSONObject(j).optInt(SocialConstants.PARAM_ERROR_CODE);
+                this.f1016a = new JSONObject(l).optInt(SocialConstants.PARAM_ERROR_CODE);
             } catch (JSONException e) {
             }
         }
-        return j;
+        return l;
     }
 
     public void a() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
     }
 

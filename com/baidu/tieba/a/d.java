@@ -27,16 +27,16 @@ public class d {
                 this.f1011a.a("msg_id", String.valueOf(j));
                 break;
         }
-        String j2 = this.f1011a.j();
-        bg.a(getClass().getName(), "msg=" + j, j2);
+        String l = this.f1011a.l();
+        bg.a(getClass().getName(), "msg=" + j, l);
         this.b = new NewErrorData();
-        this.b.parserJson(j2);
-        return j2;
+        this.b.parserJson(l);
+        return l;
     }
 
     public void a() {
         if (this.f1011a != null) {
-            this.f1011a.h();
+            this.f1011a.j();
         }
     }
 
@@ -49,7 +49,7 @@ public class d {
 
     public String c() {
         if (this.f1011a != null) {
-            return this.f1011a.g();
+            return this.f1011a.i();
         }
         return null;
     }

@@ -11,6 +11,6 @@ class ao extends Thread {
         apVar.c(false);
         apVar.a("channel_id", TiebaApplication.g().bb());
         apVar.a("channel_uid", TiebaApplication.g().ba());
-        apVar.j();
+        apVar.l();
     }
 }

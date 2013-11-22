@@ -58,14 +58,14 @@ public class ca extends BdAsyncTask<Boolean, bx, bx> {
                 this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/u/user/profile");
                 this.b.a("uid", this.f1908a.b());
                 this.b.a("need_post_count", SocialConstants.TRUE);
-                String j = this.b.j();
+                String l = this.b.l();
                 if (this.b.c()) {
                     context = this.f1908a.p;
                     bxVar = new bx(context);
                     try {
-                        bxVar.b(j);
+                        bxVar.b(l);
                         if (this.f1908a.c()) {
-                            DatabaseService.j(j);
+                            DatabaseService.j(l);
                             AccountData E = TiebaApplication.E();
                             if (E == null) {
                                 return null;
@@ -131,7 +131,7 @@ public class ca extends BdAsyncTask<Boolean, bx, bx> {
             return;
         }
         if (this.b != null && this.d) {
-            this.f1908a.setErrorString(this.b.g());
+            this.f1908a.setErrorString(this.b.i());
         } else {
             bx bxVar2 = this.f1908a;
             context = this.f1908a.p;
@@ -148,7 +148,7 @@ public class ca extends BdAsyncTask<Boolean, bx, bx> {
         super.cancel(true);
         this.c = true;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         this.f1908a.n = null;

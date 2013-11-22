@@ -15,14 +15,14 @@ public class e {
         this.f1012a = new ap(c);
         this.f1012a.a(PushConstants.EXTRA_USER_ID, str);
         this.f1012a.a("com_id", str2);
-        String j = this.f1012a.j();
+        String l = this.f1012a.l();
         this.b = new NewErrorData();
-        this.b.parserJson(j);
+        this.b.parserJson(l);
     }
 
     public void a() {
         if (this.f1012a != null) {
-            this.f1012a.h();
+            this.f1012a.j();
         }
     }
 
@@ -35,7 +35,7 @@ public class e {
 
     public String c() {
         if (this.f1012a != null) {
-            return this.f1012a.g();
+            return this.f1012a.i();
         }
         return null;
     }

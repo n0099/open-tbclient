@@ -167,9 +167,10 @@ public class GuideActivity extends j {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Intent intent = new Intent();
+        intent.setComponent(new ComponentName(getPackageName(), LogoActivity.class.getName()));
         intent.addCategory("android.intent.category.LAUNCHER");
         intent.setAction("android.intent.action.MAIN");
-        intent.setComponent(new ComponentName(getPackageName(), getPackageName() + ".LogoActivity"));
+        intent.setFlags(270532608);
         Intent intent2 = new Intent("com.android.launcher.action.INSTALL_SHORTCUT");
         intent2.putExtra("duplicate", false);
         intent2.putExtra("android.intent.extra.shortcut.NAME", getString(R.string.app_name));

@@ -8,6 +8,7 @@ public class az {
     protected boolean j;
     protected boolean i = true;
     protected String k = "UTF-8";
+    protected String l = null;
 
     /* renamed from: a  reason: collision with root package name */
     protected String f2478a = null;

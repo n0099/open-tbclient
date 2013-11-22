@@ -803,7 +803,6 @@ public class cr {
     }
 
     public void b(String str) {
-        com.baidu.tieba.util.bg.c("testing........" + str);
         this.an.a(str);
     }
 

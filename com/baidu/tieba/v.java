@@ -36,7 +36,7 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
                 bool = this.b.a(this.e + ".tmp", handler, 900002);
                 if (bool.booleanValue() || this.b.e() == -2) {
                     break;
-                } else if (!this.b.m()) {
+                } else if (!this.b.o()) {
                     try {
                         Thread.sleep(10000L);
                     } catch (Exception e2) {
@@ -62,7 +62,7 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
         this.f2505a.c = null;
         this.c = true;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
     }
 

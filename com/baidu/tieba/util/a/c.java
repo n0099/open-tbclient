@@ -20,77 +20,63 @@ import com.baidu.tieba.util.y;
 public class c extends a {
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, i iVar) {
-        int i;
         com.baidu.adp.widget.ImageView.e c = com.baidu.tbadk.imageManager.d.a().c(iVar.a(str));
         if (bf.a().b()) {
-            i = 1;
-        } else {
-            i = 2;
         }
-        int i2 = 1;
-        if (c != null && c.c()) {
-            i2 = 2;
+        if (c == null || c.c()) {
         }
-        com.baidu.adp.lib.g.a.a().a(str, 0L, 0L, 0L, 0L, 0L, 0L, 0, 0L, iVar.d(), 1, com.baidu.tieba.d.a.a().g(), i2, i, System.currentTimeMillis());
         return c;
     }
 
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
-        int i;
-        if (!lVar.g) {
-            return null;
-        }
-        String f = be.f(str);
-        String str2 = iVar.f != null ? f + iVar.f : f;
-        String a2 = iVar.a(str);
-        synchronized (m.f2496a) {
-            if (str2 != null) {
-                if (lVar.d == 5) {
-                    lVar.e = DatabaseService.d(a2);
-                } else {
-                    int b = (int) af.b("image", str2);
-                    if (b > 0) {
-                        com.baidu.tbadk.imageManager.d.a().c(b);
-                        lVar.e = af.d("image", str2);
-                        if (lVar.e != null) {
-                            s<String> q = com.baidu.tieba.b.a.a().q();
-                            if (q != null && "gif".equals(q.a(a2))) {
-                                lVar.h = true;
-                            }
-                            if (!lVar.h) {
-                                lVar.h = af.c("image", str2);
+        if (lVar.g) {
+            String f = be.f(str);
+            String str2 = iVar.f != null ? f + iVar.f : f;
+            String a2 = iVar.a(str);
+            synchronized (m.f2496a) {
+                if (str2 != null) {
+                    if (lVar.d == 5) {
+                        lVar.e = DatabaseService.d(a2);
+                    } else {
+                        int b = (int) af.b("image", str2);
+                        if (b > 0) {
+                            com.baidu.tbadk.imageManager.d.a().c(b);
+                            lVar.e = af.d("image", str2);
+                            if (lVar.e != null) {
+                                s<String> q = com.baidu.tieba.b.a.a().q();
+                                if (q != null && "gif".equals(q.a(a2))) {
+                                    lVar.h = true;
+                                }
+                                if (!lVar.h) {
+                                    lVar.h = af.c("image", str2);
+                                }
                             }
                         }
                     }
                 }
-            }
-            if (eVar.isCancelled()) {
-                return null;
-            }
-            if (lVar.e == null) {
-                return null;
-            }
-            lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, lVar.h, str);
-            com.baidu.tbadk.imageManager.d.a().b(a2, lVar.i);
-            if (eVar.isCancelled()) {
-                return null;
-            }
-            if (lVar.i != null) {
-                if (bf.a().b()) {
-                    i = 1;
-                } else {
-                    i = 2;
+                if (eVar.isCancelled()) {
+                    return null;
                 }
-                int i2 = 1;
-                if (lVar.i.c()) {
-                    i2 = 2;
+                if (lVar.e == null) {
+                    return null;
                 }
-                com.baidu.adp.lib.g.a.a().a(str, 0L, 0L, 0L, 0L, 0L, 0L, 0, 0L, iVar.d(), 2, com.baidu.tieba.d.a.a().g(), i2, i, System.currentTimeMillis());
-                eVar.d(lVar);
+                lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, lVar.h, str);
+                com.baidu.tbadk.imageManager.d.a().b(a2, lVar.i);
+                if (eVar.isCancelled()) {
+                    return null;
+                }
+                if (lVar.i != null) {
+                    if (bf.a().b()) {
+                    }
+                    if (lVar.i.c()) {
+                    }
+                    eVar.d(lVar);
+                }
+                return lVar.i;
             }
-            return lVar.i;
         }
+        return null;
     }
 
     @Override // com.baidu.tieba.util.a.a
@@ -162,9 +148,11 @@ public class c extends a {
             }
         }
         long currentTimeMillis = System.currentTimeMillis();
-        byte[] i7 = lVar.f2495a.i();
-        if (i7 == null || !lVar.f2495a.c()) {
-            y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.e() + ":" + lVar.f2495a.g(), "IS_CDN=" + c + "|download error");
+        byte[] k = lVar.f2495a.k();
+        if (k == null || !lVar.f2495a.c()) {
+            if (!lVar.j) {
+                y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.f() + ":" + lVar.f2495a.g(), "IS_CDN=" + c + "|download error");
+            }
             return null;
         } else if (lVar.j) {
             return null;
@@ -174,13 +162,15 @@ public class c extends a {
                 if (lVar.j) {
                     return null;
                 }
-                com.baidu.tbadk.imageManager.d.a().c(h.k() + i7.length);
-                lVar.e = m.a(i7);
+                com.baidu.tbadk.imageManager.d.a().c(h.k() + k.length);
+                lVar.e = m.a(k);
                 if (lVar.e == null) {
-                    y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.e() + ":" + lVar.f2495a.g(), "IS_CDN=" + c + "|decode error");
+                    if (!lVar.j) {
+                        y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.f() + ":" + lVar.f2495a.g(), "IS_CDN=" + c + "|decode error");
+                    }
                     return null;
                 }
-                lVar.h = lVar.f2495a.n() || UtilHelper.a(i7);
+                lVar.h = lVar.f2495a.p() || UtilHelper.a(k);
                 if (lVar.j) {
                     return null;
                 }
@@ -224,7 +214,7 @@ public class c extends a {
                             if (q != null && lVar.h) {
                                 q.a(a3, "gif", 315532800000L);
                             }
-                            af.a("image", str2, i7);
+                            af.a("image", str2, k);
                         }
                     }
                 } catch (Throwable th) {

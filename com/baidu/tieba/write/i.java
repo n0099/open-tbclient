@@ -60,15 +60,15 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aw> {
         this.b.a(com.baidu.tieba.data.h.f1201a + "c/u/follow/sug");
         this.b.a("uid", TiebaApplication.A());
         this.b.a("q", this.c);
-        String j = this.b.j();
+        String l = this.b.l();
         if (this.b.c()) {
             com.baidu.tieba.data.aw awVar = new com.baidu.tieba.data.aw();
             dVar = this.f2693a.h;
             com.baidu.tieba.data.x a2 = dVar.a();
             if (a2 != null) {
-                awVar.a(j, a2.b());
+                awVar.a(l, a2.b());
             } else {
-                awVar.a(j, (HashMap<String, String>) null);
+                awVar.a(l, (HashMap<String, String>) null);
             }
             if (AtListActivity.f2641a != null && AtListActivity.f2641a.size() > 0) {
                 Iterator<MetaData> it = awVar.a().iterator();
@@ -121,7 +121,7 @@ public class i extends BdAsyncTask<String, Integer, com.baidu.tieba.data.aw> {
                 super.a((i) awVar);
             }
         }
-        this.f2693a.showToast(this.b.g());
+        this.f2693a.showToast(this.b.i());
         super.a((i) awVar);
     }
 }

@@ -112,12 +112,12 @@ public class h {
                 this.b.a("back", SocialConstants.FALSE);
                 break;
         }
-        return this.b.j();
+        return this.b.l();
     }
 
     public void a() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
     }
 
@@ -146,7 +146,7 @@ public class h {
         if (this.b == null) {
             return null;
         }
-        return this.b.g();
+        return this.b.i();
     }
 
     public int f() {

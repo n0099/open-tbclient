@@ -39,10 +39,10 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
         apVar.a(PushConstants.EXTRA_USER_ID, this.b);
         apVar.a("user_name", this.c);
         apVar.a("content", this.d);
-        String j = apVar.j();
+        String l = apVar.l();
         if (apVar.c()) {
             try {
-                return (AppealData) new GsonBuilder().create().fromJson(j, (Class<Object>) AppealData.class);
+                return (AppealData) new GsonBuilder().create().fromJson(l, (Class<Object>) AppealData.class);
             } catch (Exception e) {
                 bg.b("AppealModel", "doInBackground", e.getMessage());
                 AppealData appealData = new AppealData();
@@ -52,7 +52,7 @@ public class g extends BdAsyncTask<String, Object, AppealData> {
         }
         AppealData appealData2 = new AppealData();
         appealData2.errNo = apVar.e();
-        appealData2.errMsg = apVar.g();
+        appealData2.errMsg = apVar.i();
         return appealData2;
     }
 

@@ -33,10 +33,10 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
         ap apVar = new ap(str);
         apVar.a("forum_id", this.f1053a);
         apVar.a(PushConstants.EXTRA_USER_ID, this.b);
-        String j = apVar.j();
+        String l = apVar.l();
         if (apVar.c()) {
             try {
-                ForbidReasonData forbidReasonData = (ForbidReasonData) new GsonBuilder().create().fromJson(j, (Class<Object>) ForbidReasonData.class);
+                ForbidReasonData forbidReasonData = (ForbidReasonData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidReasonData.class);
                 forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
                 return forbidReasonData;
             } catch (Exception e) {
@@ -48,7 +48,7 @@ public class k extends BdAsyncTask<String, Object, ForbidReasonData> {
         }
         ForbidReasonData forbidReasonData3 = new ForbidReasonData();
         forbidReasonData3.error.f1051a = apVar.e();
-        forbidReasonData3.error.b = apVar.g();
+        forbidReasonData3.error.b = apVar.i();
         return forbidReasonData3;
     }
 

@@ -63,13 +63,13 @@ public class bq extends BdAsyncTask<Object, Integer, SearchPostModel> {
             while (it.hasNext()) {
                 this.c.a(it.next());
             }
-            String j = this.c.j();
-            if (!this.c.c() || j == null) {
+            String l = this.c.l();
+            if (!this.c.c() || l == null) {
                 return null;
             }
             searchPostModel = new SearchPostModel();
             try {
-                searchPostModel.parserJson(j);
+                searchPostModel.parserJson(l);
                 str = this.b.B;
                 DatabaseService.n(str);
                 return searchPostModel;
@@ -113,7 +113,7 @@ public class bq extends BdAsyncTask<Object, Integer, SearchPostModel> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
             this.c = null;
         }
         progressBar = this.b.t;

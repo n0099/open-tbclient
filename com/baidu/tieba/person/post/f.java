@@ -29,10 +29,10 @@ public class f extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
         this.c.a("rn", String.valueOf(20));
         this.c.a("is_thread", String.valueOf(0));
         this.c.a("need_content", String.valueOf(1));
-        String j = this.c.j();
-        bg.e("PersonPostReplyModel", "doInBackground", j);
+        String l = this.c.l();
+        bg.e("PersonPostReplyModel", "doInBackground", l);
         try {
-            personPostReplyModel = (PersonPostReplyModel) new GsonBuilder().create().fromJson(j, (Class<Object>) PersonPostReplyModel.class);
+            personPostReplyModel = (PersonPostReplyModel) new GsonBuilder().create().fromJson(l, (Class<Object>) PersonPostReplyModel.class);
         } catch (JsonParseException e) {
             bg.e("PersonPostReplyModel", "doInBackground", e.getMessage());
             personPostReplyModel = null;
@@ -41,7 +41,7 @@ public class f extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
             personPostReplyModel = new PersonPostReplyModel();
         }
         personPostReplyModel.setErrorCode(this.c.e());
-        personPostReplyModel.setErrorString(this.c.g());
+        personPostReplyModel.setErrorString(this.c.i());
         return personPostReplyModel;
     }
 
@@ -59,7 +59,7 @@ public class f extends BdAsyncTask<Void, Void, PersonPostReplyModel> {
     public void cancel() {
         super.cancel();
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
         PersonPostReplyModel.sFetchReplyAsyncTask = null;
     }

@@ -64,7 +64,7 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
             } catch (Exception e) {
                 bg.b(getClass().getName(), "doInBackground", e.getMessage());
             }
-            if (d.length() <= 102400 || (com.baidu.tieba.data.h.n() == 0 && this.c.f() != null && !this.c.f().equals("2"))) {
+            if (d.length() <= 102400 || (com.baidu.tieba.data.h.n() == 0 && this.c.h() != null && !this.c.h().equals("2"))) {
                 bg.e("PostThreadTask", "doInBackground", "image size is less than 100K");
                 com.baidu.tieba.util.ap apVar = this.c;
                 writeData = this.f2671a.b;
@@ -92,7 +92,7 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
                     com.baidu.tieba.util.ap apVar2 = this.c;
                     writeData2 = this.f2671a.b;
                     apVar2.a("pic_type", String.valueOf(writeData2.getPicType()));
-                    b = this.c.j();
+                    b = this.c.l();
                     if (b == null || !this.c.c()) {
                         long b2 = eVar.b();
                         eVar.a((int) (b2 % 102400 == 0 ? b2 / 102400 : (b2 / 102400) + 1));
@@ -156,7 +156,7 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
                         this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
                     }
                 }
-                this.d = this.c.j();
+                this.d = this.c.l();
             }
         }
         return null;
@@ -168,7 +168,7 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
         this.f2671a.closeLoadingDialog();
         this.g = true;
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
         if (this.f != null) {
             this.f.a();
@@ -254,7 +254,7 @@ public class ao extends BdAsyncTask<Integer, Integer, String> {
                 this.f2671a.setResult(-1);
                 this.f2671a.finish();
             } else {
-                a(this.c.e(), this.c.g(), antiData);
+                a(this.c.e(), this.c.i(), antiData);
             }
         }
         super.a((ao) str);

@@ -15,7 +15,7 @@ public class n {
 
     public void a() {
         if (this.f2026a != null) {
-            this.f2026a.h();
+            this.f2026a.j();
         }
     }
 
@@ -30,10 +30,10 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String b() {
-        String j = this.f2026a.j();
+        String l = this.f2026a.l();
         this.b = new NewErrorData();
-        this.b.parserJson(j);
-        return j;
+        this.b.parserJson(l);
+        return l;
     }
 
     public boolean c() {
@@ -45,7 +45,7 @@ public class n {
 
     public String d() {
         if (this.f2026a != null) {
-            return this.f2026a.g();
+            return this.f2026a.i();
         }
         return null;
     }

@@ -48,14 +48,14 @@ public class v extends BdAsyncTask<Object, Integer, String> {
         this.b = new com.baidu.tieba.util.ap(this.c);
         this.b.b(false);
         this.b.a("client", SocialConstants.ANDROID_CLIENT_TYPE);
-        return this.b.j();
+        return this.b.l();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         progressBar = this.f1997a.f;
         progressBar.setVisibility(8);

@@ -32,10 +32,10 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
         ap apVar = new ap(str);
         apVar.a("forum_id", this.f1280a);
         apVar.a("need_good_thread", this.b);
-        String j = apVar.j();
+        String l = apVar.l();
         if (apVar.c()) {
             try {
-                return (ForumDetailData) new GsonBuilder().create().fromJson(j, (Class<Object>) ForumDetailData.class);
+                return (ForumDetailData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForumDetailData.class);
             } catch (Exception e) {
                 bg.b("ForumDetailModel", "doInBackground", e.getMessage());
                 ForumDetailData forumDetailData = new ForumDetailData();
@@ -46,7 +46,7 @@ public class c extends BdAsyncTask<String, Object, ForumDetailData> {
         }
         ForumDetailData forumDetailData2 = new ForumDetailData();
         forumDetailData2.errorNo = apVar.e();
-        forumDetailData2.errorMsg = apVar.g();
+        forumDetailData2.errorMsg = apVar.i();
         return forumDetailData2;
     }
 

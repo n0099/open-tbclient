@@ -39,7 +39,7 @@ public class j extends BdAsyncTask<String, Integer, Boolean> {
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         super.cancel(true);
     }
@@ -55,7 +55,7 @@ public class j extends BdAsyncTask<String, Integer, Boolean> {
             com.baidu.tieba.util.ap apVar = this.b;
             registData = this.f1084a.p;
             apVar.a("phonenum", registData.getPhone());
-            this.b.j();
+            this.b.l();
             if (this.b.c()) {
                 z = true;
             }
@@ -87,12 +87,12 @@ public class j extends BdAsyncTask<String, Integer, Boolean> {
             this.f1084a.a();
             return;
         }
-        String g = this.b.g();
-        if (g != null && g.length() > 0) {
+        String i = this.b.i();
+        if (i != null && i.length() > 0) {
             textView = this.f1084a.h;
             textView.setVisibility(0);
             textView2 = this.f1084a.h;
-            textView2.setText(g);
+            textView2.setText(i);
         }
     }
 

@@ -45,11 +45,11 @@ public class n extends BdAsyncTask<String, Integer, aj> {
             if (this.b == 2) {
                 this.f2335a.a("bookmark", SocialConstants.TRUE);
             }
-            String j = this.f2335a.j();
+            String l = this.f2335a.l();
             if (this.f2335a.c()) {
                 ajVar = new aj();
                 try {
-                    ajVar.a(j);
+                    ajVar.a(l);
                 } catch (Exception e3) {
                     e = e3;
                     bg.b(getClass().getName(), "doInBackground", e.getMessage());
@@ -68,7 +68,7 @@ public class n extends BdAsyncTask<String, Integer, aj> {
         this.c.f2319a = null;
         this.c.b = null;
         if (this.f2335a != null) {
-            this.f2335a.h();
+            this.f2335a.j();
         }
         super.cancel(true);
     }

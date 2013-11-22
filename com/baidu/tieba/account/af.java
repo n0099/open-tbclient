@@ -64,7 +64,7 @@ public class af extends BdAsyncTask<Object, Integer, be> {
         try {
             this.c = new com.baidu.tieba.util.ap(this.d);
             this.c.a(this.f1032a);
-            this.e = this.c.j();
+            this.e = this.c.l();
             if (this.e != null) {
                 bg.a("LoginAsyncTask", "doInBackground", "data: " + this.e);
             }
@@ -113,7 +113,7 @@ public class af extends BdAsyncTask<Object, Integer, be> {
                 textView2 = this.b.G;
                 textView2.setVisibility(0);
                 textView3 = this.b.G;
-                textView3.setText(this.c.g());
+                textView3.setText(this.c.i());
                 textView4 = this.b.H;
                 textView4.setVisibility(8);
                 this.b.i();
@@ -124,7 +124,7 @@ public class af extends BdAsyncTask<Object, Integer, be> {
                     textView5 = this.b.G;
                     textView5.setVisibility(0);
                     textView6 = this.b.G;
-                    textView6.setText(this.c.g());
+                    textView6.setText(this.c.i());
                     textView7 = this.b.H;
                     textView7.setVisibility(8);
                     this.b.i();
@@ -150,7 +150,7 @@ public class af extends BdAsyncTask<Object, Integer, be> {
         TextView textView;
         super.cancel(true);
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
             this.c = null;
         }
         progressBar = this.b.w;

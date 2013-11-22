@@ -111,7 +111,7 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
                                 if (bArr != null) {
                                     this.b.a("chunk", bArr);
                                 }
-                                uploadPicData2 = UploadPicData2.parser(this.b.l());
+                                uploadPicData2 = UploadPicData2.parser(this.b.n());
                                 if (uploadPicData2 != null) {
                                     if (uploadPicData2.error_code != 0) {
                                         int i12 = uploadPicData2.error_code;
@@ -194,7 +194,7 @@ public class t extends BdAsyncTask<String, Integer, UploadPicData2> {
         super.cancel();
         this.f1752a.m = null;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.c = true;
     }

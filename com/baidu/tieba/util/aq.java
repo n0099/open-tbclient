@@ -15,6 +15,6 @@ public class aq implements BaiduAccount.CallbackListener {
 
     @Override // com.baidu.tieba.BaiduAccount.BaiduAccount.CallbackListener
     public void callback() {
-        this.f2470a.u();
+        this.f2470a.w();
     }
 }

@@ -24,22 +24,22 @@ public class n extends BdAsyncTask<Object, Integer, TRForumListData> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: d */
     public TRForumListData a(Object... objArr) {
-        String j;
+        String l;
         try {
             this.c = new ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/random_recommend_forum");
             this.c.a("rn", "100");
-            j = this.c.j();
-            bg.e("TopRecModel", "doInBackground", j);
+            l = this.c.l();
+            bg.e("TopRecModel", "doInBackground", l);
         } catch (Exception e) {
             bg.b(getClass().getName(), "doInBackground", e.getMessage());
         }
-        if (j == null) {
+        if (l == null) {
             return null;
         }
         if (!this.c.c()) {
             this.b.c = false;
         } else {
-            this.f2439a = (TRForumListData) new GsonBuilder().create().fromJson(j, (Class<Object>) TRForumListData.class);
+            this.f2439a = (TRForumListData) new GsonBuilder().create().fromJson(l, (Class<Object>) TRForumListData.class);
             this.b.c = true;
             bg.c(this.f2439a.toString());
         }

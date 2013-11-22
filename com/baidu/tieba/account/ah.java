@@ -27,6 +27,6 @@ public class ah extends Thread {
         if (this.b != null) {
             apVar.a("st_param", this.b);
         }
-        apVar.j();
+        apVar.l();
     }
 }

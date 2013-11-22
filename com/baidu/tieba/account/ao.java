@@ -60,7 +60,7 @@ public class ao extends BdAsyncTask<String, Integer, AccountData> {
         super.a((ao) accountData);
         this.f1041a.i = accountData;
         if (this.b != null) {
-            this.f1041a.l = this.b.g();
+            this.f1041a.l = this.b.i();
         }
         str = this.f1041a.l;
         if (str == null) {
@@ -86,7 +86,7 @@ public class ao extends BdAsyncTask<String, Integer, AccountData> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1041a.b = null;
     }

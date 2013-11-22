@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.chat;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements com.baidu.tieba.view.a {
+class ag implements com.baidu.tieba.view.a {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ MsgImageActivity f1493a;

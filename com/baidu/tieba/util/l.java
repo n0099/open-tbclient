@@ -47,7 +47,7 @@ public class l {
     public void a() {
         this.j = true;
         if (this.f2495a != null) {
-            this.f2495a.h();
+            this.f2495a.j();
         }
     }
 

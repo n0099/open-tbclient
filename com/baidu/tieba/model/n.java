@@ -48,9 +48,9 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
             com.baidu.tieba.util.ap apVar3 = this.b;
             str3 = this.f1928a.g;
             apVar3.a("rn", str3);
-            String j = this.b.j();
-            if (this.b.c() && j != null) {
-                this.f1928a.c(j);
+            String l = this.b.l();
+            if (this.b.c() && l != null) {
+                this.f1928a.c(l);
                 if (this.f1928a.d() == 0) {
                     str4 = this.f1928a.f;
                     if (str4.equals(SocialConstants.TRUE)) {
@@ -82,7 +82,7 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
             return;
         }
         this.f1928a.mErrorCode = this.b.e();
-        this.f1928a.mErrorString = this.b.g();
+        this.f1928a.mErrorString = this.b.i();
         gVar2 = this.f1928a.mLoadDataCallBack;
         gVar2.a(false);
     }
@@ -92,7 +92,7 @@ public class n extends BdAsyncTask<Object, Integer, Boolean> {
         com.baidu.adp.a.g gVar;
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         gVar = this.f1928a.mLoadDataCallBack;

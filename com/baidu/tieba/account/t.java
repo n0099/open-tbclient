@@ -54,9 +54,9 @@ public class t extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
         button = this.f1093a.o;
         button.setEnabled(true);
         if (dVar == null) {
-            this.f1093a.b(this.b.g());
+            this.f1093a.b(this.b.i());
         } else if (dVar.a().getName() == null) {
-            this.f1093a.b(this.b.g());
+            this.f1093a.b(this.b.i());
             this.f1093a.a(dVar.b());
         } else {
             this.f1093a.e();
@@ -119,13 +119,13 @@ public class t extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
             accountData = this.f1093a.t;
             apVar.a("BDUSS", accountData.getBDUSS());
             this.b.c(false);
-            String j = this.b.j();
+            String l = this.b.l();
             if (this.b.d()) {
                 dVar = this.b.e();
                 try {
                     if (dVar == 0) {
                         com.baidu.tieba.data.d dVar2 = new com.baidu.tieba.data.d();
-                        dVar2.a(j);
+                        dVar2.a(l);
                         String name = dVar2.a().getName();
                         String bduss = dVar2.a().getBDUSS();
                         dVar = dVar2;
@@ -147,7 +147,7 @@ public class t extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
                         }
                     } else if (this.b.e() == 36) {
                         com.baidu.tieba.data.d dVar3 = new com.baidu.tieba.data.d();
-                        dVar3.a(j);
+                        dVar3.a(l);
                         dVar = dVar3;
                     } else if (this.b.e() == 1) {
                         this.f1093a.e();

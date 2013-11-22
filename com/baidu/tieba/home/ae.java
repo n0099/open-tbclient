@@ -21,12 +21,12 @@ public class ae {
         this.f1390a.a("forum_ids", str);
         this.f1390a.c(true);
         this.f1390a.e(true);
-        return this.f1390a.j();
+        return this.f1390a.l();
     }
 
     public void a() {
         if (this.f1390a != null) {
-            this.f1390a.h();
+            this.f1390a.j();
         }
     }
 
@@ -39,7 +39,7 @@ public class ae {
 
     public String c() {
         if (this.f1390a != null) {
-            return this.f1390a.g();
+            return this.f1390a.i();
         }
         return null;
     }

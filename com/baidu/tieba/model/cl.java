@@ -37,7 +37,7 @@ class cl extends BdAsyncTask<Integer, Integer, Integer> {
                 this.f1917a.a("favo_type", SocialConstants.TRUE);
                 this.f1917a.a("st_type", this.d);
                 this.f1917a.e(true);
-                this.f1917a.j();
+                this.f1917a.l();
             }
             return 1;
         } catch (Exception e) {

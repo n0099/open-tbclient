@@ -33,7 +33,7 @@ public class r extends BdAsyncTask<String, Integer, Bitmap> {
         ProgressBar progressBar;
         this.c.i = null;
         if (this.f2701a != null) {
-            this.f2701a.h();
+            this.f2701a.j();
         }
         this.d = true;
         progressBar = this.c.g;
@@ -76,19 +76,19 @@ public class r extends BdAsyncTask<String, Integer, Bitmap> {
                 writeData6 = this.c.b;
                 apVar5.a("tid", writeData6.getThreadId());
             }
-            String j = this.f2701a.j();
+            String l = this.f2701a.l();
             if (!this.f2701a.c()) {
                 return null;
             }
             this.b = new com.baidu.tieba.data.bd();
-            this.b.a(j);
+            this.b.a(l);
             str = this.b.b();
         }
         if (this.d) {
             return null;
         }
         this.f2701a = new com.baidu.tieba.util.ap(str);
-        return com.baidu.tieba.util.m.a(this.f2701a.i());
+        return com.baidu.tieba.util.m.a(this.f2701a.k());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

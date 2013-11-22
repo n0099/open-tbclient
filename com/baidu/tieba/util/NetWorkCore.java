@@ -90,37 +90,37 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public long f() {
+    public long d() {
         return this.t;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public long g() {
+    public long e() {
         return this.n;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public long h() {
+    public long f() {
         return this.v;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public long i() {
+    public long g() {
         return this.u;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public long k() {
+    public long i() {
         return this.w;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public int j() {
+    public int h() {
         return this.x;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public String e() {
+    public String c() {
         if (this.o.f2478a == null) {
             return null;
         }
@@ -136,7 +136,7 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public long d() {
+    public long b() {
         return this.y;
     }
 
@@ -168,7 +168,7 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public String p() {
+    public String n() {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.i.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo.isAvailable()) {
@@ -251,27 +251,32 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public boolean q() {
+    public boolean o() {
         return this.o.b == 200 && this.o.c == 0;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public boolean r() {
+    public boolean p() {
         return this.o.b == 200;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public int l() {
+    public int j() {
         return this.o.c;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public String s() {
+    public int y() {
+        return this.o.b;
+    }
+
+    @Override // com.baidu.tieba.util.ai
+    public String q() {
         return this.o.d;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public void v() {
+    public void t() {
         this.o.d = "";
     }
 
@@ -281,7 +286,7 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public void t() {
+    public void r() {
         this.m = true;
         try {
             if (this.j != null) {
@@ -369,22 +374,21 @@ public class NetWorkCore implements ai {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [648=11, 649=11, 653=11, 654=11, 656=4] */
-    /* JADX WARN: Removed duplicated region for block: B:200:0x0475 A[Catch: Exception -> 0x04a9, TRY_LEAVE, TryCatch #2 {Exception -> 0x04a9, blocks: (B:198:0x0471, B:200:0x0475), top: B:243:0x0471 }] */
-    /* JADX WARN: Removed duplicated region for block: B:270:0x046e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:109:0x023e -> B:265:0x00a7). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:161:0x032e -> B:240:0x0156). Please submit an issue!!! */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [647=11, 648=11, 652=11, 653=11, 655=4] */
+    /* JADX WARN: Removed duplicated region for block: B:193:0x04e2 A[Catch: Exception -> 0x0516, TRY_LEAVE, TryCatch #8 {Exception -> 0x0516, blocks: (B:191:0x04de, B:193:0x04e2), top: B:243:0x04de }] */
+    /* JADX WARN: Removed duplicated region for block: B:258:0x04db A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:109:0x0291 -> B:253:0x00a7). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:161:0x0381 -> B:266:0x0180). Please submit an issue!!! */
     @Override // com.baidu.tieba.util.ai
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public byte[] w() {
+    public byte[] u() {
         String str;
         URL url;
         int i;
         InputStream inputStream;
-        InputStream inputStream2;
-        Exception e2;
+        Exception exc;
         int read;
         String headerField;
         byte[] bArr = null;
@@ -416,21 +420,60 @@ public class NetWorkCore implements ai {
                 bg.e(getClass().getName(), "getNetData", str);
             }
             i = 0;
-        } catch (Exception e3) {
-            bg.b(getClass().getName(), "getNetData", e3.getMessage());
+        } catch (Exception e2) {
+            bg.b(getClass().getName(), "getNetData", e2.getMessage());
         }
         while (!this.m && z && i < 10) {
-            InputStream inputStream3 = null;
+            InputStream inputStream2 = null;
             try {
-                this.j = a(url);
-            } catch (SocketException e4) {
-            } catch (SocketTimeoutException e5) {
-            } catch (Exception e6) {
-                inputStream2 = null;
-                e2 = e6;
-            } catch (Throwable th) {
-                th = th;
-                inputStream = null;
+                try {
+                    try {
+                        this.j = a(url);
+                    } catch (Exception e3) {
+                        inputStream = null;
+                        exc = e3;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (inputStream2 != null) {
+                    }
+                    try {
+                        if (this.j != null) {
+                        }
+                    } catch (Exception e4) {
+                    }
+                    throw th;
+                }
+            } catch (SocketException e5) {
+                this.o.l = String.valueOf(this.o.b) + e5.getClass() + e5.getMessage();
+                this.o.b = 0;
+                ba.f2479a.incrementAndGet();
+                z = true;
+                this.o.d = this.i.getResources().getString(R.string.neterror);
+                if (0 != 0) {
+                    try {
+                        inputStream2.close();
+                    } catch (Exception e6) {
+                    }
+                }
+                if (this.j != null) {
+                    this.j.disconnect();
+                }
+            } catch (SocketTimeoutException e7) {
+                ba.f2479a.incrementAndGet();
+                this.o.l = String.valueOf(this.o.b) + e7.getClass() + e7.getMessage();
+                this.o.b = 0;
+                z = true;
+                this.o.d = this.i.getResources().getString(R.string.neterror);
+                if (0 != 0) {
+                    try {
+                        inputStream2.close();
+                    } catch (Exception e8) {
+                    }
+                }
+                if (this.j != null) {
+                    this.j.disconnect();
+                }
             }
             if (this.j == null) {
                 throw new SocketException();
@@ -443,8 +486,8 @@ public class NetWorkCore implements ai {
             if (this.m) {
                 if (0 != 0) {
                     try {
-                        inputStream3.close();
-                    } catch (Exception e7) {
+                        inputStream2.close();
+                    } catch (Exception e9) {
                     }
                 }
                 if (this.j != null) {
@@ -462,7 +505,7 @@ public class NetWorkCore implements ai {
                 }
                 if (!this.j.getContentType().contains("text/vnd.wap.wml")) {
                     String contentEncoding = this.j.getContentEncoding();
-                    inputStream = this.j.getInputStream();
+                    InputStream inputStream3 = this.j.getInputStream();
                     try {
                         if (TiebaApplication.g().q() && (headerField = this.j.getHeaderField(HttpUtils.HEADER_NAME_CONTENT_LENGTH)) != null) {
                             try {
@@ -470,10 +513,10 @@ public class NetWorkCore implements ai {
                                 try {
                                     if (parseInt > d) {
                                         bArr = null;
-                                        if (inputStream != null) {
+                                        if (inputStream3 != null) {
                                             try {
-                                                inputStream.close();
-                                            } catch (Exception e8) {
+                                                inputStream3.close();
+                                            } catch (Exception e10) {
                                             }
                                         }
                                         if (this.j != null) {
@@ -488,10 +531,10 @@ public class NetWorkCore implements ai {
                                             if (!com.baidu.tbadk.imageManager.d.a().c(i3)) {
                                                 com.baidu.adp.lib.h.d.d("Image download cacelled. out of memory. url:[" + this.o.f2478a + "], size:" + i3);
                                                 bArr = null;
-                                                if (inputStream != null) {
+                                                if (inputStream3 != null) {
                                                     try {
-                                                        inputStream.close();
-                                                    } catch (Exception e9) {
+                                                        inputStream3.close();
+                                                    } catch (Exception e11) {
                                                     }
                                                 }
                                                 if (this.j != null) {
@@ -500,7 +543,7 @@ public class NetWorkCore implements ai {
                                             }
                                         }
                                     }
-                                } catch (Exception e10) {
+                                } catch (Exception e12) {
                                 }
                             } catch (Throwable th2) {
                             }
@@ -516,7 +559,7 @@ public class NetWorkCore implements ai {
                         }
                         if (this.o.h || z2) {
                             byte[] bArr3 = new byte[23];
-                            int read2 = inputStream.read(bArr3, 0, 23);
+                            int read2 = inputStream3.read(bArr3, 0, 23);
                             if (!new String(bArr3, 0, bArr3.length).equalsIgnoreCase("app:tiebaclient;type:0;")) {
                                 byteArrayOutputStream.write(bArr3, 0, read2);
                                 i4 = 0 + read2;
@@ -525,15 +568,15 @@ public class NetWorkCore implements ai {
                         if (a() && this.s == 1) {
                             this.s = 2;
                         }
-                        while (!this.m && i4 < d && (read = inputStream.read(bArr2)) != -1) {
+                        while (!this.m && i4 < d && (read = inputStream3.read(bArr2)) != -1) {
                             byteArrayOutputStream.write(bArr2, 0, read);
                             i4 += read;
                         }
                         if (this.m) {
-                            if (inputStream != null) {
+                            if (inputStream3 != null) {
                                 try {
-                                    inputStream.close();
-                                } catch (Exception e11) {
+                                    inputStream3.close();
+                                } catch (Exception e13) {
                                 }
                             }
                             if (this.j != null) {
@@ -567,28 +610,7 @@ public class NetWorkCore implements ai {
                             bbVar.d = i + 1;
                             bbVar.f2480a = 2;
                             ba.a(bbVar);
-                            if (this.q) {
-                                bh.b(this);
-                            } else {
-                                bh.a(this);
-                            }
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e12) {
-                                }
-                            }
-                            if (this.j != null) {
-                                this.j.disconnect();
-                            }
-                        }
-                    } catch (SocketException e13) {
-                        inputStream3 = inputStream;
-                        try {
-                            this.o.b = 0;
-                            ba.f2479a.incrementAndGet();
-                            z = true;
-                            this.o.d = this.i.getResources().getString(R.string.neterror);
+                            bh.a(this);
                             if (inputStream3 != null) {
                                 try {
                                     inputStream3.close();
@@ -598,74 +620,40 @@ public class NetWorkCore implements ai {
                             if (this.j != null) {
                                 this.j.disconnect();
                             }
-                            i++;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            inputStream = inputStream3;
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e15) {
-                                }
-                            }
-                            try {
-                                if (this.j != null) {
-                                    this.j.disconnect();
-                                }
-                            } catch (Exception e16) {
-                            }
-                            throw th;
                         }
-                    } catch (SocketTimeoutException e17) {
-                        inputStream3 = inputStream;
-                        ba.f2479a.incrementAndGet();
-                        this.o.b = 0;
-                        z = true;
-                        this.o.d = this.i.getResources().getString(R.string.neterror);
-                        if (inputStream3 != null) {
-                            try {
-                                inputStream3.close();
-                            } catch (Exception e18) {
-                            }
-                        }
-                        if (this.j != null) {
-                            this.j.disconnect();
-                        }
-                        i++;
-                    } catch (Exception e19) {
-                        e2 = e19;
-                        inputStream2 = inputStream;
+                    } catch (Exception e15) {
+                        inputStream = inputStream3;
+                        exc = e15;
                         try {
+                            this.o.l = String.valueOf(this.o.b) + exc.getClass() + exc.getMessage();
                             this.o.b = 0;
                             z = false;
                             this.o.d = this.i.getResources().getString(R.string.neterror);
-                            bg.b(getClass().getName(), "getNetData", "error = " + e2.getMessage());
-                            if (inputStream2 != null) {
+                            bg.b(getClass().getName(), "getNetData", "error = " + exc.getMessage());
+                            if (inputStream != null) {
                                 try {
-                                    inputStream2.close();
-                                } catch (Exception e20) {
+                                    inputStream.close();
+                                } catch (Exception e16) {
                                 }
                             }
                             if (this.j != null) {
                                 this.j.disconnect();
                             }
                             i++;
-                        } catch (Throwable th4) {
-                            th = th4;
-                            inputStream = inputStream2;
-                            if (inputStream != null) {
+                        } catch (Throwable th3) {
+                            th = th3;
+                            inputStream2 = inputStream;
+                            if (inputStream2 != null) {
+                                try {
+                                    inputStream2.close();
+                                } catch (Exception e17) {
+                                }
                             }
                             if (this.j != null) {
+                                this.j.disconnect();
                             }
                             throw th;
                         }
-                    } catch (Throwable th5) {
-                        th = th5;
-                        if (inputStream != null) {
-                        }
-                        if (this.j != null) {
-                        }
-                        throw th;
                     }
                 } else if (this.k < 1) {
                     this.j.disconnect();
@@ -674,22 +662,22 @@ public class NetWorkCore implements ai {
                     i--;
                     if (0 != 0) {
                         try {
-                            inputStream3.close();
-                        } catch (Exception e21) {
+                            inputStream2.close();
+                        } catch (Exception e18) {
                         }
                     }
                     try {
                         if (this.j != null) {
                             this.j.disconnect();
                         }
-                    } catch (Exception e22) {
+                    } catch (Exception e19) {
                     }
                     i++;
                 } else {
                     if (0 != 0) {
                         try {
-                            inputStream3.close();
-                        } catch (Exception e23) {
+                            inputStream2.close();
+                        } catch (Exception e20) {
                         }
                     }
                     if (this.j != null) {
@@ -738,15 +726,15 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public String x() {
+    public String v() {
         String str;
         Exception e2;
-        byte[] w = w();
+        byte[] u = u();
         if (this.o.b != 200) {
             return null;
         }
         try {
-            str = new String(w, 0, w.length, E());
+            str = new String(u, 0, u.length, E());
         } catch (Exception e3) {
             str = null;
             e2 = e3;
@@ -761,7 +749,7 @@ public class NetWorkCore implements ai {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [909=11, 910=11, 914=11, 915=11, 917=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [908=11, 909=11, 913=11, 914=11, 916=4] */
     /* JADX WARN: Code restructure failed: missing block: B:91:0x0285, code lost:
         if (0 == 0) goto L74;
      */
@@ -775,7 +763,7 @@ public class NetWorkCore implements ai {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String u() {
+    public String s() {
         InputStream inputStream;
         Exception exc;
         InputStream inputStream2;
@@ -1104,11 +1092,11 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public int o() {
+    public int m() {
         return this.n;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1074=10, 1075=10, 1077=10, 1079=10, 1080=10, 1084=10, 1085=10, 1087=10, 1088=10, 1089=10] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1073=10, 1074=10, 1076=10, 1078=10, 1079=10, 1083=10, 1084=10, 1086=10, 1087=10, 1088=10] */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x004e, code lost:
         r0.removeMessages(0, r12);
      */
@@ -1135,7 +1123,7 @@ public class NetWorkCore implements ai {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String y() {
+    public String w() {
         DataOutputStream dataOutputStream;
         Throwable th;
         String str;
@@ -1644,11 +1632,11 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public boolean z() {
+    public boolean x() {
         return this.o.b == 200 || this.o.b == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1223=9, 1225=7, 1226=7, 1230=7, 1231=7, 1235=7, 1236=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1222=9, 1224=7, 1225=7, 1229=7, 1230=7, 1234=7, 1235=7] */
     /* JADX WARN: Removed duplicated region for block: B:156:0x0374 A[Catch: Exception -> 0x03a7, TRY_LEAVE, TryCatch #8 {Exception -> 0x03a7, blocks: (B:154:0x036e, B:156:0x0374), top: B:208:0x036e }] */
     /* JADX WARN: Removed duplicated region for block: B:235:0x037d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:237:0x036b A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -1729,7 +1717,7 @@ public class NetWorkCore implements ai {
         } catch (Exception e9) {
             e2 = e9;
         }
-        if (z()) {
+        if (x()) {
             if (this.j.getContentType().contains("text/vnd.wap.wml") && this.k < 1) {
                 this.j.disconnect();
                 this.k++;
@@ -1928,12 +1916,12 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public Context m() {
+    public Context k() {
         return this.i;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public ArrayList<BasicNameValuePair> n() {
+    public ArrayList<BasicNameValuePair> l() {
         return this.o.e;
     }
 
@@ -2105,22 +2093,17 @@ public class NetWorkCore implements ai {
     }
 
     @Override // com.baidu.tieba.util.ai
-    public int b() {
-        return this.s;
-    }
-
-    @Override // com.baidu.tieba.util.ai
     public void a(int i) {
         this.s = i;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public String c() {
-        return this.r;
+    public void a(String str) {
+        this.r = str;
     }
 
     @Override // com.baidu.tieba.util.ai
-    public void a(String str) {
-        this.r = str;
+    public String z() {
+        return this.o.l;
     }
 }

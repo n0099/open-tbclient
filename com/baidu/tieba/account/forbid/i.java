@@ -46,10 +46,10 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         apVar.a("reason", this.f);
         apVar.a("ntn", "banid");
         apVar.e(true);
-        String j = apVar.j();
+        String l = apVar.l();
         if (apVar.c()) {
             try {
-                return (ForbidResultData) new GsonBuilder().create().fromJson(j, (Class<Object>) ForbidResultData.class);
+                return (ForbidResultData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidResultData.class);
             } catch (Exception e) {
                 bg.b("ForbidPostModel", "doInBackground", e.getMessage());
                 ForbidResultData forbidResultData = new ForbidResultData();
@@ -59,7 +59,7 @@ public class i extends BdAsyncTask<String, Object, ForbidResultData> {
         }
         ForbidResultData forbidResultData2 = new ForbidResultData();
         forbidResultData2.errNo = apVar.e();
-        forbidResultData2.errMsg = apVar.g();
+        forbidResultData2.errMsg = apVar.i();
         return forbidResultData2;
     }
 

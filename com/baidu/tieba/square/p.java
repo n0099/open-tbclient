@@ -41,11 +41,11 @@ public class p extends BdAsyncTask<Object, Integer, t> {
             com.baidu.tieba.util.ap apVar3 = this.b;
             str3 = this.f2414a.n;
             apVar3.a("menu_id", str3);
-            String j = this.b.j();
+            String l = this.b.l();
             if (this.b.c()) {
-                a2.b(j);
+                a2.b(l);
             } else {
-                a2.a(this.b.g());
+                a2.a(this.b.i());
             }
         } catch (Exception e) {
             a2.a(e.getMessage());
@@ -65,7 +65,7 @@ public class p extends BdAsyncTask<Object, Integer, t> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         this.f2414a.a(null, true);

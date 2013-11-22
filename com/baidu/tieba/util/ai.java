@@ -28,7 +28,7 @@ public interface ai {
 
     boolean a();
 
-    int b();
+    long b();
 
     void b(String str);
 
@@ -44,47 +44,47 @@ public interface ai {
 
     void d(boolean z);
 
-    String e();
+    long e();
 
     long f();
 
     long g();
 
-    long h();
+    int h();
 
     long i();
 
     int j();
 
-    long k();
+    Context k();
 
-    int l();
+    ArrayList<BasicNameValuePair> l();
 
-    Context m();
+    int m();
 
-    ArrayList<BasicNameValuePair> n();
+    String n();
 
-    int o();
+    boolean o();
 
-    String p();
+    boolean p();
 
-    boolean q();
+    String q();
 
-    boolean r();
+    void r();
 
     String s();
 
     void t();
 
-    String u();
+    byte[] u();
 
-    void v();
+    String v();
 
-    byte[] w();
+    String w();
 
-    String x();
+    boolean x();
 
-    String y();
+    int y();
 
-    boolean z();
+    String z();
 }

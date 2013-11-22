@@ -331,7 +331,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
                     this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
                 }
             }
-            this.d = this.c.j();
+            this.d = this.c.l();
             return null;
         }
 
@@ -340,7 +340,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
             NewVcodeActivity.this.i = null;
             NewVcodeActivity.this.closeLoadingDialog();
             if (this.c != null) {
-                this.c.h();
+                this.c.j();
             }
             super.cancel(true);
         }
@@ -380,7 +380,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
                             }
                         }
                     }
-                    NewVcodeActivity.this.showToast(this.c.g());
+                    NewVcodeActivity.this.showToast(this.c.i());
                 }
             }
             super.a((PostThreadTask) bdVar);
@@ -421,10 +421,10 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
                 this.f2649a.a("tid", NewVcodeActivity.this.b.getThreadId());
             }
             this.f2649a.a("vcode_tag", "11");
-            String j = this.f2649a.j();
+            String l = this.f2649a.l();
             if (this.f2649a.c()) {
                 this.b = new com.baidu.tieba.data.bd();
-                this.b.a(j);
+                this.b.a(l);
                 return this.b;
             }
             return null;
@@ -445,7 +445,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
                     NewVcodeActivity.this.finish();
                 }
             } else {
-                NewVcodeActivity.this.showToast(this.f2649a.g());
+                NewVcodeActivity.this.showToast(this.f2649a.i());
             }
             NewVcodeActivity.this.g.setVisibility(8);
             super.a((ChangeVcodeTask) bdVar);
@@ -455,7 +455,7 @@ public class NewVcodeActivity extends com.baidu.tieba.j {
         public void cancel() {
             NewVcodeActivity.this.j = null;
             if (this.f2649a != null) {
-                this.f2649a.h();
+                this.f2649a.j();
             }
             NewVcodeActivity.this.g.setVisibility(8);
             super.cancel(true);

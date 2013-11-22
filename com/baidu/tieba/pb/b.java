@@ -53,19 +53,19 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
             this.b.a("not_see_lz", String.valueOf(1));
         }
         this.b.c(false);
-        String j = this.b.j();
+        String l = this.b.l();
         if (!this.b.c()) {
             return null;
         }
         com.baidu.tieba.data.ab abVar = new com.baidu.tieba.data.ab();
-        abVar.a(j, true);
+        abVar.a(l, true);
         return abVar;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f2067a.h = null;
         super.cancel(true);
@@ -108,7 +108,7 @@ public class b extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.ab> {
             if (cVar3 != null) {
                 if (this.b != null) {
                     i4 = this.b.e();
-                    str4 = this.d == null ? this.b.g() : null;
+                    str4 = this.d == null ? this.b.i() : null;
                 } else {
                     i4 = -1;
                     str4 = null;

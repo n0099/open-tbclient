@@ -27,6 +27,6 @@ public class ag extends Thread {
         if (this.c != null) {
             apVar.a("img_type", this.c);
         }
-        apVar.j();
+        apVar.l();
     }
 }

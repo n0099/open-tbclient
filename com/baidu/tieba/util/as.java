@@ -11,7 +11,7 @@ public final class as extends Handler {
         try {
             NetWorkCore netWorkCore = (NetWorkCore) message.obj;
             if (netWorkCore != null) {
-                netWorkCore.t();
+                netWorkCore.r();
             }
         } catch (Exception e) {
             bg.b(getClass().getName(), "initNetWorkCore", e.getMessage());

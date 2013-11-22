@@ -13,61 +13,47 @@ import com.baidu.tieba.util.m;
 public class d extends a {
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, i iVar) {
-        int i;
         com.baidu.adp.widget.ImageView.e b = com.baidu.tbadk.imageManager.d.a().b(iVar.a(str));
         if (bf.a().b()) {
-            i = 1;
-        } else {
-            i = 2;
         }
-        int i2 = 3;
-        if (b != null && b.c()) {
-            i2 = 4;
+        if (b == null || b.c()) {
         }
-        com.baidu.adp.lib.g.a.a().a(str, 0L, 0L, 0L, 0L, 0L, 0L, 0, 0L, iVar.d(), 1, com.baidu.tieba.d.a.a().g(), i2, i, System.currentTimeMillis());
         return b;
     }
 
     @Override // com.baidu.tieba.util.a.a
     public Object a(String str, com.baidu.adp.lib.e.e eVar, i iVar, l lVar) {
-        int i;
-        if (!lVar.g) {
-            return null;
-        }
-        int i2 = lVar.d;
-        String a2 = iVar.a(str);
-        synchronized (m.f2496a) {
-            if (i2 == 1) {
-                lVar.e = DatabaseService.c(a2);
-            } else if (i2 == 2) {
-                lVar.e = DatabaseService.b(a2);
-            }
-            if (eVar.isCancelled()) {
-                return null;
-            }
-            if (lVar.e == null) {
-                return null;
-            }
-            lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, false, str);
-            com.baidu.tbadk.imageManager.d.a().a(a2, lVar.i);
-            if (eVar.isCancelled()) {
-                return null;
-            }
-            if (lVar.i != null) {
-                if (bf.a().b()) {
-                    i = 1;
-                } else {
-                    i = 2;
+        if (lVar.g) {
+            int i = lVar.d;
+            String a2 = iVar.a(str);
+            synchronized (m.f2496a) {
+                if (i == 1) {
+                    lVar.e = DatabaseService.c(a2);
+                } else if (i == 2) {
+                    lVar.e = DatabaseService.b(a2);
                 }
-                int i3 = 3;
-                if (lVar.i.c()) {
-                    i3 = 4;
+                if (eVar.isCancelled()) {
+                    return null;
                 }
-                com.baidu.adp.lib.g.a.a().a(str, 0L, 0L, 0L, 0L, 0L, 0L, 0, 0L, iVar.d(), 2, com.baidu.tieba.d.a.a().g(), i3, i, System.currentTimeMillis());
-                eVar.d(lVar);
+                if (lVar.e == null) {
+                    return null;
+                }
+                lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, false, str);
+                com.baidu.tbadk.imageManager.d.a().a(a2, lVar.i);
+                if (eVar.isCancelled()) {
+                    return null;
+                }
+                if (lVar.i != null) {
+                    if (bf.a().b()) {
+                    }
+                    if (lVar.i.c()) {
+                    }
+                    eVar.d(lVar);
+                }
+                return lVar.i;
             }
-            return lVar.i;
         }
+        return null;
     }
 
     @Override // com.baidu.tieba.util.a.a
@@ -92,8 +78,8 @@ public class d extends a {
                 i2 = i3 + 1;
             }
         }
-        byte[] i4 = lVar.f2495a.i();
-        if (i4 == null || !lVar.f2495a.c() || lVar.j) {
+        byte[] k = lVar.f2495a.k();
+        if (k == null || !lVar.f2495a.c() || lVar.j) {
             return null;
         }
         String a2 = iVar.a(str);
@@ -101,22 +87,22 @@ public class d extends a {
             if (lVar.j) {
                 return null;
             }
-            lVar.e = m.a(i4);
+            lVar.e = m.a(k);
             if (lVar.e == null) {
                 return null;
             }
-            lVar.h = UtilHelper.a(i4);
+            lVar.h = UtilHelper.a(k);
             if (lVar.j) {
                 return null;
             }
-            int i5 = 80;
+            int i4 = 80;
             if (i == 1) {
-                i5 = h.m();
+                i4 = h.m();
             }
-            if (lVar.e.getWidth() > i5 || lVar.e.getHeight() > i5) {
+            if (lVar.e.getWidth() > i4 || lVar.e.getHeight() > i4) {
                 bg.a(1, getClass().getName(), "doInBackground", "photo_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
                 com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
-                lVar.e = m.a(lVar.e, i5);
+                lVar.e = m.a(lVar.e, i4);
             }
             if (lVar.j) {
                 return null;

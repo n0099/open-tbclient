@@ -57,7 +57,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
         this.c.a(PushConstants.EXTRA_USER_ID, TiebaApplication.A());
         this.c.a("offset", String.valueOf(this.e));
         this.c.a("rn", String.valueOf(20));
-        this.d = this.c.j();
+        this.d = this.c.l();
         this.f.a(this.d);
         if (this.c.c()) {
             oVar.a(this.d);
@@ -102,7 +102,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
         this.b.b = null;
     }
@@ -138,7 +138,7 @@ public class r extends BdAsyncTask<Boolean, String, o> {
                 this.b.f1929a.a(0, b, false);
                 return;
             }
-            this.b.f1929a.a(3, this.c.g());
+            this.b.f1929a.a(3, this.c.i());
         }
     }
 }

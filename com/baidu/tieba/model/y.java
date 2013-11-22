@@ -91,19 +91,19 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
             arrayList.add(new BasicNameValuePair("ctime", String.valueOf(System.currentTimeMillis())));
             this.b = new com.baidu.tieba.util.ap(stringBuffer.toString());
             this.b.a(arrayList);
-            String j = this.b.j();
-            if (!this.b.c() || j == null) {
+            String l = this.b.l();
+            if (!this.b.c() || l == null) {
                 tVar = null;
             } else {
                 tVar = new com.baidu.tieba.data.t();
                 try {
-                    tVar.a(j);
+                    tVar.a(l);
                     if (tVar.a()) {
                         this.e = tVar.b() == 1;
                         if (this.e) {
-                            DatabaseService.e(j);
+                            DatabaseService.e(l);
                         } else {
-                            DatabaseService.a(j, SocialConstants.FALSE);
+                            DatabaseService.a(l, SocialConstants.FALSE);
                         }
                     } else {
                         tVar = null;
@@ -141,7 +141,7 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
         if (tVar == null) {
             z = false;
             if (this.b != null) {
-                this.f1937a.mErrorString = this.b.g();
+                this.f1937a.mErrorString = this.b.i();
             }
         } else {
             this.f1937a.f1936a = tVar;
@@ -155,7 +155,7 @@ public class y extends BdAsyncTask<Object, com.baidu.tieba.data.t, com.baidu.tie
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         this.f1937a.b = null;

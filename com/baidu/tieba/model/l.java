@@ -42,8 +42,8 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
             com.baidu.tieba.util.ap apVar2 = this.b;
             str2 = this.f1926a.e;
             apVar2.a("com_id", str2);
-            String j = this.b.j();
-            if (this.b.c() && j != null && (jSONObject = new JSONObject(j)) != null && jSONObject.optJSONObject("error").optInt("errno") == 0) {
+            String l = this.b.l();
+            if (this.b.c() && l != null && (jSONObject = new JSONObject(l)) != null && jSONObject.optJSONObject("error").optInt("errno") == 0) {
                 com.baidu.tieba.data.chat.c a2 = com.baidu.tieba.data.chat.c.a();
                 com.baidu.tieba.data.chat.c a3 = com.baidu.tieba.data.chat.c.a();
                 str3 = this.f1926a.d;
@@ -69,7 +69,7 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
         this.f1926a.l = null;
         if (!bool.booleanValue()) {
             this.f1926a.mErrorCode = this.b.e();
-            this.f1926a.mErrorString = this.b.g();
+            this.f1926a.mErrorString = this.b.i();
             gVar = this.f1926a.mLoadDataCallBack;
             gVar.a(false);
             return;
@@ -82,7 +82,7 @@ public class l extends BdAsyncTask<Object, Integer, Boolean> {
         com.baidu.adp.a.g gVar;
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         gVar = this.f1926a.mLoadDataCallBack;

@@ -25,14 +25,14 @@ public class g extends n {
         this.f2026a.a("scr_h", String.valueOf(b));
         this.f2026a.a("scr_dip", String.valueOf(f));
         this.f2026a.a("q_type", String.valueOf(i));
-        String j = this.f2026a.j();
+        String l = this.f2026a.l();
         if (this.f2026a.c()) {
             this.b = new NewErrorData();
-            this.b.parserJson(j);
-            return j;
+            this.b.parserJson(l);
+            return l;
         } else if (this.f2026a.d()) {
             this.c = this.f2026a.e();
-            this.d = this.f2026a.g();
+            this.d = this.f2026a.i();
             return null;
         } else {
             this.c = -1;

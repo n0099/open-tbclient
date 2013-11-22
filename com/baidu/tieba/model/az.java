@@ -41,11 +41,11 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
             str5 = this.f1887a.d;
             apVar3.a("st_type", str5);
             this.b.e(true);
-            String j = this.b.j();
-            com.baidu.tieba.util.bg.e("LikeModel", "doInBackground", "data:" + j);
-            if (this.b.c() && j != null) {
+            String l = this.b.l();
+            com.baidu.tieba.util.bg.e("LikeModel", "doInBackground", "data:" + l);
+            if (this.b.c() && l != null) {
                 com.baidu.tieba.data.af afVar = new com.baidu.tieba.data.af();
-                afVar.a(j);
+                afVar.a(l);
                 return afVar;
             }
         } catch (Exception e) {
@@ -64,7 +64,7 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
         this.f1887a.c = null;
         if (afVar == null && this.b != null) {
             this.f1887a.mErrorCode = this.b.e();
-            this.f1887a.mErrorString = this.b.g();
+            this.f1887a.mErrorString = this.b.i();
             str = this.f1887a.mErrorString;
             com.baidu.tieba.util.bg.e("LikeModel", "onPostExecute", str);
         }
@@ -79,7 +79,7 @@ public class az extends BdAsyncTask<Object, Integer, com.baidu.tieba.data.af> {
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         this.f1887a.c = null;

@@ -20,6 +20,6 @@ public class k extends Thread {
         apVar.a("tid", this.f1085a);
         apVar.a("phonenum", this.b);
         apVar.a("optype", this.c);
-        apVar.j();
+        apVar.l();
     }
 }

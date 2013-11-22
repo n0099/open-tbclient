@@ -2,9 +2,8 @@ package com.baidu.tieba.im.db;
 
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.concurrent.ConcurrentHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
+class ad implements com.baidu.tieba.im.a<ConcurrentHashMap<String, ImMessageCenterPojo>> {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ String f1596a;

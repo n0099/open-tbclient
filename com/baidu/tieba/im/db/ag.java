@@ -10,9 +10,8 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ag implements com.baidu.tieba.im.messageCenter.h {
+class ag implements com.baidu.tieba.im.messageCenter.h {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ aa f1599a;

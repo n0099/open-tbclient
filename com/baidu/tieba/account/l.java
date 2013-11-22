@@ -23,6 +23,6 @@ public class l extends Thread {
         apVar.a("obj", this.f1086a);
         apVar.a("obj_tp", this.b);
         apVar.a("group_id", this.c);
-        apVar.j();
+        apVar.l();
     }
 }

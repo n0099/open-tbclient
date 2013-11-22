@@ -17,7 +17,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
         ProgressBar progressBar;
         super.cancel(true);
         if (this.d != null) {
-            this.d.h();
+            this.d.j();
         }
         progressBar = this.f1435a.m;
         progressBar.setVisibility(8);
@@ -45,7 +45,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
             com.baidu.tieba.util.ap apVar = this.d;
             str = this.f1435a.s;
             apVar.a("vcode_md5", str);
-            this.d.j();
+            this.d.l();
             return null;
         } catch (Exception e) {
             com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
@@ -67,7 +67,7 @@ public class c extends BdAsyncTask<String, Integer, String> {
             this.f1435a.finish();
             return;
         }
-        this.f1435a.showToast(this.d.g());
+        this.f1435a.showToast(this.d.i());
         if (this.d.d()) {
             this.f1435a.c();
         }

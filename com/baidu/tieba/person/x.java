@@ -60,7 +60,7 @@ public class x extends BdAsyncTask<String, Integer, String> {
         this.f2279a.closeLoadingDialog();
         this.f2279a.v = null;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         super.cancel(true);
     }
@@ -77,7 +77,7 @@ public class x extends BdAsyncTask<String, Integer, String> {
                 this.f2279a.showToast(this.f2279a.getString(R.string.upload_head_ok));
                 return;
             }
-            this.f2279a.showToast(this.b.g());
+            this.f2279a.showToast(this.b.i());
         }
     }
 }

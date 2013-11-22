@@ -32,7 +32,7 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
         this.b = new com.baidu.tieba.util.ap(com.baidu.tieba.data.h.f1201a + "c/c/post/rmstore");
         this.b.a(PushConstants.EXTRA_USER_ID, TiebaApplication.A());
         this.b.a("tid", this.c);
-        this.e.a(this.b.j());
+        this.e.a(this.b.l());
         return this.b.c() && this.e.a() == 0;
     }
 
@@ -40,7 +40,7 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1930a.d = null;
         if (this.f1930a.f1929a != null) {
@@ -67,7 +67,7 @@ public class q extends BdAsyncTask<Boolean, Integer, Boolean> {
         } else if (this.b.c()) {
             str = this.e.b();
         } else {
-            str = this.b.g();
+            str = this.b.i();
         }
         if (this.f1930a.f1929a != null) {
             this.f1930a.f1929a.a(2, bool, str);

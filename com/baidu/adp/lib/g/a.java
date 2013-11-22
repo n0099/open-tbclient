@@ -87,10 +87,6 @@ public class a {
         a().a(false, "cost", Long.valueOf(j3), "dns_cost", Long.valueOf(j4), "con_cost", Long.valueOf(j5), "rsp_cost", Long.valueOf(j6), "result", Long.valueOf(j7), "module", e.e, "logid", Long.valueOf(System.currentTimeMillis()), "interface", str, "retry", Integer.valueOf(i), "size_d", Long.valueOf(j), "size_u", Long.valueOf(j2), e.e, c());
     }
 
-    public void a(String str, long j, long j2, long j3, long j4, long j5, long j6, int i, long j7, String str2, int i2, int i3, int i4, int i5, long j8) {
-        a().a(false, "cost", Long.valueOf(j3), "dns_cost", Long.valueOf(j4), "con_cost", Long.valueOf(j5), "rsp_cost", Long.valueOf(j6), "result", Long.valueOf(j7), "module", e.e, "logid", Long.valueOf(System.currentTimeMillis()), "interface", str, "retry", Integer.valueOf(i), "size_d", Long.valueOf(j), "size_u", Long.valueOf(j2), e.e, c(), "pic_src", str2, "pic_c_hit", Integer.valueOf(i2), "pic_o_s", Integer.valueOf(i3), "pic_tp", Integer.valueOf(i4), "pic_isbig", Integer.valueOf(i5), "ts", Long.valueOf(j8));
-    }
-
     public void a(String str) {
         a().a(true, "module", "crash", "crash_type", str, e.e, c());
     }

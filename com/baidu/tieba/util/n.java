@@ -22,7 +22,7 @@ public class n {
 
     public void a() {
         if (this.d != null) {
-            this.d.h();
+            this.d.j();
         }
         this.e = true;
     }
@@ -59,9 +59,9 @@ public class n {
                             if (this.e) {
                                 z = true;
                             } else {
-                                String l = this.d.l();
-                                bg.e("ChunkUploadHelper", "uploadChunkFile", "ret " + l);
-                                if (l == null || !this.d.c()) {
+                                String n = this.d.n();
+                                bg.e("ChunkUploadHelper", "uploadChunkFile", "ret " + n);
+                                if (n == null || !this.d.c()) {
                                     this.c.a(i);
                                     DatabaseService.a(this.c);
                                     randomAccessFile.close();
@@ -70,7 +70,7 @@ public class n {
                             }
                             if (z) {
                                 fVar.a(this.d.e());
-                                fVar.a(this.d.g());
+                                fVar.a(this.d.i());
                                 fVar.a(this.c);
                                 fVar.a(false);
                                 return fVar;

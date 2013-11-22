@@ -24,6 +24,6 @@ public class l extends Thread {
         apVar.a("BDUSS", this.b);
         apVar.a("channel_id", TiebaApplication.g().bb());
         apVar.a("channel_uid", TiebaApplication.g().ba());
-        apVar.j();
+        apVar.l();
     }
 }

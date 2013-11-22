@@ -474,9 +474,9 @@ public class b {
         return eVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:147:0x002d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0032  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0037  */
+    /* JADX WARN: Removed duplicated region for block: B:147:0x002f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0034  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0039  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -498,7 +498,7 @@ public class b {
                 }
                 if (aVar != null) {
                     if (aVar.c()) {
-                        throw new BdHttpCancelException();
+                        throw new BdHttpCancelException("request cancelled.");
                     }
                     aVar.a(httpURLConnection);
                 }
@@ -520,7 +520,7 @@ public class b {
                 httpURLConnection.setDoOutput(!z);
                 httpURLConnection.setUseCaches(false);
                 if (aVar != null && aVar.c()) {
-                    throw new BdHttpCancelException();
+                    throw new BdHttpCancelException("request cancelled.");
                 }
                 b(str);
                 if (fVar != null) {
@@ -531,7 +531,7 @@ public class b {
                     fVar.c = (System.currentTimeMillis() - currentTimeMillis) - fVar.g;
                 }
                 if (aVar != null && aVar.c()) {
-                    throw new BdHttpCancelException();
+                    throw new BdHttpCancelException("request cancelled.");
                 }
                 if (cVar != null) {
                     cVar.a();
@@ -585,11 +585,11 @@ public class b {
                     }
                 }
                 if (aVar != null && aVar.c()) {
-                    throw new BdHttpCancelException();
+                    throw new BdHttpCancelException("request cancelled.");
                 }
                 int responseCode = httpURLConnection.getResponseCode();
                 if (aVar != null && aVar.c()) {
-                    throw new BdHttpCancelException();
+                    throw new BdHttpCancelException("request cancelled.");
                 }
                 if (responseCode == 200 || responseCode == 204 || responseCode == 206 || responseCode == 413 || responseCode == 416) {
                     if (responseCode == 200 || responseCode == 206) {
@@ -598,7 +598,7 @@ public class b {
                         a2 = new e();
                     }
                     if (aVar != null && aVar.c()) {
-                        throw new BdHttpCancelException();
+                        throw new BdHttpCancelException("request cancelled.");
                     }
                     a2.f513a = responseCode;
                     if (fVar != null) {
@@ -618,12 +618,12 @@ public class b {
                     }
                     return a2;
                 } else if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
-                    throw new IOException("doGetOrPost retry");
+                    throw new IOException("doGetOrPost retry, errorCode:" + responseCode);
                 } else {
                     if (responseCode == 502 || responseCode == 503 || responseCode == 504) {
-                        throw new Exception("close not retry");
+                        throw new Exception("close not retry, errorCode:" + responseCode);
                     }
-                    throw new BdHttpErrorException();
+                    throw new BdHttpErrorException("errorCode:" + responseCode);
                 }
             } catch (Exception e5) {
                 e = e5;

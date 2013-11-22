@@ -43,7 +43,7 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
         Exception e;
         String str;
         String str2;
-        String j;
+        String l;
         JSONObject jSONObject;
         Object obj2 = null;
         try {
@@ -55,7 +55,7 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
             str2 = this.f1912a.b;
             apVar2.a("fid", str2);
             this.b.e(true);
-            j = this.b.j();
+            l = this.b.l();
         } catch (Exception e2) {
             obj = obj2;
             e = e2;
@@ -65,11 +65,11 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
             try {
                 if (obj != 0) {
                     SignData signData = new SignData();
-                    signData.parserJson(j);
+                    signData.parserJson(l);
                     obj = signData;
-                } else if (!com.baidu.tieba.util.be.c(j) && (jSONObject = new JSONObject(j)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
+                } else if (!com.baidu.tieba.util.be.c(l) && (jSONObject = new JSONObject(l)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
                     SignData signData2 = new SignData();
-                    signData2.parserJson(j);
+                    signData2.parserJson(l);
                     signData2.setIsSigned(1);
                     signData2.setCountSignNum(1);
                     obj2 = null;
@@ -91,7 +91,7 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1912a.c = null;
         super.cancel(true);
@@ -107,7 +107,7 @@ public class cf extends BdAsyncTask<Object, Integer, SignData> {
         this.f1912a.c = null;
         if (signData == null && this.b != null) {
             this.f1912a.mErrorCode = this.b.e();
-            this.f1912a.mErrorString = this.b.g();
+            this.f1912a.mErrorString = this.b.i();
         }
         gVar = this.f1912a.mLoadDataCallBack;
         gVar.a(signData);

@@ -26,7 +26,7 @@ public class ay extends BdAsyncTask<String, Integer, Bitmap> {
         progressBar = this.f1062a.E;
         progressBar.setVisibility(8);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         super.cancel(true);
     }
@@ -47,7 +47,7 @@ public class ay extends BdAsyncTask<String, Integer, Bitmap> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Bitmap a(String... strArr) {
         this.b = new com.baidu.tieba.util.ap(this.c);
-        return com.baidu.tieba.util.m.a(this.b.i());
+        return com.baidu.tieba.util.m.a(this.b.k());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

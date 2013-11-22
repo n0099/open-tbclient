@@ -48,13 +48,13 @@ public class az extends BdAsyncTask<Object, Integer, ch> {
         try {
             this.c = new com.baidu.tieba.util.ap(this.d);
             this.c.a(this.f1410a);
-            String j = this.c.j();
-            if (!this.c.c() || j == null) {
+            String l = this.c.l();
+            if (!this.c.c() || l == null) {
                 return null;
             }
             chVar = new ch();
             try {
-                chVar.a(j);
+                chVar.a(l);
                 return chVar;
             } catch (Exception e2) {
                 e = e2;
@@ -86,7 +86,7 @@ public class az extends BdAsyncTask<Object, Integer, ch> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
             this.c = null;
         }
         progressBar = this.b.s;

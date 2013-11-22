@@ -43,7 +43,7 @@ public class b extends com.baidu.adp.lib.e.b<d> {
         ap apVar;
         super.c(str, fVar);
         if (fVar != null && (apVar = (ap) fVar.a("network")) != null) {
-            apVar.h();
+            apVar.j();
         }
         linkedList = this.b.f2593a;
         linkedList.remove(str);

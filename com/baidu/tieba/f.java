@@ -56,10 +56,10 @@ public class f {
             apVar.a("bdusstoken", str2);
             apVar.a("channel_id", TiebaApplication.g().bb());
             apVar.a("channel_uid", TiebaApplication.g().ba());
-            String j = apVar.j();
-            if (apVar.c() && j != null) {
+            String l = apVar.l();
+            if (apVar.c() && l != null) {
                 com.baidu.tieba.model.be beVar = new com.baidu.tieba.model.be();
-                beVar.a(j);
+                beVar.a(l);
                 accountData = new AccountData();
                 accountData.setAccount(beVar.a().getName());
                 accountData.setBDUSS(beVar.a().getBDUSS());

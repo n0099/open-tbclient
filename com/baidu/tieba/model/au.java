@@ -42,7 +42,7 @@ public class au extends BdAsyncTask<Object, Integer, JSONObject> {
             com.baidu.tieba.util.ap apVar = this.c;
             str = this.f1883a.j;
             apVar.a("kw", str);
-            return new JSONObject(this.c.j());
+            return new JSONObject(this.c.l());
         } catch (Exception e) {
             com.baidu.tieba.util.bg.b(getClass().getName(), "doInBackground", e.getMessage());
             return null;
@@ -64,7 +64,7 @@ public class au extends BdAsyncTask<Object, Integer, JSONObject> {
                 atVar.f1882a = true;
                 atVar.b = this.c.d();
                 atVar.c = this.c.e();
-                atVar.d = this.c.g();
+                atVar.d = this.c.i();
                 atVar.e = this.c.b();
             }
             bkVar2 = this.f1883a.n;
@@ -89,7 +89,7 @@ public class au extends BdAsyncTask<Object, Integer, JSONObject> {
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
             this.c = null;
         }
         this.f1883a.l = null;

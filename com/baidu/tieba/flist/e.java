@@ -46,15 +46,15 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
         String str;
         String str2;
         String str3;
-        String j;
+        String l;
         String str4;
         String str5;
         String str6 = null;
-        com.baidu.adp.lib.cache.s<String> j2 = com.baidu.tieba.b.a.a().j();
-        if (j2 != null) {
+        com.baidu.adp.lib.cache.s<String> j = com.baidu.tieba.b.a.a().j();
+        if (j != null) {
             StringBuilder append = new StringBuilder().append(TiebaApplication.A()).append("_");
             str5 = this.b.c;
-            str6 = j2.a(append.append(str5).append("_dir").toString());
+            str6 = j.a(append.append(str5).append("_dir").toString());
         }
         if (str6 != null) {
             this.f1253a.b(str6);
@@ -72,24 +72,24 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
             ap apVar3 = this.c;
             str3 = this.b.e;
             apVar3.a("menu_id", str3);
-            j = this.c.j();
+            l = this.c.l();
         } catch (Exception e) {
             this.f1253a.a(e.getMessage());
             bg.b(getClass().getName(), "doInBackground", e.getMessage());
         }
-        if (j == null) {
+        if (l == null) {
             return this.f1253a;
         }
         if (this.c.c()) {
-            this.f1253a.b(j);
+            this.f1253a.b(l);
             this.b.f = true;
-            if (j2 != null) {
+            if (j != null) {
                 StringBuilder append2 = new StringBuilder().append(TiebaApplication.A()).append("_");
                 str4 = this.b.c;
-                j2.a(append2.append(str4).append("_dir").toString(), j, Util.MILLSECONDS_OF_DAY);
+                j.a(append2.append(str4).append("_dir").toString(), l, Util.MILLSECONDS_OF_DAY);
             }
         } else {
-            this.f1253a.a(this.c.g());
+            this.f1253a.a(this.c.i());
             this.b.f = false;
         }
         return this.f1253a;
@@ -131,7 +131,7 @@ public class e extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.t> {
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
             this.c = null;
         }
     }

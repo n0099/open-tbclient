@@ -33,11 +33,11 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
             this.b.a("kw", this.d);
             this.b.a("is_like", this.e);
             this.b.e(true);
-            String j = this.b.j();
+            String l = this.b.l();
             if (this.b.d()) {
                 if (this.e.equals(SocialConstants.FALSE)) {
                     try {
-                        JSONObject jSONObject = new JSONObject(j);
+                        JSONObject jSONObject = new JSONObject(l);
                         JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
                         if (optJSONObject.optInt("is_success", 0) == 1) {
                             this.f.d = optJSONObject.optInt("level_id", 0);
@@ -56,7 +56,7 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
                 }
                 if (this.b.c()) {
                     try {
-                        JSONObject jSONObject2 = new JSONObject(j);
+                        JSONObject jSONObject2 = new JSONObject(l);
                         this.f.c = jSONObject2.optInt("num");
                         this.f.f1875a = true;
                     } catch (Exception e2) {
@@ -75,7 +75,7 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1874a.m = null;
         this.f1874a.a(false);
@@ -91,7 +91,7 @@ public class al extends BdAsyncTask<String, Integer, Boolean> {
         this.f1874a.a(false);
         if (this.b != null) {
             an anVar = new an(this.f1874a);
-            anVar.d = this.b.g();
+            anVar.d = this.b.i();
             anVar.c = this.b.e();
             afVar = this.f1874a.j;
             if (afVar != null) {

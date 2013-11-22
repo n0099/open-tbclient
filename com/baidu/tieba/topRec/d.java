@@ -50,7 +50,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
                 this.e.a("favo_type", SocialConstants.TRUE);
                 this.e.a("st_type", "from_topRec");
                 this.e.e(true);
-                this.e.j();
+                this.e.l();
                 return null;
             }
             return null;
@@ -82,7 +82,7 @@ public class d extends BdAsyncTask<Integer, Integer, String> {
     public void cancel() {
         h hVar;
         if (this.e != null) {
-            this.e.h();
+            this.e.j();
             this.e = null;
         }
         hVar = this.d.f2426a;

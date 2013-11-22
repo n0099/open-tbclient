@@ -51,11 +51,11 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
             }
         }
         this.d.e(true);
-        String j = this.d.j();
+        String l = this.d.l();
         if (this.d.c()) {
             if (this.h == 6) {
                 try {
-                    JSONArray optJSONArray = new JSONObject(j).optJSONArray("cates");
+                    JSONArray optJSONArray = new JSONObject(l).optJSONArray("cates");
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         com.baidu.tieba.data.z zVar = new com.baidu.tieba.data.z();
                         zVar.a(optJSONArray.optJSONObject(i));
@@ -91,7 +91,7 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
                 ajVar.c = this.f1871a;
             }
         } else {
-            ajVar.b = this.d.g();
+            ajVar.b = this.d.i();
         }
         gVar = this.c.mLoadDataCallBack;
         gVar.a(ajVar);
@@ -101,7 +101,7 @@ public class ai extends BdAsyncTask<String, String, Boolean> {
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.d != null) {
-            this.d.h();
+            this.d.j();
         }
         this.c.c = null;
         super.cancel(true);

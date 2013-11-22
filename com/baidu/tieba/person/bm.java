@@ -46,7 +46,7 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.ap, com.baidu.t
         bn bnVar2;
         bn bnVar3;
         if (this.e != null) {
-            this.e.h();
+            this.e.j();
         }
         bnVar = this.f2228a.e;
         if (bnVar != null) {
@@ -90,15 +90,15 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.ap, com.baidu.t
         if (this.d != 0) {
             this.e.a("pn", String.valueOf(this.d));
         }
-        String j = this.e.j();
+        String l = this.e.l();
         if (this.e.c()) {
             apVar = new com.baidu.tieba.data.ap();
-            apVar.a(j);
+            apVar.a(l);
             if (apVar.a().d() == 1) {
                 cbVar = this.f2228a.h;
                 if (cbVar != null) {
                     cbVar2 = this.f2228a.h;
-                    cbVar2.a(j, this.c);
+                    cbVar2.a(l, this.c);
                 }
             }
         }
@@ -136,7 +136,7 @@ public class bm extends BdAsyncTask<String, com.baidu.tieba.data.ap, com.baidu.t
                 a(apVar, false);
             } else {
                 a(apVar, true);
-                this.f2228a.showToast(this.e.g());
+                this.f2228a.showToast(this.e.i());
             }
             super.a((bm) apVar);
         }

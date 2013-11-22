@@ -40,12 +40,12 @@ public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
     public com.baidu.tieba.data.d a(String... strArr) {
         this.b = new com.baidu.tieba.util.ap(this.c);
         this.b.a("un", this.d);
-        String j = this.b.j();
+        String l = this.b.l();
         if (!this.b.d() || this.b.e() != 36) {
             return null;
         }
         com.baidu.tieba.data.d dVar = new com.baidu.tieba.data.d();
-        dVar.a(j);
+        dVar.a(l);
         return dVar;
     }
 
@@ -63,18 +63,18 @@ public class s extends BdAsyncTask<String, Integer, com.baidu.tieba.data.d> {
         button = this.f1092a.k;
         button.setEnabled(true);
         if (!this.b.d()) {
-            this.f1092a.b(this.b.g());
+            this.f1092a.b(this.b.i());
         } else if (this.b.e() == 0) {
             m mVar = this.f1092a;
             jVar = this.f1092a.j;
             mVar.b(jVar.getString(R.string.name_not_use));
         } else if (this.b.e() == 36) {
-            this.f1092a.b(this.b.g());
+            this.f1092a.b(this.b.i());
             if (dVar != null) {
                 this.f1092a.a(dVar.b());
             }
         } else {
-            this.f1092a.b(this.b.g());
+            this.f1092a.b(this.b.i());
         }
     }
 

@@ -61,10 +61,10 @@ public class aq extends BdAsyncTask<String, Integer, be> {
         bg.e("", "mBDUSS = ", str3);
         str4 = this.f1054a.i;
         bg.e("", "mPtoken = ", str4);
-        String j = this.b.j();
+        String l = this.b.l();
         if (this.b.c()) {
             beVar = new be();
-            beVar.a(j);
+            beVar.a(l);
         } else {
             bg.e(getClass().getName(), "doInBackground", "relogin fail");
         }
@@ -160,7 +160,7 @@ public class aq extends BdAsyncTask<String, Integer, be> {
             progressBar.setVisibility(4);
             return;
         }
-        r0 = this.b != null ? this.b.g() : null;
+        r0 = this.b != null ? this.b.i() : null;
         if (r0 == null) {
             r0 = this.f1054a.getString(R.string.data_load_error);
         }
@@ -171,7 +171,7 @@ public class aq extends BdAsyncTask<String, Integer, be> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1054a.b = null;
     }

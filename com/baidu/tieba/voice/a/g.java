@@ -47,17 +47,17 @@ public class g implements com.baidu.adp.lib.e.g {
         if (this.b != null) {
             this.b.a("network", this.f2597a);
         }
-        byte[] i = this.f2597a.i();
+        byte[] k = this.f2597a.k();
         if (!this.f2597a.d()) {
             dVar.c = 3;
             dVar.d = ak.a(R.string.sync_mark_fail_con);
             return dVar;
-        } else if (i == null || i.length == 0) {
+        } else if (k == null || k.length == 0) {
             dVar.c = 4;
             dVar.d = ak.a(R.string.voice_cache_error_no_file);
             return dVar;
         } else {
-            int a2 = e.a(str, i);
+            int a2 = e.a(str, k);
             if (a2 == 0) {
                 dVar.b = af.a(str, 1);
                 dVar.f2595a = str;

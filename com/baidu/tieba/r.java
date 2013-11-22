@@ -74,14 +74,14 @@ public class r extends BdAsyncTask<Object, Integer, String> {
         if (str3 != null) {
             str4 = this.f2282a.t;
             if (str4.equals("get")) {
-                this.c = this.b.k();
+                this.c = this.b.m();
                 if (this.b.d()) {
                     return this.c;
                 }
                 return null;
             }
         }
-        this.c = this.b.j();
+        this.c = this.b.l();
         if (this.b.d()) {
         }
         return null;
@@ -90,7 +90,7 @@ public class r extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f2282a.p = false;
         super.cancel(true);

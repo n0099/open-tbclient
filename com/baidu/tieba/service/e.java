@@ -100,7 +100,7 @@ class e extends BdAsyncTask<String, Integer, String> {
                             }
                             this.b = new ap(com.baidu.tieba.data.h.f1201a + str2);
                             this.b.a("logfile", byteArray);
-                            this.b.l();
+                            this.b.n();
                             if (byteArrayOutputStream != null) {
                                 byteArrayOutputStream.close();
                                 byteArrayOutputStream2 = null;
@@ -350,7 +350,7 @@ class e extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f2326a.f2316a = null;
         super.cancel(true);

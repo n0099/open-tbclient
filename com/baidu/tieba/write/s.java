@@ -66,7 +66,7 @@ public class s extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.bd> {
                 this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
             }
         }
-        this.d = this.c.j();
+        this.d = this.c.l();
         return null;
     }
 
@@ -75,7 +75,7 @@ public class s extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.bd> {
         this.f2702a.h = null;
         this.f2702a.closeLoadingDialog();
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
         super.cancel(true);
     }
@@ -117,7 +117,7 @@ public class s extends BdAsyncTask<Integer, Integer, com.baidu.tieba.data.bd> {
                     editText = this.f2702a.f;
                     editText.setText((CharSequence) null);
                 }
-                this.f2702a.showToast(this.c.g());
+                this.f2702a.showToast(this.c.i());
             }
         }
         super.a((s) bdVar);

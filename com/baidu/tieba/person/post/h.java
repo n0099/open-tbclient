@@ -35,10 +35,10 @@ public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
         this.c.a("rn", String.valueOf(20));
         this.c.a("is_thread", String.valueOf(1));
         this.c.a("need_content", String.valueOf(1));
-        String j = this.c.j();
-        bg.e("PersonPostThreadModel", "doInBackground", j);
+        String l = this.c.l();
+        bg.e("PersonPostThreadModel", "doInBackground", l);
         try {
-            personPostThreadModel = (PersonPostThreadModel) new GsonBuilder().create().fromJson(j, (Class<Object>) PersonPostThreadModel.class);
+            personPostThreadModel = (PersonPostThreadModel) new GsonBuilder().create().fromJson(l, (Class<Object>) PersonPostThreadModel.class);
         } catch (JsonParseException e) {
             bg.e("PersonPostThreadModel", "doInBackground", e.getMessage());
             personPostThreadModel = null;
@@ -47,7 +47,7 @@ public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
             personPostThreadModel = new PersonPostThreadModel();
         }
         personPostThreadModel.setErrorCode(this.c.e());
-        personPostThreadModel.setErrorString(this.c.g());
+        personPostThreadModel.setErrorString(this.c.i());
         return personPostThreadModel;
     }
 
@@ -65,7 +65,7 @@ public class h extends BdAsyncTask<Void, Void, PersonPostThreadModel> {
     public void cancel() {
         super.cancel();
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
         PersonPostThreadModel.sFetchThreadAsyncTask = null;
     }

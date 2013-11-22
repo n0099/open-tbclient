@@ -21,33 +21,14 @@ public class bh {
     }
 
     public static void a(ai aiVar) {
-        if (aiVar != null && aiVar.d() <= 180000) {
+        if (aiVar != null && aiVar.b() <= 180000) {
             try {
-                if (aiVar.d() >= 0 && aiVar.i() >= 0 && aiVar.h() >= 0 && aiVar.k() >= 0) {
-                    com.baidu.adp.lib.g.a.a().a(aiVar.e(), aiVar.g(), aiVar.f(), aiVar.d(), aiVar.i(), aiVar.h(), aiVar.k(), aiVar.j(), aiVar.l());
+                if (aiVar.b() >= 0 && aiVar.g() >= 0 && aiVar.f() >= 0 && aiVar.i() >= 0) {
+                    com.baidu.adp.lib.g.a.a().a(aiVar.c(), aiVar.e(), aiVar.d(), aiVar.b(), aiVar.g(), aiVar.f(), aiVar.i(), aiVar.h(), aiVar.j());
                 }
-                bg.b("api=" + aiVar.e() + " downsize=" + aiVar.g() + " upsize=" + aiVar.f() + " dns=" + aiVar.i() + " cost=" + aiVar.d() + " conTime=" + aiVar.h() + " rspTime=" + aiVar.k() + " retry=" + aiVar.j() + " errorCode=" + aiVar.l());
+                bg.b("api=" + aiVar.c() + " downsize=" + aiVar.e() + " upsize=" + aiVar.d() + " dns=" + aiVar.g() + " cost=" + aiVar.b() + " conTime=" + aiVar.f() + " rspTime=" + aiVar.i() + " retry=" + aiVar.h() + " errorCode=" + aiVar.j());
             } catch (Exception e) {
                 e.printStackTrace();
-                bg.b("TiebaStatic", com.baidu.loginshare.e.e, e.toString());
-            }
-        }
-    }
-
-    public static void b(ai aiVar) {
-        int i;
-        if (aiVar != null && aiVar.d() <= 180000) {
-            try {
-                if (aiVar.d() >= 0 && aiVar.i() >= 0 && aiVar.h() >= 0 && aiVar.k() >= 0) {
-                    if (bf.a().b()) {
-                        i = 1;
-                    } else {
-                        i = 2;
-                    }
-                    com.baidu.adp.lib.g.a.a().a(aiVar.e(), aiVar.g(), aiVar.f(), aiVar.d(), aiVar.i(), aiVar.h(), aiVar.k(), aiVar.j(), aiVar.l(), aiVar.c(), 0, com.baidu.tieba.d.a.a().g(), aiVar.b(), i, System.currentTimeMillis());
-                    bg.b("api=" + aiVar.e() + " downsize=" + aiVar.g() + " upsize=" + aiVar.f() + " dns=" + aiVar.i() + " cost=" + aiVar.d() + " conTime=" + aiVar.h() + " rspTime=" + aiVar.k() + " retry=" + aiVar.j() + " errorCode=" + aiVar.l() + " pic_src=" + aiVar.c() + " pic_hit=0 pic_set=" + com.baidu.tieba.d.a.a().g() + " pic_type=" + aiVar.b() + " pic_isbig=" + i + " ts=" + System.currentTimeMillis());
-                }
-            } catch (Exception e) {
                 bg.b("TiebaStatic", com.baidu.loginshare.e.e, e.toString());
             }
         }

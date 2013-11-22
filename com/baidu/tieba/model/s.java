@@ -40,7 +40,7 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
                 String a2 = oVar.a(h, 20);
                 this.b.a(new ArrayList<>());
                 this.b.a("data", a2);
-                this.c.a(this.b.j());
+                this.c.a(this.b.l());
                 if (!this.b.c() || this.c.a() != 0) {
                     break;
                 }
@@ -61,7 +61,7 @@ public class s extends BdAsyncTask<o, Integer, Boolean> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1932a.c = null;
         if (this.f1932a.f1929a != null) {

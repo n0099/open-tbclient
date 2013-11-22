@@ -69,17 +69,17 @@ public class a {
     private String a(String str, com.baidu.tieba.data.e eVar) {
         this.f1008a = new ap(com.baidu.tieba.data.h.f1201a + this.e);
         this.f1008a.a("voice_md5", eVar.a());
-        String j = this.f1008a.j();
-        if (j == null || !this.f1008a.c()) {
+        String l = this.f1008a.l();
+        if (l == null || !this.f1008a.c()) {
             eVar.a((int) a(eVar.b()));
             DatabaseService.a(eVar);
             this.c.a(this.f1008a.e());
-            this.c.a(this.f1008a.g());
+            this.c.a(this.f1008a.i());
             this.c.a(false);
             return null;
         }
         DatabaseService.o(str);
-        return j;
+        return l;
     }
 
     private long a(long j) {

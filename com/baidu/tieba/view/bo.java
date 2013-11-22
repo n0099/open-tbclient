@@ -76,11 +76,11 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
                     }
                 }
                 this.b.d(true);
-                byte[] i = this.b.i();
-                Bitmap a3 = this.b.c() ? com.baidu.tieba.util.m.a(i) : a2;
-                com.baidu.tieba.util.af.a("image", this.d, i);
+                byte[] k = this.b.k();
+                Bitmap a3 = this.b.c() ? com.baidu.tieba.util.m.a(k) : a2;
+                com.baidu.tieba.util.af.a("image", this.d, k);
                 a2 = a3;
-                imageData = i;
+                imageData = k;
             }
             bpVar = new bp(this.f2561a);
             try {
@@ -136,7 +136,7 @@ public class bo extends BdAsyncTask<String, Integer, bp> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f2561a.b.setVisibility(0);
         this.f2561a.f2560a.setVisibility(8);

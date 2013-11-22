@@ -66,10 +66,10 @@ public class i extends BdAsyncTask<String, Integer, be> {
             com.baidu.tieba.util.ap apVar6 = this.b;
             editText = this.f1083a.i;
             apVar6.a("smscode", editText.getText().toString());
-            String j = this.b.j();
+            String l = this.b.l();
             if (this.b.c()) {
                 be beVar = new be();
-                beVar.a(j);
+                beVar.a(l);
                 return beVar;
             }
             return null;
@@ -106,12 +106,12 @@ public class i extends BdAsyncTask<String, Integer, be> {
             this.f1083a.a(beVar);
             return;
         }
-        String g = this.b.g();
-        if (g != null && g.length() > 0) {
+        String i3 = this.b.i();
+        if (i3 != null && i3.length() > 0) {
             textView = this.f1083a.h;
             textView.setVisibility(0);
             textView2 = this.f1083a.h;
-            textView2.setText(g);
+            textView2.setText(i3);
         }
         if (this.b.e() == 26) {
             this.f1083a.y = 26;
@@ -167,7 +167,7 @@ public class i extends BdAsyncTask<String, Integer, be> {
             relativeLayout.setEnabled(true);
         }
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1083a.a(true);
         super.cancel(true);

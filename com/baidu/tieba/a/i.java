@@ -29,7 +29,7 @@ public class i {
                 this.b.a("spid", str3);
                 break;
         }
-        return this.b.j();
+        return this.b.l();
     }
 
     public boolean a() {
@@ -43,7 +43,7 @@ public class i {
         if (this.b == null) {
             return null;
         }
-        return this.b.g();
+        return this.b.i();
     }
 
     public int c() {
@@ -55,7 +55,7 @@ public class i {
 
     public void d() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.b = null;
     }

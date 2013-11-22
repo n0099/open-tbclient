@@ -57,6 +57,6 @@ public class ai extends com.baidu.adp.a.d {
         ap apVar = new ap(com.baidu.tieba.data.h.f1201a + "c/f/forum/forumsquarelist");
         apVar.a("list_id", this.f1249a);
         apVar.a("st_type", this.c);
-        return (ForumRankData) new GsonBuilder().create().fromJson(apVar.j(), (Class<Object>) ForumRankData.class);
+        return (ForumRankData) new GsonBuilder().create().fromJson(apVar.l(), (Class<Object>) ForumRankData.class);
     }
 }

@@ -31,7 +31,7 @@ public class m extends BdAsyncTask<com.baidu.tieba.data.ad, Integer, String> {
                     this.b.a("fid", adVar.a());
                     this.b.a("kw", adVar.b());
                     this.b.e(true);
-                    this.b.j();
+                    this.b.l();
                     return null;
                 }
                 return null;
@@ -62,7 +62,7 @@ public class m extends BdAsyncTask<com.baidu.tieba.data.ad, Integer, String> {
                 return;
             }
             baseFragmentActivity = this.f1448a.i;
-            baseFragmentActivity.a(this.b.g());
+            baseFragmentActivity.a(this.b.i());
         }
     }
 
@@ -74,7 +74,7 @@ public class m extends BdAsyncTask<com.baidu.tieba.data.ad, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         this.f1448a.d = null;

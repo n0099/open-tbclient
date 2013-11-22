@@ -18,15 +18,15 @@ public class c {
         this.b.a("com_id", chatPostData.getFriendID());
         this.b.a("content", chatPostData.getContent());
         this.b.a("last_msg_id", String.valueOf(chatPostData.getLastMsgID()));
-        String j = this.b.j();
+        String l = this.b.l();
         this.c = new NewErrorData();
-        this.c.parserJson(j);
-        return j;
+        this.c.parserJson(l);
+        return l;
     }
 
     public void a() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
     }
 
@@ -39,7 +39,7 @@ public class c {
 
     public String c() {
         if (this.b != null) {
-            return this.b.g();
+            return this.b.i();
         }
         return null;
     }

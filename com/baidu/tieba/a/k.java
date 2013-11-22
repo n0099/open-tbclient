@@ -47,7 +47,7 @@ public class k {
                 try {
                     File d = af.d("tieba_resized_image");
                     this.d = new ap(c);
-                    if (d.length() <= 102400 || (com.baidu.tieba.data.h.n() == 0 && this.d.f() != null && !this.d.f().equals("2"))) {
+                    if (d.length() <= 102400 || (com.baidu.tieba.data.h.n() == 0 && this.d.h() != null && !this.d.h().equals("2"))) {
                         bg.e("PostThreadTask", "doInBackground", "image size is less than 100K");
                         this.d.a("pic_type", String.valueOf(writeData.getPicType()));
                         b2 = this.d.b("tieba_resized_image");
@@ -69,7 +69,7 @@ public class k {
                             this.d = new ap(com.baidu.tieba.data.h.f1201a + "c/c/img/finupload");
                             this.d.a("md5", eVar.a());
                             this.d.a("pic_type", String.valueOf(writeData.getPicType()));
-                            b2 = this.d.j();
+                            b2 = this.d.l();
                             if (b2 == null || !this.d.c()) {
                                 long b3 = eVar.b();
                                 eVar.a((int) (b3 % 102400 == 0 ? b3 / 102400 : (b3 / 102400) + 1));
@@ -142,12 +142,12 @@ public class k {
                     this.d.a("is_ad", writeData.getIsAd() ? SocialConstants.TRUE : SocialConstants.FALSE);
                     break;
             }
-            str = this.d.j();
+            str = this.d.l();
             if (this.d.c()) {
                 this.e.parserJson(str);
             } else {
                 this.e.setError_code(this.d.e());
-                this.e.setError_msg(this.d.g());
+                this.e.setError_msg(this.d.i());
             }
             try {
                 this.f = new AntiData();
@@ -176,12 +176,12 @@ public class k {
         if (this.d == null) {
             return null;
         }
-        return this.d.g();
+        return this.d.i();
     }
 
     public void d() {
         if (this.d != null) {
-            this.d.h();
+            this.d.j();
         }
     }
 

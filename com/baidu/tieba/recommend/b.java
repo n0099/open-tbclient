@@ -61,7 +61,7 @@ public class b extends BdAsyncTask<Object, Integer, String> {
             this.b.a("lbs", String.valueOf(aP.getLatitude()) + "," + String.valueOf(aP.getLongitude()));
         }
         try {
-            this.c = this.b.j();
+            this.c = this.b.l();
             if (this.b.d()) {
                 return this.c;
             }
@@ -74,7 +74,7 @@ public class b extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f2290a.n = false;
         super.cancel(true);

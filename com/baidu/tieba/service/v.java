@@ -44,7 +44,7 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
                 } else if (this.c.e() == -2) {
                     bool = bool2;
                     break;
-                } else if (!this.c.m()) {
+                } else if (!this.c.o()) {
                     try {
                         Thread.sleep(10000L);
                     } catch (Exception e3) {
@@ -78,7 +78,7 @@ class v extends BdAsyncTask<String, Integer, Boolean> {
         this.f2343a.g = null;
         this.d = true;
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
     }
 

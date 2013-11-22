@@ -48,7 +48,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         this.c.a("quote_id", this.b.getFloor());
         this.c.a("floor_num", String.valueOf(this.b.getFloorNum()));
         this.c.e(true);
-        return this.c.j();
+        return this.c.l();
     }
 
     private void a(AntiData antiData, String str) {
@@ -109,7 +109,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
             if (this.c.c()) {
                 this.f2045a.h();
             } else {
-                a(this.c.e(), this.c.g(), str, antiData);
+                a(this.c.e(), this.c.i(), str, antiData);
             }
         }
     }
@@ -120,7 +120,7 @@ public class ae extends BdAsyncTask<Integer, Integer, String> {
         this.f2045a.closeLoadingDialog();
         this.d = true;
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
         super.cancel(true);
     }

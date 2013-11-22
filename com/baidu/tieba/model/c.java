@@ -45,13 +45,13 @@ public class c extends BdAsyncTask<String, Integer, ci> {
             } else {
                 this.f1907a.a("_msg_status", SocialConstants.TRUE);
             }
-            String j = this.f1907a.j();
+            String l = this.f1907a.l();
             if (!this.f1907a.c()) {
                 return null;
             }
             ciVar = new ci();
             try {
-                ciVar.a(j);
+                ciVar.a(l);
                 if (TiebaApplication.N() == null && ciVar.d().a() != null && ciVar.d().a().length() > 0) {
                     context = this.b.c;
                     TiebaApplication.a(context, ciVar.d().a());
@@ -74,7 +74,7 @@ public class c extends BdAsyncTask<String, Integer, ci> {
     public void cancel() {
         this.b.b = null;
         if (this.f1907a != null) {
-            this.f1907a.h();
+            this.f1907a.j();
         }
         super.cancel(true);
     }

@@ -62,18 +62,18 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
             }
             this.d = new com.baidu.tieba.util.ap(this.e);
             this.d.a(this.f1877a);
-            String j = this.d.j();
-            jSONObject = new JSONObject(j);
+            String l = this.d.l();
+            jSONObject = new JSONObject(l);
             try {
                 if (this.d.c()) {
-                    this.c.a(j);
+                    this.c.a(l);
                     z2 = this.c.n;
                     if (z2) {
                         forumData = this.c.f1873a;
                         if (forumData != null) {
                             z a2 = z.a();
                             forumData2 = this.c.f1873a;
-                            a2.a(forumData2.getName(), j);
+                            a2.a(forumData2.getName(), l);
                         }
                     }
                 }
@@ -113,7 +113,7 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
             this.b.f1876a = true;
             this.b.b = this.d.d();
             this.b.c = this.d.e();
-            this.b.d = this.d.g();
+            this.b.d = this.d.i();
             this.b.e = this.d.b();
         }
         agVar = this.c.i;
@@ -136,7 +136,7 @@ public class ao extends BdAsyncTask<Object, ak, JSONObject> {
         com.baidu.tieba.frs.ag agVar2;
         super.cancel(true);
         if (this.d != null) {
-            this.d.h();
+            this.d.j();
         }
         agVar = this.c.i;
         if (agVar != null) {

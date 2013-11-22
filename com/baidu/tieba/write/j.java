@@ -35,7 +35,7 @@ public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f2694a.g = null;
         progressBar = this.f2694a.k;
@@ -49,12 +49,12 @@ public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
     public com.baidu.tieba.data.x a(String... strArr) {
         this.b = new com.baidu.tieba.util.ap();
         this.b.a(com.baidu.tieba.data.h.f1201a + "c/u/follow/list");
-        String j = this.b.j();
+        String l = this.b.l();
         if (!this.b.c()) {
             return null;
         }
         com.baidu.tieba.data.x xVar = new com.baidu.tieba.data.x();
-        xVar.a(j);
+        xVar.a(l);
         return xVar;
     }
 
@@ -110,7 +110,7 @@ public class j extends BdAsyncTask<String, Integer, com.baidu.tieba.data.x> {
                 return;
             }
         } else {
-            this.f2694a.showToast(this.b.g());
+            this.f2694a.showToast(this.b.i());
         }
         super.a((j) xVar);
     }

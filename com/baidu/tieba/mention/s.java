@@ -51,7 +51,7 @@ public class s extends BdAsyncTask<Object, Integer, String> {
         try {
             this.c = new ap(this.d);
             this.c.a(this.f1852a);
-            return this.c.j();
+            return this.c.l();
         } catch (Exception e) {
             bg.b("PostAsyncTask", "doInBackground", "error = " + e.getMessage());
             return null;
@@ -93,7 +93,7 @@ public class s extends BdAsyncTask<Object, Integer, String> {
                 }
             } else if (this.c != null) {
                 activity = this.b.c;
-                UtilHelper.a((Context) activity, this.c.g());
+                UtilHelper.a((Context) activity, this.c.i());
             }
         } catch (Exception e2) {
         }
@@ -103,7 +103,7 @@ public class s extends BdAsyncTask<Object, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
         super.cancel(true);
     }

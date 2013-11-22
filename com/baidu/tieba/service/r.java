@@ -68,14 +68,14 @@ public class r extends BdAsyncTask<String, Integer, ci> {
                 str2 = TiebaSyncService.f2321a;
                 apVar.a("_msg_type", str2);
             }
-            String j = this.f2339a.j();
+            String l = this.f2339a.l();
             if (this.f2339a.d()) {
                 TiebaApplication.g().aK();
             }
             if (this.f2339a.c()) {
                 ciVar = new ci();
                 try {
-                    ciVar.a(j);
+                    ciVar.a(l);
                     if (TiebaApplication.N() == null && ciVar.d().a() != null && ciVar.d().a().length() > 0) {
                         TiebaApplication.a(this.b, ciVar.d().a());
                         TiebaApplication.n(ciVar.d().a());
@@ -99,7 +99,7 @@ public class r extends BdAsyncTask<String, Integer, ci> {
     public void cancel() {
         this.b.b = null;
         if (this.f2339a != null) {
-            this.f2339a.h();
+            this.f2339a.j();
         }
         super.cancel(true);
     }

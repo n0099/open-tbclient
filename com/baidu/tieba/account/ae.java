@@ -29,7 +29,7 @@ public class ae extends BdAsyncTask<String, Integer, Bitmap> {
     public void cancel() {
         this.b.O = null;
         if (this.f1031a != null) {
-            this.f1031a.h();
+            this.f1031a.j();
             this.f1031a = null;
         }
         this.c = true;
@@ -53,7 +53,7 @@ public class ae extends BdAsyncTask<String, Integer, Bitmap> {
             return null;
         }
         this.f1031a = new com.baidu.tieba.util.ap(str);
-        return com.baidu.tieba.util.m.a(this.f1031a.i());
+        return com.baidu.tieba.util.m.a(this.f1031a.k());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

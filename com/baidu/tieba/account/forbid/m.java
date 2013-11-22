@@ -33,10 +33,10 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
         ap apVar = new ap(str);
         apVar.a("forum_id", this.f1080a);
         apVar.a(PushConstants.EXTRA_USER_ID, this.b);
-        String j = apVar.j();
+        String l = apVar.l();
         if (apVar.c()) {
             try {
-                return (ForbidTplData) new GsonBuilder().create().fromJson(j, (Class<Object>) ForbidTplData.class);
+                return (ForbidTplData) new GsonBuilder().create().fromJson(l, (Class<Object>) ForbidTplData.class);
             } catch (Exception e) {
                 bg.b("ForbidTplModel", "doInBackground", e.getMessage());
                 ForbidTplData forbidTplData = new ForbidTplData();
@@ -46,7 +46,7 @@ public class m extends BdAsyncTask<String, Object, ForbidTplData> {
         }
         ForbidTplData forbidTplData2 = new ForbidTplData();
         forbidTplData2.error.f1078a = apVar.e();
-        forbidTplData2.error.b = apVar.g();
+        forbidTplData2.error.b = apVar.i();
         return forbidTplData2;
     }
 

@@ -362,7 +362,8 @@ public class NewPbActivity extends com.baidu.tieba.j implements com.baidu.tbadk.
                 this.w.a(getIntent());
             }
             this.D = this.w.b();
-            if ("mention".equals(this.w.c()) && this.D != null) {
+            String c2 = this.w.c();
+            if (c2 != null && (("mention".equals(this.w.c()) || c2.equals("person_post_reply")) && this.D != null)) {
                 this.y.A();
             } else {
                 this.y.u();

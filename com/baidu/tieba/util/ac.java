@@ -89,7 +89,7 @@ class ac {
                         this.b.a("time", str6);
                         this.b.a("errortype", "99");
                         this.b.a("logfile", byteArray);
-                        this.b.l();
+                        this.b.n();
                         if (byteArrayOutputStream != null) {
                             byteArrayOutputStream.close();
                             byteArrayOutputStream = null;
@@ -198,7 +198,7 @@ class ac {
 
     public void a() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
     }
 }

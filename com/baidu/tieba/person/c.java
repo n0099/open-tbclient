@@ -51,13 +51,13 @@ public class c extends BdAsyncTask<Integer, String, String> {
             if (!z) {
                 this.f.a(PushConstants.EXTRA_USER_ID, this.e);
             }
-            String j2 = this.f.j();
+            String l = this.f.l();
             if (this.f.c()) {
                 if (z && this.d == 0) {
-                    b(j2);
-                    return j2;
+                    b(l);
+                    return l;
                 }
-                return j2;
+                return l;
             }
             return null;
         } catch (Exception e) {
@@ -155,7 +155,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
                         return;
                     }
                 }
-                this.f2231a.showToast(this.f.g());
+                this.f2231a.showToast(this.f.i());
             } catch (Exception e) {
                 com.baidu.tieba.util.bg.b(getClass().getName(), "", "MyPostAsyncTask.onPostExecute error = " + e.getMessage());
             }
@@ -166,7 +166,7 @@ public class c extends BdAsyncTask<Integer, String, String> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.f != null) {
-            this.f.h();
+            this.f.j();
         }
         this.f2231a.g = null;
         this.f2231a.i = false;

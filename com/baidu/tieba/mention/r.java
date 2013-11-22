@@ -94,15 +94,15 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
         ap apVar = this.b;
         activity = this.f1851a.c;
         apVar.a(activity);
-        String j = this.b.j();
-        if (this.b.c() && j != null) {
+        String l = this.b.l();
+        if (this.b.c() && l != null) {
             this.f = new bj();
-            this.f.a(j);
+            this.f.a(l);
             if (this.f.a()) {
                 i = this.f1851a.n;
                 if (i != 4) {
                     pVar2 = this.f1851a.j;
-                    pVar2.a(j);
+                    pVar2.a(l);
                 }
             } else {
                 this.f = null;
@@ -172,7 +172,7 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
                 fragment = this.f1851a.b;
                 android.support.v4.app.n i2 = fragment.i();
                 if (i2 != null && (i2 instanceof BaseFragmentActivity)) {
-                    UtilHelper.a((Context) ((BaseFragmentActivity) i2), this.b.g());
+                    UtilHelper.a((Context) ((BaseFragmentActivity) i2), this.b.i());
                 }
             } else {
                 j jVar = this.f1851a;
@@ -186,7 +186,7 @@ public class r extends BdAsyncTask<Object, Integer, bj> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         a(false);
         this.f1851a.k = null;

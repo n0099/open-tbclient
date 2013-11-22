@@ -102,7 +102,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
                             this.b = new ap(com.baidu.tieba.data.h.f1201a + str2);
                             this.b.a("logfile", byteArray);
                             this.b.a("errortype", "3");
-                            this.b.l();
+                            this.b.n();
                             if (byteArrayOutputStream2 != null) {
                                 byteArrayOutputStream2.close();
                                 byteArrayOutputStream3 = null;
@@ -284,7 +284,7 @@ public class j extends BdAsyncTask<String, Integer, String> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f2331a.g = null;
         super.cancel(true);

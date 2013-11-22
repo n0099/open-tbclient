@@ -37,14 +37,14 @@ public class ab extends BdAsyncTask<Object, Integer, String> {
     public String a(Object... objArr) {
         this.b = new com.baidu.tieba.util.ap(this.d);
         this.b.a(this.c);
-        this.e = this.b.j();
+        this.e = this.b.l();
         return this.e;
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f2043a.b = null;
         this.f2043a.a(false);

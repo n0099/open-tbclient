@@ -19,12 +19,12 @@ public class ad {
         this.f1389a = new com.baidu.tieba.util.ap(b);
         this.f1389a.a(PushConstants.EXTRA_USER_ID, str);
         this.f1389a.c(true);
-        return this.f1389a.j();
+        return this.f1389a.l();
     }
 
     public void b() {
         if (this.f1389a != null) {
-            this.f1389a.h();
+            this.f1389a.j();
         }
     }
 
@@ -37,7 +37,7 @@ public class ad {
 
     public String d() {
         if (this.f1389a != null) {
-            return this.f1389a.g();
+            return this.f1389a.i();
         }
         return null;
     }

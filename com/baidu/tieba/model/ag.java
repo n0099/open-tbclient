@@ -26,18 +26,18 @@ public class ag extends BdAsyncTask<String, Integer, String> {
         this.b.a("z", this.e);
         this.b.a("ntn", "banid");
         this.b.e(true);
-        this.b.j();
+        this.b.l();
         if (this.b.c()) {
             return null;
         }
-        return this.b.g();
+        return this.b.i();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         com.baidu.adp.a.g gVar;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1869a.b = null;
         super.cancel(true);

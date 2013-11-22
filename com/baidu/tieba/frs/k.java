@@ -18,6 +18,6 @@ class k implements Runnable {
     public void run() {
         NetWorkCore netWorkCore = new NetWorkCore(new com.baidu.tieba.util.az());
         netWorkCore.b(this.f1360a);
-        netWorkCore.w();
+        netWorkCore.u();
     }
 }

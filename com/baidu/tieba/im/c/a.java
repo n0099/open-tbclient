@@ -442,9 +442,9 @@ public class a {
         if (y != null && y.length() > 0) {
             updateClientInfoMessage.addUserInfo("from", y);
         }
-        String f = new ap().f();
-        if (f != null) {
-            updateClientInfoMessage.addUserInfo("net_type", f);
+        String h = new ap().h();
+        if (h != null) {
+            updateClientInfoMessage.addUserInfo("net_type", h);
         }
         String o2 = TiebaApplication.g().o();
         if (o2 != null) {

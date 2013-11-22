@@ -29,7 +29,7 @@ public class az extends BdAsyncTask<String, Integer, be> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1063a.O = null;
         progressBar = this.f1063a.D;
@@ -56,10 +56,10 @@ public class az extends BdAsyncTask<String, Integer, be> {
             if (m.getVcodeMd5() != null) {
                 this.b.a("vcode_md5", m.getVcodeMd5());
             }
-            String j = this.b.j();
+            String l = this.b.l();
             if ((this.b.d() && (this.b.e() == 0 || this.b.e() == 36)) || this.b.e() == 5) {
                 be beVar2 = new be();
-                beVar2.a(j);
+                beVar2.a(l);
                 return beVar2;
             }
             return beVar;
@@ -86,14 +86,14 @@ public class az extends BdAsyncTask<String, Integer, be> {
         this.f1063a.P = beVar;
         if (!this.b.d()) {
             this.f1063a.K = -1;
-            this.f1063a.L = this.b.g();
+            this.f1063a.L = this.b.i();
             this.f1063a.k();
         } else if (this.b.e() == 36) {
             this.f1063a.a(beVar.c());
             Register2Activity register2Activity = this.f1063a;
             i3 = Register2Activity.d;
             register2Activity.K = i3;
-            this.f1063a.L = this.b.g();
+            this.f1063a.L = this.b.i();
             this.f1063a.k();
         } else if (this.b.e() == 5) {
             Register2Activity register2Activity2 = this.f1063a;
@@ -108,7 +108,7 @@ public class az extends BdAsyncTask<String, Integer, be> {
             this.f1063a.a(false);
         } else {
             this.f1063a.K = this.b.e();
-            this.f1063a.L = this.b.g();
+            this.f1063a.L = this.b.i();
             this.f1063a.k();
         }
     }

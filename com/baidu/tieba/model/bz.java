@@ -29,7 +29,7 @@ public class bz extends BdAsyncTask<Integer, Integer, String> {
                 }
                 this.b.a("portrait", this.f1906a.d().getPortrait());
                 this.b.e(true);
-                this.b.j();
+                this.b.l();
                 return null;
             }
             return null;
@@ -50,7 +50,7 @@ public class bz extends BdAsyncTask<Integer, Integer, String> {
         if (this.b != null) {
             if (!this.b.c()) {
                 this.f1906a.mLoadDataMode = 3;
-                this.f1906a.setErrorString(this.b.g());
+                this.f1906a.setErrorString(this.b.i());
                 gVar = this.f1906a.mLoadDataCallBack;
                 gVar.a(false);
                 return;
@@ -73,7 +73,7 @@ public class bz extends BdAsyncTask<Integer, Integer, String> {
         com.baidu.adp.a.g gVar;
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         this.f1906a.o = null;

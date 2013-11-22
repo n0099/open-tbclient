@@ -69,12 +69,12 @@ public class ForumListModel extends com.baidu.adp.a.d implements Serializable {
         apVar.a("recommend_type", String.valueOf(requestParams.recommend_type));
         apVar.a("menu_name", requestParams.menu_name);
         apVar.a("menu_type", String.valueOf(i));
-        String j2 = apVar.j();
+        String l = apVar.l();
         f1238a = apVar.d();
-        bg.e("DataProvider", "fetch", "fetched raw string\n" + j2);
-        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(j2, (Class<Object>) ForumListModel.class);
+        bg.e("DataProvider", "fetch", "fetched raw string\n" + l);
+        ForumListModel forumListModel = (ForumListModel) new GsonBuilder().create().fromJson(l, (Class<Object>) ForumListModel.class);
         if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (j = com.baidu.tieba.b.a.a().j()) != null)) {
-            j.a(TiebaApplication.A() + "_" + b + "_list", j2, Util.MILLSECONDS_OF_DAY);
+            j.a(TiebaApplication.A() + "_" + b + "_list", l, Util.MILLSECONDS_OF_DAY);
         }
         return forumListModel;
     }

@@ -41,10 +41,10 @@ public class l extends BdAsyncTask<String, Integer, String> {
             this.f2333a.a("edition", com.baidu.tieba.data.h.j());
             this.f2333a.a("system", Build.VERSION.SDK);
             this.f2333a.e(false);
-            String u = this.f2333a.u();
-            if (this.f2333a.r()) {
-                bg.a(getClass().getName(), "task", "data=" + u);
-                return u;
+            String s = this.f2333a.s();
+            if (this.f2333a.p()) {
+                bg.a(getClass().getName(), "task", "data=" + s);
+                return s;
             }
         } catch (Exception e) {
             com.baidu.tieba.sharedPref.b.a().b("active", 1);
@@ -57,7 +57,7 @@ public class l extends BdAsyncTask<String, Integer, String> {
     public void cancel() {
         this.b.f2318a = null;
         if (this.f2333a != null) {
-            this.f2333a.t();
+            this.f2333a.r();
         }
         super.cancel(true);
     }

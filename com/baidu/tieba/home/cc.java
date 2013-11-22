@@ -40,13 +40,13 @@ public class cc extends BdAsyncTask<Object, Integer, SignData> {
             str2 = this.f1436a.b;
             apVar2.a("fid", str2);
             this.b.e(true);
-            String j = this.b.j();
+            String l = this.b.l();
             if (!this.b.d() || !this.b.c()) {
                 return null;
             }
             signData = new SignData();
             try {
-                signData.parserJson(j);
+                signData.parserJson(l);
                 str3 = this.f1436a.b;
                 signData.setForumId(str3);
                 str4 = this.f1436a.f1434a;
@@ -68,7 +68,7 @@ public class cc extends BdAsyncTask<Object, Integer, SignData> {
         cb cbVar;
         String str;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         this.f1436a.c = null;
         super.cancel(true);
@@ -92,7 +92,7 @@ public class cc extends BdAsyncTask<Object, Integer, SignData> {
             return;
         }
         this.f1436a.mErrorCode = this.b.e();
-        this.f1436a.mErrorString = this.b.g();
+        this.f1436a.mErrorString = this.b.i();
         cbVar2 = this.f1436a.d;
         str = this.f1436a.b;
         str2 = this.f1436a.mErrorString;

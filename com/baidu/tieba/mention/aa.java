@@ -45,11 +45,11 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
         try {
             this.c = new ap(this.d);
             this.c.a(this.f1832a);
-            String j = this.c.j();
+            String l = this.c.l();
             if (this.c.c()) {
                 an anVar2 = new an();
                 try {
-                    anVar2.b(j);
+                    anVar2.b(l);
                     int size = anVar2.e().size();
                     for (int i = 0; i < size; i++) {
                         anVar2.e().get(i).b(this.b);
@@ -83,7 +83,7 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
                 bvVar.a(anVar);
             } else if (this.c != null) {
                 if (this.c.d()) {
-                    this.b.showToast(this.c.g());
+                    this.b.showToast(this.c.i());
                     if (this.c.e() == 4 || this.c.e() == 28 || this.c.e() == 29) {
                         this.b.finish();
                         return;
@@ -91,7 +91,7 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this.b);
                     builder.setTitle(this.b.getString(R.string.error));
-                    builder.setMessage(this.c.g());
+                    builder.setMessage(this.c.i());
                     builder.setPositiveButton(this.b.getString(R.string.retry), new ab(this));
                     builder.setNegativeButton(this.b.getString(R.string.cancel), new ac(this));
                     builder.create().show();
@@ -113,7 +113,7 @@ public class aa extends BdAsyncTask<Object, Integer, an> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
         }
         progressBar = this.b.f;
         progressBar.setVisibility(8);

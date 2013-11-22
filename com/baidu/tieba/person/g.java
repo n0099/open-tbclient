@@ -50,16 +50,16 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
                 str4 = this.f2235a.o;
                 apVar.a("uid", str4);
             }
-            String j = this.b.j();
+            String l = this.b.l();
             if (!this.b.c()) {
                 return null;
             }
             eVar = new com.baidu.tieba.model.e();
             try {
-                eVar.a(j);
+                eVar.a(l);
                 str3 = this.f2235a.o;
                 if (str3 == null) {
-                    a(j);
+                    a(l);
                     return eVar;
                 }
                 return eVar;
@@ -121,7 +121,7 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
         if (this.b != null) {
             if (!this.b.c() || eVar == null) {
                 this.f2235a.a(true);
-                this.f2235a.showToast(this.b.g());
+                this.f2235a.showToast(this.b.i());
                 return;
             }
             eVar2 = this.f2235a.f2183a;
@@ -139,7 +139,7 @@ public class g extends BdAsyncTask<Object, String, com.baidu.tieba.model.e> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         progressBar = this.f2235a.g;

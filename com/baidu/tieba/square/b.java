@@ -68,18 +68,18 @@ public class b extends BdAsyncTask<Object, h, h> {
                     str2 = this.f2379a.g;
                     apVar.a(str3, str2);
                 }
-                String j = this.b.j();
+                String l = this.b.l();
                 if (!this.b.c()) {
-                    hVar.b(j);
-                    if ((j + "").trim().equals((a2 + "").trim())) {
+                    hVar.b(l);
+                    if ((l + "").trim().equals((a2 + "").trim())) {
                         if (z2) {
                             return null;
                         }
                     } else {
-                        m.a("first_dir_cache_key", j, Util.MILLSECONDS_OF_DAY);
+                        m.a("first_dir_cache_key", l, Util.MILLSECONDS_OF_DAY);
                     }
                 } else {
-                    hVar.a(this.b.g());
+                    hVar.a(this.b.i());
                 }
                 return hVar;
             }
@@ -90,7 +90,7 @@ public class b extends BdAsyncTask<Object, h, h> {
         str = this.f2379a.g;
         if (str != null) {
         }
-        String j2 = this.b.j();
+        String l2 = this.b.l();
         if (!this.b.c()) {
         }
         return hVar;
@@ -109,7 +109,7 @@ public class b extends BdAsyncTask<Object, h, h> {
     public void cancel() {
         super.cancel(true);
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
             this.b = null;
         }
         this.f2379a.a((h) null, true);

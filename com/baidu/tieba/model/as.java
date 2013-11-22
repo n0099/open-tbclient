@@ -45,11 +45,11 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
             this.c.a("bs", String.valueOf(this.b));
             this.c.a("be", String.valueOf((this.b + 240) - 1));
             this.c.a("an", String.valueOf(30));
-            String j = this.c.j();
-            jSONObject = new JSONObject(j);
+            String l = this.c.l();
+            jSONObject = new JSONObject(l);
             try {
                 if (this.c.c()) {
-                    this.f1881a.a(j);
+                    this.f1881a.a(l);
                 }
             } catch (Exception e2) {
                 e = e2;
@@ -78,7 +78,7 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
                 atVar.f1882a = true;
                 atVar.b = this.c.d();
                 atVar.c = this.c.e();
-                atVar.d = this.c.g();
+                atVar.d = this.c.i();
                 atVar.e = this.c.b();
             }
             bkVar2 = this.f1881a.m;
@@ -103,7 +103,7 @@ public class as extends BdAsyncTask<Object, Integer, JSONObject> {
     public void cancel() {
         super.cancel(true);
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
             this.c = null;
         }
         this.f1881a.k = null;

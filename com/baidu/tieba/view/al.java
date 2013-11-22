@@ -60,13 +60,13 @@ public class al extends BdAsyncTask<String, Integer, String> {
         this.b.a("rn", String.valueOf(this.d));
         this.b.a("alt", "json");
         this.b.e(true);
-        return this.b.j();
+        return this.b.l();
     }
 
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void cancel() {
         if (this.b != null) {
-            this.b.h();
+            this.b.j();
         }
         if (this.g != null) {
             this.g.a(false);

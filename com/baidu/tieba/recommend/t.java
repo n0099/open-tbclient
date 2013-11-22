@@ -2,9 +2,8 @@ package com.baidu.tieba.recommend;
 
 import android.widget.ImageView;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t {
+class t {
 
     /* renamed from: a  reason: collision with root package name */
     TextView f2307a;

@@ -46,11 +46,11 @@ public class bp extends BdAsyncTask<Object, Integer, BarSuggestModel> {
         try {
             this.c = new com.baidu.tieba.util.ap(this.d);
             this.c.a(this.f2395a);
-            String j = this.c.j();
-            if (j == null) {
+            String l = this.c.l();
+            if (l == null) {
                 return null;
             }
-            return BarSuggestModel.parserJson(j);
+            return BarSuggestModel.parserJson(l);
         } catch (Exception e) {
             com.baidu.tieba.util.bg.b(getClass().getName(), "", "doInBackground error = " + e.getMessage());
             return null;
@@ -76,7 +76,7 @@ public class bp extends BdAsyncTask<Object, Integer, BarSuggestModel> {
     public void cancel() {
         ProgressBar progressBar;
         if (this.c != null) {
-            this.c.h();
+            this.c.j();
             this.c = null;
         }
         progressBar = this.b.t;

@@ -2,9 +2,8 @@ package com.baidu.tieba.im.updategroup;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements TextWatcher {
+class h implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
     final /* synthetic */ g f1791a;
