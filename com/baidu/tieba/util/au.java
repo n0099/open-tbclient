@@ -1,5 +1,6 @@
 package com.baidu.tieba.util;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -8,11 +9,15 @@ import java.net.HttpURLConnection;
 public class au implements com.baidu.adp.lib.network.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ NetWorkCoreByBdHttp f2473a;
+    final /* synthetic */ String f2473a;
+    final /* synthetic */ long b;
+    final /* synthetic */ NetWorkCoreByBdHttp c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(NetWorkCoreByBdHttp netWorkCoreByBdHttp) {
-        this.f2473a = netWorkCoreByBdHttp;
+    public au(NetWorkCoreByBdHttp netWorkCoreByBdHttp, String str, long j) {
+        this.c = netWorkCoreByBdHttp;
+        this.f2473a = str;
+        this.b = j;
     }
 
     @Override // com.baidu.adp.lib.network.c
@@ -27,7 +32,7 @@ public class au implements com.baidu.adp.lib.network.c {
                     if (headerField != null && headerField.length() > 0) {
                         z = true;
                     }
-                    azVar = this.f2473a.d;
+                    azVar = this.c.d;
                     if (azVar.h || z) {
                         byte[] bArr = new byte[23];
                         int read = httpURLConnection.getInputStream().read(bArr, 0, 23);
@@ -36,20 +41,29 @@ public class au implements com.baidu.adp.lib.network.c {
                         }
                     }
                     if ("image/gif".equalsIgnoreCase(httpURLConnection.getHeaderField("Src-Content-Type"))) {
-                        this.f2473a.f = true;
-                        i2 = this.f2473a.i;
+                        this.c.f = true;
+                        i2 = this.c.i;
                         if (i2 == 1) {
-                            this.f2473a.i = 2;
+                            this.c.i = 2;
                             return;
                         }
                         return;
                     }
-                    this.f2473a.f = false;
+                    this.c.f = false;
+                    return;
                 }
             } catch (IOException e) {
+                y.a(this.f2473a, String.valueOf(System.currentTimeMillis() - this.b), SocialConstants.FALSE, e.getMessage(), "connection failed.");
+                try {
+                    y.a(this.f2473a, String.valueOf(System.currentTimeMillis() - this.b), String.valueOf(httpURLConnection.getContentLength()), httpURLConnection.getResponseCode() + ":" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage());
+                } catch (IOException e2) {
+                    y.a(this.f2473a, String.valueOf(System.currentTimeMillis() - this.b), String.valueOf(httpURLConnection.getContentLength()), "cann't get responseCode:" + httpURLConnection.getHeaderFields(), "|download error|" + e.getMessage());
+                }
                 e.printStackTrace();
+                return;
             }
         }
+        y.a(this.f2473a, String.valueOf(System.currentTimeMillis() - this.b), SocialConstants.FALSE, "failed to open connection.", "connection failed.");
     }
 
     @Override // com.baidu.adp.lib.network.c

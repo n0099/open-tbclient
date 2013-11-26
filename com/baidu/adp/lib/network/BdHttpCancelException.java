@@ -4,6 +4,7 @@ import java.io.IOException;
 /* loaded from: classes.dex */
 public class BdHttpCancelException extends IOException {
     public BdHttpCancelException() {
+        super("request cancelled.");
     }
 
     public BdHttpCancelException(String str) {

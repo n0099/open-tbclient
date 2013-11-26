@@ -84,6 +84,20 @@ public class bg extends com.baidu.adp.a.e implements com.baidu.tieba.voice.ae {
     private Button y;
     private EditText z;
 
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.im.chat.bl.onTouch(android.view.View, android.view.MotionEvent):boolean] */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void b(bg bgVar) {
+        bgVar.L();
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.im.chat.bl.onTouch(android.view.View, android.view.MotionEvent):boolean] */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static /* synthetic */ void d(bg bgVar) {
+        bgVar.N();
+    }
+
     public bg(MsglistActivity msglistActivity, boolean z, boolean z2) {
         super(msglistActivity);
         this.c = 100;

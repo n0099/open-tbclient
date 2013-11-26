@@ -3,6 +3,7 @@ package com.baidu.tieba.util.a;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import com.baidu.adp.lib.cache.s;
+import com.baidu.adp.lib.network.g;
 import com.baidu.tieba.data.h;
 import com.baidu.tieba.im.chat.LocalViewSize;
 import com.baidu.tieba.util.DatabaseService;
@@ -84,13 +85,16 @@ public class c extends a {
         int i;
         int i2;
         String sb;
+        String c;
         Bitmap a2;
+        String c2;
+        String str2;
         if (str == null || str.length() == 0) {
             return null;
         }
         int i3 = lVar.d;
         String f = be.f(str);
-        String str2 = iVar.f != null ? f + iVar.f : f;
+        String str3 = iVar.f != null ? f + iVar.f : f;
         if (iVar.b == 0) {
             i = UtilHelper.a(iVar.f2492a, 105.0f);
         } else {
@@ -101,8 +105,8 @@ public class c extends a {
         } else {
             i2 = iVar.c;
         }
-        boolean c = iVar.c();
-        if (c) {
+        boolean c3 = iVar.c();
+        if (c3) {
             sb = str;
         } else {
             StringBuilder sb2 = new StringBuilder(100);
@@ -130,13 +134,13 @@ public class c extends a {
             i4 = 2;
         }
         lVar.f2495a.a(iVar.d(), i4);
-        if (c) {
+        if (c3) {
             lVar.f2495a.d(false);
         } else {
             lVar.f2495a.d(true);
         }
-        lVar.f2495a.f(c);
-        if (iVar.h != null && !c) {
+        lVar.f2495a.f(c3);
+        if (iVar.h != null && !c3) {
             int i5 = 0;
             while (true) {
                 int i6 = i5;
@@ -149,78 +153,112 @@ public class c extends a {
         }
         long currentTimeMillis = System.currentTimeMillis();
         byte[] k = lVar.f2495a.k();
-        if (k == null || !lVar.f2495a.c()) {
-            if (!lVar.j) {
-                y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.f() + ":" + lVar.f2495a.g(), "IS_CDN=" + c + "|download error");
+        if ((k == null || !lVar.f2495a.c()) && !lVar.j) {
+            boolean a3 = g.a();
+            String str4 = "";
+            String str5 = "";
+            if (a3) {
+                c = UtilHelper.j(iVar.f2492a);
+            } else {
+                c = UtilHelper.c();
             }
-            return null;
-        } else if (lVar.j) {
-            return null;
-        } else {
-            String a3 = iVar.a(str);
-            synchronized (m.f2496a) {
-                if (lVar.j) {
-                    return null;
+            int indexOf = sb.indexOf("hiphotos.baidu.com");
+            if (indexOf > 0) {
+                String replace = sb.substring(0, indexOf).replace(com.baidu.loginshare.e.f, "");
+                str4 = UtilHelper.c(replace + "hiphotos.baidu.com");
+                str5 = UtilHelper.c(replace + "hiphotos.bdimg.com");
+            }
+            y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.f() + ":" + lVar.f2495a.g(), "IS_CDN=" + c3 + "|download error|iswifi=" + (a3 ? 1 : 0) + "|local_ip=" + c + "|cdn_ip=" + str4 + "|cdn_ip2=" + str5);
+            if (indexOf > 0) {
+                String replace2 = sb.replace("hiphotos.baidu.com", "hiphotos.bdimg.com");
+                lVar.f2495a.a(replace2);
+                k = lVar.f2495a.k();
+                currentTimeMillis = System.currentTimeMillis();
+                if (!lVar.j) {
+                    y.a(replace2, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.f() + ":" + lVar.f2495a.g(), "downsize=" + (k != null ? k.length : 0) + "|try download result:" + (lVar.f2495a.c() ? "succ" : "fail") + "|iswifi=" + (a3 ? 1 : 0) + "|local_ip=" + c + "|cdn_ip=" + str4 + "|cdn_ip2=" + str5);
                 }
-                com.baidu.tbadk.imageManager.d.a().c(h.k() + k.length);
-                lVar.e = m.a(k);
-                if (lVar.e == null) {
-                    if (!lVar.j) {
-                        y.a(sb, String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(lVar.f2495a.b()), lVar.f2495a.f() + ":" + lVar.f2495a.g(), "IS_CDN=" + c + "|decode error");
+            }
+        }
+        byte[] bArr = k;
+        long j = currentTimeMillis;
+        if (bArr == null || lVar.j) {
+            return null;
+        }
+        String a4 = iVar.a(str);
+        synchronized (m.f2496a) {
+            if (lVar.j) {
+                return null;
+            }
+            com.baidu.tbadk.imageManager.d.a().c(h.k() + bArr.length);
+            lVar.e = m.a(bArr);
+            if (lVar.e == null) {
+                if (!lVar.j) {
+                    boolean a5 = g.a();
+                    if (a5) {
+                        c2 = UtilHelper.j(iVar.f2492a);
+                    } else {
+                        c2 = UtilHelper.c();
                     }
-                    return null;
+                    int indexOf2 = sb.indexOf("hiphotos.baidu.com");
+                    if (indexOf2 <= 0) {
+                        str2 = "";
+                    } else {
+                        str2 = UtilHelper.c(sb.substring(0, indexOf2).replace(com.baidu.loginshare.e.f, "") + "hiphotos.baidu.com");
+                    }
+                    y.a(sb, String.valueOf(System.currentTimeMillis() - j), String.valueOf(lVar.f2495a.b()), lVar.f2495a.f() + ":" + lVar.f2495a.g(), "IS_CDN=" + c3 + "|decode error|iswifi=" + (a5 ? 1 : 0) + "|local_ip=" + c2 + "|cdn_ip=" + str2);
                 }
-                lVar.h = lVar.f2495a.p() || UtilHelper.a(k);
-                if (lVar.j) {
-                    return null;
-                }
-                if (lVar.e.getWidth() > i || lVar.e.getHeight() > i2) {
-                    bg.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
-                    com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
-                    lVar.e = m.a(lVar.e, i, i2);
-                }
-                if (lVar.j) {
-                    return null;
-                }
-                if (i3 == 4) {
-                    com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
-                    lVar.e = m.a(lVar.e, 7.0f);
-                }
-                if (lVar.j) {
-                    return null;
-                }
-                if (lVar.l && (a2 = a(lVar.e, lVar.l, true, str2)) != null) {
-                    lVar.e = a2;
-                }
-                lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, lVar.h, str);
-                com.baidu.tbadk.imageManager.d.a().b(a3, lVar.i);
-                if (lVar.j) {
-                    return null;
-                }
-                eVar.d(lVar);
-                if (lVar.j) {
-                    return null;
-                }
-                try {
-                    if (!lVar.l) {
-                        if (i3 == 4) {
-                            if (str2 != null) {
-                                af.a("image", str2, m.c(lVar.e, 80));
-                            }
-                        } else if (i3 == 5) {
-                            DatabaseService.b(a3, lVar.e);
-                        } else if (str2 != null) {
-                            s<String> q = com.baidu.tieba.b.a.a().q();
-                            if (q != null && lVar.h) {
-                                q.a(a3, "gif", 315532800000L);
-                            }
-                            af.a("image", str2, k);
+                return null;
+            }
+            lVar.h = lVar.f2495a.p() || UtilHelper.a(bArr);
+            if (lVar.j) {
+                return null;
+            }
+            if (lVar.e.getWidth() > i || lVar.e.getHeight() > i2) {
+                bg.a(1, getClass().getName(), "doInBackground", "Pb_image_too_big:" + String.valueOf(lVar.e.getWidth() + "*" + String.valueOf(lVar.e.getHeight())));
+                com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
+                lVar.e = m.a(lVar.e, i, i2);
+            }
+            if (lVar.j) {
+                return null;
+            }
+            if (i3 == 4) {
+                com.baidu.tbadk.imageManager.d.a().c(m.a(lVar.e) * 2);
+                lVar.e = m.a(lVar.e, 7.0f);
+            }
+            if (lVar.j) {
+                return null;
+            }
+            if (lVar.l && (a2 = a(lVar.e, lVar.l, true, str3)) != null) {
+                lVar.e = a2;
+            }
+            lVar.i = new com.baidu.adp.widget.ImageView.e(lVar.e, lVar.h, str);
+            com.baidu.tbadk.imageManager.d.a().b(a4, lVar.i);
+            if (lVar.j) {
+                return null;
+            }
+            eVar.d(lVar);
+            if (lVar.j) {
+                return null;
+            }
+            try {
+                if (!lVar.l) {
+                    if (i3 == 4) {
+                        if (str3 != null) {
+                            af.a("image", str3, m.c(lVar.e, 80));
                         }
+                    } else if (i3 == 5) {
+                        DatabaseService.b(a4, lVar.e);
+                    } else if (str3 != null) {
+                        s<String> q = com.baidu.tieba.b.a.a().q();
+                        if (q != null && lVar.h) {
+                            q.a(a4, "gif", 315532800000L);
+                        }
+                        af.a("image", str3, bArr);
                     }
-                } catch (Throwable th) {
                 }
-                return lVar.i;
+            } catch (Throwable th) {
             }
+            return lVar.i;
         }
     }
 

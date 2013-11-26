@@ -40,75 +40,60 @@ public class b {
     public static HttpURLConnection a(String str) {
         HttpURLConnection httpURLConnection;
         String replaceFirst;
-        try {
-            URL url = new URL(str);
-            String defaultHost = Proxy.getDefaultHost();
-            if (!g.b()) {
-                try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
-                    if (!TextUtils.isEmpty(b)) {
-                        httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_COOKIE, b);
-                    } else {
-                        httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_COOKIE, "");
-                    }
-                    if (!TextUtils.isEmpty(c)) {
-                        httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, c);
-                    }
-                    if (!TextUtils.isEmpty(d)) {
-                        httpURLConnection2.setRequestProperty("client_user_token", d);
-                        return httpURLConnection2;
-                    }
-                    return httpURLConnection2;
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
+        URL url = new URL(str);
+        String defaultHost = Proxy.getDefaultHost();
+        if (!g.b()) {
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
+            if (!TextUtils.isEmpty(b)) {
+                httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_COOKIE, b);
+            } else {
+                httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_COOKIE, "");
             }
-            int defaultPort = Proxy.getDefaultPort();
-            if (defaultPort == -1) {
-                defaultPort = 80;
+            if (!TextUtils.isEmpty(c)) {
+                httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, c);
             }
-            java.net.Proxy proxy = new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(defaultHost, defaultPort));
+            if (!TextUtils.isEmpty(d)) {
+                httpURLConnection2.setRequestProperty("client_user_token", d);
+                return httpURLConnection2;
+            }
+            return httpURLConnection2;
+        }
+        int defaultPort = Proxy.getDefaultPort();
+        if (defaultPort == -1) {
+            defaultPort = 80;
+        }
+        java.net.Proxy proxy = new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(defaultHost, defaultPort));
+        if (g.b(defaultHost)) {
+            String host = url.getHost();
+            int port = url.getPort();
+            int i = port != -1 ? port : 80;
+            if (str.indexOf(host + ":" + i) != -1) {
+                replaceFirst = str.replaceFirst(host + ":" + i, defaultHost + ":" + defaultPort);
+            } else {
+                replaceFirst = str.replaceFirst(host, defaultHost + ":" + defaultPort);
+            }
             try {
-                if (g.b(defaultHost)) {
-                    String host = url.getHost();
-                    int port = url.getPort();
-                    int i = port != -1 ? port : 80;
-                    if (str.indexOf(host + ":" + i) != -1) {
-                        replaceFirst = str.replaceFirst(host + ":" + i, defaultHost + ":" + defaultPort);
-                    } else {
-                        replaceFirst = str.replaceFirst(host, defaultHost + ":" + defaultPort);
-                    }
-                    try {
-                        httpURLConnection = (HttpURLConnection) new URL(replaceFirst).openConnection();
-                        httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, host + ":" + i);
-                    } catch (MalformedURLException e3) {
-                        return null;
-                    }
-                } else {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(proxy);
-                }
-                if (!TextUtils.isEmpty(b)) {
-                    httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_COOKIE, b);
-                } else {
-                    httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_COOKIE, "");
-                }
-                if (!TextUtils.isEmpty(c)) {
-                    httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, c);
-                }
-                if (!TextUtils.isEmpty(d)) {
-                    httpURLConnection.setRequestProperty("client_user_token", d);
-                    return httpURLConnection;
-                }
-                return httpURLConnection;
-            } catch (IOException e4) {
-                e4.printStackTrace();
+                httpURLConnection = (HttpURLConnection) new URL(replaceFirst).openConnection();
+                httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, host + ":" + i);
+            } catch (MalformedURLException e2) {
                 return null;
             }
-        } catch (MalformedURLException e5) {
-            e5.printStackTrace();
-            return null;
+        } else {
+            httpURLConnection = (HttpURLConnection) url.openConnection(proxy);
         }
+        if (!TextUtils.isEmpty(b)) {
+            httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_COOKIE, b);
+        } else {
+            httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_COOKIE, "");
+        }
+        if (!TextUtils.isEmpty(c)) {
+            httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, c);
+        }
+        if (!TextUtils.isEmpty(d)) {
+            httpURLConnection.setRequestProperty("client_user_token", d);
+            return httpURLConnection;
+        }
+        return httpURLConnection;
     }
 
     public static HttpURLConnection a(String str, long j, long j2) {
@@ -237,12 +222,12 @@ public class b {
                 }
                 return a2;
             } else if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
-                throw new IOException("retry");
+                throw new IOException("retry, errorCode:" + responseCode);
             } else {
                 if (responseCode == 502 || responseCode == 503 || responseCode == 504) {
-                    throw new Exception("close not retry");
+                    throw new Exception("close not retry, errorCode:" + responseCode);
                 }
-                throw new BdHttpErrorException();
+                throw new BdHttpErrorException("errorCode:" + responseCode);
             }
         } catch (Throwable th2) {
             th = th2;
@@ -316,7 +301,7 @@ public class b {
                 } catch (Exception e6) {
                 }
             }
-            if (i3 >= i2) {
+            if (i3 > i2) {
                 break;
             }
             i4 = i3;
@@ -376,7 +361,7 @@ public class b {
                     } catch (Exception e4) {
                     }
                 }
-                if (i2 >= i) {
+                if (i2 > i) {
                     break;
                 }
                 i3 = i2;
@@ -425,7 +410,7 @@ public class b {
                         } catch (Exception e4) {
                         }
                     }
-                    if (i2 >= i) {
+                    if (i2 > i) {
                         i3 = i2;
                         eVar = null;
                         if (fVar != null) {
@@ -444,7 +429,7 @@ public class b {
                     if (i2 < i) {
                         Thread.sleep(100L);
                     }
-                    if (i2 >= i) {
+                    if (i2 > i) {
                     }
                 } else {
                     throw e5;
@@ -454,7 +439,7 @@ public class b {
                     i2 = i4 + 1;
                     if (i2 < i) {
                     }
-                    if (i2 >= i) {
+                    if (i2 > i) {
                     }
                 } else {
                     throw e6;
@@ -474,9 +459,9 @@ public class b {
         return eVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:147:0x002f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0034  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0039  */
+    /* JADX WARN: Removed duplicated region for block: B:147:0x002d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0032  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0037  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -498,7 +483,7 @@ public class b {
                 }
                 if (aVar != null) {
                     if (aVar.c()) {
-                        throw new BdHttpCancelException("request cancelled.");
+                        throw new BdHttpCancelException();
                     }
                     aVar.a(httpURLConnection);
                 }
@@ -520,7 +505,7 @@ public class b {
                 httpURLConnection.setDoOutput(!z);
                 httpURLConnection.setUseCaches(false);
                 if (aVar != null && aVar.c()) {
-                    throw new BdHttpCancelException("request cancelled.");
+                    throw new BdHttpCancelException();
                 }
                 b(str);
                 if (fVar != null) {
@@ -531,7 +516,7 @@ public class b {
                     fVar.c = (System.currentTimeMillis() - currentTimeMillis) - fVar.g;
                 }
                 if (aVar != null && aVar.c()) {
-                    throw new BdHttpCancelException("request cancelled.");
+                    throw new BdHttpCancelException();
                 }
                 if (cVar != null) {
                     cVar.a();
@@ -585,11 +570,11 @@ public class b {
                     }
                 }
                 if (aVar != null && aVar.c()) {
-                    throw new BdHttpCancelException("request cancelled.");
+                    throw new BdHttpCancelException();
                 }
                 int responseCode = httpURLConnection.getResponseCode();
                 if (aVar != null && aVar.c()) {
-                    throw new BdHttpCancelException("request cancelled.");
+                    throw new BdHttpCancelException();
                 }
                 if (responseCode == 200 || responseCode == 204 || responseCode == 206 || responseCode == 413 || responseCode == 416) {
                     if (responseCode == 200 || responseCode == 206) {
@@ -598,7 +583,7 @@ public class b {
                         a2 = new e();
                     }
                     if (aVar != null && aVar.c()) {
-                        throw new BdHttpCancelException("request cancelled.");
+                        throw new BdHttpCancelException();
                     }
                     a2.f513a = responseCode;
                     if (fVar != null) {
@@ -678,7 +663,7 @@ public class b {
                                 i2 = i3 + 1;
                                 if (i2 < i) {
                                 }
-                                if (i2 < i) {
+                                if (i2 <= i) {
                                 }
                             } else {
                                 throw e;
@@ -699,7 +684,7 @@ public class b {
                 } catch (Exception e5) {
                 }
             }
-            if (i2 < i) {
+            if (i2 <= i) {
                 break;
             }
             eVar2 = eVar;
@@ -707,9 +692,9 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1271=4, 1274=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1256=4, 1259=5] */
+    /* JADX WARN: Removed duplicated region for block: B:178:0x001d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:17:0x0022  */
-    /* JADX WARN: Removed duplicated region for block: B:181:0x001d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0027  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -929,12 +914,12 @@ public class b {
                     if (aVar == null || !aVar.c()) {
                         if (responseCode != 200 && responseCode != 204 && responseCode != 206 && responseCode != 416) {
                             if (responseCode == 202 || responseCode == 201 || responseCode == 205 || responseCode == 304 || responseCode == 305 || responseCode == 408) {
-                                throw new IOException("retry");
+                                throw new IOException("retry, errorCode:" + responseCode);
                             }
                             if (responseCode == 502 || responseCode == 503 || responseCode == 504) {
-                                throw new Exception("close not retry");
+                                throw new Exception("close not retry, errorCode:" + responseCode);
                             }
-                            throw new BdHttpErrorException();
+                            throw new BdHttpErrorException("errorCode:" + responseCode);
                         }
                         e a2 = (responseCode == 200 || responseCode == 206) ? a(httpURLConnection, false, cVar, aVar, fVar) : new e();
                         if (aVar == null || !aVar.c()) {
@@ -1072,6 +1057,7 @@ public class b {
             InetAddress.getByName(new URL(str).getHost()).getHostAddress();
         } catch (Exception e2) {
             com.baidu.adp.lib.h.d.b("BdHttpImpl", "checkDNS", e2.toString());
+            throw e2;
         }
     }
 }

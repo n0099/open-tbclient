@@ -16,6 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextPaint;
@@ -54,8 +55,12 @@ import com.tencent.mm.sdk.platformtools.Util;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UtilHelper {
@@ -74,7 +79,7 @@ public class UtilHelper {
         ThreeG
     }
 
-    private static void j(Context context) {
+    private static void k(Context context) {
         b = context.getResources().getDisplayMetrics().density;
         c = context.getResources().getDisplayMetrics().widthPixels;
         d = context.getResources().getDisplayMetrics().heightPixels;
@@ -83,21 +88,21 @@ public class UtilHelper {
 
     public static int a(Context context, float f) {
         if (!f2453a) {
-            j(context);
+            k(context);
         }
         return (int) ((b * f) + 0.5f);
     }
 
     public static int a(Context context) {
         if (!f2453a) {
-            j(context);
+            k(context);
         }
         return c;
     }
 
     public static int b(Context context) {
         if (!f2453a) {
-            j(context);
+            k(context);
         }
         return d;
     }
@@ -760,5 +765,52 @@ public class UtilHelper {
             }
         }
         return str2;
+    }
+
+    public static String j(Context context) {
+        try {
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            if (!wifiManager.isWifiEnabled()) {
+                wifiManager.setWifiEnabled(true);
+            }
+            return a(wifiManager.getConnectionInfo().getIpAddress());
+        } catch (Exception e) {
+            bg.b("UtilHelper", "getWifiMac", e.toString());
+            return null;
+        }
+    }
+
+    private static String a(int i) {
+        return (i & Util.MASK_8BIT) + "." + ((i >> 8) & Util.MASK_8BIT) + "." + ((i >> 16) & Util.MASK_8BIT) + "." + ((i >> 24) & Util.MASK_8BIT);
+    }
+
+    public static String c() {
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces.hasMoreElements()) {
+                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                while (inetAddresses.hasMoreElements()) {
+                    InetAddress nextElement = inetAddresses.nextElement();
+                    if (!nextElement.isLoopbackAddress()) {
+                        return nextElement.getHostAddress().toString();
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            bg.b("UtilHelper", "getGprsIpAddress", e.toString());
+        }
+        return null;
+    }
+
+    public static String c(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        try {
+            return InetAddress.getByName(str).getHostAddress();
+        } catch (Exception e) {
+            bg.b("UtilHelper", "getIpFromDomain", e.toString());
+            return null;
+        }
     }
 }

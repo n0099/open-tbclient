@@ -67,12 +67,7 @@ public class d {
     }
 
     public e a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, c cVar, a aVar, f fVar) {
-        try {
-            return b.a(str, z, arrayList, hashMap, i, cVar, aVar, null);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
+        return b.a(str, z, arrayList, hashMap, i, cVar, aVar, null);
     }
 
     public e a(String str, ArrayList<BasicNameValuePair> arrayList, String str2, byte[] bArr, int i, c cVar, a aVar) {

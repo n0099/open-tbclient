@@ -207,46 +207,43 @@ public class NetWorkCoreByBdHttp implements ai {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [480=9, 481=9] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:121:0x037d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:123:0x037f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:125:0x0382 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:129:0x000f */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:52:0x016f */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [506=9, 507=9] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:141:0x0461 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:143:0x0464 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:145:0x0467 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:162:0x0010 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:57:0x01a5 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x036f  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x00e9  */
-    /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.adp.lib.network.d] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v11, types: [com.baidu.adp.lib.network.e] */
-    /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v15, types: [com.baidu.adp.lib.network.e] */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v23 */
-    /* JADX WARN: Type inference failed for: r1v24 */
-    /* JADX WARN: Type inference failed for: r1v25 */
-    /* JADX WARN: Type inference failed for: r1v26 */
-    /* JADX WARN: Type inference failed for: r1v27 */
-    /* JADX WARN: Type inference failed for: r1v28 */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4 */
-    /* JADX WARN: Type inference failed for: r1v5 */
-    /* JADX WARN: Type inference failed for: r1v6 */
-    /* JADX WARN: Type inference failed for: r1v7 */
-    /* JADX WARN: Type inference failed for: r1v8 */
-    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0450  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0105  */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v12 */
+    /* JADX WARN: Type inference failed for: r2v13 */
+    /* JADX WARN: Type inference failed for: r2v16, types: [com.baidu.adp.lib.network.e] */
+    /* JADX WARN: Type inference failed for: r2v19 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [com.baidu.adp.lib.network.e] */
+    /* JADX WARN: Type inference failed for: r2v20 */
+    /* JADX WARN: Type inference failed for: r2v21 */
+    /* JADX WARN: Type inference failed for: r2v22 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /* JADX WARN: Type inference failed for: r2v5 */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r2v8 */
     @Override // com.baidu.tieba.util.ai
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public byte[] u() {
+        Object obj;
         String str;
         String str2;
+        ?? r2 = 1;
+        r2 = true;
         boolean z = true;
-        ?? a2 = com.baidu.adp.lib.network.d.a();
-        ?? A = TiebaApplication.A();
-        a2.c(A);
+        com.baidu.adp.lib.network.d.a().c(TiebaApplication.A());
         InputStream inputStream = null;
         try {
             try {
@@ -277,145 +274,152 @@ public class NetWorkCoreByBdHttp implements ai {
                     if ((!this.d.g || this.d.h) && !this.e) {
                         z = false;
                     }
-                } catch (Exception e) {
+                } finally {
+                    if (0 != 0) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e) {
+                        }
+                    }
                 }
             } catch (OutOfMemoryError e2) {
                 e = e2;
-                A = 0;
+                r2 = 0;
             } catch (SocketException e3) {
                 e = e3;
-                A = 0;
+                obj = null;
             } catch (SocketTimeoutException e4) {
                 e = e4;
-                A = 0;
+                r2 = 0;
             } catch (Exception e5) {
                 e = e5;
-                A = 0;
+                r2 = 0;
             }
-            if (this.b.c()) {
-                throw new BdHttpCancelException();
-            }
-            long time = new Date().getTime();
-            A = com.baidu.adp.lib.network.d.a().a(str, z, 10, new au(this), this.b);
-            if (A != 0) {
-                try {
-                    if (A.c != null) {
-                        this.j = A.c;
-                    }
-                } catch (OutOfMemoryError e6) {
-                    e = e6;
-                    this.d.d = this.f2451a.getResources().getString(R.string.memoryerror);
-                    this.d.l = String.valueOf(this.d.b) + e.getClass() + e.getMessage();
-                    this.d.b = 0;
-                    bg.b(getClass().getName(), "getNetData", " 内存溢出！error = " + e.getMessage());
-                    if (0 != 0) {
-                        inputStream.close();
-                        A = A;
-                    }
-                    if (A != 0) {
-                    }
-                } catch (SocketException e7) {
-                    e = e7;
-                    A = A;
-                    this.d.d = this.f2451a.getResources().getString(R.string.neterror);
-                    this.d.l = String.valueOf(this.d.b) + e.getClass() + e.getMessage();
-                    this.d.b = 0;
-                    if (0 != 0) {
-                        inputStream.close();
-                        A = A;
-                    }
-                    if (A != 0) {
-                    }
-                } catch (SocketTimeoutException e8) {
-                    e = e8;
-                    this.d.d = this.f2451a.getResources().getString(R.string.neterror);
-                    this.d.l = String.valueOf(this.d.b) + e.getClass() + e.getMessage();
-                    this.d.b = 0;
-                    if (0 != 0) {
-                        inputStream.close();
-                        A = A;
-                    }
-                    if (A != 0) {
-                    }
-                } catch (Exception e9) {
-                    e = e9;
-                    this.d.d = this.f2451a.getResources().getString(R.string.neterror);
-                    this.d.l = String.valueOf(this.d.b) + e.getClass() + e.getMessage();
-                    this.d.b = 0;
-                    bg.b(getClass().getName(), "getNetData", "error = " + e.getMessage());
-                    if (0 != 0) {
-                        inputStream.close();
-                        A = A;
-                    }
-                    if (A != 0) {
-                    }
+        } catch (Exception e6) {
+        }
+        if (this.b.c()) {
+            throw new BdHttpCancelException();
+        }
+        long time = new Date().getTime();
+        r2 = com.baidu.adp.lib.network.d.a().a(str, z, 5, new au(this, str, time), this.b);
+        if (r2 != 0) {
+            try {
+                if (r2.c != null) {
+                    this.j = r2.c;
+                }
+            } catch (SocketException e7) {
+                e = e7;
+                obj = r2;
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
+                this.d.l = String.valueOf(this.d.b) + "|retryCount:" + (this.j != null ? this.j.e : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.d.b = 0;
+                r2 = obj;
+                if (r2 != 0) {
+                }
+            } catch (SocketTimeoutException e8) {
+                e = e8;
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
+                this.d.l = String.valueOf(this.d.b) + "|retryCount:" + (this.j != null ? this.j.e : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.d.b = 0;
+                if (0 != 0) {
+                    inputStream.close();
+                    r2 = r2;
+                }
+                if (r2 != 0) {
+                }
+            } catch (Exception e9) {
+                e = e9;
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
+                this.d.l = String.valueOf(this.d.b) + "|retryCount:" + (this.j != null ? this.j.e : -1) + "|" + e.getClass() + "|" + e.getMessage();
+                this.d.b = 0;
+                bg.b(getClass().getName(), "getNetData", "error = " + e.getMessage());
+                if (0 != 0) {
+                    inputStream.close();
+                    r2 = r2;
+                }
+                if (r2 != 0) {
+                }
+            } catch (OutOfMemoryError e10) {
+                e = e10;
+                this.d.d = this.f2451a.getResources().getString(R.string.memoryerror);
+                this.d.l = String.valueOf(this.d.b) + "|retryCount:" + (this.j == null ? -1 : this.j.e) + "|" + e.getClass() + "|" + e.getMessage();
+                this.d.b = 0;
+                bg.b(getClass().getName(), "getNetData", " 内存溢出！error = " + e.getMessage());
+                if (0 != 0) {
+                    inputStream.close();
+                    r2 = r2;
+                }
+                if (r2 != 0) {
                 }
             }
-            if (A == 0) {
-                return null;
-            }
-            this.d.b = A.f513a;
-            if (this.d.b != 200) {
-                throw new SocketException();
-            }
-            if (TiebaApplication.g().q() && (str2 = A.b) != null) {
+        }
+        if (r2 == 0) {
+            if (0 != 0) {
                 try {
-                    int parseInt = Integer.parseInt(str2);
-                    if (parseInt > c) {
+                    inputStream.close();
+                } catch (Exception e11) {
+                }
+            }
+            return null;
+        }
+        this.d.b = r2.f513a;
+        if (this.d.b != 200) {
+            throw new SocketException("network error. code:" + this.d.b);
+        }
+        if (TiebaApplication.g().q() && (str2 = r2.b) != null) {
+            try {
+                int parseInt = Integer.parseInt(str2);
+                if (parseInt > c) {
+                    if (0 != 0) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e12) {
+                        }
+                    }
+                    return null;
+                }
+                int i2 = parseInt * 10;
+                if (i2 > 0) {
+                    if (com.baidu.adp.lib.h.d.a()) {
+                        com.baidu.adp.lib.h.d.d("pre-free memory for downloaded image:[" + this.d.f2478a + "], size:" + i2);
+                    }
+                    if (!com.baidu.tbadk.imageManager.d.a().c(i2)) {
+                        com.baidu.adp.lib.h.d.d("Image download cacelled. out of memory. url:[" + this.d.f2478a + "], size:" + i2);
                         if (0 != 0) {
                             try {
                                 inputStream.close();
-                            } catch (Exception e10) {
+                            } catch (Exception e13) {
                             }
                         }
                         return null;
                     }
-                    int i2 = parseInt * 10;
-                    if (i2 > 0) {
-                        if (com.baidu.adp.lib.h.d.a()) {
-                            com.baidu.adp.lib.h.d.d("pre-free memory for downloaded image:[" + this.d.f2478a + "], size:" + i2);
-                        }
-                        if (!com.baidu.tbadk.imageManager.d.a().c(i2)) {
-                            com.baidu.adp.lib.h.d.d("Image download cacelled. out of memory. url:[" + this.d.f2478a + "], size:" + i2);
-                            if (0 != 0) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e11) {
-                                }
-                            }
-                            return null;
-                        }
-                    }
-                } catch (Throwable th) {
-                    bg.e(NetWorkCoreByBdHttp.class.getName(), "getNetData", th.getMessage());
                 }
-            }
-            bb bbVar = new bb();
-            bbVar.e = a(UtilHelper.i(this.f2451a));
-            bbVar.c = this.j.b;
-            bbVar.b = new Date().getTime() - time;
-            bbVar.d = this.j.e;
-            bbVar.f2480a = 2;
-            ba.a(bbVar);
-            ba.f2479a.set(this.j.e);
-            bh.a(this);
-            if (0 != 0) {
-                inputStream.close();
-                A = A;
-            }
-            if (A != 0) {
-                this.d.k = A.e;
-                return A.d;
-            }
-            return null;
-        } finally {
-            if (0 != 0) {
-                try {
-                    inputStream.close();
-                } catch (Exception e12) {
-                }
+            } catch (Throwable th) {
+                bg.e(NetWorkCoreByBdHttp.class.getName(), "getNetData", th.getMessage());
             }
         }
+        long time2 = new Date().getTime() - time;
+        bb bbVar = new bb();
+        bbVar.e = a(UtilHelper.i(this.f2451a));
+        bbVar.c = this.j.b;
+        bbVar.b = time2;
+        bbVar.d = this.j.e;
+        bbVar.f2480a = 2;
+        ba.a(bbVar);
+        ba.f2479a.set(this.j.e);
+        if (time2 > 1000) {
+            y.a(str, "" + time2, bbVar.c + "", "download OK, retryCount:" + bbVar.d, "");
+        }
+        bh.a(this);
+        if (0 != 0) {
+            inputStream.close();
+            r2 = r2;
+        }
+        if (r2 != 0) {
+            this.d.k = r2.e;
+            return r2.d;
+        }
+        return null;
     }
 
     public void d(String str) {
@@ -514,7 +518,7 @@ public class NetWorkCoreByBdHttp implements ai {
             if (this.b.c()) {
                 return null;
             }
-            com.baidu.adp.lib.network.e a3 = com.baidu.adp.lib.network.d.a().a(this.d.f2478a, sb3.getBytes(), this.d.g, 10, (com.baidu.adp.lib.network.c) null, this.b);
+            com.baidu.adp.lib.network.e a3 = com.baidu.adp.lib.network.d.a().a(this.d.f2478a, sb3.getBytes(), this.d.g, 5, (com.baidu.adp.lib.network.c) null, this.b);
             if (a3 == null) {
                 throw new BdHttpCancelException();
             }
@@ -554,29 +558,29 @@ public class NetWorkCoreByBdHttp implements ai {
                 this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "postNetData", "BdHttpErrorException " + e5.getMessage());
                 return str;
-            } catch (OutOfMemoryError e9) {
-                e4 = e9;
+            } catch (Exception e9) {
+                e = e9;
+                this.d.b = 0;
+                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
+                bg.b(getClass().getName(), "postNetData", e.getMessage());
+                return str;
+            } catch (OutOfMemoryError e10) {
+                e4 = e10;
                 this.d.b = 0;
                 this.d.d = this.f2451a.getResources().getString(R.string.memoryerror);
                 bg.b(getClass().getName(), "postNetData", " 内存溢出！error = " + e4.getMessage());
                 return str;
-            } catch (SocketException e10) {
-                e3 = e10;
+            } catch (SocketException e11) {
+                e3 = e11;
                 this.d.b = 0;
                 this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "postNetData", "SocketException " + e3.getMessage());
                 return str;
-            } catch (SocketTimeoutException e11) {
-                e2 = e11;
+            } catch (SocketTimeoutException e12) {
+                e2 = e12;
                 this.d.b = 0;
                 this.d.d = this.f2451a.getResources().getString(R.string.neterror);
                 bg.b(getClass().getName(), "postNetData", "SocketTimeoutException " + e2.getMessage());
-                return str;
-            } catch (Exception e12) {
-                e = e12;
-                this.d.b = 0;
-                this.d.d = this.f2451a.getResources().getString(R.string.neterror);
-                bg.b(getClass().getName(), "postNetData", e.getMessage());
                 return str;
             } catch (Throwable th2) {
                 th = th2;
@@ -609,7 +613,7 @@ public class NetWorkCoreByBdHttp implements ai {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [716=6, 717=6, 721=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [742=6, 743=6, 747=6] */
     @Override // com.baidu.tieba.util.ai
     public String w() {
         String str;
@@ -644,7 +648,7 @@ public class NetWorkCoreByBdHttp implements ai {
         if (this.b.c()) {
             throw new BdHttpCancelException();
         }
-        com.baidu.adp.lib.network.e a2 = com.baidu.adp.lib.network.d.a().a(this.d.f2478a, this.d.g, this.d.e, this.d.f, 10, null, this.b, null);
+        com.baidu.adp.lib.network.e a2 = com.baidu.adp.lib.network.d.a().a(this.d.f2478a, this.d.g, this.d.e, this.d.f, 5, null, this.b, null);
         this.d.b = a2.f513a;
         new Timer().schedule(new ax(this, null), 45000L);
         if (this.d.b != 200) {
@@ -741,7 +745,7 @@ public class NetWorkCoreByBdHttp implements ai {
             if (this.b.c()) {
                 valueOf = false;
             } else {
-                valueOf = Boolean.valueOf(com.baidu.adp.lib.network.d.a().a(this.d.f2478a, af.g(str).getAbsolutePath(), false, 10, (com.baidu.adp.lib.network.c) new av(this, handler, i), this.b));
+                valueOf = Boolean.valueOf(com.baidu.adp.lib.network.d.a().a(this.d.f2478a, af.g(str).getAbsolutePath(), false, 5, (com.baidu.adp.lib.network.c) new av(this, handler, i), this.b));
             }
             return valueOf;
         } catch (Exception e) {

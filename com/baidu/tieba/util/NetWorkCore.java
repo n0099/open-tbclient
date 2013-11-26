@@ -296,75 +296,46 @@ public class NetWorkCore implements ai {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0124 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v11, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.net.HttpURLConnection] */
-    /* JADX WARN: Type inference failed for: r0v6 */
     private HttpURLConnection a(URL url) {
-        ?? r0;
-        Exception e2;
         String defaultHost;
         HttpURLConnection httpURLConnection = null;
         NetworkState b2 = b(this.i);
         this.l = false;
-        try {
-            if (b2 == NetworkState.UNAVAIL) {
-                return null;
-            }
-            if (b2 == NetworkState.MOBILE && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
-                r0 = e(defaultHost);
-                try {
-                    if (r0 != 0) {
-                        this.l = true;
-                        StringBuilder sb = new StringBuilder(80);
-                        sb.append(com.baidu.loginshare.e.f);
-                        sb.append(Proxy.getDefaultHost());
-                        String file = url.getFile();
-                        if (file != null && file.startsWith("?")) {
-                            sb.append("/");
-                        }
-                        sb.append(file);
-                        HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(sb.toString()).openConnection();
-                        httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, url.getHost());
-                        httpURLConnection2.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, "BaiduTieba for Android " + com.baidu.tieba.data.h.j());
-                        if (!TextUtils.isEmpty(TiebaApplication.A())) {
-                            httpURLConnection2.setRequestProperty("client_user_token", TiebaApplication.A());
-                        }
-                        httpURLConnection = httpURLConnection2;
-                    } else {
-                        HttpURLConnection httpURLConnection3 = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(android.net.Proxy.getDefaultHost(), android.net.Proxy.getDefaultPort())));
-                        if (f != null) {
-                            httpURLConnection3.setRequestProperty("Proxy-Authorization", f);
-                        }
-                        httpURLConnection3.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, "BaiduTieba for Android " + com.baidu.tieba.data.h.j());
-                        if (!TextUtils.isEmpty(TiebaApplication.A())) {
-                            httpURLConnection3.setRequestProperty("client_user_token", TiebaApplication.A());
-                        }
-                        httpURLConnection = httpURLConnection3;
-                    }
-                } catch (Exception e3) {
-                    e2 = e3;
-                    bg.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
-                    return r0;
-                }
-            }
-            if (httpURLConnection == null) {
-                try {
-                    return (HttpURLConnection) url.openConnection();
-                } catch (Exception e4) {
-                    r0 = httpURLConnection;
-                    e2 = e4;
-                    bg.b(getClass().getName(), "getConnect", "error = " + e2.getMessage());
-                    return r0;
-                }
-            }
-            return httpURLConnection;
-        } catch (Exception e5) {
-            r0 = 0;
-            e2 = e5;
+        if (b2 == NetworkState.UNAVAIL) {
+            return null;
         }
+        if (b2 == NetworkState.MOBILE && (defaultHost = Proxy.getDefaultHost()) != null && defaultHost.length() > 0) {
+            if (e(defaultHost)) {
+                this.l = true;
+                StringBuilder sb = new StringBuilder(80);
+                sb.append(com.baidu.loginshare.e.f);
+                sb.append(Proxy.getDefaultHost());
+                String file = url.getFile();
+                if (file != null && file.startsWith("?")) {
+                    sb.append("/");
+                }
+                sb.append(file);
+                httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
+                httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_CMWAP_ONLINE_HOST, url.getHost());
+                httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, "BaiduTieba for Android " + com.baidu.tieba.data.h.j());
+                if (!TextUtils.isEmpty(TiebaApplication.A())) {
+                    httpURLConnection.setRequestProperty("client_user_token", TiebaApplication.A());
+                }
+            } else {
+                httpURLConnection = (HttpURLConnection) url.openConnection(new java.net.Proxy(Proxy.Type.HTTP, new InetSocketAddress(android.net.Proxy.getDefaultHost(), android.net.Proxy.getDefaultPort())));
+                if (f != null) {
+                    httpURLConnection.setRequestProperty("Proxy-Authorization", f);
+                }
+                httpURLConnection.setRequestProperty(HttpUtils.HEADER_NAME_USER_AGENT, "BaiduTieba for Android " + com.baidu.tieba.data.h.j());
+                if (!TextUtils.isEmpty(TiebaApplication.A())) {
+                    httpURLConnection.setRequestProperty("client_user_token", TiebaApplication.A());
+                }
+            }
+        }
+        if (httpURLConnection == null) {
+            return (HttpURLConnection) url.openConnection();
+        }
+        return httpURLConnection;
     }
 
     private boolean e(String str) {
@@ -374,11 +345,11 @@ public class NetWorkCore implements ai {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [647=11, 648=11, 652=11, 653=11, 655=4] */
-    /* JADX WARN: Removed duplicated region for block: B:193:0x04e2 A[Catch: Exception -> 0x0516, TRY_LEAVE, TryCatch #8 {Exception -> 0x0516, blocks: (B:191:0x04de, B:193:0x04e2), top: B:243:0x04de }] */
-    /* JADX WARN: Removed duplicated region for block: B:258:0x04db A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:109:0x0291 -> B:253:0x00a7). Please submit an issue!!! */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:161:0x0381 -> B:266:0x0180). Please submit an issue!!! */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [655=11, 656=11, 660=11, 661=11, 663=4] */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x05b3 A[Catch: Exception -> 0x05e7, TRY_LEAVE, TryCatch #16 {Exception -> 0x05e7, blocks: (B:194:0x05af, B:196:0x05b3), top: B:260:0x05af }] */
+    /* JADX WARN: Removed duplicated region for block: B:256:0x05ac A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:109:0x02ff -> B:241:0x00d0). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:161:0x03ef -> B:232:0x01c1). Please submit an issue!!! */
     @Override // com.baidu.tieba.util.ai
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -422,16 +393,34 @@ public class NetWorkCore implements ai {
             i = 0;
         } catch (Exception e2) {
             bg.b(getClass().getName(), "getNetData", e2.getMessage());
+            this.o.l = String.valueOf(this.o.b) + e2.getClass() + e2.getMessage();
         }
-        while (!this.m && z && i < 10) {
+        while (!this.m && z && i < 5) {
             InputStream inputStream2 = null;
             try {
                 try {
                     try {
-                        this.j = a(url);
-                    } catch (Exception e3) {
-                        inputStream = null;
-                        exc = e3;
+                        try {
+                            this.j = a(url);
+                        } catch (Exception e3) {
+                            inputStream = null;
+                            exc = e3;
+                        }
+                    } catch (SocketTimeoutException e4) {
+                        ba.f2479a.incrementAndGet();
+                        this.o.l = String.valueOf(this.o.b) + "|retryCount:" + i + "|" + e4.getClass() + "|" + e4.getMessage();
+                        this.o.b = 0;
+                        z = true;
+                        this.o.d = this.i.getResources().getString(R.string.neterror);
+                        if (0 != 0) {
+                            try {
+                                inputStream2.close();
+                            } catch (Exception e5) {
+                            }
+                        }
+                        if (this.j != null) {
+                            this.j.disconnect();
+                        }
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -440,29 +429,14 @@ public class NetWorkCore implements ai {
                     try {
                         if (this.j != null) {
                         }
-                    } catch (Exception e4) {
+                    } catch (Exception e6) {
                     }
                     throw th;
                 }
-            } catch (SocketException e5) {
-                this.o.l = String.valueOf(this.o.b) + e5.getClass() + e5.getMessage();
+            } catch (SocketException e7) {
+                this.o.l = String.valueOf(this.o.b) + "|retryCount:" + i + "|" + e7.getClass() + "|" + e7.getMessage();
                 this.o.b = 0;
                 ba.f2479a.incrementAndGet();
-                z = true;
-                this.o.d = this.i.getResources().getString(R.string.neterror);
-                if (0 != 0) {
-                    try {
-                        inputStream2.close();
-                    } catch (Exception e6) {
-                    }
-                }
-                if (this.j != null) {
-                    this.j.disconnect();
-                }
-            } catch (SocketTimeoutException e7) {
-                ba.f2479a.incrementAndGet();
-                this.o.l = String.valueOf(this.o.b) + e7.getClass() + e7.getMessage();
-                this.o.b = 0;
                 z = true;
                 this.o.d = this.i.getResources().getString(R.string.neterror);
                 if (0 != 0) {
@@ -476,7 +450,7 @@ public class NetWorkCore implements ai {
                 }
             }
             if (this.j == null) {
-                throw new SocketException();
+                throw new SocketException("network not available.");
             }
             this.j.setConnectTimeout(5000);
             this.j.setReadTimeout(30000);
@@ -501,7 +475,7 @@ public class NetWorkCore implements ai {
                 this.v = (new Date().getTime() - time) - this.u;
                 this.o.b = this.j.getResponseCode();
                 if (this.o.b != 200) {
-                    throw new SocketException();
+                    throw new SocketException("network error. code:" + this.o.b);
                 }
                 if (!this.j.getContentType().contains("text/vnd.wap.wml")) {
                     String contentEncoding = this.j.getContentEncoding();
@@ -609,6 +583,9 @@ public class NetWorkCore implements ai {
                             bbVar.b = time2;
                             bbVar.d = i + 1;
                             bbVar.f2480a = 2;
+                            if (time2 > 1000) {
+                                y.a(url.toString(), "" + time2, bbVar.c + "", "old network download OK, retryCount:" + bbVar.d, "");
+                            }
                             ba.a(bbVar);
                             bh.a(this);
                             if (inputStream3 != null) {
@@ -625,7 +602,7 @@ public class NetWorkCore implements ai {
                         inputStream = inputStream3;
                         exc = e15;
                         try {
-                            this.o.l = String.valueOf(this.o.b) + exc.getClass() + exc.getMessage();
+                            this.o.l = String.valueOf(this.o.b) + "|retryCount:" + i + "|" + exc.getClass() + "|" + exc.getMessage();
                             this.o.b = 0;
                             z = false;
                             this.o.d = this.i.getResources().getString(R.string.neterror);
@@ -749,16 +726,16 @@ public class NetWorkCore implements ai {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [908=11, 909=11, 913=11, 914=11, 916=4] */
-    /* JADX WARN: Code restructure failed: missing block: B:91:0x0285, code lost:
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [916=11, 917=11, 921=11, 922=11, 924=4] */
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x0284, code lost:
         if (0 == 0) goto L74;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:92:0x0287, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:92:0x0286, code lost:
         r3.close();
      */
-    /* JADX WARN: Removed duplicated region for block: B:173:0x04b9 A[Catch: Exception -> 0x04ef, TRY_LEAVE, TryCatch #0 {Exception -> 0x04ef, blocks: (B:171:0x04b5, B:173:0x04b9), top: B:221:0x04b5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:247:0x04b2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:53:0x0165 -> B:232:0x010a). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:173:0x04b8 A[Catch: Exception -> 0x04ee, TRY_LEAVE, TryCatch #0 {Exception -> 0x04ee, blocks: (B:171:0x04b4, B:173:0x04b8), top: B:221:0x04b4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:249:0x04b1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:53:0x0164 -> B:232:0x0109). Please submit an issue!!! */
     @Override // com.baidu.tieba.util.ai
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -813,7 +790,7 @@ public class NetWorkCore implements ai {
         boolean z = true;
         String str = null;
         while (true) {
-            if (this.m || !z || i3 >= 10) {
+            if (this.m || !z || i3 >= 5) {
                 break;
             }
             InputStream inputStream4 = null;
@@ -1096,29 +1073,29 @@ public class NetWorkCore implements ai {
         return this.n;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1073=10, 1074=10, 1076=10, 1078=10, 1079=10, 1083=10, 1084=10, 1086=10, 1087=10, 1088=10] */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x004e, code lost:
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1081=10, 1082=10, 1084=10, 1086=10, 1087=10, 1091=10, 1092=10, 1094=10, 1095=10, 1096=10] */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004d, code lost:
         r0.removeMessages(0, r12);
      */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x028b  */
-    /* JADX WARN: Removed duplicated region for block: B:113:0x0322 A[Catch: Exception -> 0x04f3, TRY_LEAVE, TryCatch #10 {Exception -> 0x04f3, blocks: (B:111:0x031e, B:113:0x0322), top: B:306:0x031e }] */
-    /* JADX WARN: Removed duplicated region for block: B:118:0x0330  */
-    /* JADX WARN: Removed duplicated region for block: B:184:0x047b A[Catch: Exception -> 0x04fc, TRY_LEAVE, TryCatch #46 {Exception -> 0x04fc, blocks: (B:182:0x0477, B:184:0x047b), top: B:351:0x0477 }] */
-    /* JADX WARN: Removed duplicated region for block: B:189:0x0489  */
-    /* JADX WARN: Removed duplicated region for block: B:314:0x031b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:318:0x0284 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:322:0x0276 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:330:0x0329 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:335:0x0474 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:341:0x0192 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:345:0x0184 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:349:0x0482 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:371:0x019f A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:372:0x019f A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:373:0x019f A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x018b A[Catch: Exception -> 0x04f9, TRY_LEAVE, TryCatch #47 {Exception -> 0x04f9, blocks: (B:61:0x0187, B:63:0x018b), top: B:353:0x0187 }] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0199  */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x027d A[Catch: Exception -> 0x04f6, TRY_LEAVE, TryCatch #7 {Exception -> 0x04f6, blocks: (B:95:0x0279, B:97:0x027d), top: B:302:0x0279 }] */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x028a  */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x0321 A[Catch: Exception -> 0x04f2, TRY_LEAVE, TryCatch #11 {Exception -> 0x04f2, blocks: (B:111:0x031d, B:113:0x0321), top: B:308:0x031d }] */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x032f  */
+    /* JADX WARN: Removed duplicated region for block: B:184:0x047a A[Catch: Exception -> 0x04fb, TRY_LEAVE, TryCatch #48 {Exception -> 0x04fb, blocks: (B:182:0x0476, B:184:0x047a), top: B:353:0x0476 }] */
+    /* JADX WARN: Removed duplicated region for block: B:189:0x0488  */
+    /* JADX WARN: Removed duplicated region for block: B:314:0x031a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:318:0x0283 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:322:0x0275 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:333:0x0328 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:337:0x0473 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:343:0x0191 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:347:0x0183 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:351:0x0481 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:371:0x019e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:372:0x019e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:373:0x019e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x018a A[Catch: Exception -> 0x04f8, TRY_LEAVE, TryCatch #6 {Exception -> 0x04f8, blocks: (B:61:0x0186, B:63:0x018a), top: B:300:0x0186 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0198  */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x027c A[Catch: Exception -> 0x04f5, TRY_LEAVE, TryCatch #7 {Exception -> 0x04f5, blocks: (B:95:0x0278, B:97:0x027c), top: B:302:0x0278 }] */
     @Override // com.baidu.tieba.util.ai
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1140,7 +1117,7 @@ public class NetWorkCore implements ai {
         boolean z2 = true;
         int i2 = 0;
         while (true) {
-            if (this.m || !z2 || i2 >= 10) {
+            if (this.m || !z2 || i2 >= 5) {
                 break;
             }
             InputStream inputStream2 = null;
@@ -1636,10 +1613,10 @@ public class NetWorkCore implements ai {
         return this.o.b == 200 || this.o.b == 206;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1222=9, 1224=7, 1225=7, 1229=7, 1230=7, 1234=7, 1235=7] */
-    /* JADX WARN: Removed duplicated region for block: B:156:0x0374 A[Catch: Exception -> 0x03a7, TRY_LEAVE, TryCatch #8 {Exception -> 0x03a7, blocks: (B:154:0x036e, B:156:0x0374), top: B:208:0x036e }] */
-    /* JADX WARN: Removed duplicated region for block: B:235:0x037d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:237:0x036b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1230=9, 1232=7, 1233=7, 1237=7, 1238=7, 1242=7, 1243=7] */
+    /* JADX WARN: Removed duplicated region for block: B:156:0x0376 A[Catch: Exception -> 0x03a9, TRY_LEAVE, TryCatch #2 {Exception -> 0x03a9, blocks: (B:154:0x0370, B:156:0x0376), top: B:199:0x0370 }] */
+    /* JADX WARN: Removed duplicated region for block: B:235:0x037f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:237:0x036d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // com.baidu.tieba.util.ai
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1671,7 +1648,7 @@ public class NetWorkCore implements ai {
         } catch (Exception e5) {
         }
         if (this.j == null) {
-            throw new SocketException();
+            throw new SocketException("network not available.");
         }
         this.j.setConnectTimeout(5000);
         this.j.setReadTimeout(30000);
